@@ -24,7 +24,7 @@ To specify the input by the input label:
 POST http://<Live IP address>/live_events/<event ID>/inputs/by_label/<input_label>
 ```
 
-The input label is the value in the <input_label>;
+The input label is the value in the <input\_label>;
 you may have included this tag when you first created
 the input. If you did not specify an input label, you
 cannot use this signature to modify.

@@ -11,11 +11,10 @@ output. However, there are some constraints, as follows.
   Dolby Digital with Atmos) and changing the coding mode. The
   following rules apply:
 
-      + The source must contain at least as many channels as
-       the output. For example, to produce Dolby 5.1 (6
-       channels), the source must contain 6 channels.
-      + The source can contain fewer channels. For example,
-       you can convert Dolby 5.1 to AAC 2.0.
-
-  In both cases, you might need to remix the channels in the
-  output.
+  - The source must contain at least as many channels as
+    the output. For example, to produce Dolby 5.1 (6
+    channels), the source must contain 6 channels.
+  - The source can contain fewer channels. For example,
+    you can convert Dolby 5.1 to AAC 2.0.
+    In both cases, you might need to remix the channels in the
+    output.

@@ -1,6 +1,6 @@
 # Insert a new splice insert message
 
-Inserts a SCTE-35 message of type splice_insert in the stream
+Inserts a SCTE-35 message of type splice\_insert in the stream
 either immediately or at a specified time. The command always
 includes a start time. It
 can
@@ -20,23 +20,23 @@ POST <IP address of Live node>/live_events/<ID of event>/cue_point
 
 **Body of HTTP**
 
-The XML body contains one cue_point elements containing the
+The XML body contains one cue\_point elements containing the
 following tags:
 
-| Tag           | Sub-tag | Type    | Value                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------- | ------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event_id      |         | integer | Specify an ID for this SCTE-35 request to allow<br>for canceling of the insertion later ([Cancel a pending ad avail](cancel-a-pending-ad-avail.md "cancel-a-pending-ad-avail.md")).<br>Or leave blank, in which case an ID is<br>generated and returned in the response.                                                                                                |
-| splice_time   |         |         | Include this in order to specify the insertion<br>point relative to the stream timecode. Include<br>either splice_time or splice_offset, not<br>both.<br>See [Specifying Time with splice_time Tag](#splicetime "#splicetime") for<br>details.<br>Specify the time by including the hours,<br>minutes, seconds, and frames tags.                                        |
-|               | hours   | integer | The start time of the ad avail. All fields are<br>required.<br>Enter the time in 24-hour format.<br>To insert the ad avail immediately (taking into<br>account that there is a small delay while the<br>request is processed), enter 0 in all<br>fields.                                                                                                                |
-|               | minutes | integer |
-|               | seconds | integer |
-|               | frames  | integer | The frame within the specified seconds at which<br>to insert the ad avail.<br>If blank, the start time is the first frame in<br>the specified second.                                                                                                                                                                                                                   |
-| splice_offset |         | integer | The start time of the ad avail. Include either<br>splice_time or splice_offset, not both.<br>Include in order to specify the start time for<br>the ad avail as the specified milliseconds after<br>the request is received. See [Specifying Time with splice_offset Tag](#spliceoffset "#spliceoffset").<br>Specify the milliseconds. The number cannot be<br>negative. |
-| duration      |         | integer | Optional.<br>You can include a duration so that a start time<br>is included and an end time is implied by the<br>length of time for the duration.<br>Or you can omit the duration so that only a<br>start time is included. If you omit the duration,<br>you must enter a separate command for the end<br>time.                                                         |
+| Tag            | Sub-tag | Type    | Value                                                                                                                                                                                                                                                                                                                                                                      |
+| -------------- | ------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| event\_id      |         | integer | Specify an ID for this SCTE-35 request to allow<br>for canceling of the insertion later ([Cancel a pending ad avail](cancel-a-pending-ad-avail.md "cancel-a-pending-ad-avail.md")).<br>Or leave blank, in which case an ID is<br>generated and returned in the response.                                                                                                   |
+| splice\_time   |         |         | Include this in order to specify the insertion<br>point relative to the stream timecode. Include<br>either splice\_time or splice\_offset, not<br>both.<br>See [Specifying Time with splice\_time Tag](#splicetime "#splicetime") for<br>details.<br>Specify the time by including the hours,<br>minutes, seconds, and frames tags.                                        |
+|                | hours   | integer | The start time of the ad avail. All fields are<br>required.<br>Enter the time in 24-hour format.<br>To insert the ad avail immediately (taking into<br>account that there is a small delay while the<br>request is processed), enter 0 in all<br>fields.                                                                                                                   |
+|                | minutes | integer |
+|                | seconds | integer |
+|                | frames  | integer | The frame within the specified seconds at which<br>to insert the ad avail.<br>If blank, the start time is the first frame in<br>the specified second.                                                                                                                                                                                                                      |
+| splice\_offset |         | integer | The start time of the ad avail. Include either<br>splice\_time or splice\_offset, not both.<br>Include in order to specify the start time for<br>the ad avail as the specified milliseconds after<br>the request is received. See [Specifying Time with splice\_offset Tag](#spliceoffset "#spliceoffset").<br>Specify the milliseconds. The number cannot be<br>negative. |
+| duration       |         | integer | Optional.<br>You can include a duration so that a start time<br>is included and an end time is implied by the<br>length of time for the duration.<br>Or you can omit the duration so that only a<br>start time is included. If you omit the duration,<br>you must enter a separate command for the end<br>time.                                                            |
 
-###### Specifying time with "splice_time" tag
+###### Specifying time with "splice\_time" tag
 
-Use the splice_offset tag to specify the start time as a
+Use the splice\_offset tag to specify the start time as a
 specific clock time, for example, at 10:20:33. The time you
 specify must match the timecode format in the event, as
 specified by the **Timecode Config
@@ -47,7 +47,7 @@ uses local time, the message is inserted at 10:20:33 for the
 time zone of the node.
 
 To verify the timecode format in the event, submit a GET
-live_events request and (in the response) read the value in the
+live\_events request and (in the response) read the value in the
 **timecodeconfig** tag.
 
 Splice Time requires either knowing in advance to insert an ad
@@ -57,9 +57,9 @@ to use **Splice Time** when you know
 start times in advance. You can obtain the timecode of the
 content currently being encoded; see [Get current time](get-current-time.md "get-current-time.md").
 
-###### Specifying Time with "splice_offset" Tag
+###### Specifying Time with "splice\_offset" Tag
 
-You can use the **splice_offset** tag to specify time as a number
+You can use the **splice\_offset** tag to specify time as a number
 of milliseconds into the future from the moment at which the
 command is performed. This offset
 can
@@ -156,21 +156,21 @@ The body of the response is XML content consisting of one
 **response** element containing
 the following tags:
 
-| Tag           | Sub-tag | Sub-sub-tag | Type    | Description                                                                                                                                                           |
-| ------------- | ------- | ----------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event_id      |         |             | integer | The event ID of this SCTE-35 request.                                                                                                                                 |
-| splice_time   | hours   |             | integer | If splice_time was specified, the hour,<br>minutes, seconds and frame at which to insert the<br>ad avail.<br>If splice_offset was specified, all tags<br>specify “0.” |
-|               | minutes |             | integer |
-|               | seconds |             | integer |
-|               | frames  |             | integer |
-| splice_offset |         |             | integer | If splice_offset was specified, the time at<br>which to insert the ad avail.<br>If splice_time was specified, this tag has a<br>null value.                           |
-| message       |         |             | string  | A description of the action taken.                                                                                                                                    |
-| errors        |         |             |         | Included only in an error response.                                                                                                                                   |
-|               | error   | code        |         | An error code.                                                                                                                                                        |
-|               | error   | message     | string  | A human-readable error message.                                                                                                                                       |
+| Tag            | Sub-tag | Sub-sub-tag | Type    | Description                                                                                                                                                             |
+| -------------- | ------- | ----------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| event\_id      |         |             | integer | The event ID of this SCTE-35 request.                                                                                                                                   |
+| splice\_time   | hours   |             | integer | If splice\_time was specified, the hour,<br>minutes, seconds and frame at which to insert the<br>ad avail.<br>If splice\_offset was specified, all tags<br>specify “0.” |
+|                | minutes |             | integer |
+|                | seconds |             | integer |
+|                | frames  |             | integer |
+| splice\_offset |         |             | integer | If splice\_offset was specified, the time at<br>which to insert the ad avail.<br>If splice\_time was specified, this tag has a<br>null value.                           |
+| message        |         |             | string  | A description of the action taken.                                                                                                                                      |
+| errors         |         |             |         | Included only in an error response.                                                                                                                                     |
+|                | error   | code        |         | An error code.                                                                                                                                                          |
+|                | error   | message     | string  | A human-readable error message.                                                                                                                                         |
 
 A success response does not include the <errors> element. A
-failure response contains only the <event_id> and <errors>
+failure response contains only the <event\_id> and <errors>
 elements.
 
 ###### Example Message
@@ -216,7 +216,7 @@ POST 10.4.136.95/live_events/3/cue_point
 
 ```
 
-The following shows a success response where splice_offset
+The following shows a success response where splice\_offset
 was used in the request. The SCTE-35 request has an ID of 8.
 
 ```

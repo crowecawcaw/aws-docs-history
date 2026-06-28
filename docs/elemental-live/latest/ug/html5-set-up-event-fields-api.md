@@ -33,11 +33,11 @@ PUT http://<Live IP Address>/live_events/<live event id>
 3. Set the following tags to match the control you are
    using.
 
-| Option for control       | Value for <active>                                                                                  | Value for <enable_rest> | Value for <enable_scte35> |
-| ------------------------ | --------------------------------------------------------------------------------------------------- | ----------------------- | ------------------------- |
-| Authoring system control | false                                                                                               | false                   | false                     |
-| REST API control         | true or false, depending on whether you<br>want the motion overlay to show when the event<br>starts | true                    | false                     |
-| SCTE 35 control          | false                                                                                               | false                   | true                      |
+| Option for control       | Value for <active>                                                                                  | Value for <enable\_rest> | Value for <enable\_scte35> |
+| ------------------------ | --------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------- |
+| Authoring system control | false                                                                                               | false                    | false                      |
+| REST API control         | true or false, depending on whether you<br>want the motion overlay to show when the event<br>starts | true                     | false                      |
+| SCTE 35 control          | false                                                                                               | false                    | true                       |
 
 For detailed information about the tags, see [Fields for an HTML5 asset](html5-set-up-event-fields.md "html5-set-up-event-fields.md").
 

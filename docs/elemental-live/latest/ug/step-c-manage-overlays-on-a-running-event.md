@@ -27,7 +27,7 @@ Therefore, make sure to do one of the following:
   the exported XML. Do not start event A again.
 - If you are running a 24/7 channel and you do not want your overlay to
   recur, remember to send a REST command to set <activate> to false once
-  the overlay has run. This will delete the entire <insertable_images>
+  the overlay has run. This will delete the entire <insertable\_images>
   element from the event XML.
 
 You could also specify an absolute start time for each overlay by using

@@ -23,7 +23,7 @@ To specify the input by the input label:
 DELETE http://<Live IP address>/live_events/<event ID>/inputs/by_label/<input label>
 ```
 
-The input label is the value in the <input_label>;
+The input label is the value in the <input\_label>;
 you may have included this tag when you first created
 the input. If you did not specify an input label, you
 cannot use this signature to delete.
@@ -37,7 +37,7 @@ cannot use this signature to delete.
 ### Request
 
 This request deletes the input with the label
-“curling_83399” that is in the event with the ID 31.
+“curling\_83399” that is in the event with the ID 31.
 
 ```
 DELETE http://10.4.136.92/live_events/31/inputs/by_label/83399

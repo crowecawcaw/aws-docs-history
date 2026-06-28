@@ -16,9 +16,9 @@ tags:
 - active tag. Possible values are true and false.
 - status tag. Possible values are preprocessing,
   pending, running, postprocessing, complete.
-- active_input_id tag. Only the currently active input
+- active\_input\_id tag. Only the currently active input
   has this tag. For that input, the active tag and the
-  input_ID specify the same value.
+  input\_ID specify the same value.
   Get Event does not provide information about the prepare time
   or activate time on inputs on which you explicitly called
   Prepare with Specified Time or Activate with Specified Time.
@@ -43,16 +43,16 @@ contains:
   contain:
 
   - A unique ID tag.
-  - A unique input_label tag
+  - A unique input\_label tag
     (optional).
   - A status tag.
   - An input element: complete
-    network_input or device_input or
-    router_input or file_input.
-  - A video_selector element.
-  - An optional audio_selector
+    network\_input or device\_input or
+    router\_input or file\_input.
+  - A video\_selector element.
+  - An optional audio\_selector
     element.
-  - An optional caption_selector
+  - An optional caption\_selector
     element.
 
 - Other elements relating to input.
@@ -71,8 +71,8 @@ GET http://10.4.136.92/live_events/31
 ### Response
 
 The event contains three inputs, with IDs 64, 98, 99,
-and with input_label tags “movie08E45_section_1”,
-“enigmatic_car_ad” and “best_trowel_ad”.
+and with input\_label tags “movie08E45\_section\_1”,
+“enigmatic\_car\_ad” and “best\_trowel\_ad”.
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>

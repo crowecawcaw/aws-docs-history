@@ -14,7 +14,7 @@ through as follows:
   the output side that control passthrough versus transcoding.
 
 | Input                                                    | Output > Stream                 | Result                      |
-| -------------------------------------------------------- | ------------------------------- | --------------------------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------------------------------- | ------------------------------- | --------------------------- |
 | Codec Detected in Input                                  | Value in Unwrap SMPTE 337 Field | Value in Output Codec Field | Value in Automatic Passthrough Field |                                                                                                                                                                                  |
 | Dolby Digital                                            | n/a                             | Dolby Digital               | n/a                                  | Re-encoded to Dolby Digital                                                                                                                                                      |
 | Dolby Digital                                            | n/a                             | Dolby Digital Passthrough   | n/a                                  | Passthrough of Dolby Digital                                                                                                                                                     |

@@ -18,25 +18,25 @@ POST http://<Live IP address>/live_events/<event ID>/prepare_input
 
 XML content consisting of one of the following:
 
-- One input_id tag that contains the ID of the
+- One input\_id tag that contains the ID of the
   input to prepare.
 
 Or
 
-- One input_label tag that contains the
-  input_label of the input to prepare.
+- One input\_label tag that contains the
+  input\_label of the input to prepare.
 
 Or
 
-- One prepare_input element that
+- One prepare\_input element that
   contains:
 
-  - One input_id tag that contains the ID
+  - One input\_id tag that contains the ID
     of the input to prepare or one
-    input_label tag that contains the
-    input_label of the input to
+    input\_label tag that contains the
+    input\_label of the input to
     prepare.
-  - One utc_time tag that contains the
+  - One utc\_time tag that contains the
     time at which to prepare the input, in
     UTC time, down to the seconds and
     (optionally) fractional seconds.
@@ -51,7 +51,7 @@ input.
 ### Request
 
 In the event with the ID 31, prepare the input with
-the label “live_news_feed”.
+the label “live\_news\_feed”.
 
 ```
 POST http://10.4.136.92/live_events/31/prepare_input

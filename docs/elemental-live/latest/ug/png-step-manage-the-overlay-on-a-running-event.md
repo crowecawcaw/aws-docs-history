@@ -29,7 +29,7 @@ POST http://<Live IP Address>/live_events/<live event id>/motion_image_inserter
 ```
 
 3. In the body of the request, include one
-   **motion_image_inserter** element that
+   **motion\_image\_inserter** element that
    contains the required tags. For more information about the
    tags, see [Using the REST API](png-set-up-event-fields-api.md "png-set-up-event-fields-api.md").
 4. The response repeats back the data that you posted with

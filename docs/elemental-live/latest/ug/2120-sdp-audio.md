@@ -48,7 +48,7 @@ it creates.
   - An example for a Dolby Digital codec:
 
   `a=rtpmap:96 AM824/48000/5 a=fmtp:96
- channel-order=SMPTE2110.(AES3,AES3)`
+   channel-order=SMPTE2110.(AES3,AES3)`
 
   `48000` is the sample rate. `6` is the number of
   AM824 subframe pairs, and must be an even number.

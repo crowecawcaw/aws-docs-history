@@ -29,28 +29,27 @@ you want to send output to MediaStore.
 Elemental Live must have permissions on MediaStore. Follow this procedure to set up
 these permissions:
 
-1.  Open the IAM console at
-    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2.  On the left menu, choose **Policies**. Use the
-    filters to determine if there is already a policy with a name
-    similar to `ElementalAccessToMediaStore`.
-3.  If the policy does not exist, choose **Create policy**. Choose the **Visual editor** tab
-    and create the policy using the IAM policy generator. This generator lets you choose
-    the service from a list and then choose operations from a list:
+1. Open the IAM console at
+   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. On the left menu, choose **Policies**. Use the
+   filters to determine if there is already a policy with a name
+   similar to `ElementalAccessToMediaStore`.
+3. If the policy does not exist, choose **Create policy**. Choose the **Visual editor** tab
+   and create the policy using the IAM policy generator. This generator lets you choose
+   the service from a list and then choose operations from a list:
 
-        * Service: **MediaStore**
-        * **Actions**:Under **List**, choose **DescribeContainer**,
-        * **Actions**: Under **Read**, choose **GetObject**, **DescribeObject**,
-         **GetContainerPolicy**.
-        * **Actions**: Under **Write**, choose **PutObject**.
-        * **Resources**: If your organization does not have strict rules about accessing
-         containers on MediaStore, you can ignore this section; you will have access to
-         all containers. Otherwise, follow your internal policies to identify specific
-         containers.
-        * Give the group a name such as `ElementalAccessToMediaStore`.
-
-    For detailed instructions on creating a policy, see
-    [IAM User Guide Creating IAM Policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md").
+   - Service: **MediaStore**
+   - **Actions**:Under **List**, choose **DescribeContainer**,
+   - **Actions**: Under **Read**, choose **GetObject**, **DescribeObject**,
+     **GetContainerPolicy**.
+   - **Actions**: Under **Write**, choose **PutObject**.
+   - **Resources**: If your organization does not have strict rules about accessing
+     containers on MediaStore, you can ignore this section; you will have access to
+     all containers. Otherwise, follow your internal policies to identify specific
+     containers.
+   - Give the group a name such as `ElementalAccessToMediaStore`.
+     For detailed instructions on creating a policy, see
+     [IAM User Guide Creating IAM Policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md").
 
 ###### Create a user
 

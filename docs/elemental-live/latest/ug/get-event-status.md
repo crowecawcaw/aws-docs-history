@@ -21,12 +21,12 @@ GET http://<Live IP address>/live_events/<event ID>/status
 
 ### Response
 
-JSON content consisting of one live_event element that
+JSON content consisting of one live\_event element that
 contains:
 
-- One outputs element and one output_groups
+- One outputs element and one output\_groups
   element that each includes various tags.
-- One active_input tag that contains the REST ID
+- One active\_input tag that contains the REST ID
   of the currently Active input.
 - One inputs element that lists the inputs. The
   inputs appear in the order in which they were
@@ -34,25 +34,25 @@ contains:
   created. The following information appears for
   each input:
 
-| Tag         | Value   | Description                                                                                                                                                                                                                                                                                                                       |
-| ----------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id          | Integer | The unique REST ID for this<br>input                                                                                                                                                                                                                                                                                              |
-| state       | String  | The state of the input:<br>• clear: The input is Activated or<br>Prepared.<br>• quarantined: The input is either<br>starting or is recovering from a failure<br>condition.<br>• pending: The input is Idle<br>• errored: A failure condition (as<br>defined by the failure_condition tag in<br>the event XML) has been triggered. |
-| input_label | String  | The input label, if one was<br>created.                                                                                                                                                                                                                                                                                           |
-| uri         | String  | The URI for a file input.                                                                                                                                                                                                                                                                                                         |
+| Tag          | Value   | Description                                                                                                                                                                                                                                                                                                                        |
+| ------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id           | Integer | The unique REST ID for this<br>input                                                                                                                                                                                                                                                                                               |
+| state        | String  | The state of the input:<br>• clear: The input is Activated or<br>Prepared.<br>• quarantined: The input is either<br>starting or is recovering from a failure<br>condition.<br>• pending: The input is Idle<br>• errored: A failure condition (as<br>defined by the failure\_condition tag in<br>the event XML) has been triggered. |
+| input\_label | String  | The input label, if one was<br>created.                                                                                                                                                                                                                                                                                            |
+| uri          | String  | The URI for a file input.                                                                                                                                                                                                                                                                                                          |
 
 ### Stage and state
 
-The state tag and active_input tag can provide some
+The state tag and active\_input tag can provide some
 information about the stage and state of each input:
 
-| State tag   | active_input tag            | Stage and state                                                                                          |
-| ----------- | --------------------------- | -------------------------------------------------------------------------------------------------------- |
-| pending     | Does not specify this input | The input is one of:<br>• Idle and Unprepared<br>• Next-in-line and Unprepared                           |
-| clear       | Does not specify this input | The input is one of:<br>• Idle and Prepared<br>• Active<br>• Next-in-line and Prepared                   |
-| clear       | Specifies this input        | The input is:<br>• Active                                                                                |
-| quarantined | Specifies this input        | The input is:<br>• Active                                                                                |
-| errored     | Specifies this input        | A failure condition (as defined by<br>the failure_condition tag in the event<br>XML) has been triggered. |
+| State tag   | active\_input tag           | Stage and state                                                                                           |
+| ----------- | --------------------------- | --------------------------------------------------------------------------------------------------------- |
+| pending     | Does not specify this input | The input is one of:<br>• Idle and Unprepared<br>• Next-in-line and Unprepared                            |
+| clear       | Does not specify this input | The input is one of:<br>• Idle and Prepared<br>• Active<br>• Next-in-line and Prepared                    |
+| clear       | Specifies this input        | The input is:<br>• Active                                                                                 |
+| quarantined | Specifies this input        | The input is:<br>• Active                                                                                 |
+| errored     | Specifies this input        | A failure condition (as defined by<br>the failure\_condition tag in the event<br>XML) has been triggered. |
 
 Note that you cannot determine whether the input is
 Next-in-line from the response to this Get. You must

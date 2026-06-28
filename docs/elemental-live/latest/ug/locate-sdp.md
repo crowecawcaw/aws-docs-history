@@ -63,4 +63,4 @@ network to the Elemental Live appliance. For example:
     `smb://<IP address>/opt/elemental_se/web/public/`
 
 6. Download the files. Then put the files on an HTTP server that you know the
-   receiver can access.
+receiver can access.

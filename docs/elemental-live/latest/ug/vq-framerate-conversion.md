@@ -18,18 +18,17 @@ parameters:
 - Interpolation. The **Interpolated**
   parameter has values to favor sharpness or smoothness:
 
-      + If **Interpolated** is disabled, the encoder
-       drops or repeats frames, as needed. This results in sharp individual
-       frames.
-      + If **Interpolated** is enabled, a weighted average
-       is applied between frames when new frames need to be added as part of
-       the frame rate conversion. This results in smoother motion. For example,
-       when converting from a 24 fps input to 29.97 fps output, the encoder
-       uses an algorithm to average the 4th and 5th frames of the source
-       content. this produces the additional frame that's needed in the output.
-
-  Recommendation: Enable the **Interpolated** parameter if input and output frame rates are
-  close. For example, 24 fps inputs to 25 fps outputs.
+  - If **Interpolated** is disabled, the encoder
+    drops or repeats frames, as needed. This results in sharp individual
+    frames.
+  - If **Interpolated** is enabled, a weighted average
+    is applied between frames when new frames need to be added as part of
+    the frame rate conversion. This results in smoother motion. For example,
+    when converting from a 24 fps input to 29.97 fps output, the encoder
+    uses an algorithm to average the 4th and 5th frames of the source
+    content. this produces the additional frame that's needed in the output.
+    Recommendation: Enable the **Interpolated** parameter if input and output frame rates are
+    close. For example, 24 fps inputs to 25 fps outputs.
 
 ## Location of parameters
 
@@ -37,7 +36,7 @@ This table shows where the parameters mentioned in this section are
 located. The first column shows the location on the web interface. The
 second column shows the location in the event XML.
 
-| Location of parameter on web interface                               | Location of tag in XML                                                                                                                                                                                                                                               |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Stream – Video\*<br>• ><br>**Advanced\*<br>• > **Framerate**       | stream_assembly/video_description/`codec`/framerate_numerator<br>stream_assembly/video_description/`codec`/framerate_denominator<br>where `codec` is one of the<br>following:<br>• `h264_settings`<br>• `mpeg2_settings`<br>• `h265_settings`<br>• `prores_settings` |
-| **Stream – Video\*<br>• ><br>**Advanced\*<br>• ><br>**Interpolated** | stream_assembly/video_description/`codec`/interpolate_frc<br>where `codec` is:<br>• `h264_settings`<br>• `mpeg2_settings`<br>• `h265_settings`<br>• `prores_settings`                                                                                                |
+| Location of parameter on web interface                             | Location of tag in XML                                                                                                                                                                                                                                                     |
+| ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| *_Stream – Video_<br>• ><br>*_Advanced_<br>• > **Framerate**       | stream\_assembly/video\_description/`codec`/framerate\_numerator<br>stream\_assembly/video\_description/`codec`/framerate\_denominator<br>where `codec` is one of the<br>following:<br>• `h264_settings`<br>• `mpeg2_settings`<br>• `h265_settings`<br>• `prores_settings` |
+| *_Stream – Video_<br>• ><br>*_Advanced_<br>• ><br>**Interpolated** | stream\_assembly/video\_description/`codec`/interpolate\_frc<br>where `codec` is:<br>• `h264_settings`<br>• `mpeg2_settings`<br>• `h265_settings`<br>• `prores_settings`                                                                                                   |

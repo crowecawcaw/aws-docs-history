@@ -28,8 +28,8 @@ XML content consisting of one:
 Here are some notes about tags of particular
 interest:
 
-- input_label: It is recommended that you
-  include the input_label tag. If you include this
+- input\_label: It is recommended that you
+  include the input\_label tag. If you include this
   tag, you can reference the input later on using
   this label (rather than using the input ID,
   which you first have to query for using Get
@@ -46,12 +46,12 @@ different content. Elemental Live does not track
 the content, it just enforces the rule for label
 uniqueness at a given time.
 
-- loop_source: This tag can be used to loop the
+- loop\_source: This tag can be used to loop the
   dynamic playlist. If you set this tag to true
   for input X, it is a good idea to set an
   activate time for the next intended input,
   otherwise input X will process forever. See
-  [Activating using placeholders](general-procedure.md#activating-using-placeholders "general-procedure.md#activating-using-placeholders") for a typical use case for loop_source.
+  [Activating using placeholders](general-procedure.md#activating-using-placeholders "general-procedure.md#activating-using-placeholders") for a typical use case for loop\_source.
 
 When this tag is true and Elemental Live is at
 the last input listed in the event XML, the
@@ -61,19 +61,19 @@ considered as the Next-in-line input.
 - order: This tag is ignored in determining the
   dynamic playlist order.
 - For the input source, include one of:
-  network_input or device_input or router_input or
-  file_input. Different inputs can have a
+  network\_input or device\_input or router\_input or
+  file\_input. Different inputs can have a
   different source.
-- audio_selector, caption_selector: All inputs
+- audio\_selector, caption\_selector: All inputs
   must have the same number of these elements:
   none or more than one. So if the first input has
-  two audio_selector elements, all inputs must
-  have two audio_selectors. This rule applies to
+  two audio\_selector elements, all inputs must
+  have two audio\_selectors. This rule applies to
   the lifetime of the event: as soon as it starts,
-  the count of audio_selector and
-  caption_selectors is fixed and cannot
+  the count of audio\_selector and
+  caption\_selectors is fixed and cannot
   vary.
-- input_clipping: Can be used to process only a
+- input\_clipping: Can be used to process only a
   specific section of a live or file input.
 
 ### Response

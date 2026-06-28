@@ -42,7 +42,7 @@ This table shows where the parameters mentioned in this section are
 located. The first column shows the location on the web interface. The
 second column shows the location in the event XML.
 
-| Location of parameter on web interface                              | Location of tag in XML                                                           |
-| ------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| **Streams > Advanced >Preprocessors > Noise Reducer ><br>Filter**   | stream_assembly/video_description/video_preprocessors/<br>noise_reducer/filter   |
-| **Streams > Advanced >Preprocessors > Noise Reducer ><br>Strength** | stream_assembly/video_description/video_preprocessors/<br>noise_reducer/strength |
+| Location of parameter on web interface                              | Location of tag in XML                                                               |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| **Streams > Advanced >Preprocessors > Noise Reducer ><br>Filter**   | stream\_assembly/video\_description/video\_preprocessors/<br>noise\_reducer/filter   |
+| **Streams > Advanced >Preprocessors > Noise Reducer ><br>Strength** | stream\_assembly/video\_description/video\_preprocessors/<br>noise\_reducer/strength |

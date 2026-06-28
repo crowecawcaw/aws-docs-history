@@ -6,7 +6,7 @@ specification, version 0.4. The Elemental Live implementation follows
 the time-based method of the specification. The specification is
 located here:
 
-[https://github.com/image-media-playlist/spec/blob/master/image_media_playlist_v0_4.pdf](https://github.com/image-media-playlist/spec/blob/master/image_media_playlist_v0_4.pdf "https://github.com/image-media-playlist/spec/blob/master/image_media_playlist_v0_4.pdf")
+[https://github.com/image-media-playlist/spec/blob/master/image\_media\_playlist\_v0\_4.pdf](https://github.com/image-media-playlist/spec/blob/master/image_media_playlist_v0_4.pdf "https://github.com/image-media-playlist/spec/blob/master/image_media_playlist_v0_4.pdf")
 
 Roku is one example of a platform that implements this
 specification.

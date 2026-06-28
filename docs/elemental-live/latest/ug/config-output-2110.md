@@ -49,16 +49,14 @@ field:
     * Otherwise, leave the field unchecked.
 
 4. Choose **Add Output** on the far right of the page. A new
-   output section appears, with a reference to one Elemental Live stream. For
-   example, _Stream 1_. Assume that this stream is
-   for video.
-5. Choose **Add Output** again for each audio output you want to
-   include. You should have identified the output you need when you [designed the audio output](s2110-out-design-workflow.md#2110-output-design-audio "s2110-out-design-workflow.md#2110-output-design-audio"). Each time
-   you add an output, a new output section appears, with a reference to one Elemental
-   Live _stream_. For example, _Stream 2_.
-6. Optionally, choose **Add Output** again to create an output
-   for ancillary data. A new output section appears, with a reference to one
-   Elemental Live stream. For example, _Stream 3_.
+output section appears, with a reference to one Elemental Live stream. For
+example, _Stream 1_. Assume that this stream is
+for video. 5. Choose **Add Output** again for each audio output you want to
+include. You should have identified the output you need when you [designed the audio output](s2110-out-design-workflow.md#2110-output-design-audio "s2110-out-design-workflow.md#2110-output-design-audio"). Each time
+you add an output, a new output section appears, with a reference to one Elemental
+Live _stream_. For example, _Stream 2_. 6. Optionally, choose **Add Output** again to create an output
+for ancillary data. A new output section appears, with a reference to one
+Elemental Live stream. For example, _Stream 3_.
 
 Scroll down to the **Streams** section. There is one Elemental
 Live stream for each output you created. 7. To set up the video stream (for example, Stream 1), hover over **Audio
@@ -99,83 +97,74 @@ Follow this procedure to set up the video stream.
 
 ###### To set up the video stream
 
-1.  Complete the **Outputs** section:
+1. Complete the **Outputs** section:
 
-    - **RTP Payload Type** – Enter a
-      number for the type. For example, `96` for a
-      video stream. If you aren't sure what number to enter,
-      speak to the administrator of the downstream
-      system.
+   - **RTP Payload Type** – Enter a
+     number for the type. For example, `96` for a
+     video stream. If you aren't sure what number to enter,
+     speak to the administrator of the downstream
+     system.
 
-    This number will appear in the **m= line** in the SDP
-    file.
-    - **Primary Destination** and **Secondary
-      Destination** – These fields appear only if the **NMOS
-      Control** field is unchecked. Complete the two fields in one of
-      these ways:
+   This number will appear in the **m= line** in the SDP
+   file.
+   - **Primary Destination** and **Secondary
+     Destination** – These fields appear only if the **NMOS
+     Control** field is unchecked. Complete the two fields in one of
+     these ways:
 
-          + If you are not implementing seamless protection switching, complete
-           only the primary destination.
-          + If you are implementing seamless protection switching, complete
-           both destinations fields, one interface for the primary stream, the
-           other for the secondary stream.
+     - If you are not implementing seamless protection switching, complete
+       only the primary destination.
+     - If you are implementing seamless protection switching, complete
+       both destinations fields, one interface for the primary stream, the
+       other for the secondary stream.
+       Enter the unicast or multicast address to deliver the video stream to.
+       For example:
 
-      Enter the unicast or multicast address to deliver the video stream to.
-      For example:
+   `rtp://239.x.x.x:5000`
 
-    `rtp://239.x.x.x:5000`
+   This information will appear in the SDP file.
+   - **Interface** – complete these two fields in one of
+     these ways:
 
-    This information will appear in the SDP file.
-    - **Interface** – complete these two fields in one of
-      these ways:
+     - If you are not implementing seamless protection switching, complete
+       only **Interface**.
+     - If you are implementing seamless protection switching, complete
+       both **Interface** fields, one interface for the
+       primary stream, the other for the secondary stream.
 
-      - If you are not implementing seamless protection switching, complete
-        only **Interface**.
-      - If you are implementing seamless protection switching, complete
-        both **Interface** fields, one interface for the
-        primary stream, the other for the secondary stream.
+2. Complete the **Streams** section for the
+   video (for example, Stream 1):
 
-2.  Complete the **Streams** section for the
-    video (for example, Stream 1):
+   - **Video Codec** – Choose the codec that you identified
+     when you [designed the
+     video](s2110-out-design-workflow.md#2110-output-design-video "s2110-out-design-workflow.md#2110-output-design-video").
+   - **Interlace Mode** – Choose
+     **Progressive** or
+     **Interlaced**.
+   - **FourCC** (Uncompressed only) – Choose **s210
+     (10-bit 4:2:2 packed)**.
+   - **Compression Ratio** (JPEG XS only) – Choose the
+     compression that the downstream system has requested.
+   - **Resolution - Width** – Enter a value that meets one of
+     the following conditions:
 
-        * **Video Codec** – Choose the codec that you identified
-         when you [designed the
-         video](s2110-out-design-workflow.md#2110-output-design-video "s2110-out-design-workflow.md#2110-output-design-video").
-        * **Interlace Mode** – Choose
-         **Progressive** or
-         **Interlaced**.
-        * **FourCC** (Uncompressed only) – Choose **s210
-         (10-bit 4:2:2 packed)**.
-        * **Compression Ratio** (JPEG XS only) – Choose the
-         compression that the downstream system has requested.
-        * **Resolution - Width** – Enter a value that meets one of
-         the following conditions:
+     - A value between 352 and 1152. The value must be divisible by 4.
+     - A value between 1160 and 2048. The value must be divisible by 8.
+     - A value between 2054 and 4096. The value must be divisible by
+     16.
 
+   - **Resolution - Height** – Enter a value that meets one
+     of the following conditions:
 
+     - If **Interlace Mode** is Progressive – a value of
+       240 or more. The value must be divisible by 4.
 
+     If **Interlace Mode** is Interlaced – a value of
+     240 or more. The value must be divisible by 8.
 
-        	+ A value between 352 and 1152. The value must be divisible by 4.
-        	+ A value between 1160 and 2048. The value must be divisible by 8.
-        	+ A value between 2054 and 4096. The value must be divisible by
-        	 16.
-        * **Resolution - Height** – Enter a value that meets one
-         of the following conditions:
-
-
-
-
-        	+ If **Interlace Mode** is Progressive – a value of
-        	 240 or more. The value must be divisible by 4.
-
-
-        	If **Interlace Mode** is Interlaced – a value of
-        	 240 or more. The value must be divisible by 8.
-
-
-        * Complete other fields according to your preference.
-
-    Many of the fields in this section appear in the `a=ftmp` line in
-    the SDP file.
+   - Complete other fields according to your preference.
+     Many of the fields in this section appear in the `a=ftmp` line in
+     the SDP file.
 
 ## Set up the audio stream
 

@@ -43,8 +43,8 @@ remove it.
   enter a Modify Static Overlay command and delete the overlay.
   See [Static graphic overlay commands](static-graphic-overlay-commands.md "static-graphic-overlay-commands.md").
 
-  **Playlist input plus overlay at the global
-  processing stage**
+**Playlist input plus overlay at the global
+processing stage**
 
 The scheduling of the inputs and the overlays is completely
 decoupled.

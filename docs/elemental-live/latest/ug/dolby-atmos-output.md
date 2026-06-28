@@ -24,7 +24,7 @@ The source must have these characteristics:
   - Up to 16 channels in the following order:
 
   `L R C LFE Ls Rs Lb Rb Tfl Tfr Tsl Tsr Tbl Tbr Lw
- Rw`
+   Rw`
   - If the source has fewer than 16 channels, Elemental Live
     extracts all the channels and then pads the output by
     inserting silence in the higher-numbered channels. For
@@ -112,7 +112,7 @@ to convert the audio to Dolby Digital Plus with Atmos.
 | **Audio Source**             | Choose the audio selector that you set up in the<br>input.                                                                                                        |
 | **Audio Codec**              | Choose Dolby Digital Plus with Atmos.                                                                                                                             |
 | **Coding mode**              | Choose the coding mode you want. For more<br>information, see [Supported outputs](#dolby-atmos-output-supported-outputs "#dolby-atmos-output-supported-outputs"). |
-| **Bitrate**                  | Choose a value that is applicable to the coding<br>mode. For information, choose the<br>\*_?_<br>• icon above the<br>field.                                       |
+| **Bitrate**                  | Choose a value that is applicable to the coding<br>mode. For information, choose the<br>**?*<br>• icon above the<br>field.                                        |
 | **Dialnorm**                 | Complete these fields to specify<br>values for the metadata. For information about a<br>field, click the question mark icon above the field<br>in Elemental Live. |
 | **DRC Line Mode<br>Profile** |
 | **DRC RF Mode Profile**      |
@@ -127,21 +127,20 @@ to convert the audio to Dolby Digital Plus with Atmos.
 Follow this procedure if the source audio is already Dolby
 Digital Plus with Atmos.
 
-1.  In the event, go to the output group where you want to add the
-    audio. Or create a new group.
-2.  Create the output where you want to add the audio encode.
-3.  In the **Streams** settings
-    section for the output, choose the **Audio** section**.**
-4.  Set these fields:
+1. In the event, go to the output group where you want to add the
+   audio. Or create a new group.
+2. Create the output where you want to add the audio encode.
+3. In the **Streams** settings
+   section for the output, choose the **Audio** section**.**
+4. Set these fields:
 
-        * **Audio Source**: Set to the audio
-         selector that you set up in the input.
-        * **Audio Codec**: Set to Dolby Digital
-         Plus Passthrough.
-
-    With this setup, all audio sources in all the inputs will be
-    passed through, both Dolby Digital Plus with Atmos and other
-    audio.
+   - **Audio Source**: Set to the audio
+     selector that you set up in the input.
+   - **Audio Codec**: Set to Dolby Digital
+     Plus Passthrough.
+     With this setup, all audio sources in all the inputs will be
+     passed through, both Dolby Digital Plus with Atmos and other
+     audio.
 
 ###### Important
 

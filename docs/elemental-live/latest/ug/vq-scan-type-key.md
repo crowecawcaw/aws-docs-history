@@ -4,10 +4,10 @@
 
 Configuring
 for scan type conversion involves setting fields in specific ways. The three
-key fields to convert the scan type of the input are \*\*Configuration
+key fields to convert the scan type of the input are **Configuration
 
 - Deinterlace Mode**, **Configuration - Interlace
-  Mode**, and **Configuration - Telecine\*\*. The
+  Mode**, and **Configuration - Telecine**. The
   following table describes how to set these three key fields to convert a
   given input to a given output.
 
@@ -108,10 +108,10 @@ Advanced > framerate field is set to 29.970.
 
 ## Location of fields
 
-| Location of field on web interface                                          | Location of tag in XML                                                                                                                                                                                           |
-| --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Streams > Advanced > Telecine                                               | stream_assembly/video_description/`codec`/telecine<br>where `codec` is one of the<br>following:<br>• `h264_settings`<br>• `mpeg2_settings`<br>• `h265_settings`<br>• `prores_settings`                           |
-| Streams > Advanced > Interlace Mode                                         | stream_assembly/video_description/`codec`/interlace_mode<br>where `codec` is one of the<br>following:<br>• `vc1_settings`<br>• `h264_settings`<br>• `mpeg2_settings`<br>• `h265_settings`<br>• `prores_settings` |
-| Streams > Advanced >Preprocessors > Deinterlacer > Deinterlace<br>Mode      | stream_assembly/video_description/video_preprocessors/deinterlacer/deinterlace_mode                                                                                                                              |
-| Streams > Advanced >Preprocessors > Deinterlacer > Deinterlace<br>Algorithm | stream_assembly/video_description/video_preprocessors/deinterlacer/algorithm                                                                                                                                     |
-| Streams > Advanced >Preprocessors > Deinterlacer > Force<br>Mode            | stream_assembly/video_description/video_preprocessors/deinterlacer/force                                                                                                                                         |
+| Location of field on web interface                                          | Location of tag in XML                                                                                                                                                                                              |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Streams > Advanced > Telecine                                               | stream\_assembly/video\_description/`codec`/telecine<br>where `codec` is one of the<br>following:<br>• `h264_settings`<br>• `mpeg2_settings`<br>• `h265_settings`<br>• `prores_settings`                            |
+| Streams > Advanced > Interlace Mode                                         | stream\_assembly/video\_description/`codec`/interlace\_mode<br>where `codec` is one of the<br>following:<br>• `vc1_settings`<br>• `h264_settings`<br>• `mpeg2_settings`<br>• `h265_settings`<br>• `prores_settings` |
+| Streams > Advanced >Preprocessors > Deinterlacer > Deinterlace<br>Mode      | stream\_assembly/video\_description/video\_preprocessors/deinterlacer/deinterlace\_mode                                                                                                                             |
+| Streams > Advanced >Preprocessors > Deinterlacer > Deinterlace<br>Algorithm | stream\_assembly/video\_description/video\_preprocessors/deinterlacer/algorithm                                                                                                                                     |
+| Streams > Advanced >Preprocessors > Deinterlacer > Force<br>Mode            | stream\_assembly/video\_description/video\_preprocessors/deinterlacer/force                                                                                                                                         |

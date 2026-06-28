@@ -18,10 +18,10 @@ PUT <IP address of Live node>/live_events/<ID of event>/cue_point
 The XML body contains one `cue_point` element containing the following
 tags:
 
-| Tag           | Sub-tag | Type    | Value                                                                                         |
-| ------------- | ------- | ------- | --------------------------------------------------------------------------------------------- |
-| event_id      |         | integer | The event ID of the original POST cue_point (the request that did not<br>include a duration). |
-| return_offset | integer |         | The number of milliseconds to wait before inserting the ad<br>avail.                          |
+| Tag            | Sub-tag | Type    | Value                                                                                          |
+| -------------- | ------- | ------- | ---------------------------------------------------------------------------------------------- |
+| event\_id      |         | integer | The event ID of the original POST cue\_point (the request that did not<br>include a duration). |
+| return\_offset | integer |         | The number of milliseconds to wait before inserting the ad<br>avail.                           |
 
 ## Insert an End Time in an Existing Ad Avail Example
 

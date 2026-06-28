@@ -57,7 +57,7 @@ POST http://198.51.100.22/live_events/33/motion_image_inserter
 
 The following example request modifies the running event with
 the ID 33. It stops the motion overlay. Notice that you include
-**action_time** with an empty value so that
+**action\_time** with an empty value so that
 you clear the time currently specified in the XML. If you forget
 to do this, Elemental Live might try to apply that time to the
 next show/hide request.

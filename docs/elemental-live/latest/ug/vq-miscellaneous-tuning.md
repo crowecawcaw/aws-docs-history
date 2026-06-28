@@ -19,16 +19,15 @@ decoder or playback device doesn't support it.
   H.264 and H.265. This parameter sets the balance between density on the
   appliance and video quality.
 
-      + A value above **0** favors density over quality.
-       This means that as you add more events to the appliance, the point will
-       be reached where the encoder automatically starts to lower the video
-       quality in any events that has this parameter set above 0.
-      + A value below **0** favors quality over
-       density.
-
-  Note that this parameter controls density and quality, even though
-  the parameter name in the XML is **svq** (speed vs
-  quality).
+  - A value above **0** favors density over quality.
+    This means that as you add more events to the appliance, the point will
+    be reached where the encoder automatically starts to lower the video
+    quality in any events that has this parameter set above 0.
+  - A value below **0** favors quality over
+    density.
+    Note that this parameter controls density and quality, even though
+    the parameter name in the XML is **svq** (speed vs
+    quality).
 
 Recommendation: On newer appliance models (L8xx and later), we
 recommend that you leave the default. On older appliance models, a
@@ -81,11 +80,11 @@ This table shows where the parameters mentioned in this section are
 located. The first column shows the location on the web interface. The
 second column shows the location in the event XML.
 
-| Location of parameter on web interface                 | Location of tag in XML                                                                                                                                                         |
-| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Streams – Video > Advanced ><br>Lookahead**          | stream_assembly/video_description/`codec`/look_ahead_rate_control<br>where `codec` is one of the<br>following:<br>• `h264_settings`<br>• `mpeg2_settings`<br>• `h265_settings` |
-| **Streams – Video > Advanced > Profile**               | stream_assembly/video_description/h264_settings>/profile                                                                                                                       |
-| **Streams – Video > Advanced > Level**                 | stream_assembly/video_description/h264_settings>/level                                                                                                                         |
-| **Streams – Video > Advanced > CABAC**                 | stream_assembly/video_description/h264_settings>/cabac                                                                                                                         |
-| **Streams – Video > Advanced > Slices**                | stream_assembly/video_description/`codec`/sliceswhere<br>`codec` is one of the following:<br>• `h264_settings`<br>• `h265_settings`                                            |
-| **Streams – Video > Advanced > Density vs<br>Quality** | stream_assembly/video_description/`codec`/svqwhere<br>`codec` is one of the following:<br>• `h264_settings`<br>• `h265_settings`                                               |
+| Location of parameter on web interface                 | Location of tag in XML                                                                                                                                                              |
+| ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Streams – Video > Advanced ><br>Lookahead**          | stream\_assembly/video\_description/`codec`/look\_ahead\_rate\_control<br>where `codec` is one of the<br>following:<br>• `h264_settings`<br>• `mpeg2_settings`<br>• `h265_settings` |
+| **Streams – Video > Advanced > Profile**               | stream\_assembly/video\_description/h264\_settings>/profile                                                                                                                         |
+| **Streams – Video > Advanced > Level**                 | stream\_assembly/video\_description/h264\_settings>/level                                                                                                                           |
+| **Streams – Video > Advanced > CABAC**                 | stream\_assembly/video\_description/h264\_settings>/cabac                                                                                                                           |
+| **Streams – Video > Advanced > Slices**                | stream\_assembly/video\_description/`codec`/sliceswhere<br>`codec` is one of the following:<br>• `h264_settings`<br>• `h265_settings`                                               |
+| **Streams – Video > Advanced > Density vs<br>Quality** | stream\_assembly/video\_description/`codec`/svqwhere<br>`codec` is one of the following:<br>• `h264_settings`<br>• `h265_settings`                                                  |

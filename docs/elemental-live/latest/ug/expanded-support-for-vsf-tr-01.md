@@ -89,17 +89,15 @@ existing event as follows:
   address.
 - Set the **Prefer SMPTE-2038** box as appropriate:
 
-      + If you do not want Elemental Live to look at the SMPTE-2038, uncheck this field.
-       When the **Prefer SMPTE-2038** field is unchecked (default), then Elemental Live follows
-       the legacy behavior. It looks for ancillary data in the native TS. Even if a
-       SMPTE-2038 PID is present, Elemental Live ignores that PID.
-      + If you want to use the SMPTE-2038 ancillary data, and assuming the stream
-       contains well-formed SMPTE-2038 (above), then check this field.
+  - If you do not want Elemental Live to look at the SMPTE-2038, uncheck this field.
+    When the **Prefer SMPTE-2038** field is unchecked (default), then Elemental Live follows
+    the legacy behavior. It looks for ancillary data in the native TS. Even if a
+    SMPTE-2038 PID is present, Elemental Live ignores that PID.
+  - If you want to use the SMPTE-2038 ancillary data, and assuming the stream
+    contains well-formed SMPTE-2038 (above), then check this field.
 
-
-      For information about how SMPTE-2038 ancillary data is extracted and
-       processed, see [Handling ancillary data in SMPTE 2038](smpte-2038.md "smpte-2038.md").
-
+  For information about how SMPTE-2038 ancillary data is extracted and
+  processed, see [Handling ancillary data in SMPTE 2038](smpte-2038.md "smpte-2038.md").
   There is no requirement to change any other fields: the event should now
   perform the same processing as previously.
 

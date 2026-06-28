@@ -2,88 +2,88 @@
 
 ## Overlays at top level
 
-|                   |                     |                         |                  |
-| ----------------- | ------------------- | ----------------------- | ---------------- |
-| <image_inserter>  |                     |                         |                  |
-|                   | enable_rest         |                         |                  |
-|                   | <insertable_image>  |                         |                  |
-|                   |                     | duration                |                  |
-|                   |                     | fade_in                 |                  |
-|                   |                     | fade_out                |                  |
-|                   |                     | height                  |                  |
-|                   |                     | image_x                 |                  |
-|                   |                     | image_y                 |                  |
-|                   |                     | layer                   |                  |
-|                   |                     | opacity                 |                  |
-|                   |                     | start_time              |                  |
-|                   |                     | width                   |                  |
-|                   |                     | <image_inserter_input>  |                  |
-|                   |                     |                         | certificate_file |
-|                   |                     |                         | interface        |
-|                   |                     |                         | password         |
-|                   |                     |                         | uri              |
-|                   |                     |                         | username         |
-|                   |                     | </image_inserter_input> |                  |
-|                   | </insertable_image> |                         |                  |
-| </image_inserter> |                     |                         |                  |
+|                    |                      |                           |                   |
+| ------------------ | -------------------- | ------------------------- | ----------------- |
+| <image\_inserter>  |                      |                           |                   |
+|                    | enable\_rest         |                           |                   |
+|                    | <insertable\_image>  |                           |                   |
+|                    |                      | duration                  |                   |
+|                    |                      | fade\_in                  |                   |
+|                    |                      | fade\_out                 |                   |
+|                    |                      | height                    |                   |
+|                    |                      | image\_x                  |                   |
+|                    |                      | image\_y                  |                   |
+|                    |                      | layer                     |                   |
+|                    |                      | opacity                   |                   |
+|                    |                      | start\_time               |                   |
+|                    |                      | width                     |                   |
+|                    |                      | <image\_inserter\_input>  |                   |
+|                    |                      |                           | certificate\_file |
+|                    |                      |                           | interface         |
+|                    |                      |                           | password          |
+|                    |                      |                           | uri               |
+|                    |                      |                           | username          |
+|                    |                      | </image\_inserter\_input> |                   |
+|                    | </insertable\_image> |                           |                   |
+| </image\_inserter> |                      |                           |                   |
 
 ## Overlays in input section
 
 **Data in <input> element**
 
-|         |                  |                     |                         |                  |
-| ------- | ---------------- | ------------------- | ----------------------- | ---------------- |
-| <input> |                  |                     |                         |                  |
-|         | <image_inserter> |                     |                         |                  |
-|         |                  | enable_rest         |                         |                  |
-|         |                  | <insertable_image>  |                         |                  |
-|         |                  |                     | duration                |                  |
-|         |                  |                     | fade_in                 |                  |
-|         |                  |                     | fade_out                |                  |
-|         |                  |                     | height                  |                  |
-|         |                  |                     | image_x                 |                  |
-|         |                  |                     | image_y                 |                  |
-|         |                  |                     | layer                   |                  |
-|         |                  |                     | opacity                 |                  |
-|         |                  |                     | start_time              |                  |
-|         |                  |                     | width                   |                  |
-|         |                  |                     | <image_inserter_input>  |                  |
-|         |                  |                     |                         | certificate_file |
-|         |                  |                     |                         | interface        |
-|         |                  |                     |                         | password         |
-|         |                  |                     |                         | uri              |
-|         |                  |                     |                         | username         |
-|         |                  |                     | </image_inserter_input> |                  |
-|         |                  | </insertable_image> |                         |                  |
+|         |                   |                      |                           |                   |
+| ------- | ----------------- | -------------------- | ------------------------- | ----------------- |
+| <input> |                   |                      |                           |                   |
+|         | <image\_inserter> |                      |                           |                   |
+|         |                   | enable\_rest         |                           |                   |
+|         |                   | <insertable\_image>  |                           |                   |
+|         |                   |                      | duration                  |                   |
+|         |                   |                      | fade\_in                  |                   |
+|         |                   |                      | fade\_out                 |                   |
+|         |                   |                      | height                    |                   |
+|         |                   |                      | image\_x                  |                   |
+|         |                   |                      | image\_y                  |                   |
+|         |                   |                      | layer                     |                   |
+|         |                   |                      | opacity                   |                   |
+|         |                   |                      | start\_time               |                   |
+|         |                   |                      | width                     |                   |
+|         |                   |                      | <image\_inserter\_input>  |                   |
+|         |                   |                      |                           | certificate\_file |
+|         |                   |                      |                           | interface         |
+|         |                   |                      |                           | password          |
+|         |                   |                      |                           | uri               |
+|         |                   |                      |                           | username          |
+|         |                   |                      | </image\_inserter\_input> |                   |
+|         |                   | </insertable\_image> |                           |                   |
 
 ## Overlays in Ssream assembly section
 
-**Data in <stream_assembly>**
+**Data in <stream\_assembly>**
 
-|                   |                     |                       |                  |                     |                              |                  |
-| ----------------- | ------------------- | --------------------- | ---------------- | ------------------- | ---------------------------- | ---------------- |
-| <stream_assembly> |                     |                       |                  |                     |                              |                  |
-|                   | <video_description> |                       |                  |                     |                              |                  |
-|                   |                     | <video_preprocessors> |                  |                     |                              |                  |
-|                   |                     |                       | <image_inserter> |                     |                              |                  |
-|                   |                     |                       |                  | enable_rest         |                              |                  |
-|                   |                     |                       |                  | <insertable_image>  |                              |                  |
-|                   |                     |                       |                  |                     | duration                     |                  |
-|                   |                     |                       |                  |                     | fade_in                      |                  |
-|                   |                     |                       |                  |                     | fade_out                     |                  |
-|                   |                     |                       |                  |                     | height                       |                  |
-|                   |                     |                       |                  |                     | image_x                      |                  |
-|                   |                     |                       |                  |                     | image_y                      |                  |
-|                   |                     |                       |                  |                     | layer                        |                  |
-|                   |                     |                       |                  |                     | opacity                      |                  |
-|                   |                     |                       |                  |                     | start_time                   |                  |
-|                   |                     |                       |                  |                     | width                        |                  |
-|                   |                     |                       |                  |                     | <image_inserter<br>\_input>  |                  |
-|                   |                     |                       |                  |                     |                              | certificate_file |
-|                   |                     |                       |                  |                     |                              | interface        |
-|                   |                     |                       |                  |                     |                              | password         |
-|                   |                     |                       |                  |                     |                              | uri              |
-|                   |                     |                       |                  |                     |                              | username         |
-|                   |                     |                       |                  |                     | </image_inserter<br>\_input> |                  |
-|                   |                     |                       |                  | </insertable_image> |                              |                  |
-|                   |                     |                       | <image_inserter> |                     |                              |                  |
+|                    |                      |                        |                   |                      |                               |                   |
+| ------------------ | -------------------- | ---------------------- | ----------------- | -------------------- | ----------------------------- | ----------------- |
+| <stream\_assembly> |                      |                        |                   |                      |                               |                   |
+|                    | <video\_description> |                        |                   |                      |                               |                   |
+|                    |                      | <video\_preprocessors> |                   |                      |                               |                   |
+|                    |                      |                        | <image\_inserter> |                      |                               |                   |
+|                    |                      |                        |                   | enable\_rest         |                               |                   |
+|                    |                      |                        |                   | <insertable\_image>  |                               |                   |
+|                    |                      |                        |                   |                      | duration                      |                   |
+|                    |                      |                        |                   |                      | fade\_in                      |                   |
+|                    |                      |                        |                   |                      | fade\_out                     |                   |
+|                    |                      |                        |                   |                      | height                        |                   |
+|                    |                      |                        |                   |                      | image\_x                      |                   |
+|                    |                      |                        |                   |                      | image\_y                      |                   |
+|                    |                      |                        |                   |                      | layer                         |                   |
+|                    |                      |                        |                   |                      | opacity                       |                   |
+|                    |                      |                        |                   |                      | start\_time                   |                   |
+|                    |                      |                        |                   |                      | width                         |                   |
+|                    |                      |                        |                   |                      | <image\_inserter<br>\_input>  |                   |
+|                    |                      |                        |                   |                      |                               | certificate\_file |
+|                    |                      |                        |                   |                      |                               | interface         |
+|                    |                      |                        |                   |                      |                               | password          |
+|                    |                      |                        |                   |                      |                               | uri               |
+|                    |                      |                        |                   |                      |                               | username          |
+|                    |                      |                        |                   |                      | </image\_inserter<br>\_input> |                   |
+|                    |                      |                        |                   | </insertable\_image> |                               |                   |
+|                    |                      |                        | <image\_inserter> |                      |                               |                   |

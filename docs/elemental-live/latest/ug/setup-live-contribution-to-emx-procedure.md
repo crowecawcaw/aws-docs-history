@@ -74,8 +74,8 @@ Perform the following steps according to the security policies and procedures fo
 ###### To set up for encryption
 
 1. Use a suitable tool for generating a SHA-256 encryption key from a seed that you specify. AWS does not provide a generation tool. Note that you need only one key, even if you are creating two flows.
-2. Save the key to the secret, as described in [Setting Up Static Key Encryption Using AWS Elemental MediaConnect](../../../mediaconnect/latest/ug/encryption-static-key-set-up.md "../../../mediaconnect/latest/ug/encryption-static-key-set-up.md"). You must assign a name to the secret, for example, "key_sports". Save the key in the same AWS Region as the flow you plan to create.
-3. Make a note of the ARN for this secret. You need this ARN when you create the MediaConnect flow. It looks like the following example, where "key_sports" is the name you assigned to the secret.
+2. Save the key to the secret, as described in [Setting Up Static Key Encryption Using AWS Elemental MediaConnect](../../../mediaconnect/latest/ug/encryption-static-key-set-up.md "../../../mediaconnect/latest/ug/encryption-static-key-set-up.md"). You must assign a name to the secret, for example, "key\_sports". Save the key in the same AWS Region as the flow you plan to create.
+3. Make a note of the ARN for this secret. You need this ARN when you create the MediaConnect flow. It looks like the following example, where "key\_sports" is the name you assigned to the secret.
 
 `arn:aws:secretsmanager:us-west-2:111122223333:secret:key_sports-7g8H9i`
 
@@ -108,7 +108,7 @@ You must follow this procedure before you create the Elemental Live outputs beca
      `arn:aws:secretsmanager:us-west-2:111122223333:secret:key_sports-7g8H9i`
    - Decryption algorithm: Specify the algorithm that you want to use. Elemental Live will be instructed to use this algorithm to encrypt. MediaConnect will read this information and use this algorithm to decrypt.
 
-6. When you create each flow, MediaConnect creates an ARN for that flow. The ARNs look like the following, where "curling_finals_A" and "curling_finals_B" are the flow names you specified in each flow:
+6. When you create each flow, MediaConnect creates an ARN for that flow. The ARNs look like the following, where "curling\_finals\_A" and "curling\_finals\_B" are the flow names you specified in each flow:
 
 `arn:aws:mediaconnect:us-west-1:111122223333:flow:1bgf67:curling_finals_A`
 

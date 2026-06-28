@@ -71,7 +71,7 @@ obtain the current ID before sending this command.
 
 XML content consisting of:
 
-- One or more image_inserter elements that each contains:
+- One or more image\_inserter elements that each contains:
 
   - 1 to 8 <image> elements that each contains the tags in the table
     in the section [Create or modify a non-running event with static graphic overlay](create-or-modify-a-non-running-event-with-static-graphic-overlay.md "create-or-modify-a-non-running-event-with-static-graphic-overlay.md").

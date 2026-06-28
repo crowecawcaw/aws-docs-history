@@ -16,7 +16,7 @@ enabled, and whether passthrough is enabled.
 
 ## Insert a new time signal message
 
-Inserts a SCTE-35 message of type time_signal in the stream either immediately or
+Inserts a SCTE-35 message of type time\_signal in the stream either immediately or
 at a specified time. The command always includes a start time (in the time tag) and a
 duration (included in the segmentation descriptor).
 
@@ -28,7 +28,7 @@ POST <IP address of Live node>/live_events/<ID of event>/time_signal
 
 **Body of HTTP**
 
-The XML body contains one **time_signal** element
+The XML body contains one **time\_signal** element
 containing the following tags:
 
 | Tag         | Sub-tag | Type    | Value                                                                                                                                                                                                                                                                                     |
@@ -43,17 +43,17 @@ containing the following tags:
 
 The body of the response is XML content consisting of one **response** element containing the following tags:
 
-| Tag         | Sub-tag | Sub-sub-tag | Type                            | Description                                |
-| ----------- | ------- | ----------- | ------------------------------- | ------------------------------------------ |
-| tag         |         |             | integer                         | A unique ID                                |
-| signal_time | hours   |             | integer                         | The start time, repeated from the request. |
-| minutes     |         | integer     |
-| seconds     |         | integer     |
-| frames      |         | integer     |
-| message     |         |             | string                          | A description of the action taken.         |
-| errors      |         |             |                                 | Included only in an error response.        |
-| error       | code    |             | An error code.                  |
-| error       | message | string      | A human-readable error message. |
+| Tag          | Sub-tag | Sub-sub-tag | Type                            | Description                                |
+| ------------ | ------- | ----------- | ------------------------------- | ------------------------------------------ |
+| tag          |         |             | integer                         | A unique ID                                |
+| signal\_time | hours   |             | integer                         | The start time, repeated from the request. |
+| minutes      |         | integer     |
+| seconds      |         | integer     |
+| frames       |         | integer     |
+| message      |         |             | string                          | A description of the action taken.         |
+| errors       |         |             |                                 | Included only in an error response.        |
+| error        | code    |             | An error code.                  |
+| error        | message | string      | A human-readable error message. |
 
 A success response does not include the <errors> element. A failure response
 contains only the <tag> and <errors> elements.

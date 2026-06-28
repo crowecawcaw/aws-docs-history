@@ -2,25 +2,24 @@
 
 Create or modify the event as follows:
 
-1.  Determine the location or locations in the event where the static overlay
-    should be inserted, then display the appropriate section:
+1. Determine the location or locations in the event where the static overlay
+   should be inserted, then display the appropriate section:
 
-        * Input section: In the desired input or inputs,
-         click Advanced. More fields appear. In the Image
-         Inserter section, click On. More fields appear; see the
-         table in the next step.
-        * Global Processors section: In the Global
-         Processors section, go to the Image Inserter field and
-         click On. More fields appear; see the table in the next
-         step.
-        * Output section: In the desired output or outputs,
-         determine the stream this output is associated with. In
-         the corresponding Stream section, click Advanced. More
-         fields appear; see the table in the next step.
-
-    For all locations, the following fields appear. (Note that the following
-    image is from the Global Processors section, but the fields are the same in all
-    sections.)
+   - Input section: In the desired input or inputs,
+     click Advanced. More fields appear. In the Image
+     Inserter section, click On. More fields appear; see the
+     table in the next step.
+   - Global Processors section: In the Global
+     Processors section, go to the Image Inserter field and
+     click On. More fields appear; see the table in the next
+     step.
+   - Output section: In the desired output or outputs,
+     determine the stream this output is associated with. In
+     the corresponding Stream section, click Advanced. More
+     fields appear; see the table in the next step.
+     For all locations, the following fields appear. (Note that the following
+     image is from the Global Processors section, but the fields are the same in all
+     sections.)
 
 ![images/screenshot_StaticImgInst.png](images/screenshot_StaticImgInst.png) 2. Complete the fields as follows:
 
@@ -40,21 +39,20 @@ Create or modify the event as follows:
 | Fade Out            | This field is valid only if the Duration field is<br>completed.<br>The duration, in milliseconds, for the static overlay fade-out.<br>This time is added to the static overlay duration.                                                                                                                                                                                                                                                                                         |
 | Enable Rest Control | Check this field only if you<br>plan to manage motion overlays via the REST API, after this initial<br>setup via the web interface. Typically, you will want this tag to be<br>true.                                                                                                                                                                                                                                                                                             |
 
-3.  If desired, click Add Image and enter the information for another static
-    overlay, up to a maximum of 8 static overlays.
+3. If desired, click Add Image and enter the information for another static
+   overlay, up to a maximum of 8 static overlays.
 
-        * Assign a unique Layer number to each static overlay. The layers do not
-         have to appear in any particular order on the screen, but each number
-         must be used once only.
-        * The static overlay Start Time and Duration can be set so that any
-         static overlay overlaps the display time of any other static overlay.
-        * The Left/Top fields can be set so that any static overlay physically
-         overlaps any other static overlay, as much as you want; the static
-         overlays are displayed according to their Layer value.
-
-    Note: If you are using input switching to provide input redundancy (with or
-    without the hot-hot backup mode), then make sure you insert the static overlay in
-    both input pairs.
+   - Assign a unique Layer number to each static overlay. The layers do not
+     have to appear in any particular order on the screen, but each number
+     must be used once only.
+   - The static overlay Start Time and Duration can be set so that any
+     static overlay overlaps the display time of any other static overlay.
+   - The Left/Top fields can be set so that any static overlay physically
+     overlaps any other static overlay, as much as you want; the static
+     overlays are displayed according to their Layer value.
+     Note: If you are using input switching to provide input redundancy (with or
+     without the hot-hot backup mode), then make sure you insert the static overlay in
+     both input pairs.
 
 ## Start time formats
 

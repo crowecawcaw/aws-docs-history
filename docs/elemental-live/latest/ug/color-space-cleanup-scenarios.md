@@ -92,13 +92,13 @@ The details of this scenario are the following:
 - Intended handling in the output – Convert or pass through the color
   space.
 - Status of the input – The video content is one color space. For
-  example, the content is all REC_601.
+  example, the content is all REC\_601.
 - Status of the input color space metadata – Some of the metadata is
   missing, marked as _unknown_, or marked
   as a color space that Elemental Live doesn't support.
 
 In addition, some of the metadata is wrong. For example, it is
-marked as HDR10, but in fact, it is REC_601.
+marked as HDR10, but in fact, it is REC\_601.
 
 So in this scenario, the video content is all one color space, but the
 color space metadata doesn't correctly indicate that fact.
@@ -124,16 +124,16 @@ The details of this scenario are the following:
 - Intended handling in the output – Convert or pass through the color
   space.
 - Status of the input – The video content is any combination of color
-  spaces—REC_601, REC_709, HDR, and HLG.
+  spaces—REC\_601, REC\_709, HDR, and HLG.
 - Status of the input color space metadata – The metadata for the
   video content of one color space is a mixture of acceptable and
   unacceptable. The metadata for that content is missing, marked as
   _unknown_, or marked as a color space
   that Elemental Live doesn't support. But in fact, all that content should
-  be marked as one specific color space, for example, as REC_601.
+  be marked as one specific color space, for example, as REC\_601.
 
 The metadata for content for any other color space is correct. For
-example, the metadata for REC_709 content and HDR10 content is
+example, the metadata for REC\_709 content and HDR10 content is
 correct.
 
 Recommendation:
@@ -159,10 +159,10 @@ The details of this scenario are the following:
 - Intended handling in the output – Convert or pass through the color
   space.
 - Status of the input – The video content is in _more than one_ color space. For example, the
-  content is a mix of REC_601, REC_709, and HDR10.
+  content is a mix of REC\_601, REC\_709, and HDR10.
 - Status of the input color space metadata – The metadata for one
   color space is missing, wrong, marked as _unknown_, or marked as a color space that Elemental Live
-  doesn't support. For example, the color space is REC_601, but its
+  doesn't support. For example, the color space is REC\_601, but its
   corresponding metadata is unreliable.
 
 In addition, the metadata for one or more other color spaces is also

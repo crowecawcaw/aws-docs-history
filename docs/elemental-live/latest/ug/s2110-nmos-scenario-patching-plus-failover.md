@@ -42,17 +42,17 @@ pair** to **ON**. 5. Make these changes in input A:
      enter the length of time the condition must continue before the condition
      triggers a failover to input X.
 
-6.  Make these changes in input X:
+6. Make these changes in input X:
 
-        * Set **Hot Backup** to **ON**.
-        * Enter a time in **Error Clear Time**. After all the
-         failover conditions are no longer applicable Elemental Live waits for the specified
-         time before it fails back to input A.
-        * Choose a **Failback Rule** to specify how Elemental Live fails
-         back to input A.
+    * Set **Hot Backup** to **ON**.
+    * Enter a time in **Error Clear Time**. After all the
+     failover conditions are no longer applicable Elemental Live waits for the specified
+     time before it fails back to input A.
+    * Choose a **Failback Rule** to specify how Elemental Live fails
+     back to input A.
 
-    Don't enable hot backup on input B. Don't enable NMOS patching pair on input
-    X.
+Don't enable hot backup on input B. Don't enable NMOS patching pair on input
+X.
 
 **Result of this setup**
 

@@ -17,59 +17,58 @@ to WebVTT.
 
 ###### To convert the input format to a different format for each output
 
-1.  On the web interface, on the **Event** screen, for
-    **Input Settings**, choose **Add captions
-    selector** twice, to create the following captions selectors:
+1. On the web interface, on the **Event** screen, for
+   **Input Settings**, choose **Add captions
+   selector** twice, to create the following captions selectors:
 
-        * Captions Selector 1 for teletext Czech. Specify the page that holds the Czech
-         captions.
-        * Captions Selector 2 for teletext Polish. Specify the page that holds the
-         Polish captions.
+   - Captions Selector 1 for teletext Czech. Specify the page that holds the Czech
+     captions.
+   - Captions Selector 2 for teletext Polish. Specify the page that holds the
+     Polish captions.
+     Although you are including this captions in two different outputs (MS Smooth and
+     HLS), you need to extract them from the input only once, so you need to create only
+     one captions selector for each language.
 
-    Although you are including this captions in two different outputs (MS Smooth and
-    HLS), you need to extract them from the input only once, so you need to create only
-    one captions selector for each language.
+2. Create a MS Smooth output group and configure it as follows:
 
-2.  Create a MS Smooth output group and configure it as follows:
+   - Create one output and set up the video and audio.
+   - Create a second output that contains one captions encode and no video or audio
+     encodes and with the following settings:
 
-    - Create one output and set up the video and audio.
-    - Create a second output that contains one captions encode and no video or audio
-      encodes and with the following settings:
+     - **Captions selector name**: Captions Selector 1.
+     - **Captions settings**: TTML.
+     - **Language code** and **Language
+       description**: Czech.
+     - **Style control**: Set as desired.
 
-      - **Captions selector name**: Captions Selector 1.
-      - **Captions settings**: TTML.
-      - **Language code** and **Language
-        description**: Czech.
-      - **Style control**: Set as desired.
+   - Create a third output that contains one captions encode and no video or audio
+     encodes, with the following settings:
 
-    - Create a third output that contains one captions encode and no video or audio
-      encodes, with the following settings:
+     - **Captions selector name**: Captions Selector 2.
+     - **Captions settings**: TTML.
+     - **Language code** and **Language
+       description**: Polish.
+     - Other fields: same as the second output (the Czech captions).
 
-      - **Captions selector name**: Captions Selector 2.
-      - **Captions settings**: TTML.
-      - **Language code** and **Language
-        description**: Polish.
-      - Other fields: same as the second output (the Czech captions).
+3. Create an HLS output group and configure it as follows:
 
-3.  Create an HLS output group and configure it as follows:
+   - Create one output and set up the video and audio.
+   - Create a second output that contains one captions encode and no video or audio
+     encodes and with the following settings:
 
-    - Create one output and set up the video and audio.
-    - Create a second output that contains one captions encode and no video or audio
-      encodes and with the following settings:
+     - **Captions selector name**: Captions Selector 1.
+     - **Captions settings**: WebVTT.
+     - **Language code** and **Language
+       description**: Czech.
+     - Other fields: Set as desired.
 
-      - **Captions selector name**: Captions Selector 1.
-      - **Captions settings**: WebVTT.
-      - **Language code** and **Language
-        description**: Czech.
-      - Other fields: Set as desired.
+   - Create a third captions output that contains one captions encode and no video
+     or audio encodes and with the following settings:
 
-    - Create a third captions output that contains one captions encode and no video
-      or audio encodes and with the following settings:
+     - **Captions selector name**: Captions Selector 2.
+     - **Captions settings**: WebVTT
+     - **Language code** and **Language
+       description**: Polish.
+     - Other fields: same as the second output (the Czech captions).
 
-      - **Captions selector name**: Captions Selector 2.
-      - **Captions settings**: WebVTT
-      - **Language code** and **Language
-        description**: Polish.
-      - Other fields: same as the second output (the Czech captions).
-
-4.  Finish setting up the event and save it.
+4. Finish setting up the event and save it.

@@ -151,7 +151,7 @@ inputs A and B, as follows:
   “placeholder” file input (this input could be a
   blackout slate, for example). Do not assign a
   start to this placeholder but do set the
-  loop_source tag to true for this input in order
+  loop\_source tag to true for this input in order
   to play the content repeatedly until it is time
   to return to the live input.
 

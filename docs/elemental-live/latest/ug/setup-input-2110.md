@@ -30,7 +30,7 @@ To set up a SMPTE 2110 input
 2. In **Video SDP Location**, enter
    the location of the SDP file for the video. For example:
 
-[http://172.18.8.19/curling_video.sdp](rtp://239.255.100.100:5000 "rtp://239.255.100.100:5000")
+[http://172.18.8.19/curling\_video.sdp](rtp://239.255.100.100:5000 "rtp://239.255.100.100:5000")
 
 For more information about SDP files, see [About SDP files](2110-sdp-about.md "2110-sdp-about.md"). 3. In **Media Index**, enter the index of the
 video stream that you want Elemental Live to extract. For example, enter

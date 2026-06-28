@@ -73,7 +73,7 @@ Use case 3 is described [here](typical-use-cases.md#use-case-3 "typical-use-case
    that consists of the following:
 
    - Second input – a file that displays the
-     desired content. Include the loop_source tag
+     desired content. Include the loop\_source tag
      for this input in order to play the content
      repeatedly until it is time to return to the
      live input.
@@ -118,37 +118,36 @@ Use case 4 is described [here](typical-use-cases.md#use-case-4 "typical-use-case
 
 Use case 5 is described [here](typical-use-cases.md#use-case-5 "typical-use-cases.md#use-case-5").
 
-1.  Create an event that has the first file as the
-    input. In the event, set loop_all_inputs to
-    true.
-2.  Once the event starts, create a dynamic playlist
-    that consists of the following:
+1. Create an event that has the first file as the
+   input. In the event, set loop\_all\_inputs to
+   true.
+2. Once the event starts, create a dynamic playlist
+   that consists of the following:
 
-    - Second input – a file input.
+   - Second input – a file input.
 
-3.  Once the second input has become Active:
+3. Once the second input has become Active:
 
-        * Modify the first input to point to a
-         different file source. Change other tags as
-         required (for example, the audio
-         selectors).
-        * Optionally set an activate time for the
-         first input.
+   - Modify the first input to point to a
+     different file source. Change other tags as
+     required (for example, the audio
+     selectors).
+   - Optionally set an activate time for the
+     first input.
+     When the second input has ended, the first input
+     will become Active again.
 
-    When the second input has ended, the first input
-    will become Active again.
+4. Once the first input has become Active
+   again:
 
-4.  Once the first input has become Active
-    again:
+   - Modify the second input to point to a
+     different file source. Change other tags as
+     required (for example, the audio
+     selectors).
+   - Optionally set an activate time for the
+     second input.
 
-    - Modify the second input to point to a
-      different file source. Change other tags as
-      required (for example, the audio
-      selectors).
-    - Optionally set an activate time for the
-      second input.
-
-5.  Repeat as required.
+5. Repeat as required.
 
 ## Implementing use case 6
 
@@ -160,13 +159,13 @@ Use case 6 is described [here](typical-use-cases.md#use-case-6 "typical-use-case
    that consists of the following:
 
    - Second input – a file input such as a
-     movie. Include the input_clipper tags to
+     movie. Include the input\_clipper tags to
      clip content. For example, clip it to run
      from the 0 mark to the 20 minute
      mark.
    - Third input – ad content – from file.
    - Fourth input – file input identical to the
-     second input. Include the input_clipper tags
+     second input. Include the input\_clipper tags
      to clip content, for example, to clip it to
      run from the 20 minute mark to the 35 minute
      mark.

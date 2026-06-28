@@ -69,7 +69,7 @@ the general steps for creating an event.
    - **Input Name**: Enter the label for the input,
      obtained from the POIS operator.
    - **File Location**: The path and file name for the
-     source. For example, ftp://vod_files/mlaw.wav
+     source. For example, ftp://vod\_files/mlaw.wav
 
 3. Open the **Advanced** section of this input and
    complete the fields as follows:

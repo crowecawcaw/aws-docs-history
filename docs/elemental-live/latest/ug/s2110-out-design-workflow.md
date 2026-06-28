@@ -64,7 +64,7 @@ Follow these guidelines:
      16-bit depth.
 
 2. In each output, decide how many encodes you need. You need one encode for each
-   PCM channel configuration or Dolby Digital coding-mode.
+PCM channel configuration or Dolby Digital coding-mode.
 
 For example, to include two PCM stereo channels (perhaps one English and one
 French), you need two encodes.
@@ -99,18 +99,17 @@ captions and SCTE 104 messages.
 
 **SCTE 104 messages**
 
-1.  Decide if you want to include ad avail messages in the output. These messages
-    can come from two sources:
+1. Decide if you want to include ad avail messages in the output. These messages
+   can come from two sources:
 
-        * SCTE 35 or SCTE 104 ad avail messages already present in the event input.
-         When Elemental Live ingests the input, SCTE 104 messages are always converted
-         to SCTE 35 messages.
-        * SCTE 35 messages that you insert when the event is running, using the
-         API.
+   - SCTE 35 or SCTE 104 ad avail messages already present in the event input.
+     When Elemental Live ingests the input, SCTE 104 messages are always converted
+     to SCTE 35 messages.
+   - SCTE 35 messages that you insert when the event is running, using the
+     API.
+     In both cases, Elemental Live converts the messages to SCTE 104 messages in the
+     SMPTE 2110 output. For general information about ad avail handling in
+     Elemental Live, see [SCTE-35 and SCTE-104 message processing in Elemental Live](scte-message-processing.md "scte-message-processing.md").
 
-    In both cases, Elemental Live converts the messages to SCTE 104 messages in the
-    SMPTE 2110 output. For general information about ad avail handling in
-    Elemental Live, see [SCTE-35 and SCTE-104 message processing in Elemental Live](scte-message-processing.md "scte-message-processing.md").
-
-2.  If you decide to include ad avail messages, identify the line where you want
-    them to appear in the VANC of the video stream.
+2. If you decide to include ad avail messages, identify the line where you want
+   them to appear in the VANC of the video stream.

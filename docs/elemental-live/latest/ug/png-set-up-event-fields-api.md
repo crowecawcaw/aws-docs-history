@@ -18,30 +18,28 @@ POST http://<Live IP Address>/live_events
 PUT http://<Live IP Address>/live_events/<live event id>
 ```
 
-2.  In the body of the request, include one
-    `motion_image_inserter` element inside the
-    `live_event` tag. You can configure some or
-    all the information in the non-running event, but you must
-    at least set the following tags:
+2. In the body of the request, include one
+   `motion_image_inserter` element inside the
+   `live_event` tag. You can configure some or
+   all the information in the non-running event, but you must
+   at least set the following tags:
 
-        * `insertion_mode`
-        * `enable_rest`
+   - `insertion_mode`
+   - `enable_rest`
+     Make sure that you configure for the desired motion
+     overlay behavior when the event first starts:
 
-    Make sure that you configure for the desired motion
-    overlay behavior when the event first starts:
-
-        * If you want the motion overlay to appear as soon
-         as the event starts, specify all the tags. Make sure
-         that you set `active` to
-         `true`, and make sure that you leave
-         `action_time` empty.
-        * If you don't want the motion overlay to appear as
-         soon as the event starts, set `active` to
-         `false`.
-
-    You can configure the remaining tags after you've
-    started the event, when you want to run the first motion
-    overlay.
+   - If you want the motion overlay to appear as soon
+     as the event starts, specify all the tags. Make sure
+     that you set `active` to
+     `true`, and make sure that you leave
+     `action_time` empty.
+   - If you don't want the motion overlay to appear as
+     soon as the event starts, set `active` to
+     `false`.
+     You can configure the remaining tags after you've
+     started the event, when you want to run the first motion
+     overlay.
 
 For detailed information about the tags, see [Fields for a PNG asset](png-set-up-event-fields.md "png-set-up-event-fields.md").
 

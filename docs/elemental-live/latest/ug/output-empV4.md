@@ -29,15 +29,15 @@ general steps for creating an event.
 3. Set up the output group in the usual way. Complete the following
    fields as specified:
 
-| Section                       | Field                                                                            | Description                                                                                                                                                                                                        |
-| ----------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Apple HLS Settings            | Destination                                                                      | The URL that you obtained from the MediaPackage operator.<br>When you tab out of this field, two fields<br>automatically appear: **Username or Access<br>Key ID\*<br>• and **Password or Secret<br>Access Key\*\*. |
+| Section                       | Field                                                                            | Description                                                                                                                                                                                                     |
+| ----------------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Apple HLS Settings            | Destination                                                                      | The URL that you obtained from the MediaPackage operator.<br>When you tab out of this field, two fields<br>automatically appear: *_Username or Access<br>Key ID_<br>• and **Password or Secret<br>Access Key**. |
 | Username or Access Key ID     | Enter the access key ID that you obtained from the<br>MediaPackage operator.     |
 | Password or Secret Access Key | Enter the secret access key that you obtained from<br>the MediaPackage operator. |
 | HTTP Push Dialect             | Choose **Basic PUT**                                                             |
-| Advanced > Encryption         | Choose \*_Disabled_<br>• because MediaPackage<br>doesn't support encryption.     |
+| Advanced > Encryption         | Choose *_Disabled_<br>• because MediaPackage<br>doesn't support encryption.      |
 | Advanced > Chunked Transfer   | Choose **Disabled**.                                                             |
-| Outputs                       | Segment Type                                                                     | Choose **TS**. You can't send<br>fMP4 to MediaPackage.                                                                                                                                                             |
+| Outputs                       | Segment Type                                                                     | Choose **TS**. You can't send<br>fMP4 to MediaPackage.                                                                                                                                                          |
 
 4. If you want to implement low latency in the encoder, follow the
    guidance for these fields:

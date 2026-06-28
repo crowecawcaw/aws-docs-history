@@ -4,32 +4,31 @@ You use an authoring system to create the asset and to manage the
 content, including implementation of features such as fade or
 opacity.
 
-1.  Choose an authoring system and create the asset – Use the
-    authoring system to create the asset. The HTML5 content must
-    meet these requirements:
+1. Choose an authoring system and create the asset – Use the
+   authoring system to create the asset. The HTML5 content must
+   meet these requirements:
 
-        * It can be any HTML5 authoring system that uses
-         standard browser-based rendering techniques.
-        * It can use any HTML5 tags except video and
-         audio.
-        * It can incorporate javascript that interacts with a
-         backend system to dynamically control the asset that is
-         being published to the source URL. You should size the
-         content to be the same size or smaller than the width
-         and height of the largest video rendition in your
-         channel. You can also use responsive HTML (HTML that
-         resizes automatically to different frame sizes).
+   - It can be any HTML5 authoring system that uses
+     standard browser-based rendering techniques.
+   - It can use any HTML5 tags except video and
+     audio.
+   - It can incorporate javascript that interacts with a
+     backend system to dynamically control the asset that is
+     being published to the source URL. You should size the
+     content to be the same size or smaller than the width
+     and height of the largest video rendition in your
+     channel. You can also use responsive HTML (HTML that
+     resizes automatically to different frame sizes).
+     See the list after this procedure for more guidelines for
+     preparing the asset.
 
-    See the list after this procedure for more guidelines for
-    preparing the asset.
-
-2.  Make a note of the URL of the asset. This URL must be
-    accessible to Elemental Live.
-3.  If the location of the motion graphics asset requires login
-    in order for Elemental Live to download the asset, make a note
-    of the user name and password.
-    **Supported authoring
-    features**
+2. Make a note of the URL of the asset. This URL must be
+   accessible to Elemental Live.
+3. If the location of the motion graphics asset requires login
+   in order for Elemental Live to download the asset, make a note
+   of the user name and password.
+   **Supported authoring
+   features**
 
 The asset can include features that are supported in Chrome
 version 84.0.4147.125. If you include features that are supported

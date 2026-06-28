@@ -35,19 +35,18 @@ sources:
 
 To set up SMPTE 2110 sources in this way, follow this procedure.
 
-1.  Create two receiver groups, one for network 1 and one for network 2. For
-    example, RG1 and RG2. To create a receiver group, see [Create the receiver group](s2110-nmos-create-receiver-group.md "s2110-nmos-create-receiver-group.md").
-2.  In the Elemental Live event or Conductor Live profile that you are creating, create four
-    SMPTE 2110
-    NMOS inputs. Set up each input with the receiver groups, as
-    follows:
+1. Create two receiver groups, one for network 1 and one for network 2. For
+   example, RG1 and RG2. To create a receiver group, see [Create the receiver group](s2110-nmos-create-receiver-group.md "s2110-nmos-create-receiver-group.md").
+2. In the Elemental Live event or Conductor Live profile that you are creating, create four
+   SMPTE 2110
+   NMOS inputs. Set up each input with the receiver groups, as
+   follows:
 
-        * Input A. Set the Input type to RG1.
-        * Input B. Set the Input type to RG2.
-        * Input C. Set the Input type to RG1.
-        * Input D. Set the Input type to RG2.
-
-    For detailed instructions, see [Create a receiver group input](s2110-nmos-create-input.md "s2110-nmos-create-input.md").
+   - Input A. Set the Input type to RG1.
+   - Input B. Set the Input type to RG2.
+   - Input C. Set the Input type to RG1.
+   - Input D. Set the Input type to RG2.
+     For detailed instructions, see [Create a receiver group input](s2110-nmos-create-input.md "s2110-nmos-create-input.md").
 
 You now have four inputs in the order A, B, C, D.
 
@@ -64,14 +63,14 @@ You now have four inputs in the order A, B, C, D.
 
 6. Make these changes in input B:
 
-   - **Error Clear Time**: Enter a time. After all the
+    * **Error Clear Time**: Enter a time. After all the
      failover conditions are no longer applicable Elemental Live waits for the
      specified time before it fails back to input A.
-   - **Failback Rule**: Choose a rule to specify how Elemental Live
+    * **Failback Rule**: Choose a rule to specify how Elemental Live
      fails back to input A.
 
 7. On inputs C and D, _don't_ set up failover
-   conditions, error clear times or failback rules.
+conditions, error clear times or failback rules.
 
 ## Result of the setup
 

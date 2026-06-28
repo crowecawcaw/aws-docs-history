@@ -39,10 +39,10 @@ mode ([Getting ready: Setting the ad avail mode](getting-ready-setting-the-ad-av
 
 ###### Ad avail blanking and restriction flags: restrictions in the input
 
-SCTE-35 messages of type **time_signal** always
+SCTE-35 messages of type **time\_signal** always
 contain segmentation descriptors.
 
-SCTE-35 messages of type **splice_insert** may or may
+SCTE-35 messages of type **splice\_insert** may or may
 not include segmentation descriptors.
 
 If the input has SCTE-35 messages that _do_ include
@@ -50,23 +50,22 @@ segmentation descriptors, these segmentation descriptors always include two type
 flags. These flags provide additional information as guidance for blanking in specific
 situations:
 
-- **web_delivery_allowed_flag**.
+- **web\_delivery\_allowed\_flag**.
 
   - "True" means that there is no restriction on including the ad avail
     event’s content in a stream intended for web delivery: you do not need to
     blank out content in streams intended for web delivery.
   - "False" means there is a restriction: you should blank out the content .
 
-- **no_regional_blackout_flag.**
+- **no\_regional\_blackout\_flag.**
 
-      + "True" means that there is no restriction on including the ad avail
-       event’s video in a stream intended for regional markets: you do not need to
-       blank out content in streams intended for regional markets.
-      + "False" means there is a restriction: you should blank out the
-       content.
-
-  If neither flag is present (usually the case with **splice_inserts**), then both are considered to be false: blanking should
-  occur.
+  - "True" means that there is no restriction on including the ad avail
+    event’s video in a stream intended for regional markets: you do not need to
+    blank out content in streams intended for regional markets.
+  - "False" means there is a restriction: you should blank out the
+    content.
+    If neither flag is present (usually the case with **splice\_inserts**), then both are considered to be false: blanking should
+    occur.
 
 If both flags are present (which is usually the case; it is unusual to have only one
 flag present), then a “false” for one flag takes precedence over a “true” for the other
@@ -82,12 +81,12 @@ regional delivery, then it would not also be considered restricted for web deliv
 To summarize, this table shows the blanking logic that applies to each ad avail
 event that is encountered:
 
-|     | Content of corresponding SCTE-35 MessageWeb<br>delivery allowed? | Content of corresponding SCTE-35<br>MessageRegional delivery<br>allowed? | Result                   | Comment                                                                                                             |
-| --- | ---------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------ | ------------------------------------------------------------------------------------------------------------------- |
-| S1  | Flag is not present.                                             | Flag is not present.                                                     | Blanking will occur.     | This combination can occur only in a message type splice_insert (where<br>the segmentation descriptor is optional). |
-| S2  | True                                                             | True                                                                     | Blanking will not occur. |                                                                                                                     |
-| S3  | True                                                             | False                                                                    | Blanking will occur.     |                                                                                                                     |
-| S4  | False                                                            | True                                                                     | Blanking will occur.     |                                                                                                                     |
+|     | Content of corresponding SCTE-35 MessageWeb<br>delivery allowed? | Content of corresponding SCTE-35<br>MessageRegional delivery<br>allowed? | Result                   | Comment                                                                                                              |
+| --- | ---------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| S1  | Flag is not present.                                             | Flag is not present.                                                     | Blanking will occur.     | This combination can occur only in a message type splice\_insert (where<br>the segmentation descriptor is optional). |
+| S2  | True                                                             | True                                                                     | Blanking will not occur. |                                                                                                                      |
+| S3  | True                                                             | False                                                                    | Blanking will occur.     |                                                                                                                      |
+| S4  | False                                                            | True                                                                     | Blanking will occur.     |                                                                                                                      |
 
 ###### Ad avail blanking and restriction flags: Elemental Live handling of restrictions
 
@@ -113,10 +112,10 @@ Never set both fields to **Ignore**!
 To summarize, the Ignore flags make a difference only to the scenarios in this
 table:
 
-|     | Content of corresponding SCTE-35 MessageWeb<br>delivery allowed? | Content of corresponding SCTE-35<br>MessageRegional delivery<br>allowed? | Restriction field in Elemental Live    | Result                          |
-| --- | ---------------------------------------------------------------- | ------------------------------------------------------------------------ | -------------------------------------- | ------------------------------- |
-| S3  | True                                                             | False                                                                    | Ignore “regional delivery” restriction | Blanking will \*not<br>• occur. |
-| S4  | False                                                            | True                                                                     | Ignore “web delivery” restriction      | Blanking will \*not<br>• occur. |
+|     | Content of corresponding SCTE-35 MessageWeb<br>delivery allowed? | Content of corresponding SCTE-35<br>MessageRegional delivery<br>allowed? | Restriction field in Elemental Live    | Result                         |
+| --- | ---------------------------------------------------------------- | ------------------------------------------------------------------------ | -------------------------------------- | ------------------------------ |
+| S3  | True                                                             | False                                                                    | Ignore “regional delivery” restriction | Blanking will *not<br>• occur. |
+| S4  | False                                                            | True                                                                     | Ignore “web delivery” restriction      | Blanking will *not<br>• occur. |
 
 ###### Ad avail blanking and restriction flags: restriction flags with “splice insert”
 

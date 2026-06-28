@@ -14,9 +14,9 @@ POST <IP address of Live node>/live_events/<ID of event>/cue_point
 The XML body contains one `cue_point` element containing the following
 tag:
 
-| Tag             | Sub-tag | Type    | Value                                         |
-| --------------- | ------- | ------- | --------------------------------------------- |
-| cancel_event_id |         | integer | The event ID of the original SCTE-35 request. |
+| Tag               | Sub-tag | Type    | Value                                         |
+| ----------------- | ------- | ------- | --------------------------------------------- |
+| cancel\_event\_id |         | integer | The event ID of the original SCTE-35 request. |
 
 **Response**
 

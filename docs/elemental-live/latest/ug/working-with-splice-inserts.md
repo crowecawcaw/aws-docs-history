@@ -4,7 +4,7 @@ Splice inserts inserted by the REST API are always of type “ad avail.”
 
 You can:
 
-- Insert a SCTE-35 ad avail of type splice_insert. See [Insert a new splice insert message](insert-a-new-splice-insert-message.md "insert-a-new-splice-insert-message.md").
+- Insert a SCTE-35 ad avail of type splice\_insert. See [Insert a new splice insert message](insert-a-new-splice-insert-message.md "insert-a-new-splice-insert-message.md").
 - Get the timecode of the content that is currently being
   processed. This data
   can

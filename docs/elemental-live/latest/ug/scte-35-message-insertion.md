@@ -2,7 +2,7 @@
 
 You can use the Elemental Live REST API to insert SCTE-35 messages into an
 Elemental Live event that is currently running. The API supports insertion of a
-SCTE-35 message of type **splice_insert** or **time signal** ([Working with time signals](working-with-time-signals.md "working-with-time-signals.md")).
+SCTE-35 message of type **splice\_insert** or **time signal** ([Working with time signals](working-with-time-signals.md "working-with-time-signals.md")).
 
 ###### Topics
 

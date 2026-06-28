@@ -12,7 +12,7 @@ To select this marker, do the following:
   The structure and contents of the line are as described in HTTP Live Streaming,
   draft-pantos-http-live-streaming-23 (Version 23).
 
-This marker style applies when the SCTE-35 messages are time_signal or splice_insert,
+This marker style applies when the SCTE-35 messages are time\_signal or splice\_insert,
 and when the messages are passed through from the input or inserted at runtime using the
 REST API.
 
