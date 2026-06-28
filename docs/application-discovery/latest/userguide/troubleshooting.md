@@ -25,7 +25,7 @@ state as "Stop In Progress".
 
 If after refreshing the console page, the toggle does not switch off and an error
 message is thrown or the `DescribeContinuousExport` API returns
-"Stop_Failed" state, you can try again by switching the toggle switch off or calling
+"Stop\_Failed" state, you can try again by switching the toggle switch off or calling
 the `StopContinuousExport` API. If the "data exploration" still shows
 error and fails to successfully stop, please reach out to AWS support.
 
@@ -259,8 +259,8 @@ AWS CLI
 
 1. Open a terminal window, and type the following command, where
    ``ImportName` is the name of
-   the import task with the failed entries that you want to
-   correct.`:
+ the import task with the failed entries that you want to
+ correct.`:
 
 ```
 aws discovery describe-import-tasks - -name `ImportName`

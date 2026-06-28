@@ -28,7 +28,7 @@ On the [Viewing VMware data collection details](agentless-collector-gs-vcenter-d
          local or domain user that the connector uses to communicate with
          vCenter. For domain users, use the form
          _domain_\*username* or
-         *username*@*domain\*.
+         _username_@_domain_.
       3. For **vCenter Password**, enter the local or
          domain user password.
 

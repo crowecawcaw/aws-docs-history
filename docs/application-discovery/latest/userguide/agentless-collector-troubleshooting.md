@@ -135,9 +135,8 @@ the domains listed in the previous step.
     ```
 
 3. If telnet cannot resolve the domain, try configuring a static DNS server using the
-   [instructions for
-   Amazon Linux 2](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/").
-4. If the error continues, for further support, see [Contacting AWS Support for Agentless Collector issues](#agentless-collector-support "#agentless-collector-support").
+[instructions for
+Amazon Linux 2](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/"). 4. If the error continues, for further support, see [Contacting AWS Support for Agentless Collector issues](#agentless-collector-support "#agentless-collector-support").
 
 ## Fixing self-signed certification problems when connecting to the proxy host
 
@@ -194,7 +193,7 @@ to identify health issues.
 4. To open the Agentless Collector console, open a web browser. Then type the
    following URL in the address bar: 
    `https://``<ip_address>``/`,
-   where _ip_address_ is the IP address of an unhealthy
+   where _ip\_address_ is the IP address of an unhealthy
    collector.
 5. Choose **Log in**, and then enter the Agentless Collector
    password, which was set up when the collector was configured in [Configuring Agentless Collector](agentless-collector-gs-configure.md "agentless-collector-gs-configure.md").
@@ -226,7 +225,7 @@ The following procedure can help you resolve IP address issues.
 2. Open the Agentless Collector console by opening a web browser, and then type
    the following URL in the address bar: 
    `https://``<ip_address>``/`,
-   where _ip_address_ is the IP address of the collector
+   where _ip\_address_ is the IP address of the collector
    from [Deploy Agentless Collector](agentless-collector-deploying.md#agentless-collector-gs-deploy "agentless-collector-deploying.md#agentless-collector-gs-deploy").
 3. Choose **Log in**, and then enter the Agentless Collector
    password, which was set up when the collector was configured in [Configuring Agentless Collector](agentless-collector-gs-configure.md "agentless-collector-gs-configure.md").

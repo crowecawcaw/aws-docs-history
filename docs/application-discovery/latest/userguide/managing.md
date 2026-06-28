@@ -13,30 +13,30 @@ respective tools.
 
 systemd
 
-| Management Commands for the Application Discovery Agent | Task                                                     | Command |
-| ------------------------------------------------------- | -------------------------------------------------------- | ------- |
-| Verify that an agent is running                         | `sudo systemctl status<br>aws-discovery-daemon.service`  |
-| Start an agent                                          | `sudo systemctl start<br>aws-discovery-daemon.service`   |
-| Stop an agent                                           | `sudo systemctl stop<br>aws-discovery-daemon.service`    |
-| Restart an agent                                        | `sudo systemctl restart<br>aws-discovery-daemon.service` |
+Management Commands for the Application Discovery Agent| Task | Command |
+| --- | --- |
+| Verify that an agent is running | `sudo systemctl status<br>aws-discovery-daemon.service` |
+| Start an agent | `sudo systemctl start<br>aws-discovery-daemon.service` |
+| Stop an agent | `sudo systemctl stop<br>aws-discovery-daemon.service` |
+| Restart an agent | `sudo systemctl restart<br>aws-discovery-daemon.service` |
 
 Upstart
 
-| Management commands for the Application Discovery Agent | Task                                           | Command |
-| ------------------------------------------------------- | ---------------------------------------------- | ------- |
-| Verify that an agent is running                         | `sudo initctl status<br>aws-discovery-daemon`  |
-| Start an agent                                          | `sudo initctl start<br>aws-discovery-daemon`   |
-| Stop an agent                                           | `sudo initctl stop<br>aws-discovery-daemon`    |
-| Restart an agent                                        | `sudo initctl restart<br>aws-discovery-daemon` |
+Management commands for the Application Discovery Agent| Task | Command |
+| --- | --- |
+| Verify that an agent is running | `sudo initctl status<br>aws-discovery-daemon` |
+| Start an agent | `sudo initctl start<br>aws-discovery-daemon` |
+| Stop an agent | `sudo initctl stop<br>aws-discovery-daemon` |
+| Restart an agent | `sudo initctl restart<br>aws-discovery-daemon` |
 
 System V init
 
-| Management commands for the Application Discovery Agent | Task                                               | Command |
-| ------------------------------------------------------- | -------------------------------------------------- | ------- |
-| Verify that an agent is running                         | `sudo /etc/init.d/aws-discovery-daemon<br>status`  |
-| Start an agent                                          | `sudo /etc/init.d/aws-discovery-daemon<br>start`   |
-| Stop an agent                                           | `sudo /etc/init.d/aws-discovery-daemon<br>stop`    |
-| Restart an agent                                        | `sudo /etc/init.d/aws-discovery-daemon<br>restart` |
+Management commands for the Application Discovery Agent| Task | Command |
+| --- | --- |
+| Verify that an agent is running | `sudo /etc/init.d/aws-discovery-daemon<br>status` |
+| Start an agent | `sudo /etc/init.d/aws-discovery-daemon<br>start` |
+| Stop an agent | `sudo /etc/init.d/aws-discovery-daemon<br>stop` |
+| Restart an agent | `sudo /etc/init.d/aws-discovery-daemon<br>restart` |
 
 ## Manage the Discovery Agent process on Microsoft Windows
 

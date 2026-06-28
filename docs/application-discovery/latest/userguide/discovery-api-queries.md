@@ -177,78 +177,78 @@ filters.
 
 **Server assets**
 
-| Filter                                          | Supported conditions                                                     | Supported values                                                                                                     | Supported sorting |
-| ----------------------------------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| `server.configurationId`                        | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE                                 | • Any valid server configuration ID                                                                                  | None              |
-| `server.hostName`                               | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                                                                                                             | • ASC<br>• DESC   |
-| `server.osName`                                 | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                                                                                                             | • ASC<br>• DESC   |
-| `server.osVersion`                              | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                                                                                                             | • ASC<br>• DESC   |
-| `server.agentId`                                | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE                                 | • String                                                                                                             | None              |
-| `server.connectorId`                            | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE                                 | • String                                                                                                             | None              |
-| `server.type`                                   | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE                                 | String with one of the following values:<br>• EC2<br>• OTHER<br>• VMWARE_VM<br>• VMWARE_HOST<br>• VMWARE_VM_TEMPLATE | None              |
-| `server.vmWareInfo.morefId`                     | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                                                                                                             | None              |
-| `server.vmWareInfo.vcenterId`                   | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                                                                                                             | None              |
-| `server.vmWareInfo.hostId`                      | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                                                                                                             | None              |
-| `server.networkInterfaceInfo.portGroupId`       | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                                                                                                             | None              |
-| `server.networkInterfaceInfo.portGroupName`     | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                                                                                                             | None              |
-| `server.networkInterfaceInfo.virtualSwitchName` | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                                                                                                             | None              |
-| `server.networkInterfaceInfo.ipAddress`         | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                                                                                                             | None              |
-| `server.networkInterfaceInfo.macAddress`        | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                                                                                                             | None              |
-| `server.performance.avgCpuUsagePct`             | • GE<br>• LE<br>• GT<br>• LT                                             | • Percentage                                                                                                         | None              |
-| `server.performance.totalDiskFreeSizeInKB`      | • GE<br>• LE<br>• GT<br>• LT                                             | • Double                                                                                                             | None              |
-| `server.performance.avgFreeRAMInKB`             | • GE<br>• LE<br>• GT<br>• LT                                             | • Double                                                                                                             | None              |
-| `server.tag.value`                              | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                                                                                                             | None              |
-| `server.tag.key`                                | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                                                                                                             | None              |
-| `server.application.name`                       | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                                                                                                             | None              |
-| `server.application.description`                | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                                                                                                             | None              |
-| `server.application.configurationId`            | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE                                 | • Any valid application configuration ID                                                                             | None              |
-| `server.process.configurationId`                | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE                                 | • ProcessId                                                                                                          | None              |
-| `server.process.name`                           | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                                                                                                             | None              |
-| `server.process.commandLine`                    | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                                                                                                             | None              |
+| Filter                                          | Supported conditions                                                       | Supported values                                                                                                         | Supported sorting |
+| ----------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+| `server.configurationId`                        | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE                                  | • Any valid server configuration ID                                                                                      | None              |
+| `server.hostName`                               | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                                                                                                                 | • ASC<br>• DESC   |
+| `server.osName`                                 | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                                                                                                                 | • ASC<br>• DESC   |
+| `server.osVersion`                              | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                                                                                                                 | • ASC<br>• DESC   |
+| `server.agentId`                                | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE                                  | • String                                                                                                                 | None              |
+| `server.connectorId`                            | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE                                  | • String                                                                                                                 | None              |
+| `server.type`                                   | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE                                  | String with one of the following values:<br>• EC2<br>• OTHER<br>• VMWARE\_VM<br>• VMWARE\_HOST<br>• VMWARE\_VM\_TEMPLATE | None              |
+| `server.vmWareInfo.morefId`                     | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                                                                                                                 | None              |
+| `server.vmWareInfo.vcenterId`                   | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                                                                                                                 | None              |
+| `server.vmWareInfo.hostId`                      | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                                                                                                                 | None              |
+| `server.networkInterfaceInfo.portGroupId`       | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                                                                                                                 | None              |
+| `server.networkInterfaceInfo.portGroupName`     | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                                                                                                                 | None              |
+| `server.networkInterfaceInfo.virtualSwitchName` | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                                                                                                                 | None              |
+| `server.networkInterfaceInfo.ipAddress`         | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                                                                                                                 | None              |
+| `server.networkInterfaceInfo.macAddress`        | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                                                                                                                 | None              |
+| `server.performance.avgCpuUsagePct`             | • GE<br>• LE<br>• GT<br>• LT                                               | • Percentage                                                                                                             | None              |
+| `server.performance.totalDiskFreeSizeInKB`      | • GE<br>• LE<br>• GT<br>• LT                                               | • Double                                                                                                                 | None              |
+| `server.performance.avgFreeRAMInKB`             | • GE<br>• LE<br>• GT<br>• LT                                               | • Double                                                                                                                 | None              |
+| `server.tag.value`                              | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                                                                                                                 | None              |
+| `server.tag.key`                                | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                                                                                                                 | None              |
+| `server.application.name`                       | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                                                                                                                 | None              |
+| `server.application.description`                | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                                                                                                                 | None              |
+| `server.application.configurationId`            | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE                                  | • Any valid application configuration ID                                                                                 | None              |
+| `server.process.configurationId`                | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE                                  | • ProcessId                                                                                                              | None              |
+| `server.process.name`                           | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                                                                                                                 | None              |
+| `server.process.commandLine`                    | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                                                                                                                 | None              |
 
 **Application assets**
 
-| Filter                         | Supported conditions                                                     | Supported values         | Supported sorting |
-| ------------------------------ | ------------------------------------------------------------------------ | ------------------------ | ----------------- |
-| `application.configurationId`  | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE                                 | • ApplicationId          | None              |
-| `application.name`             | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                 | • ASC<br>• DESC   |
-| `application.description`      | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String                 | • ASC<br>• DESC   |
-| `application.serverCount`      | Filtering not supported.                                                 | Filtering not supported. | • ASC<br>• DESC   |
-| `application.timeOfCreation`   | Filtering not supported.                                                 | Filtering not supported. | • ASC<br>• DESC   |
-| `application.lastModifiedTime` | Filtering not supported.                                                 | Filtering not supported. | • ASC<br>• DESC   |
-| `server.configurationId`       | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE                                 | • ServerId               | None              |
+| Filter                         | Supported conditions                                                       | Supported values         | Supported sorting |
+| ------------------------------ | -------------------------------------------------------------------------- | ------------------------ | ----------------- |
+| `application.configurationId`  | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE                                  | • ApplicationId          | None              |
+| `application.name`             | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                 | • ASC<br>• DESC   |
+| `application.description`      | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String                 | • ASC<br>• DESC   |
+| `application.serverCount`      | Filtering not supported.                                                   | Filtering not supported. | • ASC<br>• DESC   |
+| `application.timeOfCreation`   | Filtering not supported.                                                   | Filtering not supported. | • ASC<br>• DESC   |
+| `application.lastModifiedTime` | Filtering not supported.                                                   | Filtering not supported. | • ASC<br>• DESC   |
+| `server.configurationId`       | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE                                  | • ServerId               | None              |
 
 **Process assets**
 
-| Filter                    | Supported conditions                                                     | Supported values | Supported sorting |
-| ------------------------- | ------------------------------------------------------------------------ | ---------------- | ----------------- |
-| `process.configurationId` | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE                                 | • ProcessId      |                   |
-| `process.name`            | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String         | • ASC<br>• DESC   |
-| `process.commandLine`     | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String         | • ASC<br>• DESC   |
-| `server.configurationId`  | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE                                 | • ServerId       |                   |
-| `server.hostName`         | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String         | • ASC<br>• DESC   |
-| `server.osName`           | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String         | • ASC<br>• DESC   |
-| `server.osVersion`        | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String         | • ASC<br>• DESC   |
-| `server.agentId`          | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String         |                   |
+| Filter                    | Supported conditions                                                       | Supported values | Supported sorting |
+| ------------------------- | -------------------------------------------------------------------------- | ---------------- | ----------------- |
+| `process.configurationId` | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE                                  | • ProcessId      |                   |
+| `process.name`            | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String         | • ASC<br>• DESC   |
+| `process.commandLine`     | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String         | • ASC<br>• DESC   |
+| `server.configurationId`  | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE                                  | • ServerId       |                   |
+| `server.hostName`         | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String         | • ASC<br>• DESC   |
+| `server.osName`           | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String         | • ASC<br>• DESC   |
+| `server.osVersion`        | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String         | • ASC<br>• DESC   |
+| `server.agentId`          | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String         |                   |
 
 **Connection assets**
 
-| Filter                               | Supported conditions                                                     | Supported values | Supported sorting |
-| ------------------------------------ | ------------------------------------------------------------------------ | ---------------- | ----------------- |
-| `connection.sourceIp`                | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • IP             | • ASC<br>• DESC   |
-| `connection.destinationIp`           | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • IP             | • ASC<br>• DESC   |
-| `connection.destinationPort`         | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE                                 | • Integer        | • ASC<br>• DESC   |
-| `sourceServer.configurationId`       | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE                                 | • ServerId       |                   |
-| `sourceServer.hostName`              | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String         | • ASC<br>• DESC   |
-| `destinationServer.osName`           | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String         | • ASC<br>• DESC   |
-| `destinationServer.osVersion`        | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String         | • ASC<br>• DESC   |
-| `destinationServer.agentId`          | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String         |                   |
-| `sourceProcess.configurationId`      | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE                                 | • ProcessId      |                   |
-| `sourceProcess.name`                 | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String         | • ASC<br>• DESC   |
-| `sourceProcess.commandLine`          | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String         | • ASC<br>• DESC   |
-| `destinationProcess.configurationId` | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE                                 | • ProcessId      |                   |
-| `destinationProcess.name`            | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String         | • ASC<br>• DESC   |
-| `destinationprocess.commandLine`     | • EQUALS<br>• NOT_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT_CONTAINS | • String         | • ASC<br>• DESC   |
+| Filter                               | Supported conditions                                                       | Supported values | Supported sorting |
+| ------------------------------------ | -------------------------------------------------------------------------- | ---------------- | ----------------- |
+| `connection.sourceIp`                | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • IP             | • ASC<br>• DESC   |
+| `connection.destinationIp`           | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • IP             | • ASC<br>• DESC   |
+| `connection.destinationPort`         | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE                                  | • Integer        | • ASC<br>• DESC   |
+| `sourceServer.configurationId`       | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE                                  | • ServerId       |                   |
+| `sourceServer.hostName`              | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String         | • ASC<br>• DESC   |
+| `destinationServer.osName`           | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String         | • ASC<br>• DESC   |
+| `destinationServer.osVersion`        | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String         | • ASC<br>• DESC   |
+| `destinationServer.agentId`          | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String         |                   |
+| `sourceProcess.configurationId`      | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE                                  | • ProcessId      |                   |
+| `sourceProcess.name`                 | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String         | • ASC<br>• DESC   |
+| `sourceProcess.commandLine`          | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String         | • ASC<br>• DESC   |
+| `destinationProcess.configurationId` | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE                                  | • ProcessId      |                   |
+| `destinationProcess.name`            | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String         | • ASC<br>• DESC   |
+| `destinationprocess.commandLine`     | • EQUALS<br>• NOT\_EQUALS<br>• EQ<br>• NE<br>• CONTAINS<br>• NOT\_CONTAINS | • String         | • ASC<br>• DESC   |
 
 ## Eventual consistency in the AWS Application Discovery Service API
 

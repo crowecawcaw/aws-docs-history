@@ -21,7 +21,7 @@ Amazon Athena , as explained in [Turning on data exploration in Amazon Athena](c
    Amazon Athena**.
 3. On the **Query Editor** page, in the navigation pane under
    **Database**, make sure that
-   **application_discovery_service_database** is
+   **application\_discovery\_service\_database** is
    selected.
 
 ###### Note
@@ -38,8 +38,8 @@ datasets grouped by the agents.
     * **id\_mapping\_agent**
 
 4. Query the data in the Amazon Athena console by writing and running SQL queries in
-   the Athena Query Editor. For example, you can use the following query to see all
-   of the discovered server IP addresses.
+the Athena Query Editor. For example, you can use the following query to see all
+of the discovered server IP addresses.
 
 ```
 SELECT * FROM network_interface_agent;

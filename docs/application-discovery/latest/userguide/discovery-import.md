@@ -49,7 +49,7 @@ Migration Hub supports importing exports of VMware vSphere via RVTools. When sav
 from RVTools, first choose the **Export all to csv** option or the
 **Export all to Excel** option, then ZIP the folder, and import the ZIP
 file into Migration Hub. The following files are required in the ZIP: vInfo, vNetwork, vCpu,
-vMemory, vDisk, vPartition, vSource, vTools, vHost, vNic, vSC_VMK.
+vMemory, vDisk, vPartition, vSource, vTools, vHost, vNic, vSC\_VMK.
 
 ### Migration Hub import template
 
@@ -73,7 +73,7 @@ record, you must have both fields in the same record.
 
 | Import Field Name               | Description                                                                                                                                                                                                                                                     | Examples                                                    |
 | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| ExternalId\*^                   | A custom identifier that allows you to mark each record as<br>unique. For example, \*_ExternalId_<br>• can be the<br>inventory ID for the server in your data center.                                                                                           | Inventory Id 1<br>Server 2<br>CMBD Id 3                     |
+| ExternalId\*^                   | A custom identifier that allows you to mark each record as<br>unique. For example, *_ExternalId_<br>• can be the<br>inventory ID for the server in your data center.                                                                                            | Inventory Id 1<br>Server 2<br>CMBD Id 3                     |
 | SMBiosId^                       | System management BIOS (SMBIOS) ID.                                                                                                                                                                                                                             |                                                             |
 | IPAddress\*^                    | A comma-delimited list of IP addresses of the server, in<br>quotes.                                                                                                                                                                                             | 192.0.0.2<br>"10.12.31.233, 10.12.32.11"                    |
 | MACAddress\*^                   | A comma-delimited list of MAC address of the server, in<br>quotes.                                                                                                                                                                                              | 00:1B:44:11:3A:B7<br>"00-15-E9-2B-99-3C, 00-14-22-01-23-45" |
@@ -354,7 +354,7 @@ console.
    template** in the **Import** box. Open
    the downloaded template and populate it with your existing
    on-premises server data. You can also download the import template
-   from our Amazon S3 bucket at [https://s3.us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import_template.csv](https://s3.us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import_template.csv "https://s3.us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import_template.csv")
+   from our Amazon S3 bucket at [https://s3.us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import\_template.csv](https://s3.us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import_template.csv "https://s3.us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import_template.csv")
 3. To open the **Import** page, choose
    **Import** in the **Import**
    box.
@@ -402,7 +402,7 @@ _AWS Command Line Interface User Guide_.
 ###### Note
 
 If you don't already have an import template filled out, you can
-download the import template from our Amazon S3 bucket here: [https://s3.us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import_template.csv](https://s3.us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import_template.csv "https://s3.us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import_template.csv")
+download the import template from our Amazon S3 bucket here: [https://s3.us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import\_template.csv](https://s3.us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import_template.csv "https://s3.us-west-2.amazonaws.com/templates-7cffcf56-bd96-4b1c-b45b-a5b42f282e46/import_template.csv")
 
 ###### To start data import
 

@@ -283,7 +283,8 @@ policies or update older policies if the following are both true for the policy:
 
 - The policy allows or denies access to Application Discovery Service or the Migration Hub.
 - The policy grants access permissions using one more specific discovery actions
-  like `discovery:`action-name``rather than`discovery:\*`.
+  like `discovery:`action-name`` rather than
+  `discovery:*`.
 
 The following example shows how to use the
 `discovery:GetNetworkConnectionGraph` action in an IAM policy.

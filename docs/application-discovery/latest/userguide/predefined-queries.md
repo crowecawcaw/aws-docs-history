@@ -14,7 +14,7 @@ them to suit your needs.
    Amazon Athena**.
 3. On the **Query Editor** page, in the navigation pane under
    **Database**, make sure that
-   **application_discovery_service_database** is
+   **application\_discovery\_service\_database** is
    selected.
 4. Choose the plus (**+**) sign in the Query Editor
    to create a tab for a new query.
@@ -310,7 +310,7 @@ Some of the predefined queries require a table named
 `iana_service_ports_import` that contains information downloaded from
 Internet Assigned Numbers Authority (IANA).
 
-###### To create the iana_service_ports_import table
+###### To create the iana\_service\_ports\_import table
 
 1. Download the IANA port registry database **CSV** file
    from [Service Name and Transport Protocol Port Number Registry](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml") on

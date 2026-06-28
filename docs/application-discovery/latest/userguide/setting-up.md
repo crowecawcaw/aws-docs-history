@@ -51,7 +51,7 @@ _IAM User Guide_:
      access key ID and secret access key in a safe and secure place.
 
 3. After you create the user provide them with programmatic access as described in
-   [Support programmatic user access](../../../IAM/latest/UserGuide/introduction_identity-management.md#gs-get-keys "../../../IAM/latest/UserGuide/introduction_identity-management.md#gs-get-keys").
+[Support programmatic user access](../../../IAM/latest/UserGuide/introduction_identity-management.md#gs-get-keys "../../../IAM/latest/UserGuide/introduction_identity-management.md#gs-get-keys").
 
 ## Sign in to the Migration Hub console and choose a home Region
 

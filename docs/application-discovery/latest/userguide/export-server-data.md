@@ -19,16 +19,16 @@ or the API.
    file that includes the .csv files that are described in the following
    table.
 
-| File name                                        | Description                                                                                                                                              |
-| ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| {account_id}\_Application.csv                    | Details of each application, including the server count,<br>name, and description.                                                                       |
-| {account_id}\_ApplicationResourceAssociation.csv | The relationship between servers and applications.                                                                                                       |
-| {account_id}\_ImportTemplate                     | The summary of each server’s application and tags. This<br>file can be modified and re-imported to update the<br>application associated with the server. |
-| {account_id}\_NetworkInterface.csv               | Details of each network interface including the associated<br>server, address, and switch.                                                               |
-| {account_id}\_Server.csv                         | Details of each server, including operating system, host<br>name, and hypervisor.                                                                        |
-| {account_id}\_SystemPerformance.csv              | Details of each server, including CPU, memory and storage<br>configuration, and performance.                                                             |
-| {account_id}\_Tags.csv                           | Details of each tag associated with a server.                                                                                                            |
-| {account_id}\_VMwareInfo.csv                     | Details of each VMware configuration, including moRef,<br>vmName, and vCenter.                                                                           |
+| File name                                         | Description                                                                                                                                              |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {account\_id}\_Application.csv                    | Details of each application, including the server count,<br>name, and description.                                                                       |
+| {account\_id}\_ApplicationResourceAssociation.csv | The relationship between servers and applications.                                                                                                       |
+| {account\_id}\_ImportTemplate                     | The summary of each server’s application and tags. This<br>file can be modified and re-imported to update the<br>application associated with the server. |
+| {account\_id}\_NetworkInterface.csv               | Details of each network interface including the associated<br>server, address, and switch.                                                               |
+| {account\_id}\_Server.csv                         | Details of each server, including operating system, host<br>name, and hypervisor.                                                                        |
+| {account\_id}\_SystemPerformance.csv              | Details of each server, including CPU, memory and storage<br>configuration, and performance.                                                             |
+| {account\_id}\_Tags.csv                           | Details of each tag associated with a server.                                                                                                            |
+| {account\_id}\_VMwareInfo.csv                     | Details of each VMware configuration, including moRef,<br>vmName, and vCenter.                                                                           |
 
 ###### To use the AWS Management Console to export agent data for a specific server
 
@@ -47,14 +47,14 @@ or the API.
    **Export**. The exported .zip file includes the .csv
    files that are described in the following table.
 
-|                                                |                                                                                              |
-| ---------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| {account_id}\_destinationProcessConnection.csv | Details of the inbound connections into the server.                                          |
-| {account_id}\_networkInterface.csv             | Details of each network interface including address, mask,<br>and name                       |
-| {account_id}\_osInfo.csv                       | Details of the operating system including CPU type,<br>hypervisor and operating system name. |
-| {account_id}\_process.csv                      | Details of the processes running on the server.                                              |
-| {account_id}\_sourceProcessConnection.csv      | Details of the outbound connection originating from the<br>server.                           |
-| {account_id}\_systemPerformance.csv            | Details of the CPU, memory and storage configuration &<br>performance for the server.        |
+|                                                 |                                                                                              |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| {account\_id}\_destinationProcessConnection.csv | Details of the inbound connections into the server.                                          |
+| {account\_id}\_networkInterface.csv             | Details of each network interface including address, mask,<br>and name                       |
+| {account\_id}\_osInfo.csv                       | Details of the operating system including CPU type,<br>hypervisor and operating system name. |
+| {account\_id}\_process.csv                      | Details of the processes running on the server.                                              |
+| {account\_id}\_sourceProcessConnection.csv      | Details of the outbound connection originating from the<br>server.                           |
+| {account\_id}\_systemPerformance.csv            | Details of the CPU, memory and storage configuration &<br>performance for the server.        |
 
 ###### To use the AWS Command Line Interface or the API to export server data
 

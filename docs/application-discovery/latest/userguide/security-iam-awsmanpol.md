@@ -135,7 +135,7 @@ This policy allows AWS Application Discovery Service to create Amazon Data Fireh
 data that's collected by AWS Application Discovery Service agents to an Amazon S3 bucket in your AWS account.
 
 In addition, this policy creates an AWS Glue Data Catalog with a new database called
-_application_discovery_service_database_ and table schemas for
+_application\_discovery\_service\_database_ and table schemas for
 mapping data that's collected by the agents. For an example of this policy, see [Granting permissions for agent data collection](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ads-export-service "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ads-export-service").
 
 ## AWS managed policy: AWSDiscoveryContinuousExportFirehosePolicy

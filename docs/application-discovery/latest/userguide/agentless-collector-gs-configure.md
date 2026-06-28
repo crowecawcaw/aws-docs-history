@@ -155,34 +155,40 @@ steps.
     ```
 
 5. Update the Domain Name System (DNS) using the following
-   steps.
+steps.
 
-   1. Open the `resolv.conf` file in vi
-      using the following command.
+    1. Open the `resolv.conf` file in vi
+     using the following command.
 
-   ```
-   sudo vi /etc/resolv.conf
-   ```
-   2. Update the `resolv.conf` file in vi
-      using the following command.
 
-   ```
-   search `localdomain-name`
-   options timeout:2 attempts:5
-   nameserver `dnsserver-value`
-   ```
 
-   The following example shows an edited
-   `resolv.conf` file.
+    ```
+    sudo vi /etc/resolv.conf
+    ```
+    2. Update the `resolv.conf` file in vi
+     using the following command.
 
-   ```
-   search vsphere.local
-   options timeout:2 attempts:5
-   nameserver 192.168.1.1
-   ```
+
+
+    ```
+    search `localdomain-name`
+    options timeout:2 attempts:5
+    nameserver `dnsserver-value`
+    ```
+
+    The following example shows an edited
+     `resolv.conf` file.
+
+
+
+    ```
+    search vsphere.local
+    options timeout:2 attempts:5
+    nameserver 192.168.1.1
+    ```
 
 6. Enable the network interface, by entering the following
-   command.
+command.
 
 ```
 sudo ip link set ens192 up
@@ -313,34 +319,40 @@ steps.
     ```
 
 5. Update the Domain Name System (DNS) using the following
-   steps.
+steps.
 
-   1. Open the `resolv.conf` file in vi
-      using the following command.
+    1. Open the `resolv.conf` file in vi
+     using the following command.
 
-   ```
-   sudo vi /etc/resolv.conf
-   ```
-   2. Update the `resolv.conf` file in vi
-      using the following command.
 
-   ```
-   search `localdomain-name`
-   options timeout:2 attempts:5
-   nameserver `dnsserver-value`
-   ```
 
-   The following example shows an edited
-   `resolv.conf` file.
+    ```
+    sudo vi /etc/resolv.conf
+    ```
+    2. Update the `resolv.conf` file in vi
+     using the following command.
 
-   ```
-   search vsphere.local
-   options timeout:2 attempts:5
-   nameserver 192.168.1.1
-   ```
+
+
+    ```
+    search `localdomain-name`
+    options timeout:2 attempts:5
+    nameserver `dnsserver-value`
+    ```
+
+    The following example shows an edited
+     `resolv.conf` file.
+
+
+
+    ```
+    search vsphere.local
+    options timeout:2 attempts:5
+    nameserver 192.168.1.1
+    ```
 
 6. Enable the network interface, by entering the following
-   command.
+command.
 
 ```
 sudo /sbin/ifup eth0

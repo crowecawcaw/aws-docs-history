@@ -52,7 +52,7 @@ aws discovery stop-continuous-export --export-id `<export ID>`
     ```
 
 4. Enter the follow command to ensure that Continuous Export has stopped by verifying its return
-   status is "INACTIVE":
+status is "INACTIVE":
 
 ```
 aws discovery describe-continuous-export
