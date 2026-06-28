@@ -245,8 +245,8 @@ Set the `$ORDERER` environment variable for convenience. Replace
 `orderer.n-MWY63ZJZU5HGNCMBQER7IN6OIU.managedblockchain.`MyRegion`.amazonaws.com:`30001``with the 
  `OrderingServiceEndpoint` returned by the `aws managedblockchain get-network` command and listed 
  on the network details page of the AMB Access console. Replace 
-``MyRegion``with the AWS 
- Region you are using—for example,`us-east-1`.
+``MyRegion`` with the AWS
+Region you are using—for example, `us-east-1`.
 
 ```
 export ORDERER=`orderer.n-MWY63ZJZU5HGNCMBQER7IN6OIU.managedblockchain.`MyRegion`.amazonaws.com:`30001``

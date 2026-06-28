@@ -313,13 +313,12 @@ docker exec -e "CORE_PEER_TLS_ENABLED=true" \
 -e "CORE_PEER_MSPCONFIGPATH=/opt/home/admin-msp"
 ```
 
-2.  Running the Hyperledger Fabric CLI `package` command on the client packages the chaincode and writes the package to a file. The following example demonstrates a `package` command using the following flags:
+2. Running the Hyperledger Fabric CLI `package` command on the client packages the chaincode and writes the package to a file. The following example demonstrates a `package` command using the following flags:
 
-        * The `-p` flag specifies the location of the chaincode on the client machine. When installing Java chaincode, this must be an absolute path.
-        * The `-l` flag specifies that the chaincode language is `java`.
-        * The `--label` flag specifies the package label, which is a human-readable description of the package.
-
-    For more information about options, see [peer lifecycle chaincode package](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerlifecycle.html#peer-lifecycle-chaincode-package "https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerlifecycle.html#peer-lifecycle-chaincode-package") in Hyperledger Fabric documentation.
+   - The `-p` flag specifies the location of the chaincode on the client machine. When installing Java chaincode, this must be an absolute path.
+   - The `-l` flag specifies that the chaincode language is `java`.
+   - The `--label` flag specifies the package label, which is a human-readable description of the package.
+     For more information about options, see [peer lifecycle chaincode package](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerlifecycle.html#peer-lifecycle-chaincode-package "https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerlifecycle.html#peer-lifecycle-chaincode-package") in Hyperledger Fabric documentation.
 
 ```
 cli peer lifecycle chaincode package `./abstorejava.tar.gz` \
@@ -340,21 +339,20 @@ cli peer lifecycle chaincode install `abstorejava.tar.gz`
 cli peer lifecycle chaincode queryinstalled
 ```
 
-5.  Running the Hyperledger Fabric CLI `approveformyorg` command on the client approves the chaincode definition for your organization. The following example demonstrates an `approveformyorg` command.
+5. Running the Hyperledger Fabric CLI `approveformyorg` command on the client approves the chaincode definition for your organization. The following example demonstrates an `approveformyorg` command.
 
-        * The `-o` flag specifies the ordering service endpoint for the member.
-        * The `--tls` flag specifies that communication with the ordering service uses TLS.
-        * The `--cafile` flag specifies the location of the certificate for the ordering
-         service that you copied when you set up the Hyperledger Fabric
-         admin. For more information, see [step 5.1](get-started-enroll-admin.md#get-started-enroll-member-create-cert "get-started-enroll-admin.md#get-started-enroll-member-create-cert")
-         in the
-         [Getting Started](managed-blockchain-get-started-tutorial.md "managed-blockchain-get-started-tutorial.md") tutorial.
-        * The `-C` flag specifies the channel on which to approve the chaincode.
-        * The `-n` and `-v` options establish the name and version of the chaincode.
-        * The `--sequence` flag specifies the sequence number of the chaincode definition for the channel.
-        * The `--package-id` flag specifies the identifier of the chaincode install package. This value is returned by the `queryinstalled` command in the previous step.
-
-    For more information about options, see [peer lifecycle chaincode approveformyorg](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerlifecycle.html#peer-lifecycle-chaincode-approveformyorg "https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerlifecycle.html#peer-lifecycle-chaincode-approveformyorg") in Hyperledger Fabric documentation.
+   - The `-o` flag specifies the ordering service endpoint for the member.
+   - The `--tls` flag specifies that communication with the ordering service uses TLS.
+   - The `--cafile` flag specifies the location of the certificate for the ordering
+     service that you copied when you set up the Hyperledger Fabric
+     admin. For more information, see [step 5.1](get-started-enroll-admin.md#get-started-enroll-member-create-cert "get-started-enroll-admin.md#get-started-enroll-member-create-cert")
+     in the
+     [Getting Started](managed-blockchain-get-started-tutorial.md "managed-blockchain-get-started-tutorial.md") tutorial.
+   - The `-C` flag specifies the channel on which to approve the chaincode.
+   - The `-n` and `-v` options establish the name and version of the chaincode.
+   - The `--sequence` flag specifies the sequence number of the chaincode definition for the channel.
+   - The `--package-id` flag specifies the identifier of the chaincode install package. This value is returned by the `queryinstalled` command in the previous step.
+     For more information about options, see [peer lifecycle chaincode approveformyorg](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerlifecycle.html#peer-lifecycle-chaincode-approveformyorg "https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerlifecycle.html#peer-lifecycle-chaincode-approveformyorg") in Hyperledger Fabric documentation.
 
 ```
 cli peer lifecycle chaincode approveformyorg \
