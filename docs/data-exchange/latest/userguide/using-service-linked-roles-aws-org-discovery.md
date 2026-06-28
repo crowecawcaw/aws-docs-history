@@ -22,9 +22,8 @@ assume the role:
 
 - Resources:
 
-      + All resources (`*`)
-
-  For more information about the `AWSDataExchangeServiceRolePolicyForOrganizationDiscovery` role, see [AWS managed policy: AWSDataExchangeServiceRolePolicyForOrganizationDiscovery](security-iam-awsmanpol.md#security-iam-awsmanpol-awsdataexchangeservicerolepolicyfororganizationdiscovery "security-iam-awsmanpol.md#security-iam-awsmanpol-awsdataexchangeservicerolepolicyfororganizationdiscovery").
+  - All resources (`*`)
+    For more information about the `AWSDataExchangeServiceRolePolicyForOrganizationDiscovery` role, see [AWS managed policy: AWSDataExchangeServiceRolePolicyForOrganizationDiscovery](security-iam-awsmanpol.md#security-iam-awsmanpol-awsdataexchangeservicerolepolicyfororganizationdiscovery "security-iam-awsmanpol.md#security-iam-awsmanpol-awsdataexchangeservicerolepolicyfororganizationdiscovery").
 
 For more information about using the `AWSServiceRoleForAWSDataExchangeOrganizationDiscovery` service-linked role, see
 [Using service-linked roles for AWS Data Exchange](using-service-linked-roles-adx.md "using-service-linked-roles-adx.md") earlier in this section.

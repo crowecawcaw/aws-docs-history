@@ -134,8 +134,8 @@ For more information, see [Data dictionaries in AWS Data Exchange](data-dictiona
     6. Choose **Save**.
 
 8. Under **Product definition**, enter a **Short
-   description** and a **Long description** of
-   your product.
+description** and a **Long description** of
+your product.
 
 If you want to use a template for your long description, select
 **Apply template**, choose your template type, and then
@@ -180,10 +180,9 @@ provide your specific product details in the template. 9. Choose **Next**. 10. C
     	6. Choose **Next**.
 
 11. In the **Review & publish** section, review your
-    product information and then expand the **Product page
-    preview** to see how it will look after it’s published.
-12. If you're sure that you want to make the product and public offer visible
-    and available to everyone, choose **Publish**.
+product information and then expand the **Product page
+preview** to see how it will look after it’s published. 12. If you're sure that you want to make the product and public offer visible
+and available to everyone, choose **Publish**.
 
 You've now completed the manual portion of publishing a data product with a public
 offer. AWS Data Exchange prepares and publishes your product. On the **Product
@@ -277,13 +276,12 @@ for Lake Formation data sets (Preview) with active subscribers to that product.
   published products containing AWS Lake Formation data sets. If you delete or modify
   such IAM roles, the following issues occur:
 
-      + AWS accounts that have access to the Lake Formation data permissions might
-       retain access indefinitely.
-      + AWS accounts that subscribe to your product but have not yet
-       received access to the Lake Formation data permissions will fail to receive
-       access.
-
-  AWS Data Exchange will not be liable for any IAM roles that you delete or modify.
+  - AWS accounts that have access to the Lake Formation data permissions might
+    retain access indefinitely.
+  - AWS accounts that subscribe to your product but have not yet
+    received access to the Lake Formation data permissions will fail to receive
+    access.
+    AWS Data Exchange will not be liable for any IAM roles that you delete or modify.
 
 - We recommend that you don’t revoke granted AWS Lake Formation data permissions from
   IAM roles passed to AWS Data Exchange in published product containing AWS Lake Formation data

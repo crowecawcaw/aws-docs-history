@@ -61,10 +61,9 @@ offer](subscribe-to-byos-offer.md "subscribe-to-byos-offer.md")), you see those 
      **Select metered cost** and then enter the number of units to
      display an example of the cost.
 
-5. In the top right corner, choose **Continue to subscribe**.
-6. Choose your preferred price and duration combination, choose whether to enable
-   auto-renewal for the subscription, and review the oﬀer details, including the
-   DSA.
+5. In the top right corner, choose **Continue to subscribe**. 6. Choose your preferred price and duration combination, choose whether to enable
+auto-renewal for the subscription, and review the oﬀer details, including the
+DSA.
 
 ###### Note
 

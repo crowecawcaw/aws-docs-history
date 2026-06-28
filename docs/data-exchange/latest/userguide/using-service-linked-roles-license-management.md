@@ -20,9 +20,8 @@ assume the role:
 
 - Resources:
 
-      + All resources (`*`)
-
-  For more information about the `AWSDataExchangeServiceRolePolicyForLicenseManagement` role, see [AWS managed policy: AWSDataExchangeServiceRolePolicyForLicenseManagement](security-iam-awsmanpol.md#security-iam-awsmanpol-awsdataexchangeservicerolepolicyforlicensemanagement "security-iam-awsmanpol.md#security-iam-awsmanpol-awsdataexchangeservicerolepolicyforlicensemanagement").
+  - All resources (`*`)
+    For more information about the `AWSDataExchangeServiceRolePolicyForLicenseManagement` role, see [AWS managed policy: AWSDataExchangeServiceRolePolicyForLicenseManagement](security-iam-awsmanpol.md#security-iam-awsmanpol-awsdataexchangeservicerolepolicyforlicensemanagement "security-iam-awsmanpol.md#security-iam-awsmanpol-awsdataexchangeservicerolepolicyforlicensemanagement").
 
 For more information about using the `AWSServiceRoleForAWSDataExchangeLicenseManagement` service-linked role, see
 [Using service-linked roles for AWS Data Exchange](using-service-linked-roles-adx.md "using-service-linked-roles-adx.md").

@@ -261,16 +261,16 @@ the conditions when a policy should take effect. With AWS Data Exchange, the
 `CancelJob` API operations support conditional permissions. You
 can provide permissions at the `JobType` level.
 
-| AWS Data Exchange condition key reference                                             | Condition key                                                                      | Description | Type |
-| ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ----------- | ---- |
-| `"dataexchange:JobType":"IMPORT_ASSETS_FROM_S3"`                                      | Scopes permissions to jobs that import assets from<br>Amazon S3.                   | String      |
-| ``"dataexchange:JobType":IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY"`<br>(Preview)` | Scopes permissions to jobs that import assets from AWS Lake Formation<br>(Preview) | String      |
-| `"dataexchange:JobType":"IMPORT_ASSET_FROM_SIGNED_URL"`                               | Scopes permissions to jobs that import assets from a signed<br>URL.                | String      |
-| `"dataexchange:JobType":"IMPORT_ASSET_FROM_REDSHIFT_DATA_SHARES"`                     | Scopes permissions to jobs that import assets from<br>Amazon Redshift.             | String      |
-| `"dataexchange:JobType":"IMPORT_ASSET_FROM_API_GATEWAY_API"`                          | Scopes permissions to jobs that import assets from<br>Amazon API Gateway.          | String      |
-| `"dataexchange:JobType":"EXPORT_ASSETS_TO_S3"`                                        | Scopes permissions to jobs that export assets to<br>Amazon S3.                     | String      |
-| `"dataexchange:JobType":"EXPORT_ASSETS_TO_SIGNED_URL"`                                | Scopes permissions to jobs that export assets to a signed<br>URL.                  | String      |
-| `"dataexchange:JobType":EXPORT_REVISIONS_TO_S3"`                                      | Scopes permissions to jobs that export revisions to<br>Amazon S3.                  | String      |
+AWS Data Exchange condition key reference| Condition key | Description | Type |
+| --- | --- | --- |
+| `"dataexchange:JobType":"IMPORT_ASSETS_FROM_S3"` | Scopes permissions to jobs that import assets from<br>Amazon S3. | String |
+| ``"dataexchange:JobType":IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY"`<br>(Preview)` | Scopes permissions to jobs that import assets from AWS Lake Formation<br>(Preview) | String |
+| `"dataexchange:JobType":"IMPORT_ASSET_FROM_SIGNED_URL"` | Scopes permissions to jobs that import assets from a signed<br>URL. | String |
+| `"dataexchange:JobType":"IMPORT_ASSET_FROM_REDSHIFT_DATA_SHARES"` | Scopes permissions to jobs that import assets from<br>Amazon Redshift. | String |
+| `"dataexchange:JobType":"IMPORT_ASSET_FROM_API_GATEWAY_API"` | Scopes permissions to jobs that import assets from<br>Amazon API Gateway. | String |
+| `"dataexchange:JobType":"EXPORT_ASSETS_TO_S3"` | Scopes permissions to jobs that export assets to<br>Amazon S3. | String |
+| `"dataexchange:JobType":"EXPORT_ASSETS_TO_SIGNED_URL"` | Scopes permissions to jobs that export assets to a signed<br>URL. | String |
+| `"dataexchange:JobType":EXPORT_REVISIONS_TO_S3"` | Scopes permissions to jobs that export revisions to<br>Amazon S3. | String |
 
 For more information about specifying conditions in a policy language, see
 [Condition](../../../IAM/latest/UserGuide/reference_policies_elements.md#Condition "../../../IAM/latest/UserGuide/reference_policies_elements.md#Condition") in the _IAM User Guide_.

@@ -102,13 +102,13 @@ websites in your AWS Data Exchange product description.
    - To link to a file stored in an S3 bucket:
 
    \*\*\_[`File name`](`Object URL from
- Amazon S3`)\_\*\*
+  Amazon S3`)\_\*\*
 
    `Description of the object`.
    - To link to a trial product listing on AWS Data Exchange:
 
    \*\*\_[`Website
-   Title]`(`URL`)\_\*\*
+  Title]`(`URL`)\_\*\*
 
    `Description of the website`.
 

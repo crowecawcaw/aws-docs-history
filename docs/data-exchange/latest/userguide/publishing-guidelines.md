@@ -53,27 +53,22 @@ information.
      Act of 1996 (HIPAA).
 
 4. You should carefully consider how subscribers may and may not use your data products,
-   and you should clearly include this information in your Data Subscription Agreement
-   (DSA).
-5. Product listing descriptions must be accurate, contain valid contact information, and
-   note if any data has been aggregated or anonymized.
-6. You may not use AWS Data Exchange to provide or otherwise make accessible or available Bulk U.S. Sensitive Personal Data, including, deidentified, key coded, or anonymized data, or U.S. Government-related Data to Countries of Concern or Covered Persons as each is defined in the U.S. Department of Justice Final Rule implementing Executive Order 14117, Preventing Access to Americans’ Bulk Sensitive Personal Data and United States Government-Related Data by Countries of Concern, available [here](https://www.federalregister.gov/documents/2025/01/08/2024-31486/preventing-access-to-us-sensitive-personal-data-and-government-related-data-by-countries-of-concern "https://www.federalregister.gov/documents/2025/01/08/2024-31486/preventing-access-to-us-sensitive-personal-data-and-government-related-data-by-countries-of-concern").
-7. You may not use AWS Data Exchange to promote any other products or solutions not listed on AWS Marketplace,
-   except for products or solutions that are not compatible with AWS Marketplace.
-8. You are limited to distributing data sets that meet the legal eligibility requirements
-   set forth in the Terms and Conditions for AWS Marketplace Sellers. If you breach these terms in any
-   way, the prohibited product is removed from AWS Data Exchange and you might be suspended from the
-   service.
-9. If you're listing an API data set in a product:
+and you should clearly include this information in your Data Subscription Agreement
+(DSA). 5. Product listing descriptions must be accurate, contain valid contact information, and
+note if any data has been aggregated or anonymized. 6. You may not use AWS Data Exchange to provide or otherwise make accessible or available Bulk U.S. Sensitive Personal Data, including, deidentified, key coded, or anonymized data, or U.S. Government-related Data to Countries of Concern or Covered Persons as each is defined in the U.S. Department of Justice Final Rule implementing Executive Order 14117, Preventing Access to Americans’ Bulk Sensitive Personal Data and United States Government-Related Data by Countries of Concern, available [here](https://www.federalregister.gov/documents/2025/01/08/2024-31486/preventing-access-to-us-sensitive-personal-data-and-government-related-data-by-countries-of-concern "https://www.federalregister.gov/documents/2025/01/08/2024-31486/preventing-access-to-us-sensitive-personal-data-and-government-related-data-by-countries-of-concern"). 7. You may not use AWS Data Exchange to promote any other products or solutions not listed on AWS Marketplace,
+except for products or solutions that are not compatible with AWS Marketplace. 8. You are limited to distributing data sets that meet the legal eligibility requirements
+set forth in the Terms and Conditions for AWS Marketplace Sellers. If you breach these terms in any
+way, the prohibited product is removed from AWS Data Exchange and you might be suspended from the
+service. 9. If you're listing an API data set in a product:
 
-   - You must first integrate your API with Amazon API Gateway. For more information about how to
-     integrate your REST API with API Gateway, see [Working with REST APIs](../../../apigateway/latest/developerguide/apigateway-rest-api.md "../../../apigateway/latest/developerguide/apigateway-rest-api.md") in the _API Gateway Developer Guide_.
-   - You must respond to support-related questions from subscribers about the data
+    * You must first integrate your API with Amazon API Gateway. For more information about how to
+     integrate your REST API with API Gateway, see [Working with REST APIs](../../../apigateway/latest/developerguide/apigateway-rest-api.md "../../../apigateway/latest/developerguide/apigateway-rest-api.md") in the *API Gateway Developer Guide*.
+    * You must respond to support-related questions from subscribers about the data
      product in 1 business day. Not following this guideline may result in your products
      being removed from AWS Data Exchange.
 
 10. Logos, DSAs, and other attachments added to your product might be stored separately from
-    where your actual data products sits.
+where your actual data products sits.
 
 ###### Note
 

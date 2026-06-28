@@ -17,7 +17,7 @@ provider-generated notifications:
       scratch**.
    3. Provide a function name and select **Python 3.10** as the
       **runtime**. Choose **Create function**.
-   4. Enter the following code for **lambda_function.py**:
+   4. Enter the following code for **lambda\_function.py**:
 
    ```
    import json

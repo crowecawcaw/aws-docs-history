@@ -38,7 +38,8 @@ containing at least one asset. For more information, see [Data in AWS Data Excha
    **Owned data sets**.
 3. In **Owned data sets**, choose **Create data set**
    to open the **Data set creation steps** wizard.
-4. In **Select data set type**, choose \***\*Files\*\***.
+4. In **Select data set type**, choose
+   ****Files****.
 5. In **Define data set**, enter a **Name** and
    **Description** for your data set. For more information, see [Data set best practices](data-sets.md#data-set-best-practices "data-sets.md#data-set-best-practices").
 6. (Optional) Under **Add tags – optional**, add tags.

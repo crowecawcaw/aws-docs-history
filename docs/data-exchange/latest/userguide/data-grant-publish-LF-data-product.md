@@ -161,12 +161,11 @@ sets (Preview).
   containing AWS Lake Formation data sets. If you delete or modify such IAM roles, the following
   issues occur:
 
-      + AWS accounts that have access to the Lake Formation data permissions might retain access
-       indefinitely.
-      + AWS accounts that are the receivers of your data grant but have not yet received
-       access to the Lake Formation data permissions will fail to receive access.
-
-  AWS Data Exchange will not be liable for any IAM roles that you delete or modify.
+  - AWS accounts that have access to the Lake Formation data permissions might retain access
+    indefinitely.
+  - AWS accounts that are the receivers of your data grant but have not yet received
+    access to the Lake Formation data permissions will fail to receive access.
+    AWS Data Exchange will not be liable for any IAM roles that you delete or modify.
 
 - We recommend that you don’t revoke granted AWS Lake Formation data permissions from IAM roles
   passed to AWS Data Exchange in data grants containing AWS Lake Formation data sets. If you revoke granted

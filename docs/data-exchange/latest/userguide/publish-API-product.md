@@ -568,57 +568,57 @@ AWS Marketplace Catalog API, see [Using AWS Data Exchange with the AWS Marketpla
 
 ###### To publish a new product containing APIs
 
-1.  From the left navigation pane of the [AWS Data Exchange console](https://console.aws.amazon.com/dataexchange "https://console.aws.amazon.com/dataexchange"), under **Publish
-    data**, choose **Products**.
-2.  From **Products**, choose **Publish new
-    product** to open the **Publish new
-    product** wizard.
-3.  In **Product visibility**:
+1. From the left navigation pane of the [AWS Data Exchange console](https://console.aws.amazon.com/dataexchange "https://console.aws.amazon.com/dataexchange"), under **Publish
+   data**, choose **Products**.
+2. From **Products**, choose **Publish new
+   product** to open the **Publish new
+   product** wizard.
+3. In **Product visibility**:
 
-    1. Choose your product's **Product visibility
-       options** as either **Public** or
-       **Private**.
+   1. Choose your product's **Product visibility
+      options** as either **Public** or
+      **Private**.
 
-    All AWS Data Exchange products with visibility set to
-    **Public** require a public offer.
+   All AWS Data Exchange products with visibility set to
+   **Public** require a public offer.
 
-    For more information, see [Product visibility in AWS Data Exchange](product-visibility.md "product-visibility.md"). 2. Choose your product's **Sensitive
-    information** configuration.
+   For more information, see [Product visibility in AWS Data Exchange](product-visibility.md "product-visibility.md"). 2. Choose your product's **Sensitive
+   information** configuration.
 
-    For more information, see [Sensitive categories of information in AWS Data Exchange](sensitive-information.md "sensitive-information.md"). 3. Choose **Next**.
+   For more information, see [Sensitive categories of information in AWS Data Exchange](sensitive-information.md "sensitive-information.md"). 3. Choose **Next**.
 
-4.  In **Add data**:
+4. In **Add data**:
 
-    1. Under **Owned data sets**, select the check
-       boxes next to the data sets you want to add, and then choose
-       **Add selected**.
+   1. Under **Owned data sets**, select the check
+      boxes next to the data sets you want to add, and then choose
+      **Add selected**.
 
-    ###### Note
+   ###### Note
 
-    The data sets you choose must have a finalized revision.
-    Data sets without finalized revisions aren't added. 2. Go to **Selected data sets** to review your
-    selections.
+   The data sets you choose must have a finalized revision.
+   Data sets without finalized revisions aren't added. 2. Go to **Selected data sets** to review your
+   selections.
 
-    You can review the **Name** of the data set,
-    the **Type** of data set, and the timestamp of
-    when the data set was **Last updated**. 3. Go to **Select revision access rules**, and
-    choose the revision access rules that you want to set for data
-    sets included in this product.
+   You can review the **Name** of the data set,
+   the **Type** of data set, and the timestamp of
+   when the data set was **Last updated**. 3. Go to **Select revision access rules**, and
+   choose the revision access rules that you want to set for data
+   sets included in this product.
 
-    For more information, see [Revision access rules in AWS Data Exchange](best-practices-revisions.md "best-practices-revisions.md"). 4. Choose **Next**.
+   For more information, see [Revision access rules in AWS Data Exchange](best-practices-revisions.md "best-practices-revisions.md"). 4. Choose **Next**.
 
-5.  In **Define product**:
+5. In **Define product**:
 
-    1. Under **Product overview**, enter information
-       about your product, including the **Product
-       name**, **Product logo**,
-       **Support contact** information, and
-       **Product categories**.
+   1. Under **Product overview**, enter information
+      about your product, including the **Product
+      name**, **Product logo**,
+      **Support contact** information, and
+      **Product categories**.
 
-    For more information, see [Product best practices in AWS Data Exchange](product-details.md "product-details.md"). 2. (Optional) Under **Data dictionaries and samples –
-    optional**, choose a data set by selecting the
-    option button next to the data set name and then choose
-    **Edit**.
+   For more information, see [Product best practices in AWS Data Exchange](product-details.md "product-details.md"). 2. (Optional) Under **Data dictionaries and samples –
+   optional**, choose a data set by selecting the
+   option button next to the data set name and then choose
+   **Edit**.
 
         1. In the **Edit** dialog box, choose
          **Upload** to upload a new data
@@ -665,9 +665,9 @@ AWS Marketplace Catalog API, see [Using AWS Data Exchange with the AWS Marketpla
          visible on the product detail page.
         6. Choose **Save**.
 
-6.  Under **Product definition**, enter a **Short
-    description** and a **Long description**
-    of your product.
+6. Under **Product definition**, enter a **Short
+   description** and a **Long description**
+   of your product.
 
 If you want to use a template for your long description, select
 **Apply template**, choose your template type, and
@@ -778,16 +778,16 @@ All AWS Data Exchange products with visibility set to **Public** require a publi
     8. Choose **Next**.
 
 9. In the **Review & publish** section, review your
-   product information.
+product information.
 
-   1. Expand the **Product page preview** to see
-      how the product page will look after publication.
-   2. (Optional) Choose the **Edit** button in any
-      section to edit that section.
+    1. Expand the **Product page preview** to see
+     how the product page will look after publication.
+    2. (Optional) Choose the **Edit** button in any
+     section to edit that section.
 
 10. If you're sure that you want to make the product and public offer
-    visible and available to everyone, choose
-    **Publish**.
+visible and available to everyone, choose
+**Publish**.
 
 You've now completed the manual portion of publishing a data product with a
 public offer. AWS Data Exchange prepares and publishes your product.

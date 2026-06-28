@@ -161,10 +161,10 @@ without finalized revisions won't be added.
     For more details, see [Revision access rules in AWS Data Exchange](best-practices-revisions.md "best-practices-revisions.md").
 
 5. In the **Define product** section, under
-   **Product overview**, enter information about your
-   product, including the **Product name**, **Product
-   logo**, **Support contact** information, and
-   **Product categories**.
+**Product overview**, enter information about your
+product, including the **Product name**, **Product
+logo**, **Support contact** information, and
+**Product categories**.
 
 For more information, see [Product best practices in AWS Data Exchange](product-details.md "product-details.md"). 6. (Optional) In the **Define product** section, under
 **Data dictionaries and samples – optional**, choose a
@@ -215,8 +215,8 @@ For more information, see [Data dictionaries in AWS Data Exchange](data-dictiona
     6. Choose **Save**.
 
 7. Under **Product definition**, enter a **Short
-   description** and a **Long description** of
-   your product.
+description** and a **Long description** of
+your product.
 
 If you want to use a template for your long description, select
 **Apply template**, choose your template type, and then
@@ -262,10 +262,9 @@ fill out the template with your specific product details. 8. Choose **Next**. 9.
     	6. Choose **Next**.
 
 10. In the **Review & publish** section, review your
-    product information and then expand the **Product page
-    preview** to see how it will look after it’s published.
-11. If you're sure that you want to make the product and public offer visible
-    and available to everyone, choose **Publish**.
+product information and then expand the **Product page
+preview** to see how it will look after it’s published. 11. If you're sure that you want to make the product and public offer visible
+and available to everyone, choose **Publish**.
 
 You've now completed the manual portion of publishing a data product with a public
 offer. AWS Data Exchange prepares and publishes your product. On the **Product

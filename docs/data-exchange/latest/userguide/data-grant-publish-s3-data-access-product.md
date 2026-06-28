@@ -33,191 +33,161 @@ following prerequisites:
   with Amazon S3 managed keys (SSE-S3) or customer managed keys stored in AWS Key Management Service (AWS KMS).
 - If you're using customer managed keys, you must have the following:
 
-      1. IAM permissions to `kms:CreateGrant` on the KMS keys. You can
-       access these permissions through the key policy, IAM credentials, or through an
-       AWS KMS grant on the KMS key. For more information about key management and
-       understanding how AWS Data Exchange uses AWS KMS grants, see [Creating AWS KMS grants](key-management.md#create-kms-grants "key-management.md#create-kms-grants").
+  1.  IAM permissions to `kms:CreateGrant` on the KMS keys. You can
+      access these permissions through the key policy, IAM credentials, or through an
+      AWS KMS grant on the KMS key. For more information about key management and
+      understanding how AWS Data Exchange uses AWS KMS grants, see [Creating AWS KMS grants](key-management.md#create-kms-grants "key-management.md#create-kms-grants").
+
+  To provide access, add permissions to your users, groups, or roles:
+
+        + Users and groups in AWS IAM Identity Center:
 
 
-      To provide access, add permissions to your users, groups, or roles:
+        Create a permission set. Follow the instructions in [Create a permission set](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md") in the *AWS IAM Identity Center User Guide*.
+        + Users managed in IAM through an identity provider:
 
 
-
-
-      	+ Users and groups in AWS IAM Identity Center:
-
-
-      	Create a permission set. Follow the instructions in [Create a permission set](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md") in the *AWS IAM Identity Center User Guide*.
-      	+ Users managed in IAM through an identity provider:
-
-
-      	Create a role for identity federation. Follow the instructions in [Create a role for a third-party identity provider (federation)](../../../IAM/latest/UserGuide/id_roles_create_for-idp.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp.md")
-      	 in the *IAM User Guide*.
-      	+ IAM users:
+        Create a role for identity federation. Follow the instructions in [Create a role for a third-party identity provider (federation)](../../../IAM/latest/UserGuide/id_roles_create_for-idp.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp.md")
+         in the *IAM User Guide*.
+        + IAM users:
 
 
 
 
-      		- Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the *IAM User Guide*.
-      		- (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the *IAM User Guide*.
-      Users need programmatic access if they want to interact with AWS outside of the AWS Management Console. The way to grant programmatic access depends on the type of user that's accessing AWS.
+        	- Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the *IAM User Guide*.
+        	- (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the *IAM User Guide*.
+
+  Users need programmatic access if they want to interact with AWS outside of the AWS Management Console. The way to grant programmatic access depends on the type of user that's accessing AWS.
+
+  To grant users programmatic access, choose one of the following options.
+
+  | Which user needs programmatic access?                        | To                                                                                                                                  | By                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+  | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | IAM                                                          | (Recommended) Use console credentials as temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs. | Following the instructions for the interface that you want to use.<br>+ For the AWS CLI, see [Login for AWS local development](../../../cli/latest/userguide/cli-configure-sign-in.md "../../../cli/latest/userguide/cli-configure-sign-in.md") in<br>the _AWS Command Line Interface User Guide_.<br>+ For AWS SDKs, see [Login for AWS local development](../../../sdkref/latest/guide/access-login.md "../../../sdkref/latest/guide/access-login.md") in the<br>_AWS SDKs and Tools Reference Guide_.                                                                                                                                                                                                                                                             |
+  | Workforce identity<br>(Users managed in IAM Identity Center) | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or<br>AWS APIs.                                   | Following the instructions for the interface that you want to use.<br>+ For the AWS CLI, see [Configuring the AWS CLI to use AWS IAM Identity Center](../../../cli/latest/userguide/cli-configure-sso.md "../../../cli/latest/userguide/cli-configure-sso.md") in the<br>_AWS Command Line Interface User Guide_.<br>+ For AWS SDKs, tools, and AWS APIs, see [IAM Identity Center<br>authentication](../../../sdkref/latest/guide/access-sso.md "../../../sdkref/latest/guide/access-sso.md") in the _AWS SDKs and Tools Reference Guide_.                                                                                                                                                                                                                          |
+  | IAM                                                          | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or<br>AWS APIs.                                   | Following the instructions in [Using temporary<br>credentials with AWS resources](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md") in the _IAM User Guide_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+  | IAM                                                          | (Not recommended)Use long-term credentials to sign programmatic requests<br>to the AWS CLI, AWS SDKs, or AWS APIs.                  | Following the instructions for the interface that you want to use.<br>+ For the AWS CLI, see [Authenticating using IAM user credentials](../../../cli/latest/userguide/cli-authentication-user.md "../../../cli/latest/userguide/cli-authentication-user.md") in<br>the _AWS Command Line Interface User Guide_.<br>+ For AWS SDKs and tools, see [Authenticate using long-term credentials](../../../sdkref/latest/guide/access-iam-users.md "../../../sdkref/latest/guide/access-iam-users.md") in the<br>_AWS SDKs and Tools Reference Guide_.<br>+ For AWS APIs, see [Managing access keys for<br>IAM users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") in the _IAM User Guide_. |
+
+  Following is an example JSON policy that shows how you could add to the key policy
+  of the KMS key.
+
+  ```
+
+  {
+        "Sid": "AllowCreateGrantPermission",
+        "Effect": "Allow",
+        "Principal": {
+  "AWS": "<IAM identity who will call Dataexchange API>"
+        },
+        "Action": "kms:CreateGrant",
+        "Resource": "*"
+  }
+
+  ```
+
+  The following policy shows an example policy addition for the IAM identity that
+  is used.
+
+  JSON
+
+  ```
+  `{
+   "Version":"2012-10-17",
+   "Statement": [
+   {
+   "Effect": "Allow",
+   "Sid": "AllowCreateGrantPermission",
+   "Action": [
+   "kms:CreateGrant"
+   ],
+   "Resource": [
+   "arn:aws:kms:`us-east-1`:`111122223333`:key/`KeyId`"
+   ]
+   }
+   ]
+  }`
+
+  ```
+
+  ###### Note
+
+  Cross account KMS keys are also permitted if the `kms:CreateGrant`
+  permission on the KMS keys are obtained through the earlier step. If another
+  account owns the key, you must have permissions on the key policy and your IAM
+  credentials as detailed in the above examples. 2. Make sure to use KMS keys to encrypt existing and new objects in the
+  Amazon S3 bucket using the Amazon S3 bucket key feature. For more
+  details, see [Configuring S3
+  Bucket Keys](../../../AmazonS3/latest/userguide/bucket-key.md#configure-bucket-key "../../../AmazonS3/latest/userguide/bucket-key.md#configure-bucket-key") in the _Amazon Simple Storage Service User Guide_.
+
+        + For new objects added to your Amazon S3 bucket, you can set up
+         Amazon S3 bucket key encryption by default. If existing objects have been
+         encrypted without using the Amazon S3bucket key feature, these objects
+         must be migrated to use the Amazon S3 bucket key for encryption.
 
 
-      To grant users programmatic access, choose one of the following options.
+        To enable the Amazon S3 bucket key for existing objects, use the
+         `copy` operation. For more information, see [Configuring
+         an Amazon S3 bucket key at the object level using batch
+         operations](../../../AmazonS3/latest/userguide/configuring-bucket-key-object.md "../../../AmazonS3/latest/userguide/configuring-bucket-key-object.md").
+        + AWS managed KMS keys or AWS owned keys aren't supported. You can migrate
+         from an unsupported encryption scheme to the ones currently supported. For more
+         information, see [Changing your Amazon S3 encryption](https://aws.amazon.com/blogs/storage/changing-your-amazon-s3-encryption-from-s3-managed-encryption-sse-s3-to-aws-key-management-service-sse-kms/ "https://aws.amazon.com/blogs/storage/changing-your-amazon-s3-encryption-from-s3-managed-encryption-sse-s3-to-aws-key-management-service-sse-kms/") at the AWS Storage Blog.
 
+  3. Set the Amazon S3 buckets hosting the data to trust AWS Data Exchange owned access points. You must
+  update these Amazon S3 bucket policies to give AWS Data Exchange permissions to create Amazon S3 access
+  points and grant or remove subscribers' access on your behalf. If the policy statement
+  is missing, you must edit the bucket policy to add the Amazon S3 locations to
+  your data set.
 
+  An example policy is shown below. Replace `<Bucket ARN>` with the
+  appropriate value.
 
+  JSON
 
-      | Which user needs programmatic access? | To | By |
-      | --- | --- | --- |
-      | IAM | (Recommended) Use console credentials as temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs. | Following the instructions for the interface that you want to use.<br>+ For the AWS CLI, see [Login for AWS local development](../../../cli/latest/userguide/cli-configure-sign-in.md "../../../cli/latest/userguide/cli-configure-sign-in.md") in<br>the *AWS Command Line Interface User Guide*.<br>+ For AWS SDKs, see [Login for AWS local development](../../../sdkref/latest/guide/access-login.md "../../../sdkref/latest/guide/access-login.md") in the<br>*AWS SDKs and Tools Reference Guide*. |
-      | Workforce identity<br>(Users managed in IAM Identity Center) | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or<br>AWS APIs. | Following the instructions for the interface that you want to use.<br>+ For the AWS CLI, see [Configuring the AWS CLI to use AWS IAM Identity Center](../../../cli/latest/userguide/cli-configure-sso.md "../../../cli/latest/userguide/cli-configure-sso.md") in the<br>*AWS Command Line Interface User Guide*.<br>+ For AWS SDKs, tools, and AWS APIs, see [IAM Identity Center<br>authentication](../../../sdkref/latest/guide/access-sso.md "../../../sdkref/latest/guide/access-sso.md") in the *AWS SDKs and Tools Reference Guide*. |
-      | IAM | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or<br>AWS APIs. | Following the instructions in [Using temporary<br>credentials with AWS resources](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md") in the *IAM User Guide*. |
-      | IAM | (Not recommended)Use long-term credentials to sign programmatic requests<br>to the AWS CLI, AWS SDKs, or AWS APIs. | Following the instructions for the interface that you want to use.<br>+ For the AWS CLI, see [Authenticating using IAM user credentials](../../../cli/latest/userguide/cli-authentication-user.md "../../../cli/latest/userguide/cli-authentication-user.md") in<br>the *AWS Command Line Interface User Guide*.<br>+ For AWS SDKs and tools, see [Authenticate using long-term credentials](../../../sdkref/latest/guide/access-iam-users.md "../../../sdkref/latest/guide/access-iam-users.md") in the<br>*AWS SDKs and Tools Reference Guide*.<br>+ For AWS APIs, see [Managing access keys for<br>IAM users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") in the *IAM User Guide*. |
+  ```
+  `{
+   "Version":"2012-10-17",
+   "Statement": [
+   {
+   "Effect": "Allow",
+   "Principal": {
+   "AWS": "*"
+   },
+   "Action": [
+   "s3:GetObject",
+   "s3:ListBucket"
+   ],
+   "Resource": [
+   "arn:aws:s3:::`BucketName`",
+   "arn:aws:s3:::/*"
+   ],
+   "Condition": {
+   "StringEquals": {
+   "s3:DataAccessPointAccount": [
+   "337040091392",
+   "504002150500",
+   "366362662752",
+   "330489627928",
+   "291973504423",
+   "461002523379",
+   "036905324694",
+   "540564263739",
+   "675969394711",
+   "108584782536",
+   "844053218156"
+   ]
+   }
+   }
+   }
+   ]
+  }`
 
+  ```
 
-      Following is an example JSON policy that shows how you could add to the key policy
-       of the KMS key.
-
-
-
-      ```
-
-      {
-            "Sid": "AllowCreateGrantPermission",
-            "Effect": "Allow",
-            "Principal": {
-      "AWS": "<IAM identity who will call Dataexchange API>"
-            },
-            "Action": "kms:CreateGrant",
-            "Resource": "*"
-      }
-
-      ```
-
-      The following policy shows an example policy addition for the IAM identity that
-       is used.
-
-
-
-      JSON
-
-
-
-
-
-      ```
-      `{
-       "Version":"2012-10-17",
-       "Statement": [
-       {
-       "Effect": "Allow",
-       "Sid": "AllowCreateGrantPermission",
-       "Action": [
-       "kms:CreateGrant"
-       ],
-       "Resource": [
-       "arn:aws:kms:`us-east-1`:`111122223333`:key/`KeyId`"
-       ]
-       }
-       ]
-      }`
-
-      ```
-
-
-
-
-
-      ###### Note
-
-      Cross account KMS keys are also permitted if the `kms:CreateGrant`
-       permission on the KMS keys are obtained through the earlier step. If another
-       account owns the key, you must have permissions on the key policy and your IAM
-       credentials as detailed in the above examples.
-      2. Make sure to use KMS keys to encrypt existing and new objects in the
-       Amazon S3 bucket using the Amazon S3 bucket key feature. For more
-       details, see [Configuring S3
-       Bucket Keys](../../../AmazonS3/latest/userguide/bucket-key.md#configure-bucket-key "../../../AmazonS3/latest/userguide/bucket-key.md#configure-bucket-key") in the *Amazon Simple Storage Service User Guide*.
-
-
-
-
-      	+ For new objects added to your Amazon S3 bucket, you can set up
-      	 Amazon S3 bucket key encryption by default. If existing objects have been
-      	 encrypted without using the Amazon S3bucket key feature, these objects
-      	 must be migrated to use the Amazon S3 bucket key for encryption.
-
-
-      	To enable the Amazon S3 bucket key for existing objects, use the
-      	 `copy` operation. For more information, see [Configuring
-      	 an Amazon S3 bucket key at the object level using batch
-      	 operations](../../../AmazonS3/latest/userguide/configuring-bucket-key-object.md "../../../AmazonS3/latest/userguide/configuring-bucket-key-object.md").
-      	+ AWS managed KMS keys or AWS owned keys aren't supported. You can migrate
-      	 from an unsupported encryption scheme to the ones currently supported. For more
-      	 information, see [Changing your Amazon S3 encryption](https://aws.amazon.com/blogs/storage/changing-your-amazon-s3-encryption-from-s3-managed-encryption-sse-s3-to-aws-key-management-service-sse-kms/ "https://aws.amazon.com/blogs/storage/changing-your-amazon-s3-encryption-from-s3-managed-encryption-sse-s3-to-aws-key-management-service-sse-kms/") at the AWS Storage Blog.
-      3. Set the Amazon S3 buckets hosting the data to trust AWS Data Exchange owned access points. You must
-       update these Amazon S3 bucket policies to give AWS Data Exchange permissions to create Amazon S3 access
-       points and grant or remove subscribers' access on your behalf. If the policy statement
-       is missing, you must edit the bucket policy to add the Amazon S3 locations to
-       your data set.
-
-
-      An example policy is shown below. Replace `<Bucket ARN>` with the
-       appropriate value.
-
-
-
-      JSON
-
-
-
-
-
-      ```
-      `{
-       "Version":"2012-10-17",
-       "Statement": [
-       {
-       "Effect": "Allow",
-       "Principal": {
-       "AWS": "*"
-       },
-       "Action": [
-       "s3:GetObject",
-       "s3:ListBucket"
-       ],
-       "Resource": [
-       "arn:aws:s3:::`BucketName`",
-       "arn:aws:s3:::/*"
-       ],
-       "Condition": {
-       "StringEquals": {
-       "s3:DataAccessPointAccount": [
-       "337040091392",
-       "504002150500",
-       "366362662752",
-       "330489627928",
-       "291973504423",
-       "461002523379",
-       "036905324694",
-       "540564263739",
-       "675969394711",
-       "108584782536",
-       "844053218156"
-       ]
-       }
-       }
-       }
-       ]
-      }`
-
-      ```
-
-  You can delegate data sharing through AWS Data Exchange to an entire Amazon S3 bucket. However, you can
-  scope delegation to the specific prefixes and objects of the bucket that you want to share in
-  the data set. Following is an example of a scoped policy. Replace `<Bucket ARN>`
-  and `"mybucket/folder1/*"` with your own information.
+You can delegate data sharing through AWS Data Exchange to an entire Amazon S3 bucket. However, you can
+scope delegation to the specific prefixes and objects of the bucket that you want to share in
+the data set. Following is an example of a scoped policy. Replace `<Bucket ARN>`
+and `"mybucket/folder1/*"` with your own information.
 
 JSON
 
@@ -395,32 +365,32 @@ Pays** configuration. There are two options:
      Requester Pays Buckets](../../../AmazonS3/latest/userguide/ObjectsinRequesterPaysBuckets.md "../../../AmazonS3/latest/userguide/ObjectsinRequesterPaysBuckets.md") in the *Amazon Simple Storage Service User Guide*.
 
 4. Select the **Bucket Policy** that best suits your needs. Choose
-   **General** to use one bucket policy for your entire Amazon S3 bucket.
-   This is a one-time configuration and additional configuration isn't needed to share
-   prefixes or objects in the future. Choose **Specific** to use a bucket
-   policy that is specific to the selected Amazon S3 locations. Your shared Amazon S3 bucket needs a
-   bucket policy in place to create an Amazon S3 data access data set successfully and can’t
-   have ACLs enabled.
+**General** to use one bucket policy for your entire Amazon S3 bucket.
+This is a one-time configuration and additional configuration isn't needed to share
+prefixes or objects in the future. Choose **Specific** to use a bucket
+policy that is specific to the selected Amazon S3 locations. Your shared Amazon S3 bucket needs a
+bucket policy in place to create an Amazon S3 data access data set successfully and can’t
+have ACLs enabled.
 
-   1. To disable ACLs, navigate to your bucket permissions and set **Object
-      Ownership** to **Bucket owner enforced**.
-   2. To add a bucket policy, copy the bucket statement to your clipboard. In the Amazon S3
-      console, from the **Amazon S3 permissions** tab, choose
-      **Edit** in the **bucket policy** section, paste
-      the bucket policy into the statement, and **Save changes**.
+    1. To disable ACLs, navigate to your bucket permissions and set **Object
+     Ownership** to **Bucket owner enforced**.
+    2. To add a bucket policy, copy the bucket statement to your clipboard. In the Amazon S3
+     console, from the **Amazon S3 permissions** tab, choose
+     **Edit** in the **bucket policy** section, paste
+     the bucket policy into the statement, and **Save changes**.
 
 5. If the Amazon S3 bucket contains objects encrypted using AWS KMS customer managed keys, you must
-   share all such KMS keys with AWS Data Exchange. For information about required prerequisites when
-   using KMS keys to encrypt objects in your Amazon S3 bucket, see [Publishing a product in AWS Data Exchange containing Amazon S3 data access](publish-s3-data-access-product.md "publish-s3-data-access-product.md"). To share these KMS keys with AWS Data Exchange, do
-   the following:
+share all such KMS keys with AWS Data Exchange. For information about required prerequisites when
+using KMS keys to encrypt objects in your Amazon S3 bucket, see [Publishing a product in AWS Data Exchange containing Amazon S3 data access](publish-s3-data-access-product.md "publish-s3-data-access-product.md"). To share these KMS keys with AWS Data Exchange, do
+the following:
 
-   1. From the **Configure Amazon S3 data access** page, in
-      **Customer managed KMS keys**, select **Choose from your
-      AWS KMS keys** or **Enter AWS KMS key ARN** and
-      select all **AWS KMS keys** currently being used to encrypt the
-      Amazon S3 shared locations. AWS Data Exchange uses these KMS keys to create grants for recipients
-      to access your shared locations. For more information, see [Grants in
-      AWS KMS](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md").###### Note
+    1. From the **Configure Amazon S3 data access** page, in
+     **Customer managed KMS keys**, select **Choose from your
+     AWS KMS keys** or **Enter AWS KMS key ARN** and
+     select all **AWS KMS keys** currently being used to encrypt the
+     Amazon S3 shared locations. AWS Data Exchange uses these KMS keys to create grants for recipients
+     to access your shared locations. For more information, see [Grants in
+     AWS KMS](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md").###### Note
 
 AWS KMS has a limit of 50,000 grants per KMS key including pre-existing
 grants. 6. Review your Amazon S3 locations, selected KMS keys, and configuration details, and

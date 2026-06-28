@@ -62,7 +62,8 @@ You can use the AWS License Manager console to view a single license for an AWS 
 
 1. Sign in to the [AWS Data Exchange
    console](https://console.aws.amazon.com/dataexchange "https://console.aws.amazon.com/dataexchange").
-2. Under **My subscriptions**, choose \***\*Subscriptions\*\***.
+2. Under **My subscriptions**, choose
+   ****Subscriptions****.
 3. Choose a subscription.
 4. On the next page, choose **View license** or **Distribute with License Manager**.
    What you see varies, depending on the data grant's distribution permissions.

@@ -10,7 +10,7 @@ Worldwide Event Attendance (Test Product).
 2. From the left navigation pane, under **Discover data
    products**, choose **Browse catalog**.
 3. From the search bar, enter `Worldwide Event Attendance (Test
-Product)` and press **Enter**.
+ Product)` and press **Enter**.
 4. Choose the **Worldwide Event Attendance (Test Product)** to
    view its details page.
 

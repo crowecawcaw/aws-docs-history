@@ -178,13 +178,13 @@ https://catalog.marketplace.us-east-1.amazonaws.com/DescribeChangeSet?catalog=AW
 
 The following exceptions can occur when you use the AWS Marketplace Catalog API with AWS Data Exchange:
 
-###### DATA_SET_NOT_FOUND
+###### DATA\_SET\_NOT\_FOUND
 
 This happens when the requested data set was not found. To resolve this issue, ensure that
 there's not a typo in the data set ARN and that your AWS account owns the data set, and try
 again.
 
-###### INVALID_INPUT
+###### INVALID\_INPUT
 
 The request couldn't be processed due to
 input
@@ -192,10 +192,10 @@ that isn't valid. To resolve this issue, ensure that there's not a typo in
 the request and that the product does not exceed the maximum number of allowed data
 sets.
 
-###### DATA_SET_ALREADY_PUBLISHED
+###### DATA\_SET\_ALREADY\_PUBLISHED
 
 This happens when the data set has already been previously added to the product.
 
-###### DATA_SET_DUPLICATE_PROVIDED
+###### DATA\_SET\_DUPLICATE\_PROVIDED
 
 This happens when the same data set is provided more than once in the request.

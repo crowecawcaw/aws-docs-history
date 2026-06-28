@@ -10,7 +10,7 @@ Notifications (Test Product).
 2. From the left navigation pane, under **Discover data products**,
    choose **Browse catalog**.
 3. From the search bar, enter `AWS Data Exchange Provider-Generated Notifications (Test
-Product)` and choose **Enter**.
+ Product)` and choose **Enter**.
 4. Choose **AWS Data Exchange for Provider-Generated Notifications (Test Product)** to
    view its details page.
 5. In the top right corner, choose **Continue to subscribe**.
