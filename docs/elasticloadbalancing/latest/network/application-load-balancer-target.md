@@ -194,7 +194,7 @@ now, you can't associate them later on.
 
 ###### Warning
 
-To utilize QUIC or TCP_QUIC listeners, your Network Load Balancer must have no
+To utilize QUIC or TCP\_QUIC listeners, your Network Load Balancer must have no
 security groups. 8. **Listeners and routing**
 
     1. The default is a listener that accepts TCP traffic on port 80.

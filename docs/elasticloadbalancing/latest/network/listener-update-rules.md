@@ -17,7 +17,7 @@ traffic is sent, whichever occurs first. The parameter `Connection termination o
  deregistration` is not applied when updating the listener, as it's applied
 when deregistering targets.
 
-Port updates for QUIC or TCP_QUIC listeners are not allowed. To update the port for listeners that handle QUIC traffic, the listener must be
+Port updates for QUIC or TCP\_QUIC listeners are not allowed. To update the port for listeners that handle QUIC traffic, the listener must be
 deleted and re-created with the new port.
 
 Console

@@ -19,14 +19,14 @@ backend targets. When you disable client IP preservation, the source IP address
 is the private IP address of the Network Load Balancer.
 
 By default, client IP preservation is enabled (and can't be disabled) for instance
-and IP type target groups with UDP, TCP_UDP, QUIC, and TCP_QUIC protocols. However, you can enable or
+and IP type target groups with UDP, TCP\_UDP, QUIC, and TCP\_QUIC protocols. However, you can enable or
 disable client IP preservation for TCP and TLS target groups using the
 `preserve_client_ip.enabled` target group attribute.
 
 ###### Default settings
 
 - Instance type target groups: Enabled
-- IP type target groups (UDP, TCP_UDP, QUIC, TCP_QUIC): Enabled
+- IP type target groups (UDP, TCP\_UDP, QUIC, TCP\_QUIC): Enabled
 - IP type target groups (TCP, TLS): Disabled
 
 ###### When client IP preservation is enabled
@@ -260,7 +260,7 @@ applications depend on the protocol of the target group as follows:
   preservation. If you need the IP address of the client and these conditions are
   not met, enable the proxy protocol and get the client IP address from the proxy
   protocol header.
-- UDP and TCP_UDP: The source IP addresses are the IP addresses of the clients,
+- UDP and TCP\_UDP: The source IP addresses are the IP addresses of the clients,
   as client IP preservation is enabled by default for these protocols and cannot
   be disabled. If you specify targets by instance ID, the source IP addresses
   provided to your applications are the client IP addresses. However, if you
@@ -287,11 +287,11 @@ consumers, enable proxy protocol and get them from the proxy protocol header.
 The proxy protocol header also includes the ID of the endpoint. This information
 is encoded using a custom Type-Length-Value (TLV) vector as follows.
 
-| Field                           | Length (in octets)     | Description                    |
-| ------------------------------- | ---------------------- | ------------------------------ |
-| Type                            | 1                      | PP2_TYPE_AWS (0xEA)            |
-| Length                          | 2                      | The length of value            |
-| Value                           | 1                      | PP2_SUBTYPE_AWS_VPCE_ID (0x01) |
+| Field                           | Length (in octets)     | Description                        |
+| ------------------------------- | ---------------------- | ---------------------------------- |
+| Type                            | 1                      | PP2\_TYPE\_AWS (0xEA)              |
+| Length                          | 2                      | The length of value                |
+| Value                           | 1                      | PP2\_SUBTYPE\_AWS\_VPCE\_ID (0x01) |
 | variable (value length minus 1) | The ID of the endpoint |
 
 For an example that parses TLV type 0xEA, see [https://github.com/aws/elastic-load-balancing-tools/tree/master/proprot](https://github.com/aws/elastic-load-balancing-tools/tree/master/proprot "https://github.com/aws/elastic-load-balancing-tools/tree/master/proprot").

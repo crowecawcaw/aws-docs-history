@@ -25,7 +25,7 @@ routes requests to the targets that you register, such as EC2 instances.
 
 Listeners support the following protocols and ports:
 
-- **Protocols**: TCP, TLS, UDP, TCP_UDP, QUIC, TCP_QUIC
+- **Protocols**: TCP, TLS, UDP, TCP\_UDP, QUIC, TCP\_QUIC
 - **Ports**: 1-65535
 
 You can use a TLS listener to offload the work of encryption and decryption to your
@@ -42,15 +42,15 @@ You can use a QUIC listener to accept QUIC traffic. The Network Load Balancer ac
 with [RFC9000](https://tools.ietf.org/html/rfc9000 "https://tools.ietf.org/html/rfc9000"). Utilize a QUIC listener and QUIC enabled backends
 to enable seamless connection migration for mobile devices.
 
-To support both TCP and UDP on the same port, create a TCP_UDP listener. The target
-groups for a TCP_UDP listener must use the TCP_UDP protocol.
+To support both TCP and UDP on the same port, create a TCP\_UDP listener. The target
+groups for a TCP\_UDP listener must use the TCP\_UDP protocol.
 
-To support both TCP and QUIC on the same port, create a TCP_QUIC listener. The target
-groups for a TCP_QUIC listener must use the TCP_QUIC protocol.
+To support both TCP and QUIC on the same port, create a TCP\_QUIC listener. The target
+groups for a TCP\_QUIC listener must use the TCP\_QUIC protocol.
 
 A UDP listener for a dualstack load balancer requires IPv6 target groups.
 
-WebSockets is supported only on TCP, TLS, TCP_UDP, and TCP_QUIC listeners.
+WebSockets is supported only on TCP, TLS, TCP\_UDP, and TCP\_QUIC listeners.
 
 QUIC traffic does not support version negotiation. QUIC v1 is the only supported QUIC version.
 
@@ -146,7 +146,7 @@ request through as is, so you can implement mTLS on the target.
 Network Load Balancers support TLS resumption using PSK for TLS 1.3, and session tickets for
 TLS 1.2 and older. Resumptions with session ID, or when multiple certificates
 are configured in the listener using SNI, are not supported. The 0-RTT data feature
-and early_data extension are not implemented.
+and early\_data extension are not implemented.
 
 For related demos, see [TLS Support on Network Load Balancer](https://exampleloadbalancer.com/nlbtls_demo.html "https://exampleloadbalancer.com/nlbtls_demo.html")
 and [SNI Support on Network Load Balancer](https://exampleloadbalancer.com/nlbsni_demo.html "https://exampleloadbalancer.com/nlbsni_demo.html").

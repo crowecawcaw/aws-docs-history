@@ -184,7 +184,7 @@ see [Use Application Load Balancers as targets](application-load-balancer-target
 - If you register a target by IP address and the IP address is in the same
   VPC as the load balancer, the load balancer verifies that it is from a
   subnet that it can reach.
-- For UDP, TCP_UDP, QUIC, and TCP_QUIC target groups, do not register instances by IP address
+- For UDP, TCP\_UDP, QUIC, and TCP\_QUIC target groups, do not register instances by IP address
   if they reside outside of the load balancer VPC or if they use one of the
   following instance types: C1, CC1, CC2, CG1, CG2, CR1, G1, G2, HI1, HS1, M1,
   M2, M3, or T1. Targets that reside outside the load balancer VPC or use an
@@ -193,7 +193,7 @@ see [Use Application Load Balancers as targets](application-load-balancer-target
 
 ###### QUIC specific requirements and considerations
 
-- All targets registered to a QUIC or TCP_QUIC target group must have a server ID specified.
+- All targets registered to a QUIC or TCP\_QUIC target group must have a server ID specified.
 - Server IDs must be unique for all targets that exist within an Network Load Balancer listener.
 - QUIC server IDs are always 8 bytes. When registering the target, the server ID must be in the form `0x` followed by 16 hexadecimal
   characters.
@@ -224,7 +224,7 @@ Console
 8. If the target type of the target group is `alb`, override
    the default port if needed and select the Application Load Balancer. For more information,
    see [Use Application Load Balancers as targets](application-load-balancer-target.md "application-load-balancer-target.md").
-9. If the protocol of the target group is QUIC or TCP_QUIC, ensure a
+9. If the protocol of the target group is QUIC or TCP\_QUIC, ensure a
    server ID is specified.
 10. Choose **Register pending targets**.
 
@@ -260,7 +260,7 @@ aws elbv2 register-targets \
     --targets Id=`application-load-balancer-arn`
 ```
 
-The following example registers targets into a QUIC or TCP_QUIC target group.
+The following example registers targets into a QUIC or TCP\_QUIC target group.
 
 ```
 aws elbv2 register-targets \
@@ -293,7 +293,7 @@ Resources:
           Port: 80
 ```
 
-The following example registers two targets by instance ID into a QUIC or TCP_QUIC protocol target group.
+The following example registers two targets by instance ID into a QUIC or TCP\_QUIC protocol target group.
 
 ```
 Resources:

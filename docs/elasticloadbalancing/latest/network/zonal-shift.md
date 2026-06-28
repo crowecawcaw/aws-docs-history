@@ -53,15 +53,15 @@ The possible `AdministrativeOverride` states are:
 
 State cannot be propagated due to an internal error
 
-**no_override**
+**no\_override**
 
 No override is currently active on target
 
-**zonal_shift_active**
+**zonal\_shift\_active**
 
 Zonal shift is active in target Availability Zone
 
-**zonal_shift_delegated_to_dns**
+**zonal\_shift\_delegated\_to\_dns**
 
 This target's zonal shift state is not available through `DescribeTargetHealth`
 but can be viewed directly through the AWS ARC - Zonal Shift API or console.

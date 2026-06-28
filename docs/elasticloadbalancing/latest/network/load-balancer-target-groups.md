@@ -41,7 +41,7 @@ target group.
 
 Target groups for Network Load Balancers support the following protocols and ports:
 
-- **Protocols**: TCP, TLS, UDP, TCP_UDP, QUIC, TCP_QUIC
+- **Protocols**: TCP, TLS, UDP, TCP\_UDP, QUIC, TCP\_QUIC
 - **Ports**: 1-65535
 
 If a target group is configured with the TLS protocol, the load balancer establishes
@@ -56,14 +56,14 @@ The following table summarizes the supported combinations of listener protocol a
 target group settings.
 
 | Listener protocol | Target group protocol | Target group type | Health check protocol |
-| ----------------- | --------------------- | ----------------- | --------------------- | -------- | ----- | ----- | ----- | --- |
-| TCP               | TCP                   | TCP_UDP           | TCP_QUIC              | instance | ip    | HTTP  | HTTPS | TCP |
+| ----------------- | --------------------- | ----------------- | --------------------- |
+| TCP               | TCP                   | TCP\_UDP          | TCP\_QUIC             | instance | ip    | HTTP  | HTTPS | TCP |
 | TCP               | TCP                   | alb               | HTTP                  | HTTPS    |
 | TLS               | TCP                   | TLS               | instance              | ip       | HTTP  | HTTPS | TCP   |
-| UDP               | UDP                   | TCP_UDP           | instance              | ip       | HTTP  | HTTPS | TCP   |
-| TCP_UDP           | TCP_UDP               | instance          | ip                    | HTTP     | HTTPS | TCP   |
-| QUIC              | QUIC                  | TCP_QUIC          | instance              | ip       | HTTP  | HTTPS | TCP   |
-| TCP_QUIC          | TCP_QUIC              | instance          | ip                    | HTTP     | HTTPS | TCP   |
+| UDP               | UDP                   | TCP\_UDP          | instance              | ip       | HTTP  | HTTPS | TCP   |
+| TCP\_UDP          | TCP\_UDP              | instance          | ip                    | HTTP     | HTTPS | TCP   |
+| QUIC              | QUIC                  | TCP\_QUIC         | instance              | ip       | HTTP  | HTTPS | TCP   |
+| TCP\_QUIC         | TCP\_QUIC             | instance          | ip                    | HTTP     | HTTPS | TCP   |
 
 ## Target type
 
@@ -192,7 +192,7 @@ The load balancer communicates with targets using IPv6.
 - You can't use an IPv4 target group with a UDP listener for a
   `dualstack` load balancer.
 - You can't register an Application Load Balancer with an IPv6 target group.
-- You can't use an IPv6 target group with QUIC or TCP_QUIC protocols.
+- You can't use an IPv6 target group with QUIC or TCP\_QUIC protocols.
 
 ## Registered targets
 
@@ -236,7 +236,7 @@ your Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer
   it can reach.
 - The load balancer routes traffic to targets only in Availability Zones that
   are enabled. Targets in zones that are not enabled are unused.
-- For UDP, TCP_UDP, QUIC, and TCP_QUIC target groups, do not register instances by IP address if
+- For UDP, TCP\_UDP, QUIC, and TCP\_QUIC target groups, do not register instances by IP address if
   they reside outside of the load balancer VPC or if they use one of the following
   instance types: C1, CC1, CC2, CG1, CG2, CR1, G1, G2, HI1, HS1, M1, M2, M3, or
   T1. Targets that reside outside the load balancer VPC or use an unsupported
@@ -262,7 +262,7 @@ range is 0-3600 seconds. The default value is 300 seconds. For QUIC traffic, the
 
 Indicates whether the load balancer terminates connections at the end of
 the deregistration timeout. The value is `true` or `false`.
-For new UDP/TCP_UDP target groups the default is `true`. Otherwise,
+For new UDP/TCP\_UDP target groups the default is `true`. Otherwise,
 the default is `false`. This attribute does not apply to QUIC traffic.
 
 `load_balancing.cross_zone.enabled`
@@ -277,7 +277,7 @@ Indicates whether client IP preservation is enabled. The value is
 `true` or `false`. The default is disabled if the
 target group type is IP address and the target group protocol is TCP or TLS.
 Otherwise, the default is enabled. Client IP preservation can't be disabled
-for UDP, TCP_UDP, QUIC, and TCP_QUIC target groups.
+for UDP, TCP\_UDP, QUIC, and TCP\_QUIC target groups.
 
 `proxy_protocol_v2.enabled`
 

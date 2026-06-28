@@ -23,7 +23,7 @@ protocol and port that you configure, and forwards requests to a target group.
 
 A _target group_ routes requests to one or more registered
 targets, such as EC2 instances, using the protocol and the port number that you
-specify. Network Load Balancer target groups support the TCP, UDP, TCP_UDP, TLS, QUIC, and TCP_QUIC protocols. You can register a
+specify. Network Load Balancer target groups support the TCP, UDP, TCP\_UDP, TLS, QUIC, and TCP\_QUIC protocols. You can register a
 target with multiple target groups. You can configure health checks on a per target group
 basis. Health checks are performed on all targets registered to the target groups that are
 specified in the default action for your load balancer.
@@ -116,7 +116,7 @@ Using a Network Load Balancer instead of a Classic Load Balancer has the followi
   checks are defined at the target group level and many Amazon CloudWatch metrics are
   reported at the target group level. Attaching a target group to an Auto Scaling group
   enables you to scale each service dynamically based on demand.
-- Support for the QUIC and TCP_QUIC protocols with advanced congestion control,
+- Support for the QUIC and TCP\_QUIC protocols with advanced congestion control,
   fewer round trip connection establishment, built in TLS, and connection migration across networks.
 
 For more information about the features supported by each load

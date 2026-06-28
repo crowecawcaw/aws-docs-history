@@ -48,16 +48,16 @@ from a specific VPC. If this is an internet-facing Network Load Balancer that mu
 traffic from anywhere on the internet, you can specify 0.0.0.0/0 as the
 source.
 
-| Inbound    | Protocol                  | Source          | Port range                                                         | Comment |
-| ---------- | ------------------------- | --------------- | ------------------------------------------------------------------ | ------- |
-| `protocol` | `client IP address range` | `listener port` | Allows inbound traffic from the source CIDR on the listener port   |
-| ICMP       | 0.0.0.0/0                 | All             | Allows inbound ICMP traffic to support MTU or Path MTU Discovery † |
+Inbound| Protocol | Source | Port range | Comment |
+| --- | --- | --- | --- |
+| `protocol` | `client IP address range` | `listener port` | Allows inbound traffic from the source CIDR on the listener port |
+| ICMP | 0.0.0.0/0 | All | Allows inbound ICMP traffic to support MTU or Path MTU Discovery † |
 
 † For more information, see [Path MTU Discovery](../../../AWSEC2/latest/UserGuide/network_mtu.md#path_mtu_discovery "../../../AWSEC2/latest/UserGuide/network_mtu.md#path_mtu_discovery") in the _Amazon EC2 User Guide_.
 
-| Outbound | Protocol | Destination | Port range                  | Comment |
-| -------- | -------- | ----------- | --------------------------- | ------- |
-| All      | Anywhere | All         | Allows all outbound traffic |
+Outbound| Protocol | Destination | Port range | Comment |
+| --- | --- | --- | --- |
+| All | Anywhere | All | Allows all outbound traffic |
 
 ## Example: Accept traffic only from the Network Load Balancer
 
@@ -67,14 +67,14 @@ they accept traffic only from the Network Load Balancer. You must ensure that th
 traffic from the Network Load Balancer on both the target port and the health check port.
 For more information, see [Target security groups](target-group-register-targets.md#target-security-groups "target-group-register-targets.md#target-security-groups").
 
-| Inbound    | Protocol           | Source         | Port range                                                                     | Comment |
-| ---------- | ------------------ | -------------- | ------------------------------------------------------------------------------ | ------- |
-| `protocol` | sg-111112222233333 | `target port`  | Allows inbound traffic from the Network Load Balancer on the target port       |
+Inbound| Protocol | Source | Port range | Comment |
+| --- | --- | --- | --- |
+| `protocol` | sg-111112222233333 | `target port` | Allows inbound traffic from the Network Load Balancer on the target port |
 | `protocol` | sg-111112222233333 | `health check` | Allows inbound traffic from the Network Load Balancer on the health check port |
 
-| Outbound | Protocol | Destination | Port range                  | Comment |
-| -------- | -------- | ----------- | --------------------------- | ------- |
-| All      | Anywhere | Any         | Allows all outbound traffic |
+Outbound| Protocol | Destination | Port range | Comment |
+| --- | --- | --- | --- |
+| All | Anywhere | Any | Allows all outbound traffic |
 
 ## Update the associated security groups
 

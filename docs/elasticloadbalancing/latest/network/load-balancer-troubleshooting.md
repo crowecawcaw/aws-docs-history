@@ -105,7 +105,7 @@ If the Network Load Balancer was created with security groups, there must be at 
 group associated with it at all times. You cannot remove all security groups from the
 load balancer at the same time.
 
-## Increase in TCP_ELB_Reset_Count metric
+## Increase in TCP\_ELB\_Reset\_Count metric
 
 For each TCP request that a client makes through a Network Load Balancer, the state of that connection
 is tracked. If no data is sent through the connection by either the client or the target
@@ -303,11 +303,11 @@ reason code check for the following issues:
   The security policy used for back-end connections is automatically selected
   based on the front-end security policy in use. If any of your listeners have:
 
-      - **FIPS post-quantum TLS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-FIPS-PQ-2025-09`
-      - **FIPS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-FIPS-2023-04`
-      - **Post-quantum TLS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-PQ-2025-09`
-      - **TLS 1.3 policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-2021-06`
-      - All other TLS policies backend connections use `ELBSecurityPolicy-2016-08`For more information, see
+        - **FIPS post-quantum TLS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-FIPS-PQ-2025-09`
+        - **FIPS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-FIPS-2023-04`
+        - **Post-quantum TLS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-PQ-2025-09`
+        - **TLS 1.3 policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-2021-06`
+        - All other TLS policies backend connections use `ELBSecurityPolicy-2016-08`For more information, see
 
   [Security policies](describe-ssl-policies.md "describe-ssl-policies.md").
   - Verify the target is providing a server certificate and key in the correct format

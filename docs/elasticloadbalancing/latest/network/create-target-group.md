@@ -24,7 +24,7 @@ check settings for your target group. For more information, see [Update the heal
 - You must use an IPv6 target group with a dualstack load balancer.
 - You can't use an IPv4 target group with a UDP listener for a
   `dualstack` load balancer.
-- You can't use an IPv6 target group with QUIC or TCP_QUIC protocols.
+- You can't use an IPv6 target group with QUIC or TCP\_QUIC protocols.
 
 Console
 
@@ -52,19 +52,19 @@ Console
 
       - If the listener protocol is TCP, choose
         **TCP** or
-        **TCP_UDP**.
+        **TCP\_UDP**.
       - If the listener protocol is TLS, choose
         **TCP** or
         **TLS**.
       - If the listener protocol is UDP, choose
         **UDP** or
-        **TCP_UDP**.
-      - If the listener protocol is TCP_UDP, choose
-        **TCP_UDP**.
+        **TCP\_UDP**.
+      - If the listener protocol is TCP\_UDP, choose
+        **TCP\_UDP**.
       - If the listener protocol is QUIC, choose
         **QUIC**.
-      - If the listener protocol is TCP_QUIC, choose
-        **TCP_QUIC**.
+      - If the listener protocol is TCP\_QUIC, choose
+        **TCP\_QUIC**.
       - If the target type is **Application Load Balancer**, the protocol
         must be TCP.
 

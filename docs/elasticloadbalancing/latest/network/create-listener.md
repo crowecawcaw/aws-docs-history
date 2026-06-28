@@ -13,11 +13,11 @@ any time.
   clients before routing them to targets. For more information, see [Server certificates for your Network Load Balancer](tls-listener-certificates.md "tls-listener-certificates.md").
 - You can't use an IPv4 target group with a UDP listener for a
   `dualstack` load balancer.
-- QUIC and TCP_QUIC listeners are not allowed on
+- QUIC and TCP\_QUIC listeners are not allowed on
   `dualstack` load balancers or load balancers with associated security groups.
-- QUIC and TCP_QUIC listeners are not allowed on load balancers with associated security groups.
-- Only one QUIC or TCP_QUIC listener is allowed on an Network Load Balancer at any given time.
-- QUIC and TCP_QUIC listeners are not allowed on an Network Load Balancer that has UDP or TCP_UDP listeners.
+- QUIC and TCP\_QUIC listeners are not allowed on load balancers with associated security groups.
+- Only one QUIC or TCP\_QUIC listener is allowed on an Network Load Balancer at any given time.
+- QUIC and TCP\_QUIC listeners are not allowed on an Network Load Balancer that has UDP or TCP\_UDP listeners.
 
 ## Add a listener
 
@@ -35,8 +35,8 @@ Console
 3. Select the name of the load balancer to open its details page.
 4. On the **Listeners** tab, choose **Add listener**.
 5. For **Protocol**, choose **TCP**,
-   **UDP**, **TCP_UDP**, **TLS**, **QUIC**,
-   or **TCP_QUIC**. Keep the default port or type a different port.
+   **UDP**, **TCP\_UDP**, **TLS**, **QUIC**,
+   or **TCP\_QUIC**. Keep the default port or type a different port.
 6. For **Default action**, select a target group to forward
    traffic to.
 
@@ -68,13 +68,10 @@ the following sources:
      implicitly accept the certificate.
 
 9. [TLS listeners] For **ALPN policy**, choose a policy to
-   enable ALPN or choose **None** to disable ALPN. For more
-   information, see [ALPN policies](load-balancer-listeners.md#alpn-policies "load-balancer-listeners.md#alpn-policies").
-10. (Optional) To add tags, expand **Listener tags**. Choose
-    **Add new tag** and enter the tag key and tag value.
-11. Choose **Add**.
-12. [TLS listeners] To add certificates to the optional certificate list, see
-    [Add certificates to the certificate list](listener-update-certificates.md#add-certificates "listener-update-certificates.md#add-certificates").
+enable ALPN or choose **None** to disable ALPN. For more
+information, see [ALPN policies](load-balancer-listeners.md#alpn-policies "load-balancer-listeners.md#alpn-policies"). 10. (Optional) To add tags, expand **Listener tags**. Choose
+**Add new tag** and enter the tag key and tag value. 11. Choose **Add**. 12. [TLS listeners] To add certificates to the optional certificate list, see
+[Add certificates to the certificate list](listener-update-certificates.md#add-certificates "listener-update-certificates.md#add-certificates").
 
 AWS CLI
 
