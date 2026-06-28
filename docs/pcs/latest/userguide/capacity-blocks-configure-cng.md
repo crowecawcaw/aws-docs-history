@@ -14,9 +14,9 @@ Your launch template must include:
     * A valid `InstanceType` that matches the instance type of the Capacity Block you purchased.
 
 2. Create a compute node group that uses the launch template. For more information, see
-   [Creating a compute node group in AWS PCS](working-with_cng_create.md "working-with_cng_create.md"). You can
-   also update an existing compute node group to use the launch template. For more information,
-   see [Updating an AWS PCS compute node group](working-with_cng_update.md "working-with_cng_update.md").
+[Creating a compute node group in AWS PCS](working-with_cng_create.md "working-with_cng_create.md"). You can
+also update an existing compute node group to use the launch template. For more information,
+see [Updating an AWS PCS compute node group](working-with_cng_update.md "working-with_cng_update.md").
 
 When you create or update the compute node group:
 

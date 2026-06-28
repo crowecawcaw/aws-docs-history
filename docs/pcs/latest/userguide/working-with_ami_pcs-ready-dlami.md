@@ -21,7 +21,7 @@ EFA drivers, Lustre client, and other foundational infrastructure. For details o
 see the [Deep
 Learning AMI release notes](../../../dlami/latest/devguide/appendix-ami-release-notes.md "../../../dlami/latest/devguide/appendix-ami-release-notes.md").
 
-PCS-ready DLAMI is available for both x86_64 and arm64 architectures.
+PCS-ready DLAMI is available for both x86\_64 and arm64 architectures.
 
 ###### Note
 
@@ -56,7 +56,7 @@ AWS CLI
 You can retrieve the latest PCS-ready DLAMI AMI ID using Amazon EC2 Systems Manager Parameter Store.
 Replace `region-code` with your AWS Region.
 
-- x86_64
+- x86\_64
 
 ```
 aws ssm get-parameter --region `region-code` \
@@ -74,7 +74,7 @@ aws ssm get-parameter --region `region-code` \
 
 Alternatively, you can search for PCS-ready DLAMI by name pattern:
 
-- x86_64
+- x86\_64
 
 ```
 aws ec2 describe-images --region `region-code` --owners amazon \

@@ -1,6 +1,6 @@
 # Use Slurm CLI Filter Plugins to customize job submission in AWS PCS
 
-AWS PCS supports Slurm CLI Filter Plugins to run custom Lua scripts that validate and modify job submission parameters on login and compute nodes. For detailed information about CLI Filter Plugins, see the [cli_filter Plugin API documentation](https://slurm.schedmd.com/cli_filter_plugins.html "https://slurm.schedmd.com/cli_filter_plugins.html") on the SchedMD website.
+AWS PCS supports Slurm CLI Filter Plugins to run custom Lua scripts that validate and modify job submission parameters on login and compute nodes. For detailed information about CLI Filter Plugins, see the [cli\_filter Plugin API documentation](https://slurm.schedmd.com/cli_filter_plugins.html "https://slurm.schedmd.com/cli_filter_plugins.html") on the SchedMD website.
 
 ## Requirements
 

@@ -72,12 +72,11 @@ use the default values provided in the template.
 
 - Under **Capabilities**:
 
-      + Check the box for **I acknowledge that AWS CloudFormation might create IAM
-       resources**.
-
-  Monitor the status of the CloudFormation stack. When it reaches
-  `CREATE_COMPLETE`, find the ID for the default security group in the new VPC. You
-  use the ID later in the tutorial.
+  - Check the box for **I acknowledge that AWS CloudFormation might create IAM
+    resources**.
+    Monitor the status of the CloudFormation stack. When it reaches
+    `CREATE_COMPLETE`, find the ID for the default security group in the new VPC. You
+    use the ID later in the tutorial.
 
 ## Find the default security group for the cluster VPC
 

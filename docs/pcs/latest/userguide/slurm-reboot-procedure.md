@@ -17,7 +17,7 @@ recover from degraded states without loss of EC2 instance capacity.
    3. Choose **Connect**.
 
 2. Identify the target compute node name using `sinfo` or `scontrol show
-node`.
+ node`.
 
 ```
 sinfo

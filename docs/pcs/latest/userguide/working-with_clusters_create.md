@@ -82,10 +82,9 @@ Additionally, you can also specify the following settings:
      by default. For Slurm 25.11 or later, individual compute node groups can
      override this value with their own **Scale-down idle time** setting.
 
-6. (Optional) Under **Tags**, add any tags to your AWS PCS cluster.
-7. Choose **Create cluster**. The **Status**
-   field shows `Creating` while the AWS PCS creates the cluster.
-   This process can take several minutes.
+6. (Optional) Under **Tags**, add any tags to your AWS PCS cluster. 7. Choose **Create cluster**. The **Status**
+field shows `Creating` while the AWS PCS creates the cluster.
+This process can take several minutes.
 
 ###### Important
 
@@ -173,8 +172,8 @@ aws pcs create-cluster --region `region` \
     ```
 
 2. It can take several minutes to provision the cluster. You can query the status of your
-   cluster with the following command. Don’t proceed to creating queues or compute node groups
-   until the cluster’s status field is `ACTIVE`.
+cluster with the following command. Don’t proceed to creating queues or compute node groups
+until the cluster’s status field is `ACTIVE`.
 
 ```
 aws pcs get-cluster --region `region` --cluster-identifier `my-cluster`

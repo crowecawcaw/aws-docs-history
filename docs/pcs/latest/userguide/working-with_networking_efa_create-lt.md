@@ -11,10 +11,10 @@ Here is an example launch template for instances with two network cards, such as
 Security groups must be added specifically to each EFA interface. Every EFA needs the
 security group that enables EFA traffic
 (`sg-`EfaSecGroupId``). Other security groups, especially
- ones that handle regular traffic like SSH or HTTPS, only need to be attached to the primary
- network interface (designated by a `DeviceIndex`of`0`). Launch templates
- where network interfaces are defined do not support setting security groups using the
- `SecurityGroupIds`parameter—you must set a value for`Groups` in
+ones that handle regular traffic like SSH or HTTPS, only need to be attached to the primary
+network interface (designated by a `DeviceIndex` of `0`). Launch templates
+where network interfaces are defined do not support setting security groups using the
+`SecurityGroupIds` parameter—you must set a value for `Groups` in
 each network interface that you configure.
 
 ```

@@ -192,7 +192,7 @@ values. 2. Under **Provide a stack name**, then **Stack name**, enter
     	3. Then **CidrPrivateSubnetA**, enter `10.3.160.0/20`
 
 4. Under **Capabilities**, check the box for **I acknowledge that
-   AWS CloudFormation might create IAM resources**.
+AWS CloudFormation might create IAM resources**.
 
 Monitor the status of the CloudFormation stack. When it reaches `CREATE_COMPLETE`, the VPC
 resource are ready for you to use.

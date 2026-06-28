@@ -46,17 +46,17 @@ your cluster.
   For more information about Slurm 25.11, see the following publications:
 
 - SchedMD release announcement: [https://www.schedmd.com/slurm-version-25-11-0-is-now-available/](https://www.schedmd.com/slurm-version-25-11-0-is-now-available/ "https://www.schedmd.com/slurm-version-25-11-0-is-now-available/")
-- SchedMD release notes: [https://github.com/SchedMD/slurm/blob/slurm-25.11/RELEASE_NOTES.md](https://github.com/SchedMD/slurm/blob/slurm-25.11/RELEASE_NOTES.md "https://github.com/SchedMD/slurm/blob/slurm-25.11/RELEASE_NOTES.md")
+- SchedMD release notes: [https://github.com/SchedMD/slurm/blob/slurm-25.11/RELEASE\_NOTES.md](https://github.com/SchedMD/slurm/blob/slurm-25.11/RELEASE_NOTES.md "https://github.com/SchedMD/slurm/blob/slurm-25.11/RELEASE_NOTES.md")
 
 ###### Changes implemented in AWS PCS
 
-- The Slurm requeue_on_resume_failure SchedulerParameter is now Enabled by default.
+- The Slurm requeue\_on\_resume\_failure SchedulerParameter is now Enabled by default.
 - "stderr" was removed as an option for LogTimeFormat, as it was disabled in Slurm 25.05.
 - AWS PCS supports Multi-cluster sackd configuration: login node can access multiple clusters.
   For more information about Slurm 25.05, see the following publications:
 
 - SchedMD release announcement: [https://www.schedmd.com/slurm-version-25-05-0-is-now-available/](https://www.schedmd.com/slurm-version-25-05-0-is-now-available/ "https://www.schedmd.com/slurm-version-25-05-0-is-now-available/")
-- SchedMD release notes: [https://github.com/SchedMD/slurm/blob/slurm-25-05-0-1/RELEASE_NOTES.md](https://github.com/SchedMD/slurm/blob/slurm-25-05-0-1/RELEASE_NOTES.md "https://github.com/SchedMD/slurm/blob/slurm-25-05-0-1/RELEASE_NOTES.md")
+- SchedMD release notes: [https://github.com/SchedMD/slurm/blob/slurm-25-05-0-1/RELEASE\_NOTES.md](https://github.com/SchedMD/slurm/blob/slurm-25-05-0-1/RELEASE_NOTES.md "https://github.com/SchedMD/slurm/blob/slurm-25-05-0-1/RELEASE_NOTES.md")
 
 ###### Changes implemented in AWS PCS
 

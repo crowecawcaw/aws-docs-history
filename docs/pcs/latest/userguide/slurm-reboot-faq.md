@@ -69,8 +69,8 @@ two options:
   terminated and need to be resubmitted after the node recovers.
 - Drain and Requeue (less impactful) – Start
   by initiating a drain and reboot with `scontrol reboot ASAP
-<nodename>`, then requeue affected jobs using `scontrol requeue
-<job_id>`. This puts jobs back into pending state instead of cancelling
+ <nodename>`, then requeue affected jobs using `scontrol requeue
+ <job_id>`. This puts jobs back into pending state instead of cancelling
   them.
 
 **What happens if I specify nextstate=DOWN?**

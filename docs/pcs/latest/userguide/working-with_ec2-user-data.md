@@ -22,15 +22,15 @@ following:
 A MIME multi-part file consists of the following components:
 
 - The content type and part boundary declaration: `Content-Type: multipart/mixed;
-boundary="==BOUNDARY=="`
+ boundary="==BOUNDARY=="`
 - The MIME version declaration: `MIME-Version: 1.0`
 - One or more user data blocks that contain the following components:
 
   - The opening boundary that signals the beginning of a user data block:
     `--==BOUNDARY==`. You must keep the line before this boundary blank.
   - The content type declaration for the block: `Content-Type: text/cloud-config;
-charset="us-ascii"` or `Content-Type: text/x-shellscript;
-charset="us-ascii"`. You must keep the line after the content type declaration blank.
+   charset="us-ascii"` or `Content-Type: text/x-shellscript;
+   charset="us-ascii"`. You must keep the line after the content type declaration blank.
   - The content of the user data, such as a list of shell commands or
     `cloud-config` directives.
 

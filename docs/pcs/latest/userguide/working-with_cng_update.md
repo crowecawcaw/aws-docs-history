@@ -62,26 +62,25 @@ AWS Management Console
 
 ###### To update a compute node group
 
-1.  Open the AWS PCS console at
-    `https://console.aws.amazon.com/pcs/home#/clusters`
-2.  Select the cluster where you wish to update a compute node group.
-3.  Navigate to **Compute node groups**, go to the node group you wish to
-    update, then select **Edit**.
-4.  In the **Computing configuration**, **Additional
-    settings**, and **Slurm customization** settings
-    sections, update any values except:
+1. Open the AWS PCS console at
+   `https://console.aws.amazon.com/pcs/home#/clusters`
+2. Select the cluster where you wish to update a compute node group.
+3. Navigate to **Compute node groups**, go to the node group you wish to
+   update, then select **Edit**.
+4. In the **Computing configuration**, **Additional
+   settings**, and **Slurm customization** settings
+   sections, update any values except:
 
-        * **Instances** – You can't change the instances in a
-         compute node group.
+   - **Instances** – You can't change the instances in a
+     compute node group.
+     For more information about Slurm custom settings, see [Custom Slurm settings for AWS PCS compute node groups](slurm-custom-settings-cng.md "slurm-custom-settings-cng.md").
 
-    For more information about Slurm custom settings, see [Custom Slurm settings for AWS PCS compute node groups](slurm-custom-settings-cng.md "slurm-custom-settings-cng.md").
-
-5.  In the **Scheduler configuration** section, you can update the
-    **Scale-down idle time** to set a new value (1–10000000 seconds) that
-    overrides the cluster default, or clear it to revert to the cluster-level setting. This
-    setting requires Slurm version 25.11 or later.
-6.  Choose **Update**. The **Status** field will show
-    _Updating_ while changes are being applied.
+5. In the **Scheduler configuration** section, you can update the
+   **Scale-down idle time** to set a new value (1–10000000 seconds) that
+   overrides the cluster default, or clear it to revert to the cluster-level setting. This
+   setting requires Slurm version 25.11 or later.
+6. Choose **Update**. The **Status** field will show
+   _Updating_ while changes are being applied.
 
 ###### Important
 

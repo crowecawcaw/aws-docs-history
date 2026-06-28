@@ -107,7 +107,7 @@ the file has not been altered or corrupted since it was published.
      match. Contact [AWS Support](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support").
 
 6. Extract the files from the compressed `.tar.gz` file and navigate to the
-   extracted directory.
+extracted directory.
 
 ```
 tar -xf aws-pcs-agent-v1.4.0-1.tar.gz && \

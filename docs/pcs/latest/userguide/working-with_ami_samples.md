@@ -68,7 +68,7 @@ You can find the latest AWS PCS sample AMI with the commands that follow. Replac
 `region-code` with the AWS Region where you use AWS PCS, such
 as `us-east-1`.
 
-- x86_64
+- x86\_64
 
 ```
 aws ec2 describe-images --region `region-code` --owners amazon \

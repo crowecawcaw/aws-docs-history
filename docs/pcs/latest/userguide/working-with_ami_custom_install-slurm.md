@@ -98,7 +98,7 @@ the file has not been altered or corrupted since it was published.
      [AWS Support](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support").
 
 4. Extract the files from the compressed `.tar.gz` file and navigate into the
-   extracted directory.
+extracted directory.
 
 ```
 tar -xf aws-pcs-slurm-25.11-installer-25.11.2-1.tar.gz && \

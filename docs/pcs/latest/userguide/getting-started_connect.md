@@ -23,21 +23,21 @@ After the status of the `login` compute node group becomes
 
   Session Manager
 
-      - Select the instance.
-      - Choose **Connect**.
-      - Under **Connect to instance**, select **Session Manager**.
-      - Choose **Connect**.
-      - Choose **Connect**. An interactive terminal launches in your browser.
+        - Select the instance.
+        - Choose **Connect**.
+        - Under **Connect to instance**, select **Session Manager**.
+        - Choose **Connect**.
+        - Choose **Connect**. An interactive terminal launches in your browser.
 
   SSH
 
-      - Select the instance.
-      - Choose **Connect**.
-      - Under **Connect to instance**, select **SSH client**.
-      - Follow the instructions provided by the console.
+        - Select the instance.
+        - Choose **Connect**.
+        - Under **Connect to instance**, select **SSH client**.
+        - Follow the instructions provided by the console.
 
 
-      ###### Note
+        ###### Note
 
-      The user name for the
-       instance is **`ec2-user`** not `root`.
+        The user name for the
+         instance is **`ec2-user`** not `root`.

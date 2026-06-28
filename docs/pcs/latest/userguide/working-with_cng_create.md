@@ -84,7 +84,7 @@ AWS Management Console
    might have increased latency. Make sure the subnets you specify here match any that you define in
    the EC2 launch template. 6. **Instances** – Choose one or more instance types to fulfill
    scaling requests in the node group. All instance types must have the same processor
-   architecture (x86_64 or arm64) and number of vCPUs. If the instances have
+   architecture (x86\_64 or arm64) and number of vCPUs. If the instances have
    GPUs, all instance types must have the same number of GPUs. 7. **Scaling configuration** – Specify the minimum and maximum
    number of instances for the node group. Set the minimum (min) equal to the maximum (max)
    for static capacity (for example, 5 min, 5 max). Set the minimum to 0 for fully dynamic
@@ -168,7 +168,7 @@ This maintains a baseline number of instances and scales up as needed (for examp
 10 max). 9. Replace `t3.large` with another instance type. You can add
 more instance types by specifying a list of `instanceType` settings. For example,
 `--instance-configs instanceType=c6i.16xlarge instanceType=c6a.16xlarge`.
-All instance types must have the same processor architecture (x86_64 or arm64) and
+All instance types must have the same processor architecture (x86\_64 or arm64) and
 number of vCPUs. If the instances have GPUs, all instance types must have the same
 number of GPUs.
 

@@ -169,46 +169,46 @@ For example: `PCS_jobcomp_2025-06-19-11_pcs_abc123de45_04be080b.log.gz`
 
 AWS PCS writes job completion log data as JSON objects. The JSON container `jobcomp` holds job details. The following table describes the fields inside the `jobcomp` container. Some fields are only present in specific circumstances, such as for array jobs or heterogeneous jobs.
 
-| Job completion log fields       | Name                            | Example value | Required                                           | Notes |
-| ------------------------------- | ------------------------------- | ------------- | -------------------------------------------------- | ----- |
-| `job_id`                        | `11`                            | yes           | Always present with value                          |
-| `user`                          | `"root"`                        | yes           | Always present with value                          |
-| `user_id`                       | `0`                             | yes           | Always present with value                          |
-| `group`                         | `"root"`                        | yes           | Always present with value                          |
-| `group_id`                      | `0`                             | yes           | Always present with value                          |
-| `name`                          | `"wrap"`                        | yes           | Always present with value                          |
-| `job_state`                     | `"COMPLETED"`                   | yes           | Always present with value                          |
-| `partition`                     | `"Hydra-MpiQueue-abcdef01-7"`   | yes           | Always present with value                          |
-| `time_limit`                    | `"UNLIMITED"`                   | yes           | Always present, but might be `"UNLIMITED"`         |
-| `start_time`                    | `"2025-06-19T10:58:57"`         | yes           | Always present, but might be `"Unknown"`           |
-| `end_time`                      | `"2025-06-19T10:58:57"`         | yes           | Always present, but might be `"Unknown"`           |
-| `node_list`                     | `"Hydra-MpiNG-abcdef01-2345-1"` | yes           | Always present with value                          |
-| `node_cnt`                      | `1`                             | yes           | Always present with value                          |
-| `proc_cnt`                      | `1`                             | yes           | Always present with value                          |
-| `work_dir`                      | `"/root"`                       | yes           | Always present, but might be `"Unknown"`           |
-| `reservation_name`              | `"weekly_maintenance"`          | yes           | Always present, but might be an empty string `""`  |
-| `tres.cpu`                      | `1`                             | yes           | Always present with value                          |
-| `tres.mem.val`                  | `600`                           | yes           | Always present with value                          |
-| `tres.mem.unit`                 | `"M"`                           | yes           | Can be `"M"` or `"bb"`                             |
-| `tres.node`                     | `1`                             | yes           | Always present with value                          |
-| `tres.billing`                  | `1`                             | yes           | Always present with value                          |
-| `account`                       | `"finance"`                     | yes           | Always present, but might be an empty string `""`  |
-| `qos`                           | `"normal"`                      | yes           | Always present, but might be an empty string `""`  |
-| `wc_key`                        | `"project_1"`                   | yes           | Always present, but might be an empty string `""`  |
-| `cluster`                       | `"unknown"`                     | yes           | Always present, but might be `"unknown"`           |
-| `submit_time`                   | `"2025-06-19T10:55:46"`         | yes           | Always present, but might be `"Unknown"`           |
-| `eligible_time`                 | `"2025-06-19T10:55:46"`         | yes           | Always present, but might be `"Unknown"`           |
-| `array_job_id`                  | `12`                            | no            | Only present if the job is an array job            |
-| `array_task_id`                 | `1`                             | no            | Only present if the job is an array job            |
-| `het_job_id`                    | `10`                            | no            | Only present if the job is a heterogeneous job     |
-| `het_job_offset`                | `0`                             | no            | Only present if the job is a heterogeneous job     |
-| `derived_exit_code_status`      | `0`                             | yes           | Always present with value                          |
-| `derived_exit_code_signal`      | `0`                             | yes           | Always present with value                          |
-| `exit_code_status`              | `0`                             | yes           | Always present with value                          |
-| `exit_code_signal`              | `0`                             | yes           | Always present with value                          |
-| `node_details[0].name`          | `"Hydra-MpiNG-abcdef01-2345-1"` | no            | Always present, but `node_details` might be `"[]"` |
-| `node_details[0].instance_id`   | `"i-0abcdef01234567a"`          | no            | Always present, but `node_details` might be `"[]"` |
-| `node_details[0].instance_type` | `"t4g.micro"`                   | no            | Always present, but `node_details` might be `"[]"` |
+Job completion log fields| Name | Example value | Required | Notes |
+| --- | --- | --- | --- |
+| `job_id` | `11` | yes | Always present with value |
+| `user` | `"root"` | yes | Always present with value |
+| `user_id` | `0` | yes | Always present with value |
+| `group` | `"root"` | yes | Always present with value |
+| `group_id` | `0` | yes | Always present with value |
+| `name` | `"wrap"` | yes | Always present with value |
+| `job_state` | `"COMPLETED"` | yes | Always present with value |
+| `partition` | `"Hydra-MpiQueue-abcdef01-7"` | yes | Always present with value |
+| `time_limit` | `"UNLIMITED"` | yes | Always present, but might be `"UNLIMITED"` |
+| `start_time` | `"2025-06-19T10:58:57"` | yes | Always present, but might be `"Unknown"` |
+| `end_time` | `"2025-06-19T10:58:57"` | yes | Always present, but might be `"Unknown"` |
+| `node_list` | `"Hydra-MpiNG-abcdef01-2345-1"` | yes | Always present with value |
+| `node_cnt` | `1` | yes | Always present with value |
+| `proc_cnt` | `1` | yes | Always present with value |
+| `work_dir` | `"/root"` | yes | Always present, but might be `"Unknown"` |
+| `reservation_name` | `"weekly_maintenance"` | yes | Always present, but might be an empty string `""` |
+| `tres.cpu` | `1` | yes | Always present with value |
+| `tres.mem.val` | `600` | yes | Always present with value |
+| `tres.mem.unit` | `"M"` | yes | Can be `"M"` or `"bb"` |
+| `tres.node` | `1` | yes | Always present with value |
+| `tres.billing` | `1` | yes | Always present with value |
+| `account` | `"finance"` | yes | Always present, but might be an empty string `""` |
+| `qos` | `"normal"` | yes | Always present, but might be an empty string `""` |
+| `wc_key` | `"project_1"` | yes | Always present, but might be an empty string `""` |
+| `cluster` | `"unknown"` | yes | Always present, but might be `"unknown"` |
+| `submit_time` | `"2025-06-19T10:55:46"` | yes | Always present, but might be `"Unknown"` |
+| `eligible_time` | `"2025-06-19T10:55:46"` | yes | Always present, but might be `"Unknown"` |
+| `array_job_id` | `12` | no | Only present if the job is an array job |
+| `array_task_id` | `1` | no | Only present if the job is an array job |
+| `het_job_id` | `10` | no | Only present if the job is a heterogeneous job |
+| `het_job_offset` | `0` | no | Only present if the job is a heterogeneous job |
+| `derived_exit_code_status` | `0` | yes | Always present with value |
+| `derived_exit_code_signal` | `0` | yes | Always present with value |
+| `exit_code_status` | `0` | yes | Always present with value |
+| `exit_code_signal` | `0` | yes | Always present with value |
+| `node_details[0].name` | `"Hydra-MpiNG-abcdef01-2345-1"` | no | Always present, but `node_details` might be `"[]"` |
+| `node_details[0].instance_id` | `"i-0abcdef01234567a"` | no | Always present, but `node_details` might be `"[]"` |
+| `node_details[0].instance_type` | `"t4g.micro"` | no | Always present, but `node_details` might be `"[]"` |
 
 ## Example job completion logs
 

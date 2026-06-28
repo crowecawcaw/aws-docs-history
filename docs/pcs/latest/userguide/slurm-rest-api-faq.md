@@ -69,7 +69,7 @@ Example error message:
 
 - **Job failing to run after submission**
 
-If your JWT token is valid but contains incorrect internal structure or content, jobs may have entered a paused (`PD`) state with reason code `JobAdminHead`. Use `scontrol show job `<job-id>``to inspect the job – you'll see`JobState=PENDING, Reason=JobHeldAdmin`, and `SystemComment=slurm_cred_create failure, holding job`.
+If your JWT token is valid but contains incorrect internal structure or content, jobs may have entered a paused (`PD`) state with reason code `JobAdminHead`. Use `scontrol show job `<job-id>`` to inspect the job – you'll see `JobState=PENDING, Reason=JobHeldAdmin`, and `SystemComment=slurm_cred_create failure, holding job`.
 
 **What to do**: The root cause may be mistaken values in JWT. Verify that the token is properly structured and includes the required claims as per the PCS documentation.
 
