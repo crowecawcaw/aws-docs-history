@@ -98,13 +98,12 @@ Make sure that the AWS Region shown in the upper right of your console is the AW
 
 6. On the **Specify networking** page, do the following:
 
-   1. Choose the ID of the VPC that you created in a previous step from the **VPC** dropdown list. It is something like `* | my-eks-vpc-stack-VPC`.
-   2. Choose the subnets created in a previous step from the **Subnets** dropdown list. The subnets will be something like `* | my-eks-vpc-stack-*`.
-   3. Choose the security group created in a previous step from the **Additional security groups** dropdown list. It is something like `* | my-eks-vpc-stack-ControlPlaneSecurityGroup-*`.
-   4. Leave the remaining settings at their default values and choose **Next**.
+    1. Choose the ID of the VPC that you created in a previous step from the **VPC** dropdown list. It is something like `* | my-eks-vpc-stack-VPC`.
+    2. Choose the subnets created in a previous step from the **Subnets** dropdown list. The subnets will be something like `* | my-eks-vpc-stack-*`.
+    3. Choose the security group created in a previous step from the **Additional security groups** dropdown list. It is something like `* | my-eks-vpc-stack-ControlPlaneSecurityGroup-*`.
+    4. Leave the remaining settings at their default values and choose **Next**.
 
-7. On the **Configure observability** page, choose **Next**.
-8. On the **Select add-ons** page, choose **Next**.
+7. On the **Configure observability** page, choose **Next**. 8. On the **Select add-ons** page, choose **Next**.
 
 For more information on add-ons, see [Amazon EKS add-ons](eks-add-ons.md "eks-add-ons.md"). 9. On the **Configure selected add-ons settings** page, choose **Next**. 10. On the **Review and create** page, choose **Create**.
 

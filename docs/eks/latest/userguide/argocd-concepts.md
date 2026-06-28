@@ -169,7 +169,12 @@ For detailed information about sync phases, hooks, and advanced patterns, see th
 
 Argo CD monitors the health of all resources in your application:
 
-**Health statuses**: \* **Healthy** - All resources running as expected \* **Progressing** - Resources being created or updated \* **Degraded** - Some resources not healthy (pods crashing, jobs failing) \* **Suspended** - Application intentionally paused \* **Missing** - Resources defined in Git not present in cluster
+**Health statuses**:
+\* **Healthy** - All resources running as expected
+\* **Progressing** - Resources being created or updated
+\* **Degraded** - Some resources not healthy (pods crashing, jobs failing)
+\* **Suspended** - Application intentionally paused
+\* **Missing** - Resources defined in Git not present in cluster
 
 Argo CD has built-in health checks for common Kubernetes resources (Deployments, StatefulSets, Jobs, etc.) and supports custom health checks for CRDs.
 
@@ -181,9 +186,16 @@ For more information, see [Resource Health](https://argo-cd.readthedocs.io/en/st
 
 Argo CD supports two main deployment patterns:
 
-**Hub-and-spoke** - Run Argo CD on a dedicated management cluster that deploys to multiple workload clusters: \* Centralized control and visibility \* Consistent policies across all clusters \* One Argo CD instance to manage \* Clear separation between control plane and workloads
+**Hub-and-spoke** - Run Argo CD on a dedicated management cluster that deploys to multiple workload clusters:
+\* Centralized control and visibility
+\* Consistent policies across all clusters
+\* One Argo CD instance to manage
+\* Clear separation between control plane and workloads
 
-**Per-cluster** - Run Argo CD on each cluster, managing only that cluster’s applications: \* Cluster separation (one failure doesn’t affect others) \* Simpler networking (no cross-cluster communication) \* Easier initial setup (no cluster registration)
+**Per-cluster** - Run Argo CD on each cluster, managing only that cluster’s applications:
+\* Cluster separation (one failure doesn’t affect others)
+\* Simpler networking (no cross-cluster communication)
+\* Easier initial setup (no cluster registration)
 
 Choose hub-and-spoke for platform teams managing many clusters, or per-cluster for independent teams or when clusters must be fully isolated.
 

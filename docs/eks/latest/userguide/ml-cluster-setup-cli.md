@@ -380,7 +380,7 @@ spec:
 EOF
 ```
 
-`instanceStorePolicy: RAID0` assembles local NVMe disks into a RAID-0 array. The `al2023@latest` AMI alias resolves to the EKS-optimized AL2023 AMI. When Karpenter launches a GPU instance type, it automatically selects the AL2023_x86_64_NVIDIA accelerated variant, which includes the NVIDIA driver pre-installed.
+`instanceStorePolicy: RAID0` assembles local NVMe disks into a RAID-0 array. The `al2023@latest` AMI alias resolves to the EKS-optimized AL2023 AMI. When Karpenter launches a GPU instance type, it automatically selects the AL2023\_x86\_64\_NVIDIA accelerated variant, which includes the NVIDIA driver pre-installed.
 
 The `FastImagePull` feature gate enables SOCI snapshotter parallel pull mode, which downloads and unpacks image layers concurrently. This matches the EKS Auto Mode behavior on G, P, and Trn instance families. The `containerd.config` block tunes the SOCI snapshotter for ECR-hosted images:
 

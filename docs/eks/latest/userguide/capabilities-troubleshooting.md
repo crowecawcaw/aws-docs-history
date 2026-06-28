@@ -124,7 +124,7 @@ The response includes:
 
 **UPDATING**: Configuration changes are being applied. Wait for the status to return to `ACTIVE`.
 
-**CREATE_FAILED** or **UPDATE_FAILED**: Setup or update encountered an error. Check the health section for details. Common causes:
+**CREATE\_FAILED** or **UPDATE\_FAILED**: Setup or update encountered an error. Check the health section for details. Common causes:
 
 - IAM role trust policy incorrect or missing
 - IAM role does not exist or is not accessible

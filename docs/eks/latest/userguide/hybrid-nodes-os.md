@@ -30,7 +30,7 @@ The table below represents the operating system versions that are compatible and
 
 - The steps and tools to connect a Bottlerocket node are different than the steps for other operating systems and are covered separately in [Connect hybrid nodes with Bottlerocket](hybrid-nodes-bottlerocket.md "hybrid-nodes-bottlerocket.md"), instead of the steps in [Connect hybrid nodes](hybrid-nodes-join.md "hybrid-nodes-join.md").
 - The steps for Bottlerocket don’t use the hybrid nodes CLI tool, `nodeadm`.
-- Only VMware variants of Bottlerocket version v1.37.0 and above are supported with EKS Hybrid Nodes. VMware variants of Bottlerocket are available for Kubernetes versions v1.28 and above. [Other Bottlerocket variants](https://bottlerocket.dev/en/os/1.36.x/concepts/variants "https://bottlerocket.dev/en/os/1.36.x/concepts/variants") are not supported as the hybrid nodes operating system. NOTE: VMware variants of Bottlerocket are only available for the x86_64 architecture.
+- Only VMware variants of Bottlerocket version v1.37.0 and above are supported with EKS Hybrid Nodes. VMware variants of Bottlerocket are available for Kubernetes versions v1.28 and above. [Other Bottlerocket variants](https://bottlerocket.dev/en/os/1.36.x/concepts/variants "https://bottlerocket.dev/en/os/1.36.x/concepts/variants") are not supported as the hybrid nodes operating system. NOTE: VMware variants of Bottlerocket are only available for the x86\_64 architecture.
 
 ### Containerd
 
@@ -71,12 +71,12 @@ The following environment variables must be set for building images with all ope
 
 | Environment Variable | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | -------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PKR_SSH_PASSWORD     | String | Packer uses the `ssh_username` and `ssh_password` variables to SSH into the created machine when provisioning. This needs to match the passwords used to create the initial user within the respective OS’s kickstart or user-data files. The default is set as "builder" or "ubuntu" depending on the OS. When setting your password, make sure to change it within the corresponding `ks.cfg` or `user-data` file to match. |
-| ISO_URL              | String | URL of the ISO to use. Can be a web link to download from a server, or an absolute path to a local file                                                                                                                                                                                                                                                                                                                       |
-| ISO_CHECKSUM         | String | Associated checksum for the supplied ISO.                                                                                                                                                                                                                                                                                                                                                                                     |
-| CREDENTIAL_PROVIDER  | String | Credential provider for hybrid nodes. Valid values are `ssm` (default) for SSM hybrid activations and `iam` for IAM Roles Anywhere                                                                                                                                                                                                                                                                                            |
-| K8S_VERSION          | String | Kubernetes version for hybrid nodes (for example `1.31`). For supported Kubernetes versions, see [Amazon EKS supported versions](kubernetes-versions.md "kubernetes-versions.md").                                                                                                                                                                                                                                            |
-| NODEADM_ARCH         | String | Architecture for `nodeadm install`. Select `amd` or `arm`.                                                                                                                                                                                                                                                                                                                                                                    |
+| PKR\_SSH\_PASSWORD   | String | Packer uses the `ssh_username` and `ssh_password` variables to SSH into the created machine when provisioning. This needs to match the passwords used to create the initial user within the respective OS’s kickstart or user-data files. The default is set as "builder" or "ubuntu" depending on the OS. When setting your password, make sure to change it within the corresponding `ks.cfg` or `user-data` file to match. |
+| ISO\_URL             | String | URL of the ISO to use. Can be a web link to download from a server, or an absolute path to a local file                                                                                                                                                                                                                                                                                                                       |
+| ISO\_CHECKSUM        | String | Associated checksum for the supplied ISO.                                                                                                                                                                                                                                                                                                                                                                                     |
+| CREDENTIAL\_PROVIDER | String | Credential provider for hybrid nodes. Valid values are `ssm` (default) for SSM hybrid activations and `iam` for IAM Roles Anywhere                                                                                                                                                                                                                                                                                            |
+| K8S\_VERSION         | String | Kubernetes version for hybrid nodes (for example `1.31`). For supported Kubernetes versions, see [Amazon EKS supported versions](kubernetes-versions.md "kubernetes-versions.md").                                                                                                                                                                                                                                            |
+| NODEADM\_ARCH        | String | Architecture for `nodeadm install`. Select `amd` or `arm`.                                                                                                                                                                                                                                                                                                                                                                    |
 
 **RHEL**
 
@@ -84,9 +84,9 @@ If you are using RHEL, the following environment variables must be set.
 
 | Environment Variable | Type   | Description                                               |
 | -------------------- | ------ | --------------------------------------------------------- |
-| RH_USERNAME          | String | RHEL subscription manager username                        |
-| RH_PASSWORD          | String | RHEL subscription manager password                        |
-| RHEL_VERSION         | String | Rhel iso version being used. Valid values are `8` or `9`. |
+| RH\_USERNAME         | String | RHEL subscription manager username                        |
+| RH\_PASSWORD         | String | RHEL subscription manager password                        |
+| RHEL\_VERSION        | String | Rhel iso version being used. Valid values are `8` or `9`. |
 
 **Ubuntu**
 
@@ -96,22 +96,22 @@ There are no Ubuntu-specific environment variables required.
 
 If you are building a VMware vSphere OVA, the following environment variables must be set.
 
-| Environment Variable  | Type   | Description                             |
-| --------------------- | ------ | --------------------------------------- |
-| VSPHERE_SERVER        | String | vSphere server address                  |
-| VSPHERE_USER          | String | vSphere username                        |
-| VSPHERE_PASSWORD      | String | vSphere password                        |
-| VSPHERE_DATACENTER    | String | vSphere datacenter name                 |
-| VSPHERE_CLUSTER       | String | vSphere cluster name                    |
-| VSPHERE_DATASTORE     | String | vSphere datastore name                  |
-| VSPHERE_NETWORK       | String | vSphere network name                    |
-| VSPHERE_OUTPUT_FOLDER | String | vSphere output folder for the templates |
+| Environment Variable    | Type   | Description                             |
+| ----------------------- | ------ | --------------------------------------- |
+| VSPHERE\_SERVER         | String | vSphere server address                  |
+| VSPHERE\_USER           | String | vSphere username                        |
+| VSPHERE\_PASSWORD       | String | vSphere password                        |
+| VSPHERE\_DATACENTER     | String | vSphere datacenter name                 |
+| VSPHERE\_CLUSTER        | String | vSphere cluster name                    |
+| VSPHERE\_DATASTORE      | String | vSphere datastore name                  |
+| VSPHERE\_NETWORK        | String | vSphere network name                    |
+| VSPHERE\_OUTPUT\_FOLDER | String | vSphere output folder for the templates |
 
 **QEMU**
 
-| Environment Variable | Type   | Description                                                             |
-| -------------------- | ------ | ----------------------------------------------------------------------- |
-| PACKER_OUTPUT_FORMAT | String | Output format for the QEMU builder. Valid values are `qcow2` and `raw`. |
+| Environment Variable   | Type   | Description                                                             |
+| ---------------------- | ------ | ----------------------------------------------------------------------- |
+| PACKER\_OUTPUT\_FORMAT | String | Output format for the QEMU builder. Valid values are `qcow2` and `raw`. |
 
 **Validate template**
 

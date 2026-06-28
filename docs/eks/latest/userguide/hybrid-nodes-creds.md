@@ -410,47 +410,47 @@ aws iam attach-role-policy \
 
 5. On the **Review and Create** page.
 
-   1. Enter a **Policy** name for your policy such as `EKSHybridSSMPolicy`
-   2. Choose **Create Policy**.
+    1. Enter a **Policy** name for your policy such as `EKSHybridSSMPolicy`
+    2. Choose **Create Policy**.
 
-6. In the left navigation pane, choose **Roles**.
-7. On the **Roles** page, choose **Create role**.
-8. On the **Select trusted entity** page, do the following:
+6. In the left navigation pane, choose **Roles**. 7. On the **Roles** page, choose **Create role**. 8. On the **Select trusted entity** page, do the following:
 
-   1. In the **Trusted entity** type section, choose **Custom trust policy**. Paste the following into the Custom trust policy editor. Replace `AWS_REGION` with the AWS Region of your AWS SSM hybrid activation and `AWS_ACCOUNT_ID` with your AWS account ID.
+    1. In the **Trusted entity** type section, choose **Custom trust policy**. Paste the following into the Custom trust policy editor. Replace `AWS_REGION` with the AWS Region of your AWS SSM hybrid activation and `AWS_ACCOUNT_ID` with your AWS account ID.
 
-   ```
-   {
-      "Version":"2012-10-17",
-      "Statement":[
-         {
-            "Sid":"",
-            "Effect":"Allow",
-            "Principal":{
-               "Service":"ssm.amazonaws.com"
-            },
-            "Action":"sts:AssumeRole",
-            "Condition":{
-               "StringEquals":{
-                  "aws:SourceAccount":"123456789012"
-               },
-               "ArnEquals":{
-                  "aws:SourceArn":"arn:aws:ssm:us-east-1:123456789012:*"
-               }
-            }
-         }
-      ]
-   }
-   ```
-   2. Choose Next.
+
+
+    ```
+    {
+       "Version":"2012-10-17",
+       "Statement":[
+          {
+             "Sid":"",
+             "Effect":"Allow",
+             "Principal":{
+                "Service":"ssm.amazonaws.com"
+             },
+             "Action":"sts:AssumeRole",
+             "Condition":{
+                "StringEquals":{
+                   "aws:SourceAccount":"123456789012"
+                },
+                "ArnEquals":{
+                   "aws:SourceArn":"arn:aws:ssm:us-east-1:123456789012:*"
+                }
+             }
+          }
+       ]
+    }
+    ```
+    2. Choose Next.
 
 9. On the **Add permissions** page, attach a custom policy or do the following:
 
-   1. In the **Filter policies** box, enter `EKSDescribeClusterPolicy`, or the name of the policy you created above. Select the check box to the left of your policy name in the search results.
-   2. In the **Filter policies** box, enter `EKSHybridSSMPolicy`, or the name of the policy you created above. Select the check box to the left of your policy name in the search results.
-   3. In the **Filter policies** box, enter `AmazonEC2ContainerRegistryPullOnly`. Select the check box to the left of `AmazonEC2ContainerRegistryPullOnly` in the search results.
-   4. In the **Filter policies** box, enter `AmazonSSMManagedInstanceCore`. Select the check box to the left of `AmazonSSMManagedInstanceCore` in the search results.
-   5. Choose **Next**.
+    1. In the **Filter policies** box, enter `EKSDescribeClusterPolicy`, or the name of the policy you created above. Select the check box to the left of your policy name in the search results.
+    2. In the **Filter policies** box, enter `EKSHybridSSMPolicy`, or the name of the policy you created above. Select the check box to the left of your policy name in the search results.
+    3. In the **Filter policies** box, enter `AmazonEC2ContainerRegistryPullOnly`. Select the check box to the left of `AmazonEC2ContainerRegistryPullOnly` in the search results.
+    4. In the **Filter policies** box, enter `AmazonSSMManagedInstanceCore`. Select the check box to the left of `AmazonSSMManagedInstanceCore` in the search results.
+    5. Choose **Next**.
 
 10. On the **Name, review, and create** page, do the following:
 

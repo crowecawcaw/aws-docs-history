@@ -152,7 +152,7 @@ The EKS control plane’s API server uses a DEK key which is encrypted and cache
 When an existing object is being retrieved from etcd, the API server uses the same cached DEK key and decrypts the Kubernetes resource object.
 If you disable the CMK, the API server will not see any immediate impact because of the cached DEK key in the API server’s memory.
 However, when the API server instance is restarted, it won’t have a cached DEK and will need to call AWS KMS for encrypt and decrypt operations.
-Without a CMK, this process will fail with a KMS_KEY_DISABLED error code, preventing the API server from booting successfully.
+Without a CMK, this process will fail with a KMS\_KEY\_DISABLED error code, preventing the API server from booting successfully.
 
 ### What happens to my EKS cluster if I delete my CMK?
 
@@ -160,7 +160,7 @@ Deleting the CMK key associated with your EKS cluster will degrade its health be
 Without your cluster’s CMK, the API server will no longer be able to encrypt and persist any new Kubernetes objects, as well as decrypt any previously encrypted Kubernetes objects stored in the etcd database.
 You should only proceed with deleting a CMK key for your EKS cluster when you are sure that you don’t need to use the EKS cluster anymore.
 
-Please note that if the CMK is not found (KMS_KEY_NOT_FOUND) or the grants for the CMK associated with your cluster are revoked (KMS_GRANT_REVOKED), your cluster will not be recoverable.
+Please note that if the CMK is not found (KMS\_KEY\_NOT\_FOUND) or the grants for the CMK associated with your cluster are revoked (KMS\_GRANT\_REVOKED), your cluster will not be recoverable.
 For more information about cluster health and error codes, see [Cluster health FAQs and error codes with resolution paths](troubleshooting.md#cluster-health-status "troubleshooting.md#cluster-health-status").
 
 ### Will I still be charged for a degraded/unhealthy EKS cluster because I disabled or deleted my CMK?

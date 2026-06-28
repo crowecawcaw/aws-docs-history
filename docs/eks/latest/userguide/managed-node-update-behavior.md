@@ -20,25 +20,25 @@ When upgrading the nodes in a managed node group, the upgraded nodes are launche
 
 The scale up phase has these steps:
 
-1.  It increments the Auto Scaling Group’s maximum size and desired size by the larger of either:
+1. It increments the Auto Scaling Group’s maximum size and desired size by the larger of either:
 
-    - Up to twice the number of Availability Zones that the Auto Scaling Group is deployed in.
-    - The maximum unavailable of upgrade.
+   - Up to twice the number of Availability Zones that the Auto Scaling Group is deployed in.
+   - The maximum unavailable of upgrade.
 
-    For example, if your node group has five Availability Zones and `maxUnavailable` as one, the upgrade process can launch a maximum of 10 nodes. However when `maxUnavailable` is 20 (or anything higher than 10), the process would launch 20 new nodes.
+   For example, if your node group has five Availability Zones and `maxUnavailable` as one, the upgrade process can launch a maximum of 10 nodes. However when `maxUnavailable` is 20 (or anything higher than 10), the process would launch 20 new nodes.
 
-2.  After scaling the Auto Scaling Group, it checks if the nodes using the latest configuration are present in the node group. This step succeeds only when it meets these criteria:
+2. After scaling the Auto Scaling Group, it checks if the nodes using the latest configuration are present in the node group. This step succeeds only when it meets these criteria:
 
-    - At least one new node is launched in every Availability Zone where the node exists.
-    - Every new node should be in `Ready` state.
-    - New nodes should have Amazon EKS applied labels.
+   - At least one new node is launched in every Availability Zone where the node exists.
+   - Every new node should be in `Ready` state.
+   - New nodes should have Amazon EKS applied labels.
 
-    These are the Amazon EKS applied labels on the worker nodes in a regular node group:
+   These are the Amazon EKS applied labels on the worker nodes in a regular node group:
 
         + `eks.amazonaws.com/nodegroup-image=$amiName`
         + `eks.amazonaws.com/nodegroup=$nodeGroupName`
 
-    These are the Amazon EKS applied labels on the worker nodes in a custom launch template or AMI node group:
+   These are the Amazon EKS applied labels on the worker nodes in a custom launch template or AMI node group:
 
         + `eks.amazonaws.com/nodegroup-image=$amiName`
         + `eks.amazonaws.com/nodegroup=$nodeGroupName`
@@ -51,7 +51,7 @@ The scale up phase has these steps:
 
         When an update or upgrade is initiated without changes to the scaling configuration, the workflow uses the live Auto Scaling group values as the starting point, not the node group’s stored scaling configuration. For more information, see [Managed node groups concepts](managed-node-groups.md#managed-node-group-concepts "managed-node-groups.md#managed-node-group-concepts").
 
-3.  It marks nodes as unschedulable to avoid scheduling new Pods. It also labels nodes with `node.kubernetes.io/exclude-from-external-load-balancers=true` to remove the old nodes from load balancers before terminating the nodes.
+3. It marks nodes as unschedulable to avoid scheduling new Pods. It also labels nodes with `node.kubernetes.io/exclude-from-external-load-balancers=true` to remove the old nodes from load balancers before terminating the nodes.
 
 The following are known reasons which lead to a `NodeCreationFailure` error in this phase:
 

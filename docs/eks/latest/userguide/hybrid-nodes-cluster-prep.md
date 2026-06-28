@@ -10,12 +10,12 @@ Use the procedures below to associate your Hybrid Nodes IAM role with Kubernetes
 
 ## Using Amazon EKS access entries for Hybrid Nodes IAM role
 
-There is an Amazon EKS access entry type for hybrid nodes named HYBRID_LINUX that can be used with an IAM role. With this access entry type, the username is automatically set to system:node:{{SessionName}}. For more information on creating access entries, see [Create access entries](creating-access-entries.md "creating-access-entries.md").
+There is an Amazon EKS access entry type for hybrid nodes named HYBRID\_LINUX that can be used with an IAM role. With this access entry type, the username is automatically set to system:node:{{SessionName}}. For more information on creating access entries, see [Create access entries](creating-access-entries.md "creating-access-entries.md").
 
 ### AWS CLI
 
 1. You must have the latest version of the AWS CLI installed and configured on your device. To check your current version, use `aws --version`. Package managers such as yum, apt-get, or Homebrew for macOS are often several versions behind the latest version of the AWS CLI. To install the latest version, see Installing and Quick configuration with aws configure in the AWS Command Line Interface User Guide.
-2. Create your access entry with the following command. Replace CLUSTER_NAME with the name of your cluster and HYBRID_NODES_ROLE_ARN with the ARN of the role you created in the steps for [Prepare credentials for hybrid nodes](hybrid-nodes-creds.md "hybrid-nodes-creds.md").
+2. Create your access entry with the following command. Replace CLUSTER\_NAME with the name of your cluster and HYBRID\_NODES\_ROLE\_ARN with the ARN of the role you created in the steps for [Prepare credentials for hybrid nodes](hybrid-nodes-creds.md "hybrid-nodes-creds.md").
 
 ```
 aws eks create-access-entry --cluster-name CLUSTER_NAME \

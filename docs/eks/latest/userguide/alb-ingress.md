@@ -38,28 +38,22 @@ If you’re using multiple security groups attached to worker nodes, exactly one
 
 - Your public and private subnets must meet the following requirements. This is unless you explicitly specify subnet IDs as an annotation on a service or ingress object. Assume that you provision load balancers by explicitly specifying subnet IDs as an annotation on a service or ingress object. In this situation, Kubernetes and the AWS load balancer controller use those subnets directly to create the load balancer and the following tags aren’t required.
 
-      + **Private subnets**
-      – Must be tagged in the following format. This is so that Kubernetes and the AWS load balancer controller know that the subnets can be used for internal load balancers. If you use `eksctl` or an Amazon EKS AWS CloudFormation template to create your VPC after March 26, 2020, the subnets are tagged appropriately when created. For more information about the Amazon EKS AWS CloudFormation VPC templates, see [Create an Amazon VPC for your Amazon EKS cluster](creating-a-vpc.md "creating-a-vpc.md").
+  - **Private subnets**
+    – Must be tagged in the following format. This is so that Kubernetes and the AWS load balancer controller know that the subnets can be used for internal load balancers. If you use `eksctl` or an Amazon EKS AWS CloudFormation template to create your VPC after March 26, 2020, the subnets are tagged appropriately when created. For more information about the Amazon EKS AWS CloudFormation VPC templates, see [Create an Amazon VPC for your Amazon EKS cluster](creating-a-vpc.md "creating-a-vpc.md").
 
+    - **Key**
+      – `kubernetes.io/role/internal-elb`
+    - **Value**
+      – `1`
 
+  - **Public subnets**
+    – Must be tagged in the following format. This is so that Kubernetes knows to use only the subnets that were specified for external load balancers. This way, Kubernetes doesn’t choose a public subnet in each Availability Zone (lexicographically based on their subnet ID). If you use `eksctl` or an Amazon EKS AWS CloudFormation template to create your VPC after March 26, 2020, the subnets are tagged appropriately when created. For more information about the Amazon EKS AWS CloudFormation VPC templates, see [Create an Amazon VPC for your Amazon EKS cluster](creating-a-vpc.md "creating-a-vpc.md").
 
-
-      	- **Key**
-      	– `kubernetes.io/role/internal-elb`
-      	- **Value**
-      	– `1`
-      + **Public subnets**
-      – Must be tagged in the following format. This is so that Kubernetes knows to use only the subnets that were specified for external load balancers. This way, Kubernetes doesn’t choose a public subnet in each Availability Zone (lexicographically based on their subnet ID). If you use `eksctl` or an Amazon EKS AWS CloudFormation template to create your VPC after March 26, 2020, the subnets are tagged appropriately when created. For more information about the Amazon EKS AWS CloudFormation VPC templates, see [Create an Amazon VPC for your Amazon EKS cluster](creating-a-vpc.md "creating-a-vpc.md").
-
-
-
-
-      	- **Key**
-      	– `kubernetes.io/role/elb`
-      	- **Value**
-      	– `1`
-
-  If the subnet role tags aren’t explicitly added, the Kubernetes service controller examines the route table of your cluster VPC subnets. This is to determine if the subnet is private or public. We recommend that you don’t rely on this behavior. Rather, explicitly add the private or public role tags. The AWS Load Balancer Controller doesn’t examine route tables. It also requires the private and public tags to be present for successful auto discovery.
+    - **Key**
+      – `kubernetes.io/role/elb`
+    - **Value**
+      – `1`
+      If the subnet role tags aren’t explicitly added, the Kubernetes service controller examines the route table of your cluster VPC subnets. This is to determine if the subnet is private or public. We recommend that you don’t rely on this behavior. Rather, explicitly add the private or public role tags. The AWS Load Balancer Controller doesn’t examine route tables. It also requires the private and public tags to be present for successful auto discovery.
 
 - The [AWS Load Balancer Controller](https://github.com/kubernetes-sigs/aws-load-balancer-controller "https://github.com/kubernetes-sigs/aws-load-balancer-controller") creates ALBs and the necessary supporting AWS resources whenever a Kubernetes ingress resource is created on the cluster with the `kubernetes.io/ingress.class: alb` annotation. The ingress resource configures the ALB to route HTTP or HTTPS traffic to different Pods within the cluster. To ensure that your ingress objects use the AWS Load Balancer Controller, add the following annotation to your Kubernetes ingress specification. For more information, see [Ingress specification](https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/guide/ingress/spec/ "https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/guide/ingress/spec/") on GitHub.
 
@@ -143,15 +137,15 @@ eksctl create fargateprofile \
     --namespace game-2048
 ```
 
-2.  Deploy the game [2048](https://play2048.co/ "https://play2048.co/") as a sample application to verify that the AWS Load Balancer Controller creates an AWS ALB as a result of the ingress object. Complete the steps for the type of subnet you’re deploying to.
+2. Deploy the game [2048](https://play2048.co/ "https://play2048.co/") as a sample application to verify that the AWS Load Balancer Controller creates an AWS ALB as a result of the ingress object. Complete the steps for the type of subnet you’re deploying to.
 
-    1. If you’re deploying to Pods in a cluster that you created with the `IPv6` family, skip to the next step.
+   1. If you’re deploying to Pods in a cluster that you created with the `IPv6` family, skip to the next step.
 
-       - **Public**::
+      - **Public**::
 
-    ```
-    kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/examples/2048/2048_full.yaml
-    ```
+   ```
+   kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/examples/2048/2048_full.yaml
+   ```
 
         * **Private**::
 
@@ -174,27 +168,34 @@ eksctl create fargateprofile \
         	```
         	kubectl apply -f 2048_full.yaml
         	```
-    2. If you’re deploying to Pods in a cluster that you created with the [IPv6 family](cni-ipv6.md "cni-ipv6.md"), complete the following steps.
 
-       1. Download the manifest.
+   2. If you’re deploying to Pods in a cluster that you created with the [IPv6 family](cni-ipv6.md "cni-ipv6.md"), complete the following steps.
 
-       ```
-       curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/examples/2048/2048_full.yaml
-       ```
-       2. Open the file in an editor and add the following line to the annotations in the ingress spec.
+        1. Download the manifest.
 
-       ```
-       alb.ingress.kubernetes.io/ip-address-type: dualstack
-       ```
-       3. If you’re load balancing to internal Pods, rather than internet facing Pods, change the line that says `alb.ingress.kubernetes.io/scheme: `internet-facing``to`alb.ingress.kubernetes.io/scheme: internal`
-       4. Save the file.
-       5. Apply the manifest to your cluster.
 
-       ```
-       kubectl apply -f 2048_full.yaml
-       ```
 
-3.  After a few minutes, verify that the ingress resource was created with the following command.
+        ```
+        curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/examples/2048/2048_full.yaml
+        ```
+        2. Open the file in an editor and add the following line to the annotations in the ingress spec.
+
+
+
+        ```
+        alb.ingress.kubernetes.io/ip-address-type: dualstack
+        ```
+        3. If you’re load balancing to internal Pods, rather than internet facing Pods, change the line that says `alb.ingress.kubernetes.io/scheme: `internet-facing`` to `alb.ingress.kubernetes.io/scheme: internal`
+        4. Save the file.
+        5. Apply the manifest to your cluster.
+
+
+
+        ```
+        kubectl apply -f 2048_full.yaml
+        ```
+
+3. After a few minutes, verify that the ingress resource was created with the following command.
 
 ```
 kubectl get ingress/ingress-2048 -n game-2048

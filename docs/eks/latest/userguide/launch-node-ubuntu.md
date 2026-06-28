@@ -76,10 +76,9 @@ Several lines are output while the nodes are created. One of the last lines of o
 [✔]  created 1 nodegroup(s) in cluster "my-cluster"
 ```
 
-3.  (Optional) Deploy a [sample application](sample-deployment.md "sample-deployment.md") to test your Ubuntu nodes.
-4.  We recommend blocking Pod access to IMDS if the following conditions are true:
+3. (Optional) Deploy a [sample application](sample-deployment.md "sample-deployment.md") to test your Ubuntu nodes.
+4. We recommend blocking Pod access to IMDS if the following conditions are true:
 
-        * You plan to assign IAM roles to all of your Kubernetes service accounts so that Pods only have the minimum permissions that they need.
-        * No Pods in the cluster require access to the Amazon EC2 instance metadata service (IMDS) for other reasons, such as retrieving the current AWS Region.
-
-    For more information, see [Restrict access to the instance profile assigned to the worker node](https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node "https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node").
+   - You plan to assign IAM roles to all of your Kubernetes service accounts so that Pods only have the minimum permissions that they need.
+   - No Pods in the cluster require access to the Amazon EC2 instance metadata service (IMDS) for other reasons, such as retrieving the current AWS Region.
+     For more information, see [Restrict access to the instance profile assigned to the worker node](https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node "https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node").

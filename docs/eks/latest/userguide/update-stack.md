@@ -64,7 +64,7 @@ https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/amazon-e
 
    ###### Note
 
-   The supported instance types for the latest version of the [Amazon VPC CNI plugin for Kubernetes](https://github.com/aws/amazon-vpc-cni-k8s "https://github.com/aws/amazon-vpc-cni-k8s") are shown in [vpc_ip_resource_limit.go](https://github.com/aws/amazon-vpc-cni-k8s/blob/master/pkg/vpc/vpc_ip_resource_limit.go "https://github.com/aws/amazon-vpc-cni-k8s/blob/master/pkg/vpc/vpc_ip_resource_limit.go") on GitHub. You might need to update your Amazon VPC CNI plugin for Kubernetes version to use the latest supported instance types. For more information, see [Assign IPs to Pods with the Amazon VPC CNI](managing-vpc-cni.md "managing-vpc-cni.md").
+   The supported instance types for the latest version of the [Amazon VPC CNI plugin for Kubernetes](https://github.com/aws/amazon-vpc-cni-k8s "https://github.com/aws/amazon-vpc-cni-k8s") are shown in [vpc\_ip\_resource\_limit.go](https://github.com/aws/amazon-vpc-cni-k8s/blob/master/pkg/vpc/vpc_ip_resource_limit.go "https://github.com/aws/amazon-vpc-cni-k8s/blob/master/pkg/vpc/vpc_ip_resource_limit.go") on GitHub. You might need to update your Amazon VPC CNI plugin for Kubernetes version to use the latest supported instance types. For more information, see [Assign IPs to Pods with the Amazon VPC CNI](managing-vpc-cni.md "managing-vpc-cni.md").
 
    ###### Important
 

@@ -19,7 +19,7 @@ You must run `nodeadm` with a user that has root/sudo privileges.
 
 The hybrid nodes version of `nodeadm` is hosted in Amazon S3 fronted by Amazon CloudFront. To install `nodeadm` on each on-premises host, you can run the following command from your on-premises hosts.
 
-**For x86_64 hosts**
+**For x86\_64 hosts**
 
 ```
 curl -OL 'https://hybrid-assets.eks.amazonaws.com/releases/latest/bin/linux/amd64/nodeadm'
@@ -228,7 +228,7 @@ When running `nodeadm install`, the following files and file locations are confi
 
 | Artifact                    | Path                                                                                                              |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| IAM Roles Anywhere CLI      | /usr/local/bin/aws_signing_helper                                                                                 |
+| IAM Roles Anywhere CLI      | /usr/local/bin/aws\_signing\_helper                                                                               |
 | Kubelet binary              | /usr/bin/kubelet                                                                                                  |
 | Kubectl binary              | usr/local/bin/kubectl                                                                                             |
 | ECR Credentials Provider    | /etc/eks/image-credential-provider/ecr-credential-provider                                                        |
@@ -244,23 +244,23 @@ When running `nodeadm install`, the following files and file locations are confi
 
 When running `nodeadm init`, the following files and file locations are configured.
 
-| Name                                              | Path                                                  |
-| ------------------------------------------------- | ----------------------------------------------------- |
-| Kubelet kubeconfig                                | /var/lib/kubelet/kubeconfig                           |
-| Kubelet config                                    | /etc/kubernetes/kubelet/config.json                   |
-| Kubelet systemd unit                              | /etc/systemd/system/kubelet.service                   |
-| Image credentials provider config                 | /etc/eks/image-credential-provider/config.json        |
-| Kubelet env file                                  | /etc/eks/kubelet/environment                          |
-| Kubelet Certs                                     | /etc/kubernetes/pki/ca.crt                            |
-| Containerd config                                 | /etc/containerd/config.toml                           |
-| Containerd kernel modules config                  | /etc/modules-load.d/containerd.conf                   |
-| AWS config file                                   | /etc/aws/hybrid/config                                |
-| AWS credentials file (if enable credentials file) | /eks-hybrid/.aws/credentials                          |
-| AWS signing helper system unit                    | /etc/systemd/system/aws_signing_helper_update.service |
-| Sysctl conf file                                  | /etc/sysctl.d/99-nodeadm.conf                         |
-| Ca-certificates                                   | /etc/ssl/certs/ca-certificates.crt                    |
-| Gpg key file                                      | /etc/apt/keyrings/docker.asc                          |
-| Docker repo source file                           | /etc/apt/sources.list.d/docker.list                   |
+| Name                                              | Path                                                     |
+| ------------------------------------------------- | -------------------------------------------------------- |
+| Kubelet kubeconfig                                | /var/lib/kubelet/kubeconfig                              |
+| Kubelet config                                    | /etc/kubernetes/kubelet/config.json                      |
+| Kubelet systemd unit                              | /etc/systemd/system/kubelet.service                      |
+| Image credentials provider config                 | /etc/eks/image-credential-provider/config.json           |
+| Kubelet env file                                  | /etc/eks/kubelet/environment                             |
+| Kubelet Certs                                     | /etc/kubernetes/pki/ca.crt                               |
+| Containerd config                                 | /etc/containerd/config.toml                              |
+| Containerd kernel modules config                  | /etc/modules-load.d/containerd.conf                      |
+| AWS config file                                   | /etc/aws/hybrid/config                                   |
+| AWS credentials file (if enable credentials file) | /eks-hybrid/.aws/credentials                             |
+| AWS signing helper system unit                    | /etc/systemd/system/aws\_signing\_helper\_update.service |
+| Sysctl conf file                                  | /etc/sysctl.d/99-nodeadm.conf                            |
+| Ca-certificates                                   | /etc/ssl/certs/ca-certificates.crt                       |
+| Gpg key file                                      | /etc/apt/keyrings/docker.asc                             |
+| Docker repo source file                           | /etc/apt/sources.list.d/docker.list                      |
 
 ## Node Config for SSM hybrid activations
 

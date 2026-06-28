@@ -56,7 +56,7 @@ Wait for the status to return to `ACTIVE`.
 
 **DELETING**: Capability is being removed from the cluster.
 
-**CREATE_FAILED**: Setup encountered an error.
+**CREATE\_FAILED**: Setup encountered an error.
 Common causes include:
 
 - IAM role trust policy incorrect or missing
@@ -66,7 +66,7 @@ Common causes include:
 
 Check the capability health section for specific error details.
 
-**UPDATE_FAILED**: Configuration update failed.
+**UPDATE\_FAILED**: Configuration update failed.
 Check the capability health section for details and verify IAM permissions.
 
 ###### Tip

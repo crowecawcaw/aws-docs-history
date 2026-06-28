@@ -142,13 +142,12 @@ For more information, see [Managed resource visibility settings](../../../AWSEC2
 
 ## View IAM Errors in your AWS account
 
-1. Navigate to CloudTrail console
-2. Select "Event History" from the left navigation pane
-3. Apply error code filters:
+1. Navigate to the CloudTrail console.
+2. Select **Event history** from the left navigation pane.
+3. Choose the settings (gear) icon in the top right of the Event history table and enable the **Error code** column.
+4. Review the **Error code** column for permission-related errors such as `AccessDenied`, `UnauthorizedOperation`, and `InvalidClientTokenId`. To narrow the list, filter by **Event source** (for example, `ec2.amazonaws.com` or `eks.amazonaws.com`) and a time range.
 
-   - AccessDenied
-   - UnauthorizedOperation
-   - InvalidClientTokenId
+For more precise filtering by error code across a larger time window, query a CloudTrail Lake event data store or create an Athena table (the **Query in Lake** and **Create Athena table** options at the top of the Event history page).
 
 Look for errors related to your EKS cluster. Use the error messages to update your EKS access entries, cluster IAM role, or node IAM role. You might need to attach a new policy to these roles with permissions for EKS Auto Mode.
 

@@ -14,98 +14,99 @@ If you have a Pod with Amazon EC2 instances, you must configure the plugin befor
 kubectl create namespace my-namespace
 ```
 
-2.  Deploy an Amazon EKS `SecurityGroupPolicy` to your cluster.
+2. Deploy an Amazon EKS `SecurityGroupPolicy` to your cluster.
 
-    1. Copy the following contents to your device. You can replace `podSelector` with `serviceAccountSelector` if you’d rather select Pods based on service account labels. You must specify one selector or the other. An empty `podSelector` (example: `podSelector: {}`) selects all Pods in the namespace. You can change `my-role` to the name of your role. An empty `serviceAccountSelector` selects all service accounts in the namespace. You can replace `my-security-group-policy` with a name for your `SecurityGroupPolicy` and `my-namespace` with the namespace that you want to create the `SecurityGroupPolicy` in.
+   1. Copy the following contents to your device. You can replace `podSelector` with `serviceAccountSelector` if you’d rather select Pods based on service account labels. You must specify one selector or the other. An empty `podSelector` (example: `podSelector: {}`) selects all Pods in the namespace. You can change `my-role` to the name of your role. An empty `serviceAccountSelector` selects all service accounts in the namespace. You can replace `my-security-group-policy` with a name for your `SecurityGroupPolicy` and `my-namespace` with the namespace that you want to create the `SecurityGroupPolicy` in.
 
-    You must replace `my_pod_security_group_id` with the ID of an existing security group. If you don’t have an existing security group, then you must create one. For more information, see [Amazon EC2 security groups for Linux instances](../../../AWSEC2/latest/UserGuide/ec2-security-groups.md "../../../AWSEC2/latest/UserGuide/ec2-security-groups.md") in the [Amazon EC2 User Guide](../../../AWSEC2/latest/UserGuide.md "../../../AWSEC2/latest/UserGuide.md"). You can specify 1-5 security group IDs. If you specify more than one ID, then the combination of all the rules in all the security groups are effective for the selected Pods.
+   You must replace `my_pod_security_group_id` with the ID of an existing security group. If you don’t have an existing security group, then you must create one. For more information, see [Amazon EC2 security groups for Linux instances](../../../AWSEC2/latest/UserGuide/ec2-security-groups.md "../../../AWSEC2/latest/UserGuide/ec2-security-groups.md") in the [Amazon EC2 User Guide](../../../AWSEC2/latest/UserGuide.md "../../../AWSEC2/latest/UserGuide.md"). You can specify 1-5 security group IDs. If you specify more than one ID, then the combination of all the rules in all the security groups are effective for the selected Pods.
 
-    ```
-    cat >my-security-group-policy.yaml <<EOF
-    apiVersion: vpcresources.k8s.aws/v1beta1
-    kind: SecurityGroupPolicy
-    metadata:
-      name: my-security-group-policy
-      namespace: my-namespace
-    spec:
-      podSelector:
-        matchLabels:
-          role: my-role
-      securityGroups:
-        groupIds:
-          - my_pod_security_group_id
-    EOF
-    ```
+   ```
+   cat >my-security-group-policy.yaml <<EOF
+   apiVersion: vpcresources.k8s.aws/v1beta1
+   kind: SecurityGroupPolicy
+   metadata:
+     name: my-security-group-policy
+     namespace: my-namespace
+   spec:
+     podSelector:
+       matchLabels:
+         role: my-role
+     securityGroups:
+       groupIds:
+         - my_pod_security_group_id
+   EOF
+   ```
 
-    ###### Important
+   ###### Important
 
-    The security group or groups that you specify for your Pods must meet the following criteria:
+   The security group or groups that you specify for your Pods must meet the following criteria:
 
         * They must exist. If they don’t exist, then, when you deploy a Pod that matches the selector, your Pod remains stuck in the creation process. If you describe the Pod, you’ll see an error message similar to the following one: `An error occurred (InvalidSecurityGroupID.NotFound) when calling the CreateNetworkInterface operation: The securityGroup ID '`sg-05b1d815d1EXAMPLE`' does not exist`.
         * They must allow inbound communication from the security group applied to your nodes (for `kubelet`) over any ports that you’ve configured probes for.
         * They must allow outbound communication over `TCP` and `UDP` ports 53 to a security group assigned to the Pods (or nodes that the Pods run on) running CoreDNS. The security group for your CoreDNS Pods must allow inbound `TCP` and `UDP` port 53 traffic from the security group that you specify.
         * They must have necessary inbound and outbound rules to communicate with other Pods that they need to communicate with.
         * They must have rules that allow the Pods to communicate with the Kubernetes control plane if you’re using the security group with Fargate. The easiest way to do this is to specify the cluster security group as one of the security groups.Security group policies only apply to newly scheduled Pods. They do not affect running Pods.
-    2. Deploy the policy.
 
-    ```
-    kubectl apply -f my-security-group-policy.yaml
-    ```
+   2. Deploy the policy.
 
-3.  Deploy a sample application with a label that matches the `my-role` value for `podSelector` that you specified in a previous step.
+   ```
+   kubectl apply -f my-security-group-policy.yaml
+   ```
 
-    1. Copy the following contents to your device. Replace the example values with your own and then run the modified command. If you replace `my-role`, make sure that it’s the same as the value you specified for the selector in a previous step.
+3. Deploy a sample application with a label that matches the `my-role` value for `podSelector` that you specified in a previous step.
 
-    ```
-    cat >sample-application.yaml <<EOF
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: my-deployment
-      namespace: my-namespace
-      labels:
-        app: my-app
-    spec:
-      replicas: 4
-      selector:
-        matchLabels:
-          app: my-app
-      template:
-        metadata:
-          labels:
-            app: my-app
-            role: my-role
-        spec:
-          terminationGracePeriodSeconds: 120
-          containers:
-          - name: nginx
-            image: public.ecr.aws/nginx/nginx:1.23
-            ports:
-            - containerPort: 80
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: my-app
-      namespace: my-namespace
-      labels:
-        app: my-app
-    spec:
-      selector:
-        app: my-app
-      ports:
-        - protocol: TCP
-          port: 80
-          targetPort: 80
-    EOF
-    ```
-    2. Deploy the application with the following command. When you deploy the application, the Amazon VPC CNI plugin for Kubernetes matches the `role` label and the security groups that you specified in the previous step are applied to the Pod.
+   1. Copy the following contents to your device. Replace the example values with your own and then run the modified command. If you replace `my-role`, make sure that it’s the same as the value you specified for the selector in a previous step.
 
-    ```
-    kubectl apply -f sample-application.yaml
-    ```
+   ```
+   cat >sample-application.yaml <<EOF
+   apiVersion: apps/v1
+   kind: Deployment
+   metadata:
+     name: my-deployment
+     namespace: my-namespace
+     labels:
+       app: my-app
+   spec:
+     replicas: 4
+     selector:
+       matchLabels:
+         app: my-app
+     template:
+       metadata:
+         labels:
+           app: my-app
+           role: my-role
+       spec:
+         terminationGracePeriodSeconds: 120
+         containers:
+         - name: nginx
+           image: public.ecr.aws/nginx/nginx:1.23
+           ports:
+           - containerPort: 80
+   ---
+   apiVersion: v1
+   kind: Service
+   metadata:
+     name: my-app
+     namespace: my-namespace
+     labels:
+       app: my-app
+   spec:
+     selector:
+       app: my-app
+     ports:
+       - protocol: TCP
+         port: 80
+         targetPort: 80
+   EOF
+   ```
+   2. Deploy the application with the following command. When you deploy the application, the Amazon VPC CNI plugin for Kubernetes matches the `role` label and the security groups that you specified in the previous step are applied to the Pod.
 
-4.  View the Pods deployed with the sample application. For the remainder of this topic, this terminal is referred to as `TerminalA`.
+   ```
+   kubectl apply -f sample-application.yaml
+   ```
+
+4. View the Pods deployed with the sample application. For the remainder of this topic, this terminal is referred to as `TerminalA`.
 
 ```
 kubectl get pods -n my-namespace -o wide

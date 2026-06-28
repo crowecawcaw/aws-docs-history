@@ -23,6 +23,10 @@ The on-premises node and pod CIDR blocks must meet the following requirements:
 1. Be within one of the following `IPv4` RFC-1918 ranges: `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16` , or within the CGNAT range defined by RFC 6598: `100.64.0.0/10` .
 2. Not overlap with each other, the VPC CIDR for your EKS cluster, or your Kubernetes service `IPv4` CIDR.
 
+###### Important
+
+If you don’t explicitly specify a Kubernetes service IPv4 CIDR during cluster creation, Amazon EKS automatically selects a service CIDR that doesn’t conflict with your configured remote node and pod networks. This means the assigned service CIDR may differ from the standard defaults (`10.100.0.0/16` or `172.20.0.0/16`). For example, if your remote networks overlap with `172.20.0.0/16`, Amazon EKS might assign `172.16.0.0/16` instead. To avoid unexpected service CIDR assignments, we recommend that you explicitly specify a service IPv4 CIDR when creating your cluster. If you need to find the service CIDR that was assigned to your cluster, run `aws eks describe-cluster --name CLUSTER_NAME --query "cluster.kubernetesNetworkConfig.serviceIpv4Cidr"`.
+
 ### On-premises pod network routing
 
 When using EKS Hybrid Nodes, we generally recommend that you make your on-premises pod CIDRs routable on your on-premises network to enable full cluster communication and functionality between cloud and on-premises environments.
@@ -115,7 +119,7 @@ The following steps use the AWS CLI. You can also create these resources in the 
 
 ### Step 1: Create VPC
 
-1. Run the following command to create a VPC. Replace VPC_CIDR with an IPv4 CIDR range that is either RFC 1918 (private), CGNAT (RFC 6598), or non-RFC 1918/non-CGNAT (public) (for example, 10.0.0.0/16).
+1. Run the following command to create a VPC. Replace VPC\_CIDR with an IPv4 CIDR range that is either RFC 1918 (private), CGNAT (RFC 6598), or non-RFC 1918/non-CGNAT (public) (for example, 10.0.0.0/16).
    Note: DNS resolution, which is an EKS requirement, is enabled for the VPC by default.
 
 ```

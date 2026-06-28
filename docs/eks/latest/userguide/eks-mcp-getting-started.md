@@ -366,7 +366,7 @@ List the available MCP tools for EKS
 
 ## Step 2: (Optional) Create a "write" policy
 
-Optionally, you can create a [customer-managed IAM policy](../../../privateca/latest/userguide/auth-CustManagedPolicies.md "../../../privateca/latest/userguide/auth-CustManagedPolicies.md") that provides full access to the Amazon EKS MCP server. This policy grants permissions to use all tools in the EKS MCP server, including both privileged tools that may involve write operations and read-only tools. Note that high-risk permissions (anything with Delete\*, or unrestricted IAM resource) are included in this policy, as they’re required for setup/teardown of the cluster resources in the **manage_eks_stacks** tool.
+Optionally, you can create a [customer-managed IAM policy](../../../privateca/latest/userguide/auth-CustManagedPolicies.md "../../../privateca/latest/userguide/auth-CustManagedPolicies.md") that provides full access to the Amazon EKS MCP server. This policy grants permissions to use all tools in the EKS MCP server, including both privileged tools that may involve write operations and read-only tools. Note that high-risk permissions (anything with Delete\*, or unrestricted IAM resource) are included in this policy, as they’re required for setup/teardown of the cluster resources in the **manage\_eks\_stacks** tool.
 
 ```
 aws iam create-policy \
@@ -626,7 +626,7 @@ For development environments with full write access.
 
 Do not pass secrets or sensitive information via allowed input mechanisms:
 
-- Do not include secrets or credentials in YAML files applied with apply_yaml.
+- Do not include secrets or credentials in YAML files applied with apply\_yaml.
 - Do not pass sensitive information directly in the prompt to the model.
 - Do not include secrets in CloudFormation templates or application manifests.
 - Avoid using MCP tools for creating Kubernetes Secrets, as this would require providing the secret data to the model.

@@ -54,8 +54,7 @@ For an IAM principal to view Kubernetes resources in Amazon EKS console, the pri
     curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/eks-connector/manifests/eks-connector-console-roles/eks-connector-console-dashboard-restricted-access-group.yaml
     ```
 
-2. Edit the full access or restricted access YAML file to replace references of `%IAM_ARN%` with the Amazon Resource Name (ARN) of your IAM principal.
-3. Apply the full access or restricted access YAML files to your Kubernetes cluster. Replace the YAML file value with your own.
+2. Edit the full access or restricted access YAML file to replace references of `%IAM_ARN%` with the Amazon Resource Name (ARN) of your IAM principal. 3. Apply the full access or restricted access YAML files to your Kubernetes cluster. Replace the YAML file value with your own.
 
 ```
 kubectl apply -f eks-connector-console-dashboard-full-access-group.yaml

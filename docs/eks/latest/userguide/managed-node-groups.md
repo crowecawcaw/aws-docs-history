@@ -37,11 +37,10 @@ If you are running a stateful application across multiple Availability Zones tha
 - Amazon EKS managed node groups can be launched in both public and private subnets. If you launch a managed node group in a public subnet on or after April 22, 2020, the subnet must have `MapPublicIpOnLaunch` set to true for the instances to successfully join a cluster. If the public subnet was created using `eksctl` or the [Amazon EKS vended AWS CloudFormation templates](creating-a-vpc.md "creating-a-vpc.md") on or after March 26, 2020, then this setting is already set to true. If the public subnets were created before March 26, 2020, you must change the setting manually. For more information, see [Modifying the public IPv4 addressing attribute for your subnet](../../../vpc/latest/userguide/vpc-ip-addressing.md#subnet-public-ip "../../../vpc/latest/userguide/vpc-ip-addressing.md#subnet-public-ip").
 - When deploying a managed node group in private subnets, you must ensure that it can access Amazon ECR for pulling container images. You can do this by connecting a NAT gateway to the route table of the subnet or by adding the following [AWS PrivateLink VPC endpoints](../../../AmazonECR/latest/userguide/vpc-endpoints.md#ecr-setting-up-vpc-create "../../../AmazonECR/latest/userguide/vpc-endpoints.md#ecr-setting-up-vpc-create"):
 
-      + Amazon ECR API endpoint interface – `com.amazonaws.`region-code`.ecr.api`
-      + Amazon ECR Docker registry API endpoint interface – `com.amazonaws.`region-code`.ecr.dkr`
-      + Amazon S3 gateway endpoint – `com.amazonaws.`region-code`.s3`
-
-  For other commonly-used services and endpoints, see [Deploy private clusters with limited internet access](private-clusters.md "private-clusters.md").
+  - Amazon ECR API endpoint interface – `com.amazonaws.`region-code`.ecr.api`
+  - Amazon ECR Docker registry API endpoint interface – `com.amazonaws.`region-code`.ecr.dkr`
+  - Amazon S3 gateway endpoint – `com.amazonaws.`region-code`.s3`
+    For other commonly-used services and endpoints, see [Deploy private clusters with limited internet access](private-clusters.md "private-clusters.md").
 
 - Managed node groups can’t be deployed on [AWS Outposts](eks-outposts.md "eks-outposts.md") or in [AWS Wavelength](../../../wavelength.md "../../../wavelength.md"). Managed node groups can be created on [AWS Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/ "https://aws.amazon.com/about-aws/global-infrastructure/localzones/"). For more information, see [Launch low-latency EKS clusters with AWS Local Zones](local-zones.md "local-zones.md").
 - You can create multiple managed node groups within a single cluster. For example, you can create one node group with the standard Amazon EKS optimized Amazon Linux AMI for some workloads and another with the GPU variant for workloads that require GPU support.
@@ -75,10 +74,9 @@ To use Spot Instances inside a managed node group, create a managed node group b
 
 - To ensure that your Spot nodes are provisioned in the optimal Spot capacity pools, the allocation strategy is set to one of the following:
 
-      + `price-capacity-optimized` (PCO) – When creating new node groups in a cluster with Kubernetes version `1.28` or higher, the allocation strategy is set to `price-capacity-optimized`. However, the allocation strategy won’t be changed for node groups already created with `capacity-optimized` before Amazon EKS managed node groups started to support PCO.
-      + `capacity-optimized` (CO) – When creating new node groups in a cluster with Kubernetes version `1.27` or lower, the allocation strategy is set to `capacity-optimized`.
-
-  To increase the number of Spot capacity pools available for allocating capacity from, configure a managed node group to use multiple instance types.
+  - `price-capacity-optimized` (PCO) – When creating new node groups in a cluster with Kubernetes version `1.28` or higher, the allocation strategy is set to `price-capacity-optimized`. However, the allocation strategy won’t be changed for node groups already created with `capacity-optimized` before Amazon EKS managed node groups started to support PCO.
+  - `capacity-optimized` (CO) – When creating new node groups in a cluster with Kubernetes version `1.27` or lower, the allocation strategy is set to `capacity-optimized`.
+    To increase the number of Spot capacity pools available for allocating capacity from, configure a managed node group to use multiple instance types.
 
 - Amazon EC2 Spot Capacity Rebalancing is enabled so that Amazon EKS can gracefully drain and rebalance your Spot nodes to minimize application disruption when a Spot node is at elevated risk of interruption. For more information, see [Amazon EC2 Auto Scaling Capacity Rebalancing](../../../autoscaling/ec2/userguide/capacity-rebalance.md "../../../autoscaling/ec2/userguide/capacity-rebalance.md") in the _Amazon EC2 Auto Scaling User Guide_.
 

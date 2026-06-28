@@ -11,19 +11,16 @@ Security is a shared responsibility between AWS and you. The [shared responsibil
 - **Security of the cloud** – AWS is responsible for protecting the infrastructure that runs AWS services in the AWS Cloud. For Amazon EKS, AWS is responsible for the Kubernetes control plane, which includes the control plane nodes and `etcd` database. Third-party auditors regularly test and verify the effectiveness of our security as part of the [AWS compliance programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/"). To learn about the compliance programs that apply to Amazon EKS, see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
 - **Security in the cloud** – Your responsibility includes the following areas.
 
-      + The security configuration of the data plane, including the configuration of the security groups that allow traffic to pass from the Amazon EKS control plane into the customer VPC
-      + The configuration of the nodes and the containers themselves
-      + The node’s operating system (including updates and security patches)
-      + Other associated application software:
+  - The security configuration of the data plane, including the configuration of the security groups that allow traffic to pass from the Amazon EKS control plane into the customer VPC
+  - The configuration of the nodes and the containers themselves
+  - The node’s operating system (including updates and security patches)
+  - Other associated application software:
 
+    - Setting up and managing network controls, such as firewall rules
+    - Managing platform-level identity and access management, either with or in addition to IAM
 
-
-
-      	- Setting up and managing network controls, such as firewall rules
-      	- Managing platform-level identity and access management, either with or in addition to IAM
-      + The sensitivity of your data, your company’s requirements, and applicable laws and regulations
-
-  Amazon EKS is certified by multiple compliance programs for regulated and sensitive applications. Amazon EKS is compliant with [SOC](https://aws.amazon.com/compliance/soc-faqs/ "https://aws.amazon.com/compliance/soc-faqs/"), [PCI](https://aws.amazon.com/compliance/pci-dss-level-1-faqs/ "https://aws.amazon.com/compliance/pci-dss-level-1-faqs/"), [ISO](https://aws.amazon.com/compliance/iso-certified/ "https://aws.amazon.com/compliance/iso-certified/"), [FedRAMP-Moderate](https://aws.amazon.com/compliance/fedramp/ "https://aws.amazon.com/compliance/fedramp/"), [IRAP](https://aws.amazon.com/compliance/irap/ "https://aws.amazon.com/compliance/irap/"), [C5](https://aws.amazon.com/compliance/bsi-c5/ "https://aws.amazon.com/compliance/bsi-c5/"), [K-ISMS](https://aws.amazon.com/compliance/k-isms/ "https://aws.amazon.com/compliance/k-isms/"), [ENS High](https://aws.amazon.com/compliance/esquema-nacional-de-seguridad/ "https://aws.amazon.com/compliance/esquema-nacional-de-seguridad/"), [OSPAR](https://aws.amazon.com/compliance/OSPAR/ "https://aws.amazon.com/compliance/OSPAR/"), [HITRUST CSF](https://aws.amazon.com/compliance/hitrust/ "https://aws.amazon.com/compliance/hitrust/"), and is a [HIPAA](https://aws.amazon.com/compliance/hipaa-compliance/ "https://aws.amazon.com/compliance/hipaa-compliance/") eligible service. For more information, see [Learn how access control works in Amazon EKS](cluster-auth.md "cluster-auth.md").
+  - The sensitivity of your data, your company’s requirements, and applicable laws and regulations
+    Amazon EKS is certified by multiple compliance programs for regulated and sensitive applications. Amazon EKS is compliant with [SOC](https://aws.amazon.com/compliance/soc-faqs/ "https://aws.amazon.com/compliance/soc-faqs/"), [PCI](https://aws.amazon.com/compliance/pci-dss-level-1-faqs/ "https://aws.amazon.com/compliance/pci-dss-level-1-faqs/"), [ISO](https://aws.amazon.com/compliance/iso-certified/ "https://aws.amazon.com/compliance/iso-certified/"), [FedRAMP-Moderate](https://aws.amazon.com/compliance/fedramp/ "https://aws.amazon.com/compliance/fedramp/"), [IRAP](https://aws.amazon.com/compliance/irap/ "https://aws.amazon.com/compliance/irap/"), [C5](https://aws.amazon.com/compliance/bsi-c5/ "https://aws.amazon.com/compliance/bsi-c5/"), [K-ISMS](https://aws.amazon.com/compliance/k-isms/ "https://aws.amazon.com/compliance/k-isms/"), [ENS High](https://aws.amazon.com/compliance/esquema-nacional-de-seguridad/ "https://aws.amazon.com/compliance/esquema-nacional-de-seguridad/"), [OSPAR](https://aws.amazon.com/compliance/OSPAR/ "https://aws.amazon.com/compliance/OSPAR/"), [HITRUST CSF](https://aws.amazon.com/compliance/hitrust/ "https://aws.amazon.com/compliance/hitrust/"), and is a [HIPAA](https://aws.amazon.com/compliance/hipaa-compliance/ "https://aws.amazon.com/compliance/hipaa-compliance/") eligible service. For more information, see [Learn how access control works in Amazon EKS](cluster-auth.md "cluster-auth.md").
 
 This documentation helps you understand how to apply the shared responsibility model when using Amazon EKS. The following topics show you how to configure Amazon EKS to meet your security and compliance objectives. You also learn how to use other AWS services that help you to monitor and secure your Amazon EKS resources.
 

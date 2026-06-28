@@ -52,7 +52,9 @@ These service quotas are listed under **Amazon Elastic Kubernetes Service (Amazo
 
 ###### Note
 
-Adjustments to the following components are **not** supported in Service Quotas: \* Pod Identity associations per cluster. For limits, see [Learn how EKS Pod Identity grants pods access to AWS services](pod-identities.md "pod-identities.md"). \* CIDRs for Remote Node Networks or Remote Pod Networks for hybrid nodes. For limits, see [Amazon EKS Hybrid Nodes overview](hybrid-nodes-overview.md "hybrid-nodes-overview.md").
+Adjustments to the following components are **not** supported in Service Quotas:
+\* Pod Identity associations per cluster. For limits, see [Learn how EKS Pod Identity grants pods access to AWS services](pod-identities.md "pod-identities.md").
+\* CIDRs for Remote Node Networks or Remote Pod Networks for hybrid nodes. For limits, see [Amazon EKS Hybrid Nodes overview](hybrid-nodes-overview.md "hybrid-nodes-overview.md").
 
 ## AWS Fargate service quotas
 

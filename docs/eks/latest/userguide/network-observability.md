@@ -272,19 +272,19 @@ Important note: The scraping of system metrics from the NFM agent and the proces
 
 Important note: system metrics are exported in [OpenMetrics](https://openmetrics.io/ "https://openmetrics.io/") format.
 
-| Metric name                  | Type  | Dimensions                               | Description                                            |
-| ---------------------------- | ----- | ---------------------------------------- | ------------------------------------------------------ |
-| ingress_flow                 | Gauge | instance_id, iface, pod, namespace, node | Ingress TCP flow count (TcpPassiveOpens)               |
-| egress_flow                  | Gauge | instance_id, iface, pod, namespace, node | Egress TCP flow count (TcpActiveOpens)                 |
-| ingress_packets              | Gauge | instance_id, iface, pod, namespace, node | Ingress packet count (delta)                           |
-| egress_packets               | Gauge | instance_id, iface, pod, namespace, node | Egress packet count (delta)                            |
-| ingress_bytes                | Gauge | instance_id, iface, pod, namespace, node | Ingress bytes count (delta)                            |
-| egress_bytes                 | Gauge | instance_id, iface, pod, namespace, node | Egress bytes count (delta)                             |
-| bw_in_allowance_exceeded     | Gauge | instance_id, eni, node                   | Packets queued/dropped due to inbound bandwidth limit  |
-| bw_out_allowance_exceeded    | Gauge | instance_id, eni, node                   | Packets queued/dropped due to outbound bandwidth limit |
-| pps_allowance_exceeded       | Gauge | instance_id, eni, node                   | Packets queued/dropped due to bidirectional PPS limit  |
-| conntrack_allowance_exceeded | Gauge | instance_id, eni, node                   | Packets dropped due to connection tracking limit       |
-| linklocal_allowance_exceeded | Gauge | instance_id, eni, node                   | Packets dropped due to local proxy service PPS limit   |
+| Metric name                    | Type  | Dimensions                                | Description                                            |
+| ------------------------------ | ----- | ----------------------------------------- | ------------------------------------------------------ |
+| ingress\_flow                  | Gauge | instance\_id, iface, pod, namespace, node | Ingress TCP flow count (TcpPassiveOpens)               |
+| egress\_flow                   | Gauge | instance\_id, iface, pod, namespace, node | Egress TCP flow count (TcpActiveOpens)                 |
+| ingress\_packets               | Gauge | instance\_id, iface, pod, namespace, node | Ingress packet count (delta)                           |
+| egress\_packets                | Gauge | instance\_id, iface, pod, namespace, node | Egress packet count (delta)                            |
+| ingress\_bytes                 | Gauge | instance\_id, iface, pod, namespace, node | Ingress bytes count (delta)                            |
+| egress\_bytes                  | Gauge | instance\_id, iface, pod, namespace, node | Egress bytes count (delta)                             |
+| bw\_in\_allowance\_exceeded    | Gauge | instance\_id, eni, node                   | Packets queued/dropped due to inbound bandwidth limit  |
+| bw\_out\_allowance\_exceeded   | Gauge | instance\_id, eni, node                   | Packets queued/dropped due to outbound bandwidth limit |
+| pps\_allowance\_exceeded       | Gauge | instance\_id, eni, node                   | Packets queued/dropped due to bidirectional PPS limit  |
+| conntrack\_allowance\_exceeded | Gauge | instance\_id, eni, node                   | Packets dropped due to connection tracking limit       |
+| linklocal\_allowance\_exceeded | Gauge | instance\_id, eni, node                   | Packets dropped due to local proxy service PPS limit   |
 
 ##### Supported flow level metrics
 

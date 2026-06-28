@@ -14,99 +14,80 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
   `config` file that contains your cluster configuration. To create a `kubectl`
   `config` file, see [Connect kubectl to an EKS cluster by creating a kubeconfig file](create-kubeconfig.md "create-kubeconfig.md").
 
-      1. Use the following command to create a deployment manifest that you can deploy a Pod to confirm configuration with. Replace the example values with your own values.
+  1.  Use the following command to create a deployment manifest that you can deploy a Pod to confirm configuration with. Replace the example values with your own values.
 
-
-
-      ```
-      cat >my-deployment.yaml <<EOF
-      apiVersion: apps/v1
-      kind: Deployment
+  ```
+  cat >my-deployment.yaml <<EOF
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: my-app
+  spec:
+    selector:
+      matchLabels:
+        app: my-app
+    template:
       metadata:
-        name: my-app
+        labels:
+          app: my-app
       spec:
-        selector:
-          matchLabels:
-            app: my-app
-        template:
-          metadata:
-            labels:
-              app: my-app
-          spec:
-            serviceAccountName: my-service-account
-            containers:
-            - name: my-app
-              image: public.ecr.aws/nginx/nginx:X.XX
-      EOF
-      ```
-      2. Deploy the manifest to your cluster.
+        serviceAccountName: my-service-account
+        containers:
+        - name: my-app
+          image: public.ecr.aws/nginx/nginx:X.XX
+  EOF
+  ```
+  2.  Deploy the manifest to your cluster.
 
+  ```
+  kubectl apply -f my-deployment.yaml
+  ```
+  3.  Confirm that the required environment variables exist for your Pod.
 
+      1. View the Pods that were deployed with the deployment in the previous step.
 
       ```
-      kubectl apply -f my-deployment.yaml
+      kubectl get pods | grep my-app
       ```
-      3. Confirm that the required environment variables exist for your Pod.
+
+      An example output is as follows.
+
+      ```
+      my-app-6f4dfff6cb-76cv9   1/1     Running   0          3m28s
+      ```
+      2. Confirm that the Pod has a service account token file mount.
+
+      ```
+      kubectl describe pod my-app-6f4dfff6cb-76cv9 | grep AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE:
+      ```
+
+      An example output is as follows.
+
+      ```
+      AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE:  /var/run/secrets/pods.eks.amazonaws.com/serviceaccount/eks-pod-identity-token
+      ```
+
+  4.  Confirm that your Pods can interact with the AWS services using the permissions that you assigned in the IAM policy attached to your role.
+
+  ###### Note
+
+  When a Pod uses AWS credentials from an IAM role that’s associated with a service account, the AWS CLI or other SDKs in the containers for that Pod use the credentials that are provided by that role. If you don’t restrict access to the credentials that are provided to the [Amazon EKS node IAM role](create-node-role.md "create-node-role.md"), the Pod still has access to these credentials. For more information, see [Restrict access to the instance profile assigned to the worker node](https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node "https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node").
+
+  If your Pods can’t interact with the services as you expected, complete the following steps to confirm that everything is properly configured.
+
+        1. Confirm that your Pods use an AWS SDK version that supports assuming an IAM role through an EKS Pod Identity association. For more information, see [Use pod identity with the AWS SDK](pod-id-minimum-sdk.md "pod-id-minimum-sdk.md").
+        2. Confirm that the deployment is using the service account.
 
 
 
+        ```
+        kubectl describe deployment my-app | grep "Service Account"
+        ```
 
-      	1. View the Pods that were deployed with the deployment in the previous step.
-
-
-
-      	```
-      	kubectl get pods | grep my-app
-      	```
-
-      	An example output is as follows.
+        An example output is as follows.
 
 
 
-      	```
-      	my-app-6f4dfff6cb-76cv9   1/1     Running   0          3m28s
-      	```
-      	2. Confirm that the Pod has a service account token file mount.
-
-
-
-      	```
-      	kubectl describe pod my-app-6f4dfff6cb-76cv9 | grep AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE:
-      	```
-
-      	An example output is as follows.
-
-
-
-      	```
-      	AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE:  /var/run/secrets/pods.eks.amazonaws.com/serviceaccount/eks-pod-identity-token
-      	```
-      4. Confirm that your Pods can interact with the AWS services using the permissions that you assigned in the IAM policy attached to your role.
-
-
-      ###### Note
-
-      When a Pod uses AWS credentials from an IAM role that’s associated with a service account, the AWS CLI or other SDKs in the containers for that Pod use the credentials that are provided by that role. If you don’t restrict access to the credentials that are provided to the [Amazon EKS node IAM role](create-node-role.md "create-node-role.md"), the Pod still has access to these credentials. For more information, see [Restrict access to the instance profile assigned to the worker node](https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node "https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node").
-
-
-      If your Pods can’t interact with the services as you expected, complete the following steps to confirm that everything is properly configured.
-
-
-
-
-      	1. Confirm that your Pods use an AWS SDK version that supports assuming an IAM role through an EKS Pod Identity association. For more information, see [Use pod identity with the AWS SDK](pod-id-minimum-sdk.md "pod-id-minimum-sdk.md").
-      	2. Confirm that the deployment is using the service account.
-
-
-
-      	```
-      	kubectl describe deployment my-app | grep "Service Account"
-      	```
-
-      	An example output is as follows.
-
-
-
-      	```
-      	Service Account:  my-service-account
-      	```
+        ```
+        Service Account:  my-service-account
+        ```

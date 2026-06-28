@@ -174,7 +174,7 @@ Prometheus is an open-source systems monitoring and alerting toolkit.
 
 - [Project URL](https://prometheus.io/ "https://prometheus.io/")
 - [Project documentation](https://prometheus.io/docs/introduction/overview/ "https://prometheus.io/docs/introduction/overview/")
-- Amazon EKS workshop: [https://eksworkshop.com/intermediate/240_monitoring/](https://eksworkshop.com/intermediate/240_monitoring/ "https://eksworkshop.com/intermediate/240_monitoring/")
+- Amazon EKS workshop: [https://eksworkshop.com/intermediate/240\_monitoring/](https://eksworkshop.com/intermediate/240_monitoring/ "https://eksworkshop.com/intermediate/240_monitoring/")
 
 ## Continuous integration / continuous deployment
 

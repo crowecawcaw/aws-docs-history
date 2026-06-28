@@ -104,11 +104,10 @@ When creating an EKS managed node group that uses Capacity Blocks, do the follow
 
 4. If you set `desiredSize` to `0` at create time, scale up the node group when the reservation becomes active using one of:
 
-   - A scheduled scaling policy on the ASG aligned to the reservation start time. For more information, see [Scheduled scaling for Amazon EC2 Auto Scaling](../../../autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.md") in the _Amazon EC2 Auto Scaling User Guide_.
-   - The Amazon EKS console or `aws eks update-nodegroup-config` to update the scaling config.
+    * A scheduled scaling policy on the ASG aligned to the reservation start time. For more information, see [Scheduled scaling for Amazon EC2 Auto Scaling](../../../autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.md") in the *Amazon EC2 Auto Scaling User Guide*.
+    * The Amazon EKS console or `aws eks update-nodegroup-config` to update the scaling config.
 
-5. Verify nodes join the cluster after scale-up.
-6. EKS automatically creates a scheduled scaling policy named **Amazon EKS Node Group Capacity Scaledown Before Reservation End** to scale the node group down to `0` 40 minutes before the reservation ends. This gives Pods time to be gracefully drained before EC2 begins terminating instances at the 30-minute mark. Don’t edit or delete this scheduled action.
+5. Verify nodes join the cluster after scale-up. 6. EKS automatically creates a scheduled scaling policy named **Amazon EKS Node Group Capacity Scaledown Before Reservation End** to scale the node group down to `0` 40 minutes before the reservation ends. This gives Pods time to be gracefully drained before EC2 begins terminating instances at the 30-minute mark. Don’t edit or delete this scheduled action.
 
 Self-managed nodes
 

@@ -26,7 +26,7 @@ If you are including the Amazon EKS Hybrid Nodes CLI (`nodeadm`) in your pre-bui
 
 The hybrid nodes version of `nodeadm` is hosted in Amazon S3 fronted by Amazon CloudFront. To install `nodeadm` on each on-premises host, you can run the following command from your on-premises hosts.
 
-**For x86_64 hosts:**
+**For x86\_64 hosts:**
 
 ```
 curl -OL 'https://hybrid-assets.eks.amazonaws.com/releases/latest/bin/linux/amd64/nodeadm'

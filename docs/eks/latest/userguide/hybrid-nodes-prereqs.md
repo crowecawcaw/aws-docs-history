@@ -37,20 +37,20 @@ We recommend that you use either public or private endpoint access for the Amazo
 
 You must configure the VPC you pass during Amazon EKS cluster creation with routes in its routing table for your on-premises node and optionally pod networks with your virtual private gateway (VGW) or transit gateway (TGW) as the target. An example is shown below. Replace `REMOTE_NODE_CIDR` and `REMOTE_POD_CIDR` with the values for your on-premises network.
 
-| Destination      | Target           | Description                                    |
-| ---------------- | ---------------- | ---------------------------------------------- |
-| 10.226.0.0/16    | local            | Traffic local to the VPC routes within the VPC |
-| REMOTE_NODE_CIDR | tgw-abcdef123456 | On-prem node CIDR, route traffic to the TGW    |
-| REMOTE_POD_CIDR  | tgw-abcdef123456 | On-prem pod CIDR, route traffic to the TGW     |
+| Destination        | Target           | Description                                    |
+| ------------------ | ---------------- | ---------------------------------------------- |
+| 10.226.0.0/16      | local            | Traffic local to the VPC routes within the VPC |
+| REMOTE\_NODE\_CIDR | tgw-abcdef123456 | On-prem node CIDR, route traffic to the TGW    |
+| REMOTE\_POD\_CIDR  | tgw-abcdef123456 | On-prem pod CIDR, route traffic to the TGW     |
 
 ## Security group configuration
 
 When you create a cluster, Amazon EKS creates a security group that’s named `eks-cluster-sg-<cluster-name>-<uniqueID>`. You cannot alter the inbound rules of this Cluster Security Group but you can restrict the outbound rules. You must add an additional security group to your cluster to enable the kubelet and optionally webhooks running on your hybrid nodes to contact the Amazon EKS control plane. The required inbound rules for this additional security group are shown below. Replace `REMOTE_NODE_CIDR` and `REMOTE_POD_CIDR` with the values for your on-premises network.
 
-| Name                 | Security group rule ID | IP version | Type  | Protocol | Port range | Source           |
-| -------------------- | ---------------------- | ---------- | ----- | -------- | ---------- | ---------------- |
-| On-prem node inbound | sgr-abcdef123456       | IPv4       | HTTPS | TCP      | 443        | REMOTE_NODE_CIDR |
-| On-prem pod inbound  | sgr-abcdef654321       | IPv4       | HTTPS | TCP      | 443        | REMOTE_POD_CIDR  |
+| Name                 | Security group rule ID | IP version | Type  | Protocol | Port range | Source             |
+| -------------------- | ---------------------- | ---------- | ----- | -------- | ---------- | ------------------ |
+| On-prem node inbound | sgr-abcdef123456       | IPv4       | HTTPS | TCP      | 443        | REMOTE\_NODE\_CIDR |
+| On-prem pod inbound  | sgr-abcdef654321       | IPv4       | HTTPS | TCP      | 443        | REMOTE\_POD\_CIDR  |
 
 ## Infrastructure
 

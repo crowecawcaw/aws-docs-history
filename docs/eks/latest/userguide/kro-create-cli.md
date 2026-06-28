@@ -104,7 +104,10 @@ When you create a kro capability, an EKS Access Entry is automatically created w
 However, no permissions are granted by default to create the underlying Kubernetes resources (like Deployments, Services, ConfigMaps, etc.) defined in your ResourceGraphDefinitions.
 
 This intentional design follows the principle of least privilege—different ResourceGraphDefinitions require different permissions.
-For example: \* A ResourceGraphDefinition that creates only ConfigMaps and Secrets needs different permissions than one that creates Deployments and Services \* A ResourceGraphDefinition that creates ACK resources needs permissions for those specific custom resources \* Some ResourceGraphDefinitions might only read existing resources without creating new ones
+For example:
+\* A ResourceGraphDefinition that creates only ConfigMaps and Secrets needs different permissions than one that creates Deployments and Services
+\* A ResourceGraphDefinition that creates ACK resources needs permissions for those specific custom resources
+\* Some ResourceGraphDefinitions might only read existing resources without creating new ones
 
 You must explicitly configure the permissions kro needs based on the resources your ResourceGraphDefinitions will manage.
 

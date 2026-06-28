@@ -40,44 +40,44 @@ If you’re not familiar with Amazon EKS networking, see [De-mystifying cluster 
 
   The returned output is a long string. 3. Replace the values of `apiServerEndpoint` and `certificateAuthority` in the NodeConfig object with the values returned in the output from the previous commands. For more information about specifying bootstrap arguments when launching self-managed Amazon Linux 2023 nodes, see [Create self-managed Amazon Linux nodes](launch-workers.md "launch-workers.md") and [Create self-managed Microsoft Windows nodes](launch-windows-workers.md "launch-windows-workers.md").
 
-      + For Linux nodes:
+        + For Linux nodes:
 
 
 
-      ```
-      ---
-      MIME-Version: 1.0
-      Content-Type: multipart/mixed; boundary="BOUNDARY"
+        ```
+        ---
+        MIME-Version: 1.0
+        Content-Type: multipart/mixed; boundary="BOUNDARY"
 
-      --BOUNDARY
-      Content-Type: application/node.eks.aws
+        --BOUNDARY
+        Content-Type: application/node.eks.aws
 
-      ---
-      apiVersion: node.eks.aws/v1alpha1
-      kind: NodeConfig
-      spec:
-        cluster:
-          name: my-cluster
-          apiServerEndpoint: [.replaceable]https://EXAMPLE108C897D9B2F1B21D5EXAMPLE.sk1.region-code.eks.amazonaws.com
-          certificateAuthority: [.replaceable]Y2VydGlmaWNhdGVBdXRob3JpdHk=
-          ...
-      ```
+        ---
+        apiVersion: node.eks.aws/v1alpha1
+        kind: NodeConfig
+        spec:
+          cluster:
+            name: my-cluster
+            apiServerEndpoint: [.replaceable]https://EXAMPLE108C897D9B2F1B21D5EXAMPLE.sk1.region-code.eks.amazonaws.com
+            certificateAuthority: [.replaceable]Y2VydGlmaWNhdGVBdXRob3JpdHk=
+            ...
+        ```
 
-      For additional arguments, see the [bootstrap script](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh "https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh") on GitHub.
-      + For Windows nodes:
-
-
-      ###### Note
-
-      If you’re using custom service CIDR, then you need to specify it using the `-ServiceCIDR` parameter. Otherwise, the DNS resolution for Pods in the cluster will fail.
+        For additional arguments, see the [bootstrap script](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh "https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh") on GitHub.
+        + For Windows nodes:
 
 
+        ###### Note
 
-      ```
-      -APIServerEndpoint cluster-endpoint -Base64ClusterCA certificate-authority
-      ```
+        If you’re using custom service CIDR, then you need to specify it using the `-ServiceCIDR` parameter. Otherwise, the DNS resolution for Pods in the cluster will fail.
 
-      For additional arguments, see [Bootstrap script configuration parameters](eks-optimized-windows-ami.md#bootstrap-script-configuration-parameters "eks-optimized-windows-ami.md#bootstrap-script-configuration-parameters").
+
+
+        ```
+        -APIServerEndpoint cluster-endpoint -Base64ClusterCA certificate-authority
+        ```
+
+        For additional arguments, see [Bootstrap script configuration parameters](eks-optimized-windows-ami.md#bootstrap-script-configuration-parameters "eks-optimized-windows-ami.md#bootstrap-script-configuration-parameters").
 
 - Your cluster’s `aws-auth`
   `ConfigMap` must be created from within your VPC. For more information about creating and adding entries to the `aws-auth`

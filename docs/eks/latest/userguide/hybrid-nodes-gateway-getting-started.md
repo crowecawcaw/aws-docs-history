@@ -26,66 +26,66 @@ Before you install the Hybrid Nodes gateway, confirm that your environment meets
   EKS Pod Identity (recommended)
   Use [EKS Pod Identity](pod-identities.md "pod-identities.md") to grant permissions only to the gateway pod’s service account.
 
-      1. Install the EKS Pod Identity Agent add-on on your cluster if not already installed:
+        1. Install the EKS Pod Identity Agent add-on on your cluster if not already installed:
 
 
 
-      ```
-      aws eks create-addon \
-        --cluster-name `CLUSTER_NAME` \
-        --addon-name eks-pod-identity-agent
-      ```
-      2. Create an IAM role with the required EC2 permissions and a trust policy for EKS Pod Identity:
+        ```
+        aws eks create-addon \
+          --cluster-name `CLUSTER_NAME` \
+          --addon-name eks-pod-identity-agent
+        ```
+        2. Create an IAM role with the required EC2 permissions and a trust policy for EKS Pod Identity:
 
 
 
-      ```
-      cat > gateway-trust-policy.json << 'EOF'
-      {
-        "Version": "2012-10-17" ,
-        "Statement": [
-          {
-            "Effect": "Allow",
-            "Principal": { "Service": "pods.eks.amazonaws.com" },
-            "Action": ["sts:AssumeRole", "sts:TagSession"]
-          }
-        ]
-      }
-      EOF
-
-      aws iam create-role \
-        --role-name EKSHybridNodesGatewayRole \
-        --assume-role-policy-document file://gateway-trust-policy.json
-
-      aws iam put-role-policy \
-        --role-name EKSHybridNodesGatewayRole \
-        --policy-name HybridNodesGatewayRouteTable \
-        --policy-document '{
+        ```
+        cat > gateway-trust-policy.json << 'EOF'
+        {
           "Version": "2012-10-17" ,
-          "Statement": [{
-            "Effect": "Allow",
-            "Action": [
-              "ec2:DescribeRouteTables",
-              "ec2:CreateRoute",
-              "ec2:ReplaceRoute",
-              "ec2:DescribeInstances"
-            ],
-            "Resource": "*"
-          }]
-        }'
-      ```
-      3. Create a pod identity association linking the IAM role to the gateway service account:
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": { "Service": "pods.eks.amazonaws.com" },
+              "Action": ["sts:AssumeRole", "sts:TagSession"]
+            }
+          ]
+        }
+        EOF
+
+        aws iam create-role \
+          --role-name EKSHybridNodesGatewayRole \
+          --assume-role-policy-document file://gateway-trust-policy.json
+
+        aws iam put-role-policy \
+          --role-name EKSHybridNodesGatewayRole \
+          --policy-name HybridNodesGatewayRouteTable \
+          --policy-document '{
+            "Version": "2012-10-17" ,
+            "Statement": [{
+              "Effect": "Allow",
+              "Action": [
+                "ec2:DescribeRouteTables",
+                "ec2:CreateRoute",
+                "ec2:ReplaceRoute",
+                "ec2:DescribeInstances"
+              ],
+              "Resource": "*"
+            }]
+          }'
+        ```
+        3. Create a pod identity association linking the IAM role to the gateway service account:
 
 
 
-      ```
-      aws eks create-pod-identity-association \
-        --cluster-name `CLUSTER_NAME` \
-        --namespace eks-hybrid-nodes-gateway \
-        --service-account eks-hybrid-nodes-gateway \
-        --role-arn `arn:aws:iam::ACCOUNT_ID:role/EKSHybridNodesGatewayRole`
+        ```
+        aws eks create-pod-identity-association \
+          --cluster-name `CLUSTER_NAME` \
+          --namespace eks-hybrid-nodes-gateway \
+          --service-account eks-hybrid-nodes-gateway \
+          --role-arn `arn:aws:iam::ACCOUNT_ID:role/EKSHybridNodesGatewayRole`
 
-      ```
+        ```
 
   Node IAM role
   Attach an inline or managed policy with the required permissions to the IAM role associated with the gateway nodes' instance profile:

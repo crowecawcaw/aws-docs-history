@@ -170,7 +170,10 @@ Simply register the private cluster using its ARN—no additional networking set
 When you create an Argo CD capability, an EKS Access Entry is automatically created for the Capability Role, but no Kubernetes RBAC permissions are granted by default.
 This intentional design follows the principle of least privilege—different use cases require different permissions.
 
-For example: \* If you use the cluster only as an Argo CD hub to manage remote clusters, it doesn’t need local deployment permissions \* If you deploy applications locally, it needs read access cluster-wide and write access to specific namespaces \* If you need to create CRDs, it requires additional cluster-admin permissions
+For example:
+\* If you use the cluster only as an Argo CD hub to manage remote clusters, it doesn’t need local deployment permissions
+\* If you deploy applications locally, it needs read access cluster-wide and write access to specific namespaces
+\* If you need to create CRDs, it requires additional cluster-admin permissions
 
 You must explicitly configure the permissions Argo CD needs based on your requirements.
 

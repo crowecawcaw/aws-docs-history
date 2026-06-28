@@ -21,7 +21,7 @@ If your local network has lost connectivity with the AWS Cloud, you can continue
 
 ## Tune Kubernetes pod failover behavior
 
-During network disconnects, the Kubernetes node lifecycle controller marks unreachable nodes with the `node.kubernetes.io/unreachable` taint with `NoExecute` effect. By default, pods without a matching toleration are evicted after 300 seconds (5 minutes). You can tune this behavior using DaemonSets, configuring `tolerationSeconds` on application pods, or implementing a custom controller — allowing pods to remain on their nodes during temporary disconnects without unnecessary evictions. For detailed guidance and examples, see https://docs.aws.amazon.com/eks/latest/best-practices/hybrid-nodes-network-disconnection-best-practices.html#*tune\_kubernetes\_pod\_failover\_behavior[Tune Kubernetes pod failover behavior] in the \_Amazon EKS Best Practices Guide\*.
+During network disconnects, the Kubernetes node lifecycle controller marks unreachable nodes with the `node.kubernetes.io/unreachable` taint with `NoExecute` effect. By default, pods without a matching toleration are evicted after 300 seconds (5 minutes). You can tune this behavior using DaemonSets, configuring `tolerationSeconds` on application pods, or implementing a custom controller — allowing pods to remain on their nodes during temporary disconnects without unnecessary evictions. For detailed guidance and examples, see https://docs.aws.amazon.com/eks/latest/best-practices/hybrid-nodes-network-disconnection-best-practices.html#*tune\_kubernetes\_pod\_failover\_behavior[Tune Kubernetes pod failover behavior] in the \_Amazon EKS Best Practices Guide*.
 
 ## Authenticating to your local cluster during a network disconnect
 
@@ -147,13 +147,11 @@ kubectl get nodes --kubeconfig admin.kubeconfig
 
 10. If you have services already in production on your Outpost, skip this step. If Amazon EKS is the only service running on your Outpost and the Outpost isn’t currently in production, you can simulate a network disconnect. Before you go into production with your local cluster, simulate a disconnect to make sure that you can access your cluster when it’s in a disconnected state.
 
-        1. Apply firewall rules on the networking devices that connect your Outpost to the AWS Region. This disconnects the service link of the Outpost. You can’t create any new instances. Currently running instances lose connectivity to the AWS Region and the internet.
-        2. You can test the connection to your local cluster while disconnected using the `x509` certificate. Make sure to change your `kubeconfig` to the `admin.kubeconfig` that you created in a previous step. Replace `my-cluster` with the name of your local cluster.
+    1.  Apply firewall rules on the networking devices that connect your Outpost to the AWS Region. This disconnects the service link of the Outpost. You can’t create any new instances. Currently running instances lose connectivity to the AWS Region and the internet.
+    2.  You can test the connection to your local cluster while disconnected using the `x509` certificate. Make sure to change your `kubeconfig` to the `admin.kubeconfig` that you created in a previous step. Replace `my-cluster` with the name of your local cluster.
 
+    ```
+    kubectl config use-context admin@my-cluster --kubeconfig admin.kubeconfig
+    ```
 
-
-        ```
-        kubectl config use-context admin@my-cluster --kubeconfig admin.kubeconfig
-        ```
-
-    If you notice any issues with your local clusters while they’re in a disconnected state, we recommend opening a support ticket.
+If you notice any issues with your local clusters while they’re in a disconnected state, we recommend opening a support ticket.

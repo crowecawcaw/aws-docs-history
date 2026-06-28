@@ -83,32 +83,26 @@ Instead of, or in addition to, Kubernetes authorizing the IAM principal access t
 
 ## AWS CLI
 
-1.  Install the AWS CLI, as described in [Installing](../../../cli/latest/userguide/cli-chap-install.md "../../../cli/latest/userguide/cli-chap-install.md") in the AWS Command Line Interface User Guide.
-2.  To create an access entry
-    You can use any of the following examples to create access entries:
+1. Install the AWS CLI, as described in [Installing](../../../cli/latest/userguide/cli-chap-install.md "../../../cli/latest/userguide/cli-chap-install.md") in the AWS Command Line Interface User Guide.
+2. To create an access entry
+   You can use any of the following examples to create access entries:
 
-        * Create an access entry for a self-managed Amazon EC2 Linux node group. Replace `my-cluster` with the name of your cluster, `111122223333` with your AWS account ID, and `EKS-my-cluster-self-managed-ng-1` with the name of your [node IAM role](create-node-role.md "create-node-role.md"). If your node group is a Windows node group, then replace `EC2_LINUX` with `EC2_Windows`.
+   - Create an access entry for a self-managed Amazon EC2 Linux node group. Replace `my-cluster` with the name of your cluster, `111122223333` with your AWS account ID, and `EKS-my-cluster-self-managed-ng-1` with the name of your [node IAM role](create-node-role.md "create-node-role.md"). If your node group is a Windows node group, then replace `EC2_LINUX` with `EC2_Windows`.
 
+   ```
+   aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/EKS-my-cluster-self-managed-ng-1 --type EC2_LINUX
+   ```
 
+   You can’t use the `--kubernetes-groups` option when you specify a type other than `STANDARD`. You can’t associate an access policy to this access entry, because its type is a value other than `STANDARD`.
+   - Create an access entry that allows an IAM role that’s not used for an Amazon EC2 self-managed node group, that you want Kubernetes to authorize access to your cluster with. Replace `my-cluster` with the name of your cluster, `111122223333` with your AWS account ID, and `my-role` with the name of your IAM role. Replace `Viewers` with the name of a group that you’ve specified in a Kubernetes `RoleBinding` or `ClusterRoleBinding` object on your cluster.
 
-        ```
-        aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/EKS-my-cluster-self-managed-ng-1 --type EC2_LINUX
-        ```
+   ```
+   aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/my-role --type STANDARD --username Viewers --kubernetes-groups Viewers
+   ```
+   - Create an access entry that allows an IAM user to authenticate to your cluster. This example is provided because this is possible, though IAM best practices recommend accessing your cluster using IAM _roles_ that have short-term credentials, rather than IAM _users_ that have long-term credentials. For more information, see [Require human users to use federation with an identity provider to access AWS using temporary credentials](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the _IAM User Guide_.
 
-        You can’t use the `--kubernetes-groups` option when you specify a type other than `STANDARD`. You can’t associate an access policy to this access entry, because its type is a value other than `STANDARD`.
-        * Create an access entry that allows an IAM role that’s not used for an Amazon EC2 self-managed node group, that you want Kubernetes to authorize access to your cluster with. Replace `my-cluster` with the name of your cluster, `111122223333` with your AWS account ID, and `my-role` with the name of your IAM role. Replace `Viewers` with the name of a group that you’ve specified in a Kubernetes `RoleBinding` or `ClusterRoleBinding` object on your cluster.
+   ```
+   aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:user/my-user --type STANDARD --username my-user
+   ```
 
-
-
-        ```
-        aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/my-role --type STANDARD --username Viewers --kubernetes-groups Viewers
-        ```
-        * Create an access entry that allows an IAM user to authenticate to your cluster. This example is provided because this is possible, though IAM best practices recommend accessing your cluster using IAM *roles* that have short-term credentials, rather than IAM *users* that have long-term credentials. For more information, see [Require human users to use federation with an identity provider to access AWS using temporary credentials](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the *IAM User Guide*.
-
-
-
-        ```
-        aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:user/my-user --type STANDARD --username my-user
-        ```
-
-        If you want this user to have more access to your cluster than the permissions in the Kubernetes API discovery roles, then you need to associate an access policy to the access entry, since the `--kubernetes-groups` option isn’t used. For more information, see [Associate access policies with access entries](access-policies.md "access-policies.md") and [API discovery roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#discovery-roles "https://kubernetes.io/docs/reference/access-authn-authz/rbac/#discovery-roles") in the Kubernetes documentation.
+   If you want this user to have more access to your cluster than the permissions in the Kubernetes API discovery roles, then you need to associate an access policy to the access entry, since the `--kubernetes-groups` option isn’t used. For more information, see [Associate access policies with access entries](access-policies.md "access-policies.md") and [API discovery roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#discovery-roles "https://kubernetes.io/docs/reference/access-authn-authz/rbac/#discovery-roles") in the Kubernetes documentation.

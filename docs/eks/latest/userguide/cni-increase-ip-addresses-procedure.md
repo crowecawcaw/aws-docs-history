@@ -55,7 +55,7 @@ If you’re deploying a self-managed node group or a managed node group with a l
 
 Managed node groups enforce a maximum number on the value of `maxPods`. For instances with less than 30 vCPUs the maximum number is 110 and for all other instances the maximum number is 250. This maximum number is applied whether prefix delegation is enabled or not. 3. If you’re using a cluster configured for `IPv6`, skip to the next step.
 
-Specify the parameters in one of the following options. To determine which option is right for you and what value to provide for it, see [WARM_PREFIX_TARGET, WARM_IP_TARGET, and MINIMUM_IP_TARGET](https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/prefix-and-ip-target.md "https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/prefix-and-ip-target.md") on GitHub.
+Specify the parameters in one of the following options. To determine which option is right for you and what value to provide for it, see [WARM\_PREFIX\_TARGET, WARM\_IP\_TARGET, and MINIMUM\_IP\_TARGET](https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/prefix-and-ip-target.md "https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/prefix-and-ip-target.md") on GitHub.
 
 You can replace the example values with a value greater than zero.
 
@@ -82,63 +82,74 @@ You can replace the example values with a value greater than zero.
 
 4. Create one of the following types of node groups with at least one Amazon EC2 Nitro Amazon Linux 2023 instance type. For a list of Nitro instance types, see [Instances built on the Nitro System](../../../AWSEC2/latest/UserGuide/instance-types.md#ec2-nitro-instances "../../../AWSEC2/latest/UserGuide/instance-types.md#ec2-nitro-instances") in the Amazon EC2 User Guide. This capability is not supported on Windows. For the options that include `110`, replace it with either the value from step 3 (recommended), or your own value.
 
-   - **Self-managed** – Deploy the node group using the instructions in [Create self-managed Amazon Linux nodes](launch-workers.md "launch-workers.md"). Before creating the CloudFormation stack, open the template file and adjust the `UserData` in the `NodeLaunchTemplate` to be like the following.
+    * **Self-managed** – Deploy the node group using the instructions in [Create self-managed Amazon Linux nodes](launch-workers.md "launch-workers.md"). Before creating the CloudFormation stack, open the template file and adjust the `UserData` in the `NodeLaunchTemplate` to be like the following.
 
-   ```
-   ...
-               apiVersion: node.eks.aws/v1alpha1
-               kind: NodeConfig
-               spec:
-                 cluster:
-                   name: ${ClusterName}
-                   apiServerEndpoint: ${ApiServerEndpoint}
-                   certificateAuthority: ${CertificateAuthorityData}
-                   cidr: ${ServiceCidr}
-                 kubelet:
-                   config:
-                     maxPods: 110
-   ...
-   ```
 
-   If you’re using `eksctl` to create the node group, you can use the following command.
 
-   ```
-   eksctl create nodegroup --cluster my-cluster --managed=false --max-pods-per-node 110
-   ```
-   - **Managed** – Deploy your node group using one of the following options:
+    ```
+    ...
+                apiVersion: node.eks.aws/v1alpha1
+                kind: NodeConfig
+                spec:
+                  cluster:
+                    name: ${ClusterName}
+                    apiServerEndpoint: ${ApiServerEndpoint}
+                    certificateAuthority: ${CertificateAuthorityData}
+                    cidr: ${ServiceCidr}
+                  kubelet:
+                    config:
+                      maxPods: 110
+    ...
+    ```
 
-     - **Without a launch template or with a launch template without an AMI ID specified** – Complete the procedure in [Create a managed node group for your cluster](create-managed-node-group.md "create-managed-node-group.md"). Managed node groups automatically calculate the Amazon EKS recommended `max-pods` value for you.
-     - **With a launch template with a specified AMI ID** – In your launch template, specify an Amazon EKS optimized AMI ID, or a custom AMI built off the Amazon EKS optimized AMI, then [deploy the node group using a launch template](launch-templates.md "launch-templates.md") and provide the following user data in the launch template. This user data passes a `NodeConfig` object to be read by the `nodeadm` tool on the node. For more information about `nodeadm`, see [the nodeadm documentation](https://awslabs.github.io/amazon-eks-ami/nodeadm "https://awslabs.github.io/amazon-eks-ami/nodeadm").
+    If you’re using `eksctl` to create the node group, you can use the following command.
 
-     ```
-     MIME-Version: 1.0
-     Content-Type: multipart/mixed; boundary="//"
 
-     --//
-     Content-Type: application/node.eks.aws
 
-     ---
-     apiVersion: node.eks.aws/v1alpha1
-     kind: NodeConfig
-     spec:
-      cluster:
-        apiServerEndpoint: [.replaceable]`my-cluster`
-        certificateAuthority: [.replaceable]`LS0t...`
-        cidr: [.replaceable]`10.100.0.0/16`
-        name: [.replaceable]`my-cluster
-      kubelet:
-        config:
-          maxPods: [.replaceable]`110`
-     --//--
-     ```
+    ```
+    eksctl create nodegroup --cluster my-cluster --managed=false --max-pods-per-node 110
+    ```
+    * **Managed** – Deploy your node group using one of the following options:
 
-     If you’re using `eksctl` to create the node group, you can use the following command.
 
-     ```
-     eksctl create nodegroup --cluster my-cluster --max-pods-per-node 110
-     ```
 
-     If you’ve created a custom AMI that is not built off the Amazon EKS optimized AMI, then you need to custom create the configuration yourself.
+
+    	+ **Without a launch template or with a launch template without an AMI ID specified** – Complete the procedure in [Create a managed node group for your cluster](create-managed-node-group.md "create-managed-node-group.md"). Managed node groups automatically calculate the Amazon EKS recommended `max-pods` value for you.
+    	+ **With a launch template with a specified AMI ID** – In your launch template, specify an Amazon EKS optimized AMI ID, or a custom AMI built off the Amazon EKS optimized AMI, then [deploy the node group using a launch template](launch-templates.md "launch-templates.md") and provide the following user data in the launch template. This user data passes a `NodeConfig` object to be read by the `nodeadm` tool on the node. For more information about `nodeadm`, see [the nodeadm documentation](https://awslabs.github.io/amazon-eks-ami/nodeadm "https://awslabs.github.io/amazon-eks-ami/nodeadm").
+
+
+
+    	```
+    	MIME-Version: 1.0
+    	Content-Type: multipart/mixed; boundary="//"
+
+    	--//
+    	Content-Type: application/node.eks.aws
+
+    	---
+    	apiVersion: node.eks.aws/v1alpha1
+    	kind: NodeConfig
+    	spec:
+    	 cluster:
+    	   apiServerEndpoint: [.replaceable]`my-cluster`
+    	   certificateAuthority: [.replaceable]`LS0t...`
+    	   cidr: [.replaceable]`10.100.0.0/16`
+    	   name: [.replaceable]`my-cluster
+    	 kubelet:
+    	   config:
+    	     maxPods: [.replaceable]`110`
+    	--//--
+    	```
+
+    	If you’re using `eksctl` to create the node group, you can use the following command.
+
+
+
+    	```
+    	eksctl create nodegroup --cluster my-cluster --max-pods-per-node 110
+    	```
+
+    	If you’ve created a custom AMI that is not built off the Amazon EKS optimized AMI, then you need to custom create the configuration yourself.
 
 ###### Note
 

@@ -18,9 +18,8 @@ There are two main approaches to setting up GPU-acceleration for your Windows co
 
 - **Option 2**: Install the necessary GPU drivers on your EKS worker nodes after launching your instance.
 
-      + Use this approach when you want a simpler setup process and don’t mind installing the GPU drivers on each new worker node. More suited to a development environment when you are evaluating or prototyping GPU-accelerated workloads.
-
-  Both approaches can be leveraged using the steps detailed in this guide.
+  - Use this approach when you want a simpler setup process and don’t mind installing the GPU drivers on each new worker node. More suited to a development environment when you are evaluating or prototyping GPU-accelerated workloads.
+    Both approaches can be leveraged using the steps detailed in this guide.
 
 ## Considerations
 

@@ -20,10 +20,10 @@ To configure AWS-managed component log delivery for your EKS Auto Mode cluster, 
 
 EKS Auto Mode supports the following log types:
 
-- **AUTO_MODE_COMPUTE_LOGS**
-- **AUTO_MODE_BLOCK_STORAGE_LOGS**
-- **AUTO_MODE_LOAD_BALANCING_LOGS**
-- **AUTO_MODE_IPAM_LOGS**
+- **AUTO\_MODE\_COMPUTE\_LOGS**
+- **AUTO\_MODE\_BLOCK\_STORAGE\_LOGS**
+- **AUTO\_MODE\_LOAD\_BALANCING\_LOGS**
+- **AUTO\_MODE\_IPAM\_LOGS**
 
 ### Using Amazon CloudWatch APIs
 

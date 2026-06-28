@@ -9,17 +9,16 @@ Your cluster has a Kubernetes API endpoint. Kubectl uses this API. You can authe
 - **An AWS Identity and Access Management (IAM) _principal_ (role or user)**
   – This type requires authentication to IAM. Users can sign in to AWS as an [IAM](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") user or with a [federated identity](https://aws.amazon.com/identity/federation/ "https://aws.amazon.com/identity/federation/") by using credentials provided through an identity source. Users can only sign in with a federated identity if your administrator previously set up identity federation using IAM roles. When users access AWS by using federation, they’re indirectly [assuming a role](../../../IAM/latest/UserGuide/when-to-use-iam.md#security-iam-authentication-iamrole "../../../IAM/latest/UserGuide/when-to-use-iam.md#security-iam-authentication-iamrole"). When users use this type of identity, you:
 
-      + Can assign them Kubernetes permissions so that they can work with Kubernetes objects on your cluster. For more information about how to assign permissions to your IAM principals so that they’re able to access Kubernetes objects on your cluster, see [Grant IAM users access to Kubernetes with EKS access entries](access-entries.md "access-entries.md").
-      + Can assign them IAM permissions so that they can work with your Amazon EKS cluster and its resources using the Amazon EKS API, AWS CLI, AWS CloudFormation, AWS Management Console, or `eksctl`. For more information, see [Actions defined by Amazon Elastic Kubernetes Service](../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md#amazonelastickubernetesservice-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md#amazonelastickubernetesservice-actions-as-permissions") in the Service Authorization Reference.
-      + Nodes join your cluster by assuming an IAM role. The ability to access your cluster using IAM principals is provided by the [AWS IAM Authenticator for Kubernetes](https://github.com/kubernetes-sigs/aws-iam-authenticator#readme "https://github.com/kubernetes-sigs/aws-iam-authenticator#readme"), which runs on the Amazon EKS control plane.
+  - Can assign them Kubernetes permissions so that they can work with Kubernetes objects on your cluster. For more information about how to assign permissions to your IAM principals so that they’re able to access Kubernetes objects on your cluster, see [Grant IAM users access to Kubernetes with EKS access entries](access-entries.md "access-entries.md").
+  - Can assign them IAM permissions so that they can work with your Amazon EKS cluster and its resources using the Amazon EKS API, AWS CLI, AWS CloudFormation, AWS Management Console, or `eksctl`. For more information, see [Actions defined by Amazon Elastic Kubernetes Service](../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md#amazonelastickubernetesservice-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md#amazonelastickubernetesservice-actions-as-permissions") in the Service Authorization Reference.
+  - Nodes join your cluster by assuming an IAM role. The ability to access your cluster using IAM principals is provided by the [AWS IAM Authenticator for Kubernetes](https://github.com/kubernetes-sigs/aws-iam-authenticator#readme "https://github.com/kubernetes-sigs/aws-iam-authenticator#readme"), which runs on the Amazon EKS control plane.
 
 - **A user in your own OpenID Connect (OIDC) provider**
   – This type requires authentication to your [OIDC](https://openid.net/connect/ "https://openid.net/connect/") provider. For more information about setting up your own OIDC provider with your Amazon EKS cluster, see [Grant users access to Kubernetes with an external OIDC provider](authenticate-oidc-identity-provider.md "authenticate-oidc-identity-provider.md"). When users use this type of identity, you:
 
-      + Can assign them Kubernetes permissions so that they can work with Kubernetes objects on your cluster.
-      + Can’t assign them IAM permissions so that they can work with your Amazon EKS cluster and its resources using the Amazon EKS API, AWS CLI, AWS CloudFormation, AWS Management Console, or `eksctl`.
-
-  You can use both types of identities with your cluster. The IAM authentication method cannot be disabled. The OIDC authentication method is optional.
+  - Can assign them Kubernetes permissions so that they can work with Kubernetes objects on your cluster.
+  - Can’t assign them IAM permissions so that they can work with your Amazon EKS cluster and its resources using the Amazon EKS API, AWS CLI, AWS CloudFormation, AWS Management Console, or `eksctl`.
+    You can use both types of identities with your cluster. The IAM authentication method cannot be disabled. The OIDC authentication method is optional.
 
 ## Associate IAM Identities with Kubernetes Permissions
 
@@ -36,8 +35,8 @@ To get started, follow [Change authentication mode to use access entries](settin
   `ConfigMap`**
   – If your cluster’s platform version is earlier than the version listed in the [Prerequisites](access-entries.md "access-entries.md") section, then you must use this option. If your cluster’s platform version is at or later than the platform version listed in the [Prerequisites](access-entries.md "access-entries.md") section for your cluster’s Kubernetes version, and you’ve added entries to the `ConfigMap`, then we recommend that you migrate those entries to access entries. You can’t migrate entries that Amazon EKS added to the `ConfigMap` however, such as entries for IAM roles used with managed node groups or Fargate profiles. For more information, see [Grant IAM users and roles access to Kubernetes APIs](grant-k8s-access.md "grant-k8s-access.md").
 
-      + If you have to use the `aws-auth`
-      `ConfigMap` option, you can add entries to the `ConfigMap` using the `eksctl create iamidentitymapping` command. For more information, see [Manage IAM users and roles](https://eksctl.io/usage/iam-identity-mappings/ "https://eksctl.io/usage/iam-identity-mappings/") in the `eksctl` documentation.
+  - If you have to use the `aws-auth`
+    `ConfigMap` option, you can add entries to the `ConfigMap` using the `eksctl create iamidentitymapping` command. For more information, see [Manage IAM users and roles](https://eksctl.io/usage/iam-identity-mappings/ "https://eksctl.io/usage/iam-identity-mappings/") in the `eksctl` documentation.
 
 ## Set Cluster Authentication Mode
 

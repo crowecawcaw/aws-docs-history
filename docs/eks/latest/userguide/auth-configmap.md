@@ -174,7 +174,7 @@ The previous example is a default `aws-auth`
     ```
 
 3. Edit the `aws-auth`
-   `ConfigMap`. You can use a tool such as `eksctl` to update the `ConfigMap` or you can update it manually by editing it.
+`ConfigMap`. You can use a tool such as `eksctl` to update the `ConfigMap` or you can update it manually by editing it.
 
 ###### Important
 

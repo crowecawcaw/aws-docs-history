@@ -140,7 +140,7 @@ eksctl create iamserviceaccount \
 
 6. On the **Name, review, and create** page, do the following:
 
-   1. For **Role name**, enter a unique name for your role, such as AmazonEKS_S3_CSI_DriverRole.
+   1. For **Role name**, enter a unique name for your role, such as AmazonEKS\_S3\_CSI\_DriverRole.
    2. Under **Add tags (Optional)**, add metadata to the role by attaching tags as key-value pairs. For more information about using tags in IAM, see [Tagging IAM resources](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md") in the _IAM User Guide_.
    3. Choose **Create role**.
 

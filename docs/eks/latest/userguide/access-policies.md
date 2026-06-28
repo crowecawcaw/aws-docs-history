@@ -80,7 +80,7 @@ aws eks associate-access-policy --cluster-name my-cluster --principal-arn arn:aw
     --access-scope type=namespace,namespaces=my-namespace1,my-namespace2 --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy
 ```
 
-If you want the IAM principal to have the permissions cluster-wide, replace `type=namespace,namespaces=`my-namespace1`,`my-namespace2``with`type=cluster`. If you want to associate multiple access policies to the access entry, run the command multiple times, each with a unique access policy. Each associated access policy has its own scope.
+If you want the IAM principal to have the permissions cluster-wide, replace `type=namespace,namespaces=`my-namespace1`,`my-namespace2`` with `type=cluster`. If you want to associate multiple access policies to the access entry, run the command multiple times, each with a unique access policy. Each associated access policy has its own scope.
 
 ###### Note
 

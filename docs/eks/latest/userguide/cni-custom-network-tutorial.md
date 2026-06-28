@@ -125,65 +125,55 @@ This tutorial requires the VPC created in [Step 1: Create a test VPC and cluster
 vpc_id=$(aws eks describe-cluster --name my-custom-networking-cluster --query "cluster.resourcesVpcConfig.vpcId" --output text)
 ```
 
-3.  Associate an additional Classless Inter-Domain Routing (CIDR) block with your cluster’s VPC. The CIDR block can’t overlap with any existing associated CIDR blocks.
+3. Associate an additional Classless Inter-Domain Routing (CIDR) block with your cluster’s VPC. The CIDR block can’t overlap with any existing associated CIDR blocks.
 
-        1. View the current CIDR blocks associated to your VPC.
+   1. View the current CIDR blocks associated to your VPC.
 
+   ```
+   aws ec2 describe-vpcs --vpc-ids $vpc_id \
+       --query 'Vpcs[*].CidrBlockAssociationSet[*].{CIDRBlock: CidrBlock, State: CidrBlockState.State}' --out table
+   ```
 
+   An example output is as follows.
 
-        ```
-        aws ec2 describe-vpcs --vpc-ids $vpc_id \
-            --query 'Vpcs[*].CidrBlockAssociationSet[*].{CIDRBlock: CidrBlock, State: CidrBlockState.State}' --out table
-        ```
+   ```
+   ----------------------------------
+   |          DescribeVpcs          |
+   +-----------------+--------------+
+   |    CIDRBlock    |    State     |
+   +-----------------+--------------+
+   |  192.168.0.0/24 |  associated  |
+   +-----------------+--------------+
+   ```
+   2. Associate an additional CIDR block to your VPC. Replace the CIDR block value in the following command. For more information, see [Associate additional IPv4 CIDR blocks with your VPC](../../../vpc/latest/userguide/modify-vpcs.md#add-ipv4-cidr "../../../vpc/latest/userguide/modify-vpcs.md#add-ipv4-cidr") in the Amazon VPC User Guide.
 
-        An example output is as follows.
+   ```
+   aws ec2 associate-vpc-cidr-block --vpc-id $vpc_id --cidr-block 192.168.1.0/24
+   ```
+   3. Confirm that the new block is associated.
 
+   ```
+   aws ec2 describe-vpcs --vpc-ids $vpc_id --query 'Vpcs[*].CidrBlockAssociationSet[*].{CIDRBlock: CidrBlock, State: CidrBlockState.State}' --out table
+   ```
 
+   An example output is as follows.
 
-        ```
-        ----------------------------------
-        |          DescribeVpcs          |
-        +-----------------+--------------+
-        |    CIDRBlock    |    State     |
-        +-----------------+--------------+
-        |  192.168.0.0/24 |  associated  |
-        +-----------------+--------------+
-        ```
-        2. Associate an additional CIDR block to your VPC. Replace the CIDR block value in the following command. For more information, see [Associate additional IPv4 CIDR blocks with your VPC](../../../vpc/latest/userguide/modify-vpcs.md#add-ipv4-cidr "../../../vpc/latest/userguide/modify-vpcs.md#add-ipv4-cidr") in the Amazon VPC User Guide.
+   ```
+   ----------------------------------
+   |          DescribeVpcs          |
+   +-----------------+--------------+
+   |    CIDRBlock    |    State     |
+   +-----------------+--------------+
+   |  192.168.0.0/24 |  associated  |
+   |  192.168.1.0/24 |  associated  |
+   +-----------------+--------------+
+   ```
 
-
-
-        ```
-        aws ec2 associate-vpc-cidr-block --vpc-id $vpc_id --cidr-block 192.168.1.0/24
-        ```
-        3. Confirm that the new block is associated.
-
-
-
-        ```
-        aws ec2 describe-vpcs --vpc-ids $vpc_id --query 'Vpcs[*].CidrBlockAssociationSet[*].{CIDRBlock: CidrBlock, State: CidrBlockState.State}' --out table
-        ```
-
-        An example output is as follows.
-
-
-
-        ```
-        ----------------------------------
-        |          DescribeVpcs          |
-        +-----------------+--------------+
-        |    CIDRBlock    |    State     |
-        +-----------------+--------------+
-        |  192.168.0.0/24 |  associated  |
-        |  192.168.1.0/24 |  associated  |
-        +-----------------+--------------+
-        ```
-
-    Don’t proceed to the next step until your new CIDR block’s `State` is `associated`.
-
-4.  Create as many subnets as you want to use in each Availability Zone that your existing subnets are in. Specify a CIDR block that’s within the CIDR block that you associated with your VPC in a previous step.
+Don’t proceed to the next step until your new CIDR block’s `State` is `associated`. 4. Create as many subnets as you want to use in each Availability Zone that your existing subnets are in. Specify a CIDR block that’s within the CIDR block that you associated with your VPC in a previous step.
 
     1. Create new subnets. Replace the CIDR block values in the following command. The subnets must be created in a different VPC CIDR block than your existing subnets are in, but in the same Availability Zones as your existing subnets. In this example, one subnet is created in the new CIDR block in each Availability Zone that the current private subnets exist in. The IDs of the subnets created are stored in variables for use in later steps. The `Name` values match the values assigned to the subnets created using the Amazon EKS VPC template in a previous step. Names aren’t required. You can use different names.
+
+
 
     ```
     new_subnet_id_1=$(aws ec2 create-subnet --vpc-id $vpc_id --availability-zone $az_1 --cidr-block 192.168.1.0/27 \
@@ -196,7 +186,10 @@ vpc_id=$(aws eks describe-cluster --name my-custom-networking-cluster --query "c
 
     ###### Important
 
-    By default, your new subnets are implicitly associated with your VPC’s [main route table](../../../vpc/latest/userguide/VPC_Route_Tables.md#RouteTables "../../../vpc/latest/userguide/VPC_Route_Tables.md#RouteTables"). This route table allows communication between all the resources that are deployed in the VPC. However, it doesn’t allow communication with resources that have IP addresses that are outside the CIDR blocks that are associated with your VPC. You can associate your own route table to your subnets to change this behavior. For more information, see [Subnet route tables](../../../vpc/latest/userguide/VPC_Route_Tables.md#subnet-route-tables "../../../vpc/latest/userguide/VPC_Route_Tables.md#subnet-route-tables") in the Amazon VPC User Guide. 2. View the current subnets in your VPC.
+    By default, your new subnets are implicitly associated with your VPC’s [main route table](../../../vpc/latest/userguide/VPC_Route_Tables.md#RouteTables "../../../vpc/latest/userguide/VPC_Route_Tables.md#RouteTables"). This route table allows communication between all the resources that are deployed in the VPC. However, it doesn’t allow communication with resources that have IP addresses that are outside the CIDR blocks that are associated with your VPC. You can associate your own route table to your subnets to change this behavior. For more information, see [Subnet route tables](../../../vpc/latest/userguide/VPC_Route_Tables.md#subnet-route-tables "../../../vpc/latest/userguide/VPC_Route_Tables.md#subnet-route-tables") in the Amazon VPC User Guide.
+    2. View the current subnets in your VPC.
+
+
 
     ```
     aws ec2 describe-subnets --filters "Name=vpc-id,Values=$vpc_id" \
@@ -205,6 +198,8 @@ vpc_id=$(aws eks describe-cluster --name my-custom-networking-cluster --query "c
     ```
 
     An example output is as follows.
+
+
 
     ```
     ----------------------------------------------------------------------
@@ -237,39 +232,39 @@ kubectl set env daemonset aws-node -n kube-system AWS_VPC_K8S_CNI_CUSTOM_NETWORK
 cluster_security_group_id=$(aws eks describe-cluster --name my-custom-networking-cluster --query cluster.resourcesVpcConfig.clusterSecurityGroupId --output text)
 ```
 
-3.  Create an `ENIConfig` custom resource for each subnet that you want to deploy Pods in.
+3. Create an `ENIConfig` custom resource for each subnet that you want to deploy Pods in.
 
-    1. Create a unique file for each network interface configuration.
+   1. Create a unique file for each network interface configuration.
 
-    The following commands create separate `ENIConfig` files for the two subnets that were created in a previous step. The value for `name` must be unique. The name is the same as the Availability Zone that the subnet is in. The cluster security group is assigned to the `ENIConfig`.
+   The following commands create separate `ENIConfig` files for the two subnets that were created in a previous step. The value for `name` must be unique. The name is the same as the Availability Zone that the subnet is in. The cluster security group is assigned to the `ENIConfig`.
 
-    ```
-    cat >$az_1.yaml <<EOF
-    apiVersion: crd.k8s.amazonaws.com/v1alpha1
-    kind: ENIConfig
-    metadata:
-      name: $az_1
-    spec:
-      securityGroups:
-        - $cluster_security_group_id
-      subnet: $new_subnet_id_1
-    EOF
-    ```
+   ```
+   cat >$az_1.yaml <<EOF
+   apiVersion: crd.k8s.amazonaws.com/v1alpha1
+   kind: ENIConfig
+   metadata:
+     name: $az_1
+   spec:
+     securityGroups:
+       - $cluster_security_group_id
+     subnet: $new_subnet_id_1
+   EOF
+   ```
 
-    ```
-    cat >$az_2.yaml <<EOF
-    apiVersion: crd.k8s.amazonaws.com/v1alpha1
-    kind: ENIConfig
-    metadata:
-      name: $az_2
-    spec:
-      securityGroups:
-        - $cluster_security_group_id
-      subnet: $new_subnet_id_2
-    EOF
-    ```
+   ```
+   cat >$az_2.yaml <<EOF
+   apiVersion: crd.k8s.amazonaws.com/v1alpha1
+   kind: ENIConfig
+   metadata:
+     name: $az_2
+   spec:
+     securityGroups:
+       - $cluster_security_group_id
+     subnet: $new_subnet_id_2
+   EOF
+   ```
 
-    For a production cluster, you can make the following changes to the previous commands:
+   For a production cluster, you can make the following changes to the previous commands:
 
         * Replace $cluster\_security\_group\_id with the ID of an existing [security group](../../../AWSEC2/latest/UserGuide/ec2-security-groups.md "../../../AWSEC2/latest/UserGuide/ec2-security-groups.md") that you want to use for each `ENIConfig`.
         * We recommend naming your `ENIConfigs` the same as the Availability Zone that you’ll use the `ENIConfig` for, whenever possible. You might need to use different names for your `ENIConfigs` than the names of the Availability Zones for a variety of reasons. For example, if you have more than two subnets in the same Availability Zone and want to use them both with custom networking, then you need multiple `ENIConfigs` for the same Availability Zone. Since each `ENIConfig` requires a unique name, you can’t name more than one of your `ENIConfigs` using the Availability Zone name.
@@ -284,18 +279,19 @@ cluster_security_group_id=$(aws eks describe-cluster --name my-custom-networking
         * version `1.8.0` or later of the Amazon VPC CNI plugin for Kubernetes, then the security groups associated with the node’s primary elastic network interface are used.
         * a version of the Amazon VPC CNI plugin for Kubernetes that’s earlier than `1.8.0`, then the default security group for the VPC is assigned to secondary network interfaces.
 
-    ###### Important
+   ###### Important
 
         * `AWS_VPC_K8S_CNI_EXTERNALSNAT=false` is a default setting in the configuration for the Amazon VPC CNI plugin for Kubernetes. If you’re using the default setting, then traffic that is destined for IP addresses that aren’t within one of the CIDR blocks associated with your VPC use the security groups and subnets of your node’s primary network interface. The subnets and security groups defined in your `ENIConfigs` that are used to create secondary network interfaces aren’t used for this traffic. For more information about this setting, see [Enable outbound internet access for Pods](external-snat.md "external-snat.md").
         * If you also use security groups for Pods, the security group that’s specified in a `SecurityGroupPolicy` is used instead of the security group that’s specified in the `ENIConfigs`. For more information, see [Assign security groups to individual Pods](security-groups-for-pods.md "security-groups-for-pods.md").
-    2. Apply each custom resource file that you created to your cluster with the following commands.
 
-    ```
-    kubectl apply -f $az_1.yaml
-    kubectl apply -f $az_2.yaml
-    ```
+   2. Apply each custom resource file that you created to your cluster with the following commands.
 
-4.  Confirm that your `ENIConfigs` were created.
+   ```
+   kubectl apply -f $az_1.yaml
+   kubectl apply -f $az_2.yaml
+   ```
+
+4. Confirm that your `ENIConfigs` were created.
 
 ```
 kubectl get ENIConfigs
@@ -375,7 +371,7 @@ Enable Kubernetes to automatically apply the `ENIConfig` for an Availability Zon
 
    ###### Important
 
-   For simplicity in this tutorial, the [AmazonEKS_CNI_Policy](../../../aws-managed-policy/latest/reference/AmazonEKS_CNI_Policy.md "../../../aws-managed-policy/latest/reference/AmazonEKS_CNI_Policy.md") policy is attached to the node IAM role. In a production cluster however, we recommend attaching the policy to a separate IAM role that is used only with the Amazon VPC CNI plugin for Kubernetes. For more information, see [Configure Amazon VPC CNI plugin to use IRSA](cni-iam-role.md "cni-iam-role.md").
+   For simplicity in this tutorial, the [AmazonEKS\_CNI\_Policy](../../../aws-managed-policy/latest/reference/AmazonEKS_CNI_Policy.md "../../../aws-managed-policy/latest/reference/AmazonEKS_CNI_Policy.md") policy is attached to the node IAM role. In a production cluster however, we recommend attaching the policy to a separate IAM role that is used only with the Amazon VPC CNI plugin for Kubernetes. For more information, see [Configure Amazon VPC CNI plugin to use IRSA](cni-iam-role.md "cni-iam-role.md").
 
 2. Create one of the following types of node groups. To determine the instance type that you want to deploy, see [Choose an optimal Amazon EC2 node instance type](choosing-instance-type.md "choosing-instance-type.md"). For this tutorial, complete the **Managed**, **Without a launch template or with a launch template without an AMI ID specified** option. If you’re going to use the node group for production workloads, then we recommend that you familiarize yourself with all of the [managed node group](create-managed-node-group.md "create-managed-node-group.md") and [self-managed node group](worker.md "worker.md") options before deploying the node group.
 
@@ -477,21 +473,19 @@ For a production cluster, if you didn’t name your `ENIConfigs` the same as the
     kubectl annotate node ip-192-168-0-92.us-west-2.compute.internal k8s.amazonaws.com/eniConfig=EniConfigName2
     ```
 
-5.  If you had nodes in a production cluster with running Pods before you switched to using the custom networking feature, complete the following tasks:
+5. If you had nodes in a production cluster with running Pods before you switched to using the custom networking feature, complete the following tasks:
 
-        1. Make sure that you have available nodes that are using the custom networking feature.
-        2. Cordon and drain the nodes to gracefully shut down the Pods. For more information, see [Safely Drain a Node](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/ "https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/") in the Kubernetes documentation.
-        3. Terminate the nodes. If the nodes are in an existing managed node group, you can delete the node group. Run the following command.
+    1. Make sure that you have available nodes that are using the custom networking feature.
+    2. Cordon and drain the nodes to gracefully shut down the Pods. For more information, see [Safely Drain a Node](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/ "https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/") in the Kubernetes documentation.
+    3. Terminate the nodes. If the nodes are in an existing managed node group, you can delete the node group. Run the following command.
 
 
 
-        ```
-        aws eks delete-nodegroup --cluster-name my-custom-networking-cluster --nodegroup-name my-nodegroup
-        ```
+    ```
+    aws eks delete-nodegroup --cluster-name my-custom-networking-cluster --nodegroup-name my-nodegroup
+    ```
 
-    Only new nodes that are registered with the `k8s.amazonaws.com/eniConfig` label use the custom networking feature.
-
-6.  Confirm that Pods are assigned an IP address from a CIDR block that’s associated to one of the subnets that you created in a previous step.
+Only new nodes that are registered with the `k8s.amazonaws.com/eniConfig` label use the custom networking feature. 6. Confirm that Pods are assigned an IP address from a CIDR block that’s associated to one of the subnets that you created in a previous step.
 
 ```
 kubectl get pods -A -o wide

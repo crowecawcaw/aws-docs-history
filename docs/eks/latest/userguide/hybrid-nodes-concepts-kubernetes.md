@@ -177,7 +177,9 @@ When a device on your local network tries to reach a pod IP, it first sends an A
 
 For this to work, your CNI must support proxy ARP functionality. Cilium has built-in support for proxy ARP that you can enable through configuration. The key consideration is that the pod CIDR must not overlap with any other network in your environment, as this could cause routing conflicts.
 
-This approach has several advantages: \* No need to configure your router with BGP or maintain static routes \* Works well in environments where you don’t have control over your router configuration
+This approach has several advantages:
+\* No need to configure your router with BGP or maintain static routes
+\* Works well in environments where you don’t have control over your router configuration
 
 ![Hybrid nodes ARP proxying](images/hybrid-nodes-arp-proxy.png)
 

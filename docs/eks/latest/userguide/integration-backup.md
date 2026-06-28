@@ -18,4 +18,4 @@ An Amazon EKS backup will create a composite recovery point, where a child recov
 - Prerequisites for [S3 Backups](../../../aws-backup/latest/devguide/s3-backups.md#s3-backup-prerequisites#AWSBackupServiceRolePolicyForS3Backup "../../../aws-backup/latest/devguide/s3-backups.md#s3-backup-prerequisites#AWSBackupServiceRolePolicyForS3Backup")
   Ensure your EKS Clusters have the following settings:
 
-- EKS Cluster [authorization mode](setting-up-access-entries.md "setting-up-access-entries.md") set to API or API_AND_CONFIG_MAP for AWS Backup to create [Access Entries](access-entries.md "access-entries.md") to access the EKS cluster.
+- EKS Cluster [authorization mode](setting-up-access-entries.md "setting-up-access-entries.md") set to API or API\_AND\_CONFIG\_MAP for AWS Backup to create [Access Entries](access-entries.md "access-entries.md") to access the EKS cluster.

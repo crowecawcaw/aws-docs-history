@@ -20,11 +20,10 @@ For information about in-place upgrades, see [Bottlerocket Update Operator](http
 - Bottlerocket is compatible with AWS CloudFormation. However, there is no official CloudFormation template that can be copied to deploy Bottlerocket nodes for Amazon EKS.
 - Bottlerocket images don’t come with an SSH server or a shell. You can use out-of-band access methods to allow SSH enabling the admin container and to pass some bootstrapping configuration steps with user data. For more information, see these sections in the [bottlerocket README.md](https://github.com/bottlerocket-os/bottlerocket "https://github.com/bottlerocket-os/bottlerocket") on GitHub:
 
-      + [Exploration](https://github.com/bottlerocket-os/bottlerocket#exploration "https://github.com/bottlerocket-os/bottlerocket#exploration")
-      + [Admin container](https://github.com/bottlerocket-os/bottlerocket#admin-container "https://github.com/bottlerocket-os/bottlerocket#admin-container")
-      + [Kubernetes settings](https://github.com/bottlerocket-os/bottlerocket#kubernetes-settings "https://github.com/bottlerocket-os/bottlerocket#kubernetes-settings")
-
-  This procedure requires `eksctl` version `0.215.0` or later. You can check your version with the following command:
+  - [Exploration](https://github.com/bottlerocket-os/bottlerocket#exploration "https://github.com/bottlerocket-os/bottlerocket#exploration")
+  - [Admin container](https://github.com/bottlerocket-os/bottlerocket#admin-container "https://github.com/bottlerocket-os/bottlerocket#admin-container")
+  - [Kubernetes settings](https://github.com/bottlerocket-os/bottlerocket#kubernetes-settings "https://github.com/bottlerocket-os/bottlerocket#kubernetes-settings")
+    This procedure requires `eksctl` version `0.215.0` or later. You can check your version with the following command:
 
 ```
 eksctl version
@@ -105,10 +104,9 @@ Add `--conntrack-max-per-core` and `--conntrack-min` to the `kube-proxy` argumen
         - --conntrack-min=0
 ```
 
-5.  (Optional) Deploy a [sample application](sample-deployment.md "sample-deployment.md") to test your Bottlerocket nodes.
-6.  We recommend blocking Pod access to IMDS if the following conditions are true:
+5. (Optional) Deploy a [sample application](sample-deployment.md "sample-deployment.md") to test your Bottlerocket nodes.
+6. We recommend blocking Pod access to IMDS if the following conditions are true:
 
-        * You plan to assign IAM roles to all of your Kubernetes service accounts so that Pods only have the minimum permissions that they need.
-        * No Pods in the cluster require access to the Amazon EC2 instance metadata service (IMDS) for other reasons, such as retrieving the current AWS Region.
-
-    For more information, see [Restrict access to the instance profile assigned to the worker node](https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node "https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node").
+   - You plan to assign IAM roles to all of your Kubernetes service accounts so that Pods only have the minimum permissions that they need.
+   - No Pods in the cluster require access to the Amazon EC2 instance metadata service (IMDS) for other reasons, such as retrieving the current AWS Region.
+     For more information, see [Restrict access to the instance profile assigned to the worker node](https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node "https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node").

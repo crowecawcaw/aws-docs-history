@@ -36,26 +36,20 @@ Before you can load balance network traffic using the AWS Load Balancer Controll
 
 - Your public and private subnets must meet the following requirements, unless you explicitly specify subnet IDs as an annotation on a service or ingress object. If you provision load balancers by explicitly specifying subnet IDs as an annotation on a service or ingress object, then Kubernetes and the AWS Load Balancer Controller use those subnets directly to create the load balancer and the following tags aren’t required.
 
-      + **Private subnets**
-      – Must be tagged in the following format. This is so that Kubernetes and the AWS Load Balancer Controller know that the subnets can be used for internal load balancers. If you use `eksctl` or an Amazon EKS AWS CloudFormation template to create your VPC after March 26, 2020, then the subnets are tagged appropriately when they’re created. For more information about the Amazon EKS AWS CloudFormation VPC templates, see [Create an Amazon VPC for your Amazon EKS cluster](creating-a-vpc.md "creating-a-vpc.md").
+  - **Private subnets**
+    – Must be tagged in the following format. This is so that Kubernetes and the AWS Load Balancer Controller know that the subnets can be used for internal load balancers. If you use `eksctl` or an Amazon EKS AWS CloudFormation template to create your VPC after March 26, 2020, then the subnets are tagged appropriately when they’re created. For more information about the Amazon EKS AWS CloudFormation VPC templates, see [Create an Amazon VPC for your Amazon EKS cluster](creating-a-vpc.md "creating-a-vpc.md").
 
+    - **Key**
+      – `kubernetes.io/role/internal-elb`
+    - **Value**
+      – `1`
 
+  - **Public subnets**
+    – Must be tagged in the following format. This is so that Kubernetes knows to use only those subnets for external load balancers instead of choosing a public subnet in each Availability Zone (based on the lexicographical order of the subnet IDs). If you use `eksctl` or an Amazon EKS AWS CloudFormation template to create your VPC after March 26, 2020, then the subnets are tagged appropriately when they’re created. For more information about the Amazon EKS AWS CloudFormation VPC templates, see [Create an Amazon VPC for your Amazon EKS cluster](creating-a-vpc.md "creating-a-vpc.md").
 
-
-      	- **Key**
-      	– `kubernetes.io/role/internal-elb`
-      	- **Value**
-      	– `1`
-      + **Public subnets**
-      – Must be tagged in the following format. This is so that Kubernetes knows to use only those subnets for external load balancers instead of choosing a public subnet in each Availability Zone (based on the lexicographical order of the subnet IDs). If you use `eksctl` or an Amazon EKS AWS CloudFormation template to create your VPC after March 26, 2020, then the subnets are tagged appropriately when they’re created. For more information about the Amazon EKS AWS CloudFormation VPC templates, see [Create an Amazon VPC for your Amazon EKS cluster](creating-a-vpc.md "creating-a-vpc.md").
-
-
-
-
-      	- **Key** – `kubernetes.io/role/elb`
-      	- **Value** – `1`
-
-  If the subnet role tags aren’t explicitly added, the Kubernetes service controller examines the route table of your cluster VPC subnets to determine if the subnet is private or public. We recommend that you don’t rely on this behavior, and instead explicitly add the private or public role tags. The AWS Load Balancer Controller doesn’t examine route tables, and requires the private and public tags to be present for successful auto discovery.
+    - **Key** – `kubernetes.io/role/elb`
+    - **Value** – `1`
+      If the subnet role tags aren’t explicitly added, the Kubernetes service controller examines the route table of your cluster VPC subnets to determine if the subnet is private or public. We recommend that you don’t rely on this behavior, and instead explicitly add the private or public role tags. The AWS Load Balancer Controller doesn’t examine route tables, and requires the private and public tags to be present for successful auto discovery.
 
 ## Considerations
 
@@ -245,9 +239,7 @@ Do not edit the annotations after creating your service. If you need to modify i
 
   ###### Note
 
-  The values for `10.100.240.137` and `xxxxxxxxxx`-`xxxxxxxxxxxxxxxx` will be different than the example output (they will be unique to your load balancer) and `us-west-2` may be different for you, depending on which AWS Region that your cluster is in. 5. Open the [Amazon EC2 AWS Management Console](https://console.aws.amazon.com/ec2 "https://console.aws.amazon.com/ec2"). Select **Target Groups** (under **Load Balancing**) in the left navigation pane. In the **Name** column, select the target group’s name where the value in the **Load balancer** column matches a portion of the name in the `EXTERNAL-IP` column of the output in the previous step. For example, you’d select the target group named `k8s-default-samplese-`xxxxxxxxxx``if your output were the same as the previous output. The **Target type** is`IP`because that was specified in the sample service manifest.
-6. Select the **Target group** and then select the **Targets** tab. Under **Registered targets**, you should see three IP addresses of the three replicas deployed in a previous step. Wait until the status of all targets is **healthy** before continuing. It might take several minutes before all targets are`healthy`. The targets might be in an `unhealthy`state before changing to a`healthy`state.
-7. Send traffic to the service replacing`xxxxxxxxxx-xxxxxxxxxxxxxxxx`and`us-west-2`with the values returned in the output for a [previous step](#nlb-sample-app-verify-deployment "#nlb-sample-app-verify-deployment") for`EXTERNAL-IP`. If you deployed to a private subnet, then you’ll need to view the page from a device within your VPC, such as a bastion host. For more information, see [Linux Bastion Hosts on AWS](https://aws.amazon.com/quickstart/architecture/linux-bastion/ "https://aws.amazon.com/quickstart/architecture/linux-bastion/").
+  The values for `10.100.240.137` and `xxxxxxxxxx`-`xxxxxxxxxxxxxxxx` will be different than the example output (they will be unique to your load balancer) and `us-west-2` may be different for you, depending on which AWS Region that your cluster is in. 5. Open the [Amazon EC2 AWS Management Console](https://console.aws.amazon.com/ec2 "https://console.aws.amazon.com/ec2"). Select **Target Groups** (under **Load Balancing**) in the left navigation pane. In the **Name** column, select the target group’s name where the value in the **Load balancer** column matches a portion of the name in the `EXTERNAL-IP` column of the output in the previous step. For example, you’d select the target group named `k8s-default-samplese-`xxxxxxxxxx`` if your output were the same as the previous output. The **Target type** is `IP` because that was specified in the sample service manifest. 6. Select the **Target group** and then select the **Targets** tab. Under **Registered targets**, you should see three IP addresses of the three replicas deployed in a previous step. Wait until the status of all targets is **healthy** before continuing. It might take several minutes before all targets are `healthy`. The targets might be in an `unhealthy` state before changing to a `healthy` state. 7. Send traffic to the service replacing `xxxxxxxxxx-xxxxxxxxxxxxxxxx` and `us-west-2` with the values returned in the output for a [previous step](#nlb-sample-app-verify-deployment "#nlb-sample-app-verify-deployment") for `EXTERNAL-IP`. If you deployed to a private subnet, then you’ll need to view the page from a device within your VPC, such as a bastion host. For more information, see [Linux Bastion Hosts on AWS](https://aws.amazon.com/quickstart/architecture/linux-bastion/ "https://aws.amazon.com/quickstart/architecture/linux-bastion/").
 
   ```
   curl k8s-default-samplese-xxxxxxxxxx-xxxxxxxxxxxxxxxx.elb.region-code.amazonaws.com

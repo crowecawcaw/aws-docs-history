@@ -356,31 +356,39 @@ By default, the `config` file is created in `~/.kube` or the new cluster’s con
 
 7. Create a managed node group.
 
-   1. View the IDs of the subnets that you created in a previous step.
+    1. View the IDs of the subnets that you created in a previous step.
 
-   ```
-   echo $subnets
-   ```
 
-   An example output is as follows.
 
-   ```
-   subnet-0a1a56c486EXAMPLE,subnet-099e6ca77aEXAMPLE,subnet-0377963d69EXAMPLE,subnet-0c05f819d5EXAMPLE
-   ```
-   2. Create the node group. Replace `0a1a56c486EXAMPLE`, `099e6ca77aEXAMPLE`, `0377963d69EXAMPLE`, and `0c05f819d5EXAMPLE` with the values returned in the output of the previous step. Be sure to remove the commas between subnet IDs from the previous output in the following command. You can replace `t3.medium` with any [AWS Nitro System instance type](../../../AWSEC2/latest/UserGuide/instance-types.md#ec2-nitro-instances "../../../AWSEC2/latest/UserGuide/instance-types.md#ec2-nitro-instances").
+    ```
+    echo $subnets
+    ```
 
-   ```
-   aws eks create-nodegroup --region $region_code --cluster-name $cluster_name --nodegroup-name $nodegroup_name \
-       --subnets subnet-0a1a56c486EXAMPLE subnet-099e6ca77aEXAMPLE subnet-0377963d69EXAMPLE subnet-0c05f819d5EXAMPLE \
-       --instance-types t3.medium --node-role $node_iam_role
-   ```
+    An example output is as follows.
 
-   The node group takes a few minutes to create. Run the following command. Don’t proceed to the next step until the output returned is `ACTIVE`.
 
-   ```
-   aws eks describe-nodegroup --region $region_code --cluster-name $cluster_name --nodegroup-name $nodegroup_name \
-       --query nodegroup.status --output text
-   ```
+
+    ```
+    subnet-0a1a56c486EXAMPLE,subnet-099e6ca77aEXAMPLE,subnet-0377963d69EXAMPLE,subnet-0c05f819d5EXAMPLE
+    ```
+    2. Create the node group. Replace `0a1a56c486EXAMPLE`, `099e6ca77aEXAMPLE`, `0377963d69EXAMPLE`, and `0c05f819d5EXAMPLE` with the values returned in the output of the previous step. Be sure to remove the commas between subnet IDs from the previous output in the following command. You can replace `t3.medium` with any [AWS Nitro System instance type](../../../AWSEC2/latest/UserGuide/instance-types.md#ec2-nitro-instances "../../../AWSEC2/latest/UserGuide/instance-types.md#ec2-nitro-instances").
+
+
+
+    ```
+    aws eks create-nodegroup --region $region_code --cluster-name $cluster_name --nodegroup-name $nodegroup_name \
+        --subnets subnet-0a1a56c486EXAMPLE subnet-099e6ca77aEXAMPLE subnet-0377963d69EXAMPLE subnet-0c05f819d5EXAMPLE \
+        --instance-types t3.medium --node-role $node_iam_role
+    ```
+
+    The node group takes a few minutes to create. Run the following command. Don’t proceed to the next step until the output returned is `ACTIVE`.
+
+
+
+    ```
+    aws eks describe-nodegroup --region $region_code --cluster-name $cluster_name --nodegroup-name $nodegroup_name \
+        --query nodegroup.status --output text
+    ```
 
 8. Confirm that the default Pods are assigned `IPv6` addresses in the `IP` column.
 

@@ -98,86 +98,102 @@ Create an IAM policy. You can create your own policy, or copy an AWS managed pol
 
 2. Create an IAM role and associate it with a Kubernetes service account.
 
-   1. If you have an existing Kubernetes service account that you want to assume an IAM role, then you can skip this step.
+    1. If you have an existing Kubernetes service account that you want to assume an IAM role, then you can skip this step.
 
-   Create a Kubernetes service account. Copy the following contents to your device. Replace `my-service-account` with your desired name and `default` with a different namespace, if necessary. If you change `default`, the namespace must already exist.
 
-   ```
-   cat >my-service-account.yaml <<EOF
-   apiVersion: v1
-   kind: ServiceAccount
-   metadata:
-     name: my-service-account
-     namespace: default
-   EOF
-   kubectl apply -f my-service-account.yaml
-   ```
+    Create a Kubernetes service account. Copy the following contents to your device. Replace `my-service-account` with your desired name and `default` with a different namespace, if necessary. If you change `default`, the namespace must already exist.
 
-   Run the following command.
 
-   ```
-   kubectl apply -f my-service-account.yaml
-   ```
-   2. Run the following command to create a trust policy file for the IAM role.
 
-   ```
-   {
-       "Version":"2012-10-17",
-       "Statement": [
-           {
-               "Sid": "AllowEksAuthToAssumeRoleForPodIdentity",
-               "Effect": "Allow",
-               "Principal": {
-                   "Service": "pods.eks.amazonaws.com"
-               },
-               "Action": [
-                   "sts:AssumeRole",
-                   "sts:TagSession"
-               ]
-           }
-       ]
-   }
-   ```
-   3. Create the role. Replace `my-role` with a name for your IAM role, and `my-role-description` with a description for your role.
+    ```
+    cat >my-service-account.yaml <<EOF
+    apiVersion: v1
+    kind: ServiceAccount
+    metadata:
+      name: my-service-account
+      namespace: default
+    EOF
+    kubectl apply -f my-service-account.yaml
+    ```
 
-   ```
-   aws iam create-role --role-name my-role --assume-role-policy-document file://trust-relationship.json --description "my-role-description"
-   ```
-   4. Attach an IAM policy to your role. Replace `my-role` with the name of your IAM role and `my-policy` with the name of an existing policy that you created.
+    Run the following command.
 
-   ```
-   aws iam attach-role-policy --role-name my-role --policy-arn=arn:aws:iam::111122223333:policy/my-policy
-   ```
 
-   ###### Note
 
-   Unlike IAM roles for service accounts, EKS Pod Identity doesn’t use an annotation on the service account. 5. Run the following command to create the association. Replace `my-cluster` with the name of the cluster, replace `my-service-account` with your desired name and `default` with a different namespace, if necessary.
+    ```
+    kubectl apply -f my-service-account.yaml
+    ```
+    2. Run the following command to create a trust policy file for the IAM role.
 
-   ```
-   aws eks create-pod-identity-association --cluster-name my-cluster --role-arn arn:aws:iam::111122223333:role/my-role --namespace default --service-account my-service-account
-   ```
 
-   An example output is as follows.
 
-   ```
-   {
-       "association": {
-           "clusterName": "my-cluster",
-           "namespace": "default",
-           "serviceAccount": "my-service-account",
-           "roleArn": "arn:aws:iam::111122223333:role/my-role",
-           "associationArn": "arn:aws::111122223333:podidentityassociation/my-cluster/a-abcdefghijklmnop1",
-           "associationId": "a-abcdefghijklmnop1",
-           "tags": {},
-           "createdAt": 1700862734.922,
-           "modifiedAt": 1700862734.922
-       }
-   }
-   ```
+    ```
+    {
+        "Version":"2012-10-17",
+        "Statement": [
+            {
+                "Sid": "AllowEksAuthToAssumeRoleForPodIdentity",
+                "Effect": "Allow",
+                "Principal": {
+                    "Service": "pods.eks.amazonaws.com"
+                },
+                "Action": [
+                    "sts:AssumeRole",
+                    "sts:TagSession"
+                ]
+            }
+        ]
+    }
+    ```
+    3. Create the role. Replace `my-role` with a name for your IAM role, and `my-role-description` with a description for your role.
 
-   ###### Note
 
-   You can specify a namespace and service account by name that doesn’t exist in the cluster. You must create the namespace, service account, and the workload that uses the service account for the EKS Pod Identity association to function.
+
+    ```
+    aws iam create-role --role-name my-role --assume-role-policy-document file://trust-relationship.json --description "my-role-description"
+    ```
+    4. Attach an IAM policy to your role. Replace `my-role` with the name of your IAM role and `my-policy` with the name of an existing policy that you created.
+
+
+
+    ```
+    aws iam attach-role-policy --role-name my-role --policy-arn=arn:aws:iam::111122223333:policy/my-policy
+    ```
+
+    ###### Note
+
+    Unlike IAM roles for service accounts, EKS Pod Identity doesn’t use an annotation on the service account.
+    5. Run the following command to create the association. Replace `my-cluster` with the name of the cluster, replace `my-service-account` with your desired name and `default` with a different namespace, if necessary.
+
+
+
+    ```
+    aws eks create-pod-identity-association --cluster-name my-cluster --role-arn arn:aws:iam::111122223333:role/my-role --namespace default --service-account my-service-account
+    ```
+
+    An example output is as follows.
+
+
+
+    ```
+    {
+        "association": {
+            "clusterName": "my-cluster",
+            "namespace": "default",
+            "serviceAccount": "my-service-account",
+            "roleArn": "arn:aws:iam::111122223333:role/my-role",
+            "associationArn": "arn:aws::111122223333:podidentityassociation/my-cluster/a-abcdefghijklmnop1",
+            "associationId": "a-abcdefghijklmnop1",
+            "tags": {},
+            "createdAt": 1700862734.922,
+            "modifiedAt": 1700862734.922
+        }
+    }
+    ```
+
+    ###### Note
+
+    You can specify a namespace and service account by name that doesn’t exist in the cluster. You must create the namespace, service account, and the workload that uses the service account for the EKS Pod Identity association to function.
 
 ## Confirm configuration
 

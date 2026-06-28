@@ -18,21 +18,20 @@ The [IAM principal](../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal
 
 ### To view Amazon EKS created identities using the AWS Management Console
 
-1.  Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
-2.  In the **Clusters** list, choose the cluster that contains the identities that you want to view.
-3.  Choose the **Resources** tab.
-4.  Under **Resource types**, choose **Authorization**.
-5.  Choose **ClusterRoles**, **ClusterRoleBindings**, **Roles**, or **RoleBindings**. All resources prefaced with **eks** are created by Amazon EKS. Additional Amazon EKS created identity resources are:
+1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+2. In the **Clusters** list, choose the cluster that contains the identities that you want to view.
+3. Choose the **Resources** tab.
+4. Under **Resource types**, choose **Authorization**.
+5. Choose **ClusterRoles**, **ClusterRoleBindings**, **Roles**, or **RoleBindings**. All resources prefaced with **eks** are created by Amazon EKS. Additional Amazon EKS created identity resources are:
 
-        * The **ClusterRole** and **ClusterRoleBinding** named **aws-node**. The **aws-node** resources support the [Amazon VPC CNI plugin for Kubernetes](managing-vpc-cni.md "managing-vpc-cni.md"), which Amazon EKS installs on all clusters.
-        * A **ClusterRole** named **vpc-resource-controller-role** and a **ClusterRoleBinding** named **vpc-resource-controller-rolebinding**. These resources support the [Amazon VPC resource controller](https://github.com/aws/amazon-vpc-resource-controller-k8s "https://github.com/aws/amazon-vpc-resource-controller-k8s"), which Amazon EKS installs on all clusters.
+   - The **ClusterRole** and **ClusterRoleBinding** named **aws-node**. The **aws-node** resources support the [Amazon VPC CNI plugin for Kubernetes](managing-vpc-cni.md "managing-vpc-cni.md"), which Amazon EKS installs on all clusters.
+   - A **ClusterRole** named **vpc-resource-controller-role** and a **ClusterRoleBinding** named **vpc-resource-controller-rolebinding**. These resources support the [Amazon VPC resource controller](https://github.com/aws/amazon-vpc-resource-controller-k8s "https://github.com/aws/amazon-vpc-resource-controller-k8s"), which Amazon EKS installs on all clusters.
+     In addition to the resources that you see in the console, the following special user identities exist on your cluster, though they’re not visible in the cluster’s configuration:
 
-    In addition to the resources that you see in the console, the following special user identities exist on your cluster, though they’re not visible in the cluster’s configuration:
+   - **`eks:cluster-bootstrap`** – Used for `kubectl` operations during cluster bootstrap.
+   - **`eks:support-engineer`** – Used for cluster management operations.
 
-        * **`eks:cluster-bootstrap`** – Used for `kubectl` operations during cluster bootstrap.
-        * **`eks:support-engineer`** – Used for cluster management operations.
-
-6.  Choose a specific resource to view details about it. By default, you’re shown information in **Structured view**. In the top-right corner of the details page you can choose **Raw view** to see all information for the resource.
+6. Choose a specific resource to view details about it. By default, you’re shown information in **Structured view**. In the top-right corner of the details page you can choose **Raw view** to see all information for the resource.
 
 ## Kubectl
 

@@ -170,7 +170,7 @@ To scale deployments with additional replicas or to recover from pod failures du
 
 ## Tune Kubernetes pod failover behavior
 
-During a network disconnect, the Kubernetes control plane cannot communicate with the AWS Region. If a node becomes unreachable, the default Kubernetes behavior is to evict pods after a timeout period. You can tune this behavior using tolerations and `tolerationSeconds` on your pod specifications to control how quickly pods are rescheduled during partitions. For detailed guidance and examples, see https://docs.aws.amazon.com/eks/latest/best-practices/hybrid-nodes-network-disconnection-best-practices.html#*tune\_kubernetes\_pod\_failover\_behavior[Tune Kubernetes pod failover behavior] in the \_Amazon EKS Best Practices Guide\*.
+During a network disconnect, the Kubernetes control plane cannot communicate with the AWS Region. If a node becomes unreachable, the default Kubernetes behavior is to evict pods after a timeout period. You can tune this behavior using tolerations and `tolerationSeconds` on your pod specifications to control how quickly pods are rescheduled during partitions. For detailed guidance and examples, see https://docs.aws.amazon.com/eks/latest/best-practices/hybrid-nodes-network-disconnection-best-practices.html#*tune\_kubernetes\_pod\_failover\_behavior[Tune Kubernetes pod failover behavior] in the \_Amazon EKS Best Practices Guide*.
 
 ## Simulate a network disconnect
 

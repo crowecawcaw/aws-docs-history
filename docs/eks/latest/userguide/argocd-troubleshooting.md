@@ -182,6 +182,272 @@ The managed capability uses EKS Access Entries for cross-account access, not IAM
 
 For more on multi-cluster configuration, see [Register target clusters](argocd-register-clusters.md "argocd-register-clusters.md").
 
+## Increased application sync time
+
+If your applications are syncing but taking longer than expected, use the following diagnostic steps to identify the cause.
+
+### Check last sync time
+
+Confirm the delay by reviewing when applications last synced:
+
+```
+# View last sync time for all applications
+kubectl get application -n argocd -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.status.operationState.finishedAt}{"\n"}{end}'
+
+# View last sync time for a specific application
+kubectl get application `my-app` -n argocd -o jsonpath='{.status.operationState.finishedAt}'
+```
+
+### Check application conditions
+
+Review application conditions for reconciliation queue delays:
+
+```
+# Check conditions on an application
+kubectl get application `my-app` -n argocd -o jsonpath='{.status.conditions}'
+```
+
+### Check targetRevision configuration
+
+Applications using `targetRevision: HEAD` invalidate the manifest cache on every commit to the repository, which slows sync times:
+
+```
+# List applications using HEAD as targetRevision
+kubectl get application -n argocd -o jsonpath='{range .items[?(@.spec.source.targetRevision=="HEAD")]}{.metadata.name}{"\n"}{end}'
+```
+
+### Common causes
+
+- **No webhook configuration**: Without webhooks, Argo CD polls repositories at the default interval of 6 minutes. This delays detection of new commits.
+- **targetRevision set to HEAD**: Every commit to the repository invalidates the manifest cache. Argo CD then regenerates manifests on each reconciliation.
+- **Large or complex Git repositories**: Monorepos or complex Helm charts cause slow manifest generation because of the volume of files and templates to process.
+- **High number of Kubernetes resources in a single application**: Applications managing many resources cause slow cluster cache sync because Argo CD must track the state of each resource.
+
+### Mitigations
+
+- **Configure Git webhooks**: Webhooks notify Argo CD immediately when changes are pushed, bypassing the default polling interval. For configuration steps, see [Argo CD considerations](argocd-considerations.md "argocd-considerations.md").
+- **Use specific branch names or commit SHAs**: Set `targetRevision` to a branch name or commit SHA instead of `HEAD` to preserve the manifest cache between syncs.
+- **Split large monorepos**: Divide large repositories into smaller, focused repositories to reduce manifest generation time.
+- **Reduce resources per application**: Split applications with many Kubernetes resources into multiple smaller applications to reduce cluster cache sync time.
+- **Enable controller log delivery**: Controller logs provide visibility into reconciliation behavior and queue processing. For configuration steps, see [Access EKS Capabilities controller logs](capabilities-controller-logs.md "capabilities-controller-logs.md").
+
+## Applications repeatedly syncing or stuck out of sync
+
+If your application syncs and then immediately goes `OutOfSync`, or if it stays stuck in a sync loop, the cause is usually drift between what Git defines and what exists in the cluster. Start with baseline diagnostics.
+
+### Gather diagnostic information
+
+```
+# View current sync and health status
+argocd app get `my-app`
+
+# Show exact fields that differ between Git and live state
+argocd app diff `my-app`
+
+# Check whether the app has ever reached a stable state
+argocd app history `my-app`
+
+```
+
+The `argocd app diff` command is the most useful starting point. It shows you exactly which fields cause the application to appear out of sync.
+
+### Self-managed certificates cause drift
+
+Controllers such as cert-manager, OPA Gatekeeper, and KEDA generate certificates at runtime. These runtime values are not in Git, so Argo CD detects drift on every reconciliation.
+
+The symptoms are:
+
+- Application syncs, then immediately shows `OutOfSync`
+- The diff shows changes on a webhook `caBundle` field or a TLS Secret `data` field
+
+To resolve this, add `ignoreDifferences` for the affected fields and enable `RespectIgnoreDifferences` in your sync options:
+
+```
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app
+spec:
+  ignoreDifferences:
+    - group: admissionregistration.k8s.io
+      kind: ValidatingWebhookConfiguration
+      jsonPointers:
+        - /webhooks/0/clientConfig/caBundle
+    - group: ""
+      kind: Secret
+      jsonPointers:
+        - /data/tls.crt
+        - /data/tls.key
+  syncPolicy:
+    syncOptions:
+      - RespectIgnoreDifferences=true
+```
+
+### Self-heal interrupts slow-starting workloads
+
+When `selfHeal` is enabled, Argo CD re-syncs the application when it detects drift. If your workload takes 30–60 seconds to start, the self-heal triggers before the workload becomes `Healthy`. With `prune` enabled, this might tear down partially-started resources.
+
+To resolve this, first fix the underlying drift (see the certificate scenario). If drift is not the cause, consider disabling self-heal for workloads that you manage exclusively through Git:
+
+```
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app
+spec:
+  syncPolicy:
+    automated:
+      selfHeal: false
+      prune: false
+```
+
+###### Note
+
+Self-heal backoff timing is an instance-level controller setting. If you need to adjust self-heal timing rather than disabling it, open an AWS Support case.
+
+### ApplicationSet or resource ownership collisions
+
+If two Applications or ApplicationSets manage the same Kubernetes resource, Argo CD shows a `SharedResourceWarning`. The resource never reaches a stable state. This commonly happens when a shared resource name is not scoped per environment or cluster.
+
+To resolve this:
+
+- Make the contended resource unique per owner. Add an environment or cluster suffix to the resource name.
+- When renaming an ApplicationSet, set `preserveResourcesOnDeletion: true` first to avoid destructive teardown of existing resources:
+
+```
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: my-appset
+spec:
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+```
+
+### Stuck deletion from resource finalizers
+
+If an application is stuck in `Terminating` state or shows "N objects remaining for deletion", the `resources-finalizer.argocd.argoproj.io` finalizer blocks removal until all managed resources delete. A managed resource with its own unprocessable finalizer blocks the deletion indefinitely.
+
+To confirm, list resources that have a deletion timestamp but have not been removed:
+
+```
+kubectl get all -n `my-namespace` -o json | \
+  jq '.items[] | select(.metadata.deletionTimestamp != null) | {name: .metadata.name, kind: .kind, finalizers: .metadata.finalizers}'
+```
+
+To resolve this:
+
+- Make sure the controller that owns the blocking finalizer is healthy and running.
+- If the owning controller is healthy but the finalizer is not being processed, remove the blocking finalizer from the stuck resource:
+
+```
+kubectl patch `resource-kind`
+            `resource-name` -n `my-namespace` \
+  --type json -p '[{"op": "remove", "path": "/metadata/finalizers/0"}]'
+```
+
+### Failed sync does not auto-retry to the same revision
+
+After a sync to a specific revision fails, Argo CD does not auto-retry the same revision. This commonly happens because of a manifest defect such as a `ComparisonError` from a duplicate environment variable key.
+
+Confirm by checking the application status:
+
+```
+argocd app get `my-app`
+# Look for: Operation: Sync  Phase: Failed  Revision: <sha>
+```
+
+To resolve this, fix the manifest defect in your Git repository and push a new commit. Alternatively, trigger a manual sync:
+
+```
+argocd app sync `my-app`
+
+```
+
+### Monorepo commit churn triggers broad regeneration
+
+If many applications track `HEAD` on the same repository, any commit to that repository changes `HEAD` for all applications. This triggers manifest regeneration for every application, even those whose files did not change. For more information about `targetRevision` and caching, see the "Increased application sync time" section on this page.
+
+To scope regeneration to only the files each application uses, add the `manifest-generate-paths` annotation:
+
+```
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app
+  annotations:
+    argocd.argoproj.io/manifest-generate-paths: /apps/my-app
+spec:
+  source:
+    repoURL: https://github.com/my-org/my-monorepo.git
+    targetRevision: HEAD
+    path: apps/my-app
+```
+
+With this annotation, Argo CD only regenerates manifests when files under the specified path change. For shared libraries used across applications, you can specify multiple paths separated by semicolons (`;`).
+
+Where possible, pin `targetRevision` to a branch name or tag instead of `HEAD`.
+
+### Kubernetes defaulting and mutating webhooks cause phantom diffs
+
+If your application shows `OutOfSync` immediately after a sync, check the diff for fields you never set (such as `terminationGracePeriodSeconds`, `dnsPolicy`, or `/spec/replicas`). The Kubernetes API server or a mutating webhook added those fields at apply time.
+
+To resolve this for fields managed by another controller (such as `/spec/replicas` when an HPA manages scaling), add `ignoreDifferences`:
+
+```
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app
+spec:
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
+  syncPolicy:
+    syncOptions:
+      - RespectIgnoreDifferences=true
+```
+
+For fields added by Kubernetes defaulting or mutating webhooks, you can enable server-side diff on the application:
+
+```
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app
+  annotations:
+    argocd.argoproj.io/compare-options: ServerSideDiff=true,IncludeMutationWebhook=true
+```
+
+Server-side diff performs a dry-run apply per resource, which increases load on the Kubernetes API server. Test this on a small number of applications before you enable it broadly.
+
+### High-churn controller-owned resources
+
+Some controllers generate large numbers of short-lived or frequently-updated resources. Examples include Karpenter node objects, Cilium identity and endpoint objects, and Kyverno policy reports. If these resources generate a high volume of watch events and cause sync churn, you can reduce the load by excluding those resource kinds or filtering watch events. These changes require instance-level controller configuration.
+
+On the managed capability, open an AWS Support case to request resource exclusions or watch-event filtering for these resource kinds.
+
+### Best practices
+
+- **Use application diff first**: Run `argocd app diff` as the first diagnostic step for any repeated-sync issue. It shows you the exact cause of drift.
+- **Prefer narrow ignoreDifferences**: Target specific fields on specific resource kinds. Avoid broad ignore rules that can mask real configuration drift.
+- **Pair ignoreDifferences with RespectIgnoreDifferences**: Always add the `RespectIgnoreDifferences=true` sync option. Without it, syncs still overwrite the ignored fields.
+- **Keep resource names unique**: Scope resource names per environment and cluster to avoid ownership collisions between Applications or ApplicationSets.
+- **Be cautious with prune and selfHeal**: Do not enable both on workloads that take a long time to start. The self-heal can tear down resources before they become healthy.
+- **Pin targetRevision and scope manifest paths**: For applications in large shared repositories, use a branch or tag instead of `HEAD` and add the `manifest-generate-paths` annotation.
+
+### When to contact AWS Support
+
+Open an AWS Support case in the following situations:
+
+- Instance-level controller tuning seems necessary (processor counts, self-heal timing, or resource exclusions).
+- Repo-server or controller capacity seems insufficient for your application count.
+- Workload configuration, drift, ownership, or finalizers do not explain the behavior.
+
+Include the output of `argocd app get` and `argocd app diff` for affected applications in your support case.
+
 ## Next steps
 
 - [Argo CD considerations](argocd-considerations.md "argocd-considerations.md") - Argo CD considerations and best practices

@@ -469,7 +469,7 @@ If there aren’t `policyendpoint` objects in the namespaces, the network policy
 
 ### CVE vulnerabilities in Multus CNI image
 
-**Issue**: Enhanced EKS ImageScan CVE Report identifies vulnerabilities in the Multus CNI image version v4.1.4-eksbuild.2_thick.
+**Issue**: Enhanced EKS ImageScan CVE Report identifies vulnerabilities in the Multus CNI image version v4.1.4-eksbuild.2\_thick.
 
 **Solution**: Update to the new version of the Multus CNI image and the new Network Policy Controller image, which have no vulnerabilities. The scanner can be updated to address the vulnerabilities found in the previous version.
 

@@ -83,26 +83,31 @@ The following output is an example of what is returned for the add-on named `vpc
 
 3. Create an Amazon EKS add-on. Copy the command and replace the `user-data` as follows:
 
-   - Replace `my-cluster` with the name of your cluster.
-   - Replace `name-of-addon` with the name of the add-on that you want to create.
-   - If you want a version of the add-on that’s earlier than the latest version, then replace `latest` with the version number returned in the output of a previous step that you want to use.
-   - If the add-on uses a service account role, replace `111122223333` with your account ID and replace `role-name` with the name of the role. For instructions on creating a role for your service account, see the documentation for the add-on that you’re creating. For a list of add-ons, see [AWS add-ons](workloads-add-ons-available-eks.md "workloads-add-ons-available-eks.md"). Specifying a service account role requires that you have an IAM OpenID Connect (OIDC) provider for your cluster. To determine whether you have one for your cluster, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md "enable-iam-roles-for-service-accounts.md").
+    * Replace `my-cluster` with the name of your cluster.
+    * Replace `name-of-addon` with the name of the add-on that you want to create.
+    * If you want a version of the add-on that’s earlier than the latest version, then replace `latest` with the version number returned in the output of a previous step that you want to use.
+    * If the add-on uses a service account role, replace `111122223333` with your account ID and replace `role-name` with the name of the role. For instructions on creating a role for your service account, see the documentation for the add-on that you’re creating. For a list of add-ons, see [AWS add-ons](workloads-add-ons-available-eks.md "workloads-add-ons-available-eks.md"). Specifying a service account role requires that you have an IAM OpenID Connect (OIDC) provider for your cluster. To determine whether you have one for your cluster, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md "enable-iam-roles-for-service-accounts.md").
 
-   If the add-on doesn’t use a service account role, delete `--service-account-role-arnarn:aws:iam::111122223333:role/role-name`.
-   - This example command overwrites the configuration of any existing self-managed version of the add-on, if there is one. If you don’t want to overwrite the configuration of an existing self-managed add-on, remove the `--force` option. If you remove the option, and the Amazon EKS add-on needs to overwrite the configuration of an existing self-managed add-on, then creation of the Amazon EKS add-on fails with an error message to help you resolve the conflict. Before specifying this option, make sure that the Amazon EKS add-on doesn’t manage settings that you need to manage, because those settings are overwritten with this option.
 
-   ```
-   eksctl create addon --cluster my-cluster --name name-of-addon --version latest \
-       --service-account-role-arn arn:aws:iam::111122223333:role/role-name --force
-   ```
+    If the add-on doesn’t use a service account role, delete `--service-account-role-arnarn:aws:iam::111122223333:role/role-name`.
+    * This example command overwrites the configuration of any existing self-managed version of the add-on, if there is one. If you don’t want to overwrite the configuration of an existing self-managed add-on, remove the `--force` option. If you remove the option, and the Amazon EKS add-on needs to overwrite the configuration of an existing self-managed add-on, then creation of the Amazon EKS add-on fails with an error message to help you resolve the conflict. Before specifying this option, make sure that the Amazon EKS add-on doesn’t manage settings that you need to manage, because those settings are overwritten with this option.
 
-   You can see a list of all available options for the command.
 
-   ```
-   eksctl create addon --help
-   ```
 
-   For more information about available options see [Addons](https://eksctl.io/usage/addons/ "https://eksctl.io/usage/addons/") in the `eksctl` documentation.
+    ```
+    eksctl create addon --cluster my-cluster --name name-of-addon --version latest \
+        --service-account-role-arn arn:aws:iam::111122223333:role/role-name --force
+    ```
+
+    You can see a list of all available options for the command.
+
+
+
+    ```
+    eksctl create addon --help
+    ```
+
+    For more information about available options see [Addons](https://eksctl.io/usage/addons/ "https://eksctl.io/usage/addons/") in the `eksctl` documentation.
 
 ## Create add-on (AWS Console)
 
@@ -143,14 +148,13 @@ If the **AWS Marketplace add-ons** that you want to install aren’t listed, you
     	6. If you want to install the add-on into a specific namespace, enter it in the **Namespace** field. For AWS and community add-ons, you can define a custom Kubernetes namespace to install the add-on into. For more information, see [Custom namespace for add-ons](eks-add-ons.md#custom-namespace "eks-add-ons.md#custom-namespace").
     	7. Choose **Next**.
 
-8. On the **Review and add** page, choose **Create**. After the add-on installation is complete, you see your installed add-ons.
-9. If any of the add-ons that you installed require a subscription, complete the following steps:
+8. On the **Review and add** page, choose **Create**. After the add-on installation is complete, you see your installed add-ons. 9. If any of the add-ons that you installed require a subscription, complete the following steps:
 
-   1. Choose the **Subscribe** button in the lower right corner for the add-on. You’re taken to the page for the add-on in the AWS Marketplace. Read the information about the add-on such as its **Product Overview** and **Pricing Information**.
-   2. Select the **Continue to Subscribe** button on the top right of the add-on page.
-   3. Read through the **Terms and Conditions**. If you agree to them, choose **Accept Terms**. It may take several minutes to process the subscription. While the subscription is processing, the **Return to Amazon EKS Console** button is grayed out.
-   4. Once the subscription has finished processing, the **Return to Amazon EKS Console** button is no longer grayed out. Choose the button to go back to the Amazon EKS console **Add-ons** tab for your cluster.
-   5. For the add-on that you subscribed to, choose **Remove and reinstall** and then choose **Reinstall add-on**. Installation of the add-on can take several minutes. When Installation is complete, you can configure the add-on.
+    1. Choose the **Subscribe** button in the lower right corner for the add-on. You’re taken to the page for the add-on in the AWS Marketplace. Read the information about the add-on such as its **Product Overview** and **Pricing Information**.
+    2. Select the **Continue to Subscribe** button on the top right of the add-on page.
+    3. Read through the **Terms and Conditions**. If you agree to them, choose **Accept Terms**. It may take several minutes to process the subscription. While the subscription is processing, the **Return to Amazon EKS Console** button is grayed out.
+    4. Once the subscription has finished processing, the **Return to Amazon EKS Console** button is no longer grayed out. Choose the button to go back to the Amazon EKS console **Add-ons** tab for your cluster.
+    5. For the add-on that you subscribed to, choose **Remove and reinstall** and then choose **Reinstall add-on**. Installation of the add-on can take several minutes. When Installation is complete, you can configure the add-on.
 
 ## Create add-on (AWS CLI)
 

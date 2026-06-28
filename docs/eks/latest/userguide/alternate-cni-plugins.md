@@ -25,7 +25,7 @@ Amazon EKS aims to give you a wide selection of options to cover all use cases.
 
 Traffic flow to and from Pods with associated security groups are not subjected to Calico network policy enforcement and are limited to Amazon VPC security group enforcement only.
 
-If you use Calico network policy enforcement, we recommend that you set the environment variable `ANNOTATE_POD_IP` to `true` to avoid a known issue with Kubernetes. To use this feature, you must add `patch` permission for pods to the `aws-node` ClusterRole. Note that adding patch permissions to the `aws-node` DaemonSet increases the security scope for the plugin. For more information, see [ANNOTATE_POD_IP](https://github.com/aws/amazon-vpc-cni-k8s/?tab=readme-ov-file#annotate_pod_ip-v193 "https://github.com/aws/amazon-vpc-cni-k8s/?tab=readme-ov-file#annotate_pod_ip-v193") in the VPC CNI repo on GitHub.
+If you use Calico network policy enforcement, we recommend that you set the environment variable `ANNOTATE_POD_IP` to `true` to avoid a known issue with Kubernetes. To use this feature, you must add `patch` permission for pods to the `aws-node` ClusterRole. Note that adding patch permissions to the `aws-node` DaemonSet increases the security scope for the plugin. For more information, see [ANNOTATE\_POD\_IP](https://github.com/aws/amazon-vpc-cni-k8s/?tab=readme-ov-file#annotate_pod_ip-v193 "https://github.com/aws/amazon-vpc-cni-k8s/?tab=readme-ov-file#annotate_pod_ip-v193") in the VPC CNI repo on GitHub.
 
 ## Considerations for Amazon EKS Auto Mode
 
