@@ -40,7 +40,7 @@ InvalidRequest: Error from server: code=2200 [Invalid query] message="unconfigur
 ```
 
 The recommended design pattern to check when a new keyspace is ready for use
-is to poll the Amazon Keyspaces system schema tables (system_schema_mcs.\*).
+is to poll the Amazon Keyspaces system schema tables (system\_schema\_mcs.\*).
 
 For more information, see [Check keyspace creation status in Amazon Keyspaces](keyspaces-create.md "keyspaces-create.md").
 
@@ -64,7 +64,7 @@ KeyError: 'mytable'
 ```
 
 The recommended design pattern to check when a new table is ready for use
-is to poll the Amazon Keyspaces system schema tables (system_schema_mcs.\*).
+is to poll the Amazon Keyspaces system schema tables (system\_schema\_mcs.\*).
 
 This is the example output for a table that is being created.
 

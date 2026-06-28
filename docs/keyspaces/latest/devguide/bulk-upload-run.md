@@ -28,37 +28,31 @@ AND MAXBATCHSIZE=20
 AND CHUNKSIZE=`calculated chunksize`;
 ```
 
-5.  Run the statement prepared in the previous step. cqlsh echoes back all the
-    settings that you've configured.
+5. Run the statement prepared in the previous step. cqlsh echoes back all the
+   settings that you've configured.
 
-        1. Make sure that the settings match your input. See the following
-         example.
+   1. Make sure that the settings match your input. See the following
+      example.
 
+   ```
+   `Reading options from the command line: {'chunksize': '120', 'header': 'true', 'ingestrate': '36000', 'numprocesses': '15', 'maxbatchsize': '20'}
+   Using 15 child processes`
+   ```
+   2. Review the number of rows transferred and the current average rate, as
+      shown in the following example.
 
+   ```
+   `Processed: 57834 rows; Rate: 6561 rows/s; Avg. rate: 31751 rows/s`
+   ```
+   3. When cqlsh has finished uploading the data, review the summary of the
+      data load statistics (the number of files read, runtime, and skipped
+      rows) as shown in the following example.
 
-        ```
-        `Reading options from the command line: {'chunksize': '120', 'header': 'true', 'ingestrate': '36000', 'numprocesses': '15', 'maxbatchsize': '20'}
-        Using 15 child processes`
-        ```
-        2. Review the number of rows transferred and the current average rate, as
-         shown in the following example.
+   ```
+   `15556824 rows imported from 1 files in 8 minutes and 8.321 seconds (0 skipped).`
+   ```
 
-
-
-        ```
-        `Processed: 57834 rows; Rate: 6561 rows/s; Avg. rate: 31751 rows/s`
-        ```
-        3. When cqlsh has finished uploading the data, review the summary of the
-         data load statistics (the number of files read, runtime, and skipped
-         rows) as shown in the following example.
-
-
-
-        ```
-        `15556824 rows imported from 1 files in 8 minutes and 8.321 seconds (0 skipped).`
-        ```
-
-    In this final step of the tutorial, you have uploaded the data to Amazon Keyspaces.
+In this final step of the tutorial, you have uploaded the data to Amazon Keyspaces.
 
 ###### Important
 

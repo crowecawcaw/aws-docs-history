@@ -21,17 +21,16 @@ This file is then used by Amazon EKS to deploy the application. The metadata in 
 - **AWS Region of the Amazon EKS cluster**  the AWS Region you created your Amazon EKS cluster in.
   In this step, you deploy and run the application that connects to Amazon Keyspaces and writes data to the table.
 
-1.  Configure the `deployment.yaml` file. You need to replace the following values:
+1. Configure the `deployment.yaml` file. You need to replace the following values:
 
-        * `name`
-        * `namespace`
-        * `serviceAccountName`
-        * `image`
-        * `AWS_ROLE_ARN value`
-        * The AWS Region in `CASSANDRA_HOST`
-        * `AWS_REGION`
-
-    You can use the following file as an example.
+   - `name`
+   - `namespace`
+   - `serviceAccountName`
+   - `image`
+   - `AWS_ROLE_ARN value`
+   - The AWS Region in `CASSANDRA_HOST`
+   - `AWS_REGION`
+     You can use the following file as an example.
 
 ```
 apiVersion: apps/v1

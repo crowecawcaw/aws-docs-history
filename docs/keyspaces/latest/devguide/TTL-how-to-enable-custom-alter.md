@@ -12,8 +12,10 @@ Cassandra Query Language (CQL)
 ###### Enable custom TTL settings for a table using CQL
 
 - ```
-  ALTER TABLE `my_table` WITH CUSTOM_PROPERTIES={'ttl':{'status': 'enabled'}};
+
   ```
+
+ALTER TABLE `my_table` WITH CUSTOM_PROPERTIES={'ttl':{'status': 'enabled'}};
 
 ```
 

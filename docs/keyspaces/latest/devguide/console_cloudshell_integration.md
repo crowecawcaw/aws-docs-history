@@ -15,7 +15,7 @@ automatically initializes the `cqlsh-expansion` for you and establishes a connec
 cqlsh-expansion.init ; cqlsh-expansion cassandra.`region`.amazonaws.com 9142 --ssl -`my_keyspace`
 ```
 
-3. **Click **Run\*\*\*\*
+3. **Click **Run****
 4. **Wait for Amazon Keyspaces to establish the connection** – Allow time for the setup process to complete and the connection to your selected keyspace to be established.
 5. **Execute commands** – When connected, you can write and execute CQL commands directly against the selected keyspace.
 

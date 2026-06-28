@@ -13,7 +13,7 @@ Cassandra Query Language (CQL)
 ###### Setting the provisioned capacity of a multi-Region table manually using CQL
 
 - You can use `ALTER
-TABLE` to provision the table's read capacity for a replica table
+ TABLE` to provision the table's read capacity for a replica table
   manually.
 
 ```

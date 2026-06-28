@@ -45,13 +45,12 @@ and clustering key column twice.
   column identifier and added to each data value stored in the column. The storage value of the column identifier
   depends on the overall number of columns in your table:
 
-      + 1–62 columns: 1 byte
-      + 63–124 columns: 2 bytes
-      + 125–186 columns: 3 bytes
-
-  For each additional 62 columns add 1 byte. Note that in Amazon Keyspaces, up to 225 regular columns can
-  be modified with a single `INSERT` or `UPDATE`
-  statement. For more information, see [Amazon Keyspaces service quotas](quotas.md#table "quotas.md#table").
+  - 1–62 columns: 1 byte
+  - 63–124 columns: 2 bytes
+  - 125–186 columns: 3 bytes
+    For each additional 62 columns add 1 byte. Note that in Amazon Keyspaces, up to 225 regular columns can
+    be modified with a single `INSERT` or `UPDATE`
+    statement. For more information, see [Amazon Keyspaces service quotas](quotas.md#table "quotas.md#table").
 
 ## Estimate the encoded size of data values based on data type
 
@@ -132,18 +131,18 @@ additional metadata is stored for every column of every row in your table.
 Additionally, metadata may also be stored for each element in case of certain
 collection data types. The following table shows the metadata overhead for each data type.
 
-| Column/Data Type                       | Client-side timestamps enabled     | TTL without client-side timestamps | Client-side timestamps enabled with TTL |
-| -------------------------------------- | ---------------------------------- | ---------------------------------- | --------------------------------------- |
-| Scalar types                           | 18 bytes/column                    | 16 bytes/column                    | 27 bytes/column                         |
-| Frozen collection / Frozen UDT / Tuple | 18 bytes/column                    | 16 bytes/column                    | 27 bytes/column                         |
-| Non-frozen List                        | 30 bytes/element + 19 bytes/column | 15 bytes/element                   | 39 bytes/element + 19 bytes/column      |
-| Non-frozen Set                         | 14 bytes/element + 26 bytes/column | 12 bytes/element + 7 bytes/column  | 23 bytes/element + 26 bytes/column      |
-| Non-frozen Map / Non-frozen UDT        | 17 bytes/element + 26 bytes/column | 15 bytes/element + 7 bytes/column  | 26 bytes/element + 26 bytes/column      |
-| Counter (single-Region)                | 51 bytes/column                    | N/A (no TTL support)               | N/A (no TTL support)                    |
-| Counter (multi-Region)                 | 25 + (N_regions × 26) bytes/column | N/A (no TTL support)               | N/A (no TTL support)                    |
+| Column/Data Type                       | Client-side timestamps enabled      | TTL without client-side timestamps | Client-side timestamps enabled with TTL |
+| -------------------------------------- | ----------------------------------- | ---------------------------------- | --------------------------------------- |
+| Scalar types                           | 18 bytes/column                     | 16 bytes/column                    | 27 bytes/column                         |
+| Frozen collection / Frozen UDT / Tuple | 18 bytes/column                     | 16 bytes/column                    | 27 bytes/column                         |
+| Non-frozen List                        | 30 bytes/element + 19 bytes/column  | 15 bytes/element                   | 39 bytes/element + 19 bytes/column      |
+| Non-frozen Set                         | 14 bytes/element + 26 bytes/column  | 12 bytes/element + 7 bytes/column  | 23 bytes/element + 26 bytes/column      |
+| Non-frozen Map / Non-frozen UDT        | 17 bytes/element + 26 bytes/column  | 15 bytes/element + 7 bytes/column  | 26 bytes/element + 26 bytes/column      |
+| Counter (single-Region)                | 51 bytes/column                     | N/A (no TTL support)               | N/A (no TTL support)                    |
+| Counter (multi-Region)                 | 25 + (N\_regions × 26) bytes/column | N/A (no TTL support)               | N/A (no TTL support)                    |
 
 These metadata bytes count towards your 1-MB row size quota.
-In the counter formula, N_regions represents the number of AWS Regions in which the counter
+In the counter formula, N\_regions represents the number of AWS Regions in which the counter
 column has received at least one write operation. Counter overhead values are approximate
 and may vary slightly.
 For more information about client-side timestamps, see [Client-side timestamps in Amazon Keyspaces](client-side-timestamps.md "client-side-timestamps.md"). For more information about TTL, see [Expire data with Time to Live (TTL) for Amazon Keyspaces (for Apache Cassandra)](TTL.md "TTL.md").
@@ -200,12 +199,12 @@ following steps.
 1. Calculate the size of a partition key column by adding the bytes for the data type stored in
    the column and the metadata bytes. Repeat this for all partition key columns.
 
-   1. Calculate the size of the first column of the partition key (pk_col1):
+   1. Calculate the size of the first column of the partition key (pk\_col1):
 
    ```
    `(2 bytes for the integer data type) x 2 + 1 byte for the column id + 3 bytes for partition key metadata = 8 bytes`
    ```
-   2. Calculate the size of the second column of the partition key (pk_col2):
+   2. Calculate the size of the second column of the partition key (pk\_col2):
 
    ```
    `(2 bytes for the integer data type) x 2 + 1 byte for the column id + 3 bytes for partition key metadata = 8 bytes`
@@ -219,12 +218,12 @@ following steps.
 2. Calculate the size of the clustering column by adding the bytes for the data type stored in
    the column and the metadata bytes. Repeat this for all clustering columns.
 
-   1. Calculate the size of the first column of the clustering column (ck_col1):
+   1. Calculate the size of the first column of the clustering column (ck\_col1):
 
    ```
    `(2 bytes for the integer data type) x 2 + 20% of the data value (2 bytes) for clustering column metadata + 1 byte for the column id = 6 bytes`
    ```
-   2. Calculate the size of the second column of the clustering column (ck_col2):
+   2. Calculate the size of the second column of the clustering column (ck\_col2):
 
    ```
    `(2 bytes for the integer data type) x 2 + 20% of the data value (2 bytes) for clustering column metadata + 1 byte for the column id = 6 bytes`

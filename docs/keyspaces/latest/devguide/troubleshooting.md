@@ -24,11 +24,10 @@ resolving general errors, connection issues, capacity management problems, and D
 
 - **Data Definition Language (DDL) errors**
 
-      + Troubleshooting errors when creating, accessing, or restoring keyspaces and tables.
-      + Handling failures related to custom Time to Live (TTL) settings, column limits, and range deletes.
-      + Considerations for heavy delete workloads.
-
-  For troubleshooting guidance specific to IAM access, see [Troubleshooting Amazon Keyspaces identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"). For more information about security best practices, see [Security best practices for Amazon Keyspaces](best-practices-security.md "best-practices-security.md").
+  - Troubleshooting errors when creating, accessing, or restoring keyspaces and tables.
+  - Handling failures related to custom Time to Live (TTL) settings, column limits, and range deletes.
+  - Considerations for heavy delete workloads.
+    For troubleshooting guidance specific to IAM access, see [Troubleshooting Amazon Keyspaces identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"). For more information about security best practices, see [Security best practices for Amazon Keyspaces](best-practices-security.md "best-practices-security.md").
 
 ###### Topics
 

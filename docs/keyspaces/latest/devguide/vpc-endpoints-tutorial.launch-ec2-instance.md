@@ -64,17 +64,17 @@ Continue to
      **Summary** panel. When you're ready, choose
      **Launch instance**.
 
-3.  On the completion screen for the new Amazon EC2 instance, choose the
-    **Connect to instance** tile. The next screen shows the
-    necessary information and the required steps to connect to your new instance.
-    Take note of the following information:
+3. On the completion screen for the new Amazon EC2 instance, choose the
+**Connect to instance** tile. The next screen shows the
+necessary information and the required steps to connect to your new instance.
+Take note of the following information:
 
-        * The sample command to protect the key file
-        * The connection string
-        * The **Public IPv4 DNS** name
+    * The sample command to protect the key file
+    * The connection string
+    * The **Public IPv4 DNS** name
 
-    After taking note of the information on this page, you can continue to the
-    next step in this tutorial ([Step 2: Configure your Amazon EC2 instance](vpc-endpoints-tutorial.configure-ec2-instance.md "vpc-endpoints-tutorial.configure-ec2-instance.md")).
+After taking note of the information on this page, you can continue to the
+next step in this tutorial ([Step 2: Configure your Amazon EC2 instance](vpc-endpoints-tutorial.configure-ec2-instance.md "vpc-endpoints-tutorial.configure-ec2-instance.md")).
 
 ###### Note
 

@@ -9,15 +9,14 @@ considerations and recommendations for designing data models that suit your appl
   across partitions.
 - **Key Considerations:**
 
-      + **Uniform activity distribution** – Aim for uniform read and write activity across all
-       partitions to minimize throughput costs and leverage burst capacity effectively.
-      + **Access patterns** – Align your partition key design with your application's
-       primary data access patterns.
-      + **Partition size** – Avoid creating partitions that grow too large, as this can
-       impact performance and increase costs.
-
-  To visualize and design data models more easily,
-  you can use the [NoSQL Workbench](workbench.md "workbench.md").
+  - **Uniform activity distribution** – Aim for uniform read and write activity across all
+    partitions to minimize throughput costs and leverage burst capacity effectively.
+  - **Access patterns** – Align your partition key design with your application's
+    primary data access patterns.
+  - **Partition size** – Avoid creating partitions that grow too large, as this can
+    impact performance and increase costs.
+    To visualize and design data models more easily,
+    you can use the [NoSQL Workbench](workbench.md "workbench.md").
 
 ###### Topics
 

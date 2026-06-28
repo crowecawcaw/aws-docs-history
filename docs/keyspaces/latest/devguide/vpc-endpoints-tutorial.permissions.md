@@ -120,9 +120,9 @@ access the Amazon EC2 instance to read information about available interface VPC
     10. Choose **Add permissions**.
 
 4. To verify that the Amazon Keyspaces `system.peers` table is getting updated
-   with VPC information, run the following query from your Amazon EC2 instance using
-   `cqlsh`. If you haven't already installed `cqlsh`on
-   your Amazon EC2 instance in step 2, follow the instructions in [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.cqlsh.md#using_cqlsh "programmatic.cqlsh.md#using_cqlsh").
+with VPC information, run the following query from your Amazon EC2 instance using
+`cqlsh`. If you haven't already installed `cqlsh`on
+your Amazon EC2 instance in step 2, follow the instructions in [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.cqlsh.md#using_cqlsh "programmatic.cqlsh.md#using_cqlsh").
 
 ```
 SELECT * FROM system.peers;

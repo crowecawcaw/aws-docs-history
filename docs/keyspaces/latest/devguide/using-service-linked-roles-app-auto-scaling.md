@@ -17,10 +17,10 @@ access the resources.
 
 ## Service-linked role permissions for Amazon Keyspaces
 
-Amazon Keyspaces uses the service-linked role named **AWSServiceRoleForApplicationAutoScaling_CassandraTable**
+Amazon Keyspaces uses the service-linked role named **AWSServiceRoleForApplicationAutoScaling\_CassandraTable**
 to allow Application Auto Scaling to call Amazon Keyspaces and Amazon CloudWatch on your behalf.
 
-The AWSServiceRoleForApplicationAutoScaling_CassandraTable service-linked role trusts the following services to assume the
+The AWSServiceRoleForApplicationAutoScaling\_CassandraTable service-linked role trusts the following services to assume the
 role:
 
 - `cassandra.application-autoscaling.amazonaws.com`
@@ -56,7 +56,7 @@ learn more, see [A new role appeared in my AWS account](../../../IAM/latest/User
 
 ## Editing a service-linked role for Amazon Keyspaces
 
-Amazon Keyspaces does not allow you to edit the AWSServiceRoleForApplicationAutoScaling_CassandraTable service-linked role. After
+Amazon Keyspaces does not allow you to edit the AWSServiceRoleForApplicationAutoScaling\_CassandraTable service-linked role. After
 you create a service-linked role, you cannot change the name of the role because various
 entities might reference the role. However, you can edit the description of the role using
 IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
@@ -79,7 +79,7 @@ operation again.
 **To manually delete the service-linked role using
 IAM**
 
-Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForApplicationAutoScaling_CassandraTable service-linked
+Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForApplicationAutoScaling\_CassandraTable service-linked
 role. For more information, see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
 ###### Note

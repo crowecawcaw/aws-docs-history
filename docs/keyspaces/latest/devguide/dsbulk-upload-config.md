@@ -23,7 +23,7 @@ configuration file directly from the command line.
       Provide the path to `cassandra_truststore.jks` and
       the password that you created previously.
    4. _`consistency`_ – Set the consistency level to `LOCAL
-QUORUM`. Other write consistency levels are not supported, for
+  QUORUM`. Other write consistency levels are not supported, for
       more information see [Supported Apache Cassandra read and write consistency levels and associated costs](consistency.md "consistency.md").
    5. The number of connections per pool is configurable in the Java driver. For this example, set
       `advanced.connection.pool.local.size` to 3.The following is the complete sample configuration file.
@@ -56,24 +56,24 @@ advanced.connection.pool.local.size = 3
 }
 ```
 
-2.  Review the parameters for the DSBulk `load` command.
+2. Review the parameters for the DSBulk `load` command.
 
-    1. _`executor.maxPerSecond`_ – The maximum number of rows that the load command attempts to process
-       concurrently per second. If unset, this setting is disabled with -1.
+   1. _`executor.maxPerSecond`_ – The maximum number of rows that the load command attempts to process
+      concurrently per second. If unset, this setting is disabled with -1.
 
-    Set `executor.maxPerSecond` based on the number of WCUs that you provisioned to the target destination table. The `executor.maxPerSecond`
-    of the `load` command isn’t a limit – it’s a target average. This means it can (and often does) burst above the number you set. To allow for
-    bursts and make sure that enough capacity is in place to handle the data load requests, set `executor.maxPerSecond` to 90% of the table’s write capacity.
+   Set `executor.maxPerSecond` based on the number of WCUs that you provisioned to the target destination table. The `executor.maxPerSecond`
+   of the `load` command isn’t a limit – it’s a target average. This means it can (and often does) burst above the number you set. To allow for
+   bursts and make sure that enough capacity is in place to handle the data load requests, set `executor.maxPerSecond` to 90% of the table’s write capacity.
 
-    ```
-    executor.maxPerSecond = WCUs * .90
-    ```
+   ```
+   executor.maxPerSecond = WCUs * .90
+   ```
 
-    In this tutorial, we set `executor.maxPerSecond` to 5.
+   In this tutorial, we set `executor.maxPerSecond` to 5.
 
-    ###### Note
+   ###### Note
 
-    If you are using DSBulk 1.6.0 or higher, you can use `dsbulk.engine.maxConcurrentQueries` instead. 2. Configure these additional parameters for the DSBulk `load` command.
+   If you are using DSBulk 1.6.0 or higher, you can use `dsbulk.engine.maxConcurrentQueries` instead. 2. Configure these additional parameters for the DSBulk `load` command.
 
         * *`batch-mode`* – This parameter tells the system to group operations by partition key.
          We recommend to disable batch mode, because it can result in hot key scenarios and cause `WriteThrottleEvents`.

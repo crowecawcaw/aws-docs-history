@@ -12,8 +12,10 @@ Cassandra Query Language (CQL)
 ###### Create a new table with custom TTL setting using CQL
 
 - ```
-  CREATE TABLE `my_keyspace.my_table` (id int primary key) WITH CUSTOM_PROPERTIES={'ttl':{'status': 'enabled'}};
+
   ```
+
+CREATE TABLE `my_keyspace.my_table` (id int primary key) WITH CUSTOM_PROPERTIES={'ttl':{'status': 'enabled'}};
 
 ```
 
@@ -28,8 +30,8 @@ CLI
 ```
 
 aws keyspaces create-table --keyspace-name 'myKeyspace' --table-name 'myTable' \
- --schema-definition 'allColumns=[{name=id,type=int},{name=name,type=text}, {name=date,type=timestamp}],partitionKeys=[{name=id}]' \
- --ttl 'status=ENABLED'
+--schema-definition 'allColumns=[{name=id,type=int},{name=name,type=text}, {name=date,type=timestamp}],partitionKeys=[{name=id}]' \
+--ttl 'status=ENABLED'
 
 ```
 2. To confirm that TTL is enabled for the table, you can use the following statement.

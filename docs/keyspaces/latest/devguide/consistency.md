@@ -68,11 +68,11 @@ using `LOCAL_QUORUM` consistency, you are billed 1 read capacity unit (RCU)
 for tables using provisioned capacity mode or 1 read request units (RRU) for tables
 using on-demand mode.
 
-| Billing based on read consistency and read capacity throughput mode per table for each 4 KB of reads | Consistency level | Provisioned | On-demand |
-| ---------------------------------------------------------------------------------------------------- | ----------------- | ----------- | --------- |
-| `ONE`                                                                                                | 0.5 RCUs          | 0.5 RRUs    |
-| `LOCAL_ONE`                                                                                          | 0.5 RCUs          | 0.5 RRUs    |
-| `LOCAL_QUORUM`                                                                                       | 1 RCU             | 1 RRU       |
+Billing based on read consistency and read capacity throughput mode per table for each 4 KB of reads| Consistency level | Provisioned | On-demand |
+| --- | --- | --- |
+| `ONE` | 0.5 RCUs | 0.5 RRUs |
+| `LOCAL_ONE` | 0.5 RCUs | 0.5 RRUs |
+| `LOCAL_QUORUM` | 1 RCU | 1 RRU |
 
 To specify a different consistency for read operations, call
 `QueryBuilder.select` with a `setConsistencyLevel` argument
@@ -83,13 +83,13 @@ when you're using the Java driver.
 The following consistency
 levels are not supported by Amazon Keyspaces and will result in exceptions.
 
-| Unsupported consistency levels | Apache Cassandra | Amazon Keyspaces |
-| ------------------------------ | ---------------- | ---------------- |
-| `EACH_QUORUM`                  | Not supported    |
-| `QUORUM`                       | Not supported    |
-| `ALL`                          | Not supported    |
-| `TWO`                          | Not supported    |
-| `THREE`                        | Not supported    |
-| `ANY`                          | Not supported    |
-| `SERIAL`                       | Not supported    |
-| `LOCAL_SERIAL`                 | Not supported    |
+Unsupported consistency levels| Apache Cassandra | Amazon Keyspaces |
+| --- | --- |
+| `EACH_QUORUM` | Not supported |
+| `QUORUM` | Not supported |
+| `ALL` | Not supported |
+| `TWO` | Not supported |
+| `THREE` | Not supported |
+| `ANY` | Not supported |
+| `SERIAL` | Not supported |
+| `LOCAL_SERIAL` | Not supported |

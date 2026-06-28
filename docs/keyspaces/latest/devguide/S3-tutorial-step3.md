@@ -28,7 +28,7 @@ aws glue start-job-run --job-name `AmazonKeyspacesExportToS3-cfn-setup-cfn-glue`
     ```
 
 2. Confirm that your table has been exported to your Amazon S3 bucket. Based on the size of the table, this can take some time.
-   When the export job is finished, you can see the following folders in the bucket using the example command.
+When the export job is finished, you can see the following folders in the bucket using the example command.
 
 ```
 aws s3 ls s3://s3-keyspaces

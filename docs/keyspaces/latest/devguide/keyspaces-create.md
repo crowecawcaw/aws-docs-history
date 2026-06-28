@@ -11,7 +11,7 @@ keyspace becomes visible in the `system_schema_mcs`
 
 The recommended design pattern to check when a new keyspace is ready for use is to
 poll the Amazon Keyspaces `system_schema_mcs`
-`keyspaces` table (system_schema_mcs.\*). For a list of DDL statements for
+`keyspaces` table (system\_schema\_mcs.\*). For a list of DDL statements for
 keyspaces, see the [Keyspaces](cql.ddl.keyspace.md "cql.ddl.keyspace.md") section in the CQL language
 reference.
 

@@ -15,36 +15,31 @@ The following example shows how to store the required values as environment vari
 `$` `export AWS_DEFAULT_REGION=`us-east-1``
 ```
 
-3.  To run the scripts in this tutorial, you need the following software and tools installed on your machine:
+3. To run the scripts in this tutorial, you need the following software and tools installed on your machine:
 
-        * [Java](https://openjdk.org/install/ "https://openjdk.org/install/")
-        * [Apache Maven](https://maven.apache.org/install.html "https://maven.apache.org/install.html")
-        * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "https://git-scm.com/book/en/v2/Getting-Started-Installing-Git")
-        * [AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md")
+   - [Java](https://openjdk.org/install/ "https://openjdk.org/install/")
+   - [Apache Maven](https://maven.apache.org/install.html "https://maven.apache.org/install.html")
+   - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "https://git-scm.com/book/en/v2/Getting-Started-Installing-Git")
+   - [AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md")
+     This tutorial was tested with AWS CLI 2, Java 17.0.13, and Apache Maven 3.8.7.
 
-    This tutorial was tested with AWS CLI 2, Java 17.0.13, and Apache Maven 3.8.7.
+4. You need an Amazon Keyspaces table with sample data to export later in this tutorial. You can use your
+   own Amazon Keyspaces table or create a sample table following the steps in the [Getting started with Amazon Keyspaces (for Apache Cassandra)](getting-started.md "getting-started.md") tutorial.
 
-4.  You need an Amazon Keyspaces table with sample data to export later in this tutorial. You can use your
-    own Amazon Keyspaces table or create a sample table following the steps in the [Getting started with Amazon Keyspaces (for Apache Cassandra)](getting-started.md "getting-started.md") tutorial.
+   1. To install the `cqlsh-expansion`, follow the steps at [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.cqlsh.md#using_cqlsh "programmatic.cqlsh.md#using_cqlsh").
+   2. Confirm that the `Murmur3Partitioner` partitioner is the default partitioner for your account. This partitioner
+      is compatible with the Apache Spark Cassandra Connector and with AWS Glue. For more information on partitioners,
+      see [Working with partitioners in Amazon Keyspaces](working-with-partitioners.md "working-with-partitioners.md").
 
-        1. To install the `cqlsh-expansion`, follow the steps at [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.cqlsh.md#using_cqlsh "programmatic.cqlsh.md#using_cqlsh").
-        2. Confirm that the `Murmur3Partitioner` partitioner is the default partitioner for your account. This partitioner
-         is compatible with the Apache Spark Cassandra Connector and with AWS Glue. For more information on partitioners,
-         see [Working with partitioners in Amazon Keyspaces](working-with-partitioners.md "working-with-partitioners.md").
+   To change the partitioner of your account, you can use the following statement.
 
+   ```
+   SELECT partitioner FROM system.local;
 
-        To change the partitioner of your account, you can use the following statement.
-
-
-
-        ```
-        SELECT partitioner FROM system.local;
-
-        UPDATE system.local set partitioner='org.apache.cassandra.dht.Murmur3Partitioner' where key='local';
-        ```
-        3. To create an Amazon Keyspaces keyspace, follow the steps at
-         [Create a keyspace in Amazon Keyspaces](getting-started.keyspaces.md "getting-started.keyspaces.md").
-        4. To create the Amazon Keyspaces table, follow the steps at [Create a table in Amazon Keyspaces](getting-started.tables.md "getting-started.tables.md").
-        5. To load sample data into the table to export to Amazon S3, follow the steps at [Inserting and loading data into an Amazon Keyspaces table](getting-started.dml.create.md "getting-started.dml.create.md").
-
-    After completing the prerequisite steps, proceed to [Step 1: Create the Amazon S3 bucket, download the required tools, and configure the environment](S3-tutorial-step1.md "S3-tutorial-step1.md").
+   UPDATE system.local set partitioner='org.apache.cassandra.dht.Murmur3Partitioner' where key='local';
+   ```
+   3. To create an Amazon Keyspaces keyspace, follow the steps at
+      [Create a keyspace in Amazon Keyspaces](getting-started.keyspaces.md "getting-started.keyspaces.md").
+   4. To create the Amazon Keyspaces table, follow the steps at [Create a table in Amazon Keyspaces](getting-started.tables.md "getting-started.tables.md").
+   5. To load sample data into the table to export to Amazon S3, follow the steps at [Inserting and loading data into an Amazon Keyspaces table](getting-started.dml.create.md "getting-started.dml.create.md").
+      After completing the prerequisite steps, proceed to [Step 1: Create the Amazon S3 bucket, download the required tools, and configure the environment](S3-tutorial-step1.md "S3-tutorial-step1.md").

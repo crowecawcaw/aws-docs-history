@@ -36,17 +36,15 @@ following topics:
     * Allowed characters: alphanumeric characters and underscore ( `_` ).
     * Maximum length is 48 characters.
 
-5.  Under **AWS Regions**, confirm that **Single-Region replication** is the
-    replication strategy for the keyspace.
-6.  To create the keyspace, choose **Create
-    keyspace**.
-7.  Verify that the keyspace `catalog` was created by doing
-    the following:
+5. Under **AWS Regions**, confirm that **Single-Region replication** is the
+replication strategy for the keyspace. 6. To create the keyspace, choose **Create
+keyspace**. 7. Verify that the keyspace `catalog` was created by doing
+the following:
 
-        1. In the navigation pane, choose **Keyspaces**.
-        2. Locate your keyspace `catalog` in the list of keyspaces.
+    1. In the navigation pane, choose **Keyspaces**.
+    2. Locate your keyspace `catalog` in the list of keyspaces.
 
-    The following procedure creates a keyspace using CQL.
+The following procedure creates a keyspace using CQL.
 
 ###### To create a keyspace using CQL
 

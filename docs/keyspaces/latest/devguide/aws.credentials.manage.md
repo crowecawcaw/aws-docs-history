@@ -8,7 +8,7 @@ locations so that you do not have to keep them in code. Put access keys in one o
   user environment variables, not system environment variables.
 - **CLI credentials file** – The `credentials` and
   `config` file are updated when you run the command `aws
-configure`. The `credentials` file is located at
+ configure`. The `credentials` file is located at
   `~/.aws/credentials` on Linux, macOS, or Unix, or at `C:\Users\`USERNAME`\.aws\credentials` on Windows.
   This file can contain the credential details for the `default` profile
   and any named profiles.
@@ -53,7 +53,7 @@ Using `set` to set an environment variable changes the value
 used until the end of the current command prompt session, or until you set
 the variable to a different value. Using [`setx`](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/setx "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/setx") to set an environment variable changes
 the value used in both the current command prompt session and all command
-prompt sessions that you create after running the command. It does **_not_** affect
+prompt sessions that you create after running the command. It does _**not**_ affect
 other command shells that are already running at the time you run the
 command.
 

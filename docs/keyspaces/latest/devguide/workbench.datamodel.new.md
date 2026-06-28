@@ -24,7 +24,7 @@ In this step, choose the following properties and settings.
      criteria. To learn more about tags for Amazon Keyspaces resources, see [Working with tags and labels for Amazon Keyspaces resources](tagging-keyspaces.md "tagging-keyspaces.md").
 
 2. Choose **Add keyspace definition** to create the
-   keyspace.
+keyspace.
 
 ![Console screenshot that shows how to create a keyspace.](images/workbench/key_nosql_addkey.png) 3. To create a new table, choose the plus sign next to
 **Tables**. In this step, you define the following
@@ -47,9 +47,7 @@ properties and settings.
      more about tags for Amazon Keyspaces resources, see [Working with tags and labels for Amazon Keyspaces resources](tagging-keyspaces.md "tagging-keyspaces.md").
 
 4. Choose **Add table definition** to create the new
-   table.
-5. Repeat these steps to create additional tables.
-6. Continue to [Visualizing data models with NoSQL Workbench](workbench.vizualizer.md#workbench.datamodel.visualize "workbench.vizualizer.md#workbench.datamodel.visualize") to visualize the
-   data model that you created.
+table. 5. Repeat these steps to create additional tables. 6. Continue to [Visualizing data models with NoSQL Workbench](workbench.vizualizer.md#workbench.datamodel.visualize "workbench.vizualizer.md#workbench.datamodel.visualize") to visualize the
+data model that you created.
 
 ![Console screenshot that shows how to create a new table.](images/workbench/key_nosql_tableadd.png)

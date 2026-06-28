@@ -51,7 +51,7 @@ consistency.
 - When you create a multi-Region keyspace or table, any tags that you define during the creation
   process are automatically applied to all keyspaces and tables in all Regions. When
   you change the existing tags using `ALTER KEYSPACE` or `ALTER
-TABLE`, the update is only applied to the keyspace or table in the Region
+ TABLE`, the update is only applied to the keyspace or table in the Region
   where you're making the change.
 - Amazon CloudWatch provides a `ReplicationLatency` metric for each replicated
   Region. It calculates this metric by tracking arriving rows, comparing their arrival

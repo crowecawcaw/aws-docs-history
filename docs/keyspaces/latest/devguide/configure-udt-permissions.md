@@ -56,7 +56,7 @@ The following IAM policy is an example of this.
 ## Permissions to view a UDT
 
 To view or list UDTs in a single-Region keyspace, the principal needs read permissions for the system keyspace. For
-more information, see [system_schema_mcs](working-with-keyspaces.md#keyspace_system_schema_mcs "working-with-keyspaces.md#keyspace_system_schema_mcs").
+more information, see [system\_schema\_mcs](working-with-keyspaces.md#keyspace_system_schema_mcs "working-with-keyspaces.md#keyspace_system_schema_mcs").
 
 The following IAM policy is an example of this.
 
@@ -77,7 +77,7 @@ The following IAM policy is an example of this.
 
 To view or list UDTs for a multi-Region keyspace, the principal needs permissions
 for the actions `SELECT` and `SelectMultiRegionResource` for
-the system keyspace. For more information, see [system_multiregion_info](working-with-keyspaces.md#keyspace_system_multiregion_info "working-with-keyspaces.md#keyspace_system_multiregion_info").
+the system keyspace. For more information, see [system\_multiregion\_info](working-with-keyspaces.md#keyspace_system_multiregion_info "working-with-keyspaces.md#keyspace_system_multiregion_info").
 
 The following IAM policy is an example of this.
 

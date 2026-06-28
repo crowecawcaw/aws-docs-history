@@ -60,7 +60,7 @@ The output of the command returns the following values.
 }`
 ```
 
-The following command creates a table with the name _book_awards_.
+The following command creates a table with the name _book\_awards_.
 The partition key of the table consists of the columns `year` and
 `award` and the clustering key consists of the columns
 `category` and `rank`, both clustering columns use the
@@ -171,7 +171,7 @@ This command returns the following output.
 When creating tables with complex schemas, it can be helpful to load the table's
 schema definition from a JSON file. The following is an example of this.
 Download the schema definition example JSON file
-from [schema_definition.zip](samples/schema_definition.zip.md "samples/schema_definition.zip.md") and
+from [schema\_definition.zip](samples/schema_definition.zip.md "samples/schema_definition.zip.md") and
 extract `schema_definition.json`, taking note of the path to the file. In this example,
 the schema definition JSON file is located in the current directory. For different file path options, see
 [How to load parameters from a file](../../../cli/latest/userguide/cli-usage-parameters-file.md#cli-usage-parameters-file-how "../../../cli/latest/userguide/cli-usage-parameters-file.md#cli-usage-parameters-file-how").

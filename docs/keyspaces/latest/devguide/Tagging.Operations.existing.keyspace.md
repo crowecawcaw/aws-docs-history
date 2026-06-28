@@ -17,8 +17,10 @@ Cassandra Query Language (CQL)
 ###### Add a tag to an existing keyspace using CQL
 
 - ```
-  ALTER KEYSPACE `mykeyspace` ADD TAGS `{'key1':'val1', 'key2':'val2'}`;
+
   ```
+
+ALTER KEYSPACE `mykeyspace` ADD TAGS `{'key1':'val1', 'key2':'val2'}`;
 
 ```
 

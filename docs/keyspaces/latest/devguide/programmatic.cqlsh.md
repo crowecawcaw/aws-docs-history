@@ -93,21 +93,20 @@ The output should look like this.
 `cqlsh 6.1.0`
 ```
 
-2.  To configure the `cqlsh-expansion`, you can run a post-install script to
-    automatically complete the following steps:
+2. To configure the `cqlsh-expansion`, you can run a post-install script to
+   automatically complete the following steps:
 
-        1. Create the `.cassandra` directory in the user home directory if it
-         doesn't already exist.
-        2. Copy a preconfigured `cqlshrc` configuration file into the
-         `.cassandra` directory.
-        3. Copy the combined certificate file into the `.cassandra` directory. Amazon Keyspaces
-         uses this certificate to configure the secure connection with Transport
-         Layer Security (TLS). Encryption in transit provides an additional layer
-         of data protection by encrypting your data as it travels to and from
+   1. Create the `.cassandra` directory in the user home directory if it
+      doesn't already exist.
+   2. Copy a preconfigured `cqlshrc` configuration file into the
+      `.cassandra` directory.
+   3. Copy the combined certificate file into the `.cassandra` directory. Amazon Keyspaces
+      uses this certificate to configure the secure connection with Transport
+      Layer Security (TLS). Encryption in transit provides an additional layer
+      of data protection by encrypting your data as it travels to and from
 
-         Amazon Keyspaces. For more information about certificates, see [How to manually configure cqlsh connections for TLS](#encrypt_using_tls "#encrypt_using_tls").
-
-    To review the script first, you can access it in the Github repo at [`post_install.py`](https://github.com/aws-samples/amazon-keyspaces-toolkit/blob/master/cqlsh-expansion/cqlsh_expansion/post_install.py "https://github.com/aws-samples/amazon-keyspaces-toolkit/blob/master/cqlsh-expansion/cqlsh_expansion/post_install.py").
+   Amazon Keyspaces. For more information about certificates, see [How to manually configure cqlsh connections for TLS](#encrypt_using_tls "#encrypt_using_tls").
+   To review the script first, you can access it in the Github repo at [`post_install.py`](https://github.com/aws-samples/amazon-keyspaces-toolkit/blob/master/cqlsh-expansion/cqlsh_expansion/post_install.py "https://github.com/aws-samples/amazon-keyspaces-toolkit/blob/master/cqlsh-expansion/cqlsh_expansion/post_install.py").
 
 To use the script, you can run the following command.
 
@@ -245,16 +244,15 @@ page.
 If you want to download the certificates and configure the connection manually, you can do so using the
 following steps.
 
-1.  Download the following digital certificates and save
-    the files locally or in your home directory.
+1. Download the following digital certificates and save
+   the files locally or in your home directory.
 
-        1. AmazonRootCA1
-        2. AmazonRootCA2
-        3. AmazonRootCA3
-        4. AmazonRootCA4
-        5. Starfield Class 2 Root (optional – for backward compatibility)
-
-    To download the certificates, you can use the following commands.
+   1. AmazonRootCA1
+   2. AmazonRootCA2
+   3. AmazonRootCA3
+   4. AmazonRootCA4
+   5. Starfield Class 2 Root (optional – for backward compatibility)
+      To download the certificates, you can use the following commands.
 
 ```
 curl -O https://www.amazontrust.com/repository/AmazonRootCA1.pem

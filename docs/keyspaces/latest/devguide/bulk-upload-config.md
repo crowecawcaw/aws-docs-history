@@ -104,8 +104,8 @@ Connection 4 / Worker 4 : 2,500 Requests per second
 
 To summarize, use the following formulas when setting `cqlsh COPY FROM` parameters:
 
-- INGESTRATE = write_capacity_units \* .90
-- NUMPROCESSES = num_cores -1
+- INGESTRATE = write\_capacity\_units \* .90
+- NUMPROCESSES = num\_cores -1
   (default)
 - INGESTRATE / NUMPROCESSES = 2,500 (This must be
   a true statement.)

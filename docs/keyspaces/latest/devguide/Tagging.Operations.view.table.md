@@ -22,7 +22,8 @@ SELECT * FROM system_schema_mcs.tags WHERE `valid_where_clause`;
 
 The `WHERE` clause is required, and must use one of the following formats:
 
-- `keyspace_name = `'mykeyspace'`AND resource_name =`'mytable'``
+- `keyspace_name = `'mykeyspace'`AND resource_name =
+`'mytable'``
 - `resource_id = `arn``
 - The following query returns the tags of the specified table.
 

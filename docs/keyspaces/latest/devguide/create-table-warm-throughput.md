@@ -83,6 +83,7 @@ Cassandra Query Language (CQL)
        }
   };
   ```To confirm the capacity settings of the table, see [View warm throughput of an Amazon Keyspaces table](view-warm-throughput.md "view-warm-throughput.md").
+
   ````
 
 CLI

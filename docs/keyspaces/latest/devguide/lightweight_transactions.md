@@ -4,7 +4,7 @@ Lightweight transactions (LWT) allow you to perform conditional write
 operations against your table data. Conditional update operations are useful when inserting, updating and deleting records
 based on conditions that evaluate the current state.
 
-In Amazon Keyspaces, all write operations require LOCAL_QUORUM consistency and there is no additional charge for using LWTs. The difference
+In Amazon Keyspaces, all write operations require LOCAL\_QUORUM consistency and there is no additional charge for using LWTs. The difference
 for LWTs is that when a LWT condition check results in `FALSE`, Amazon Keyspaces consumes write capacity units (WCUs) or write request units (WRUs).
 The number of WCUs/WRUs consumed depends on the size of the row.
 

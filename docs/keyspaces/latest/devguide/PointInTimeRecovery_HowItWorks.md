@@ -97,7 +97,7 @@ new table.
 - AWS Identity and Access Management (IAM) policies
 - Amazon CloudWatch metrics and alarms
 - Tags (can be added to the CQL `RESTORE` statement using `WITH
-TAGS`)
+ TAGS`)
 
 ## PITR restore of encrypted tables
 

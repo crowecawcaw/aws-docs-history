@@ -23,13 +23,12 @@ before you can start.
 - Download the following digital certificates and save
   the files locally or in your home directory.
 
-      1. AmazonRootCA1
-      2. AmazonRootCA2
-      3. AmazonRootCA3
-      4. AmazonRootCA4
-      5. Starfield Class 2 Root (optional – for backward compatibility)
-
-  To download the certificates, you can use the following commands.
+  1.  AmazonRootCA1
+  2.  AmazonRootCA2
+  3.  AmazonRootCA3
+  4.  AmazonRootCA4
+  5.  Starfield Class 2 Root (optional – for backward compatibility)
+      To download the certificates, you can use the following commands.
 
 ```
 curl -O https://www.amazontrust.com/repository/AmazonRootCA1.pem

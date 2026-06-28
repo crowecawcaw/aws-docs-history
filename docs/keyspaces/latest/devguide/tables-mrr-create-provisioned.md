@@ -94,7 +94,7 @@ across the Regions.
      tables.
 
 12. Choose **Create table**. Your table is created with the
-    specified automatic scaling parameters.
+specified automatic scaling parameters.
 
 Cassandra Query Language (CQL)
 

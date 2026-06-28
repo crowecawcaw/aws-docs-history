@@ -48,7 +48,7 @@ belonging to a project or department. For more information, see [Working with ta
 
 For this example, we use a table with the name **MyTable**.
 
-1. Set a tag with the key of **table_name** and the value of
+1. Set a tag with the key of **table\_name** and the value of
    **MyTable**.
 2. [Activate the tag
    within Cost Explorer](../../../awsaccountbilling/latest/aboutv2/activating-tags.md "../../../awsaccountbilling/latest/aboutv2/activating-tags.md") and then filter on the tag value to gain more visibility into each
@@ -59,5 +59,5 @@ For this example, we use a table with the name **MyTable**.
 It may take one or two days for the tag to start appearing in Cost Explorer
 
 You can set metadata tags yourself in the console, or programmatically with CQL, the
-AWS CLI, or the AWS SDK. Consider requiring a **table_name** tag to be set as part of your organization’s new table
+AWS CLI, or the AWS SDK. Consider requiring a **table\_name** tag to be set as part of your organization’s new table
 creation process. For more information, see [Create cost allocation reports using tags for Amazon Keyspaces](CostAllocationReports.md "CostAllocationReports.md").

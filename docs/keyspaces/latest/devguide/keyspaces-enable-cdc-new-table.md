@@ -25,9 +25,11 @@ Cassandra Query Language (CQL)
 ###### Enable a CDC stream when you create a table with CQL
 
 1. ```
-   CREATE TABLE mykeyspace.mytable (a text, b text, PRIMARY KEY(a))
-   WITH CUSTOM_PROPERTIES={'cdc_specification': {'view_type': 'NEW_IMAGE'}} AND CDC = TRUE;
+
    ```
+
+CREATE TABLE mykeyspace.mytable (a text, b text, PRIMARY KEY(a))
+WITH CUSTOM_PROPERTIES={'cdc_specification': {'view_type': 'NEW_IMAGE'}} AND CDC = TRUE;
 
 ```
 2. To confirm the stream settings, you can use the following statement.

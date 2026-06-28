@@ -127,18 +127,17 @@ Where:
       `view_type` of the CDC stream. The
       options are:
 
-          * `NEW_AND_OLD_IMAGES` – both versions of the row, before and after the change. This is the default.
-          * `NEW_IMAGE` – the version of the row after the change.
-          * `OLD_IMAGE` – the version of the row before the change.
-          * `KEYS_ONLY` – the partition and clustering keys of the row that was changed.
-
-      For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](cdc.md "cdc.md"). For code examples, see [Enable a CDC stream when creating a new table in Amazon Keyspaces](keyspaces-enable-cdc-new-table.md "keyspaces-enable-cdc-new-table.md").
+      - `NEW_AND_OLD_IMAGES` – both versions of the row, before and after the change. This is the default.
+      - `NEW_IMAGE` – the version of the row after the change.
+      - `OLD_IMAGE` – the version of the row before the change.
+      - `KEYS_ONLY` – the partition and clustering keys of the row that was changed.
+        For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](cdc.md "cdc.md"). For code examples, see [Enable a CDC stream when creating a new table in Amazon Keyspaces](keyspaces-enable-cdc-new-table.md "keyspaces-enable-cdc-new-table.md").
 
     - `client_side_timestamps`: Specifies if
       client-side timestamps are enabled or disabled for the
       table. The options are `{'status':
-'enabled'}` and `{'status':
-'disabled'}`. If it's not specified, the
+   'enabled'}` and `{'status':
+   'disabled'}`. If it's not specified, the
       default is `status:disabled`. After
       client-side timestamps are enabled for a table, this
       setting cannot be disabled.
@@ -438,18 +437,17 @@ Where:
       `view_type` of the CDC stream. The
       options are:
 
-          * `NEW_AND_OLD_IMAGES` – both versions of the row, before and after the change. This is the default.
-          * `NEW_IMAGE` – the version of the row after the change.
-          * `OLD_IMAGE` – the version of the row before the change.
-          * `KEYS_ONLY` – the partition and clustering keys of the row that was changed.
-
-      For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](cdc.md "cdc.md"). For code examples, see [Enable a CDC stream for an existing table in Amazon Keyspaces](keyspaces-enable-cdc-alter-table.md "keyspaces-enable-cdc-alter-table.md").
+      - `NEW_AND_OLD_IMAGES` – both versions of the row, before and after the change. This is the default.
+      - `NEW_IMAGE` – the version of the row after the change.
+      - `OLD_IMAGE` – the version of the row before the change.
+      - `KEYS_ONLY` – the partition and clustering keys of the row that was changed.
+        For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](cdc.md "cdc.md"). For code examples, see [Enable a CDC stream for an existing table in Amazon Keyspaces](keyspaces-enable-cdc-alter-table.md "keyspaces-enable-cdc-alter-table.md").
 
     - `client_side_timestamps`: Specifies if
       client-side timestamps are enabled or disabled for the
       table. The options are `{'status':
-'enabled'}` and `{'status':
-'disabled'}`. If it's not specified, the
+   'enabled'}` and `{'status':
+   'disabled'}`. If it's not specified, the
       default is `status:disabled`. After
       client-side timestamps are enabled for a table, this
       setting cannot be disabled.

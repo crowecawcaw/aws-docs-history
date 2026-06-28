@@ -62,7 +62,7 @@ intended for entities (IAM users or roles) with that policy.
 
 Two AWS managed policies are available to the entities for Amazon Keyspaces console access.
 
-- [AmazonKeyspacesReadOnlyAccess_v2](../../../aws-managed-policy/latest/reference/AmazonKeyspacesReadOnlyAccess_v2.md "../../../aws-managed-policy/latest/reference/AmazonKeyspacesReadOnlyAccess_v2.md") – This policy grants read-only access to Amazon Keyspaces.
+- [AmazonKeyspacesReadOnlyAccess\_v2](../../../aws-managed-policy/latest/reference/AmazonKeyspacesReadOnlyAccess_v2.md "../../../aws-managed-policy/latest/reference/AmazonKeyspacesReadOnlyAccess_v2.md") – This policy grants read-only access to Amazon Keyspaces.
 - [AmazonKeyspacesFullAccess](../../../aws-managed-policy/latest/reference/AmazonKeyspacesFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonKeyspacesFullAccess.md") – This policy grants permissions to use Amazon Keyspaces with full
   access to all features.
 

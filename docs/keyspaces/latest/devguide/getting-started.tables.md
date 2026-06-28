@@ -21,12 +21,11 @@ information about tables, see the following topics:
 - The name and data type of each column in the table.
 - The primary key for the table.
 
-      + **Partition key** – Required
-      + **Clustering columns** –
-       Optional
-
-  Use the following procedure to create a table with the specified columns, data
-  types, partition keys, and clustering columns.
+  - **Partition key** – Required
+  - **Clustering columns** –
+    Optional
+    Use the following procedure to create a table with the specified columns, data
+    types, partition keys, and clustering columns.
 
 The following procedure creates the table `book_awards`
 with these columns and data types.
@@ -57,7 +56,7 @@ publisher      text
     * Maximum length is 48 characters.
 
 6. In the **Columns** section, repeat the following steps
-   for each column that you want to add to this table.
+for each column that you want to add to this table.
 
 Add the following columns and data types.
 
@@ -87,39 +86,36 @@ publisher      text
      choose the data type for this column.
     3. To add another column, choose **Add column**.
 
-7.  Choose `award` and `year` as the partition keys under **Partition
-    Key**. A partition key is required for each table. A partition
-    key can be made of one or more columns.
-8.  Add `category` and `rank` as **Clustering columns**. Clustering columns are optional and
-    determine the sort order within each partition.
+7. Choose `award` and `year` as the partition keys under **Partition
+Key**. A partition key is required for each table. A partition
+key can be made of one or more columns. 8. Add `category` and `rank` as **Clustering columns**. Clustering columns are optional and
+determine the sort order within each partition.
 
     1. To add a clustering column, choose **Add clustering column**.
     2. In the **Column** list, choose
-       **category**. In the **Order**
-       list, choose **ASC** to sort in ascending order on
-       the values in this column. (Choose **DESC** for
-       descending order.)
+     **category**. In the **Order**
+     list, choose **ASC** to sort in ascending order on
+     the values in this column. (Choose **DESC** for
+     descending order.)
     3. Then select **Add clustering column** and choose **rank**.
 
-9.  In the **Table settings** section, choose **Default settings**.
-10. Choose **Create table**.
-11. Verify that your table was created.
+9. In the **Table settings** section, choose **Default settings**. 10. Choose **Create table**. 11. Verify that your table was created.
 
-        1. In the navigation pane, choose **Tables**.
-        2. Confirm that your table is in the list of tables.
-        3. Choose the name of your table.
-        4. Confirm that all your columns and data types are correct.
+    1. In the navigation pane, choose **Tables**.
+    2. Confirm that your table is in the list of tables.
+    3. Choose the name of your table.
+    4. Confirm that all your columns and data types are correct.
 
 
-        ###### Note
+    ###### Note
 
-        The columns might not be listed in the same order that you
-         added them to the table.
+    The columns might not be listed in the same order that you
+     added them to the table.
 
-    This procedure creates a table with the following columns and data types using
-    CQL. The `year` and `award` columns are partition keys with
-    `category` and `rank` as clustering columns, together
-    they make up the primary key of the table.
+This procedure creates a table with the following columns and data types using
+CQL. The `year` and `award` columns are partition keys with
+`category` and `rank` as clustering columns, together
+they make up the primary key of the table.
 
 ```
 year           int
@@ -228,7 +224,7 @@ publisher      text
 
 ###### To create a table using the AWS CLI
 
-The following command creates a table with the name _book_awards_.
+The following command creates a table with the name _book\_awards_.
 The partition key of the table consists of the columns `year` and
 `award` and the clustering key consists of the columns
 `category` and `rank`, both clustering columns use the

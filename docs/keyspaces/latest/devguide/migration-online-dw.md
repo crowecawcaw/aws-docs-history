@@ -13,18 +13,16 @@ one of the following three options.
   application downtime. This enhanced solution implements AWS best practices and
   extends the official ZDM Proxy capabilities.
 
-      + Perform online migrations between Apache Cassandra and Amazon Keyspaces.
-      + Write data to both source and target tables simultaneously without refactoring applications.
-      + Validate queries through dual-read operations.
+  - Perform online migrations between Apache Cassandra and Amazon Keyspaces.
+  - Write data to both source and target tables simultaneously without refactoring applications.
+  - Validate queries through dual-read operations.
+    The solution offers the following enhancements to work with AWS and Amazon Keyspaces.
 
-  The solution offers the following enhancements to work with AWS and Amazon Keyspaces.
-
-      + **Container deployment** – Use a pre-configured Docker image from Amazon Elastic Container Registry (Amazon ECR) for VPC-accessible deployments.
-      + **Infrastructure as code** – Deploy using AWS CloudFormation templates for automated setup on AWS Fargate.
-      + **Amazon Keyspaces compatibility** – Access system tables with custom adaptations for Amazon Keyspaces.
-
-  The solution runs on Amazon ECS with Fargate, providing serverless scalability based on your workload demands.
-  A network load balancer distributes incoming application traffic across multiple Amazon ECS tasks for high availability.
+  - **Container deployment** – Use a pre-configured Docker image from Amazon Elastic Container Registry (Amazon ECR) for VPC-accessible deployments.
+  - **Infrastructure as code** – Deploy using AWS CloudFormation templates for automated setup on AWS Fargate.
+  - **Amazon Keyspaces compatibility** – Access system tables with custom adaptations for Amazon Keyspaces.
+    The solution runs on Amazon ECS with Fargate, providing serverless scalability based on your workload demands.
+    A network load balancer distributes incoming application traffic across multiple Amazon ECS tasks for high availability.
 
 ![Implementing the ZDM dual write proxy for migrating data from Apache Cassandra to Amazon Keyspaces.](images/migration/online-migration-zdm.png)
 

@@ -52,7 +52,7 @@ To disable a stream, only `ALTER TABLE` permissions are required.
 ## Permissions to view a CDC stream
 
 To view or list CDC streams, the principal needs read permissions for the system keyspace. For
-more information, see [system_schema_mcs](working-with-keyspaces.md#keyspace_system_schema_mcs "working-with-keyspaces.md#keyspace_system_schema_mcs").
+more information, see [system\_schema\_mcs](working-with-keyspaces.md#keyspace_system_schema_mcs "working-with-keyspaces.md#keyspace_system_schema_mcs").
 
 The following IAM policy is an example of this.
 

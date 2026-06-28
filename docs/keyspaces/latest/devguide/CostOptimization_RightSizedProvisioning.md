@@ -277,7 +277,7 @@ function. 8. At this point you should have four metrics in the bottom menu. Letâ
 match the names with the ones you used in the AWS CLI section. Click on the
 **m1 ID** and change this value to **consumedWCU**. 9. Change the statistic from **Average** to **Sum**.
 This action automatically creates another metric
-called **ANOMALY_DETECTION_BAND**. For the scope of
+called **ANOMALY\_DETECTION\_BAND**. For the scope of
 this procedure, you can ignore this by removing the checkbox on the newly generated
 **ad1 metric**. 10. Repeat step 8 to rename the **m2 ID** to
 **provisionedWCU**. Leave the statistic set to **Average**. 11. Choose the **Expression1** label and update the
@@ -288,7 +288,7 @@ value to **m1** and the label to **Consumed WCUs**.
 Make sure you have only selected **m1** (checkbox
 on the left) and **provisionedWCU** to properly
 visualize the data. Update the formula by clicking in **Details** and changing the formula to **consumedWCU/PERIOD(consumedWCU)**. This step might also generate
-another **ANOMALY_DETECTION_BAND** metric, but for
+another **ANOMALY\_DETECTION\_BAND** metric, but for
 the scope of this procedure you can ignore it. 12. You should now have two graphics: one that indicates your provisioned WCUs
 on the table and another that indicates the consumed WCUs. 13. Update the percentage formula by selecting the Expression2 graphic
 (**e2**). Rename the labels and IDs to **utilizationPercentage**. Rename the formula to match **100\*(m1/provisionedWCU)**. 14. Remove the checkbox from all the metrics except **utilizationPercentage** to visualize your utilization patterns. The

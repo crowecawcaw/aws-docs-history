@@ -22,7 +22,7 @@ AWS managed policies for Amazon Keyspaces:
 
 - [AmazonKeyspacesFullAccess](../../../aws-managed-policy/latest/reference/AmazonKeyspacesFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonKeyspacesFullAccess.md") – this policy grants permissions to
   access all resources in Amazon Keyspaces with full access to all features.
-- [AmazonKeyspacesReadOnlyAccess_v2](../../../aws-managed-policy/latest/reference/AmazonKeyspacesReadOnlyAccess_v2.md "../../../aws-managed-policy/latest/reference/AmazonKeyspacesReadOnlyAccess_v2.md") – this policy grants read-only permissions to Amazon Keyspaces.
+- [AmazonKeyspacesReadOnlyAccess\_v2](../../../aws-managed-policy/latest/reference/AmazonKeyspacesReadOnlyAccess_v2.md "../../../aws-managed-policy/latest/reference/AmazonKeyspacesReadOnlyAccess_v2.md") – this policy grants read-only permissions to Amazon Keyspaces.
 
 For a detailed explanation of the actions defined in the managed policies, see [AWS managed policies for Amazon Keyspaces](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 

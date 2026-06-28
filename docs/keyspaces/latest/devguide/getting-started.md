@@ -11,13 +11,13 @@ This tutorial covers the following steps.
   the AWS setup instructions to sign up for AWS and create an IAM user with access to
   Amazon Keyspaces. Then you set up the `cqhsh-expansion` and AWS CloudShell. Alternatively you can use the AWS CLI to create resources in Amazon Keyspaces.
 - **Step 1: Create a keyspace and table** – In this section, you'll create a keyspace named
-  "catalog" and a table named "book_awards" within it. You'll specify the table's columns, data types, partition key, and clustering
+  "catalog" and a table named "book\_awards" within it. You'll specify the table's columns, data types, partition key, and clustering
   column using the AWS Management Console, CQL, or the AWS CLI.
 - **Step 2: Perform CRUD operations** – Here, you'll use the `cqlsh-expansion`
-  in CloudShell to insert, read, update, and delete data in the "book_awards" table. You'll learn how to use various CQL statements like SELECT, INSERT, UPDATE,
+  in CloudShell to insert, read, update, and delete data in the "book\_awards" table. You'll learn how to use various CQL statements like SELECT, INSERT, UPDATE,
   and DELETE, and practice filtering and modifying data.
 - **Step 3: Clean up resources** – To avoid incurring charges for unused resources, this section
-  guides you through deleting the "book_awards" table and "catalog" keyspace using the console, CQL, or the AWS CLI.
+  guides you through deleting the "book\_awards" table and "catalog" keyspace using the console, CQL, or the AWS CLI.
   For tutorials to connect programmatically to Amazon Keyspaces using different Apache Cassandra
   client drivers, see [Using a Cassandra client driver to access Amazon Keyspaces programmatically](programmatic.drivers.md "programmatic.drivers.md"). For code examples using different AWS SDKs, see [Code examples for Amazon Keyspaces using AWS SDKs](service_code_examples.md "service_code_examples.md").
 

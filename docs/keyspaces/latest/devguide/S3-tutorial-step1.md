@@ -20,16 +20,15 @@ The script `setup-connector.sh` automates the following steps.
 
 ###### Use the `setup-connector.sh` shell script to automate the setup and configuration steps.
 
-1.  Copy the files from the [aws-glue](https://github.com/aws-samples/amazon-keyspaces-examples/blob/main/scala/datastax-v4/aws-glue "https://github.com/aws-samples/amazon-keyspaces-examples/blob/main/scala/datastax-v4/aws-glue") repository on Github to your local machine. This directory contains the shell script as well as other
-    required files.
-2.  Run the shell script `setup-connector.sh`. You can specify the following three optional parameters.
+1. Copy the files from the [aws-glue](https://github.com/aws-samples/amazon-keyspaces-examples/blob/main/scala/datastax-v4/aws-glue "https://github.com/aws-samples/amazon-keyspaces-examples/blob/main/scala/datastax-v4/aws-glue") repository on Github to your local machine. This directory contains the shell script as well as other
+   required files.
+2. Run the shell script `setup-connector.sh`. You can specify the following three optional parameters.
 
-        1. `SETUP_STACKNAME` – This is the name of the CloudFormation stack used to create the AWS resources.
-        2. `S3_BUCKET_NAME` – This is the name of the Amazon S3 bucket.
-        3. `GLUE_SERVICE_ROLE_NAME` – This is the name of the IAM service role that AWS Glue uses to run jobs that
-         connect to Amazon Keyspaces and Amazon S3.
-
-    You can use the following command to run the shell script, provide the three parameters with the following names.
+   1. `SETUP_STACKNAME` – This is the name of the CloudFormation stack used to create the AWS resources.
+   2. `S3_BUCKET_NAME` – This is the name of the Amazon S3 bucket.
+   3. `GLUE_SERVICE_ROLE_NAME` – This is the name of the IAM service role that AWS Glue uses to run jobs that
+      connect to Amazon Keyspaces and Amazon S3.
+      You can use the following command to run the shell script, provide the three parameters with the following names.
 
 ```
 ./setup-connector.sh `cfn-setup` `s3-keyspaces` `iam-export-role`

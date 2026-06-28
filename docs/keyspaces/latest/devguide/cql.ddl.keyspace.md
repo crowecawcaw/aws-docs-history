@@ -146,7 +146,7 @@ Syntax
 
 Where:
 
-- _keyspace_name_ is the name of the
+- _keyspace\_name_ is the name of the
   keyspace to be dropped.
 
 Example
@@ -170,7 +170,7 @@ Syntax
 
 Where:
 
-- _keyspace_name_ is the name of the
+- _keyspace\_name_ is the name of the
   keyspace to be used.
 
 Example

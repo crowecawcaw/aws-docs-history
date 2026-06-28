@@ -15,8 +15,10 @@ Cassandra Query Language (CQL)
 ###### Delete a tag from an existing keyspace using CQL
 
 - ```
-  ALTER KEYSPACE `mykeyspace` DROP TAGS `{'key1':'val1', 'key2':'val2'}`;
+
   ```
+
+ALTER KEYSPACE `mykeyspace` DROP TAGS `{'key1':'val1', 'key2':'val2'}`;
 
 ```
 

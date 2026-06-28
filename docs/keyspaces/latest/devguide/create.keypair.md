@@ -33,6 +33,5 @@ Consider the following best practices for the key pair that you've created.
     * Enable least-privilege permissions.
     * Rotate access keys regularly.
 
-6. To download the key pair, choose **Download .csv file**. Store the keys in a secure location.
-7. After you download the .csv file, choose **Close**.
-   When you create an access key, the key pair is active by default, and you can use the pair right away.
+6. To download the key pair, choose **Download .csv file**. Store the keys in a secure location. 7. After you download the .csv file, choose **Close**.
+When you create an access key, the key pair is active by default, and you can use the pair right away.
