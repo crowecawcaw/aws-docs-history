@@ -25,7 +25,7 @@ action:
   in the [stored transfer syntax](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md").
 - The transfer syntax of image frames is specified in the `Content-Type HTTP`
   header response element. For example, an image frame encoded in HTJ2K will have `Content-Type: 
-image/jph header`. For more information, see [`GetImageFrame`](../APIReference/API_GetImageFrame.md "../APIReference/API_GetImageFrame.md") in the _AWS HealthImaging API
+ image/jph header`. For more information, see [`GetImageFrame`](../APIReference/API_GetImageFrame.md "../APIReference/API_GetImageFrame.md") in the _AWS HealthImaging API
   Reference_.
 - You can also use `GetDICOMInstanceFrames`, HealthImaging's representation
   of a DICOMweb service, to retrieve DICOM instance frames (`multipart`

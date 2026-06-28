@@ -57,10 +57,9 @@ information:
     * **Output destination in S3**
 
 5. Under the **Service access** section, choose
-   **Use an existing service role** and select the role
-   from the **Service role name** menu or choose
-   **Create and use a new service role**.
-6. Choose **Import**.
+**Use an existing service role** and select the role
+from the **Service role name** menu or choose
+**Create and use a new service role**. 6. Choose **Import**.
 
 C++
 

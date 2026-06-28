@@ -17,15 +17,13 @@ are returned in JSON format, ordered by ascending (oldest to latest).
 GET https://dicom-medical-imaging.`region`.amazonaws.com/datastore/`datastoreId`/studies/`StudyInstanceUID`/series[?query]
 ```
 
-| Series elements for `SearchDICOMSeries` | DICOM element tag     | DICOM element name |
-| --------------------------------------- | --------------------- | ------------------ |
-| `(0008,0060)`                           | `Modality`            |
-| `(0020,000E)`                           | `Series Instance UID` |
-
-4. Prepare and send your request. `SearchDICOMSeries` uses a HTTP GET request with
-   [AWS Signature
-   Version 4](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") signing protocol. The following example uses the `curl` command
-   line tool to search for DICOM series information.
+Series elements for `SearchDICOMSeries`| DICOM element tag | DICOM element name |
+| --- | --- |
+| `(0008,0060)` | `Modality` |
+| `(0020,000E)` | `Series Instance UID` | 4. Prepare and send your request. `SearchDICOMSeries` uses a HTTP GET request with
+[AWS Signature
+Version 4](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") signing protocol. The following example uses the `curl` command
+line tool to search for DICOM series information.
 
 curl
 

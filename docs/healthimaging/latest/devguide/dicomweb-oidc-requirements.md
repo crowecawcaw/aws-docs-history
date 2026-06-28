@@ -75,7 +75,7 @@ For example:
 
 - A token with "admin" claims might return an ARN for a role with full access
 - A token with "reader" claims might return an ARN for a role with read-only access
-- A token with "department_A" claims might return an ARN for a role specific to that department's access
+- A token with "department\_A" claims might return an ARN for a role specific to that department's access
   level
 
 This mechanism allows you to map your IdP's authorization model to specific AWS HealthImaging permissions through IAM
@@ -205,19 +205,19 @@ execute unauthorized Lambda functions through the datastore authorizer configura
 
 In case of authentication failure HealthImaging returns the following HTTP error response codes and body messages:
 
-| Condition                                                                   | AHI response                                              |
-| --------------------------------------------------------------------------- | --------------------------------------------------------- |
-| Lambda Authorizer does not exist or is invalid                              | \*_424_<br>• Authorizer Misconfiguration                  |
-| Authorizer terminated due to execution failure                              | \*_424_<br>• Authorizer Failed                            |
-| Any other unmapped authorizer error                                         | \*_424_<br>• Authorizer Failed                            |
-| Authorizer returned invalid/ill-formed response                             | \*_424_<br>• Authorizer Misconfiguration                  |
-| Authorizer ran more than 1s                                                 | \*_408_<br>• Authorizer Timeout                           |
-| Token is expired or otherwise invalid                                       | \*_403_<br>• Invalid or Expired Token                     |
-| AHI can't federate the returned IAM Role due to authorizer misconfiguration | \*_424_<br>• Authorizer Misconfiguration                  |
-| Authorizer returned an empty Role                                           | \*_403_<br>• Access Denied                                |
-| Returned Role is not callable (assume-role/trust misconfig)                 | \*_424_<br>• Authorizer Misconfiguration                  |
-| Request rate exceeds DICOMweb Gateway limits                                | \*_429_<br>• Too many requests                            |
-| Datastore, Return Role, or Authorizer Cross Account/Cross Region            | \*_424_<br>• Authorizer Cross Account/Cross Region Access |
+| Condition                                                                   | AHI response                                             |
+| --------------------------------------------------------------------------- | -------------------------------------------------------- |
+| Lambda Authorizer does not exist or is invalid                              | *_424_<br>• Authorizer Misconfiguration                  |
+| Authorizer terminated due to execution failure                              | *_424_<br>• Authorizer Failed                            |
+| Any other unmapped authorizer error                                         | *_424_<br>• Authorizer Failed                            |
+| Authorizer returned invalid/ill-formed response                             | *_424_<br>• Authorizer Misconfiguration                  |
+| Authorizer ran more than 1s                                                 | *_408_<br>• Authorizer Timeout                           |
+| Token is expired or otherwise invalid                                       | *_403_<br>• Invalid or Expired Token                     |
+| AHI can't federate the returned IAM Role due to authorizer misconfiguration | *_424_<br>• Authorizer Misconfiguration                  |
+| Authorizer returned an empty Role                                           | *_403_<br>• Access Denied                                |
+| Returned Role is not callable (assume-role/trust misconfig)                 | *_424_<br>• Authorizer Misconfiguration                  |
+| Request rate exceeds DICOMweb Gateway limits                                | *_429_<br>• Too many requests                            |
+| Datastore, Return Role, or Authorizer Cross Account/Cross Region            | *_424_<br>• Authorizer Cross Account/Cross Region Access |
 
 ## Implementation Example
 
@@ -226,7 +226,7 @@ events and returns an IAM role ARN with appropriate DICOMWeb privileges.
 
 The Lambda authorizer implements two caching mechanisms to reduce external calls and response latency. The JWKS
 (JSON Web Key Set) is fetched once every hour and stored in the function's temporary folder, allowing subsequent function
-invocations to read it locally instead of fetching from the public network. You will also notice that a token_cache dictionary
+invocations to read it locally instead of fetching from the public network. You will also notice that a token\_cache dictionary
 object is instantiated in the global context of this Lambda function. Global variables are shared by all invocations that
 reuse the same warmed Lambda context. Thanks to this, successfully verified tokens can be stored in this dictionary and looked
 up quickly during the next execution of this same Lambda function. The caching method represents a generalist approach that

@@ -177,21 +177,21 @@ Data Store Deleted
 
 ```
 
-| Data store events - metadata descriptions | Name           | Type                                                                          | Description |
-| ----------------------------------------- | -------------- | ----------------------------------------------------------------------------- | ----------- |
-| `version`                                 | string         | The EventBridge event schema version.                                         |
-| `id`                                      | string         | The Version 4 UUID generated for every event.                                 |
-| `detail-type`                             | string         | The type of event that is being sent.                                         |
-| `source`                                  | string         | Identifies the service that generated the event.                              |
-| `account`                                 | string         | The 12-digit AWS account ID of the data store owner.                          |
-| `time`                                    | string         | The time the event occurred.                                                  |
-| `region`                                  | string         | Identifies the AWS Region of the data store.                                  |
-| `resources`                               | array (string) | A JSON array that contains the ARN of the data store.                         |
-| `detail`                                  | object         | A JSON object that contains information about the<br>event.                   |
-| `detail.imagingVersion`                   | string         | The version ID that tracks changes to HealthImaging's event detail<br>schema. |
-| `detail.datastoreId`                      | string         | The data store ID associated with the status change<br>event.                 |
-| `detail.datastoreName`                    | string         | The data store name.                                                          |
-| `detail.datastoreStatus`                  | string         | The current data store status.                                                |
+Data store events - metadata descriptions| Name | Type | Description |
+| --- | --- | --- |
+| `version` | string | The EventBridge event schema version. |
+| `id` | string | The Version 4 UUID generated for every event. |
+| `detail-type` | string | The type of event that is being sent. |
+| `source` | string | Identifies the service that generated the event. |
+| `account` | string | The 12-digit AWS account ID of the data store owner. |
+| `time` | string | The time the event occurred. |
+| `region` | string | Identifies the AWS Region of the data store. |
+| `resources` | array (string) | A JSON array that contains the ARN of the data store. |
+| `detail` | object | A JSON object that contains information about the<br>event. |
+| `detail.imagingVersion` | string | The version ID that tracks changes to HealthImaging's event detail<br>schema. |
+| `detail.datastoreId` | string | The data store ID associated with the status change<br>event. |
+| `detail.datastoreName` | string | The data store name. |
+| `detail.datastoreStatus` | string | The current data store status. |
 
 Import Job Submitted
 **State -
@@ -301,24 +301,24 @@ Import Job Failed
 
 ```
 
-| Import job events - metadata descriptions | Name           | Type                                                                                              | Description |
-| ----------------------------------------- | -------------- | ------------------------------------------------------------------------------------------------- | ----------- |
-| `version`                                 | string         | The EventBridge event schema version.                                                             |
-| `id`                                      | string         | The Version 4 UUID generated for every event.                                                     |
-| `detail-type`                             | string         | The type of event that is being sent.                                                             |
-| `source`                                  | string         | Identifies the service that generated the event.                                                  |
-| `account`                                 | string         | The 12-digit AWS account ID of the data store owner.                                              |
-| `time`                                    | string         | The time the event occurred.                                                                      |
-| `region`                                  | string         | Identifies the AWS Region of the data store.                                                      |
-| `resources`                               | array (string) | A JSON array that contains the ARN of the data store.                                             |
-| `detail`                                  | object         | A JSON object that contains information about the<br>event.                                       |
-| `detail.imagingVersion`                   | string         | The version ID that tracks changes to HealthImaging's event detail<br>schema.                     |
-| `detail.datastoreId`                      | string         | The data store that generated the status change<br>event.                                         |
-| `detail.jobId`                            | string         | The import job ID associated with the status change<br>event.                                     |
-| `detail.jobName`                          | string         | The import job name.                                                                              |
-| `detail.jobStatus`                        | string         | The current job status.                                                                           |
-| `detail.inputS3Uri`                       | string         | The input prefix path for the S3 bucket that contains the<br>DICOM files to be imported.          |
-| `detail.outputS3Uri`                      | string         | The output prefix of the S3 bucket where the results of the<br>DICOM import job will be uploaded. |
+Import job events - metadata descriptions| Name | Type | Description |
+| --- | --- | --- |
+| `version` | string | The EventBridge event schema version. |
+| `id` | string | The Version 4 UUID generated for every event. |
+| `detail-type` | string | The type of event that is being sent. |
+| `source` | string | Identifies the service that generated the event. |
+| `account` | string | The 12-digit AWS account ID of the data store owner. |
+| `time` | string | The time the event occurred. |
+| `region` | string | Identifies the AWS Region of the data store. |
+| `resources` | array (string) | A JSON array that contains the ARN of the data store. |
+| `detail` | object | A JSON object that contains information about the<br>event. |
+| `detail.imagingVersion` | string | The version ID that tracks changes to HealthImaging's event detail<br>schema. |
+| `detail.datastoreId` | string | The data store that generated the status change<br>event. |
+| `detail.jobId` | string | The import job ID associated with the status change<br>event. |
+| `detail.jobName` | string | The import job name. |
+| `detail.jobStatus` | string | The current job status. |
+| `detail.inputS3Uri` | string | The input prefix path for the S3 bucket that contains the<br>DICOM files to be imported. |
+| `detail.outputS3Uri` | string | The output prefix of the S3 bucket where the results of the<br>DICOM import job will be uploaded. |
 
 Image Set Created
 **State -
@@ -591,21 +591,21 @@ Image Set Deleted
 
 ```
 
-| Image set events - metadata descriptions | Name           | Type                                                                                                                                                                             | Description |
-| ---------------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `version`                                | string         | The EventBridge event schema version.                                                                                                                                            |
-| `id`                                     | string         | The Version 4 UUID generated for every event.                                                                                                                                    |
-| `detail-type`                            | string         | The type of event that is being sent.                                                                                                                                            |
-| `source`                                 | string         | Identifies the service that generated the event.                                                                                                                                 |
-| `account`                                | string         | The 12-digit AWS account ID of the data store owner.                                                                                                                             |
-| `time`                                   | string         | The time the event occurred.                                                                                                                                                     |
-| `region`                                 | string         | Identifies the AWS Region of the data store.                                                                                                                                     |
-| `resources`                              | array (string) | A JSON array that contains the ARN of the image set.                                                                                                                             |
-| `detail`                                 | object         | A JSON object that contains information about the<br>event.                                                                                                                      |
-| `detail.imagingVersion`                  | string         | The version ID that tracks changes to HealthImaging's event detail<br>schema.                                                                                                    |
-| `detail.isPrimary`                       | boolean        | Indicates whether the imported data was successfully organized<br>into the managed hierarchy or if there are metadata conflicts that need to be resolved.                        |
-| `detail.imageSetVersion`                 | string         | The image set version will be incremented when an instance is imported more than once.<br>The latest version will overwrite any older version stored within a primary image set. |
-| `detail.datastoreId`                     | string         | The data store ID that generated the status change<br>event.                                                                                                                     |
-| `detail.imagesetId`                      | string         | The image set ID associated with the status change<br>event.                                                                                                                     |
-| `detail.imageSetState`                   | string         | The current image set state.                                                                                                                                                     |
-| `detail.imageSetWorkflowStatus`          | string         | The current image set workflow status.                                                                                                                                           |
+Image set events - metadata descriptions| Name | Type | Description |
+| --- | --- | --- |
+| `version` | string | The EventBridge event schema version. |
+| `id` | string | The Version 4 UUID generated for every event. |
+| `detail-type` | string | The type of event that is being sent. |
+| `source` | string | Identifies the service that generated the event. |
+| `account` | string | The 12-digit AWS account ID of the data store owner. |
+| `time` | string | The time the event occurred. |
+| `region` | string | Identifies the AWS Region of the data store. |
+| `resources` | array (string) | A JSON array that contains the ARN of the image set. |
+| `detail` | object | A JSON object that contains information about the<br>event. |
+| `detail.imagingVersion` | string | The version ID that tracks changes to HealthImaging's event detail<br>schema. |
+| `detail.isPrimary` | boolean | Indicates whether the imported data was successfully organized<br>into the managed hierarchy or if there are metadata conflicts that need to be resolved. |
+| `detail.imageSetVersion` | string | The image set version will be incremented when an instance is imported more than once.<br>The latest version will overwrite any older version stored within a primary image set. |
+| `detail.datastoreId` | string | The data store ID that generated the status change<br>event. |
+| `detail.imagesetId` | string | The image set ID associated with the status change<br>event. |
+| `detail.imageSetState` | string | The current image set state. |
+| `detail.imageSetWorkflowStatus` | string | The current image set workflow status. |

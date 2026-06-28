@@ -18,11 +18,11 @@ are returned in JSON format, ordered by ascending (oldest to latest).
 GET https://dicom-medical-imaging.`region`.amazonaws.com/datastore/`datastoreId`/studies/`StudyInstanceUID`/series/`SeriesInstanceUID`/instances[?query]
 ```
 
-| Instance elements for `SearchDICOMInstances` | DICOM element tag  | DICOM element name |
-| -------------------------------------------- | ------------------ | ------------------ |
-| `(0008,0016)`                                | `SOP Class UID`    |
-| `(0008,0018)`                                | `SOP Instance UID` |
-| `(0008,1196)`                                | `WarningReason`    |
+Instance elements for `SearchDICOMInstances`| DICOM element tag | DICOM element name |
+| --- | --- |
+| `(0008,0016)` | `SOP Class UID` |
+| `(0008,0018)` | `SOP Instance UID` |
+| `(0008,1196)` | `WarningReason` |
 
 HealthImaging uses the DICOM element
 [(0008,1196)](https://dicom.nema.org/dicom/2013/output/chtml/part18/sect_6.6.html#sect_6.6.1.3.2.1.1 "https://dicom.nema.org/dicom/2013/output/chtml/part18/sect_6.6.html#sect_6.6.1.3.2.1.1")

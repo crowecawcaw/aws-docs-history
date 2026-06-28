@@ -4,10 +4,10 @@ AWS HealthImaging offers a representation of the [`DICOMweb STOW-RS`](https://ww
 
 The following table describes the HealthImaging representations of DICOMweb STOW-RS APIs available for importing data.
 
-| HealthImaging representations of DICOMweb STOW-RS APIs | Name                                                                                                       | Description |
-| ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- | ----------- |
-| `StoreDICOM`                                           | Store one or more instances to a HealthImaging data store.                                                 |
-| `StoreDICOMStudy`                                      | Store one or more instances corresponding to a specified Study Instance UID to a HealthImaging data store. |
+HealthImaging representations of DICOMweb STOW-RS APIs| Name | Description |
+| --- | --- |
+| `StoreDICOM` | Store one or more instances to a HealthImaging data store. |
+| `StoreDICOMStudy` | Store one or more instances corresponding to a specified Study Instance UID to a HealthImaging data store. |
 
 Data imported with the `StoreDICOM` and `StoreDICOMStudy` actions will be organized as new primary image sets, or added to existing primary image sets, using the same logic as asynchronous [import jobs](understanding-import-jobs.md "understanding-import-jobs.md"). If the metadata elements of newly imported DICOM P10 data conflict with existing primary [image sets](getting-started-concepts.md#concept-image-set "getting-started-concepts.md#concept-image-set"), the new data will be added to non-primary [image sets](getting-started-concepts.md#concept-image-set "getting-started-concepts.md#concept-image-set").
 

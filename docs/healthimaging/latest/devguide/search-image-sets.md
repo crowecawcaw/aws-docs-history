@@ -12,7 +12,7 @@ Keep the following points in mind when searching image sets.
 - `SearchImageSets` accepts a single search query parameter and
   returns a paginated response of all image sets that have the matching criteria.
   All date range queries must be input as `(lowerBound,
-upperBound)`.
+ upperBound)`.
 - By default, `SearchImageSets` uses the `updatedAt` field
   for sorting in decreasing order from newest to oldest.
 - If you created your data store with a customer-owned AWS KMS key, you must

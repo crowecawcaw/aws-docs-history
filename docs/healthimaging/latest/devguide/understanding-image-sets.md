@@ -34,17 +34,17 @@ elements listed in the [Registry of
 DICOM Data Elements](https://dicom.nema.org/medical/dicom/2022b/output/html/part06.html#table_6-1 "https://dicom.nema.org/medical/dicom/2022b/output/html/part06.html#table_6-1"). HealthImaging uses the following DICOM elements when grouping incoming
 DICOM P10 objects into image sets.
 
-| DICOM elements used for image set creation | Element name  | Element tag |
-| ------------------------------------------ | ------------- | ----------- |
-| **Study level elements**                   |
-| `Study Date`                               | `(0008,0020)` |
-| `Accession Number`                         | `(0008,0050)` |
-| `Patient ID`                               | `(0010,0020)` |
-| `Study Instance UID`                       | `(0020,000D)` |
-| `Study ID`                                 | `(0020,0010)` |
-| **Series level elements**                  |
-| `Series Instance UID`                      | `(0020,000E)` |
-| `Series Number`                            | `(0020,0011)` |
+DICOM elements used for image set creation| Element name | Element tag |
+| --- | --- |
+| **Study level elements** |
+| `Study Date` | `(0008,0020)` |
+| `Accession Number` | `(0008,0050)` |
+| `Patient ID` | `(0010,0020)` |
+| `Study Instance UID` | `(0020,000D)` |
+| `Study ID` | `(0020,0010)` |
+| **Series level elements** |
+| `Series Instance UID` | `(0020,000E)` |
+| `Series Number` | `(0020,0011)` |
 
 During import, some image sets retain their original transfer syntax encoding, while
 others are transcoded to High-Throughput JPEG 2000 (HTJ2K) lossless by default. If an image set
@@ -76,11 +76,10 @@ DICOM import jobs:
 - Create non-primary image sets containing DICOM P10 data that conflicts with primary image sets already in the data store.
 - Persist the most recently received data as the latest version of a primary image set.
 
-      + If the instances comprising a DICOM series are primary image sets, and one instance is imported again, the new copy will be inserted into the primary image set, and the version will be incremented.
-
-  Use the `GetImageSetMetadata` action to retrieve image set metadata. The
-  returned metadata is compressed with `gzip`, so you must unzip it before viewing. For
-  more information, see [Getting image set metadata](get-image-set-metadata.md "get-image-set-metadata.md").
+  - If the instances comprising a DICOM series are primary image sets, and one instance is imported again, the new copy will be inserted into the primary image set, and the version will be incremented.
+    Use the `GetImageSetMetadata` action to retrieve image set metadata. The
+    returned metadata is compressed with `gzip`, so you must unzip it before viewing. For
+    more information, see [Getting image set metadata](get-image-set-metadata.md "get-image-set-metadata.md").
 
 The following example shows the structure of image set [metadata](getting-started-concepts.md#concept-metadata "getting-started-concepts.md#concept-metadata") in JSON format.
 
