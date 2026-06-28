@@ -130,8 +130,8 @@ bucket metadata from Amazon S3. 4. In the **S3 buckets** map, do any of the foll
      only for that account.
 
 5. To review data sensitivity statistics and other information for a particular bucket,
-   choose the bucket's square. Then refer to the details panel. For information about these
-   details, see [Reviewing data sensitivity details for S3 buckets](discovery-asdd-results-s3-inventory-details.md "discovery-asdd-results-s3-inventory-details.md").
+choose the bucket's square. Then refer to the details panel. For information about these
+details, see [Reviewing data sensitivity details for S3 buckets](discovery-asdd-results-s3-inventory-details.md "discovery-asdd-results-s3-inventory-details.md").
 
 ###### Tip
 

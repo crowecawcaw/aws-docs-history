@@ -44,7 +44,7 @@ information:
 Macie can detect Canadian and US bank account numbers that consist of 9–17 digit
 sequences and don't contain any spaces.
 
-**Managed data identifier ID:** BANK_ACCOUNT_NUMBER
+**Managed data identifier ID:** BANK\_ACCOUNT\_NUMBER
 
 **Supported countries and regions:** Canada, US
 
@@ -67,9 +67,9 @@ don't contain spaces, or use space or hyphen separators—for example,
 `NWBK60161331926819`, `NWBK 6016 1331 9268 19`, and
 `NWBK-6016-1331-9268-19`.
 
-**Managed data identifier ID:** Depending on country or region, FRANCE_BANK_ACCOUNT_NUMBER,
-GERMANY_BANK_ACCOUNT_NUMBER, ITALY_BANK_ACCOUNT_NUMBER, SPAIN_BANK_ACCOUNT_NUMBER,
-UK_BANK_ACCOUNT_NUMBER
+**Managed data identifier ID:** Depending on country or region, FRANCE\_BANK\_ACCOUNT\_NUMBER,
+GERMANY\_BANK\_ACCOUNT\_NUMBER, ITALY\_BANK\_ACCOUNT\_NUMBER, SPAIN\_BANK\_ACCOUNT\_NUMBER,
+UK\_BANK\_ACCOUNT\_NUMBER
 
 **Supported countries and regions:** France, Germany, Italy, Spain, UK
 
@@ -87,12 +87,12 @@ for specific countries and regions.
 **Comments:** These managed data identifiers can also detect International
 Bank Account Numbers (IBANs) that comply with the ISO 13616 standard. For more information,
 see [International Bank Account Number (IBAN)](#mdis-reference-IBAN "#mdis-reference-IBAN"). The managed
-data identifier for the UK (UK_BANK_ACCOUNT_NUMBER) can also detect domestic
+data identifier for the UK (UK\_BANK\_ACCOUNT\_NUMBER) can also detect domestic
 bank account numbers for the UK—for example, `60-16-13 31926819`.
 
 ## Credit card expiration date
 
-**Managed data identifier ID:** CREDIT_CARD_EXPIRATION
+**Managed data identifier ID:** CREDIT\_CARD\_EXPIRATION
 
 **Supported countries and regions:** Any
 
@@ -107,7 +107,7 @@ hyphens (‐), or applicable keywords. For example, Macie can detect dates such 
 
 ## Credit card magnetic stripe data
 
-**Managed data identifier ID:** CREDIT_CARD_MAGNETIC_STRIPE
+**Managed data identifier ID:** CREDIT\_CARD\_MAGNETIC\_STRIPE
 
 **Supported countries and regions:** Any
 
@@ -118,20 +118,20 @@ iso7813, mag, magstripe, stripe, swipe_
 
 ## Credit card number
 
-**Managed data identifier ID:** CREDIT_CARD_NUMBER for credit card numbers that are
-in proximity of a keyword, CREDIT_CARD_NUMBER\_(NO_KEYWORD) for credit card
+**Managed data identifier ID:** CREDIT\_CARD\_NUMBER for credit card numbers that are
+in proximity of a keyword, CREDIT\_CARD\_NUMBER\_(NO\_KEYWORD) for credit card
 numbers that aren't in proximity of a keyword
 
 **Supported countries and regions:** Any
 
 **Keyword required:** Varies. Keywords are required by the
-CREDIT_CARD_NUMBER managed data identifier. Keywords include: _account number, american express, amex, bank card, c card, card, cc
+CREDIT\_CARD\_NUMBER managed data identifier. Keywords include: _account number, american express, amex, bank card, c card, card, cc
 #, ccn, check card, cred card, credit, credit card, credit cards, credit no, credit
 num, dankort, debit, debit card, debit no, debit num, diners club, discover, electron,
 japanese card bureau, jcb, mastercard, mc, pan, payment account number, payment card
 number, pcn, pmnt #, pmnt card, pmnt no, pmnt number, union pay,
 visa_. Keywords aren't required by the
-CREDIT_CARD_NUMBER\_(NO_KEYWORD) managed data identifier.
+CREDIT\_CARD\_NUMBER\_(NO\_KEYWORD) managed data identifier.
 
 **Comments:** Detection requires the data to be a 13–19 digit
 sequence that adheres to the Luhn check formula and uses a standard card number prefix for any
@@ -163,7 +163,7 @@ have reserved for public testing: `122000000000003`, `2222405343248877`,
 
 ## Credit card verification code
 
-**Managed data identifier ID:** CREDIT_CARD_SECURITY_CODE
+**Managed data identifier ID:** CREDIT\_CARD\_SECURITY\_CODE
 
 **Supported countries and regions:** Any
 
@@ -185,26 +185,26 @@ example, `GB29NWBK60161331926819`, `GB29 NWBK 6016 1331 9268 19`, and
 `GB29-NWBK-6016-1331-9268-19`. Detection includes validation checks based on the
 Modulus 97 scheme.
 
-**Managed data identifier ID:** Depending on country or region, ALBANIA_BANK_ACCOUNT_NUMBER,
-ANDORRA_BANK_ACCOUNT_NUMBER, BOSNIA_AND_HERZEGOVINA_BANK_ACCOUNT_NUMBER,
-BRAZIL_BANK_ACCOUNT_NUMBER, BULGARIA_BANK_ACCOUNT_NUMBER, COSTA_RICA_BANK_ACCOUNT_NUMBER,
-CROATIA_BANK_ACCOUNT_NUMBER, CYPRUS_BANK_ACCOUNT_NUMBER, CZECH_REPUBLIC_BANK_ACCOUNT_NUMBER,
-DENMARK_BANK_ACCOUNT_NUMBER, DOMINICAN_REPUBLIC_BANK_ACCOUNT_NUMBER,
-EGYPT_BANK_ACCOUNT_NUMBER, ESTONIA_BANK_ACCOUNT_NUMBER, FAROE_ISLANDS_BANK_ACCOUNT_NUMBER,
-FINLAND_BANK_ACCOUNT_NUMBER, FRANCE_BANK_ACCOUNT_NUMBER, GEORGIA_BANK_ACCOUNT_NUMBER,
-GERMANY_BANK_ACCOUNT_NUMBER, GREECE_BANK_ACCOUNT_NUMBER, GREENLAND_BANK_ACCOUNT_NUMBER,
-HUNGARY_BANK_ACCOUNT_NUMBER, ICELAND_BANK_ACCOUNT_NUMBER, IRELAND_BANK_ACCOUNT_NUMBER,
-ITALY_BANK_ACCOUNT_NUMBER, JORDAN_BANK_ACCOUNT_NUMBER, KOSOVO_BANK_ACCOUNT_NUMBER,
-LIECHTENSTEIN_BANK_ACCOUNT_NUMBER, LITHUANIA_BANK_ACCOUNT_NUMBER, MALTA_BANK_ACCOUNT_NUMBER,
-MAURITANIA_BANK_ACCOUNT_NUMBER, MAURITIUS_BANK_ACCOUNT_NUMBER, MONACO_BANK_ACCOUNT_NUMBER,
-MONTENEGRO_BANK_ACCOUNT_NUMBER, NETHERLANDS_BANK_ACCOUNT_NUMBER,
-NORTH_MACEDONIA_BANK_ACCOUNT_NUMBER, POLAND_BANK_ACCOUNT_NUMBER,
-PORTUGAL_BANK_ACCOUNT_NUMBER, SAN_MARINO_BANK_ACCOUNT_NUMBER, SENEGAL_BANK_ACCOUNT_NUMBER,
-SERBIA_BANK_ACCOUNT_NUMBER, SLOVAKIA_BANK_ACCOUNT_NUMBER, SLOVENIA_BANK_ACCOUNT_NUMBER,
-SPAIN_BANK_ACCOUNT_NUMBER, SWEDEN_BANK_ACCOUNT_NUMBER, SWITZERLAND_BANK_ACCOUNT_NUMBER,
-TIMOR_LESTE_BANK_ACCOUNT_NUMBER, TUNISIA_BANK_ACCOUNT_NUMBER, TURKIYE_BANK_ACCOUNT_NUMBER,
-UK_BANK_ACCOUNT_NUMBER, UKRAINE_BANK_ACCOUNT_NUMBER,
-UNITED_ARAB_EMIRATES_BANK_ACCOUNT_NUMBER, VIRGIN_ISLANDS_BANK_ACCOUNT_NUMBER (for
+**Managed data identifier ID:** Depending on country or region, ALBANIA\_BANK\_ACCOUNT\_NUMBER,
+ANDORRA\_BANK\_ACCOUNT\_NUMBER, BOSNIA\_AND\_HERZEGOVINA\_BANK\_ACCOUNT\_NUMBER,
+BRAZIL\_BANK\_ACCOUNT\_NUMBER, BULGARIA\_BANK\_ACCOUNT\_NUMBER, COSTA\_RICA\_BANK\_ACCOUNT\_NUMBER,
+CROATIA\_BANK\_ACCOUNT\_NUMBER, CYPRUS\_BANK\_ACCOUNT\_NUMBER, CZECH\_REPUBLIC\_BANK\_ACCOUNT\_NUMBER,
+DENMARK\_BANK\_ACCOUNT\_NUMBER, DOMINICAN\_REPUBLIC\_BANK\_ACCOUNT\_NUMBER,
+EGYPT\_BANK\_ACCOUNT\_NUMBER, ESTONIA\_BANK\_ACCOUNT\_NUMBER, FAROE\_ISLANDS\_BANK\_ACCOUNT\_NUMBER,
+FINLAND\_BANK\_ACCOUNT\_NUMBER, FRANCE\_BANK\_ACCOUNT\_NUMBER, GEORGIA\_BANK\_ACCOUNT\_NUMBER,
+GERMANY\_BANK\_ACCOUNT\_NUMBER, GREECE\_BANK\_ACCOUNT\_NUMBER, GREENLAND\_BANK\_ACCOUNT\_NUMBER,
+HUNGARY\_BANK\_ACCOUNT\_NUMBER, ICELAND\_BANK\_ACCOUNT\_NUMBER, IRELAND\_BANK\_ACCOUNT\_NUMBER,
+ITALY\_BANK\_ACCOUNT\_NUMBER, JORDAN\_BANK\_ACCOUNT\_NUMBER, KOSOVO\_BANK\_ACCOUNT\_NUMBER,
+LIECHTENSTEIN\_BANK\_ACCOUNT\_NUMBER, LITHUANIA\_BANK\_ACCOUNT\_NUMBER, MALTA\_BANK\_ACCOUNT\_NUMBER,
+MAURITANIA\_BANK\_ACCOUNT\_NUMBER, MAURITIUS\_BANK\_ACCOUNT\_NUMBER, MONACO\_BANK\_ACCOUNT\_NUMBER,
+MONTENEGRO\_BANK\_ACCOUNT\_NUMBER, NETHERLANDS\_BANK\_ACCOUNT\_NUMBER,
+NORTH\_MACEDONIA\_BANK\_ACCOUNT\_NUMBER, POLAND\_BANK\_ACCOUNT\_NUMBER,
+PORTUGAL\_BANK\_ACCOUNT\_NUMBER, SAN\_MARINO\_BANK\_ACCOUNT\_NUMBER, SENEGAL\_BANK\_ACCOUNT\_NUMBER,
+SERBIA\_BANK\_ACCOUNT\_NUMBER, SLOVAKIA\_BANK\_ACCOUNT\_NUMBER, SLOVENIA\_BANK\_ACCOUNT\_NUMBER,
+SPAIN\_BANK\_ACCOUNT\_NUMBER, SWEDEN\_BANK\_ACCOUNT\_NUMBER, SWITZERLAND\_BANK\_ACCOUNT\_NUMBER,
+TIMOR\_LESTE\_BANK\_ACCOUNT\_NUMBER, TUNISIA\_BANK\_ACCOUNT\_NUMBER, TURKIYE\_BANK\_ACCOUNT\_NUMBER,
+UK\_BANK\_ACCOUNT\_NUMBER, UKRAINE\_BANK\_ACCOUNT\_NUMBER,
+UNITED\_ARAB\_EMIRATES\_BANK\_ACCOUNT\_NUMBER, VIRGIN\_ISLANDS\_BANK\_ACCOUNT\_NUMBER (for
 the British Virgin Islands)
 
 **Supported countries and regions:** Albania, Andorra, Bosnia-Herzegovina, Brazil, Bulgaria, Costa Rica,

@@ -101,18 +101,17 @@ store any objects.
 - **Storage** – These statistics provide information about the
   storage size of objects in your bucket inventory:
 
-      + **Classifiable** – The total
-       storage size of all the objects that Macie can analyze in
-       the buckets.
-      + **Total** – The total storage size
-       of all the objects in the buckets, including objects that
-       Macie can’t analyze.
-
-  If any of the objects are compressed files, these values don’t
-  reflect the actual size of those files after they’re decompressed.
-  If versioning is enabled for any of the buckets, these values are
-  based on the storage size of the latest version of each object in
-  those buckets.
+  - **Classifiable** – The total
+    storage size of all the objects that Macie can analyze in
+    the buckets.
+  - **Total** – The total storage size
+    of all the objects in the buckets, including objects that
+    Macie can’t analyze.
+    If any of the objects are compressed files, these values don’t
+    reflect the actual size of those files after they’re decompressed.
+    If versioning is enabled for any of the buckets, these values are
+    based on the storage size of the latest version of each object in
+    those buckets.
 
 - **Objects** – These statistics provide information about the
   number of objects in your bucket inventory:

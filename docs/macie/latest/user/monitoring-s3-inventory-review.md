@@ -143,7 +143,7 @@ formats](discovery-supported-storage.md "discovery-supported-storage.md"). 5. To
      inventory](monitoring-s3-inventory-filter.md "monitoring-s3-inventory-filter.md").
 
 6. To review details and statistics for a particular bucket, choose the bucket's
-   name in the table, and then refer to the details panel.
+name in the table, and then refer to the details panel.
 
 ###### Tip
 

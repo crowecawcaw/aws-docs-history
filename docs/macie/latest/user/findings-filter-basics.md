@@ -223,7 +223,7 @@ For example:
 - To include findings that report occurrences of credit card numbers, mailing addresses,
   or both credit card numbers and mailing addresses, add a condition
   for the **Sensitive data detection type** field,
-  use this operator, and specify _CREDIT_CARD_NUMBER_ and _ADDRESS_ as the values
+  use this operator, and specify _CREDIT\_CARD\_NUMBER_ and _ADDRESS_ as the values
   for the field.
 
 If you use the Amazon Macie API to define a condition that uses this operator with a date/time value, specify the value as a Unix timestamp in
@@ -246,12 +246,12 @@ For example:
 - To include findings that report occurrences of credit card numbers and no other type of
   sensitive data, add a condition for the **Sensitive data
   detection type** field, use this operator, and specify
-  _CREDIT_CARD_NUMBER_ as the only value
+  _CREDIT\_CARD\_NUMBER_ as the only value
   for the field.
 - To include findings that report occurrences of both credit card numbers and mailing
   addresses (and no other types of sensitive data), add a condition
   for the **Sensitive data detection type** field,
-  use this operator, and specify _CREDIT_CARD_NUMBER_ and _ADDRESS_ as the values
+  use this operator, and specify _CREDIT\_CARD\_NUMBER_ and _ADDRESS_ as the values
   for the field.
 
 Because Macie uses AND logic to join the values for a field, you can't use this
@@ -275,7 +275,7 @@ data, do the following:
    the starting date and time for the filter.
 2. Add another condition that uses the **Sensitive data detection type**
    field, uses the _equals exact
-   match_ operator, and specifies _CREDIT_CARD_NUMBER_ as the only
+   match_ operator, and specifies _CREDIT\_CARD\_NUMBER_ as the only
    value for the field.
 
 You can use the _equals exact match_ operator
@@ -393,12 +393,12 @@ For example:
   information_ as the values for the field.
 - To exclude findings that report occurrences of credit card numbers, add a condition for
   the **Sensitive data detection type** field, use
-  this operator, and specify _CREDIT_CARD_NUMBER_ as the value
+  this operator, and specify _CREDIT\_CARD\_NUMBER_ as the value
   for the field.
 - To exclude findings that report occurrences of credit card numbers, mailing addresses,
   or both credit card numbers and mailing addresses, add a condition
   for the **Sensitive data detection type** field,
-  use this operator, and specify _CREDIT_CARD_NUMBER_ and _ADDRESS_ as the values
+  use this operator, and specify _CREDIT\_CARD\_NUMBER_ and _ADDRESS_ as the values
   for the field.
 
 If you use the Amazon Macie API to define a condition that uses this operator with a date/time value, specify the value as a Unix timestamp in

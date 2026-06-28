@@ -54,7 +54,7 @@ provides the following information:
 
 ## Birth date
 
-**Managed data identifier ID:** DATE_OF_BIRTH
+**Managed data identifier ID:** DATE\_OF\_BIRTH
 
 **Supported countries and regions:** Any
 
@@ -67,18 +67,18 @@ slashes (/), or hyphens (‐).
 
 ## Driver’s license identification number
 
-**Managed data identifier ID:** Depending on country or region, AUSTRALIA_DRIVERS_LICENSE,
-AUSTRIA_DRIVERS_LICENSE, BELGIUM_DRIVERS_LICENSE, BULGARIA_DRIVERS_LICENSE,
-CANADA_DRIVERS_LICENSE, CROATIA_DRIVERS_LICENSE, CYPRUS_DRIVERS_LICENSE,
-CZECHIA_DRIVERS_LICENSE, DENMARK_DRIVERS_LICENSE, DRIVERS_LICENSE (for the US),
-ESTONIA_DRIVERS_LICENSE, FINLAND_DRIVERS_LICENSE, FRANCE_DRIVERS_LICENSE,
-GERMANY_DRIVERS_LICENSE, GREECE_DRIVERS_LICENSE, HUNGARY_DRIVERS_LICENSE,
-INDIA_DRIVERS_LICENSE, IRELAND_DRIVERS_LICENSE, ITALY_DRIVERS_LICENSE,
-LATVIA_DRIVERS_LICENSE, LITHUANIA_DRIVERS_LICENSE, LUXEMBOURG_DRIVERS_LICENSE,
-MALTA_DRIVERS_LICENSE, NETHERLANDS_DRIVERS_LICENSE, POLAND_DRIVERS_LICENSE,
-PORTUGAL_DRIVERS_LICENSE, ROMANIA_DRIVERS_LICENSE, SLOVAKIA_DRIVERS_LICENSE,
-SLOVENIA_DRIVERS_LICENSE, SPAIN_DRIVERS_LICENSE, SWEDEN_DRIVERS_LICENSE,
-UK_DRIVERS_LICENSE
+**Managed data identifier ID:** Depending on country or region, AUSTRALIA\_DRIVERS\_LICENSE,
+AUSTRIA\_DRIVERS\_LICENSE, BELGIUM\_DRIVERS\_LICENSE, BULGARIA\_DRIVERS\_LICENSE,
+CANADA\_DRIVERS\_LICENSE, CROATIA\_DRIVERS\_LICENSE, CYPRUS\_DRIVERS\_LICENSE,
+CZECHIA\_DRIVERS\_LICENSE, DENMARK\_DRIVERS\_LICENSE, DRIVERS\_LICENSE (for the US),
+ESTONIA\_DRIVERS\_LICENSE, FINLAND\_DRIVERS\_LICENSE, FRANCE\_DRIVERS\_LICENSE,
+GERMANY\_DRIVERS\_LICENSE, GREECE\_DRIVERS\_LICENSE, HUNGARY\_DRIVERS\_LICENSE,
+INDIA\_DRIVERS\_LICENSE, IRELAND\_DRIVERS\_LICENSE, ITALY\_DRIVERS\_LICENSE,
+LATVIA\_DRIVERS\_LICENSE, LITHUANIA\_DRIVERS\_LICENSE, LUXEMBOURG\_DRIVERS\_LICENSE,
+MALTA\_DRIVERS\_LICENSE, NETHERLANDS\_DRIVERS\_LICENSE, POLAND\_DRIVERS\_LICENSE,
+PORTUGAL\_DRIVERS\_LICENSE, ROMANIA\_DRIVERS\_LICENSE, SLOVAKIA\_DRIVERS\_LICENSE,
+SLOVENIA\_DRIVERS\_LICENSE, SPAIN\_DRIVERS\_LICENSE, SWEDEN\_DRIVERS\_LICENSE,
+UK\_DRIVERS\_LICENSE
 
 **Supported countries and regions:** Australia, Austria, Belgium, Bulgaria, Canada, Croatia, Cyprus,
 Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, India, Ireland,
@@ -127,7 +127,7 @@ for specific countries and regions.
 
 ## Electoral roll number
 
-**Managed data identifier ID:** UK_ELECTORAL_ROLL_NUMBER
+**Managed data identifier ID:** UK\_ELECTORAL\_ROLL\_NUMBER
 
 **Supported countries and regions:** UK
 
@@ -150,7 +150,7 @@ character sets.
 
 ## Global Positioning System (GPS) coordinates
 
-**Managed data identifier ID:** LATITUDE_LONGITUDE
+**Managed data identifier ID:** LATITUDE\_LONGITUDE
 
 **Supported countries and regions:** Any, if the coordinates are in proximity of an English
 keyword.
@@ -167,7 +167,7 @@ Degrees, Minutes, Seconds (DMS) format, for example `41°56'55.0104"N
 
 ## HTTP cookie
 
-**Managed data identifier ID:** HTTP_COOKIE
+**Managed data identifier ID:** HTTP\_COOKIE
 
 **Supported countries and regions:** Any
 
@@ -181,28 +181,28 @@ example: `Set-Cookie: id=TWlrZQ` and `Cookie: session=3948;
 ## Mailing address
 
 **Managed data identifier ID:** ADDRESS (for Australia, Canada, France, Germany,
-Italy, Spain, UK, and the US), BRAZIL_CEP_CODE (for Brazil's Código de
+Italy, Spain, UK, and the US), BRAZIL\_CEP\_CODE (for Brazil's Código de
 Endereçamento Postal)
 
 **Supported countries and regions:** Australia, Brazil, Canada, France, Germany, Italy, Spain, UK,
 US
 
 **Keyword required:** Varies. Keywords aren't required by the ADDRESS
-managed data identifier. Keywords are required by the BRAZIL_CEP_CODE managed
+managed data identifier. Keywords are required by the BRAZIL\_CEP\_CODE managed
 data identifier. Keywords include: _cep, código de endereçamento postal,
 codigo de endereçamento postal, código postal, codigo postal_
 
 **Comments:** Although a keyword isn't required by the
 ADDRESS managed data identifier, detection requires an address to include the
 name of a city or place and a corresponding ZIP or Postal Code in a supported country or
-region. The BRAZIL_CEP_CODE managed data identifier can detect only the Código
+region. The BRAZIL\_CEP\_CODE managed data identifier can detect only the Código
 de Endereçamento Postal (CEP) portion of an address.
 
 ## National identification number
 
 Support includes: Aadhaar numbers for India; Cédula de Ciudadanía numbers for Colombia; Clave Única de Registro de Población (CURP) numbers for Mexico; Codice Fiscale numbers for Italy; Documento Nacional de Identidad (DNI) numbers for Argentina and Spain; French National Institute for Statistics and Economic Studies (INSEE) codes; German National Identity Card numbers; Registro Geral (RG) numbers for Brazil; and, Rol Único Nacional (RUN) numbers for Chile.
 
-**Managed data identifier ID:** Depending on country or region, ARGENTINA_DNI_NUMBER, BRAZIL_RG_NUMBER, CHILE_RUT_NUMBER, COLOMBIA_CITIZENSHIP_CARD_NUMBER, FRANCE_NATIONAL_IDENTIFICATION_NUMBER, GERMANY_NATIONAL_IDENTIFICATION_NUMBER, INDIA_AADHAAR_NUMBER, ITALY_NATIONAL_IDENTIFICATION_NUMBER, MEXICO_CURP_NUMBER, SPAIN_DNI_NUMBER
+**Managed data identifier ID:** Depending on country or region, ARGENTINA\_DNI\_NUMBER, BRAZIL\_RG\_NUMBER, CHILE\_RUT\_NUMBER, COLOMBIA\_CITIZENSHIP\_CARD\_NUMBER, FRANCE\_NATIONAL\_IDENTIFICATION\_NUMBER, GERMANY\_NATIONAL\_IDENTIFICATION\_NUMBER, INDIA\_AADHAAR\_NUMBER, ITALY\_NATIONAL\_IDENTIFICATION\_NUMBER, MEXICO\_CURP\_NUMBER, SPAIN\_DNI\_NUMBER
 
 **Supported countries and regions:** Argentina, Brazil, Chile, Colombia, France, Germany, India, Italy, Mexico, Spain
 
@@ -221,13 +221,13 @@ Support includes: Aadhaar numbers for India; Cédula de Ciudadanía numbers for 
 | Mexico            | clave personal identidad, clave única, clave única de registro de población, clavepersonalIdentidad, curp, registration code, registry code,<br>personal identidad clave, population code                                                                                                                                                              |
 | Spain             | dni, dni#, dninúmero#, documento nacional de identidad, identidad único, identidadúnico#, insurance number, national identification number, national identity, nationalid#, nationalidno#, número nacional identidad, personal identification number, personal identity no, unique identity number, uniqueid#                                          |
 
-**Comments:** The managed data identifier for Chile (CHILE_RUT_NUMBER) is designed to detect both Rol Único Nacional (RUN) numbers and Rol Único Tributario (RUT) numbers. For either type of number, Macie doesn't report occurrences where all the digits are zeroes, such as `00000000-K`, because they're commonly used as examples.
+**Comments:** The managed data identifier for Chile (CHILE\_RUT\_NUMBER) is designed to detect both Rol Único Nacional (RUN) numbers and Rol Único Tributario (RUT) numbers. For either type of number, Macie doesn't report occurrences where all the digits are zeroes, such as `00000000-K`, because they're commonly used as examples.
 
 Although DNI numbers for Argentina and Spain have different syntaxes, there are similarities between them. Therefore, Macie might report a DNI number for Argentina as a DNI number for Spain, or the other way around. In addition, Macie doesn't report occurrences of the following character sequences, which are commonly used as example DNI numbers: `99999999` and `99.999.999`. Macie also doesn't report occurrences that consist of only zeroes—for example, `000000000` and `00.000.000`.
 
 ## National Insurance Number (NINO)
 
-**Managed data identifier ID:** UK_NATIONAL_INSURANCE_NUMBER
+**Managed data identifier ID:** UK\_NATIONAL\_INSURANCE\_NUMBER
 
 **Supported countries and regions:** UK
 
@@ -239,9 +239,9 @@ nationalinsurancenumber, nin, nino_
 
 ## Passport number
 
-**Managed data identifier ID:** Depending on country or region, CANADA_PASSPORT_NUMBER,
-FRANCE_PASSPORT_NUMBER, GERMANY_PASSPORT_NUMBER, ITALY_PASSPORT_NUMBER,
-SPAIN_PASSPORT_NUMBER, UK_PASSPORT_NUMBER, USA_PASSPORT_NUMBER
+**Managed data identifier ID:** Depending on country or region, CANADA\_PASSPORT\_NUMBER,
+FRANCE\_PASSPORT\_NUMBER, GERMANY\_PASSPORT\_NUMBER, ITALY\_PASSPORT\_NUMBER,
+SPAIN\_PASSPORT\_NUMBER, UK\_PASSPORT\_NUMBER, USA\_PASSPORT\_NUMBER
 
 **Supported countries and regions:** Canada, France, Germany, Italy, Spain, UK, US
 
@@ -262,7 +262,7 @@ for specific countries and regions.
 
 ## Permanent residence number
 
-**Managed data identifier ID:** CANADA_NATIONAL_IDENTIFICATION_NUMBER
+**Managed data identifier ID:** CANADA\_NATIONAL\_IDENTIFICATION\_NUMBER
 
 **Supported countries and regions:** Canada
 
@@ -276,9 +276,9 @@ résident permanent non_
 
 ## Phone number
 
-**Managed data identifier ID:** Depending on country or region, BRAZIL_PHONE_NUMBER,
-FRANCE_PHONE_NUMBER, GERMANY_PHONE_NUMBER, ITALY_PHONE_NUMBER, PHONE_NUMBER (for Canada and
-the US), SPAIN_PHONE_NUMBER, UK_PHONE_NUMBER
+**Managed data identifier ID:** Depending on country or region, BRAZIL\_PHONE\_NUMBER,
+FRANCE\_PHONE\_NUMBER, GERMANY\_PHONE\_NUMBER, ITALY\_PHONE\_NUMBER, PHONE\_NUMBER (for Canada and
+the US), SPAIN\_PHONE\_NUMBER, UK\_PHONE\_NUMBER
 
 **Supported countries and regions:** Brazil, Canada, France, Germany, Italy, Spain, UK, US
 
@@ -293,7 +293,7 @@ to include a country code.
 
 ## Public transportation card number
 
-**Managed data identifier ID:** ARGENTINA_TARJETA_SUBE
+**Managed data identifier ID:** ARGENTINA\_TARJETA\_SUBE
 
 **Supported countries and regions:** Argentina
 
@@ -305,7 +305,7 @@ Macie can detect 16‐digit Sistema Único de Boleto Electrónico (SUBE) card nu
 
 ## Social Insurance Number (SIN)
 
-**Managed data identifier ID:** CANADA_SOCIAL_INSURANCE_NUMBER
+**Managed data identifier ID:** CANADA\_SOCIAL\_INSURANCE\_NUMBER
 
 **Supported countries and regions:** Canada
 
@@ -317,8 +317,8 @@ id, numéro d'assurance sociale, sin, social insurance number_
 ## Social Security number (SSN)
 
 **Managed data identifier ID:** Depending on country or region,
-SPAIN_SOCIAL_SECURITY_NUMBER,
-USA_SOCIAL_SECURITY_NUMBER
+SPAIN\_SOCIAL\_SECURITY\_NUMBER,
+USA\_SOCIAL\_SECURITY\_NUMBER
 
 **Supported countries and regions:** Spain, US
 
@@ -332,7 +332,7 @@ _social security, ss#, ssn_.
 
 Support includes: CUIL and CUIT codes for Argentina; CIF, NIE, and NIF numbers for Spain; CNPJ and CPF numbers for Brazil; Codice Fiscale numbers for Italy; ITINs for the US; NIT numbers for Colombia; PANs for India; RFC numbers for Mexico; RUN and RUT numbers for Chile; Steueridentifikationsnummer numbers for Germany; TFNs for Australia; TINs for France; and, TRN and UTR numbers for the UK.
 
-**Managed data identifier ID:** Depending on country or region, ARGENTINA_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER, ARGENTINA_ORGANIZATION_TAX_IDENTIFICATION_NUMBER, AUSTRALIA_TAX_FILE_NUMBER, BRAZIL_CNPJ_NUMBER, BRAZIL_CPF_NUMBER, CHILE_RUT_NUMBER, COLOMBIA_INDIVIDUAL_NIT_NUMBER, COLOMBIA_ORGANIZATION_NIT_NUMBER, FRANCE_TAX_IDENTIFICATION_NUMBER, GERMANY_TAX_IDENTIFICATION_NUMBER, INDIA_PERMANENT_ACCOUNT_NUMBER, ITALY_NATIONAL_IDENTIFICATION_NUMBER, MEXICO_INDIVIDUAL_RFC_NUMBER, MEXICO_ORGANIZATION_RFC_NUMBER, SPAIN_NIE_NUMBER, SPAIN_NIF_NUMBER, SPAIN_TAX_IDENTIFICATION_NUMBER, UK_TAX_IDENTIFICATION_NUMBER, USA_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER
+**Managed data identifier ID:** Depending on country or region, ARGENTINA\_INDIVIDUAL\_TAX\_IDENTIFICATION\_NUMBER, ARGENTINA\_ORGANIZATION\_TAX\_IDENTIFICATION\_NUMBER, AUSTRALIA\_TAX\_FILE\_NUMBER, BRAZIL\_CNPJ\_NUMBER, BRAZIL\_CPF\_NUMBER, CHILE\_RUT\_NUMBER, COLOMBIA\_INDIVIDUAL\_NIT\_NUMBER, COLOMBIA\_ORGANIZATION\_NIT\_NUMBER, FRANCE\_TAX\_IDENTIFICATION\_NUMBER, GERMANY\_TAX\_IDENTIFICATION\_NUMBER, INDIA\_PERMANENT\_ACCOUNT\_NUMBER, ITALY\_NATIONAL\_IDENTIFICATION\_NUMBER, MEXICO\_INDIVIDUAL\_RFC\_NUMBER, MEXICO\_ORGANIZATION\_RFC\_NUMBER, SPAIN\_NIE\_NUMBER, SPAIN\_NIF\_NUMBER, SPAIN\_TAX\_IDENTIFICATION\_NUMBER, UK\_TAX\_IDENTIFICATION\_NUMBER, USA\_INDIVIDUAL\_TAX\_IDENTIFICATION\_NUMBER
 
 **Supported countries and regions:** Argentina, Australia, Brazil, Chile, Colombia, France, Germany, India, Italy, Mexico, Spain, UK, US
 
@@ -354,13 +354,13 @@ Support includes: CUIL and CUIT codes for Argentina; CIF, NIE, and NIF numbers f
 | UK                | paye, tax id, tax id no., tax id number, tax identification, tax identification#, tax no., tax number, tax reference, tax#, taxid#, temporary reference number, tin, trn, unique tax reference, unique taxpayer reference, utr                                                                                               |
 | US                | i.t.i.n., individual taxpayer identification number, itin                                                                                                                                                                                                                                                                    |
 
-**Comments:** The managed data identifier for Chile (CHILE_RUT_NUMBER) is designed to detect both Rol Único Nacional (RUN) numbers and Rol Único Tributario (RUT) numbers. For Registro Federal de Contribuyentes (RFC) numbers for Mexico, Macie doesn't report occurrences of the following character sequences, which are commonly used as example RFC numbers: `XAXX010101000` and `XEXX010101000`.
+**Comments:** The managed data identifier for Chile (CHILE\_RUT\_NUMBER) is designed to detect both Rol Único Nacional (RUN) numbers and Rol Único Tributario (RUT) numbers. For Registro Federal de Contribuyentes (RFC) numbers for Mexico, Macie doesn't report occurrences of the following character sequences, which are commonly used as example RFC numbers: `XAXX010101000` and `XEXX010101000`.
 
 For several types of taxpayer identification and reference numbers, Macie doesn't report occurrences where all the digits are zeroes—for example, `00000000-K`, `000000000`, and `00.000.000`. This is because the use of only zeroes is common in examples of certain types of taxpayer identification and reference numbers.
 
 ## Vehicle identification number (VIN)
 
-**Managed data identifier ID:** VEHICLE_IDENTIFICATION_NUMBER
+**Managed data identifier ID:** VEHICLE\_IDENTIFICATION\_NUMBER
 
 **Supported countries and regions:** Any, if the VIN is in proximity of a keyword in one of the
 following languages: English, French, German, Lithuanian, Polish, Portuguese, Romanian, or

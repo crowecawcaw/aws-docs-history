@@ -69,7 +69,7 @@ using the table view (
 ![The table view button, which is a button that displays three black horizontal lines.](images/btn-s3-table-view.png)
 ) or the interactive map
 (
-![The map view button, which is a button that displays four black squares.](images/btn-s3-map-view.png)
+![The map view button, which is a button that displays four black squares.](/images/macie/latest/user/images/btn-s3-map-view.png)
 ). 4. In the details panel, do any of the following:
 
     * To override the calculated sensitivity score and manually assign a score, turn on
@@ -79,7 +79,7 @@ using the table view (
      label to the bucket.
     * To assign a sensitivity score that Macie calculates automatically, turn off
      **Assign maximum score** (
-    ![A toggle switch with a blue background and the toggle positioned to the right.](/images/macie/latest/user/images/tgl-blue-on.png)
+    ![A toggle switch with a blue background and the toggle positioned to the right.](images/tgl-blue-on.png)
     ).
     * To exclude or include specific types of sensitive data in the sensitivity score,
      choose the **Sensitivity** tab. In the
@@ -102,7 +102,7 @@ using the table view (
     ).
     * To include the bucket in subsequent analyses, if you previously excluded it,
      turn off **Exclude from automated discovery** (
-    ![A toggle switch with a blue background and the toggle positioned to the right.](/images/macie/latest/user/images/tgl-blue-on.png)
+    ![A toggle switch with a blue background and the toggle positioned to the right.](images/tgl-blue-on.png)
     ).
 
 API

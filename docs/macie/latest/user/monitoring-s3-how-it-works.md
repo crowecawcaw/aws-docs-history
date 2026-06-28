@@ -272,32 +272,31 @@ organization, not your organization overall.
   the bucket. To help you identify a bucket where this is the case, Macie does the
   following:
 
-      + In your bucket inventory on the console, Macie displays a warning icon
-       (
-      ![The warning icon, which is a red triangle that has an exclamation point in it.](images/icon-warning-red.png)
-      ) for the bucket.
-      + For the bucket's details, Macie provides data for only a subset of
-       fields: the account ID for the AWS account that owns the bucket; the
-       bucket's name, Amazon Resource Name (ARN), creation date, and Region;
-       and, the date and time when Macie most recently retrieved both bucket
-       and object metadata for the bucket as part of the daily refresh cycle.
-       If you query inventory data programmatically with the Amazon Macie API,
-       Macie also provides an error code and message for the bucket.
-      + In the **Summary** dashboard on the console, the
-       bucket has a value of **Unknown** for **Public
-       access**, **Encryption**, and
-       **Sharing** statistics. In addition, Macie excludes
-       the bucket when it calculates data for **Storage** and
-       **Objects** statistics.
-      + If you query aggregated statistics programmatically by using the
-       [GetBucketStatistics](../APIReference/datasources-s3-statistics.md "../APIReference/datasources-s3-statistics.md") operation, the bucket has a value of
-       `unknown` for many statistics and Macie excludes the
-       bucket when it calculates object counts and storage size values.
-
-  To investigate the issue, review the bucket’s policy and permissions settings
-  in Amazon S3. For example, the bucket might have a restrictive bucket policy. For
-  more information, see [Allowing Macie to access S3
-  buckets and objects](monitoring-restrictive-s3-buckets.md "monitoring-restrictive-s3-buckets.md").
+  - In your bucket inventory on the console, Macie displays a warning icon
+    (
+    ![The warning icon, which is a red triangle that has an exclamation point in it.](images/icon-warning-red.png)
+    ) for the bucket.
+  - For the bucket's details, Macie provides data for only a subset of
+    fields: the account ID for the AWS account that owns the bucket; the
+    bucket's name, Amazon Resource Name (ARN), creation date, and Region;
+    and, the date and time when Macie most recently retrieved both bucket
+    and object metadata for the bucket as part of the daily refresh cycle.
+    If you query inventory data programmatically with the Amazon Macie API,
+    Macie also provides an error code and message for the bucket.
+  - In the **Summary** dashboard on the console, the
+    bucket has a value of **Unknown** for **Public
+    access**, **Encryption**, and
+    **Sharing** statistics. In addition, Macie excludes
+    the bucket when it calculates data for **Storage** and
+    **Objects** statistics.
+  - If you query aggregated statistics programmatically by using the
+    [GetBucketStatistics](../APIReference/datasources-s3-statistics.md "../APIReference/datasources-s3-statistics.md") operation, the bucket has a value of
+    `unknown` for many statistics and Macie excludes the
+    bucket when it calculates object counts and storage size values.
+    To investigate the issue, review the bucket’s policy and permissions settings
+    in Amazon S3. For example, the bucket might have a restrictive bucket policy. For
+    more information, see [Allowing Macie to access S3
+    buckets and objects](monitoring-restrictive-s3-buckets.md "monitoring-restrictive-s3-buckets.md").
 
 - Data about access and permissions is limited to account- and bucket-level
   settings. It doesn’t reflect object-level settings that determine access to

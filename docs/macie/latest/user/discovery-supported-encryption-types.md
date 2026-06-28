@@ -96,15 +96,15 @@ encryption. You can also determine which buckets use certain types of server-sid
 encryption by default when storing new objects. The following table provides examples of
 filters that you can apply to your bucket inventory to find this information.
 
-| To show buckets that...                                                | Apply this filter...                                                                         |
-| ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Store objects that use SSE-C encryption                                | **Object count by encryption\*<br>• is **Customer<br>provided*<br>• and \*\*From*<br>• = _1_ |
-| Store objects that use DSSE-KMS or SSE-KMS encryption                  | **Object count by encryption\*<br>• is **AWS KMS<br>managed*<br>• and \*\*From*<br>• = _1_   |
-| Store objects that use SSE-S3 encryption                               | **Object count by encryption\*<br>• is **Amazon S3<br>managed*<br>• and \*\*From*<br>• = _1_ |
-| Store objects that use client-side encryption (or aren't<br>encrypted) | **Object count by encryption\*<br>• is **No<br>encryption*<br>• and \*\*From*<br>• =<br>_1_  |
-| Encrypt new objects by default using DSSE-KMS encryption               | **Default encryption\*<br>• =<br>**aws:kms:dsse\*\*                                          |
-| Encrypt new objects by default using SSE-KMS encryption                | **Default encryption\*<br>• =<br>**aws:kms\*\*                                               |
-| Encrypt new objects by default using SSE-S3 encryption                 | **Default encryption\*<br>• =<br>**AES256\*\*                                                |
+| To show buckets that...                                                | Apply this filter...                                                                      |
+| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Store objects that use SSE-C encryption                                | *_Object count by encryption_<br>• is *_Customer<br>provided_<br>• and *_From_<br>• = _1_ |
+| Store objects that use DSSE-KMS or SSE-KMS encryption                  | *_Object count by encryption_<br>• is *_AWS KMS<br>managed_<br>• and *_From_<br>• = _1_   |
+| Store objects that use SSE-S3 encryption                               | *_Object count by encryption_<br>• is *_Amazon S3<br>managed_<br>• and *_From_<br>• = _1_ |
+| Store objects that use client-side encryption (or aren't<br>encrypted) | *_Object count by encryption_<br>• is *_No<br>encryption_<br>• and *_From_<br>• =<br>_1_  |
+| Encrypt new objects by default using DSSE-KMS encryption               | *_Default encryption_<br>• =<br>**aws:kms:dsse**                                          |
+| Encrypt new objects by default using SSE-KMS encryption                | *_Default encryption_<br>• =<br>**aws:kms**                                               |
+| Encrypt new objects by default using SSE-S3 encryption                 | *_Default encryption_<br>• =<br>**AES256**                                                |
 
 If a bucket is configured to encrypt new objects by default using DSSE-KMS or SSE-KMS
 encryption, you can also determine which AWS KMS key is used. To do this, choose the

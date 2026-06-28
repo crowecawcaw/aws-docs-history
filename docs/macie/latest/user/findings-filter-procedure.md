@@ -87,54 +87,54 @@ which criteria you've applied. To remove a condition, choose the remove conditio
 
 ###### To filter findings by using the console
 
-1.  Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
-2.  In the navigation pane, choose **Findings**.
-3.  (Optional) To first pivot on and review findings by a predefined logical group, choose
-    **By bucket**, **By type**, or **By
-    job** in the navigation pane (under **Findings**). Then choose
-    an item in the table. In the details panel, choose the link for the field to pivot
-    on.
-4.  (Optional) To display findings that were suppressed by a [suppression rule](findings-suppression.md "findings-suppression.md"), change the **Filter
-    status** setting. Choose **Archived** to display only
-    suppressed findings, or choose **All** to display both suppressed and
-    unsuppressed findings. To hide suppressed findings, choose
-    **Current**.
-5.  To add a filter condition:
+1. Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
+2. In the navigation pane, choose **Findings**.
+3. (Optional) To first pivot on and review findings by a predefined logical group, choose
+   **By bucket**, **By type**, or **By
+   job** in the navigation pane (under **Findings**). Then choose
+   an item in the table. In the details panel, choose the link for the field to pivot
+   on.
+4. (Optional) To display findings that were suppressed by a [suppression rule](findings-suppression.md "findings-suppression.md"), change the **Filter
+   status** setting. Choose **Archived** to display only
+   suppressed findings, or choose **All** to display both suppressed and
+   unsuppressed findings. To hide suppressed findings, choose
+   **Current**.
+5. To add a filter condition:
 
-    1. Place your cursor in the **Filter criteria** box, and then choose
-       the field to use for the condition. For information about the fields that you can use,
-       see [Fields for filtering Macie findings](findings-filter-fields.md "findings-filter-fields.md").
-    2. Enter the appropriate type of value for the field. For detailed information about
-       the different types of values, see [Specifying values for fields](findings-filter-basics.md#findings-filter-basics-value-types "findings-filter-basics.md#findings-filter-basics-value-types").
+   1. Place your cursor in the **Filter criteria** box, and then choose
+      the field to use for the condition. For information about the fields that you can use,
+      see [Fields for filtering Macie findings](findings-filter-fields.md "findings-filter-fields.md").
+   2. Enter the appropriate type of value for the field. For detailed information about
+      the different types of values, see [Specifying values for fields](findings-filter-basics.md#findings-filter-basics-value-types "findings-filter-basics.md#findings-filter-basics-value-types").
 
-    Array of text (strings)
+   Array of text (strings)
 
-    For this type of value, Macie often provides a list of values to choose
-    from. If this is the case, select each value that you want to use in the
-    condition.
+   For this type of value, Macie often provides a list of values to choose
+   from. If this is the case, select each value that you want to use in the
+   condition.
 
-    If Macie doesn't provide a list of values, enter a complete, valid value for
-    the field. To specify additional values for the field, choose
-    **Apply**, and then add another condition for each additional
-    value.
+   If Macie doesn't provide a list of values, enter a complete, valid value for
+   the field. To specify additional values for the field, choose
+   **Apply**, and then add another condition for each additional
+   value.
 
-    Note that values are case sensitive. In addition, you can’t use partial
-    values or wildcard characters in values. For example, to filter findings for an
-    S3 bucket named _my-S3-bucket_, enter
-    `my-S3-bucket` as the value for the **S3 bucket
-    name** field. If you enter any other value, such as
-    `my-s3-bucket` or `my-S3`, Macie
-    won’t return findings for the bucket.
+   Note that values are case sensitive. In addition, you can’t use partial
+   values or wildcard characters in values. For example, to filter findings for an
+   S3 bucket named _my-S3-bucket_, enter
+   `my-S3-bucket` as the value for the **S3 bucket
+   name** field. If you enter any other value, such as
+   `my-s3-bucket` or `my-S3`, Macie
+   won’t return findings for the bucket.
 
-    Boolean
+   Boolean
 
-    For this type of value, Macie provides a list of values to choose from.
-    Select the value that you want to use in the condition.
+   For this type of value, Macie provides a list of values to choose from.
+   Select the value that you want to use in the condition.
 
-    Date/Time (time ranges)
+   Date/Time (time ranges)
 
-    For this type of value, use the **From** and
-    **To** boxes to define an inclusive time range:
+   For this type of value, use the **From** and
+   **To** boxes to define an inclusive time range:
 
         * To define a fixed time range, use the **From** and
          **To** boxes to specify the first date and time and the
@@ -147,40 +147,40 @@ which criteria you've applied. To remove a condition, choose the remove conditio
          enter the end date and time in the **To** boxes, and delete
          any text in the **From** boxes.
 
-    Note that time values use 24-hour notation. If you use the date picker to
-    choose dates, you can refine the values by entering text directly in the
-    **From** and **To** boxes.
+   Note that time values use 24-hour notation. If you use the date picker to
+   choose dates, you can refine the values by entering text directly in the
+   **From** and **To** boxes.
 
-    Number (numeric ranges)
+   Number (numeric ranges)
 
-    For this type of value, use the **From** and
-    **To** boxes to enter one or more integers that define an
-    inclusive, fixed or relative numeric range.
+   For this type of value, use the **From** and
+   **To** boxes to enter one or more integers that define an
+   inclusive, fixed or relative numeric range.
 
-    Text (string) values
+   Text (string) values
 
-    For this type of value, enter a complete, valid value for the field.
+   For this type of value, enter a complete, valid value for the field.
 
-    Note that values are case sensitive. In addition, you can’t use partial
-    values or wildcard characters in values. For example, to filter findings for an
-    S3 bucket named _my-S3-bucket_, enter
-    `my-S3-bucket` as the value for the **S3 bucket
-    name** field. If you enter any other value, such as
-    `my-s3-bucket` or `my-S3`, Macie
-    won’t return findings for the bucket. 3. When you finish adding values for the field, choose **Apply**.
-    Macie applies the filter criteria and adds the condition to a filter token in the
-    **Filter criteria** box.
+   Note that values are case sensitive. In addition, you can’t use partial
+   values or wildcard characters in values. For example, to filter findings for an
+   S3 bucket named _my-S3-bucket_, enter
+   `my-S3-bucket` as the value for the **S3 bucket
+   name** field. If you enter any other value, such as
+   `my-s3-bucket` or `my-S3`, Macie
+   won’t return findings for the bucket. 3. When you finish adding values for the field, choose **Apply**.
+   Macie applies the filter criteria and adds the condition to a filter token in the
+   **Filter criteria** box.
 
-6.  Repeat step 5 for each additional condition that you want to add.
-7.  To remove a condition, choose the remove condition icon (
-    ![The remove filter condition icon, which is a circle that has an X in it.](images/icon-filter-remove.png)
-    ) in the
-    filter token for the condition.
-8.  To change a condition, remove the condition by choosing the remove condition icon
-    (
-    ![The remove filter condition icon, which is a circle that has an X in it.](images/icon-filter-remove.png)
-    ) in the filter token for the condition. Then repeat step 5 to add a
-    condition with the correct settings.
+6. Repeat step 5 for each additional condition that you want to add.
+7. To remove a condition, choose the remove condition icon (
+   ![The remove filter condition icon, which is a circle that has an X in it.](images/icon-filter-remove.png)
+   ) in the
+   filter token for the condition.
+8. To change a condition, remove the condition by choosing the remove condition icon
+   (
+   ![The remove filter condition icon, which is a circle that has an X in it.](images/icon-filter-remove.png)
+   ) in the filter token for the condition. Then repeat step 5 to add a
+   condition with the correct settings.
 
 ###### Tip
 

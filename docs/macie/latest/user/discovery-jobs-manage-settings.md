@@ -138,7 +138,7 @@ To review these settings in JSON format, choose
 **Tags**
 
 This section appears in the panel if tags are assigned to the job. It
-lists those tags. A *tag* is a label that you define and assign to certain types of AWS resources. Each tag consists of a required tag key and an optional tag value. To learn more, see [Tagging Macie resources](tagging-resources.md "tagging-resources.md").
+lists those tags. A _tag_ is a label that you define and assign to certain types of AWS resources. Each tag consists of a required tag key and an optional tag value. To learn more, see [Tagging Macie resources](tagging-resources.md "tagging-resources.md").
 
 To review and save the job's settings in JSON format, choose the unique identifier for
 the job (**Job ID**) at the top of the panel. Then choose

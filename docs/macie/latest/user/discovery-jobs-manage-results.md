@@ -148,35 +148,35 @@ to retrieve the details of the findings.
 
 ###### To review statistics and results for a job
 
-1.  Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
-2.  In the navigation pane, choose **Jobs**.
-3.  On the **Jobs** page, choose the name of the job whose
-    statistics and results you want to review. The details panel displays
-    statistics, settings, and other information about the job.
-4.  In the details panel, do any of the following:
+1. Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
+2. In the navigation pane, choose **Jobs**.
+3. On the **Jobs** page, choose the name of the job whose
+   statistics and results you want to review. The details panel displays
+   statistics, settings, and other information about the job.
+4. In the details panel, do any of the following:
 
-    - To review processing statistics for the job, refer to the
-      **Statistics** section of the panel. This section
-      displays statistics such as the number of times that the job has run,
-      and the approximate number of objects that the job has yet to process
-      during its current run.
-    - To review log events for the job, choose **Show
-      results** at the top of the panel, and then choose
-      **Show CloudWatch logs**. Macie opens the Amazon CloudWatch
-      console and displays a table of the log events that Macie published for
-      the job.
-    - To review all the sensitive data findings that the job produced, choose **Show
-      results** at the top of the panel, and then choose
-      **Show findings**. Macie opens the
-      **Findings** page and displays all the findings
-      from the job. To review the details of a particular finding, choose the
-      finding, and then refer to the details panel.
+   - To review processing statistics for the job, refer to the
+     **Statistics** section of the panel. This section
+     displays statistics such as the number of times that the job has run,
+     and the approximate number of objects that the job has yet to process
+     during its current run.
+   - To review log events for the job, choose **Show
+     results** at the top of the panel, and then choose
+     **Show CloudWatch logs**. Macie opens the Amazon CloudWatch
+     console and displays a table of the log events that Macie published for
+     the job.
+   - To review all the sensitive data findings that the job produced, choose **Show
+     results** at the top of the panel, and then choose
+     **Show findings**. Macie opens the
+     **Findings** page and displays all the findings
+     from the job. To review the details of a particular finding, choose the
+     finding, and then refer to the details panel.
 
-    ###### Tip
+   ###### Tip
 
-    In the finding details panel, you can use the link in the **Detailed result
-    location** field to navigate to the corresponding
-    sensitive data discovery result in Amazon S3:
+   In the finding details panel, you can use the link in the **Detailed result
+   location** field to navigate to the corresponding
+   sensitive data discovery result in Amazon S3:
 
         + If the finding applies to a large archive or compressed
          file, the link displays the folder that contains the
@@ -191,10 +191,10 @@ to retrieve the details of the findings.
         + If the finding applies to another type of file, the link
          displays the file that contains the discovery results for
          the file.
-    - To review all the sensitive data discovery results that the job produced, choose **Show
-      results** at the top of the panel, and then choose
-      **Show classifications**. Macie opens the Amazon S3
-      console and displays the folder that contains all the discovery results
-      for the job. This option is available only after you configure Macie to
-      [store your sensitive
-      data discovery results](discovery-results-repository-s3.md "discovery-results-repository-s3.md") in an S3 bucket.
+   - To review all the sensitive data discovery results that the job produced, choose **Show
+     results** at the top of the panel, and then choose
+     **Show classifications**. Macie opens the Amazon S3
+     console and displays the folder that contains all the discovery results
+     for the job. This option is available only after you configure Macie to
+     [store your sensitive
+     data discovery results](discovery-results-repository-s3.md "discovery-results-repository-s3.md") in an S3 bucket.

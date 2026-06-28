@@ -156,8 +156,8 @@ cycle](monitoring-s3-how-it-works.md#monitoring-s3-how-it-works-data-refresh "mo
      inventory](monitoring-s3-inventory-review.md "monitoring-s3-inventory-review.md").
 
 7. When you finish selecting buckets, choose
-   **Next**.
-   In the next step, you'll review and verify your selections.
+**Next**.
+In the next step, you'll review and verify your selections.
 
 If you choose to specify runtime criteria that determine which S3 buckets to analyze,
 Macie provides options to help you choose fields, operators, and values for
@@ -166,58 +166,57 @@ individual conditions in the criteria. To learn more about these options, see
 
 ###### To specify S3 bucket criteria for the job
 
-1.  Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
-2.  In the navigation pane, choose **Jobs**.
-3.  Choose **Create job**.
-4.  On the **Choose S3 buckets** page, choose
-    **Specify bucket criteria**.
-5.  Under **Specify bucket criteria**, do the following
-    to add a condition to the criteria:
+1. Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
+2. In the navigation pane, choose **Jobs**.
+3. Choose **Create job**.
+4. On the **Choose S3 buckets** page, choose
+   **Specify bucket criteria**.
+5. Under **Specify bucket criteria**, do the following
+   to add a condition to the criteria:
 
-    1. Place your cursor in the filter box, and then choose the bucket property to use for
-       the condition.
-    2. In the first box, choose an operator for the condition,
-       **Equals** or **Not
-       equals**.
-    3. In the next box, enter one or more values for the
-       property.
+   1. Place your cursor in the filter box, and then choose the bucket property to use for
+      the condition.
+   2. In the first box, choose an operator for the condition,
+      **Equals** or **Not
+      equals**.
+   3. In the next box, enter one or more values for the
+      property.
 
-    Depending on the type and nature of the bucket property, Macie
-    displays different options for entering values. For example, if
-    you choose the **Effective permission**
-    property, Macie displays a list of values to choose from. If you
-    choose the **Account ID** property, Macie
-    displays a text box in which you can enter one or more
-    AWS account IDs. To enter multiple values in a text box, enter
-    each value and separate each entry with a comma. 4. Choose **Apply**. Macie adds the condition and displays it below the
-    filter box.
+   Depending on the type and nature of the bucket property, Macie
+   displays different options for entering values. For example, if
+   you choose the **Effective permission**
+   property, Macie displays a list of values to choose from. If you
+   choose the **Account ID** property, Macie
+   displays a text box in which you can enter one or more
+   AWS account IDs. To enter multiple values in a text box, enter
+   each value and separate each entry with a comma. 4. Choose **Apply**. Macie adds the condition and displays it below the
+   filter box.
 
-    By default, Macie adds the condition with an include statement. This means that the
-    job is configured to analyze (_include_) objects in buckets that match the
-    condition. To skip (_exclude_)
-    buckets that match the condition, choose
-    **Include** for the condition, and then
-    choose **Exclude**. 5. Repeat the preceding steps for each additional condition that
-    you want to add to the criteria.
+   By default, Macie adds the condition with an include statement. This means that the
+   job is configured to analyze (_include_) objects in buckets that match the
+   condition. To skip (_exclude_)
+   buckets that match the condition, choose
+   **Include** for the condition, and then
+   choose **Exclude**. 5. Repeat the preceding steps for each additional condition that
+   you want to add to the criteria.
 
-6.  To test your criteria, expand the **Preview the criteria results**
-    section. This section displays a table of up to 25 general purpose
-    buckets that currently match the criteria.
-7.  To refine your criteria, do any of the following:
+6. To test your criteria, expand the **Preview the criteria results**
+   section. This section displays a table of up to 25 general purpose
+   buckets that currently match the criteria.
+7. To refine your criteria, do any of the following:
 
-        * To remove a condition, choose **X** for the condition.
-        * To change a condition, remove the condition by choosing **X** for the
-         condition. Then add a condition that has the correct
-         settings.
-        * To remove all conditions, choose **Clear
-         filters**.
+   - To remove a condition, choose **X** for the condition.
+   - To change a condition, remove the condition by choosing **X** for the
+     condition. Then add a condition that has the correct
+     settings.
+   - To remove all conditions, choose **Clear
+     filters**.
+     Macie updates the table of criteria results to reflect your
+     changes.
 
-    Macie updates the table of criteria results to reflect your
-    changes.
-
-8.  When you finish specifying bucket criteria, choose
-    **Next**.
-    In the next step, you'll review and verify your criteria.
+8. When you finish specifying bucket criteria, choose
+   **Next**.
+   In the next step, you'll review and verify your criteria.
 
 ## Step 2: Review your S3 bucket selections or criteria
 
@@ -335,9 +334,9 @@ When you choose either option, Macie displays a table of managed data identifier
 table, the **Sensitive data type** field specifies the unique
 identifier (ID) for a managed data identifier. This ID describes the type of sensitive
 data that the managed data identifier is designed to detect, for example:
-**USA_PASSPORT_NUMBER** for US passport numbers,
-**CREDIT_CARD_NUMBER** for credit card numbers, and
-**PGP_PRIVATE_KEY** for PGP private keys. To find specific
+**USA\_PASSPORT\_NUMBER** for US passport numbers,
+**CREDIT\_CARD\_NUMBER** for credit card numbers, and
+**PGP\_PRIVATE\_KEY** for PGP private keys. To find specific
 identifiers more quickly, you can sort and filter the table by sensitive data category
 or type.
 
@@ -441,7 +440,7 @@ regex, and then reports the number of matches. 2. When you finish selecting allo
 ## Step 7: Enter general settings
 
 For this step, specify a name and, optionally, a description of the job. You can also assign
-tags to the job. A *tag* is a label that you define and assign to certain types of AWS resources. Each tag consists of a required tag key and an optional tag value. Tags can help you identify, categorize, and manage resources in different ways, such as by purpose, owner, environment, or other criteria. To learn more, see [Tagging Macie resources](tagging-resources.md "tagging-resources.md").
+tags to the job. A _tag_ is a label that you define and assign to certain types of AWS resources. Each tag consists of a required tag key and an optional tag value. Tags can help you identify, categorize, and manage resources in different ways, such as by purpose, owner, environment, or other criteria. To learn more, see [Tagging Macie resources](tagging-resources.md "tagging-resources.md").
 
 ###### To enter general settings for the job
 

@@ -8,7 +8,7 @@ characteristics. Each rule consists of a set of filter criteria, a name, and, op
 description.
 
 In addition to changing the filter criteria or other settings for a rule, you can assign
-tags to a rule. A *tag* is a label that you define and assign to certain types of AWS resources. Each tag consists of a required tag key and an optional tag value. Tags can help you identify, categorize, and manage resources in different ways, such as by purpose, owner, environment, or other criteria. To learn more, see [Tagging Macie resources](tagging-resources.md "tagging-resources.md").
+tags to a rule. A _tag_ is a label that you define and assign to certain types of AWS resources. Each tag consists of a required tag key and an optional tag value. Tags can help you identify, categorize, and manage resources in different ways, such as by purpose, owner, environment, or other criteria. To learn more, see [Tagging Macie resources](tagging-resources.md "tagging-resources.md").
 
 ###### To change a filter rule for findings
 

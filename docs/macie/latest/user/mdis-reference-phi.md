@@ -40,7 +40,7 @@ information:
 
 ## Drug Enforcement Agency (DEA) Registration Number
 
-**Managed data identifier ID:** US_DRUG_ENFORCEMENT_AGENCY_NUMBER
+**Managed data identifier ID:** US\_DRUG\_ENFORCEMENT\_AGENCY\_NUMBER
 
 **Supported countries and regions:** US
 
@@ -51,7 +51,7 @@ dea registration_
 
 ## Health Insurance Claim Number (HICN)
 
-**Managed data identifier ID:** USA_HEALTH_INSURANCE_CLAIM_NUMBER
+**Managed data identifier ID:** USA\_HEALTH\_INSURANCE\_CLAIM\_NUMBER
 
 **Supported countries and regions:** US
 
@@ -67,10 +67,10 @@ Support includes European Health Insurance Card numbers for the EU and Finland, 
 insurance numbers for France, Medicare Beneficiary Identifiers for the US, NHS numbers for the
 UK, and Personal Health Numbers for Canada.
 
-**Managed data identifier ID:** Depending on country or region, CANADA_HEALTH_NUMBER,
-EUROPEAN_HEALTH_INSURANCE_CARD_NUMBER, FINLAND_EUROPEAN_HEALTH_INSURANCE_NUMBER,
-FRANCE_HEALTH_INSURANCE_NUMBER, UK_NHS_NUMBER,
-USA_MEDICARE_BENEFICIARY_IDENTIFIER
+**Managed data identifier ID:** Depending on country or region, CANADA\_HEALTH\_NUMBER,
+EUROPEAN\_HEALTH\_INSURANCE\_CARD\_NUMBER, FINLAND\_EUROPEAN\_HEALTH\_INSURANCE\_NUMBER,
+FRANCE\_HEALTH\_INSURANCE\_NUMBER, UK\_NHS\_NUMBER,
+USA\_MEDICARE\_BENEFICIARY\_IDENTIFIER
 
 **Supported countries and regions:** Canada, EU, Finland, France, UK, US
 
@@ -90,7 +90,7 @@ for specific countries and regions.
 
 ## Healthcare Common Procedure Coding System (HCPCS) code
 
-**Managed data identifier ID:** USA_HEALTHCARE_PROCEDURE_CODE
+**Managed data identifier ID:** USA\_HEALTHCARE\_PROCEDURE\_CODE
 
 **Supported countries and regions:** US
 
@@ -102,7 +102,7 @@ system_
 
 ## National Drug Code (NDC)
 
-**Managed data identifier ID:** USA_NATIONAL_DRUG_CODE
+**Managed data identifier ID:** USA\_NATIONAL\_DRUG\_CODE
 
 **Supported countries and regions:** US
 
@@ -113,7 +113,7 @@ code, ndc_
 
 ## National Provider Identifier (NPI)
 
-**Managed data identifier ID:** USA_NATIONAL_PROVIDER_IDENTIFIER
+**Managed data identifier ID:** USA\_NATIONAL\_PROVIDER\_IDENTIFIER
 
 **Supported countries and regions:** US
 
@@ -124,7 +124,7 @@ national provider, npi_
 
 ## Unique device identifier (UDI)
 
-**Managed data identifier ID:** MEDICAL_DEVICE_UDI
+**Managed data identifier ID:** MEDICAL\_DEVICE\_UDI
 
 **Supported countries and regions:** US
 

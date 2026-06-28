@@ -101,9 +101,8 @@ formats](discovery-supported-storage.md "discovery-supported-storage.md"). 6. To
      in the field.
 
 7. To export data from the table to a CSV file, select the checkbox for each row to export,
-   or select the checkbox in the selection column heading to select all rows. Then choose
-   **Export to CSV** at the top of the page. You can export up to 50,000 rows
-   from the table.
-8. To perform deeper, more immediate analysis of objects in one or more buckets, select the
-   checkbox for each bucket. Then choose **Create job**. For more information,
-   see [Creating a sensitive data discovery job](discovery-jobs-create.md "discovery-jobs-create.md").
+or select the checkbox in the selection column heading to select all rows. Then choose
+**Export to CSV** at the top of the page. You can export up to 50,000 rows
+from the table. 8. To perform deeper, more immediate analysis of objects in one or more buckets, select the
+checkbox for each bucket. Then choose **Create job**. For more information,
+see [Creating a sensitive data discovery job](discovery-jobs-create.md "discovery-jobs-create.md").

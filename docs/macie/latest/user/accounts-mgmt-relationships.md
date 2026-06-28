@@ -22,7 +22,7 @@ In the table:
   A dash (–) indicates that the account can’t perform the task.
 
 | **Task**                                                                                                                                                               | **Through AWS Organizations** | **By invitation** |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ----------------- | ---------- | ---- |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ----------------- |
 | **Administrator**                                                                                                                                                      | **Member**                    | **Administrator** | **Member** |
 | Enable Macie                                                                                                                                                           | Any                           | –                 | Self       | Self |
 | Review the organization's account inventory [1](#accounts-mgmt-relationships-note-inventory "#accounts-mgmt-relationships-note-inventory")                             | All                           | –                 | All        | –    |

@@ -19,34 +19,33 @@ settings.
 
 ###### To review suppressed findings on the console
 
-1.  Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
-2.  In the navigation pane, choose **Findings**. The
-    **Findings** page displays findings that Macie created or
-    updated for your account in the current AWS Region during the past 90 days. By
-    default, this doesn't include findings that were suppressed by a suppression
-    rule.
-3.  To pivot on and review the findings by a predefined logical group, choose
-    **By bucket**, **By type**, or
-    **By job** in the navigation pane (under
-    **Findings**).
-4.  For **Finding status**, do one of the following:
+1. Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
+2. In the navigation pane, choose **Findings**. The
+   **Findings** page displays findings that Macie created or
+   updated for your account in the current AWS Region during the past 90 days. By
+   default, this doesn't include findings that were suppressed by a suppression
+   rule.
+3. To pivot on and review the findings by a predefined logical group, choose
+   **By bucket**, **By type**, or
+   **By job** in the navigation pane (under
+   **Findings**).
+4. For **Finding status**, do one of the following:
 
-        * To display only suppressed findings, choose
-         **Archived**.
-        * To display both suppressed and unsuppressed findings, choose
-         **All**.
-        * To hide suppressed findings again, choose
-         **Current**.
-
-    You can also access suppressed findings by using the Amazon Macie API. To retrieve a list
-    of suppressed findings, use the [ListFindings](../APIReference/findings.md "../APIReference/findings.md") operation. In
-    your request, include a filter condition that specifies `true` for the
-    `archived` field. For an example of how to do this by using the AWS Command Line Interface
-    (AWS CLI), see [Filtering findings
-    programmatically](findings-filter-procedure.md#findings-filter-procedure-api "findings-filter-procedure.md#findings-filter-procedure-api"). To then retrieve the details
-    of one or more suppressed findings, use the [GetFindings](../APIReference/findings-describe.md "../APIReference/findings-describe.md")
-    operation. In your request, specify the unique identifier for each finding to
-    retrieve.
+   - To display only suppressed findings, choose
+     **Archived**.
+   - To display both suppressed and unsuppressed findings, choose
+     **All**.
+   - To hide suppressed findings again, choose
+     **Current**.
+     You can also access suppressed findings by using the Amazon Macie API. To retrieve a list
+     of suppressed findings, use the [ListFindings](../APIReference/findings.md "../APIReference/findings.md") operation. In
+     your request, include a filter condition that specifies `true` for the
+     `archived` field. For an example of how to do this by using the AWS Command Line Interface
+     (AWS CLI), see [Filtering findings
+     programmatically](findings-filter-procedure.md#findings-filter-procedure-api "findings-filter-procedure.md#findings-filter-procedure-api"). To then retrieve the details
+     of one or more suppressed findings, use the [GetFindings](../APIReference/findings-describe.md "../APIReference/findings-describe.md")
+     operation. In your request, specify the unique identifier for each finding to
+     retrieve.
 
 ###### Note
 

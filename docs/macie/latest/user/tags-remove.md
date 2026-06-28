@@ -1,7 +1,7 @@
 # Removing tags from Macie resources
 
 If you add tags to an Amazon Macie resource, you can subsequently remove one or more of
-them. A *tag* is a label that you define and assign to
+them. A _tag_ is a label that you define and assign to
 AWS resources, including certain types of Macie resources. You can add, edit, and
 remove tags from the following types of Macie resources: allow lists, custom data
 identifiers, filter rules and suppression rules for findings, member accounts in an
@@ -34,50 +34,49 @@ Amazon Macie console.
 
 ###### To remove a tag from a resource
 
-1.  Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
-2.  Depending on the type of resource that you want to remove a tag
-    from, do one of the following:
+1. Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
+2. Depending on the type of resource that you want to remove a tag
+   from, do one of the following:
 
-        * For an allow list, choose **Allow lists** in
-         the navigation pane. In the table, select the checkbox for the list. Then choose
-         **Manage tags** on the
-         **Actions** menu.
-        * For a custom data identifier, choose **Custom data identifiers** in
-         the navigation pane. In the table, select the checkbox for the custom data identifier. Then choose
-         **Manage tags** on the
-         **Actions** menu.
-        * For a filter or suppression rule, choose **Findings** in the
-         navigation pane. In the **Saved rules** list, choose the edit icon
-         (
-        ![The edit icon, which is a blue pencil.](images/icon-edit-resource-blue.png)
-        ) next to the rule. Then choose
-         **Manage tags**.
-        * For a member account in your organization, choose **Accounts** in
-         the navigation pane. In the table, select the checkbox for the account. Then choose
-         **Manage tags** on the
-         **Actions** menu.
-        * For a sensitive data discovery job, choose **Jobs** in the
-         navigation pane. In the table, select the checkbox for the job. Then choose **Manage
-         tags** on the **Actions** menu.
+   - For an allow list, choose **Allow lists** in
+     the navigation pane. In the table, select the checkbox for the list. Then choose
+     **Manage tags** on the
+     **Actions** menu.
+   - For a custom data identifier, choose **Custom data identifiers** in
+     the navigation pane. In the table, select the checkbox for the custom data identifier. Then choose
+     **Manage tags** on the
+     **Actions** menu.
+   - For a filter or suppression rule, choose **Findings** in the
+     navigation pane. In the **Saved rules** list, choose the edit icon
+     (
+     ![The edit icon, which is a blue pencil.](images/icon-edit-resource-blue.png)
+     ) next to the rule. Then choose
+     **Manage tags**.
+   - For a member account in your organization, choose **Accounts** in
+     the navigation pane. In the table, select the checkbox for the account. Then choose
+     **Manage tags** on the
+     **Actions** menu.
+   - For a sensitive data discovery job, choose **Jobs** in the
+     navigation pane. In the table, select the checkbox for the job. Then choose **Manage
+     tags** on the **Actions** menu.
+     The **Manage tags** window lists all the tags
+     that are currently assigned to the resource.
 
-    The **Manage tags** window lists all the tags
-    that are currently assigned to the resource.
+3. In the **Manage tags** window, choose
+   **Edit tags**.
+4. Do any of the following:
 
-3.  In the **Manage tags** window, choose
-    **Edit tags**.
-4.  Do any of the following:
+   - To remove only the tag value for a tag, choose
+     **X** in the **Value**
+     box that contains the value to remove.
+   - To remove both the tag key and tag value (as a pair) for a
+     tag, choose **Remove** next to the tag to
+     remove.
 
-    - To remove only the tag value for a tag, choose
-      **X** in the **Value**
-      box that contains the value to remove.
-    - To remove both the tag key and tag value (as a pair) for a
-      tag, choose **Remove** next to the tag to
-      remove.
-
-5.  To remove additional tags from the resource, repeat the preceding
-    step for each additional tag to remove.
-6.  When you finish removing tags, choose
-    **Save**.
+5. To remove additional tags from the resource, repeat the preceding
+   step for each additional tag to remove.
+6. When you finish removing tags, choose
+   **Save**.
 
 API
 To remove one or more tags from a resource programmatically, use the

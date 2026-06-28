@@ -111,7 +111,7 @@ Amazon Macie console.
    tag**, and then enter as many as 50 tags to assign to the allow
    list.
 
-A *tag* is a label that you define and assign to certain types of AWS resources. Each tag consists of a required tag key and an optional tag value. Tags can help you identify, categorize, and manage resources in different ways, such as by purpose, owner, environment, or other criteria. To learn more, see [Tagging Macie resources](tagging-resources.md "tagging-resources.md"). 7. When you finish, choose **Create**.
+A _tag_ is a label that you define and assign to certain types of AWS resources. Each tag consists of a required tag key and an optional tag value. Tags can help you identify, categorize, and manage resources in different ways, such as by purpose, owner, environment, or other criteria. To learn more, see [Tagging Macie resources](tagging-resources.md "tagging-resources.md"). 7. When you finish, choose **Create**.
 
 Macie tests the list's settings. Macie also verifies that it can retrieve the list
 from Amazon S3 and parse the list's content. If an error occurs, Macie displays a message
@@ -226,7 +226,7 @@ ignore occurrences of text that you don’t consider sensitive. 7. (Optional) Un
 tag**, and then enter as many as 50 tags to assign to the allow
 list.
 
-A *tag* is a label that you define and assign to certain types of AWS resources. Each tag consists of a required tag key and an optional tag value. Tags can help you identify, categorize, and manage resources in different ways, such as by purpose, owner, environment, or other criteria. To learn more, see [Tagging Macie resources](tagging-resources.md "tagging-resources.md"). 8. When you finish, choose **Create**.
+A _tag_ is a label that you define and assign to certain types of AWS resources. Each tag consists of a required tag key and an optional tag value. Tags can help you identify, categorize, and manage resources in different ways, such as by purpose, owner, environment, or other criteria. To learn more, see [Tagging Macie resources](tagging-resources.md "tagging-resources.md"). 8. When you finish, choose **Create**.
 
 Macie tests the list's settings. Macie also tests the regex to verify that it can
 compile the expression. If an error occurs, Macie displays a message that describes

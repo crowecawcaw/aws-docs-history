@@ -1,7 +1,7 @@
 # Reviewing and editing tags for Macie resources
 
 As your environment or requirements change over time, you can evaluate existing tags
-for your Amazon Macie resources and change the tags as necessary. A *tag* is a label that you define and assign to one or more AWS
+for your Amazon Macie resources and change the tags as necessary. A _tag_ is a label that you define and assign to one or more AWS
 resources, including certain types of Macie resources. Each tag consists of a required
 _tag key_ and an optional _tag value_. A _tag key_ is a general
 label that acts as a category for a more specific tag value. A _tag value_ acts as a descriptor for a tag key.
@@ -48,36 +48,35 @@ console.
 
 ###### To review the tags for a resource
 
-1.  Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
-2.  Depending on the type of resource whose tags you want to
-    review, do one of the following:
+1. Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
+2. Depending on the type of resource whose tags you want to
+   review, do one of the following:
 
-        * For an allow list, choose **Allow lists** in
-         the navigation pane. In the table, select the checkbox for the list. Then choose
-         **Manage tags** on the
-         **Actions** menu.
-        * For a custom data identifier, choose **Custom data identifiers** in
-         the navigation pane. In the table, select the checkbox for the custom data identifier. Then choose
-         **Manage tags** on the
-         **Actions** menu.
-        * For a filter or suppression rule, choose **Findings** in the
-         navigation pane. In the **Saved rules** list, choose the edit icon
-         (
-        ![The edit icon, which is a blue pencil.](images/icon-edit-resource-blue.png)
-        ) next to the rule. Then choose
-         **Manage tags**.
-        * For a member account in your organization, choose **Accounts** in
-         the navigation pane. In the table, select the checkbox for the account. Then choose
-         **Manage tags** on the
-         **Actions** menu.
-        * For a sensitive data discovery job, choose **Jobs** in the
-         navigation pane. In the table, select the checkbox for the job. Then choose **Manage
-         tags** on the **Actions** menu.
-
-    The **Manage tags** window lists all the tags
-    that are currently assigned to the resource. For example, the
-    following image shows the tags that are assigned to a custom
-    data identifier.
+   - For an allow list, choose **Allow lists** in
+     the navigation pane. In the table, select the checkbox for the list. Then choose
+     **Manage tags** on the
+     **Actions** menu.
+   - For a custom data identifier, choose **Custom data identifiers** in
+     the navigation pane. In the table, select the checkbox for the custom data identifier. Then choose
+     **Manage tags** on the
+     **Actions** menu.
+   - For a filter or suppression rule, choose **Findings** in the
+     navigation pane. In the **Saved rules** list, choose the edit icon
+     (
+     ![The edit icon, which is a blue pencil.](images/icon-edit-resource-blue.png)
+     ) next to the rule. Then choose
+     **Manage tags**.
+   - For a member account in your organization, choose **Accounts** in
+     the navigation pane. In the table, select the checkbox for the account. Then choose
+     **Manage tags** on the
+     **Actions** menu.
+   - For a sensitive data discovery job, choose **Jobs** in the
+     navigation pane. In the table, select the checkbox for the job. Then choose **Manage
+     tags** on the **Actions** menu.
+     The **Manage tags** window lists all the tags
+     that are currently assigned to the resource. For example, the
+     following image shows the tags that are assigned to a custom
+     data identifier.
 
 ![The Manage tags window. It has a table that lists the tag key and tag value for each of three tags.](images/scrn-tags-manage-review.png)
 
@@ -181,68 +180,66 @@ console.
 
 ###### To edit the tags for a resource
 
-1.  Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
-2.  Depending on the type of resource whose tags you want to edit,
-    do one of the following:
+1. Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
+2. Depending on the type of resource whose tags you want to edit,
+   do one of the following:
 
-        * For an allow list, choose **Allow lists** in
-         the navigation pane. In the table, select the checkbox for the list. Then choose
-         **Manage tags** on the
-         **Actions** menu.
-        * For a custom data identifier, choose **Custom data identifiers** in
-         the navigation pane. In the table, select the checkbox for the custom data identifier. Then choose
-         **Manage tags** on the
-         **Actions** menu.
-        * For a filter or suppression rule, choose **Findings** in the
-         navigation pane. In the **Saved rules** list, choose the edit icon
-         (
-        ![The edit icon, which is a blue pencil.](images/icon-edit-resource-blue.png)
-        ) next to the rule. Then choose
-         **Manage tags**.
-        * For a member account in your organization, choose **Accounts** in
-         the navigation pane. In the table, select the checkbox for the account. Then choose
-         **Manage tags** on the
-         **Actions** menu.
-        * For a sensitive data discovery job, choose **Jobs** in the
-         navigation pane. In the table, select the checkbox for the job. Then choose **Manage
-         tags** on the **Actions** menu.
+   - For an allow list, choose **Allow lists** in
+     the navigation pane. In the table, select the checkbox for the list. Then choose
+     **Manage tags** on the
+     **Actions** menu.
+   - For a custom data identifier, choose **Custom data identifiers** in
+     the navigation pane. In the table, select the checkbox for the custom data identifier. Then choose
+     **Manage tags** on the
+     **Actions** menu.
+   - For a filter or suppression rule, choose **Findings** in the
+     navigation pane. In the **Saved rules** list, choose the edit icon
+     (
+     ![The edit icon, which is a blue pencil.](images/icon-edit-resource-blue.png)
+     ) next to the rule. Then choose
+     **Manage tags**.
+   - For a member account in your organization, choose **Accounts** in
+     the navigation pane. In the table, select the checkbox for the account. Then choose
+     **Manage tags** on the
+     **Actions** menu.
+   - For a sensitive data discovery job, choose **Jobs** in the
+     navigation pane. In the table, select the checkbox for the job. Then choose **Manage
+     tags** on the **Actions** menu.
+     The **Manage tags** window lists all the tags
+     that are currently assigned to the resource.
 
-    The **Manage tags** window lists all the tags
-    that are currently assigned to the resource.
+3. In the **Manage tags** window, choose
+   **Edit tags**.
+4. Do any of the following:
 
-3.  In the **Manage tags** window, choose
-    **Edit tags**.
-4.  Do any of the following:
+   - To add a tag value to a tag key, enter the value in
+     the **Value** box next to the tag
+     key.
+   - To change an existing tag key, choose
+     **Remove** next to the tag. Then
+     choose **Add tag**. In the
+     **Key** box that appears, enter the
+     new tag key. Optionally enter an associated tag value in
+     the **Value** box.
+   - To change an existing tag value, choose
+     **X** in the
+     **Value** box that contains the
+     value. Then enter the new tag value in the
+     **Value** box.
+   - To remove an existing tag value, choose
+     **X** in the
+     **Value** box that contains the
+     value.
+   - To remove an existing tag (both the tag key and tag
+     value), choose **Remove** next to the
+     tag.
+     A resource can have as many as 50 tags. A tag key can contain
+     as many as 128 characters. A tag value can contain as many as
+     256 characters. The characters can be letters, numbers, spaces,
+     or the following symbols: \_ . : / = + - @
 
-        * To add a tag value to a tag key, enter the value in
-         the **Value** box next to the tag
-         key.
-        * To change an existing tag key, choose
-         **Remove** next to the tag. Then
-         choose **Add tag**. In the
-         **Key** box that appears, enter the
-         new tag key. Optionally enter an associated tag value in
-         the **Value** box.
-        * To change an existing tag value, choose
-         **X** in the
-         **Value** box that contains the
-         value. Then enter the new tag value in the
-         **Value** box.
-        * To remove an existing tag value, choose
-         **X** in the
-         **Value** box that contains the
-         value.
-        * To remove an existing tag (both the tag key and tag
-         value), choose **Remove** next to the
-         tag.
-
-    A resource can have as many as 50 tags. A tag key can contain
-    as many as 128 characters. A tag value can contain as many as
-    256 characters. The characters can be letters, numbers, spaces,
-    or the following symbols: \_ . : / = + - @
-
-5.  When you finish editing the tags, choose
-    **Save**.
+5. When you finish editing the tags, choose
+   **Save**.
 
 API
 When you edit a tag for a resource programmatically, you overwrite the

@@ -77,29 +77,28 @@ Amazon Macie console.
 
 ###### To add a Macie member account
 
-1.  Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
-2.  By using the AWS Region selector in the upper-right corner of the page, choose the Region in which you want to add a member account.
-3.  In the navigation pane, choose **Accounts**. The
-    **Accounts** page opens and displays a table of
-    the accounts that are associated with your account.
-4.  (Optional) To more easily identify accounts that are part of your organization in
-    AWS Organizations and aren’t Macie member accounts, use the filter box above
-    the **Existing accounts** table to add the
-    following filter conditions:
+1. Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
+2. By using the AWS Region selector in the upper-right corner of the page, choose the Region in which you want to add a member account.
+3. In the navigation pane, choose **Accounts**. The
+   **Accounts** page opens and displays a table of
+   the accounts that are associated with your account.
+4. (Optional) To more easily identify accounts that are part of your organization in
+   AWS Organizations and aren’t Macie member accounts, use the filter box above
+   the **Existing accounts** table to add the
+   following filter conditions:
 
-        * **Type = Organization**
-        * **Status = Not a Member**
+   - **Type = Organization**
+   - **Status = Not a Member**
+     To also display accounts that you previously removed and might
+     want to add as member accounts, also add a **Status =
+     Removed** filter condition.
 
-    To also display accounts that you previously removed and might
-    want to add as member accounts, also add a **Status =
-    Removed** filter condition.
-
-5.  In the **Existing accounts** table, select the checkbox for each
-    account that you want to add as a member account.
-6.  On the **Actions** menu, choose **Add
-    member**.
-7.  Confirm that you want to add the selected accounts as member
-    accounts.
+5. In the **Existing accounts** table, select the checkbox for each
+   account that you want to add as a member account.
+6. On the **Actions** menu, choose **Add
+   member**.
+7. Confirm that you want to add the selected accounts as member
+   accounts.
 
 After you confirm your selections, the status of the selected accounts
 changes to **Enabling in process**, and then

@@ -61,38 +61,37 @@ again.
 
 ###### To review findings by using the console
 
-1.  Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
-2.  In the navigation pane, choose **Findings**. The
-    **Findings** page displays findings that Macie created or updated for
-    your account in the current AWS Region during the past 90 days. By default, this doesn't
-    include findings that were suppressed by a [suppression
-    rule](findings-suppression.md "findings-suppression.md").
-3.  To pivot on and review findings by a predefined logical group, choose **By
-    bucket**, **By type**, or **By job** in the
-    navigation pane (under **Findings**). Then choose an item in the table. In
-    the details panel, choose the link for the field to pivot on.
-4.  To filter the findings by specific criteria, use the filter options above the
-    table:
+1. Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
+2. In the navigation pane, choose **Findings**. The
+   **Findings** page displays findings that Macie created or updated for
+   your account in the current AWS Region during the past 90 days. By default, this doesn't
+   include findings that were suppressed by a [suppression
+   rule](findings-suppression.md "findings-suppression.md").
+3. To pivot on and review findings by a predefined logical group, choose **By
+   bucket**, **By type**, or **By job** in the
+   navigation pane (under **Findings**). Then choose an item in the table. In
+   the details panel, choose the link for the field to pivot on.
+4. To filter the findings by specific criteria, use the filter options above the
+   table:
 
-        * To display findings that were suppressed by a suppression rule, use the
-         **Finding status** menu. Choose **All** to display
-         both suppressed and unsuppressed findings, or choose **Archived** to
-         display only suppressed findings. To then hide suppressed findings again, choose
-         **Current**.
-        * To display only those findings that have a specific attribute, use the
-         **Filter criteria** box. Place your cursor in the box and add a
-         filter condition for the attribute. To further refine the results, add conditions for
-         additional attributes. To then remove a condition, choose the remove condition icon
-         (
-        ![The remove filter condition icon, which is a circle that has an X in it.](images/icon-filter-remove.png)
-        ) for the condition to remove.
+   - To display findings that were suppressed by a suppression rule, use the
+     **Finding status** menu. Choose **All** to display
+     both suppressed and unsuppressed findings, or choose **Archived** to
+     display only suppressed findings. To then hide suppressed findings again, choose
+     **Current**.
+   - To display only those findings that have a specific attribute, use the
+     **Filter criteria** box. Place your cursor in the box and add a
+     filter condition for the attribute. To further refine the results, add conditions for
+     additional attributes. To then remove a condition, choose the remove condition icon
+     (
+     ![The remove filter condition icon, which is a circle that has an X in it.](images/icon-filter-remove.png)
+     ) for the condition to remove.
+     For more information about filtering findings, see [Creating and applying filters to Macie findings](findings-filter-procedure.md "findings-filter-procedure.md").
 
-    For more information about filtering findings, see [Creating and applying filters to Macie findings](findings-filter-procedure.md "findings-filter-procedure.md").
-
-5.  To sort the findings by a specific field, choose the column heading for the field. To
-    change the sort order, choose the column heading again.
-6.  To review the details of a specific finding, choose the finding. The details panel
-    displays information for the finding.
+5. To sort the findings by a specific field, choose the column heading for the field. To
+   change the sort order, choose the column heading again.
+6. To review the details of a specific finding, choose the finding. The details panel
+   displays information for the finding.
 
 ###### Tips
 
@@ -121,14 +120,14 @@ sensitive data that Macie found in the affected S3 object:
      sensitive data discovery results](discovery-results-repository-s3.md "discovery-results-repository-s3.md").
 
 7. To download and save the details of one or more findings as a JSON file, select the
-   checkbox for each finding to download and save. Then choose **Export
-   (JSON)** on the **Actions** menu. In the window that appears,
-   choose **Download**. For detailed descriptions of the JSON fields that a
-   finding can include, see [Findings](../APIReference/findings-describe.md "../APIReference/findings-describe.md") in the _Amazon Macie API Reference_.
-   In certain cases, a finding might not include all the details of an affected S3 bucket. This
-   can occur if you store more than 10,000 buckets in Amazon S3. Macie maintains complete inventory data
-   for only 10,000 buckets for an account—the 10,000 buckets that were most recently created
-   or changed. To review additional details for an affected bucket, you can use data in the finding
-   to determine the bucket's name, the account ID for the AWS account that owns the bucket, and
-   the AWS Region that stores the bucket. You can then use Amazon S3 to review all the bucket's
-   details.
+checkbox for each finding to download and save. Then choose **Export
+(JSON)** on the **Actions** menu. In the window that appears,
+choose **Download**. For detailed descriptions of the JSON fields that a
+finding can include, see [Findings](../APIReference/findings-describe.md "../APIReference/findings-describe.md") in the _Amazon Macie API Reference_.
+In certain cases, a finding might not include all the details of an affected S3 bucket. This
+can occur if you store more than 10,000 buckets in Amazon S3. Macie maintains complete inventory data
+for only 10,000 buckets for an account—the 10,000 buckets that were most recently created
+or changed. To review additional details for an affected bucket, you can use data in the finding
+to determine the bucket's name, the account ID for the AWS account that owns the bucket, and
+the AWS Region that stores the bucket. You can then use Amazon S3 to review all the bucket's
+details.

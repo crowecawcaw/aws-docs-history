@@ -128,15 +128,15 @@ To customize your view and find specific buckets more easily, you can filter the
 entering filter criteria in the filter box. The following table provides some
 examples.
 
-| To show all buckets that...                                               | Apply this filter...                                                                        |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| Are owned by a specific account                                           | \*_Account ID_<br>• = `the<br>12-digit ID for the account`                                  |
-| Are publicly accessible                                                   | **Effective permission\*<br>• =<br>**Public\*\*                                             |
-| Aren't included in any periodic jobs                                      | **Actively monitored by job\*<br>• =<br>**False\*\*                                         |
-| Aren't included in any periodic or one-time jobs                          | **Defined in job\*<br>• =<br>**False\*\*                                                    |
-| Have a specific tag key\*                                                 | \*_Tag key_<br>• = `the tag<br>key`                                                         |
-| Have a specific tag value\*                                               | \*_Tag value_<br>• = `the tag<br>value`                                                     |
-| Store unencrypted objects (or objects that use client-side<br>encryption) | **Object count by encryption\*<br>• is **No<br>encryption*<br>• and \*\*From*<br>• =<br>_1_ |
+| To show all buckets that...                                               | Apply this filter...                                                                     |
+| ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Are owned by a specific account                                           | *_Account ID_<br>• = `the<br>12-digit ID for the account`                                |
+| Are publicly accessible                                                   | *_Effective permission_<br>• =<br>**Public**                                             |
+| Aren't included in any periodic jobs                                      | *_Actively monitored by job_<br>• =<br>**False**                                         |
+| Aren't included in any periodic or one-time jobs                          | *_Defined in job_<br>• =<br>**False**                                                    |
+| Have a specific tag key\*                                                 | *_Tag key_<br>• = `the tag<br>key`                                                       |
+| Have a specific tag value\*                                               | *_Tag value_<br>• = `the tag<br>value`                                                   |
+| Store unencrypted objects (or objects that use client-side<br>encryption) | *_Object count by encryption_<br>• is *_No<br>encryption_<br>• and *_From_<br>• =<br>_1_ |
 
 \* Tag keys and values are case sensitive. Also, you have to specify a complete, valid
 value. You can’t specify partial values or use wildcard characters.

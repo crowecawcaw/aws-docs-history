@@ -31,20 +31,19 @@ This quota resets every 24 hours at 00:00:01 UTC+0.
 
 - Size of an Amazon S3 object to retrieve and reveal sensitive data samples from:
 
-      + Apache Avro object container (.avro) file: 70 MB
-      + Apache Parquet (.parquet) file: 100 MB
-      + CSV (.csv) file: 255 MB
-      + GNU Zip compressed archive (.gz or .gzip) file: 90 MB
-      + JSON or JSON Lines (.json or .jsonl) file: 25 MB
-      + Microsoft Excel workbook (.xlsx) file: 20 MB
-      + Non-binary text (*text/plain*) file: 100 MB
-      + TSV (.tsv) file: 75 MB
-      + ZIP compressed archive (.zip) file: 355 MB
-
-  If a finding applies to an archive file that generates multiple .gz files for the
-  corresponding [sensitive data
-  discovery results](discovery-results-repository-s3.md "discovery-results-repository-s3.md"), sensitive data samples can't be retrieved and revealed
-  from the archive file.
+  - Apache Avro object container (.avro) file: 70 MB
+  - Apache Parquet (.parquet) file: 100 MB
+  - CSV (.csv) file: 255 MB
+  - GNU Zip compressed archive (.gz or .gzip) file: 90 MB
+  - JSON or JSON Lines (.json or .jsonl) file: 25 MB
+  - Microsoft Excel workbook (.xlsx) file: 20 MB
+  - Non-binary text (_text/plain_) file: 100 MB
+  - TSV (.tsv) file: 75 MB
+  - ZIP compressed archive (.zip) file: 355 MB
+    If a finding applies to an archive file that generates multiple .gz files for the
+    corresponding [sensitive data
+    discovery results](discovery-results-repository-s3.md "discovery-results-repository-s3.md"), sensitive data samples can't be retrieved and revealed
+    from the archive file.
 
 ###### Organizations
 
@@ -98,38 +97,36 @@ accounts in your organization.
 - Time to analyze an individual file: 10 hours
 - Size of an individual file to analyze:
 
-      + Adobe Portable Document Format (.pdf) file: 1,024 MB
-      + Apache Avro object container (.avro) file: 8 GB
-      + Apache Parquet (.parquet) file: 8 GB
-      + Email message (.eml) file: 20 GB
-      + GNU Zip compressed archive (.gz or .gzip) file: 8 GB
-      + Microsoft Excel workbook (.xls or .xlsx) file: 512 MB
-      + Microsoft Word document (.doc or .docx) file: 512 MB
-      + Non-binary text file: 20 GB
-      + TAR archive (.tar) file: 20 GB
-      + ZIP compressed archive (.zip) file: 8 GB
-
-  If a file is larger than the applicable quota, Macie doesn't analyze any data in
-  the file.
+  - Adobe Portable Document Format (.pdf) file: 1,024 MB
+  - Apache Avro object container (.avro) file: 8 GB
+  - Apache Parquet (.parquet) file: 8 GB
+  - Email message (.eml) file: 20 GB
+  - GNU Zip compressed archive (.gz or .gzip) file: 8 GB
+  - Microsoft Excel workbook (.xls or .xlsx) file: 512 MB
+  - Microsoft Word document (.doc or .docx) file: 512 MB
+  - Non-binary text file: 20 GB
+  - TAR archive (.tar) file: 20 GB
+  - ZIP compressed archive (.zip) file: 8 GB
+    If a file is larger than the applicable quota, Macie doesn't analyze any data in
+    the file.
 
 - Extraction and analysis of data in a compressed or archive file:
 
-      + Storage size (compressed): 8 GB for a GNU Zip compressed archive (.gz or
-       .gzip) file or ZIP compressed archive (.zip) file; 20 GB for a TAR archive
-       (.tar) file
-      + Nested archive depth: 10 levels
-      + Extracted files: 1,000,000
-      + Extracted bytes: 10 GB of uncompressed data overall. 3 GB of uncompressed
-       data for each extracted file that uses a [supported file type or storage
-       format](discovery-supported-storage.md#discovery-supported-formats "discovery-supported-storage.md#discovery-supported-formats").
-
-  If the metadata for a compressed or archive file indicates that the file contains more than
-  10 nested levels or exceeds the applicable quota for storage size or extracted
-  bytes, Macie doesn't extract or analyze any data in the file. If Macie begins to
-  extract and analyze data in a compressed or archive file and subsequently determines
-  that the file contains more than 1,000,000 files or exceeds the quota for extracted
-  bytes, Macie stops analyzing data in the file and creates sensitive data findings
-  and discovery results only for the data that was processed.
+  - Storage size (compressed): 8 GB for a GNU Zip compressed archive (.gz or
+    .gzip) file or ZIP compressed archive (.zip) file; 20 GB for a TAR archive
+    (.tar) file
+  - Nested archive depth: 10 levels
+  - Extracted files: 1,000,000
+  - Extracted bytes: 10 GB of uncompressed data overall. 3 GB of uncompressed
+    data for each extracted file that uses a [supported file type or storage
+    format](discovery-supported-storage.md#discovery-supported-formats "discovery-supported-storage.md#discovery-supported-formats").
+    If the metadata for a compressed or archive file indicates that the file contains more than
+    10 nested levels or exceeds the applicable quota for storage size or extracted
+    bytes, Macie doesn't extract or analyze any data in the file. If Macie begins to
+    extract and analyze data in a compressed or archive file and subsequently determines
+    that the file contains more than 1,000,000 files or exceeds the quota for extracted
+    bytes, Macie stops analyzing data in the file and creates sensitive data findings
+    and discovery results only for the data that was processed.
 
 - Analysis of nested elements in structured data: 256 levels per file
 

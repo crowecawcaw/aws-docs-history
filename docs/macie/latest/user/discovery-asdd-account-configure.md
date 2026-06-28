@@ -288,28 +288,25 @@ section displays your current settings, organized into two tabs:
     * **Removed from default** – This tab lists managed data
      identifiers that you removed. Macie doesn't use these identifiers.
 
-4.  In the **Managed data identifiers** section, choose
-    **Edit**.
-5.  Do any of the following:
+4. In the **Managed data identifiers** section, choose
+**Edit**. 5. Do any of the following:
 
-        * To add one or more managed data identifiers, choose the **Added to
-         default** tab. Then, in the table, select the checkbox for each managed data
-         identifier to add. If a checkbox is already selected, you already added that
-         identifier.
-        * To remove one or more managed data identifiers, choose the **Removed from
-         default** tab. Then, in the table, select the checkbox for each managed data
-         identifier to remove. If a checkbox is already selected, you already removed that
-         identifier.
+    * To add one or more managed data identifiers, choose the **Added to
+     default** tab. Then, in the table, select the checkbox for each managed data
+     identifier to add. If a checkbox is already selected, you already added that
+     identifier.
+    * To remove one or more managed data identifiers, choose the **Removed from
+     default** tab. Then, in the table, select the checkbox for each managed data
+     identifier to remove. If a checkbox is already selected, you already removed that
+     identifier.
 
-    On each tab, the table displays a list of all the managed data identifiers that Macie
-    currently provides. In the table, the first column specifies each managed data identifier's
-    ID. The ID describes the type of sensitive data that an identifier is designed to
-    detect—for example, **USA_PASSPORT_NUMBER** for US passport
-    numbers. To find specific managed data identifiers more easily, enter search criteria in
-    the search box above the table. You can also sort the table by choosing a column
-    heading.
-
-6.  When you finish, choose **Save**.
+On each tab, the table displays a list of all the managed data identifiers that Macie
+currently provides. In the table, the first column specifies each managed data identifier's
+ID. The ID describes the type of sensitive data that an identifier is designed to
+detect—for example, **USA\_PASSPORT\_NUMBER** for US passport
+numbers. To find specific managed data identifiers more easily, enter search criteria in
+the search box above the table. You can also sort the table by choosing a column
+heading. 6. When you finish, choose **Save**.
 
 API
 To add or remove a managed data identifier programmatically, use the Amazon Macie API to

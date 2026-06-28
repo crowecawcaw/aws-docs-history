@@ -53,7 +53,7 @@ console.
 This field specifies how Macie found the sensitive data that produced a finding,
 automated sensitive data discovery or a sensitive data discovery job. To find this field in the list of filter
 fields, you can browse the complete list, or enter part of the field's name to narrow the
-list of fields. 5. Select **AUTOMATED_SENSITIVE_DATA_DISCOVERY** as the value for the
+list of fields. 5. Select **AUTOMATED\_SENSITIVE\_DATA\_DISCOVERY** as the value for the
 field, and then choose **Apply**. Macie applies the filter criteria and
 adds the condition to a filter token in the **Filter criteria** box. 6. To refine the results, add filter conditions for additional fields—for example,
 **Created at** for the time range when a finding was created, **S3

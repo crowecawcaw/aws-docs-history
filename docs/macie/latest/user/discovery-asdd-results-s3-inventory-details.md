@@ -52,7 +52,7 @@ the Amazon Macie console.
 2. In the navigation pane, choose **S3 buckets**. The **S3
    buckets** page displays an interactive map of your bucket inventory. Optionally
    choose table (
-   ![The table view button, which is a button that displays three black horizontal lines.](/images/macie/latest/user/images/btn-s3-table-view.png)
+   ![The table view button, which is a button that displays three black horizontal lines.](images/btn-s3-table-view.png)
    ) at the top of the page to display your inventory in
    tabular format instead.
 
@@ -90,7 +90,7 @@ in the bucket's objects, and the number of occurrences of each type:
   that detected the data.
 
 A managed data identifier's ID describes the type of sensitive data that it's
-designed to detect—for example, **USA_PASSPORT_NUMBER** for US
+designed to detect—for example, **USA\_PASSPORT\_NUMBER** for US
 passport numbers. For details about each managed data identifier, see [Using managed data
 identifiers](managed-data-identifiers.md "managed-data-identifiers.md").
 

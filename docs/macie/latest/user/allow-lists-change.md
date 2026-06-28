@@ -108,7 +108,7 @@ Where:
 - `[a-z]@example.com` is the list's criteria, a regular
   expression.
 - `Ignores all email addresses for the example.com
-domain` is the new description for the list.
+ domain` is the new description for the list.
 
 When you submit your request, Macie tests the list's settings. If the list specifies
 predefined text (`s3WordsList`), this includes verifying that Macie can retrieve

@@ -420,7 +420,7 @@ AWS KMS key that you want Macie to use to encrypt the results:
      ``arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``.
 
 9. When you finish entering the settings, choose
-   **Save**.
+**Save**.
 
 Macie tests the settings to verify that they're correct. If any
 settings are incorrect, Macie displays an error message to help you
@@ -552,144 +552,127 @@ JSON
 
 ```
 
-6.  Paste the example policy in the **Bucket policy**
-    editor on the Amazon S3 console.
-7.  Update the example policy with the correct values for your
-    environment:
+6. Paste the example policy in the **Bucket policy**
+   editor on the Amazon S3 console.
+7. Update the example policy with the correct values for your
+   environment:
 
-        * In the optional statement that denies incorrect encryption
-         headers:
+   - In the optional statement that denies incorrect encryption
+     headers:
 
+     - Replace `amzn-s3-demo-bucket`
+       with the name of the bucket. To also specify a prefix
+       for a path to a location in the bucket, replace
+       `[optional prefix/]` with
+       the prefix. Otherwise, remove the `[optional
+   prefix/]` placeholder value.
+     - In the `StringNotEquals` condition, replace
+       `arn:aws:kms:us-east-1:111122223333:key/KMSKeyId`
+       with the Amazon Resource Name (ARN) of the
+       AWS KMS key to use for encryption of your discovery
+       results.
 
+   - In all other statements, replace the placeholder values,
+     where:
 
+     - `amzn-s3-demo-bucket` is the
+       name of the bucket.
+     - `[optional prefix/]` is the
+       prefix for a path to a location in the bucket. Remove
+       this placeholder value if you don't want to specify a
+       prefix.
+     - `111122223333` is
+       the account ID for your AWS account.
+     - `us-east-1` is the Region
+       code for the AWS Region in which you're using Macie
+       and want to allow Macie to add discovery results to the
+       bucket.
 
-        	+ Replace `amzn-s3-demo-bucket`
-        	 with the name of the bucket. To also specify a prefix
-        	 for a path to a location in the bucket, replace
-        	 `[optional prefix/]` with
-        	 the prefix. Otherwise, remove the `[optional
-        	 prefix/]` placeholder value.
-        	+ In the `StringNotEquals` condition, replace
-        	 `arn:aws:kms:us-east-1:111122223333:key/KMSKeyId`
-        	 with the Amazon Resource Name (ARN) of the
-        	 AWS KMS key to use for encryption of your discovery
-        	 results.
-        * In all other statements, replace the placeholder values,
-         where:
+     If you use Macie in multiple Regions and want to allow
+     Macie to add results to the bucket for additional
+     Regions, add `aws:SourceArn` conditions for
+     each additional Region. For example:
 
+     ```
+     "aws:SourceArn": [
+         "arn:aws:macie2:us-east-1:111122223333:export-configuration:*",
+         "arn:aws:macie2:us-east-1:111122223333:classification-job/*",
+         "arn:aws:macie2:us-west-2:111122223333:export-configuration:*",
+         "arn:aws:macie2:us-west-2:111122223333:classification-job/*"
+     ]
+     ```
 
+     Alternatively, you can allow Macie to add results to
+     the bucket for all Regions in which you use Macie. To do
+     this, replace the placeholder value with the wildcard
+     character (`*`). For example:
 
+     ```
+     "aws:SourceArn": [
+         "arn:aws:macie2:*:111122223333:export-configuration:*",
+         "arn:aws:macie2:*:111122223333:classification-job/*"
+     ]
+     ```
 
-        	+ `amzn-s3-demo-bucket` is the
-        	 name of the bucket.
-        	+ `[optional prefix/]` is the
-        	 prefix for a path to a location in the bucket. Remove
-        	 this placeholder value if you don't want to specify a
-        	 prefix.
-        	+ `111122223333` is
-        	 the account ID for your AWS account.
-        	+ `us-east-1` is the Region
-        	 code for the AWS Region in which you're using Macie
-        	 and want to allow Macie to add discovery results to the
-        	 bucket.
+   - If you're using Macie in an opt-in Region, add the appropriate
+     Region code to the value for the `Service` field in
+     each statement that specifies the Macie service principal. For
+     example, if you're using Macie in the Middle East (Bahrain) Region, which has
+     the Region code _me-south-1_, replace
+     `macie.amazonaws.com` with
+     `macie.me-south-1.amazonaws.com` in each
+     applicable statement.
 
+   For a list of Regions where Macie is currently available and
+   the Region code for each one, see [Amazon Macie endpoints and
+   quotas](../../../general/latest/gr/macie.md "../../../general/latest/gr/macie.md") in the _AWS General Reference_.
+   Note that the example policy includes statements that allow Macie to
+   determine which Region the bucket resides in
+   (`GetBucketLocation`) and add objects to the bucket
+   (`PutObject`). These statements define conditions that
+   use two IAM global condition keys:
 
-        	If you use Macie in multiple Regions and want to allow
-        	 Macie to add results to the bucket for additional
-        	 Regions, add `aws:SourceArn` conditions for
-        	 each additional Region. For example:
+   - [aws:SourceAccount](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount") – This condition allows
+     Macie to add sensitive data discovery results to the bucket only
+     for your account. It prevents Macie from adding discovery
+     results for other accounts to the bucket. More specifically, the
+     condition specifies which account can use the bucket for the
+     resources and actions specified by the
+     `aws:SourceArn` condition.
 
+   To store results for additional accounts in the bucket, add
+   the account ID for each additional account to this condition.
+   For example:
 
+   ```
+   "aws:SourceAccount": [111122223333,444455556666]
+   ```
+   - [aws:SourceArn](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") – This condition restricts
+     access to the bucket based on the source of the objects that are
+     being added to the bucket. It prevents other AWS services from
+     adding objects to the bucket. It also prevents Macie from adding
+     objects to the bucket while performing other actions for your
+     account. More specifically, the condition allows Macie to add
+     objects to the bucket only if: the objects are sensitive data
+     discovery results, and the results are for automated sensitive data discovery or
+     sensitive data discovery jobs created by the specified account
+     in the specified Region.
 
-        	```
-        	"aws:SourceArn": [
-        	    "arn:aws:macie2:us-east-1:111122223333:export-configuration:*",
-        	    "arn:aws:macie2:us-east-1:111122223333:classification-job/*",
-        	    "arn:aws:macie2:us-west-2:111122223333:export-configuration:*",
-        	    "arn:aws:macie2:us-west-2:111122223333:classification-job/*"
-        	]
-        	```
+   To allow Macie to perform the specified actions for additional
+   accounts, add ARNs for each additional account to this
+   condition. For example:
 
-        	Alternatively, you can allow Macie to add results to
-        	 the bucket for all Regions in which you use Macie. To do
-        	 this, replace the placeholder value with the wildcard
-        	 character (`*`). For example:
+   ```
+   "aws:SourceArn": [
+       "arn:aws:macie2:us-east-1:111122223333:export-configuration:*",
+       "arn:aws:macie2:us-east-1:111122223333:classification-job/*",
+       "arn:aws:macie2:us-east-1:444455556666:export-configuration:*",
+       "arn:aws:macie2:us-east-1:444455556666:classification-job/*"
+   ]
+   ```
 
-
-
-        	```
-        	"aws:SourceArn": [
-        	    "arn:aws:macie2:*:111122223333:export-configuration:*",
-        	    "arn:aws:macie2:*:111122223333:classification-job/*"
-        	]
-        	```
-        * If you're using Macie in an opt-in Region, add the appropriate
-         Region code to the value for the `Service` field in
-         each statement that specifies the Macie service principal. For
-         example, if you're using Macie in the Middle East (Bahrain) Region, which has
-         the Region code *me-south-1*, replace
-         `macie.amazonaws.com` with
-         `macie.me-south-1.amazonaws.com` in each
-         applicable statement.
-
-
-        For a list of Regions where Macie is currently available and
-         the Region code for each one, see [Amazon Macie endpoints and
-         quotas](../../../general/latest/gr/macie.md "../../../general/latest/gr/macie.md") in the *AWS General Reference*.
-
-    Note that the example policy includes statements that allow Macie to
-    determine which Region the bucket resides in
-    (`GetBucketLocation`) and add objects to the bucket
-    (`PutObject`). These statements define conditions that
-    use two IAM global condition keys:
-
-        * [aws:SourceAccount](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount") – This condition allows
-         Macie to add sensitive data discovery results to the bucket only
-         for your account. It prevents Macie from adding discovery
-         results for other accounts to the bucket. More specifically, the
-         condition specifies which account can use the bucket for the
-         resources and actions specified by the
-         `aws:SourceArn` condition.
-
-
-        To store results for additional accounts in the bucket, add
-         the account ID for each additional account to this condition.
-         For example:
-
-
-
-        ```
-        "aws:SourceAccount": [111122223333,444455556666]
-        ```
-        * [aws:SourceArn](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") – This condition restricts
-         access to the bucket based on the source of the objects that are
-         being added to the bucket. It prevents other AWS services from
-         adding objects to the bucket. It also prevents Macie from adding
-         objects to the bucket while performing other actions for your
-         account. More specifically, the condition allows Macie to add
-         objects to the bucket only if: the objects are sensitive data
-         discovery results, and the results are for automated sensitive data discovery or
-         sensitive data discovery jobs created by the specified account
-         in the specified Region.
-
-
-        To allow Macie to perform the specified actions for additional
-         accounts, add ARNs for each additional account to this
-         condition. For example:
-
-
-
-        ```
-        "aws:SourceArn": [
-            "arn:aws:macie2:us-east-1:111122223333:export-configuration:*",
-            "arn:aws:macie2:us-east-1:111122223333:classification-job/*",
-            "arn:aws:macie2:us-east-1:444455556666:export-configuration:*",
-            "arn:aws:macie2:us-east-1:444455556666:classification-job/*"
-        ]
-        ```
-
-    The accounts specified by the `aws:SourceAccount` and
-    `aws:SourceArn` conditions should match.
+The accounts specified by the `aws:SourceAccount` and
+`aws:SourceArn` conditions should match.
 
 Both conditions help prevent Macie from being used as a [confused deputy](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md") during transactions with Amazon S3. Although we
 don’t recommend it, you can remove these conditions from the bucket
@@ -728,7 +711,7 @@ AWS KMS key that you want Macie to use to encrypt the results:
      `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`.
 
 7. When you finish entering the settings, choose
-   **Save**.
+**Save**.
 
 Macie tests the settings to verify that they're correct. If any
 settings are incorrect, Macie displays an error message to help you

@@ -121,10 +121,10 @@ produces:
      a finding.
 
 11. (Optional) For **Tags**, choose **Add
-    tag**, and then enter as many as 50 tags to assign to
-    the custom data identifier.
+tag**, and then enter as many as 50 tags to assign to
+the custom data identifier.
 
-A *tag* is a label that you define and assign to certain types of AWS resources. Each tag consists of a required tag key and an optional tag value. Tags can help you identify, categorize, and manage resources in different ways, such as by purpose, owner, environment, or other criteria. To learn more, see [Tagging Macie resources](tagging-resources.md "tagging-resources.md"). 12. (Optional) For **Evaluate**, enter up to 1,000
+A _tag_ is a label that you define and assign to certain types of AWS resources. Each tag consists of a required tag key and an optional tag value. Tags can help you identify, categorize, and manage resources in different ways, such as by purpose, owner, environment, or other criteria. To learn more, see [Tagging Macie resources](tagging-resources.md "tagging-resources.md"). 12. (Optional) For **Evaluate**, enter up to 1,000
 characters in the **Sample data** box, and then
 choose **Test** to test the detection criteria.
 Macie evaluates the sample data and reports the number of

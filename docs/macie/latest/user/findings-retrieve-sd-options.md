@@ -782,8 +782,8 @@ following values for the required parameters:
 - `GranteePrincipal` – The ARN of the IAM role in their
   account. This value should be
   `arn:aws:iam::`111122223333`:role/`IAMRoleName``,
-where `111122223333`is the account ID
-for the role owner's account and`IAMRoleName` is
+  where `111122223333` is the account ID
+  for the role owner's account and `IAMRoleName` is
   the name of the role.
 - `Operations` – The AWS KMS decrypt action
   (`Decrypt`). This is the only AWS KMS action that the IAM

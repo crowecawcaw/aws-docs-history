@@ -38,11 +38,11 @@ information:
 
 ## AWS secret access key
 
-**Managed data identifier ID:** AWS_CREDENTIALS
+**Managed data identifier ID:** AWS\_CREDENTIALS
 
 **Supported countries and regions:** Any
 
-**Keyword required:** Yes. Keywords include: _aws_secret_access_key, credentials, secret access key, secret key,
+**Keyword required:** Yes. Keywords include: _aws\_secret\_access\_key, credentials, secret access key, secret key,
 set-awscredential_
 
 **Comments:** Macie doesn't report occurrences of the following character
@@ -52,11 +52,11 @@ sequences, which are commonly used as fictitious examples:
 
 ## Google Cloud API key
 
-**Managed data identifier ID:** GCP_API_KEY
+**Managed data identifier ID:** GCP\_API\_KEY
 
 **Supported countries and regions:** Any
 
-**Keyword required:** Yes. Keywords include: _G_PLACES_KEY,
+**Keyword required:** Yes. Keywords include: _G\_PLACES\_KEY,
 GCP api key, GCP key, google cloud key, google-api-key, google-cloud-apikeys, GOOGLEKEY,
 X-goog-api-key_
 
@@ -66,7 +66,7 @@ component of a Google Cloud API key.
 
 ## HTTP Basic Authorization header
 
-**Managed data identifier ID:** HTTP_BASIC_AUTH_HEADER
+**Managed data identifier ID:** HTTP\_BASIC\_AUTH\_HEADER
 
 **Supported countries and regions:** Any
 
@@ -79,7 +79,7 @@ and authentication scheme directive, as specified by [RFC 7617](https://tools.ie
 
 ## JSON Web Token (JWT)
 
-**Managed data identifier ID:** JSON_WEB_TOKEN
+**Managed data identifier ID:** JSON\_WEB\_TOKEN
 
 **Supported countries and regions:** Any
 
@@ -91,7 +91,7 @@ JSON Web Signature (JWS) structures. The tokens can be signed or unsigned.
 
 ## OpenSSH private key
 
-**Managed data identifier ID:** OPENSSH_PRIVATE_KEY
+**Managed data identifier ID:** OPENSSH\_PRIVATE\_KEY
 
 **Supported countries and regions:** Any
 
@@ -101,7 +101,7 @@ JSON Web Signature (JWS) structures. The tokens can be signed or unsigned.
 
 ## PGP private key
 
-**Managed data identifier ID:** PGP_PRIVATE_KEY
+**Managed data identifier ID:** PGP\_PRIVATE\_KEY
 
 **Supported countries and regions:** Any
 
@@ -121,7 +121,7 @@ JSON Web Signature (JWS) structures. The tokens can be signed or unsigned.
 
 ## PuTTY private key
 
-**Managed data identifier ID:** PUTTY_PRIVATE_KEY
+**Managed data identifier ID:** PUTTY\_PRIVATE\_KEY
 
 **Supported countries and regions:** Any
 
@@ -141,7 +141,7 @@ that include custom headers.
 
 ## Stripe API key
 
-**Managed data identifier ID:** STRIPE_CREDENTIALS
+**Managed data identifier ID:** STRIPE\_CREDENTIALS
 
 **Supported countries and regions:** Any
 
