@@ -103,7 +103,7 @@ room.sendMessage(request, object : SendMessageCallback {
 
 ### Deleting a Message
 
-For this request, you must have the DELETE_MESSAGE capability encoded in your
+For this request, you must have the DELETE\_MESSAGE capability encoded in your
 chat token.
 
 To trigger a delete-message request:
