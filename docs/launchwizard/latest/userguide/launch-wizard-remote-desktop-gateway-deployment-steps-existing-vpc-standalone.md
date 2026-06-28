@@ -83,7 +83,7 @@ Microsoft Remote Desktop Gateway configuration
 | ---------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | Number of RDGW hosts   | 1                       | Enter the number of Remote Desktop Gateway hosts to create.                                                         |
 | Admin user name        | StackAdmin              | User name for the new local administrator account.                                                                  |
-| Admin password         | **_Requires<br>input_** | Password for the administrative account. Must be at least 8 characters containing<br>letters, numbers, and symbols. |
+| Admin password         | _**Requires<br>input**_ | Password for the administrative account. Must be at least 8 characters containing<br>letters, numbers, and symbols. |
 
 4. When you are satisfied with your infrastructure selections, select
    **Next**. If you don't want to complete the configuration, select
@@ -117,24 +117,20 @@ Compute
      from the dropdown list.
 
 6. When you are satisfied with your infrastructure selections, select
-   **Next**. If you don't want to complete the configuration, select
-   **Cancel**. When you select **Cancel**, all of the selections
-   on the specification page are lost and you are returned to the landing page. To go to the
-   previous screen, select **Previous**.
-7. On the **Review and deploy** page, review your configuration details. If
-   you want to make changes, select **Previous**. To stop, select
-   **Cancel**. When you select **Cancel**, all of the selections
-   on the specification page are lost and you are returned to the landing page. When you choose
-   **Deploy**, you agree to the terms of the **Acknowledgment**. Launch Wizard validates the inputs and notifies you of any issues you must
-   address.
-8. When validation is complete, Launch Wizard deploys your AWS resources and configures your
-   **Microsoft Remote Desktop Gateway** application. Launch Wizard provides
-   you with status updates about the progress of the deployment on the
-   **Deployments** page. From the **Deployments** page, you can
-   view the list of current and previous deployments
-9. When your deployment is ready, a notification informs you that your **Remote Desktop Gateway** application is successfully deployed. If you have set up an
-   Amazon SNS notification, you are also alerted through Amazon SNS. You can manage and access all of the
-   resources related to your application by selecting the deployment, and then selecting
-   **Manage** from the **Actions** dropdown list.
-10. When the application is deployed, you can access your EC2 instances through the Amazon EC2
-    console.
+**Next**. If you don't want to complete the configuration, select
+**Cancel**. When you select **Cancel**, all of the selections
+on the specification page are lost and you are returned to the landing page. To go to the
+previous screen, select **Previous**. 7. On the **Review and deploy** page, review your configuration details. If
+you want to make changes, select **Previous**. To stop, select
+**Cancel**. When you select **Cancel**, all of the selections
+on the specification page are lost and you are returned to the landing page. When you choose
+**Deploy**, you agree to the terms of the **Acknowledgment**. Launch Wizard validates the inputs and notifies you of any issues you must
+address. 8. When validation is complete, Launch Wizard deploys your AWS resources and configures your
+**Microsoft Remote Desktop Gateway** application. Launch Wizard provides
+you with status updates about the progress of the deployment on the
+**Deployments** page. From the **Deployments** page, you can
+view the list of current and previous deployments 9. When your deployment is ready, a notification informs you that your **Remote Desktop Gateway** application is successfully deployed. If you have set up an
+Amazon SNS notification, you are also alerted through Amazon SNS. You can manage and access all of the
+resources related to your application by selecting the deployment, and then selecting
+**Manage** from the **Actions** dropdown list. 10. When the application is deployed, you can access your EC2 instances through the Amazon EC2
+console.

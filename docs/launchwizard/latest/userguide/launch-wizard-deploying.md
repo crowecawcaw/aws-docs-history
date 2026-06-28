@@ -426,15 +426,14 @@ Server account.
     	 name**, and a **Windows cluster virtual network name**.
 
 7. When you are satisfied with your configuration selections, select
-   **Next**. If you don't want to complete the
-   configuration, select **Cancel**. When you select
-   **Cancel**, all of the selections on the
-   specification page are lost and you are returned to the landing page. To
-   go to the previous screen, select **Previous**.
-8. After configuring your application, you are prompted to define the
-   infrastructure requirements for the new deployment on the
-   **Define infrastructure requirements** page. The
-   following tabs provide information about the input fields.
+**Next**. If you don't want to complete the
+configuration, select **Cancel**. When you select
+**Cancel**, all of the selections on the
+specification page are lost and you are returned to the landing page. To
+go to the previous screen, select **Previous**. 8. After configuring your application, you are prompted to define the
+infrastructure requirements for the new deployment on the
+**Define infrastructure requirements** page. The
+following tabs provide information about the input fields.
 
 Define infrastructure requirements
 
@@ -941,15 +940,14 @@ Server account.
     	 cluster virtual network name**.
 
 7. When you are satisfied with your configuration selections, select
-   **Next**. If you don't want to complete the
-   configuration, select **Cancel**. When you select
-   **Cancel**, all of the selections on the
-   specification page are lost and you are returned to the landing page. To
-   go to the previous screen, select **Previous**.
-8. After configuring your application, you are prompted to define the
-   infrastructure requirements for the new deployment on the
-   **Define infrastructure requirements** page. The
-   following tabs provide information about the input fields.
+**Next**. If you don't want to complete the
+configuration, select **Cancel**. When you select
+**Cancel**, all of the selections on the
+specification page are lost and you are returned to the landing page. To
+go to the previous screen, select **Previous**. 8. After configuring your application, you are prompted to define the
+infrastructure requirements for the new deployment on the
+**Define infrastructure requirements** page. The
+following tabs provide information about the input fields.
 
 Define infrastructure requirements
 
@@ -1451,15 +1449,14 @@ authentication will be configured.
     	 deployment.
 
 5. When you are satisfied with your configuration selections, select
-   **Next**. If you don't want to complete the
-   configuration, select **Cancel**. When you select
-   **Cancel**, all of the selections on the
-   specification page are lost and you are returned to the landing page. To
-   go to the previous screen, select **Previous**.
-6. After configuring your application, you are prompted to define the
-   infrastructure requirements for the new deployment on the
-   **Configure infrastructure settings** page. The
-   following tabs provide information about the input fields.
+**Next**. If you don't want to complete the
+configuration, select **Cancel**. When you select
+**Cancel**, all of the selections on the
+specification page are lost and you are returned to the landing page. To
+go to the previous screen, select **Previous**. 6. After configuring your application, you are prompted to define the
+infrastructure requirements for the new deployment on the
+**Configure infrastructure settings** page. The
+following tabs provide information about the input fields.
 
 Define SQL Server Developer Edition settings
 

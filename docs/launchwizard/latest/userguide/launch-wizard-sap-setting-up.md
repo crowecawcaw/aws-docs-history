@@ -30,9 +30,9 @@ Launch Wizard.
   `AmazonEC2RoleForLaunchWizard`) containing these
   required permissions are:
 
-      + `AWSBackupDataTransferAccess`
-      + `AWSBackupRestoreAccessForSAPHANA`
-      + `AWSBackupServiceRolePolicyForBackup`
+        + `AWSBackupDataTransferAccess`
+        + `AWSBackupRestoreAccessForSAPHANA`
+        + `AWSBackupServiceRolePolicyForBackup`
 
   For more information, see [Set up required permissions for Amazon EC2 instance for backup and
   restore of SAP HANA database](../../../ssm-sap/latest/userguide/get-started.md#backup-permissions "../../../ssm-sap/latest/userguide/get-started.md#backup-permissions") . 2. If you intend to assign one or more backup plans through

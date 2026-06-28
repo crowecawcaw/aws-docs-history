@@ -27,7 +27,8 @@ controllers.
 - Configures security groups and rules for traffic between instances.
 - Sets up and configures Active Directory sites and subnets.
 - Sets up and deploys Active Directory Certificate Services with a new Active
-  Directory infrastructure. \* If you deploy Launch Wizard into an existing VPC, the tasks in this list marked by asterisks are
+  Directory infrastructure.
+  \* If you deploy Launch Wizard into an existing VPC, the tasks in this list marked by asterisks are
   skipped.
 
 ###### Topics

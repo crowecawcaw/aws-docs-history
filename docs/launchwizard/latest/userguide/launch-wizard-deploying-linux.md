@@ -278,15 +278,14 @@ Pacemaker.
      **Availability group name**.
 
 6. When you are satisfied with your configuration selections, select
-   **Next**. If you don't want to complete the configuration,
-   select **Cancel**. When you select **Cancel**,
-   all of the selections on the specification page are lost and you are returned to
-   the landing page. To go to the previous screen, select
-   **Previous**.
-7. After configuring your application, you are prompted to define the
-   infrastructure requirements for the new deployment on the **Define
-   infrastructure requirements** page. The following tabs provide
-   information about the input fields.
+**Next**. If you don't want to complete the configuration,
+select **Cancel**. When you select **Cancel**,
+all of the selections on the specification page are lost and you are returned to
+the landing page. To go to the previous screen, select
+**Previous**. 7. After configuring your application, you are prompted to define the
+infrastructure requirements for the new deployment on the **Define
+infrastructure requirements** page. The following tabs provide
+information about the input fields.
 
 Define infrastructure requirements
 
@@ -409,7 +408,7 @@ addressed prior to performing any administrative tasks.
 1. Log in to a cluster node using a sudo user over an SSH connection.
 2. Verify that all cluster nodes are available.
 3. Verify cluster status using the following command: `pcs resource
---all`.
+ --all`.
 
 Address all issues before attempting to start the cluster. 4. Start all cluster nodes using the following command: `pcs cluster start
  --all --wait`. 5. Verify that the cluster has started using the following command: `pcs
@@ -425,7 +424,7 @@ floating IP address.
 1. Log in to a cluster node using a sudo server over an SSH connection.
 2. Verify that all cluster nodes are available.
 3. Verify cluster status using the following command: `pcs resource
---all`.
+ --all`.
 
 Address all issues before attempting to start the cluster. 4. Run the following command: `pcs resource move
  `<RESOURCE_NAME>`-master
@@ -446,7 +445,7 @@ The resource that was moved should be located on the
 1. Log in to a cluster node using a sudo server over an SSH connection.
 2. Verify that all cluster nodes are available.
 3. Verify cluster status using the following command: `pcs resource
---all`.
+ --all`.
 
 Address all issues before attempting to start the cluster. 4. Stop the cluster using the following command: `pcs cluster stop
  --ALL`. This will gracefully shut down all of the cluster
@@ -465,14 +464,13 @@ The following steps are required to restore the cluster to normal operations.
 
 1. Log in to a cluster node using a sudo server over an SSH connection.
 2. Determine the node that was restarted using the following command: `pcs
-resource --ALL`. The restarted node will be offline.
+ resource --ALL`. The restarted node will be offline.
 3. Verify cluster status using the following command: `pcs resource
---all`.
+ --all`.
 
 Address all issues before attempting to start the cluster. 4. Start the restarted node using the following command: `pcs cluster start
- --`<NODE_NAME>``.
-5. Verify cluster status using the following command: `pcs resource
---all`.
+ --`<NODE_NAME>``. 5. Verify cluster status using the following command: `pcs resource
+ --all`.
 
 Address all issues before attempting to start the cluster. 6. If the restarted node is the primary node of the cluster, then the
 Availability Group resource must be returned to the primary node. 7. Remove all temporary constraints using the following commands: `pcs

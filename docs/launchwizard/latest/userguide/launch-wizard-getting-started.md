@@ -192,17 +192,16 @@ When you use Windows license-included AMIs, note the following:
 - Your SQL media must meet certain requirements to use Windows
   license-included AMIs with SQL BYOL. The SQL media must be:
 
-      + An ISO file.
-      + Hosted in an Amazon S3 bucket prefixed with
-       `LaunchWizard-*`.
-      + Included in a folder within the Amazon S3 bucket.
-      + Included in a public folder so that Launch Wizard can download and
-       install the media.
-
-  We recommend that you use Amazon Windows license-included AMIs whenever
-  possible. There are scenarios for which you may want to use a custom Windows
-  AMI. For example, you may have existing licenses (BYOL), or you may have made
-  changes to one of our public images and re-imaged it.
+  - An ISO file.
+  - Hosted in an Amazon S3 bucket prefixed with
+    `LaunchWizard-*`.
+  - Included in a folder within the Amazon S3 bucket.
+  - Included in a public folder so that Launch Wizard can download and
+    install the media.
+    We recommend that you use Amazon Windows license-included AMIs whenever
+    possible. There are scenarios for which you may want to use a custom Windows
+    AMI. For example, you may have existing licenses (BYOL), or you may have made
+    changes to one of our public images and re-imaged it.
 
 If you use Amazon Windows license-included AMIs, you are not required to
 perform any pre-checks on the AMI to ensure that it meets Launch Wizard
@@ -227,11 +226,11 @@ While not exhaustive, the following requirements cover most of the
 configurations whose alteration might impact the successful deployment of a SQL
 Server Always On application using Launch Wizard.
 
-| Support matrix  | SQL Server Version | Windows Server 2019 | Windows Server 2022 | Windows Server 2025 |
-| --------------- | ------------------ | ------------------- | ------------------- | ------------------- |
-| SQL Server 2019 | YES                | YES                 | YES                 |
-| SQL Server 2022 | YES                | YES                 | YES                 |
-| SQL Server 2025 | YES                | YES                 | YES                 |
+Support matrix| SQL Server Version | Windows Server 2019 | Windows Server 2022 | Windows Server 2025 |
+| --- | --- | --- | --- |
+| SQL Server 2019 | YES | YES | YES |
+| SQL Server 2022 | YES | YES | YES |
+| SQL Server 2025 | YES | YES | YES |
 
 ###### OS and SQL requirements
 

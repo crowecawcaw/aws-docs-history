@@ -21,7 +21,7 @@ inbound traffic. Security groups use the following naming conventions:
 - `WD_Security_Group`
 - `WD_LB_Security_Group`
 
-###### <Infrastructure_Configuration_Name>\_App_SecurityGroup
+###### <Infrastructure\_Configuration\_Name>\_App\_SecurityGroup
 
 `<Infrastructure_Configuration_Name>_App_SecurityGroup` is
 configured as follows to allow inbound access to the database servers.
@@ -38,7 +38,7 @@ This configuration allows:
 - inbound communication on all TCP ports from all of the database servers
   deployed using the same configuration name.
 
-###### <Infrastructure_Configuration_Name >\_DB_SecurityGroup
+###### <Infrastructure\_Configuration\_Name >\_DB\_SecurityGroup
 
 `<Infrastructure_Configuration_Name>_DB_SecurityGroup` is configured
 as follows to allow inbound access to the database servers.
@@ -60,18 +60,18 @@ This configuration allows:
 - inbound communication on UDP 111,2049 and 4000 to 4002 from all the SAP
   application servers deployed using the same configuration name.
 
-###### WD_Security_Group
+###### WD\_Security\_Group
 
 `WD_Security_Group` is configured as follows to allow inbound access to
 SAP Web Dispatcher servers.
 
-| Deployment type                   | Source                                                                                        | Protocol | Port range |
-| --------------------------------- | --------------------------------------------------------------------------------------------- | -------- | ---------- |
-| All                               | _ID of the<br>WD_Security_Group_                                                              | all      | 1-65535    |
-| All                               | Input                                                                                         | TCP      | 1-65535    |
-| Distributed instances deployment  | _ID of the security group for the SAP<br>transport directory_                                 | TCP      | 2049       |
-| High availability (HA) deployment | \*ID of the security group for the SAP<br>transport directory in **Availability Zone<br>1\*** | TCP      | 2049       |
-| High availability (HA) deployment | \*ID of the security group for the SAP<br>transport directory in **Availability Zone<br>2\*** | TCP      | 2049       |
+| Deployment type                   | Source                                                                                      | Protocol | Port range |
+| --------------------------------- | ------------------------------------------------------------------------------------------- | -------- | ---------- |
+| All                               | _ID of the<br>WD\_Security\_Group_                                                          | all      | 1-65535    |
+| All                               | Input                                                                                       | TCP      | 1-65535    |
+| Distributed instances deployment  | _ID of the security group for the SAP<br>transport directory_                               | TCP      | 2049       |
+| High availability (HA) deployment | _ID of the security group for the SAP<br>transport directory in **Availability Zone<br>1**_ | TCP      | 2049       |
+| High availability (HA) deployment | _ID of the security group for the SAP<br>transport directory in **Availability Zone<br>2**_ | TCP      | 2049       |
 
 `WD_Security_Group` is configured as follows to allow the following
 outbound access from SAP Web Dispatcher servers.
@@ -80,7 +80,7 @@ outbound access from SAP Web Dispatcher servers.
 | --------------- | ------------------------------------------------------------ | -------- | ---------- |
 | All             | _ID of the security group for the SAP<br>application server_ | TCP      | 8000-8197  |
 
-###### WD_LB_Security_Group
+###### WD\_LB\_Security\_Group
 
 `WD_LB_Security_Group` is configured as follows to allow the following
 inbound access to the load balancer for SAP Web Dispatcher servers.
@@ -92,10 +92,10 @@ inbound access to the load balancer for SAP Web Dispatcher servers.
 `WD_LB_Security_Group` is configured as follows to allow the following
 outbound access from the load balancer for SAP Web Dispatcher servers.
 
-| Deployment type | Destination                         | Protocol | Port range |
-| --------------- | ----------------------------------- | -------- | ---------- |
-| All             | _ID of the<br>WD_Security_Group_    | all      | 8000-8097  |
-| All             | _ID of the<br>WD_LB_Security_Group_ | all      | 1-65535    |
+| Deployment type | Destination                            | Protocol | Port range |
+| --------------- | -------------------------------------- | -------- | ---------- |
+| All             | _ID of the<br>WD\_Security\_Group_     | all      | 8000-8097  |
+| All             | _ID of the<br>WD\_LB\_Security\_Group_ | all      | 1-65535    |
 
 ## Connectivity to external systems and users
 

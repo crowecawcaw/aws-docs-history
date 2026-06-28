@@ -87,9 +87,9 @@ HANA](../../../sap/latest/sap-hana/hana-ops-storage-config.md "../../../sap/late
 
 For NetWeaver database stacks, you can choose between a `gp2`,
 `gp3`, `io1`, or `io2` volume for the
-`usr/sap/`SAPSID``and`/sapmnt`(for
- non-HA deployment architectures) file systems, whereas other configurations are deployed
- with`gp3`volumes. The`gp3` volumes are used by default.
+`usr/sap/`SAPSID`` and `/sapmnt` (for
+non-HA deployment architectures) file systems, whereas other configurations are deployed
+with `gp3` volumes. The `gp3` volumes are used by default.
 
 Launch Wizard also supports the use of Amazon FSx for NetApp ONTAP for SAP HANA databases. FSx for ONTAP file
 systems can be used for `data`, `log`, and `shared`
@@ -113,7 +113,7 @@ system is mounted on all of the applications servers included in the deployment.
 
 When systems within the same SAP Transport Domain are created in one VPC and need to
 be attached to SAP systems in other VPCs (for example, if Development and Quality are
-deployed in a VPC tagged as Non_Prod, and Production is deployed in a VPC tagged as
+deployed in a VPC tagged as Non\_Prod, and Production is deployed in a VPC tagged as
 Prod), a prerequisite for using VPC Peering/Transit Gateway is that you must enable the
 VPCs to be able to communicate. This allows Launch Wizard to attach the transport directory
 created in one VPC to instance(s) in other VPCs using a mount target in the same

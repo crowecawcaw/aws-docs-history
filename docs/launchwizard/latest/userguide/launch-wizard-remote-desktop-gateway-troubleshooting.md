@@ -48,8 +48,10 @@ the deployment scripts failing on the operating system. The following error mess
 indicate that the deployment scripts failed:
 
 - ```
-  Received 1 FAILURE signal(s) out of 1. Unable to satisfy 100% MinSuccessfulInstancesPercent requirement
+
   ```
+
+Received 1 FAILURE signal(s) out of 1. Unable to satisfy 100% MinSuccessfulInstancesPercent requirement
 
 ````
 * ```
@@ -57,8 +59,10 @@ WaitCondition received failed message: ‘Error: Failed in function <script func
 ````
 
 - ```
-  <Resource name> timed out. Failed to receive 1 resource signal(s) within the specified duration
+
   ```
+
+<Resource name> timed out. Failed to receive 1 resource signal(s) within the specified duration
 
 ````
 * ```

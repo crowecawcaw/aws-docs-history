@@ -90,8 +90,8 @@ along with a failure message.
 Launch Wizard streams provisioning logs from all of the AWS log sources, such as
 CloudFormation, SSM, and CloudWatch Logs. CloudWatch Logs for a given application name can be viewed on the CloudWatch
 console for the log group name
-`LaunchWizard-`APPLICATION_NAME``and log
- stream`ApplicationLaunchLog`.
+`LaunchWizard-`APPLICATION_NAME`` and log
+stream `ApplicationLaunchLog`.
 
 ## CloudFormation stack
 
@@ -133,18 +133,18 @@ administrator.
   - The following commands display the configuration details:
 
     - To display all resources, use: `pcs resource show
--full`.
+   -full`.
     - Or, you can use: `pcs resource show <resource
-name>`.
+   name>`.
 
   - The following command will display the cluster constraints: `pcs
-constraints –full`.
+   constraints –full`.
   - The following command displays the cluster properties: `pcs
-property list –all`.
+   property list –all`.
 
 - Manually start the resource with `debug-start`.
 - Clear failed actions with the following command: `pcs resource cleanup
-<resource name>`.
+ <resource name>`.
 
 ## SQL Server Management Studio
 

@@ -41,10 +41,10 @@ Network Configuration
 | Parameter label (name)                    | Default value        | Description                                                               |
 | ----------------------------------------- | -------------------- | ------------------------------------------------------------------------- |
 | VPC CIDR (VPCCIDR)                        | 10.0.0.0/16          | CIDR Block for the VPC.                                                   |
-| VPC ID (VPCID)                            | **_Requires input_** | ID of the VPC (for example,<br>vpc-abcd0123).                             |
+| VPC ID (VPCID)                            | _**Requires input**_ | ID of the VPC (for example,<br>vpc-abcd0123).                             |
 | Create a DHCP options set (DHCPOptionSet) | Yes                  | Creates and associates a new DHCP Options Set to<br>your VPC.             |
-| Subnet 1 ID (PrivateSubnet1ID)            | **_Requires input_** | ID of subnet 1 in Availability Zone 1 (for<br>example, subnet-abcd0123).  |
-| Subnet 2 ID (PrivateSubnet2ID)            | **_Requires input_** | ID of subnet 2 in Availability Zone 2 (for<br>example, subnet-01234abcd). |
+| Subnet 1 ID (PrivateSubnet1ID)            | _**Requires input**_ | ID of subnet 1 in Availability Zone 1 (for<br>example, subnet-abcd0123).  |
+| Subnet 2 ID (PrivateSubnet2ID)            | _**Requires input**_ | ID of subnet 2 in Availability Zone 2 (for<br>example, subnet-01234abcd). |
 
 AWS Managed Microsoft AD configuration
 
@@ -52,35 +52,35 @@ AWS Managed Microsoft AD configuration
 | ----------------------------------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | Domain DNS name (DomainDNSName)                 | example.com          | Fully qualified domain name (FQDN) of the forest<br>root domain. For example, example.com.                                    |
 | Domain NetBIOS name (DomainNetBIOSName)         | example              | NetBIOS name of the domain (Between 1 to 15<br>characters) for users of earlier versions of<br>Windows. For example, EXAMPLE. |
-| Admin account password<br>(DomainAdminPassword) | **_Requires input_** | Password for the Admin account. Must be at least<br>8 characters containing letters, numbers and<br>symbols.                  |
+| Admin account password<br>(DomainAdminPassword) | _**Requires input**_ | Password for the Admin account. Must be at least<br>8 characters containing letters, numbers and<br>symbols.                  |
 | AWS Managed Microsoft AD edition (ADEdition)    | Enterprise           | The AWS Managed Microsoft AD Edition you wish to<br>deploy.                                                                   |
 
 Management instance
 
-| Parameter label (name)                                               | Default value                                                         | Description                                                                                   |
-| -------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| Deploy management server (MgmtServer)                                | TRUE                                                                  | Deploys an EC2 instance to act as a management<br>server.                                     |
-| Management Server SSM Parameter Value for latest<br>AMI ID (MgmtAmi) | /aws/service/ami-windows-latest/Windows_Server-2022-English-Full-Base | Management Server SSM Parameter Value to grab the<br>latest AMI ID.                           |
-| Data drive size (MgmtDataDriveSizeGiB)                               | 2                                                                     | Size of the management server data drive in<br>GiB.                                           |
-| Management server NetBIOS name<br>(MgmtServerNetBIOSName)            | MGMT1                                                                 | NetBIOS name of the Management Server server<br>(between 1-15 characters).                    |
-| Key pair name (KeyPairName)                                          | **_Requires input_**                                                  | Public/private key pairs allow you to securely<br>connect to your instance after it launches. |
+| Parameter label (name)                                               | Default value                                                          | Description                                                                                   |
+| -------------------------------------------------------------------- | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Deploy management server (MgmtServer)                                | TRUE                                                                   | Deploys an EC2 instance to act as a management<br>server.                                     |
+| Management Server SSM Parameter Value for latest<br>AMI ID (MgmtAmi) | /aws/service/ami-windows-latest/Windows\_Server-2022-English-Full-Base | Management Server SSM Parameter Value to grab the<br>latest AMI ID.                           |
+| Data drive size (MgmtDataDriveSizeGiB)                               | 2                                                                      | Size of the management server data drive in<br>GiB.                                           |
+| Management server NetBIOS name<br>(MgmtServerNetBIOSName)            | MGMT1                                                                  | NetBIOS name of the Management Server server<br>(between 1-15 characters).                    |
+| Key pair name (KeyPairName)                                          | _**Requires input**_                                                   | Public/private key pairs allow you to securely<br>connect to your instance after it launches. |
 
 Microsoft Active Directory Certificate Services
 configuration
 
-| Parameter label (name)                                                                                   | Default value                                                         | Description                                                                                                                                                                      |
-| -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Certificate authority (CA) deployment type<br>(PKI)                                                      | No                                                                    | Deploy two-tier (Offline Root with Subordinate<br>Enterprise CA) or one-tier (Enterprise Root CA) PKI<br>Infrastructure.                                                         |
-| CA AMI ID (CaAmi)                                                                                        | /aws/service/ami-windows-latest/Windows_Server-2022-English-Full-Base | The Systems Manager Parameter Store value used to provision<br>the enterprise root CA.                                                                                           |
-| CA data drive size (CaDataDriveSizeGiB)                                                                  | 2                                                                     | Size of the data drive in GiB for the CA<br>instance(s).                                                                                                                         |
-| Offline root CA NetBIOS name (Only Used For<br>two-tier PKI) (OrCaServerNetBIOSName)                     | ORCA1                                                                 | NetBIOS name of the offline root CA server, used<br>only for two-tier PKI (between 1-15<br>characters).                                                                          |
-| Enterprise root or subordinate CA NetBIOS name<br>(EntCaServerNetBIOSName)                               | ENTCA1                                                                | NetBIOS name of the enterprise root (one-tier) or<br>subordinate CA server (two-tier). The value must be<br>1-15 characters.                                                     |
-| CA key length (CaKeyLength)                                                                              | 2048                                                                  | CA(s) cryptographic provider key length.                                                                                                                                         |
-| CA hash algorithm (CaHashAlgorithm)                                                                      | SHA256                                                                | CA(s) hash algorithm for signing<br>certificates.                                                                                                                                |
-| Offline root CA certificate validity period (only<br>used for two-tier PKI)<br>(OrCaValidityPeriodUnits) | 10                                                                    | Validity period in years for the offline root CA<br>certificate (used only for two-tier PKI).                                                                                    |
-| Enterprise root or subordinate CA certificate<br>validity period (CaValidityPeriodUnits)                 | 5                                                                     | Validity period in years for the enterprise root<br>or subordinate CA certificate.                                                                                               |
-| Use S3 for CA CRL location (UseS3ForCRL)                                                                 | No                                                                    | Store CA CRL(s) in an S3 bucket.                                                                                                                                                 |
-| CA CRL S3 bucket name (S3CRLBucketName)                                                                  | examplebucket                                                         | S3 bucket name for CA CRL(s) storage. Bucket name<br>can include numbers, lowercase letters, uppercase<br>letters, and hyphens (-). It cannot start or end<br>with a hyphen (-). |
+| Parameter label (name)                                                                                   | Default value                                                          | Description                                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Certificate authority (CA) deployment type<br>(PKI)                                                      | No                                                                     | Deploy two-tier (Offline Root with Subordinate<br>Enterprise CA) or one-tier (Enterprise Root CA) PKI<br>Infrastructure.                                                         |
+| CA AMI ID (CaAmi)                                                                                        | /aws/service/ami-windows-latest/Windows\_Server-2022-English-Full-Base | The Systems Manager Parameter Store value used to provision<br>the enterprise root CA.                                                                                           |
+| CA data drive size (CaDataDriveSizeGiB)                                                                  | 2                                                                      | Size of the data drive in GiB for the CA<br>instance(s).                                                                                                                         |
+| Offline root CA NetBIOS name (Only Used For<br>two-tier PKI) (OrCaServerNetBIOSName)                     | ORCA1                                                                  | NetBIOS name of the offline root CA server, used<br>only for two-tier PKI (between 1-15<br>characters).                                                                          |
+| Enterprise root or subordinate CA NetBIOS name<br>(EntCaServerNetBIOSName)                               | ENTCA1                                                                 | NetBIOS name of the enterprise root (one-tier) or<br>subordinate CA server (two-tier). The value must be<br>1-15 characters.                                                     |
+| CA key length (CaKeyLength)                                                                              | 2048                                                                   | CA(s) cryptographic provider key length.                                                                                                                                         |
+| CA hash algorithm (CaHashAlgorithm)                                                                      | SHA256                                                                 | CA(s) hash algorithm for signing<br>certificates.                                                                                                                                |
+| Offline root CA certificate validity period (only<br>used for two-tier PKI)<br>(OrCaValidityPeriodUnits) | 10                                                                     | Validity period in years for the offline root CA<br>certificate (used only for two-tier PKI).                                                                                    |
+| Enterprise root or subordinate CA certificate<br>validity period (CaValidityPeriodUnits)                 | 5                                                                      | Validity period in years for the enterprise root<br>or subordinate CA certificate.                                                                                               |
+| Use S3 for CA CRL location (UseS3ForCRL)                                                                 | No                                                                     | Store CA CRL(s) in an S3 bucket.                                                                                                                                                 |
+| CA CRL S3 bucket name (S3CRLBucketName)                                                                  | examplebucket                                                          | S3 bucket name for CA CRL(s) storage. Bucket name<br>can include numbers, lowercase letters, uppercase<br>letters, and hyphens (-). It cannot start or end<br>with a hyphen (-). |
 
 5. When you are satisfied with your application settings, choose
    **Next**. If you don't want to complete the
@@ -153,29 +153,25 @@ also based on static values.
     	 the resources.
 
 7. When you are satisfied with your infrastructure settings, select
-   **Next**. If you don't want to complete the
-   configuration, select **Cancel**. When you select
-   **Cancel**, all of the selections on the specification
-   page are lost and you are returned to the landing page. To go to the
-   previous screen, select **Previous**.
-8. On the **Review and deploy** page, review your
-   configuration details. If you want to make changes, select
-   **Previous**. To stop, select
-   **Cancel**. When you select
-   **Cancel**, all of the selections on the specification page
-   are lost and you are returned to the landing page. When you choose
-   **Deploy**, you agree to the terms of the **Acknowledgment**. Launch Wizard validates the inputs and
-   notifies you if you need to address any issues.
-9. When validation is complete, Launch Wizard deploys your AWS resources and
-   configures your application. Launch Wizard provides you with status updates about the
-   progress of the deployment on the **Deployments** page.
-   From the **Deployments** page, you can view the list of
-   current and previous deployments.
-10. When your deployment is ready, a notification informs you that your
-    application is successfully deployed. If you have set up an Amazon SNS
-    notification, you are also alerted through Amazon SNS. You can manage and access
-    all of the resources related to your application by selecting the
-    deployment, and then selecting **Manage** from the
-    **Actions** dropdown list.
-11. When the application is deployed, you can access your EC2 instances
-    through the Amazon EC2 console.
+**Next**. If you don't want to complete the
+configuration, select **Cancel**. When you select
+**Cancel**, all of the selections on the specification
+page are lost and you are returned to the landing page. To go to the
+previous screen, select **Previous**. 8. On the **Review and deploy** page, review your
+configuration details. If you want to make changes, select
+**Previous**. To stop, select
+**Cancel**. When you select
+**Cancel**, all of the selections on the specification page
+are lost and you are returned to the landing page. When you choose
+**Deploy**, you agree to the terms of the **Acknowledgment**. Launch Wizard validates the inputs and
+notifies you if you need to address any issues. 9. When validation is complete, Launch Wizard deploys your AWS resources and
+configures your application. Launch Wizard provides you with status updates about the
+progress of the deployment on the **Deployments** page.
+From the **Deployments** page, you can view the list of
+current and previous deployments. 10. When your deployment is ready, a notification informs you that your
+application is successfully deployed. If you have set up an Amazon SNS
+notification, you are also alerted through Amazon SNS. You can manage and access
+all of the resources related to your application by selecting the
+deployment, and then selecting **Manage** from the
+**Actions** dropdown list. 11. When the application is deployed, you can access your EC2 instances
+through the Amazon EC2 console.

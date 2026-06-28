@@ -639,7 +639,7 @@ these scripts, see [Custom deployment configuration scripts](how-launch-wizard-s
      script**.
 
 4. After you have entered your deployment settings,
-   choose **Next**.
+choose **Next**.
 
 (See the **SAP software installation
 settings** tab.)
@@ -1067,7 +1067,7 @@ these scripts, see [Custom deployment configuration scripts](how-launch-wizard-s
     	 another script**.
 
 7. After you have entered your additional settings,
-   choose **Next**.
+choose **Next**.
 
 (See the **SAP software installation
 settings** tab.)
@@ -1077,168 +1077,168 @@ On the **Configure SAP HANA deployment
 model** page, enter the deployment details for
 the high availability deployment.
 
-1.  **Deployment details**. Launch Wizard
-    supports single instance deployments, distributed
-    instance deployments, and high availability
-    deployments. Select **High availability
-    deployment**.
-2.  **Settings for ABAP System Central
-    Services (ASCS) server**. Enter the
-    deployment settings for your instance.
+1. **Deployment details**. Launch Wizard
+   supports single instance deployments, distributed
+   instance deployments, and high availability
+   deployments. Select **High availability
+   deployment**.
+2. **Settings for ABAP System Central
+   Services (ASCS) server**. Enter the
+   deployment settings for your instance.
 
-    - **Instance details**.
+   - **Instance details**.
 
-      - Under **Image type**,
-        choose whether to use
-        **AWS/Marketplace/Community
-        images** or **Bring your own
-        images (BYOI)**.
+     - Under **Image type**,
+       choose whether to use
+       **AWS/Marketplace/Community
+       images** or **Bring your own
+       images (BYOI)**.
 
-        - **Operating System**.
-          Select a supported operating system version for
-          the ASCS instances. For a complete list of
-          operating system versions supported for ASCS, see
-          [Operating systems](launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os "launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os").
-        - **AMI ID**. For BYOI,
-          select the AMI that you want to use from the
-          dropdown list.
+       - **Operating System**.
+         Select a supported operating system version for
+         the ASCS instances. For a complete list of
+         operating system versions supported for ASCS, see
+         [Operating systems](launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os "launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os").
+       - **AMI ID**. For BYOI,
+         select the AMI that you want to use from the
+         dropdown list.
 
-      - **Host name**. Enter the
-        host name for the EC2 instance.
-      - **ASCS instance number**.
-        Enter the instance number for the SAP installation
-        and setup, and to open up ports for security
-        groups.
+     - **Host name**. Enter the
+       host name for the EC2 instance.
+     - **ASCS instance number**.
+       Enter the instance number for the SAP installation
+       and setup, and to open up ports for security
+       groups.
 
-    - Under **Instance sizing**,
-      choose whether to **Use AWS recommended
-      resources** or **Choose your
-      instance**.
+   - Under **Instance sizing**,
+     choose whether to **Use AWS recommended
+     resources** or **Choose your
+     instance**.
 
-      - **Use AWS recommended
-        resources**.
+     - **Use AWS recommended
+       resources**.
 
-        - **Based on CPU/Memory**. If
-          you select this option, enter the required number
-          of vCPU **Cores** and
-          **Memory**. Amazon EC2
-          supports up to 1920 logical processors. If the
-          amount of memory required exceeds 4 TB, [dedicated hosts](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md") are required.
-        - **SAPS (SAP Application Performance
-          Standard)**. If you select this option,
-          enter the **SAPS**
-          rating for the SAP certified instance type.
+       - **Based on CPU/Memory**. If
+         you select this option, enter the required number
+         of vCPU **Cores** and
+         **Memory**. Amazon EC2
+         supports up to 1920 logical processors. If the
+         amount of memory required exceeds 4 TB, [dedicated hosts](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md") are required.
+       - **SAPS (SAP Application Performance
+         Standard)**. If you select this option,
+         enter the **SAPS**
+         rating for the SAP certified instance type.
 
-      - **Choose your
-        instance**.
+     - **Choose your
+       instance**.
 
-        - **Instance type**. Choose
-          the instance type from the dropdown list.
+       - **Instance type**. Choose
+         the instance type from the dropdown list.
 
-    - **Recommended Resources**.
-      AWS Launch Wizard displays the **Estimated monthly
-      cost of operation** based on your
-      instance sizing selections. This is an estimate of
-      AWS costs to deploy additional resources. It
-      does not include any applicable taxes or
-      discounts.
-    - Under **Amazon FSx for NetApp ONTAP
-      storage**, enter your desired volume
-      sizes for SAP HANA data, log, and other file
-      systems. The displayed default values are based on
-      your selection of the instance type.
+   - **Recommended Resources**.
+     AWS Launch Wizard displays the **Estimated monthly
+     cost of operation** based on your
+     instance sizing selections. This is an estimate of
+     AWS costs to deploy additional resources. It
+     does not include any applicable taxes or
+     discounts.
+   - Under **Amazon FSx for NetApp ONTAP
+     storage**, enter your desired volume
+     sizes for SAP HANA data, log, and other file
+     systems. The displayed default values are based on
+     your selection of the instance type.
 
-3.  **Settings for Enqueue Replication Server
-    (ERS)**. Enter the deployment settings
-    for your ERS.
+3. **Settings for Enqueue Replication Server
+   (ERS)**. Enter the deployment settings
+   for your ERS.
 
-    - **Instance details**.
+   - **Instance details**.
 
-      - Under **Instance sizing**,
-        choose whether to use
-        **AWS/Marketplace/Community
-        images** or **Bring your own
-        images (BYOI)**.
+     - Under **Instance sizing**,
+       choose whether to use
+       **AWS/Marketplace/Community
+       images** or **Bring your own
+       images (BYOI)**.
 
-        - **Operating System**.
-          Select a supported operating system version for
-          the ERS instance.
-        - **AMI ID**. For BYOI,
-          select the AMI that you want to use from the
-          dropdown list.
+       - **Operating System**.
+         Select a supported operating system version for
+         the ERS instance.
+       - **AMI ID**. For BYOI,
+         select the AMI that you want to use from the
+         dropdown list.
 
-      - **Host name**. Enter the
-        host name for the EC2 instance.
-      - **ERS instance number**.
-        Enter the instance number for the SAP installation
-        and setup, and to open up ports for security
-        groups.
+     - **Host name**. Enter the
+       host name for the EC2 instance.
+     - **ERS instance number**.
+       Enter the instance number for the SAP installation
+       and setup, and to open up ports for security
+       groups.
 
-    - Under **Instance sizing**,
-      choose whether to **Use AWS recommended
-      resources** or **Choose your
-      instance**.
+   - Under **Instance sizing**,
+     choose whether to **Use AWS recommended
+     resources** or **Choose your
+     instance**.
 
-      - **Use AWS recommended
-        resources**.
+     - **Use AWS recommended
+       resources**.
 
-        - **Based on CPU/Memory**. If
-          you select this option, enter the required number
-          of vCPU **Cores** and
-          **Memory**. Amazon
-          EC2 supports up to 1920 logical processors. If the
-          amount of memory required exceeds 4TB, [dedicated hosts](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md") are required.
-        - **SAPS (SAP Application Performance
-          Standard)**. If you select this option,
-          enter the **SAPS**
-          rating for the SAP certified instance type.
+       - **Based on CPU/Memory**. If
+         you select this option, enter the required number
+         of vCPU **Cores** and
+         **Memory**. Amazon
+         EC2 supports up to 1920 logical processors. If the
+         amount of memory required exceeds 4TB, [dedicated hosts](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md") are required.
+       - **SAPS (SAP Application Performance
+         Standard)**. If you select this option,
+         enter the **SAPS**
+         rating for the SAP certified instance type.
 
-      - **Choose your
-        instance**.
+     - **Choose your
+       instance**.
 
-        - **Instance type**. Choose
-          the instance type from the dropdown list.
+       - **Instance type**. Choose
+         the instance type from the dropdown list.
 
-    - **Recommended Resources**.
-      AWS Launch Wizard displays the **Estimated monthly
-      cost of operation** based on your
-      instance sizing selections. This is an estimate of
-      AWS costs to deploy additional resources and
-      does not include any applicable taxes or
-      discounts.
+   - **Recommended Resources**.
+     AWS Launch Wizard displays the **Estimated monthly
+     cost of operation** based on your
+     instance sizing selections. This is an estimate of
+     AWS costs to deploy additional resources and
+     does not include any applicable taxes or
+     discounts.
 
-4.  **Settings for database (DB)
-    Server**. Enter the deployment settings
-    for your database.
+4. **Settings for database (DB)
+   Server**. Enter the deployment settings
+   for your database.
 
-    - Under **Instance sizing**,
-      choose whether to use
-      **AWS/Marketplace/Community
-      images** or **Bring your own
-      images (BYOI)**.
+   - Under **Instance sizing**,
+     choose whether to use
+     **AWS/Marketplace/Community
+     images** or **Bring your own
+     images (BYOI)**.
 
-      - **Instance
-        details.**
+     - **Instance
+       details.**
 
-        - **Operating System**.
-          Select a supported operating system version for
-          the ERS instance.
-        - **AMI ID**. For BYOI,
-          select the AMI that you want to use from the
-          dropdown list.
+       - **Operating System**.
+         Select a supported operating system version for
+         the ERS instance.
+       - **AMI ID**. For BYOI,
+         select the AMI that you want to use from the
+         dropdown list.
 
-    - **Primary and secondary instance
-      details**. Enter details for both the
-      primary and secondary instances.
+   - **Primary and secondary instance
+     details**. Enter details for both the
+     primary and secondary instances.
 
-      - **SAP HANA host name**.
-        Enter the host name for the SAP HANA primary and
-        secondary instances.
-      - **Server site name**. Enter
-        the primary and secondary site name for the SAP
-        HANA system replication.
+     - **SAP HANA host name**.
+       Enter the host name for the SAP HANA primary and
+       secondary instances.
+     - **Server site name**. Enter
+       the primary and secondary site name for the SAP
+       HANA system replication.
 
-    ###### Private IP address settings
+   ###### Private IP address settings
 
         + **Primary instance
          details**
@@ -1284,283 +1284,283 @@ the high availability deployment.
         	 single IP address. Verify that this IP address is
         	 within the subnet range of the instance you are
         	 launching.
-    - **Overlay IP address**.
-      Enter the overlay IP address to assign to the
-      active node. The IP address should be outside of
-      the VPC CIDR and must not be used by any other HA
-      cluster. It is configured to always point to the
-      active SAP HANA node.
-    - **Pacemaker tag name**.
-      Enter the tag to assign to each EC2 instance. This
-      tag is used by the pacemaker component of SLES HAE
-      and RHEL for SAP high availability solutions and
-      must not be used by any other EC2 instance in your
-      account.
-    - Under **Instance sizing**,
-      choose whether to **Use AWS recommended
-      resources** or **Choose your
-      instance**.
+   - **Overlay IP address**.
+     Enter the overlay IP address to assign to the
+     active node. The IP address should be outside of
+     the VPC CIDR and must not be used by any other HA
+     cluster. It is configured to always point to the
+     active SAP HANA node.
+   - **Pacemaker tag name**.
+     Enter the tag to assign to each EC2 instance. This
+     tag is used by the pacemaker component of SLES HAE
+     and RHEL for SAP high availability solutions and
+     must not be used by any other EC2 instance in your
+     account.
+   - Under **Instance sizing**,
+     choose whether to **Use AWS recommended
+     resources** or **Choose your
+     instance**.
 
-      - **Use AWS recommended
-        resources**.
+     - **Use AWS recommended
+       resources**.
 
-        - **Based on CPU/Memory**. If
-          you select this option, enter the required number
-          of vCPU **Cores** and
-          **Memory**. Amazon EC2
-          supports up to 1920 logical processors. If the
-          amount of memory required exceeds 4 TB, [dedicated hosts](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md") are required.
-        - **SAPS (SAP Application Performance
-          Standard)**. If you select this option,
-          enter the **SAPS**
-          rating for the SAP certified instance type.
+       - **Based on CPU/Memory**. If
+         you select this option, enter the required number
+         of vCPU **Cores** and
+         **Memory**. Amazon EC2
+         supports up to 1920 logical processors. If the
+         amount of memory required exceeds 4 TB, [dedicated hosts](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md") are required.
+       - **SAPS (SAP Application Performance
+         Standard)**. If you select this option,
+         enter the **SAPS**
+         rating for the SAP certified instance type.
 
-      - **Choose your
-        instance**.
+     - **Choose your
+       instance**.
 
-        - **Instance type**. Choose
-          the instance type from the dropdown list.
+       - **Instance type**. Choose
+         the instance type from the dropdown list.
 
-    - **Recommended Resources**.
-      AWS Launch Wizard displays the **Estimated monthly
-      cost of operation** based on your
-      instance sizing selections. This is an estimate of
-      AWS costs to deploy additional resources. It
-      does not include any applicable taxes or
-      discounts.
+   - **Recommended Resources**.
+     AWS Launch Wizard displays the **Estimated monthly
+     cost of operation** based on your
+     instance sizing selections. This is an estimate of
+     AWS costs to deploy additional resources. It
+     does not include any applicable taxes or
+     discounts.
 
-5.  **Primary Application Server
-    (PAS)**. Enter the deployment settings
-    for your instance.
+5. **Primary Application Server
+   (PAS)**. Enter the deployment settings
+   for your instance.
 
-    - **Instance details**.
+   - **Instance details**.
 
-      - Under **Image type**,
-        choose whether to use
-        **AWS/Marketplace/Community
-        images** or **Bring your own
-        images (BYOI)**.
+     - Under **Image type**,
+       choose whether to use
+       **AWS/Marketplace/Community
+       images** or **Bring your own
+       images (BYOI)**.
 
-        - **Operating System**.
-          Select a supported operating system version for
-          the ERS instance.
-        - **AMI ID**. For BYOI,
-          select the AMI that you want to use from the
-          dropdown list.
+       - **Operating System**.
+         Select a supported operating system version for
+         the ERS instance.
+       - **AMI ID**. For BYOI,
+         select the AMI that you want to use from the
+         dropdown list.
 
-      - **Host name**. Enter the
-        host name for the EC2 instance.
-      - **Auto Recovery**. Auto
-        recovery is an Amazon EC2 feature to increase instance
-        availability. Select the check box to enable Amazon EC2
-        automatic recovery for the instance. For more
-        information, see [Recover Your Instance](../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md "../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md") in the Amazon EC2 User
-        Guide.
+     - **Host name**. Enter the
+       host name for the EC2 instance.
+     - **Auto Recovery**. Auto
+       recovery is an Amazon EC2 feature to increase instance
+       availability. Select the check box to enable Amazon EC2
+       automatic recovery for the instance. For more
+       information, see [Recover Your Instance](../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md "../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md") in the Amazon EC2 User
+       Guide.
 
-    - Under **Instance sizing**,
-      choose whether to **Use AWS recommended
-      resources** or **Choose your
-      instance**.
+   - Under **Instance sizing**,
+     choose whether to **Use AWS recommended
+     resources** or **Choose your
+     instance**.
 
-      - **Use AWS recommended
-        resources**.
+     - **Use AWS recommended
+       resources**.
 
-        - **Define requirements**.
-          Choose the requirements for your recommended
-          resources from the dropdown list.
+       - **Define requirements**.
+         Choose the requirements for your recommended
+         resources from the dropdown list.
 
-          - **Based on CPU/Memory**. If
-            you select this option, enter the required number
-            of vCPU **Cores** and
-            **Memory**. Amazon EC2
-            supports up to 1920 logical processors. If the
-            amount of memory required exceeds 4TB, [dedicated hosts](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md") are required.
-          - **SAPS (SAP Application Performance
-            Standard)**. If you select this option,
-            enter the **SAPS**
-            rating for the SAP certified instance types.
+         - **Based on CPU/Memory**. If
+           you select this option, enter the required number
+           of vCPU **Cores** and
+           **Memory**. Amazon EC2
+           supports up to 1920 logical processors. If the
+           amount of memory required exceeds 4TB, [dedicated hosts](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md") are required.
+         - **SAPS (SAP Application Performance
+           Standard)**. If you select this option,
+           enter the **SAPS**
+           rating for the SAP certified instance types.
 
-      - **Choose your
-        instance**.
+     - **Choose your
+       instance**.
 
-        - **Instance type**. Choose
-          the instance type from the dropdown list.
+       - **Instance type**. Choose
+         the instance type from the dropdown list.
 
-      - **Recommended Resources**.
-        AWS Launch Wizard displays the **Estimated monthly
-        cost of operation** based on your
-        instance sizing selections. This is an estimate of
-        AWS costs to deploy additional resources. It
-        does not include any applicable taxes or
-        discounts.
+     - **Recommended Resources**.
+       AWS Launch Wizard displays the **Estimated monthly
+       cost of operation** based on your
+       instance sizing selections. This is an estimate of
+       AWS costs to deploy additional resources. It
+       does not include any applicable taxes or
+       discounts.
 
-6.  **Settings for
-    SAP Web Dispatcher**. Enter the
-    deployment settings for your SAP Web Dispatcher
-    instances.
+6. **Settings for
+   SAP Web Dispatcher**. Enter the
+   deployment settings for your SAP Web Dispatcher
+   instances.
 
-    - **Instance details**.
+   - **Instance details**.
 
-      - Under **Image type**,
-        choose whether to use
-        **AWS/Marketplace/Community
-        images** or **Bring your own
-        images (BYOI)**.
+     - Under **Image type**,
+       choose whether to use
+       **AWS/Marketplace/Community
+       images** or **Bring your own
+       images (BYOI)**.
 
-        - **Operating System**.
-          Select a supported operating system version for
-          the SAP Web Dispatcher instances. For a complete
-          list of operating system versions supported for
-          SAP Web Dispatcher, see [Operating systems](launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os "launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os").
-        - **AMI ID**. For BYOI,
-          select the AMI that you want to use from the
-          dropdown.
+       - **Operating System**.
+         Select a supported operating system version for
+         the SAP Web Dispatcher instances. For a complete
+         list of operating system versions supported for
+         SAP Web Dispatcher, see [Operating systems](launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os "launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os").
+       - **AMI ID**. For BYOI,
+         select the AMI that you want to use from the
+         dropdown.
 
-      - **SAP Web Dispatcher ID
-        (SID)**. The SID to use for
-        SAP Web Dispatcher. This value must be unique
-        throughout your SAP system's landscape.
-      - **SAP Web Dispatcher Admin User
-        ID**. The user ID number for the
-        SAP Web Dispatcher administrator user
-        (sid-adm).
+     - **SAP Web Dispatcher ID
+       (SID)**. The SID to use for
+       SAP Web Dispatcher. This value must be unique
+       throughout your SAP system's landscape.
+     - **SAP Web Dispatcher Admin User
+       ID**. The user ID number for the
+       SAP Web Dispatcher administrator user
+       (sid-adm).
 
-    - Enter the following information for both the
-      primary and secondary instance:
+   - Enter the following information for both the
+     primary and secondary instance:
 
-      - **Private subnet**. The
-        private subnet to provision SAP Web Dispatcher
-        instances in.
-      - **Hostname**. The hostname
-        to use for the EC2 instance where
-        SAP Web Dispatcher is deployed.
-      - **Private IP address**.
-        Choose whether to use an **Auto-assigned
-        (default)** IP address or a
-        **Custom IP address**.
+     - **Private subnet**. The
+       private subnet to provision SAP Web Dispatcher
+       instances in.
+     - **Hostname**. The hostname
+       to use for the EC2 instance where
+       SAP Web Dispatcher is deployed.
+     - **Private IP address**.
+       Choose whether to use an **Auto-assigned
+       (default)** IP address or a
+       **Custom IP address**.
 
-        - **Auto-assign IP address
-          (default)**. When you select this option,
-          an IP addressed will be assigned for you. This is
-          the default option.
-        - **Custom IP address**. When
-          you select this option, you can enter a single IP
-          address.
-        - **Auto Recovery**. Auto
-          recovery is an Amazon EC2 feature to increase instance
-          availability. Select the check box to enable EC2
-          automatic recovery for the instance. For more
-          information, see [Recover Your Instance](../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md "../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md") in the Amazon EC2 User
-          Guide.
+       - **Auto-assign IP address
+         (default)**. When you select this option,
+         an IP addressed will be assigned for you. This is
+         the default option.
+       - **Custom IP address**. When
+         you select this option, you can enter a single IP
+         address.
+       - **Auto Recovery**. Auto
+         recovery is an Amazon EC2 feature to increase instance
+         availability. Select the check box to enable EC2
+         automatic recovery for the instance. For more
+         information, see [Recover Your Instance](../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md "../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md") in the Amazon EC2 User
+         Guide.
 
-    - Under **Instance sizing**,
-      choose whether to **Based on
-      infrastructure requirements** or
-      **Based on instance
-      type**.
+   - Under **Instance sizing**,
+     choose whether to **Based on
+     infrastructure requirements** or
+     **Based on instance
+     type**.
 
-      - **Based on infrastructure
-        requirements**
+     - **Based on infrastructure
+       requirements**
 
-        - **Infrastructure
-          requirements**. Choose the requirements
-          for your recommended resources from the dropdown
-          list.
+       - **Infrastructure
+         requirements**. Choose the requirements
+         for your recommended resources from the dropdown
+         list.
 
-          - **Based on CPU/Memory**. If
-            you select this option, enter the required number
-            of vCPU **Cores** and
-            **Memory**. Amazon
-            EC2 supports up to 1920 logical processors. If the
-            amount of memory required exceeds 4TB, [dedicated hosts](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md") are required.
+         - **Based on CPU/Memory**. If
+           you select this option, enter the required number
+           of vCPU **Cores** and
+           **Memory**. Amazon
+           EC2 supports up to 1920 logical processors. If the
+           amount of memory required exceeds 4TB, [dedicated hosts](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md") are required.
 
-            - **vCPU**. The amount of
-              vCPUs cores required by the instance.
-            - **Memory (GB)**. The amount
-              of memory required for each instance.
+           - **vCPU**. The amount of
+             vCPUs cores required by the instance.
+           - **Memory (GB)**. The amount
+             of memory required for each instance.
 
-          - **SAPS (SAP Application Performance
-            Standard)**. If you select this option,
-            enter the **SAPS**
-            rating for the SAP certified instance
-            types.
+         - **SAPS (SAP Application Performance
+           Standard)**. If you select this option,
+           enter the **SAPS**
+           rating for the SAP certified instance
+           types.
 
-            - **SAPS**. We will recommend
-              SAP certified instance types which offer SAPS
-              ratings for the value you enter.
+           - **SAPS**. We will recommend
+             SAP certified instance types which offer SAPS
+             ratings for the value you enter.
 
-        - **Based on instance
-          type**
+       - **Based on instance
+         type**
 
-          - **Instance type**. Choose
-            the instance type from the dropdown list.
+         - **Instance type**. Choose
+           the instance type from the dropdown list.
 
-      - **Recommended Resources**.
-        AWS Launch Wizard displays the **Estimated monthly
-        cost of operation** based on your
-        instance sizing selections. This is an estimate of
-        AWS costs to deploy additional resources and
-        does not include any applicable taxes or
-        discounts.
+     - **Recommended Resources**.
+       AWS Launch Wizard displays the **Estimated monthly
+       cost of operation** based on your
+       instance sizing selections. This is an estimate of
+       AWS costs to deploy additional resources and
+       does not include any applicable taxes or
+       discounts.
 
-7.  **Settings for Additional App Servers
-    (AAS) - _optional_**. Enter the
-    deployment settings for your AAS instances.
+7. **Settings for Additional App Servers
+   (AAS) - _optional_**. Enter the
+   deployment settings for your AAS instances.
 
-    - **Instance details**
+   - **Instance details**
 
-      - **Number of Additional App Servers
-        (AAS)**. Enter the number of additional
-        application servers.
-      - **Naming convention for host
-        name**. Enter the naming convention for
-        the host name.
-      - **Auto Recovery**. Auto recovery
-        is an Amazon EC2 feature to increase instance
-        availability. Select the check box to enable Amazon EC2
-        automatic recovery for the instance. For more
-        information, see [Recover Your Instance](../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md "../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md") in the Amazon EC2 User
-        Guide.
+     - **Number of Additional App Servers
+       (AAS)**. Enter the number of additional
+       application servers.
+     - **Naming convention for host
+       name**. Enter the naming convention for
+       the host name.
+     - **Auto Recovery**. Auto recovery
+       is an Amazon EC2 feature to increase instance
+       availability. Select the check box to enable Amazon EC2
+       automatic recovery for the instance. For more
+       information, see [Recover Your Instance](../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md "../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md") in the Amazon EC2 User
+       Guide.
 
-    - Under **Instance sizing**,
-      choose whether to **Use AWS recommended
-      resources** or **Choose your
-      instance**.
+   - Under **Instance sizing**,
+     choose whether to **Use AWS recommended
+     resources** or **Choose your
+     instance**.
 
-      - **Use AWS recommended
-        resources**.
+     - **Use AWS recommended
+       resources**.
 
-        - **Infrastructure
-          requirements**. Choose the requirements
-          for your recommended resources from the dropdown
-          list.
+       - **Infrastructure
+         requirements**. Choose the requirements
+         for your recommended resources from the dropdown
+         list.
 
-          - **Based on CPU/Memory**. If
-            you select this option, enter the required number
-            of vCPU **Cores** and
-            **Memory**. Amazon EC2
-            supports up to 1920 logical processors. If the
-            amount of memory required exceeds 4 TB, [dedicated hosts](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md") are required.
-          - **SAPS (SAP Application Performance
-            Standard)**. If you select this option,
-            enter the **SAPS**
-            rating for the SAP certified instance types.
+         - **Based on CPU/Memory**. If
+           you select this option, enter the required number
+           of vCPU **Cores** and
+           **Memory**. Amazon EC2
+           supports up to 1920 logical processors. If the
+           amount of memory required exceeds 4 TB, [dedicated hosts](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md") are required.
+         - **SAPS (SAP Application Performance
+           Standard)**. If you select this option,
+           enter the **SAPS**
+           rating for the SAP certified instance types.
 
-      - **Choose your
-        instance**.
+     - **Choose your
+       instance**.
 
-        - **Instance type**. Choose
-          the instance type from the dropdown list.
+       - **Instance type**. Choose
+         the instance type from the dropdown list.
 
-      - **Recommended Resources**.
-        AWS Launch Wizard displays the **Estimated monthly
-        cost of operation** based on your
-        instance sizing selections. This is an estimate of
-        AWS costs to deploy additional resources. It
-        does not include any applicable taxes or
-        discounts.
+     - **Recommended Resources**.
+       AWS Launch Wizard displays the **Estimated monthly
+       cost of operation** based on your
+       instance sizing selections. This is an estimate of
+       AWS costs to deploy additional resources. It
+       does not include any applicable taxes or
+       discounts.
 
-8.  ###### Pre- and post-deployment configuration scripts — optional
+8. ###### Pre- and post-deployment configuration scripts — optional
 
 You can run pre- and post-deployment configuration
 scripts during application provisioning. For more
@@ -1646,7 +1646,7 @@ these scripts, see [Custom deployment configuration scripts](how-launch-wizard-s
     	 another script**.
 
 9. After you have entered all of your deployment
-   settings, choose **Next**.
+settings, choose **Next**.
 
 (See the **SAP software installation
 settings** tab.)
@@ -1787,68 +1787,69 @@ application selected.
      Enqueue Replication Server (ERS) host name.
 
 6. **Additional installation
-   details**. Select the parameter name and
-   values to use for your software installation. The
-   following fields may vary according to the
-   application selected.
+details**. Select the parameter name and
+values to use for your software installation. The
+following fields may vary according to the
+application selected.
 
-   - **Number of batch
+    * **Number of batch
      processes**. Enter the maximum number of
      batch processes.
-   - **Number of dialog
+    * **Number of dialog
      processes**. Enter the maximum number of
      dialog processes.
-   - **UID for SAP host agent**.
+    * **UID for SAP host agent**.
      Enter the UID for the SAP host agent.
-   - **Create a DBA Cockpit
+    * **Create a DBA Cockpit
      user**. Choose whether to create a DBA
      Cockpit user.
 
 7. **AWS Backint Agent**. Select
-   the check box to install AWS Backint Agent. For
-   more information, see [AWS Backint Agent for SAP HANA](../../../sap/latest/sap-hana/aws-backint-agent-sap-hana.md "../../../sap/latest/sap-hana/aws-backint-agent-sap-hana.md").
+the check box to install AWS Backint Agent. For
+more information, see [AWS Backint Agent for SAP HANA](../../../sap/latest/sap-hana/aws-backint-agent-sap-hana.md "../../../sap/latest/sap-hana/aws-backint-agent-sap-hana.md").
 
-   1. **S3 file path**. Select or
-      enter the Amazon S3 location to store the SAP HANA
-      backup files.
-   2. **AWS KMS key ARN**.
-      Select the ARN of the KMS key that can be used
-      by AWS Backint Agent to encrypt the backup
-      files. For more information, see the [AWS Backint Agent for SAP
-      documentation](../../../sap/latest/sap-hana/aws-backint-agent-prerequisites.md#aws-backint-agent-s3 "../../../sap/latest/sap-hana/aws-backint-agent-prerequisites.md#aws-backint-agent-s3").
-   3. **Agent version**. Select
-      the AWS Backint Agent version you want to
-      install.
+    1. **S3 file path**. Select or
+     enter the Amazon S3 location to store the SAP HANA
+     backup files.
+    2. **AWS KMS key ARN**.
+     Select the ARN of the KMS key that can be used
+     by AWS Backint Agent to encrypt the backup
+     files. For more information, see the [AWS Backint Agent for SAP
+     documentation](../../../sap/latest/sap-hana/aws-backint-agent-prerequisites.md#aws-backint-agent-s3 "../../../sap/latest/sap-hana/aws-backint-agent-prerequisites.md#aws-backint-agent-s3").
+    3. **Agent version**. Select
+     the AWS Backint Agent version you want to
+     install.
 
 8. ###### **Additional preferences**.
-   1. When you use AWS Backint Agent, the HANA
-      backup files are stored in Amazon S3, which eliminates
-      the requirement for local EBS backup volumes. If
-      you want Launch Wizard to provision local EBS backup
-      volumes for file-based backups that can be
-      configured manually after deployments, select the
-      check box.
-   2. By default, a Launch Wizard deployment rolls back
-      when the AWS Backint Agent installation fails.
-      If you want to continue with a Launch Wizard deployment
-      when the AWS Backint Agent installation fails,
-      select the check box. This option does not apply
-      to high availability deployments.
+
+    1. When you use AWS Backint Agent, the HANA
+     backup files are stored in Amazon S3, which eliminates
+     the requirement for local EBS backup volumes. If
+     you want Launch Wizard to provision local EBS backup
+     volumes for file-based backups that can be
+     configured manually after deployments, select the
+     check box.
+    2. By default, a Launch Wizard deployment rolls back
+     when the AWS Backint Agent installation fails.
+     If you want to continue with a Launch Wizard deployment
+     when the AWS Backint Agent installation fails,
+     select the check box. This option does not apply
+     to high availability deployments.
 
 9. **IAM permissions**. To deploy an
-   application successfully, Launch Wizard must be allowed to
-   perform operations in other AWS services on your
-   behalf. To do this, the Launch Wizard IAM role,
-   `AmazonEC2RoleForLaunchWizard`, must
-   have permissions attached to perform these
-   operations, which include AWS Backint Agent
-   operations, running pre- and post-deployment
-   configuration scripts, and downloading the SAP
-   installation media from Amazon S3. If the required policy
-   is not attached to the Launch Wizard role, the Launch Wizard
-   deployment can fail. Select the check box to verify
-   that you have attached the required permissions
-   before deploying.
+application successfully, Launch Wizard must be allowed to
+perform operations in other AWS services on your
+behalf. To do this, the Launch Wizard IAM role,
+`AmazonEC2RoleForLaunchWizard`, must
+have permissions attached to perform these
+operations, which include AWS Backint Agent
+operations, running pre- and post-deployment
+configuration scripts, and downloading the SAP
+installation media from Amazon S3. If the required policy
+is not attached to the Launch Wizard role, the Launch Wizard
+deployment can fail. Select the check box to verify
+that you have attached the required permissions
+before deploying.
 
 For steps to attach the required permissions to
 `AmazonEC2RoleForLaunchWizard`, see
@@ -2123,7 +2124,7 @@ these scripts, see [Custom deployment configuration scripts](how-launch-wizard-s
      script**.
 
 4. After you enter your deployment settings, choose
-   Next.
+Next.
 
 (See the **Review** tab)
 
@@ -2256,7 +2257,7 @@ these scripts, see [Custom deployment configuration scripts](how-launch-wizard-s
      script**.
 
 4. After you enter your deployment settings, choose
-   **Next**.
+**Next**.
 
 (See **Review** tab)
 
@@ -2396,7 +2397,7 @@ these scripts, see [Custom deployment configuration scripts](how-launch-wizard-s
      script**.
 
 4. After you enter your deployment settings, choose
-   **Next**.
+**Next**.
 
 (See **Review** tab)
 
@@ -2476,48 +2477,48 @@ Single instance deployment
 On the **Configure deployment model** page, enter the
 deployment details for a single instance deployment.
 
-1.  **ASCS, PAS, and DB on one EC2 instance**. Enter the
-    deployment settings for your instance.
+1. **ASCS, PAS, and DB on one EC2 instance**. Enter the
+   deployment settings for your instance.
 
-    - **Instance details**.
+   - **Instance details**.
 
-      - Under **Image type**, choose whether
-        to use **AWS/Marketplace/Community
-        image** or **Bring your own image
-        (BYOI)**.
-      - **Operating System and version**.
-        Select a supported operating system version for the ASCS
-        instance. For a complete list of operating system
-        versions supported for ASCS, see [Operating systems](launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os "launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os").
-      - **AMI ID**. For BYOI, select the AMI
-        that you want to use from the dropdown.
-      - **Host name**. Enter the host name
-        for the EC2 instance.
-      - **Private IP address**. Choose
-        whether to use an **Auto-assigned
-        (default)** IP address or a
-        **Custom IP address**.
+     - Under **Image type**, choose whether
+       to use **AWS/Marketplace/Community
+       image** or **Bring your own image
+       (BYOI)**.
+     - **Operating System and version**.
+       Select a supported operating system version for the ASCS
+       instance. For a complete list of operating system
+       versions supported for ASCS, see [Operating systems](launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os "launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os").
+     - **AMI ID**. For BYOI, select the AMI
+       that you want to use from the dropdown.
+     - **Host name**. Enter the host name
+       for the EC2 instance.
+     - **Private IP address**. Choose
+       whether to use an **Auto-assigned
+       (default)** IP address or a
+       **Custom IP address**.
 
-        - **Auto-assign (default)**.
-          When you select this option, an IP addressed will
-          be assigned for you. This is the default
-          option.
-        - **Private IP address**. When
-          you select this option, you can enter a single IP
-          address. Verify that this IP address is within the
-          subnet range of the instance you are launching.
+       - **Auto-assign (default)**.
+         When you select this option, an IP addressed will
+         be assigned for you. This is the default
+         option.
+       - **Private IP address**. When
+         you select this option, you can enter a single IP
+         address. Verify that this IP address is within the
+         subnet range of the instance you are launching.
 
-      - **Auto Recovery**. Auto recovery is
-        an Amazon EC2 feature to increase instance availability.
-        Select the check box to enable EC2 automatic recovery
-        for the instance. For more information, see [Recover Your Instance](../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md "../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md") in the Amazon EC2 User
-        Guide.
+     - **Auto Recovery**. Auto recovery is
+       an Amazon EC2 feature to increase instance availability.
+       Select the check box to enable EC2 automatic recovery
+       for the instance. For more information, see [Recover Your Instance](../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md "../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md") in the Amazon EC2 User
+       Guide.
 
-    - **Instance sizing**.
+   - **Instance sizing**.
 
-    Under **Instance sizing type**, choose
-    **Based on infrastructure requirements** or
-    **Based on instance type**.
+   Under **Instance sizing type**, choose
+   **Based on infrastructure requirements** or
+   **Based on instance type**.
 
         + **Use AWS recommended
          resources**.
@@ -2550,19 +2551,19 @@ deployment details for a single instance deployment.
 
         	- **Instance type**. Choose the
         	 instance type from the dropdown list.
-    - **Storage Sizing**. Enter the size, IOPS, and
-      throughput for the data, log, and backup filesystems. You can
-      have upto 6 data filesystems, 1 log filesystem, and 1 backup
-      filesystem.
-    - **Recommended Resources**. AWS Launch Wizard displays
-      the **Estimated monthly cost of operation**
-      based on your instance sizing selections and the EBS volumes
-      that will be created and attached to the launched instances.
-      This is an estimate of AWS costs to deploy additional
-      resources and does not include any image costs, EC2
-      reservations, applicable taxes, or discounts.
+   - **Storage Sizing**. Enter the size, IOPS, and
+     throughput for the data, log, and backup filesystems. You can
+     have upto 6 data filesystems, 1 log filesystem, and 1 backup
+     filesystem.
+   - **Recommended Resources**. AWS Launch Wizard displays
+     the **Estimated monthly cost of operation**
+     based on your instance sizing selections and the EBS volumes
+     that will be created and attached to the launched instances.
+     This is an estimate of AWS costs to deploy additional
+     resources and does not include any image costs, EC2
+     reservations, applicable taxes, or discounts.
 
-2.  ###### Pre- and post-deployment configuration scripts — optional
+2. ###### Pre- and post-deployment configuration scripts — optional
 
 You can run pre- and post-deployment configuration scripts during
 application provisioning. For more information about how Launch Wizard accesses
@@ -2599,7 +2600,7 @@ and deploys these scripts, see [Custom deployment configuration scripts](how-lau
      script**.
 
 3. After you have entered your deployment settings, choose
-   **Next**.
+**Next**.
 
 See the **SAP software installation settings** tab for
 further information.
@@ -2650,26 +2651,26 @@ selected.
      instance number.
 
 5. **Additional installation details**. Select the
-   parameter name and values to use for your software installation. The
-   following fields may vary according to the application selected.
+parameter name and values to use for your software installation. The
+following fields may vary according to the application selected.
 
-   - **Number of batch processes**. Enter the
+    * **Number of batch processes**. Enter the
      maximum number of batch processes.
-   - **Number of dialog processes**. Enter the
+    * **Number of dialog processes**. Enter the
      maximum number of dialog processes.
-   - **UID for SAP host agent**. Enter the UID for
+    * **UID for SAP host agent**. Enter the UID for
      the SAP host agent.
 
 6. **IAM permissions**. To deploy an application
-   successfully, Launch Wizard must be allowed to perform operations in other AWS
-   services on your behalf. To do this, the Launch Wizard IAM role,
-   `AmazonEC2RoleForLaunchWizard`, must have permissions
-   attached to perform these operations, which include AWS Backint Agent
-   operations, running pre- and post-deployment configuration scripts, and
-   downloading the SAP installation media from Amazon S3. If the required policy
-   is not attached to the Launch Wizard role, the Launch Wizard deployment can fail.
-   Select the check box to verify that you have attached the required
-   permissions before deploying.
+successfully, Launch Wizard must be allowed to perform operations in other AWS
+services on your behalf. To do this, the Launch Wizard IAM role,
+`AmazonEC2RoleForLaunchWizard`, must have permissions
+attached to perform these operations, which include AWS Backint Agent
+operations, running pre- and post-deployment configuration scripts, and
+downloading the SAP installation media from Amazon S3. If the required policy
+is not attached to the Launch Wizard role, the Launch Wizard deployment can fail.
+Select the check box to verify that you have attached the required
+permissions before deploying.
 
 For steps to attach the required permissions to
 `AmazonEC2RoleForLaunchWizard`, see [AWS Identity and Access Management (IAM)](launch-wizard-sap-setting-up.md#launch-wizard-sap-iam "launch-wizard-sap-setting-up.md#launch-wizard-sap-iam") in this guide. 7. Choose **Deploy**
@@ -2680,130 +2681,48 @@ Multiple instance deployment
 On the **Configure deployment model** page, enter the
 deployment details for an SAP ASE deployment.
 
-1.  **Settings for ASCS/SCS and PAS Server**. Enter the
-    deployment settings for your application instance.
+1. **Settings for ASCS/SCS and PAS Server**. Enter the
+   deployment settings for your application instance.
 
-    - **Instance details**.
+   - **Instance details**.
 
-      - Under **Image type**, choose whether
-        to use **AWS/Marketplace/Community
-        image** or **Bring your own image
-        (BYOI)**.
-      - **Operating System and version**.
-        Select a supported operating system version for the ASCS
-        instance. For a complete list of operating system
-        versions supported for ASCS, see [Operating systems](launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os "launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os").
-      - **AMI ID**. For BYOI, select the AMI
-        that you want to use from the dropdown.
-      - **Host name**. Enter the host name
-        for the EC2 instance.
-      - **Private IP address**. Choose
-        whether to use an **Auto-assigned
-        (default)** IP address or a
-        **Custom IP address**.
+     - Under **Image type**, choose whether
+       to use **AWS/Marketplace/Community
+       image** or **Bring your own image
+       (BYOI)**.
+     - **Operating System and version**.
+       Select a supported operating system version for the ASCS
+       instance. For a complete list of operating system
+       versions supported for ASCS, see [Operating systems](launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os "launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os").
+     - **AMI ID**. For BYOI, select the AMI
+       that you want to use from the dropdown.
+     - **Host name**. Enter the host name
+       for the EC2 instance.
+     - **Private IP address**. Choose
+       whether to use an **Auto-assigned
+       (default)** IP address or a
+       **Custom IP address**.
 
-        - **Auto-assign (default)**.
-          When you select this option, an IP addressed will
-          be assigned for you. This is the default
-          option.
-        - **Private IP address**. When
-          you select this option, you can enter a single IP
-          address. Verify that this IP address is within the
-          subnet range of the instance you are launching.
+       - **Auto-assign (default)**.
+         When you select this option, an IP addressed will
+         be assigned for you. This is the default
+         option.
+       - **Private IP address**. When
+         you select this option, you can enter a single IP
+         address. Verify that this IP address is within the
+         subnet range of the instance you are launching.
 
-      - **Auto Recovery**. Auto recovery is
-        an Amazon EC2 feature to increase instance availability.
-        Select the check box to enable EC2 automatic recovery
-        for the instance. For more information, see [Recover Your Instance](../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md "../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md") in the Amazon EC2 User
-        Guide.
+     - **Auto Recovery**. Auto recovery is
+       an Amazon EC2 feature to increase instance availability.
+       Select the check box to enable EC2 automatic recovery
+       for the instance. For more information, see [Recover Your Instance](../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md "../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md") in the Amazon EC2 User
+       Guide.
 
-    - **Instance sizing**.
+   - **Instance sizing**.
 
-    Under **Instance sizing type**, choose
-    **Based on infrastructure requirements** or
-    **Based on instance type**.
-
-        + **Use AWS recommended
-         resources**.
-
-
-
-
-        	- **Infrastructure
-        	 requirements**. Choose the requirements
-        	 for your recommended resources from the dropdown
-        	 list.
-
-
-
-
-        		* **Based on CPU/Memory**. If
-        		 you select this option, enter the required number
-        		 of vCPU **Cores** and
-        		 **Memory**. Amazon
-        		 EC2 supports up to 1920 logical processors. If the
-        		 amount of memory required exceeds 4TB, [dedicated hosts](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md") are required.
-        		* **SAPS (SAP Application Performance
-        		 Standard)**. If you select this option,
-        		 enter the **SAPS**
-        		 rating for the SAP certified instance types.
-        + **Choose your instance**.
-
-
-
-
-        	- **Instance type**. Choose the
-        	 instance type from the dropdown list.
-    - **Recommended Resources**. AWS Launch Wizard displays
-      the **Estimated monthly cost of operation**
-      based on your instance sizing selections and the EBS volumes
-      that will be created and attached to the launched instances.
-      This is an estimate of AWS costs to deploy additional
-      resources and does not include any image costs, EC2
-      reservations, applicable taxes, or discounts.
-
-2.  **Settings for ASE database instance**. Enter the
-    deployment settings for your application instance.
-
-    - **Instance details**.
-
-      - Under **Image type**, choose whether
-        to use **AWS/Marketplace/Community
-        image** or **Bring your own image
-        (BYOI)**.
-      - **Operating System and version**.
-        Select a supported operating system version for the ASCS
-        instance. For a complete list of operating system
-        versions supported for ASCS, see [Operating systems](launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os "launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os").
-      - **AMI ID**. For BYOI, select the AMI
-        that you want to use from the dropdown.
-      - **Host name**. Enter the host name
-        for the EC2 instance.
-      - **Private IP address**. Choose
-        whether to use an **Auto-assigned
-        (default)** IP address or a
-        **Custom IP address**.
-
-        - **Auto-assign (default)**.
-          When you select this option, an IP addressed will
-          be assigned for you. This is the default
-          option.
-        - **Private IP address**. When
-          you select this option, you can enter a single IP
-          address. Verify that this IP address is within the
-          subnet range of the instance you are launching.
-
-      - **Auto Recovery**. Auto recovery is
-        an Amazon EC2 feature to increase instance availability.
-        Select the check box to enable EC2 automatic recovery
-        for the instance. For more information, see [Recover Your Instance](../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md "../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md") in the Amazon EC2 User
-        Guide.
-
-    - **Instance sizing**.
-
-    Under **Instance sizing type**, choose
-    **Based on infrastructure requirements** or
-    **Based on instance type**.
+   Under **Instance sizing type**, choose
+   **Based on infrastructure requirements** or
+   **Based on instance type**.
 
         + **Use AWS recommended
          resources**.
@@ -2836,19 +2755,101 @@ deployment details for an SAP ASE deployment.
 
         	- **Instance type**. Choose the
         	 instance type from the dropdown list.
-    - **Storage Sizing**. Enter the size, IOPS, and
-      throughput for the data, log, and backup filesystems. You can
-      have upto 6 data filesystems, 1 log filesystem, and 1 backup
-      filesystem.
-    - **Recommended Resources**. AWS Launch Wizard displays
-      the **Estimated monthly cost of operation**
-      based on your instance sizing selections and the EBS volumes
-      that will be created and attached to the launched instances.
-      This is an estimate of AWS costs to deploy additional
-      resources and does not include any image costs, EC2
-      reservations, applicable taxes, or discounts.
+   - **Recommended Resources**. AWS Launch Wizard displays
+     the **Estimated monthly cost of operation**
+     based on your instance sizing selections and the EBS volumes
+     that will be created and attached to the launched instances.
+     This is an estimate of AWS costs to deploy additional
+     resources and does not include any image costs, EC2
+     reservations, applicable taxes, or discounts.
 
-3.  ###### Pre- and post-deployment configuration scripts — optional
+2. **Settings for ASE database instance**. Enter the
+   deployment settings for your application instance.
+
+   - **Instance details**.
+
+     - Under **Image type**, choose whether
+       to use **AWS/Marketplace/Community
+       image** or **Bring your own image
+       (BYOI)**.
+     - **Operating System and version**.
+       Select a supported operating system version for the ASCS
+       instance. For a complete list of operating system
+       versions supported for ASCS, see [Operating systems](launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os "launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os").
+     - **AMI ID**. For BYOI, select the AMI
+       that you want to use from the dropdown.
+     - **Host name**. Enter the host name
+       for the EC2 instance.
+     - **Private IP address**. Choose
+       whether to use an **Auto-assigned
+       (default)** IP address or a
+       **Custom IP address**.
+
+       - **Auto-assign (default)**.
+         When you select this option, an IP addressed will
+         be assigned for you. This is the default
+         option.
+       - **Private IP address**. When
+         you select this option, you can enter a single IP
+         address. Verify that this IP address is within the
+         subnet range of the instance you are launching.
+
+     - **Auto Recovery**. Auto recovery is
+       an Amazon EC2 feature to increase instance availability.
+       Select the check box to enable EC2 automatic recovery
+       for the instance. For more information, see [Recover Your Instance](../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md "../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md") in the Amazon EC2 User
+       Guide.
+
+   - **Instance sizing**.
+
+   Under **Instance sizing type**, choose
+   **Based on infrastructure requirements** or
+   **Based on instance type**.
+
+        + **Use AWS recommended
+         resources**.
+
+
+
+
+        	- **Infrastructure
+        	 requirements**. Choose the requirements
+        	 for your recommended resources from the dropdown
+        	 list.
+
+
+
+
+        		* **Based on CPU/Memory**. If
+        		 you select this option, enter the required number
+        		 of vCPU **Cores** and
+        		 **Memory**. Amazon
+        		 EC2 supports up to 1920 logical processors. If the
+        		 amount of memory required exceeds 4TB, [dedicated hosts](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md") are required.
+        		* **SAPS (SAP Application Performance
+        		 Standard)**. If you select this option,
+        		 enter the **SAPS**
+        		 rating for the SAP certified instance types.
+        + **Choose your instance**.
+
+
+
+
+        	- **Instance type**. Choose the
+        	 instance type from the dropdown list.
+   - **Storage Sizing**. Enter the size, IOPS, and
+     throughput for the data, log, and backup filesystems. You can
+     have upto 6 data filesystems, 1 log filesystem, and 1 backup
+     filesystem.
+   - **Recommended Resources**. AWS Launch Wizard displays
+     the **Estimated monthly cost of operation**
+     based on your instance sizing selections and the EBS volumes
+     that will be created and attached to the launched instances.
+     This is an estimate of AWS costs to deploy additional
+     resources and does not include any image costs, EC2
+     reservations, applicable taxes, or discounts.
+
+3. ###### Pre- and post-deployment configuration scripts — optional
 
 You can run pre- and post-deployment configuration scripts during
 application provisioning. For more information about how Launch Wizard accesses
@@ -2885,7 +2886,7 @@ and deploys these scripts, see [Custom deployment configuration scripts](how-lau
      script**.
 
 4. After you have entered your deployment settings, choose
-   **Next**.
+**Next**.
 
 See the **SAP software installation settings** tab for
 further information.

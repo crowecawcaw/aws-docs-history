@@ -105,7 +105,7 @@ activate the following services in the HTTP service tree (transaction SICF for
 ABAP):
 
 - /sap/public/icman
-- /sap/public/icf_info/\*
+- /sap/public/icf\_info/\*
 - /sap/public/ping
 
 For ABAP installations, you must activate **/sap/public/ping** to allow load balancers to perform health checks
@@ -218,17 +218,21 @@ example.yourdomain.com
      provider’s documentation.
 
 6. Confirm the configuration is working by accessing your endpoint by
-   the DNS name over HTTPS.
+the DNS name over HTTPS.
 
-   1. For ABAP systems, your URL with the custom DNS name might
-      resemble the following:
+    1. For ABAP systems, your URL with the custom DNS name might
+     resemble the following:
 
-   ```
-   https://`example.yourdomain.com`/sap/public/ping
-   ```
-   2. For Java systems, your URL with the custom DNS name might
-      resemble the following:
 
-   ```
-   https://`example.yourdomain.com`/startPage
-   ```
+
+    ```
+    https://`example.yourdomain.com`/sap/public/ping
+    ```
+    2. For Java systems, your URL with the custom DNS name might
+     resemble the following:
+
+
+
+    ```
+    https://`example.yourdomain.com`/startPage
+    ```

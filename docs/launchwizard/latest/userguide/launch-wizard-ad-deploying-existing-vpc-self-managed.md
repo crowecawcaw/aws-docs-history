@@ -40,30 +40,30 @@ Network configuration
 | Parameter label (name)                    | Default value           | Description                                                               |
 | ----------------------------------------- | ----------------------- | ------------------------------------------------------------------------- |
 | VPC CIDR (VPCCIDR)                        | 10.0.0.0/16             | CIDR Block for the VPC.                                                   |
-| VPC ID (VPCID)                            | **_Requires input_**    | ID of the VPC (for example,<br>vpc-abcd0123).                             |
+| VPC ID (VPCID)                            | _**Requires input**_    | ID of the VPC (for example,<br>vpc-abcd0123).                             |
 | Create a DHCP options set (DHCPOptionSet) | Yes                     | Creates and associates a new DHCP Options Set to<br>your VPC.             |
-| Subnet 1 ID (PrivateSubnet1ID)            | **_Requires<br>input_** | ID of subnet 1 in Availability Zone 1 (for<br>example, subnet-abcd0123).  |
-| Subnet 2 ID (PrivateSubnet2ID)            | **_Requires input_**    | ID of subnet 2 in Availability Zone 2 (for<br>example, subnet-01234abcd). |
+| Subnet 1 ID (PrivateSubnet1ID)            | _**Requires<br>input**_ | ID of subnet 1 in Availability Zone 1 (for<br>example, subnet-abcd0123).  |
+| Subnet 2 ID (PrivateSubnet2ID)            | _**Requires input**_    | ID of subnet 2 in Availability Zone 2 (for<br>example, subnet-01234abcd). |
 
 Amazon EC2 configuration
 
-| Parameter label (name)                                         | Default value                                                         | Description                                                                                                                                                             |
-| -------------------------------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Domain controller 1 NetBIOS name<br>(ADServer1NetBIOSName)     | DC1                                                                   | NetBIOS name of the first Active Directory domain<br>controller (between 1-15 characters).                                                                              |
-| Domain controller 1 private IP address<br>(ADServer1PrivateIP) | 10.0.0.10                                                             | Fixed private IP for the first Active Directory<br>domain controller located in Availability Zone<br>1.                                                                 |
-| Domain controller 2 NetBIOS name<br>(ADServer2NetBIOSName)     | DC2                                                                   | NetBIOS name of the second Active Directory<br>domain controller (between 1-15 characters).                                                                             |
-| Domain controller 2 private IP address<br>(ADServer2PrivateIP) | 10.0.32.10                                                            | Fixed private IP for the second Active Directory<br>domain controller located in Availability Zone<br>2.                                                                |
-| SYSVOL and NTDS Data Drive Size<br>(DataDriveSizeGiB)          | 10                                                                    | Size of SYSVOL and NTDS data drive in<br>GiB.                                                                                                                           |
-| KMS key for Amazon EBS encryption<br>(EbsEncryptionKmsKeyId)   | alias/aws/ebs                                                         | The identifier of the KMS key to use for Amazon<br>EBS encryption. You can specify the KMS key using<br>any of the following; key ID, key alias, key ARN,<br>alias ARN. |
-| Key pair name (KeyPairName)                                    | **_Requires input_**                                                  | Public/private key pairs allow you to securely<br>connect to your instance after it launches.                                                                           |
-| AMI ID (LatestAmiId)                                           | /aws/service/ami-windows-latest/Windows_Server-2022-English-Full-Base | Systems Manager parameter value for latest Windows Server<br>AMI.                                                                                                       |
+| Parameter label (name)                                         | Default value                                                          | Description                                                                                                                                                             |
+| -------------------------------------------------------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Domain controller 1 NetBIOS name<br>(ADServer1NetBIOSName)     | DC1                                                                    | NetBIOS name of the first Active Directory domain<br>controller (between 1-15 characters).                                                                              |
+| Domain controller 1 private IP address<br>(ADServer1PrivateIP) | 10.0.0.10                                                              | Fixed private IP for the first Active Directory<br>domain controller located in Availability Zone<br>1.                                                                 |
+| Domain controller 2 NetBIOS name<br>(ADServer2NetBIOSName)     | DC2                                                                    | NetBIOS name of the second Active Directory<br>domain controller (between 1-15 characters).                                                                             |
+| Domain controller 2 private IP address<br>(ADServer2PrivateIP) | 10.0.32.10                                                             | Fixed private IP for the second Active Directory<br>domain controller located in Availability Zone<br>2.                                                                |
+| SYSVOL and NTDS Data Drive Size<br>(DataDriveSizeGiB)          | 10                                                                     | Size of SYSVOL and NTDS data drive in<br>GiB.                                                                                                                           |
+| KMS key for Amazon EBS encryption<br>(EbsEncryptionKmsKeyId)   | alias/aws/ebs                                                          | The identifier of the KMS key to use for Amazon<br>EBS encryption. You can specify the KMS key using<br>any of the following; key ID, key alias, key ARN,<br>alias ARN. |
+| Key pair name (KeyPairName)                                    | _**Requires input**_                                                   | Public/private key pairs allow you to securely<br>connect to your instance after it launches.                                                                           |
+| AMI ID (LatestAmiId)                                           | /aws/service/ami-windows-latest/Windows\_Server-2022-English-Full-Base | Systems Manager parameter value for latest Windows Server<br>AMI.                                                                                                       |
 
 Microsoft Active Directory Domain Services configuration
 
 | Parameter label (name)                                      | Default value        | Description                                                                                                                                                                                                                   |
 | ----------------------------------------------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Domain admin user name (DomainAdminUser)                    | Admin                | User name for the account that will be added as a<br>Domain Administrator. This is separate from the<br>default "Administrator" account.                                                                                      |
-| Domain admin password<br>(DomainAdminPassword)              | **_Requires input_** | Password for the account named above. Must be at<br>least 8 characters containing letters, numbers and<br>symbols.                                                                                                            |
+| Domain admin password<br>(DomainAdminPassword)              | _**Requires input**_ | Password for the account named above. Must be at<br>least 8 characters containing letters, numbers and<br>symbols.                                                                                                            |
 | Domain DNS name (DomainDNSName)                             | example.com          | Fully qualified domain name (FQDN) of the forest<br>root domain. For example, example.com.                                                                                                                                    |
 | Domain NetBIOS name (DomainNetBIOSName)                     | example              | NetBIOS name of the domain (between 1 to 15<br>characters) for users of earlier versions of<br>Windows. For example, EXAMPLE.                                                                                                 |
 | Create Default OUs (CreateDefaultOUs)                       | No                   | Domain Elevated Accounts, Domain Users, Domain<br>Computers, Domain Servers, Domain Service Accounts,<br>and Domain Groups OUs and set the default users and<br>computers containers to Domain Users and Domain<br>Computers. |
@@ -91,7 +91,7 @@ Microsoft Remote Desktop Gateway configuration
 | Parameter label (name)                                            | Default value        | Description                                                               |
 | ----------------------------------------------------------------- | -------------------- | ------------------------------------------------------------------------- |
 | Number of RDGW hosts (NumberOfRDGWHosts)                          | 1                    | Enter the number of Remote Desktop Gateway<br>instances to create.        |
-| Allowed Remote Desktop Gateway external access<br>CIDR (RDGWCIDR) | **_Requires input_** | Allowed CIDR block for external access to the<br>Remote Desktop Gateways. |
+| Allowed Remote Desktop Gateway external access<br>CIDR (RDGWCIDR) | _**Requires input**_ | Allowed CIDR block for external access to the<br>Remote Desktop Gateways. |
 
 5. When you are satisfied with your application settings, choose
    **Next**. If you don't want to complete the
@@ -164,29 +164,25 @@ also based on static values.
     	 the resources.
 
 7. When you are satisfied with your infrastructure settings, select
-   **Next**. If you don't want to complete the
-   configuration, select **Cancel**. When you select
-   **Cancel**, all of the selections on the specification
-   page are lost and you are returned to the landing page. To go to the
-   previous screen, select **Previous**.
-8. On the **Review and deploy** page, review your
-   configuration details. If you want to make changes, select
-   **Previous**. To stop, select
-   **Cancel**. When you select
-   **Cancel**, all of the selections on the specification page
-   are lost and you are returned to the landing page. When you choose
-   **Deploy**, you agree to the terms of the **Acknowledgment**. Launch Wizard validates the inputs and
-   notifies you if you need to address any issues.
-9. When validation is complete, Launch Wizard deploys your AWS resources and
-   configures your application. Launch Wizard provides you with status updates about the
-   progress of the deployment on the **Deployments** page.
-   From the **Deployments** page, you can view the list of
-   current and previous deployments.
-10. When your deployment is ready, a notification informs you that your
-    application is successfully deployed. If you have set up an Amazon SNS
-    notification, you are also alerted through Amazon SNS. You can manage and access
-    all of the resources related to your application by selecting the
-    deployment, and then selecting **Manage** from the
-    **Actions** dropdown list.
-11. When the application is deployed, you can access your EC2 instances
-    through the Amazon EC2 console.
+**Next**. If you don't want to complete the
+configuration, select **Cancel**. When you select
+**Cancel**, all of the selections on the specification
+page are lost and you are returned to the landing page. To go to the
+previous screen, select **Previous**. 8. On the **Review and deploy** page, review your
+configuration details. If you want to make changes, select
+**Previous**. To stop, select
+**Cancel**. When you select
+**Cancel**, all of the selections on the specification page
+are lost and you are returned to the landing page. When you choose
+**Deploy**, you agree to the terms of the **Acknowledgment**. Launch Wizard validates the inputs and
+notifies you if you need to address any issues. 9. When validation is complete, Launch Wizard deploys your AWS resources and
+configures your application. Launch Wizard provides you with status updates about the
+progress of the deployment on the **Deployments** page.
+From the **Deployments** page, you can view the list of
+current and previous deployments. 10. When your deployment is ready, a notification informs you that your
+application is successfully deployed. If you have set up an Amazon SNS
+notification, you are also alerted through Amazon SNS. You can manage and access
+all of the resources related to your application by selecting the
+deployment, and then selecting **Manage** from the
+**Actions** dropdown list. 11. When the application is deployed, you can access your EC2 instances
+through the Amazon EC2 console.

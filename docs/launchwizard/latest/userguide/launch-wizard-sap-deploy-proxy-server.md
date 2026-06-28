@@ -113,7 +113,7 @@ steps.
 1. Login to your Squid proxy server.
 2. Open the `access.log` file located at
    `/var/log/squid/access.log`.
-3. Search for the **TCP_DENIED** message in the
+3. Search for the **TCP\_DENIED** message in the
    `access.log` file. The message displays an address that is not
    allowed in the proxy configuration.
 4. Add the address to the `squid.conf` file and restart the Squid

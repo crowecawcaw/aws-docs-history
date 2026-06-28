@@ -27,8 +27,8 @@ message.
 Launch Wizard streams provisioning logs from all of the AWS log sources, such as
 CloudFormation and PowerShell DSC scripts to CloudWatch Logs. You can view the CloudWatch Logs for a given
 application name on the CloudWatch console for the log group name
-`LaunchWizard-`APPLICATION_NAME``and log
- stream`ApplicationLaunchLog`.
+`LaunchWizard-`APPLICATION_NAME`` and log
+stream `ApplicationLaunchLog`.
 
 ## CloudFormation stack
 
