@@ -8,22 +8,21 @@ following:
   queue to an Amazon SNS topic](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-subscribe-queue-sns-topic.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-subscribe-queue-sns-topic.md") in the _Amazon Simple Queue Service Developer Guide_.
 - Use the following steps:
 
-      1. [Get the Amazon Resource Name (ARN) of the
-       queue you want to send messages to and the topic to which you want to subscribe the
-       queue.](#SendMessageToSQS.arn "#SendMessageToSQS.arn")
-      2. [Give sqs:SendMessage
-       permission to the Amazon SNS topic so that it can send messages to the
-       queue.](#SendMessageToSQS.sqs.permissions "#SendMessageToSQS.sqs.permissions")
-      3. [Subscribe the queue to the Amazon SNS
-       topic.](#SendMessageToSQS.subscribe "#SendMessageToSQS.subscribe")
-      4. [Give IAM users or
-       AWS accounts the appropriate permissions to publish to the Amazon SNS topic and read
-       messages from the Amazon SQS queue.](#SendMessageToSQS.iam.permissions "#SendMessageToSQS.iam.permissions")
-      5. [Test it out by publishing a message to the
-       topic and reading the message from the queue.](#SendMessageToSQS.test "#SendMessageToSQS.test")
-
-  To learn about how to set up a topic to send messages to a queue that is in a different
-  AWS-account, see [Sending Amazon SNS messages to an Amazon SQS queue in a different account](sns-send-message-to-sqs-cross-account.md "sns-send-message-to-sqs-cross-account.md").
+  1.  [Get the Amazon Resource Name (ARN) of the
+      queue you want to send messages to and the topic to which you want to subscribe the
+      queue.](#SendMessageToSQS.arn "#SendMessageToSQS.arn")
+  2.  [Give sqs:SendMessage
+      permission to the Amazon SNS topic so that it can send messages to the
+      queue.](#SendMessageToSQS.sqs.permissions "#SendMessageToSQS.sqs.permissions")
+  3.  [Subscribe the queue to the Amazon SNS
+      topic.](#SendMessageToSQS.subscribe "#SendMessageToSQS.subscribe")
+  4.  [Give IAM users or
+      AWS accounts the appropriate permissions to publish to the Amazon SNS topic and read
+      messages from the Amazon SQS queue.](#SendMessageToSQS.iam.permissions "#SendMessageToSQS.iam.permissions")
+  5.  [Test it out by publishing a message to the
+      topic and reading the message from the queue.](#SendMessageToSQS.test "#SendMessageToSQS.test")
+      To learn about how to set up a topic to send messages to a queue that is in a different
+      AWS-account, see [Sending Amazon SNS messages to an Amazon SQS queue in a different account](sns-send-message-to-sqs-cross-account.md "sns-send-message-to-sqs-cross-account.md").
 
 To see an CloudFormation template that creates a topic that sends messages to two queues, see [Automate Amazon SNS to Amazon SQS messaging with AWS CloudFormation](SendMessageToSQS.cloudformation.md "SendMessageToSQS.cloudformation.md").
 
@@ -71,23 +70,22 @@ must contain one `Statement` element for each topic.
 
 ###### To set a SendMessage policy on a queue using the Amazon SQS console
 
-1.  Sign in to the AWS Management Console and open the Amazon SQS console at
-    [https://console.aws.amazon.com/sqs/](https://console.aws.amazon.com/sqs/ "https://console.aws.amazon.com/sqs/").
-2.  Select the box for the queue whose policy you want to set, choose the
-    **Access policy** tab, and then choose
-    **Edit**.
-3.  In the **Access policy** section, define who can access your
-    queue.
+1. Sign in to the AWS Management Console and open the Amazon SQS console at
+   [https://console.aws.amazon.com/sqs/](https://console.aws.amazon.com/sqs/ "https://console.aws.amazon.com/sqs/").
+2. Select the box for the queue whose policy you want to set, choose the
+   **Access policy** tab, and then choose
+   **Edit**.
+3. In the **Access policy** section, define who can access your
+   queue.
 
-        * Add a condition that allows the action for the topic.
-        * Set `Principal` to be the Amazon SNS service, as shown in the example
-         below.
-        * Use the [`aws:SourceArn`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") or [`aws:SourceAccount`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount") global condition keys to protect against
-         the [confused deputy](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md") scenario. To use these condition keys, set the value to
-         the ARN of your topic. If your queue is subscribed to multiple topics, you can use
-         `aws:SourceAccount` instead.
-
-    For example, the following policy allows MyTopic to send messages to MyQueue.
+   - Add a condition that allows the action for the topic.
+   - Set `Principal` to be the Amazon SNS service, as shown in the example
+     below.
+   - Use the [`aws:SourceArn`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") or [`aws:SourceAccount`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount") global condition keys to protect against
+     the [confused deputy](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md") scenario. To use these condition keys, set the value to
+     the ARN of your topic. If your queue is subscribed to multiple topics, you can use
+     `aws:SourceAccount` instead.
+     For example, the following policy allows MyTopic to send messages to MyQueue.
 
 ```
 {

@@ -56,7 +56,7 @@ for seamless communication across systems.
       **Subscription filter policy** section. For more
       information, see [Amazon SNS subscription filter policies](sns-subscription-filter-policies.md "sns-subscription-filter-policies.md").
    7. (Optional) To enable payload-based filtering, configure `Filter
-Policy Scope` to `MessageBody`. For more
+  Policy Scope` to `MessageBody`. For more
       information, see [Amazon SNS subscription filter policy scope](sns-message-filtering-scope.md "sns-message-filtering-scope.md").
    8. (Optional) To configure a dead-letter queue for the subscription,
       expand the **Redrive policy (dead-letter queue)**

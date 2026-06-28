@@ -5,7 +5,7 @@ applications and users. These features enable seamless communication, secure mes
 delivery, and robust message management, ensuring high availability, durability, and
 flexibility for a wide range of messaging use cases.
 
-\***\*Application-to-application messaging\*\***
+****Application-to-application messaging****
 
 [Application-to-application
 messaging](sns-system-to-system-messaging.md "sns-system-to-system-messaging.md") supports subscribers such as delivery
@@ -13,13 +13,13 @@ streams, Lambda functions, Amazon SQS queues, HTTP/S endpoints, and
 AWS Event Fork Pipelines. This allows for efficient message delivery in event-driven
 architectures.
 
-\***\*Application-to-person notifications\*\***
+****Application-to-person notifications****
 
 [Application-to-person
 notifications](sns-user-notifications.md "sns-user-notifications.md") provide user notifications to subscribers such as
 mobile applications, mobile phone numbers, and email addresses.
 
-\***\*Standard and FIFO topics\*\***
+****Standard and FIFO topics****
 
 [FIFO topics](sns-fifo-topics.md "sns-fifo-topics.md") ensure strict message
 ordering, message grouping, and deduplication, allowing FIFO and standard
@@ -27,7 +27,7 @@ queues to subscribe for message processing. [Standard topics](sns-create-topic.m
 duplication are not critical, supporting all delivery protocols for broader
 use cases.
 
-\***\*Message durability\*\***
+****Message durability****
 
 Amazon SNS uses a number of strategies that work together to provide message
 durability:
@@ -40,8 +40,8 @@ durability:
   retry policy ends, you can create a [dead-letter
   queue](sns-dead-letter-queues.md "sns-dead-letter-queues.md").
 
-\***\*Message archiving, replay, and
-analytics\*\***
+****Message archiving, replay, and
+analytics****
 
 You can archive messages with Amazon SNS in multiple ways including subscribing
 [Firehose delivery streams to SNS
@@ -52,12 +52,12 @@ no-code, in-place message archive that lets topic owners store (or _archive_) me
 subscribers can then retrieve (or _replay_)
 the archived messages back to a subscribed endpoint. For more, see [Amazon SNS message archiving and replay for FIFO topics](fifo-message-archiving-replay.md "fifo-message-archiving-replay.md").
 
-\***\*Message attributes\*\***
+****Message attributes****
 
 [Amazon SNS message attributes](sns-message-attributes.md "sns-message-attributes.md") let you provide any arbitrary
 metadata about the message.
 
-\***\*Message filtering\*\***
+****Message filtering****
 
 By default, each subscriber receives every message published to the topic.
 To receive a subset of the messages, a subscriber must assign a filter
@@ -70,7 +70,7 @@ filtered out. When the filter policy scope is `MessageBody`,
 filter policy attributes are matched against the payload. For more
 information, see [Amazon SNS message filtering](sns-message-filtering.md "sns-message-filtering.md").
 
-\***\*Message security\*\***
+****Message security****
 
 Server-side encryption protects the contents of messages that are stored
 in Amazon SNS topics, using encryption keys provided by AWS KMS. For more

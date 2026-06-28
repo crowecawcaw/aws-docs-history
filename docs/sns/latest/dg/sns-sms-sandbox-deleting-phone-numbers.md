@@ -18,7 +18,7 @@ or 24 hours after your last verification attempt.
 5. Choose the specific phone number you want to delete, and then choose
    **Delete phone number**.
 6. To confirm that you want to delete the phone number, enter `delete
-me`, and then choose **Delete**.
+ me`, and then choose **Delete**.
 
 Ensure that 24 hours or more have passed since you verified or attempted to verify
 the destination phone number before proceeding with the deletion. 7. Repeat these steps in each Region where you added the destination phone number and

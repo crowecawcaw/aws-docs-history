@@ -11,21 +11,19 @@ due to a client-side or server-side error:
   common causes of client-side errors are when the Amazon SQS queue owner does one of the
   following:
 
-      + Deletes the queue.
-      + Changes the queue policy in a way that prevents the Amazon SNS service principal from
-       delivering messages to it.
-
-  Amazon SNS doesn't retry delivering messages that failed due to client-side errors.
+  - Deletes the queue.
+  - Changes the queue policy in a way that prevents the Amazon SNS service principal from
+    delivering messages to it.
+    Amazon SNS doesn't retry delivering messages that failed due to client-side errors.
 
 - Server-side errors can occur in these situations:
 
-      + The Amazon SQS service is unavailable.
-      + Amazon SQS fails to process a valid request from the Amazon SNS service.
-
-  When server-side errors occur, Amazon SNS FIFO topics retry the failed deliveries up to
-  100,015 times over 23 days. For more information, see [Amazon SNS message delivery retries](sns-message-delivery-retries.md "sns-message-delivery-retries.md").
-  For any type of error, Amazon SNS can sideline messages to Amazon SQS dead-letter queues so data isn't
-  lost.
+  - The Amazon SQS service is unavailable.
+  - Amazon SQS fails to process a valid request from the Amazon SNS service.
+    When server-side errors occur, Amazon SNS FIFO topics retry the failed deliveries up to
+    100,015 times over 23 days. For more information, see [Amazon SNS message delivery retries](sns-message-delivery-retries.md "sns-message-delivery-retries.md").
+    For any type of error, Amazon SNS can sideline messages to Amazon SQS dead-letter queues so data isn't
+    lost.
 
 In Amazon SQS, message processing fails when the consumer application fails to receive the
 message, process it, and delete it from the queue. When the maximum number of receive requests

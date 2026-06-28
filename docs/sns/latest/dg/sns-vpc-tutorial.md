@@ -147,9 +147,9 @@ The stack for this process includes the following resources:
 9. Choose **Create**.
 
 The CloudFormation console opens the **Stacks** page. The
-VPCE-Tutorial-Stack has a status of **CREATE_IN_PROGRESS**. In
+VPCE-Tutorial-Stack has a status of **CREATE\_IN\_PROGRESS**. In
 a few minutes, after the creation process completes, the status changes to
-**CREATE_COMPLETE**.
+**CREATE\_COMPLETE**.
 
 ![The CloudFormation stack with a status of CREATE_COMPLETE.](images/vpce-tutorial-stack-create-complete.png)
 
@@ -316,7 +316,7 @@ the topic.
       log group.
    2. Choose the log stream.
    3. Check that the log includes the entry `From SNS:
-Hello`.
+  Hello`.
 
    ![The CloudWatch log includes the entry "From SNS: Hello".](images/vpce-tutorial-cloudwatch-log.png) 4. Choose **Log Groups** at the top of the console to
    return the **Log Groups** page. Then, repeat the
@@ -359,7 +359,7 @@ completes, the endpoint is removed from the page.
 4. In the **Delete Stack** window, choose **Yes,
    Delete**.
 
-The stack status changes to **DELETE_IN_PROGRESS**. When the
+The stack status changes to **DELETE\_IN\_PROGRESS**. When the
 deletion completes, the stack is removed from the page.
 
 ## Related resources

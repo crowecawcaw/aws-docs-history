@@ -33,37 +33,42 @@ page. 4. In the **Message details** section, do the following:
      message to the endpoint.
 
 5. In the **Message body** section, do one of the
-   following:
+following:
 
-   1. Choose **Identical payload for all delivery
-      protocols**, and then enter a message.
-   2. Choose **Custom payload for each delivery protocol**,
-      and then enter a JSON object to define the message to send for each
-      delivery protocol.
+    1. Choose **Identical payload for all delivery
+     protocols**, and then enter a message.
+    2. Choose **Custom payload for each delivery protocol**,
+     and then enter a JSON object to define the message to send for each
+     delivery protocol.
 
-   For more information, see [Publishing Amazon SNS notifications with platform-specific payloads](sns-send-custom-platform-specific-payloads-mobile-devices.md "sns-send-custom-platform-specific-payloads-mobile-devices.md").
+
+    For more information, see [Publishing Amazon SNS notifications with platform-specific payloads](sns-send-custom-platform-specific-payloads-mobile-devices.md "sns-send-custom-platform-specific-payloads-mobile-devices.md").
 
 6. In the **Message attributes** section, add any attributes
-   that you want Amazon SNS to match with the subscription attribute
-   `FilterPolicy` to decide whether the subscribed endpoint is
-   interested in the published message.
+that you want Amazon SNS to match with the subscription attribute
+`FilterPolicy` to decide whether the subscribed endpoint is
+interested in the published message.
 
-   1. For **Type**, choose an attribute type, such as
-      **String.Array**.
+    1. For **Type**, choose an attribute type, such as
+     **String.Array**.
 
-   ###### Note
 
-   For attribute type **String.Array**, enclose the
-   array in square brackets (`[]`). Within the array,
-   enclose string values in double quotation marks. You don't need
-   quotation marks for numbers or for the keywords `true`,
-   `false`, and `null`. 2. Enter an attribute **Name**, such as
-   `customer_interests`. 3. Enter an attribute **Value**, such as
-   `["soccer", "rugby", "hockey"]`.If the attribute type is **String**,
-   **String.Array**, or **Number**, Amazon SNS
-   evaluates the message attribute against a subscription's [filter policy](sns-message-filtering.md "sns-message-filtering.md") (if present) before
-   sending the message to the subscription given filter policy scope is not
-   explicitly set to `MessageBody`.
+    ###### Note
+
+    For attribute type **String.Array**, enclose the
+     array in square brackets (`[]`). Within the array,
+     enclose string values in double quotation marks. You don't need
+     quotation marks for numbers or for the keywords `true`,
+     `false`, and `null`.
+    2. Enter an attribute **Name**, such as
+     `customer_interests`.
+    3. Enter an attribute **Value**, such as
+     `["soccer", "rugby", "hockey"]`.If the attribute type is **String**,
+
+**String.Array**, or **Number**, Amazon SNS
+evaluates the message attribute against a subscription's [filter policy](sns-message-filtering.md "sns-message-filtering.md") (if present) before
+sending the message to the subscription given filter policy scope is not
+explicitly set to `MessageBody`.
 
 For more information, see [Amazon SNS message attributes](sns-message-attributes.md "sns-message-attributes.md"). 7. Choose **Publish message**.
 

@@ -42,7 +42,7 @@ To verify that the event is indexed because it refers to an order whose
 value is higher than USD $100, on the
 **serverl-analyt-`abcdefgh1ijk`**
 page, choose **Indices**,
-**checkout_events**.
+**checkout\_events**.
 
 ## Step 4: Verifying the execution of the event replay pipeline
 

@@ -49,11 +49,11 @@ principal `sns.amazonaws.com` with
   Africa (Cape Town). Regions launched prior to March 20, 2019 are enabled by
   default.
 
-| Cross-region delivery support to Amazon SQS | Cross-region delivery type                                                                   | Supported/Not supported |
-| ------------------------------------------- | -------------------------------------------------------------------------------------------- | ----------------------- |
-| Default-enabled Region to opt-in Region     | Supported using `sns.`queue-region`.amazonaws.com`<br>in the service principal for the queue |
-| Opt-in Region to default-enabled Region     | Supported using `sns.`topic-region`.amazonaws.com`<br>in the service principal for the queue |
-| Opt-in Region to opt-in Region              | Supported using `sns.`queue-region`.amazonaws.com`<br>in the service principal for the queue |
+Cross-region delivery support to Amazon SQS| Cross-region delivery type | Supported/Not supported |
+| --- | --- |
+| Default-enabled Region to opt-in Region | Supported using `sns.`queue-region`.amazonaws.com`<br>in the service principal for the queue |
+| Opt-in Region to default-enabled Region | Supported using `sns.`topic-region`.amazonaws.com`<br>in the service principal for the queue |
+| Opt-in Region to opt-in Region | Supported using `sns.`queue-region`.amazonaws.com`<br>in the service principal for the queue |
 
 The following is an example of an access policy statement that allows an Amazon SNS
 topic in an opt-in Region (af-south-1) to deliver to an Amazon SQS queue in an
@@ -95,8 +95,8 @@ JSON
   Africa (Cape Town). Regions launched prior to March 20, 2019 are enabled by
   default.
 
-| Cross-region delivery support to AWS Lambda | Cross-region delivery type                                                                                       | Supported/Not supported |
-| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| Default-enabled Region to opt-in Region     | Supported using `sns.`lambda-function-region`.amazonaws.com`<br>in the service principal for the Lambda function |
-| Opt-in Region to default-enabled Region     | Supported using `sns.`topic-region`.amazonaws.com`<br>in the service principal for the Lambda function           |
-| Opt-in Region to opt-in Region              | Supported using `sns.`lambda-function-region`.amazonaws.com`<br>in the service principal for the Lambda function |
+Cross-region delivery support to AWS Lambda| Cross-region delivery type | Supported/Not supported |
+| --- | --- |
+| Default-enabled Region to opt-in Region | Supported using `sns.`lambda-function-region`.amazonaws.com`<br>in the service principal for the Lambda function |
+| Opt-in Region to default-enabled Region | Supported using `sns.`topic-region`.amazonaws.com`<br>in the service principal for the Lambda function |
+| Opt-in Region to opt-in Region | Supported using `sns.`lambda-function-region`.amazonaws.com`<br>in the service principal for the Lambda function |

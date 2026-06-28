@@ -177,5 +177,5 @@ Before your begin this tutorial, make sure you complete the [prerequisites](#dea
    **Create**.
 
 CloudFormation begins to create the `MyDeadLetterQueue` stack and displays
-the **CREATE_IN_PROGRESS** status. When the process is
-complete, CloudFormation displays the **CREATE_COMPLETE** status.
+the **CREATE\_IN\_PROGRESS** status. When the process is
+complete, CloudFormation displays the **CREATE\_COMPLETE** status.

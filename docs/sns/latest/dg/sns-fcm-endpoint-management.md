@@ -86,7 +86,7 @@ disable your platform endpoint when a delivery fails with this exception.
 
 Another case where you will experience an `InvalidPlatformToken` delivery
 failure event is when the registered device token doesn't belong to the application
-attempting to send that message. In this case, Google will return a _SENDER_ID_MISMATCH_ error. Amazon SNS will disable your platform
+attempting to send that message. In this case, Google will return a _SENDER\_ID\_MISMATCH_ error. Amazon SNS will disable your platform
 endpoint when a delivery fails with this exception.
 
 All observed error codes received from the FCM v1 API are available to you in CloudWatch

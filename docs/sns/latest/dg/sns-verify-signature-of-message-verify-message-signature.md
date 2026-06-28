@@ -7,17 +7,16 @@ constructing the correct string to sign, and validating the signature against a 
 public key, you safeguard your system against spoofing and unauthorized message
 alterations.
 
-1.  Extract **key-value pairs** from the JSON document in the
-    HTTP POST request body sent by Amazon SNS. These fields are required to construct the **string to sign**.
+1. Extract **key-value pairs** from the JSON document in the
+   HTTP POST request body sent by Amazon SNS. These fields are required to construct the **string to sign**.
 
-        * `Message`
-        * `Subject` (if present)
-        * `MessageId`
-        * `Timestamp`
-        * `TopicArn`
-        * `Type`
-
-    For example:
+   - `Message`
+   - `Subject` (if present)
+   - `MessageId`
+   - `Timestamp`
+   - `TopicArn`
+   - `Type`
+     For example:
 
 ```
 MESSAGE_FILE="message.json"

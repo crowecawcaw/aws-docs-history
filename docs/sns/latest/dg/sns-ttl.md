@@ -19,14 +19,14 @@ development kits (SDKs), or query API.
 The following is a list of the TTL message attributes for push notification services
 that you can use to set when using the AWS SDKs or query API:
 
-| Push notification service                              | TTL message attribute             |
-| ------------------------------------------------------ | --------------------------------- |
-| Amazon Device Messaging (ADM)                          | `AWS.SNS.MOBILE.ADM.TTL`          |
-| Apple Push Notification Service (APNs)                 | `AWS.SNS.MOBILE.APNS.TTL`         |
-| Apple Push Notification Service Sandbox (APNs_SANDBOX) | `AWS.SNS.MOBILE.APNS_SANDBOX.TTL` |
-| Baidu Cloud Push (Baidu)                               | `AWS.SNS.MOBILE.BAIDU.TTL`        |
-| Firebase Cloud Messaging (FCM when sending to Android) | `AWS.SNS.MOBILE.FCM.TTL`          |
-| Windows Push Notification Services (WNS)               | `AWS.SNS.MOBILE.WNS.TTL`          |
+| Push notification service                               | TTL message attribute             |
+| ------------------------------------------------------- | --------------------------------- |
+| Amazon Device Messaging (ADM)                           | `AWS.SNS.MOBILE.ADM.TTL`          |
+| Apple Push Notification Service (APNs)                  | `AWS.SNS.MOBILE.APNS.TTL`         |
+| Apple Push Notification Service Sandbox (APNs\_SANDBOX) | `AWS.SNS.MOBILE.APNS_SANDBOX.TTL` |
+| Baidu Cloud Push (Baidu)                                | `AWS.SNS.MOBILE.BAIDU.TTL`        |
+| Firebase Cloud Messaging (FCM when sending to Android)  | `AWS.SNS.MOBILE.FCM.TTL`          |
+| Windows Push Notification Services (WNS)                | `AWS.SNS.MOBILE.WNS.TTL`          |
 
 Each of the push notification services handle TTL differently. Amazon SNS provides an
 abstract view of TTL over all the push notification services, which makes it easier to

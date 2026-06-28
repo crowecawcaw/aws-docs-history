@@ -195,10 +195,10 @@ the **Topic Subscription Result** dialog box. 7. Choose **OK**.
 
    1. (Optional) In the **Message details** section, enter
       the **Subject** (for example, `Testing message
-publishing`).
+  publishing`).
    2. In the **Message body** section, enter the message
       body (for example, `My message body is encrypted at
-rest.`).
+  rest.`).
    3. Choose **Publish message**.
 
 Your message is published to your subscribed encrypted queues.

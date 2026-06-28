@@ -31,7 +31,7 @@ topics or subscriptions that are no longer needed.
 3. On the **Topics** page, select a topic, and then choose
    **Delete**.
 4. In the **Delete topic** dialog box, enter `delete
-me`, and then choose **Delete**.
+ me`, and then choose **Delete**.
 
 The console deletes the topic.
 

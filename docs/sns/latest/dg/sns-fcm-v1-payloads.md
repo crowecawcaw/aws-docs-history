@@ -17,14 +17,13 @@ notification:
   delivering. For more information on platform-specific notification keys, see the
   following:
 
-      + [Android
-       notification keys](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages "https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages")
-      + [APNS notification keys](https://developer.apple.com/documentation/usernotifications/generating-a-remote-notification "https://developer.apple.com/documentation/usernotifications/generating-a-remote-notification")
-      + [Webpush
-       notification keys](https://developer.mozilla.org/en-US/docs/Web/API/Notification "https://developer.mozilla.org/en-US/docs/Web/API/Notification")
-
-  For more information about FCM message types, see [Message types](https://firebase.google.com/docs/cloud-messaging/concept-options#notifications_and_data_messages "https://firebase.google.com/docs/cloud-messaging/concept-options#notifications_and_data_messages") in the in Google's _Firebase_
-  documentation.
+  - [Android
+    notification keys](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages "https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages")
+  - [APNS notification keys](https://developer.apple.com/documentation/usernotifications/generating-a-remote-notification "https://developer.apple.com/documentation/usernotifications/generating-a-remote-notification")
+  - [Webpush
+    notification keys](https://developer.mozilla.org/en-US/docs/Web/API/Notification "https://developer.mozilla.org/en-US/docs/Web/API/Notification")
+    For more information about FCM message types, see [Message types](https://firebase.google.com/docs/cloud-messaging/concept-options#notifications_and_data_messages "https://firebase.google.com/docs/cloud-messaging/concept-options#notifications_and_data_messages") in the in Google's _Firebase_
+    documentation.
 
 ## Using the FCM v1 payload structure to send messages
 

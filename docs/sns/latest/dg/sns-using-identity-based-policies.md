@@ -27,10 +27,10 @@ can grant access to other AWS accounts, or to users within your own AWS account.
 To grant your users permissions for your Amazon SNS topics, you can use IAM policies, Amazon SNS
 policies, or both. For the most part, you can achieve the same results with either. For
 example, the following diagram shows an IAM policy and an Amazon SNS policy that are equivalent.
-The IAM policy allows the Amazon SNS `Subscribe` action for the topic called topic_xyz
+The IAM policy allows the Amazon SNS `Subscribe` action for the topic called topic\_xyz
 in your AWS account The IAM policy is attached to the users Bob and Susan (which means
 that Bob and Susan have the permissions stated in the policy). The Amazon SNS policy likewise
-grants Bob and Susan permission to access `Subscribe` for topic_xyz.
+grants Bob and Susan permission to access `Subscribe` for topic\_xyz.
 
 ![Compares an IAM policy and an Amazon SNS policy, showing that both policies grant equivalent permissions to two users, Bob and Susan, allowing them to subscribe to a specific Amazon SNS topic within an AWS account. The key difference highlighted is that Amazon SNS policies can grant permissions to users across different AWS accounts, whereas IAM policies cannot.](images/SNS_EquivalentPolicies.png)
 
@@ -51,21 +51,21 @@ together.
 In this example, both an IAM policy and an Amazon SNS policy apply to Bob. The IAM
 policy grants him permission for `Subscribe` on any of the AWS account's
 topics, whereas the Amazon SNS policy grants him permission to use `Publish` on a
-specific topic (topic_xyz). The following diagram illustrates the concept.
+specific topic (topic\_xyz). The following diagram illustrates the concept.
 
 ![Shows how both an IAM policy and an Amazon SNS policy apply to the user Bob, with the IAM policy allowing him to subscribe to any topic in the AWS account, and the Amazon SNS policy granting him permission to publish messages to a specific topic named "topic_xyz." The diagram emphasizes the distinction between general permissions granted by the IAM policy and specific permissions granted by the Amazon SNS policy for a particular topic.](images/SNS_UnionOfPolicies.png)
 If Bob were to send a request to subscribe to any topic in the AWS account, the
 IAM policy would allow the action. If Bob were to send a request to publish a message to
-topic_xyz, the Amazon SNS policy would allow the action.
+topic\_xyz, the Amazon SNS policy would allow the action.
 
 ###### Example 2
 
 In this example, we build on example 1 (where Bob has two policies that apply to him).
-Let's say that Bob publishes messages to topic_xyz that he shouldn't have, so you want to
+Let's say that Bob publishes messages to topic\_xyz that he shouldn't have, so you want to
 entirely remove his ability to publish to topics. The easiest thing to do is to add an
 IAM policy that denies him access to the `Publish` action on all topics. This
 third policy overrides the Amazon SNS policy that originally gave him permission to publish to
-topic_xyz, because an explicit deny always overrides an allow (for more information about
+topic\_xyz, because an explicit deny always overrides an allow (for more information about
 policy evaluation logic, see [Evaluation logic](sns-access-policy-language-evaluation-logic.md "sns-access-policy-language-evaluation-logic.md")). The following diagram
 illustrates the concept.
 

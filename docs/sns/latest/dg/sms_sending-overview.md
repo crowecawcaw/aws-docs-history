@@ -37,7 +37,7 @@ to send SMS messages.
       and a space. Display names are not case sensitive, and Amazon SNS converts
       display names to uppercase characters. For example, if the display name
       of a topic is `MyTopic` and the message is `Hello
-World!`, the message appears as:
+  World!`, the message appears as:
 
    ```
    MYTOPIC> Hello World!
@@ -496,26 +496,24 @@ identify yourself to your recipients:
      origination number to use for the SMS text message, based on your
      AWS account configuration.
 
-9.  If you're sending SMS messages to recipients in India, expand
-    **Country-specific attributes**, and specify the following
-    attributes:
+9. If you're sending SMS messages to recipients in India, expand
+**Country-specific attributes**, and specify the following
+attributes:
 
-        * **Entity ID** – The entity ID or principal
-         entity (PE) ID for sending SMS messages to recipients in India. This ID
-         is a unique string of 1–50 characters that the Telecom Regulatory
-         Authority of India (TRAI) provides to identify the entity that you
-         registered with the TRAI.
-        * **Template ID** – The template ID for sending
-         SMS messages to recipients in India. This ID is a unique, TRAI-provided
-         string of 1–50 characters that identifies the template that you
-         registered with the TRAI. The template ID must be associated with the
-         sender ID that you specified for the message.
+    * **Entity ID** – The entity ID or principal
+     entity (PE) ID for sending SMS messages to recipients in India. This ID
+     is a unique string of 1–50 characters that the Telecom Regulatory
+     Authority of India (TRAI) provides to identify the entity that you
+     registered with the TRAI.
+    * **Template ID** – The template ID for sending
+     SMS messages to recipients in India. This ID is a unique, TRAI-provided
+     string of 1–50 characters that identifies the template that you
+     registered with the TRAI. The template ID must be associated with the
+     sender ID that you specified for the message.
 
-    For more information on sending SMS messages to recipients in India, [India
-    sender ID registration process](../../../sms-voice/latest/userguide/registrations-sms-senderid-india.md "../../../sms-voice/latest/userguide/registrations-sms-senderid-india.md") in the _AWS End User Messaging SMS User
-    Guide_.
-
-10. Choose **Publish message**.
+For more information on sending SMS messages to recipients in India, [India
+sender ID registration process](../../../sms-voice/latest/userguide/registrations-sms-senderid-india.md "../../../sms-voice/latest/userguide/registrations-sms-senderid-india.md") in the _AWS End User Messaging SMS User
+Guide_. 10. Choose **Publish message**.
 
 ###### Tip
 

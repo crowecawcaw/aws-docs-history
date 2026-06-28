@@ -512,7 +512,7 @@ character set. If you send a message that only includes the characters shown in 
 following table, then the message can contain up to 160 characters.
 
 | GSM 03.38 standard<br>characters |
-| -------------------------------- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| -------------------------------- |
 | A                                | B   | C   | D   | E   | F   | G   | H   | I   | J   | K   | L   | M   |
 | N                                | O   | P   | Q   | R   | S   | T   | U   | V   | W   | X   | Y   | Z   |
 | a                                | b   | c   | d   | e   | f   | g   | h   | i   | j   | k   | l   | m   |

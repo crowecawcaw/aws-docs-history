@@ -41,101 +41,98 @@ requires all of the information that's mentioned in the following steps in order
 process your request. If you don't provide all of the required information, you may
 experience delays in processing your request.
 
-1.  Sign in to the AWS Management Console at [https://console.aws.amazon.com/](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
-2.  On the **Support** menu, choose **Support
-    Center**.
-3.  On the **Your support cases** pane, choose **Create
-    case**.
-4.  Choose the **Looking for service limit increases?** link,
-    then complete the following:
+1. Sign in to the AWS Management Console at [https://console.aws.amazon.com/](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
+2. On the **Support** menu, choose **Support
+   Center**.
+3. On the **Your support cases** pane, choose **Create
+   case**.
+4. Choose the **Looking for service limit increases?** link,
+   then complete the following:
 
-    - For **Limit type**, choose
-      **SNS Text Messaging**.
-    - (Optional) For **Provide a link to the site or app which will
-      be sending SMS messages**, provide information about the
-      website, application, or service that will send SMS messages.
-    - (Optional) For **What type of messages do you plan to
-      send**, choose the type of message that you plan to send
-      using your long code:
+   - For **Limit type**, choose
+     **SNS Text Messaging**.
+   - (Optional) For **Provide a link to the site or app which will
+     be sending SMS messages**, provide information about the
+     website, application, or service that will send SMS messages.
+   - (Optional) For **What type of messages do you plan to
+     send**, choose the type of message that you plan to send
+     using your long code:
 
-      - **One Time Password** – Messages that
-        provide passwords that your customers use to authenticate with
-        your website or application.
-      - **Promotional** – Noncritical messages
-        that promote your business or service, such as special offers or
-        announcements.
-      - **Transactional** – Important
-        informational messages that support customer transactions, such
-        as order confirmations or account alerts. Transactional messages
-        must not contain promotional or marketing content.
+     - **One Time Password** – Messages that
+       provide passwords that your customers use to authenticate with
+       your website or application.
+     - **Promotional** – Noncritical messages
+       that promote your business or service, such as special offers or
+       announcements.
+     - **Transactional** – Important
+       informational messages that support customer transactions, such
+       as order confirmations or account alerts. Transactional messages
+       must not contain promotional or marketing content.
 
-    - (Optional) For **Which AWS Region will you be sending
-      messages from**, choose the region that you'll be sending
-      messages from.
-    - (Optional) For **Which countries do you plan to send messages
-      to**, enter the country or region that you want to purchase
-      short codes in.
-    - (Optional) In the **How do your customers opt to receive
-      messages from you**, provide details about your opt-in
-      process.
-    - (Optional) In the **Please provide the message template that
-      you plan to use to send messages to your customers** field,
-      include the template that you will be using.
+   - (Optional) For **Which AWS Region will you be sending
+     messages from**, choose the region that you'll be sending
+     messages from.
+   - (Optional) For **Which countries do you plan to send messages
+     to**, enter the country or region that you want to purchase
+     short codes in.
+   - (Optional) In the **How do your customers opt to receive
+     messages from you**, provide details about your opt-in
+     process.
+   - (Optional) In the **Please provide the message template that
+     you plan to use to send messages to your customers** field,
+     include the template that you will be using.
 
-5.  Under **Requests**, complete the following sections:
+5. Under **Requests**, complete the following sections:
 
-    - For the **Region**, choose the Region from which
-      you'll be sending messages.
+   - For the **Region**, choose the Region from which
+     you'll be sending messages.
 
-    ###### Note
+   ###### Note
 
-    The Region is required in the **Requests**
-    section. Even if you provided this information in the **Case
-    details** section you must also include it here.
+   The Region is required in the **Requests**
+   section. Even if you provided this information in the **Case
+   details** section you must also include it here.
 
-    - For **Resource Type**, choose **General
-      Limits**.
-    - For **Limit**, choose **Account Spend
-      Threshold Increase**.
+   - For **Resource Type**, choose **General
+     Limits**.
+   - For **Limit**, choose **Account Spend
+     Threshold Increase**.
 
-6.  For New limit value, enter the maximum amount (in USD) that you can spend on
-    SMS each calendar month.
-7.  Under **Case description**, for **Use case
-    description**, provide the following details:
+6. For New limit value, enter the maximum amount (in USD) that you can spend on
+   SMS each calendar month.
+7. Under **Case description**, for **Use case
+   description**, provide the following details:
 
-        * The website or app of the company or service that's sending SMS
-         messages.
-        * The service that's provided by your website or app, and how your SMS
-         messages contribute to that service.
-        * How users sign up to voluntarily receive your SMS messages on your
-         website, app, or other location.
+   - The website or app of the company or service that's sending SMS
+     messages.
+   - The service that's provided by your website or app, and how your SMS
+     messages contribute to that service.
+   - How users sign up to voluntarily receive your SMS messages on your
+     website, app, or other location.
+     If your requested spending quota (the value you specified for **New
+     quota value**) exceeds $10,000 (USD), provide the following
+     additional details for each country that you're messaging:
 
-    If your requested spending quota (the value you specified for **New
-    quota value**) exceeds $10,000 (USD), provide the following
-    additional details for each country that you're messaging:
+   - Whether you're using a sender ID or short code. If you're using a
+     sender ID, provide:
 
-        * Whether you're using a sender ID or short code. If you're using a
-         sender ID, provide:
+     - The sender ID.
+     - Whether the sender ID is registered with wireless carriers in
+       the country.
 
+   - The maximum expected transactions-per-second (TPS) for your
+     messaging.
+   - The average message size.
+   - The template for the messages that you send to the country.
+   - (Optional) Character encoding needs, if any.
 
-
-
-        	+ The sender ID.
-        	+ Whether the sender ID is registered with wireless carriers in
-        	 the country.
-        * The maximum expected transactions-per-second (TPS) for your
-         messaging.
-        * The average message size.
-        * The template for the messages that you send to the country.
-        * (Optional) Character encoding needs, if any.
-
-8.  (Optional) If you want to submit any further requests, choose **Add
-    another request**. If you include multiple requests, provide the
-    required information for each. For the required information, see the other
-    sections within [Requesting support for Amazon SNS SMS messaging](channels-sms-awssupport.md "channels-sms-awssupport.md").
-9.  Under **Contact options**, for **Preferred contact
-    language**, choose the language in which you want to receive
-    communications for this case.
+8. (Optional) If you want to submit any further requests, choose **Add
+   another request**. If you include multiple requests, provide the
+   required information for each. For the required information, see the other
+   sections within [Requesting support for Amazon SNS SMS messaging](channels-sms-awssupport.md "channels-sms-awssupport.md").
+9. Under **Contact options**, for **Preferred contact
+   language**, choose the language in which you want to receive
+   communications for this case.
 10. When you finish, choose **Submit**.
 
 The Support team provides an initial response to your request within 24 hours.

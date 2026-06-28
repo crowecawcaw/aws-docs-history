@@ -25,91 +25,77 @@ _Amazon Data Firehose Developer Guide_.
 
 For more information about filtering events, see [Amazon SNS subscription filter policies](sns-subscription-filter-policies.md "sns-subscription-filter-policies.md") in this guide.
 
-1.  Sign in to the [AWS Lambda
-    console](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
-2.  On the navigation panel, choose **Functions** and then choose
-    **Create function**.
-3.  On the **Create function** page, do the following:
+1. Sign in to the [AWS Lambda
+   console](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
+2. On the navigation panel, choose **Functions** and then choose
+   **Create function**.
+3. On the **Create function** page, do the following:
 
-    1. Choose **Browse serverless app repository**,
-       **Public applications**, **Show apps that
-       create custom IAM roles or resource policies**.
-    2. Search for `fork-event-storage-backup-pipeline` and then
-       choose the application.
+   1. Choose **Browse serverless app repository**,
+      **Public applications**, **Show apps that
+      create custom IAM roles or resource policies**.
+   2. Search for `fork-event-storage-backup-pipeline` and then
+      choose the application.
 
-4.  On the **fork-event-storage-backup-pipeline** page, do the
-    following:
+4. On the **fork-event-storage-backup-pipeline** page, do the
+   following:
 
-        1. In the **Application settings** section, enter an
-         **Application name** (for example,
-         `my-app-backup`).
+   1. In the **Application settings** section, enter an
+      **Application name** (for example,
+      `my-app-backup`).
 
+   ###### Note
 
-        ###### Note
+        * For each deployment, the application name must be unique.
+         If you reuse an application name, the deployment will update
+         only the previously deployed CloudFormation stack (rather than create
+         a new one).
 
+   2. (Optional) For **BucketArn**, enter the ARN of the Amazon S3
+   bucket into which incoming events are loaded. If you don't enter a
+   value, a new Amazon S3 bucket is created in your AWS account. 3. (Optional) For **DataTransformationFunctionArn**,
+   enter the ARN of the Lambda function through which the incoming events
+   are transformed. If you don't enter a value, data transformation is
+   disabled. 4. (Optional) Enter one of the following **LogLevel**
+   settings for the execution of your application's Lambda function:
 
+        * `DEBUG`
+        * `ERROR`
+        * `INFO` (default)
+        * `WARNING`
 
-        	* For each deployment, the application name must be unique.
-        	 If you reuse an application name, the deployment will update
-        	 only the previously deployed CloudFormation stack (rather than create
-        	 a new one).
-        2. (Optional) For **BucketArn**, enter the ARN of the Amazon S3
-         bucket into which incoming events are loaded. If you don't enter a
-         value, a new Amazon S3 bucket is created in your AWS account.
-        3. (Optional) For **DataTransformationFunctionArn**,
-         enter the ARN of the Lambda function through which the incoming events
-         are transformed. If you don't enter a value, data transformation is
-         disabled.
-        4. (Optional) Enter one of the following **LogLevel**
-         settings for the execution of your application's Lambda function:
+   5. For **TopicArn**, enter the ARN of the Amazon SNS topic to
+   which this instance of the fork pipeline is to be subscribed. 6. (Optional) For **StreamBufferingIntervalInSeconds**
+   and **StreamBufferingSizeInMBs**, enter the values for
+   configuring the buffering of incoming events. If you don't enter any
+   values, 300 seconds and 5 MB are used. 7. (Optional) Enter one of the following
+   **StreamCompressionFormat** settings for
+   compressing incoming events:
 
+        * `GZIP`
+        * `SNAPPY`
+        * `UNCOMPRESSED` (default)
+        * `ZIP`
 
-
-
-        	* `DEBUG`
-        	* `ERROR`
-        	* `INFO` (default)
-        	* `WARNING`
-        5. For **TopicArn**, enter the ARN of the Amazon SNS topic to
-         which this instance of the fork pipeline is to be subscribed.
-        6. (Optional) For **StreamBufferingIntervalInSeconds**
-         and **StreamBufferingSizeInMBs**, enter the values for
-         configuring the buffering of incoming events. If you don't enter any
-         values, 300 seconds and 5 MB are used.
-        7. (Optional) Enter one of the following
-         **StreamCompressionFormat** settings for
-         compressing incoming events:
-
-
-
-
-        	* `GZIP`
-        	* `SNAPPY`
-        	* `UNCOMPRESSED` (default)
-        	* `ZIP`
-        8. (Optional) For **StreamPrefix**, enter the string
-         prefix to name files stored in the Amazon S3 backup bucket. If you don't enter
-         a value, no prefix is used.
-        9. (Optional) For **SubscriptionFilterPolicy**, enter
-         the Amazon SNS subscription filter policy, in JSON format, to be used for
-         filtering incoming events. The filter policy decides which events are
-         indexed in the OpenSearch Service index. If you don't enter a value, no
-         filtering is used (all events are indexed).
-        10. (Optional) For **SubscriptionFilterPolicyScope**,
-         enter the string `MessageBody` or
-         `MessageAttributes` to enable payload-based or
-         attribute-based message filtering.
-        11. Choose **I acknowledge that this app creates custom IAM roles,
-         resource policies and deploys nested applications.** and
-         then choose **Deploy**.
-
-    On the **Deployment status for `my-app`**
-    page, Lambda displays the **Your application is being deployed**
-    status.
+   8. (Optional) For **StreamPrefix**, enter the string
+   prefix to name files stored in the Amazon S3 backup bucket. If you don't enter
+   a value, no prefix is used. 9. (Optional) For **SubscriptionFilterPolicy**, enter
+   the Amazon SNS subscription filter policy, in JSON format, to be used for
+   filtering incoming events. The filter policy decides which events are
+   indexed in the OpenSearch Service index. If you don't enter a value, no
+   filtering is used (all events are indexed). 10. (Optional) For **SubscriptionFilterPolicyScope**,
+   enter the string `MessageBody` or
+   `MessageAttributes` to enable payload-based or
+   attribute-based message filtering. 11. Choose **I acknowledge that this app creates custom IAM roles,
+   resource policies and deploys nested applications.** and
+   then choose **Deploy**.
+   On the **Deployment status for `my-app`**
+   page, Lambda displays the **Your application is being deployed**
+   status.
 
 In the **Resources** section, CloudFormation begins to create the stack and
-displays the **CREATE_IN_PROGRESS** status for each resource. When the
-process is complete, CloudFormation displays the **CREATE_COMPLETE**
+displays the **CREATE\_IN\_PROGRESS** status for each resource. When the
+process is complete, CloudFormation displays the **CREATE\_COMPLETE**
 status.
 
 When the deployment is complete, Lambda displays the **Your application has

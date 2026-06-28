@@ -42,23 +42,22 @@ the AWS SDK for Java and you have the AWS security credentials for your AWS acco
 For more information, see [AWS SDK for Java](http://aws.amazon.com/sdkforjava/ "http://aws.amazon.com/sdkforjava/"). For more information about credentials, see [AWS security credentials](../../../general/latest/gr/getting-aws-sec-creds.md "../../../general/latest/gr/getting-aws-sec-creds.md")
 in the _IAM User Guide_.
 
-1.  Download and unzip the [snsmobilepush.zip](samples/snsmobilepush.zip.md "samples/snsmobilepush.zip.md") file.
-2.  Create a new **Java project** in Eclipse and import
-    the `SNSSamples` folder to the project.
-3.  Download the [OpenCSV
-    library](http://sourceforge.net/projects/opencsv/ "http://sourceforge.net/projects/opencsv/") and add it to the build path.
-4.  In the `BulkUpload.properties` file, specify the following:
+1. Download and unzip the [snsmobilepush.zip](samples/snsmobilepush.zip.md "samples/snsmobilepush.zip.md") file.
+2. Create a new **Java project** in Eclipse and import
+   the `SNSSamples` folder to the project.
+3. Download the [OpenCSV
+   library](http://sourceforge.net/projects/opencsv/ "http://sourceforge.net/projects/opencsv/") and add it to the build path.
+4. In the `BulkUpload.properties` file, specify the following:
 
-        * Your `ApplicationArn` (platform application ARN).
-        * The absolute path to your CSV file containing the tokens.
-        * Logging filenames for successful and failed tokens. For example,
-         `goodTokens.csv` and
-         `badTokens.csv`.
-        * (Optional) A configuration for delimiter, quote character, and number of
-         threads to use.
-
-    Your completed `BulkUpload.properties` should look similar to
-    the following:
+   - Your `ApplicationArn` (platform application ARN).
+   - The absolute path to your CSV file containing the tokens.
+   - Logging filenames for successful and failed tokens. For example,
+     `goodTokens.csv` and
+     `badTokens.csv`.
+   - (Optional) A configuration for delimiter, quote character, and number of
+     threads to use.
+     Your completed `BulkUpload.properties` should look similar to
+     the following:
 
 ```
 applicationarn: arn:aws:sns:us-west-2:111122223333:app/FCM/fcmpushapp

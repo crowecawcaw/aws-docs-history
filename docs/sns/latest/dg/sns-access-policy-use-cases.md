@@ -223,9 +223,9 @@ The following is an example policy:
      notifications.
 
 2. **Apply the Policy.** Use the
-   `SetTopicAttributes` action to set this policy on your Amazon SNS topic. This
-   will update the topic’s access control to include the permissions specified in your
-   custom policy.
+`SetTopicAttributes` action to set this policy on your Amazon SNS topic. This
+will update the topic’s access control to include the permissions specified in your
+custom policy.
 
 ```
 snsClient.setTopicAttributes(SetTopicAttributesRequest.builder()

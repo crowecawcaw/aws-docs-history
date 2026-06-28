@@ -181,9 +181,9 @@ service principal) in the AWS KMS key policy:
     * [EC2 Image Builder](../../../imagebuilder/latest/userguide/ibhow-integrations.md#integ-sns-encrypted "../../../imagebuilder/latest/userguide/ibhow-integrations.md#integ-sns-encrypted")
 
 3. Add the `aws:SourceAccount` and `aws:SourceArn` condition keys
-   to the KMS resource policy to further protect the KMS key from [confused
-   deputy](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md") attacks. Refer to service specific documentation list (above) for exact
-   details in each case.
+to the KMS resource policy to further protect the KMS key from [confused
+deputy](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md") attacks. Refer to service specific documentation list (above) for exact
+details in each case.
 
 ###### Important
 

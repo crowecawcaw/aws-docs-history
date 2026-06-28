@@ -30,65 +30,65 @@ step is essential to configure the topic's type, encryption settings, and access
 policies, ensuring the topic meets the organization’s security, compliance, and
 operational requirements.
 
-1.  Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
-2.  Do one of the following:
+1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
+2. Do one of the following:
 
-    - If no topics have ever been created under your AWS account before,
-      read the description of Amazon SNS on the home page.
+   - If no topics have ever been created under your AWS account before,
+     read the description of Amazon SNS on the home page.
 
-    - If topics have been created under your AWS account before, on the
-      navigation panel, choose **Topics**.
+   - If topics have been created under your AWS account before, on the
+     navigation panel, choose **Topics**.
 
-3.  On the **Topics** page, choose **Create
-    topic**.
-4.  On the **Create topic** page, in the
-    **Details** section, do the following:
+3. On the **Topics** page, choose **Create
+   topic**.
+4. On the **Create topic** page, in the
+   **Details** section, do the following:
 
-    1. For **Type**, choose a topic type
-       (**Standard** or **FIFO**).
-    2. Enter a **Name** for the topic. For a [FIFO topic](sns-fifo-topics.md "sns-fifo-topics.md"), add
-       **.fifo** to the end of the name.
-    3. (Optional) Enter a **Display name** for the
-       topic.
+   1. For **Type**, choose a topic type
+      (**Standard** or **FIFO**).
+   2. Enter a **Name** for the topic. For a [FIFO topic](sns-fifo-topics.md "sns-fifo-topics.md"), add
+      **.fifo** to the end of the name.
+   3. (Optional) Enter a **Display name** for the
+      topic.
 
-    ###### Important
+   ###### Important
 
-    When subscribing to an email endpoint, the combined character
-    count for the Amazon SNS topic display name and the sending email address
-    (for example, no-reply@sns.amazonaws.com) must not exceed 320 UTF-8
-    characters. You can use a third party encoding tool to verify the
-    length of the sending address before configuring a display name for
-    your Amazon SNS topic.
+   When subscribing to an email endpoint, the combined character
+   count for the Amazon SNS topic display name and the sending email address
+   (for example, no-reply@sns.amazonaws.com) must not exceed 320 UTF-8
+   characters. You can use a third party encoding tool to verify the
+   length of the sending address before configuring a display name for
+   your Amazon SNS topic.
 
-    ###### Note
+   ###### Note
 
-    For email and email-json subscriptions, the topic display name is used as the sender
-    name only for regular notification messages. Subscription confirmation and
-    unsubscribe confirmation emails always use "AWS Notifications" as the sender
-    name, regardless of the topic's display name setting. 4. (Optional) For a FIFO topic, you can choose **content-based
-    message deduplication** to enable default message
-    deduplication. For more information, see [Amazon SNS message deduplication for FIFO topics](fifo-message-dedup.md "fifo-message-dedup.md").
+   For email and email-json subscriptions, the topic display name is used as the sender
+   name only for regular notification messages. Subscription confirmation and
+   unsubscribe confirmation emails always use "AWS Notifications" as the sender
+   name, regardless of the topic's display name setting. 4. (Optional) For a FIFO topic, you can choose **content-based
+   message deduplication** to enable default message
+   deduplication. For more information, see [Amazon SNS message deduplication for FIFO topics](fifo-message-dedup.md "fifo-message-dedup.md").
 
-5.  (Optional) Expand the **Encryption** section and do the
-    following. For more information, see [Securing Amazon SNS data with server-side encryption](sns-server-side-encryption.md "sns-server-side-encryption.md").
+5. (Optional) Expand the **Encryption** section and do the
+   following. For more information, see [Securing Amazon SNS data with server-side encryption](sns-server-side-encryption.md "sns-server-side-encryption.md").
 
-    1. Choose **Enable encryption**.
-    2. Specify the AWS KMS key. For more information, see [Key terms](sns-server-side-encryption.md#sse-key-terms "sns-server-side-encryption.md#sse-key-terms").
+   1. Choose **Enable encryption**.
+   2. Specify the AWS KMS key. For more information, see [Key terms](sns-server-side-encryption.md#sse-key-terms "sns-server-side-encryption.md#sse-key-terms").
 
-    For each KMS type, the **Description**,
-    **Account**, and **KMS ARN** are displayed.
+   For each KMS type, the **Description**,
+   **Account**, and **KMS ARN** are displayed.
 
-    ###### Important
+   ###### Important
 
-    If you aren't the owner of the KMS, or if you log in with an
-    account that doesn't have the `kms:ListAliases` and
-    `kms:DescribeKey` permissions, you won't be able to
-    view information about the KMS on the Amazon SNS console.
+   If you aren't the owner of the KMS, or if you log in with an
+   account that doesn't have the `kms:ListAliases` and
+   `kms:DescribeKey` permissions, you won't be able to
+   view information about the KMS on the Amazon SNS console.
 
-    Ask the owner of the KMS to grant you these permissions. For more
-    information, see the [AWS KMS API
-    Permissions: Actions and Resources Reference](../../../kms/latest/developerguide/kms-api-permissions-reference.md "../../../kms/latest/developerguide/kms-api-permissions-reference.md") in the
-    _AWS Key Management Service Developer Guide_.
+   Ask the owner of the KMS to grant you these permissions. For more
+   information, see the [AWS KMS API
+   Permissions: Actions and Resources Reference](../../../kms/latest/developerguide/kms-api-permissions-reference.md "../../../kms/latest/developerguide/kms-api-permissions-reference.md") in the
+   _AWS Key Management Service Developer Guide_.
 
         * The AWS managed KMS for Amazon SNS **(Default)
          alias/aws/sns** is selected by default.
@@ -117,9 +117,9 @@ operational requirements.
         * To use a custom KMS ARN from your AWS account or from
          another AWS account, enter it into the **KMS key** field.
 
-6.  (Optional) By default, only the topic owner can publish or subscribe to the
-    topic. To configure additional access permissions, expand the **Access
-    policy** section. For more information, see [Identity and access management in Amazon SNS](security-iam.md "security-iam.md") and [Example cases for Amazon SNS access control](sns-access-policy-use-cases.md "sns-access-policy-use-cases.md").
+6. (Optional) By default, only the topic owner can publish or subscribe to the
+   topic. To configure additional access permissions, expand the **Access
+   policy** section. For more information, see [Identity and access management in Amazon SNS](security-iam.md "security-iam.md") and [Example cases for Amazon SNS access control](sns-access-policy-use-cases.md "sns-access-policy-use-cases.md").
 
 ###### Note
 

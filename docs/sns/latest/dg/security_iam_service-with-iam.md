@@ -3,19 +3,19 @@
 Before you use IAM to manage access to Amazon SNS, learn what IAM features are
 available to use with Amazon SNS.
 
-| IAM features you can use with Amazon Simple Notification Service                                                                                                                                          | IAM feature | Amazon SNS support |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------------ |
-| [Identity-based<br>policies](security-iam.md#security_iam_service-with-iam-id-based-policies "security-iam.md#security_iam_service-with-iam-id-based-policies")                                           | Yes         |
-| [Resource-based policies](security-iam.md#security_iam_service-with-iam-resource-based-policies "security-iam.md#security_iam_service-with-iam-resource-based-policies")                                  | Yes         |
-| [Policy<br>actions](security-iam.md#security_iam_service-with-iam-id-based-policies-actions "security-iam.md#security_iam_service-with-iam-id-based-policies-actions")                                    | Yes         |
-| [Policy<br>resources](security-iam.md#security_iam_service-with-iam-id-based-policies-resources "security-iam.md#security_iam_service-with-iam-id-based-policies-resources")                              | Yes         |
-| [Policy condition keys (service-specific)](security-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys "security-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes         |
-| [ACLs](security-iam.md#security_iam_service-with-iam-acls "security-iam.md#security_iam_service-with-iam-acls")                                                                                           | No          |
-| [ABAC (tags in<br>policies)](security-iam.md#security_iam_service-with-iam-tags "security-iam.md#security_iam_service-with-iam-tags")                                                                     | Partial     |
-| [Temporary<br>credentials](security-iam.md#security_iam_service-with-iam-roles-tempcreds "security-iam.md#security_iam_service-with-iam-roles-tempcreds")                                                 | Yes         |
-| [Principal<br>permissions](security-iam.md#security_iam_service-with-iam-principal-permissions "security-iam.md#security_iam_service-with-iam-principal-permissions")                                     | Yes         |
-| [Service<br>roles](security-iam.md#security_iam_service-with-iam-roles-service "security-iam.md#security_iam_service-with-iam-roles-service")                                                             | Yes         |
-| [Service-linked roles](security-iam.md#security_iam_service-with-iam-roles-service-linked "security-iam.md#security_iam_service-with-iam-roles-service-linked")                                           | No          |
+IAM features you can use with Amazon Simple Notification Service| IAM feature | Amazon SNS support |
+| --- | --- |
+| [Identity-based<br>policies](security-iam.md#security_iam_service-with-iam-id-based-policies "security-iam.md#security_iam_service-with-iam-id-based-policies") | Yes |
+| [Resource-based policies](security-iam.md#security_iam_service-with-iam-resource-based-policies "security-iam.md#security_iam_service-with-iam-resource-based-policies") | Yes |
+| [Policy<br>actions](security-iam.md#security_iam_service-with-iam-id-based-policies-actions "security-iam.md#security_iam_service-with-iam-id-based-policies-actions") | Yes |
+| [Policy<br>resources](security-iam.md#security_iam_service-with-iam-id-based-policies-resources "security-iam.md#security_iam_service-with-iam-id-based-policies-resources") | Yes |
+| [Policy condition keys (service-specific)](security-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys "security-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes |
+| [ACLs](security-iam.md#security_iam_service-with-iam-acls "security-iam.md#security_iam_service-with-iam-acls") | No |
+| [ABAC (tags in<br>policies)](security-iam.md#security_iam_service-with-iam-tags "security-iam.md#security_iam_service-with-iam-tags") | Partial |
+| [Temporary<br>credentials](security-iam.md#security_iam_service-with-iam-roles-tempcreds "security-iam.md#security_iam_service-with-iam-roles-tempcreds") | Yes |
+| [Principal<br>permissions](security-iam.md#security_iam_service-with-iam-principal-permissions "security-iam.md#security_iam_service-with-iam-principal-permissions") | Yes |
+| [Service<br>roles](security-iam.md#security_iam_service-with-iam-roles-service "security-iam.md#security_iam_service-with-iam-roles-service") | Yes |
+| [Service-linked roles](security-iam.md#security_iam_service-with-iam-roles-service-linked "security-iam.md#security_iam_service-with-iam-roles-service-linked") | No |
 
 To get a high-level view of how Amazon SNS and other AWS services work with most IAM
 features, see [AWS

@@ -111,19 +111,19 @@ Before you begin, make sure you have the ARNs for your topic and queue, and that
 have [given permission to the topic to send
 messages to the queue](subscribe-sqs-queue-to-sns-topic.md#SendMessageToSQS.sqs.permissions "subscribe-sqs-queue-to-sns-topic.md#SendMessageToSQS.sqs.permissions").
 
-1.  Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
-2.  On the navigation panel, choose **Subscriptions**.
-3.  On the **Subscriptions** page, choose **Create
-    subscription**.
-4.  On the **Create subscription** page, in the
-    **Details** section, do the following:
+1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
+2. On the navigation panel, choose **Subscriptions**.
+3. On the **Subscriptions** page, choose **Create
+   subscription**.
+4. On the **Create subscription** page, in the
+   **Details** section, do the following:
 
-    1. For **Topic ARN**, enter the ARN of the topic.
-    2. For **Protocol**, choose **Amazon SQS**.
-    3. For **Endpoint**, enter the ARN of the queue.
-    4. Choose **Create subscription**.
+   1. For **Topic ARN**, enter the ARN of the topic.
+   2. For **Protocol**, choose **Amazon SQS**.
+   3. For **Endpoint**, enter the ARN of the queue.
+   4. Choose **Create subscription**.
 
-    ###### Note
+   ###### Note
 
         * To be able to communicate with the service, the queue must have
          permissions for Amazon SNS.
@@ -170,13 +170,8 @@ A message with the subscription confirmation is received in the queue. 4. In the
      into the [Amazon SNS console](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
 
 5. Log in as the **subscription owner** to the [Amazon SNS console](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home") The subscription owner
-   performs the confirmation.
-6. Choose the relevant **topic**.
-7. Choose the relevant **subscription** in the topic's
-   subscription listings table. It is labeled as "Pending confirmation".
-8. Choose **Confirm subscription**.
-9. A modal appears prompting the subscription confirmation link. **Paste** the subscription confirmation link.
-10. Select the **Confirm subscription** in the modal.
+performs the confirmation. 6. Choose the relevant **topic**. 7. Choose the relevant **subscription** in the topic's
+subscription listings table. It is labeled as "Pending confirmation". 8. Choose **Confirm subscription**. 9. A modal appears prompting the subscription confirmation link. **Paste** the subscription confirmation link. 10. Select the **Confirm subscription** in the modal.
 
 An XML response is displayed, for example:
 

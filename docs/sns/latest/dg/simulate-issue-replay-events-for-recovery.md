@@ -10,7 +10,7 @@
 4. On the
    **fork-example-ecommerce-`my-app`-CheckoutFunction-`ABCDEF`...**
    page, in the **Environment variables** section, set the
-   **BUG_ENABLED** variable to **true**
+   **BUG\_ENABLED** variable to **true**
    and then choose **Save**.
 5. Copy the following JSON to a file named
    `test_event_2.json`.
@@ -67,7 +67,7 @@ The stored attributes are displayed, some marked as
 4. On the
    **fork-example-ecommerce-`my-app`-CheckoutFunction-`ABCDEF`...**
    page, in the **Environment variables** section, set the
-   **BUG_ENABLED** variable to **false**
+   **BUG\_ENABLED** variable to **false**
    and then choose **Save**.
 
 ## Step 4: Enable replay to recover from the issue

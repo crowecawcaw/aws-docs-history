@@ -61,7 +61,7 @@ Where:
      find the value for **Public DNS**.
 
 2. From your instance, use the Amazon SNS [`publish`](../../../cli/latest/reference/sns/publish.md "../../../cli/latest/reference/sns/publish.md") command with the AWS CLI. You can send a simple message to
-   a topic with the following command:
+a topic with the following command:
 
 ```
 `$` aws sns publish --region `aws-region` --topic-arn `sns-topic-arn` --message "Hello"

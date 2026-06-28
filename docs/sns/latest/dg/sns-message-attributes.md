@@ -74,7 +74,7 @@ Amazon SNS supports the following logical data types for all endpoints except as
 noted:
 
 - **String** – Strings are Unicode with
-  UTF-8 binary encoding. For a list of code values, see [http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters](http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters "http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters").
+  UTF-8 binary encoding. For a list of code values, see [http://en.wikipedia.org/wiki/ASCII#ASCII\_printable\_characters](http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters "http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters").
 
 ###### Note
 

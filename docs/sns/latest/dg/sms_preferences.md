@@ -10,37 +10,36 @@ you can override some of them when you send an individual message. For more info
 
 ## Setting SMS messaging preferences using the AWS Management Console
 
-1.  Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
-2.  Choose a [region that supports SMS
-    messaging](../../../general/latest/gr/end-user-messaging.md "../../../general/latest/gr/end-user-messaging.md").
-3.  On the navigation panel, choose **Mobile** and then
-    **Text messaging (SMS)**.
-4.  On the **Mobile text messaging (SMS)** page, in the
-    **Text messaging preferences** section, choose
-    **Edit**.
-5.  On the **Edit text messaging preferences** page, in the
-    **Details** section, do the following:
+1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
+2. Choose a [region that supports SMS
+   messaging](../../../general/latest/gr/end-user-messaging.md "../../../general/latest/gr/end-user-messaging.md").
+3. On the navigation panel, choose **Mobile** and then
+   **Text messaging (SMS)**.
+4. On the **Mobile text messaging (SMS)** page, in the
+   **Text messaging preferences** section, choose
+   **Edit**.
+5. On the **Edit text messaging preferences** page, in the
+   **Details** section, do the following:
 
-    1.  For **Default message type**, choose one of the
-        following:
+   1. For **Default message type**, choose one of the
+      following:
 
-            * **Promotional** – Non-critical
-             messages (for example, marketing). Amazon SNS optimizes message
-             delivery to incur the lowest cost.
-            * **Transactional** (default) – Critical
-             messages that support customer transactions, such as one-time
-             passcodes for multi-factor authentication. Amazon SNS optimizes
-             message delivery to achieve the highest reliability.
-
+      - **Promotional** – Non-critical
+        messages (for example, marketing). Amazon SNS optimizes message
+        delivery to incur the lowest cost.
+      - **Transactional** (default) – Critical
+        messages that support customer transactions, such as one-time
+        passcodes for multi-factor authentication. Amazon SNS optimizes
+        message delivery to achieve the highest reliability.
         For pricing information for promotional and transactional messages,
         see [Global SMS
         Pricing](https://aws.amazon.com/sns/sms-pricing/ "https://aws.amazon.com/sns/sms-pricing/").
 
-    2.  (Optional) For **Account spend limit**, enter the
-        amount (in USD) that you want to spend on SMS messages each calendar
-        month.
+   2. (Optional) For **Account spend limit**, enter the
+      amount (in USD) that you want to spend on SMS messages each calendar
+      month.
 
-    ###### Important
+   ###### Important
 
         * By default, the spend quota is set to 1.00 USD. If you
          want to raise the service quota, [submit a request](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-sns "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-sns").
@@ -52,9 +51,9 @@ you can override some of them when you send an individual message. For more info
          messages, you might incur costs that exceed your
          quota.
 
-6.  (Optional) For **Default sender ID**, enter a custom ID, such
-    as your business brand, which is displayed as the sender of the receiving
-    device.
+6. (Optional) For **Default sender ID**, enter a custom ID, such
+   as your business brand, which is displayed as the sender of the receiving
+   device.
 
 ###### Note
 

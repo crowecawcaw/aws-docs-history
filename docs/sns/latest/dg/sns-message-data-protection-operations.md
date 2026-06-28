@@ -218,7 +218,7 @@ messages, and requires one of the following types of configurations:
 ```
 
 | Supported mask character | Name                         |
-| ------------------------ | ---------------------------- | ------------ |
+| ------------------------ | ---------------------------- |
 | \*                       | Asterisk                     |
 | A-Z, a-z, and 0-9        | Alphanumeric                 |
 |                          | Space                        |

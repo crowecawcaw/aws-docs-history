@@ -55,7 +55,7 @@ string in the policy.
 - There is an `"$or"` field attribute in the rule followed with
   an array, for example `“$or” : []`.
 - There are at least 2 objects in the `"$or"` array: `"$or":
-[{}, {}]`.
+ [{}, {}]`.
 - None of the objects in the `"$or"` array have field names that
   are reserved keywords.
 
