@@ -8,7 +8,7 @@ The `$text` operator is used to perform full-text search on text-indexed fields 
 
 ## Example (MongoDB Shell)
 
-The following example demonstrates how to use the `$text` operator to search for documents containing the word "interest" and filter the results based on a "star_rating" field.
+The following example demonstrates how to use the `$text` operator to search for documents containing the word "interest" and filter the results based on a "star\_rating" field.
 
 **Create sample documents**
 
@@ -42,7 +42,7 @@ db.test.find({$and: [{star_rating: 5}, {$text: {$search: "interest"}}]})
 { "_id" : 6, "star_rating" : 5, "comments" : "interested in couch for sale, year 2022" }
 ```
 
-The command above returns documents with a text-indexed field containing any form of "interest" and a "star_rating" equal to 5.
+The command above returns documents with a text-indexed field containing any form of "interest" and a "star\_rating" equal to 5.
 
 ## Code examples
 

@@ -21,23 +21,23 @@ Follow these steps to perform management tasks for TLS encryption using the cons
 
 Unless you specify differently when you create a cluster, your cluster is created with the default cluster parameter group. The parameters in the `default` cluster parameter group can't be modified (for example, `tls` enabled/disabled). So if your cluster is using a `default` cluster parameter group, you need to modify the cluster to use a non-default cluster parameter group. First, you might need to create a custom cluster parameter group. For more information, see [Creating Amazon DocumentDB cluster parameter groups](cluster_parameter_groups-create.md "cluster_parameter_groups-create.md").
 
-1.  **Determine the cluster parameter group that your
-    cluster is using.**
+1. **Determine the cluster parameter group that your
+   cluster is using.**
 
-    1. Open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
-    2. In the navigation pane, choose
-       **Clusters**.
+   1. Open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
+   2. In the navigation pane, choose
+      **Clusters**.
 
-    ###### Tip
+   ###### Tip
 
-    If you don't see the navigation pane on the left side of your screen, choose the menu icon
-    (![Menu button.](images/docdb-menu-icon.png))
-    in the upper-left corner of the page. 3. Note that in the **Clusters** navigation box, the column **Cluster Identifier** shows both clusters and instances. Instances are listed underneath clusters. See the following screenshot for reference.
+   If you don't see the navigation pane on the left side of your screen, choose the menu icon
+   (![Menu button.](images/docdb-menu-icon.png))
+   in the upper-left corner of the page. 3. Note that in the **Clusters** navigation box, the column **Cluster Identifier** shows both clusters and instances. Instances are listed underneath clusters. See the following screenshot for reference.
 
-    ![Image of the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](images/clusters.png) 4. Choose the cluster that
-    you're interested in. 5. Choose the **Configuration** tab and scroll down to the bottom of **Cluster details** and locate the **Cluster parameter group**. Note the name of the cluster parameter group.
+   ![Image of the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](images/clusters.png) 4. Choose the cluster that
+   you're interested in. 5. Choose the **Configuration** tab and scroll down to the bottom of **Cluster details** and locate the **Cluster parameter group**. Note the name of the cluster parameter group.
 
-    If the name of the cluster's parameter group is `default` (for example, `default.docdb3.6`), you must create a custom cluster parameter group and make it the cluster's parameter group before you continue. For more information, see the following:
+   If the name of the cluster's parameter group is `default` (for example, `default.docdb3.6`), you must create a custom cluster parameter group and make it the cluster's parameter group before you continue. For more information, see the following:
 
         1. [Creating Amazon DocumentDB cluster parameter groups](cluster_parameter_groups-create.md "cluster_parameter_groups-create.md")
          — If you don't have a custom cluster parameter
@@ -46,38 +46,38 @@ Unless you specify differently when you create a cluster, your cluster is create
          your cluster to use the custom cluster parameter
          group.
 
-2.  **Determine the current value of the `tls`
-    cluster parameter.**
+2. **Determine the current value of the `tls`
+   cluster parameter.**
 
-    1. Open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
-    2. In the navigation pane, choose **Parameter
-       groups**.
-    3. In the list of cluster parameter groups, choose the name of
-       the cluster parameter group you are interested in.
-    4. Locate the **Cluster parameters** section. In
-       the list of cluster parameters, locate the `tls`
-       cluster parameter row. At this point, the following four columns
-       are important:
+   1. Open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
+   2. In the navigation pane, choose **Parameter
+      groups**.
+   3. In the list of cluster parameter groups, choose the name of
+      the cluster parameter group you are interested in.
+   4. Locate the **Cluster parameters** section. In
+      the list of cluster parameters, locate the `tls`
+      cluster parameter row. At this point, the following four columns
+      are important:
 
-       - **Cluster parameter
-         name** — The name of the cluster
-         parameters. For managing TLS, you're interested in the
-         `tls` cluster parameter.
-       - **Values** — The
-         current value of each cluster parameter.
-       - **Allowed values**
-         — A list of values that can be applied to a
-         cluster parameter.
-       - **Apply type** —
-         Either **static** or
-         **dynamic**. Changes to static
-         cluster parameters can be applied only when the
-         instances are rebooted. Changes to dynamic cluster
-         parameters can be applied either immediately or when the
-         instances are rebooted.
+      - **Cluster parameter
+        name** — The name of the cluster
+        parameters. For managing TLS, you're interested in the
+        `tls` cluster parameter.
+      - **Values** — The
+        current value of each cluster parameter.
+      - **Allowed values**
+        — A list of values that can be applied to a
+        cluster parameter.
+      - **Apply type** —
+        Either **static** or
+        **dynamic**. Changes to static
+        cluster parameters can be applied only when the
+        instances are rebooted. Changes to dynamic cluster
+        parameters can be applied either immediately or when the
+        instances are rebooted.
 
-3.  **Modify the value of the `tls` cluster
-    parameter.**
+3. **Modify the value of the `tls` cluster
+   parameter.**
 
 If the value of `tls` is not what is needs to be, modify its value for this cluster parameter group. To change the value of the `tls` cluster parameter, continue from the preceding section by following these steps.
 
@@ -180,7 +180,7 @@ continue. For more information, see the following topics:
      cluster to use the custom cluster parameter group.
 
 2. **Determine the current value of the `tls` cluster
-   parameter.**
+parameter.**
 
 To get more information about this cluster parameter group, run the
 [`describe-db-cluster-parameters`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/docdb/describe-db-cluster-parameters.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/docdb/describe-db-cluster-parameters.html") command with the

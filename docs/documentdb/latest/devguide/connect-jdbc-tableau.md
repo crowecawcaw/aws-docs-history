@@ -16,7 +16,7 @@ Amazon DocumentDB JDBC driver and the DocumentDB Tableau connector.
    directories according to your operating system:
 
    - _Windows_ - `C:\Program
-Files\Tableau\Drivers`
+  Files\Tableau\Drivers`
    - _MacOS_ -
      `~/Library/Tableau/Drivers`
 
@@ -25,9 +25,9 @@ Files\Tableau\Drivers`
    your _My Tableau Repository/Connectors directory_.
 
    - _Windows_ - `C:\Users\[user]\Documents\My
-Tableau Repository\Connectors`
+  Tableau Repository\Connectors`
    - _MacOS_ - `/Users/[user]/Documents/My
-Tableau Repository/Connectors`
+  Tableau Repository/Connectors`
 
 For additional information, refer to the [Tableau
 documentation](https://tableau.github.io/connector-plugin-sdk/docs/run-taco "https://tableau.github.io/connector-plugin-sdk/docs/run-taco").

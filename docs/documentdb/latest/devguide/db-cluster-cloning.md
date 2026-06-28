@@ -172,7 +172,7 @@ class**, and other options for the Amazon DocumentDB cluster clone. 4. In the **
      Amazon DocumentDB cluster and instance settings, see [Managing Amazon DocumentDB clusters](db-clusters.md "db-clusters.md").
 
 5. Choose **Create clone** to launch the Amazon DocumentDB clone of your chosen Amazon DocumentDB
-   cluster.
+cluster.
 
 When the clone is created, it's listed with your other Amazon DocumentDB clusters in the
 console **Databases** section and displays its current state. Your clone

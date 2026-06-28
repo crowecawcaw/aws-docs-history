@@ -48,14 +48,13 @@ changes:
      to instances in the cluster.
 
 7. When you have finished, choose
-   **Continue** to see a summary of
-   your changes.
-8. After verifying your changes, you can apply them
-   immediately or during the next maintenance window
-   under **Scheduling of modifications**.
-   Choose **Modify instance** to save
-   your changes. Alternatively, you can choose
-   **Cancel** to discard your changes.
+**Continue** to see a summary of
+your changes. 8. After verifying your changes, you can apply them
+immediately or during the next maintenance window
+under **Scheduling of modifications**.
+Choose **Modify instance** to save
+your changes. Alternatively, you can choose
+**Cancel** to discard your changes.
 
 It takes a few minutes for your changes to be applied.
 You can use the instance only when its status is

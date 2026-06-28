@@ -79,9 +79,9 @@ action that you want to perform on the cluster.
     ![The Actions dropdown list with the Start option selected.](images/ec-start.png)
 
 5. Monitor the status of the elastic cluster. If
-   you started the cluster, you can resume using the cluster
-   when the cluster is _available_.
-   For more information, see [Determining a cluster's status](db-cluster-status.md "db-cluster-status.md").
+you started the cluster, you can resume using the cluster
+when the cluster is _available_.
+For more information, see [Determining a cluster's status](db-cluster-status.md "db-cluster-status.md").
 
 ![Status column in Clusters table showing available and starting statuses.](images/ec-starting-status.png)
 

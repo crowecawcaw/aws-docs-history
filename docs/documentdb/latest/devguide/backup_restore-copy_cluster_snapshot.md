@@ -141,34 +141,41 @@ snapshot** page, complete the
      any tags you have on your source snapshot to your
      snapshot copy, choose **Copy tags**.
 
-5.  Complete the **Encryption-at-rest**
-    section.
+5. Complete the **Encryption-at-rest**
+section.
 
     1. **Encryption at rest** —
-       If your snapshot is not encrypted, these options are not available to you because you cannot create an encrypted copy from an unencrypted snapshot.
-       If your snapshot is encrypted, you can change the AWS KMS key used during encryption at rest.
+     If your snapshot is not encrypted, these options are not available to you because you cannot create an encrypted copy from an unencrypted snapshot.
+     If your snapshot is encrypted, you can change the AWS KMS key used during encryption at rest.
+
 
     For more information about encrypting snapshot copies, see [Copy cluster snapshot encryption](backup_restore-cluster_snapshot_considerations.md#backup_restore-encryption "backup_restore-cluster_snapshot_considerations.md#backup_restore-encryption").
 
-    For more information about encryption at rest, see [Encrypting Amazon DocumentDB data at rest](encryption-at-rest.md "encryption-at-rest.md"). 2. **AWS KMS Key** — From
-    the drop-down list, choose one of the following:
 
-        * **(default) aws/rds**
-         — The account number and AWS KMS key ID
-         are listed following this option.
-        * **<some-key-name>**
-         — If you created a key, it is listed
-         and available for you to choose.
-        * **Enter a key ARN**
-         — In the **ARN** box,
-         enter the Amazon Resource Name (ARN) for your
-         AWS KMS key. The format of the ARN is
-         `arn:aws:kms:<region>:<accountID>:key/<key-id>` .
+    For more information about encryption at rest, see [Encrypting Amazon DocumentDB data at rest](encryption-at-rest.md "encryption-at-rest.md").
+    2. **AWS KMS Key** — From
+     the drop-down list, choose one of the following:
 
-6.  To make a copy of the selected snapshot, choose
-    **Copy snapshot**. Alternatively, you
-    can choose **Cancel** to not make a
-    copy of the snapshot.
+
+
+
+
+    	* **(default) aws/rds**
+    	 — The account number and AWS KMS key ID
+    	 are listed following this option.
+    	* **<some-key-name>**
+    	 — If you created a key, it is listed
+    	 and available for you to choose.
+    	* **Enter a key ARN**
+    	 — In the **ARN** box,
+    	 enter the Amazon Resource Name (ARN) for your
+    	 AWS KMS key. The format of the ARN is
+    	 `arn:aws:kms:<region>:<accountID>:key/<key-id>` .
+
+6. To make a copy of the selected snapshot, choose
+**Copy snapshot**. Alternatively, you
+can choose **Cancel** to not make a
+copy of the snapshot.
 
 Using the AWS CLI
 To make a copy of an unencrypted cluster snapshot using the

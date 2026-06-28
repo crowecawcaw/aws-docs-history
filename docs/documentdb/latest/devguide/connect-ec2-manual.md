@@ -23,7 +23,7 @@ In this step, you will create an Amazon EC2 instance in the same Region and Amaz
 
 ![The Application and OS Images interface with the Amazon Linux 2 AMI option selected in the Quick Start section.](images/ec2/linux2-ami.png) 4. Locate and choose **t3.micro** in the **Instance type** drop-down list. 5. In the **Key pair (login)** section, enter the identifier of an existing key-pair, or choose **Create new key pair**.
 
-![The Key pair interface showing the key pair name field and the Create new key pair option.](/images/documentdb/latest/devguide/images/ec2/key-pair.png)
+![The Key pair interface showing the key pair name field and the Create new key pair option.](images/ec2/key-pair.png)
 
 You must provide an Amazon EC2 key pair.
 
@@ -50,7 +50,7 @@ You must provide an Amazon EC2 key pair.
 
 For security purposes, we highly recommend using a key-pair for both SSH and internet connectivity to your EC2 instance. 6. In the **Network settings section**, under **Firewall (security groups)**, choose either **Create security group** or **Select existing security group**.
 
-![The Network settings interface showing options for creating a security group.](images/ec2/firewall.png)
+![The Network settings interface showing options for creating a security group.](/images/documentdb/latest/devguide/images/ec2/firewall.png)
 
 If you chose to select an existing security group, select one from the **Common security groups** drop-down list.
 
@@ -76,17 +76,15 @@ You will now create a new security group in your default Amazon VPC. The securit
     2. For **Description**, enter a description.
     3. For **VPC**, accept the usage of your default VPC.
 
-4.  In the **Inbound rules** section, choose **Add rule**.
+4. In the **Inbound rules** section, choose **Add rule**.
 
-        1. For **Type**, choose **Custom TCP Rule** (default).
-        2. For **Port range**, enter `27017`.
-        3. For **Source**, choose **Custom**.
-         In the field next to it, search for the security group you just created in step 1.
-         You may need to refresh your browser for the Amazon EC2 console to auto-populate the source name.
+    1. For **Type**, choose **Custom TCP Rule** (default).
+    2. For **Port range**, enter `27017`.
+    3. For **Source**, choose **Custom**.
+     In the field next to it, search for the security group you just created in step 1.
+     You may need to refresh your browser for the Amazon EC2 console to auto-populate the source name.
 
-    ![Inbound rules section showing fields for type, protocol, port range, source, and description. The Add rule button is in the lower-left corner.](images/ec2/inbound-rules.png)
-
-5.  Accept all other defaults and choose **Create security group**.
+![Inbound rules section showing fields for type, protocol, port range, source, and description. The Add rule button is in the lower-left corner.](images/ec2/inbound-rules.png) 5. Accept all other defaults and choose **Create security group**.
 
 ![The Create security group button.](images/ec2/create-sg-btn-2.png)
 
@@ -112,7 +110,7 @@ Leave the **Engine version** at it's default value of **5.0.0**. 5. For **Cluste
     * For **number of instances**, choose a number that best reflects your needs.
      Remember, the lower the number, the lower the cost, and the lower the read/write volume that can be managed by the cluster.
 
-![Configuration interface with default values for cluster identifier, engine version, and instance class, with number of instances set to one.](/images/documentdb/latest/devguide/images/create-cluster/instance-config.png) 7. For **Connectivity**, leave the default setting of **Don't connect to an EC2 compute resource**.
+![Configuration interface with default values for cluster identifier, engine version, and instance class, with number of instances set to one.](images/create-cluster/instance-config.png) 7. For **Connectivity**, leave the default setting of **Don't connect to an EC2 compute resource**.
 
 ###### Note
 
@@ -133,10 +131,10 @@ Complete the following steps:
 
 ![Instances table listing two instances on the Amazon EC2 console.](images/ec2/ec2-instance-table.png) 2. Choose **Connect**.
 
-![Instance summary for an Amazon EC2 instance. The Connect button is towards the upper-right corner.](images/ec2/ec2-instance-summary.png) 3. There are four tabbed options for your connection method: Amazon EC2 Instance Connect, Session Manager, SSH client, or EC2 serial console.
+![Instance summary for an Amazon EC2 instance. The Connect button is towards the upper-right corner.](/images/documentdb/latest/devguide/images/ec2/ec2-instance-summary.png) 3. There are four tabbed options for your connection method: Amazon EC2 Instance Connect, Session Manager, SSH client, or EC2 serial console.
 You must choose one and follow its instructions. When complete, choose **Connect**.
 
-![Interface showing configuration options for the EC2 Instance Connect connection method.](/images/documentdb/latest/devguide/images/ec2/connect-options.png)
+![Interface showing configuration options for the EC2 Instance Connect connection method.](images/ec2/connect-options.png)
 
 ###### Note
 
@@ -243,7 +241,7 @@ Transport Layer Security (TLS) is enabled by default for any new Amazon Document
 
 ![Amazon DocumentDB cluster list showing a regional cluster with primary instance details.](images/cluster-connect-choose.png) 2. In the **Connectivity and security** tab, locate **Connect to this cluster with the mongo shell** in the **Connect** box:
 
-![Cluster connect settings with highlighted MongoDB connection string for connecting to an Amazon DocumentDB cluster using the mongo shell.](images/connect-mongosh.png)
+![Cluster connect settings with highlighted MongoDB connection string for connecting to an Amazon DocumentDB cluster using the mongo shell.](/images/documentdb/latest/devguide/images/connect-mongosh.png)
 
 Copy the connection string provided and paste it into your terminal.
 
@@ -259,8 +257,7 @@ Make the following changes to it:
 
     Replace `mydocdbcluster.cluster-cozt4xr9xv9b.us-east-1` with the same information from your cluster.
 
-3. Press enter in your terminal. You are now be prompted for your password. Enter your password.
-4. When you enter your password and can see the `rs0 [direct: primary] <env-name>>` prompt, you are successfully connected to your Amazon DocumentDB cluster.
+3. Press enter in your terminal. You are now be prompted for your password. Enter your password. 4. When you enter your password and can see the `rs0 [direct: primary] <env-name>>` prompt, you are successfully connected to your Amazon DocumentDB cluster.
 
 Having problems connecting? See [Troubleshooting Amazon DocumentDB](troubleshooting.md "troubleshooting.md").
 

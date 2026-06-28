@@ -6,12 +6,11 @@ The `$in` operator in Amazon DocumentDB is a logical query operator that allows 
 
 - `field`: The field to check against the provided array.
 - `[value1, value2, ...]`: An array of values to match against the specified field.
-
- 
+   
 
 **Dollar (`$`) in field names**
 
-See [Dollar($) and dot(.) in field names](functional-differences.md#functional-differences-dollardot "functional-differences.md#functional-differences-dollardot") for limitations regarding querying `$` prefixed fields in `$in` in nested objects.
+See [Dollar($) and dot(.) in field names](functional-differences.md#functional-differences-dollardot "functional-differences.md#functional-differences-dollardot") for limitations regarding querying `$`prefixed fields in`$in` in nested objects.
 
 ## Example (MongoDB Shell)
 

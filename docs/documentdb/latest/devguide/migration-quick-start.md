@@ -23,7 +23,7 @@ Create DMS instance, source, and target endpoints and test each endpoint.
 
 ## Enable DocumentDB compression
 
-Enable compression by attaching a custom parameter group to your DocumentDB cluster and updating default_collection_compression parameter to enabled.
+Enable compression by attaching a custom parameter group to your DocumentDB cluster and updating default\_collection\_compression parameter to enabled.
 See [Managing collection-level document compression](doc-compression.md "doc-compression.md") for more information.
 
 ## Create a replication task

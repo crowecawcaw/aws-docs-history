@@ -100,7 +100,7 @@ You can check if a collection is compressed and calculate it's compression ratio
 
 View compression statistics by running the `db.printCollectionStats()` or `db.collection.stats()` command from the mongo shell.
 The output shows you the original size and compressed size that you can compare to analyze the storage gains from document compression.
-In this example, statistics for a collection named “sample_collection” are shown below.
+In this example, statistics for a collection named “sample\_collection” are shown below.
 A scaling factor of 1024\*1024 is used below to output the `size` and `storageSize` values in MB.
 
 ```

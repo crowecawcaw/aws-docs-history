@@ -140,7 +140,7 @@ coll = client.gameinfo.users
 
 ###### Note
 
-Exactly one of "key_id" or "key_alt_name" must be provided.
+Exactly one of "key\_id" or "key\_alt\_name" must be provided.
 
 ```
 encrypted_first_name = client_encryption.encrypt(

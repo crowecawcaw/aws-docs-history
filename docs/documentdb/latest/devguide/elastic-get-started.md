@@ -135,7 +135,7 @@ For test purposes, you can retain the default settings.
     	2. Choose **No preference** if you want Amazon DocumentDB to choose the time and duration when backups are created.
 
 8. In the **Maintenance** section, choose the day, time, and duration when modifications or patches are applied to your cluster.
-   For test purposes, you can retain the default settings.
+For test purposes, you can retain the default settings.
 
 ![Maintenance section showing maintenance window options.](images/ec-gs-maintenance.png) 9. Choose **Create cluster**.
 

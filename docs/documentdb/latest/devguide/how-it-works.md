@@ -42,7 +42,7 @@ Starting with Amazon DocumentDB 5.0, the engine version uses a four-level number
 When you create a new cluster, you can specify any available engine version.
 For information about available versions and support dates, see [Amazon DocumentDB engine version support dates](docdb-version-support-dates.md "docdb-version-support-dates.md").
 
-When you use Amazon DocumentDB, you begin by creating a _cluster_. A cluster consists of zero or more database instances and a cluster volume that manages the data for those instances. An Amazon DocumentDB *cluster volume* is a virtual database storage volume that spans multiple Availability Zones. Each Availability Zone has a copy of the cluster data.
+When you use Amazon DocumentDB, you begin by creating a _cluster_. A cluster consists of zero or more database instances and a cluster volume that manages the data for those instances. An Amazon DocumentDB _cluster volume_ is a virtual database storage volume that spans multiple Availability Zones. Each Availability Zone has a copy of the cluster data.
 
 An Amazon DocumentDB cluster consists of two components:
 
@@ -72,7 +72,7 @@ information, see the `ReplicationLag` metrics at [Amazon DocumentDB metrics](clo
 
 ## Amazon DocumentDB endpoints
 
-Amazon DocumentDB provides multiple connection options to serve a wide range of use cases. To connect to an instance in an Amazon DocumentDB cluster, you specify the instance's endpoint. An *endpoint* is a host address and a port number, separated by a colon.
+Amazon DocumentDB provides multiple connection options to serve a wide range of use cases. To connect to an instance in an Amazon DocumentDB cluster, you specify the instance's endpoint. An _endpoint_ is a host address and a port number, separated by a colon.
 
 We recommend that you connect to your cluster using the cluster endpoint and in replica set mode (see [Connecting to Amazon DocumentDB as a replica set](connect-to-replica-set.md "connect-to-replica-set.md")) unless you have a specific use case for connecting to the reader endpoint or an instance endpoint. To route requests to your replicas, choose a driver read preference setting that maximizes read scaling while meeting your application's read consistency requirements. The `secondaryPreferred` read preference enables replica reads and frees up the primary instance to do more work.
 

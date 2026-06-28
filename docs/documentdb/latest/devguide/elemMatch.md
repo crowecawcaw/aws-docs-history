@@ -8,8 +8,7 @@ Planner version 2.0 added index support for `$elemMatch`.
 
 - `field`: The array field to query.
 - `query`: The criteria to match against the array elements.
-
- 
+   
 
 **Using `$elemMatch` within an `$all` expression**
 

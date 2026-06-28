@@ -161,17 +161,17 @@ The preceding example maps to schema for the customer2 table:
 | customer2  | name           | VARCHAR   |     |
 | customer2  | subscription   | VARCHAR   |     |
 
-and the customer1_subscriptions virtual table:
+and the customer1\_subscriptions virtual table:
 
-| Table Name              | Column Name              | Data Type | Key   |
-| ----------------------- | ------------------------ | --------- | ----- |
-| customer1_subscriptions | _customer1 id_           | VARCHAR   | PK/FK |
-| customer1_subscriptions | subscriptions_index_lvl0 | BIGINT    | PK    |
-| customer1_subscriptions | value                    | VARCHAR   |       |
-| customer_address        | city                     | VARCHAR   |       |
-| customer_address        | region                   | VARCHAR   |       |
-| customer_address        | country                  | VARCHAR   |       |
-| customer_address        | code                     | VARCHAR   |       |
+| Table Name               | Column Name                | Data Type | Key   |
+| ------------------------ | -------------------------- | --------- | ----- |
+| customer1\_subscriptions | _customer1 id_             | VARCHAR   | PK/FK |
+| customer1\_subscriptions | subscriptions\_index\_lvl0 | BIGINT    | PK    |
+| customer1\_subscriptions | value                      | VARCHAR   |       |
+| customer\_address        | city                       | VARCHAR   |       |
+| customer\_address        | region                     | VARCHAR   |       |
+| customer\_address        | country                    | VARCHAR   |       |
+| customer\_address        | code                       | VARCHAR   |       |
 
 ## Object and array data type handling
 
@@ -215,17 +215,17 @@ The preceding example maps to schema for customer table:
 | customer   | _customer id_ | VARCHAR   | PK  |
 | customer   | name          | VARCHAR   |     |
 
-and the customer_address virtual table:
+and the customer\_address virtual table:
 
-| Table Name       | Column Name   | Data Type | Key   |
-| ---------------- | ------------- | --------- | ----- |
-| customer_address | _customer id_ | VARCHAR   | PK/FK |
-| customer_address | address1      | VARCHAR   |       |
-| customer_address | address2      | VARCHAR   |       |
-| customer_address | city          | VARCHAR   |       |
-| customer_address | region        | VARCHAR   |       |
-| customer_address | country       | VARCHAR   |       |
-| customer_address | code          | VARCHAR   |       |
+| Table Name        | Column Name   | Data Type | Key   |
+| ----------------- | ------------- | --------- | ----- |
+| customer\_address | _customer id_ | VARCHAR   | PK/FK |
+| customer\_address | address1      | VARCHAR   |       |
+| customer\_address | address2      | VARCHAR   |       |
+| customer\_address | city          | VARCHAR   |       |
+| customer\_address | region        | VARCHAR   |       |
+| customer\_address | country       | VARCHAR   |       |
+| customer\_address | code          | VARCHAR   |       |
 
 ### Embedded array field example
 
@@ -252,14 +252,14 @@ The preceding example maps to schema for customer1 table:
 | customer1  | _customer1 id_ | VARCHAR   | PK  |
 | customer1  | name           | VARCHAR   |     |
 
-and the customer1_subscriptions virtual table:
+and the customer1\_subscriptions virtual table:
 
-| Table Name              | Column Name              | Data Type | Key   |
-| ----------------------- | ------------------------ | --------- | ----- |
-| customer1_subscriptions | _customer1 id_           | VARCHAR   | PK/FK |
-| customer1_subscriptions | subscriptions_index_lvl0 | BIGINT    | PK    |
-| customer1_subscriptions | value                    | VARCHAR   |       |
-| customer_address        | city                     | VARCHAR   |       |
-| customer_address        | region                   | VARCHAR   |       |
-| customer_address        | country                  | VARCHAR   |       |
-| customer_address        | code                     | VARCHAR   |       |
+| Table Name               | Column Name                | Data Type | Key   |
+| ------------------------ | -------------------------- | --------- | ----- |
+| customer1\_subscriptions | _customer1 id_             | VARCHAR   | PK/FK |
+| customer1\_subscriptions | subscriptions\_index\_lvl0 | BIGINT    | PK    |
+| customer1\_subscriptions | value                      | VARCHAR   |       |
+| customer\_address        | city                       | VARCHAR   |       |
+| customer\_address        | region                     | VARCHAR   |       |
+| customer\_address        | country                    | VARCHAR   |       |
+| customer\_address        | code                       | VARCHAR   |       |

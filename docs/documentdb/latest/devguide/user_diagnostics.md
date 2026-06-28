@@ -387,8 +387,8 @@ Output from this operation may look something like the following (JSON format):
 
 The preceding output shows the query plan for the `find` query on a three-shard cluster.
 Each shard has multiple data partitions which can have different input stages.
-In this example, a “COLLSCAN“ (a collection scan) is run on all partitions before the results are merged at the ”PARTITION_MERGE“ stage within each shard.
-The results across the shards are then merged together at the ”SHARD_MERGE“ stage before being sent back to the client.
+In this example, a “COLLSCAN“ (a collection scan) is run on all partitions before the results are merged at the ”PARTITION\_MERGE“ stage within each shard.
+The results across the shards are then merged together at the ”SHARD\_MERGE“ stage before being sent back to the client.
 
 ## How do I list all running operations on an instance?
 

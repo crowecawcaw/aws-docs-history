@@ -375,25 +375,21 @@ in the upper-left corner of the page. 3. On the Amazon DocumentDB management con
      Note that the console will change all cluster names to lower-case regardless of how they are entered.
     * For **Engine version**, choose 5.0.0.
 
-6.  In the **Cluster storage configuration** section, leave the **Amazon DocumentDB Standard** setting as is (this is the default option).
-7.  In the **Instance configuration** section:
+6. In the **Cluster storage configuration** section, leave the **Amazon DocumentDB Standard** setting as is (this is the default option). 7. In the **Instance configuration** section:
 
-    - For **DB instance class**, choose **Memory optimized classes (include r classes)** (this is default).
-    - For **Instance class**, choose an instance class based on workload. For example:
+    * For **DB instance class**, choose **Memory optimized classes (include r classes)** (this is default).
+    * For **Instance class**, choose an instance class based on workload. For example:
 
-          + db.r6g.large: for smaller workloads
-          + db.r6g.4xlarge: for larger workloads
 
-      As a best practice, we recommend choosing as big an instance as you are able to for best full-load throughput, and scale down after migration is complete.
 
-    - For **Number of instances**, choose 1 instance. Choosing one instance helps minimize costs. We recommend that you scale to three instances for high availability after the full-load migration is complete.
 
-8.  In the **Authentication** section, enter a username for the primary user, and then choose **Self managed**. Enter a password, then confirm it.
-9.  In the **Network settings** section, choose a VPC and subnet group, and then configure the VPC security group.
-    Make sure your Amazon DocumentDB security group allows inbound connection from the DMS instance’s security group by updating inbound rules.
-10. In the **Encryption-at-rest** section, enable encryption (recommended) and choose or enter a KMS key.
-11. In the **Backup** section, set the backup retention period (1-35 days).
-12. Review your configuration and choose **Create cluster**.
+    	+ db.r6g.large: for smaller workloads
+    	+ db.r6g.4xlarge: for larger workloads
+    As a best practice, we recommend choosing as big an instance as you are able to for best full-load throughput, and scale down after migration is complete.
+    * For **Number of instances**, choose 1 instance. Choosing one instance helps minimize costs. We recommend that you scale to three instances for high availability after the full-load migration is complete.
+
+8. In the **Authentication** section, enter a username for the primary user, and then choose **Self managed**. Enter a password, then confirm it. 9. In the **Network settings** section, choose a VPC and subnet group, and then configure the VPC security group.
+Make sure your Amazon DocumentDB security group allows inbound connection from the DMS instance’s security group by updating inbound rules. 10. In the **Encryption-at-rest** section, enable encryption (recommended) and choose or enter a KMS key. 11. In the **Backup** section, set the backup retention period (1-35 days). 12. Review your configuration and choose **Create cluster**.
 
 The deployment time typically takes between 10 an 15 minutes,
 

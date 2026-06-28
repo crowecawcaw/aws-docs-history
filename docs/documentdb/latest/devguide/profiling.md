@@ -43,7 +43,7 @@ Amazon DocumentDB profiler supports the following operations:
 - `count`
 - `delete`
 - `distinct`
-- `find` (OP_QUERY and command)
+- `find` (OP\_QUERY and command)
 - `findAndModify`
 - `insert`
 - `update`

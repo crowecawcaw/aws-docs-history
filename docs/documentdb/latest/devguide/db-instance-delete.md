@@ -64,7 +64,7 @@ choose **Delete**.
     	 into the field to confirm the deletion.
 
 6. Select **Delete** to delete the
-   instance.
+instance.
 
 It takes several minutes for an instance to be deleted.
 To monitor the status of an instance, see [Monitoring an Amazon DocumentDB instance's status](monitoring_docdb-instance_status.md "monitoring_docdb-instance_status.md").

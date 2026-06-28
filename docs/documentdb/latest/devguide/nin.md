@@ -8,12 +8,11 @@ Planner version 2.0 added index support for `$nin`.
 
 - `field`: The field to check.
 - `array`: The array of values to check against.
-
- 
+   
 
 **Dollar (`$`) in field names**
 
-See [Dollar($) and dot(.) in field names](functional-differences.md#functional-differences-dollardot "functional-differences.md#functional-differences-dollardot") for limitations regarding querying `$` prefixed fields in `$nin` in nested objects.
+See [Dollar($) and dot(.) in field names](functional-differences.md#functional-differences-dollardot "functional-differences.md#functional-differences-dollardot") for limitations regarding querying `$`prefixed fields in`$nin` in nested objects.
 
 ## Example (MongoDB Shell)
 

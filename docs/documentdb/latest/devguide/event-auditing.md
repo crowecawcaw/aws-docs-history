@@ -100,7 +100,7 @@ TTL delete events are not audited at this time.
 Enabling auditing on a cluster is a two-step process. Ensure that both steps are completed, or audit logs will not be
 sent to CloudWatch Logs.
 
-### Step 1. Enable the audit_logs cluster parameter
+### Step 1. Enable the audit\_logs cluster parameter
 
 To enable auditing, you need to modify the `audit_logs` parameter in the parameter group.
 `audit_logs` is a comma-delimited list of events to log. Events must be specified in lowercase and there should be no white space
@@ -120,7 +120,7 @@ You can set the following values for the parameter group:
 
 ###### Note
 
-The default value for the audit_logs cluster parameter is `none` (legacy "`disabled`").
+The default value for the audit\_logs cluster parameter is `none` (legacy "`disabled`").
 
 You can also use the above mentioned values in combinations.
 
@@ -355,7 +355,7 @@ Output from this operation looks something like the following (JSON format).
 }
 ```
 
-### Disabling the audit_logs parameter
+### Disabling the audit\_logs parameter
 
 To disable the `audit_logs` parameter for your cluster, you can modify the
 cluster so that it uses a parameter group where the `audit_logs` parameter

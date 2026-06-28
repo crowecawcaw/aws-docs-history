@@ -490,6 +490,7 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 | [$objectToArray](objectToArray.md "objectToArray.md") | Yes | Yes | Yes | Yes | Yes             |
 | [$range](range.md "range.md")                         | Yes | Yes | Yes | Yes | Yes             |
 | [$reverseArray](reverseArray.md "reverseArray.md")    | Yes | Yes | Yes | Yes | Yes             |
+| [$sortArray](sortArray.md "sortArray.md")             | No  | No  | No  | Yes | No              |
 | [$reduce](reduce.md "reduce.md")                      | Yes | Yes | Yes | Yes | Yes             |
 | [$size](size.md "size.md")                            | Yes | Yes | Yes | Yes | Yes             |
 | [$slice](slice.md "slice.md")                         | Yes | Yes | Yes | Yes | Yes             |
@@ -542,10 +543,10 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 | -------------------------------------------------------- | --- | --- | ------------ | --- | --------------- |
 | [$dateAdd](dateAdd.md "dateAdd.md")                      | No  | No  | Yes          | Yes | Yes             |
 | [$dateDiff](dateDiff.md "dateDiff.md")                   | -   | -   | Yes          | Yes | No              |
-| $dateFromParts                                           | No  | No  | Yes (5.0.1+) | No  | No              |
+| [$dateFromParts](dateFromParts.md "dateFromParts.md")    | No  | No  | Yes (5.0.1+) | No  | No              |
 | [$dateFromString](dateFromString.md "dateFromString.md") | Yes | Yes | Yes          | Yes | Yes             |
 | [$dateSubtract](dateSubtract.md "dateSubtract.md")       | No  | No  | Yes          | Yes | Yes             |
-| $dateToParts                                             | No  | No  | Yes (5.0.1+) | No  | No              |
+| [$dateToParts](dateToParts.md "dateToParts.md")          | No  | No  | Yes (5.0.1+) | No  | No              |
 | [$dateToString](dateToString.md "dateToString.md")       | Yes | Yes | Yes          | Yes | Yes             |
 | [$dateTrunc](dateTrunc.md "dateTrunc.md")                | -   | -   | No           | Yes | No              |
 | [$dayOfMonth](dayOfMonth.md "dayOfMonth.md")             | Yes | Yes | Yes          | Yes | Yes             |

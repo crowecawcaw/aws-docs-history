@@ -389,14 +389,13 @@ The result looks similar to this:
 }
 ```
 
-3.  If a maintenance action is needed, run the [`apply-pending-maintenance-action`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/docdb/apply-pending-maintenance-action.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/docdb/apply-pending-maintenance-action.html") CLI command with the following options:
+3. If a maintenance action is needed, run the [`apply-pending-maintenance-action`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/docdb/apply-pending-maintenance-action.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/docdb/apply-pending-maintenance-action.html") CLI command with the following options:
 
-        * `--resource-identifier`
-        * `--apply-action`
-        * `--opt-in-type`
-        * `--region`
-
-    In the following examples, replace each `user input placeholder` with your cluster's information.
+   - `--resource-identifier`
+   - `--apply-action`
+   - `--opt-in-type`
+   - `--region`
+     In the following examples, replace each `user input placeholder` with your cluster's information.
 
 For Linux, macOS, or Unix:
 

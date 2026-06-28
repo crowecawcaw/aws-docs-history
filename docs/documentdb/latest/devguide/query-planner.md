@@ -300,9 +300,11 @@ db.students_list.updateOne({ student_ids: 100, grades: 100, grad_year: 2024 },
     + **Planner version 2.0** — Updates field 2021
 
 - ```
-  db.col.insert({x:[1,2,3]})
-  db.col.update({$and:[{x:1},{x:3}]},{$set:{"x.$":500}})
+
   ```
+
+db.col.insert({x:[1,2,3]})
+db.col.update({$and:[{x:1},{x:3}]},{$set:{"x.$":500}})
 
 ````
 
@@ -322,9 +324,11 @@ db.col.find()
     + **Planner version 2.0** — Does not make a selection
 
 - ```
-  db.col.insert({x:100})
-  db.col.update({x:100},{x:100})
+
   ```
+
+db.col.insert({x:100})
+db.col.update({x:100},{x:100})
 
 ```
 
@@ -416,7 +420,7 @@ Error: error: {
 
 // Planner Version 1.0 and MongoDB will not throw an error
 db.usarestaurants.find({ "location":{ "$nearSphere":{          "$geometry":{ "type":"Point", "coordinates":[ -122.3516, 47.6156 ] }, "$minDistance":1,          "$maxDistance":2000 } } }, { "name":1 }).hint({"$natural": 1})
-{ "\_id" : ObjectId("681918e087dadfd99b7f0172"), "name" : "Noodle House" }
+{ "_id" : ObjectId("681918e087dadfd99b7f0172"), "name" : "Noodle House" }
 
 ```
 * While MongoDB supports complete regex index scans, planner version 2.0 supports regex index scan on prefix fields only.
@@ -497,7 +501,7 @@ Others
 
 command - db.col.find({x:1})
 
-******\*\******* Audit logs generated ********\*\*********
+************** Audit logs generated ******************
 
 // v1 format for dml audit logs
 {"atype":"authCheck","ts":1746473479983,"timestamp_utc":"2025-05-05 19:31:19.983","remote_ip":"127.0.0.1:47022","users":[{"user":"serviceadmin","db":"test"}],"param":{"command":"find","ns":"test.col","args":{"batchSize":101,"filter":{"x":1},"find":"col","limit":18446744073709551615,"lsid":{"id":{"$binary":"P6RCGz9ZS4iWBSSHWXW15A==","$type":"4"},"uid":{"$binary":"6Jo8PisnEi3dte03+pJFjdCyn/5cGQL8V2KqaoWsnk8=","$type":"0"}},"maxScan":18446744073709551615,"singleBatch":false,"skip":0,"startTransaction":false},"result":0}}
@@ -543,15 +547,15 @@ rs0:PRIMARY> db.col.find({$and:[{price:{$eq:300}},{item:{$eq:"apples"}}]}).expla
 {
 "price" : {
 "$eq" : 300
-}
-}
-]
-},
-"filter" : {
-"$and" : [
-					{
-						"item" : {
-							"$eq" : "apples"
+						}
+					}
+				]
+			},
+			"filter" : {
+				"$and" : [
+{
+"item" : {
+"$eq" : "apples"
 }
 }
 ]
@@ -611,7 +615,7 @@ doc: {"x" : [ [ { "y" : 1 } ] ] }
 > db.bar.find({"x.0": {$elemMatch: {y: 1}}})
 { "_id" : ObjectId("68192947945e5846634c455a"), "x" : [ [ { "y" : 1 } ] ] }
 > db.bar.find({"x": {$elemMatch: {"0.y": 1}}})
-> { "\_id" : ObjectId("68192947945e5846634c455a"), "x" : [ [ { "y" : 1 } ] ] }
+> { "_id" : ObjectId("68192947945e5846634c455a"), "x" : [ [ { "y" : 1 } ] ] }
 
 //Whereas Planner Version 1 wouldn't return any results.
 
@@ -628,15 +632,15 @@ doc: {"x" : [ [ { "y" : 1 } ] ] }
 // Planner V2/ MongoDB
 
 > db.col.find()
-> { "\_id" : ObjectId("681537738aa101903ed2fe05"), "x" : 1, "y" : 1 }
+> { "_id" : ObjectId("681537738aa101903ed2fe05"), "x" : 1, "y" : 1 }
 > db.col.find({},{x:"string"})
-> { "\_id" : ObjectId("681537738aa101903ed2fe05"), "x" : "string" }
+> { "_id" : ObjectId("681537738aa101903ed2fe05"), "x" : "string" }
 
 // Planner V1 treats strings as exclude in projection
 rs0:PRIMARY> db.col.find()
-{ "\_id" : ObjectId("68153744d42969f11d5cca72"), "x" : 1, "y" : 1 }
+{ "_id" : ObjectId("68153744d42969f11d5cca72"), "x" : 1, "y" : 1 }
 rs0:PRIMARY> db.col.find({},{x:"string"})
-{ "\_id" : ObjectId("68153744d42969f11d5cca72"), "y" : 1 }
+{ "_id" : ObjectId("68153744d42969f11d5cca72"), "y" : 1 }
 
 ```
 * Planner version 2.0, like MongoDB, does not allow projection on same fields “x” and “x.a”:
@@ -648,15 +652,15 @@ rs0:PRIMARY> db.col.find({},{x:"string"})
 // Planner version 2/MongoDB will error out
 
 > db.col.find()
-> { "\_id" : ObjectId("68153da2012265816bc9ba23"), "x" : [ { "a" : 1 }, 3 ] }
+> { "_id" : ObjectId("68153da2012265816bc9ba23"), "x" : [ { "a" : 1 }, 3 ] }
 > db.col.find({},{"x.a":1,"x":1}) // error
 
 // Planner Version 1 does not error out
 db.col.find()
-{ "\_id" : ObjectId("68153da2012265816bc9ba23"), "x" : [ { "a" : 1 }, 3 ] }
+{ "_id" : ObjectId("68153da2012265816bc9ba23"), "x" : [ { "a" : 1 }, 3 ] }
 
 db.col.find({},{"x.a":1,"x":1})
-{ "\_id" : ObjectId("68153d60143af947c720d099"), "x" : [ { "a" : 1 }, 3 ] }
+{ "_id" : ObjectId("68153d60143af947c720d099"), "x" : [ { "a" : 1 }, 3 ] }
 
 ```
 * Planner version 2.0, like MongoDB, allows projection on subdocuments:
@@ -667,14 +671,14 @@ db.col.find({},{"x.a":1,"x":1})
 
 // Planner Version2/MongoDB supports projections on subdocuments
 db.col.find()
-{ "\_id" : ObjectId("681542d8f35ace71f0a50004"), "x" : [ { "y" : 100 } ] }
+{ "_id" : ObjectId("681542d8f35ace71f0a50004"), "x" : [ { "y" : 100 } ] }
 
 > db.col.find({},{"x":{"y":1}})
-> { "\_id" : ObjectId("681542b7a22d548e4ac9ddea"), "x" : [ { "y" : 100 } ] }
+> { "_id" : ObjectId("681542b7a22d548e4ac9ddea"), "x" : [ { "y" : 100 } ] }
 
 // Planner V1 throws error if projection is subdocument
 db.col.find()
-{ "\_id" : ObjectId("681542d8f35ace71f0a50004"), "x" : [ { "y" : 100 } ] }
+{ "_id" : ObjectId("681542d8f35ace71f0a50004"), "x" : [ { "y" : 100 } ] }
 rs0:PRIMARY> db.col.find({},{"x":{"y":1}})
 Error: error: {
 "ok" : 0,
@@ -692,14 +696,14 @@ Error: error: {
 
 // Mongo and Planner Version 2 will error out
 db.col.find()
-{ "\_id" : ObjectId("68155fa812f843439b593f3f"), "x" : [ { "a" : 100 } ] }
+{ "_id" : ObjectId("68155fa812f843439b593f3f"), "x" : [ { "a" : 100 } ] }
 db.col.find({"x.a":100},{"x.$.a":1}) - // error
 
 // v1 will not error out
 db.col.find()
-{ "\_id" : ObjectId("68155fa812f843439b593f3f"), "x" : [ { "a" : 100 } ] }
+{ "_id" : ObjectId("68155fa812f843439b593f3f"), "x" : [ { "a" : 100 } ] }
 db.col.find({"x.a":100},{"x.$.a":1})
-{ "\_id" : ObjectId("68155dee13b051d58239cd0a"), "x" : [ { "a" : 100 } ] }
+{ "_id" : ObjectId("68155dee13b051d58239cd0a"), "x" : [ { "a" : 100 } ] }
 
 ```
 * Planner version 2.0, like MongoDB, allows `$hint` usage:
@@ -719,7 +723,7 @@ Error: error: {
 
 // Mongo and Planner Version 2 will allow $hint usage
 db.col.find({}).hint("x_1")
-{ "\_id" : ObjectId("6818f790d5ba9359d68169cf"), "x" : 1 }
+{ "_id" : ObjectId("6818f790d5ba9359d68169cf"), "x" : 1 }
 
 ```
 

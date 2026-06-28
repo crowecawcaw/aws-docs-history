@@ -61,14 +61,14 @@ instances will only be available in two AZs.
 The following table shows the format that you should use when constructing an ARN for a particular Amazon DocumentDB resource. Amazon DocumentDB shares the format of
 Amazon RDS ARNs. Amazon DocumentDB ARNs contain `rds` and not `docdb`.
 
-| Resource Type                          | ARN Format / Example                                                                                                                                                     |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Instance (`db`)                        | `arn:aws:rds:`region`:`account_number`:db:`resource_id``<br>```<br>arn:aws:rds:us-east-1:`1234567890`:db:`sample-db-instance`<br>```                                     |
-| Cluster (`cluster`)                    | `arn:aws:rds:`region`:`account_number`:cluster:`resource_id``<br>```<br>arn:aws:rds:us-east-1:`1234567890`:cluster:`sample-db-cluster`<br>```                            |
-| Cluster parameter group (`cluster-pg`) | `arn:aws:rds:`region`:`account_number`:cluster-pg:`resource_id``<br>```<br>arn:aws:rds:us-east-1:`1234567890`:cluster-pg:`sample-db-cluster-parameter-group`<br>```      |
-| Security group (`secgrp`)              | `arn:aws:rds:`region`:`account_number`:secgrp:`resource_id``<br>```<br>arn:aws:rds:us-east-1:`1234567890`:secgrp:`sample-public-secgrp`<br>```                           |
-| Cluster snapshot (`cluster-snapshot`)  | `arn:aws:rds:`region`:`account_number`:cluster-snapshot:`resource_id``<br>```<br>arn:aws:rds:us-east-1:`1234567890`:cluster-snapshot:`sample-db-cluster-snapshot`<br>``` |
-| Subnet group (`subgrp`)                | `arn:aws:rds:`region`:`account_number`:subgrp:`resource_id``<br>```<br>arn:aws:rds:us-east-1:`1234567890`:subgrp:`sample-subnet-10`<br>```                               |
+| Resource Type                          | ARN Format / Example                                                                                                                                                   |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Instance (`db`)                        | `arn:aws:rds:`region`:`account_number`:db:`resource_id``<br>``<br>arn:aws:rds:us-east-1:`1234567890`:db:`sample-db-instance`<br>``                                     |
+| Cluster (`cluster`)                    | `arn:aws:rds:`region`:`account_number`:cluster:`resource_id``<br>``<br>arn:aws:rds:us-east-1:`1234567890`:cluster:`sample-db-cluster`<br>``                            |
+| Cluster parameter group (`cluster-pg`) | `arn:aws:rds:`region`:`account_number`:cluster-pg:`resource_id``<br>``<br>arn:aws:rds:us-east-1:`1234567890`:cluster-pg:`sample-db-cluster-parameter-group`<br>``      |
+| Security group (`secgrp`)              | `arn:aws:rds:`region`:`account_number`:secgrp:`resource_id``<br>``<br>arn:aws:rds:us-east-1:`1234567890`:secgrp:`sample-public-secgrp`<br>``                           |
+| Cluster snapshot (`cluster-snapshot`)  | `arn:aws:rds:`region`:`account_number`:cluster-snapshot:`resource_id``<br>``<br>arn:aws:rds:us-east-1:`1234567890`:cluster-snapshot:`sample-db-cluster-snapshot`<br>`` |
+| Subnet group (`subgrp`)                | `arn:aws:rds:`region`:`account_number`:subgrp:`resource_id``<br>``<br>arn:aws:rds:us-east-1:`1234567890`:subgrp:`sample-subnet-10`<br>``                               |
 
 ## Finding an Amazon DocumentDB resource ARN
 

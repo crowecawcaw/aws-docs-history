@@ -84,9 +84,9 @@ action that you want to perform on the cluster.
     ![Image: Start a cluster](images/db-cluster-start.png)
 
 5. Monitor the status of the cluster and its instances. If
-   you started the cluster, you can resume using the cluster
-   when the cluster and its instances are _available_.
-   For more information, see [Determining a cluster's status](db-cluster-status.md "db-cluster-status.md").
+you started the cluster, you can resume using the cluster
+when the cluster and its instances are _available_.
+For more information, see [Determining a cluster's status](db-cluster-status.md "db-cluster-status.md").
 
 ![Image: Status of clusters stopping and starting](images/db-cluster-stop-start-status.png)
 

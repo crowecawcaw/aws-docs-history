@@ -161,31 +161,34 @@ For more information, see [Amazon DocumentDB cluster storage configurations](db-
     			 quotation mark)
     			- `@` (at symbol)
 
-7.  At the bottom of the screen, choose one of the following:
+7. At the bottom of the screen, choose one of the following:
 
-    - To create the cluster now, choose **Create cluster**.
-    - To not create the cluster, choose **Cancel**.
-    - To further configure the cluster before creating, choose **Show additional configurations**, and then continue at [Create a cluster: additional configurations](#db-cluster-create-con-additional-configs "#db-cluster-create-con-additional-configs").
+    * To create the cluster now, choose **Create cluster**.
+    * To not create the cluster, choose **Cancel**.
+    * To further configure the cluster before creating, choose **Show additional configurations**, and then continue at [Create a cluster: additional configurations](#db-cluster-create-con-additional-configs "#db-cluster-create-con-additional-configs").
+
 
     The configurations covered in the **Additional Configurations** section are as follows:
 
-        + **Network settings**—The default is to use the `default` VPC security group.
-        + **Cluster options**—The default is to use port is 27017 and the default parameter group.
-        + **Encryption**—The default is to enable encryption using the `(default) aws/rds` key.
 
 
-        ###### Important
 
-        After a cluster is encrypted, it cannot be unencrypted.
-        + **Backup**—The default is to retain backups for 1 day and let Amazon DocumentDB choose the backup window.
-        + **Log exports**—The default is to not export audit logs to CloudWatch Logs.
-        + **Maintenance**—The default is to let Amazon DocumentDB choose the maintenance window.
-        + **Deletion protection**—Protect your cluster from accidental deletion. Default for
-         cluster created using the console is *enabled*.
+    	+ **Network settings**—The default is to use the `default` VPC security group.
+    	+ **Cluster options**—The default is to use port is 27017 and the default parameter group.
+    	+ **Encryption**—The default is to enable encryption using the `(default) aws/rds` key.
 
+
+    	###### Important
+
+    	After a cluster is encrypted, it cannot be unencrypted.
+    	+ **Backup**—The default is to retain backups for 1 day and let Amazon DocumentDB choose the backup window.
+    	+ **Log exports**—The default is to not export audit logs to CloudWatch Logs.
+    	+ **Maintenance**—The default is to let Amazon DocumentDB choose the maintenance window.
+    	+ **Deletion protection**—Protect your cluster from accidental deletion. Default for
+    	 cluster created using the console is *enabled*.
     If you accept the default settings now, you can change most of them later by modifying the cluster.
 
-8.  Enable inbound connection for your cluster's security group.
+8. Enable inbound connection for your cluster's security group.
 
 If you did not change the defaults settings for your cluster, you created a cluster using the default security group for the default VPC in the
 given region. To connect to Amazon DocumentDB, you must enable inbound connections on port 27017 (or the port of your choice) for your cluster’s security
@@ -275,7 +278,7 @@ cluster**.
     	 backups.
 
 5. Complete the **Log exports** pane by selecting the types of logs you want to export
-   to CloudWatch Logs.
+to CloudWatch Logs.
 
 ![Screenshot of the Log exports pane showing the steps to configure the cluster's DML logging.](images/create-db-cluster-console-log-exports.png)
 
@@ -359,7 +362,7 @@ The following procedures describe how to use the AWS CLI to launch an Amazon Doc
 
 - `--engine`—Required. Must be `docdb`.
 - `--deletion-protection |
---no-deletion-protection`—Optional. When deletion protection
+ --no-deletion-protection`—Optional. When deletion protection
   is enabled, it prevents a cluster from being deleted. When you use the AWS CLI,
   the default setting is to have deletion protection disabled.
 

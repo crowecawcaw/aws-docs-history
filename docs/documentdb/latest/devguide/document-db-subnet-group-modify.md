@@ -33,8 +33,8 @@ following:
 
 6. In the confirmation dialog box:
 
-   - To make these changes to the subnet group, choose **Modify**.
-   - To keep the subnet group unchanged, choose **Cancel**.
+    * To make these changes to the subnet group, choose **Modify**.
+    * To keep the subnet group unchanged, choose **Cancel**.
 
 Using the AWS CLI
 You can use the AWS CLI to change a subnet group's description or to add and remove subnets. Remember that when you're finished, you must have at

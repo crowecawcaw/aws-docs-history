@@ -112,7 +112,6 @@ For more information, see [Amazon DocumentDB minor version upgrade](docdb-minor-
 - Granular command-level performance metrics in CloudWatch for CRUD operations (`find`, `insert`, `findAndModify`, `update`, `delete`, `aggregate`, `count`, `distinct`, `getMore`, `abortTransaction`, `commitTransaction`), exposing `AvgDuration`, `P100Duration`, and `MaxConcurrent` dimensions for improved operational monitoring.
 - Amazon DocumentDB 5.0.1 only supports TLS 1.2 and higher for database connections.
 - Added `gcRuntimeStats`, `documentFragmentStats`, and breakup of collection level metrics into `storageSegmentBase` and `storageSegmentExtended` in `collstats` to surface more information into the overall health of the garbage collection process.
-- Improved Global Cluster cross region resilience by eliminating secondary cluster reboot with Global Survivable Read Only.
 
 ### Get started with Amazon DocumentDB 5.0
 

@@ -6,8 +6,7 @@ The `$all` operator in Amazon DocumentDB is used to match documents where the va
 
 - `field`: The name of the field to check.
 - `[value1, value2, ...]`: The list of values to match in the array.
-
- 
+   
 
 **Using `$elemMatch` within an `$all` expression**
 
@@ -17,7 +16,7 @@ See [Using $elemMatch within an $all expression](functional-differences.md#funct
 
 **Dollar ($) in field names**
 
-See [Dollar($) and dot(.) in field names](functional-differences.md#functional-differences-dollardot "functional-differences.md#functional-differences-dollardot") for limitations regarding querying `$` prefixed fields in `$all` in nested objects.
+See [Dollar($) and dot(.) in field names](functional-differences.md#functional-differences-dollardot "functional-differences.md#functional-differences-dollardot") for limitations regarding querying `$`prefixed fields in`$all` in nested objects.
 
 ## Example (MongoDB Shell)
 

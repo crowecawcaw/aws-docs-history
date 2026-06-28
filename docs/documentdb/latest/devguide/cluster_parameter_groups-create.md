@@ -38,8 +38,7 @@ in the upper-left corner of the page. 3. In the **Cluster parameter groups** pan
     3. **Description** — Provide a description for this cluster parameter
      group.
 
-5. To create the cluster parameter group, choose **Create**. To cancel the operation, choose **Cancel**.
-6. After you choose **Create**, the following text appears at the top of the page to verify that your cluster parameter group has been successfully created:
+5. To create the cluster parameter group, choose **Create**. To cancel the operation, choose **Cancel**. 6. After you choose **Create**, the following text appears at the top of the page to verify that your cluster parameter group has been successfully created:
 
 ```
 Successfully created cluster parameter group 'sample-parameter-group'.

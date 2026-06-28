@@ -137,7 +137,7 @@ Below are the common execution stages in a query plan. Each stage returns execut
 - nReturned: Same number as input documents
 - Memory-intensive for large result sets. To optimize, add the sort field name to an index
 
-#### LIMIT_SKIP
+#### LIMIT\_SKIP
 
 - Controls the number of documents returned and skipped
 - nReturned: Limited by the LIMIT value
@@ -161,7 +161,7 @@ When you run a query with `explain("executionStats")`, Amazon DocumentDB provide
 
 ###### Note
 
-Available only in Amazon DocumentDB 8.0.0+.
+Available only in Amazon DocumentDB 5.0.1+ and 8.0.0+.
 
 ### Fields
 

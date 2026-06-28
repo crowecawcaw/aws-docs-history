@@ -64,7 +64,7 @@ JSON
 
 ```
 
-In order for an OpenSearch pipeline to write data to an OpenSearch domain, the domain must have a domain-level access policy that allows the **sts_role_arn** pipeline role to access it.
+In order for an OpenSearch pipeline to write data to an OpenSearch domain, the domain must have a domain-level access policy that allows the **sts\_role\_arn** pipeline role to access it.
 The following sample domain access policy allows the pipeline role named `pipeline-role`, which you created in the previous step, to write data to the domain named `ingestion-domain`:
 
 ```

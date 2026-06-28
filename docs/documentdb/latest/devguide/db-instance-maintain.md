@@ -227,15 +227,14 @@ Using the AWS Management Console
 
 ###### To manage an update for a cluster
 
-1.  Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
-2.  In the navigation pane, choose **Clusters**.
-3.  Select the cluster you want to update.
-4.  From the **Actions** menu, choose either:
+1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
+2. In the navigation pane, choose **Clusters**.
+3. Select the cluster you want to update.
+4. From the **Actions** menu, choose either:
 
-        * **Upgrade now**—run the pending maintenance immediately.
-        * **Upgrade at next window**—run it during the cluster's next maintenance window.
-
-    You can also use **Apply now** or **Apply at next maintenance window** from the **Pending Maintenance** section of the cluster's **Maintenance & backups** tab (see [Viewing pending Amazon DocumentDB maintenance actions](#view-pending-maintenance "#view-pending-maintenance")).
+   - **Upgrade now**—run the pending maintenance immediately.
+   - **Upgrade at next window**—run it during the cluster's next maintenance window.
+     You can also use **Apply now** or **Apply at next maintenance window** from the **Pending Maintenance** section of the cluster's **Maintenance & backups** tab (see [Viewing pending Amazon DocumentDB maintenance actions](#view-pending-maintenance "#view-pending-maintenance")).
 
 ###### Note
 

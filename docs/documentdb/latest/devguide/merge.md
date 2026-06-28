@@ -19,6 +19,7 @@ The `$merge` stage allows you to perform various actions based on the matching c
 - `on`: (required) The field(s) to use as the matching condition between the input documents and the target collection.
 - `whenMatched`: (optional) The action to perform when the input document matches an existing document in the target collection. Supported values are: `"merge"`, `"replace"`, `"keepExisting"`, and `"fail"`.
 - `whenNotMatched`: (optional) The action to perform when the input document does not match any document in the target collection. Supported values are: `"insert"` and `"fail"`.
+- `bypassDocumentValidation`: (optional) When set to `true`, documents written to the target collection by the `$merge` stage bypass any schema validation rules (`$jsonSchema`) defined on that collection. The default is `false`, which enforces the target collection's validation rules. This is supported in Amazon DocumentDB 8.0.
 
 ## Example (MongoDB Shell)
 

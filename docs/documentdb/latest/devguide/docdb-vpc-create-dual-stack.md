@@ -82,39 +82,40 @@ To connect to public EC2 instances in your VPC, add inbound rules to your VPC se
 
 **To create a VPC security group**
 
-1.  Open the Amazon VPC console at [https://console.aws.amazon.com/vpc](https://console.aws.amazon.com//vpc "https://console.aws.amazon.com//vpc").
-2.  Choose **VPC Dashboard**, choose **Security Groups**, and then choose **Create security group**.
-3.  On the **Create security group** page, set these values:
+1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc](https://console.aws.amazon.com//vpc "https://console.aws.amazon.com//vpc").
+2. Choose **VPC Dashboard**, choose **Security Groups**, and then choose **Create security group**.
+3. On the **Create security group** page, set these values:
 
-    - **Security group name** — `example-dual-stack-securitygroup`
-    - **Description** — `Dual-stack security group`
-    - **VPC** — Choose the VPC that you created earlier, for example: **vpc-example-dual-stack**.
+   - **Security group name** — `example-dual-stack-securitygroup`
+   - **Description** — `Dual-stack security group`
+   - **VPC** — Choose the VPC that you created earlier, for example: **vpc-example-dual-stack**.
 
-4.  Add inbound rules to the security group.
+4. Add inbound rules to the security group.
 
-    1. Determine the IP address to use to connect to EC2 instances in your VPC using Secure Shell (SSH).
-       To determine your public IP address, in a different browser window or tab, you can use the service at [https://checkip.amazonaws.com](https://checkip.amazonaws.com "https://checkip.amazonaws.com").
+   1. Determine the IP address to use to connect to EC2 instances in your VPC using Secure Shell (SSH).
+      To determine your public IP address, in a different browser window or tab, you can use the service at [https://checkip.amazonaws.com](https://checkip.amazonaws.com "https://checkip.amazonaws.com").
 
-    An example of an Internet Protocol version 4 (IPv4) address range is `203.0.113.25/32`.
-    An example of an Internet Protocol version 6 (IPv6) address range is `2001:db8:1234:1a00::/64`.
+   An example of an Internet Protocol version 4 (IPv4) address range is `203.0.113.25/32`.
+   An example of an Internet Protocol version 6 (IPv6) address range is `2001:db8:1234:1a00::/64`.
 
-    In many cases, you might connect through an internet service provider (ISP) or from behind your firewall without a static IP address.
-    If so, find the range of IP addresses used by client computers.
+   In many cases, you might connect through an internet service provider (ISP) or from behind your firewall without a static IP address.
+   If so, find the range of IP addresses used by client computers.
 
-    ###### Warning
+   ###### Warning
 
-    If you use `0.0.0.0/0` for IPv4 or `::0` for IPv6, you make it possible for all IP addresses to access your public instances using SSH.
-    This approach is acceptable for a short time in a test environment, but it's unsafe for production environments.
-    In production, authorize only a specific IP address or range of addresses to access your instances. 2. In the **Inbound rules** section, choose **Add rule**. 3. Set the following values for your new inbound rule to allow SSH access to your Amazon EC2 instance.
-    After you do this, you can connect to your EC2 instance to install applications or other utilities.
-    Specify an IP address so you can access your EC2 instance:
+   If you use `0.0.0.0/0` for IPv4 or `::0` for IPv6, you make it possible for all IP addresses to access your public instances using SSH.
+   This approach is acceptable for a short time in a test environment, but it's unsafe for production environments.
+   In production, authorize only a specific IP address or range of addresses to access your instances. 2. In the **Inbound rules** section, choose **Add rule**. 3. Set the following values for your new inbound rule to allow SSH access to your Amazon EC2 instance.
+   After you do this, you can connect to your EC2 instance to install applications or other utilities.
+   Specify an IP address so you can access your EC2 instance:
 
         * **Type** — `SSH`
         * **Source** — The IP address or range you created from Step a. An example of an IPv4 address range is `203.0.113.25/3`2.
          An example of an IPv6 address range is `2001:DB8::/32`.
-    4. Choose **Add rule**.
 
-5.  Choose **Create security group** to create the security group.
+   4. Choose **Add rule**.
+
+5. Choose **Create security group** to create the security group.
 
 Note the security group ID because you need it later in another procedure.
 
@@ -171,9 +172,9 @@ Make sure that you connect to the Amazon DocumentDB console, not to the Amazon V
 
 6. In the **Add subnets** section, set these values:
 
-   - **VPC** — Choose the VPC that you created earlier, for example: **vpc-example-dual-stack**
-   - **Availability Zones** — Select both Availability Zones created in Step 1. Example: **us-west-2a** and **us-west-2b**
-   - **Subnets** — Choose the private subnets you created in Step 1.
+    * **VPC** — Choose the VPC that you created earlier, for example: **vpc-example-dual-stack**
+    * **Availability Zones** — Select both Availability Zones created in Step 1. Example: **us-west-2a** and **us-west-2b**
+    * **Subnets** — Choose the private subnets you created in Step 1.
 
 7. Choose **Create**.
 
@@ -228,7 +229,7 @@ In this step, you create a DB cluster that runs in dual-stack mode. **!!! Note: 
     To avoid cross-AZ traffic, make sure the cluster and the EC2 instance are in the same Availability Zone.
 
 9. For the remaining sections, specify your cluster settings.
-   For information about each setting, see [Creating an Amazon DocumentDB cluster](db-cluster-create.md "db-cluster-create.md").
+For information about each setting, see [Creating an Amazon DocumentDB cluster](db-cluster-create.md "db-cluster-create.md").
 
 ## Step 7: Connect to your Amazon EC2 instance and DB cluster
 

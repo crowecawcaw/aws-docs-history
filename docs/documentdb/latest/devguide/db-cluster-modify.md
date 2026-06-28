@@ -42,12 +42,11 @@ in the following areas:
      protection is enabled by default.
 
 6. When you're finished, choose **Continue**
-   to view a summary of your changes.
-7. If you are satisfied with your changes, you can choose
-   **Modify cluster** to modify your cluster.
-   Alternatively, you can choose **Back** or
-   **Cancel** to edit or cancel your changes,
-   respectively.
+to view a summary of your changes. 7. If you are satisfied with your changes, you can choose
+**Modify cluster** to modify your cluster.
+Alternatively, you can choose **Back** or
+**Cancel** to edit or cancel your changes,
+respectively.
 
 It takes a few minutes for your changes to be applied. You can
 use the cluster only when its status is _available_.

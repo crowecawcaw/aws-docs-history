@@ -56,7 +56,7 @@ You can use the `describe-db-cluster-parameter-groups` AWS CLI command to view t
   — To list all the parameters inside a parameter group and their values.
 
   - `--db-cluster-parameter-group
-name` — Required. The name of the cluster parameter group that you want described.
+   name` — Required. The name of the cluster parameter group that you want described.
 
 ###### Example
 

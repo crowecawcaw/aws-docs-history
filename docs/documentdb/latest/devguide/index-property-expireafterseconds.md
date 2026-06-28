@@ -75,7 +75,7 @@ db.collection.createIndex(
 
 **multi-key**
 
-Create a TTL index on reviews.review_date to delete documents that have had no reviews in the past year:
+Create a TTL index on reviews.review\_date to delete documents that have had no reviews in the past year:
 
 ```
 db.collection.createIndex(

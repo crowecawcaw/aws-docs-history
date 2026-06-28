@@ -37,7 +37,7 @@ db.products.aggregate([
 
 None (the results are written to the output collection).
 
-The aggregation pipeline groups the products by category and calculates the total price of the items for each category. The `$out` operator writes the results to a new collection named "product_categories".
+The aggregation pipeline groups the products by category and calculates the total price of the items for each category. The `$out` operator writes the results to a new collection named "product\_categories".
 
 **To view the results in the output collection:**
 

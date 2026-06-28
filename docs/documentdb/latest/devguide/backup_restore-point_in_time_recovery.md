@@ -44,29 +44,33 @@ which specifies the date and time to restore to.
      **Earliest restore time** and the
      **Latest restore time**.
 
-5.  Complete the **Configuration** section.
+5. Complete the **Configuration** section.
 
     1. **Cluster identifier** —
-       Accept the default identifier, or enter an identifier
-       that you prefer.
+     Accept the default identifier, or enter an identifier
+     that you prefer.
+
 
     Cluster naming constraints:
 
-        * Length is [1—63] letters, numbers, or
-         hyphens.
-        * First character must be a letter.
-        * Cannot end with a hyphen or contain two
-         consecutive hyphens.
-        * Must be unique for all clusters across Amazon RDS,
-         Neptune and Amazon DocumentDB per AWS account, per Region.
-    2. **Instance class** — From the
-       drop-down list, choose the instance class that you want
-       for the cluster's instances.
-    3. **Number of instances** —
-       From the drop-down list, choose the number of instances
-       that you want created when the cluster is restored.
 
-6.  For **Cluster storage configuration**, choose a storage option.
+
+
+    	* Length is [1—63] letters, numbers, or
+    	 hyphens.
+    	* First character must be a letter.
+    	* Cannot end with a hyphen or contain two
+    	 consecutive hyphens.
+    	* Must be unique for all clusters across Amazon RDS,
+    	 Neptune and Amazon DocumentDB per AWS account, per Region.
+    2. **Instance class** — From the
+     drop-down list, choose the instance class that you want
+     for the cluster's instances.
+    3. **Number of instances** —
+     From the drop-down list, choose the number of instances
+     that you want created when the cluster is restored.
+
+6. For **Cluster storage configuration**, choose a storage option.
 
 ###### Note
 
@@ -160,8 +164,8 @@ Otherwise, continue with the next step.
     	 cluster.
 
 8. To restore the cluster, choose **Create
-   cluster**. Alternatively, you can choose
-   **Cancel** to cancel the operation.
+cluster**. Alternatively, you can choose
+**Cancel** to cancel the operation.
 
 Using the AWS CLI
 To restore a cluster to a point in time using the snapshot's

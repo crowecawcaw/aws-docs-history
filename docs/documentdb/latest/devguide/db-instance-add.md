@@ -41,9 +41,9 @@ to 15.
 
 6. Finish the operation.
 
-   - To add the instances to your cluster,
+    * To add the instances to your cluster,
      choose **Create**.
-   - To cancel the operation, choose
+    * To cancel the operation, choose
      **Cancel**.
 
 It takes several minutes to create an instance. You can use the console or AWS CLI to view the instance's status. For more information, see [Monitoring an instance's status](monitoring_docdb-instance_status.md "monitoring_docdb-instance_status.md").

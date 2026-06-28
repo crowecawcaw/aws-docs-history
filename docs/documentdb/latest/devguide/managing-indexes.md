@@ -46,7 +46,7 @@ Parallel workers are not supported on 2xlarge instance classes and lower.
 To start index creation on a collection, use the `createIndexes` command.
 By default, the command will run two parallel workers that increases the speed of the index creation process by two times.
 
-For example, the following command process demonstrates how to create an index for the “user_name” field in a document and increase the indexing process speed to four workers:
+For example, the following command process demonstrates how to create an index for the “user\_name” field in a document and increase the indexing process speed to four workers:
 
 1. Create indexes using two parallel workers on the cluster:
 

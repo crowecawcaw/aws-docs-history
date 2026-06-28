@@ -27,11 +27,10 @@ be **manual**.
      the **Type** column.
 
 4. From the **Actions** menu, choose
-   **Delete**. If the **Delete**
-   option is unavailable, you probably chose an automatic snapshot.
-5. On the delete confirmation screen, to delete the snapshot,
-   choose **Delete**. To keep the snapshot,
-   choose **Cancel**.
+**Delete**. If the **Delete**
+option is unavailable, you probably chose an automatic snapshot. 5. On the delete confirmation screen, to delete the snapshot,
+choose **Delete**. To keep the snapshot,
+choose **Cancel**.
 
 Using the AWS CLI
 An Amazon DocumentDB manual cluster snapshot is a full backup that you can

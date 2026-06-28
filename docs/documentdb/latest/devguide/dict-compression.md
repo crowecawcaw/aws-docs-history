@@ -68,12 +68,12 @@ db.runCommand({
 
 ```
 
-To enable Zstd algorithm across all collections on your cluster, you can modify the cluster parameter group to select “zstd” as the value for the parameter “default_collection_compression”.
+To enable Zstd algorithm across all collections on your cluster, you can modify the cluster parameter group to select “zstd” as the value for the parameter “default\_collection\_compression”.
 
 ## Getting Started
 
-Amazon DocumentDB 8.0 comes with Zstd compression turned ON by default. You can always turn it OFF by setting the value of ‘default_compression’ to disabled in your cluster parameter group.
-It must be noted that starting with Amazon DocumentDB 8.0, ‘enabled’ is no longer a valid choice for default_compression, and you must select from Zstd and LZ4.
+Amazon DocumentDB 8.0 comes with Zstd compression turned ON by default. You can always turn it OFF by setting the value of ‘default\_compression’ to disabled in your cluster parameter group.
+It must be noted that starting with Amazon DocumentDB 8.0, ‘enabled’ is no longer a valid choice for default\_compression, and you must select from Zstd and LZ4.
 
 ## Monitoring
 

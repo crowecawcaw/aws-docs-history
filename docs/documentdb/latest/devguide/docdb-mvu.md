@@ -33,6 +33,7 @@ In-place MVU is not supported for global clusters or elastic clusters. To upgrad
 ## Prerequisites
 
 - **Instance type** — Amazon DocumentDB 4.0+ does not support db.r4 instances. Modify any `db.r4.*` instances to `db.r5.*` instances or newer before upgrading. See [Modifying an Amazon DocumentDB instance](db-instance-modify.md "db-instance-modify.md") and [Supported instance classes by region](db-instance-classes.md#db-instance-classes-by-region "db-instance-classes.md#db-instance-classes-by-region").
+- **Burstable instances** — If your cluster uses burstable instance types (for example, `db.t3.medium` or `db.t4g.medium`), we strongly recommend scaling up the primary instance to at least `db.r5.large` or `db.r6g.large` before initiating the upgrade. Burstable instances may not have sufficient CPU and memory to complete the upgrade process, which can result in upgrade failures and extended cluster unavailability. You can scale back down after the upgrade completes.
 - **OS patches** — Apply any pending OS maintenance actions on all instances before upgrading. See [Amazon DocumentDB operating system updates](db-instance-maintain.md#os-system-updates "db-instance-maintain.md#os-system-updates").
 
 ###### Note
@@ -202,6 +203,11 @@ aws docdb modify-db-cluster \
 Replace each `placeholder` with your cluster's information.
 
 ## Troubleshooting
+
+- **Pre-upgrade check failure.** Before the upgrade begins, Amazon DocumentDB runs pre-upgrade validation checks. The following are common causes of pre-check failures:
+
+  - **The upgrade could not proceed because collection(s) have names with 58 or more characters** — Rename the affected collections to shorter names before retrying the upgrade.
+  - **The upgrade could not proceed because the index count exceeds the limit for the instance type** — Upgrade to a larger instance type before retrying the upgrade. For index limits by instance type, see [Prerequisites](#mvu-prerequisites "#mvu-prerequisites").
 
 - **Upgrade failure and rollback.** If the upgrade fails, it automatically attempts a rollback. A successful rollback generates the event: "Database cluster is in a state that cannot be upgraded." Your cluster returns to its pre-upgrade state and you can continue using it. Contact AWS support to troubleshoot before re-attempting.
 - **Post-upgrade performance.** Temporary performance degradation and high CPU utilization may occur while the index metadata refresh runs. If degradation persists beyond 3 hours, contact AWS support.

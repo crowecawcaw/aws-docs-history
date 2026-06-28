@@ -31,7 +31,7 @@ operation to view the mapping between event types and Amazon DocumentDB resource
   - `db-cluster-snapshot`
 
 - `--filters`—Optional. To view the event categories for just Amazon DocumentDB, use the filter `--filter
-Name=engine,Values=docdb`.
+ Name=engine,Values=docdb`.
 
 ###### Example
 

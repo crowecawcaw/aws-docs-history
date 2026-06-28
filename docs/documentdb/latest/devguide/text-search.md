@@ -162,7 +162,7 @@ db.test.find({$and: [{star_rating: 5}, {$text: {$search: "interest"}}]})
 
 Output:
 
-The command above returns documents with a text indexed field containing any form of “interest” and a “star_rating” equal to 5.
+The command above returns documents with a text indexed field containing any form of “interest” and a “star\_rating” equal to 5.
 The output of this command looks something like this:
 
 ```

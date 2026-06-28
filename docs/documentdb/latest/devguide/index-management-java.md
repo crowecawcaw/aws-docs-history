@@ -32,7 +32,7 @@ There are three supporting classes:
 
 This example shows how to create a single index using the `createIndex(`) method in the background.
 To understand background and foreground index creation, refer to [Index build types](managing-indexes.md#index-build-types "managing-indexes.md#index-build-types").
-The following code example uses [`IndexOptions`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/client/model/IndexOptions.html "https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/client/model/IndexOptions.html") to create a unique index with a name of “unique_restaurantId_idx” in the background.
+The following code example uses [`IndexOptions`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/client/model/IndexOptions.html "https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/client/model/IndexOptions.html") to create a unique index with a name of “unique\_restaurantId\_idx” in the background.
 This `IndexOptions` object is then passed to the `createIndex()` method.
 
 ```
@@ -251,7 +251,7 @@ You have several options to influence or force Amazon DocumentDB to use a specif
 The `hint()` and `hintString()` methods allow you to override the query optimizer's default index selection behavior by explicitly specifying which index should be used for a query.
 While DocumentDB's query optimizer generally makes good choices for index selection, there are scenarios where forcing a specific index through `hint()` or `hintString()` can be beneficial, such as when dealing with skewed data, or testing index performance.
 
-The following code example forces the use of compound index “cuisine_features_idx” for the same query that was run in the above code:
+The following code example forces the use of compound index “cuisine\_features\_idx” for the same query that was run in the above code:
 
 ```
 // Query we want to analyze

@@ -33,6 +33,7 @@ Metrics in the following tables apply to both instance-based and elastic cluster
 - [Latency metrics](#latency-metrics "#latency-metrics")
 - [NVMe-backed instance metrics](#nvme-metrics "#nvme-metrics")
 - [Operations metrics](#operations-metrics "#operations-metrics")
+- [Command-level metrics](#command-level-metrics "#command-level-metrics")
 - [Throughput metrics](#throughput-metrics "#throughput-metrics")
 - [System metrics](#system-metrics "#system-metrics")
 - [T3 instance metrics](#t3-instance-metrics "#t3-instance-metrics")
@@ -47,6 +48,7 @@ Metrics in the following tables apply to both instance-based and elastic cluster
 | `DatabaseConnections`              | The number of connections (active and idle) open on an<br>instance taken at a 1-minute frequency.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `DatabaseConnectionsMax`           | The maximum number of open database<br>connections (active and idle) on an instance in a 1-minute period.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `DatabaseConnectionsLimit`         | The maximum number of concurrent database connections (active and idle) allowed on an instance at any given time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `DatabaseConnectionsActiveMax`     | The maximum number of active database<br>connections on an instance in a 1-minute period. Active<br>connections are those currently running an operation,<br>as opposed to idle connections. For the active connection<br>limits per instance type, see [Instance limits](limits.md#limits.instance "limits.md#limits.instance").                                                                                                                                                                                                                                                                                                                                                  |
 | `DatabaseCursors`                  | The number of cursors open on an instance<br>taken at a 1-minute frequency.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | `DatabaseCursorsMax`               | The maximum number of open cursors on an<br>instance in a 1-minute period.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `DatabaseCursorsLimit`             | The maximum number of cursors allowed on an instance at any given time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -105,6 +107,37 @@ Metrics in the following tables apply to both instance-based and elastic cluster
 | `TransactionsCommitted` | The number of transactions committed on an instance in a 1-minute period. |
 | `TransactionsAborted`   | The number of transactions aborted on an instance in a 1-minute period.   |
 | `TTLDeletedDocuments`   | The number of documents deleted by a<br>TTLMonitor in a 1-minute period.  |
+
+### Command-level metrics
+
+Amazon DocumentDB publishes per-command latency and concurrency metrics to CloudWatch.
+These metrics help you identify which operations contribute most to your
+workload and detect tail-latency issues or concurrency pressure.
+
+Each command in the following table emits three metrics in a 1-minute period:
+
+- `AvgDuration` — The average execution time of the command, in microseconds.
+- `P100Duration` — The maximum execution time of the command (100th percentile), in microseconds.
+- `MaxConcurrent` — The maximum number of concurrent executions of the command.
+
+Metric names follow the pattern
+`Command.`commandName`.`metricName``.
+For example, `Command.find.AvgDuration` or
+`Command.aggregate.MaxConcurrent`.
+
+| Metric                      | Description                        |
+| --------------------------- | ---------------------------------- |
+| `Command.find`              | Read queries using find.           |
+| `Command.insert`            | Document insert operations.        |
+| `Command.findAndModify`     | Atomic find-and-modify operations. |
+| `Command.update`            | Document update operations.        |
+| `Command.delete`            | Document delete operations.        |
+| `Command.aggregate`         | Aggregation pipeline executions.   |
+| `Command.count`             | Count operations.                  |
+| `Command.distinct`          | Distinct value queries.            |
+| `Command.getMore`           | Cursor batch retrieval operations. |
+| `Command.abortTransaction`  | Transaction abort operations.      |
+| `Command.commitTransaction` | Transaction commit operations.     |
 
 ### Throughput metrics
 

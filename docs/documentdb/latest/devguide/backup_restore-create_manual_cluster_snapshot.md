@@ -13,19 +13,19 @@ Using the AWS Management Console
 To create a manual snapshot using the AWS Management Console, you can follow
 either method below.
 
-1.  **Method 1:**
+1. **Method 1:**
 
-    1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
-    2. In the navigation pane, choose
-       **Snapshots**.
+   1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
+   2. In the navigation pane, choose
+      **Snapshots**.
 
-    ###### Tip
+   ###### Tip
 
-    If you don't see the navigation pane on the left side of your screen, choose the menu icon
-    (![Menu button.](images/docdb-menu-icon.png))
-    in the upper-left corner of the page. 3. On the **Snapshots** page, choose
-    **Create**. 4. On the **Create cluster snapshot**
-    page:
+   If you don't see the navigation pane on the left side of your screen, choose the menu icon
+   (![Menu button.](images/docdb-menu-icon.png))
+   in the upper-left corner of the page. 3. On the **Snapshots** page, choose
+   **Create**. 4. On the **Create cluster snapshot**
+   page:
 
         1. **Cluster identifier**
          — From the drop-down list of clusters,
@@ -50,21 +50,21 @@ either method below.
         	 account, per Region.
         3. Choose **Create**.
 
-2.  **Method 2:**
+2. **Method 2:**
 
-    1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
-    2. In the navigation pane, choose
-       **Clusters**.
+   1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
+   2. In the navigation pane, choose
+      **Clusters**.
 
-    ###### Tip
+   ###### Tip
 
-    If you don't see the navigation pane on the left side of your screen, choose the menu icon
-    (![Menu button.](images/docdb-menu-icon.png))
-    in the upper-left corner of the page. 3. On the **Clusters** page, choose the
-    button to the left of the cluster that you want to
-    snapshot. 4. From the **Actions** menu, choose
-    **Take snapshot**. 5. On the **Create cluster snapshot**
-    page:
+   If you don't see the navigation pane on the left side of your screen, choose the menu icon
+   (![Menu button.](images/docdb-menu-icon.png))
+   in the upper-left corner of the page. 3. On the **Clusters** page, choose the
+   button to the left of the cluster that you want to
+   snapshot. 4. From the **Actions** menu, choose
+   **Take snapshot**. 5. On the **Create cluster snapshot**
+   page:
 
         1. **Snapshot identifier**
          — Enter a name for your snapshot.

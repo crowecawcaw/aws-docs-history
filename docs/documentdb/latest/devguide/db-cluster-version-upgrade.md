@@ -26,7 +26,7 @@ The following procedure applies patch updates to your cluster's engine version u
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Menu button.](/images/documentdb/latest/devguide/images/docdb-menu-icon.png))
+(![Menu button.](images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. From the **Actions** menu, choose one
 of the following options. These menu options are selectable
 only if the cluster you chose is not running the latest
@@ -45,10 +45,10 @@ engine version.
 
 4. When the confirmation window opens, choose one of the following:
 
-   - **Upgrade**—To upgrade your
+    * **Upgrade**—To upgrade your
      cluster to the latest engine version according to the
      schedule chosen in the previous step.
-   - **Cancel**—To cancel the
+    * **Cancel**—To cancel the
      cluster's engine upgrade and continue with the cluster's
      current engine version.
 

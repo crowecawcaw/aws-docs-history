@@ -14,12 +14,12 @@ a cluster that has one primary (writer) instance and up to 15 replica instances,
 secondary Region runs a read-only cluster made up entirely of up to 16 replica
 instances. A global cluster can have up to 10 secondary Regions. The table lists the maximum clusters, instances, and replicas allowed in a global cluster.
 
-| Description                                                                 | Primary AWS Region | Secondary AWS Region                             |
-| --------------------------------------------------------------------------- | ------------------ | ------------------------------------------------ |
-| Clusters                                                                    | 1                  | 10 (maximum)                                     |
-| Writer instances                                                            | 1                  | 0                                                |
-| Read-only instances (Amazon DocumentDB replicas), per cluster               | 15 (max)           | 16 (total)                                       |
-| Read-only instances (max allowed, given actual number of secondary Regions) | 15<br>• _s_        | \*s<br>• = total number of secondary AWS Regions |
+| Description                                                                 | Primary AWS Region | Secondary AWS Region                            |
+| --------------------------------------------------------------------------- | ------------------ | ----------------------------------------------- |
+| Clusters                                                                    | 1                  | 10 (maximum)                                    |
+| Writer instances                                                            | 1                  | 0                                               |
+| Read-only instances (Amazon DocumentDB replicas), per cluster               | 15 (max)           | 16 (total)                                      |
+| Read-only instances (max allowed, given actual number of secondary Regions) | 15<br>• _s_        | *s<br>• = total number of secondary AWS Regions |
 
 The clusters have the following specific requirements:
 
@@ -199,12 +199,11 @@ select **Create cluster**. After you finish adding the Region, you can see it in
 
 - Use the `create-db-cluster` CLI command with the name `(--global-cluster-identifier)` of your global cluster. For other parameters, do the following:
 
-      + For `--region`, choose a different AWS Region than that of
-       your primary Region.
-      + Choose specific values for the `--engine` and `--engine-version` parameters.
-      + For an encrypted cluster, specify your primary AWS Region as the `--source-region` for encryption.
-
-  The following example creates a new Amazon DocumentDB cluster and attaches it to the global cluster as a read-only secondary cluster. In the last step, the instance is added to the new cluster.
+  - For `--region`, choose a different AWS Region than that of
+    your primary Region.
+  - Choose specific values for the `--engine` and `--engine-version` parameters.
+  - For an encrypted cluster, specify your primary AWS Region as the `--source-region` for encryption.
+    The following example creates a new Amazon DocumentDB cluster and attaches it to the global cluster as a read-only secondary cluster. In the last step, the instance is added to the new cluster.
 
 In the following example, replace each `user input placeholder` with your own information.
 

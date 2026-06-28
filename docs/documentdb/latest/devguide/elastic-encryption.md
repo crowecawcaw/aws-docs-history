@@ -25,15 +25,14 @@ Amazon DocumentDB elastic clusters support encryption with two types of keys:
 - **Customer-managed keys —** Symmetric AWS KMS keys that you create, own, and manage.
   Because you have full control of this layer of encryption, you can perform such tasks as:
 
-      + Establishing and maintaining key policies
-      + Establishing and maintaining IAM policies and grants
-      + Enabling and disabling key policies
-      + Rotating key cryptographic material
-      + Adding tags
-      + Creating key aliases
-      + Scheduling keys for deletion
-
-  For more information, see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in the _AWS Key Management Service Developer Guide_.
+  - Establishing and maintaining key policies
+  - Establishing and maintaining IAM policies and grants
+  - Enabling and disabling key policies
+  - Rotating key cryptographic material
+  - Adding tags
+  - Creating key aliases
+  - Scheduling keys for deletion
+    For more information, see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in the _AWS Key Management Service Developer Guide_.
 
 ###### Important
 

@@ -39,7 +39,7 @@ Definitions of shard nomenclature:
 
 Create a shard key that has many unique values.
 A good shard key will evenly partition your data across the underlying shards, giving your workload the best throughput and performance.
-The following example is employee name data that uses a shard key named "user_id":
+The following example is employee name data that uses a shard key named "user\_id":
 
 ![Data from a dataset is evenly distributed across numerous shards.](images/sharding-detail-1.png)
 
@@ -131,11 +131,10 @@ db.foo.insert(
 
 - With elastic clusters, `$indexOfCP` now returns "-1" when:
 
-      + the substring is not found in the `string expression`, or
-      + `start` is a number greater than `end`, or
-      + `start` is a number greater than the byte length of the string.
-
-  In Amazon DocumentDB 4.0, `$indexOfCP` returns "0" when the `start` position is a number greater than `end` or the byte length of the string.
+  - the substring is not found in the `string expression`, or
+  - `start` is a number greater than `end`, or
+  - `start` is a number greater than the byte length of the string.
+    In Amazon DocumentDB 4.0, `$indexOfCP` returns "0" when the `start` position is a number greater than `end` or the byte length of the string.
 
 - With elastic clusters, projection operations in `_id fields`,
   e.g., `{"_id.nestedField" : 1}`, return documents that only include the projected field.
