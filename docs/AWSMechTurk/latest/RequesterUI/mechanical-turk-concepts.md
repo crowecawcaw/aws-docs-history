@@ -53,9 +53,9 @@ time using the Requester website ([http://requester.mturk.amazon.com/](http://re
 
 ## Qualification type
 
-It is important to note that **_anyone_** can register to work in the Mechanical Turk Marketplace. To control
-who can work on **_your
-HITs_**, you can require that Workers have specific qualifications
+It is important to note that _**anyone**_ can register to work in the Mechanical Turk Marketplace. To control
+who can work on _**your
+HITs**_, you can require that Workers have specific qualifications
 before they can work on your HITs. You can create your own custom Qualification Types and
 assign them to Workers. Or, you can use the Qualification Types provided by Mechanical Turk.
 

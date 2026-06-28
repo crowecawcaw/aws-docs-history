@@ -94,10 +94,10 @@ HIT.
     | Project contains adult content | Select the check box to indicate that the project may<br>contain potentially explicit or offensive<br>content. |
 
 4. Choose the **Design Layout** tab and edit the HTML of the
-   template. You can copy the HTML in the editor into another file. To preview HTML
-   the page, open the file in a browser. To ensure your form elements work well
-   with Amazon Mechanical Turk, we recommend using [our Custom HTML
-   Elements](../../../sagemaker/latest/dg/sms-ui-template-reference.md "../../../sagemaker/latest/dg/sms-ui-template-reference.md").
+template. You can copy the HTML in the editor into another file. To preview HTML
+the page, open the file in a browser. To ensure your form elements work well
+with Amazon Mechanical Turk, we recommend using [our Custom HTML
+Elements](../../../sagemaker/latest/dg/sms-ui-template-reference.md "../../../sagemaker/latest/dg/sms-ui-template-reference.md").
 
 ![Design Layout](images/gtsg/AWS_Mechanical_Turk_task_template_editor.png) 5. Create a variable by putting the a dollar sign before curly braces around the
 name of a column in your HIT data file. This can be text in the body of your
@@ -139,10 +139,10 @@ files in the .`csv` file format.
      to upload your images into Amazon S3.
 
 7. Mechanical Turk returns results in a table that is stored in a `.csv` file.
-   The number of input and answer fields in one HIT determines the number of
-   columns in the **Results** table. One row in the
-   **Results** table represents a complete set of answers for
-   one HIT as shown in the following example.
+The number of input and answer fields in one HIT determines the number of
+columns in the **Results** table. One row in the
+**Results** table represents a complete set of answers for
+one HIT as shown in the following example.
 
 ![Results Spreadsheet](images/gtsg/AWS_Mechanical_Turk_sample_output_data.jpg) 8. Choose **Save** periodically to save the HTML of your project
 so you don't lose your work.

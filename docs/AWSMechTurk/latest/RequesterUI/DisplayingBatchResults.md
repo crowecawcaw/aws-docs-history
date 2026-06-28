@@ -48,11 +48,11 @@ page.
 5. On the **Configure Data Results** page, do one or more of the
    actions listed in the following table.
 
-| To...                                         | Do This...                                                                                            |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| Add fields listed in the results              | Drag field names from the **Available<br>fields\*<br>• list into the **Current<br>fields\*<br>• list. |
-| Remove fields listed in the results           | Drag field names from the **Current fields**<br>list into the **Available fields**<br>list.           |
-| Change the order of the fields in the results | Drag the fields up or down the \*_Current<br>fields_<br>• list.                                       |
+| To...                                         | Do This...                                                                                          |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Add fields listed in the results              | Drag field names from the *_Available<br>fields_<br>• list into the *_Current<br>fields_<br>• list. |
+| Remove fields listed in the results           | Drag field names from the **Current fields**<br>list into the **Available fields**<br>list.         |
+| Change the order of the fields in the results | Drag the fields up or down the *_Current<br>fields_<br>• list.                                      |
 
 6. Choose **Apply Settings**.
 
