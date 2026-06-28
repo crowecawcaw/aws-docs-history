@@ -48,11 +48,10 @@ Upon experiment completion or if an error occurs, the ephemeral container and th
 
 - The following actions require root permissions within the ephemeral container.
 
-      + aws:eks:pod-network-blackhole-port
-      + aws:eks:pod-network-latency
-      + aws:eks:pod-network-packet-loss
-
-  The ephemeral container will inherit its permissions from the security context of the target Pod. If you need to run the containers in the Pod as non-root user, you can set separate security contexts for the containers in the target Pod.
+  - aws:eks:pod-network-blackhole-port
+  - aws:eks:pod-network-latency
+  - aws:eks:pod-network-packet-loss
+    The ephemeral container will inherit its permissions from the security context of the target Pod. If you need to run the containers in the Pod as non-root user, you can set separate security contexts for the containers in the target Pod.
 
 - You can't identify targets of type **aws:eks:pod** in your
   experiment template using resource ARNs or resource tags. You must identify

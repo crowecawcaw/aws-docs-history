@@ -555,7 +555,7 @@ Rollback scripts are created automatically when fault injection experiments begi
 ###### Creation details
 
 - **Location** – Scripts are created in the `/var/lib/amazon/ssm/` directory.
-- **Naming pattern** – ``FAULT_NAME`-`FAULT_IDENTIFIER`-Rollback.sh`where`FAULT_IDENTIFIER` is a randomly generated 32-character string
+- **Naming pattern** – ``FAULT_NAME`-`FAULT_IDENTIFIER`-Rollback.sh` where `FAULT_IDENTIFIER` is a randomly generated 32-character string
 - **Timing** – Created at the beginning of each fault injection experiment, before fault injection starts.
 - **Content** – Contains all necessary environment variables and commands to reverse the specific fault.
 

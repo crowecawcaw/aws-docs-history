@@ -58,12 +58,11 @@ The following diagram exemplifies the setup and fault injection on a task with o
 
 - Add the following permissions to the Amazon ECS [task IAM role](../../../AmazonECS/latest/developerguide/task-iam-roles.md "../../../AmazonECS/latest/developerguide/task-iam-roles.md"):
 
-      + `ssm:CreateActivation`
-      + `ssm:AddTagsToResource`
-      + `iam:PassRole`
-
-  Note that you can specify the ARN of the managed instance role as the resource
-  for `iam:PassRole`.
+  - `ssm:CreateActivation`
+  - `ssm:AddTagsToResource`
+  - `iam:PassRole`
+    Note that you can specify the ARN of the managed instance role as the resource
+    for `iam:PassRole`.
 
 - Create an Amazon ECS [task execution IAM role](../../../AmazonECS/latest/developerguide/task_execution_IAM_role.md "../../../AmazonECS/latest/developerguide/task_execution_IAM_role.md")
   and add the [AmazonECSTaskExecutionRolePolicy](../../../aws-managed-policy/latest/reference/AmazonECSTaskExecutionRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonECSTaskExecutionRolePolicy.md") managed policy.

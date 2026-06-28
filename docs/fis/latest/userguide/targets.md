@@ -57,7 +57,7 @@ The following is the syntax for a target.
 
 When you define a target, you provide the following:
 
-**target_name**
+**target\_name**
 
 A name for the target.
 

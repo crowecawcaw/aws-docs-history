@@ -18,7 +18,7 @@ Before you begin, complete the following tasks:
 4. For **Step 1, Specify template details**, do the following:
 
    1. For **Description and name**, enter a description for the template, such as `Amazon S3 Network Disrupt
-Connectivity`.
+  Connectivity`.
    2. (Optional) For **Account targeting**, choose **Multiple accounts**
       to configure a multi-account experiment template.
    3. Choose **Next**, and move to **Step 2, Specify actions and targets**.

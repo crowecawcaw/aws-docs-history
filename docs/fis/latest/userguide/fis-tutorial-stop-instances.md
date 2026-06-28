@@ -32,7 +32,7 @@ second action stops both test instances.
 4. For **Step 1, Specify template details**, do the following:
 
    1. For **Description and name**, enter a description for the template, such as `Amazon S3 Network Disrupt
-Connectivity`.
+  Connectivity`.
    2. Choose **Next**, and move to **Step 2, Specify actions and targets**.
 
 5. For **Actions**, do the following:

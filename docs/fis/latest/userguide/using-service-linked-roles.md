@@ -21,7 +21,7 @@ access the resources.
 
 ## Service-linked role permissions for AWS FIS
 
-AWS FIS uses the service-linked role named \***\*AWSServiceRoleForFIS\*\*** to enable it to manage monitoring and resource selection for experiments.
+AWS FIS uses the service-linked role named ****AWSServiceRoleForFIS**** to enable it to manage monitoring and resource selection for experiments.
 
 The **AWSServiceRoleForFIS** service-linked role trusts the following services to assume the
 role:
@@ -34,7 +34,7 @@ For more information, see [AmazonFISServiceRolePolicy](../../../aws-managed-poli
 in the _AWS Managed Policy Reference_.
 
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
-to create, edit, or delete a service-linked role. For the \***\*AWSServiceRoleForFIS\*\***
+to create, edit, or delete a service-linked role. For the ****AWSServiceRoleForFIS****
 service-linked role to be successfully created, the IAM identity that you use AWS FIS
 with must have the required permissions. To grant the required permissions, attach the following
 policy to the IAM identity.

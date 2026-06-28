@@ -32,7 +32,7 @@ To discover public parameters, see
 2. In the navigation pane, choose **Parameter Store**.
 3. Choose the **Public parameters** tab.
 4. Choose the **Select a service** dropdown. From the dropdown options, choose `fis`.
-5. (Optional) Filter the parameters you selected by entering more information into the search bar. For arm64 architectures, filter parameters by entering _"arm64"_. For x86_64 architectures, filter parameters by entering _"x86_64"_.
+5. (Optional) Filter the parameters you selected by entering more information into the search bar. For arm64 architectures, filter parameters by entering _"arm64"_. For x86\_64 architectures, filter parameters by entering _"x86\_64"_.
 6. Choose the public parameter you want to use.
 7. From the parameter details, locate the ARN value. Copy the ARN to use in configuring layer extensions on your target Lambda functions.
 
@@ -43,7 +43,7 @@ To discover public parameters, see
 The following SSM parameter names are available for different architectures:
 
 1. arm64: `/aws/service/fis/lambda-extension/AWS-FIS-extension-arm64/1.x.x`
-2. x86_64: `/aws/service/fis/lambda-extension/AWS-FIS-extension-x86_64/1.x.x`
+2. x86\_64: `/aws/service/fis/lambda-extension/AWS-FIS-extension-x86_64/1.x.x`
 
 #### AWS CLI Command Format
 
