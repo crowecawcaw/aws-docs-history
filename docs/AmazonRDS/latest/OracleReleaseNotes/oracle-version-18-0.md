@@ -37,10 +37,10 @@ Version 18.0.0.0.ru-2021-04.rur-2021-04.r1 includes the following:
 - Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
 - Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
 - Patch [27539475](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27539475 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27539475"): ORA-3816 - MISSING MESSAGE INFORMATION FOR 3816 ERROR
-- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER TABLE
+- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER TABLE
 - Patch [29374604](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29374604 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29374604"): Golden Gate Integrated Extract not starting 18c/19c Standard Edition
 - Patch [26352615](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615"): SPILLOVER AUDIT FILES CANNOT BE FOUND ORA-46372
-- PreUpgrade Jar: preupgrade_181_cbuild_10_lf.zip
+- PreUpgrade Jar: preupgrade\_181\_cbuild\_10\_lf.zip
 
 ### Combined patches for version 18.0.0.0.ru-2021-04.rur-2021-04.r1, released April 2021
 
@@ -360,10 +360,10 @@ Version 18.0.0.0.ru-2021-01.rur-2021-01.r1 includes the following:
 - Patch [31335142](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142"): DSTV35 UPDATE - TZDATA2020A - NEED OJVM FIX
 - Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
 - Patch [27539475](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27539475 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27539475"): ORA-3816 - MISSING MESSAGE INFORMATION FOR 3816 ERROR
-- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER TABLE
+- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER TABLE
 - Patch [29374604](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29374604 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29374604"): Golden Gate Integrated Extract not starting 18c/19c Standard Edition
-- Patch [29782284](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29782284 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29782284"): ORA-06508:"MDSYS.MDPRVT_IDX" WHILE UPGRADING DATABASE TO 18.3
-- PreUpgrade Jar: preupgrade_181_cbuild_10_lf.zip
+- Patch [29782284](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29782284 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29782284"): ORA-06508:"MDSYS.MDPRVT\_IDX" WHILE UPGRADING DATABASE TO 18.3
+- PreUpgrade Jar: preupgrade\_181\_cbuild\_10\_lf.zip
 - Java Cryptography Extension (JCE): Unlimited Strength Jurisdiction Policy Files for JVM version
   8
 - Support for setting parameters for advisor tasks using procedures in the
@@ -672,15 +672,15 @@ Version 18.0.0.0.ru-2020-10.rur-2020-10.r1 includes the following:
 - Patch [31335037](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037"): RDBMS - DSTV35 UPDATE - TZDATA2020A
 - Patch [31335142](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142"): DSTV35 UPDATE - TZDATA2020A - NEED OJVM FIX
 - Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
-- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
+- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
 - Patch [29374604](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29374604 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29374604"): IE not starting against 18c Oracle RDBMS Standard Edition.
-- PreUpgrade Jar: preupgrade_181_cbuild_10_lf.zip
+- PreUpgrade Jar: preupgrade\_181\_cbuild\_10\_lf.zip
 - Support for setting and unsetting system diagnostic events using procedures in the
   `rdsadmin.rdsadmin_util` package
 
 For more information, see [Setting and unsetting system diagnostic events](../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.SystemEvents "../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.SystemEvents") in the _Amazon RDS User Guide_.
 
-- Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Integrated REPLICAT slow due to query on sys."\_DBA_APPLY_CDR_INFO"](../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
+- Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Integrated REPLICAT slow due to query on sys."\_DBA\_APPLY\_CDR\_INFO"](../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
 
 ### Combined patches for version 18.0.0.0.ru-2020-10.rur-2020-10.r1, released October 2020
 
@@ -972,10 +972,10 @@ Version 18.0.0.0.ru-2020-07.rur-2020-07.r1 includes the following:
 - Patch [31219909](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31219909 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31219909"): OJVM RELEASE UPDATE: 18.11.0.0.200714
 - Patch [31335037](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037"): DSTV35 for RDBMS (TZDATA2020A)
 - Patch [31335142](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142"): DSTV35 for OJVM (TZDATA2020A)
-- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
+- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
 - Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
 - Patch [29374604](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29374604 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29374604"): IE not starting against 18c Oracle RDBMS Standard Edition
-- PreUpgrade Jar: preupgrade_181_cbuild_10_lf.zip
+- PreUpgrade Jar: preupgrade\_181\_cbuild\_10\_lf.zip
 
 ### Combined patches for version 18.0.0.0.ru-2020-07.rur-2020-07.r1, released July 2020
 
@@ -1253,9 +1253,9 @@ Version 18.0.0.0.ru-2020-04.rur-2020-04.r1 includes the following:
 - Patch [30805598](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30805598 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30805598"): Oracle JVM Release Update 18.10.0.0.200414
 - Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937"): DSTv34 for RDBMS (TZDATA2019B)
 - Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959"): DSTv34 for OJVM (TZDATA2019G)
-- PreUpgrade Jar: preupgrade_181_cbuild_9_lf.zip
+- PreUpgrade Jar: preupgrade\_181\_cbuild\_9\_lf.zip
 - Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR is included in DB PATCH 30138470
-- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
+- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
 - Support for purging the recycle bin
 
 For more information, see [Purging the recycle bin](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.PurgeRecycleBin "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.PurgeRecycleBin") in the _Amazon RDS User Guide_.
@@ -1516,9 +1516,9 @@ Version 18.0.0.0.ru-2020-01.rur-2020-01.r1 includes the following:
 - Patch [30501926](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30501926 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30501926"): OJVM RELEASE UPDATE: 18.9.0.0.200114
 - Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937"): DSTv34 for RDBMS (TZDATA2019B)
 - Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959"): DSTv34 for OJVM (TZDATA2019G)
-- PreUpgrade Jar: preupgrade_181_cbuild_9_lf.zip
+- PreUpgrade Jar: preupgrade\_181\_cbuild\_9\_lf.zip
 - Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR is included in DB PATCH 30138470
-- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
+- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
 
 ### Oracle release update 18.9.0.0.200114, released January 2020
 
@@ -1722,9 +1722,9 @@ Version 18.0.0.0.ru-2019-10.rur-2019-10.r1 includes the following:
 - Patch [30133625](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30133625 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30133625"): OJVM RELEASE UPDATE 12.2.0.1.191015
 - Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937"): DSTv34 for RDBMS (TZDATA2019G)
 - Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959"): DSTv34 for OJVM (TZDATA2019G)
-- PreUpgrade Jar: preupgrade_181_cbuild_8_lf.zip
+- PreUpgrade Jar: preupgrade\_181\_cbuild\_8\_lf.zip
 - Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR is included in DB PATCH 30138470
-- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
+- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
 - Support for resizing the temporary tablespace in a read replica
 
 For more information, see [Resizing the temporary tablespace in a read replica](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica") in the _Amazon RDS User Guide_.
@@ -1907,11 +1907,11 @@ Version 18.0.0.0.ru-2019-07.rur-2019-07.r1 includes the following:
 - Patch [29757256](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29757256 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29757256"): Database Release Update: 18.7.0.0.190716
 - Patch [29774410](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29774410 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29774410"): OJVM RELEASE UPDATE: 18.7.0.0.190716
 - Patch [27539475](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27539475 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27539475"): "ORA-3816 - MISSING MESSAGE INFORMATION FOR 3816 ERROR."
-- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): "DBMS_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE"
+- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): "DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE"
 - Patch [28125601](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601"): DSTv32 for RDBMS (TZDATA2018E)
 - Patch [28852325](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852325 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852325"): DSTv33 for RDBMS (TZDATA2018G)
 - Patch [28852334](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852334 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852334"): DSTv33 for OJVM (TZDATA2018G)
-- PreUpgrade Jar: preupgrade_181_cbuild_7_lf.zip
+- PreUpgrade Jar: preupgrade\_181\_cbuild\_7\_lf.zip
 - Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
 
 ### Oracle release update 18.7.0.0.190716, released July 2019

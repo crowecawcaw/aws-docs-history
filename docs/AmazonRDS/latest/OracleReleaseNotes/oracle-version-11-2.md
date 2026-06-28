@@ -63,13 +63,13 @@ Version 11.2.0.4.v26 includes the following:
 - Patch [20647412](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20647412 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20647412"): EDITION NAME LOGGED WITH KNLD SHOULD BE THE CURRENT EDITION, NOT SESSION EDITION
 - Patch [26744595](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26744595 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26744595"): LGSB:APPLY ABORTS W/ ORA-26786 (ROW-EXISTS) COLLISION WITH HCC(PR)-NO HCC(SB)
 - Patch [12668795](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=12668795 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=12668795"): ORA-00600: [KDUCFA:ENDBIT] SEEN DURING XSTREAMS ONEWAY REPLICATION
-- PreUpgrade Jar: preupgrade_19_cbuild_8_lf.zip
+- PreUpgrade Jar: preupgrade\_19\_cbuild\_8\_lf.zip
 - Support for setting and unsetting system diagnostic events using procedures in the
   `rdsadmin.rdsadmin_util` package
 
 For more information, see [Setting and unsetting system diagnostic events](../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.SystemEvents "../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.SystemEvents") in the _Amazon RDS User Guide_.
 
-- Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Integrated REPLICAT slow due to query on sys."\_DBA_APPLY_CDR_INFO"](../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
+- Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Integrated REPLICAT slow due to query on sys."\_DBA\_APPLY\_CDR\_INFO"](../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
 
 ### Combined patches for version 11.2.0.4.v26, released November 2020
 
@@ -2168,7 +2168,7 @@ Version 11.2.0.4.v8 includes the following:
 - Oracle recommended RDBMS patches for Oracle GoldenGate (patch 22576728)
 - MES Bundle (patch 22695784 for 11.2.0.4)
 - Adds the ability for the master user to grant privileges on SYS objects
-  with the grant option using the RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT procedure
+  with the grant option using the RDSADMIN.RDSADMIN\_UTIL.GRANT\_SYS\_OBJECT procedure
 - Adds master user privileges to support most common schemas created by the Oracle Fusion Middleware Repository Creation Utility (RCU)
 
 ### Baseline: Oracle database patch set update 11.2.0.4.160419 (patch 22502456, released April 2016)
@@ -2412,7 +2412,7 @@ Version 11.2.0.4.v4 includes the following:
 - Oracle PSU 11.2.0.4.6 (20299013)
 - Installs additional Oracle Text knowledge bases from
   Oracle Database. Examples media (English and French)
-- Provides access to DBMS_REPAIR through RDSADMIN.RDSADMIN_DBMS_REPAIR
+- Provides access to DBMS\_REPAIR through RDSADMIN.RDSADMIN\_DBMS\_REPAIR
 - Grants ALTER DATABASE LINK, ALTER PUBLIC DATABASE LINK,
   EXEMPT ACCESS POLICY, EXEMPT IDENTITY POLICY, and
   EXEMPT REDACTION POLICY to master user
@@ -2530,12 +2530,12 @@ Bugs fixed:
 Version 11.2.0.4.v2 includes the following:
 
 - Oracle PSU 11.2.0.4.3 (18522509)
-- User access to DBMS_TRANSACTION package to clean-up failed distributed
+- User access to DBMS\_TRANSACTION package to clean-up failed distributed
   transactions
 - Latest DST file (DSTv22 – patch 18759211, released June 2014). This
   patch is incorporated by default only in new Oracle DB instances.
-- Grants DBMS_REPUTIL to DBA role (upgrade to 11.2.0.4 revokes it from public)
-- Privileges granted on DBMS_TRANSACTION, `v$pending_xatrans$`,
+- Grants DBMS\_REPUTIL to DBA role (upgrade to 11.2.0.4 revokes it from public)
+- Privileges granted on DBMS\_TRANSACTION, `v$pending_xatrans$`,
   and `v$xatrans$`
 - Resolves a problem with DDL commands when user objects have "SYSTEM" in
   their names
