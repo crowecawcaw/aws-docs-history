@@ -10,7 +10,7 @@
 - [Expecting ',' delimiter](#troubleshoot6 "#troubleshoot6")
 - [Maximum limit of resources](#troubleshoot7 "#troubleshoot7")
 - [Unauthorized user](#troubleshoot8 "#troubleshoot8")
-- [REFRESH_FAILED; Database connection mismatch](#troubleshoot9 "#troubleshoot9")
+- [REFRESH\_FAILED; Database connection mismatch](#troubleshoot9 "#troubleshoot9")
 - [Unsupported setup](#troubleshoot10 "#troubleshoot10")
 - [Input parameter errors](#troubleshoot11 "#troubleshoot11")
 - [Application status: FAILED](#troubleshoot12 "#troubleshoot12")
@@ -55,7 +55,7 @@ aws ssm-sap register-application \
 
 **Problem** – `Application DiscoveryStatus: REGISTRATION_FAILED; StatusMessage: The database ARN specified in registration input does not match discovered database connection.`
 
-**Resolution** – The specified `--database-arn` does not match the database connection discovered on the SAP_ABAP instance. De-register the failed SAP ABAP application registration, and re-register with the correct `--database-arn`. For more information, see [Register your SAP ABAP application with Systems Manager for SAP.](register-abap.md#step2-abap "register-abap.md#step2-abap")
+**Resolution** – The specified `--database-arn` does not match the database connection discovered on the SAP\_ABAP instance. De-register the failed SAP ABAP application registration, and re-register with the correct `--database-arn`. For more information, see [Register your SAP ABAP application with Systems Manager for SAP.](register-abap.md#step2-abap "register-abap.md#step2-abap")
 
 ## InvalidInstanceIdException
 
@@ -103,11 +103,11 @@ aws ssm-sap register-application \
 
 **Resolution** – Ensure that your Amazon EC2 instance has the `SSMForSAPManaged` tag with the value `True`. For more information, see [Set up required permissions for Amazon EC2 instance running SAP HANA database](get-started.md#ec2-permissions "get-started.md#ec2-permissions").
 
-## REFRESH_FAILED; Database connection mismatch
+## REFRESH\_FAILED; Database connection mismatch
 
 **Problem** – `Application DiscoveryStatus: REFRESH_FAILED; StatusMessage: The database ARN specified in registration input does not match discovered database connection.`
 
-**Resolution** – The specified `--database-arn` does not match the database connection discovered on the SAP_ABAP instance. Use the [UpdateApplicationSettings](../../../ssmsap/latest/APIReference/API_UpdateApplicationSettings.md "../../../ssmsap/latest/APIReference/API_UpdateApplicationSettings.md") API to provide the correct `--database-arn` of your SAP HANA database along with the `--application-id` of the SAP ABAP application.
+**Resolution** – The specified `--database-arn` does not match the database connection discovered on the SAP\_ABAP instance. Use the [UpdateApplicationSettings](../../../ssmsap/latest/APIReference/API_UpdateApplicationSettings.md "../../../ssmsap/latest/APIReference/API_UpdateApplicationSettings.md") API to provide the correct `--database-arn` of your SAP HANA database along with the `--application-id` of the SAP ABAP application.
 
 ```
 aws ssm-sap update-application-settings --application-id <ApplicationId> --database-arn <DatabaseArn>
@@ -123,7 +123,7 @@ aws ssm-sap update-application-settings --application-id <ApplicationId> --datab
 
 **Problem** – `An error occurred (ValidationException) when calling the RegisterApplication operation: Credentials and/or instance number is not expected for SAP applications with type SAP_ABAP.`
 
-**Resolution** – `--credentials` and `--sap-instance-number` are inapplicable parameters for registering Systems Manager application of type SAP_ABAP. Remove both the parameters from the [RegisterApplication](../../../ssmsap/latest/APIReference/API_RegisterApplication.md "../../../ssmsap/latest/APIReference/API_RegisterApplication.md") call.
+**Resolution** – `--credentials` and `--sap-instance-number` are inapplicable parameters for registering Systems Manager application of type SAP\_ABAP. Remove both the parameters from the [RegisterApplication](../../../ssmsap/latest/APIReference/API_RegisterApplication.md "../../../ssmsap/latest/APIReference/API_RegisterApplication.md") call.
 
 **Problem** – `An error occurred (ValidationException) when calling the RegisterApplication operation: The SID and database ARN of ASCS or Application Server must be specified for SAP applications with type SAP_ABAP.`
 
@@ -145,7 +145,7 @@ aws ssm-sap deregister-application \
 
 ###### Note
 
-Use the same _APPLICATION_ID_ as the one used during registration. 2. Use the following command to re-register the database with the same _APPLICATION_ID_.
+Use the same _APPLICATION\_ID_ as the one used during registration. 2. Use the following command to re-register the database with the same _APPLICATION\_ID_.
 
 ```
 aws ssm-sap register-application \
@@ -234,9 +234,9 @@ _Resolution_ – Start all non-running components and wait for them to reach RUN
 
 _Problem_ – `An error occurred (ValidationException): "Application <applicationId> has 1 running HANA_NODE Component. The Configuration Check 'SAP_CHECK_03' is not applicable for Single Node HANA applications."`
 
-_Possible cause_ – SAP_CHECK_03 is being executed on a single-node HANA deployment, but this check is only applicable for HA deployments.
+_Possible cause_ – SAP\_CHECK\_03 is being executed on a single-node HANA deployment, but this check is only applicable for HA deployments.
 
-_Resolution_ – Remove SAP_CHECK_03 from configuration checks for single-node deployments. Use only SAP_CHECK_01 and SAP_CHECK_02.
+_Resolution_ – Remove SAP\_CHECK\_03 from configuration checks for single-node deployments. Use only SAP\_CHECK\_01 and SAP\_CHECK\_02.
 
 ## Check Type Compatibility ValidationException
 

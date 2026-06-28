@@ -63,7 +63,7 @@ aws ssm-sap list-configuration-check-definitions --region us-east-1
 }
 ```
 
-1. Use the check IDs (such as SAP_CHECK_01) when you want to start specific checks rather than running all available checks.
+1. Use the check IDs (such as SAP\_CHECK\_01) when you want to start specific checks rather than running all available checks.
 
 ### Step 2: Start Configuration Checks
 

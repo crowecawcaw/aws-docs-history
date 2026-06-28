@@ -32,14 +32,14 @@ AWS Systems Manager for SAP communicates with the Amazon EC2 instance where your
 
 The SAP HANA database user credentials that you provide to AWS Systems Manager for SAP must have specific privileges based on the operations you intend to perform.
 
-You must provide credentials for the SYSTEM_DB user, which requires [SAP HANA system privileges](https://help.sap.com/docs/SAP_BW4HANA/900e6cdd1edb48448d0a25075eae9ac0/a20457c7784948928e4c320c33d77948.html?locale=en-US "https://help.sap.com/docs/SAP_BW4HANA/900e6cdd1edb48448d0a25075eae9ac0/a20457c7784948928e4c320c33d77948.html?locale=en-US"). The following table shows the required privileges for different operations:
+You must provide credentials for the SYSTEM\_DB user, which requires [SAP HANA system privileges](https://help.sap.com/docs/SAP_BW4HANA/900e6cdd1edb48448d0a25075eae9ac0/a20457c7784948928e4c320c33d77948.html?locale=en-US "https://help.sap.com/docs/SAP_BW4HANA/900e6cdd1edb48448d0a25075eae9ac0/a20457c7784948928e4c320c33d77948.html?locale=en-US"). The following table shows the required privileges for different operations:
 
 | Operation                              | Required Privileges        |
 | -------------------------------------- | -------------------------- |
 | Application registration and discovery | CATALOG READ               |
 | Backup operations with AWS Backup      | BACKUP ADMIN, INFILE ADMIN |
 
-You can use an existing SYSTEM_DB user with the required privileges, or create a new dedicated user for AWS Systems Manager for SAP operations. Optionally, you can also provide credentials for individual tenant database users.
+You can use an existing SYSTEM\_DB user with the required privileges, or create a new dedicated user for AWS Systems Manager for SAP operations. Optionally, you can also provide credentials for individual tenant database users.
 
 When creating or identifying the SAP HANA user, ensure that the password does not contain the following special characters:
 
