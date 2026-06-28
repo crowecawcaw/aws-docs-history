@@ -87,16 +87,13 @@ specify them for your endpoint network interfaces. 10. For **IP address type**, 
      IPv6 requests.
 
 11. For **Security groups**, select the security groups to associate
-    with the endpoint network interfaces. By default, we associate the default security
-    group for the VPC.
-12. For **Policy**, to allow all operations by all principals on all
-    resources over the interface endpoint, select **Full access**. To
-    restrict access, select **Custom** and enter a policy. This option is
-    available only if the service supports VPC endpoint policies. For more information, see
-    [Endpoint policies](vpc-endpoints-access.md "vpc-endpoints-access.md").
-13. (Optional) To add a tag, choose **Add new tag** and enter the tag
-    key and the tag value.
-14. Choose **Create endpoint**.
+with the endpoint network interfaces. By default, we associate the default security
+group for the VPC. 12. For **Policy**, to allow all operations by all principals on all
+resources over the interface endpoint, select **Full access**. To
+restrict access, select **Custom** and enter a policy. This option is
+available only if the service supports VPC endpoint policies. For more information, see
+[Endpoint policies](vpc-endpoints-access.md "vpc-endpoints-access.md"). 13. (Optional) To add a tag, choose **Add new tag** and enter the tag
+key and the tag value. 14. Choose **Create endpoint**.
 
 ###### To create an interface endpoint using the command line
 

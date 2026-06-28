@@ -201,14 +201,13 @@ troubleshoot issues.
   provider allows you to assign multiple attribute values to the same TXT record.
   For example, if your DNS is managed by Amazon Route 53, you can use the following procedure.
 
-      1. In the Route 53 console, choose the TXT record that you created when you
-       verified your domain in the first Region.
-      2. For **Value**, go to the end of the existing
-       attribute value, and then press Enter.
-      3. Add the attribute value for the additional Region, and then save the
-       record set.
-
-  If your DNS provider doesn't allow you to assign multiple values to the same
-  TXT record, you can verify the domain once with the value in the attribute name
-  of the TXT record, and one other time with the value removed from the attribute
-  name. However, you can only verify the same domain two times.
+  1.  In the Route 53 console, choose the TXT record that you created when you
+      verified your domain in the first Region.
+  2.  For **Value**, go to the end of the existing
+      attribute value, and then press Enter.
+  3.  Add the attribute value for the additional Region, and then save the
+      record set.
+      If your DNS provider doesn't allow you to assign multiple values to the same
+      TXT record, you can verify the domain once with the value in the attribute name
+      of the TXT record, and one other time with the value removed from the attribute
+      name. However, you can only verify the same domain two times.

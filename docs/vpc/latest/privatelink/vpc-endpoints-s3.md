@@ -141,15 +141,12 @@ endpoint. 7. For **IP address type**, choose from the following options:
      IPv6 requests.
 
 8. For **Route tables**, select the route tables to be used
-   by the endpoint. We automatically add a route that points traffic destined for
-   the service to the endpoint network interface.
-9. For **Policy**, select **Full access** to allow
-   all operations by all principals on all resources over the VPC endpoint. Otherwise, select
-   **Custom** to attach a VPC endpoint policy that controls the permissions
-   that principals have to perform actions on resources over the VPC endpoint.
-10. (Optional) To add a tag, choose **Add new tag** and enter the tag
-    key and the tag value.
-11. Choose **Create endpoint**.
+by the endpoint. We automatically add a route that points traffic destined for
+the service to the endpoint network interface. 9. For **Policy**, select **Full access** to allow
+all operations by all principals on all resources over the VPC endpoint. Otherwise, select
+**Custom** to attach a VPC endpoint policy that controls the permissions
+that principals have to perform actions on resources over the VPC endpoint. 10. (Optional) To add a tag, choose **Add new tag** and enter the tag
+key and the tag value. 11. Choose **Create endpoint**.
 
 ###### To create a gateway endpoint using the command line
 

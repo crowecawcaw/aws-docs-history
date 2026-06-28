@@ -46,6 +46,6 @@ The following considerations apply to traffic that passes through a VPC endpoint
   dropped.
 - Path MTU Discovery (PMTUD) is not supported. VPC endpoints do not generate the following
   ICMP message: `Destination Unreachable: Fragmentation needed and Don't Fragment was
-Set` (Type 3, Code 4).
+ Set` (Type 3, Code 4).
 - VPC endpoints enforce Maximum Segment Size (MSS) clamping for all packets. For more
   information, see [RFC879](https://datatracker.ietf.org/doc/html/rfc879 "https://datatracker.ietf.org/doc/html/rfc879").
