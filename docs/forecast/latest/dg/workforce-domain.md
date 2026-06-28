@@ -2,9 +2,9 @@ Amazon Forecast is no longer available to new customers. Existing customers of
 Amazon Forecast can continue to use the service as normal.
 [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/ "https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/")
 
-# WORK_FORCE Domain
+# WORK\_FORCE Domain
 
-Use the WORK_FORCE domain to forecast workforce demand. It supports the following dataset
+Use the WORK\_FORCE domain to forecast workforce demand. It supports the following dataset
 types. For each dataset type, we list required and optional fields. For information on how to map
 the fields to columns in your training data, see [Dataset Domains and Dataset Types](howitworks-datasets-groups.md#howitworks-dataset-domainstypes "howitworks-datasets-groups.md#howitworks-dataset-domainstypes").
 

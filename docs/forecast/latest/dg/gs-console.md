@@ -36,18 +36,17 @@ and instructions.
 
 ###### To import time-series data for forecasting
 
-1.  Open the Amazon Forecast console at [https://console.aws.amazon.com/forecast/](https://console.aws.amazon.com/forecast/ "https://console.aws.amazon.com/forecast/").
-2.  On the Amazon Forecast home page, choose **Create dataset group**.
-3.  On the **Create dataset group** page, for **Dataset group
-    details**, provide the following information:
+1. Open the Amazon Forecast console at [https://console.aws.amazon.com/forecast/](https://console.aws.amazon.com/forecast/ "https://console.aws.amazon.com/forecast/").
+2. On the Amazon Forecast home page, choose **Create dataset group**.
+3. On the **Create dataset group** page, for **Dataset group
+   details**, provide the following information:
 
-        * **Dataset group name** – Enter a name for your dataset
-         group.
-        * **Forecasting domain** – From the drop-down menu, choose
-         **Custom**. For more information about how to choose a
-         forecasting domain, see [dataset domains and types](howitworks-domains-ds-types.md "howitworks-domains-ds-types.md").
-
-    Leave the **Tags** section unchanged. Your screen should look similar to the following:
+   - **Dataset group name** – Enter a name for your dataset
+     group.
+   - **Forecasting domain** – From the drop-down menu, choose
+     **Custom**. For more information about how to choose a
+     forecasting domain, see [dataset domains and types](howitworks-domains-ds-types.md "howitworks-domains-ds-types.md").
+     Leave the **Tags** section unchanged. Your screen should look similar to the following:
 
 ![Create dataset group page with Dataset group name field showing my_dsgroup and Forecasting domain set to Custom.](images/gs-step1-create-dsgroup.png) 4. Choose **Next**. 5. On the **Create target time series dataset** page, for
 **Dataset details**, provide the following information:
@@ -211,39 +210,36 @@ complete forecast.
 
 ###### To export the complete forecast
 
-1.  On the dataset groups page, click the dataset group that you created in `Step 1: Import Training
-Data`.
-2.  Click
-    ![Three horizontal lines representing a menu or navigation icon.](images/menuNavPane.png)
-    in the upper left corner of the screen to open the navigation pane. Under your dataset
-    group, click **Forecasts**.
-3.  Choose the radio button next to the forecast that you created in `Step 3:
-Create a Forecast`.
-4.  Choose **Create forecast export**. The **Create forecast
-    export** page is displayed.
-5.  On the **Create forecast export** page, for **Export
-    details**, provide the following information.
+1. On the dataset groups page, click the dataset group that you created in `Step 1: Import Training
+ Data`.
+2. Click
+   ![Three horizontal lines representing a menu or navigation icon.](images/menuNavPane.png)
+   in the upper left corner of the screen to open the navigation pane. Under your dataset
+   group, click **Forecasts**.
+3. Choose the radio button next to the forecast that you created in `Step 3:
+ Create a Forecast`.
+4. Choose **Create forecast export**. The **Create forecast
+   export** page is displayed.
+5. On the **Create forecast export** page, for **Export
+   details**, provide the following information.
 
-        * **Export name** – Enter a name for your forecast export
-         job.
-        * **IAM role** – Keep the default **Enter a custom
-         IAM role ARN**.
+   - **Export name** – Enter a name for your forecast export
+     job.
+   - **IAM role** – Keep the default **Enter a custom
+     IAM role ARN**.
 
+   Alternatively, you can have Amazon Forecast create the required IAM role for you by
+   choosing **Create a new role** from the drop-down menu and
+   following the on-screen instructions.
+   - **Custom IAM role ARN** – Enter the Amazon Resource Name
+     (ARN) of the IAM role that you created in [Create an IAM Role for Amazon Forecast (IAM Console)](aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console "aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console").
+   - **S3 forecast export location** – Use the following
+     format to enter the location of your Amazon Simple Storage Service (Amazon S3) bucket or folder in the
+     bucket:
 
-        Alternatively, you can have Amazon Forecast create the required IAM role for you by
-         choosing **Create a new role** from the drop-down menu and
-         following the on-screen instructions.
-        * **Custom IAM role ARN** – Enter the Amazon Resource Name
-         (ARN) of the IAM role that you created in [Create an IAM Role for Amazon Forecast (IAM Console)](aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console "aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console").
-        * **S3 forecast export location** – Use the following
-         format to enter the location of your Amazon Simple Storage Service (Amazon S3) bucket or folder in the
-         bucket:
-
-
-        `s3://<name of your S3 bucket>/<folder
-         path>/`
-
-    Your screen should look similar to the following:
+   `s3://<name of your S3 bucket>/<folder
+  path>/`
+   Your screen should look similar to the following:
 
 ![Create forecast export page with fields for export name, IAM role, KMS key , file type, and S3 location.](images/createForecastExport.png) 6. Click **Start**. The **Forecasts** page is displayed. 7. Click the forecast that you created in `Step 3: Create a Forecast`. Find the
 **Exports** section. Your screen should look similar to the following:

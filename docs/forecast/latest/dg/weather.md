@@ -93,7 +93,7 @@ Specify the geolocation attribute in one of two formats:
   Specify the latitude and longitude in decimal format (Example:
   47.61\_-122.33)
 - **Postal code** (US only) - Specify the country
-  code (US), followed by the 5-digit ZIP code (Example: US_98121)
+  code (US), followed by the 5-digit ZIP code (Example: US\_98121)
 
 The Latitude & Longitude format is supported for all regions. The Postal code
 format is only supported for the US region.
@@ -295,11 +295,11 @@ The Weather Index accepts the following time zones:
 
 **US region**
 
-- America/Los_Angeles
+- America/Los\_Angeles
 - America/Phoenix
 - America/Denver
 - America/Chicago
-- America/New_York
+- America/New\_York
 
 **Canada region**
 
@@ -309,7 +309,7 @@ The Weather Index accepts the following time zones:
 - America/Winnipeg
 - America/Toronto
 - America/Halifax
-- America/St_Johns
+- America/St\_Johns
 
 **Europe region**
 
@@ -319,7 +319,7 @@ The Weather Index accepts the following time zones:
 
 **South America region**
 
-- America/Buenos_Aires
+- America/Buenos\_Aires
 - America/Noronha
 - America/Caracas
 
@@ -336,14 +336,14 @@ The Weather Index accepts the following time zones:
 - Asia/Seoul
 - Australia/Adelaide
 - Australia/Melbourne
-- Australia/Lord_Howe
+- Australia/Lord\_Howe
 - Australia/Eucla
 - Pacific/Norfolk
 - Pacific/Auckland
 
 **Central America**
 
-- America/Puerto_Rico
+- America/Puerto\_Rico
 
 **Africa & Middle East**
 
@@ -357,7 +357,7 @@ The Weather Index accepts the following time zones:
 - Pacific/Honolulu
 - Pacific/Marquesas
 - America/Anchorage
-- Atlantic/Cape_Verde
+- Atlantic/Cape\_Verde
 - Asia/Anadyr
 - Pacific/Chatham
 - Pacific/Enderbury
@@ -431,19 +431,18 @@ The following conditions and restrictions apply when using the Weather Index:
   before the start date of the Forecast weather dataset featurization. The
   Forecast weather dataset featurization contains the following start dates:
 
-      + **US region**: July 2, 2018
-      + **Europe region**: July 2, 2018
-      + **Asia Pacific region**: July 2, 2018
-      + **Canada region**: July 2, 2019
-      + **South America region**: January 2,
-       2020
-      + **Central America region**: September 2,
-       2020
-      + **Africa & Middle East region**:
-       March 25, 2021
-
-  With the Weather Index enabled, data points with timestamps before the start
-  date will not be used during predictor training.
+  - **US region**: July 2, 2018
+  - **Europe region**: July 2, 2018
+  - **Asia Pacific region**: July 2, 2018
+  - **Canada region**: July 2, 2019
+  - **South America region**: January 2,
+    2020
+  - **Central America region**: September 2,
+    2020
+  - **Africa & Middle East region**:
+    March 25, 2021
+    With the Weather Index enabled, data points with timestamps before the start
+    date will not be used during predictor training.
 
 - **Number of locations**: The target time series
   dataset cannot exceed 2000 unique locations.

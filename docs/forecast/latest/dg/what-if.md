@@ -75,7 +75,7 @@ SDK
 Using the [CreateWhatIfAnalysis](API_CreateWhatIfAnalysis.md "API_CreateWhatIfAnalysis.md")operation, provide a unique name for
 WhatIfAnalysisName and provide the forecast ARN of the baseline forecast for
 ForecastArn. The example below shows a schema for time series using a combination of
-“item_id” and the “store_location” dimension. For more information, see [Specifying time series](forecast-explainability.md#forecast-explainability-time-series "forecast-explainability.md#forecast-explainability-time-series").
+“item\_id” and the “store\_location” dimension. For more information, see [Specifying time series](forecast-explainability.md#forecast-explainability-time-series "forecast-explainability.md#forecast-explainability-time-series").
 
 ```
 {
@@ -138,7 +138,7 @@ To create a what-if forecast, complete the following steps:
 SDK - Transformation Function
 Using the [CreateWhatIfForecast](API_CreateWhatIfForecast.md "API_CreateWhatIfForecast.md") operation, provide a unique name for
 WhatIfAnalysisName and provide your forecast ARN for ForecastArn. The example below
-shows a schema for a transformation to "price" when the "store_location" is not
+shows a schema for a transformation to "price" when the "store\_location" is not
 "tacoma".
 
 ```

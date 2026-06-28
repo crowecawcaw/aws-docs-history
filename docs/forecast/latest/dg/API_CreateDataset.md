@@ -75,7 +75,7 @@ The request accepts the following data in JSON format.
 
 **[DataFrequency](#API_CreateDataset_RequestSyntax "#API_CreateDataset_RequestSyntax")**
 
-The frequency of data collection. This parameter is required for RELATED_TIME_SERIES
+The frequency of data collection. This parameter is required for RELATED\_TIME\_SERIES
 datasets.
 
 Valid intervals are an integer followed by Y (Year), M (Month), W (Week), D (Day), H (Hour), and min (Minute). For example,

@@ -64,7 +64,7 @@ TimeSeriesTransformations=[
 
 Example 2
 This example applies a 10% discount on all items in the "electronics" category. Note
-that "product_category" is an item metadata.
+that "product\_category" is an item metadata.
 
 ```
 TimeSeriesTransformations=[
@@ -87,7 +87,7 @@ TimeSeriesTransformations=[
 ```
 
 Example 3
-This example applies a 20% markup on the specific item_id BOA21314K.
+This example applies a 20% markup on the specific item\_id BOA21314K.
 
 ```
 TimeSeriesTransformations=[

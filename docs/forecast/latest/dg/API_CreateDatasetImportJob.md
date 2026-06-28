@@ -124,7 +124,7 @@ The format of the geolocation attribute. The geolocation attribute can be format
 one of two ways:
 
 - `LAT_LONG` - the latitude and longitude in decimal format (Example: 47.61\_-122.33).
-- `CC_POSTALCODE` (US Only) - the country code (US), followed by the 5-digit ZIP code (Example: US_98121).
+- `CC_POSTALCODE` (US Only) - the country code (US), followed by the 5-digit ZIP code (Example: US\_98121).
 
 Type: String
 

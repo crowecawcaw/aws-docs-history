@@ -32,7 +32,7 @@ Console
    - The **Monitoring history**
      section lists the details for the different events tracked in the results.
      The following is an example of a graph of how the `Avg
-wQL` score for a predictor has changed over time. In this
+ wQL` score for a predictor has changed over time. In this
      graph, notice that the `Avg wQL` value is increasing over
      time. This increase indicates that the predictor accuracy is
      decreasing. Use this information to determine whether you need to

@@ -43,19 +43,18 @@ You can upgrade existing legacy predictors to AutoPredictor. See [Upgrading to A
 To get predictor monitoring results, you must first use your predictor to generate a forecast and then import
 more data. The monitoring workflow is as follows.
 
-1.  Enable predictor monitoring for an auto predictor:
+1. Enable predictor monitoring for an auto predictor:
 
-    - Create a new predictor with monitoring enabled. See [Enabling Predictor Monitoring for a New Predictor](enabling-predictor-monitoring.md#enabling-predictor-monitoring-new "enabling-predictor-monitoring.md#enabling-predictor-monitoring-new").
-    - Or enable monitoring for an existing predictor. See [Enabling Predictor Monitoring for an Existing Predictor](enabling-predictor-monitoring.md#enabling-predictor-monitoring-existing "enabling-predictor-monitoring.md#enabling-predictor-monitoring-existing").
+   - Create a new predictor with monitoring enabled. See [Enabling Predictor Monitoring for a New Predictor](enabling-predictor-monitoring.md#enabling-predictor-monitoring-new "enabling-predictor-monitoring.md#enabling-predictor-monitoring-new").
+   - Or enable monitoring for an existing predictor. See [Enabling Predictor Monitoring for an Existing Predictor](enabling-predictor-monitoring.md#enabling-predictor-monitoring-existing "enabling-predictor-monitoring.md#enabling-predictor-monitoring-existing").
 
-2.  Use the predictor to generate one or more forecasts.
-3.  Import more data. For information about importing data into Forecast, see [Importing Datasets](howitworks-datasets-groups.md "howitworks-datasets-groups.md").
-4.  View predictor monitoring results:
+2. Use the predictor to generate one or more forecasts.
+3. Import more data. For information about importing data into Forecast, see [Importing Datasets](howitworks-datasets-groups.md "howitworks-datasets-groups.md").
+4. View predictor monitoring results:
 
-        * You can view results on the **Monitoring** tab for your predictor.
-        * Or you can get monitoring results with the [ListMonitorEvaluations](API_ListMonitorEvaluations.md "API_ListMonitorEvaluations.md") operation.
-
-    For more information, see [Viewing Monitoring Results](predictor-monitoring-results.md "predictor-monitoring-results.md").
+   - You can view results on the **Monitoring** tab for your predictor.
+   - Or you can get monitoring results with the [ListMonitorEvaluations](API_ListMonitorEvaluations.md "API_ListMonitorEvaluations.md") operation.
+     For more information, see [Viewing Monitoring Results](predictor-monitoring-results.md "predictor-monitoring-results.md").
 
 ## Restrictions and Best Practices
 

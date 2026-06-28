@@ -54,12 +54,12 @@ file that describes Amazon e-readers. For this example, assume that the header r
 represents the dataset's schema, and that each listed item is in a corresponding target
 time-series dataset.
 
-| `item_id` | `brand` | `model`    | `color` | `waterproof` |
-| --------- | ------- | ---------- | ------- | ------------ |
-| 1         | amazon  | paperwhite | black   | yes          |
-| 2         | amazon  | paperwhite | blue    | yes          |
-| 3         | amazon  | base_model | black   | no           |
-| 4         | amazon  | base_model | white   | no           |
+| `item_id` | `brand` | `model`     | `color` | `waterproof` |
+| --------- | ------- | ----------- | ------- | ------------ |
+| 1         | amazon  | paperwhite  | black   | yes          |
+| 2         | amazon  | paperwhite  | blue    | yes          |
+| 3         | amazon  | base\_model | black   | no           |
+| 4         | amazon  | base\_model | white   | no           |
 | ...       |
 
 The following is the same information represented in CSV format.

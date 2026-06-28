@@ -159,11 +159,11 @@ Valid intervals are an integer followed by Y (Year), M (Month), W (Week), D (Day
 
 Thus, if you want every other week forecasts, specify "2W". Or, if you want quarterly forecasts, you specify "3M".
 
-The frequency must be greater than or equal to the TARGET_TIME_SERIES dataset
+The frequency must be greater than or equal to the TARGET\_TIME\_SERIES dataset
 frequency.
 
-When a RELATED_TIME_SERIES dataset is provided, the frequency must be equal to the
-RELATED_TIME_SERIES dataset frequency.
+When a RELATED\_TIME\_SERIES dataset is provided, the frequency must be equal to the
+RELATED\_TIME\_SERIES dataset frequency.
 
 Type: String
 
@@ -179,9 +179,9 @@ The number of time-steps that the model predicts. The forecast horizon is also c
 the prediction length.
 
 The maximum forecast horizon is the lesser of 500 time-steps or 1/4 of the
-TARGET_TIME_SERIES dataset length. If you are retraining an existing AutoPredictor, then
+TARGET\_TIME\_SERIES dataset length. If you are retraining an existing AutoPredictor, then
 the maximum forecast horizon is the lesser of 500 time-steps or 1/3 of the
-TARGET_TIME_SERIES dataset length.
+TARGET\_TIME\_SERIES dataset length.
 
 If you are upgrading to an AutoPredictor or retraining an existing AutoPredictor, you
 cannot update the forecast horizon parameter. You can meet this requirement by providing

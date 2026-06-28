@@ -55,10 +55,10 @@ For a list of supported filling logic, see the following section.
 You can perform filling on both target time series and related time series datasets.
 Each dataset type has different filling guidelines and restrictions.
 
-| Filling Guidelines      | Dataset type | Filling by default?              | Supported filling methods | Default filling logic                                                                                                                                                                                                                                                                                                       | Accepted filling logic |
-| ----------------------- | ------------ | -------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| **Target time series**  | Yes          | Middle and back filling          | 0                         | • `zero` - 0 filling.<br>• `value` - an integer or float number.<br>• `nan` - not a number.<br>• `mean` - the mean value from the data<br>series.<br>• `median` - the median value from the data<br>series.<br>• `min` - the minimum value from the data<br>series.<br>• `max` - the maximum value from the data<br>series. |
-| **Related time series** | No           | Middle, back, and future filling | No default                | • `zero` - 0 filling.<br>• `value` - an integer or float value.<br>• `mean` - the mean value from the data<br>series.<br>• `median` - the median value from the data<br>series.<br>• `min` - the minimum value from the data<br>series.<br>• `max` - the maximum value from the data<br>series.                             |
+Filling Guidelines| Dataset type | Filling by default? | Supported filling methods | Default filling logic | Accepted filling logic |
+| --- | --- | --- | --- | --- |
+| **Target time series** | Yes | Middle and back filling | 0 | • `zero` - 0 filling.<br>• `value` - an integer or float number.<br>• `nan` - not a number.<br>• `mean` - the mean value from the data<br>series.<br>• `median` - the median value from the data<br>series.<br>• `min` - the minimum value from the data<br>series.<br>• `max` - the maximum value from the data<br>series. |
+| **Related time series** | No | Middle, back, and future filling | No default | • `zero` - 0 filling.<br>• `value` - an integer or float value.<br>• `mean` - the mean value from the data<br>series.<br>• `median` - the median value from the data<br>series.<br>• `min` - the minimum value from the data<br>series.<br>• `max` - the maximum value from the data<br>series. |
 
 ###### Important
 

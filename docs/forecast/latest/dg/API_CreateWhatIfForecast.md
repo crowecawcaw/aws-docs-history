@@ -85,9 +85,9 @@ forecast.
 This dataset is merged with the
 original time series to create a transformed dataset that is used for the what-if analysis.
 
-This dataset should contain the items to modify (such as item_id or workforce_type), any relevant dimensions, the timestamp column, and at least one of the related time series columns. This file should not contain duplicate timestamps for the same time series. This file must be in CSV format.
+This dataset should contain the items to modify (such as item\_id or workforce\_type), any relevant dimensions, the timestamp column, and at least one of the related time series columns. This file should not contain duplicate timestamps for the same time series. This file must be in CSV format.
 
-Timestamps and item_ids not included in this dataset are not included in the what-if analysis.
+Timestamps and item\_ids not included in this dataset are not included in the what-if analysis.
 
 Type: [TimeSeriesReplacementsDataSource](API_TimeSeriesReplacementsDataSource.md "API_TimeSeriesReplacementsDataSource.md") object
 

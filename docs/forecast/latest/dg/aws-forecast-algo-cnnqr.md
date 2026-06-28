@@ -146,15 +146,15 @@ and selects the model with the highest accuracy.
 Amazon Forecast automatically optimizes the following three hyperparameters during HPO
 and provides you with the final trained values:
 
-- **context_length** - determines how far into the past
+- **context\_length** - determines how far into the past
   the network can see. The HPO process automatically sets a value for
   `context_length` that maximizes model accuracy, while taking training
   time into account.
-- **use_related_data** - determines which forms of
+- **use\_related\_data** - determines which forms of
   related time series data to include in your model. The HPO process
   automatically checks whether your related time series data improves the
   model, and selects the optimal setting.
-- **use_item_metadata** - determines whether to include
+- **use\_item\_metadata** - determines whether to include
   item metadata in your model. The HPO process automatically checks whether your item
   metadata improves the model, and chooses the optimal setting.
 

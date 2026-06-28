@@ -10,7 +10,7 @@ Creates a subset of items within an attribute that are modified. For example, yo
 
 **AttributeName**
 
-The item_id, dimension name, IM name, or timestamp that you are modifying.
+The item\_id, dimension name, IM name, or timestamp that you are modifying.
 
 Type: String
 

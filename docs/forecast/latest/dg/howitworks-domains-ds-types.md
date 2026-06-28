@@ -15,13 +15,13 @@ Amazon Forecast supports the following dataset domains:
 
 - [RETAIL Domain](retail-domain.md "retail-domain.md") – For retail demand
   forecasting
-- [INVENTORY_PLANNING Domain](inv-planning-domain.md "inv-planning-domain.md") – For
+- [INVENTORY\_PLANNING Domain](inv-planning-domain.md "inv-planning-domain.md") – For
   supply chain and inventory planning
 - [EC2 CAPACITY Domain](ec2-capacity-domain.md "ec2-capacity-domain.md") – For
   forecasting Amazon Elastic Compute Cloud (Amazon EC2) capacity
-- [WORK_FORCE Domain](workforce-domain.md "workforce-domain.md") – For work force
+- [WORK\_FORCE Domain](workforce-domain.md "workforce-domain.md") – For work force
   planning
-- [WEB_TRAFFIC Domain](webtraffic-domain.md "webtraffic-domain.md") – For
+- [WEB\_TRAFFIC Domain](webtraffic-domain.md "webtraffic-domain.md") – For
   estimating future web traffic
 - [METRICS Domain](metrics-domain.md "metrics-domain.md") – For forecasting
   metrics, such as revenue and cash flow

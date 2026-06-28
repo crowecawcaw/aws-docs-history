@@ -26,7 +26,7 @@ Required: No
 
 The data type of the field.
 
-For a related time series dataset, other than date, item_id, and forecast dimensions attributes, all attributes should be of numerical type (integer/float).
+For a related time series dataset, other than date, item\_id, and forecast dimensions attributes, all attributes should be of numerical type (integer/float).
 
 Type: String
 

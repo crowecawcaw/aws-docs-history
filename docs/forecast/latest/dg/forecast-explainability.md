@@ -60,9 +60,7 @@ the AutoPredictor used only a non-ML algorithm, or you did not provide related t
 
 For Forecast Explainability, Impact scores come in two forms: Normalized impact scores
 and Raw impact scores. Raw impact scores are based on Shapley values and are not scaled
-or bounded. Normalized impact scores scale the raw scores to a value between -1 and
-
-1.
+or bounded. Normalized impact scores scale the raw scores to a value between -1 and 1.
 
 Raw impact scores are useful for combining and comparing scores across different
 Explainability resources. For example, if your predictor contains over 50 time series or
@@ -93,7 +91,7 @@ Kit (SDK) or the Amazon Forecast console. When using the SDK, use the [CreateExp
 
 ###### Note
 
-A time series is a combination of the item (item_id) and all dimensions in
+A time series is a combination of the item (item\_id) and all dimensions in
 your datasets
 
 When you specify time series (item and dimension combinations) for Forecast
@@ -101,22 +99,22 @@ Explainability, Amazon Forecast calculates Impact scores for attributes for only
 those specific time series.
 
 To specify a list of time series, upload a CSV file identifying the time series by
-their item_id and dimension values to an S3 bucket. You can specify up to 50 time
+their item\_id and dimension values to an S3 bucket. You can specify up to 50 time
 series. You must also define the attributes and attribute types of the time series
 in a schema.
 
 For example, a retailer may want to know how a promotion impacts sales for a
 specific item (`item_id`) at a specific store location
 (`store_location`). In this use case, you would specify the time
-series that is the combination of item_id and store_location.
+series that is the combination of item\_id and store\_location.
 
 The following CSV file selects the following five time series:
 
-1. Item_id: 001, store_location: Seattle
-2. Item_id: 001, store_location: New York
-3. Item_id: 002, store_location: Seattle
-4. Item_id: 002, store_location: New York
-5. Item_id: 003, store_location: Denver
+1. Item\_id: 001, store\_location: Seattle
+2. Item\_id: 001, store\_location: New York
+3. Item\_id: 002, store\_location: Seattle
+4. Item\_id: 002, store\_location: New York
+5. Item\_id: 003, store\_location: Denver
 
 ```
 001, Seattle
@@ -173,11 +171,11 @@ Configure the following datatypes:
   location of the time series file and “RoleArn” to a role with
   access to the S3 bucket.
 - `Schema` - define the “AttributeName” and
-  “AttributeType” for item_id and the dimensions in your time
+  “AttributeType” for item\_id and the dimensions in your time
   series.
 
 The example below shows a schema for time series using a combination
-of “item_id” and the “store_location” dimension.
+of “item\_id” and the “store\_location” dimension.
 
 ```
 {
@@ -271,11 +269,11 @@ Configure the following datatypes:
   location of the time series file and “RoleArn” to a role with
   access to the S3 bucket.
 - `Schema` - define the “AttributeName” and
-  “AttributeType” for item_id and the dimensions in your time
+  “AttributeType” for item\_id and the dimensions in your time
   series.
 
 The example below shows a schema for time series using a combination
-of “item_id” and the “store_location” dimension.
+of “item\_id” and the “store\_location” dimension.
 
 ```
 {

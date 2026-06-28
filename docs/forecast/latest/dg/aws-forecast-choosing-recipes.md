@@ -77,7 +77,7 @@ series dataset as its prediction, with exponentially decreasing weights over tim
 Use the following table to find the best option for your time series datasets.
 
 |                                                   | Neural Networks | Flexible Local Algorithms | Baseline Algorithms |
-| ------------------------------------------------- | --------------- | ------------------------- | ------------------- | ---- | ----- | --- |
+| ------------------------------------------------- | --------------- | ------------------------- | ------------------- |
 |                                                   | CNN-QR          | DeepAR+                   | Prophet             | NPTS | ARIMA | ETS |
 | Computationally intensive training process        | High            | High                      | Medium              | Low  | Low   | Low |
 | Accepts historical related time series\*          |                 |                           |                     |      |       |     |

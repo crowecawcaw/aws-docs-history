@@ -31,9 +31,9 @@ You can specify a featurization configuration to fill and aggregate the data fie
 `TARGET_TIME_SERIES` dataset to improve model training. For more information, see
 [FeaturizationConfig](API_FeaturizationConfig.md "API_FeaturizationConfig.md").
 
-For RELATED_TIME_SERIES datasets, `CreatePredictor` verifies that the
+For RELATED\_TIME\_SERIES datasets, `CreatePredictor` verifies that the
 `DataFrequency` specified when the dataset was created matches the
-`ForecastFrequency`. TARGET_TIME_SERIES datasets don't have this restriction.
+`ForecastFrequency`. TARGET\_TIME\_SERIES datasets don't have this restriction.
 Amazon Forecast also verifies the delimiter and timestamp format. For more information, see [Importing Datasets](howitworks-datasets-groups.md "howitworks-datasets-groups.md").
 
 By default, predictors are trained and evaluated at the 0.1 (P10), 0.5 (P50), and 0.9
@@ -229,7 +229,7 @@ For example, if you configure a dataset for daily data collection (using the
 set the forecast horizon to 10, the model returns predictions for 10 days.
 
 The maximum forecast horizon is the lesser of 500 time-steps or 1/3 of the
-TARGET_TIME_SERIES dataset length.
+TARGET\_TIME\_SERIES dataset length.
 
 Type: Integer
 
