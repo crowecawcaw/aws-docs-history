@@ -36,11 +36,9 @@ Guidance_ glossary.
      **Export recommendations**.
 
 4. On the **Application components** tab, you can view the
-   recommendations for application components in your migration portfolio. For more
-   information, see [Strategy Recommendations application component recommendations](recommendations-app-components.md "recommendations-app-components.md").
-5. On the **Servers** tab, you can view the recommendations for the
-   servers in your migration portfolio. For more information, see [Strategy Recommendations server recommendations](recommendations-servers.md "recommendations-servers.md").
-6. On the **Preferences** tab, you can edit the preferences you
-   specified in [Step 5: Get
-   recommendations](getting-started-get-recommendations.md "getting-started-get-recommendations.md"). For information about
-   editing your preferences, see [Strategy Recommendations preferences](recommendations-preferences.md "recommendations-preferences.md").
+recommendations for application components in your migration portfolio. For more
+information, see [Strategy Recommendations application component recommendations](recommendations-app-components.md "recommendations-app-components.md"). 5. On the **Servers** tab, you can view the recommendations for the
+servers in your migration portfolio. For more information, see [Strategy Recommendations server recommendations](recommendations-servers.md "recommendations-servers.md"). 6. On the **Preferences** tab, you can edit the preferences you
+specified in [Step 5: Get
+recommendations](getting-started-get-recommendations.md "getting-started-get-recommendations.md"). For information about
+editing your preferences, see [Strategy Recommendations preferences](recommendations-preferences.md "recommendations-preferences.md").

@@ -369,7 +369,7 @@ by the Strategy Recommendations applications data collector.
 
 ###### To set up key-based authentication on your Linux servers
 
-1. Copy the public key generated with the name **id_rsa_assessment.pub** from the following folder in the
+1. Copy the public key generated with the name **id\_rsa\_assessment.pub** from the following folder in the
    container:
 
 **/opt/amazon/application-data-collector/remote-auth/linux/keys**. 2. Append the copied public key in the
@@ -398,7 +398,7 @@ for your application servers.
 The public key for the collector can be found in the following
 location:
 
-**/opt/amazon/application-data-collector/remote-auth/linux/keys/id_rsa_assessment.pub**
+**/opt/amazon/application-data-collector/remote-auth/linux/keys/id\_rsa\_assessment.pub**
 
 This public key must be added to your CA for generating the
 certificate. 3. Copy the certificate generated in the previous step to the following
@@ -406,7 +406,7 @@ location in the collector:
 
 **/opt/amazon/application-data-collector/remote-auth/linux/keys**
 
-The name of the certificate must be **id_rsa_assessment-cert.pub**. 4. Provide the certificate file name during the setup step.
+The name of the certificate must be **id\_rsa\_assessment-cert.pub**. 4. Provide the certificate file name during the setup step.
 
 ### Set up remote server configuration on Windows servers
 
