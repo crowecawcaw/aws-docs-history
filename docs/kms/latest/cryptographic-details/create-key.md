@@ -21,7 +21,7 @@ The request accepts the following data in JSON format.
 decide whether the key is appropriate for a task.
 
 **KeySpec**
-Specifies the type of KMS key to create. The default value, SYMMETRIC_DEFAULT, creates a
+Specifies the type of KMS key to create. The default value, SYMMETRIC\_DEFAULT, creates a
 symmetric encryption KMS key. This parameter is optional for symmetric encryption
 keys, and is required for all other key specs.
 

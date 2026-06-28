@@ -3,7 +3,7 @@
 For information about the AWS Key Management Service HSMs, go to the NIST Computer Security
 Resource Center [Cryptographic Module Validation Program search page](https://csrc.nist.gov/projects/cryptographic-module-validation-program/validated-modules/search "https://csrc.nist.gov/projects/cryptographic-module-validation-program/validated-modules/search") and search for **AWS Key Management Service HSM**.
 
-Amazon Web Services, General Reference (Version 1.0), “Signing AWS API Request,” [http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html](../../../general/latest/gr/signing_aws_api_requests.md "../../../general/latest/gr/signing_aws_api_requests.md").
+Amazon Web Services, General Reference (Version 1.0), “Signing AWS API Request,” [http://docs.aws.amazon.com/general/latest/gr/signing\_aws\_api\_requests.html](../../../general/latest/gr/signing_aws_api_requests.md "../../../general/latest/gr/signing_aws_api_requests.md").
 
 Amazon Web Services, “What is the AWS Encryption SDK,” [http://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/introduction.html](../../../encryption-sdk/latest/developer-guide/introduction.md "../../../encryption-sdk/latest/developer-guide/introduction.md").
 
@@ -11,7 +11,7 @@ Federal Information Processing Standards Publications, FIPS PUB 180-4. _Secure H
 
 Federal Information Processing Standards Publication 197, _Announcing the Advanced Encryption Standard (AES)_, November 2001. Available from [http://csrc.nist.gov/publications/fips/fips197/fips-197.pdf](http://csrc.nist.gov/publications/fips/fips197/fips-197.pdf "http://csrc.nist.gov/publications/fips/fips197/fips-197.pdf").
 
-Federal Information Processing Standards Publication 198-1, _The Keyed-Hash Message Authentication Code (HMAC)_, July 2008. Available from [http://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf](http://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf "http://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf").
+Federal Information Processing Standards Publication 198-1, _The Keyed-Hash Message Authentication Code (HMAC)_, July 2008. Available from [http://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1\_final.pdf](http://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf "http://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf").
 
 NIST Special Publication 800-52 Revision 2, Guidelines for the Selection, Configuration, and Use of Transport Layer Security (TLS) Implementations, August 2019. [https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-52r2.pdf](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-52r2.pdf "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-52r2.pdf").
 

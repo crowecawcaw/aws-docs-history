@@ -9,7 +9,7 @@ their security properties and performance.
 
 AWS KMS key generation is performed on the AWS KMS HSMs. The HSMs implement a hybrid random
 number generator that uses the [NIST
-SP800-90A Deterministic Random Bit Generator (DRBG) CTR_DRBG using AES-256](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf"). It is
+SP800-90A Deterministic Random Bit Generator (DRBG) CTR\_DRBG using AES-256](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf"). It is
 seeded with a nondeterministic random bit generator with 384-bits of entropy and updated with
 additional entropy to provide prediction resistance on every call for cryptographic
 material.
@@ -33,7 +33,7 @@ the cleartext AAD to be protected.
 
 AWS KMS provides an option for you to import key material into an AWS KMS key instead of
 relying on AWS KMS to generate the key material. This imported key material can be encrypted
-using [RSAES-OAEP](https://datatracker.ietf.org/doc/html/rfc8017#section-7.1 "https://datatracker.ietf.org/doc/html/rfc8017#section-7.1") or [RSAES-PKCS1-v1_5](https://datatracker.ietf.org/doc/html/rfc8017#section-7.2 "https://datatracker.ietf.org/doc/html/rfc8017#section-7.2") to
+using [RSAES-OAEP](https://datatracker.ietf.org/doc/html/rfc8017#section-7.1 "https://datatracker.ietf.org/doc/html/rfc8017#section-7.1") or [RSAES-PKCS1-v1\_5](https://datatracker.ietf.org/doc/html/rfc8017#section-7.2 "https://datatracker.ietf.org/doc/html/rfc8017#section-7.2") to
 protect the key during transport to the AWS KMS HSM. The RSA key pairs are generated on AWS KMS
 HSMs. The imported key material is decrypted on an AWS KMS HSM and re-encrypted under AES-GCM
 before being stored by the service.
@@ -49,14 +49,14 @@ use it outside of AWS KMS.
 
 AWS KMS supports three types of asymmetric ciphers.
 
-- **RSA-OAEP (for encryption) & RSA-PSS and RSA-PKCS-#1-v1_5
+- **RSA-OAEP (for encryption) & RSA-PSS and RSA-PKCS-#1-v1\_5
   (for signing and verification)** – Supports RSA key lengths (in bits):
   2048, 3072, and 4096 for different security requirements.
 - **Elliptic Curve (ECC)** – Used exclusively for
   signing and verification. Supports ECC curves: NIST P256, P384, P521, SECP 256k1.
 - **Post Quantum Cryptography** - New public-key cryptographic
   algorithms that are resistant to quantum computing. Supports the [NIST FIPS 204 Module-Lattice Digital
-  Signature Algorithm (ML-DSA)](https://csrc.nist.gov/pubs/fips/204/final "https://csrc.nist.gov/pubs/fips/204/final") with ML_DSA_44, ML_DSA_65, and ML_DSA_87 key
+  Signature Algorithm (ML-DSA)](https://csrc.nist.gov/pubs/fips/204/final "https://csrc.nist.gov/pubs/fips/204/final") with ML\_DSA\_44, ML\_DSA\_65, and ML\_DSA\_87 key
   sizes.
 
 ## Key derivation functions
