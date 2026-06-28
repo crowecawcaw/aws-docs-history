@@ -113,7 +113,7 @@ make the commitment, you pay that commitment amount every hour, and it is subtra
 On-Demand usage at the discount rate. For example, you commit to $50 an hour, and have $150 an
 hour of On-Demand usage. Considering the Savings Plans pricing, your specific usage has a discount
 rate of 50%. So, your $50 commitment covers $100 of On-Demand usage. You will pay $50
-(commitment) and $50 of remaining On-Demand usage.
+ (commitment) and $50 of remaining On-Demand usage.
 
 [Compute
 Savings Plans](https://aws.amazon.com/savingsplans/pricing/ "https://aws.amazon.com/savingsplans/pricing/") are the most flexible and provide a discount

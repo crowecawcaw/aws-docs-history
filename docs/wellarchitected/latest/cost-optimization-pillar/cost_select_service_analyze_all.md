@@ -26,7 +26,7 @@ all components of this workload should correspond to the potential
 savings or improvements anticipated from optimization of that
 specific component. For example, if the cost of the proposed
 resource is $10 per month, and under forecasted loads would not
-exceed $15 per month, spending a day of effort to reduce costs by
+ exceed $15 per month, spending a day of effort to reduce costs by
 50% (five dollars per month) could exceed the potential benefit
 over the life of the system. Use a faster and more efficient
 data-based estimation to create the best overall outcome for this
