@@ -46,24 +46,21 @@ An action group consists of an OpenAPI schema and a Lambda function to define wh
 
 Runtime is managed by the [InvokeAgent](../APIReference/API_agent-runtime_InvokeAgent.md "../APIReference/API_agent-runtime_InvokeAgent.md") API operation. This operation starts the agent sequence, which consists of the following three main steps.
 
-1.  **Pre-processing** – Manages how the agent contextualizes and categorizes user input and can be used to validate input.
-2.  **Orchestration** – Interprets the user input, invokes action groups and queries knowledge bases, and returns output to the user or as input to continued orchestration. Orchestration consists of the following steps:
+1. **Pre-processing** – Manages how the agent contextualizes and categorizes user input and can be used to validate input.
+2. **Orchestration** – Interprets the user input, invokes action groups and queries knowledge bases, and returns output to the user or as input to continued orchestration. Orchestration consists of the following steps:
 
-        1. The agent interprets the input with a foundation model and generates a *rationale* that lays out the logic for the next step it should take.
-        2. The agent predicts which action in an action group it should invoke or which knowledge base it should query.
-        3. If the agent predicts that it needs to invoke an action, the agent sends the parameters, determined from the user prompt, to the [Lambda function configured for the action group](agents-lambda.md "agents-lambda.md") or [returns control](agents-returncontrol.md "agents-returncontrol.md") by sending the parameters in the [InvokeAgent](../APIReference/API_agent-runtime_InvokeAgent.md "../APIReference/API_agent-runtime_InvokeAgent.md") response. If the agent doesn't have enough information to invoke the action, it might do one of the following actions:
+   1. The agent interprets the input with a foundation model and generates a _rationale_ that lays out the logic for the next step it should take.
+   2. The agent predicts which action in an action group it should invoke or which knowledge base it should query.
+   3. If the agent predicts that it needs to invoke an action, the agent sends the parameters, determined from the user prompt, to the [Lambda function configured for the action group](agents-lambda.md "agents-lambda.md") or [returns control](agents-returncontrol.md "agents-returncontrol.md") by sending the parameters in the [InvokeAgent](../APIReference/API_agent-runtime_InvokeAgent.md "../APIReference/API_agent-runtime_InvokeAgent.md") response. If the agent doesn't have enough information to invoke the action, it might do one of the following actions:
 
+      - Query an associated knowledge base (**Knowledge base response generation**) to retrieve additional context and summarize the data to augment its generation.
+      - Reprompt the user to gather all the required parameters for the action.
 
+   4. The agent generates an output, known as an _observation_, from invoking an action and/or summarizing results from a knowledge base. The agent uses the observation to augment the base prompt, which is then interpreted with a foundation model. The agent then determines if it needs to reiterate the orchestration process.
+   5. This loop continues until the agent returns a response to the user or until it needs to prompt the user for extra information.
+      During orchestration, the base prompt template is augmented with the agent instructions, action groups, and knowledge bases that you added to the agent. Then, the augmented base prompt is used to invoke the FM. The FM predicts the best possible steps and trajectory to fulfill the user input. At each iteration of orchestration, the FM predicts the API operation to invoke or the knowledge base to query.
 
-
-        	* Query an associated knowledge base (**Knowledge base response generation**) to retrieve additional context and summarize the data to augment its generation.
-        	* Reprompt the user to gather all the required parameters for the action.
-        4. The agent generates an output, known as an *observation*, from invoking an action and/or summarizing results from a knowledge base. The agent uses the observation to augment the base prompt, which is then interpreted with a foundation model. The agent then determines if it needs to reiterate the orchestration process.
-        5. This loop continues until the agent returns a response to the user or until it needs to prompt the user for extra information.
-
-    During orchestration, the base prompt template is augmented with the agent instructions, action groups, and knowledge bases that you added to the agent. Then, the augmented base prompt is used to invoke the FM. The FM predicts the best possible steps and trajectory to fulfill the user input. At each iteration of orchestration, the FM predicts the API operation to invoke or the knowledge base to query.
-
-3.  **Post-processing** – The agent formats the final response to return to the user. This step is turned off by default.
+3. **Post-processing** – The agent formats the final response to return to the user. This step is turned off by default.
 
 When you invoke your agent, you can turn on a **trace** at runtime. With the trace, you can track the agent's rationale, actions, queries, and observations at each step of the agent sequence. The trace includes the full prompt sent to the foundation model at each step and the outputs from the foundation model, API responses, and knowledge base queries. You can use the trace to understand the agent's reasoning at each step. For more information, see [Track agent's step-by-step reasoning process using trace](trace-events.md "trace-events.md").
 

@@ -97,8 +97,8 @@ import job automatically detects your model's architecture.
 You need to supply the model files in the
 Hugging Face weights format. You can create the files by using the
 Hugging Face transformer library. To create model files for a Llama
-model, see [convert_llama_weights_to_hf.py](https://github.com/huggingface/transformers/blob/main/src/transformers/models/llama/convert_llama_weights_to_hf.py "https://github.com/huggingface/transformers/blob/main/src/transformers/models/llama/convert_llama_weights_to_hf.py"). To create the files for a Mistral AI model,
-see [convert_mistral_weights_to_hf.py](https://github.com/huggingface/transformers/blob/main/src/transformers/models/mistral/convert_mistral_weights_to_hf.py "https://github.com/huggingface/transformers/blob/main/src/transformers/models/mistral/convert_mistral_weights_to_hf.py").
+model, see [convert\_llama\_weights\_to\_hf.py](https://github.com/huggingface/transformers/blob/main/src/transformers/models/llama/convert_llama_weights_to_hf.py "https://github.com/huggingface/transformers/blob/main/src/transformers/models/llama/convert_llama_weights_to_hf.py"). To create the files for a Mistral AI model,
+see [convert\_mistral\_weights\_to\_hf.py](https://github.com/huggingface/transformers/blob/main/src/transformers/models/mistral/convert_mistral_weights_to_hf.py "https://github.com/huggingface/transformers/blob/main/src/transformers/models/mistral/convert_mistral_weights_to_hf.py").
 
 To import the model from Amazon S3, you minimally need the following files that the Hugging Face transformer library creates.
 
@@ -122,7 +122,7 @@ Amazon Bedrock overrides llama3 `rope_scaling` value with the following values:
     + `low_freq_factor=1`
     + `factor=8`
 
-- **tokenizer_config.json** For an example,
+- **tokenizer\_config.json** For an example,
   see [LlamaTokenizer](https://huggingface.co/docs/transformers/model_doc/llama2#transformers.LlamaTokenizer "https://huggingface.co/docs/transformers/model_doc/llama2#transformers.LlamaTokenizer").
 - **tokenizer.json**
 - **tokenizer.model**

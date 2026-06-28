@@ -80,9 +80,9 @@ You can validate your service account configuration independently of a retrieve 
 
 ACL misconfigurations do not produce explicit errors during retrieval. Retrieval fails closed: affected documents are silently omitted, so a query returns fewer or zero results rather than an error. Use the verification checks above to diagnose these issues.
 
-| ACL-enabled Google Drive symptoms, causes, and fixes                 | Symptom                                                                                                                    | Likely cause                                                                                                               | Fix |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | --- |
+ACL-enabled Google Drive symptoms, causes, and fixes| Symptom | Likely cause | Fix |
+| --- | --- | --- |
 | Retrieve returns 0 results, but the user has access in Google Drive. | Domain-wide delegation is not configured, or the service account is missing required scopes, so access cannot be verified. | Authorize the service account client ID for the required Drive and Admin SDK scopes in the Google Workspace Admin console. |
-| Group-based access is not honored.                                   | The Admin SDK directory/group read scope is missing from the delegation.                                                   | Add the Admin SDK group read scope to the service account's domain-wide delegation.                                        |
-| Crawl or sync fails.                                                 | The `clientEmail`/`privateKey` is invalid, or `adminAccountEmail` is not a Workspace admin.                                | Verify the service account credentials and that `adminAccountEmail` is a Workspace administrator.                          |
-| All users are denied after previously working.                       | The service account key was rotated or revoked.                                                                            | Update the `privateKey` in the secret.                                                                                     |
+| Group-based access is not honored. | The Admin SDK directory/group read scope is missing from the delegation. | Add the Admin SDK group read scope to the service account's domain-wide delegation. |
+| Crawl or sync fails. | The `clientEmail`/`privateKey` is invalid, or `adminAccountEmail` is not a Workspace admin. | Verify the service account credentials and that `adminAccountEmail` is a Workspace administrator. |
+| All users are denied after previously working. | The service account key was rotated or revoked. | Update the `privateKey` in the secret. |

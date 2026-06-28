@@ -95,7 +95,7 @@ To add a Blueprint to a Project:
 ### Defining Fields
 
 To get started, you can create a field to identify the information you want to extract or
-generate, such as product_type. For each field, you need to provide a description, data type,
+generate, such as product\_type. For each field, you need to provide a description, data type,
 and inference type.
 
 To define a field, you need to specify the following parameters:
@@ -118,7 +118,7 @@ For video, fields also contain granularity as an option. For more information on
 The following image shows "Add fields" module in the Amazon Bedrock console with
 the following example fields and values:
 
-- Field name: product_type
+- Field name: product\_type
 - Type: String
 - Instruction:
   What is the primary product or service being advertised, e.g., Clothing, Electronics,
@@ -140,11 +140,11 @@ API:
 
 In this example:
 
-- The type is set to string, indicating that the value of the product_type field
+- The type is set to string, indicating that the value of the product\_type field
   should be text-based.
 - The inferenceType is set to inferred, instructing BDA to infer the value based on the information present in the image.
 - The description provides additional context, clarifying that the field should identify the
-  product type in the image. Example values for product_type field are: clothing, electronics,
+  product type in the image. Example values for product\_type field are: clothing, electronics,
   and food or beverage.
 
 By specifying these parameters for each field, you provide BDA with the necessary
@@ -165,7 +165,7 @@ The Amazon Bedrock console also lets you create and save blueprints. When you sa
 blueprint, it an ID is assigned to that blueprint. You can then publish the blueprint,
 which creates a snapshot version of that blueprint that can’t be edited. For example, if
 the blueprint associated to your project is “DocBlueprint”, the created project version
-will be “DocBlueprint_1”. You will not be able to make any more changes to
-“DocBlueprint_1”, but you can still edit the base blueprint. If you make changes to the
-blueprint and publish again a new version will be created, like “DocBlueprint_2”.
+will be “DocBlueprint\_1”. You will not be able to make any more changes to
+“DocBlueprint\_1”, but you can still edit the base blueprint. If you make changes to the
+blueprint and publish again a new version will be created, like “DocBlueprint\_2”.
 Blueprint versions can be duplicated and used as a base for a new blueprint.

@@ -49,15 +49,15 @@ If a project is created with no parameters, the default settings will apply. For
 
 The following table shows all available parameters for the `create-data-automation-project` command:
 
-| Parameters for create-data-automation-project | Parameter | Required                                                                                                                                                                                                                                                         | Default                                           | Description |
-| --------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ----------- |
-| `--project-name`                              | Yes       | N/A                                                                                                                                                                                                                                                              | Name for the Data Automation project              |
-| `--project-type`                              | No        | The type of the project defines which runtime processing API it may be used with. `ASYNC` projects may only be used with the `invoke-bedrock-data-automation-async` API, whereas `SYNC` projects may only be used with the `invoke-bedrock-data-automation` API. |
-| `--project-stage`                             | No        | LIVE                                                                                                                                                                                                                                                             | Stage for the project (DEVELOPMENT or LIVE)       |
-| `--standard-output-configuration`             | Yes       | N/A                                                                                                                                                                                                                                                              | JSON configuration for standard output processing |
-| `--custom-output-configuration`               | No        | N/A                                                                                                                                                                                                                                                              | JSON configuration for custom output processing   |
-| `--encryption-configuration`                  | No        | N/A                                                                                                                                                                                                                                                              | Encryption settings for the project               |
-| `--client-token`                              | No        | Auto-generated                                                                                                                                                                                                                                                   | Unique identifier for request idempotency         |
+Parameters for create-data-automation-project| Parameter | Required | Default | Description |
+| --- | --- | --- | --- |
+| `--project-name` | Yes | N/A | Name for the Data Automation project |
+| `--project-type` | No | The type of the project defines which runtime processing API it may be used with. `ASYNC` projects may only be used with the `invoke-bedrock-data-automation-async` API, whereas `SYNC` projects may only be used with the `invoke-bedrock-data-automation` API. |
+| `--project-stage` | No | LIVE | Stage for the project (DEVELOPMENT or LIVE) |
+| `--standard-output-configuration` | Yes | N/A | JSON configuration for standard output processing |
+| `--custom-output-configuration` | No | N/A | JSON configuration for custom output processing |
+| `--encryption-configuration` | No | N/A | Encryption settings for the project |
+| `--client-token` | No | Auto-generated | Unique identifier for request idempotency |
 
 ## Creating a Blueprint
 

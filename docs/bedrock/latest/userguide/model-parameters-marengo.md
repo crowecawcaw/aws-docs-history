@@ -251,8 +251,8 @@ Specifies which types of embeddings to retrieve.
 
   Examples:
 
-      - A 50-second clip is divided into 5 10-second segments.
-      - A 16-second clip is divided into 2 8-second segments.
+        - A 50-second clip is divided into 5 10-second segments.
+        - A 16-second clip is divided into 2 8-second segments.
 
 - **Compatible input types:** – Video, Audio
 - **Notes:** Must be greater than or equal to `minClipSec`.

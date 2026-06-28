@@ -12,11 +12,10 @@ When you make an InvokeModel call using a Stable Diffusion 3.5 Large model, fill
 - **prompt** – (string)
   Text description of the desired output image. Maximum 10,000 characters.
 
-| Minimum | Maximum |
-| ------- | ------- |
-| 0       | 10,000  |
-
-**Model invocation responses body field**
+| Minimum                                   | Maximum |
+| ----------------------------------------- | ------- |
+| 0                                         | 10,000  |
+| **Model invocation responses body field** |
 
 When you make an `InvokeModel` call using a Stable Diffusion 3.5 Large model, the response looks like the following
 
@@ -38,7 +37,7 @@ A response with a finish reason that is not `null`, will look like the following
 
 - **seeds** – (string) List of seeds used to
   generate images for the model.
-- **finish_reasons** – Enum indicating whether the
+- **finish\_reasons** – Enum indicating whether the
   request was filtered or not. `null` will indicate that the request was successful. Current possible values: `"Filter reason: prompt", "Filter reason: output image", "Filter reason: input image", "Inference error", null`.
 - **images** – A list of generated images in base64 string format.
 
@@ -54,7 +53,7 @@ inference parameters for a text-to-image inference call.
 
 **Optional parameters**
 
-- **aspect_ratio** (string) – Controls the aspect ratio of the generated image. Valid for text-to-image requests only. Enum: 16:9, 1:1, 21:9, 2:3, 3:2, 4:5, 5:4, 9:16, 9:21. Default 1:1.
+- **aspect\_ratio** (string) – Controls the aspect ratio of the generated image. Valid for text-to-image requests only. Enum: 16:9, 1:1, 21:9, 2:3, 3:2, 4:5, 5:4, 9:16, 9:21. Default 1:1.
 - **mode** (string) (GenerationMode) - Default: text-to-image. Enum: image-to-image or text-to-image.
   Controls whether this is a text-to-image or image-to-image generation, which affects which parameters are required:
 
@@ -67,13 +66,13 @@ inference parameters for a text-to-image inference call.
 | ------- | ---------- | ------- |
 | 0       | 4294967294 | 0       |
 
-- **negative_prompt** (string) – Text describing elements to exclude from the output image. Maximum 10,000 characters.
+- **negative\_prompt** (string) – Text describing elements to exclude from the output image. Maximum 10,000 characters.
 
 | Minimum | Maximum |
 | ------- | ------- |
 | 0       | 10,000  |
 
-- **output_format** (string) – Output image format. Enum: jpeg, png, webp. Default png.
+- **output\_format** (string) – Output image format. Enum: jpeg, png, webp. Default png.
 
 ```
 
@@ -119,13 +118,13 @@ inference parameters for an image-to-image inference call.
 | ------- | ---------- | ------- |
 | 0       | 4294967294 | 0       |
 
-- **negative_prompt** (string) – Text describing elements to exclude from the output image. Maximum 10,000 characters.
+- **negative\_prompt** (string) – Text describing elements to exclude from the output image. Maximum 10,000 characters.
 
 | Minimum | Maximum |
 | ------- | ------- |
 | 0       | 10,000  |
 
-- **output_format** (string) – Output image format. Enum: jpeg, png, webp. Default png.
+- **output\_format** (string) – Output image format. Enum: jpeg, png, webp. Default png.
 
 ```
 

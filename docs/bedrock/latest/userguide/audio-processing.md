@@ -23,8 +23,8 @@ to navigate and search through audio content based on spoken words.
 For the generated transcript, you can enable channel and/or speaker labeling. This will give each channel or speaker a number, and
 then indicate within the transcript when a channel is being used and a particular speaker is speaking. This
 label appears within the response as "spk\_" followed by a unique number for each speaker, up to
-30 speakers. The first speaker would be "spk_0", "spk_1" and so on. Audio channels are indicated similarly
-with the first channel labeled as "ch_0", but can only be labeled up two channels.
+30 speakers. The first speaker would be "spk\_0", "spk\_1" and so on. Audio channels are indicated similarly
+with the first channel labeled as "ch\_0", but can only be labeled up two channels.
 
 ## Topic Summary
 
@@ -37,31 +37,31 @@ place them in the audio file as a whole. This feature is not enabled by default.
 Content moderation uses audio and text-based cues to identify and classify
 voice-based toxic content into seven different categories:
 
-- \***\*Profanity\*\***: Speech that contains
+- ****Profanity****: Speech that contains
   words, phrases, or acronyms that are impolite, vulgar, or
   offensive.
-- \***\*Hate
-  speech:\*\*** Speech that criticizes,
+- ****Hate
+  speech:**** Speech that criticizes,
   insults, denounces, or dehumanizes a person or group on the
   basis of an identity (such as race, ethnicity, gender, religion,
   sexual orientation, ability, and national origin).
-- \***\*Sexual:\*\*** Speech that indicates sexual interest,
+- ****Sexual:**** Speech that indicates sexual interest,
   activity, or arousal using direct or indirect references to body
   parts, physical traits, or sex.
-- \***\*Insults:\*\*** Speech that includes
+- ****Insults:**** Speech that includes
   demeaning, humiliating, mocking, insulting, or belittling
   language. This type of language is also labeled as
   bullying
-- \***\*Violence or
-  threat:\*\*** Speech that includes
+- ****Violence or
+  threat:**** Speech that includes
   threats seeking to inflict pain, injury, or hostility toward a
   person or group.
-- \***\*Graphic:\*\*** Speech that uses
+- ****Graphic:**** Speech that uses
   visually descriptive and unpleasantly vivid imagery. This type
   of language is often intentionally verbose to amplify a
   recipient's discomfort.
-- \***\*Harassment or
-  abusive:\*\*** Speech intended to affect
+- ****Harassment or
+  abusive:**** Speech intended to affect
   the psychological well-being of the recipient, including
   demeaning and objectifying terms. This type of language is also
   labeled as harassment.
@@ -116,8 +116,8 @@ use the dominant language.
 ```
 
 The items section includes a breakdown of the audio file on a sound by sound
-basis. Each item is usually about word length. The item_index indicates the item's
-place in the audio_items indicies, and the audio_segment_index indicates where
+basis. Each item is usually about word length. The item\_index indicates the item's
+place in the audio\_items indicies, and the audio\_segment\_index indicates where
 it sits in the segements indicies which we'll discuss next.
 
 ```

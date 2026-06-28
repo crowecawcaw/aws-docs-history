@@ -45,7 +45,7 @@ Content-type: application/json
 **Fields**
 
 - **prompt** – (string) The content needed in the output video (1 <= length <= 5000 characters).
-- **aspect_ratio** – (enum) The aspect ratio of the output video ("1:1", "16:9", "9:16", "4:3", "3:4", "21:9", "9:21").
+- **aspect\_ratio** – (enum) The aspect ratio of the output video ("1:1", "16:9", "9:16", "4:3", "3:4", "21:9", "9:21").
 - **loop** – (boolean) Whether to loop the output video.
 - **duration** – (enum) - The duration of the output video ("5s", "9s").
 - **resolution** – (enum) The resolution of the output video ("540p", "720p").

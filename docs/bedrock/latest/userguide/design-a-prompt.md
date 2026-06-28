@@ -310,22 +310,22 @@ data-dependent. Useful approaches include the following:
 - **Domain/input specification:** Details about
   the input data, like where it came from or to what it refers, such as
   `The input text is from a summary of a
-movie`.
+ movie`.
 - **Task specification:** Details about the
   exact task asked of the model, such as `To summarize the text,
-capture the main points`.
+ capture the main points`.
 - **Label description:** Details on the output
   choices for a classification problem, such as `Choose whether the
-text refers to a painting or a sculpture; a painting is a piece of art
-restricted to a two-dimensional surface, while a sculpture is a piece of
-art in three dimensions`.
+ text refers to a painting or a sculpture; a painting is a piece of art
+ restricted to a two-dimensional surface, while a sculpture is a piece of
+ art in three dimensions`.
 - **Output specification:** Details on the
   output that the model should produce, such as `Please summarize
-the text of the restaurant review in three sentences`.
+ the text of the restaurant review in three sentences`.
 - **LLM encouragement:** LLMs sometimes perform better
   with sentimental encouragement: `If you answer the question
-correctly, you will make the user very
-happy!`
+ correctly, you will make the user very
+ happy!`
 
 ## Control the model response with inference parameters
 

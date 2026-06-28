@@ -559,7 +559,7 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/bdr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/bdr#code-examples").
 
-Invoke the Anthropic Claude 2 foundation model to generate text. This example uses features of /US2/CL_JSON which might not be available on some NetWeaver versions.
+Invoke the Anthropic Claude 2 foundation model to generate text. This example uses features of /US2/CL\_JSON which might not be available on some NetWeaver versions.
 
 ```
     "Claude V2 Input Parameters should be in a format like this:

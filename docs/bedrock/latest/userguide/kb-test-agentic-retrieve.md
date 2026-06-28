@@ -56,17 +56,17 @@ that includes retrieval results and trace events.
 
 The following table describes the key request fields:
 
-| Required fields              | Field                                                                                                                                                                                                                                       | Description |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| messages                     | The input query and conversation history. Each message contains a<br>`content` field with a `text` value and a<br>`role` field (`user` or<br>`assistant`).                                                                                  |
-| retrievers                   | The knowledge base retrievers to fetch data from. You can specify up<br>to 5 retrievers, each pointing to a managed knowledge base by its<br>ID. Each retriever can optionally include metadata filters and a maximum<br>number of results. |
-| agenticRetrieveConfiguration | The agentic retrieval configuration, including the foundation model<br>to use for query planning and evaluation, and optionally a reranking<br>model and maximum agent iteration count.                                                     |
+Required fields| Field | Description |
+| --- | --- |
+| messages | The input query and conversation history. Each message contains a<br>`content` field with a `text` value and a<br>`role` field (`user` or<br>`assistant`). |
+| retrievers | The knowledge base retrievers to fetch data from. You can specify up<br>to 5 retrievers, each pointing to a managed knowledge base by its<br>ID. Each retriever can optionally include metadata filters and a maximum<br>number of results. |
+| agenticRetrieveConfiguration | The agentic retrieval configuration, including the foundation model<br>to use for query planning and evaluation, and optionally a reranking<br>model and maximum agent iteration count. |
 
-| Optional fields     | Field                                                                                                                                                                                                                                          | Description |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| policyConfiguration | Configures a Amazon Bedrock guardrail to apply during agentic retrieval.<br>Specify a `guardrailId` and<br>`guardrailVersion`.                                                                                                                 |
-| userContext         | Provides a user context for access control filtering.                                                                                                                                                                                          |
-| generateResponse    | A boolean field that, when set to `true` (the default), instructs<br>the foundation model to generate a natural-language answer from<br>the retrieved results. The answer is streamed back as text chunks<br>and included in the result event. |
+Optional fields| Field | Description |
+| --- | --- |
+| policyConfiguration | Configures a Amazon Bedrock guardrail to apply during agentic retrieval.<br>Specify a `guardrailId` and<br>`guardrailVersion`. |
+| userContext | Provides a user context for access control filtering. |
+| generateResponse | A boolean field that, when set to `true` (the default), instructs<br>the foundation model to generate a natural-language answer from<br>the retrieved results. The answer is streamed back as text chunks<br>and included in the result event. |
 
 For the full request and response syntax, see [`AgenticRetrieveStream`](../APIReference/API_agent-runtime_AgenticRetrieveStream.md "../APIReference/API_agent-runtime_AgenticRetrieveStream.md") in the API reference.
 

@@ -7,10 +7,9 @@ To create an agent with Amazon Bedrock, you set up the following components:
   and responses.
 - At least one of the following:
 
-      + Action groups that define what actions the agent is designed to perform.
-      + A knowledge base of data sources to augment the generative capabilities of the agent by allowing search and query.
-
-  You can minimally create an agent that only has a name. To **Prepare** an agent so that you can [test](agents-test.md "agents-test.md") or [deploy](agents-deploy.md "agents-deploy.md") it, you must minimally configure the following components:
+  - Action groups that define what actions the agent is designed to perform.
+  - A knowledge base of data sources to augment the generative capabilities of the agent by allowing search and query.
+    You can minimally create an agent that only has a name. To **Prepare** an agent so that you can [test](agents-test.md "agents-test.md") or [deploy](agents-deploy.md "agents-deploy.md") it, you must minimally configure the following components:
 
 | Configuration         | Description                                                                                                                          |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
@@ -77,6 +76,7 @@ Console
       - **KMS key selection** – (Optional) By default, AWS encrypts agent resources with an AWS managed key. To encrypt your agent with
         your own customer managed key, for the KMS key selection section, select **Customize encryption settings (advanced)**. To create a new key,
         select **Create an AWS KMS key** and then refresh this window. To use an existing key, select a key for **Choose an AWS KMS key**.
+
       - **Idle session timeout** – By default, if a user hasn't responded for 30 minutes in a session with an Amazon Bedrock agent, the agent no longer maintains the conversation history. Conversation history is used to both resume an interaction and to augment responses with context from the conversation. To change this default length of time, enter a number in the **Session timeout** field and choose a unit of time.
 
    6. For the **IAM permissions** section, for **Agent resource role**,
@@ -122,7 +122,7 @@ The following fields are optional:
 | guardrailConfiguration      | To add a [guardrail](guardrails.md "guardrails.md") to the agent. Specify the ID or ARN of the guardrail and the version to use.                                                                                                                                                                                                                                                                 |
 | clientToken                 | To ensure the API request completes only once. For more information, see [Ensuring idempotency](../../../ec2/latest/devguide/ec2-api-idempotency.md "../../../ec2/latest/devguide/ec2-api-idempotency.md").                                                                                                                                                                                      |
 | cachingState                | To enable prompt caching of input to the agent. For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").                                                                                                                                                                                                                                    |
-| reasoning_config            | To enable model reasoning so that the model explains how it reached its conclusions. Use inside of a `additionalModelRequestFields` field. You must specify the number of `budget_tokens` that are used for model reasoning, which are a subset of the output tokens. For more information, see [Enhance model responses with model reasoning](inference-reasoning.md "inference-reasoning.md"). |
+| reasoning\_config           | To enable model reasoning so that the model explains how it reached its conclusions. Use inside of a `additionalModelRequestFields` field. You must specify the number of `budget_tokens` that are used for model reasoning, which are a subset of the output tokens. For more information, see [Enhance model responses with model reasoning](inference-reasoning.md "inference-reasoning.md"). |
 
 The response returns an [CreateAgent](../APIReference/API_agent_Agent.md "../APIReference/API_agent_Agent.md") object that contains details about your newly created agent. If your agent fails to be created, the [CreateAgent](../APIReference/API_agent_Agent.md "../APIReference/API_agent_Agent.md") object in the response returns a list of `failureReasons` and a list of `recommendedActions` for you to troubleshoot.
 

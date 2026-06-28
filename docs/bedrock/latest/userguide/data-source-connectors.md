@@ -1,5 +1,9 @@
 # Connect a data source to your knowledge base
 
+###### Important
+
+For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md "kb-build-managed.md").
+
 After finishing the configurations for your knowledge base, you connect a supported data source to the knowledge base.
 
 Amazon Bedrock Knowledge Bases supports connecting to unstructured data sources or to structured data stores through a query engine. Select a topic to learn how to connect to that type of data source:

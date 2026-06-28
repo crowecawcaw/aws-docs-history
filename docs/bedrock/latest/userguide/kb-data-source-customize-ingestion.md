@@ -1,5 +1,9 @@
 # Customize ingestion for a data source
 
+###### Important
+
+For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md "kb-build-managed.md").
+
 You can customize vector ingestion when connecting a data source in the AWS Management Console or by modifying the value of the `vectorIngestionConfiguration` field when sending a [CreateDataSource](../APIReference/API_agent_CreateDataSource.md "../APIReference/API_agent_CreateDataSource.md") request.
 
 Select a topic to learn how to include configurations for customizing ingestion when connecting to a data source:

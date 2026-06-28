@@ -70,7 +70,7 @@ template](https://docs.mistral.ai/models/#chat-template "https://docs.mistral.ai
 
 The following are optional parameters.
 
-- **max_tokens**
+- **max\_tokens**
   – Specify the maximum number of tokens to use in the generated
   response. The model truncates the response once the generated text exceeds
   `max_tokens`.
@@ -93,7 +93,7 @@ The following are optional parameters.
 | ------------------------------------------------------------------------------------------------------ | ------- | ------- |
 | Mistral 7B Instruct – 0.5<br>Mixtral 8X7B Instruct – 0.5<br>Mistral Large – 0.7<br>Mistral Small – 0.7 | 0       | 1       |
 
-- **top_p** – Controls the diversity of text that the model
+- **top\_p** – Controls the diversity of text that the model
   generates by setting the percentage of most-likely candidates that the model considers for the next token.
   For more information, see [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md").
 
@@ -101,7 +101,7 @@ The following are optional parameters.
 | -------------------------------------------------------------------------------------------------- | ------- | ------- |
 | Mistral 7B Instruct – 0.9<br>Mixtral 8X7B Instruct – 0.9<br>Mistral Large – 1<br>Mistral Small – 1 | 0       | 1       |
 
-- **top_k** – Controls the number
+- **top\_k** – Controls the number
   of most-likely candidates that the model considers for the next
   token. For more information, see [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md").
 
@@ -131,7 +131,7 @@ The `body` response has the following fields:
   fields.
 
   - **text** – The text that the model generated.
-  - **stop_reason** – The reason why the response stopped
+  - **stop\_reason** – The reason why the response stopped
     generating text. Possible values are:
 
     - **stop** – The model has

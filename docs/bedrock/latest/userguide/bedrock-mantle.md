@@ -51,6 +51,7 @@ The `bedrock-mantle` endpoint is available in the following AWS Regions:
 | Europe (Milan)            | eu-south-1     | bedrock-mantle.eu-south-1.api.aws     |
 | Europe (Stockholm)        | eu-north-1     | bedrock-mantle.eu-north-1.api.aws     |
 | South America (São Paulo) | sa-east-1      | bedrock-mantle.sa-east-1.api.aws      |
+| AWS GovCloud (US-West)    | us-gov-west-1  | bedrock-mantle.us-gov-west-1.api.aws  |
 
 ## Prerequisites
 
@@ -120,7 +121,7 @@ Responses documentation](https://developers.openai.com/api/reference/resources/r
 
 ###### Note
 
-Not all models support the Responses API. To see which models support the Responses API, see [API compatibility](models-api-compatibility.md "models-api-compatibility.md").
+Not all models support the Responses API. To see which models support the Responses API, see [API compatibility by models](models-api-compatibility.md "models-api-compatibility.md").
 
 ### How the Responses API stores conversation state
 

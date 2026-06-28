@@ -9,6 +9,10 @@ The retrieved information can then be used to improve generated responses. Amazo
 secure, enterprise-grade agentic AI applications by leveraging retrieval securely over
 large-scale datasets.
 
+###### Important
+
+For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md "kb-build-managed.md").
+
 Amazon Bedrock Knowledge Bases offers two types of knowledge bases:
 
 - **Managed Knowledge Base** – Amazon Bedrock manages the
@@ -30,7 +34,7 @@ Amazon Bedrock Knowledge Bases offers two types of knowledge bases:
   iteratively across multiple knowledge bases, and evaluates sufficiency of responses.
   Native integration with AgentCore Observability offers built-in monitoring, retrieval
   traces, agentic traces, and per-knowledge base metrics.
-- **Self-managed Knowledge Base** – This enables
+- **Customer-managed Knowledge Base** – This enables
   you set up and manage your own RAG pipeline, including the vector store (such as
   Amazon OpenSearch Serverless, Amazon Aurora, and Amazon Neptune), and have full control over data ingestion,
   parsing, indexing and storage configurations. You will need to setup and manage

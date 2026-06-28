@@ -8,9 +8,9 @@ You can view `bedrock-mantle` quotas in the [Service Quotas console](../../../se
 
 Inference on the `bedrock-mantle` endpoint is governed by two per-model quotas:
 
-| bedrock-mantle per-model quotas                        | Quota                 | Scope                                                                                                                                                                                       | Description |
-| ------------------------------------------------------ | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Bedrock Mantle input tokens per minute for `${model}`  | Per model, per Region | The maximum number of input tokens per minute that your account can submit to the model on the `bedrock-mantle` endpoint. Shared across all APIs served by the endpoint for that model.     |
+bedrock-mantle per-model quotas| Quota | Scope | Description |
+| --- | --- | --- |
+| Bedrock Mantle input tokens per minute for `${model}` | Per model, per Region | The maximum number of input tokens per minute that your account can submit to the model on the `bedrock-mantle` endpoint. Shared across all APIs served by the endpoint for that model. |
 | Bedrock Mantle output tokens per minute for `${model}` | Per model, per Region | The maximum number of output tokens per minute that the model can generate for your account on the `bedrock-mantle` endpoint. Shared across all APIs served by the endpoint for that model. |
 
 ###### Note
@@ -38,9 +38,9 @@ The `bedrock-runtime` endpoint's TPM quotas count input and output tokens togeth
 
 The following table lists default quotas for models on the `bedrock-mantle` endpoint. New AWS accounts might receive reduced quotas, and quotas can vary by Region.
 
-| Default bedrock-mantle quotas by model | Model      | Default input TPM | Default output TPM |
-| -------------------------------------- | ---------- | ----------------- | ------------------ |
-| Anthropic Claude Opus 4.7              | 20,000,000 | 4,000,000         |
+Default bedrock-mantle quotas by model| Model | Default input TPM | Default output TPM |
+| --- | --- | --- |
+| Anthropic Claude Opus 4.7 | 20,000,000 | 4,000,000 |
 
 Additional models will be listed in this table as they launch on the endpoint.
 

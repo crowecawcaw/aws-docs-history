@@ -95,34 +95,34 @@ Because ACL configuration is permanent after the data source is created, set
 `aclEnabled` explicitly so the data source has the access-control
 behavior you intend. For details, see [Document-level access controls](kb-managed-ds-googledrive-acl.md "kb-managed-ds-googledrive-acl.md").
 
-| connectionConfiguration | Field | Required                                                                                                                                                                                                                                    | Description |
-| ----------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `secretArn`             | Yes   | The ARN of the AWS Secrets Manager secret containing your Google Drive credentials.                                                                                                                                                         |
-| `authType`              | Yes   | The authentication type: `SERVICE_ACCOUNT`<br>(recommended) or `OAUTH2`. See [Authentication methods](kb-managed-ds-googledrive.md#kb-managed-googledrive-auth-methods "kb-managed-ds-googledrive.md#kb-managed-googledrive-auth-methods"). |
+connectionConfiguration| Field | Required | Description |
+| --- | --- | --- |
+| `secretArn` | Yes | The ARN of the AWS Secrets Manager secret containing your Google Drive credentials. |
+| `authType` | Yes | The authentication type: `SERVICE_ACCOUNT`<br>(recommended) or `OAUTH2`. See [Authentication methods](kb-managed-ds-googledrive.md#kb-managed-googledrive-auth-methods "kb-managed-ds-googledrive.md#kb-managed-googledrive-auth-methods"). |
 
-| dataEntityConfiguration (optional) | Field | Required                                                   | Description |
-| ---------------------------------- | ----- | ---------------------------------------------------------- | ----------- |
-| `crawlMyDrive`                     | No    | Whether to crawl the authenticated user's personal drive.  |
-| `crawlSharedWithMe`                | No    | Whether to crawl files shared with the authenticated user. |
-| `crawlSharedDrives`                | No    | Whether to crawl shared drives.                            |
+dataEntityConfiguration (optional)| Field | Required | Description |
+| --- | --- | --- |
+| `crawlMyDrive` | No | Whether to crawl the authenticated user's personal drive. |
+| `crawlSharedWithMe` | No | Whether to crawl files shared with the authenticated user. |
+| `crawlSharedDrives` | No | Whether to crawl shared drives. |
 
-| filterConfiguration (optional) | Field | Required                                                                                                                                                       | Description |
-| ------------------------------ | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `inclusionSharedDriveIds`      | No    | Shared drive IDs to include.                                                                                                                                   |
-| `exclusionSharedDriveIds`      | No    | Shared drive IDs to exclude.                                                                                                                                   |
-| `inclusionMimeTypes`           | No    | MIME types to include.                                                                                                                                         |
-| `exclusionMimeTypes`           | No    | MIME types to exclude.                                                                                                                                         |
-| `inclusionFolderIds`           | No    | Folder IDs to include. Available only with<br>`OAUTH2` authentication.                                                                                         |
-| `inclusionFileIds`             | No    | File IDs to include. Available only with<br>`OAUTH2` authentication.                                                                                           |
-| `inclusionSharedFolderIds`     | No    | Shared folder IDs to include. Available only with<br>`OAUTH2` authentication.                                                                                  |
-| `inclusionSharedFileIds`       | No    | Shared file IDs to include. Available only with<br>`OAUTH2` authentication.                                                                                    |
-| `modifiedDateBefore`           | No    | Only include content modified before this date (ISO 8601).                                                                                                     |
-| `modifiedDateAfter`            | No    | Only include content modified after this date (ISO 8601). If<br>`modifiedDateBefore` is earlier than<br>`modifiedDateAfter`, no content matches the<br>window. |
-| `maxFileSizeInMegaBytes`       | No    | Maximum size, in megabytes, of any single file the connector<br>ingests. Provide as a numeric string (for example,<br>`"500"`). Defaults to `"500"`.           |
+filterConfiguration (optional)| Field | Required | Description |
+| --- | --- | --- |
+| `inclusionSharedDriveIds` | No | Shared drive IDs to include. |
+| `exclusionSharedDriveIds` | No | Shared drive IDs to exclude. |
+| `inclusionMimeTypes` | No | MIME types to include. |
+| `exclusionMimeTypes` | No | MIME types to exclude. |
+| `inclusionFolderIds` | No | Folder IDs to include. Available only with<br>`OAUTH2` authentication. |
+| `inclusionFileIds` | No | File IDs to include. Available only with<br>`OAUTH2` authentication. |
+| `inclusionSharedFolderIds` | No | Shared folder IDs to include. Available only with<br>`OAUTH2` authentication. |
+| `inclusionSharedFileIds` | No | Shared file IDs to include. Available only with<br>`OAUTH2` authentication. |
+| `modifiedDateBefore` | No | Only include content modified before this date (ISO 8601). |
+| `modifiedDateAfter` | No | Only include content modified after this date (ISO 8601). If<br>`modifiedDateBefore` is earlier than<br>`modifiedDateAfter`, no content matches the<br>window. |
+| `maxFileSizeInMegaBytes` | No | Maximum size, in megabytes, of any single file the connector<br>ingests. Provide as a numeric string (for example,<br>`"500"`). Defaults to `"500"`. |
 
-| aclEnabled (optional) | Field | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Description |
-| --------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `aclEnabled`          | No    | Whether document-level access control is enabled. Set to<br>`true` to enable, or `false` to disable. If<br>you omit this field, the default depends on `authType`:<br>`SERVICE_ACCOUNT` defaults to `true`;<br>`OAUTH2` defaults to `false`. ACL requires<br>`SERVICE_ACCOUNT` authentication. You cannot change<br>this setting after you create the data source. For details, see<br>[Document-level access controls](kb-managed-ds-googledrive-acl.md "kb-managed-ds-googledrive-acl.md"). |
+aclEnabled (optional)| Field | Required | Description |
+| --- | --- | --- |
+| `aclEnabled` | No | Whether document-level access control is enabled. Set to<br>`true` to enable, or `false` to disable. If<br>you omit this field, the default depends on `authType`:<br>`SERVICE_ACCOUNT` defaults to `true`;<br>`OAUTH2` defaults to `false`. ACL requires<br>`SERVICE_ACCOUNT` authentication. You cannot change<br>this setting after you create the data source. For details, see<br>[Document-level access controls](kb-managed-ds-googledrive-acl.md "kb-managed-ds-googledrive-acl.md"). |
 
 ## Change the authentication method
 

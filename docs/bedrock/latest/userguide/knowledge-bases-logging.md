@@ -29,8 +29,8 @@ the log delivery, including:
     * (If using Amazon Data Firehose as the logging destination) Firehose stream
 
 3. **Include access permissions**: The user who
-   is signed into the console must have the necessary permissions to
-   write the collected logs to the chosen destination.
+is signed into the console must have the necessary permissions to
+write the collected logs to the chosen destination.
 
 The following example IAM policy can be attached to the user signed into
 the console to grant the necessary permissions when using CloudWatch Logs

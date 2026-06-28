@@ -43,56 +43,69 @@ Choose one of the following options:
 
 8. Depending on your choice for the **Action group type**, you'll see one of the following sections:
 
-   - If you selected **Define with function details**, you'll have an **Action group function** section. Do the following to define the function:
+    * If you selected **Define with function details**, you'll have an **Action group function** section. Do the following to define the function:
 
-     1. Provide a **Name** and optional (but recommended) **Description**.
-     2. To request confirmation from the user before the function is invoked, select **Enabled**. Requesting confirmation before invoking the function
-        may safeguard your application from taking actions due to malicious prompt injections.
-     3. In the **Parameters** subsection, choose **Add parameter**. Define the following fields:
 
-     | Field                  | Description                                                        |
-     | ---------------------- | ------------------------------------------------------------------ |
-     | Name                   | Give a name to the parameter.                                      |
-     | Description (optional) | Describe the parameter.                                            |
-     | Type                   | Specify the data type of the<br>parameter.                         |
-     | Required               | Specify whether the agent requires the<br>parameter from the user. |
-     4. To add another parameter, choose **Add parameter**.
-     5. To edit a field in a parameter, select the field and edit it as necessary.
-     6. To delete a parameter, choose the delete icon (
+    	1. Provide a **Name** and optional (but recommended) **Description**.
+    	2. To request confirmation from the user before the function is invoked, select **Enabled**. Requesting confirmation before invoking the function
+    	 may safeguard your application from taking actions due to malicious prompt injections.
+    	3. In the **Parameters** subsection, choose **Add parameter**. Define the following fields:
 
-     ![Trash can icon representing a delete action.](images/icons/trash.png)
 
-     ) in the row containing the parameter.If you prefer to define the function by using a JSON object, choose **JSON editor** instead of **Table**. The JSON object format is as follows (each key in the `parameters` object is a parameter name that you provide):
 
-   ```
-   {
-       "name": "string",
-       "description": "string",
-       "parameters": [
-           {
-               "name": "string",
-               "description": "string",
-               "required": "True" | "False",
-               "type": "string" | "number" | "integer" | "boolean" | "array"
-           }
-       ]
-   }
-   ```
 
-   To add another function to your action group by defining another set of parameters, choose **Add action group function**.
-   - If you selected **Define with API schemas**, you'll have an **Action group schema** section with the following options:
+    	| Field | Description |
+    	| --- | --- |
+    	| Name | Give a name to the parameter. |
+    	| Description (optional) | Describe the parameter. |
+    	| Type | Specify the data type of the<br>parameter. |
+    	| Required | Specify whether the agent requires the<br>parameter from the user. |
+    	4. To add another parameter, choose **Add parameter**.
+    	5. To edit a field in a parameter, select the field and edit it as necessary.
+    	6. To delete a parameter, choose the delete icon (
 
-     - To use an OpenAPI schema that you previously prepared with API descriptions, structures, and parameters for the action group, select **Select API schema** and provide a link to the Amazon S3 URI of the schema.
-     - To define the OpenAPI schema with the in-line schema editor, select **Define via in-line schema editor**. A sample schema appears that you can edit.
+    	 ![Trash can icon representing a delete action.](images/icons/trash.png)
 
-       1. Select the format for the schema by using the dropdown menu next to **Format**.
-       2. To import an existing schema from S3 to edit, select **Import schema**, provide the S3 URI, and select **Import**.
-       3. To restore the schema to the original sample schema, select **Reset** and then confirm the message that appears by selecting **Reset** again.
+
+    	 ) in the row containing the parameter.If you prefer to define the function by using a JSON object, choose **JSON editor** instead of **Table**. The JSON object format is as follows (each key in the `parameters` object is a parameter name that you provide):
+
+
+
+    ```
+    {
+        "name": "string",
+        "description": "string",
+        "parameters": [
+            {
+                "name": "string",
+                "description": "string",
+                "required": "True" | "False",
+                "type": "string" | "number" | "integer" | "boolean" | "array"
+            }
+        ]
+    }
+    ```
+
+    To add another function to your action group by defining another set of parameters, choose **Add action group function**.
+    * If you selected **Define with API schemas**, you'll have an **Action group schema** section with the following options:
+
+
+
+
+    	+ To use an OpenAPI schema that you previously prepared with API descriptions, structures, and parameters for the action group, select **Select API schema** and provide a link to the Amazon S3 URI of the schema.
+    	+ To define the OpenAPI schema with the in-line schema editor, select **Define via in-line schema editor**. A sample schema appears that you can edit.
+
+
+
+
+    		1. Select the format for the schema by using the dropdown menu next to **Format**.
+    		2. To import an existing schema from S3 to edit, select **Import schema**, provide the S3 URI, and select **Import**.
+    		3. To restore the schema to the original sample schema, select **Reset** and then confirm the message that appears by selecting **Reset** again.
 
 9. When you're done creating the action group, choose **Add**. If you defined an API schema, a green success banner appears if there are no issues. If there are issues validating the schema, a red banner appears. You have the following options:
 
-   - Scroll through the schema to see the lines where an error or warning about formatting exists. An X indicates a formatting error, while an exclamation mark indicates a warning about formatting.
-   - Select **View details** in the red banner to see a list of errors about the content of the API schema.
+    * Scroll through the schema to see the lines where an error or warning about formatting exists. An X indicates a formatting error, while an exclamation mark indicates a warning about formatting.
+    * Select **View details** in the red banner to see a list of errors about the content of the API schema.
 
 10. Make sure to **Prepare** to apply the changes that you have made to the agent before testing it.
 

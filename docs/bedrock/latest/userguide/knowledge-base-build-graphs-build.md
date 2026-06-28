@@ -75,9 +75,9 @@ methods:
      index. For more information, see [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
 
 10. In the **Model for graph construction** section, choose the
-    foundation model to use for extracting entities and relationships from your documents
-    during ingestion. The required permissions for the selected model are automatically
-    added to the knowledge base service role.
+foundation model to use for extracting entities and relationships from your documents
+during ingestion. The required permissions for the selected model are automatically
+added to the knowledge base service role.
 
 ###### Note
 

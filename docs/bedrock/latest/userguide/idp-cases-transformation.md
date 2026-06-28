@@ -11,12 +11,12 @@ last name, and suffix.
 For Transformation tasks, the extraction type can be defined as Explicit or Inferred, depending on if the value requires
 to be normalized.
 
-| Field       | Instruction                       | Extraction Type | Type   |
-| ----------- | --------------------------------- | --------------- | ------ |
-| FIRST_NAME  | The first name                    | Explicit        | String |
-| MIDDLE_NAME | The middle name or initial        | Explicit        | String |
-| LAST_NAME   | The last name of the driver       | Explicit        | String |
-| SUFFIX      | The suffix, such as PhD, MSc. etc | Explicit        | String |
+| Field        | Instruction                       | Extraction Type | Type   |
+| ------------ | --------------------------------- | --------------- | ------ |
+| FIRST\_NAME  | The first name                    | Explicit        | String |
+| MIDDLE\_NAME | The middle name or initial        | Explicit        | String |
+| LAST\_NAME   | The last name of the driver       | Explicit        | String |
+| SUFFIX       | The suffix, such as PhD, MSc. etc | Explicit        | String |
 
 Another example is with address blocks that could appear as a single field
 

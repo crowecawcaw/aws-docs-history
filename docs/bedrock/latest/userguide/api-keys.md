@@ -250,12 +250,12 @@ From the console: go to **API keys** > **Long-term API keys** > select your key 
 
 If a key is compromised, take one of the following actions:
 
-| Action             | Key type   | How                                                                                                                                         |
-| ------------------ | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Deactivate         | Long-term  | Console: **API keys\*<br>• > select key > **Actions\*<br>• > **Deactivate**. API: `UpdateServiceSpecificCredential` with `Status=Inactive`. |
-| Reset              | Long-term  | Console: **Actions\*<br>• > **Reset key\*\*. API: `ResetServiceSpecificCredential`.                                                         |
-| Delete             | Long-term  | Console: **Actions\*<br>• > **Delete\*\*. API: `DeleteServiceSpecificCredential`.                                                           |
-| Invalidate session | Short-term | Attach an IAM policy to the identity that denies `bedrock:CallWithBearerToken`, or invalidate the session used to generate the key.         |
+| Action             | Key type   | How                                                                                                                                       |
+| ------------------ | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Deactivate         | Long-term  | Console: *_API keys_<br>• > select key > *_Actions_<br>• > **Deactivate**. API: `UpdateServiceSpecificCredential` with `Status=Inactive`. |
+| Reset              | Long-term  | Console: *_Actions_<br>• > **Reset key**. API: `ResetServiceSpecificCredential`.                                                          |
+| Delete             | Long-term  | Console: *_Actions_<br>• > **Delete**. API: `DeleteServiceSpecificCredential`.                                                            |
+| Invalidate session | Short-term | Attach an IAM policy to the identity that denies `bedrock:CallWithBearerToken`, or invalidate the session used to generate the key.       |
 
 ## Control who can generate and use API keys
 

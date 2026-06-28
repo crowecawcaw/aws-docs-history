@@ -123,9 +123,9 @@ When using metadata filtering with a managed knowledge base:
   prefix (for example, `_source_uri`,
   `_data_source_id`). You cannot override reserved metadata
   fields in either knowledge base type.
-  For example, "epoch_modification_time" represents the time in number of seconds since
+  For example, "epoch\_modification\_time" represents the time in number of seconds since
   January 1, 1970 (UTC) when the document was last updated. You can filter
-  on the most recent data, where "epoch_modification_time" is _greater
+  on the most recent data, where "epoch\_modification\_time" is _greater
   than_ a certain number. These most recent documents can be used for
   the query.
 
@@ -162,49 +162,48 @@ fulfills the following requirements:
   from your data sources. If you choose to provide this field, you must create
   an index on this column.
 
-      + When you [create a new knowledge
-       base](knowledge-base-create.md "knowledge-base-create.md") in the console and let Amazon Bedrock configure your Amazon Aurora
-       database, it will automatically create a single column for you and populate it with the
-       information from your metadata files.
-      + When you choose to [create another vector
-       index](knowledge-base-setup.md "knowledge-base-setup.md") in the vector store, you must provide the custom metadata field name
-       to store information from your metadata files.
-       If you don't provide this field name, you must create a column for
-       each metadata attribute in your files and specify the data type (text,
-       number, or boolean). For example, if the attribute `genre`
-       exists in your data source, you would add a column named
-       `genre` and specify `text` as the data type. During
-       ingestion, these separate columns
-       will be populated with the corresponding attribute values.
-
-  If you have PDF documents in your data source and use Amazon OpenSearch Serverless or Amazon Aurora for your vector
-  store: Amazon Bedrock knowledge bases will generate document page numbers and store them in a
-  metadata field/attribute called
-  _x-amz-bedrock-kb-document-page-number_. Note that page
-  numbers stored in a metadata field is not supported if you choose no chunking for
-  your documents.
+  - When you [create a new knowledge
+    base](knowledge-base-create.md "knowledge-base-create.md") in the console and let Amazon Bedrock configure your Amazon Aurora
+    database, it will automatically create a single column for you and populate it with the
+    information from your metadata files.
+  - When you choose to [create another vector
+    index](knowledge-base-setup.md "knowledge-base-setup.md") in the vector store, you must provide the custom metadata field name
+    to store information from your metadata files.
+    If you don't provide this field name, you must create a column for
+    each metadata attribute in your files and specify the data type (text,
+    number, or boolean). For example, if the attribute `genre`
+    exists in your data source, you would add a column named
+    `genre` and specify `text` as the data type. During
+    ingestion, these separate columns
+    will be populated with the corresponding attribute values.
+    If you have PDF documents in your data source and use Amazon OpenSearch Serverless or Amazon Aurora for your vector
+    store: Amazon Bedrock knowledge bases will generate document page numbers and store them in a
+    metadata field/attribute called
+    _x-amz-bedrock-kb-document-page-number_. Note that page
+    numbers stored in a metadata field is not supported if you choose no chunking for
+    your documents.
 
 You can use the following filtering operators to filter results when you query:
 
-| Filtering operators    | Operator      | Console                                                                                                                                                                                                                                                          | API filter name         | Supported attribute data types                                                                                                                                                                                                                                                                                                                                                                                                      | Filtered results |
-| ---------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| Equals                 | =             | [equals](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-equals "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-equals")                                        | string, number, boolean | Attribute matches the value you provide                                                                                                                                                                                                                                                                                                                                                                                             |
-| Not equals             | !=            | [notEquals](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-notEquals "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-notEquals")                               | string, number, boolean | Attribute doesn’t match the value you provide                                                                                                                                                                                                                                                                                                                                                                                       |
-| Greater than           | >             | [greaterThan](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-greaterThan "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-greaterThan")                         | number                  | Attribute is greater than the value you provide                                                                                                                                                                                                                                                                                                                                                                                     |
-| Greater than or equals | >=            | [greaterThanOrEquals](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-greaterThanOrEquals "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-greaterThanOrEquals") | number                  | Attribute is greater than or equal to the value you provide                                                                                                                                                                                                                                                                                                                                                                         |
-| Less than              | <             | [lessThan](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-lessThan "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-lessThan")                                  | number                  | Attribute is less than the value you provide                                                                                                                                                                                                                                                                                                                                                                                        |
-| Less than or equals    | <=            | [lessThanOrEquals](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-lessThanOrEquals "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-lessThanOrEquals")          | number                  | Attribute is less than or equal to the value you provide                                                                                                                                                                                                                                                                                                                                                                            |
-| In                     | :             | [in](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-in "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-in")                                                    | string list             | Attribute is in the list you provide (currently best supported with Amazon OpenSearch Serverless and Neptune Analytics<br>GraphRAG vector stores)                                                                                                                                                                                                                                                                                   |
-| Not in                 | !:            | [notIn](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-notIn "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-notIn")                                           | string list             | Attribute isn’t in the list you provide (currently best supported with Amazon OpenSearch Serverless and Neptune Analytics<br>GraphRAG vector stores)                                                                                                                                                                                                                                                                                |
-| String contains        | Not available | [stringContains](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-stringContains "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-stringContains")                | string                  | Attribute must be a string. Attribute name matches the key and whose value is a string that contains the value that you provided<br>as a substring, or a list with a member that contains the value that you provided as a substring (currently best supported with Amazon OpenSearch<br>Serverless vector store. The Neptune Analytics GraphRAG vector store supports the string variant but not the list variant of this filter). |
-| List contains          | Not available | [listContains](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-listContains "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-listContains")                      | string                  | Attribute must be a string list. Attribute name matches the key and whose value is a list that contains the value that<br>you provided as one of its members (currently best supported with Amazon OpenSearch Serverless vector stores).                                                                                                                                                                                            |
+Filtering operators| Operator | Console | API filter name | Supported attribute data types | Filtered results |
+| --- | --- | --- | --- | --- |
+| Equals | = | [equals](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-equals "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-equals") | string, number, boolean | Attribute matches the value you provide |
+| Not equals | != | [notEquals](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-notEquals "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-notEquals") | string, number, boolean | Attribute doesn’t match the value you provide |
+| Greater than | > | [greaterThan](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-greaterThan "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-greaterThan") | number | Attribute is greater than the value you provide |
+| Greater than or equals | >= | [greaterThanOrEquals](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-greaterThanOrEquals "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-greaterThanOrEquals") | number | Attribute is greater than or equal to the value you provide |
+| Less than | < | [lessThan](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-lessThan "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-lessThan") | number | Attribute is less than the value you provide |
+| Less than or equals | <= | [lessThanOrEquals](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-lessThanOrEquals "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-lessThanOrEquals") | number | Attribute is less than or equal to the value you provide |
+| In | : | [in](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-in "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-in") | string list | Attribute is in the list you provide (currently best supported with Amazon OpenSearch Serverless and Neptune Analytics<br>GraphRAG vector stores) |
+| Not in | !: | [notIn](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-notIn "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-notIn") | string list | Attribute isn’t in the list you provide (currently best supported with Amazon OpenSearch Serverless and Neptune Analytics<br>GraphRAG vector stores) |
+| String contains | Not available | [stringContains](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-stringContains "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-stringContains") | string | Attribute must be a string. Attribute name matches the key and whose value is a string that contains the value that you provided<br>as a substring, or a list with a member that contains the value that you provided as a substring (currently best supported with Amazon OpenSearch<br>Serverless vector store. The Neptune Analytics GraphRAG vector store supports the string variant but not the list variant of this filter). |
+| List contains | Not available | [listContains](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-listContains "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-listContains") | string | Attribute must be a string list. Attribute name matches the key and whose value is a list that contains the value that<br>you provided as one of its members (currently best supported with Amazon OpenSearch Serverless vector stores). |
 
 To combine filtering operators, you can use the following logical operators:
 
-| Logical operators | Operator | Console                                                                                                                                                                                                                   | API filter field name                                                     | Filtered results |
-| ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ---------------- |
-| And               | and      | [andAll](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-andAll "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-andAll") | Results fulfill all of the filtering expressions in the group             |
-| Or                | or       | [orAll](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-orAll "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-orAll")    | Results fulfill at least one of the filtering<br>expressions in the group |
+Logical operators| Operator | Console | API filter field name | Filtered results |
+| --- | --- | --- | --- |
+| And | and | [andAll](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-andAll "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-andAll") | Results fulfill all of the filtering expressions in the group |
+| Or | or | [orAll](../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-orAll "../APIReference/API_agent-runtime_RetrievalFilter.md#bedrock-Type-agent-runtime_RetrievalFilter-orAll") | Results fulfill at least one of the filtering<br>expressions in the group |
 
 To learn how to filter results using metadata, choose the tab for your preferred method, and then follow the steps:
 
@@ -545,8 +544,8 @@ accurate and relevant information, especially when the initial query is multifac
 or too broad. Enabling this option may result in multiple queries being executed
 against your Knowledge Base, which may aid in a more accurate final response.
 
-For example, for a question like _“Who scored higher in the 2022 FIFA
-World Cup, Argentina or France?”_, Amazon Bedrock knowledge bases may first
+For example, for a question like _"Who scored higher in the 2022 FIFA
+World Cup, Argentina or France?"_, Amazon Bedrock knowledge bases may first
 generate the following sub-queries, before generating a final answer:
 
 1. _How many goals did Argentina score in the 2022 FIFA World Cup

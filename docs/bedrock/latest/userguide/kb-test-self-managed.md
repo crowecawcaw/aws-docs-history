@@ -1,6 +1,6 @@
-# Test your self-managed knowledge base
+# Test your customer-managed knowledge base
 
-After you set up your self-managed knowledge base, you can test its behavior in the following ways:
+After you set up your customer-managed knowledge base, you can test its behavior in the following ways:
 
 - Send queries and generate responses to the queries based on the retrieved information from your data sources, by using the [RetrieveAndGenerate](../APIReference/API_agent-runtime_RetrieveAndGenerate.md "../APIReference/API_agent-runtime_RetrieveAndGenerate.md") operation.
 - Generate a query for structured data sources.

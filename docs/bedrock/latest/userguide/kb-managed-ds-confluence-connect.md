@@ -96,34 +96,34 @@ configuration is permanent after the data source is created, set
 `aclEnabled` explicitly so the data source has the access-control
 behavior you intend. For details, see [Document-level access controls](kb-managed-ds-confluence-acl.md "kb-managed-ds-confluence-acl.md").
 
-| connectionConfiguration | Field | Required                                                                                                                                                                                                               | Description |
-| ----------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `secretArn`             | Yes   | The ARN of the AWS Secrets Manager secret containing your Confluence credentials.                                                                                                                                      |
-| `type`                  | Yes   | The Confluence deployment type. Set to `SAAS`.<br>Confluence Server and Data Center are not supported.                                                                                                                 |
-| `authType`              | Yes   | The authentication type. Set to `BASIC` or<br>`OAUTH2`. See [Authentication methods](kb-managed-ds-confluence.md#kb-managed-confluence-auth-methods "kb-managed-ds-confluence.md#kb-managed-confluence-auth-methods"). |
-| `hostUrl`               | Yes   | The base URL of your Confluence Cloud instance (for example,<br>`https://example.atlassian.net`).                                                                                                                      |
+connectionConfiguration| Field | Required | Description |
+| --- | --- | --- |
+| `secretArn` | Yes | The ARN of the AWS Secrets Manager secret containing your Confluence credentials. |
+| `type` | Yes | The Confluence deployment type. Set to `SAAS`.<br>Confluence Server and Data Center are not supported. |
+| `authType` | Yes | The authentication type. Set to `BASIC` or<br>`OAUTH2`. See [Authentication methods](kb-managed-ds-confluence.md#kb-managed-confluence-auth-methods "kb-managed-ds-confluence.md#kb-managed-confluence-auth-methods"). |
+| `hostUrl` | Yes | The base URL of your Confluence Cloud instance (for example,<br>`https://example.atlassian.net`). |
 
-| dataEntityConfiguration (optional) | Field | Required                                                                                 | Description |
-| ---------------------------------- | ----- | ---------------------------------------------------------------------------------------- | ----------- |
-| `crawlPage`                        | No    | Whether to crawl pages.                                                                  |
-| `crawlBlog`                        | No    | Whether to crawl blog posts.                                                             |
-| `crawlPageAttachment`              | No    | Whether to crawl page attachments. Crawled only when<br>`crawlPage` is also `true`.      |
-| `crawlBlogAttachment`              | No    | Whether to crawl blog post attachments. Crawled only when<br>`crawlBlog` is also `true`. |
-| `crawlArchivedSpace`               | No    | Whether to crawl archived spaces.                                                        |
-| `crawlArchivedPage`                | No    | Whether to crawl archived pages.                                                         |
-| `crawlPersonalSpace`               | No    | Whether to crawl personal spaces.                                                        |
+dataEntityConfiguration (optional)| Field | Required | Description |
+| --- | --- | --- |
+| `crawlPage` | No | Whether to crawl pages. |
+| `crawlBlog` | No | Whether to crawl blog posts. |
+| `crawlPageAttachment` | No | Whether to crawl page attachments. Crawled only when<br>`crawlPage` is also `true`. |
+| `crawlBlogAttachment` | No | Whether to crawl blog post attachments. Crawled only when<br>`crawlBlog` is also `true`. |
+| `crawlArchivedSpace` | No | Whether to crawl archived spaces. |
+| `crawlArchivedPage` | No | Whether to crawl archived pages. |
+| `crawlPersonalSpace` | No | Whether to crawl personal spaces. |
 
-| filterConfiguration (optional) | Field | Required                                                                                                                                             | Description |
-| ------------------------------ | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `inclusionSpaceKeys`           | No    | Space keys to include.                                                                                                                               |
-| `inclusionSpaceUrls`           | No    | Space URLs to include.                                                                                                                               |
-| `inclusionMimeTypes`           | No    | MIME types to include.                                                                                                                               |
-| `exclusionMimeTypes`           | No    | MIME types to exclude.                                                                                                                               |
-| `maxFileSizeInMegaBytes`       | No    | Maximum size, in megabytes, of any single file the connector<br>ingests. Provide as a numeric string (for example,<br>`"500"`). Defaults to `"500"`. |
+filterConfiguration (optional)| Field | Required | Description |
+| --- | --- | --- |
+| `inclusionSpaceKeys` | No | Space keys to include. |
+| `inclusionSpaceUrls` | No | Space URLs to include. |
+| `inclusionMimeTypes` | No | MIME types to include. |
+| `exclusionMimeTypes` | No | MIME types to exclude. |
+| `maxFileSizeInMegaBytes` | No | Maximum size, in megabytes, of any single file the connector<br>ingests. Provide as a numeric string (for example,<br>`"500"`). Defaults to `"500"`. |
 
-| aclEnabled (optional) | Field | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Description |
-| --------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `aclEnabled`          | No    | Whether document-level access control is enabled. Set to<br>`true` to enable, or `false` to disable. If<br>you omit this field, the default depends on `authType`:<br>`BASIC` defaults to `true`;<br>`OAUTH2` defaults to `false`. ACL on<br>`BASIC` requires a secret that includes Atlassian<br>organization admin credentials. You cannot change this setting<br>after you create the data source. For details, see [Document-level access controls](kb-managed-ds-confluence-acl.md "kb-managed-ds-confluence-acl.md"). |
+aclEnabled (optional)| Field | Required | Description |
+| --- | --- | --- |
+| `aclEnabled` | No | Whether document-level access control is enabled. Set to<br>`true` to enable, or `false` to disable. If<br>you omit this field, the default depends on `authType`:<br>`BASIC` defaults to `true`;<br>`OAUTH2` defaults to `false`. ACL on<br>`BASIC` requires a secret that includes Atlassian<br>organization admin credentials. You cannot change this setting<br>after you create the data source. For details, see [Document-level access controls](kb-managed-ds-confluence-acl.md "kb-managed-ds-confluence-acl.md"). |
 
 ## Change the authentication method
 

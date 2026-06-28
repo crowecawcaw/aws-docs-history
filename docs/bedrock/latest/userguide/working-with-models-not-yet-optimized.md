@@ -162,7 +162,7 @@ If you include specific instructions in the optimized prompt, then you need to p
 }
 ```
 
-The prompting changes in the example code caused the model to spit out a trace that specifically mentioned tool_use as a stop reason. Since this is the standard for the default parser, no further changes are needed, but if you were to add new specific instructions, then a parser would need to be written to handle the changes.
+The prompting changes in the example code caused the model to spit out a trace that specifically mentioned tool\_use as a stop reason. Since this is the standard for the default parser, no further changes are needed, but if you were to add new specific instructions, then a parser would need to be written to handle the changes.
 
 ### Using tools with models that do not support native tool use
 

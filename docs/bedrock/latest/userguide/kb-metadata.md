@@ -51,7 +51,7 @@ is applied to the content field. Amazon Bedrock knowledge bases currently suppor
 The content field is split into chunks, and the metadata fields (columns) that are
 associated with each chunk are treated as string values.
 
-For example, say there's a CSV with a column 'Description' and a column 'Creation_Date'.
+For example, say there's a CSV with a column 'Description' and a column 'Creation\_Date'.
 The description field is the content field and the creation date is an associated metadata
 field. The description text is split into chunks and converted into vector embeddings for
 each row in the CSV. The creation date value is treated as string representation of the

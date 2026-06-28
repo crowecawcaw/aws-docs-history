@@ -32,17 +32,17 @@ object.
 
 The following table shows the minimum, maximum, and default values for the numerical parameters.
 
-| Parameter         | Type  | Default  | Range/Validation   | Description                    |
-| ----------------- | ----- | -------- | ------------------ | ------------------------------ |
-| messages          | array | Required | 1-∞ items          | Chat history messages          |
-| temperature       | float | 1.0      | 0.0 ≤ x ≤ 2.0      | Sampling temperature           |
-| top_p             | float | 1.0      | 0.0 < value ≤ 1.0  | Nucleus sampling threshold     |
-| max_tokens        | int   | 16       | 1 ≤ x ≤ 8192       | Maximum tokens to generate     |
-| min_tokens        | int   | 0        | 0 ≤ x ≤ max_tokens | Minimum tokens before stopping |
-| stop              | array | []       | ≤4 entries         | Stop sequences                 |
-| seed              | int   | null     | Any integer        | Random seed                    |
-| presence_penalty  | float | 0.0      | -2.0 ≤ x ≤ 2.0     | New token presence penalty     |
-| frequency_penalty | float | 0.0      | -2.0 ≤ x ≤ 2.0     | Token frequency penalty        |
+| Parameter          | Type  | Default  | Range/Validation    | Description                    |
+| ------------------ | ----- | -------- | ------------------- | ------------------------------ |
+| messages           | array | Required | 1-∞ items           | Chat history messages          |
+| temperature        | float | 1.0      | 0.0 ≤ x ≤ 2.0       | Sampling temperature           |
+| top\_p             | float | 1.0      | 0.0 < value ≤ 1.0   | Nucleus sampling threshold     |
+| max\_tokens        | int   | 16       | 1 ≤ x ≤ 8192        | Maximum tokens to generate     |
+| min\_tokens        | int   | 0        | 0 ≤ x ≤ max\_tokens | Minimum tokens before stopping |
+| stop               | array | []       | ≤4 entries          | Stop sequences                 |
+| seed               | int   | null     | Any integer         | Random seed                    |
+| presence\_penalty  | float | 0.0      | -2.0 ≤ x ≤ 2.0      | New token presence penalty     |
+| frequency\_penalty | float | 0.0      | -2.0 ≤ x ≤ 2.0      | Token frequency penalty        |
 
 ## Palmyra X4 invocation response body field
 

@@ -1,5 +1,9 @@
 # Modify a data source for your Amazon Bedrock knowledge base
 
+###### Important
+
+For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md "kb-build-managed.md").
+
 You can update a data source for your knowledge base, such as changing the data source configurations.
 
 You can update a data source in the following ways:
@@ -23,19 +27,16 @@ You can update a data source in the following ways:
 - The files don't exceed the **Ingestion job file size** specified in [Amazon Bedrock endpoints and quotas](../../../general/latest/gr/bedrock.md "../../../general/latest/gr/bedrock.md") in the AWS General Reference.
 - If your data source contains metadata files, check the following conditions to ensure that the metadata files aren't ignored:
 
-      + Each `.metadata.json` file shares the same file name and extension as the source file that it's associated with.
-      + If the vector index for your knowledge base is in an Amazon OpenSearch Serverless vector store, check that the vector index is configured with the `faiss` engine. If the vector index is configured with the `nmslib` engine, you'll have to do one of the following:
+  - Each `.metadata.json` file shares the same file name and extension as the source file that it's associated with.
+  - If the vector index for your knowledge base is in an Amazon OpenSearch Serverless vector store, check that the vector index is configured with the `faiss` engine. If the vector index is configured with the `nmslib` engine, you'll have to do one of the following:
 
+    - [Create a new knowledge base](knowledge-base-create.md "knowledge-base-create.md") in the console and let Amazon Bedrock automatically create a vector index in Amazon OpenSearch Serverless for you.
+    - [Create another vector index](knowledge-base-setup.md "knowledge-base-setup.md") in the vector store and select `faiss` as the **Engine**. Then [create a new knowledge base](knowledge-base-create.md "knowledge-base-create.md") and specify the new vector index.
 
-
-
-      	- [Create a new knowledge base](knowledge-base-create.md "knowledge-base-create.md") in the console and let Amazon Bedrock automatically create a vector index in Amazon OpenSearch Serverless for you.
-      	- [Create another vector index](knowledge-base-setup.md "knowledge-base-setup.md") in the vector store and select `faiss` as the **Engine**. Then [create a new knowledge base](knowledge-base-create.md "knowledge-base-create.md") and specify the new vector index.
-      + If the vector index for your knowledge base is in an Amazon Aurora database cluster, we recommend that you use the custom metadata field to store all your metadata in a single column
-       and create an index on this column. If you do not provide the custom metadata field, you must check that the table for your index contains a column for each metadata property in your
-       metadata files before starting ingestion. For more information, see [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
-
-  To learn how to update a data source, choose the tab for your preferred method, and then follow the steps:
+  - If the vector index for your knowledge base is in an Amazon Aurora database cluster, we recommend that you use the custom metadata field to store all your metadata in a single column
+    and create an index on this column. If you do not provide the custom metadata field, you must check that the table for your index contains a column for each metadata property in your
+    metadata files before starting ingestion. For more information, see [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
+    To learn how to update a data source, choose the tab for your preferred method, and then follow the steps:
 
 Console
 
@@ -67,8 +68,7 @@ For data deletion policy settings, you can choose either:
      Note that the **vector store itself is not deleted**
      if you delete a knowledge base or data source resource.
 
-7. Choose **Sync**.
-8. A green banner appears when the sync is complete and the **Status** becomes **Ready**.
+7. Choose **Sync**. 8. A green banner appears when the sync is complete and the **Status** becomes **Ready**.
 
 API
 

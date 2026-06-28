@@ -24,8 +24,8 @@ In Claude 3.7 Sonnet, the following applies:
 
 - Occasionally Claude’s internal reasoning will be flagged by our
   safety systems. When this occurs, we encrypt some or all of the thinking
-  block and return it to you as a redacted_thinking block.
-  redacted_thinking blocks are decrypted when passed back to the API,
+  block and return it to you as a redacted\_thinking block.
+  redacted\_thinking blocks are decrypted when passed back to the API,
   allowing Claude to continue its response without losing
   context.
 - `thinking` and `redacted_thinking` blocks are
@@ -85,7 +85,7 @@ the API. For more details, see the [Extended thinking with tool use](claude-mess
 
 The following example uses the **InvokeModelWithResponseStream** API to demonstrate the request and response structure when using thinking tokens with redactions.
 
-When streaming is enabled, you’ll receive thinking content from the thinking_delta events. Here’s how to handle streaming with thinking:
+When streaming is enabled, you’ll receive thinking content from the thinking\_delta events. Here’s how to handle streaming with thinking:
 
 **Request**
 

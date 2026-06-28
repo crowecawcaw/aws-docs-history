@@ -17,71 +17,70 @@ Console
 
 ###### To create a managed knowledge base
 
-1.  Sign in to the AWS Management Console and navigate to Amazon Bedrock AgentCore >
-    **Built-in tools** >
-    **Knowledge Base**.
-2.  Choose **Create Managed Knowledge Base**.
-3.  (Optional) Expand **Additional configurations**
-    of **Knowledge Base details** section to configure
-    the following:
+1. Sign in to the AWS Management Console and navigate to Amazon Bedrock AgentCore >
+   **Built-in tools** >
+   **Knowledge Base**.
+2. Choose **Create Managed Knowledge Base**.
+3. (Optional) Expand **Additional configurations**
+   of **Knowledge Base details** section to configure
+   the following:
 
-    - Add a description.
-    - Choose an embedding model type:
+   - Add a description.
+   - Choose an embedding model type:
 
-      - **Managed** (default):
-        A service-managed embedding model is used. No model
-        selection or configuration is required.
-      - **Custom**: Select a
-        Bedrock embedding model. Choose the model to open the
-        model selector, which shows available providers
-        (Amazon, Cohere) and models.
+     - **Managed** (default):
+       A service-managed embedding model is used. No model
+       selection or configuration is required.
+     - **Custom**: Select a
+       Bedrock embedding model. Choose the model to open the
+       model selector, which shows available providers
+       (Amazon, Cohere) and models.
 
-    - Configure IAM permissions: choose **Create and
-      use a new service role** (recommended) or select an
-      existing role.
-    - Configure AWS KMS encryption for the managed vector store
-      (AWS managed key by default, or select a custom KMS key).
+   - Configure IAM permissions: choose **Create and
+     use a new service role** (recommended) or select an
+     existing role.
+   - Configure AWS KMS encryption for the managed vector store
+     (AWS managed key by default, or select a custom KMS key).
 
-4.  Under **Data source**, provide a data source
-    name.
-5.  Select your data source type from the dropdown: Amazon S3, Confluence,
-    Custom, Google Drive, OneDrive, SharePoint, or Web Crawler.
-6.  Configure the data source connection settings for your selected
-    data source type.
-7.  (Optional) Expand **Content parsing and chunking**
-    to configure the following:
+4. Under **Data source**, provide a data source
+   name.
+5. Select your data source type from the dropdown: Amazon S3, Confluence,
+   Custom, Google Drive, OneDrive, SharePoint, or Web Crawler.
+6. Configure the data source connection settings for your selected
+   data source type.
+7. (Optional) Expand **Content parsing and chunking**
+   to configure the following:
 
-    - Parsing strategy is set to **Managed
-      parser** by default.
-    - Select a text chunking strategy from the dropdown:
+   - Parsing strategy is set to **Managed
+     parser** by default.
+   - Select a text chunking strategy from the dropdown:
 
-      - **Default chunking**
-        (recommended): Splits text into fixed-size
-        chunks.
-      - **Fixed-size chunking**:
-        Splits text into your set approximate token size.
-      - **No chunking**: For
-        pre-processed or pre-split documents.
+     - **Default chunking**
+       (recommended): Splits text into fixed-size
+       chunks.
+     - **Fixed-size chunking**:
+       Splits text into your set approximate token size.
+     - **No chunking**: For
+       pre-processed or pre-split documents.
 
-8.  (Optional) Expand **Advanced configurations** to
-    configure advanced indexing. Under **Content
-    indexing**, the default indexes text-based content from
-    common documents. Enable advanced indexing for additional
-    modalities:
+8. (Optional) Expand **Advanced configurations** to
+   configure advanced indexing. Under **Content
+   indexing**, the default indexes text-based content from
+   common documents. Enable advanced indexing for additional
+   modalities:
 
-        * **Visual content in documents**:
-         Processes embedded visuals in .pdf, .docx, .ppt, .pptx
-         files.
-        * **Audio files**: Processes
-         .mp3, .wav, .m4a, .flac, .ogg files.
-        * **Video files**: Processes
-         .mp4, .mov, .m4v files.
+   - **Visual content in documents**:
+     Processes embedded visuals in .pdf, .docx, .ppt, .pptx
+     files.
+   - **Audio files**: Processes
+     .mp3, .wav, .m4a, .flac, .ogg files.
+   - **Video files**: Processes
+     .mp4, .mov, .m4v files.
+     Optionally set a maximum file size (MB) and configure the document
+     deletion safeguard.
 
-    Optionally set a maximum file size (MB) and configure the document
-    deletion safeguard.
-
-9.  (Optional) Configure log delivery to send knowledge base ingestion
-    logs to a destination such as CloudWatch Logs, Amazon S3, or Firehose.
+9. (Optional) Configure log delivery to send knowledge base ingestion
+   logs to a destination such as CloudWatch Logs, Amazon S3, or Firehose.
 10. Choose **Create Knowledge Base**.
 11. Wait for the knowledge base and data source to be created (2–5
     minutes). If you create a managed knowledge base with a customer

@@ -458,11 +458,11 @@ You must also add the `lakeformation:GetDataAccess` action to your Amazon Bedroc
      and tables.
 
 5. Depending on the data source you use in AWS Glue Data Catalog, you might need to
-   add permissions to access that data source (for more information,
-   see [AWS Glue
-   dependency on other AWS services](../../../glue/latest/dg/dependency-on-other-services.md "../../../glue/latest/dg/dependency-on-other-services.md")). For example, if your
-   data source is in an Amazon S3 location, you'll need to add the following
-   statement to the policy above.
+add permissions to access that data source (for more information,
+see [AWS Glue
+dependency on other AWS services](../../../glue/latest/dg/dependency-on-other-services.md "../../../glue/latest/dg/dependency-on-other-services.md")). For example, if your
+data source is in an Amazon S3 location, you'll need to add the following
+statement to the policy above.
 
 ```
 {

@@ -37,7 +37,7 @@ Each `accessControlList` entry contains:
 - `type` — Must be `USER`.
 - `access` — Either `ALLOW` or `DENY`. Deny overrides allow.
 
-### Inline ACL (metadata.type = IN_LINE_ATTRIBUTE)
+### Inline ACL (metadata.type = IN\_LINE\_ATTRIBUTE)
 
 Supply the `accessControlList` directly in the request body alongside the inline metadata attributes.
 
@@ -89,7 +89,7 @@ Content-type: application/json
 }
 ```
 
-### S3-based ACL (metadata.type = S3_LOCATION)
+### S3-based ACL (metadata.type = S3\_LOCATION)
 
 Point the document's metadata at a `.metadata.json` file in Amazon S3. Both the metadata attributes and the `accessControlList` are read from that file.
 
@@ -137,9 +137,9 @@ Because Custom ACLs are customer-provided through `IngestKnowledgeBaseDocuments`
 
 ACL misconfigurations do not produce explicit errors during retrieval. Retrieval fails closed: affected documents are silently omitted, so a query returns fewer or zero results rather than an error. Use the verification checks above to diagnose these issues.
 
-| ACL-enabled Custom symptoms, causes, and fixes                | Symptom                                                                                            | Likely cause                                                                         | Fix |
-| ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | --- |
-| Retrieve returns 0 results for a user who should have access. | The `userId` email does not match any `accessControlList` entry.                                   | Align the user's email with the `name` in an `ALLOW` entry.                          |
-| An inline ACL is rejected or ignored.                         | Wrong field casing, or `metadata.type` is not `IN_LINE_ATTRIBUTE`.                                 | Use lowercase `name`/`type`/`access` and set `metadata.type` to `IN_LINE_ATTRIBUTE`. |
-| An S3-based ACL is not applied.                               | `metadata.type` is not `S3_LOCATION`, or the `.metadata.json` file is missing `accessControlList`. | Set `metadata.type` to `S3_LOCATION` and include `accessControlList` in the file.    |
-| A document is never returned to anyone.                       | The document was ingested without an `accessControlList`.                                          | Re-ingest the document with an `accessControlList`.                                  |
+ACL-enabled Custom symptoms, causes, and fixes| Symptom | Likely cause | Fix |
+| --- | --- | --- |
+| Retrieve returns 0 results for a user who should have access. | The `userId` email does not match any `accessControlList` entry. | Align the user's email with the `name` in an `ALLOW` entry. |
+| An inline ACL is rejected or ignored. | Wrong field casing, or `metadata.type` is not `IN_LINE_ATTRIBUTE`. | Use lowercase `name`/`type`/`access` and set `metadata.type` to `IN_LINE_ATTRIBUTE`. |
+| An S3-based ACL is not applied. | `metadata.type` is not `S3_LOCATION`, or the `.metadata.json` file is missing `accessControlList`. | Set `metadata.type` to `S3_LOCATION` and include `accessControlList` in the file. |
+| A document is never returned to anyone. | The document was ingested without an `accessControlList`. | Re-ingest the document with an `accessControlList`. |

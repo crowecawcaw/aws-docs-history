@@ -21,7 +21,7 @@ the number of songs to include in the playlist.
          run inference on the prompt.
       2. In the **Message** text box, enter
          `Make me a {{genre}} playlist consisting of
-the following number of songs: {{number}}.`.
+  the following number of songs: {{number}}.`.
          This creates two variables that will appear as inputs into
          the node.
       3. (Optional) Modify the **Inference

@@ -20,7 +20,7 @@ supported.
 | ----------------------------------- | ----------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `TEXT_IMAGE`                        | `textToImageParams`           | Generation   | Generate an image using a text prompt.                                                                                                                                                       |
 | `TEXT_IMAGE`                        | `textToImageParams`           | Generation   | (Image conditioning-V2 only) Provide an additional input conditioning image along with a text prompt to generate an image that follows the layout and composition of the conditioning image. |
-| `INPAINTING`                        | `inPaintingParams`            | Editing      | Modify an image by changing the inside of a<br>\*mask<br>• to match the surrounding background.                                                                                              |
+| `INPAINTING`                        | `inPaintingParams`            | Editing      | Modify an image by changing the inside of a<br>*mask<br>• to match the surrounding background.                                                                                               |
 | `OUTPAINTING`                       | `outPaintingParams`           | Editing      | Modify an image by seamlessly extending the region defined by the<br>_mask_.                                                                                                                 |
 | `IMAGE_VARIATION`                   | `imageVariationParams`        | Editing      | Modify an image by producing variations of the original<br>image.                                                                                                                            |
 | `COLOR_GUIDED_GENERATION (V2 only)` | `colorGuidedGenerationParams` | Generation   | Provide a list of hex color codes along with a text prompt to generate an image that follows the color palette.                                                                              |
@@ -35,10 +35,9 @@ If you carry out inpainting or outpainting, you also define a _mask_, a Region o
 - `maskPrompt` – Write a text prompt to describe the part of the image to be masked.
 - `maskImage` – Input a base64-encoded string that defines the masked Regions by marking each pixel in the input image as (0 0 0) or (255 255 255).
 
-      + A pixel defined as (0 0 0) is a pixel inside the mask.
-      + A pixel defined as (255 255 255) is a pixel outside the mask.
-
-  You can use a photo editing tool to draw masks. You can then convert the output JPEG or PNG image to base64-encoding to input into this field. Otherwise, use the `maskPrompt` field instead to allow the model to infer the mask.
+  - A pixel defined as (0 0 0) is a pixel inside the mask.
+  - A pixel defined as (255 255 255) is a pixel outside the mask.
+    You can use a photo editing tool to draw masks. You can then convert the output JPEG or PNG image to base64-encoding to input into this field. Otherwise, use the `maskPrompt` field instead to allow the model to infer the mask.
 
 Select a tab to view API request bodies for different image generation use-cases and explanations of the fields.
 
@@ -251,7 +250,7 @@ Text prompt to generate the image must be <= 512 characters. Resolutions <= 1,40
 Don't use negative words in the `negativeText` prompt. For example, if you don't want to include mirrors in an image, enter `mirrors` in the `negativeText` prompt. Don't enter `no mirrors`.
 
 - **conditionImage** (Optional-V2 only) – A single input conditioning image that guides the layout and composition of the generated image. An image is defined as a base64-encoded image string. For examples of how to encode an image into base64 and decode a base64-encoded string and transform it into an image.
-- **controlMode** (Optional-V2 only) – Specifies that type of conditioning mode should be used. Two types of conditioning modes are supported: CANNY_EDGE and SEGMENTATION. Default value is CANNY_EDGE.
+- **controlMode** (Optional-V2 only) – Specifies that type of conditioning mode should be used. Two types of conditioning modes are supported: CANNY\_EDGE and SEGMENTATION. Default value is CANNY\_EDGE.
 - **controlStrength** (Optional-V2 only) – Specifies how similar the layout and composition of the generated image should be to the conditioningImage. Range in 0 to 1.0 with lower values used to introduce more randomness. Default value is 0.7.
 
 ###### Note
@@ -372,12 +371,11 @@ The shared and optional `imageGenerationConfig` contains the following fields. I
 
 - The following parameters define the size that you want the output image to be. For more details about pricing by image size, see [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
 
-      + **height** (Optional) – The height
-       of the image in pixels. The default value is 1408.
-      + **width** (Optional) – The width
-       of the image in pixels. The default value is 1408.
-
-  The following sizes are permissible.
+  - **height** (Optional) – The height
+    of the image in pixels. The default value is 1408.
+  - **width** (Optional) – The width
+    of the image in pixels. The default value is 1408.
+    The following sizes are permissible.
 
 | Width | Height | Aspect ratio | Price equivalent to |
 | ----- | ------ | ------------ | ------------------- |

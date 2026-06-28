@@ -1,5 +1,9 @@
 # Connect to Microsoft SharePoint for your knowledge base
 
+###### Important
+
+For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md "kb-build-managed.md").
+
 Microsoft SharePoint is a collaborative web-based service for working on documents, web pages,
 web sites, lists, and more. You can connect to your SharePoint instance for your Amazon Bedrock
 knowledge base by using either the [AWS Management
@@ -117,9 +121,9 @@ If your content includes sensitive information, then Amazon Bedrock could
 respond using sensitive information.
 
 You can apply filtering operators to metadata fields to help you further improve the
-relevancy of responses. For example, document "epoch_modification_time" or the number of seconds that’s passed
+relevancy of responses. For example, document "epoch\_modification\_time" or the number of seconds that’s passed
 January 1 1970 for when the document was last updated. You can filter on the most recent data, where
-"epoch_modification_time" is _greater than_ a certain number. For more information
+"epoch\_modification\_time" is _greater than_ a certain number. For more information
 on the filtering operators you can apply to your metadata fields, see [Metadata and filtering](kb-test-config.md "kb-test-config.md").
 
 You can include or exclude crawling certain content. For example, you can specify an
@@ -162,9 +166,9 @@ When using Microsoft Entra ID authentication (`OAUTH2_CLIENT_CREDENTIALS`), your
 credentials in AWS Secrets Manager must include these key-value pairs:
 
 - `clientId`: `Application (client) ID from your
-Microsoft Entra ID app registration`
+ Microsoft Entra ID app registration`
 - `clientSecret`: `client secret value from your
-Microsoft Entra ID app registration`
+ Microsoft Entra ID app registration`
 
 ###### Note
 
@@ -341,13 +345,13 @@ credentials in AWS Secrets Manager must include these key-value
 pairs**.
 
 - `username`: `SharePoint admin
-username`
+ username`
 - `password`: `SharePoint admin
-password`
+ password`
 - `clientId`: `OAuth app client
-ID`
+ ID`
 - `clientSecret`: `OAuth app client
-secret`
+ secret`
 
 ### Connect a SharePoint instance to your knowledge base
 

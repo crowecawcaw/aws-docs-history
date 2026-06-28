@@ -63,7 +63,7 @@ Each `aclEntries` element contains:
 
 ## Per-document metadata files
 
-As an alternative to the global ACL file, you can define ACLs per document using metadata files. For each document, create a file named ``filename`.metadata.json`in the same Amazon S3 path. Include an`accessControlList` array with the same entry format as the global file.
+As an alternative to the global ACL file, you can define ACLs per document using metadata files. For each document, create a file named ``filename`.metadata.json` in the same Amazon S3 path. Include an `accessControlList` array with the same entry format as the global file.
 
 ```
 {
@@ -104,9 +104,9 @@ Because Amazon S3 ACLs are customer-provided, validate them before you query:
 
 ACL misconfigurations do not produce explicit errors during retrieval. Retrieval fails closed: affected documents are silently omitted, so a query returns fewer or zero results rather than an error. Use the verification checks above to diagnose these issues.
 
-| ACL-enabled Amazon S3 symptoms, causes, and fixes             | Symptom                                                            | Likely cause                                                                                                  | Fix |
-| ------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | --- |
-| Retrieve returns 0 results for a user who should have access. | The user's email does not match any ACL entry (email mismatch).    | Ensure the ACL `Name` matches the user's email exactly.                                                       |
-| A document is never returned to anyone.                       | The document has no ACL entry, so it was not ingested.             | Add an ACL for the document through the global ACL file or a per-document `.metadata.json` file, then resync. |
-| A per-document ACL is not taking effect.                      | The `.metadata.json` file is misnamed or in the wrong path.        | Name it ``filename`.metadata.json` in the same S3 path; per-document metadata overrides the global file.      |
-| ACL changes are not reflected.                                | Global ACL file changes require reindexing of the affected prefix. | Resync the affected prefix.                                                                                   |
+ACL-enabled Amazon S3 symptoms, causes, and fixes| Symptom | Likely cause | Fix |
+| --- | --- | --- |
+| Retrieve returns 0 results for a user who should have access. | The user's email does not match any ACL entry (email mismatch). | Ensure the ACL `Name` matches the user's email exactly. |
+| A document is never returned to anyone. | The document has no ACL entry, so it was not ingested. | Add an ACL for the document through the global ACL file or a per-document `.metadata.json` file, then resync. |
+| A per-document ACL is not taking effect. | The `.metadata.json` file is misnamed or in the wrong path. | Name it ``filename`.metadata.json` in the same S3 path; per-document metadata overrides the global file. |
+| ACL changes are not reflected. | Global ACL file changes require reindexing of the affected prefix. | Resync the affected prefix. |

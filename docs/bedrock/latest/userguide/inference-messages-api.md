@@ -15,7 +15,7 @@ flexibility to choose the authentication and integration style that fits your ap
 The Messages API is available on the `bedrock-mantle` endpoint in all
 Regions that support `bedrock-mantle` (see [Supported Regions and Endpoints](bedrock-mantle.md#bedrock-mantle-supported "bedrock-mantle.md#bedrock-mantle-supported")).
 On the `bedrock-runtime` endpoint, it is available in all Regions where
-Claude models are available. See [Regional availability](models-region-compatibility.md "models-region-compatibility.md") for
+Claude models are available. See [Regional availability by models](models-region-compatibility.md "models-region-compatibility.md") for
 details.
 
 ## Prerequisites

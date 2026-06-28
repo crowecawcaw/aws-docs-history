@@ -14,16 +14,16 @@ This setup requires a Microsoft Entra ID administrator (Global Administrator or 
 
 This procedure involves both a Microsoft Entra ID administrator and an AWS administrator. Depending on how responsibilities are divided in your organization, one person or several people might complete these steps. The certificate steps (Steps 4–6 and 8) apply only when you enable document-level access control. Use the following table to identify the access each step requires.
 
-| Setup steps and the access each one requires                    | Step                                                                               | What you do                                                                              | Access needed |
-| --------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------- |
-| 1. Register the application                                     | Create the Entra app registration and record its client and tenant IDs.            | Microsoft Entra ID administrator (Global Administrator or Privileged Role Administrator) |
-| 2. Add permissions and grant consent                            | Assign the application permissions for your configuration and grant admin consent. | Microsoft Entra ID administrator                                                         |
-| 3. Create a client secret                                       | Create a client secret for the application and record its value.                   | Microsoft Entra ID administrator                                                         |
-| 4. Generate the certificate (ACLs only)                         | Create a self-signed certificate and a PKCS#12 (`.p12`) bundle with OpenSSL.       | Anyone with a local terminal (OpenSSL required)                                          |
-| 5. Upload the public certificate to Entra (ACLs only)           | Add the public certificate to the app registration's keys.                         | Microsoft Entra ID administrator                                                         |
-| 6. Upload the certificate to Amazon S3 (ACLs only)              | Store the `.p12` bundle in an Amazon S3 bucket.                                    | AWS administrator (Amazon S3)                                                            |
-| 7. Create the secret                                            | Store the credentials in an AWS Secrets Manager secret.                            | AWS administrator (Secrets Manager)                                                      |
-| 8. Grant the service role access to the certificate (ACLs only) | Add Amazon S3 read permissions to your knowledge base service role.                | AWS administrator (IAM)                                                                  |
+Setup steps and the access each one requires| Step | What you do | Access needed |
+| --- | --- | --- |
+| 1. Register the application | Create the Entra app registration and record its client and tenant IDs. | Microsoft Entra ID administrator (Global Administrator or Privileged Role Administrator) |
+| 2. Add permissions and grant consent | Assign the application permissions for your configuration and grant admin consent. | Microsoft Entra ID administrator |
+| 3. Create a client secret | Create a client secret for the application and record its value. | Microsoft Entra ID administrator |
+| 4. Generate the certificate (ACLs only) | Create a self-signed certificate and a PKCS#12 (`.p12`) bundle with OpenSSL. | Anyone with a local terminal (OpenSSL required) |
+| 5. Upload the public certificate to Entra (ACLs only) | Add the public certificate to the app registration's keys. | Microsoft Entra ID administrator |
+| 6. Upload the certificate to Amazon S3 (ACLs only) | Store the `.p12` bundle in an Amazon S3 bucket. | AWS administrator (Amazon S3) |
+| 7. Create the secret | Store the credentials in an AWS Secrets Manager secret. | AWS administrator (Secrets Manager) |
+| 8. Grant the service role access to the certificate (ACLs only) | Add Amazon S3 read permissions to your knowledge base service role. | AWS administrator (IAM) |
 
 ## Permissions reference
 
@@ -37,21 +37,21 @@ Select the tab for your configuration to see the exact permissions to assign.
 
 Content only (no ACLs)
 
-| Content only    | API              | Permission                                       | Purpose |
-| --------------- | ---------------- | ------------------------------------------------ | ------- |
-| Microsoft Graph | `Files.Read.All` | Read the files in users' drives.                 |
+Content only| API | Permission | Purpose |
+| --- | --- | --- |
+| Microsoft Graph | `Files.Read.All` | Read the files in users' drives. |
 | Microsoft Graph | `Sites.Read.All` | Read the OneDrive sites that back users' drives. |
-| Microsoft Graph | `User.Read.All`  | Enumerate the users whose drives you crawl.      |
+| Microsoft Graph | `User.Read.All` | Enumerate the users whose drives you crawl. |
 
 With ACLs
 
-| With ACLs       | API                     | Permission                                                                                                | Purpose |
-| --------------- | ----------------------- | --------------------------------------------------------------------------------------------------------- | ------- |
-| Microsoft Graph | `Files.Read.All`        | Read the files in users' drives.                                                                          |
-| Microsoft Graph | `Sites.Read.All`        | Read the OneDrive sites that back users' drives.                                                          |
-| Microsoft Graph | `User.Read.All`         | Enumerate users and resolve them for document-level ACLs.                                                 |
-| Microsoft Graph | `GroupMember.Read.All`  | Resolve group membership for document-level ACLs.                                                         |
-| SharePoint      | `Sites.FullControl.All` | Verify each user's access to a document at query time. `Sites.Read.All` is not sufficient for this check. |
+With ACLs| API | Permission | Purpose |
+| --- | --- | --- |
+| Microsoft Graph | `Files.Read.All` | Read the files in users' drives. |
+| Microsoft Graph | `Sites.Read.All` | Read the OneDrive sites that back users' drives. |
+| Microsoft Graph | `User.Read.All` | Enumerate users and resolve them for document-level ACLs. |
+| Microsoft Graph | `GroupMember.Read.All` | Resolve group membership for document-level ACLs. |
+| SharePoint | `Sites.FullControl.All` | Verify each user's access to a document at query time. `Sites.Read.All` is not sufficient for this check. |
 
 ###### Note
 
@@ -61,15 +61,15 @@ The SharePoint `Sites.FullControl.All` permission grants the connector applicati
 
 You create or collect the following values as you work through the steps. You use them when you create the data source. For details, see [Connect a OneDrive data source](kb-managed-ds-onedrive-connect.md "kb-managed-ds-onedrive-connect.md").
 
-| Values reference                                                   | Value  | Created in                                                                                                                                 | Used for |
-| ------------------------------------------------------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| Application (client) ID                                            | Step 1 | The secret (`clientId`).                                                                                                                   |
-| Directory (tenant) ID                                              | Step 1 | The data source `tenantId`.                                                                                                                |
-| Client secret value                                                | Step 3 | The secret (`clientSecret`).                                                                                                               |
+Values reference| Value | Created in | Used for |
+| --- | --- | --- |
+| Application (client) ID | Step 1 | The secret (`clientId`). |
+| Directory (tenant) ID | Step 1 | The data source `tenantId`. |
+| Client secret value | Step 3 | The secret (`clientSecret`). |
 | Certificate — PKCS#12 bundle (`.p12`) and its password (ACLs only) | Step 4 | The bundle (certificate plus private key) is uploaded to Amazon S3 (Step 6); the password is stored in the secret (`certificatePassword`). |
-| Certificate — public certificate (`.cer`) (ACLs only)              | Step 4 | The public half of the same certificate, uploaded to the Entra app registration (Step 5).                                                  |
-| Amazon S3 bucket name and key (ACLs only)                          | Step 6 | The data source `certificateS3Path`.                                                                                                       |
-| Secret ARN                                                         | Step 7 | The data source `secretArn`.                                                                                                               |
+| Certificate — public certificate (`.cer`) (ACLs only) | Step 4 | The public half of the same certificate, uploaded to the Entra app registration (Step 5). |
+| Amazon S3 bucket name and key (ACLs only) | Step 6 | The data source `certificateS3Path`. |
+| Secret ARN | Step 7 | The data source `secretArn`. |
 
 ## Step 1: Register the application in Microsoft Entra ID
 

@@ -12,7 +12,7 @@ If your model uses a custom chat template and you want to use that template with
 
 - **`chat_template.jinja`** — A Jinja2-based template file that defines how messages are formatted.
 - **`chat_template.json`** — A JSON file containing the chat template as a string value.
-- **`tokenizer_config.json` with embedded chat template** — Alternatively, you can include the chat template directly within your `tokenizer_config.json` file as a `chat_template` field. For an example, see the [Hermes-2-Pro tokenizer_config.json](https://huggingface.co/NousResearch/Hermes-2-Pro-Llama-3-8B/blob/main/tokenizer_config.json#L2059 "https://huggingface.co/NousResearch/Hermes-2-Pro-Llama-3-8B/blob/main/tokenizer_config.json#L2059") on Hugging Face.
+- **`tokenizer_config.json` with embedded chat template** — Alternatively, you can include the chat template directly within your `tokenizer_config.json` file as a `chat_template` field. For an example, see the [Hermes-2-Pro tokenizer\_config.json](https://huggingface.co/NousResearch/Hermes-2-Pro-Llama-3-8B/blob/main/tokenizer_config.json#L2059 "https://huggingface.co/NousResearch/Hermes-2-Pro-Llama-3-8B/blob/main/tokenizer_config.json#L2059") on Hugging Face.
 
 Custom Model Import will automatically process these files and include them in the correct directories during the import process.
 
@@ -29,7 +29,7 @@ If you provide multiple chat template sources, Amazon Bedrock applies the follow
 
 - **Option 1:** Provide separate chat template files (`chat_template.jinja` or `chat_template.json`) without including a `chat_template` field in your `tokenizer_config.json`.
 - **Option 2:** Include the `chat_template` field directly in your `tokenizer_config.json` and do not provide separate template files.
-  If you have custom tool templates or complex chat template configurations, we recommend using Option 2 (embedding the template in `tokenizer_config.json`) as it allows you to define multiple named templates (such as "default" and "tool_use") within a single configuration file.
+  If you have custom tool templates or complex chat template configurations, we recommend using Option 2 (embedding the template in `tokenizer_config.json`) as it allows you to define multiple named templates (such as "default" and "tool\_use") within a single configuration file.
 
 ###### Note
 
@@ -39,7 +39,7 @@ The chat template file must follow the Hugging Face format and naming convention
 
 Here are examples of the two supported chat template formats:
 
-Jinja Format (chat_template.jinja)
+Jinja Format (chat\_template.jinja)
 A simplified example of a Jinja2-based chat template:
 
 ```
@@ -58,7 +58,7 @@ You are a helpful assistant.<|im_end|>
 
 For a complete example, see the [GPT-OSS chat template](https://huggingface.co/openai/gpt-oss-20b/blob/main/chat_template.jinja "https://huggingface.co/openai/gpt-oss-20b/blob/main/chat_template.jinja") on Hugging Face.
 
-JSON Format (chat_template.json)
+JSON Format (chat\_template.json)
 A simplified example of a JSON-based chat template with vision support:
 
 ```

@@ -18,26 +18,26 @@ All metrics are scoped to your AWS account.
 
 ## Inference metrics
 
-| Inference metrics       | Metric name | Unit                                                                                                                                                                       | Description |
-| ----------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `Inferences`            | Count       | Total number of completed inference requests across the Responses, Chat Completions, and<br>Messages APIs. Published at Account, Project, Model, and Project+Model levels. |
-| `InferenceClientErrors` | Count       | Number of inference requests that failed with a client-side (4xx) error. Published at<br>Account, Project, Model, and Project+Model levels.                                |
+Inference metrics| Metric name | Unit | Description |
+| --- | --- | --- |
+| `Inferences` | Count | Total number of completed inference requests across the Responses, Chat Completions, and<br>Messages APIs. Published at Account, Project, Model, and Project+Model levels. |
+| `InferenceClientErrors` | Count | Number of inference requests that failed with a client-side (4xx) error. Published at<br>Account, Project, Model, and Project+Model levels. |
 
 ## Token metrics
 
-| Token metrics       | Metric name | Unit                                                                                                                                                                                                                    | Description |
-| ------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `TotalInputTokens`  | Count       | Aggregate billable input tokens processed within the publish interval. Published at<br>Account, Project, and Model levels. Use for sums and rate calculations.                                                          |
-| `TotalOutputTokens` | Count       | Aggregate billable output tokens generated within the publish interval. Published at<br>Account, Project, and Model levels.                                                                                             |
-| `InputTokens`       | Count       | Per-inference billable input tokens. Each completed inference emits one datum. Published<br>at the Project+Model level only. Use this when you need percentile statistics (p50/p90/p99)<br>of per-request token counts. |
-| `OutputTokens`      | Count       | Per-inference billable output tokens. Each completed inference emits one datum.<br>Published at the Project+Model level only.                                                                                           |
+Token metrics| Metric name | Unit | Description |
+| --- | --- | --- |
+| `TotalInputTokens` | Count | Aggregate billable input tokens processed within the publish interval. Published at<br>Account, Project, and Model levels. Use for sums and rate calculations. |
+| `TotalOutputTokens` | Count | Aggregate billable output tokens generated within the publish interval. Published at<br>Account, Project, and Model levels. |
+| `InputTokens` | Count | Per-inference billable input tokens. Each completed inference emits one datum. Published<br>at the Project+Model level only. Use this when you need percentile statistics (p50/p90/p99)<br>of per-request token counts. |
+| `OutputTokens` | Count | Per-inference billable output tokens. Each completed inference emits one datum.<br>Published at the Project+Model level only. |
 
 ## Dimensions
 
-| Dimensions | Dimension name                                                   | Values                 | Applies to |
-| ---------- | ---------------------------------------------------------------- | ---------------------- | ---------- |
-| `Project`  | The project ID associated with the inference request.            | Project, Project+Model |
-| `Model`    | The model identifier (for example, `anthropic.claude-opus-4-7`). | Model, Project+Model   |
+Dimensions| Dimension name | Values | Applies to |
+| --- | --- | --- |
+| `Project` | The project ID associated with the inference request. | Project, Project+Model |
+| `Model` | The model identifier (for example, `anthropic.claude-opus-4-7`). | Model, Project+Model |
 
 Account-level metrics are scoped to your AWS account and have no additional dimensions.
 Each level of granularity emits independently, so a single inference contributes to all four

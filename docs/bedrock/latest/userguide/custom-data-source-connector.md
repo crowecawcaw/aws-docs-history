@@ -1,5 +1,9 @@
 # Connect your knowledge base to a custom data source
 
+###### Important
+
+For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md "kb-build-managed.md").
+
 Instead of choosing a supported data source service, you can connect to a custom data source for the following advantages:
 
 - Flexibility and control over the data types that you want your knowledge base to have access to.

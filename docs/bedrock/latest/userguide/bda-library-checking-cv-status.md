@@ -8,9 +8,9 @@ aws bedrock-data-automation get-data-automation-library-ingestion-job \
 
 ## Job Statuses:
 
-- **IN_PROGRESS:** Job is currently processing
+- **IN\_PROGRESS:** Job is currently processing
 - **COMPLETED:** All entities processed successfully
-- **COMPLETED_WITH_ERRORS:** Some entities failed (check output for details)
+- **COMPLETED\_WITH\_ERRORS:** Some entities failed (check output for details)
 - **FAILED:** Job failed completely
 
 ## Understanding Job Output

@@ -320,12 +320,12 @@ For CLI, the form data is base64 encoded json of the form below.
 }
 ```
 
-- COMPANY_NAME: String with maximum length of 128
-- COMPANY_WEBSITE: String with a maximum length of 128
-- INTENDED USERS: Either 0, 1 or 2. 0: Internal, 1: External, 2: Internal_and_External
-- INDUSTRY_OPTION: String with maximum length of 128
-- OTHER_INDUSTRY_OPTION: String with maximum length of 128
-- USE_CASES: String with maximum length of 8192
+- COMPANY\_NAME: String with maximum length of 128
+- COMPANY\_WEBSITE: String with a maximum length of 128
+- INTENDED USERS: Either 0, 1 or 2. 0: Internal, 1: External, 2: Internal\_and\_External
+- INDUSTRY\_OPTION: String with maximum length of 128
+- OTHER\_INDUSTRY\_OPTION: String with maximum length of 128
+- USE\_CASES: String with maximum length of 8192
 
 ### Step 3: Create foundation model agreement
 

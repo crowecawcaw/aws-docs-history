@@ -58,10 +58,10 @@ Only the checks you requested appear under `results` and `usage`. Each `textUnit
 
 The following table lists the errors that the `InvokeGuardrailChecks` API can return.
 
-| InvokeGuardrailChecks API errors | HTTP code                   | Error                                                                           | Cause |
-| -------------------------------- | --------------------------- | ------------------------------------------------------------------------------- | ----- |
-| 400                              | ValidationException         | The request is malformed, is missing required fields, or violates a constraint. |
-| 403                              | AccessDeniedException       | The caller isn't authorized to invoke the API.                                  |
-| 429                              | ThrottlingException         | The request rate exceeded the account's quota. Retry with exponential backoff.  |
-| 500                              | InternalServerException     | The service encountered an unexpected error. Retry the request.                 |
-| 503                              | ServiceUnavailableException | The service is temporarily unavailable. Retry with exponential backoff.         |
+InvokeGuardrailChecks API errors| HTTP code | Error | Cause |
+| --- | --- | --- |
+| 400 | ValidationException | The request is malformed, is missing required fields, or violates a constraint. |
+| 403 | AccessDeniedException | The caller isn't authorized to invoke the API. |
+| 429 | ThrottlingException | The request rate exceeded the account's quota. Retry with exponential backoff. |
+| 500 | InternalServerException | The service encountered an unexpected error. Retry the request. |
+| 503 | ServiceUnavailableException | The service is temporarily unavailable. Retry with exponential backoff. |

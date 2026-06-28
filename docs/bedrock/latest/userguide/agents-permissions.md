@@ -5,20 +5,16 @@ To use a custom service role for agents instead of the one Amazon Bedrock automa
 - Trust policy
 - A policy containing the following identity-based permissions:
 
-      + Access to the Amazon Bedrock base models.
-      + Access to the Amazon S3 objects containing the OpenAPI schemas for the action groups in your agents.
-      + Permissions for Amazon Bedrock to query knowledge bases that you want to attach to your agents.
-      + If any of the following situations pertain to your use case, add the statement to the policy or add a policy with the statement to the service role:
+  - Access to the Amazon Bedrock base models.
+  - Access to the Amazon S3 objects containing the OpenAPI schemas for the action groups in your agents.
+  - Permissions for Amazon Bedrock to query knowledge bases that you want to attach to your agents.
+  - If any of the following situations pertain to your use case, add the statement to the policy or add a policy with the statement to the service role:
 
-
-
-
-      	- (Optional) If you enable multi-agent collaboration, permissions to get the aliases and invoke agent collaborators.
-      	- (Optional) If you associate a Provisioned Throughput with your agent alias, permissions to perform model invocation using that Provisioned Throughput.
-      	- (Optional) If you associate a guardrail with your agent, permissions to apply that guardrail. If the guardrail is encrypted with a KMS key, the service role will also need [permissions to decrypt the key](guardrails-permissions-kms.md "guardrails-permissions-kms.md")
-      	- (Optional) If you encrypt your agent with a KMS key, [permissions to decrypt the key](encryption-agents.md "encryption-agents.md").
-
-  Whether you use a custom role or not, you also need to attach a **resource-based policy** to the Lambda functions for the action groups in your agents to provide permissions for the service role to access the functions. For more information, see [Resource-based policy to allow Amazon Bedrock to invoke an action group Lambda function](#agents-permissions-lambda "#agents-permissions-lambda").
+    - (Optional) If you enable multi-agent collaboration, permissions to get the aliases and invoke agent collaborators.
+    - (Optional) If you associate a Provisioned Throughput with your agent alias, permissions to perform model invocation using that Provisioned Throughput.
+    - (Optional) If you associate a guardrail with your agent, permissions to apply that guardrail. If the guardrail is encrypted with a KMS key, the service role will also need [permissions to decrypt the key](guardrails-permissions-kms.md "guardrails-permissions-kms.md")
+    - (Optional) If you encrypt your agent with a KMS key, [permissions to decrypt the key](encryption-agents.md "encryption-agents.md").
+      Whether you use a custom role or not, you also need to attach a **resource-based policy** to the Lambda functions for the action groups in your agents to provide permissions for the service role to access the functions. For more information, see [Resource-based policy to allow Amazon Bedrock to invoke an action group Lambda function](#agents-permissions-lambda "#agents-permissions-lambda").
 
 ###### Topics
 

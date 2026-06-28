@@ -94,4 +94,4 @@ Other examples of queries that a knowledge base can generate a table excerpt for
 - "customers with total purchase amount less than $10"
 - "top 5 lowest spending customers"
 
-The more specific or detailed a query is, the more the knowledge base can narrow down the exact information to return. For example, instead of the query "top 10 customers by spending in 2020", a more specific query is “find the 10 highest total purchased amount to date for customers in 2020". The specific query refers to the column name "Total Purchased Amount To Date" in the customers spending database table, and also indicates that the data should be sorted by "highest".
+The more specific or detailed a query is, the more the knowledge base can narrow down the exact information to return. For example, instead of the query "top 10 customers by spending in 2020", a more specific query is "find the 10 highest total purchased amount to date for customers in 2020". The specific query refers to the column name "Total Purchased Amount To Date" in the customers spending database table, and also indicates that the data should be sorted by "highest".

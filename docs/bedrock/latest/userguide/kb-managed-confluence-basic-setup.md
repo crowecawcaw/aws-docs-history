@@ -33,11 +33,11 @@ from an Atlassian organization administrator.
 
 You need three values:
 
-| Atlassian organization admin values | Value                                                                                                                                                                                                                                                                                               | How to obtain it |
-| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `adminApiKey`                       | An Atlassian organization API key with the<br>`read:directories:admin` and<br>`read:workspaces:admin` scopes. Generate it at<br>`admin.atlassian.com` under **Settings\*<br>• → **API<br>keys\*<br>• (org admin only).                                                                              |
-| `organizationId`                    | The UUID of your Atlassian organization. Sign in to<br>`admin.atlassian.com` and copy the ID from the URL:<br>`admin.atlassian.com/o/`{orgId}``.                                                                                                                                                    |
-| `directoryId`                       | The UUID of the user directory for your Confluence workspace.<br>Retrieve it with the Atlassian Admin Workspace API<br>(`GET /v2/orgs/`{orgId}`/workspaces`)<br>using the `adminApiKey` as a bearer token. Use the<br>`directoryId` from the workspace that corresponds to<br>your Confluence site. |
+Atlassian organization admin values| Value | How to obtain it |
+| --- | --- |
+| `adminApiKey` | An Atlassian organization API key with the<br>`read:directories:admin` and<br>`read:workspaces:admin` scopes. Generate it at<br>`admin.atlassian.com` under *_Settings_<br>• → *_API<br>keys_<br>• (org admin only). |
+| `organizationId` | The UUID of your Atlassian organization. Sign in to<br>`admin.atlassian.com` and copy the ID from the URL:<br>`admin.atlassian.com/o/`{orgId}``. |
+| `directoryId` | The UUID of the user directory for your Confluence workspace.<br>Retrieve it with the Atlassian Admin Workspace API<br>(`GET /v2/orgs/`{orgId}`/workspaces`)<br>using the `adminApiKey` as a bearer token. Use the<br>`directoryId` from the workspace that corresponds to<br>your Confluence site. |
 
 ## Step 3: Create the Secrets Manager secret
 

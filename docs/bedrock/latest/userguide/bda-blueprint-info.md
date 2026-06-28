@@ -91,7 +91,7 @@ field can be a custom type.
 This
 type has a unique name, and prompts the creation of the fields that make up the detection. An
 example would be creating a custom type called Address, and including in it the fields
-“zip_code”, “city_name”, “street_name”, and “state”. Then, while processing a document, you
-could use the custom type in a field “company_address”. That field then returns all of the
+“zip\_code”, “city\_name”, “street\_name”, and “state”. Then, while processing a document, you
+could use the custom type in a field “company\_address”. That field then returns all of the
 information, grouped in rows beneath the custom type. You can have up to 30 custom type fields
 per blueprint.

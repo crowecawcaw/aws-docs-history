@@ -111,7 +111,7 @@ The following are optional parameters:
 | ------- | ------- | ------- |
 | 0.5     | 0       | 1       |
 
-- **top_p** – Use a
+- **top\_p** – Use a
   lower value to ignore less probable options. Set to 1.0 to
   disable.
 
@@ -119,7 +119,7 @@ The following are optional parameters:
 | ------- | ------- | ------- |
 | 0.9     | 0       | 1       |
 
-- **max_gen_len**
+- **max\_gen\_len**
   – Specify the maximum number of tokens to use in the generated
   response. The model truncates the response once the generated text exceeds
   `max_gen_len`.
@@ -144,11 +144,11 @@ inference call.
 More information about each field is provided below.
 
 - **generation** – The generated text.
-- **prompt_token_count** – The number of tokens in the
+- **prompt\_token\_count** – The number of tokens in the
   prompt.
-- **generation_token_count** – The number of tokens in the
+- **generation\_token\_count** – The number of tokens in the
   generated text.
-- **stop_reason** – The reason why the response stopped
+- **stop\_reason** – The reason why the response stopped
   generating text. Possible values are:
 
   - **stop** – The model has

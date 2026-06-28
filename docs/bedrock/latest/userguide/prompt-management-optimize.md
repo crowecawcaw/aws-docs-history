@@ -76,7 +76,7 @@ To keep your original prompt, choose **Cancel**. 5. To submit the prompt and gen
 ###### To optimize a prompt in Prompt management
 
 1. To learn how to write a prompt using Prompt management, follow the steps at [Create a prompt using Prompt management](prompt-management-create.md "prompt-management-create.md").
-2. After you write a prompt and select a model, choose \*\*(
+2. After you write a prompt and select a model, choose **(
 
 ![Sparkle icon representing cleaning or refreshing functionality.](images/icons/wand.png)
 
@@ -84,7 +84,7 @@ To keep your original prompt, choose **Cancel**. 5. To submit the prompt and gen
 at the top of the **Prompt** box. 3. When Amazon Bedrock finishes analyzing and optimizing your prompt,
 your optimized prompt is displayed as a variant side by side with the original prompt. 4. To use the optimized prompt instead of your original one, select
 **Replace original prompt**. To keep your original prompt,
-choose **Exit comparison\*\* and choose to save the original prompt.
+choose **Exit comparison** and choose to save the original prompt.
 
 ###### Note
 

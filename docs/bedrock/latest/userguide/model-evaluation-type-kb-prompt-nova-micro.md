@@ -279,27 +279,11 @@ Do not return any preamble or explanations, return only a pure XML string surrou
 When evaluating the completeness of the response, consider the following rubrics:
 <Rubrics>
 
-1. Does the response address the main intent or core request of the question?
+1. Does the response address the main intent or core request of the question? - The response should fulfill the primary purpose of the question. It's okay to omit some minor details unless it's explicitly requested in the question. - If there are multiple requests, assess whether the response addresses all or only a subset of the requests. A response that addresses only a portion of the requests may receive a lower score. - If the response provides additional, related information beyond what was explicitly asked, do not penalize it as long as the main request is addressed. - If the response provides relevant information but does not directly answer the question as stated, judge based on the overall context and intent rather than the literal phrasing of the question.
 
+2. Does the response provide an appropriate level of detail for the task? - For factual questions, check if the response includes the requested information accurately and completely. - For procedural questions, ensure that no critical steps are missing, but minor omissions may be acceptable. - For opinion-based questions, assess whether the response provides a well-reasoned and substantiated viewpoint. - If a specific number of items or examples is requested, ensure that the response provides the requested number.
 
-    - The response should fulfill the primary purpose of the question. It's okay to omit some minor details unless it's explicitly requested in the question.
-    - If there are multiple requests, assess whether the response addresses all or only a subset of the requests. A response that addresses only a portion of the requests may receive a lower score.
-    - If the response provides additional, related information beyond what was explicitly asked, do not penalize it as long as the main request is addressed.
-    - If the response provides relevant information but does not directly answer the question as stated, judge based on the overall context and intent rather than the literal phrasing of the question.
-
-2. Does the response provide an appropriate level of detail for the task?
-
-
-    - For factual questions, check if the response includes the requested information accurately and completely.
-    - For procedural questions, ensure that no critical steps are missing, but minor omissions may be acceptable.
-    - For opinion-based questions, assess whether the response provides a well-reasoned and substantiated viewpoint.
-    - If a specific number of items or examples is requested, ensure that the response provides the requested number.
-
-3. Consider the implicit assumptions and requirements for the task.
-
-
-    - Different audiences or contexts may require different levels of detail or specificity.
-    - If the response makes reasonable assumptions or interpretations to fill in gaps or ambiguities in the question, do not penalize it.
+3. Consider the implicit assumptions and requirements for the task. - Different audiences or contexts may require different levels of detail or specificity. - If the response makes reasonable assumptions or interpretations to fill in gaps or ambiguities in the question, do not penalize it.
 
 </Rubrics>
 

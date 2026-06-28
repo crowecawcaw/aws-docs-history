@@ -20,8 +20,8 @@ For all other models, the burndown rate is **1:1** (1 output token consumes 1 to
 ###### Topics
 
 - [Understanding token quota management](#quotas-token-burndown-management "#quotas-token-burndown-management")
-- [Understanding the impact of the max_tokens parameter](#quotas-token-burndown-max-tokens "#quotas-token-burndown-max-tokens")
-- [Optimizing the max_tokens parameter](#quotas-token-burndown-max-tokens-optimize "#quotas-token-burndown-max-tokens-optimize")
+- [Understanding the impact of the max\_tokens parameter](#quotas-token-burndown-max-tokens "#quotas-token-burndown-max-tokens")
+- [Optimizing the max\_tokens parameter](#quotas-token-burndown-max-tokens-optimize "#quotas-token-burndown-max-tokens-optimize")
 
 ## Understanding token quota management
 
@@ -57,7 +57,7 @@ For example, if you use Anthropic Claude Sonnet 4 and send a request containing 
 - **1,500 tokens** (1,000 + 100 x 5) will be depleted from your TPM and TPD quotas.
 - You'll only be billed for **1,100 tokens**.
 
-## Understanding the impact of the max_tokens parameter
+## Understanding the impact of the max\_tokens parameter
 
 The `max_tokens` value is deducted from your quota at the beginning of each request. If you’re hitting TPM quotas earlier than expected, try reducing `max_tokens` to better approximate the size of your completions.
 
@@ -69,7 +69,7 @@ Assume the following parameters:
 - **CacheReadInputTokens:** 4,000
 - **CacheWriteInputTokens:** 1,000
 - **OutputTokenCount:** 1,000
-- **max_tokens:** 32,000
+- **max\_tokens:** 32,000
   The following quota deductions take place:
 
 - **Initial deduction when request is made:** 36,000 (= 3,000 + 1,000 + 32,000)
@@ -82,14 +82,14 @@ Assume the following parameters:
 - **CacheReadInputTokens:** 4,000
 - **CacheWriteInputTokens:** 1,000
 - **OutputTokenCount:** 1,000
-- **max_tokens:** 1,250
+- **max\_tokens:** 1,250
   The following quota deductions take place:
 
 - **Initial deduction when request is made:** 5,250 (= 3,000 + 1,000 + 1,250)
 - **Final adjusted deduction after response is generated:** 9,000 (= 3,000 + 1,000 + 1,000 x 5)
   In this scenario, the `max_tokens` parameter was optimized, because the initial deduction is only slightly higher than the final adjusted deduction. This helped increase the request concurrency, throughput, and quota use.
 
-## Optimizing the max_tokens parameter
+## Optimizing the max\_tokens parameter
 
 By optimizing the `max_tokens` parameter, you can efficiently use your allocated quota capacity. To help inform your decision about this parameter, you can use Amazon CloudWatch, which automatically collects metrics from AWS services, including token usage data in Amazon Bedrock.
 

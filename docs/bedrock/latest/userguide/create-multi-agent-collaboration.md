@@ -37,15 +37,14 @@ If you already have an agent configured and want to assign supervisor role to th
     4. In the **Agent builder**, scroll down to the **Multi-agent collaboration** section and choose **Edit**.
 
 3. In the **Multi-agent collaboration** page, in the
-   **Collaboration status** section, turn on
-   **Multi-agent collaboration**. This will
-   identify the agent as a supervisor agent.
-4. In the **Collaboration configuration** section, choose how you want the supervisor agent to handle information across multiple collaborator agents to coordinate a final response.
+**Collaboration status** section, turn on
+**Multi-agent collaboration**. This will
+identify the agent as a supervisor agent. 4. In the **Collaboration configuration** section, choose how you want the supervisor agent to handle information across multiple collaborator agents to coordinate a final response.
 
-   1. If you want supervisor agent to coordinate responses from the collaborator agents, select **Supervisor**.
-   2. If you want supervisor agent to route information to the appropriate collaborator agent to send the final response, select **Supervisor with routing**.
-   3. Continue with the next steps to add collaborator
-      agents.
+    1. If you want supervisor agent to coordinate responses from the collaborator agents, select **Supervisor**.
+    2. If you want supervisor agent to route information to the appropriate collaborator agent to send the final response, select **Supervisor with routing**.
+    3. Continue with the next steps to add collaborator
+     agents.
 
 ###### Step 3: Add collaborator agents
 
@@ -129,7 +128,7 @@ The response returns an [CreateAgent](../APIReference/API_agent_Agent.md "../API
 You must minimally include the following fields:
 
 | Field                    | Use case                                                                                                                                                                      |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | collaboratorName         | To specify an alternate name for the collaborator agent. This name will appear only in collaboration instructions and does not replace the original agent name.               |
 | agentDescriptor          | To specify the agent's alias Arn.                                                                                                                                             |
 | collaborationInstruction | To provide instructions to tell the collaborator agent what to do.                                                                                                            |

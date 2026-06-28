@@ -85,7 +85,7 @@ The following are required parameters.
 
 The following are optional parameters.
 
-- **chat_history** – A list of
+- **chat\_history** – A list of
   previous messages between the user and the model, meant to give the
   model conversational context for responding to the user's message.
 
@@ -124,13 +124,13 @@ The following is example JSON for the `documents` field.
 ]
 ```
 
-- **search_queries_only** –
+- **search\_queries\_only** –
   Defaults to `false`. When `true`, the response will only contain a
   list of generated search queries, but no search will take place, and
   no reply from the model to the user's `message` will be generated.
 - **preamble** –
   Overrides the default preamble for search query generation. Has no effect on tool use generations.
-- **max_tokens** – The maximum
+- **max\_tokens** – The maximum
   number of tokens the model should generate as part of the response.
   Note that setting a low value may result in incomplete generations.
   Setting `max_tokens` may result in incomplete or no
@@ -158,7 +158,7 @@ The following is example JSON for the `documents` field.
 | ------- | ------- | ------- |
 | 0       | 0       | 500     |
 
-- **prompt_truncation** –
+- **prompt\_truncation** –
   Defaults to `OFF`. Dictates how the prompt is constructed. With
   `prompt_truncation` set to `AUTO_PRESERVE_ORDER`, some elements from
   `chat_history` and `documents` will be dropped to construct a prompt
@@ -166,7 +166,7 @@ The following is example JSON for the `documents` field.
   process the order of the documents and chat history will be
   preserved. With `prompt_truncation`` set to `OFF`, no elements will
   be dropped.
-- **frequency_penalty** – Used to
+- **frequency\_penalty** – Used to
   reduce repetitiveness of generated tokens. The higher the value, the
   stronger a penalty is applied to previously present tokens,
   proportional to how many times they have already appeared in the
@@ -176,7 +176,7 @@ The following is example JSON for the `documents` field.
 | ------- | ------- | ------- |
 | 0       | 0       | 1       |
 
-- **presence_penalty** – Used to
+- **presence\_penalty** – Used to
   reduce repetitiveness of generated tokens. Similar to
   `frequency_penalty`, except that this penalty is applied equally to
   all tokens that have already appeared, regardless of their exact
@@ -191,7 +191,7 @@ The following is example JSON for the `documents` field.
   such that repeated requests with the same seed and parameters should
   return the same result. However, determinism cannot be totally
   guaranteed.
-- **return_prompt** – Specify
+- **return\_prompt** – Specify
   `true` to return the full prompt that was sent to the
   model. The default value is `false`. In the response, the
   prompt in the `prompt` field.
@@ -233,7 +233,7 @@ The following is example JSON for the `tools` field.
 For more information, see [Single-Step Tool Use (Function Calling)](https://docs.cohere.com/docs/tool-use "https://docs.cohere.com/docs/tool-use")
 in the Cohere documentation.
 
-- **tools_results** – A list of
+- **tools\_results** – A list of
   results from invoking tools recommended by the model in the previous
   chat turn. Results are used to produce a text response and are
   referenced in citations. When using `tool_results`,
@@ -271,10 +271,10 @@ field.
 
 ```
 
-- **stop_sequences** – A list of
+- **stop\_sequences** – A list of
   stop sequences. After a stop sequence is detected, the model stops
   generating further tokens.
-- **raw_prompting** – Specify
+- **raw\_prompting** – Specify
   `true`, to send the user’s `message` to the model
   without any preprocessing, otherwise false.
 
@@ -319,11 +319,11 @@ The response has the following possible fields:
 
 ```
 
-- **response_id** — Unique identifier for chat
+- **response\_id** — Unique identifier for chat
   completion
 - **text** — The model’s response to chat message
   input.
-- **generation_id** — Unique identifier for chat
+- **generation\_id** — Unique identifier for chat
   completion, used with Feedback endpoint on Cohere’s platform.
 - **citations** — An array of
   inline citations and associated metadata for the generated reply.
@@ -332,35 +332,35 @@ The response has the following possible fields:
   - **start** — The index that the citation begins at, starting from 0.
   - **end** — The index that the citation ends after, starting from 0.
   - **text** — The text that the citation pertains to.
-  - **document_ids** — An array of document IDs that correspond to documents that are cited for the text.
+  - **document\_ids** — An array of document IDs that correspond to documents that are cited for the text.
 
 - **prompt** — The full prompt that was sent to the model. Specify
   the `return_prompt` field to return this field.
-- **finish_reason** — The reason
+- **finish\_reason** — The reason
   why the model stopped generating output. Can be any of the
   following:
 
   - **complete** — The
     completion reached the end of generation token, ensure this
     is the finish reason for best performance.
-  - **error_toxic** — The
+  - **error\_toxic** — The
     generation could not be completed due to our content
     filters.
-  - **error_limit** — The
+  - **error\_limit** — The
     generation could not be completed because the model’s
     context limit was reached.
   - **error** — The
     generation could not be completed due to an error.
-  - **user_cancel** — The
+  - **user\_cancel** — The
     generation could not be completed because it was stopped by
     the user.
-  - **max_tokens** — The
+  - **max\_tokens** — The
     generation could not be completed because the user specified
     a `max_tokens` limit in the request and this
     limit was reached. May not result in best
     performance.
 
-- **tool_calls** – A list of
+- **tool\_calls** – A list of
   appropriate tools to calls. Only returned if you specify the
   `tools` input field.
 

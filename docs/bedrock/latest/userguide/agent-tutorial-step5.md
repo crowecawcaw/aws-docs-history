@@ -10,19 +10,18 @@ For more information, see [Invoke an agent from your application](agents-invoke-
 
 ###### To call the agent from Python code
 
-1.  Get the ID for the agent. For more information, see [View information about an agent](agents-view.md "agents-view.md").
-2.  Get the ID for the agent alias. For more information, see [View information about aliases of agents in Amazon Bedrock](agents-alias-view.md "agents-alias-view.md").
-3.  Run the following code. Update the following:
+1. Get the ID for the agent. For more information, see [View information about an agent](agents-view.md "agents-view.md").
+2. Get the ID for the agent alias. For more information, see [View information about aliases of agents in Amazon Bedrock](agents-alias-view.md "agents-alias-view.md").
+3. Run the following code. Update the following:
 
-        * **AGENT\_ID** – to your
-         agent's ID.
-        * **ALIAS\_ID** – to your
-         agent's Alias ID.
-        * **REGION** – to the AWS Region
-         in which you created your agent, such as `us-east-1`.
-
-    To stream the response from the agent, change the value of
-    `streamFinalResponse` to `True`.
+   - **AGENT\_ID** – to your
+     agent's ID.
+   - **ALIAS\_ID** – to your
+     agent's Alias ID.
+   - **REGION** – to the AWS Region
+     in which you created your agent, such as `us-east-1`.
+     To stream the response from the agent, change the value of
+     `streamFinalResponse` to `True`.
 
 ```
 import boto3

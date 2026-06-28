@@ -12,14 +12,10 @@ advantages over traditional geographic cross-Region inference profiles:
 
 - **Enhanced throughput during peak demand** –
   Global cross-Region inference provides improved resilience during periods of
-  peak demand by automatically routing requests to AWS Regions with
-  available capacity. This dynamic routing happens seamlessly without
-  additional configuration or intervention from developers. Unlike traditional
-  approaches that might require complex client-side load balancing between
-  AWS Regions, global cross-Region inference handles traffic spikes
-  automatically. This is particularly important for business-critical
-  applications where downtime or degraded performance can have significant
-  financial or reputational impacts.
+  peak demand by using compute across AWS Regions worldwide. This is
+  particularly important for business-critical applications where downtime or
+  degraded performance can have significant financial or reputational
+  impacts.
 - **Cost-efficiency** – Global cross-Region
   inference for Anthropic's Claude Sonnet 4.5 offers approximately 10% savings
   on both input and output token pricing compared to geographic cross-Region
@@ -39,7 +35,7 @@ advantages over traditional geographic cross-Region inference profiles:
 - **On-demand quota flexibility** – With global
   cross-Region inference, your workloads are no longer limited by individual
   Regional capacity. Instead of being restricted to the capacity available in
-  a specific AWS Region, your requests can be dynamically routed across the
+  a specific AWS Region, your requests can use compute across the
   AWS global infrastructure. This provides access to a much larger pool of
   resources, making it less complicated to handle high-volume workloads and
   sudden traffic spikes.
@@ -55,8 +51,8 @@ Note the following information about Global cross-Region inference:
 - To see the default quotas for cross-Region throughput when using Global
   inference profiles, refer to the **Global Cross-region
   model inference requests per minute for ${Model}** and
-  **Global Cross-region model inference tokens per
-  minute for ${Model}** values in [Amazon Bedrock service
+ **Global Cross-region model inference tokens per
+ minute for ${Model}** values in [Amazon Bedrock service
   quotas](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock") in the _AWS General
   Reference_.
 

@@ -1,5 +1,9 @@
 # Delete a data source from your Amazon Bedrock knowledge base
 
+###### Important
+
+For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md "kb-build-managed.md").
+
 You can delete or remove a data source that you no longer need or use for your knowledge base.
 
 Choose the tab for your preferred method, and then follow the steps:
@@ -24,7 +28,7 @@ your data source). If you delete a data source or knowledge base, the
 **vector store itself is not deleted**. If the data source
 data deletion policy is set to "Delete", it's possible for
 the data source to unsuccessfully complete the process of deletion due to issues with the
-configuration or access to the vector store. You can check the "DELETE_UNSUCCESSFUL" status
+configuration or access to the vector store. You can check the "DELETE\_UNSUCCESSFUL" status
 to see the reason why the data source could not successfully delete.
 
 API

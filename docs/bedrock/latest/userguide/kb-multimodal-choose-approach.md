@@ -22,18 +22,18 @@ query patterns.
 The following table shows a comparison between Nova Multimodal Embeddings and BDA
 for processing multimodal content.
 
-| Processing approach comparison | Characteristic                                                 | Nova Multimodal Embeddings                                                                                                                                                             | Bedrock Data Automation (BDA) |
-| ------------------------------ | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| Processing method              | Generates embeddings without intermediate text conversion      | Converts multimedia to text, then creates embeddings                                                                                                                                   |
-| Query types supported          | Text queries or image queries                                  | Text queries only                                                                                                                                                                      |
-| Primary use cases              | Visual similarity search, product matching, image<br>discovery | Speech transcription, text-based search, content analysis                                                                                                                              |
-| RAG functionality              | Limited to text content only                                   | Full `RetrieveAndGenerate` support                                                                                                                                                     |
-| Storage requirements           | Multimodal storage destination required                        | Multimodal storage destination optional though if not specified,<br>only text data will be processed by BDA. For non-text input, you<br>must specify a multimodal storage destination. |
+Processing approach comparison| Characteristic | Nova Multimodal Embeddings | Bedrock Data Automation (BDA) |
+| --- | --- | --- |
+| Processing method | Generates embeddings without intermediate text conversion | Converts multimedia to text, then creates embeddings |
+| Query types supported | Text queries or image queries | Text queries only |
+| Primary use cases | Visual similarity search, product matching, image<br>discovery | Speech transcription, text-based search, content analysis |
+| RAG functionality | Limited to text content only | Full `RetrieveAndGenerate` support |
+| Storage requirements | Multimodal storage destination required | Multimodal storage destination optional though if not specified,<br>only text data will be processed by BDA. For non-text input, you<br>must specify a multimodal storage destination. |
 
 ## Regional availability
 
-| Regional availability      | Nova Multimodal Embeddings                                                                                                                                                                         | Bedrock Data Automation (BDA) |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+Regional availability| Nova Multimodal Embeddings | Bedrock Data Automation (BDA) |
+| --- | --- |
 | US East (N. Virginia) only | • US West (Oregon)<br>• US East (N. Virginia)<br>• Europe (Frankfurt)<br>• Europe (London)<br>• Europe (Ireland)<br>• Asia Pacific (Mumbai)<br>• Asia Pacific (Sydney)<br>• AWS GovCloud (US-West) |
 
 ## Selection criteria by content type
@@ -48,24 +48,24 @@ the embeddings model will act like a text embeddings model. When working with
 multimodal content, use one of the processing approaches for best results
 depending on your use case.
 
-| Processing approach recommendations by content type | Content Type                                                                   | Nova Multimodal Embeddings                                                   | Bedrock Data Automation (BDA) |
-| --------------------------------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- | ----------------------------- |
-| Product catalogs and images                         | Recommended<br>• Enables visual similarity matching and image-based<br>queries | Limited<br>• Only extracts text through OCR                                  |
-| Meeting recordings and calls                        | Cannot process speech content<br>meaningfully                                  | Recommended<br>• Provides full speech transcription and searchable<br>text   |
-| Training and educational videos                     | Partial<br>• Handles visual content but misses speech                          | Recommended<br>• Captures both speech transcripts and visual<br>descriptions |
-| Customer support recordings                         | Not recommended<br>• Speech content cannot be processed<br>effectively         | Recommended<br>• Creates complete searchable conversation<br>transcripts     |
-| Technical diagrams and charts                       | Recommended<br>• Excellent for visual similarity and pattern<br>matching       | Limited<br>• Extracts text labels but misses visual<br>relationships         |
+Processing approach recommendations by content type| Content Type | Nova Multimodal Embeddings | Bedrock Data Automation (BDA) |
+| --- | --- | --- |
+| Product catalogs and images | Recommended<br>• Enables visual similarity matching and image-based<br>queries | Limited<br>• Only extracts text through OCR |
+| Meeting recordings and calls | Cannot process speech content<br>meaningfully | Recommended<br>• Provides full speech transcription and searchable<br>text |
+| Training and educational videos | Partial<br>• Handles visual content but misses speech | Recommended<br>• Captures both speech transcripts and visual<br>descriptions |
+| Customer support recordings | Not recommended<br>• Speech content cannot be processed<br>effectively | Recommended<br>• Creates complete searchable conversation<br>transcripts |
+| Technical diagrams and charts | Recommended<br>• Excellent for visual similarity and pattern<br>matching | Limited<br>• Extracts text labels but misses visual<br>relationships |
 
 ## Supported file types and data sources
 
 The supported file types depend on your chosen processing approach:
 
-| Supported file types by processing approach | File Type                                              | Nova Multimodal Embeddings              | Bedrock Data Automation (BDA) |
-| ------------------------------------------- | ------------------------------------------------------ | --------------------------------------- | ----------------------------- |
-| Images                                      | .png, .jpg, .jpeg, .gif, .webp                         | .png, .jpg, .jpeg                       |
-| Audio                                       | .mp3, .ogg, .wav                                       | .amr, .flac, .m4a, .mp3, .ogg, .wav     |
-| Video                                       | .mp4, .mov, .mkv, .webm, .flv, .mpeg, .mpg, .wmv, .3gp | .mp4, .mov                              |
-| Documents                                   | Processed as text                                      | .pdf (plus text extraction from images) |
+Supported file types by processing approach| File Type | Nova Multimodal Embeddings | Bedrock Data Automation (BDA) |
+| --- | --- | --- |
+| Images | .png, .jpg, .jpeg, .gif, .webp | .png, .jpg, .jpeg |
+| Audio | .mp3, .ogg, .wav | .amr, .flac, .m4a, .mp3, .ogg, .wav |
+| Video | .mp4, .mov, .mkv, .webm, .flv, .mpeg, .mpg, .wmv, .3gp | .mp4, .mov |
+| Documents | Processed as text | .pdf (plus text extraction from images) |
 
 ###### **Supported data sources**
 

@@ -237,17 +237,16 @@ The output should be formatted as a XML file.
 As an example, for the tags ["foo", "bar", "baz"]:
 
 1. String "<foo>
-   <bar>
-   <baz></baz>
-   </bar>
-   </foo>" is a well-formatted instance of the schema.
-2. String "<foo>
-   <bar>
-   </foo>" is a badly-formatted instance.
-3. String "<foo>
-   <tag>
-   </tag>
-   </foo>" is a badly-formatted instance.
+<bar>
+
+<baz></baz>
+</bar>
+</foo>" is a well-formatted instance of the schema. 2. String "<foo>
+<bar>
+</foo>" is a badly-formatted instance. 3. String "<foo>
+<tag>
+</tag>
+</foo>" is a badly-formatted instance.
 
 Here are the output tags with description:
 

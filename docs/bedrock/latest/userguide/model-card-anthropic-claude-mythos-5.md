@@ -14,7 +14,7 @@ This model is a Preview and is made available to you as a "Beta Service" as defi
 - **Model lifecycle:** Active
 - **Context window:** 1M tokens
 - **Max output tokens:** 128K
-- **Sampling parameters:** temperature must be 1.0 or unset; top_p must be ≥ 0.99 and < 1.0, or unset; top_k is not supported
+- **Sampling parameters:** temperature must be 1.0 or unset; top\_p must be ≥ 0.99 and < 1.0, or unset; top\_k is not supported
 - **Reasoning:** Supported (adaptive thinking is always on and cannot be disabled; effort level is configurable)
 - **Knowledge cutoff:** January 2026
 - **Marketplace product ID:** prod-kyryzgfmbtwtc
@@ -69,7 +69,7 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 **Regional availability at a glance**
 
-Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency, and **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints. Refer to the [Regional availability](models-region-compatibility.md "models-region-compatibility.md") page for more details.
+Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency, and **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints. Refer to the [Regional availability by models](models-region-compatibility.md "models-region-compatibility.md") page for more details.
 
 | **Region**                | **In-Region**                           | **Geo**                                                                 | **Global**                                                              |
 | ------------------------- | --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
@@ -77,7 +77,7 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 
 ## Data retention
 
-To use this model, you must opt in to provider data sharing by setting your data retention mode to `provider_data_share` via the Data Retention API. There is no console UI for this setting at launch. For more information, see [Amazon Bedrock abuse detection](abuse-detection.md "abuse-detection.md").
+To use this model, you must opt in to provider data sharing by setting your data retention mode to `provider_data_share`. You can configure this in the Amazon Bedrock console or via the Data Retention API. For more information, see [Amazon Bedrock abuse detection](abuse-detection.md "abuse-detection.md").
 
 ## Quotas and Limits
 

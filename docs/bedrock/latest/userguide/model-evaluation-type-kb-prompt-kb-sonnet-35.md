@@ -508,6 +508,7 @@ String "<foo>
 String "<foo>
 <bar>
 </foo>" is a badly-formatted instance.
+
 String "<foo>
 <tag>
 </tag>

@@ -13,35 +13,34 @@ results by user permissions, use Basic authentication. See [Set up Basic authent
 
 ## Step 1: Register an OAuth 2.0 (3LO) app
 
-1.  Sign in to the [Atlassian
-    developer console](https://developer.atlassian.com/console/myapps/ "https://developer.atlassian.com/console/myapps/").
-2.  Choose **Create**, then **OAuth 2.0 integration**.
-3.  Enter a name for the app (for example, `bedrock-confluence-connector`) and choose **Create**.
-4.  On the app's **Permissions** page, add
-    **Confluence API**. Configure the following
-    granular scopes (or the equivalent classic scopes if your app uses them):
+1. Sign in to the [Atlassian
+   developer console](https://developer.atlassian.com/console/myapps/ "https://developer.atlassian.com/console/myapps/").
+2. Choose **Create**, then **OAuth 2.0 integration**.
+3. Enter a name for the app (for example, `bedrock-confluence-connector`) and choose **Create**.
+4. On the app's **Permissions** page, add
+   **Confluence API**. Configure the following
+   granular scopes (or the equivalent classic scopes if your app uses them):
 
-        * `read:content:confluence`
-        * `read:content-details:confluence`
-        * `read:space:confluence`
-        * `read:space-details:confluence`
-        * `read:user:confluence`
-        * `read:attachment:confluence`
-        * `read:page:confluence` — required for page enumeration
-        * `read:blogpost:confluence` — required if you crawl blog posts
-        * `read:custom-content:confluence` — required if your workspace contains custom content
+   - `read:content:confluence`
+   - `read:content-details:confluence`
+   - `read:space:confluence`
+   - `read:space-details:confluence`
+   - `read:user:confluence`
+   - `read:attachment:confluence`
+   - `read:page:confluence` — required for page enumeration
+   - `read:blogpost:confluence` — required if you crawl blog posts
+   - `read:custom-content:confluence` — required if your workspace contains custom content
+     Add `offline_access` in the **Authorization** — **User identity
+     API** permission. `offline_access` is what causes
+     Atlassian to issue a refresh token.
 
-    Add `offline_access` in the **Authorization** — **User identity
-    API** permission. `offline_access` is what causes
-    Atlassian to issue a refresh token.
-
-5.  On the **Authorization** page, set the
-    **Callback URL** to a URL you control where
-    you can capture the authorization code in Step 3 (for example,
-    `https://localhost:8080/callback`).
-6.  On the **Settings** page, copy the
-    **Client ID** and **Secret**. These are the `confluenceAppKey` and
-    `confluenceAppSecret`.
+5. On the **Authorization** page, set the
+   **Callback URL** to a URL you control where
+   you can capture the authorization code in Step 3 (for example,
+   `https://localhost:8080/callback`).
+6. On the **Settings** page, copy the
+   **Client ID** and **Secret**. These are the `confluenceAppKey` and
+   `confluenceAppSecret`.
 
 ## Step 2: Authorize the app
 

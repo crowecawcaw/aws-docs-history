@@ -42,7 +42,7 @@ engineering guidelines for those models.
 - **Stability AI prompt guide:**
   [https://platform.stability.ai/docs/getting-started](https://platform.stability.ai/docs/getting-started "https://platform.stability.ai/docs/getting-started")
 - **Mistral AI prompt guide:**
-  [https://docs.mistral.ai/guides/prompting_capabilities/](https://docs.mistral.ai/guides/prompting_capabilities/ "https://docs.mistral.ai/guides/prompting_capabilities/")
+  [https://docs.mistral.ai/guides/prompting\_capabilities/](https://docs.mistral.ai/guides/prompting_capabilities/ "https://docs.mistral.ai/guides/prompting_capabilities/")
   **Disclaimer:** The examples in this document use the current
   text models available within Amazon Bedrock. Also, this document is for general prompting guidelines.
   For model-specific guides, refer to their respective docs on Amazon Bedrock. This document provides a

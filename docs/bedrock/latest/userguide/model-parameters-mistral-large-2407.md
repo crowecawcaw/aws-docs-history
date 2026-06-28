@@ -78,8 +78,8 @@ response = bedrock.converse(
 print(json.dumps(json.loads(response['body']), indent=4))
 ```
 
-invoke_model_with_response_stream
-Mistral AI Large (24.07) invoke_model_with_response_stream example.
+invoke\_model\_with\_response\_stream
+Mistral AI Large (24.07) invoke\_model\_with\_response\_stream example.
 
 ```
 import boto3
@@ -102,8 +102,8 @@ if stream:
                 print(chunk_obj)
 ```
 
-converse_stream
-Mistral AI Large (24.07) converse_stream example.
+converse\_stream
+Mistral AI Large (24.07) converse\_stream example.
 
 ```
 import boto3

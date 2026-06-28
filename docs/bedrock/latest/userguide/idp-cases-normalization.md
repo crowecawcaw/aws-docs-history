@@ -30,7 +30,7 @@ the field instruction. We recommend that you include the variations in quotation
 
 | Field                          | Instruction                                                                                                 | Extraction Type | Type   |
 | ------------------------------ | ----------------------------------------------------------------------------------------------------------- | --------------- | ------ |
-| LICENSE_CLASS                  | The single letter class code, one of "A", "B" or "C"                                                        | Explicit        | String |
+| LICENSE\_CLASS                 | The single letter class code, one of "A", "B" or "C"                                                        | Explicit        | String |
 | sex                            | The sex. One of "M" or "F"                                                                                  | Explicit        | String |
 | InformantType                  | The type of the information. One of "Parent" or "Other"                                                     | Explicit        | String |
 | INFORMATION COLLECTION CHANNEL | ONE AMONG FOLLOWING: "FACE TO FACE INTERVIEW", "TELEPHONE INTERVIEW", "FAX OR MAIL",<br>"EMAIL OR INTERNET" | Explicit        | String |
@@ -52,20 +52,20 @@ Standardize Formats: You can convert values to predefined formats, such as short
 date formats. This allows you to ensure consistency in data representation by adhering to industry standards or organizational
 conventions.
 
-| Field           | Instruction                                                | Extraction Type | Type   |
-| --------------- | ---------------------------------------------------------- | --------------- | ------ |
-| ssn             | The SSN, formatted as XXX-XX-XXX                           | Inferred        | String |
-| STATE           | The two letter code of the state                           | Inferred        | String |
-| EXPIRATION_DATE | The date of expiry in YYYY-MM-DD format                    | Inferred        | String |
-| DATE_OF_BIRTH   | The date of birth of the driver in YYYY-MM-DD format       | Inferred        | String |
-| CHECK_DATE      | The date the check has been signed. Reformat to YYYY-MM-DD | Inferred        | String |
-| PurchaseDate    | Purchase date of vehicle in mm/dd/yy format                | Inferred        | String |
+| Field            | Instruction                                                | Extraction Type | Type   |
+| ---------------- | ---------------------------------------------------------- | --------------- | ------ |
+| ssn              | The SSN, formatted as XXX-XX-XXX                           | Inferred        | String |
+| STATE            | The two letter code of the state                           | Inferred        | String |
+| EXPIRATION\_DATE | The date of expiry in YYYY-MM-DD format                    | Inferred        | String |
+| DATE\_OF\_BIRTH  | The date of birth of the driver in YYYY-MM-DD format       | Inferred        | String |
+| CHECK\_DATE      | The date the check has been signed. Reformat to YYYY-MM-DD | Inferred        | String |
+| PurchaseDate     | Purchase date of vehicle in mm/dd/yy format                | Inferred        | String |
 
 You can also convert values to a standard unit of measurement or to a specific data type by handling scenarios like
 Not applicable.
 
-| Field                     | Instruction                      | Extraction Type | Type   |
-| ------------------------- | -------------------------------- | --------------- | ------ |
-| WEIGHT                    | Weight converted to pounds       | Inferred        | Number |
-| HEIGHT                    | Height converted to inches       | Inferred        | Number |
-| nonqualified_plans_income | The value in field 11. 0 if N/A. | Inferred        | Number |
+| Field                       | Instruction                      | Extraction Type | Type   |
+| --------------------------- | -------------------------------- | --------------- | ------ |
+| WEIGHT                      | Weight converted to pounds       | Inferred        | Number |
+| HEIGHT                      | Height converted to inches       | Inferred        | Number |
+| nonqualified\_plans\_income | The value in field 11. 0 if N/A. | Inferred        | Number |

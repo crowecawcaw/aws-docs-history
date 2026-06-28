@@ -230,10 +230,10 @@ The following list describes the fields of the [InvocationInput](../APIReference
 
   Following are descriptions of the fields:
 
-      - `agentCollaboratorName` – The
-       name of the collaborator agent associated with the supervisor agent.
-      - `agentCollaboratorAliasArn` – The alias Arn of the collaborator agent.
-      - `input` – The input string for the collaborator agent.
+        - `agentCollaboratorName` – The
+         name of the collaborator agent associated with the supervisor agent.
+        - `agentCollaboratorAliasArn` – The alias Arn of the collaborator agent.
+        - `input` – The input string for the collaborator agent.
 
 - `actionGroupInvocationInput` –
   Appears if the `type` is
@@ -273,23 +273,23 @@ The following list describes the fields of the [InvocationInput](../APIReference
 
   Following are descriptions of the fields:
 
-      - `actionGroupName` – The
-       name of the action group that the agent predicts
-       should be invoked.
-      - `apiPath` – The path to the
-       API operation to call, according to the API
-       schema.
-      - `verb` – The API method
-       being used, according to the API schema.
-      - `parameters` – Contains a
-       list of objects. Each object contains the name,
-       type, and value of a parameter in the API
-       operation, as defined in the API schema.
-      - `requestBody` – Contains
-       the request body and its properties, as defined in
-       the API schema.
-      - `executionType` – Whether fulfillment of the action is passed to a Lambda function (`LAMBDA`) or control is returned through the `InvokeAgent` response (`RETURN_CONTROL`). For more information, see [Handle fulfillment of the action](action-handle.md "action-handle.md").
-      - `invocationId` – The unique identifier of the invocation. Only returned if the `executionType` is `RETURN_CONTROL`.
+        - `actionGroupName` – The
+         name of the action group that the agent predicts
+         should be invoked.
+        - `apiPath` – The path to the
+         API operation to call, according to the API
+         schema.
+        - `verb` – The API method
+         being used, according to the API schema.
+        - `parameters` – Contains a
+         list of objects. Each object contains the name,
+         type, and value of a parameter in the API
+         operation, as defined in the API schema.
+        - `requestBody` – Contains
+         the request body and its properties, as defined in
+         the API schema.
+        - `executionType` – Whether fulfillment of the action is passed to a Lambda function (`LAMBDA`) or control is returned through the `InvokeAgent` response (`RETURN_CONTROL`). For more information, see [Handle fulfillment of the action](action-handle.md "action-handle.md").
+        - `invocationId` – The unique identifier of the invocation. Only returned if the `executionType` is `RETURN_CONTROL`.
   - If the action group is defined by function details, the structure is as follows:
 
   ```
@@ -311,15 +311,15 @@ The following list describes the fields of the [InvocationInput](../APIReference
 
   Following are descriptions of the fields:
 
-      - `actionGroupName` – The
-       name of the action group that the agent predicts
-       should be invoked.
-      - `function` – The name
-       of the function that the agent predicts should be
-       called.
-      - `parameters` – The parameters of the function.
-      - `executionType` – Whether fulfillment of the action is passed to a Lambda function (`LAMBDA`) or control is returned through the `InvokeAgent` response (`RETURN_CONTROL`). For more information, see [Handle fulfillment of the action](action-handle.md "action-handle.md").
-      - `invocationId` – The unique identifier of the invocation. Only returned if the `executionType` is `RETURN_CONTROL`.
+        - `actionGroupName` – The
+         name of the action group that the agent predicts
+         should be invoked.
+        - `function` – The name
+         of the function that the agent predicts should be
+         called.
+        - `parameters` – The parameters of the function.
+        - `executionType` – Whether fulfillment of the action is passed to a Lambda function (`LAMBDA`) or control is returned through the `InvokeAgent` response (`RETURN_CONTROL`). For more information, see [Handle fulfillment of the action](action-handle.md "action-handle.md").
+        - `invocationId` – The unique identifier of the invocation. Only returned if the `executionType` is `RETURN_CONTROL`.
 
 - `knowledgeBaseLookupInput` – Appears if the `type` is `KNOWLEDGE_BASE`. For more information, see [Retrieve data and generate AI responses with Amazon Bedrock Knowledge Bases](knowledge-base.md "knowledge-base.md"). Contains the following information about the knowledge base and the search query for the knowledge base:
 

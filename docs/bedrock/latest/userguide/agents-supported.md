@@ -2,7 +2,7 @@
 
 ###### Note
 
-Amazon Bedrock Agents supports all models supported by Amazon Bedrock. For more information about all models supported in Amazon Bedrock and the Regions they’re supported in, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
+Amazon Bedrock Agents supports all models supported by Amazon Bedrock. For more information about all models supported in Amazon Bedrock and the Regions they're supported in, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
 
 Amazon Bedrock Agents is supported in the following Regions:
 

@@ -17,11 +17,10 @@ The following are some of the use cases where using inline agents can help by pr
 To use multi-agent collaboration, you can create your agents in the following
 combinations using inline agents APIs.
 
-| Agent types | Supervisor  | Collaborator |
-| ----------- | ----------- | ------------ |
-| Inline      | Inline      |
-| Inline      | Traditional |
-
+Agent types| Supervisor | Collaborator |
+| --- | --- |
+| Inline | Inline |
+| Inline | Traditional |
 **Supported models and Regions**
 
 You can use any foundation model supported by Amazon Bedrock Agents to configure your inline agent

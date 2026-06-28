@@ -36,12 +36,11 @@ The following terminology is helpful in understanding how advanced prompts work.
 - **Turn** – A single `InvokeAgent` call. A session consists of one or more turns.
 - **Iteration** – A sequence of the following actions:
 
-      1. (Required) A call to the foundation model
-      2. (Optional) An action group invocation
-      3. (Optional) A knowledge base invocation
-      4. (Optional) A response to the user asking for more information
-
-  An action might be skipped, depending on the configuration of the agent or the agent's requirement at that moment. A turn consists of one or more iterations.
+  1.  (Required) A call to the foundation model
+  2.  (Optional) An action group invocation
+  3.  (Optional) A knowledge base invocation
+  4.  (Optional) A response to the user asking for more information
+      An action might be skipped, depending on the configuration of the agent or the agent's requirement at that moment. A turn consists of one or more iterations.
 
 - **Prompt** – A prompt consists of the instructions to the agent, context, and text input. The text input can come from a user or from the output of another step in the agent sequence. The prompt is provided to the foundation model to determine the next step that the agent takes in responding to user input
 - **Base prompt template** – The structural elements that make up a prompt. The template consists of placeholders that are filled in with user input, the agent configuration, and context at runtime to create a prompt for the foundation model to process when the agent reaches that step. For more information about these placeholders, see [Use placeholder variables in Amazon Bedrock agent prompt templates](prompt-placeholders.md "prompt-placeholders.md"). With advanced prompts, you can edit these templates.

@@ -70,7 +70,7 @@ bash deploy.sh
 
 ###### Note
 
-The usage of the script is `bash deploy.sh `<region>` `<bucket-name>``, where `<region>`and`<bucket-name>` are optional arguments. If you don't provide them, the following default values will be used:
+The usage of the script is `bash deploy.sh `<region>` `<bucket-name>``, where `<region>` and `<bucket-name>` are optional arguments. If you don't provide them, the following default values will be used:
 
     * `<region>` – The default AWS Region specified in your AWS credentials setup.
     * `<bucket-name>` – The bucket will be named `mortgage-flow-deployment-<AccountId>-<Region>`, where `<AccountId>` is your AWS account ID and `<Region>` matches the value you provide or the default AWS Region specified in your AWS credentials setup.

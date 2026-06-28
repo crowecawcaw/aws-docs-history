@@ -50,7 +50,7 @@ The following are text per call and character limits.
 
 The following are optional parameters.
 
-- **return_likelihoods** – Specify how and if the token
+- **return\_likelihoods** – Specify how and if the token
   likelihoods are returned with the response. You can specify the following
   options.
 
@@ -64,7 +64,7 @@ The following are optional parameters.
   `true` to return the response piece-by-piece in real-time and
   `false` to return the complete response after the process
   finishes.
-- **logit_bias** – Prevents the model
+- **logit\_bias** – Prevents the model
   from generating unwanted tokens or incentivizes the model to include desired tokens.
   The format is `{token_id: bias}` where bias is a float between -10 and 10. Tokens
   can be obtained from text using any tokenization service, such as Cohere’s
@@ -74,7 +74,7 @@ The following are optional parameters.
 | ------- | ---------------------- | --------------------- |
 | N/A     | -10 (for a token bias) | 10 (for a token bias) |
 
-- **num_generations**
+- **num\_generations**
   – The maximum number of generations that the model should return.
 
 | Default | Minimum | Maximum |
@@ -85,13 +85,12 @@ The following are optional parameters.
   Specifies how the API handles inputs longer than the maximum token length. Use
   one of the following:
 
-      + `NONE` – Returns an error when the input exceeds the maximum input token length.
-      + `START` – Discard the start of the input.
-      + `END` – (Default) Discards the end of the input.
-
-  If you specify `START` or `END`, the model discards
-  the input until the remaining input is exactly the maximum input token length
-  for the model.
+  - `NONE` – Returns an error when the input exceeds the maximum input token length.
+  - `START` – Discard the start of the input.
+  - `END` – (Default) Discards the end of the input.
+    If you specify `START` or `END`, the model discards
+    the input until the remaining input is exactly the maximum input token length
+    for the model.
 
 - **temperature**
   – Use a lower value to decrease randomness in the response.
@@ -118,7 +117,7 @@ The following are optional parameters.
 | ------- | ------- | ------- |
 | 0       | 0       | 500     |
 
-- **max_tokens**
+- **max\_tokens**
   – Specify the maximum number
   of tokens to use in the generated response.
 
@@ -126,7 +125,7 @@ The following are optional parameters.
 | ------- | ------- | ------- |
 | 20      | 1       | 4096    |
 
-- **stop_sequences**
+- **stop\_sequences**
   – Configure up to four sequences
   that the model recognizes. After a stop sequence, the model stops generating
   further tokens. The returned text doesn't contain the stop sequence.

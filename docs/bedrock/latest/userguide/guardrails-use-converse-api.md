@@ -279,41 +279,39 @@ how to prevent a model from creating a playlist that includes songs from the hea
 
 ###### To guard a conversation
 
-1.  Create a guardrail by following the instructions at [Create your guardrail](guardrails-components.md "guardrails-components.md").
+1. Create a guardrail by following the instructions at [Create your guardrail](guardrails-components.md "guardrails-components.md").
 
-        * **Name** – Enter *Heavy
-         metal*.
-        * **Definition for topic** – Enter
-         *Avoid mentioning songs that are from the heavy metal genre
-         of music.*
-        * **Add sample phrases** – Enter *Create
-         a playlist of heavy metal songs.*
+   - **Name** – Enter _Heavy
+     metal_.
+   - **Definition for topic** – Enter
+     _Avoid mentioning songs that are from the heavy metal genre
+     of music._
+   - **Add sample phrases** – Enter _Create
+     a playlist of heavy metal songs._
+     In step 9, enter the following:
 
-    In step 9, enter the following:
+   - **Messaging shown for blocked prompts** – Enter _Sorry, I can't answer questions about heavy metal music._
+   - **Messaging for blocked responses** – Enter _Sorry, the model generated an answer that mentioned heavy metal music._
+     You can configure other guardrail options, but it is not required for this example.
 
-        * **Messaging shown for blocked prompts** – Enter *Sorry, I can't answer questions about heavy metal music.*
-        * **Messaging for blocked responses** – Enter *Sorry, the model generated an answer that mentioned heavy metal music.*
+2. Create a version of the guardrail by following the instructions at [Create a version of a guardrail](guardrails-versions-create.md "guardrails-versions-create.md").
+3. In the following code examples ([Converse](#converse-api-guardrail-example-converse "#converse-api-guardrail-example-converse")
+   and [ConverseStream](#converse-api-guardrail-example-converse-stream "#converse-api-guardrail-example-converse-stream")), set the
+   following variables:
 
-    You can configure other guardrail options, but it is not required for this example.
+   - `guardrail_id` – The ID of the guardrail that you created in
+     step 1.
+   - `guardrail_version` – The version of the guardrail that you created in
+     step 2.
+   - `text` – Use `Create a playlist of heavy metal songs.`
 
-2.  Create a version of the guardrail by following the instructions at [Create a version of a guardrail](guardrails-versions-create.md "guardrails-versions-create.md").
-3.  In the following code examples ([Converse](#converse-api-guardrail-example-converse "#converse-api-guardrail-example-converse")
-    and [ConverseStream](#converse-api-guardrail-example-converse-stream "#converse-api-guardrail-example-converse-stream")), set the
-    following variables:
-
-    - `guardrail_id` – The ID of the guardrail that you created in
-      step 1.
-    - `guardrail_version` – The version of the guardrail that you created in
-      step 2.
-    - `text` – Use `Create a playlist of heavy metal songs.`
-
-4.  Run the code examples. The output should should display the guardrail assessment and
-    the output message `Text: Sorry, I can't answer questions about heavy metal
-music.`. The guardrail input assessment shows that the model detected the term
-    _heavy metal_ in the input message.
-5.  (Optional) Test that the guardrail blocks inappropriate text that the model
-    generates by changing the value of `text` to _List all genres of
-    rock music._. Run the examples again. You should see an output assessment in the response.
+4. Run the code examples. The output should should display the guardrail assessment and
+   the output message `Text: Sorry, I can't answer questions about heavy metal
+ music.`. The guardrail input assessment shows that the model detected the term
+   _heavy metal_ in the input message.
+5. (Optional) Test that the guardrail blocks inappropriate text that the model
+   generates by changing the value of `text` to _List all genres of
+   rock music._. Run the examples again. You should see an output assessment in the response.
 
 Converse The following code uses your guardrail with the `Converse` operation.
 

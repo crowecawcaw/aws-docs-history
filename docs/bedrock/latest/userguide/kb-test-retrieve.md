@@ -135,7 +135,7 @@ source chunk. 8. To see details about the returned chunks, select **Show source 
 
     	+ The raw text from the source chunk. To copy this text, choose the copy icon (
 
-    	 ![Copy icon represented by two overlapping documents.](/images/bedrock/latest/userguide/images/icons/copy.png)
+    	 ![Copy icon represented by two overlapping documents.](images/icons/copy.png)
 
 
     	 ). If you used Amazon S3 to store your data, choose the external link icon (
@@ -288,11 +288,11 @@ document collection.
 When working with multimodal content, choose your approach based on your
 content type and query patterns:
 
-| Nova vs BDA Decision Matrix | Content Type                                                                                                   | Use Nova Multimodal Embeddings                                                                                  | Use Bedrock Data Automation (BDA) Parser |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| Video Content               | Visual storytelling focus (sports, ads, demonstrations),<br>queries on visual elements, minimal speech content | Important speech/narration (presentations, meetings,<br>tutorials), queries on spoken content, need transcripts |
-| Audio Content               | Music or sound effects identification, non-speech audio<br>analysis                                            | Podcasts, interviews, meetings, any content with speech<br>requiring transcription                              |
-| Image Content               | Visual similarity searches, image-to-image retrieval, visual<br>content analysis                               | Text extraction from images, document processing, OCR<br>requirements                                           |
+Nova vs BDA Decision Matrix| Content Type | Use Nova Multimodal Embeddings | Use Bedrock Data Automation (BDA) Parser |
+| --- | --- | --- |
+| Video Content | Visual storytelling focus (sports, ads, demonstrations),<br>queries on visual elements, minimal speech content | Important speech/narration (presentations, meetings,<br>tutorials), queries on spoken content, need transcripts |
+| Audio Content | Music or sound effects identification, non-speech audio<br>analysis | Podcasts, interviews, meetings, any content with speech<br>requiring transcription |
+| Image Content | Visual similarity searches, image-to-image retrieval, visual<br>content analysis | Text extraction from images, document processing, OCR<br>requirements |
 
 ###### Note
 

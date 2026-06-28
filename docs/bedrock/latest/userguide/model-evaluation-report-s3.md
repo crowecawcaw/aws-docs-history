@@ -31,7 +31,7 @@ For each metric and corresponding prompt dataset you selected when the model
 evaluation job was created, a JSON line file is generated in the
 `datasets` directory. The file uses the following naming
 convention
-``metric`\_`input-dataset`.jsonl`.
+``metric`_`input-dataset`.jsonl`.
 
 Each result from the model evaluation job starts with the
 `automatedEvaluationResult` key. The first child key
@@ -166,10 +166,10 @@ selected for each metric in the Amazon Bedrock console is returned in your Amazo
 The first child-key under `evaluationResults` is how the
 **Rating method** is returned.
 
-| How rating methods selected in the Amazon Bedrock console are saved in Amazon S3 | Rating method selected  | Saved in Amazon S3 |
-| -------------------------------------------------------------------------------- | ----------------------- | ------------------ |
-| Likert scale<br>• Individual                                                     | `IndividualLikertScale` |
-| Likert scale<br>• Comparison                                                     | `ComparisonLikertScale` |
-| Choice buttons                                                                   | `ComparisonChoice`      |
-| Ordinal rank                                                                     | `ComparisonRank`        |
-| Thumbs up/down                                                                   | `ThumbsUpDown`          |
+How rating methods selected in the Amazon Bedrock console are saved in Amazon S3| Rating method selected | Saved in Amazon S3 |
+| --- | --- |
+| Likert scale<br>• Individual | `IndividualLikertScale` |
+| Likert scale<br>• Comparison | `ComparisonLikertScale` |
+| Choice buttons | `ComparisonChoice` |
+| Ordinal rank | `ComparisonRank` |
+| Thumbs up/down | `ThumbsUpDown` |

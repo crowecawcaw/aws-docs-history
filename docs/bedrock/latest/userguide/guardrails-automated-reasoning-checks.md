@@ -144,7 +144,7 @@ limitations:
   to cover multiple unrelated areas in a single policy.
 - **Variable and rules limits.** Policies with excessive
   numbers of variables or overly complex rule interactions may hit processing limits or return
-  TOO_COMPLEX results. See [Amazon Bedrock
+  TOO\_COMPLEX results. See [Amazon Bedrock
   limits documentation](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock") and [Validation results reference](automated-reasoning-checks-concepts.md#ar-concept-validation-results "automated-reasoning-checks-concepts.md#ar-concept-validation-results").
 - **Natural language dependency.** The accuracy of
   validation depends on how well natural language in user prompts and model
@@ -152,7 +152,7 @@ limitations:
   Reasoning checks use foundational models to translate natural language into logic
   representations. Variable descriptions influence the quality of this translation.
 - **Non-linear arithmetic.** Automated Reasoning checks
-  might timeout or return TOO_COMPLEX if constraints involve reasoning with non-linear
+  might timeout or return TOO\_COMPLEX if constraints involve reasoning with non-linear
   arithmetic (for example, irrational numbers or exponents).
 
 ## Pricing
@@ -161,7 +161,7 @@ Automated Reasoning checks in Amazon Bedrock Guardrails are charged based on the
 processed. For current pricing information, see the [Amazon Bedrock pricing page](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
 
 Charges are incurred for each validation request, regardless of the result (for example,
-VALID, INVALID, TRANSLATION_AMBIGUOUS). To optimize costs:
+VALID, INVALID, TRANSLATION\_AMBIGUOUS). To optimize costs:
 
 - Use appropriate confidence thresholds to balance accuracy with processing
   requirements.

@@ -76,28 +76,28 @@ The data source configuration uses the following connector parameters. To connec
 fields that wrap `connectorParameters` (such as `deletionProtectionConfiguration` and
 `mediaExtractionConfiguration`), see [Connect a data source](kb-managed-connect-ds.md "kb-managed-connect-ds.md").
 
-| connectionConfiguration | Field       | Required                                                                                                                                                                                                                                   | Description |
-| ----------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| `secretArn`             | Yes         | The ARN of the AWS Secrets Manager secret containing your SharePoint credentials.                                                                                                                                                          |
-| `tenantId`              | Yes         | The Microsoft Entra (Azure AD) tenant ID.                                                                                                                                                                                                  |
-| `authType`              | Yes         | The authentication type: `ENTRA_ID_APP_ONLY` (recommended) or `OAUTH2_APP`. See [Authentication methods](kb-managed-ds-sharepoint.md#kb-managed-sharepoint-auth-methods "kb-managed-ds-sharepoint.md#kb-managed-sharepoint-auth-methods"). |
-| `certificateS3Path`     | Conditional | Required for `ENTRA_ID_APP_ONLY` authentication, even when ACLs are disabled. Contains `s3BucketName` and `s3KeyName` for the certificate file in Amazon S3. Not used with `OAUTH2_APP`.                                                   |
+connectionConfiguration| Field | Required | Description |
+| --- | --- | --- |
+| `secretArn` | Yes | The ARN of the AWS Secrets Manager secret containing your SharePoint credentials. |
+| `tenantId` | Yes | The Microsoft Entra (Azure AD) tenant ID. |
+| `authType` | Yes | The authentication type: `ENTRA_ID_APP_ONLY` (recommended) or `OAUTH2_APP`. See [Authentication methods](kb-managed-ds-sharepoint.md#kb-managed-sharepoint-auth-methods "kb-managed-ds-sharepoint.md#kb-managed-sharepoint-auth-methods"). |
+| `certificateS3Path` | Conditional | Required for `ENTRA_ID_APP_ONLY` authentication, even when ACLs are disabled. Contains `s3BucketName` and `s3KeyName` for the certificate file in Amazon S3. Not used with `OAUTH2_APP`. |
 
-| dataEntityConfiguration | Field | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Description |
-| ----------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `siteUrls`              | Yes   | List of SharePoint site URLs to crawl. Each URL is a crawl entry point and must start with `https://` and point to a site, team site, or personal site — the path must begin with `/sites/`, `/teams/`, or `/personal/` followed by the site name (for example, `https://contoso.sharepoint.com/sites/engineering`). Standard `*.sharepoint.com` domains and custom (vanity) domains are both supported. Within each site, the connector crawls files and pages (see `crawlFiles` and `crawlPages`); to target specific items, use `inclusionItemPaths`. |
-| `crawlFiles`            | No    | Whether to crawl files. Defaults to `true`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `crawlPages`            | No    | Whether to crawl pages. Defaults to `true`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+dataEntityConfiguration| Field | Required | Description |
+| --- | --- | --- |
+| `siteUrls` | Yes | List of SharePoint site URLs to crawl. Each URL is a crawl entry point and must start with `https://` and point to a site, team site, or personal site — the path must begin with `/sites/`, `/teams/`, or `/personal/` followed by the site name (for example, `https://contoso.sharepoint.com/sites/engineering`). Standard `*.sharepoint.com` domains and custom (vanity) domains are both supported. Within each site, the connector crawls files and pages (see `crawlFiles` and `crawlPages`); to target specific items, use `inclusionItemPaths`. |
+| `crawlFiles` | No | Whether to crawl files. Defaults to `true`. |
+| `crawlPages` | No | Whether to crawl pages. Defaults to `true`. |
 
-| filterConfiguration (optional) | Field | Required                                                                                                                                  | Description |
-| ------------------------------ | ----- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `modifiedDateBefore`           | No    | Only include content modified before this date (ISO 8601).                                                                                |
-| `modifiedDateAfter`            | No    | Only include content modified after this date (ISO 8601).                                                                                 |
-| `inclusionItemPaths`           | No    | Specific item paths to include. When you provide `inclusionItemPaths`, the connector crawls those items and does not validate `siteUrls`. |
+filterConfiguration (optional)| Field | Required | Description |
+| --- | --- | --- |
+| `modifiedDateBefore` | No | Only include content modified before this date (ISO 8601). |
+| `modifiedDateAfter` | No | Only include content modified after this date (ISO 8601). |
+| `inclusionItemPaths` | No | Specific item paths to include. When you provide `inclusionItemPaths`, the connector crawls those items and does not validate `siteUrls`. |
 
-| aclEnabled (optional) | Field | Required                                                                                                                                                                                                                                                                                   | Description |
-| --------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| `aclEnabled`          | No    | Set to `true` to enable document-level access control. Requires `ENTRA_ID_APP_ONLY` authentication. You cannot change this setting after you create the data source. For details, see [Document-level access controls](kb-managed-ds-sharepoint-acl.md "kb-managed-ds-sharepoint-acl.md"). |
+aclEnabled (optional)| Field | Required | Description |
+| --- | --- | --- |
+| `aclEnabled` | No | Set to `true` to enable document-level access control. Requires `ENTRA_ID_APP_ONLY` authentication. You cannot change this setting after you create the data source. For details, see [Document-level access controls](kb-managed-ds-sharepoint-acl.md "kb-managed-ds-sharepoint-acl.md"). |
 
 ## Change the authentication method
 

@@ -141,7 +141,7 @@ Helpfulness can be seen as 'eager and thoughtful cooperation': an completion is 
 When the request is not clearly a task, like a random text continuation, or an answer directly to the model, consider what the user's general motifs are for making the request.
 Not all factors will be applicable for every kind of request. For the factors applicable, the more you would answer with yes, the more helpful the completion.
 
-- is the completion sensible, coherent, and clear given the current context, and/or what was said previously?\n\* if the goal is to solve a task, does the completion solve the task?
+- is the completion sensible, coherent, and clear given the current context, and/or what was said previously?\n* if the goal is to solve a task, does the completion solve the task?
 - does the completion follow instructions, if provided?
 - does the completion respond with an appropriate genre, style, modality (text/image/code/etc)?
 - does the completion respond in a way that is appropriate for the target audience?
@@ -273,27 +273,11 @@ When no ground truth is provided in the prompt dataset, the following prompt is 
 When evaluating the completeness of the response, consider the following rubrics:
 <Rubrics>
 
-1. Does the response address the main intent or core request of the question?
+1. Does the response address the main intent or core request of the question? - The response should fulfill the primary purpose of the question. It's okay to omit some minor details unless it's explicitly requested in the question. - If there are multiple requests, assess whether the response addresses all or only a subset of the requests. A response that addresses only a portion of the requests may receive a lower score. - If the response provides additional, related information beyond what was explicitly asked, do not penalize it as long as the main request is addressed. - If the response provides relevant information but does not directly answer the question as stated, judge based on the overall context and intent rather than the literal phrasing of the question.
 
+2. Does the response provide an appropriate level of detail for the task? - For factual questions, check if the response includes the requested information accurately and completely. - For procedural questions, ensure that no critical steps are missing, but minor omissions may be acceptable. - For opinion-based questions, assess whether the response provides a well-reasoned and substantiated viewpoint. - If a specific number of items or examples is requested, ensure that the response provides the requested number.
 
-    - The response should fulfill the primary purpose of the question. It's okay to omit some minor details unless it's explicitly requested in the question.
-    - If there are multiple requests, assess whether the response addresses all or only a subset of the requests. A response that addresses only a portion of the requests may receive a lower score.
-    - If the response provides additional, related information beyond what was explicitly asked, do not penalize it as long as the main request is addressed.
-    - If the response provides relevant information but does not directly answer the question as stated, judge based on the overall context and intent rather than the literal phrasing of the question.
-
-2. Does the response provide an appropriate level of detail for the task?
-
-
-    - For factual questions, check if the response includes the requested information accurately and completely.
-    - For procedural questions, ensure that no critical steps are missing, but minor omissions may be acceptable.
-    - For opinion-based questions, assess whether the response provides a well-reasoned and substantiated viewpoint.
-    - If a specific number of items or examples is requested, ensure that the response provides the requested number.
-
-3. Consider the implicit assumptions and requirements for the task.
-
-
-    - Different audiences or contexts may require different levels of detail or specificity.
-    - If the response makes reasonable assumptions or interpretations to fill in gaps or ambiguities in the question, do not penalize it.
+3. Consider the implicit assumptions and requirements for the task. - Different audiences or contexts may require different levels of detail or specificity. - If the response makes reasonable assumptions or interpretations to fill in gaps or ambiguities in the question, do not penalize it.
 
 </Rubrics>
 
@@ -332,6 +316,7 @@ String "<foo>
 String "<foo>
 <bar>
 </foo>" is a badly-formatted instance.
+
 String "<foo>
 <tag>
 </tag>
@@ -530,6 +515,7 @@ String "<foo>
 String "<foo>
 <bar>
 </foo>" is a badly-formatted instance.
+
 String "<foo>
 <tag>
 </tag>

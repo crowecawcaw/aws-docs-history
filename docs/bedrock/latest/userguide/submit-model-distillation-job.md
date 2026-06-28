@@ -80,8 +80,8 @@ following:
     		 your logs.
 
 8. For **Distillation output**, specify the S3 location where you want
-   to upload the metrics and reports about your distillation
-   job.
+to upload the metrics and reports about your distillation
+job.
 
 For more information,
 see [Analyze the results of a model customization job](model-customization-analyze.md "model-customization-analyze.md"). 9. For **VPC settings**, choose a VPC configuration for accessing the S3

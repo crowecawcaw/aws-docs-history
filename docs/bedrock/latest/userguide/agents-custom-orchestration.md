@@ -179,7 +179,7 @@ The payload structure from orchestration lambda
 }
 ```
 
-Example of a START_STATE sent from Amazon Bedrock Agents to the orchestrator Lambda
+Example of a START\_STATE sent from Amazon Bedrock Agents to the orchestrator Lambda
 
 ```
 {
@@ -194,7 +194,7 @@ Example of a START_STATE sent from Amazon Bedrock Agents to the orchestrator Lam
 }
 ```
 
-In response if the orchestration Lambda decides to send a INVOKE_MODEL EVENT
+In response if the orchestration Lambda decides to send a INVOKE\_MODEL EVENT
 response, it might look similar to the following:
 
 ```
@@ -213,7 +213,7 @@ response, it might look similar to the following:
 }
 ```
 
-Example of a INVOKE_TOOL_EVENT using Converse API
+Example of a INVOKE\_TOOL\_EVENT using Converse API
 
 ```
 {

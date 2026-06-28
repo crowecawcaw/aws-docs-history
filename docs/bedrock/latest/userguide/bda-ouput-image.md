@@ -99,7 +99,7 @@ At the beginning of the response is the generative summary of the image.
 
 Next, we see the IAB catagories attached to a response. These represent different types of
 advertising classifications, using the standard IAB taxonomy. Each one has a confidence score,
-taxonomy_level, and parent_name for the general high level catagory.
+taxonomy\_level, and parent\_name for the general high level catagory.
 
 ```
 

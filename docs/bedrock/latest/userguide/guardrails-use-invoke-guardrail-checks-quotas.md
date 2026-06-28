@@ -2,9 +2,9 @@
 
 The following quotas are enforced for `InvokeGuardrailChecks`. Quotas marked as adjustable can be raised through Service Quotas; others are hard limits.
 
-| InvokeGuardrailChecks quotas | Name  | Default value                                                                        | Description |
-| ---------------------------- | ----- | ------------------------------------------------------------------------------------ | ----------- |
-| Requests per minute (RPM)    | 1,500 | Maximum number of `InvokeGuardrailChecks` calls per account, per Region, per minute. |
+InvokeGuardrailChecks quotas| Name | Default value | Description |
+| --- | --- | --- |
+| Requests per minute (RPM) | 1,500 | Maximum number of `InvokeGuardrailChecks` calls per account, per Region, per minute. |
 
 ###### Note
 

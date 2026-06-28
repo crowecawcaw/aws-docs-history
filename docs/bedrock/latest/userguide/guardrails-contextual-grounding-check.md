@@ -280,7 +280,7 @@ using it with the Converse APIs. To mark the grounding source and
 query for `ApplyGuardrail`, use the qualifiers field in each content
 block. However, because a model is not invoked with `ApplyGuardrail`, you
 must also provide an extra content block with the content to be guarded. This
-content block can be optionally qualified with guard_content and is equivalent to
+content block can be optionally qualified with guard\_content and is equivalent to
 the model response in the Invoke\* or Converse\* APIs. For example:
 
 ```
@@ -314,11 +314,11 @@ Note that the model response is required to perform the contextual grounding
 checks and so the checks will only be performed on output and not on the
 prompt.
 
-If none of the content blocks are marked with the guard_content qualifier, then
+If none of the content blocks are marked with the guard\_content qualifier, then
 the contextual grounding checks policy will investigate just the grounding source,
 query, and response. The remaining policies will follow the default investigation
 behavior: system prompt defaults to not getting investigated and messages defaults
 to getting investigated. If, however, a content block is marked with the
-guard_content qualifier, then the contextual grounding checks policy will
+guard\_content qualifier, then the contextual grounding checks policy will
 investigate just the grounding source, query, and response, while the remaining
 policies will investigate the content marked with the guardContent tags.

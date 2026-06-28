@@ -1,5 +1,9 @@
 # Sync your data with your Amazon Bedrock knowledge base
 
+###### Important
+
+For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md "kb-build-managed.md").
+
 After you create your knowledge base, you ingest or sync your data so that the data can be queried.
 Ingestion converts the raw data in your data source into vector embeddings, based on the vector embeddings
 model and configurations you specified.
@@ -19,19 +23,16 @@ Before you begin ingestion, check that your data source fulfills the following c
 - The files don't exceed the **Ingestion job file size** specified in [Amazon Bedrock endpoints and quotas](../../../general/latest/gr/bedrock.md "../../../general/latest/gr/bedrock.md") in the AWS General Reference.
 - If your data source contains metadata files, check the following conditions to ensure that the metadata files aren't ignored:
 
-      + Each `.metadata.json` file shares the same file name and extension as the source file that it's associated with.
-      + If the vector index for your knowledge base is in an Amazon OpenSearch Serverless vector store, check that the vector index is configured with the `faiss` engine. If the vector index is configured with the `nmslib` engine, you'll have to do one of the following:
+  - Each `.metadata.json` file shares the same file name and extension as the source file that it's associated with.
+  - If the vector index for your knowledge base is in an Amazon OpenSearch Serverless vector store, check that the vector index is configured with the `faiss` engine. If the vector index is configured with the `nmslib` engine, you'll have to do one of the following:
 
+    - [Create a new knowledge base](knowledge-base-create.md "knowledge-base-create.md") in the console and let Amazon Bedrock automatically create a vector index in Amazon OpenSearch Serverless for you.
+    - [Create another vector index](knowledge-base-setup.md "knowledge-base-setup.md") in the vector store and select `faiss` as the **Engine**. Then [create a new knowledge base](knowledge-base-create.md "knowledge-base-create.md") and specify the new vector index.
 
-
-
-      	- [Create a new knowledge base](knowledge-base-create.md "knowledge-base-create.md") in the console and let Amazon Bedrock automatically create a vector index in Amazon OpenSearch Serverless for you.
-      	- [Create another vector index](knowledge-base-setup.md "knowledge-base-setup.md") in the vector store and select `faiss` as the **Engine**. Then [create a new knowledge base](knowledge-base-create.md "knowledge-base-create.md") and specify the new vector index.
-      + If the vector index for your knowledge base is in an Amazon Aurora database cluster, we recommend that you use the custom metadata field to store all your metadata in a single column
-       and create an index on this column. If you do not provide the custom metadata field, you must check that the table for your index contains a column for each metadata property in your
-       metadata files before starting ingestion. For more information, see [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
-
-  Each time you add, modify, or remove files from your data source, you must sync the data source so that it is re-indexed to the knowledge base. Syncing is incremental, so Amazon Bedrock only processes added, modified, or deleted documents since the last sync.
+  - If the vector index for your knowledge base is in an Amazon Aurora database cluster, we recommend that you use the custom metadata field to store all your metadata in a single column
+    and create an index on this column. If you do not provide the custom metadata field, you must check that the table for your index contains a column for each metadata property in your
+    metadata files before starting ingestion. For more information, see [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
+    Each time you add, modify, or remove files from your data source, you must sync the data source so that it is re-indexed to the knowledge base. Syncing is incremental, so Amazon Bedrock only processes added, modified, or deleted documents since the last sync.
 
 ## How a knowledge base handles resyncs
 
@@ -41,12 +42,12 @@ documents that were added, modified, or deleted since the last sync. When you sy
 Amazon Bedrock re-ingests documents to ensure accuracy and consistency. Re-ingestion includes parsing,
 chunking, generating embeddings, and indexing into the vector store.
 
-| Sync scenarios              | Scenario                                                                          | What happens |
-| --------------------------- | --------------------------------------------------------------------------------- | ------------ |
-| No changes detected         | The document is skipped.                                                          |
+Sync scenarios| Scenario | What happens |
+| --- | --- |
+| No changes detected | The document is skipped. |
 | Content or metadata changed | The document is re-ingested (re-parsed, re-chunked, re-embedded, and re-indexed). |
-| New document added          | Only the new document is ingested.                                                |
-| Document deleted            | The document is removed from the vector store.                                    |
+| New document added | Only the new document is ingested. |
+| Document deleted | The document is removed from the vector store. |
 
 ### Metadata-only optimization
 

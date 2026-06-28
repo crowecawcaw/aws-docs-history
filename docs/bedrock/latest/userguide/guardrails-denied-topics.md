@@ -33,7 +33,7 @@ The following is an example topic definition that you can provide:
   content should be filtered out. For example:
 
   - `Is investing in the stocks better than
-bonds?`
+   bonds?`
   - `Should I invest in gold?`
 
 ## Best practices for creating denied topics
@@ -42,21 +42,21 @@ bonds?`
   topic definition can improve the accuracy of the topic's detection. For
   example, a topic to detect queries or statements associated with
   cryptocurrencies can be defined as `Question or information
-associated with investing, selling, transacting, or procuring
-cryptocurrencies`.
+ associated with investing, selling, transacting, or procuring
+ cryptocurrencies`.
 - Don't include examples or instructions in the topic definition. For
   example, `Block all contents associated to
-cryptocurrency` is an instruction and not a definition of the
+ cryptocurrency` is an instruction and not a definition of the
   topic. Such instructions must not be used as part of topic's
   definitions.
 - Don't define negative topics or exceptions. For example, `All
-contents except medical information` or `Contents
-not containing medical information` are negative definitions
+ contents except medical information` or `Contents
+ not containing medical information` are negative definitions
   of a topic and must not be used.
 - Don't use denied topics to capture entities or words. For example,
   `Statement or questions containing the name of a person
-"X"` or `Statements with a competitor name
-Y`. The topic definitions represent a theme or a subject and
+ "X"` or `Statements with a competitor name
+ Y`. The topic definitions represent a theme or a subject and
   guardrails evaluates an input contextually. Topic filtering should not be
   used to capture individual words or entity types. For more information, see
   [Remove PII from conversations by using sensitive information filters](guardrails-sensitive-filters.md "guardrails-sensitive-filters.md"), or [Remove a specific list of words and phrases from conversations with word filters](guardrails-word-filters.md "guardrails-word-filters.md") for these use cases.

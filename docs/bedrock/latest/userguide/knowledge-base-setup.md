@@ -175,13 +175,12 @@ Note the following considerations while setting up your domain:
      **Create** to create your domain.
 
 2. Once the domain is created, choose it to take note of the
-   **Domain ARN** and **Domain
-   endpoint** for when you create the knowledge base.
-3. After you've created the domain, you can create a vector index by running the
-   following commands on an OpenSearch dashboard or using curl commands. For more
-   information, see the
-   [OpenSearch
-   documentation](https://opensearch.org/docs/latest/search-plugins/knn/knn-index/ "https://opensearch.org/docs/latest/search-plugins/knn/knn-index/").
+**Domain ARN** and **Domain
+endpoint** for when you create the knowledge base. 3. After you've created the domain, you can create a vector index by running the
+following commands on an OpenSearch dashboard or using curl commands. For more
+information, see the
+[OpenSearch
+documentation](https://opensearch.org/docs/latest/search-plugins/knn/knn-index/ "https://opensearch.org/docs/latest/search-plugins/knn/knn-index/").
 
 When running the command:
 
@@ -421,13 +420,13 @@ They connot be updated once the knowledge base has been created.
 The Aurora cluster must reside in the same AWS account as the one
 where the knowledge base is created for Amazon Bedrock.
 
-| Column name     | Data type        | Corresponding field in knowledge base setup<br>(Console) | Corresponding field in knowledge base setup<br>(API) | Description                                                                                                                                      |
-| --------------- | ---------------- | -------------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| id              | UUID primary key | Primary key                                              | `primaryKeyField`                                    | Contains unique identifiers for each record.                                                                                                     |
-| embedding       | Vector           | Vector field                                             | `vectorField`                                        | Contains the vector embeddings of the data<br>sources.                                                                                           |
-| chunks          | Text             | Text field                                               | `textField`                                          | Contains the chunks of raw text from your data<br>sources.                                                                                       |
-| metadata        | JSON             | Bedrock-managed metadata field                           | `metadataField`                                      | Contains metadata required to carry out source<br>attribution and to enable data ingestion and<br>querying                                       |
-| custom_metadata | JSONB            | Custom metadata field                                    | `customMetadataField`                                | Optional field that indicates the column where Amazon Bedrock<br>will write all the information of any metadata files from<br>your data sources. |
+| Column name      | Data type        | Corresponding field in knowledge base setup<br>(Console) | Corresponding field in knowledge base setup<br>(API) | Description                                                                                                                                      |
+| ---------------- | ---------------- | -------------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| id               | UUID primary key | Primary key                                              | `primaryKeyField`                                    | Contains unique identifiers for each record.                                                                                                     |
+| embedding        | Vector           | Vector field                                             | `vectorField`                                        | Contains the vector embeddings of the data<br>sources.                                                                                           |
+| chunks           | Text             | Text field                                               | `textField`                                          | Contains the chunks of raw text from your data<br>sources.                                                                                       |
+| metadata         | JSON             | Bedrock-managed metadata field                           | `metadataField`                                      | Contains metadata required to carry out source<br>attribution and to enable data ingestion and<br>querying                                       |
+| custom\_metadata | JSONB            | Custom metadata field                                    | `customMetadataField`                                | Optional field that indicates the column where Amazon Bedrock<br>will write all the information of any metadata files from<br>your data sources. |
 
 2. You must create an index on the columns vector and text for your
    text and embeddings fields. If you're using the custom metadata field,
@@ -556,11 +555,11 @@ Note the following considerations while creating the graph:
      graph.
 
 2. Once the graph is created, choose it to take note of the
-   **Resource ARN** and **Vector
-   dimensions** for when you create the knowledge base.
-   When choosing the embeddings model in Amazon Bedrock, make sure that you choose
-   a model with the same dimensions as the **Vector
-   dimensions** you configured on your Neptune Analytics graph.
+**Resource ARN** and **Vector
+dimensions** for when you create the knowledge base.
+When choosing the embeddings model in Amazon Bedrock, make sure that you choose
+a model with the same dimensions as the **Vector
+dimensions** you configured on your Neptune Analytics graph.
 
 After the vector index is created, you can proceed to [create your knowledge base](knowledge-base-create.md "knowledge-base-create.md"). The
 following table summarizes where you will enter each piece of information that

@@ -42,13 +42,13 @@ aws bedrock-data-automation create-blueprint \
 
 The following table shows all available parameters for the `create-blueprint` command:
 
-| Parameters for create-blueprint | Parameter | Required       | Default                                         | Description |
-| ------------------------------- | --------- | -------------- | ----------------------------------------------- | ----------- |
-| `--blueprint-name`              | Yes       | N/A            | Name for the Blueprint                          |
-| `--type`                        | Yes       | N/A            | Type of content (IMAGE, DOCUMENT, AUDIO, VIDEO) |
-| `--blueprint-stage`             | No        | LIVE           | Stage for the Blueprint (DEVELOPMENT or LIVE)   |
-| `--schema`                      | Yes       | N/A            | JSON schema defining the Blueprint structure    |
-| `--client-token`                | No        | Auto-generated | Unique identifier for request idempotency       |
+Parameters for create-blueprint| Parameter | Required | Default | Description |
+| --- | --- | --- | --- |
+| `--blueprint-name` | Yes | N/A | Name for the Blueprint |
+| `--type` | Yes | N/A | Type of content (IMAGE, DOCUMENT, AUDIO, VIDEO) |
+| `--blueprint-stage` | No | LIVE | Stage for the Blueprint (DEVELOPMENT or LIVE) |
+| `--schema` | Yes | N/A | JSON schema defining the Blueprint structure |
+| `--client-token` | No | Auto-generated | Unique identifier for request idempotency |
 
 ## Viewing Blueprint configurations
 

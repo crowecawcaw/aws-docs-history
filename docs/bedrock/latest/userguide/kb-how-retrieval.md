@@ -1,5 +1,9 @@
 # Retrieving information from data sources using Amazon Bedrock Knowledge Bases
 
+###### Important
+
+For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md "kb-build-managed.md").
+
 After setting up a knowledge base, you can set up your application to query the data sources in it. To query a knowledge base, you can take advantage of the following API operations:
 
 - [Retrieve](../APIReference/API_agent-runtime_Retrieve.md "../APIReference/API_agent-runtime_Retrieve.md") – Retrieves the source chunks or images from your data that are most relevant to the query and returns them in the response as an array.

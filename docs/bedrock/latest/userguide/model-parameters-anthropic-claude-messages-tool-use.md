@@ -293,7 +293,7 @@ Claude can automatically clear old tool use results as you approach token limits
 allowing for more efficient context management in
 multi-turn tool use scenarios. To use tool use clearing, you need to add
 `context-management-2025-06-27` to the list of beta headers on the
-anthropic_beta request parameter. You will also need to specify the use of
+anthropic\_beta request parameter. You will also need to specify the use of
 `clear_tool_uses_20250919` and choose from the following configuration
 options.
 
@@ -302,7 +302,7 @@ management strategy. All are optional or have defaults:
 
 | **Configuration Option**                      | **Description**                                                                                                                                                                                                                                                                         |
 | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `trigger`<br>default: 100,000 input tokens    | Defines when the context editing strategy activates. Once the<br>prompt exceeds this threshold, clearing will begin. You can specify<br>this value in either input_tokens or tool_uses.                                                                                                 |
+| `trigger`<br>default: 100,000 input tokens    | Defines when the context editing strategy activates. Once the<br>prompt exceeds this threshold, clearing will begin. You can specify<br>this value in either input\_tokens or tool\_uses.                                                                                               |
 | `keep`<br>default: 3 tool uses                | Defines how many recent tool use/result pairs to keep after<br>clearing occurs. The API removes the oldest tool interactions first,<br>preserving the most recent ones. Helpful when the model needs access<br>to recent tool interactions to continue the conversation<br>effectively. |
 | `clear_at_least` (optional)                   | Ensures a minimum number of tokens are cleared each time the<br>strategy activates. If the API can't clear at least the specified<br>amount, the strategy will not be applied. This is useful for<br>determining whether context clearing is worth breaking your prompt<br>cache for.   |
 | `exclude_tools` (optional)                    | List of tool names whose tool uses and results should never be<br>cleared. Useful for preserving important context.                                                                                                                                                                     |

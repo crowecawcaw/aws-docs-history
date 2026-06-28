@@ -104,7 +104,7 @@ print(response.text)
 ```
 
 HTTP request using cURL
-The following example shows how to directly send an API request, using cURL. If you didn't set the API key as the AWS_BEARER_TOKEN_BEDROCK environment variable, you'll have to replace `$AWS_BEARER_TOKEN_BEDROCK` in the example with the literal value of the key.
+The following example shows how to directly send an API request, using cURL. If you didn't set the API key as the AWS\_BEARER\_TOKEN\_BEDROCK environment variable, you'll have to replace `$AWS_BEARER_TOKEN_BEDROCK` in the example with the literal value of the key.
 
 ```
 curl -X POST "https://bedrock-runtime.us-east-1.amazonaws.com/model/us.anthropic.claude-sonnet-4-6/converse" \

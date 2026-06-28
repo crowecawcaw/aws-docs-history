@@ -1,5 +1,9 @@
 # Connect to Amazon S3 for your knowledge base
 
+###### Important
+
+For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md "kb-build-managed.md").
+
 Amazon S3 is an object storage service that stores data as objects within buckets.
 You can connect to your Amazon S3 bucket for your Amazon Bedrock knowledge base by using either
 the [AWS Management Console for Amazon Bedrock](https://console.aws.amazon.com/bedrock/home "https://console.aws.amazon.com/bedrock/home")

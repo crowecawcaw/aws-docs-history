@@ -70,7 +70,7 @@ Example response:
 ```
 
 OpenAICompletion
-OpenAICompletion supports both `response_format` (json_object, json_schema) and `structured_outputs` (json, regex, choice, grammar) parameters. Use `max_tokens` instead of `max_gen_len` to route requests to OpenAICompletion.
+OpenAICompletion supports both `response_format` (json\_object, json\_schema) and `structured_outputs` (json, regex, choice, grammar) parameters. Use `max_tokens` instead of `max_gen_len` to route requests to OpenAICompletion.
 
 **Example: Structured Outputs - Choice**
 
@@ -114,7 +114,7 @@ Example response:
 ```
 
 OpenAIChatCompletion
-OpenAIChatCompletion supports both `response_format` (json_object, json_schema) and `structured_outputs` (json, regex, choice, grammar) parameters.
+OpenAIChatCompletion supports both `response_format` (json\_object, json\_schema) and `structured_outputs` (json, regex, choice, grammar) parameters.
 
 **Example: Response Format - JSON Schema**
 

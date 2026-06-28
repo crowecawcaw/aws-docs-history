@@ -182,31 +182,31 @@ to Amazon S3, specify `S3` as the connector type in
 `deletionProtectionConfiguration` and
 `mediaExtractionConfiguration`), see [Connect a data source](kb-managed-connect-ds.md "kb-managed-connect-ds.md").
 
-| connectionConfiguration | Field       | Required                                                                      | Description |
-| ----------------------- | ----------- | ----------------------------------------------------------------------------- | ----------- |
-| `bucketName`            | Yes         | The name of the Amazon S3 bucket.                                             |
-| `bucketOwnerAccountId`  | Conditional | The AWS account ID of the bucket owner. Required for<br>cross-account access. |
+connectionConfiguration| Field | Required | Description |
+| --- | --- | --- |
+| `bucketName` | Yes | The name of the Amazon S3 bucket. |
+| `bucketOwnerAccountId` | Conditional | The AWS account ID of the bucket owner. Required for<br>cross-account access. |
 
-| filterConfiguration (optional) | Field | Required                                                                                                                                             | Description |
-| ------------------------------ | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `inclusionPrefixes`            | No    | List of Amazon S3 key prefixes to include (for example,<br>`documents/`).                                                                            |
-| `exclusionPrefixes`            | No    | List of Amazon S3 key prefixes to exclude (for example,<br>`archive/`).                                                                              |
-| `inclusionPatterns`            | No    | List of regular expressions. Only objects whose keys match at<br>least one pattern are ingested.                                                     |
-| `exclusionPatterns`            | No    | List of regular expressions. Objects whose keys match any pattern<br>are not ingested.                                                               |
-| `maxFileSizeInMegaBytes`       | No    | Maximum size, in megabytes, of any single file the connector<br>ingests. Provide as a numeric string (for example,<br>`"500"`). Defaults to `"500"`. |
+filterConfiguration (optional)| Field | Required | Description |
+| --- | --- | --- |
+| `inclusionPrefixes` | No | List of Amazon S3 key prefixes to include (for example,<br>`documents/`). |
+| `exclusionPrefixes` | No | List of Amazon S3 key prefixes to exclude (for example,<br>`archive/`). |
+| `inclusionPatterns` | No | List of regular expressions. Only objects whose keys match at<br>least one pattern are ingested. |
+| `exclusionPatterns` | No | List of regular expressions. Objects whose keys match any pattern<br>are not ingested. |
+| `maxFileSizeInMegaBytes` | No | Maximum size, in megabytes, of any single file the connector<br>ingests. Provide as a numeric string (for example,<br>`"500"`). Defaults to `"500"`. |
 
-| Top-level connector parameters (optional) | Field       | Required                                                                                                                                                                                                                                                                                                      | Description |
-| ----------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `metadataFilesPrefix`                     | No          | The Amazon S3 prefix where document metadata files<br>(`.metadata.json`) are stored.                                                                                                                                                                                                                          |
-| `aclEnabled`                              | No          | Set to `true` to enable document-level access<br>control. You cannot change this setting after you create the data<br>source. For details, see [Document-level access controls](kb-managed-ds-s3-acl.md "kb-managed-ds-s3-acl.md").                                                                           |
-| `aclConfiguration`                        | Conditional | Contains `globalAccessControlListS3Uri` — the<br>Amazon S3 URI of a JSON file that maps key prefixes to access control<br>entries. Required when `aclEnabled` is<br>`true`; ignored when `aclEnabled` is<br>`false`. See [Document-level access controls](kb-managed-ds-s3-acl.md "kb-managed-ds-s3-acl.md"). |
+Top-level connector parameters (optional)| Field | Required | Description |
+| --- | --- | --- |
+| `metadataFilesPrefix` | No | The Amazon S3 prefix where document metadata files<br>(`.metadata.json`) are stored. |
+| `aclEnabled` | No | Set to `true` to enable document-level access<br>control. You cannot change this setting after you create the data<br>source. For details, see [Document-level access controls](kb-managed-ds-s3-acl.md "kb-managed-ds-s3-acl.md"). |
+| `aclConfiguration` | Conditional | Contains `globalAccessControlListS3Uri` — the<br>Amazon S3 URI of a JSON file that maps key prefixes to access control<br>entries. Required when `aclEnabled` is<br>`true`; ignored when `aclEnabled` is<br>`false`. See [Document-level access controls](kb-managed-ds-s3-acl.md "kb-managed-ds-s3-acl.md"). |
 
 ### Document metadata files
 
 You can attach metadata to each document by uploading a sidecar file alongside
 it. For each document, create a file named
-``filename.extension`.metadata.json`in the
- same Amazon S3 path. The metadata file must not exceed 10 KB. For example, alongside
+``filename.extension`.metadata.json` in the
+same Amazon S3 path. The metadata file must not exceed 10 KB. For example, alongside
 `report.pdf`, upload `report.pdf.metadata.json` with the
 following content:
 

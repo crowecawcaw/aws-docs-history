@@ -126,9 +126,9 @@ When you write a prompt, you can include variables in double curly braces (as in
 
 4. You have the following options when you're finished configuring the prompt:
 
-   - To save your prompt, choose **Save draft**. For more information about the draft version, see [Deploy a prompt to your application using versions in Prompt management](prompt-management-deploy.md "prompt-management-deploy.md").
-   - To delete your prompt, choose **Delete**. For more information, see [Delete a prompt in Prompt management](prompt-management-delete.md "prompt-management-delete.md").
-   - To create a version of your prompt, choose **Create version**. For more information about prompt versioning, see [Deploy a prompt to your application using versions in Prompt management](prompt-management-deploy.md "prompt-management-deploy.md").
+    * To save your prompt, choose **Save draft**. For more information about the draft version, see [Deploy a prompt to your application using versions in Prompt management](prompt-management-deploy.md "prompt-management-deploy.md").
+    * To delete your prompt, choose **Delete**. For more information, see [Delete a prompt in Prompt management](prompt-management-delete.md "prompt-management-delete.md").
+    * To create a version of your prompt, choose **Create version**. For more information about prompt versioning, see [Deploy a prompt to your application using versions in Prompt management](prompt-management-deploy.md "prompt-management-deploy.md").
 
 API
 To create a prompt, send a [CreatePrompt](../APIReference/API_agent_CreatePrompt.md "../APIReference/API_agent_CreatePrompt.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt").

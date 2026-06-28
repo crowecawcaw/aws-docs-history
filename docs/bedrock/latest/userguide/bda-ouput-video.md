@@ -13,7 +13,7 @@ documentaries. BDA will attempt to provide a name for each unique speaker based 
 audio signals (e.g., the speaker introduces themself) or visual signals (e.g., a
 presentation slide shows a speaker’s name) in the full video summaries and the scene
 summaries. When a unique speaker’s name is not resolved they will be represented by
-a unique number (e.g., speaker_0).
+a unique number (e.g., speaker\_0).
 
 ## Chapter Summaries
 
@@ -116,7 +116,7 @@ location, format, frame rate and other key pieces of info.
 ```
 
 This is an example of a shot element in a response. Shots represent small portions of a video, typically
-associate with an edit or cut in the video. Shots contain start and end elements, and also a chapter_indicies
+associate with an edit or cut in the video. Shots contain start and end elements, and also a chapter\_indicies
 element. This element indicates which larger section of the video, called a chapter, the shot is a part of.
 
 ```
@@ -139,8 +139,8 @@ element. This element indicates which larger section of the video, called a chap
 
 ```
 
-Chapters are larger pieces of a video. Then contain start and end information like shots, and a shot_indicies element.
-shot_indicies tell you which shots are within a chapter. Finally, the summary element, provides a generated summary of the
+Chapters are larger pieces of a video. Then contain start and end information like shots, and a shot\_indicies element.
+shot\_indicies tell you which shots are within a chapter. Finally, the summary element, provides a generated summary of the
 content of the chapter.
 
 ```
@@ -191,9 +191,9 @@ content of the chapter.
 ```
 
 The smallest granularity of a video is a frame, representing a single image within a video.
-Frames have two notably response elements, content_moderation and text_words. The first, content_moderation
+Frames have two notably response elements, content\_moderation and text\_words. The first, content\_moderation
 provides you with information based on content moderation catagories about the content of the frame if any
-are detected. The second, text_words, provides you with a location and information about any text appearing
+are detected. The second, text\_words, provides you with a location and information about any text appearing
 in a video, such as closed captioning.
 
 ```

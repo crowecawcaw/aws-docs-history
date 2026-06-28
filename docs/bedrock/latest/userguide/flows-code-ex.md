@@ -32,13 +32,12 @@ To try out some code samples for Amazon Bedrock Flows, choose the tab for your p
 
 Python
 
-1.  Create a flow using a [CreateFlow](../APIReference/API_agent_CreateFlow.md "../APIReference/API_agent_CreateFlow.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt") with the following nodes:
+1. Create a flow using a [CreateFlow](../APIReference/API_agent_CreateFlow.md "../APIReference/API_agent_CreateFlow.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt") with the following nodes:
 
-        * An input node.
-        * A prompt node with a prompt defined inline that creates a music playlist using two variables (`genre` and `number`).
-        * An output node that returns the model completion.
-
-    Run the following code snippet to load the AWS SDK for Python (Boto3), create an Amazon Bedrock Agents client, and create a flow with the nodes (replace the `executionRoleArn` field with the ARN of your the service role that you created for flow):
+   - An input node.
+   - A prompt node with a prompt defined inline that creates a music playlist using two variables (`genre` and `number`).
+   - An output node that returns the model completion.
+     Run the following code snippet to load the AWS SDK for Python (Boto3), create an Amazon Bedrock Agents client, and create a flow with the nodes (replace the `executionRoleArn` field with the ARN of your the service role that you created for flow):
 
 ```
 # Import Python SDK and create client

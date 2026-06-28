@@ -6,12 +6,12 @@ The `bedrock-runtime.`region`.amazonaws.com` endpoint is the primary inference e
 
 Inference on the `bedrock-runtime` endpoint is governed by the following per-model quotas:
 
-| bedrock-runtime per-model quotas                          | Quota                 | Scope                                                                                                                                                                                                                                                           | Description |
-| --------------------------------------------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Cross-Region InvokeModel tokens per minute for `${model}` | Per model, per Region | The maximum number of tokens per minute (input + output, combined) that your account can use for the model when invoked through a cross-Region inference profile.                                                                                               |
-| On-demand InvokeModel tokens per minute for `${model}`    | Per model, per Region | The maximum number of tokens per minute (input + output, combined) that your account can use for the model when invoked on-demand in a single Region.                                                                                                           |
-| Model invocation max tokens per day for `${model}`        | Per model, per Region | The maximum number of tokens per day (input + output, combined) that your account can use for the model. By default, this value is the per-minute quota multiplied by 24 × 60. New AWS accounts might receive reduced quotas.                                   |
-| InvokeModel requests per minute for `${model}`            | Per model, per Region | The maximum number of inference requests per minute that your account can submit for the model. RPM is enforced for some models on the `bedrock-runtime` endpoint and not others; see the Service Quotas console for the exact quotas that apply to your model. |
+bedrock-runtime per-model quotas| Quota | Scope | Description |
+| --- | --- | --- |
+| Cross-Region InvokeModel tokens per minute for `${model}` | Per model, per Region | The maximum number of tokens per minute (input + output, combined) that your account can use for the model when invoked through a cross-Region inference profile. |
+| On-demand InvokeModel tokens per minute for `${model}` | Per model, per Region | The maximum number of tokens per minute (input + output, combined) that your account can use for the model when invoked on-demand in a single Region. |
+| Model invocation max tokens per day for `${model}` | Per model, per Region | The maximum number of tokens per day (input + output, combined) that your account can use for the model. By default, this value is the per-minute quota multiplied by 24 × 60. New AWS accounts might receive reduced quotas. |
+| InvokeModel requests per minute for `${model}` | Per model, per Region | The maximum number of inference requests per minute that your account can submit for the model. RPM is enforced for some models on the `bedrock-runtime` endpoint and not others; see the Service Quotas console for the exact quotas that apply to your model. |
 
 The `bedrock-runtime` endpoint TPM quotas count input and output tokens together against a single per-model quota. The `bedrock-mantle` endpoint applies separate input-tokens-per-minute and output-tokens-per-minute quotas; for details, see [Quotas for the bedrock-mantle endpoint](quotas-mantle.md "quotas-mantle.md").
 
@@ -42,11 +42,10 @@ Before requesting a quota increase, verify that the model is not in a _Legacy_ o
 - If a quota is marked as **Yes**, you can adjust it by following the steps at [Requesting a Quota Increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the Service Quotas User Guide.
 - For any model, you can request an increase for the following quotas together:
 
-      + Cross-Region InvokeModel tokens per minute for `${model}`
-      + On-demand InvokeModel tokens per minute for `${model}`
-      + Model invocation max tokens per day for `${model}`
-
-  To request an increase for any combination of these quotas, request an increase for the **Cross-Region InvokeModel tokens per minute for `${model}`** quota by following the steps at [Requesting a Quota Increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the Service Quotas User Guide. After you do so, the support team will reach out and offer you the option of also increasing the other two quotas.
+  - Cross-Region InvokeModel tokens per minute for `${model}`
+  - On-demand InvokeModel tokens per minute for `${model}`
+  - Model invocation max tokens per day for `${model}`
+    To request an increase for any combination of these quotas, request an increase for the **Cross-Region InvokeModel tokens per minute for `${model}`** quota by following the steps at [Requesting a Quota Increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the Service Quotas User Guide. After you do so, the support team will reach out and offer you the option of also increasing the other two quotas.
 
 ###### Note
 

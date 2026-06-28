@@ -48,7 +48,7 @@ Because the configuration is inline per request, you can vary your safety postur
 Each check carries its own configuration shape. The field name selects the check; the object inside it lists what that check looks for:
 
 - `contentFilter` – Takes a `categories` list (HATE, INSULTS, SEXUAL, VIOLENCE, MISCONDUCT).
-- `promptAttack` – Takes a `categories` list (JAILBREAK, PROMPT_INJECTION, PROMPT_LEAKAGE).
+- `promptAttack` – Takes a `categories` list (JAILBREAK, PROMPT\_INJECTION, PROMPT\_LEAKAGE).
 - `sensitiveInformation` – Takes an `entities` list (31 supported PII entities).
 
 **Request and response are symmetric** – The keys you set under `checks` are the same keys that come back under `results` and `usage`. If you request `contentFilter` and `sensitiveInformation`, only those two appear in the response; `promptAttack` is absent because it was never run. This makes it easy to map a finding back to the check that produced it.

@@ -1,6 +1,6 @@
 # Application inference profiles
 
-Application inference profiles (AIPs) let you attribute Amazon Bedrock costs by application, team, or workload for the Amazon Bedrock [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") and [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") APIs on the `bedrock-runtime` endpoint. Each AIP is model-specific and carries cost allocation tags that flow to AWS Cost Explorer and AWS Cost and Usage Reports (CUR 2.0).
+Application inference profiles (AIPs) let you attribute Amazon Bedrock costs by application, team, or workload for the Amazon Bedrock [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") and [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") APIs on the `bedrock-runtime` endpoint. Each AIP is model-specific and carries cost allocation tags that flow to AWS Cost Explorer and AWS Cost and Usage Reports (both classic CUR and CUR 2.0).
 
 For workloads using Responses and Chat Completions on the `bedrock-mantle` endpoint, use [Projects](cost-mgmt-projects.md "cost-mgmt-projects.md") instead.
 
@@ -28,7 +28,7 @@ For more information on creating profiles, see [Create an application inference 
 
 ###### Note
 
-Application inference profiles deliver aggregated billed dollars to AWS Cost Explorer and CUR 2.0. The finest grain is per usage type per day; they do not produce per-request cost. For per-prompt token detail, use [Per-request metadata tagging](cost-mgmt-request-metadata.md "cost-mgmt-request-metadata.md") with your [model invocation logs](model-invocation-logging.md "model-invocation-logging.md").
+Application inference profiles deliver aggregated billed dollars to AWS Cost Explorer and CUR (classic CUR and CUR 2.0). The finest grain is per usage type per day; they do not produce per-request cost. For per-prompt token detail, use [Per-request metadata tagging](cost-mgmt-request-metadata.md "cost-mgmt-request-metadata.md") with your [model invocation logs](model-invocation-logging.md "model-invocation-logging.md").
 
 ## Viewing profile costs
 
@@ -44,7 +44,7 @@ Tags can take up to 24 hours to appear in Cost Explorer and CUR after activation
 After tag activation, you can analyze Amazon Bedrock costs by application inference profile in the following tools:
 
 - **AWS Cost Explorer** – Filter by profile tags to view cost trends over time. Group by tag to compare costs across profiles.
-- **AWS Cost and Usage Reports (CUR 2.0)** – Query CUR data for line-item cost breakdowns by profile tag.
+- **AWS Cost and Usage Reports** – Query CUR data for line-item cost breakdowns by profile tag. Tags appear in both classic CUR and CUR 2.0 exports.
 
 ## Scaling considerations
 

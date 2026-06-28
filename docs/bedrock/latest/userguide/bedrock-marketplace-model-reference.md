@@ -50,7 +50,7 @@ whether they can use the `Converse` operation:
 | EleutherAI GPT Neo 1.3B                             | No                     | Yes                 |
 | EleutherAI GPT Neo 2.7B                             | No                     | Yes                 |
 | ESM3-open                                           | No                     | No                  |
-| EXAONE_v3.0 7.8B Instruct                           | Yes                    | No                  |
+| EXAONE\_v3.0 7.8B Instruct                          | Yes                    | No                  |
 | Falcon 40B BF16                                     | No                     | Yes                 |
 | Falcon Lite                                         | No                     | Yes                 |
 | Falcon Lite 2                                       | No                     | Yes                 |

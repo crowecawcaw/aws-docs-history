@@ -29,10 +29,10 @@ We recommend [Set up Microsoft Entra ID App-Only authentication for SharePoint](
 
 OAuth 2.0 authentication requires two permissions: a Microsoft Graph application permission to enumerate sites, and a SharePoint delegated permission to read content. Assign both of the following.
 
-| Permissions for OAuth 2.0 authentication | API              | Permission  | Type                                                                                                | Purpose |
-| ---------------------------------------- | ---------------- | ----------- | --------------------------------------------------------------------------------------------------- | ------- |
-| Microsoft Graph                          | `Sites.Read.All` | Application | Enumerate SharePoint sites.                                                                         |
-| SharePoint                               | `AllSites.Read`  | Delegated   | Read site content through the SharePoint REST API. Requires admin consent (see the following note). |
+Permissions for OAuth 2.0 authentication| API | Permission | Type | Purpose |
+| --- | --- | --- | --- |
+| Microsoft Graph | `Sites.Read.All` | Application | Enumerate SharePoint sites. |
+| SharePoint | `AllSites.Read` | Delegated | Read site content through the SharePoint REST API. Requires admin consent (see the following note). |
 
 1. In your app registration, choose **API permissions**, then **Add a permission**.
 2. Choose **Microsoft Graph**, then **Application permissions**. Search for and select `Sites.Read.All`, then choose **Add permissions**.
@@ -89,11 +89,11 @@ The account password is stored in the secret and used for each sync. If the pass
 
 If the data source fails to sync, match the error against the following signatures.
 
-| OAuth 2.0 sync errors                                                              | Error                                                                                                                                                                                                                                                                                            | Cause and resolution |
-| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
-| `AADSTS65001` (the user or administrator has not consented to use the application) | The SharePoint `AllSites.Read` delegated permission has not been admin-consented. In your app registration, choose **API permissions**, then **Grant admin consent for [your organization]**. See Step 2.                                                                                        |
-| `Rest API token request failed with status: 400`                                   | The resource-owner password credentials sign-in failed at authentication, typically because the account requires MFA or a Conditional Access policy that the flow cannot satisfy. Use an account that does not require MFA, and confirm the `userName` and `password` in the secret are correct. |
-| `SharePoint app is missing required scopes`                                        | The Microsoft Graph `Sites.Read.All` application permission has not been granted (or consented). The connector checks the Graph application token for this scope before crawling. Add the Microsoft Graph `Sites.Read.All` application permission and grant admin consent. See Step 2.           |
+OAuth 2.0 sync errors| Error | Cause and resolution |
+| --- | --- |
+| `AADSTS65001` (the user or administrator has not consented to use the application) | The SharePoint `AllSites.Read` delegated permission has not been admin-consented. In your app registration, choose **API permissions**, then **Grant admin consent for [your organization]**. See Step 2. |
+| `Rest API token request failed with status: 400` | The resource-owner password credentials sign-in failed at authentication, typically because the account requires MFA or a Conditional Access policy that the flow cannot satisfy. Use an account that does not require MFA, and confirm the `userName` and `password` in the secret are correct. |
+| `SharePoint app is missing required scopes` | The Microsoft Graph `Sites.Read.All` application permission has not been granted (or consented). The connector checks the Graph application token for this scope before crawling. Add the Microsoft Graph `Sites.Read.All` application permission and grant admin consent. See Step 2. |
 
 ## Next steps
 

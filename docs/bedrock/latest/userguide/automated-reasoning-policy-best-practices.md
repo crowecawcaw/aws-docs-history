@@ -260,8 +260,8 @@ conventions:
   name. For example: `tenureMonths`, `loanAmountUSD`,
   `creditScore`.
 - **Enum types:** Use PascalCase for type names and
-  UPPER_SNAKE_CASE for values. For example: `LeaveType = {PARENTAL, MEDICAL,
-BEREAVEMENT}`.
+  UPPER\_SNAKE\_CASE for values. For example: `LeaveType = {PARENTAL, MEDICAL,
+ BEREAVEMENT}`.
 - **Variables:** Use camelCase. For example:
   `tenureMonths`, `isFullTime`,
   `leaveType`.

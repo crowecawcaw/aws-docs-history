@@ -87,9 +87,9 @@ The response body contains the following fields:
 
     - FINISHED – The response was fully generated.
     - LENGTH – The response was truncated because of the response length you set.
-    - STOP_CRITERIA_MET – The response was truncated because the stop criteria was reached.
-    - RAG_QUERY_WHEN_RAG_DISABLED – The feature is disabled and cannot complete the query.
-    - CONTENT_FILTERED – The contents were filtered or removed by the content filter applied.
+    - STOP\_CRITERIA\_MET – The response was truncated because the stop criteria was reached.
+    - RAG\_QUERY\_WHEN\_RAG\_DISABLED – The feature is disabled and cannot complete the query.
+    - CONTENT\_FILTERED – The contents were filtered or removed by the content filter applied.
 
 InvokeModelWithResponseStream Response
 Each chunk of text in the body of the response stream is in
@@ -117,9 +117,9 @@ the following format. You must decode the `bytes` field (see [Submit a single pr
 
   - FINISHED – The response was fully generated.
   - LENGTH – The response was truncated because of the response length you set.
-  - STOP_CRITERIA_MET – The response was truncated because the stop criteria was reached.
-  - RAG_QUERY_WHEN_RAG_DISABLED – The feature is disabled and cannot complete the query.
-  - CONTENT_FILTERED – The contents were filtered or removed by the filter applied.
+  - STOP\_CRITERIA\_MET – The response was truncated because the stop criteria was reached.
+  - RAG\_QUERY\_WHEN\_RAG\_DISABLED – The feature is disabled and cannot complete the query.
+  - CONTENT\_FILTERED – The contents were filtered or removed by the filter applied.
 
 ## Code examples
 

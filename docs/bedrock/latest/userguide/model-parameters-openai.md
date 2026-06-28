@@ -48,12 +48,12 @@ Use the request body fields in the following ways:
 
   - Map the values for the following fields to the corresponding fields in the `inferenceConfig` object:
 
-  | OpenAI field          | Converse field |
-  | --------------------- | -------------- |
-  | max_completion_tokens | maxTokens      |
-  | stop                  | stopSequences  |
-  | temperature           | temperature    |
-  | top_p                 | topP           |
+  | OpenAI field            | Converse field |
+  | ----------------------- | -------------- |
+  | max\_completion\_tokens | maxTokens      |
+  | stop                    | stopSequences  |
+  | temperature             | temperature    |
+  | top\_p                  | topP           |
   - Include any other fields in the `additionalModelRequestFields` object.
 
 ###### Considerations when constructing the request body

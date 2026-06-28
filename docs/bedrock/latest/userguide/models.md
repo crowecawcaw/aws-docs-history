@@ -4,9 +4,10 @@ Amazon Bedrock supports a wide catalog of foundation models from leading provide
 
 **In this chapter**
 
-- [API compatibility](models-api-compatibility.md "models-api-compatibility.md") – Which APIs (InvokeModel, Converse, Chat Completions, Responses, Messages) each model supports.
-- [Endpoint availability](models-endpoint-availability.md "models-endpoint-availability.md") – Which endpoints (`bedrock-runtime`, `bedrock-mantle`) each model is hosted on.
-- [Regional availability](models-region-compatibility.md "models-region-compatibility.md") – AWS Regions and cross-Region inference profiles each model is available in.
+- [API compatibility by models](models-api-compatibility.md "models-api-compatibility.md") – Which APIs (InvokeModel, Converse, Chat Completions, Responses, Messages) each model supports.
+- [Endpoint availability by models](models-endpoint-availability.md "models-endpoint-availability.md") – Which endpoints (`bedrock-runtime`, `bedrock-mantle`) each model is hosted on.
+- [Regional availability by models](models-region-compatibility.md "models-region-compatibility.md") – AWS Regions and cross-Region inference profiles each model is available in.
+- [Regional availability by endpoints](endpoints-region-availability.md "endpoints-region-availability.md") – AWS Regions where each Amazon Bedrock endpoint (`bedrock-runtime`, `bedrock-mantle`) is available.
 - [Get list of models](models-get-info.md "models-get-info.md") – Programmatically list and discover available models on each endpoint.
 - [Model lifecycle](model-lifecycle.md "model-lifecycle.md") – Model versioning, deprecation timelines, and migration guidance.
 - [Request access to models](model-access.md "model-access.md") – Request and manage access to models in your account.

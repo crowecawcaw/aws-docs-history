@@ -7,45 +7,38 @@ This section guides you through trying out some common operations in Amazon Bedr
 - You have an AWS account and have permissions to access a role with the necessary permissions for Amazon Bedrock. Otherwise, follow the steps at [Quickstart](getting-started.md "getting-started.md").
 - Carry out the following steps to set up IAM permissions for SageMaker AI and create a notebook:
 
-      1. Modify the [trust policy](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#term_trust-policy "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#term_trust-policy") of the Amazon Bedrock role that you set up in [Quickstart](getting-started.md "getting-started.md") through the [console](../../../IAM/latest/UserGuide/roles-managingrole-editing-console.md#roles-managingrole_edit-trust-policy "../../../IAM/latest/UserGuide/roles-managingrole-editing-console.md#roles-managingrole_edit-trust-policy"), [CLI](../../../IAM/latest/UserGuide/roles-managingrole-editing-cli.md#roles-managingrole_edit-trust-policy-cli "../../../IAM/latest/UserGuide/roles-managingrole-editing-cli.md#roles-managingrole_edit-trust-policy-cli"), or [API](../../../IAM/latest/UserGuide/roles-managingrole-editing-api.md#roles-managingrole_edit-trust-policy-api "../../../IAM/latest/UserGuide/roles-managingrole-editing-api.md#roles-managingrole_edit-trust-policy-api"). Attach the following trust policy to the role to allow both the Amazon Bedrock and SageMaker AI services to assume the Amazon Bedrock role:
+  1.  Modify the [trust policy](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#term_trust-policy "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#term_trust-policy") of the Amazon Bedrock role that you set up in [Quickstart](getting-started.md "getting-started.md") through the [console](../../../IAM/latest/UserGuide/roles-managingrole-editing-console.md#roles-managingrole_edit-trust-policy "../../../IAM/latest/UserGuide/roles-managingrole-editing-console.md#roles-managingrole_edit-trust-policy"), [CLI](../../../IAM/latest/UserGuide/roles-managingrole-editing-cli.md#roles-managingrole_edit-trust-policy-cli "../../../IAM/latest/UserGuide/roles-managingrole-editing-cli.md#roles-managingrole_edit-trust-policy-cli"), or [API](../../../IAM/latest/UserGuide/roles-managingrole-editing-api.md#roles-managingrole_edit-trust-policy-api "../../../IAM/latest/UserGuide/roles-managingrole-editing-api.md#roles-managingrole_edit-trust-policy-api"). Attach the following trust policy to the role to allow both the Amazon Bedrock and SageMaker AI services to assume the Amazon Bedrock role:
 
+  JSON
 
+  ```
+  `{
+   "Version":"2012-10-17",
+   "Statement": [
+   {
+   "Sid": "BedrockTrust",
+   "Effect": "Allow",
+   "Principal": {
+   "Service": "bedrock.amazonaws.com"
+   },
+   "Action": "sts:AssumeRole"
+   },
+   {
+   "Sid": "SagemakerTrust",
+   "Effect": "Allow",
+   "Principal": {
+   "Service": "sagemaker.amazonaws.com"
+   },
+   "Action": "sts:AssumeRole"
+   }
+   ]
+  }`
 
-      JSON
-
-
-
-
-
-      ```
-      `{
-       "Version":"2012-10-17",
-       "Statement": [
-       {
-       "Sid": "BedrockTrust",
-       "Effect": "Allow",
-       "Principal": {
-       "Service": "bedrock.amazonaws.com"
-       },
-       "Action": "sts:AssumeRole"
-       },
-       {
-       "Sid": "SagemakerTrust",
-       "Effect": "Allow",
-       "Principal": {
-       "Service": "sagemaker.amazonaws.com"
-       },
-       "Action": "sts:AssumeRole"
-       }
-       ]
-      }`
-
-      ```
-      2. Sign into the Amazon Bedrock role whose trust policy you just modified.
-      3. Follow the steps at [Create an Amazon SageMaker AI Notebook Instance for the tutorial](../../../sagemaker/latest/dg/gs-setup-working-env.md "../../../sagemaker/latest/dg/gs-setup-working-env.md") and specify the ARN of the Amazon Bedrock role that you created to create an SageMaker AI notebook instance.
-      4. When the **Status** of the notebook instance is **InService**, choose the instance and then choose **Open JupyterLab**.
-
-  After you open up your SageMaker AI notebook, you can try out the following examples:
+  ```
+  2.  Sign into the Amazon Bedrock role whose trust policy you just modified.
+  3.  Follow the steps at [Create an Amazon SageMaker AI Notebook Instance for the tutorial](../../../sagemaker/latest/dg/gs-setup-working-env.md "../../../sagemaker/latest/dg/gs-setup-working-env.md") and specify the ARN of the Amazon Bedrock role that you created to create an SageMaker AI notebook instance.
+  4.  When the **Status** of the notebook instance is **InService**, choose the instance and then choose **Open JupyterLab**.
+      After you open up your SageMaker AI notebook, you can try out the following examples:
 
 ###### Topics
 

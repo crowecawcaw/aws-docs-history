@@ -87,11 +87,11 @@ Console
       three words. Don't include a header. You have the
       following options:
 
-   | Option                                | Instructions                                                                                                                     |
-   | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-   | **Add words and phrases<br>manually** | Directly add words and phrases in the<br>\*_View and edit words and<br>phrases_<br>• section.                                    |
-   | **Upload from a local<br>file**       | Upload a .txt or .csv file containing the<br>words and phrases by selecting \*_Choose<br>file_<br>• after selecting this option. |
-   | **Upload from Amazon S3<br>object**   | Upload an object from an S3 bucket.                                                                                              |
+   | Option                                | Instructions                                                                                                                    |
+   | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+   | **Add words and phrases<br>manually** | Directly add words and phrases in the<br>*_View and edit words and<br>phrases_<br>• section.                                    |
+   | **Upload from a local<br>file**       | Upload a .txt or .csv file containing the<br>words and phrases by selecting *_Choose<br>file_<br>• after selecting this option. |
+   | **Upload from Amazon S3<br>object**   | Upload an object from an S3 bucket.                                                                                             |
    3. Edit the words and phrases for the guardrail to block
       in the **View and edit words and
       phrases** section. You have the following

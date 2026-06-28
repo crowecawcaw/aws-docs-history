@@ -1,5 +1,9 @@
 # Create a knowledge base by connecting to a data source in Amazon Bedrock Knowledge Bases
 
+###### Important
+
+For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md "kb-build-managed.md").
+
 When you create a knowledge base by connecting to a data source, you set up or specify the following:
 
 - General information that defines and identifies the knowledge base
@@ -14,20 +18,20 @@ Expand the section that corresponds to your use case:
 
 ###### To set up a knowledge base
 
-1.  Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
-    [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
-2.  In the left navigation pane, choose **Knowledge bases**.
-3.  In the **Knowledge bases** section, choose the create button and select to create a knowledge base with a vector store.
-4.  (Optional) Change the default name and provide a description for your knowledge base.
-5.  Choose an AWS Identity and Access Management (IAM) role that provides Amazon Bedrock
-    permission to access other required AWS services. You can let Amazon Bedrock create the service role or
-    choose to use your own [custom role that you created for
-    Neptune Analytics](kb-permissions.md#kb-permissions-neptune "kb-permissions.md#kb-permissions-neptune").
-6.  Choose a data source to connect your knowledge base to.
-7.  (Optional) Add tags to your knowledge base. For more information, see
-    [Tagging Amazon Bedrock resources](tagging.md "tagging.md").
-8.  (Optional) Configure services for which to deliver activity logs for your knowledge base.
-9.  Go to the next section and follow the steps at [Connect a data source to your knowledge base](data-source-connectors.md "data-source-connectors.md") to configure a data source.
+1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
+   [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
+2. In the left navigation pane, choose **Knowledge bases**.
+3. In the **Knowledge bases** section, choose the create button and select to create a knowledge base with a vector store.
+4. (Optional) Change the default name and provide a description for your knowledge base.
+5. Choose an AWS Identity and Access Management (IAM) role that provides Amazon Bedrock
+   permission to access other required AWS services. You can let Amazon Bedrock create the service role or
+   choose to use your own [custom role that you created for
+   Neptune Analytics](kb-permissions.md#kb-permissions-neptune "kb-permissions.md#kb-permissions-neptune").
+6. Choose a data source to connect your knowledge base to.
+7. (Optional) Add tags to your knowledge base. For more information, see
+   [Tagging Amazon Bedrock resources](tagging.md "tagging.md").
+8. (Optional) Configure services for which to deliver activity logs for your knowledge base.
+9. Go to the next section and follow the steps at [Connect a data source to your knowledge base](data-source-connectors.md "data-source-connectors.md") to configure a data source.
 10. In the **Embeddings model** section, do the following:
 
     1. Choose an embeddings model to convert your data into vector embeddings. For multimodal data (images, audio, and video), select a multimodal embedding model such as Amazon Titan Multimodal Embeddings G1 or Cohere Embed v3.
@@ -41,15 +45,15 @@ Expand the section that corresponds to your use case:
 
 11. In the **Vector database** section, do the following:
 
-    1.  Choose a vector store to store the vector embeddings that will be used for query. You have the following options:
+    1. Choose a vector store to store the vector embeddings that will be used for query. You have the following options:
 
-        - **Quick create a new vector store** – choose one of the available
-          vector stores for Amazon Bedrock to create. You can also optionally configure AWS KMS key encryption for your
-          vector store.
+       - **Quick create a new vector store** – choose one of the available
+         vector stores for Amazon Bedrock to create. You can also optionally configure AWS KMS key encryption for your
+         vector store.
 
-        ###### Note
+       ###### Note
 
-        When using this option, Amazon Bedrock automatically handles the metadata placement for each vector store.
+       When using this option, Amazon Bedrock automatically handles the metadata placement for each vector store.
 
             + **Amazon OpenSearch Serverless** – Amazon Bedrock Knowledge Bases creates an Amazon OpenSearch Serverless vector search collection and index and configures it with the required fields for you.
             + **Amazon Aurora PostgreSQL Serverless** – Amazon Bedrock sets up an Amazon Aurora PostgreSQL Serverless vector store. This process takes unstructured text data from
@@ -66,14 +70,14 @@ Expand the section that corresponds to your use case:
             ###### Note
 
             When using Amazon S3 Vectors with Amazon Bedrock Knowledge Bases, you can attach up to 1 KB of custom metadata (including both filterable and non-filterable metadata) and 35 metadata keys per vector. For detailed information about metadata limitations, see [Metadata support](knowledge-base-setup.md#metadata-support "knowledge-base-setup.md#metadata-support") in [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
-        - **Choose a vector store you have created** – Select a supported vector store and identify the vector field names and metadata
-          field names in the vector index. For more information, see [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
+       - **Choose a vector store you have created** – Select a supported vector store and identify the vector field names and metadata
+         field names in the vector index. For more information, see [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
 
-        ###### Note
+       ###### Note
 
-        If your data source is a Confluence, Microsoft SharePoint, or Salesforce instance, the only supported vector store service is Amazon OpenSearch Serverless.
+       If your data source is a Confluence, Microsoft SharePoint, or Salesforce instance, the only supported vector store service is Amazon OpenSearch Serverless.
 
-    2.  (Optional) Expand the **Additional configurations** section and modify any relevant configurations.
+    2. (Optional) Expand the **Additional configurations** section and modify any relevant configurations.
 
 12. If your data source contains images, specify an Amazon S3 URI in which to store the images that the parser will extract from the data in the **Multimodal storage destination**. The images can be returned during query. You can also optionally choose a customer managed key instead of the default AWS managed key to encrypt your data.
 
@@ -91,7 +95,7 @@ When using multimodal embedding models:
     * The multimodal storage destination creates file copies for retrieval purposes, which can incur additional storage charges
 
 13. Choose **Next** and review the details of your knowledge base. You can edit any
-    section before going ahead and creating your knowledge base.
+section before going ahead and creating your knowledge base.
 
 ###### Note
 

@@ -25,6 +25,6 @@ The following table shows the Amazon Nova models that you can customize with rei
 
 For information about additional supported models including open-weight models, see [Fine-tune open-weight models using OpenAI-compatible APIs](fine-tuning-openai-apis.md "fine-tuning-openai-apis.md").
 
-| Supported models for reinforcement fine-tuning | Provider    | Model                        | Model ID  | Single-region model support |
-| ---------------------------------------------- | ----------- | ---------------------------- | --------- | --------------------------- |
-| Amazon                                         | Nova 2 Lite | amazon.nova-2-lite-v1:0:256k | us-east-1 |
+Supported models for reinforcement fine-tuning| Provider | Model | Model ID | Single-region model support |
+| --- | --- | --- | --- |
+| Amazon | Nova 2 Lite | amazon.nova-2-lite-v1:0:256k | us-east-1 |

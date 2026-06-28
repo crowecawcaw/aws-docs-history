@@ -1,5 +1,9 @@
 # Build an Amazon Bedrock knowledge base with an Amazon Kendra GenAI index
 
+###### Important
+
+For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md "kb-build-managed.md").
+
 With Amazon Bedrock Knowledge Bases, you can build a knowledge base from an Amazon Kendra GenAI index to create more
 sophisticated and accurate Retrieval Augmented Generation (RAG)-powered digital assistants.
 By combining an Amazon Kendra GenAI index with Amazon Bedrock Knowledge Bases, you can:

@@ -15,25 +15,25 @@ Use this information to make inference calls to TwelveLabs models with the Invok
 
 The following table describes the input parameters for the TwelveLabs Pegasus 1.2 model:
 
-| TwelveLabs Pegasus 1.2 request parameters | Field   | Type | Required                                                                                    | Description |
-| ----------------------------------------- | ------- | ---- | ------------------------------------------------------------------------------------------- | ----------- |
-| `inputPrompt`                             | string  | Yes  | Prompt to analyze the video. Max: 2000 tokens.                                              |
-| `temperature`                             | double  | No   | Temperature for the model. Controls randomness in the output. Default: 0.2, Min: 0, Max: 1. |
-| `responseFormat`                          | Object  | No   | Lets users specify the structured output format. Currently supports json_schema only.       |
-| `mediaSource`                             | object  | Yes  | Describes the media source. Either `base64String` or `s3Location` must be provided.         |
-| `mediaSource.base64String`                | string  | No   | Base64 encoded byte string for the video. Max: 25MB.                                        |
-| `mediaSource.s3Location.uri`              | string  | No   | S3 URI where the video could be downloaded from. Max: 1 hour long video (< 2GB file size).  |
-| `mediaSource.s3Location.bucketOwner`      | string  | No   | AWS account ID of the bucket owner.                                                         |
-| `maxOutputTokens`                         | integer | No   | The maximum number of tokens to generate. Max: 4096.                                        |
+TwelveLabs Pegasus 1.2 request parameters| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `inputPrompt` | string | Yes | Prompt to analyze the video. Max: 2000 tokens. |
+| `temperature` | double | No | Temperature for the model. Controls randomness in the output. Default: 0.2, Min: 0, Max: 1. |
+| `responseFormat` | Object | No | Lets users specify the structured output format. Currently supports json\_schema only. |
+| `mediaSource` | object | Yes | Describes the media source. Either `base64String` or `s3Location` must be provided. |
+| `mediaSource.base64String` | string | No | Base64 encoded byte string for the video. Max: 25MB. |
+| `mediaSource.s3Location.uri` | string | No | S3 URI where the video could be downloaded from. Max: 1 hour long video (< 2GB file size). |
+| `mediaSource.s3Location.bucketOwner` | string | No | AWS account ID of the bucket owner. |
+| `maxOutputTokens` | integer | No | The maximum number of tokens to generate. Max: 4096. |
 
 ## TwelveLabs Pegasus 1.2 response fields
 
 The following table describes the output fields for the TwelveLabs Pegasus 1.2 model:
 
-| TwelveLabs Pegasus 1.2 response fields | Field  | Type                                                                                                                                                                                            | Description |
-| -------------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `message`                              | string | Output message containing the model's analysis of the video.                                                                                                                                    |
-| `finishReason`                         | string | Stop reason that describes why the output ended. Valid values: `stop` (API returned the full completions without reaching any limits), `length` (the generation exceeded the max_tokens limit). |
+TwelveLabs Pegasus 1.2 response fields| Field | Type | Description |
+| --- | --- | --- |
+| `message` | string | Output message containing the model's analysis of the video. |
+| `finishReason` | string | Stop reason that describes why the output ended. Valid values: `stop` (API returned the full completions without reaching any limits), `length` (the generation exceeded the max\_tokens limit). |
 
 ## TwelveLabs Pegasus 1.2 request and response
 

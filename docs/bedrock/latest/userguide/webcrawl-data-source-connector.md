@@ -1,5 +1,9 @@
 # Crawl web pages for your knowledge base
 
+###### Important
+
+For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md "kb-build-managed.md").
+
 The Amazon Bedrock provided Web Crawler connects to and crawls URLs you have selected for use in your Amazon Bedrock knowledge base.
 You can crawl website pages in accordance with your set scope or limits for your selected URLs. You can crawl
 website pages using either the [AWS Management Console for Amazon Bedrock](https://console.aws.amazon.com/bedrock/home "https://console.aws.amazon.com/bedrock/home") or the
@@ -125,7 +129,7 @@ and look ahead are rejected.
 An example of a regular expression filter pattern to exclude URLs that end with ".pdf" or PDF
 web page attachments: _".\*\.pdf$"_
 
-An example of an inclusion filter pattern to only crawl URLs under a specific path: _"https://www\.example\.com/docs/.\*"_
+An example of an inclusion filter pattern to only crawl URLs under a specific path: _"https://www\.example\.com/docs/.\_"*
 
 You can use the Web Crawler to crawl the pages of websites that you are authorized to crawl.
 

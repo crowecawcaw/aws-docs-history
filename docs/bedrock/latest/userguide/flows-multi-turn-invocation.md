@@ -191,8 +191,8 @@ of music, and the theme for the playlist.
    - For step
      _2.d_, enter
      `You are a playlist creator for a radio station. When asked to create
-a playlist, ask for the number of songs, the genre of music, and a theme for
-the playlist.`.
+  a playlist, ask for the number of songs, the genre of music, and a theme for
+  the playlist.`.
    - For step _2.e_, in **User input**,
      choose **Enabled**. Doing this lets the agent request more
      information, as needed.

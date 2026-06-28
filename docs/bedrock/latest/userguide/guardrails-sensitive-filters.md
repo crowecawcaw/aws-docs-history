@@ -1,7 +1,7 @@
 # Remove PII from conversations by using sensitive information filters
 
 Amazon Bedrock Guardrails helps detect sensitive information, such as personally identifiable information
-(PII), in input prompts or model responses using sensitive information filters. This filter supports only text output and will not detect PII information when models respond with tool_use (function call) output parameters via supported APIs. This filter is a probabilistic machine learning (ML) based solution that is context-dependent
+(PII), in input prompts or model responses using sensitive information filters. This filter supports only text output and will not detect PII information when models respond with tool\_use (function call) output parameters via supported APIs. This filter is a probabilistic machine learning (ML) based solution that is context-dependent
 and detects sensitive information based on the context within input prompts or model responses. You can configure by selecting from a set of built-in PIIs offered by Amazon Bedrock Guardrails specific to your use case
 or organization by defining it along with regular expressions (custom regex) that work based on pattern matching to block or mask PII data.
 
@@ -61,21 +61,21 @@ guardrails detects:
   - **PASSWORD**
 
   An alphanumeric string that is used as a password, such as
-  "\*\*very20special#pass\*\*".
-  - **DRIVER_ID**
+  "\*_very20special#pass\*_".
+  - **DRIVER\_ID**
 
   The number assigned to a driver's license, which is an official
   document permitting an individual to operate one or more motorized
   vehicles on a public road. A driver's license number consists of
   alphanumeric characters.
-  - **LICENSE_PLATE**
+  - **LICENSE\_PLATE**
 
   A license plate for a vehicle is issued by the state or country where
   the vehicle is registered. The format for passenger vehicles is
   typically five to eight digits, consisting of upper-case letters and
   numbers. The format varies depending on the location of the issuing
   state or country.
-  - **VEHICLE_IDENTIFICATION_NUMBER**
+  - **VEHICLE\_IDENTIFICATION\_NUMBER**
 
   A Vehicle Identification Number (VIN) uniquely identifies a vehicle.
   VIN content and format are defined in the _ISO 3779_
@@ -83,32 +83,33 @@ guardrails detects:
 
 - **Finance**
 
-  - **CREDIT_DEBIT_CARD_CVV**
+  - **CREDIT\_DEBIT\_CARD\_CVV**
 
   A three-digit card verification code (CVV) that is present on VISA,
   MasterCard, and Discover credit and debit cards. For American Express
   credit or debit cards, the CVV is a four-digit numeric code.
-  - **CREDIT_DEBIT_CARD_EXPIRY**
+  - **CREDIT\_DEBIT\_CARD\_EXPIRY**
 
   The expiration date for a credit or debit card. This number is usually
   four digits long and is often formatted as
   _month/year_ or _MM/YY_. Amazon Bedrock Guardrails
   recognizes expiration dates such as _01/21_,
   _01/2021_, and _Jan 2021_.
-  - **CREDIT_DEBIT_CARD_NUMBER**
+  - **CREDIT\_DEBIT\_CARD\_NUMBER**
 
   The number for a credit or debit card. These numbers can vary from 13
   to 16 digits in length. However, Amazon Bedrock also recognizes credit or
   debit card numbers when only the last four digits are present.
   - **PIN**
 
-  A four-digit personal identification number (PIN) with which you can
-  access your bank account.
-  - **INTERNATIONAL_BANK_ACCOUNT_NUMBER**
+  A personal identification number (PIN) that could be 4 or 5 digits in
+  length. As an example, these numbers are used to access bank
+  accounts.
+  - **INTERNATIONAL\_BANK\_ACCOUNT\_NUMBER**
 
   An International Bank Account Number has specific formats in each
   country. For more information, see [www.iban.com/structure](https://www.iban.com/structure "https://www.iban.com/structure").
-  - **SWIFT_CODE**
+  - **SWIFT\_CODE**
 
   A SWIFT code is a standard format of Bank Identifier Code (BIC) used
   to specify a particular bank or branch. Banks use these codes for money
@@ -120,22 +121,22 @@ guardrails detects:
 
 - **IT**
 
-  - **IP_ADDRESS**
+  - **IP\_ADDRESS**
 
   An IPv4 address, such as _198.51.100.0_.
-  - **MAC_ADDRESS**
+  - **MAC\_ADDRESS**
 
   A _media access control_ (MAC) address is a unique
   identifier assigned to a network interface controller (NIC).
   - **URL**
 
   A web address, such as *www.example.com*.
-  - **AWS_ACCESS_KEY**
+  - **AWS\_ACCESS\_KEY**
 
   A unique identifier that's associated with a secret access key; you
   use the access key ID and secret access key to sign programmatic AWS
   requests cryptographically.
-  - **AWS_SECRET_KEY**
+  - **AWS\_SECRET\_KEY**
 
   A unique identifier that's associated with an access key. You use the
   access key ID and secret access key to sign programmatic AWS requests
@@ -143,24 +144,24 @@ guardrails detects:
 
 - **USA specific**
 
-  - **US_BANK_ACCOUNT_NUMBER**
+  - **US\_BANK\_ACCOUNT\_NUMBER**
 
   A US bank account number, which is typically 10 to 12 digits long.
-  - **US_BANK_ROUTING_NUMBER**
+  - **US\_BANK\_ROUTING\_NUMBER**
 
   A US bank account routing number. These are typically nine digits
   long,
-  - **US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER**
+  - **US\_INDIVIDUAL\_TAX\_IDENTIFICATION\_NUMBER**
 
   A US Individual Taxpayer Identification Number (ITIN) is a nine-digit
   number that starts with a "9" and contain a "7" or "8" as the fourth
   digit. An ITIN can be formatted with a space or a dash after the third
   and forth digits.
-  - **US_PASSPORT_NUMBER**
+  - **US\_PASSPORT\_NUMBER**
 
   A US passport number. Passport numbers range from six to nine
   alphanumeric characters.
-  - **US_SOCIAL_SECURITY_NUMBER**
+  - **US\_SOCIAL\_SECURITY\_NUMBER**
 
   A US Social Security Number (SSN) is a nine-digit number that is
   issued to US citizens, permanent residents, and temporary working
@@ -168,11 +169,11 @@ guardrails detects:
 
 - **Canada specific**
 
-  - **CA_HEALTH_NUMBER**
+  - **CA\_HEALTH\_NUMBER**
 
   A Canadian Health Service Number is a 10-digit unique identifier,
   required for individuals to access healthcare benefits.
-  - **CA_SOCIAL_INSURANCE_NUMBER**
+  - **CA\_SOCIAL\_INSURANCE\_NUMBER**
 
   A Canadian Social Insurance Number (SIN) is a nine-digit unique
   identifier, required for individuals to access government programs and
@@ -185,13 +186,13 @@ guardrails detects:
 
 - **UK Specific**
 
-  - **UK_NATIONAL_HEALTH_SERVICE_NUMBER**
+  - **UK\_NATIONAL\_HEALTH\_SERVICE\_NUMBER**
 
   A UK National Health Service Number is a 10-17 digit number, such as
   _485 777 3456_. The current system formats the
   10-digit number with spaces after the third and sixth digits. The final
   digit is an error-detecting checksum.
-  - **UK_NATIONAL_INSURANCE_NUMBER**
+  - **UK\_NATIONAL\_INSURANCE\_NUMBER**
 
   A UK National Insurance Number (NINO) provides individuals with access
   to National Insurance (social security) benefits. It is also used for
@@ -201,7 +202,7 @@ guardrails detects:
   by six numbers and one letter. A NINO can be formatted with a space or a
   dash after the two letters and after the second, forth, and sixth
   digits.
-  - **UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER**
+  - **UK\_UNIQUE\_TAXPAYER\_REFERENCE\_NUMBER**
 
   A UK Unique Taxpayer Reference (UTR) is a 10-digit number that
   identifies a taxpayer or a business.
@@ -350,13 +351,13 @@ Console
         pattern**. Configure the following
         fields:
 
-      | Field           | Description                                                                                                                                                           |
-      | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-      | Name            | A name for the pattern                                                                                                                                                |
-      | Regex pattern   | A regular expression that defines the<br>pattern                                                                                                                      |
-      | Input           | Choose whether to<br>**Block\*<br>• content containing the<br>pattern or **Mask\*<br>• it with an<br>identifier. To take no action, select<br>**Detect (no action)**. |
-      | Output          |                                                                                                                                                                       |
-      | Add description | (Optional) Write a description for the<br>pattern                                                                                                                     |
+      | Field           | Description                                                                                                                                                         |
+      | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+      | Name            | A name for the pattern                                                                                                                                              |
+      | Regex pattern   | A regular expression that defines the<br>pattern                                                                                                                    |
+      | Input           | Choose whether to<br>*_Block_<br>• content containing the<br>pattern or *_Mask_<br>• it with an<br>identifier. To take no action, select<br>**Detect (no action)**. |
+      | Output          |                                                                                                                                                                     |
+      | Add description | (Optional) Write a description for the<br>pattern                                                                                                                   |
       - To edit a pattern, select the three dots icon
         in the same row as the topic in the
         **Actions** column. Then select

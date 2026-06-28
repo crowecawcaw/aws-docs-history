@@ -1,5 +1,9 @@
 # Ingest changes directly into a knowledge base
 
+###### Important
+
+For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md "kb-build-managed.md").
+
 Amazon Bedrock Knowledge Bases allows you to modify your data source and sync the changes in one step. You can take
 advantage of this feature if your knowledge base is connected to one of the following types
 of data sources:

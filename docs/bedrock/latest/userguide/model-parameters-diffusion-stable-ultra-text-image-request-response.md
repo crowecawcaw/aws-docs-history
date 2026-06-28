@@ -13,11 +13,10 @@ body field with a JSON object that looks like the following.
   that clearly defines elements, colors, and subjects will lead to better
   results.
 
-| Minimum | Maximum |
-| ------- | ------- |
-| 0       | 10,000  |
-
-**Model invocation responses body field**
+| Minimum                                   | Maximum |
+| ----------------------------------------- | ------- |
+| 0                                         | 10,000  |
+| **Model invocation responses body field** |
 
 When you make an `InvokeModel` call using a Stable Image Ultra model, the response looks like the following
 
@@ -40,7 +39,7 @@ A response with a finish reason that is not `null`, will look like the following
 
 - **seeds** – (string) List of seeds used to
   generate images for the model.
-- **finish_reasons** – Enum indicating whether the
+- **finish\_reasons** – Enum indicating whether the
   request was filtered or not. `null` will indicate that the request was successful. Current possible values: `"Filter reason: prompt", "Filter reason: output image", "Filter reason: input image", "Inference error", null`.
 - **images** – A list of generated images in base64 string format.
   For more information,
@@ -61,13 +60,13 @@ inference parameters for a text-to-image inference call.
 
 **Optional fields**
 
-- **aspect_ratio** – (string) Controls the aspect ratio of the
+- **aspect\_ratio** – (string) Controls the aspect ratio of the
   generated image. This parameter is only valid for text-to-image requests. Default 1:1. Enum: 16:9, 1:1, 21:9, 2:3, 3:2, 4:5, 5:4, 9:16, 9:21.
 - **mode** – Set to text-to-image. Default: text-to-image. Enum: `text-to-image`.
-- **output_format** – Specifies the format of the output image. Supported formats: JPEG, PNG. Supported
+- **output\_format** – Specifies the format of the output image. Supported formats: JPEG, PNG. Supported
   dimensions: height 640 to 1,536 px, width 640 to 1,536 px.
 - **seed** – (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range: 0 to 4294967295.
-- **negative_prompt** – Keywords of what you do not wish to see in the output image. Max: 10.000 characters.
+- **negative\_prompt** – Keywords of what you do not wish to see in the output image. Max: 10.000 characters.
 
 ```
 import boto3
@@ -107,12 +106,12 @@ inference parameters for an image-to-image inference call.
 
 - **image** – (string) The Base64 image to use as the starting point for the generation. Supported formats: JPEG, PNG, WebP.
 - **strength** – (number) How much influence the image parameter has on the generated image. Images with lower strength values will look more like the original image. Range: 0.0 to 1.0. Default: 0.35.
-- **aspect_ratio** – (string) Controls the aspect ratio of the
+- **aspect\_ratio** – (string) Controls the aspect ratio of the
   generated image. This parameter is only valid for text-to-image requests. Default 1:1. Enum: 16:9, 1:1, 21:9, 2:3, 3:2, 4:5, 5:4, 9:16, 9:21.
-- **output_format** – Specifies the format of the output image. Supported formats: JPEG, PNG. Supported
+- **output\_format** – Specifies the format of the output image. Supported formats: JPEG, PNG. Supported
   dimensions: height 640 to 1,536 px, width 640 to 1,536 px.
 - **seed** – (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range: 0 to 4294967295.
-- **negative_prompt** – Keywords of what you do not wish to see in the output image. Max: 10.000 characters.
+- **negative\_prompt** – Keywords of what you do not wish to see in the output image. Max: 10.000 characters.
 
 ```
 import boto3

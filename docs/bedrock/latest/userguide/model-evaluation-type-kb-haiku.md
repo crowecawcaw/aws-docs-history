@@ -105,7 +105,7 @@ Helpfulness can be seen as 'eager and thoughtful cooperation': an completion is 
 When the request is not clearly a task, like a random text continuation, or an answer directly to the model, consider what the user's general motifs are for making the request.
 Not all factors will be applicable for every kind of request. For the factors applicable, the more you would answer with yes, the more helpful the completion.
 
-- is the completion sensible, coherent, and clear given the current context, and/or what was said previously?\n\* if the goal is to solve a task, does the completion solve the task?
+- is the completion sensible, coherent, and clear given the current context, and/or what was said previously?\n* if the goal is to solve a task, does the completion solve the task?
 - does the completion follow instructions, if provided?
 - does the completion respond with an appropriate genre, style, modality (text/image/code/etc)?
 - does the completion respond in a way that is appropriate for the target audience?
@@ -494,6 +494,7 @@ String "<foo>
 String "<foo>
 <bar>
 </foo>" is a badly-formatted instance.
+
 String "<foo>
 <tag>
 </tag>

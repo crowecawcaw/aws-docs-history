@@ -72,51 +72,51 @@ To create a metric from a JSON file, do the following:
 
 12. To create a custom metric from a built-in template, do the following:
 
-    1.  Under **Choose metric type**, select **Use a template**.
-    2.  Under **Select a template**, use the dropdown list to choose an existing built-in metric prompt to use as a starting point for your
-        custom metric.
-    3.  Under **Instructions** edit the prompt you selected to suit your own use case. For best practices and for a list of required elements
-        when creating a custom metric prompt, see [Create a prompt for a custom metric](kb-evaluation-custom-metrics-prompt-formats.md "kb-evaluation-custom-metrics-prompt-formats.md").
-    4.  If you want your evaluation job to output structured outputs with ranked scores, leave **Output schema enabled (recommended)**
-        checked. Your metric configuration doesn't need to include an output schema, but we recommend that you define one. If you don't use a schema, the results you
-        view will include only explanations without scores or data visualization.
-    5.  Under **Scale type**, select either **Numerical** or **String** according to your use case, and enter your
-        scale and description definitions in the text boxes. For guidance and best practices on defining output scales, see [Specifying an output schema (rating scale)](kb-evaluation-custom-metrics-prompt-formats.md#kb-evaluation-custom-metrics-prompt-formats-schema "kb-evaluation-custom-metrics-prompt-formats.md#kb-evaluation-custom-metrics-prompt-formats-schema").
-    6.  (Optional) to create another metric, choose **Add custom metrics**. You can create up to 10 custom
-        metrics for an evaluation job.
+    1. Under **Choose metric type**, select **Use a template**.
+    2. Under **Select a template**, use the dropdown list to choose an existing built-in metric prompt to use as a starting point for your
+     custom metric.
+    3. Under **Instructions** edit the prompt you selected to suit your own use case. For best practices and for a list of required elements
+     when creating a custom metric prompt, see [Create a prompt for a custom metric](kb-evaluation-custom-metrics-prompt-formats.md "kb-evaluation-custom-metrics-prompt-formats.md").
+    4. If you want your evaluation job to output structured outputs with ranked scores, leave **Output schema enabled (recommended)**
+     checked. Your metric configuration doesn't need to include an output schema, but we recommend that you define one. If you don't use a schema, the results you
+     view will include only explanations without scores or data visualization.
+    5. Under **Scale type**, select either **Numerical** or **String** according to your use case, and enter your
+     scale and description definitions in the text boxes. For guidance and best practices on defining output scales, see [Specifying an output schema (rating scale)](kb-evaluation-custom-metrics-prompt-formats.md#kb-evaluation-custom-metrics-prompt-formats-schema "kb-evaluation-custom-metrics-prompt-formats.md#kb-evaluation-custom-metrics-prompt-formats-schema").
+    6. (Optional) to create another metric, choose **Add custom metrics**. You can create up to 10 custom
+     metrics for an evaluation job.
+
 
     When you have finished creating your custom metrics, proceed to step 14 to configure your datasets for the evaluation job.
 
 13. To create a custom metric from scratch in the console, do the following:
 
-    1.  Under **Choose metric type**, select **Custom**.
-    2.  Under **Instructions**, enter the prompt for your custom metric directly in the text box. For best practices and for a list of required elements
-        when creating a custom metric prompt, see [Prompt construction and best practices](kb-evaluation-custom-metrics-prompt-formats.md#kb-evaluation-custom-metrics-prompt-formats-create "kb-evaluation-custom-metrics-prompt-formats.md#kb-evaluation-custom-metrics-prompt-formats-create").
-    3.  If you want your evaluation job to output structured outputs with ranked scores, leave **Output schema enabled (recommended)**
-        checked. Your metric configuration doesn't need to include an output schema, but we recommend that you define one. If you don't use a schema, the results you
-        view will include only explanations without scores or data visualization.
-    4.  Under **Scale type**, select either **numerical** or **String** according to your use case, and enter your
-        scale and description definitions in the text boxes. For guidance and best practices on defining output scales, see [Specifying an output schema (rating scale)](kb-evaluation-custom-metrics-prompt-formats.md#kb-evaluation-custom-metrics-prompt-formats-schema "kb-evaluation-custom-metrics-prompt-formats.md#kb-evaluation-custom-metrics-prompt-formats-schema").
-    5.  (Optional) to create another, choose **Add custom metrics**. You can create up to 10 custom
-        metrics for an evaluation job.
+    1. Under **Choose metric type**, select **Custom**.
+    2. Under **Instructions**, enter the prompt for your custom metric directly in the text box. For best practices and for a list of required elements
+     when creating a custom metric prompt, see [Prompt construction and best practices](kb-evaluation-custom-metrics-prompt-formats.md#kb-evaluation-custom-metrics-prompt-formats-create "kb-evaluation-custom-metrics-prompt-formats.md#kb-evaluation-custom-metrics-prompt-formats-create").
+    3. If you want your evaluation job to output structured outputs with ranked scores, leave **Output schema enabled (recommended)**
+     checked. Your metric configuration doesn't need to include an output schema, but we recommend that you define one. If you don't use a schema, the results you
+     view will include only explanations without scores or data visualization.
+    4. Under **Scale type**, select either **numerical** or **String** according to your use case, and enter your
+     scale and description definitions in the text boxes. For guidance and best practices on defining output scales, see [Specifying an output schema (rating scale)](kb-evaluation-custom-metrics-prompt-formats.md#kb-evaluation-custom-metrics-prompt-formats-schema "kb-evaluation-custom-metrics-prompt-formats.md#kb-evaluation-custom-metrics-prompt-formats-schema").
+    5. (Optional) to create another, choose **Add custom metrics**. You can create up to 10 custom
+     metrics for an evaluation job.
+
 
     When you have finished creating your custom metrics, proceed to the next step to configure your datasets for the evaluation job.
 
 14. Define your input and output locations for your dataset and results by doing the following:
 
-    1.  In the **Datasets** pane under **Choose a prompt dataset**, enter the Amazon S3 URI for your prompt dataset,
-        or choose **Browse S3** and select your file. To see a definition of the required prompt dataset format for a retrieve-only
-        evaluation job, see [Create a prompt dataset for retrieve-only RAG evaluation jobs](knowledge-base-evaluation-prompt-retrieve.md "knowledge-base-evaluation-prompt-retrieve.md").
-    2.  Under **Evaluation results**, enter an Amazon S3 location for Amazon Bedrock to save your results, or choose **Browse S3** to
-        select a location.
+    1. In the **Datasets** pane under **Choose a prompt dataset**, enter the Amazon S3 URI for your prompt dataset,
+     or choose **Browse S3** and select your file. To see a definition of the required prompt dataset format for a retrieve-only
+     evaluation job, see [Create a prompt dataset for retrieve-only RAG evaluation jobs](knowledge-base-evaluation-prompt-retrieve.md "knowledge-base-evaluation-prompt-retrieve.md").
+    2. Under **Evaluation results**, enter an Amazon S3 location for Amazon Bedrock to save your results, or choose **Browse S3** to
+     select a location.
 
 15. Under **Amazon Bedrock IAM role - Permissions**, select **Create and use a new service role** to have Amazon Bedrock create a
-    new IAM role for the evaluation job, or select **Use an existing service role** to pick an existing IAM role. For a list of the required
-    permissions to create and run an evaluation job, see [Prerequisites](knowledge-base-evaluation-create.md#knowledge-base-evaluation-create-prereqs "knowledge-base-evaluation-create.md#knowledge-base-evaluation-create-prereqs").
-16. (Optional) to use your own KMS key to encrypt your evaluation data, under **KMSkey - _Optional_**,
-    check **Customize encryption settings (advanced)** and select your AWS KMS key. By default, Amazon Bedrock encrypts your evaluation job data with an
-    AWS-owned KMS key.
-17. Choose **Create** to finish creating your evaluation job.
+new IAM role for the evaluation job, or select **Use an existing service role** to pick an existing IAM role. For a list of the required
+permissions to create and run an evaluation job, see [Prerequisites](knowledge-base-evaluation-create.md#knowledge-base-evaluation-create-prereqs "knowledge-base-evaluation-create.md#knowledge-base-evaluation-create-prereqs"). 16. (Optional) to use your own KMS key to encrypt your evaluation data, under **KMSkey - _Optional_**,
+check **Customize encryption settings (advanced)** and select your AWS KMS key. By default, Amazon Bedrock encrypts your evaluation job data with an
+AWS-owned KMS key. 17. Choose **Create** to finish creating your evaluation job.
 
 AWS CLI
 

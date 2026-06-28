@@ -41,8 +41,8 @@ DeepSeek has the following inference parameters for a Text Completion inference 
 
 - **prompt** – (string) Required text input of prompt.
 - **temperature** – (float) Numerical value less than or equal to 1.
-- **top_p** – (float) Numerical value less than or equal to 1.
-- **max_tokens** – (int) Tokens used, minimum of 1 to a max of 8,192 tokens for optimal quality. While the API accepts up to 32,768 tokens, response quality significantly degrades above 8,192 tokens.
+- **top\_p** – (float) Numerical value less than or equal to 1.
+- **max\_tokens** – (int) Tokens used, minimum of 1 to a max of 8,192 tokens for optimal quality. While the API accepts up to 32,768 tokens, response quality significantly degrades above 8,192 tokens.
 - **stop** – (string array) Maximum of 10 items.
   **Response body**
 
@@ -61,7 +61,7 @@ DeepSeek has the following response parameters for a Text Completion inference c
 
 **Fields:**
 
-- **stop_reason** – (string) The reason why the response stopped generating text. Value of `stop` or `length`.
+- **stop\_reason** – (string) The reason why the response stopped generating text. Value of `stop` or `length`.
 - **stop** – (string) The model has finished generating text for the input prompt.
 - **length** – (string) The length of the tokens for the generated text exceeds the value
   of `max_tokens` in the call to `InvokeModel` ( or `InvokeModelWithResponseStream`, if you are streaming output).
@@ -170,12 +170,11 @@ Request Body - Use this request body example to call the ConverseAPI.
 
 - **inferenceConfig**
 
-      + **temperature** – (Optional) Values: minimum = 0. maximum = 1.
-      + **topP** – (Optional) Values: minimum = 0. maximum = 1.
-      + **maxTokens** – (Optional) The maximum number of tokens to generate before stopping. Values: minimum = 0. maximum = 32,768.
-      + **stopSequences**  – (Optional) Custom text sequences that causes the model to stop generating output. Maximum = 10 items.
-
-  Response Body - Use this request body example to call the ConverseAPI.
+  - **temperature** – (Optional) Values: minimum = 0. maximum = 1.
+  - **topP** – (Optional) Values: minimum = 0. maximum = 1.
+  - **maxTokens** – (Optional) The maximum number of tokens to generate before stopping. Values: minimum = 0. maximum = 32,768.
+  - **stopSequences** – (Optional) Custom text sequences that causes the model to stop generating output. Maximum = 10 items.
+    Response Body - Use this request body example to call the ConverseAPI.
 
 ```
 {
@@ -217,11 +216,10 @@ Request Body - Use this request body example to call the ConverseAPI.
 
 - **stopReason** – The reason why the model stopped generating the response.
 
-      + **end\_turn** – The turn the model reached a stopping point.
-      + **max\_tokens** – The generated text exceeded the value of the `maxTokens`
-       input field or exceeded the maximum number of tokens that the model supports.
-
-  Example Code - Here is an example of DeepSeek making a to call the ConverseAPI.
+  - **end\_turn** – The turn the model reached a stopping point.
+  - **max\_tokens** – The generated text exceeded the value of the `maxTokens`
+    input field or exceeded the maximum number of tokens that the model supports.
+    Example Code - Here is an example of DeepSeek making a to call the ConverseAPI.
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.

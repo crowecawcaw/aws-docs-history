@@ -176,7 +176,7 @@ judgement. Specifically, the service:
 
 - Extracts the intent from your custom prompt
 - Normalizes the scale to match the system's 0 to 3 rubric
-- Injects it as a named dimension inside CUSTOM_CRITERIA_DESCRIPTION tags
+- Injects it as a named dimension inside CUSTOM\_CRITERIA\_DESCRIPTION tags
 - Biases the weighting instructions to give the custom criterion elevated importance (0.3 to 0.6)
 - Adds precedence rules saying custom criteria override conflicts with other dimensions
 - Preserves the original semantics of your evaluation

@@ -24,7 +24,7 @@ Note the following information about Geographic cross-Region inference:
   profiles tied to a geography (such as US, EU and APAC), refer to the
   **Cross-region model inference requests per minute
   for ${Model}** and **Cross-region model
-  inference tokens per minute for ${Model}** values in [Amazon Bedrock service quotas](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock") in the _AWS General
+ inference tokens per minute for ${Model}** values in [Amazon Bedrock service quotas](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock") in the _AWS General
   Reference_.
 
 ## IAM policy requirements for Geographic cross-Region inference
@@ -122,9 +122,8 @@ inference in the following ways:
   [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md"), [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md"), [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md"), or [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") request.
   An inference profile defines one or more Regions to which it can route
   inference requests originating from your source Region. Use of cross-Region
-  inference increases throughput and performance by dynamically routing model
-  invocation requests across the Regions defined in inference profile. Routing
-  factors in user traffic, demand and use of resources. For more
+  inference increases throughput and performance by using compute across the
+  Regions defined in the inference profile. For more
   information, see [Making inference requests](inference.md "inference.md")
 - **Batch inference** – Submit requests
   asynchronously with batch inference by specifying the ID of the inference

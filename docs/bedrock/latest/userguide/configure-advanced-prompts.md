@@ -36,8 +36,8 @@ One Lambda function is used for all the prompt templates.
 
 11. To save your settings, choose one of the following options:
 
-    1.  To remain in the same window so that you can dynamically update the prompt settings while testing your updated agent, choose **Save**.
-    2.  To save your settings and return to the **Working draft** page, choose **Save and exit**.
+    1. To remain in the same window so that you can dynamically update the prompt settings while testing your updated agent, choose **Save**.
+    2. To save your settings and return to the **Working draft** page, choose **Save and exit**.
 
 12. To test the updated settings, choose **Prepare** in the **Test** window.
 

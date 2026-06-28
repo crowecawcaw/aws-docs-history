@@ -32,14 +32,14 @@ OpenSearch Dashboards link for each OpenSearch domain.
    work with. To find the link to Dashboards, go to the domain that you created
    in the OpenSearch Service console. For domains running OpenSearch, the URL
    is of the format,
-   ``domain-endpoint`/\_dashboards/`.
+   ``domain-endpoint`/_dashboards/`.
    For more information, see [Dashboards](../../../opensearch-service/latest/developerguide/dashboards.md "../../../opensearch-service/latest/developerguide/dashboards.md") in the _Amazon OpenSearch Service developer
    guide_.
 2. In the OpenSearch Dashboard, choose **Security** and then
    choose **Roles**.
 3. Choose **Create role**.
 4. Provide any name for the role, for example,
-   **kb_opensearch_role**.
+   **kb\_opensearch\_role**.
 5. Under **Cluster permissions**, add the following permissions.
 
    - `indices:data/read/msearch`
@@ -81,10 +81,10 @@ The following shows a sample OpenSearch role with the permissions added.
 
 2. Open the OpenSearch Dashboard for the OpenSearch domain that you want to
    work with. The URL is of the format,
-   ``domain-endpoint`/\_dashboards/`.
+   ``domain-endpoint`/_dashboards/`.
 3. Choose **Security** from the navigation pane.
 4. Search for the role that you just created from the list, for example,
-   **kb_opensearch_role**, and open it.
+   **kb\_opensearch\_role**, and open it.
 5. On the **Mapped Users** tab, choose **Manage
    mapping**
 6. In the **Backend roles**

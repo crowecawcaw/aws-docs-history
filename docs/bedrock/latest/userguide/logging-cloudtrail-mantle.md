@@ -19,25 +19,25 @@ events. The `requestParameters` field of each event also contains
 `callWithBearerToken` (and `bearerTokenType` when applicable), which are
 added by the service for every event.
 
-| Models       | Event name               | HTTP route | Additional request parameters |
-| ------------ | ------------------------ | ---------- | ----------------------------- |
-| `ListModels` | `GET /v1/models`         | none       |
-| `GetModel`   | `GET /v1/models/{model}` | `model`    |
+Models| Event name | HTTP route | Additional request parameters |
+| --- | --- | --- |
+| `ListModels` | `GET /v1/models` | none |
+| `GetModel` | `GET /v1/models/{model}` | `model` |
 
-| Fine-tuning           | Event name                                                    | HTTP route                                                                                                                                                       | Additional request parameters |
-| --------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| `ListFineTuningJobs`  | `GET /v1/fine_tuning/jobs`                                    | none                                                                                                                                                             |
-| `CreateFineTuningJob` | `POST /v1/fine_tuning/jobs`                                   | `model`, `trainingFile`, `validationFile`,<br>`metadata`, `method` (structured object including `type`<br>and, for reinforcement runs, `grader.lambda.function`) |
-| `GetFineTuningJob`    | `GET /v1/fine_tuning/jobs/{id}`, `/events`,<br>`/checkpoints` | `fineTuningJob`                                                                                                                                                  |
-| `CancelFineTuningJob` | `POST /v1/fine_tuning/jobs/{id}/cancel`                       | `fineTuningJob`                                                                                                                                                  |
+Fine-tuning| Event name | HTTP route | Additional request parameters |
+| --- | --- | --- |
+| `ListFineTuningJobs` | `GET /v1/fine_tuning/jobs` | none |
+| `CreateFineTuningJob` | `POST /v1/fine_tuning/jobs` | `model`, `trainingFile`, `validationFile`,<br>`metadata`, `method` (structured object including `type`<br>and, for reinforcement runs, `grader.lambda.function`) |
+| `GetFineTuningJob` | `GET /v1/fine_tuning/jobs/{id}`, `/events`,<br>`/checkpoints` | `fineTuningJob` |
+| `CancelFineTuningJob` | `POST /v1/fine_tuning/jobs/{id}/cancel` | `fineTuningJob` |
 
-| Projects         | Event name                                            | HTTP route                                                     | Additional request parameters |
-| ---------------- | ----------------------------------------------------- | -------------------------------------------------------------- | ----------------------------- |
-| `ListProjects`   | `GET /v1/organization/projects`                       | none                                                           |
-| `CreateProject`  | `POST /v1/organization/projects`                      | `name`, `tags`                                                 |
-| `GetProject`     | `GET /v1/organization/projects/{project_id}`          | `project_id`                                                   |
-| `UpdateProject`  | `POST /v1/organization/projects/{project_id}`         | `project_id`, `name`, `add_tags`,<br>`remove_tag_keys`, `tags` |
-| `ArchiveProject` | `POST /v1/organization/projects/{project_id}/archive` | `project_id`                                                   |
+Projects| Event name | HTTP route | Additional request parameters |
+| --- | --- | --- |
+| `ListProjects` | `GET /v1/organization/projects` | none |
+| `CreateProject` | `POST /v1/organization/projects` | `name`, `tags` |
+| `GetProject` | `GET /v1/organization/projects/{project_id}` | `project_id` |
+| `UpdateProject` | `POST /v1/organization/projects/{project_id}` | `project_id`, `name`, `add_tags`,<br>`remove_tag_keys`, `tags` |
+| `ArchiveProject` | `POST /v1/organization/projects/{project_id}/archive` | `project_id` |
 
 ## Data events
 
@@ -45,24 +45,24 @@ Data events are not logged by default and incur additional CloudTrail charges.
 `bedrock-mantle` logs the following operations as data events. To capture them,
 configure advanced event selectors on your trail or event data store as described in [Logging data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md").
 
-| Inference         | Event name                                 | HTTP route                                                           | Additional request parameters |
-| ----------------- | ------------------------------------------ | -------------------------------------------------------------------- | ----------------------------- |
-| `CreateInference` | `POST /v1/responses`                       | `model`, `previousResponse`, `stream`,<br>`service_tier`, `metadata` |
-| `CreateInference` | `POST /v1/responses/compact`               | `model`, `previous_response_id`                                      |
-| `CreateInference` | `POST /v1/chat/completions`                | `model`, `stream`, `service_tier`,<br>`metadata`                     |
-| `CreateInference` | `POST /v1/embeddings`                      | `model`                                                              |
-| `CreateInference` | `POST /anthropic/v1/messages`              | `model`, `stream`, `max_tokens`                                      |
-| `GetInference`    | `GET /v1/responses/{response_id}`          | `response`, `stream`                                                 |
-| `CancelInference` | `POST /v1/responses/{response_id}/cancel`  | `response`                                                           |
-| `DeleteInference` | `DELETE /v1/responses/{response_id}`       | `response`                                                           |
-| `CountTokens`     | `POST /anthropic/v1/messages/count_tokens` | `model`                                                              |
+Inference| Event name | HTTP route | Additional request parameters |
+| --- | --- | --- |
+| `CreateInference` | `POST /v1/responses` | `model`, `previousResponse`, `stream`,<br>`service_tier`, `metadata` |
+| `CreateInference` | `POST /v1/responses/compact` | `model`, `previous_response_id` |
+| `CreateInference` | `POST /v1/chat/completions` | `model`, `stream`, `service_tier`,<br>`metadata` |
+| `CreateInference` | `POST /v1/embeddings` | `model` |
+| `CreateInference` | `POST /anthropic/v1/messages` | `model`, `stream`, `max_tokens` |
+| `GetInference` | `GET /v1/responses/{response_id}` | `response`, `stream` |
+| `CancelInference` | `POST /v1/responses/{response_id}/cancel` | `response` |
+| `DeleteInference` | `DELETE /v1/responses/{response_id}` | `response` |
+| `CountTokens` | `POST /anthropic/v1/messages/count_tokens` | `model` |
 
-| Files        | Event name                            | HTTP route                           | Additional request parameters |
-| ------------ | ------------------------------------- | ------------------------------------ | ----------------------------- |
-| `ListFiles`  | `GET /v1/files`                       | `limit`, `order`, `purpose`, `after` |
-| `CreateFile` | `POST /v1/files`                      | `purpose`, `filename`, `bytes`       |
-| `GetFile`    | `GET /v1/files/{file_id}`, `/content` | `file`                               |
-| `DeleteFile` | `DELETE /v1/files/{file_id}`          | `file`                               |
+Files| Event name | HTTP route | Additional request parameters |
+| --- | --- | --- |
+| `ListFiles` | `GET /v1/files` | `limit`, `order`, `purpose`, `after` |
+| `CreateFile` | `POST /v1/files` | `purpose`, `filename`, `bytes` |
+| `GetFile` | `GET /v1/files/{file_id}`, `/content` | `file` |
+| `DeleteFile` | `DELETE /v1/files/{file_id}` | `file` |
 
 ###### Note
 

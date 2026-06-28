@@ -5,7 +5,7 @@ Before you begin this tutorial, make sure you have the following:
 - AWS account with the following managed policies:
 
   - [AmazonBedrockFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess")
-  - [AWSLambda_FullAccess](../../../lambda/latest/dg/security-iam-awsmanpol.md#lambda-security-iam-awsmanpol-AWSLambda_FullAccess "../../../lambda/latest/dg/security-iam-awsmanpol.md#lambda-security-iam-awsmanpol-AWSLambda_FullAccess")
+  - [AWSLambda\_FullAccess](../../../lambda/latest/dg/security-iam-awsmanpol.md#lambda-security-iam-awsmanpol-AWSLambda_FullAccess "../../../lambda/latest/dg/security-iam-awsmanpol.md#lambda-security-iam-awsmanpol-AWSLambda_FullAccess")
   - [IAMFullAccess](../../../aws-managed-policy/latest/reference/IAMFullAccess.md "../../../aws-managed-policy/latest/reference/IAMFullAccess.md")
 
 ###### Important

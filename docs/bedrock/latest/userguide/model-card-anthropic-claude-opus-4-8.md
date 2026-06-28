@@ -89,7 +89,7 @@ Bedrock offers three inference options:
 - **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency.
 - **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints.
 
-For more details, see the [Regional availability](models-region-compatibility.md "models-region-compatibility.md") page.
+For more details, see the [Regional availability by models](models-region-compatibility.md "models-region-compatibility.md") page.
 
 | **Region**                     | **In-Region**                                                           | **Geo**                                                                 | **Global**                              |
 | ------------------------------ | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | --------------------------------------- |

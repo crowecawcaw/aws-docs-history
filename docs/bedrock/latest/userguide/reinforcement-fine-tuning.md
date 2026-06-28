@@ -29,11 +29,11 @@ Use reinforcement fine-tuning when you can define clear, measurable success crit
 
 The following table shows the foundation models that you can customize with reinforcement fine-tuning:
 
-| Supported models for reinforcement fine-tuning | Provider    | Model                        | Model ID              | Region name | Region |
-| ---------------------------------------------- | ----------- | ---------------------------- | --------------------- | ----------- | ------ |
-| Amazon                                         | Nova 2 Lite | amazon.nova-2-lite-v1:0:256k | US East (N. Virginia) | us-east-1   |
-| OpenAI                                         | gpt-oss-20B | openai.gpt-oss-20b           | US West (Oregon)      | us-west-2   |
-| Qwen                                           | Qwen3 32B   | qwen.qwen3-32b               | US West (Oregon)      | us-west-2   |
+Supported models for reinforcement fine-tuning| Provider | Model | Model ID | Region name | Region |
+| --- | --- | --- | --- | --- |
+| Amazon | Nova 2 Lite | amazon.nova-2-lite-v1:0:256k | US East (N. Virginia) | us-east-1 |
+| OpenAI | gpt-oss-20B | openai.gpt-oss-20b | US West (Oregon) | us-west-2 |
+| Qwen | Qwen3 32B | qwen.qwen3-32b | US West (Oregon) | us-west-2 |
 
 ## How reinforcement fine-tuning works
 

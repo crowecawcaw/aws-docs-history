@@ -62,7 +62,7 @@ Choose from three parsing strategies:
      images, tables, and visually rich documents.
 
 6. Choose **Add data source** to create the
-   data source.
+data source.
 
 CLI
 

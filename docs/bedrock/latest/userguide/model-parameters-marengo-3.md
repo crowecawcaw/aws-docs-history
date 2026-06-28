@@ -19,10 +19,10 @@ The TwelveLabs Marengo Embed 3.0 model generates enhanced embeddings from video,
   - For a list of model IDs and to see the models and AWS Regions that TwelveLabs Marengo Embed 3.0 is supported in, search for the model in the table at [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
   - For a full list of inference profile IDs, see [Supported Regions and models for inference profiles](inference-profiles-support.md "inference-profiles-support.md"). The inference profile ID is based on the AWS Region.
 
-| API operation    | Supported model types                                                                                                                                                                                                                                                                                                                                                    | Input modalities                                                                                                                           | Output modalities |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
-| InvokeModel      | US East (N. Virginia) – [Base models](models-supported.md "models-supported.md") and [Inference profiles](inference-profiles-support.md "inference-profiles-support.md")<br>Europe (Ireland) – [Inference profiles](inference-profiles-support.md "inference-profiles-support.md")<br>Asia Pacific (Seoul)<br>• [Base models](models-supported.md "models-supported.md") | Text<br>Image<br>Multi-input (text with multiple images)<br>\*_Note:_<br>• Text and image interleaved is also supported.                   | Embedding         |
-| StartAsyncInvoke | US East (N. Virginia) – [Base models](models-supported.md "models-supported.md")<br>Europe (Ireland) – [Base models](models-supported.md "models-supported.md")<br>Asia Pacific (Seoul)<br>• [Base models](models-supported.md "models-supported.md")                                                                                                                    | Video<br>Audio<br>Image<br>Text<br>Multi-input (text with multiple images)<br>\*_Note:_<br>• Text and image interleaved is also supported. | Embedding         |
+| API operation    | Supported model types                                                                                                                                                                                                                                                                                                                                                    | Input modalities                                                                                                                          | Output modalities |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| InvokeModel      | US East (N. Virginia) – [Base models](models-supported.md "models-supported.md") and [Inference profiles](inference-profiles-support.md "inference-profiles-support.md")<br>Europe (Ireland) – [Inference profiles](inference-profiles-support.md "inference-profiles-support.md")<br>Asia Pacific (Seoul)<br>• [Base models](models-supported.md "models-supported.md") | Text<br>Image<br>Multi-input (text with multiple images)<br>**Note:*<br>• Text and image interleaved is also supported.                   | Embedding         |
+| StartAsyncInvoke | US East (N. Virginia) – [Base models](models-supported.md "models-supported.md")<br>Europe (Ireland) – [Base models](models-supported.md "models-supported.md")<br>Asia Pacific (Seoul)<br>• [Base models](models-supported.md "models-supported.md")                                                                                                                    | Video<br>Audio<br>Image<br>Text<br>Multi-input (text with multiple images)<br>**Note:*<br>• Text and image interleaved is also supported. | Embedding         |
 
 ###### Note
 
@@ -399,9 +399,8 @@ Specifies which types of embeddings to retrieve.
 
 - `fixed` – Divides content into segments of equal duration. Contains:
 
-      + `durationSec` – Duration of each segment in seconds. Type: Integer. Range: 1-10. Default: 6.
-
-  **Default behavior:**
+  - `durationSec` – Duration of each segment in seconds. Type: Integer. Range: 1-10. Default: 6.
+    **Default behavior:**
 
 - Video: Uses dynamic segmentation with shot boundary detection.
 - Audio: Uses fixed segmentation. Content is divided as evenly as possible with segments close to 10 seconds.
@@ -414,12 +413,11 @@ Specifies which types of embeddings to retrieve.
 - `inputText` – (Optional) Text query with placeholder syntax. Use `<@name>` to reference media sources (for example, `"<@img1> walking with <@img2>"`). If provided with placeholders, each `<@name>` must match a `mediaSources[].name`. Maximum: 500 tokens including placeholders.
 - `mediaSources` – (Required) Array of media source objects. Each media source contains image data. The array must contain at least one item.
 
-      + `name` – (Conditional) Unique identifier for this media source. Required only if `inputText` uses `<@name>` placeholders. When provided, must match a placeholder in `inputText` (without the `<@` and `>` characters).
-      + `mediaType` – (Required) Type of media. Currently only `"image"` is supported.
-      + `base64String` – Base64-encoded image payload. Maximum: 5 MB per image. Provide exactly one of `base64String` or `s3Location`.
-      + `s3Location` – S3 location object containing `uri` (S3 URI) and `bucketOwner` (12-digit AWS account ID). Maximum: 5 MB per image. Provide exactly one of `base64String` or `s3Location`.
-
-  **Media ordering:**
+  - `name` – (Conditional) Unique identifier for this media source. Required only if `inputText` uses `<@name>` placeholders. When provided, must match a placeholder in `inputText` (without the `<@` and `>` characters).
+  - `mediaType` – (Required) Type of media. Currently only `"image"` is supported.
+  - `base64String` – Base64-encoded image payload. Maximum: 5 MB per image. Provide exactly one of `base64String` or `s3Location`.
+  - `s3Location` – S3 location object containing `uri` (S3 URI) and `bucketOwner` (12-digit AWS account ID). Maximum: 5 MB per image. Provide exactly one of `base64String` or `s3Location`.
+    **Media ordering:**
 
 - If `inputText` contains `<@name>` placeholders, the order is determined by placeholder order in `inputText`.
 - If `inputText` is omitted or empty, the order defaults to the array order of `mediaSources`.
@@ -494,7 +492,7 @@ Embeddings vector representation of input.
 
 ###### Note
 
-Not applicable for text, image, text_image, and multi_input input types. These return a single embedding without the `embeddingOption` field.
+Not applicable for text, image, text\_image, and multi\_input input types. These return a single embedding without the `embeddingOption` field.
 
 Specifies the scope of the embeddings to retrieve.
 
@@ -507,7 +505,7 @@ Specifies the scope of the embeddings to retrieve.
 
 - **Type:** Double
 - **Compatible input types:** Video, Audio
-  The end offset of the clip. Not applicable for text, image, text_image, and multi_input embeddings.
+  The end offset of the clip. Not applicable for text, image, text\_image, and multi\_input embeddings.
 
 - **Type:** Double
 - **Compatible input types:** Video, Audio

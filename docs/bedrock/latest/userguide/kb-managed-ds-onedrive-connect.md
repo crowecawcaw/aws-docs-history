@@ -90,41 +90,41 @@ The data source configuration uses the following connector parameters. To connec
 fields that wrap `connectorParameters` (such as `deletionProtectionConfiguration` and
 `mediaExtractionConfiguration`), see [Connect a data source](kb-managed-connect-ds.md "kb-managed-connect-ds.md").
 
-| connectionConfiguration | Field       | Required                                                                                                                                                                                                                  | Description |
-| ----------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `secretArn`             | Yes         | The ARN of the AWS Secrets Manager secret containing your OneDrive credentials.                                                                                                                                           |
-| `tenantId`              | Yes         | The Microsoft Entra (Azure AD) tenant ID.                                                                                                                                                                                 |
-| `authType`              | Yes         | The authentication type: `ENTRA_APP_ID` (recommended) or `OAUTH2`. See [Authentication methods](kb-managed-ds-onedrive.md#kb-managed-onedrive-auth-methods "kb-managed-ds-onedrive.md#kb-managed-onedrive-auth-methods"). |
-| `certificateS3Path`     | Conditional | Required when `aclEnabled` is `true` (Microsoft Entra App ID authentication). Contains `s3BucketName` and `s3KeyName` for the `.p12` certificate file in Amazon S3. Not used for content-only crawling or with `OAUTH2`.  |
+connectionConfiguration| Field | Required | Description |
+| --- | --- | --- |
+| `secretArn` | Yes | The ARN of the AWS Secrets Manager secret containing your OneDrive credentials. |
+| `tenantId` | Yes | The Microsoft Entra (Azure AD) tenant ID. |
+| `authType` | Yes | The authentication type: `ENTRA_APP_ID` (recommended) or `OAUTH2`. See [Authentication methods](kb-managed-ds-onedrive.md#kb-managed-onedrive-auth-methods "kb-managed-ds-onedrive.md#kb-managed-onedrive-auth-methods"). |
+| `certificateS3Path` | Conditional | Required when `aclEnabled` is `true` (Microsoft Entra App ID authentication). Contains `s3BucketName` and `s3KeyName` for the `.p12` certificate file in Amazon S3. Not used for content-only crawling or with `OAUTH2`. |
 
-| dataEntityConfiguration | Field | Required                                                                                                                                                                                | Description |
-| ----------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `crawlPersonalDrives`   | No    | Whether to crawl users' personal drives.                                                                                                                                                |
-| `crawlSharedWithMe`     | No    | Whether to crawl files shared with the signed-in user. Supported only with `OAUTH2` authentication. Microsoft Entra App ID (application-only) authentication cannot crawl shared files. |
+dataEntityConfiguration| Field | Required | Description |
+| --- | --- | --- |
+| `crawlPersonalDrives` | No | Whether to crawl users' personal drives. |
+| `crawlSharedWithMe` | No | Whether to crawl files shared with the signed-in user. Supported only with `OAUTH2` authentication. Microsoft Entra App ID (application-only) authentication cannot crawl shared files. |
 
 ###### Note
 
 OneNote notebooks are not currently supported.
 
-| filterConfiguration (optional) | Field | Required                                                                        | Description |
-| ------------------------------ | ----- | ------------------------------------------------------------------------------- | ----------- |
-| `inclusionUserEmailAddresses`  | No    | User email addresses whose drives to include.                                   |
-| `exclusionUserEmailAddresses`  | No    | User email addresses whose drives to exclude.                                   |
-| `userFilterPath`               | No    | An Amazon S3 URL pointing to a file that lists the users to include or exclude. |
-| `inclusionDriveItems`          | No    | Drive item paths to include.                                                    |
-| `exclusionDriveItems`          | No    | Drive item paths to exclude.                                                    |
-| `includeMimeTypes`             | No    | MIME types to include.                                                          |
-| `excludeMimeTypes`             | No    | MIME types to exclude.                                                          |
-| `absoluteDateBefore`           | No    | Only include content modified before this date (ISO 8601).                      |
-| `absoluteDateAfter`            | No    | Only include content modified after this date (ISO 8601).                       |
+filterConfiguration (optional)| Field | Required | Description |
+| --- | --- | --- |
+| `inclusionUserEmailAddresses` | No | User email addresses whose drives to include. |
+| `exclusionUserEmailAddresses` | No | User email addresses whose drives to exclude. |
+| `userFilterPath` | No | An Amazon S3 URL pointing to a file that lists the users to include or exclude. |
+| `inclusionDriveItems` | No | Drive item paths to include. |
+| `exclusionDriveItems` | No | Drive item paths to exclude. |
+| `includeMimeTypes` | No | MIME types to include. |
+| `excludeMimeTypes` | No | MIME types to exclude. |
+| `absoluteDateBefore` | No | Only include content modified before this date (ISO 8601). |
+| `absoluteDateAfter` | No | Only include content modified after this date (ISO 8601). |
 
 ###### Note
 
 With `OAUTH2` authentication the connector crawls in the signed-in user's delegated context. The user-based filters (`inclusionUserEmailAddresses`, `exclusionUserEmailAddresses`, `userFilterPath`) determine which users' drives the connector attempts; drives the signed-in user cannot access are silently skipped. To crawl every user's OneDrive in your tenant regardless of permissions, use `ENTRA_APP_ID` authentication.
 
-| aclEnabled (optional) | Field | Required                                                                                                                                                                                                                                                                                                                                 | Description |
-| --------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `aclEnabled`          | No    | Set to `true` to enable document-level access control. Requires `ENTRA_APP_ID` authentication and a `certificateS3Path` in `connectionConfiguration`. You cannot change this setting after you create the data source. For details, see [Document-level access controls](kb-managed-ds-onedrive-acl.md "kb-managed-ds-onedrive-acl.md"). |
+aclEnabled (optional)| Field | Required | Description |
+| --- | --- | --- |
+| `aclEnabled` | No | Set to `true` to enable document-level access control. Requires `ENTRA_APP_ID` authentication and a `certificateS3Path` in `connectionConfiguration`. You cannot change this setting after you create the data source. For details, see [Document-level access controls](kb-managed-ds-onedrive-acl.md "kb-managed-ds-onedrive-acl.md"). |
 
 ## Change the authentication method
 

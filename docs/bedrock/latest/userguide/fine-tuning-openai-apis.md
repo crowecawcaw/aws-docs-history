@@ -41,7 +41,7 @@ Run reinforcement fine-tuning for open-weight models in 5 steps:
 
 The following table shows the foundation models and regions that support OpenAI compatible fine-tuning APIs:
 
-| Supported models and regions for OpenAI compatible fine-tuning APIs | Provider    | Model              | Model ID         | Region name | Region                           | Endpoint |
-| ------------------------------------------------------------------- | ----------- | ------------------ | ---------------- | ----------- | -------------------------------- | -------- |
-| OpenAI                                                              | Gpt-oss-20B | openai.gpt-oss-20b | US West (Oregon) | us-west-2   | bedrock-mantle.us-west-2.api.aws |
-| Qwen                                                                | Qwen3 32B   | qwen.qwen3-32b     | US West (Oregon) | us-west-2   | bedrock-mantle.us-west-2.api.aws |
+Supported models and regions for OpenAI compatible fine-tuning APIs| Provider | Model | Model ID | Region name | Region | Endpoint |
+| --- | --- | --- | --- | --- | --- |
+| OpenAI | Gpt-oss-20B | openai.gpt-oss-20b | US West (Oregon) | us-west-2 | bedrock-mantle.us-west-2.api.aws |
+| Qwen | Qwen3 32B | qwen.qwen3-32b | US West (Oregon) | us-west-2 | bedrock-mantle.us-west-2.api.aws |

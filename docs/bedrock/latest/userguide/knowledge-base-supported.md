@@ -59,11 +59,10 @@ The following lists support for parsing options:
 - The Amazon Bedrock Data Automation parser is supported in US West (Oregon) and is in preview and subject to change.
 - The following foundation model families can be used as a parser:
 
-      + Claude vision models
-      + Nova vision models
-      + LLama 4 vision models
-
-  For current model availability by Region, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
+  - Claude vision models
+  - Nova vision models
+  - LLama 4 vision models
+    For current model availability by Region, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
 
 ## Supported models and Regions for reranking results during query
 

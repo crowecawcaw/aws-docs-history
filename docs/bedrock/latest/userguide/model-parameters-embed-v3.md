@@ -41,7 +41,7 @@ The following are text per call and character limits.
 | ------------ | --------------- |
 | 0 characters | 2048 characters |
 
-- **input_type** –
+- **input\_type** –
   Prepends special tokens to differentiate each type from one another. You should
   not mix different types together, except when mixing types for
   for search and retrieval. In this case, embed your corpus with the
@@ -65,15 +65,14 @@ The following are optional parameters:
   Specifies how the API handles inputs longer than the maximum token length. Use
   one of the following:
 
-      + `NONE` – Returns an error when the input exceeds the maximum input token length.
-      + `START` – Discards the start of the input.
-      + `END` – (Default) Discards the end of the input.
+  - `NONE` – Returns an error when the input exceeds the maximum input token length.
+  - `START` – Discards the start of the input.
+  - `END` – (Default) Discards the end of the input.
+    If you specify `START` or `END`, the model discards
+    the input until the remaining input is exactly the maximum input token length
+    for the model.
 
-  If you specify `START` or `END`, the model discards
-  the input until the remaining input is exactly the maximum input token length
-  for the model.
-
-- **embedding_types** –
+- **embedding\_types** –
   Specifies the types of embeddings you want to have returned. Optional and default is `None`,
   which returns the `Embed Floats` response type. Can be one or more of the following types:
 
@@ -104,7 +103,7 @@ The `body` response from a call to `InvokeModel` is the following:
 The `body` response has the following fields:
 
 - **id** – An identifier for the response.
-- **response_type** – The response type. This value
+- **response\_type** – The response type. This value
   is always `embeddings_floats`.
 - **embeddings** – An array of
   embeddings, where each embedding is an array of floats with 1024 elements. The length of
@@ -114,7 +113,7 @@ The `body` response has the following fields:
   text entries for which embeddings were returned.
 - **images** – An array of a description for each image input.
 
-An `image_description`image_description is of this form:
+An `image_description`image\_description is of this form:
 
 ```
 {

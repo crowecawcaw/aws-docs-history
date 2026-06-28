@@ -12,16 +12,16 @@ This setup requires a Microsoft Entra ID administrator (Global Administrator or 
 
 This procedure involves both a Microsoft Entra ID administrator and an AWS administrator. Depending on how responsibilities are divided in your organization, one person or several people might complete these steps. Use the following table to identify the access each step requires.
 
-| Setup steps and the access each one requires        | Step                                                                               | What you do                                                                              | Access needed |
-| --------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------- |
-| 1. Register the application                         | Create the Entra app registration and record its client and tenant IDs.            | Microsoft Entra ID administrator (Global Administrator or Privileged Role Administrator) |
-| 2. Add permissions and grant consent                | Assign the application permissions for your configuration and grant admin consent. | Microsoft Entra ID administrator                                                         |
-| 3. Generate the certificate                         | Create a self-signed certificate and a PKCS#12 (`.p12`) bundle with OpenSSL.       | Anyone with a local terminal (OpenSSL required)                                          |
-| 4. Upload the public certificate to Entra           | Add the public certificate to the app registration's keys.                         | Microsoft Entra ID administrator                                                         |
-| 5. Grant per-site access (`Sites.Selected` only)    | Grant the app access to each SharePoint site through the Microsoft Graph API.      | Microsoft Entra ID administrator                                                         |
-| 6. Upload the certificate to Amazon S3              | Store the `.p12` bundle in an Amazon S3 bucket.                                    | AWS administrator (Amazon S3)                                                            |
-| 7. Create the secret                                | Store the credentials in an AWS Secrets Manager secret.                            | AWS administrator (Secrets Manager)                                                      |
-| 8. Grant the service role access to the certificate | Add Amazon S3 read permissions to your knowledge base service role.                | AWS administrator (IAM)                                                                  |
+Setup steps and the access each one requires| Step | What you do | Access needed |
+| --- | --- | --- |
+| 1. Register the application | Create the Entra app registration and record its client and tenant IDs. | Microsoft Entra ID administrator (Global Administrator or Privileged Role Administrator) |
+| 2. Add permissions and grant consent | Assign the application permissions for your configuration and grant admin consent. | Microsoft Entra ID administrator |
+| 3. Generate the certificate | Create a self-signed certificate and a PKCS#12 (`.p12`) bundle with OpenSSL. | Anyone with a local terminal (OpenSSL required) |
+| 4. Upload the public certificate to Entra | Add the public certificate to the app registration's keys. | Microsoft Entra ID administrator |
+| 5. Grant per-site access (`Sites.Selected` only) | Grant the app access to each SharePoint site through the Microsoft Graph API. | Microsoft Entra ID administrator |
+| 6. Upload the certificate to Amazon S3 | Store the `.p12` bundle in an Amazon S3 bucket. | AWS administrator (Amazon S3) |
+| 7. Create the secret | Store the credentials in an AWS Secrets Manager secret. | AWS administrator (Secrets Manager) |
+| 8. Grant the service role access to the certificate | Add Amazon S3 read permissions to your knowledge base service role. | AWS administrator (IAM) |
 
 ## Choose your configuration
 
@@ -44,35 +44,35 @@ Select the tab for your configuration to see the exact Microsoft Graph and Share
 
 All sites, no ACLs
 
-| All sites, content only | API              | Permission                                         | Purpose |
-| ----------------------- | ---------------- | -------------------------------------------------- | ------- |
-| Microsoft Graph         | `Sites.Read.All` | Enumerate and read all SharePoint sites.           |
-| SharePoint              | `Sites.Read.All` | Read site content through the SharePoint REST API. |
+All sites, content only| API | Permission | Purpose |
+| --- | --- | --- |
+| Microsoft Graph | `Sites.Read.All` | Enumerate and read all SharePoint sites. |
+| SharePoint | `Sites.Read.All` | Read site content through the SharePoint REST API. |
 
 All sites, with ACLs
 
-| All sites, with ACLs | API                     | Permission                                                                                                                       | Purpose |
-| -------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| Microsoft Graph      | `Sites.Read.All`        | Enumerate and read all SharePoint sites.                                                                                         |
-| Microsoft Graph      | `User.Read.All`         | Resolve users for document-level ACLs.                                                                                           |
-| Microsoft Graph      | `GroupMember.Read.All`  | Resolve group membership for document-level ACLs.                                                                                |
-| SharePoint           | `Sites.FullControl.All` | Read item-level permissions for ACL crawling and verify access at query time. `Sites.Read.All` is not sufficient for this check. |
+All sites, with ACLs| API | Permission | Purpose |
+| --- | --- | --- |
+| Microsoft Graph | `Sites.Read.All` | Enumerate and read all SharePoint sites. |
+| Microsoft Graph | `User.Read.All` | Resolve users for document-level ACLs. |
+| Microsoft Graph | `GroupMember.Read.All` | Resolve group membership for document-level ACLs. |
+| SharePoint | `Sites.FullControl.All` | Read item-level permissions for ACL crawling and verify access at query time. `Sites.Read.All` is not sufficient for this check. |
 
 Sites.Selected, no ACLs
 
-| Sites.Selected, content only | API              | Permission                                                                                              | Purpose |
-| ---------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------- | ------- |
-| Microsoft Graph              | `Sites.Selected` | Access only the sites you explicitly grant (Microsoft Graph).                                           |
-| SharePoint                   | `Sites.Selected` | Access only the sites you explicitly grant (SharePoint REST). Grant the `read` role per site in Step 5. |
+Sites.Selected, content only| API | Permission | Purpose |
+| --- | --- | --- |
+| Microsoft Graph | `Sites.Selected` | Access only the sites you explicitly grant (Microsoft Graph). |
+| SharePoint | `Sites.Selected` | Access only the sites you explicitly grant (SharePoint REST). Grant the `read` role per site in Step 5. |
 
 Sites.Selected, with ACLs
 
-| Sites.Selected, with ACLs | API                    | Permission                                                                                                                                      | Purpose |
-| ------------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| Microsoft Graph           | `Sites.Selected`       | Access only the sites you explicitly grant (Microsoft Graph).                                                                                   |
-| Microsoft Graph           | `User.Read.All`        | Resolve users for document-level ACLs.                                                                                                          |
-| Microsoft Graph           | `GroupMember.Read.All` | Resolve group membership for document-level ACLs.                                                                                               |
-| SharePoint                | `Sites.Selected`       | Access only the sites you explicitly grant. Grant the `fullcontrol` role per site in Step 5 (required to read item-level permissions for ACLs). |
+Sites.Selected, with ACLs| API | Permission | Purpose |
+| --- | --- | --- |
+| Microsoft Graph | `Sites.Selected` | Access only the sites you explicitly grant (Microsoft Graph). |
+| Microsoft Graph | `User.Read.All` | Resolve users for document-level ACLs. |
+| Microsoft Graph | `GroupMember.Read.All` | Resolve group membership for document-level ACLs. |
+| SharePoint | `Sites.Selected` | Access only the sites you explicitly grant. Grant the `fullcontrol` role per site in Step 5 (required to read item-level permissions for ACLs). |
 
 ###### Note
 
@@ -82,14 +82,14 @@ Sites.Selected, with ACLs
 
 You create or collect the following values as you work through the steps. You use them when you create the data source. For details, see [Connect a SharePoint data source](kb-managed-ds-sharepoint-connect.md "kb-managed-ds-sharepoint-connect.md").
 
-| Values reference                                       | Value  | Created in                                                                                                                                 | Used for |
-| ------------------------------------------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| Application (client) ID                                | Step 1 | The secret (`clientId`).                                                                                                                   |
-| Directory (tenant) ID                                  | Step 1 | The data source `tenantId`.                                                                                                                |
+Values reference| Value | Created in | Used for |
+| --- | --- | --- |
+| Application (client) ID | Step 1 | The secret (`clientId`). |
+| Directory (tenant) ID | Step 1 | The data source `tenantId`. |
 | Certificate — PKCS#12 bundle (`.p12`) and its password | Step 3 | The bundle (certificate plus private key) is uploaded to Amazon S3 (Step 6); the password is stored in the secret (`certificatePassword`). |
-| Certificate — public certificate (`.cer`)              | Step 3 | The public half of the same certificate, uploaded to the Entra app registration (Step 4).                                                  |
-| Amazon S3 bucket name and key                          | Step 6 | The data source `certificateS3Path`.                                                                                                       |
-| Secret ARN                                             | Step 7 | The data source `secretArn`.                                                                                                               |
+| Certificate — public certificate (`.cer`) | Step 3 | The public half of the same certificate, uploaded to the Entra app registration (Step 4). |
+| Amazon S3 bucket name and key | Step 6 | The data source `certificateS3Path`. |
+| Secret ARN | Step 7 | The data source `secretArn`. |
 
 ## Step 1: Register the application in Microsoft Entra ID
 

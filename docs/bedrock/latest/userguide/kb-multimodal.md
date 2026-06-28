@@ -1,5 +1,9 @@
 # Build a knowledge base for multimodal content
 
+###### Important
+
+For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md "kb-build-managed.md").
+
 Amazon Bedrock Knowledge Bases supports multimodal content including images, audio, and video files. You can search
 using images as queries, retrieve visually similar content, and process multimedia files
 alongside traditional text documents. This capability enables you to extract insights from

@@ -45,7 +45,7 @@ request (see link for request and response formats and field details) with an [A
 **To attach files for agent to use for answering your queries and summarizing the content, specify the following fields:**
 
 | Field      | Short description                                                                                                                                                    |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name       | Name of the attached file.                                                                                                                                           |
 | sourceType | Location of the file to be attached. Specify `s3` if your file is located in Amazon S3 bucket. Specify `byte_content` if your file is located on your computer.      |
 | S3Location | The S3 path where your file is located. Required if the `sourceType` is S3.                                                                                          |

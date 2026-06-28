@@ -1,5 +1,9 @@
 # View data source information for your Amazon Bedrock knowledge base
 
+###### Important
+
+For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md "kb-build-managed.md").
+
 You can view information about a data source for your knowledge base, such as the settings and sync history.
 
 To monitor your knowledge base, including any data sources for your knowledge base, see [Knowledge base logging using Amazon CloudWatch](knowledge-bases-logging.md "knowledge-bases-logging.md").

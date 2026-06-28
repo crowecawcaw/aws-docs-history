@@ -8,10 +8,10 @@ A score of 1 (maximum) is the strongest match, indicating the closest match to t
 
 The severity score is a property of the content itself, not the certainty of the underlying model about its classification. It answers the question, "How strongly does this content match the criteria for the safety check?" It does not answer, "How sure is the underlying model?" The following table elaborates this definition.
 
-| Severity score meaning by safeguard | Safeguard                                                       | Granularity                                                                | Meaning of a severity score |
-| ----------------------------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------- | --------------------------- |
-| Content filter                      | Per category (HATE, VIOLENCE, INSULTS, SEXUAL, MISCONDUCT)      | How strongly does the content match the harmful content for each category? |
-| Prompt attack                       | Per attack vector (JAILBREAK, PROMPT_INJECTION, PROMPT_LEAKAGE) | How strongly does the content match each attack vector?                    |
+Severity score meaning by safeguard| Safeguard | Granularity | Meaning of a severity score |
+| --- | --- | --- |
+| Content filter | Per category (HATE, VIOLENCE, INSULTS, SEXUAL, MISCONDUCT) | How strongly does the content match the harmful content for each category? |
+| Prompt attack | Per attack vector (JAILBREAK, PROMPT\_INJECTION, PROMPT\_LEAKAGE) | How strongly does the content match each attack vector? |
 
 The score by itself doesn't block any content. You use the score as a threshold to control how restrictive your application acts.
 

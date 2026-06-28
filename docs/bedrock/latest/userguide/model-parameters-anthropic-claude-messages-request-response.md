@@ -72,10 +72,10 @@ inference call.
 
 The following are required parameters.
 
-- **anthropic_version** –
+- **anthropic\_version** –
   (Required) The anthropic version. The value must be
   `bedrock-2023-05-31`.
-- **max_tokens** – (Required) The
+- **max\_tokens** – (Required) The
   maximum number of tokens to generate before stopping.
 
 Note that Anthropic Claude models might stop generating tokens
@@ -110,7 +110,7 @@ parameter. For more information, see [Model comparison](https://docs.anthropic.c
       - **type**
         – (required) The encoding type for the
         image. You can specify `base64`.
-      - **media_type**
+      - **media\_type**
         – (required) The type of the image. You can
         specify the following image formats.
 
@@ -140,7 +140,7 @@ prompts](https://docs.anthropic.com/en/docs/system-prompts "https://docs.anthrop
 You can use system prompts with Anthropic Claude version
 2.1 or higher.
 
-- **anthropic_beta** – (Optional) The anthropic beta parameter is a list of strings of beta headers used to indicate opt-in to a particular set of beta features.
+- **anthropic\_beta** – (Optional) The anthropic beta parameter is a list of strings of beta headers used to indicate opt-in to a particular set of beta features.
 
 ###### Note
 
@@ -161,7 +161,7 @@ Available beta headers include the following:
 | Tool search tool                                    | `tool-search-tool-2025-10-19`      | Compatible with Claude Opus 4.5                                                       |
 | Tool use examples                                   | `tool-examples-2025-10-29`         | Compatible with Claude Opus 4.5                                                       |
 
-- **stop_sequences** – (Optional)
+- **stop\_sequences** – (Optional)
   Custom text sequences that cause the model to stop generating.
   Anthropic Claude models normally stop when they have naturally
   completed their turn, in this case the value of the
@@ -184,7 +184,7 @@ The maximum number of entries is 8191.
 | ------- | ------- | ------- |
 | 1       | 0       | 1       |
 
-- **top_p** – (Optional) Use
+- **top\_p** – (Optional) Use
   nucleus sampling.
 
 In nucleus sampling, Anthropic Claude computes the cumulative
@@ -199,7 +199,7 @@ both at the same time.
 | ------- | ------- | ------- |
 | 0.999   | 0       | 1       |
 
-- **top_k** – (Optional) Only
+- **top\_k** – (Optional) Only
   sample from the top K options for each subsequent token.
 
 Use `top_k` to remove long tail low probability
@@ -299,7 +299,7 @@ computer use API.
     + **name** – The value
      must be `str_replace_editor`. the tool.
 
-- **tool_choice** – (Optional)
+- **tool\_choice** – (Optional)
   Specifices how the model should use the provided tools. The model
   can use a specific tool, any available tool, or decide by
   itself.
@@ -348,7 +348,7 @@ inference call.
 }
 ```
 
-Example responses with new stop_reason values:
+Example responses with new stop\_reason values:
 
 ```
 // Example with refusal
@@ -396,27 +396,27 @@ Example responses with new stop_reason values:
   time.
 - **model** – The ID for the
   Anthropic Claude model that made the request.
-- **stop_reason** – The reason
+- **stop\_reason** – The reason
   why Anthropic Claude stopped generating the response.
 
-  - **end_turn** – The
+  - **end\_turn** – The
     model reached a natural stopping point
-  - **max_tokens** – The
+  - **max\_tokens** – The
     generated text exceeded the value of the
     `max_tokens` input field or exceeded the
     maximum number of tokens that the model supports.' .
-  - **stop_sequence** – The
+  - **stop\_sequence** – The
     model generated one of the stop sequences that you specified
     in the `stop_sequences` input field.
   - **refusal** – The model was blocked by a content classifier before completing its response. The response may contain partial content if the classifier fired mid-stream. See `stop_details` for additional information about the restriction. This stop reason occurs at a materially higher rate on Claude Fable 5 due to its dual-use content classifiers.
-  - **tool_use** – Claude is calling a tool and expects you to execute it
-  - **model_context_window_exceeded** – the model stopped generation due to hitting the context window limit.
+  - **tool\_use** – Claude is calling a tool and expects you to execute it
+  - **model\_context\_window\_exceeded** – the model stopped generation due to hitting the context window limit.
 
     - New with Claude Sonnet 4.5
 
-- **stop_sequence** – The stop
+- **stop\_sequence** – The stop
   sequence that ended the generation.
-- **stop_details** (object | null) – Additional information about why the response stopped. Present when `stop_reason` is `"refusal"`. May be null even on a refusal.
+- **stop\_details** (object | null) – Additional information about why the response stopped. Present when `stop_reason` is `"refusal"`. May be null even on a refusal.
 
   - **type** (string) – Always `"refusal"` when present.
   - **category** (string or null) – The content category that triggered the restriction (e.g., `"cyber"`, `"bio"`). Null when the refusal does not map to a named category.
@@ -433,7 +433,7 @@ Branch on `stop_reason`, not on `stop_details`. The `stop_details` field is info
   `assistant`.
 - **content** – The content
   generated by the model. Returned as an array. There are three types
-  of content, _text_, _tool_use_
+  of content, _text_, _tool\_use_
   and _image_.
 
   - _text_ – A text
@@ -473,12 +473,12 @@ Branch on `stop_reason`, not on `stop_details`. The `stop_details` field is info
   number of tokens that you supplied in the request and the number
   tokens of that the model generated in the response.
 
-  - **input_tokens** – The
+  - **input\_tokens** – The
     number of input tokens in the request.
-  - **output_tokens** – The
+  - **output\_tokens** – The
     number tokens of that the model generated in the
     response.
-  - **stop_sequence** – The
+  - **stop\_sequence** – The
     model generated one of the stop sequences that you specified
     in the `stop_sequences` input field.
 

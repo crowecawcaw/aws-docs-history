@@ -71,7 +71,7 @@ The computed figure is an estimate. It does not reflect discounts, commitments, 
 
 **Q: What's the difference between an IAM session tag and request metadata?**
 
-A: Binding and destination. A session tag is set once at `sts:AssumeRole` and is constant for every call made with that session's credentials; it surfaces only as aggregated billing data in AWS Cost Explorer and CUR 2.0. Request metadata is set per call, varies per request, and lands in your invocation logs.
+A: Binding and destination. A session tag is set once at `sts:AssumeRole` and is constant for every call made with that session's credentials; it surfaces only as aggregated billing data in AWS Cost Explorer and CUR (both classic CUR and CUR 2.0). Request metadata is set per call, varies per request, and lands in your invocation logs.
 
 For per-user, per-prompt attribution, use request metadata. For per-user dollars on the bill, use session tags or rely on the caller identity ARN.
 

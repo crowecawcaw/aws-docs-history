@@ -20,11 +20,10 @@ This chapter explains terminology that will help you understand what Amazon Bedr
 - **Agent** – An application that carries out orchestrations through cyclically interpreting inputs and producing outputs by using a foundation model. An agent can be used to carry out customer requests. For more information, see [Automate tasks in your application using AI agents](agents.md "agents.md").
 - **Retrieval augmented generation (RAG)** – The process involves:
 
-      1. Querying and retrieving information from a data source
-      2. Augmenting a prompt with this information to provide better context to the foundation model
-      3. Obtaining a better response from the foundation model using the additional context
-
-  For more information, see [Retrieve data and generate AI responses with Amazon Bedrock Knowledge Bases](knowledge-base.md "knowledge-base.md").
+  1.  Querying and retrieving information from a data source
+  2.  Augmenting a prompt with this information to provide better context to the foundation model
+  3.  Obtaining a better response from the foundation model using the additional context
+      For more information, see [Retrieve data and generate AI responses with Amazon Bedrock Knowledge Bases](knowledge-base.md "knowledge-base.md").
 
 - **Model customization** – The process of using training data to adjust the model parameter values in a base model to create a **custom model**. Examples of model customization include **Fine-tuning**, which uses labeled data (inputs and corresponding outputs) to adjust model parameters. For more information about model customization techniques available in Amazon Bedrock, see [Customize your model to improve its performance for your use case](custom-models.md "custom-models.md").
 - **Hyperparameters** – Values that can be adjusted for **model customization** to control the training process and, consequently, the output custom model. For more information and definitions of specific hyperparameters, see [Custom model hyperparameters](custom-models-hp.md "custom-models-hp.md").

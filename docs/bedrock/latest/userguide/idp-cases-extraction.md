@@ -5,7 +5,7 @@ This acts as a set of instructions that guide BDA on what information to look fo
 
 ###### Defining fields
 
-To get started, you can create a property for each field that requires extraction, such as employee_id or product_name.
+To get started, you can create a property for each field that requires extraction, such as employee\_id or product\_name.
 For each field, you need to provide a description, data type, and inference type.
 
 To define a field for extraction, you need to specify the following parameters:
@@ -24,10 +24,9 @@ To define a field for extraction, you need to specify the following parameters:
 
 - Inference Type: Instructs BDA on how to handle the extraction of the field's value. The supported inference types are:
 
-      + Explicit: BDA should extract the value directly from the document.
-      + Inferred: BDA should infer the value based on the information present in the document.
-
-  Here's an example of a field definition with all the parameters:
+  - Explicit: BDA should extract the value directly from the document.
+  - Inferred: BDA should infer the value based on the information present in the document.
+    Here's an example of a field definition with all the parameters:
 
 Console
 
@@ -45,7 +44,7 @@ API
 
 In this example:
 
-- The type is set to string, indicating that the value of the product_name field should be text-based.
+- The type is set to string, indicating that the value of the product\_name field should be text-based.
 - The inferenceType is set to Explicit, instructing BDA to extract the value directly from the document
   without any transformation or validation.
 - The instruction provides additional context, clarifying that the field should contain the short name of the
@@ -53,12 +52,12 @@ In this example:
   By specifying these parameters for each field, you provide BDA with the necessary information to accurately
   extract and interpret the desired data from your documents.
 
-| Field                      | Instruction                    | Extraction Type | Type   |
-| -------------------------- | ------------------------------ | --------------- | ------ |
-| ApplicantsName             | Full Name of the Applicant     | Explicit        | string |
-| DateOfBirth                | Date of birth of employee      | Explicit        | string |
-| Sales                      | Gross receipts or sales        | Explicit        | number |
-| Statement_starting_balance | Balance at beginning of period | Explicit        | number |
+| Field                        | Instruction                    | Extraction Type | Type   |
+| ---------------------------- | ------------------------------ | --------------- | ------ |
+| ApplicantsName               | Full Name of the Applicant     | Explicit        | string |
+| DateOfBirth                  | Date of birth of employee      | Explicit        | string |
+| Sales                        | Gross receipts or sales        | Explicit        | number |
+| Statement\_starting\_balance | Balance at beginning of period | Explicit        | number |
 
 ###### Multi-Valued Fields
 
@@ -93,7 +92,7 @@ API
 
 If your document contains tabular data, you can define a table structure within the schema.
 
-In this example, "SERVICES_TABLE" is defined as a Table type, with column fields such as product name,
+In this example, "SERVICES\_TABLE" is defined as a Table type, with column fields such as product name,
 description, quantity, unit price and amount.
 
 Console

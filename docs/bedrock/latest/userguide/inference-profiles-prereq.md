@@ -46,121 +46,122 @@ Before you can use an inference profile, check that you've fulfilled the followi
 
   (Optional) You can restrict the role's access in the following ways:
 
-      + To restrict the API actions that the role can make, modify the list in the `Action` field to contain only the [API operations](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-actions-as-permissions") that you want to allow access to.
-      + To restrict the role's access to specific inference profiles, modify the `Resource` list to contain only the [inference profiles](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-resources-for-iam-policies") and foundation models that you want to allow access to. System-defined inference profiles begin with `inference-profile` and application inference profiles begin with `application-inference-profile`.
+        + To restrict the API actions that the role can make, modify the list in the `Action` field to contain only the [API operations](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-actions-as-permissions") that you want to allow access to.
+        + To restrict the role's access to specific inference profiles, modify the `Resource` list to contain only the [inference profiles](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-resources-for-iam-policies") and foundation models that you want to allow access to. System-defined inference profiles begin with `inference-profile` and application inference profiles begin with `application-inference-profile`.
 
 
-      ###### Important
+        ###### Important
 
-      When you specify an inference profile in the `Resource` field in the first statement, you must also specify the foundation model in each Region associated with it.
-      + To restrict user access such that they can invoke a foundation model only through an inference profile, add a `Condition` field and use the `aws:InferenceProfileArn` [condition key](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys"). Specify the inference profile that you want to filter access on. This condition can be included in a statement that scopes to the `foundation-model` resources.
-      + For example, you can attach the following policy to a role to allow it to invoke the Anthropic Claude 3 Haiku model only through the US Anthropic Claude 3 Haiku inference profile in the account `111122223333` in us-west-2:
-
-
-
-      JSON
+        When you specify an inference profile in the `Resource` field in the first statement, you must also specify the foundation model in each Region associated with it.
+        + To restrict user access such that they can invoke a foundation model only through an inference profile, add a `Condition` field and use the `aws:InferenceProfileArn` [condition key](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys"). Specify the inference profile that you want to filter access on. This condition can be included in a statement that scopes to the `foundation-model` resources.
+        + For example, you can attach the following policy to a role to allow it to invoke the Anthropic Claude 3 Haiku model only through the US Anthropic Claude 3 Haiku inference profile in the account `111122223333` in us-west-2:
 
 
 
-
-
-      ```
-      `{
-       "Version":"2012-10-17",
-       "Statement": [
-       {
-       "Effect": "Allow",
-       "Action": [
-       "bedrock:InvokeModel*"
-       ],
-       "Resource": [
-       "arn:aws:bedrock:us-west-2:`111122223333`:inference-profile/us.anthropic.claude-3-haiku-20240307-v1:0"
-       ]
-       },
-       {
-       "Effect": "Allow",
-       "Action": [
-       "bedrock:InvokeModel*"
-       ],
-       "Resource": [
-       "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-haiku-20240307-v1:0",
-       "arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-3-haiku-20240307-v1:0"
-       ],
-       "Condition": {
-       "StringLike": {
-       "bedrock:InferenceProfileArn": "arn:aws:bedrock:us-west-2:`111122223333`:inference-profile/us.anthropic.claude-3-haiku-20240307-v1:0"
-       }
-       }
-       }
-       ]
-      }`
-
-      ```
-      + For example, you can attach the following policy to a role to allow it to invoke the Anthropic Claude Sonnet 4 model only through the Global Claude Sonnet 4
-       inference profile in the account 111122223333 in us-east-2 (US East (Ohio)).
-
-
-
-      JSON
+        JSON
 
 
 
 
 
-      ```
-      `{
-       "Version":"2012-10-17",
-       "Statement": [
-       {
-       "Effect": "Allow",
-       "Action": [
-       "bedrock:InvokeModel*"
-       ],
-       "Resource": [
-       "arn:aws:bedrock:us-east-2:111122223333:inference-profile/global.anthropic.claude-sonnet-4-20250514-v1:0"
-       ]
-       },
-       {
-       "Effect": "Allow",
-       "Action": [
-       "bedrock:InvokeModel*"
-       ],
-       "Resource": [
-       "arn:aws:bedrock:us-east-2::foundation-model/anthropic.claude-sonnet-4-20250514-v1:0",
-       "arn:aws:bedrock:::foundation-model/anthropic.claude-sonnet-4-20250514-v1:0"
-       ],
-       "Condition": {
-       "StringLike": {
-       "bedrock:InferenceProfileArn": "arn:aws:bedrock:us-east-2:111122223333:inference-profile/global.anthropic.claude-sonnet-4-20250514-v1:0"
-       }
-       }
-       }
-       ]
-      }`
+        ```
+        `{
+         "Version":"2012-10-17",
+         "Statement": [
+         {
+         "Effect": "Allow",
+         "Action": [
+         "bedrock:InvokeModel*"
+         ],
+         "Resource": [
+         "arn:aws:bedrock:us-west-2:`111122223333`:inference-profile/us.anthropic.claude-3-haiku-20240307-v1:0"
+         ]
+         },
+         {
+         "Effect": "Allow",
+         "Action": [
+         "bedrock:InvokeModel*"
+         ],
+         "Resource": [
+         "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-haiku-20240307-v1:0",
+         "arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-3-haiku-20240307-v1:0"
+         ],
+         "Condition": {
+         "StringLike": {
+         "bedrock:InferenceProfileArn": "arn:aws:bedrock:us-west-2:`111122223333`:inference-profile/us.anthropic.claude-3-haiku-20240307-v1:0"
+         }
+         }
+         }
+         ]
+        }`
 
-      ```
-      + You can also restrict the use of the Global Claude Sonnet 4 inference profile by adding an explicit Deny with a `StringEquals`
-       condition that checks the request context key `aws:RequestedRegion` equals unspecified. Because it matches `StringEquals`,
-       the Deny overrides any Allow and blocks Global routing of inference requests.
-
+        ```
+        + For example, you can attach the following policy to a role to allow it to invoke the Anthropic Claude Sonnet 4 model only through the Global Claude Sonnet 4
+         inference profile in the account 111122223333 in us-east-2 (US East (Ohio)).
 
 
-      ```
-      `{
-       "Effect": "Deny",
-       "Action": [
-       "bedrock:InvokeModel*"
-       ],
-       "Resource": "*",
-       "Condition": {
-       "StringEquals": {
-       "aws:RequestedRegion": "unspecified"
-       }
-       }
-      },`
+
+        JSON
 
 
-      ```
-  2.  Follow the steps at [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") to attach the policy to a role to grant the role permissions to view and use all the inference profiles.
+
+
+
+        ```
+        `{
+         "Version":"2012-10-17",
+         "Statement": [
+         {
+         "Effect": "Allow",
+         "Action": [
+         "bedrock:InvokeModel*"
+         ],
+         "Resource": [
+         "arn:aws:bedrock:us-east-2:111122223333:inference-profile/global.anthropic.claude-sonnet-4-20250514-v1:0"
+         ]
+         },
+         {
+         "Effect": "Allow",
+         "Action": [
+         "bedrock:InvokeModel*"
+         ],
+         "Resource": [
+         "arn:aws:bedrock:us-east-2::foundation-model/anthropic.claude-sonnet-4-20250514-v1:0",
+         "arn:aws:bedrock:::foundation-model/anthropic.claude-sonnet-4-20250514-v1:0"
+         ],
+         "Condition": {
+         "StringLike": {
+         "bedrock:InferenceProfileArn": "arn:aws:bedrock:us-east-2:111122223333:inference-profile/global.anthropic.claude-sonnet-4-20250514-v1:0"
+         }
+         }
+         }
+         ]
+        }`
+
+        ```
+        + You can also restrict the use of the Global Claude Sonnet 4 inference profile by adding an explicit Deny with a `StringEquals`
+         condition that checks the request context key `aws:RequestedRegion` equals unspecified. Because it matches `StringEquals`,
+         the Deny overrides any Allow and blocks Global routing of inference requests.
+
+
+
+        ```
+        `{
+         "Effect": "Deny",
+         "Action": [
+         "bedrock:InvokeModel*"
+         ],
+         "Resource": "*",
+         "Condition": {
+         "StringEquals": {
+         "aws:RequestedRegion": "unspecified"
+         }
+         }
+        },`
+
+
+        ```
+
+  2. Follow the steps at [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") to attach the policy to a role to grant the role permissions to view and use all the inference profiles.
 
 - You've requested access to the model defined in the inference profile that you want to use, in the Region from which you want to call the inference profile.

@@ -1,4 +1,4 @@
-# API compatibility
+# API compatibility by models
 
 Amazon Bedrock supports four families of runtime APIs, each designed for different integration patterns and use cases.
 

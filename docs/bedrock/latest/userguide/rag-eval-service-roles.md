@@ -70,24 +70,23 @@ JSON
 
 You also need to create a policy that allows Amazon Bedrock to do the following:
 
-1.  Invoke the models that you plan to specify for the following:
+1. Invoke the models that you plan to specify for the following:
 
-        * Result generation with the `RetrieveAndGenerate` API action.
-        * Evaluation of results.
+   - Result generation with the `RetrieveAndGenerate` API action.
+   - Evaluation of results.
+     For the `Resource` key in the policy, you must specify at least
+     one ARN of a model you have access to. To use a model that's encrypted with
+     a customer-managed KMS key, you must add the required IAM actions and
+     resources to the IAM service role policy. You must also add the service
+     role to the AWS KMS key policy.
 
-    For the `Resource` key in the policy, you must specify at least
-    one ARN of a model you have access to. To use a model that's encrypted with
-    a customer-managed KMS key, you must add the required IAM actions and
-    resources to the IAM service role policy. You must also add the service
-    role to the AWS KMS key policy.
-
-2.  Call the `Retrieve` and `RetrieveAndGenerate` API actions. Note
-    that, in the automated role creation in the console, we give permissions to
-    both `Retrieve` and `RetrieveAndGenerate` API actions,
-    regardless of the action you choose to evaluate for that job. By doing so,
-    we give additional flexibility and reusability for that role. However, for
-    added security, that automatically-created role is tied to a single
-    knowledge base instance.
+2. Call the `Retrieve` and `RetrieveAndGenerate` API actions. Note
+   that, in the automated role creation in the console, we give permissions to
+   both `Retrieve` and `RetrieveAndGenerate` API actions,
+   regardless of the action you choose to evaluate for that job. By doing so,
+   we give additional flexibility and reusability for that role. However, for
+   added security, that automatically-created role is tied to a single
+   knowledge base instance.
 
 JSON
 

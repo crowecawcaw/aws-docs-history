@@ -33,8 +33,7 @@ If you plan to write the output data to an S3 bucket that belongs to a different
     * **Create and use a new service role** –
      Enter a name for the service role.
 
-9. (Optional) To associate tags with the batch inference job, expand the **Tags** section and add a key and optional value for each tag. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md").
-10. Choose **Create batch inference job**.
+9. (Optional) To associate tags with the batch inference job, expand the **Tags** section and add a key and optional value for each tag. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md"). 10. Choose **Create batch inference job**.
 
 API
 To create a batch inference job, send a [CreateModelInvocationJob](../APIReference/API_CreateModelInvocationJob.md "../APIReference/API_CreateModelInvocationJob.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp").

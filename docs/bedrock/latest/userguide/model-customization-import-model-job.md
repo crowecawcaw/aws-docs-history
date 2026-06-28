@@ -15,8 +15,8 @@ To submit a model import job in the console, complete the following steps.
 1. If you are importing your model files from Amazon S3, convert the model to
    the Hugging Face format.
 
-   1. If your model is a Mistral AI model, use [convert_mistral_weights_to_hf.py](https://github.com/huggingface/transformers/blob/main/src/transformers/models/mistral/convert_mistral_weights_to_hf.py "https://github.com/huggingface/transformers/blob/main/src/transformers/models/mistral/convert_mistral_weights_to_hf.py").
-   2. If your model is a Llama model, see [convert_llama_weights_to_hf.py](https://github.com/huggingface/transformers/blob/main/src/transformers/models/llama/convert_llama_weights_to_hf.py "https://github.com/huggingface/transformers/blob/main/src/transformers/models/llama/convert_llama_weights_to_hf.py").
+   1. If your model is a Mistral AI model, use [convert\_mistral\_weights\_to\_hf.py](https://github.com/huggingface/transformers/blob/main/src/transformers/models/mistral/convert_mistral_weights_to_hf.py "https://github.com/huggingface/transformers/blob/main/src/transformers/models/mistral/convert_mistral_weights_to_hf.py").
+   2. If your model is a Llama model, see [convert\_llama\_weights\_to\_hf.py](https://github.com/huggingface/transformers/blob/main/src/transformers/models/llama/convert_llama_weights_to_hf.py "https://github.com/huggingface/transformers/blob/main/src/transformers/models/llama/convert_llama_weights_to_hf.py").
    3. Upload the model files to an Amazon S3 bucket in your
       AWS account. For more information, see [Upload an
       object to your bucket](../../../AmazonS3/latest/userguide/uploading-an-object-bucket.md "../../../AmazonS3/latest/userguide/uploading-an-object-bucket.md").

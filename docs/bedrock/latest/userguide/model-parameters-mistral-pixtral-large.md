@@ -136,8 +136,8 @@ response = bedrock.converse(
 print(json.dumps(response.get('output'), indent=4))
 ```
 
-invoke_model_with_response_stream
-Pixtral Large (25.02) invoke_model_with_response_stream example.
+invoke\_model\_with\_response\_stream
+Pixtral Large (25.02) invoke\_model\_with\_response\_stream example.
 
 ```
 
@@ -192,8 +192,8 @@ if stream:
             print(chunk_obj)
 ```
 
-converse_stream
-Pixtral Large (25.02) converse_stream example.
+converse\_stream
+Pixtral Large (25.02) converse\_stream example.
 
 ```
 

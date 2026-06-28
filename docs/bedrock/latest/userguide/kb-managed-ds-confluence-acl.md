@@ -65,8 +65,8 @@ You can validate your credentials independently of a retrieve request. Perform e
 
 ACL misconfigurations do not produce explicit errors during retrieval. Retrieval fails closed: affected documents are silently omitted, so a query returns fewer or zero results rather than an error. Use the verification checks above to diagnose these issues.
 
-| ACL-enabled Confluence symptoms, causes, and fixes                 | Symptom                                                                                                                                           | Likely cause                                                                                                                                 | Fix |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+ACL-enabled Confluence symptoms, causes, and fixes| Symptom | Likely cause | Fix |
+| --- | --- | --- |
 | Retrieve returns 0 results, but the user has access in Confluence. | The Atlassian Admin API key is missing scopes, or the `organizationId`/`directoryId` is wrong, so user and group restrictions cannot be resolved. | Confirm the `adminApiKey` has `read:directories:admin` and `read:workspaces:admin`, and that `organizationId` and `directoryId` are correct. |
-| Crawl or sync fails.                                               | The `username` or API token (`password`) is invalid.                                                                                              | Verify the `BASIC` username and API token in the secret.                                                                                     |
-| All users are denied after previously working.                     | The API token or admin API key expired or was revoked.                                                                                            | Rotate the affected credentials in the secret.                                                                                               |
+| Crawl or sync fails. | The `username` or API token (`password`) is invalid. | Verify the `BASIC` username and API token in the secret. |
+| All users are denied after previously working. | The API token or admin API key expired or was revoked. | Rotate the affected credentials in the secret. |

@@ -222,7 +222,7 @@ When evaluating the completeness of the response, consider the following rubrics
 - Different audiences or lengths may require different levels of detail in summaries, as demonstrated by the reference response.
 
 4. If the candidate response states that there is not enough information in the context to address the question, treat it as a complete answer, regardless of whether that is true or not.
-   </rubrics>
+</rubrics>
 
 Please rate the completeness of the candidate response based on the following scale:
 

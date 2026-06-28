@@ -385,7 +385,7 @@ example document. The first section we'll receive is `metadata`.
 
 ```
 
-The first section above provides an overview of the metadata associated with the document. Since the Synchronous InvokeDataAutomation API does not currently support document splitting, logical_subdocument_id is always equal to 1.
+The first section above provides an overview of the metadata associated with the document. Since the Synchronous InvokeDataAutomation API does not currently support document splitting, logical\_subdocument\_id is always equal to 1.
 
 ```
 "document":{
@@ -440,7 +440,7 @@ Note: Unlike the asynchronous InvokeDataAutomationAsync request, the synchronous
 
 ```
 
-This is the entity used for text within a document, indicated by the TYPE line in the response. Again representation shows the text in different formats. reading_order shows when a reader would logically see the text. This is a semantic ordering based on associated keys and values. For example, it associates titles of paragraphs with their respective paragraph in reading order. page_indices tells you which pages the text is on. Next is location information, with a provided text bounding box if it was enabled in response. Finally, we have the entity subtype. This subtype provides more detailed information on what kind of text is being detected. For a complete list of subtypes see the API Reference.
+This is the entity used for text within a document, indicated by the TYPE line in the response. Again representation shows the text in different formats. reading\_order shows when a reader would logically see the text. This is a semantic ordering based on associated keys and values. For example, it associates titles of paragraphs with their respective paragraph in reading order. page\_indices tells you which pages the text is on. Next is location information, with a provided text bounding box if it was enabled in response. Finally, we have the entity subtype. This subtype provides more detailed information on what kind of text is being detected. For a complete list of subtypes see the API Reference.
 
 ```
 

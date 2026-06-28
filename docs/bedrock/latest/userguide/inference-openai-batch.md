@@ -75,7 +75,7 @@ When forming the batch inference request, note the following Amazon Bedrock-spec
 ###### Request body parameters:
 
 - endpoint – Must be `v1/chat/completions`.
-- input_file_id – Specify the S3 URI of your batch JSONL file.
+- input\_file\_id – Specify the S3 URI of your batch JSONL file.
 
 ###### Find the generated results
 
@@ -108,9 +108,9 @@ To create a batch job with the OpenAI SDK, do the following:
 
 Before running the following example, replace the placeholders in the following fields:
 
-- api_key – Replace `$AWS_BEARER_TOKEN_BEDROCK` with your actual API key.
+- api\_key – Replace `$AWS_BEARER_TOKEN_BEDROCK` with your actual API key.
 - X-Amzn-BedrockRoleArn – Replace `arn:aws:iam::123456789012:role/BatchServiceRole` with the actual batch inference service role you set up.
-- input_file_id – Replace `s3://amzn-s3-demo-bucket/openai-input.jsonl` with the actual S3 URI to which you uploaded your batch JSONL file.
+- input\_file\_id – Replace `s3://amzn-s3-demo-bucket/openai-input.jsonl` with the actual S3 URI to which you uploaded your batch JSONL file.
 
 The example calls the OpenAI Create batch job API in `us-west-2` and includes one piece of metadata.
 
@@ -155,7 +155,7 @@ Before running the following example, first replace the placeholders in the foll
 
 - Authorization – Replace `$AWS_BEARER_TOKEN_BEDROCK` with your actual API key.
 - X-Amzn-BedrockRoleArn – Replace `arn:aws:iam::123456789012:role/BatchServiceRole` with the actual batch inference service role you set up.
-- input_file_id – Replace `s3://amzn-s3-demo-bucket/openai-input.jsonl` with the actual S3 URI to which you uploaded your batch JSONL file.
+- input\_file\_id – Replace `s3://amzn-s3-demo-bucket/openai-input.jsonl` with the actual S3 URI to which you uploaded your batch JSONL file.
 
 The following example calls the Create chat completion API in `us-west-2` and includes one piece of metadata:
 
@@ -199,8 +199,8 @@ To retrieve a batch job with the OpenAI SDK, do the following:
 
 Before running the following example, replace the placeholders in the following fields:
 
-- api_key – Replace `$AWS_BEARER_TOKEN_BEDROCK` with your actual API key.
-- batch_id – Replace `$AWS_BEARER_TOKEN_BEDROCK` with your actual API key.
+- api\_key – Replace `$AWS_BEARER_TOKEN_BEDROCK` with your actual API key.
+- batch\_id – Replace `$AWS_BEARER_TOKEN_BEDROCK` with your actual API key.
 
 The example calls the OpenAI Retrieve batch job API in `us-west-2` on a batch job whose ID is `batch_abc123`.
 
@@ -231,7 +231,7 @@ To retrieve a batch job with a direct HTTP request, do the following:
 Before running the following example, first replace the placeholders in the following fields:
 
 - Authorization – Replace `$AWS_BEARER_TOKEN_BEDROCK` with your actual API key.
-- batch_abc123 – In the path, replace this value with the actual ID of your batch job.
+- batch\_abc123 – In the path, replace this value with the actual ID of your batch job.
 
 The following example calls the OpenAI Retrieve batch API in `us-west-2` on a batch job whose ID is `batch_abc123`.
 
@@ -265,7 +265,7 @@ To list batch jobs with the OpenAI SDK, do the following:
 
 Before running the following example, replace the placeholders in the following fields:
 
-- api_key – Replace `$AWS_BEARER_TOKEN_BEDROCK` with your actual API key.
+- api\_key – Replace `$AWS_BEARER_TOKEN_BEDROCK` with your actual API key.
 
 The example calls the OpenAI List batch jobs API in `us-west-2` and specifies a limit of 2 results to return.
 
@@ -329,8 +329,8 @@ To cancel a batch job with the OpenAI SDK, do the following:
 
 Before running the following example, replace the placeholders in the following fields:
 
-- api_key – Replace `$AWS_BEARER_TOKEN_BEDROCK` with your actual API key.
-- batch_id – Replace `$AWS_BEARER_TOKEN_BEDROCK` with your actual API key.
+- api\_key – Replace `$AWS_BEARER_TOKEN_BEDROCK` with your actual API key.
+- batch\_id – Replace `$AWS_BEARER_TOKEN_BEDROCK` with your actual API key.
 
 The example calls the OpenAI Cancel batch job API in `us-west-2` on a batch job whose ID is `batch_abc123`.
 
@@ -361,7 +361,7 @@ To cancel a batch job with a direct HTTP request, do the following:
 Before running the following example, first replace the placeholders in the following fields:
 
 - Authorization – Replace `$AWS_BEARER_TOKEN_BEDROCK` with your actual API key.
-- batch_abc123 – In the path, replace this value with the actual ID of your batch job.
+- batch\_abc123 – In the path, replace this value with the actual ID of your batch job.
 
 The following example calls the OpenAI Cancel batch API in `us-west-2` on a batch job whose ID is `batch_abc123`.
 

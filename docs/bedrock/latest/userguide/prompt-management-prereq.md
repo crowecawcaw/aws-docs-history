@@ -52,44 +52,48 @@ To further restrict permissions, you can omit actions, or you can specify resour
 
 2. If you plan to encrypt your prompt with a customer managed key rather than using an AWS managed key (for more information, see [AWS KMS keys](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md")), create the following policies:
 
-   1. Follow the steps at [Creating a key policy](../../../kms/latest/developerguide/key-policy-overview.md "../../../kms/latest/developerguide/key-policy-overview.md") and attach the following key policy to a KMS key to allow Amazon Bedrock encrypt and decrypt a prompt with the key, replacing the `values` as necessary. The policy contains optional condition keys (see [Condition keys for Amazon Bedrock](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys") and [AWS global condition context keys](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys")) in the `Condition` field that we recommend you use as a security best practice.
+    1. Follow the steps at [Creating a key policy](../../../kms/latest/developerguide/key-policy-overview.md "../../../kms/latest/developerguide/key-policy-overview.md") and attach the following key policy to a KMS key to allow Amazon Bedrock encrypt and decrypt a prompt with the key, replacing the `values` as necessary. The policy contains optional condition keys (see [Condition keys for Amazon Bedrock](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys") and [AWS global condition context keys](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys")) in the `Condition` field that we recommend you use as a security best practice.
 
-   ```
-   {
-       "Sid": "EncryptFlowKMS",
-       "Effect": "Allow",
-       "Principal": {
-           "Service": "bedrock.amazonaws.com"
-       },
-       "Action": [
-           "kms:GenerateDataKey",
-           "kms:Decrypt"
-       ],
-       "Resource": "*",
-       "Condition": {
-           "StringEquals": {
-               "kms:EncryptionContext:aws:bedrock-prompts:arn": "arn:`${partition}`:bedrock:`${region}`:`${account-id}`:prompt/`${prompt-id}`"
-           }
-       }
-   }
-   ```
-   2. Follow the steps at [Update the permissions policy for a role](../../../IAM/latest/UserGuide/id_roles_update-role-permissions.md#id_roles_update-role-permissions-policy "../../../IAM/latest/UserGuide/id_roles_update-role-permissions.md#id_roles_update-role-permissions-policy") and attach the following policy to the prompt management role, replacing the `values` as necessary, to allow it to generate and decrypt the customer managed key for a prompt. The policy contains optional condition keys (see [Condition keys for Amazon Bedrock](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys") and [AWS global condition context keys](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys")) in the `Condition` field that we recommend you use as a security best practice.
 
-   ```
-   {
-       "Sid": "KMSPermissions",
-       "Effect": "Allow",
-       "Action": [
-           "kms:GenerateDataKey",
-           "kms:Decrypt"
-       ],
-       "Resource": [
-           "arn:aws:kms:`${region}`:`${account-id}`:key/`${key-id}`"
-       ],
+
+    ```
+    {
+        "Sid": "EncryptFlowKMS",
+        "Effect": "Allow",
+        "Principal": {
+            "Service": "bedrock.amazonaws.com"
+        },
+        "Action": [
+            "kms:GenerateDataKey",
+            "kms:Decrypt"
+        ],
+        "Resource": "*",
         "Condition": {
-           "StringEquals": {
-               "aws:ResourceAccount": "`${account-id}`"
-           }
-       }
-   }
-   ```
+            "StringEquals": {
+                "kms:EncryptionContext:aws:bedrock-prompts:arn": "arn:`${partition}`:bedrock:`${region}`:`${account-id}`:prompt/`${prompt-id}`"
+            }
+        }
+    }
+    ```
+    2. Follow the steps at [Update the permissions policy for a role](../../../IAM/latest/UserGuide/id_roles_update-role-permissions.md#id_roles_update-role-permissions-policy "../../../IAM/latest/UserGuide/id_roles_update-role-permissions.md#id_roles_update-role-permissions-policy") and attach the following policy to the prompt management role, replacing the `values` as necessary, to allow it to generate and decrypt the customer managed key for a prompt. The policy contains optional condition keys (see [Condition keys for Amazon Bedrock](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys") and [AWS global condition context keys](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys")) in the `Condition` field that we recommend you use as a security best practice.
+
+
+
+    ```
+    {
+        "Sid": "KMSPermissions",
+        "Effect": "Allow",
+        "Action": [
+            "kms:GenerateDataKey",
+            "kms:Decrypt"
+        ],
+        "Resource": [
+            "arn:aws:kms:`${region}`:`${account-id}`:key/`${key-id}`"
+        ],
+         "Condition": {
+            "StringEquals": {
+                "aws:ResourceAccount": "`${account-id}`"
+            }
+        }
+    }
+    ```

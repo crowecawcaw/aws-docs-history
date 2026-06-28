@@ -23,19 +23,19 @@ Billing continues until you delete the Reserved Tier reservation with the help o
 
 ## Priority Tier
 
-The Priority tier delivers the fastest response times for a price premium over standard on-demand pricing. It is best suited for mission-critical applications with customer-facing business workflows that do not warrant 24X7 capacity reservation. Priority tier does not require prior reservation. You can simply set the "service_tier" optional parameter to "priority" to avail request level prioritization. Priority tier requests are prioritized over Standard and Flex tier requests.
+The Priority tier delivers the fastest response times for a price premium over standard on-demand pricing. It is best suited for mission-critical applications with customer-facing business workflows that do not warrant 24X7 capacity reservation. Priority tier does not require prior reservation. You can simply set the "service\_tier" optional parameter to "priority" to avail request level prioritization. Priority tier requests are prioritized over Standard and Flex tier requests.
 
 ## Standard Tier
 
-The Standard tier provides consistent performance for everyday AI tasks such as content generation, text analysis, and routine document processing. By default all inference requests are routed to the Standard tier when the "service_tier" parameter is missing. You can also set the "service_tier" optional parameter to "default" for your inference request to be served with Standard tier.
+The Standard tier provides consistent performance for everyday AI tasks such as content generation, text analysis, and routine document processing. By default all inference requests are routed to the Standard tier when the "service\_tier" parameter is missing. You can also set the "service\_tier" optional parameter to "default" for your inference request to be served with Standard tier.
 
 ## Flex Tier
 
-For workloads that can handle longer processing times, the Flex tier offers cost-effective processing for a pricing discount. This helps you optimize cost for workloads such as model evaluations, content summarization, and agentic workflows. You can set the "service_tier" optional parameter to "flex" for your inference request to be served with the Flex tier and avail the pricing discount.
+For workloads that can handle longer processing times, the Flex tier offers cost-effective processing for a pricing discount. This helps you optimize cost for workloads such as model evaluations, content summarization, and agentic workflows. You can set the "service\_tier" optional parameter to "flex" for your inference request to be served with the Flex tier and avail the pricing discount.
 
 ## Using the service tier capability
 
-To access the service tier capability, you can set the "service_tier" optional parameter to "reserved", "priority", "default", or "flex" while calling the Amazon Bedrock runtime API.
+To access the service tier capability, you can set the "service\_tier" optional parameter to "reserved", "priority", "default", or "flex" while calling the Amazon Bedrock runtime API.
 
 ```
 "service_tier" : "reserved | priority | default | flex"

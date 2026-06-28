@@ -28,27 +28,26 @@ Within `dataSourceConfiguration`, you must specify the following:
 - `managedKnowledgeBaseConnectorConfiguration` – Configuration for the
   connector. Contains the following fields:
 
-      + `connectorParameters` (required) – Contains a
-       `type` field that specifies the connector type and a required
-       `version` field set to `1`. Supported type values
-       are `S3`, `ONEDRIVE`, `CONFLUENCE`,
-       `SHAREPOINT`, `WEB_CRAWLER`, and
-       `GOOGLE_DRIVE`. The remaining fields in
-       `connectorParameters` differ by connector type — refer to
-       each data connector page for more details.
-      + `deletionProtectionConfiguration` (optional) – A safeguard
-       against accidental bulk deletion of indexed content. Contains
-       `deletionProtectionStatus` (`ENABLED` or
-       `DISABLED`) and, when enabled, an optional
-       `deletionProtectionThreshold` (0–100, defaults to 15). The
-       threshold is the maximum percentage of documents that a sync job can delete
-       from your index. If a sync would delete more than this percentage, the sync
-       skips its delete phase, leaving your indexed documents in place. Not
-       supported for the Custom connector.
-      + `mediaExtractionConfiguration` (optional) – Configuration
-       for extracting media (images, audio, video) from data source files.
-
-  **Optional fields:**
+  - `connectorParameters` (required) – Contains a
+    `type` field that specifies the connector type and a required
+    `version` field set to `1`. Supported type values
+    are `S3`, `ONEDRIVE`, `CONFLUENCE`,
+    `SHAREPOINT`, `WEB_CRAWLER`, and
+    `GOOGLE_DRIVE`. The remaining fields in
+    `connectorParameters` differ by connector type — refer to
+    each data connector page for more details.
+  - `deletionProtectionConfiguration` (optional) – A safeguard
+    against accidental bulk deletion of indexed content. Contains
+    `deletionProtectionStatus` (`ENABLED` or
+    `DISABLED`) and, when enabled, an optional
+    `deletionProtectionThreshold` (0–100, defaults to 15). The
+    threshold is the maximum percentage of documents that a sync job can delete
+    from your index. If a sync would delete more than this percentage, the sync
+    skips its delete phase, leaving your indexed documents in place. Not
+    supported for the Custom connector.
+  - `mediaExtractionConfiguration` (optional) – Configuration
+    for extracting media (images, audio, video) from data source files.
+    **Optional fields:**
 
 | Field                          | Description                                                                                                                                                                                                 |
 | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

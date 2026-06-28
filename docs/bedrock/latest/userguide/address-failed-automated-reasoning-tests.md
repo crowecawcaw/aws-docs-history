@@ -46,7 +46,7 @@ language to your policy's variables. The most visible symptom is a
 `VALID`, `INVALID`, or `SATISFIABLE` results when the
 wrong variables or values are assigned.
 
-### Diagnose TRANSLATION_AMBIGUOUS results
+### Diagnose TRANSLATION\_AMBIGUOUS results
 
 A `TRANSLATION_AMBIGUOUS` finding includes two key fields that help you
 understand the disagreement:
@@ -346,7 +346,7 @@ source document requires 12+ months of tenure.
 | Rule: `(=> isFullTime eligibleForParentalLeave)`<br>No `tenureMonths` variable. | New variable: `tenureMonths` (INT) — "The number of complete<br>months the employee has been continuously employed."<br>Updated rule: `(=> (and isFullTime (> tenureMonths 12))<br>eligibleForParentalLeave)` |
 
 **Example 2: Fix overlapping variables causing
-TRANSLATION_AMBIGUOUS**
+TRANSLATION\_AMBIGUOUS**
 
 Problem: Two variables (`tenureMonths` and
 `monthsOfService`) represent the same concept, causing inconsistent

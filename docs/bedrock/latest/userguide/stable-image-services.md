@@ -52,7 +52,7 @@ When you make an InvokeModel call using Stability AI Image Services, the respons
 
 - **seeds** – (string) List of seeds used to
   generate images for the model.
-- **finish_reasons** – Enum indicating whether the
+- **finish\_reasons** – Enum indicating whether the
   request was filtered or not. `null` will indicate that the request was successful. Current possible values:
   `"Filter reason: prompt", "Filter reason: output image", "Filter reason: input image", "Inference error", null`.
 - **images** – A list of generated images in base64 string format.
@@ -75,10 +75,10 @@ Creative Upscale has the following required parameters:
   The following parameters are optional:
 
 - **creativity** ‐ (number) Indicates how creative the model should be when upscaling an image. Higher values will result in more details being added to the image during upscaling. Range between 0.1 and 0.5. Default 0.3
-- **negative_prompt** ‐ (string) A blurb of text describing what you do not wish to see in the output image. This is an advanced feature. Maximum 10000 characters.
+- **negative\_prompt** ‐ (string) A blurb of text describing what you do not wish to see in the output image. This is an advanced feature. Maximum 10000 characters.
 - **seed** ‐ (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range 0 to 4294967294. Default 0.
-- **output_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
-- **style_preset** ‐ Guides the image model towards a particular style. Enum: 3d-model, analog-film, anime, cinematic, comic-book, digital-art, enhance, fantasy-art, isometric, line-art, low-poly, modeling-compound, neon-punk, origami, photographic, pixel-art, tile-texture.
+- **output\_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
+- **style\_preset** ‐ Guides the image model towards a particular style. Enum: 3d-model, analog-film, anime, cinematic, comic-book, digital-art, enhance, fantasy-art, isometric, line-art, low-poly, modeling-compound, neon-punk, origami, photographic, pixel-art, tile-texture.
 
 API
 
@@ -185,9 +185,9 @@ Conservative Upscale has the following required parameters:
   The following parameters are optional:
 
 - **creativity** ‐ (number) Indicates how creative the model should be when upscaling an image. Higher values will result in more details being added to the image during upscaling. Range between 0.1 and 0.5. Default 0.35
-- **negative_prompt** ‐ (string) A blurb of text describing what you do not wish to see in the output image. This is an advanced feature. Maximum 10000 characters.
+- **negative\_prompt** ‐ (string) A blurb of text describing what you do not wish to see in the output image. This is an advanced feature. Maximum 10000 characters.
 - **seed** ‐ (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range 0 to 4294967294. Default 0.
-- **output_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
+- **output\_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
 
 API
 
@@ -290,7 +290,7 @@ This lightweight and fast service is ideal for enhancing the quality of compress
 Fast upscale has the following required parameters:
 
 - **image** ‐ (string) The Base64 image to upscale. Width must be between 32 and 1,536 pixels. Height must be between 32 and 1,536 pixels. Total pixel count must be between 1,024 and 1,048,576 pixels. Supported formats: jpeg, png, webp.
-- **output_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
+- **output\_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
 
 API
 
@@ -395,16 +395,16 @@ Inpaint has the following required parameters:
 - **image** ‐ (string) The Base64 image to inpaint. Every side of the image must be at least 64 pixels. The total pixel count cannot exceed 9,437,184 pixels. Image aspect ratio must be between 1:2.5 and 2.5:1. Supported formats: jpeg, png, webp.
   The following parameters are optional:
 
-- **style_preset** ‐ (string) Guides the image model towards a particular style. Enum: 3d-model, analog-film, anime, cinematic, comic-book, digital-art, enhance, fantasy-art, isometric, line-art, low-poly, modeling-compound, neon-punk, origami, photographic, pixel-art, tile-texture.
-- **negative_prompt** ‐ (string) A blurb of text describing what you do not wish to see in the output image. This is an advanced feature. Maximum 10000 characters.
+- **style\_preset** ‐ (string) Guides the image model towards a particular style. Enum: 3d-model, analog-film, anime, cinematic, comic-book, digital-art, enhance, fantasy-art, isometric, line-art, low-poly, modeling-compound, neon-punk, origami, photographic, pixel-art, tile-texture.
+- **negative\_prompt** ‐ (string) A blurb of text describing what you do not wish to see in the output image. This is an advanced feature. Maximum 10000 characters.
 - **seed** ‐ (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range 0 to 4294967294. Default 0.
-- **output_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
+- **output\_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
 - **mask** ‐ (string) Controls the strength of the inpainting process on a per-pixel basis, either via a second image (passed into this parameter) or via the alpha channel of the image parameter.
 
   - **Passing in a Mask** ‐ The image passed to this parameter should be a black and white image that represents, at any pixel, the strength of inpainting based on how dark or light the given pixel is. Completely black pixels represent no inpainting strength while completely white pixels represent maximum strength. In the event the mask is a different size than the image parameter, it will be automatically resized.
   - **Alpha Channel Support** ‐ If you don't provide an explicit mask, one will be derived from the alpha channel of the image parameter. Transparent pixels will be inpainted while opaque pixels will be preserved. In the event an image with an alpha channel is provided along with a mask, the mask will take precedence.
 
-- **grow_mask** ‐ Grows the edges of the mask outward in all directions by the specified number of pixels. The expanded area around the mask will be blurred, which can help smooth the transition between inpainted content and the original image. Range between 0 and 20. Default 5. Try this parameter if you notice seams or rough edges around the inpainted content. Note that excessive growth may obscure fine details in the mask and/or merge nearby masked regions.
+- **grow\_mask** ‐ Grows the edges of the mask outward in all directions by the specified number of pixels. The expanded area around the mask will be blurred, which can help smooth the transition between inpainted content and the original image. Range between 0 and 20. Default 5. Try this parameter if you notice seams or rough edges around the inpainted content. Note that excessive growth may obscure fine details in the mask and/or merge nearby masked regions.
 
 API
 
@@ -521,9 +521,9 @@ At least one outpaint direction: (left, right, up, or down) must be supplied wit
 The following parameters are optional:
 
 - **prompt** ‐ What you wish to see in the output image. A strong, descriptive prompt that clearly defines elements, colors, and subjects will lead to better results. To control the weight of a given word use the format (word:weight), where word is the word you'd like to control the weight of and weight is a value. A value 0 and 1.0 de-emphasized the word and a value between 1.1 and 2 emphasized the word . For example: The sky was a crisp (blue:0.3) and (green:1.8) would convey a sky that was blue and green, but more green than blue. Minimum 0 and Maximum 10000 characters.
-- **style_preset** ‐ (string) Guides the image model towards a particular style. Enum: 3d-model, analog-film, anime, cinematic, comic-book, digital-art, enhance, fantasy-art, isometric, line-art, low-poly, modeling-compound, neon-punk, origami, photographic, pixel-art, tile-texture.
+- **style\_preset** ‐ (string) Guides the image model towards a particular style. Enum: 3d-model, analog-film, anime, cinematic, comic-book, digital-art, enhance, fantasy-art, isometric, line-art, low-poly, modeling-compound, neon-punk, origami, photographic, pixel-art, tile-texture.
 - **seed** ‐ (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range 0 to 4294967294. Default 0.
-- **output_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
+- **output\_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
 - **creativity** ‐ (number) Indicates how creative the model should be when outpainting an image. Higher values will result in more creative content being added to the image during outpainting. Range between 0.1 and 1.0. Default 0.5.
 - **left** ‐ (integer) The number of pixels to outpaint on the left side of the image. At least one outpainting direction must be supplied with a non-zero value. Range 0 to 2000. Detault 0.
 - **right** ‐ (integer) The number of pixels to outpaint on the right side of the image. At least one outpainting direction must be supplied with a non-zero value. Range 0 to 2000. Detault 0.
@@ -635,14 +635,14 @@ Search and Recolor has the following required parameters:
 
 - **prompt** ‐ What you wish to see in the output image. A strong, descriptive prompt that clearly defines elements, colors, and subjects will lead to better results. To control the weight of a given word use the format (word:weight), where word is the word you'd like to control the weight of and weight is a value. A value 0 and 1.0 de-emphasized the word and a value between 1.1 and 2 emphasized the word . For example: The sky was a crisp (blue:0.3) and (green:1.8) would convey a sky that was blue and green, but more green than blue. Minimum 0 and Maximum 10000 characters.
 - **image** ‐ (string) The Base64 image to recolor. Every side of the image must be at least 64 pixels. The total pixel count cannot exceed 9,437,184 pixels. Image aspect ratio must be between 1:2.5 and 2.5:1. Supported formats: jpeg, png, webp.
-- **select_prompt** ‐ (string) Short description of what to search for in the image. Maximum 10000 characters.
+- **select\_prompt** ‐ (string) Short description of what to search for in the image. Maximum 10000 characters.
   The following parameters are optional:
 
-- **style_preset** ‐ (string) Guides the image model towards a particular style. Enum: 3d-model, analog-film, anime, cinematic, comic-book, digital-art, enhance, fantasy-art, isometric, line-art, low-poly, modeling-compound, neon-punk, origami, photographic, pixel-art, tile-texture.
-- **negative_prompt** ‐ (string) A blurb of text describing what you do not wish to see in the output image. This is an advanced feature. Maximum 10000 characters.
+- **style\_preset** ‐ (string) Guides the image model towards a particular style. Enum: 3d-model, analog-film, anime, cinematic, comic-book, digital-art, enhance, fantasy-art, isometric, line-art, low-poly, modeling-compound, neon-punk, origami, photographic, pixel-art, tile-texture.
+- **negative\_prompt** ‐ (string) A blurb of text describing what you do not wish to see in the output image. This is an advanced feature. Maximum 10000 characters.
 - **seed** ‐ (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range 0 to 4294967294. Default 0.
-- **output_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
-- **grow_mask** ‐ Grows the edges of the mask outward in all directions by the specified number of pixels. The expanded area around the mask will be blurred, which can help smooth the transition between inpainted content and the original image. Range between 0 and 20. Default 5. Try this parameter if you notice seams or rough edges around the inpainted content. Note that excessive growth may obscure fine details in the mask and/or merge nearby masked regions.
+- **output\_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
+- **grow\_mask** ‐ Grows the edges of the mask outward in all directions by the specified number of pixels. The expanded area around the mask will be blurred, which can help smooth the transition between inpainted content and the original image. Range between 0 and 20. Default 5. Try this parameter if you notice seams or rough edges around the inpainted content. Note that excessive growth may obscure fine details in the mask and/or merge nearby masked regions.
 
 API
 
@@ -747,14 +747,14 @@ Search and Replace has the following required parameters:
 
 - **prompt** ‐ What you wish to see in the output image. A strong, descriptive prompt that clearly defines elements, colors, and subjects will lead to better results. To control the weight of a given word use the format (word:weight), where word is the word you'd like to control the weight of and weight is a value. A value 0 and 1.0 de-emphasized the word and a value between 1.1 and 2 emphasized the word . For example: The sky was a crisp (blue:0.3) and (green:1.8) would convey a sky that was blue and green, but more green than blue. Minimum 0 and Maximum 10000 characters.
 - **image** ‐ (string) The Base64 image to recolor. Every side of the image must be at least 64 pixels. The total pixel count cannot exceed 9,437,184 pixels. Image aspect ratio must be between 1:2.5 and 2.5:1. Supported formats: jpeg, png, webp.
-- **search_prompt** ‐ (string) Short description of what to inpaint in the image. Maximum 10000 characters.
+- **search\_prompt** ‐ (string) Short description of what to inpaint in the image. Maximum 10000 characters.
   The following parameters are optional:
 
-- **style_preset** ‐ (string) Guides the image model towards a particular style. Enum: 3d-model, analog-film, anime, cinematic, comic-book, digital-art, enhance, fantasy-art, isometric, line-art, low-poly, modeling-compound, neon-punk, origami, photographic, pixel-art, tile-texture.
-- **negative_prompt** ‐ (string) A blurb of text describing what you do not wish to see in the output image. This is an advanced feature. Maximum 10000 characters.
+- **style\_preset** ‐ (string) Guides the image model towards a particular style. Enum: 3d-model, analog-film, anime, cinematic, comic-book, digital-art, enhance, fantasy-art, isometric, line-art, low-poly, modeling-compound, neon-punk, origami, photographic, pixel-art, tile-texture.
+- **negative\_prompt** ‐ (string) A blurb of text describing what you do not wish to see in the output image. This is an advanced feature. Maximum 10000 characters.
 - **seed** ‐ (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range 0 to 4294967294. Default 0.
-- **output_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
-- **grow_mask** ‐ Grows the edges of the mask outward in all directions by the specified number of pixels. The expanded area around the mask will be blurred, which can help smooth the transition between inpainted content and the original image. Range between 0 and 20. Default 5. Try this parameter if you notice seams or rough edges around the inpainted content. Note that excessive growth may obscure fine details in the mask and/or merge nearby masked regions.
+- **output\_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
+- **grow\_mask** ‐ Grows the edges of the mask outward in all directions by the specified number of pixels. The expanded area around the mask will be blurred, which can help smooth the transition between inpainted content and the original image. Range between 0 and 20. Default 5. Try this parameter if you notice seams or rough edges around the inpainted content. Note that excessive growth may obscure fine details in the mask and/or merge nearby masked regions.
 
 API
 
@@ -861,13 +861,13 @@ Erase has the following required parameters:
   The following parameters are optional:
 
 - **seed** ‐ (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range 0 to 4294967294. Default 0.
-- **output_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
+- **output\_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
 - **mask** ‐ (string) Controls the strength of the inpainting process on a per-pixel basis, either via a second image (passed into this parameter) or via the alpha channel of the image parameter.
 
   - **Passing in a Mask** ‐ The image passed to this parameter should be a black and white image that represents, at any pixel, the strength of inpainting based on how dark or light the given pixel is. Completely black pixels represent no inpainting strength while completely white pixels represent maximum strength. In the event the mask is a different size than the image parameter, it will be automatically resized.
   - **Alpha Channel Support** ‐ If you don't provide an explicit mask, one will be derived from the alpha channel of the image parameter. Transparent pixels will be inpainted while opaque pixels will be preserved. In the event an image with an alpha channel is provided along with a mask, the mask will take precedence.
 
-- **grow_mask** ‐ Grows the edges of the mask outward in all directions by the specified number of pixels. The expanded area around the mask will be blurred, which can help smooth the transition between inpainted content and the original image. Range between 0 and 20. Default 5. Try this parameter if you notice seams or rough edges around the inpainted content. Note that excessive growth may obscure fine details in the mask and/or merge nearby masked regions.
+- **grow\_mask** ‐ Grows the edges of the mask outward in all directions by the specified number of pixels. The expanded area around the mask will be blurred, which can help smooth the transition between inpainted content and the original image. Range between 0 and 20. Default 5. Try this parameter if you notice seams or rough edges around the inpainted content. Note that excessive growth may obscure fine details in the mask and/or merge nearby masked regions.
 
 ###### Note
 
@@ -981,7 +981,7 @@ Remove Background has the following required parameters:
 - **image** ‐ (string) The Base64 image to remove the background from. Every side of the image must be at least 64 pixels. The total pixel count cannot exceed 9,437,184 pixels. Image aspect ratio must be between 1:2.5 and 2.5:1. Supported formats: jpeg, png, webp.
   The following parameters are optional:
 
-- **output_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
+- **output\_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
 
 API
 
@@ -1089,11 +1089,11 @@ Control Sketch has the following required parameters:
 - **image** ‐ (string) The Base64 image of the sketch. Every side of the image must be at least 64 pixels. The total pixel count cannot exceed 9,437,184 pixels. Image aspect ratio must be between 1:2.5 and 2.5:1. Supported formats: jpeg, png, webp.
   The following parameters are optional:
 
-- **control_strength** ‐ (number) How much influence, or control, the image has on the generation. Represented as a float between 0 and 1, where 0 is the least influence and 1 is the maximum. Default 0.7.
-- **negative_prompt** ‐ (string) A blurb of text describing what you do not wish to see in the output image. This is an advanced feature. Maximum 10000 characters.
+- **control\_strength** ‐ (number) How much influence, or control, the image has on the generation. Represented as a float between 0 and 1, where 0 is the least influence and 1 is the maximum. Default 0.7.
+- **negative\_prompt** ‐ (string) A blurb of text describing what you do not wish to see in the output image. This is an advanced feature. Maximum 10000 characters.
 - **seed** ‐ (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range 0 to 4294967294. Default 0.
-- **output_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
-- **style_preset** ‐ Guides the image model towards a particular style. Enum: 3d-model, analog-film, anime, cinematic, comic-book, digital-art, enhance, fantasy-art, isometric, line-art, low-poly, modeling-compound, neon-punk, origami, photographic, pixel-art, tile-texture.
+- **output\_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
+- **style\_preset** ‐ Guides the image model towards a particular style. Enum: 3d-model, analog-film, anime, cinematic, comic-book, digital-art, enhance, fantasy-art, isometric, line-art, low-poly, modeling-compound, neon-punk, origami, photographic, pixel-art, tile-texture.
 
 API
 
@@ -1197,11 +1197,11 @@ Control Structure has the following required parameters:
 - **image** ‐ (string) The Base64 image of the sketch. Every side of the image must be at least 64 pixels. The total pixel count cannot exceed 9,437,184 pixels. Image aspect ratio must be between 1:2.5 and 2.5:1. Supported formats: jpeg, png, webp.
   The following parameters are optional:
 
-- **control_strength** ‐ (number) How much influence, or control, the image has on the generation. Represented as a float between 0 and 1, where 0 is the least influence and 1 is the maximum. Default 0.7.
-- **negative_prompt** ‐ (string) A blurb of text describing what you do not wish to see in the output image. This is an advanced feature. Maximum 10000 characters.
+- **control\_strength** ‐ (number) How much influence, or control, the image has on the generation. Represented as a float between 0 and 1, where 0 is the least influence and 1 is the maximum. Default 0.7.
+- **negative\_prompt** ‐ (string) A blurb of text describing what you do not wish to see in the output image. This is an advanced feature. Maximum 10000 characters.
 - **seed** ‐ (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range 0 to 4294967294. Default 0.
-- **output_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
-- **style_preset** ‐ Guides the image model towards a particular style. Enum: 3d-model, analog-film, anime, cinematic, comic-book, digital-art, enhance, fantasy-art, isometric, line-art, low-poly, modeling-compound, neon-punk, origami, photographic, pixel-art, tile-texture.
+- **output\_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
+- **style\_preset** ‐ Guides the image model towards a particular style. Enum: 3d-model, analog-film, anime, cinematic, comic-book, digital-art, enhance, fantasy-art, isometric, line-art, low-poly, modeling-compound, neon-punk, origami, photographic, pixel-art, tile-texture.
 
 API
 
@@ -1306,12 +1306,12 @@ Style Guide has the following required parameters:
 - **image** ‐ (string) The Base64 image of the sketch. Every side of the image must be at least 64 pixels. The total pixel count cannot exceed 9,437,184 pixels. Image aspect ratio must be between 1:2.5 and 2.5:1. Supported formats: jpeg, png, webp.
   The following parameters are optional:
 
-- **aspect_ratio** ‐ (string) Controls the aspect ratio of the generated image. This parameter is only valid for text-to-image requests. Default 1:1. Enum: 16:9, 1:1, 21:9, 2:3, 3:2, 4:5, 5:4, 9:16, 9:21. Default 1:1.
-- **negative_prompt** ‐ (string) A blurb of text describing what you do not wish to see in the output image. This is an advanced feature. Maximum 10000 characters.
+- **aspect\_ratio** ‐ (string) Controls the aspect ratio of the generated image. This parameter is only valid for text-to-image requests. Default 1:1. Enum: 16:9, 1:1, 21:9, 2:3, 3:2, 4:5, 5:4, 9:16, 9:21. Default 1:1.
+- **negative\_prompt** ‐ (string) A blurb of text describing what you do not wish to see in the output image. This is an advanced feature. Maximum 10000 characters.
 - **seed** ‐ (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range 0 to 4294967294. Default 0.
-- **output_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
+- **output\_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
 - **fidelity** ‐ (number) How closely the output image's style resembles the input image's style. Range 0 to 1. Default 0.5.
-- **style_preset** ‐ Guides the image model towards a particular style. Enum: 3d-model, analog-film, anime, cinematic, comic-book, digital-art, enhance, fantasy-art, isometric, line-art, low-poly, modeling-compound, neon-punk, origami, photographic, pixel-art, tile-texture.
+- **style\_preset** ‐ Guides the image model towards a particular style. Enum: 3d-model, analog-film, anime, cinematic, comic-book, digital-art, enhance, fantasy-art, isometric, line-art, low-poly, modeling-compound, neon-punk, origami, photographic, pixel-art, tile-texture.
 
 API
 
@@ -1412,17 +1412,17 @@ Style Transfer specifically transforms existing content while preserving the ori
 
 Style Transfer has the following required parameters:
 
-- **init_image** ‐ (string) A Base64 image containing the subject you wish to restyle. Every side of the image must be at least 64 pixels. The total pixel count cannot exceed 9,437,184 pixels. Image aspect ratio must be between 1:2.5 and 2.5:1. Supported formats: jpeg, png, webp.
-- **style_image** ‐ (string) A Base64 image containing the subject you wish to restyle. Every side of the image must be at least 64 pixels. The total pixel count cannot exceed 9,437,184 pixels. Image aspect ratio must be between 1:2.5 and 2.5:1. Supported formats: jpeg, png, webp.
+- **init\_image** ‐ (string) A Base64 image containing the subject you wish to restyle. Every side of the image must be at least 64 pixels. The total pixel count cannot exceed 9,437,184 pixels. Image aspect ratio must be between 1:2.5 and 2.5:1. Supported formats: jpeg, png, webp.
+- **style\_image** ‐ (string) A Base64 image containing the subject you wish to restyle. Every side of the image must be at least 64 pixels. The total pixel count cannot exceed 9,437,184 pixels. Image aspect ratio must be between 1:2.5 and 2.5:1. Supported formats: jpeg, png, webp.
   The following parameters are optional:
 
 - **prompt** ‐ (string) What you wish to see in the output image. A strong, descriptive prompt that clearly defines elements, colors, and subjects will lead to better results. To control the weight of a given word use the format (word:weight), where word is the word you'd like to control the weight of and weight is a value. A value 0 and 1.0 de-emphasized the word and a value between 1.1 and 2 emphasized the word . For example: The sky was a crisp (blue:0.3) and (green:1.8) would convey a sky that was blue and green, but more green than blue.
-- **negative_prompt** ‐ (string) A blurb of text describing what you do not wish to see in the output image. This is an advanced feature. Maximum 10000 characters.
+- **negative\_prompt** ‐ (string) A blurb of text describing what you do not wish to see in the output image. This is an advanced feature. Maximum 10000 characters.
 - **seed** ‐ (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range 0 to 4294967294. Default 0.
-- **output_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
-- **composition_fidelity** ‐ (number) How closely the output image's style resembles the input image's style. Range between 0 and 1. Default 0.9.
-- **style_strength** ‐ (number) Sometimes referred to as denoising, this parameter controls how much influence the style_image parameter has on the generated image. A value of 0 would yield an image that is identical to the input. A value of 1 would be as if you passed in no image at all. Range between 0 and 1. Default 1.
-- **change_strength** ‐ (number) How much the original image should change. Range between 0.1 and 1. Default 0.9.
+- **output\_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
+- **composition\_fidelity** ‐ (number) How closely the output image's style resembles the input image's style. Range between 0 and 1. Default 0.9.
+- **style\_strength** ‐ (number) Sometimes referred to as denoising, this parameter controls how much influence the style\_image parameter has on the generated image. A value of 0 would yield an image that is identical to the input. A value of 1 would be as if you passed in no image at all. Range between 0 and 1. Default 1.
+- **change\_strength** ‐ (number) How much the original image should change. Range between 0.1 and 1. Default 0.9.
 
 API
 

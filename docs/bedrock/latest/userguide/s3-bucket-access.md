@@ -24,14 +24,12 @@ The identities or resources to which you need to attach the above permissions de
 
 - Resource-based permissions
 
-      + If the identity requires access to S3 data in the same account, you don't need attach an S3 bucket policy to the bucket containing the data.
-      + If the identity requires access to S3 data in a different account, navigate to [Attach a bucket policy to an Amazon S3 bucket to allow another account to access it](#s3-bucket-access-cross-account "#s3-bucket-access-cross-account") to learn how to create an S3 bucket policy with the proper permissions.
+  - If the identity requires access to S3 data in the same account, you don't need attach an S3 bucket policy to the bucket containing the data.
+  - If the identity requires access to S3 data in a different account, navigate to [Attach a bucket policy to an Amazon S3 bucket to allow another account to access it](#s3-bucket-access-cross-account "#s3-bucket-access-cross-account") to learn how to create an S3 bucket policy with the proper permissions.
 
+  ###### Important
 
-      ###### Important
-
-      Automatic creation of a service role in the AWS Management Console attaches the proper identity-based permissions to the role, but you still must configure the S3 bucket policy if the identity that requires access to it is in a different AWS account.
-
+  Automatic creation of a service role in the AWS Management Console attaches the proper identity-based permissions to the role, but you still must configure the S3 bucket policy if the identity that requires access to it is in a different AWS account.
   For more information, see the following links:
 
 - To learn more about controlling access to data in Amazon S3, see [Access control in Amazon S3](../../../AmazonS3/latest/userguide/access-management.md "../../../AmazonS3/latest/userguide/access-management.md").

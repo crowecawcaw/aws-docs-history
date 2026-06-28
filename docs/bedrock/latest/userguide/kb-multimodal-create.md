@@ -59,53 +59,56 @@ choose your parsing strategy:
      generate descriptions for visual elements.
 
 9. Choose **Next** and select your embedding model
-   and multimodal processing approach.
+and multimodal processing approach.
 
-   - **Amazon Nova Multimodal Embeddings
+    * **Amazon Nova Multimodal Embeddings
      V1.0:** Choose **Amazon Nova embedding
      V1.0** for direct visual and audio similarity
      searches. Configure audio and video chunk duration (1-30
      seconds, default 5 seconds) to control how content is
      segmented.
 
-   ###### Note
 
-   Audio and video chunking parameters are configured at
-   the embedding model level, not at the data source level.
-   A validation exception occurs if you provide this
-   configuration for non-multimodal embedding models.
-   Configure audio and video chunk duration (default: 5
-   seconds, range: 1-30 seconds) to control how content is
-   segmented. Shorter chunks enable precise content
-   retrieval while longer chunks preserve more semantic
-   context.
+    ###### Note
 
-   ###### Important
+    Audio and video chunking parameters are configured at
+     the embedding model level, not at the data source level.
+     A validation exception occurs if you provide this
+     configuration for non-multimodal embedding models.
+     Configure audio and video chunk duration (default: 5
+     seconds, range: 1-30 seconds) to control how content is
+     segmented. Shorter chunks enable precise content
+     retrieval while longer chunks preserve more semantic
+     context.
 
-   Amazon Nova embedding v1.0 has limited support for
-   searching speech content in audio/video data. If you
-   need to support speech, use Bedrock Data Automation as a
-   parser.
-   - **Text embeddings with BDA:**
+
+    ###### Important
+
+    Amazon Nova embedding v1.0 has limited support for
+     searching speech content in audio/video data. If you
+     need to support speech, use Bedrock Data Automation as a
+     parser.
+    * **Text embeddings with BDA:**
      Choose a text embedding model (such as Titan Text Embeddings
      v2) when using BDA processing. Text embedding models limit
      retrieval to text-only content, but you can enable
      multimodal retrieval by selecting either Amazon Bedrock Data
      Automation or Foundation Model as parsers.
 
-   ###### Note
 
-   If you use BDA parser with Nova Multimodal Embeddings,
-   Amazon Bedrock Knowledge Bases will go with BDA parsing first. In this case, the
-   embedding model will not generate native multimodal
-   embeddings for images, audio, and video as BDA converts
-   these to text representations.
+    ###### Note
+
+    If you use BDA parser with Nova Multimodal Embeddings,
+     Amazon Bedrock Knowledge Bases will go with BDA parsing first. In this case, the
+     embedding model will not generate native multimodal
+     embeddings for images, audio, and video as BDA converts
+     these to text representations.
 
 10. If using Nova Multimodal Embeddings, configure the
-    **Multimodal storage destination** by
-    specifying an Amazon S3 bucket where processed files will be stored for
-    retrieval. Knowledge Bases will store images parsed into a single
-    Amazon S3 bucket with a folder created .bda for easy access.
+**Multimodal storage destination** by
+specifying an Amazon S3 bucket where processed files will be stored for
+retrieval. Knowledge Bases will store images parsed into a single
+Amazon S3 bucket with a folder created .bda for easy access.
 
 ###### Lifecycle policy recommendation
 

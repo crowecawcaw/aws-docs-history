@@ -80,7 +80,7 @@ This section provides detailed information about the common errors you might enc
 
 - Review the error message and remediate the underlying issue. Common underlying issues are invalid payment error and restricted geo-location.
 - For invalid payment error, please review [Restriction on credit and debit card purchases for AISPL customers using AWS Marketplace](https://aws.amazon.com/blogs/awsmarketplace/restriction-on-credit-and-debit-card-purchases-for-aispl-customers-using-aws-marketplace/ "https://aws.amazon.com/blogs/awsmarketplace/restriction-on-credit-and-debit-card-purchases-for-aispl-customers-using-aws-marketplace/") and
-  [INVALID_PAYMENT_INSTRUMENT after requesting model access in Amazon Bedrock.](https://repost.aws/questions/QU0UOsutrWSSS4nOqgHcIUJg/invalid-payment-instrument-after-requesting-model-access-in-amazon-bedrock "https://repost.aws/questions/QU0UOsutrWSSS4nOqgHcIUJg/invalid-payment-instrument-after-requesting-model-access-in-amazon-bedrock").
+  [INVALID\_PAYMENT\_INSTRUMENT after requesting model access in Amazon Bedrock.](https://repost.aws/questions/QU0UOsutrWSSS4nOqgHcIUJg/invalid-payment-instrument-after-requesting-model-access-in-amazon-bedrock "https://repost.aws/questions/QU0UOsutrWSSS4nOqgHcIUJg/invalid-payment-instrument-after-requesting-model-access-in-amazon-bedrock").
 
 ## AWS Marketplace Agreement Pending after 15 minutes
 

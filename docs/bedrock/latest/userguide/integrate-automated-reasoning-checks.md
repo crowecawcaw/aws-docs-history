@@ -247,7 +247,7 @@ you mark which content is user-side and which is agent-side.
 
 ###### Note
 
-The `Converse` API uses snake_case for qualifier strings
+The `Converse` API uses snake\_case for qualifier strings
 (`guard_content`, `grounding_source`), while
 `InvokeModel` XML tags use camelCase (`guardContent`,
 `groundingSource`). These map to the same underlying roles.
@@ -255,11 +255,11 @@ The `Converse` API uses snake_case for qualifier strings
 The following table shows how each qualifier marks content for Automated Reasoning
 checks.
 
-| Qualifier string (snake_case) | XML tag equivalent (camelCase) | Automated Reasoning input role                                                                                                     |
-| ----------------------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `"query"`                     | `query`                        | \*_User-side_<br>• – the user's question or<br>stated conditions. Provides context that the translation can draw premises<br>from. |
-| `"guard_content"`             | `guardContent`                 | \*_Agent-side_<br>• – content to validate against<br>your policy. Supplies the claims the translation checks.                      |
-| `"grounding_source"`          | `groundingSource`              | Ignored by Automated Reasoning checks (used by contextual grounding<br>checks).                                                    |
+| Qualifier string (snake\_case) | XML tag equivalent (camelCase) | Automated Reasoning input role                                                                                                    |
+| ------------------------------ | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| `"query"`                      | `query`                        | *_User-side_<br>• – the user's question or<br>stated conditions. Provides context that the translation can draw premises<br>from. |
+| `"guard_content"`              | `guardContent`                 | *_Agent-side_<br>• – content to validate against<br>your policy. Supplies the claims the translation checks.                      |
+| `"grounding_source"`           | `groundingSource`              | Ignored by Automated Reasoning checks (used by contextual grounding<br>checks).                                                   |
 
 The qualifier sets only whether content is user-side or agent-side; Automated
 Reasoning checks derive the actual premises and claims when they translate the combined

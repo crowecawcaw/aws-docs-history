@@ -32,9 +32,8 @@ defined after 1,024 tokens and your second cache checkpoint can be defined after
 If you try to add a cache checkpoint before meeting the minimum number of tokens, your inference
 will still succeed, but your prefix will not be cached. The cache has a Time To Live (TTL),
 which resets with each successful cache hit. During this period, the context in the
-cache is preserved. If no cache hits occur within the TTL window, your cache expires. Most models
-support a 5-minute TTL, while Claude Opus 4.5, Claude Haiku 4.5, and Claude Sonnet 4.5 also
-support an extended 1-hour TTL option.
+cache is preserved. If no cache hits occur within the TTL window, your cache expires. Many models
+support a 5-minute TTL. Check the model card for your model to see the exact TTL conditions.
 
 You can use prompt caching anytime you get model inference in Amazon Bedrock for supported
 models. Prompt caching is supported by the following Amazon Bedrock features:
@@ -78,7 +77,7 @@ model. For more information, see [Supported models, Regions, and limits](#prompt
 ## Supported models, Regions, and limits
 
 Prompt caching is available in all AWS Regions where the supported models are available. To check
-model availability by Region, see [Regional availability](models-region-compatibility.md "models-region-compatibility.md").
+model availability by Region, see [Regional availability by models](models-region-compatibility.md "models-region-compatibility.md").
 
 The following table lists the supported models along with their token minimums, maximum
 number of cache checkpoints, and fields that allow cache checkpoints.

@@ -1,5 +1,9 @@
 # Connect to Confluence for your knowledge base
 
+###### Important
+
+For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md "kb-build-managed.md").
+
 Atlassian Confluence is a collaborative work-management tool designed for sharing,
 storing, and working on project planning, software development, and product management.
 You can connect to your Confluence instance for
@@ -128,9 +132,9 @@ If your content includes sensitive information, then Amazon Bedrock could
 respond using sensitive information.
 
 You can apply filtering operators to metadata fields to help you further improve the
-relevancy of responses. For example, document "epoch_modification_time" or the number of seconds that’s passed
+relevancy of responses. For example, document "epoch\_modification\_time" or the number of seconds that’s passed
 January 1 1970 for when the document was last updated. You can filter on the most recent data, where
-"epoch_modification_time" is _greater than_ a certain number. For more information
+"epoch\_modification\_time" is _greater than_ a certain number. For more information
 on the filtering operators you can apply to your metadata fields, see [Metadata and filtering](kb-test-config.md "kb-test-config.md").
 
 You can include or exclude crawling certain content. For example, you can specify an
