@@ -11,10 +11,10 @@ checkpointed location.
 
 Version 2.0 of the KCL introduces the following interface changes:
 
-| KCL Interface Changes                                                                   | KCL 1.x Interface                                                       | KCL 2.0 Interface |
-| --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------- |
-| `com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessor`           | `software.amazon.kinesis.processor.ShardRecordProcessor`                |
-| `com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessorFactory`    | `software.amazon.kinesis.processor.ShardRecordProcessorFactory`         |
+KCL Interface Changes| KCL 1.x Interface | KCL 2.0 Interface |
+| --- | --- |
+| `com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessor` | `software.amazon.kinesis.processor.ShardRecordProcessor` |
+| `com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessorFactory` | `software.amazon.kinesis.processor.ShardRecordProcessorFactory` |
 | `com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IShutdownNotificationAware` | Folded into<br>`software.amazon.kinesis.processor.ShardRecordProcessor` |
 
 ###### Topics
@@ -372,52 +372,52 @@ With the 2.0 release of the Kinesis Client Library, the configuration of the cli
 from a single configuration class (`KinesisClientLibConfiguration`) to six
 configuration classes. The following table describes the migration.
 
-| Configuration Fields and Their New Classes         | Original Field          | New Configuration Class                                                                                                                  | Description |
-| -------------------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `applicationName`                                  | `ConfigsBuilder`        | The name for this the KCL application. Used as the default for the<br>`tableName` and `consumerName`.                                    |
-| `tableName`                                        | `ConfigsBuilder`        | Allows overriding the table name used for the Amazon DynamoDB lease<br>table.                                                            |
-| `streamName`                                       | `ConfigsBuilder`        | The name of the stream that this application processes records<br>from.                                                                  |
-| `kinesisEndpoint`                                  | `ConfigsBuilder`        | This option has been removed. See Client Configuration Removals.                                                                         |
-| `dynamoDBEndpoint`                                 | `ConfigsBuilder`        | This option has been removed. See Client Configuration Removals.                                                                         |
-| `initialPositionInStreamExtended`                  | `RetrievalConfig`       | The location in the shard from which the KCL begins fetching records,<br>starting with the application's initial run.                    |
-| `kinesisCredentialsProvider`                       | `ConfigsBuilder`        | This option has been removed. See Client Configuration Removals.                                                                         |
-| `dynamoDBCredentialsProvider`                      | `ConfigsBuilder`        | This option has been removed. See Client Configuration Removals.                                                                         |
-| `cloudWatchCredentialsProvider`                    | `ConfigsBuilder`        | This option has been removed. See Client Configuration Removals.                                                                         |
-| `failoverTimeMillis`                               | LeaseManagementConfig   | The number of milliseconds that must pass before you can consider a lease<br>owner to have failed.                                       |
-| `workerIdentifier`                                 | `ConfigsBuilder`        | A unique identifier that represents this instantiation of the application<br>processor. This must be unique.                             |
-| `shardSyncIntervalMillis`                          | LeaseManagementConfig   | The time between shard sync calls.                                                                                                       |
-| `maxRecords`                                       | `PollingConfig`         | Allows setting the maximum number of records that Kinesis returns.                                                                       |
-| `idleTimeBetweenReadsInMillis`                     | `CoordinatorConfig`     | This option has been removed. See Idle Time Removal.                                                                                     |
-| `callProcessRecordsEvenForEmptyRecordList`         | `ProcessorConfig`       | When set, the record processor is called even when no records were<br>provided from Kinesis.                                             |
-| `parentShardPollIntervalMillis`                    | `CoordinatorConfig`     | How often a record processor should poll to see if the parent shard has<br>been completed.                                               |
-| `cleanupLeasesUponShardCompletion`                 | `LeaseManagementConfig` | When set, leases are removed as soon as the child leases have started<br>processing.                                                     |
-| `ignoreUnexpectedChildShards`                      | `LeaseManagementConfig` | When set, child shards that have an open shard are ignored. This is<br>primarily for DynamoDB Streams.                                   |
-| `kinesisClientConfig`                              | `ConfigsBuilder`        | This option has been removed. See Client Configuration Removals.                                                                         |
-| `dynamoDBClientConfig`                             | `ConfigsBuilder`        | This option has been removed. See Client Configuration Removals.                                                                         |
-| `cloudWatchClientConfig`                           | `ConfigsBuilder`        | This option has been removed. See Client Configuration Removals.                                                                         |
-| `taskBackoffTimeMillis`                            | `LifecycleConfig`       | The time to wait to retry failed tasks.                                                                                                  |
-| `metricsBufferTimeMillis`                          | `MetricsConfig`         | Controls CloudWatch metric publishing.                                                                                                   |
-| `metricsMaxQueueSize`                              | `MetricsConfig`         | Controls CloudWatch metric publishing.                                                                                                   |
-| `metricsLevel`                                     | `MetricsConfig`         | Controls CloudWatch metric publishing.                                                                                                   |
-| `metricsEnabledDimensions`                         | `MetricsConfig`         | Controls CloudWatch metric publishing.                                                                                                   |
-| `validateSequenceNumberBeforeCheckpointing`        | `CheckpointConfig`      | This option has been removed. See Checkpoint Sequence Number<br>Validation.                                                              |
-| `regionName`                                       | `ConfigsBuilder`        | This option has been removed. See Client Configuration Removal.                                                                          |
-| `maxLeasesForWorker`                               | `LeaseManagementConfig` | The maximum number of leases a single instance of the application should<br>accept.                                                      |
-| `maxLeasesToStealAtOneTime`                        | `LeaseManagementConfig` | The maximum number of leases an application should attempt to steal at<br>one time.                                                      |
-| `initialLeaseTableReadCapacity`                    | `LeaseManagementConfig` | The DynamoDB read IOPs that is used if the Kinesis Client Library needs to create<br>a new DynamoDB lease table.                         |
-| `initialLeaseTableWriteCapacity`                   | `LeaseManagementConfig` | The DynamoDB read IOPs that is used if the Kinesis Client Library needs to create<br>a new DynamoDB lease table.                         |
-| `initialPositionInStreamExtended`                  | LeaseManagementConfig   | The initial position in the stream that the application should start at.<br>This is only used during initial lease creation.             |
-| `skipShardSyncAtWorkerInitializationIfLeasesExist` | `CoordinatorConfig`     | Disable synchronizing shard data if the lease table contains existing<br>leases. TODO: KinesisEco-438                                    |
-| `shardPrioritization`                              | `CoordinatorConfig`     | Which shard prioritization to use.                                                                                                       |
-| `shutdownGraceMillis`                              | N/A                     | This option has been removed. See MultiLang Removals.                                                                                    |
-| `timeoutInSeconds`                                 | N/A                     | This option has been removed. See MultiLang Removals.                                                                                    |
-| `retryGetRecordsInSeconds`                         | `PollingConfig`         | Configures the delay between GetRecords attempts for failures.                                                                           |
-| `maxGetRecordsThreadPool`                          | `PollingConfig`         | The thread pool size used for GetRecords.                                                                                                |
-| `maxLeaseRenewalThreads`                           | `LeaseManagementConfig` | Controls the size of the lease renewer thread pool. The more leases that<br>your application could take, the larger this pool should be. |
-| `recordsFetcherFactory`                            | `PollingConfig`         | Allows replacing the factory used to create fetchers that retrieve from<br>streams.                                                      |
-| `logWarningForTaskAfterMillis`                     | `LifecycleConfig`       | How long to wait before a warning is logged if a task hasn't<br>completed.                                                               |
-| `listShardsBackoffTimeInMillis`                    | `RetrievalConfig`       | The number of milliseconds to wait between calls to<br>`ListShards` when failures occur.                                                 |
-| `maxListShardsRetryAttempts`                       | `RetrievalConfig`       | The maximum number of times that `ListShards` retries before<br>giving up.                                                               |
+Configuration Fields and Their New Classes| Original Field | New Configuration Class | Description |
+| --- | --- | --- |
+| `applicationName` | `ConfigsBuilder` | The name for this the KCL application. Used as the default for the<br>`tableName` and `consumerName`. |
+| `tableName` | `ConfigsBuilder` | Allows overriding the table name used for the Amazon DynamoDB lease<br>table. |
+| `streamName` | `ConfigsBuilder` | The name of the stream that this application processes records<br>from. |
+| `kinesisEndpoint` | `ConfigsBuilder` | This option has been removed. See Client Configuration Removals. |
+| `dynamoDBEndpoint` | `ConfigsBuilder` | This option has been removed. See Client Configuration Removals. |
+| `initialPositionInStreamExtended` | `RetrievalConfig` | The location in the shard from which the KCL begins fetching records,<br>starting with the application's initial run. |
+| `kinesisCredentialsProvider` | `ConfigsBuilder` | This option has been removed. See Client Configuration Removals. |
+| `dynamoDBCredentialsProvider` | `ConfigsBuilder` | This option has been removed. See Client Configuration Removals. |
+| `cloudWatchCredentialsProvider` | `ConfigsBuilder` | This option has been removed. See Client Configuration Removals. |
+| `failoverTimeMillis` | LeaseManagementConfig | The number of milliseconds that must pass before you can consider a lease<br>owner to have failed. |
+| `workerIdentifier` | `ConfigsBuilder` | A unique identifier that represents this instantiation of the application<br>processor. This must be unique. |
+| `shardSyncIntervalMillis` | LeaseManagementConfig | The time between shard sync calls. |
+| `maxRecords` | `PollingConfig` | Allows setting the maximum number of records that Kinesis returns. |
+| `idleTimeBetweenReadsInMillis` | `CoordinatorConfig` | This option has been removed. See Idle Time Removal. |
+| `callProcessRecordsEvenForEmptyRecordList` | `ProcessorConfig` | When set, the record processor is called even when no records were<br>provided from Kinesis. |
+| `parentShardPollIntervalMillis` | `CoordinatorConfig` | How often a record processor should poll to see if the parent shard has<br>been completed. |
+| `cleanupLeasesUponShardCompletion` | `LeaseManagementConfig` | When set, leases are removed as soon as the child leases have started<br>processing. |
+| `ignoreUnexpectedChildShards` | `LeaseManagementConfig` | When set, child shards that have an open shard are ignored. This is<br>primarily for DynamoDB Streams. |
+| `kinesisClientConfig` | `ConfigsBuilder` | This option has been removed. See Client Configuration Removals. |
+| `dynamoDBClientConfig` | `ConfigsBuilder` | This option has been removed. See Client Configuration Removals. |
+| `cloudWatchClientConfig` | `ConfigsBuilder` | This option has been removed. See Client Configuration Removals. |
+| `taskBackoffTimeMillis` | `LifecycleConfig` | The time to wait to retry failed tasks. |
+| `metricsBufferTimeMillis` | `MetricsConfig` | Controls CloudWatch metric publishing. |
+| `metricsMaxQueueSize` | `MetricsConfig` | Controls CloudWatch metric publishing. |
+| `metricsLevel` | `MetricsConfig` | Controls CloudWatch metric publishing. |
+| `metricsEnabledDimensions` | `MetricsConfig` | Controls CloudWatch metric publishing. |
+| `validateSequenceNumberBeforeCheckpointing` | `CheckpointConfig` | This option has been removed. See Checkpoint Sequence Number<br>Validation. |
+| `regionName` | `ConfigsBuilder` | This option has been removed. See Client Configuration Removal. |
+| `maxLeasesForWorker` | `LeaseManagementConfig` | The maximum number of leases a single instance of the application should<br>accept. |
+| `maxLeasesToStealAtOneTime` | `LeaseManagementConfig` | The maximum number of leases an application should attempt to steal at<br>one time. |
+| `initialLeaseTableReadCapacity` | `LeaseManagementConfig` | The DynamoDB read IOPs that is used if the Kinesis Client Library needs to create<br>a new DynamoDB lease table. |
+| `initialLeaseTableWriteCapacity` | `LeaseManagementConfig` | The DynamoDB read IOPs that is used if the Kinesis Client Library needs to create<br>a new DynamoDB lease table. |
+| `initialPositionInStreamExtended` | LeaseManagementConfig | The initial position in the stream that the application should start at.<br>This is only used during initial lease creation. |
+| `skipShardSyncAtWorkerInitializationIfLeasesExist` | `CoordinatorConfig` | Disable synchronizing shard data if the lease table contains existing<br>leases. TODO: KinesisEco-438 |
+| `shardPrioritization` | `CoordinatorConfig` | Which shard prioritization to use. |
+| `shutdownGraceMillis` | N/A | This option has been removed. See MultiLang Removals. |
+| `timeoutInSeconds` | N/A | This option has been removed. See MultiLang Removals. |
+| `retryGetRecordsInSeconds` | `PollingConfig` | Configures the delay between GetRecords attempts for failures. |
+| `maxGetRecordsThreadPool` | `PollingConfig` | The thread pool size used for GetRecords. |
+| `maxLeaseRenewalThreads` | `LeaseManagementConfig` | Controls the size of the lease renewer thread pool. The more leases that<br>your application could take, the larger this pool should be. |
+| `recordsFetcherFactory` | `PollingConfig` | Allows replacing the factory used to create fetchers that retrieve from<br>streams. |
+| `logWarningForTaskAfterMillis` | `LifecycleConfig` | How long to wait before a warning is logged if a task hasn't<br>completed. |
+| `listShardsBackoffTimeInMillis` | `RetrievalConfig` | The number of milliseconds to wait between calls to<br>`ListShards` when failures occur. |
+| `maxListShardsRetryAttempts` | `RetrievalConfig` | The maximum number of times that `ListShards` retries before<br>giving up. |
 
 ## Idle time removal
 

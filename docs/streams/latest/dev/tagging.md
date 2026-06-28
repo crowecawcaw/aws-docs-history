@@ -98,22 +98,20 @@ For more information about capacity modes, see [Choose the right mode to stream 
 
 ###### To add or update a tag on a stream
 
-1.  Open the Kinesis Data Streams console.
-2.  On the left navigation pane, choose **Data streams**.
-3.  On the **Data streams** page, choose the stream to which you want to add or update tags.
-4.  On the Stream details page, choose **Configuration**.
-5.  In the **Tags** section, choose **Manage tags**.
-6.  Under **Tags**, do one of the following:
+1. Open the Kinesis Data Streams console.
+2. On the left navigation pane, choose **Data streams**.
+3. On the **Data streams** page, choose the stream to which you want to add or update tags.
+4. On the Stream details page, choose **Configuration**.
+5. In the **Tags** section, choose **Manage tags**.
+6. Under **Tags**, do one of the following:
 
-        * To add a new tag, choose **Add new tag**, and then enter the tag's **Key** and **Value** data. Repeat this step as many times as necessary.
+   - To add a new tag, choose **Add new tag**, and then enter the tag's **Key** and **Value** data. Repeat this step as many times as necessary.
 
+   The maximum number of tags you can add for each stream is 50.
+   - To update an existing tag, enter a new tag value in the **Value** field of that tag's **Key**.
+     If you see an error, either the tag key or value that you specified doesn't meet the tag restrictions. For more information, see [Understand tag restrictions](#tagging-restrictions "#tagging-restrictions").
 
-        The maximum number of tags you can add for each stream is 50.
-        * To update an existing tag, enter a new tag value in the **Value** field of that tag's **Key**.
-
-    If you see an error, either the tag key or value that you specified doesn't meet the tag restrictions. For more information, see [Understand tag restrictions](#tagging-restrictions "#tagging-restrictions").
-
-7.  Choose **Save changes**.
+7. Choose **Save changes**.
 
 ###### To remove a tag from a stream
 

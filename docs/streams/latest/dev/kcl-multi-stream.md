@@ -59,9 +59,10 @@ public class StreamConfig {
      Notice that the strategy CANNOT be changed during the consumer
      application runtime. For more information, see [https://github.com/awslabs/amazon-kinesis-client/blob/0c5042dadf794fe988438436252a5a8fe70b6b0b/amazon-kinesis-client/src/main/java/software/amazon/kinesis/processor/FormerStreamsLeasesDeletionStrategy.java](https://github.com/awslabs/amazon-kinesis-client/blob/0c5042dadf794fe988438436252a5a8fe70b6b0b/amazon-kinesis-client/src/main/java/software/amazon/kinesis/processor/FormerStreamsLeasesDeletionStrategy.java "https://github.com/awslabs/amazon-kinesis-client/blob/0c5042dadf794fe988438436252a5a8fe70b6b0b/amazon-kinesis-client/src/main/java/software/amazon/kinesis/processor/FormerStreamsLeasesDeletionStrategy.java").
 
-- Or you can initialize ConfigsBuilder with `MultiStreamTracker` if
-  you want to implement a KCL consumer application that processes multiple streams
-  at the same time.
+*
+Or you can initialize ConfigsBuilder with `MultiStreamTracker` if
+you want to implement a KCL consumer application that processes multiple streams
+at the same time.
 
 ```
 

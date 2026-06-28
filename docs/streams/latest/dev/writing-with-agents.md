@@ -291,22 +291,22 @@ values:
 - `COMMONAPACHELOG` — The Apache Common
   Log format. Each log entry has the following pattern by
   default: "`%{host} %{ident} %{authuser}
-[%{datetime}] \"%{request}\" %{response}
-%{bytes}`".
+ [%{datetime}] \"%{request}\" %{response}
+ %{bytes}`".
 - `COMBINEDAPACHELOG` — The Apache
   Combined Log format. Each log entry has the following
   pattern by default: "`%{host} %{ident} %{authuser}
-[%{datetime}] \"%{request}\" %{response} %{bytes}
-%{referrer} %{agent}`".
+ [%{datetime}] \"%{request}\" %{response} %{bytes}
+ %{referrer} %{agent}`".
 - `APACHEERRORLOG` — The Apache Error
   Log format. Each log entry has the following pattern by
   default: "`[%{timestamp}] [%{module}:%{severity}]
-[pid %{processid}:tid %{threadid}] [client:
-%{client}] %{message}`".
+ [pid %{processid}:tid %{threadid}] [client:
+ %{client}] %{message}`".
 - `SYSLOG` — The RFC3164 Syslog format.
   Each log entry has the following pattern by default:
   "`%{timestamp} %{hostname}
-%{program}[%{processid}]: %{message}`".
+ %{program}[%{processid}]: %{message}`".
 
 `matchPattern`
 

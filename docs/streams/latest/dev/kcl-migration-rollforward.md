@@ -18,13 +18,13 @@ python3 ./KclMigrationTool.py --region <region> --mode rollforward [--applicatio
 **Parameters**
 
 - --region: Replace `<region>` with your AWS Region.
-- --application_name: This parameter is required if you're using default
+- --application\_name: This parameter is required if you're using default
   names for your coordinator state table. If you have specified custom names
   for the coordinator state table, you can omit this parameter. Replace
   `<applicationName>` with your actual KCL
   application name. The tool uses this name to derive the default table names
   if custom names are not provided.
-- --coordinator_state_table_name (optional): This parameter is needed when
+- --coordinator\_state\_table\_name (optional): This parameter is needed when
   you have set a custom name for the coordinator state table in your
   KCL configuration. If you're using the default table name, you can
   omit this parameter. Replace `<coordinatorStateTableName>`

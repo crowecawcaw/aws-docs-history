@@ -37,9 +37,9 @@ Improper distribution issues are outside of on-demand mode capability of automat
 - **Resource Type**: IAM Role ARN
 - **Target Operations**: `PutRecord`,
   `PutRecords`, `GetRecords`
-- \***\*Error Code\*\***:
+- ****Error Code****:
   `ProvisionedThroughputExceededException`(HTTP 400)
-- \***\*Description\*\***:
+- ****Description****:
   simulates scenarios where request rate exceeds shard capacity limits, testing
   application throttling, and scaling responses.
 

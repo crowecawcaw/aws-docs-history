@@ -46,33 +46,31 @@ Replace the import for `com.amazonaws.services.kinesis` with
 `software.amazon.kinesis`. The following table lists the imports that you
 must replace.
 
-| Import replacements                                                                     | Replace:                                                                         | With: |
-| --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ----- |
-| import com.amazonaws.services.kinesis.producer.Attempt;                                 | import software.amazon.kinesis.producer.Attempt;                                 |
-| import com.amazonaws.services.kinesis.producer.BinaryToHexConverter;                    | import software.amazon.kinesis.producer.BinaryToHexConverter;                    |
-| import com.amazonaws.services.kinesis.producer.CertificateExtractor;                    | import software.amazon.kinesis.producer.CertificateExtractor;                    |
-| import com.amazonaws.services.kinesis.producer.Daemon;                                  | import software.amazon.kinesis.producer.Daemon;                                  |
-| import com.amazonaws.services.kinesis.producer.DaemonException;                         | import software.amazon.kinesis.producer.DaemonException;                         |
-| import com.amazonaws.services.kinesis.producer.FileAgeManager;                          | import software.amazon.kinesis.producer.FileAgeManager;                          |
-| import<br>com.amazonaws.services.kinesis.producer.FutureTimedOutException;              | import software.amazon.kinesis.producer.FutureTimedOutException;                 |
+Import replacements| Replace: | With: |
+| --- | --- |
+| import com.amazonaws.services.kinesis.producer.Attempt; | import software.amazon.kinesis.producer.Attempt; |
+| import com.amazonaws.services.kinesis.producer.BinaryToHexConverter; | import software.amazon.kinesis.producer.BinaryToHexConverter; |
+| import com.amazonaws.services.kinesis.producer.CertificateExtractor; | import software.amazon.kinesis.producer.CertificateExtractor; |
+| import com.amazonaws.services.kinesis.producer.Daemon; | import software.amazon.kinesis.producer.Daemon; |
+| import com.amazonaws.services.kinesis.producer.DaemonException; | import software.amazon.kinesis.producer.DaemonException; |
+| import com.amazonaws.services.kinesis.producer.FileAgeManager; | import software.amazon.kinesis.producer.FileAgeManager; |
+| import<br>com.amazonaws.services.kinesis.producer.FutureTimedOutException; | import software.amazon.kinesis.producer.FutureTimedOutException; |
 | import<br>com.amazonaws.services.kinesis.producer.GlueSchemaRegistrySerializerInstance; | import<br>software.amazon.kinesis.producer.GlueSchemaRegistrySerializerInstance; |
-| import com.amazonaws.services.kinesis.producer.HashedFileCopier;                        | import software.amazon.kinesis.producer.HashedFileCopier;                        |
-| import com.amazonaws.services.kinesis.producer.IKinesisProducer;                        | import software.amazon.kinesis.producer.IKinesisProducer;                        |
-| import com.amazonaws.services.kinesis.producer.IrrecoverableError;                      | import software.amazon.kinesis.producer.IrrecoverableError;                      |
-| import com.amazonaws.services.kinesis.producer.KinesisProducer;                         | import software.amazon.kinesis.producer.KinesisProducer;                         |
-| import<br>com.amazonaws.services.kinesis.producer.KinesisProducerConfiguration;         | import software.amazon.kinesis.producer.KinesisProducerConfiguration;            |
-| import com.amazonaws.services.kinesis.producer.LogInputStreamReader;                    | import software.amazon.kinesis.producer.LogInputStreamReader;                    |
-| import com.amazonaws.services.kinesis.producer.Metric;                                  | import software.amazon.kinesis.producer.Metric;                                  |
-| import<br>com.amazonaws.services.kinesis.producer.ProcessFailureBehavior;               | import software.amazon.kinesis.producer.ProcessFailureBehavior;                  |
-| import<br>com.amazonaws.services.kinesis.producer.UnexpectedMessageException;           | import software.amazon.kinesis.producer.UnexpectedMessageException;              |
-| import com.amazonaws.services.kinesis.producer.UserRecord;                              | import software.amazon.kinesis.producer.UserRecord;                              |
-| import<br>com.amazonaws.services.kinesis.producer.UserRecordFailedException;            | import software.amazon.kinesis.producer.UserRecordFailedException;               |
-| import com.amazonaws.services.kinesis.producer.UserRecordResult;                        | import software.amazon.kinesis.producer.UserRecordResult;                        |
-| import com.amazonaws.services.kinesis.producer.protobuf.Messages;                       | import software.amazon.kinesis.producer.protobuf.Messages;                       |
-| import com.amazonaws.services.kinesis.producer.protobuf.Config;                         | import software.amazon.kinesis.producer.protobuf.Config;                         |
-
-4. **Update import statements for AWS credentials provider
-   classes**
+| import com.amazonaws.services.kinesis.producer.HashedFileCopier; | import software.amazon.kinesis.producer.HashedFileCopier; |
+| import com.amazonaws.services.kinesis.producer.IKinesisProducer; | import software.amazon.kinesis.producer.IKinesisProducer; |
+| import com.amazonaws.services.kinesis.producer.IrrecoverableError; | import software.amazon.kinesis.producer.IrrecoverableError; |
+| import com.amazonaws.services.kinesis.producer.KinesisProducer; | import software.amazon.kinesis.producer.KinesisProducer; |
+| import<br>com.amazonaws.services.kinesis.producer.KinesisProducerConfiguration; | import software.amazon.kinesis.producer.KinesisProducerConfiguration; |
+| import com.amazonaws.services.kinesis.producer.LogInputStreamReader; | import software.amazon.kinesis.producer.LogInputStreamReader; |
+| import com.amazonaws.services.kinesis.producer.Metric; | import software.amazon.kinesis.producer.Metric; |
+| import<br>com.amazonaws.services.kinesis.producer.ProcessFailureBehavior; | import software.amazon.kinesis.producer.ProcessFailureBehavior; |
+| import<br>com.amazonaws.services.kinesis.producer.UnexpectedMessageException; | import software.amazon.kinesis.producer.UnexpectedMessageException; |
+| import com.amazonaws.services.kinesis.producer.UserRecord; | import software.amazon.kinesis.producer.UserRecord; |
+| import<br>com.amazonaws.services.kinesis.producer.UserRecordFailedException; | import software.amazon.kinesis.producer.UserRecordFailedException; |
+| import com.amazonaws.services.kinesis.producer.UserRecordResult; | import software.amazon.kinesis.producer.UserRecordResult; |
+| import com.amazonaws.services.kinesis.producer.protobuf.Messages; | import software.amazon.kinesis.producer.protobuf.Messages; |
+| import com.amazonaws.services.kinesis.producer.protobuf.Config; | import software.amazon.kinesis.producer.protobuf.Config; | 4. **Update import statements for AWS credentials provider
+classes**
 
 When migrating to KPL 1.x, you must update packages and classes in
 your imports in your KPL application code that are based on the

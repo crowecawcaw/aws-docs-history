@@ -50,24 +50,24 @@ python3 ./KclMigrationTool.py --region <region> --mode rollback [--application_n
 **Parameters**
 
 - --region: Replace `<region>` with your AWS Region.
-- --application_name: This parameter is required if you're using default
+- --application\_name: This parameter is required if you're using default
   names for your DynamoDB metadata tables (lease table, coordinator state table,
   and worker metrics table). If you have specified custom names for these
   tables, you can omit this parameter. Replace
   `<applicationName>` with your actual KCL
   application name. The tool uses this name to derive the default table names
   if custom names are not provided.
-- --lease_table_name (optional): This parameter is needed when you have set
+- --lease\_table\_name (optional): This parameter is needed when you have set
   a custom name for the lease table in your KCL configuration. If
   you're using the default table name, you can omit this parameter. Replace
   `leaseTableName` with the custom table name you specified for
   your lease table.
-- --coordinator_state_table_name (optional): This parameter is needed when
+- --coordinator\_state\_table\_name (optional): This parameter is needed when
   you have set a custom name for the coordinator state table in your
   KCL configuration. If you're using the default table name, you can
   omit this parameter. Replace `<coordinatorStateTableName>`
   with the custom table name you specified for your coordinator state table.
-- --worker_metrics_table_name (optional): This parameter is needed when you
+- --worker\_metrics\_table\_name (optional): This parameter is needed when you
   have set a custom name for the worker metrics table in your KCL
   configuration. If you're using the default table name, you can omit this
   parameter. Replace `<workerMetricsTableName>` with the custom

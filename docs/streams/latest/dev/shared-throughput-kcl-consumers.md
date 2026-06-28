@@ -335,20 +335,19 @@ optimize the lease management in your KCL consumer application.
   values to identify and return a snapshot of open shards that might
   require new leases:
 
-      + `AT_TRIM_HORIZON` - the response includes all the
-       shards that were open at `TRIM_HORIZON`.
-      + `AT_LATEST` - the response includes only the
-       currently open shards of the data stream.
-      + `AT_TIMESTAMP` - the response includes all shards
-       whose start timestamp is less than or equal to the given
-       timestamp and end timestamp is greater than or equal to the
-       given timestamp or still open.
+  - `AT_TRIM_HORIZON` - the response includes all the
+    shards that were open at `TRIM_HORIZON`.
+  - `AT_LATEST` - the response includes only the
+    currently open shards of the data stream.
+  - `AT_TIMESTAMP` - the response includes all shards
+    whose start timestamp is less than or equal to the given
+    timestamp and end timestamp is greater than or equal to the
+    given timestamp or still open.
+    `ShardFilter` is used when creating leases for an empty
+    lease table to initialize leases for a snapshot of shards specified at
+    `RetrievalConfig#initialPositionInStreamExtended`.
 
-  `ShardFilter` is used when creating leases for an empty
-  lease table to initialize leases for a snapshot of shards specified at
-  `RetrievalConfig#initialPositionInStreamExtended`.
-
-For more information about `ShardFilter`, see [https://docs.aws.amazon.com/kinesis/latest/APIReference/API_ShardFilter.html](../../../kinesis/latest/APIReference/API_ShardFilter.md "../../../kinesis/latest/APIReference/API_ShardFilter.md").
+For more information about `ShardFilter`, see [https://docs.aws.amazon.com/kinesis/latest/APIReference/API\_ShardFilter.html](../../../kinesis/latest/APIReference/API_ShardFilter.md "../../../kinesis/latest/APIReference/API_ShardFilter.md").
 
 - Instead of all workers performing the lease/shard synchronization to
   keep the lease table up to date with the latest shards in the data
@@ -417,20 +416,19 @@ optimize the lease management in your KCL consumer application.
   values to identify and return a snapshot of open shards that might
   require new leases:
 
-      + `AT_TRIM_HORIZON` - the response includes all the
-       shards that were open at `TRIM_HORIZON`.
-      + `AT_LATEST` - the response includes only the
-       currently open shards of the data stream.
-      + `AT_TIMESTAMP` - the response includes all shards
-       whose start timestamp is less than or equal to the given
-       timestamp and end timestamp is greater than or equal to the
-       given timestamp or still open.
+  - `AT_TRIM_HORIZON` - the response includes all the
+    shards that were open at `TRIM_HORIZON`.
+  - `AT_LATEST` - the response includes only the
+    currently open shards of the data stream.
+  - `AT_TIMESTAMP` - the response includes all shards
+    whose start timestamp is less than or equal to the given
+    timestamp and end timestamp is greater than or equal to the
+    given timestamp or still open.
+    `ShardFilter` is used when creating leases for an empty
+    lease table to initialize leases for a snapshot of shards specified at
+    `KinesisClientLibConfiguration#initialPositionInStreamExtended`.
 
-  `ShardFilter` is used when creating leases for an empty
-  lease table to initialize leases for a snapshot of shards specified at
-  `KinesisClientLibConfiguration#initialPositionInStreamExtended`.
-
-For more information about `ShardFilter`, see [https://docs.aws.amazon.com/kinesis/latest/APIReference/API_ShardFilter.html](../../../kinesis/latest/APIReference/API_ShardFilter.md "../../../kinesis/latest/APIReference/API_ShardFilter.md").
+For more information about `ShardFilter`, see [https://docs.aws.amazon.com/kinesis/latest/APIReference/API\_ShardFilter.html](../../../kinesis/latest/APIReference/API_ShardFilter.md "../../../kinesis/latest/APIReference/API_ShardFilter.md").
 
 - Instead of all workers performing the lease/shard synchronization to
   keep the lease table up to date with the latest shards in the data

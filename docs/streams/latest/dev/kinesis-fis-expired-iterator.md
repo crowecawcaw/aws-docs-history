@@ -34,9 +34,9 @@ A shard iterator is valid for 5 minutes after the time it's issued.
 - **Resource Type**: IAM Role ARN
 - **Target Operations**:
   `GetRecords`
-- \***\*Error Code\*\***:
+- ****Error Code****:
   `ExpiredIteratorException`(HTTP 400)
-- \***\*Description\*\***:
+- ****Description****:
   the provided iterator exceeds the maximum age allowed, simulating scenarios
   where record processing is too slow or checkpointing logic fails.
 

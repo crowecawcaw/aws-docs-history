@@ -56,7 +56,7 @@ in which a particular shard may be processed by more than one worker, see [Use r
 def initialize(self, shard_id)
 ```
 
-###### process_records
+###### process\_records
 
 The KCL calls this method, passing a list of data record from the shard
 specified by the `initialize` method. The record processor that you implement

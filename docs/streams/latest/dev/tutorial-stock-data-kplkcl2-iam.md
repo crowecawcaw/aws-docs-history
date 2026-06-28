@@ -9,19 +9,19 @@ the actions are applicable.
 The following are the minimum permissions generally required for Kinesis Data Streams producers and
 consumers.
 
-| Producer                                                               | Actions             | Resource                                                                                                                                                    | Purpose |
-| ---------------------------------------------------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+Producer| Actions | Resource | Purpose |
+| --- | --- | --- |
 | `DescribeStream`, `DescribeStreamSummary`,<br>`DescribeStreamConsumer` | Kinesis data stream | Before attempting to read records, the consumer checks if the data<br>stream exists, if it's active, and if the shards are contained in the<br>data stream. |
-| `SubscribeToShard`,<br>`RegisterStreamConsumer`                        | Kinesis data stream | Subscribes and registers consumers to a shard.                                                                                                              |
-| `PutRecord`, `PutRecords`                                              | Kinesis data stream | Writes records to Kinesis Data Streams.                                                                                                                     |
+| `SubscribeToShard`,<br>`RegisterStreamConsumer` | Kinesis data stream | Subscribes and registers consumers to a shard. |
+| `PutRecord`, `PutRecords` | Kinesis data stream | Writes records to Kinesis Data Streams. |
 
-| Consumer                                                                         | **Actions**           | **Resource**                                                                                                                                                                                      | **Purpose** |
-| -------------------------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `DescribeStream`                                                                 | Kinesis data stream   | Before attempting to read records, the consumer checks if the data<br>stream exists, if it's active, and if the shards are contained in the<br>data stream.                                       |
-| `GetRecords`, `GetShardIterator`                                                 | Kinesis data stream   | Reads records from a shard.                                                                                                                                                                       |
+Consumer| **Actions** | **Resource** | **Purpose** |
+| --- | --- | --- |
+| `DescribeStream` | Kinesis data stream | Before attempting to read records, the consumer checks if the data<br>stream exists, if it's active, and if the shards are contained in the<br>data stream. |
+| `GetRecords`, `GetShardIterator` | Kinesis data stream | Reads records from a shard. |
 | `CreateTable`, `DescribeTable`,<br>`GetItem`, `PutItem`, `Scan`,<br>`UpdateItem` | Amazon DynamoDB table | If the consumer is developed using the Kinesis Client Library (KCL)<br>(either version 1.x or 2.x), it needs permissions to a DynamoDB table to<br>track the processing state of the application. |
-| `DeleteItem`                                                                     | Amazon DynamoDB table | For when the consumer performs split/merge operations on Kinesis Data Streams<br>shards.                                                                                                          |
-| `PutMetricData`                                                                  | Amazon CloudWatch log | The KCL also uploads metrics to CloudWatch, which are useful for monitoring<br>the application.                                                                                                   |
+| `DeleteItem` | Amazon DynamoDB table | For when the consumer performs split/merge operations on Kinesis Data Streams<br>shards. |
+| `PutMetricData` | Amazon CloudWatch log | The KCL also uploads metrics to CloudWatch, which are useful for monitoring<br>the application. |
 
 For this tutorial, you will create a single IAM policy that grants all of the
 preceding permissions. In production, you might want to create two policies, one for

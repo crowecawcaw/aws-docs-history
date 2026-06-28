@@ -256,27 +256,25 @@ Note the following about the preceding code example:
      create the connectors. These methods read the application's
      properties to configure the connectors.
 
-3.  To use your application code, you compile and package it into a JAR file.
-    You can compile and package your code in one of two ways:
+3. To use your application code, you compile and package it into a JAR file.
+You can compile and package your code in one of two ways:
 
-        * Use the command line Maven tool. Create your JAR file by running
-         the following command in the directory that contains the
-         `pom.xml` file:
+    * Use the command line Maven tool. Create your JAR file by running
+     the following command in the directory that contains the
+     `pom.xml` file:
 
 
 
-        ```
-        mvn package
-        ```
-        * Use your development environment. See your development environment
-         documentation for details.
+    ```
+    mvn package
+    ```
+    * Use your development environment. See your development environment
+     documentation for details.
 
-    You can either upload your package as a JAR file, or you can compress your
-    package and upload it as a ZIP file. If you create your application using
-    the AWS CLI, you specify your code content type (JAR or ZIP).
-
-4.  If there are errors while compiling, verify that your
-    `JAVA_HOME` environment variable is correctly set.
+You can either upload your package as a JAR file, or you can compress your
+package and upload it as a ZIP file. If you create your application using
+the AWS CLI, you specify your code content type (JAR or ZIP). 4. If there are errors while compiling, verify that your
+`JAVA_HOME` environment variable is correctly set.
 
 If the application compiles successfully, the following file is created:
 
@@ -350,7 +348,7 @@ the console.
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
-java test app`.
+  java test app`.
    - For **Runtime**, choose **Apache
      Flink 1.6**.
 

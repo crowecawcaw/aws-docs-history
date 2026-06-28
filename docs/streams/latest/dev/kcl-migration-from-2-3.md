@@ -1,7 +1,8 @@
 # Migrate from KCL 2.x to KCL 3.x
 
 This topic provides step-by-step instructions to migrate your consumer from
-KCL 2.x to KCL 3.x. KCL 3.x supports in-place migration of
+KCL 2.x to KCL 3.x. We recommend migrating to KCL 3.5 or
+later to use the single table format. KCL 3.x supports in-place migration of
 KCL 2.x consumers. You can continue consuming the data from your Kinesis data
 stream while migrating your workers in a rolling manner.
 
@@ -12,6 +13,13 @@ Therefore you don’t have to update your record processing code during the migr
 However, you must set the proper configuration and check the required steps for the
 migration. We highly recommend that you follow the following migration steps for a
 smooth migration experience.
+
+###### Important
+
+For new migrations from KCL 2.x to KCL 3.5 or later, single
+table format is used by default. Your application uses only the lease table for
+all metadata, eliminating the need for separate worker metrics and coordinator
+state tables. For more information, see [Single table format for KCL](kcl-single-table-format.md "kcl-single-table-format.md").
 
 ## Step 1: Prerequisites
 
@@ -64,7 +72,7 @@ parameter:
   object:
 
 ```
-configsBuilder.coordiantorConfig().clientVersionConfig(ClientVersionConfig.CLIENT_VERSION_CONFIG_COMPLATIBLE_WITH_2X)
+configsBuilder.coordinatorConfig().clientVersionConfig(ClientVersionConfig.CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X)
 ```
 
 The following is an example of how to set the
@@ -75,7 +83,7 @@ specific requirements:
 ```
 Scheduler scheduler = new Scheduler(
     configsBuilder.checkpointConfig(),
-    configsBuilder.coordiantorConfig().clientVersionConfig(ClientVersionConfig.CLIENT_VERSION_CONFIG_COMPLATIBLE_WITH_2X),
+    configsBuilder.coordinatorConfig().clientVersionConfig(ClientVersionConfig.CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X),
     configsBuilder.leaseManagementConfig(),
     configsBuilder.lifecycleConfig(),
     configsBuilder.metricsConfig(),
@@ -107,6 +115,12 @@ version 3.x or later. For details, see [Compilation error with the LeaseManageme
 recommend using `ConfigsBuilder` to set KCL configurations.
 `ConfigsBuilder` provides a more flexible and maintainable way to
 configure your KCL application.
+
+###### Note
+
+For the latest migration-related configuration changes for KCL 3.5,
+see [KCL 3.5 configuration
+updates](https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client/src/main/java/software/amazon/kinesis/coordinator/CoordinatorConfig.java "https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client/src/main/java/software/amazon/kinesis/coordinator/CoordinatorConfig.java").
 
 ## Step 4: Follow best practices for the shutdownRequested() method implementation
 
@@ -229,15 +243,14 @@ application:
   `Scan`, `GetItem`, `PutItem`,
   `UpdateItem`, `DeleteItem`
 
-      + Resources (ARNs):
-       `arn:aws:dynamodb:region:account:table/KCLApplicationName-WorkerMetricStats`,
-       `arn:aws:dynamodb:region:account:table/KCLApplicationName-CoordinatorState`
-
-  Replace "region," "account," and "KCLApplicationName" in the ARNs with
-  your own AWS Region, AWS account number, and KCL
-  application name respectively. If you use configurations to customize
-  names of the metadata tables created by KCL, use those
-  specified table names instead of KCL application name.
+  - Resources (ARNs):
+    `arn:aws:dynamodb:region:account:table/KCLApplicationName-WorkerMetricStats`,
+    `arn:aws:dynamodb:region:account:table/KCLApplicationName-CoordinatorState`
+    Replace "region," "account," and "KCLApplicationName" in the ARNs with
+    your own AWS Region, AWS account number, and KCL
+    application name respectively. If you use configurations to customize
+    names of the metadata tables created by KCL, use those
+    specified table names instead of KCL application name.
 
 ## Step 7: Deploy KCL 3.x code to your workers
 
@@ -273,13 +286,13 @@ has successfully completed.
 It takes at least 10 minutes for KCL to switch to the new leasee
 assignment algorithm after all workers are ready to run it.
 
-| CloudWatch metrics for the KCL migration process | Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Description |
-| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| `CurrentState:3xWorker`                          | The number of KCL workers successfully migrated to<br>KCL 3.x and running the new lease assignment<br>algorithm. If the `Sum` count of this metric matches<br>the total number of your workers, it indicates that the<br>migration to KCL 3.x has successfully<br>completed.<br>• Metric level: Summary<br>• Units: Count<br>• Statistics: The most useful statistic is<br>`Sum`                                                                                                                                                     |
-| `CurrentState:2xCompatibleWorker`                | The number of KCL workers running in KCL 2.x<br>compatible mode during the migration process. A non-zero value<br>for this metric indicates that the migration is still in<br>progress.<br>• Metric level: Summary<br>• Units: Count<br>• Statistics: The most useful statistic is<br>`Sum`                                                                                                                                                                                                                                          |
-| `Fault`                                          | The number of exceptions encountered during the migration<br>process. Most of these exceptions are transient errors, and KCL<br>3.x will automatically retry to complete the migration. If you<br>observe a persistent `Fault` metric value, review<br>your logs from the migration period for further troubleshooting.<br>If the issue continues, contact Support.<br>• Metric level: Summary<br>• Units: Count<br>• Statistics: The most useful statistic is<br>`Sum`                                                              |
-| `GsiStatusReady`                                 | The status of the global secondary index (GSI) creation on the<br>lease table. This metric indicates whether the GSI on the lease<br>table has been created, a prerequisite to run KCL 3.x. The value<br>is 0 or 1, with 1 indicating successful creation. During a<br>rollback state, this metric will not be emitted. After you roll<br>forward again, you can resume monitoring this metric.<br>• Metric level: Summary<br>• Units: Count<br>• Statistics: The most useful statistic is<br>`Sum`                                  |
-| `workerMetricsReady`                             | Status of worker metrics emission from all workers. The<br>metrics indicates whether all workers are emitting metrics like<br>CPU utilization. The value is 0 or 1, with 1 indicating all<br>workers are successfully emitting metrics and ready for the new<br>lease assignment algorithm. During a rollback state, this metric<br>will not be emitted. After you roll forward again, you can<br>resume monitoring this metric.<br>• Metric level: Summary<br>• Units: Count<br>• Statistics: The most useful statistic is<br>`Sum` |
+CloudWatch metrics for the KCL migration process| Metrics | Description |
+| --- | --- |
+| `CurrentState:3xWorker` | The number of KCL workers successfully migrated to<br>KCL 3.x and running the new lease assignment<br>algorithm. If the `Sum` count of this metric matches<br>the total number of your workers, it indicates that the<br>migration to KCL 3.x has successfully<br>completed.<br>• Metric level: Summary<br>• Units: Count<br>• Statistics: The most useful statistic is<br>`Sum` |
+| `CurrentState:2xCompatibleWorker` | The number of KCL workers running in KCL 2.x<br>compatible mode during the migration process. A non-zero value<br>for this metric indicates that the migration is still in<br>progress.<br>• Metric level: Summary<br>• Units: Count<br>• Statistics: The most useful statistic is<br>`Sum` |
+| `Fault` | The number of exceptions encountered during the migration<br>process. Most of these exceptions are transient errors, and KCL<br>3.x will automatically retry to complete the migration. If you<br>observe a persistent `Fault` metric value, review<br>your logs from the migration period for further troubleshooting.<br>If the issue continues, contact Support.<br>• Metric level: Summary<br>• Units: Count<br>• Statistics: The most useful statistic is<br>`Sum` |
+| `GsiStatusReady` | The status of the global secondary index (GSI) creation on the<br>lease table. This metric indicates whether the GSI on the lease<br>table has been created, a prerequisite to run KCL 3.x. The value<br>is 0 or 1, with 1 indicating successful creation. During a<br>rollback state, this metric will not be emitted. After you roll<br>forward again, you can resume monitoring this metric.<br>• Metric level: Summary<br>• Units: Count<br>• Statistics: The most useful statistic is<br>`Sum` |
+| `workerMetricsReady` | Status of worker metrics emission from all workers. The<br>metrics indicates whether all workers are emitting metrics like<br>CPU utilization. The value is 0 or 1, with 1 indicating all<br>workers are successfully emitting metrics and ready for the new<br>lease assignment algorithm. During a rollback state, this metric<br>will not be emitted. After you roll forward again, you can<br>resume monitoring this metric.<br>• Metric level: Summary<br>• Units: Count<br>• Statistics: The most useful statistic is<br>`Sum` |
 
 KCL provides rollback capability to the 2.x compatible mode during
 migration. After successful migration to KCL 3.x is successful, we

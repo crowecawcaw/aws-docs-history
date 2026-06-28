@@ -2,13 +2,17 @@
 
 KCL manages metadata such as leases and CPU utilization metrics from workers.
 KCL tracks these metadata using DynamoDB tables. For each Amazon Kinesis Data Streams application,
-KCL creates three DynamoDB tables to manage the metadata: lease table, worker
-metrics table, and coordinator state table.
+KCL 3.x creates three DynamoDB tables by default to manage the metadata: lease
+table, worker metrics table, and coordinator state table. Starting with KCL
+3.5, you can use the single table format to consolidate all metadata into the lease
+table. For more information, see [Single table format for KCL](kcl-single-table-format.md "kcl-single-table-format.md").
 
 ###### Note
 
 KCL 3.x introduced two new metadata tables: _worker
-metrics_ and _coordinator state_ tables.
+metrics_ and _coordinator state_ tables. Starting
+with KCL 3.5, you can consolidate these tables into the lease table using
+the single table format.
 
 ###### Important
 

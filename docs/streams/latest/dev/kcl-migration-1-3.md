@@ -7,6 +7,15 @@ processor factory, and worker classes to the KCL 2.x/3.x compatible format
 first, and follow the migration steps for KCL 2.x to KCL 3.x
 migration. You can directly upgrade from KCL 1.x to KCL 3.x.
 
+###### Important
+
+We recommend that you migrate to KCL 3.5 or later, which uses single
+table format by default for new migrations. First, migrate your record processor,
+factory, and worker classes to the KCL 2.x/3.x compatible format using
+the steps on this page. Then, follow the migration path from KCL 2.x to
+KCL 3.5. Single table format is automatically enabled for new migrations
+from 2.x. For more information, see [Single table format for KCL](kcl-single-table-format.md "kcl-single-table-format.md").
+
 - **Step 1: Migrate the record processor**
 
 Follow the [Migrate the record processor](kcl-migration.md#recrod-processor-migration "kcl-migration.md#recrod-processor-migration") section in the [Migrate consumers from KCL 1.x to KCL 2.x](kcl-migration.md#recrod-processor-migration "kcl-migration.md#recrod-processor-migration") page.
