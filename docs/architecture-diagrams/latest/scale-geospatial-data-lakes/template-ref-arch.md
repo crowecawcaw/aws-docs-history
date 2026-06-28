@@ -29,10 +29,8 @@ requirements. 4. **Amazon Elastic Container Service** (Amazon ECS) runs containe
      (Amazon S3) aoi-processed bucket. Build metadata and store them in **Amazon DynamoDB**.
      Store vector data in **Amazon Aurora** Postgres with PostGIS extensions.
 
-5. **Step Functions** initiates the next processing task with **Amazon SageMaker AI**.
-6. **SageMaker AI**-hosted ML models perform cloud removal and band math.
-7. **Amazon WorkSpaces** hosted GIS workbenches can be used for
-   visualization. The data is stored in an **Amazon S3** preprocessed bucket.
+5. **Step Functions** initiates the next processing task with **Amazon SageMaker AI**. 6. **SageMaker AI**-hosted ML models perform cloud removal and band math. 7. **Amazon WorkSpaces** hosted GIS workbenches can be used for
+visualization. The data is stored in an **Amazon S3** preprocessed bucket.
 
 ## Download editable diagram
 
