@@ -21,7 +21,7 @@ the session.
 the session.
 
 - The developer console repeats an `Error: UnintentionalError at
-StageSocket.onClose` error.
+ StageSocket.onClose` error.
 
 **Workaround:** Only one stage can be created per
 participant token. This error occurs when more than one `Stage`

@@ -626,7 +626,7 @@ private var analysisUseCase: ImageAnalysis? = null
 ```
 
 Initialize a
-Segmenter instance in [STREAM_MODE](https://developers.google.com/ml-kit/vision/selfie-segmentation/android#detector_mode "https://developers.google.com/ml-kit/vision/selfie-segmentation/android#detector_mode"):
+Segmenter instance in [STREAM\_MODE](https://developers.google.com/ml-kit/vision/selfie-segmentation/android#detector_mode "https://developers.google.com/ml-kit/vision/selfie-segmentation/android#detector_mode"):
 
 ```
 private val options =

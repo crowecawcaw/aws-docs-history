@@ -81,7 +81,7 @@ denied to the S3 bucket, or the stream already exists for an RTMP destination.
 The following table lists `error_code` and `reason` values for
 Destination Failure events, along with troubleshooting guidance:
 
-| error_code                | reason                                                        | Troubleshooting Guidance                                                      |
+| error\_code               | reason                                                        | Troubleshooting Guidance                                                      |
 | ------------------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | ResourceNotFoundException | S3 bucket not found. Please verify your bucket exists.        | Verify your S3 bucket exists and is in the correct region.                    |
 | AccessDeniedException     | Access denied to S3 bucket. Please verify your bucket policy. | Verify your S3 bucket policy grants IVS service the necessary<br>permissions. |
@@ -231,7 +231,7 @@ or any other internal error.
 The following table lists `error_code` and `reason` values for
 Session Failure events, along with troubleshooting guidance:
 
-| error_code              | reason                     | Troubleshooting Guidance                                            |
+| error\_code             | reason                     | Troubleshooting Guidance                                            |
 | ----------------------- | -------------------------- | ------------------------------------------------------------------- |
 | StageDeleted            | Stage has been deleted     | Verify the stage exists before starting a composition.              |
 | DestinationFailure      | One or more outputs failed | Check individual destination errors.                                |
@@ -316,7 +316,7 @@ recorded.
 The following table lists `error_code` and `reason` values for
 Recording Start Failure events, along with troubleshooting guidance:
 
-| error_code                | reason                                                        | Troubleshooting Guidance                                                      |
+| error\_code               | reason                                                        | Troubleshooting Guidance                                                      |
 | ------------------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | ResourceNotFoundException | S3 bucket not found. Please verify your bucket exists.        | Verify your S3 bucket exists and is in the correct region.                    |
 | AccessDeniedException     | Access denied to S3 bucket. Please verify your bucket policy. | Verify your S3 bucket policy grants IVS service the necessary<br>permissions. |
@@ -354,7 +354,7 @@ configured storage location.
 The following table lists `error_code` and `reason` values for
 Recording End Failure events, along with troubleshooting guidance:
 
-| error_code                | reason                                                        | Troubleshooting Guidance                                                      |
+| error\_code               | reason                                                        | Troubleshooting Guidance                                                      |
 | ------------------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | ResourceNotFoundException | S3 bucket not found. Please verify your bucket exists.        | Verify your S3 bucket exists and is in the correct region.                    |
 | AccessDeniedException     | Access denied to S3 bucket. Please verify your bucket policy. | Verify your S3 bucket policy grants IVS service the necessary<br>permissions. |

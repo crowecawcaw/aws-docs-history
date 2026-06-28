@@ -40,9 +40,9 @@ To create a new key pair in the console, follow these steps:
    necessary.
 
 Amazon IVS generates the key on the client side and does not store the
-private key. **_Be sure you
+private key. _**Be sure you
 save the key; you cannot retrieve it
-later._**
+later.**_
 
 To create a new P384 EC key pair with OpenSSL (you may have to install [OpenSSL](https://www.openssl.org/source/ "https://www.openssl.org/source/") first), follow these
 steps. This process enables you to access both the private and public keys. You

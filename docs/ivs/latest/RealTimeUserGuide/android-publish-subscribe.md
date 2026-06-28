@@ -716,9 +716,9 @@ users:
 
   - `void onAdaptionChanged(boolean adaption)`
   - `void onLayersChanged(@NonNull List<Layer>
-layers)`
+   layers)`
   - `void onLayerSelected(@Nullable Layer layer, @NonNull
-LayerSelectedReason reason)`
+   LayerSelectedReason reason)`
 
 - **Layer Methods** —
   `RemoteStageStream` has several helper methods which can

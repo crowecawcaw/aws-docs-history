@@ -659,12 +659,12 @@ end users:
   communicate layer and simulcast adaption changes:
 
   - `func stream(_ stream: IVSRemoteStageStream,
-didChangeAdaption adaption: Bool)`
+   didChangeAdaption adaption: Bool)`
   - `func stream(_ stream: IVSRemoteStageStream, didChange
-layers: [IVSRemoteStageStreamLayer])`
+   layers: [IVSRemoteStageStreamLayer])`
   - `func stream(_ stream: IVSRemoteStageStream, didSelect
-layer: IVSRemoteStageStreamLayer?, reason:
-IVSRemoteStageStream.LayerSelectedReason)`
+   layer: IVSRemoteStageStreamLayer?, reason:
+   IVSRemoteStageStream.LayerSelectedReason)`
 
 - **Layer Methods** —
   `IVSRemoteStageStream` has several helper methods which
@@ -672,14 +672,14 @@ IVSRemoteStageStream.LayerSelectedReason)`
   presented. These methods are available on the remote stream provided in
   the `preferredLayerForStream` strategy, as well as remote
   streams exposed via `func stage(_ stage: IVSStage, participant:
-IVSParticipantInfo, didAdd streams: [IVSStageStream])`.
+ IVSParticipantInfo, didAdd streams: [IVSStageStream])`.
 
   - `stream.layers`
   - `stream.selectedLayer`
   - `stream.lowestQualityLayer`
   - `stream.highestQualityLayer`
   - `stream.layers(with:
-IVSRemoteStageStreamLayerConstraints)`
+   IVSRemoteStageStreamLayerConstraints)`
 
 For details, see the `IVSRemoteStageStream` class in the [SDK
 reference documentation](https://aws.github.io/amazon-ivs-broadcast-docs/latest/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/latest/ios/"). For the `LayerSelected` reason,

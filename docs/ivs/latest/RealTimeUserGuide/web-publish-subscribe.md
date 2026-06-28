@@ -825,11 +825,11 @@ users:
   changes:
 
   - `stream.on(RemoteStageStreamEvents.ADAPTION_CHANGED,
-(isAdapting) => {})`
+   (isAdapting) => {})`
   - `stream.on(RemoteStageStreamEvents.LAYERS_CHANGED,
-(layers) => {})`
+   (layers) => {})`
   - `stream.on(RemoteStageStreamEvents.LAYER_SELECTED,
-(layer, reason) => {})`
+   (layer, reason) => {})`
 
 - **Layer Methods** —
   `RemoteStageStream` has several helper methods which can

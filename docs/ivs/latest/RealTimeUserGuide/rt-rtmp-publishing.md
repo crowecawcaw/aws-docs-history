@@ -58,42 +58,38 @@ meets the IVS [media specifications](rt-stream-ingest.md#supported-media-specifi
 
 ### OBS Guide
 
-1.  Download and install the software: [https://obsproject.com/download](https://obsproject.com/download "https://obsproject.com/download").
-2.  Click **Settings**. In the **Stream** section of the **Settings** panel, select **Custom** from the **Service**
-    dropdown.
-3.  For the **Server**, enter the RTMP or RTMPS
-    endpoint from the stage.
-4.  For the **Stream Key**, enter the
-    `streamKey` from the ingest configuration.
-5.  Configure your video settings as you normally would, with a few
-    restrictions:
+1. Download and install the software: [https://obsproject.com/download](https://obsproject.com/download "https://obsproject.com/download").
+2. Click **Settings**. In the **Stream** section of the **Settings** panel, select **Custom** from the **Service**
+   dropdown.
+3. For the **Server**, enter the RTMP or RTMPS
+   endpoint from the stage.
+4. For the **Stream Key**, enter the
+   `streamKey` from the ingest configuration.
+5. Configure your video settings as you normally would, with a few
+   restrictions:
 
-        1. IVS real-time streaming supports input up to 720p at 8.5 Mbps. If
-         you exceed either of these limits, your stream will be
-         disconnected.
-        2. We recommend setting your **Keyframe
-         Interval** in the **Output** panel to 1s or 2s. A low keyframe interval
-         allows video playback to start more quickly for viewers. We also
-         recommend setting **CPU Usage Preset**
-         to **veryfast** and **Tune** to **zerolatency**, to enable the lowest latency.
-        3. Because OBS does not support simulcast, we recommend keeping your
-         bitrate below 2.5 Mbps. This enables viewers on lower-bandwidth
-         connections to watch.
-        4. Disable B-frames, as streams with B-frames will be automatically
-         disconnected. Do one of the following:
+   1. IVS real-time streaming supports input up to 720p at 8.5 Mbps. If
+      you exceed either of these limits, your stream will be
+      disconnected.
+   2. We recommend setting your **Keyframe
+      Interval** in the **Output** panel to 1s or 2s. A low keyframe interval
+      allows video playback to start more quickly for viewers. We also
+      recommend setting **CPU Usage Preset**
+      to **veryfast** and **Tune** to **zerolatency**, to enable the lowest latency.
+   3. Because OBS does not support simulcast, we recommend keeping your
+      bitrate below 2.5 Mbps. This enables viewers on lower-bandwidth
+      connections to watch.
+   4. Disable B-frames, as streams with B-frames will be automatically
+      disconnected. Do one of the following:
 
+      - In x264 options, enter `bframes=0
+  sliced-threads=0`.
+      - Set B-frames to 0 if it is an option (e.g., for
+        NVENC).
+        Note: RTMP streams must include both audio and video tracks, or they will
+        be disconnected.
 
-
-
-        	* In x264 options, enter `bframes=0
-        	 sliced-threads=0`.
-        	* Set B-frames to 0 if it is an option (e.g., for
-        	 NVENC).
-
-    Note: RTMP streams must include both audio and video tracks, or they will
-    be disconnected.
-
-6.  Select **Start Streaming**
+6. Select **Start Streaming**
 
 **Important:** If your encoder’s maximum bitrate is
 set to 8.5 Mbps, the publisher occasionally disappears from the session. This is

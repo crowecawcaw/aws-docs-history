@@ -18,7 +18,7 @@ organized by date of release.
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 6.040 MB        | 14.665 MB         |
 | armeabi-v7a  | 5.232 MB        | 10.161 MB         |
-| x86_64       | 6.149 MB        | 15.246 MB         |
+| x86\_64      | 6.149 MB        | 15.246 MB         |
 | x86          | 6.425 MB        | 15.870 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -50,7 +50,7 @@ organized by date of release.
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.853 MB        | 14.194 MB         |
 | armeabi-v7a  | 5.078 MB        | 9.840 MB          |
-| x86_64       | 5.967 MB        | 14.758 MB         |
+| x86\_64      | 5.967 MB        | 14.758 MB         |
 | x86          | 6.220 MB        | 15.318 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -98,7 +98,7 @@ In addition, token exchange is now supported in the web broadcast SDK, implement
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.834 MB        | 14.157 MB         |
 | armeabi-v7a  | 5.056 MB        | 9.812 MB          |
-| x86_64       | 5.945 MB        | 14.721 MB         |
+| x86\_64      | 5.945 MB        | 14.721 MB         |
 | x86          | 6.200 MB        | 15.285 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -126,9 +126,9 @@ while also enabling continuous 24/7 streaming. For more information, see:
 
 ### IVS Broadcast SDK: Web 1.33.0 (Real-Time Streaming)
 
-| Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Web Broadcast SDK<br>1.33.0](broadcast-web.md "broadcast-web.md") | **Reference documentation:**<br>[https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference "https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference")<br>• Implemented the `exchangeToken` method for<br>real-time token exchange.<br>• Implemented the STAGE_PARTICIPANT_METADATA_CHANGED<br>event, which fires when `attributes` and/or<br>`userId` change(s) after token<br>exchanges.<br>• Added the `encoderImplementation` field on<br>the request local stage stream<br>`requestQualityStats()` method. |
+| Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Web Broadcast SDK<br>1.33.0](broadcast-web.md "broadcast-web.md") | **Reference documentation:**<br>[https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference "https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference")<br>• Implemented the `exchangeToken` method for<br>real-time token exchange.<br>• Implemented the STAGE\_PARTICIPANT\_METADATA\_CHANGED<br>event, which fires when `attributes` and/or<br>`userId` change(s) after token<br>exchanges.<br>• Added the `encoderImplementation` field on<br>the request local stage stream<br>`requestQualityStats()` method. |
 
 ## March 12, 2026
 
@@ -145,7 +145,7 @@ while also enabling continuous 24/7 streaming. For more information, see:
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.823 MB        | 14.139 MB         |
 | armeabi-v7a  | 5.046 MB        | 9.798 MB          |
-| x86_64       | 5.935 MB        | 14.702 MB         |
+| x86\_64      | 5.935 MB        | 14.702 MB         |
 | x86          | 6.190 MB        | 15.265 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -169,7 +169,7 @@ while also enabling continuous 24/7 streaming. For more information, see:
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.788 MB        | 14.059 MB         |
 | armeabi-v7a  | 5.016 MB        | 9.740 MB          |
-| x86_64       | 5.898 MB        | 14.615 MB         |
+| x86\_64      | 5.898 MB        | 14.615 MB         |
 | x86          | 6.154 MB        | 15.184 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -201,7 +201,7 @@ while also enabling continuous 24/7 streaming. For more information, see:
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.795 MB        | 14.070 MB         |
 | armeabi-v7a  | 5.021 MB        | 9.746 MB          |
-| x86_64       | 5.904 MB        | 14.630 MB         |
+| x86\_64      | 5.904 MB        | 14.630 MB         |
 | x86          | 6.161 MB        | 15.198 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -297,7 +297,7 @@ information.
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.754 MB        | 13.965 MB         |
 | armeabi-v7a  | 4.991 MB        | 9.683 MB          |
-| x86_64       | 5.858 MB        | 14.529 MB         |
+| x86\_64      | 5.858 MB        | 14.529 MB         |
 | x86          | 6.128 MB        | 15.120 MB         |
 
 ## December 9, 2025
@@ -336,7 +336,7 @@ Exchange](broadcast-mobile-token-exchange.md "broadcast-mobile-token-exchange.md
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.753 MB        | 13.961 MB         |
 | armeabi-v7a  | 4.990 MB        | 9.680 MB          |
-| x86_64       | 5.857 MB        | 14.525 MB         |
+| x86\_64      | 5.857 MB        | 14.525 MB         |
 | x86          | 6.127 MB        | 15.116 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -382,7 +382,7 @@ Recording_.
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.736 MB        | 13.898 MB         |
 | armeabi-v7a  | 4.974 MB        | 9.638 MB          |
-| x86_64       | 5.839 MB        | 14.456 MB         |
+| x86\_64      | 5.839 MB        | 14.456 MB         |
 | x86          | 6.109 MB        | 15.047 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -422,7 +422,7 @@ Quotas](service-quotas.md#quotas-other "service-quotas.md#quotas-other").
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.730 MB        | 13.900 MB         |
 | armeabi-v7a  | 4.971 MB        | 9.639 MB          |
-| x86_64       | 5.835 MB        | 14.455 MB         |
+| x86\_64      | 5.835 MB        | 14.455 MB         |
 | x86          | 6.104 MB        | 15.041 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -458,7 +458,7 @@ the [IVS Real-Time Streaming API Reference](../RealTimeAPIReference/Welcome.md "
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.796 MB        | 14.089 MB         |
 | armeabi-v7a  | 5.036 MB        | 9.788 MB          |
-| x86_64       | 5.906 MB        | 14.653 MB         |
+| x86\_64      | 5.906 MB        | 14.653 MB         |
 | x86          | 6.174 MB        | 15.240 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -513,7 +513,7 @@ Streaming User Guide_.
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.689 MB        | 13.829 MB         |
 | armeabi-v7a  | 4.962 MB        | 9.649 MB          |
-| x86_64       | 5.806 MB        | 14.413 MB         |
+| x86\_64      | 5.806 MB        | 14.413 MB         |
 | x86          | 6.066 MB        | 14.983 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -536,7 +536,7 @@ Streaming User Guide_.
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.693 MB        | 13.838 MB         |
 | armeabi-v7a  | 4.964 MB        | 9.653 MB          |
-| x86_64       | 5.810 MB        | 14.422 MB         |
+| x86\_64      | 5.810 MB        | 14.422 MB         |
 | x86          | 6.067 MB        | 14.988 MB         |
 
 ## July 23, 2025
@@ -572,7 +572,7 @@ Quotas](service-quotas.md#quotas-other "service-quotas.md#quotas-other").
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.692 MB        | 13.840 MB         |
 | armeabi-v7a  | 4.965 MB        | 9.655 MB          |
-| x86_64       | 5.810 MB        | 14.424 MB         |
+| x86\_64      | 5.810 MB        | 14.424 MB         |
 | x86          | 6.068 MB        | 14.990 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -645,7 +645,7 @@ documentation.
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.579 MB        | 13.594 MB         |
 | armeabi-v7a  | 4.864 MB        | 9.473 MB          |
-| x86_64       | 5.697 MB        | 14.173 MB         |
+| x86\_64      | 5.697 MB        | 14.173 MB         |
 | x86          | 5.951 MB        | 14.724 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -686,7 +686,7 @@ Guide and API Reference tables).
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.579 MB        | 13.592 MB         |
 | armeabi-v7a  | 4.863 MB        | 9.472 MB          |
-| x86_64       | 5.696 MB        | 14.171 MB         |
+| x86\_64      | 5.696 MB        | 14.171 MB         |
 | x86          | 5.950 MB        | 14.722 MB         |
 
 ## May 15, 2025
@@ -712,7 +712,7 @@ Guide and API Reference tables).
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.571 MB        | 13.577 MB         |
 | armeabi-v7a  | 4.857 MB        | 9.462 MB          |
-| x86_64       | 5.691 MB        | 14.156 MB         |
+| x86\_64      | 5.691 MB        | 14.156 MB         |
 | x86          | 5.944 MB        | 14.708 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -744,7 +744,7 @@ Guide and API Reference tables).
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.566 MB        | 13.546 MB         |
 | armeabi-v7a  | 4.853 MB        | 9.444 MB          |
-| x86_64       | 5.681 MB        | 14.119 MB         |
+| x86\_64      | 5.681 MB        | 14.119 MB         |
 | x86          | 5.939 MB        | 14.674 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -784,7 +784,7 @@ Quotas](service-quotas.md#quotas-other "service-quotas.md#quotas-other").
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.613 MB        | 13.760 MB         |
 | armeabi-v7a  | 4.885 MB        | 9.558 MB          |
-| x86_64       | 5.728 MB        | 14.342 MB         |
+| x86\_64      | 5.728 MB        | 14.342 MB         |
 | x86          | 5.987 MB        | 14.923 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -816,7 +816,7 @@ Quotas](service-quotas.md#quotas-other "service-quotas.md#quotas-other").
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.700 MB        | 14.197 MB         |
 | armeabi-v7a  | 4.945 MB        | 9.879 MB          |
-| x86_64       | 5.810 MB        | 14.802 MB         |
+| x86\_64      | 5.810 MB        | 14.802 MB         |
 | x86          | 6.073 MB        | 15.412 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -876,7 +876,7 @@ API Reference tables).
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.700 MB        | 14.197 MB         |
 | armeabi-v7a  | 4.944 MB        | 9.879 MB          |
-| x86_64       | 5.809 MB        | 14.802 MB         |
+| x86\_64      | 5.809 MB        | 14.802 MB         |
 | x86          | 6.073 MB        | 15.412 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -908,7 +908,7 @@ API Reference tables).
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.695 MB        | 14.186 MB         |
 | armeabi-v7a  | 4.939 MB        | 9.872 MB          |
-| x86_64       | 5.804 MB        | 14.790 MB         |
+| x86\_64      | 5.804 MB        | 14.790 MB         |
 | x86          | 6.065 MB        | 15.398 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -940,7 +940,7 @@ API Reference tables).
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.677 MB        | 14.103 MB         |
 | armeabi-v7a  | 4.905 MB        | 9.791 MB          |
-| x86_64       | 5.786 MB        | 14.725 MB         |
+| x86\_64      | 5.786 MB        | 14.725 MB         |
 | x86          | 6.030 MB        | 15.302 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -1002,7 +1002,7 @@ session. This is the first release of this new functionality. See:
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.521 MB        | 13.791 MB         |
 | armeabi-v7a  | 4.789 MB        | 9.623 MB          |
-| x86_64       | 5.718 MB        | 14.709 MB         |
+| x86\_64      | 5.718 MB        | 14.709 MB         |
 | x86          | 5.933 MB        | 15.163 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -1042,7 +1042,7 @@ session. This is the first release of this new functionality. See:
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.432 MB        | 13.560 MB         |
 | armeabi-v7a  | 4.707 MB        | 9.451 MB          |
-| x86_64       | 5.626 MB        | 14.459 MB         |
+| x86\_64      | 5.626 MB        | 14.459 MB         |
 | x86          | 5.838 MB        | 14.908 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -1066,7 +1066,7 @@ session. This is the first release of this new functionality. See:
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.359 MB        | 13.392 MB         |
 | armeabi-v7a  | 4.636 MB        | 9.325 MB          |
-| x86_64       | 5.548 MB        | 14.268 MB         |
+| x86\_64      | 5.548 MB        | 14.268 MB         |
 | x86          | 5.754 MB        | 14.710 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -1122,7 +1122,7 @@ Started with IVS Real-Time Streaming_, see [Publish and Subscribe to Video](gett
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.350 MB        | 13.378 MB         |
 | armeabi-v7a  | 4.628 MB        | 9.312 MB          |
-| x86_64       | 5.538 MB        | 14.253 MB         |
+| x86\_64      | 5.538 MB        | 14.253 MB         |
 | x86          | 5.744 MB        | 14.694 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -1154,7 +1154,7 @@ Started with IVS Real-Time Streaming_, see [Publish and Subscribe to Video](gett
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.318 MB        | 13.299 MB         |
 | armeabi-v7a  | 4.605 MB        | 9.254 MB          |
-| x86_64       | 5.507 MB        | 14.168 MB         |
+| x86\_64      | 5.507 MB        | 14.168 MB         |
 | x86          | 5.715 MB        | 14.608 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -1196,7 +1196,7 @@ Reference](../RealTimeAPIReference/Welcome.md "../RealTimeAPIReference/Welcome.m
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.304 MB        | 13.340 MB         |
 | armeabi-v7a  | 4.598 MB        | 9.299 MB          |
-| x86_64       | 5.495 MB        | 14.207 MB         |
+| x86\_64      | 5.495 MB        | 14.207 MB         |
 | x86          | 5.694 MB        | 14.625 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -1209,9 +1209,9 @@ Reference](../RealTimeAPIReference/Welcome.md "../RealTimeAPIReference/Welcome.m
 
 ### IVS Broadcast SDK: Web 1.13.0 (Real-Time Streaming)
 
-| Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Web Broadcast SDK<br>1.13.0](broadcast-web.md "broadcast-web.md") | **Reference documentation:**<br>[https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference "https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference")<br>• Updated the duration of event change behavior for<br>`StageEvents.STAGE_PARTICIPANT_SUBSCRIBE_STATE_CHANGED`<br>and<br>`StageEvents.STAGE_PARTICIPANT_PUBLISH_STATE_CHANGED`.<br>Participants now remain in the<br>`ATTEMPTING_SUBSCRIBE` or<br>`ATTEMPTING_PUBLISH` state for a longer<br>time, until the `ERRORED` event is<br>fired.<br>• Added the `StageEvents.ERROR` event for<br>listening to errors encountered by the SDK. See [Error<br>Handling](broadcast-web-error-handling.md "broadcast-web-error-handling.md") in the \*Real-Time Broadcast<br>SDK: Web Guide<br>• for more<br>information. |
+| Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Web Broadcast SDK<br>1.13.0](broadcast-web.md "broadcast-web.md") | **Reference documentation:**<br>[https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference "https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference")<br>• Updated the duration of event change behavior for<br>`StageEvents.STAGE_PARTICIPANT_SUBSCRIBE_STATE_CHANGED`<br>and<br>`StageEvents.STAGE_PARTICIPANT_PUBLISH_STATE_CHANGED`.<br>Participants now remain in the<br>`ATTEMPTING_SUBSCRIBE` or<br>`ATTEMPTING_PUBLISH` state for a longer<br>time, until the `ERRORED` event is<br>fired.<br>• Added the `StageEvents.ERROR` event for<br>listening to errors encountered by the SDK. See [Error<br>Handling](broadcast-web-error-handling.md "broadcast-web-error-handling.md") in the *Real-Time Broadcast<br>SDK: Web Guide<br>• for more<br>information. |
 
 ## May 20, 2024
 
@@ -1236,7 +1236,7 @@ Reference](../RealTimeAPIReference/Welcome.md "../RealTimeAPIReference/Welcome.m
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.275 MB        | 13.279 MB         |
 | armeabi-v7a  | 4.573 MB        | 9.254 MB          |
-| x86_64       | 5.472 MB        | 14.142 MB         |
+| x86\_64      | 5.472 MB        | 14.142 MB         |
 | x86          | 5.664 MB        | 14.554 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -1276,7 +1276,7 @@ Reference](../RealTimeAPIReference/Welcome.md "../RealTimeAPIReference/Welcome.m
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.244 MB        | 13.198 MB         |
 | armeabi-v7a  | 4.543 MB        | 9.192 MB          |
-| x86_64       | 5.437 MB        | 14.051 MB         |
+| x86\_64      | 5.437 MB        | 14.051 MB         |
 | x86          | 5.631 MB        | 14.461 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -1300,7 +1300,7 @@ Reference](../RealTimeAPIReference/Welcome.md "../RealTimeAPIReference/Welcome.m
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.273 MB        | 13.275 MB         |
 | armeabi-v7a  | 4.571 MB        | 9.251 MB          |
-| x86_64       | 5.468 MB        | 14.137 MB         |
+| x86\_64      | 5.468 MB        | 14.137 MB         |
 | x86          | 5.662 MB        | 14.549 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -1325,7 +1325,7 @@ Reference](../RealTimeAPIReference/Welcome.md "../RealTimeAPIReference/Welcome.m
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.253 MB        | 13.21 MB          |
 | armeabi-v7a  | 4.551 MB        | 9.204 MB          |
-| x86_64       | 5.447 MB        | 14.070 MB         |
+| x86\_64      | 5.447 MB        | 14.070 MB         |
 | x86          | 5.640 MB        | 14.480 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -1349,7 +1349,7 @@ Reference](../RealTimeAPIReference/Welcome.md "../RealTimeAPIReference/Welcome.m
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.243 MB        | 13.194 MB         |
 | armeabi-v7a  | 4.541 MB        | 9.188 MB          |
-| x86_64       | 5.628 MB        | 14.455 MB         |
+| x86\_64      | 5.628 MB        | 14.455 MB         |
 | x86          | 5.434 MB        | 14.046 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -1395,7 +1395,7 @@ Today we enabled the changes to the default grid layout that are described in th
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.243 MB        | 13.194 MB         |
 | armeabi-v7a  | 4.541 MB        | 9.188 MB          |
-| x86_64       | 5.628 MB        | 14.455 MB         |
+| x86\_64      | 5.628 MB        | 14.455 MB         |
 | x86          | 5.434 MB        | 14.046 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -1449,7 +1449,7 @@ standardize WebRTC ingestion. See the new page on [OBS and WHIP Support](obs-whi
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.223 MB        | 13.118 MB         |
 | armeabi-v7a  | 4.524 MB        | 9.134 MB          |
-| x86_64       | 5.418 MB        | 13.955 MB         |
+| x86\_64      | 5.418 MB        | 13.955 MB         |
 | x86          | 5.61 MB         | 14.369 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -1474,7 +1474,7 @@ standardize WebRTC ingestion. See the new page on [OBS and WHIP Support](obs-whi
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.187 MB        | 13.025 MB         |
 | armeabi-v7a  | 4.491 MB        | 9.056 MB          |
-| x86_64       | 5.359 MB        | 13.829 MB         |
+| x86\_64      | 5.359 MB        | 13.829 MB         |
 | x86          | 5.553 MB        | 14.214 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -1513,7 +1513,7 @@ Streaming](stage-health.md "stage-health.md").
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.177 MB        | 13.01 MB          |
 | armeabi-v7a  | 4.485 MB        | 9.045 MB          |
-| x86_64       | 5.352 MB        | 13.808 MB         |
+| x86\_64      | 5.352 MB        | 13.808 MB         |
 | x86          | 5.547 MB        | 14.192 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -1536,7 +1536,7 @@ Streaming](stage-health.md "stage-health.md").
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.177 MB        | 13.102 MB         |
 | armeabi-v7a  | 4.485 MB        | 9.046 MB          |
-| x86_64       | 5.353 MB        | 13.809 MB         |
+| x86\_64      | 5.353 MB        | 13.809 MB         |
 | x86          | 5.547 MB        | 14.192 MB         |
 
 ## November 17, 2023
@@ -1555,7 +1555,7 @@ Streaming](stage-health.md "stage-health.md").
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.17 MB         | 13.00 MB          |
 | armeabi-v7a  | 4.48 MB         | 9.04 MB           |
-| x86_64       | 5.35 MB         | 13.80 MB          |
+| x86\_64      | 5.35 MB         | 13.80 MB          |
 | x86          | 5.54 MB         | 14.18 MB          |
 
 #### Broadcast SDK Size: iOS
@@ -1654,7 +1654,7 @@ Reference](../RealTimeAPIReference/Welcome.md "../RealTimeAPIReference/Welcome.m
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.853 MB        | 16.375 MB         |
 | armeabi-v7a  | 4.895 MB        | 10.803 MB         |
-| x86_64       | 6.149 MB        | 17.318 MB         |
+| x86\_64      | 6.149 MB        | 17.318 MB         |
 | x86          | 6.328 MB        | 17.186 MB         |
 
 ## September 14, 2023
@@ -1682,7 +1682,7 @@ Reference](../RealTimeAPIReference/Welcome.md "../RealTimeAPIReference/Welcome.m
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.853 MB        | 16.375 MB         |
 | armeabi-v7a  | 4.895 MB        | 10.803 MB         |
-| x86_64       | 6.149 MB        | 17.318 MB         |
+| x86\_64      | 6.149 MB        | 17.318 MB         |
 | x86          | 6.328 MB        | 17.186 MB         |
 
 #### Broadcast SDK Size: iOS
@@ -1708,7 +1708,7 @@ Reference](../RealTimeAPIReference/Welcome.md "../RealTimeAPIReference/Welcome.m
 | ------------ | --------------- | ----------------- |
 | arm64-v8a    | 5.811 MB        | 16.186 MB         |
 | armeabi-v7a  | 4.857 MB        | 10.646 MB         |
-| x86_64       | 6.108 MB        | 17.122 MB         |
+| x86\_64      | 6.108 MB        | 17.122 MB         |
 | x86          | 6.289 MB        | 16.994 MB         |
 
 #### Broadcast SDK Size: iOS

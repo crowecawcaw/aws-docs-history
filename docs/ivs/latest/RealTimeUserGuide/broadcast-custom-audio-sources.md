@@ -39,11 +39,11 @@ with the same audio format that your audio-processing pipeline produces.
 
 #### Supported Audio Formats
 
-| Parameter   | Options                            | Description                                                                                                                                    |
-| ----------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| Channels    | 1 (mono), 2 (stereo)               | Number of audio channels.                                                                                                                      |
-| Sample rate | RATE_16000, RATE_44100, RATE_48000 | Audio sample rate in Hz. 48kHz recommended for high quality.                                                                                   |
-| Format      | INT16, FLOAT32                     | Audio sample format. INT16 is 16-bit fixed-point PCM, FLOAT32 is 32-bit floating-point PCM. Both interleaved and planar formats are available. |
+| Parameter   | Options                               | Description                                                                                                                                    |
+| ----------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Channels    | 1 (mono), 2 (stereo)                  | Number of audio channels.                                                                                                                      |
+| Sample rate | RATE\_16000, RATE\_44100, RATE\_48000 | Audio sample rate in Hz. 48kHz recommended for high quality.                                                                                   |
+| Format      | INT16, FLOAT32                        | Audio sample format. INT16 is 16-bit fixed-point PCM, FLOAT32 is 32-bit floating-point PCM. Both interleaved and planar formats are available. |
 
 ### Submitting Audio Data
 

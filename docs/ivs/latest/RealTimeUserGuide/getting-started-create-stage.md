@@ -118,13 +118,13 @@ attaching it to the new recording configuration.
     2. Enter a **Bucket name**.
 
 5. Choose **Create storage configuration**,
-   to create a new storage-configuration resource with a unique ARN.
-   Typically, creation of the recording configuration takes a few seconds,
-   but it can be up to 20 seconds. When the storage configuration is
-   created, you are returned to the **Create
-   stage** window. There, the **Record
-   individual participants** area shows your new **Storage configuration** and the S3 bucket
-   (**Storage**) that you created.
+to create a new storage-configuration resource with a unique ARN.
+Typically, creation of the recording configuration takes a few seconds,
+but it can be up to 20 seconds. When the storage configuration is
+created, you are returned to the **Create
+stage** window. There, the **Record
+individual participants** area shows your new **Storage configuration** and the S3 bucket
+(**Storage**) that you created.
 
 ![Create a stage using the IVS Console: New storage configuration created.](images/Create_Stage_Console_Storage_Configuration.png) 6. You can optionally enable other non-default options such as recording participant replicas,
 merging individual participant recordings, and thumbnail recording.
