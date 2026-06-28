@@ -55,8 +55,8 @@ User pools deliver `V1_0` events by default. To configure your user pool to
 send a `V2_0` event, choose a **Trigger event
 version** of **Basic features + access token
 customization for user identities** when you configure your trigger in the
-Amazon Cognito console. To produce `V3_0` events, choose \***\*Basic features + access token customization for user and machine
-identities\*\***. You can also set the value of
+Amazon Cognito console. To produce `V3_0` events, choose ****Basic features + access token customization for user and machine
+identities****. You can also set the value of
 `LambdaVersion` in the [LambdaConfig](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md#CognitoUserPools-UpdateUserPool-request-LambdaConfig "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md#CognitoUserPools-UpdateUserPool-request-LambdaConfig") parameters in an [UpdateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md") or [CreateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md") API request. Event versions one, two,
 and three are available in the **Essentials** and
 **Plus** feature plans. M2M operations for version three events

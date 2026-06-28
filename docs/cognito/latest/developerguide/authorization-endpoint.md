@@ -115,11 +115,11 @@ base64, then decode it in your app.
 Optional.
 
 Add this parameter to bypass managed login and redirect your
-user to a provider sign-in page. The value of the _identity_provider_ parameter is the
+user to a provider sign-in page. The value of the _identity\_provider_ parameter is the
 name of the identity provider (IdP) as it appears in your user
 pool.
 
-- For social providers, you can use the _identity_provider_ values
+- For social providers, you can use the _identity\_provider_ values
   `Facebook`, `Google`,
   `LoginWithAmazon`, and
   `SignInWithApple`.
@@ -134,7 +134,7 @@ pool.
 Optional.
 
 Add this parameter to redirect to a provider with an
-alternative name for the _identity_provider_ name. You can enter
+alternative name for the _identity\_provider_ name. You can enter
 identifiers for your SAML 2.0 and OIDC IdPs from the
 **Social and external providers** menu of
 the Amazon Cognito console.
@@ -518,16 +518,15 @@ following are examples of negative responses.
   appends an error message in a URL parameter. The following are examples
   of incorrect formatting.
 
-      + The request doesn't include a `response_type`
-       parameter.
-      + The authorization request provided a
-       `code_challenge` parameter, but not a
-       `code_challenge_method` parameter.
-      + The value of the `code_challenge_method` parameter
-       isn't `S256`.
-
-  The following is the response to an example request with incorrect
-  formatting.
+  - The request doesn't include a `response_type`
+    parameter.
+  - The authorization request provided a
+    `code_challenge` parameter, but not a
+    `code_challenge_method` parameter.
+  - The value of the `code_challenge_method` parameter
+    isn't `S256`.
+    The following is the response to an example request with incorrect
+    formatting.
 
 ```
 HTTP 1.1 302 Found Location: https://client_redirect_uri?error=invalid_request
@@ -605,8 +604,10 @@ HTTP 1.1 302 Found Location: https://client_redirect_uri?error=server_error
   messages:
 
   - ```
-    HTTP 1.1 302 Found Location: https://client_redirect_uri?error=invalid_request&error_description=Connection+reset
+
     ```
+
+  HTTP 1.1 302 Found Location: https://client_redirect_uri?error=invalid_request&error_description=Connection+reset
 
   ````
   + ```

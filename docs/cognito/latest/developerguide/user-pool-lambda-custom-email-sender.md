@@ -122,9 +122,9 @@ encrypt and decrypt your users' codes.
 4. Create the script for the Lambda function: `touch index.mjs`.
 5. Paste the contents of the below example into `index.mjs`.
 6. Download the project dependency, AWS Encryption SDK: `npm install
-@aws-crypto/client-node`.
+ @aws-crypto/client-node`.
 7. Zip the project directory into a file: `zip -r my_deployment_package.zip
-.`.
+ .`.
 8. [Deploy
    the ZIP file to your function](../../../lambda/latest/dg/nodejs-package.md "../../../lambda/latest/dg/nodejs-package.md").
 

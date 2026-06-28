@@ -111,7 +111,6 @@ then choose **Edit**. 9. Enter your user pool domain into **Allowed Origins**.
    1. `.../auth/userinfo.email`
    1. `.../auth/userinfo.profile`
    1. openid
-
 1. Under **Test users**, choose **Add users**.
    Enter your email address and any other authorized test users, and then choose
    **SAVE AND CONTINUE**.
@@ -304,12 +303,9 @@ be returned:
      the app from their Apple ID profile.
 
 8. Map attributes from your identity provider to your user pool. For more
-   information, see [Things to know about mappings](cognito-user-pools-specifying-attribute-mapping.md#cognito-user-pools-specifying-attribute-mapping-requirements "cognito-user-pools-specifying-attribute-mapping.md#cognito-user-pools-specifying-attribute-mapping-requirements").
-9. Choose **Create**.
-10. From the **App clients** menu, choose one of the app clients in
-    the list and **Edit hosted UI settings**. Add the new social identity
-    provider to the app client under **Identity providers**.
-11. Choose **Save changes**.
+information, see [Things to know about mappings](cognito-user-pools-specifying-attribute-mapping.md#cognito-user-pools-specifying-attribute-mapping-requirements "cognito-user-pools-specifying-attribute-mapping.md#cognito-user-pools-specifying-attribute-mapping-requirements"). 9. Choose **Create**. 10. From the **App clients** menu, choose one of the app clients in
+the list and **Edit hosted UI settings**. Add the new social identity
+provider to the app client under **Identity providers**. 11. Choose **Save changes**.
 
 ## Test your social IdP configuration
 
@@ -323,8 +319,8 @@ https://`mydomain.auth.us-east-1.amazoncognito.com`/login?response_type=code&cli
 ```
 
 You can find your domain on the user pool **Domain name** console
-page. The client_id is on the **App client settings** page. Use
-your callback URL for the **redirect_uri** parameter. This is the
+page. The client\_id is on the **App client settings** page. Use
+your callback URL for the **redirect\_uri** parameter. This is the
 URL of the page where your user will be redirected after a successful
 authentication.
 

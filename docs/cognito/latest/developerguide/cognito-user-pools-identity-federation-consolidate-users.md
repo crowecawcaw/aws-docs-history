@@ -23,10 +23,10 @@ You can then link more of your user's provider identities to the same profile, g
 one customer a consistent experience in your app. To link a federated user who has
 previously signed in, you must first delete their existing profile. You can identify
 existing profiles by their format: ``[Provider
- name]`\_identifier`. For example,
- `LoginWithAmazon_amzn1.account.AFAEXAMPLE`. A user that you created and
- then linked to a third-party user identity has the username that they were created with,
- and an `identities` attribute that contains the details of their linked
+name]`_identifier`. For example,
+`LoginWithAmazon_amzn1.account.AFAEXAMPLE`. A user that you created and
+then linked to a third-party user identity has the username that they were created with,
+and an `identities` attribute that contains the details of their linked
 identities.
 
 ###### Important

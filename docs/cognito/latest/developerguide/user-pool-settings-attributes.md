@@ -56,7 +56,7 @@ Except for `sub`, standard attributes are optional by default for all users. To
 make an attribute required, during the user pool creation process, select the
 **Required** check box next to the attribute. Amazon Cognito assigns a unique user
 identifier value to each user's `sub` attribute. Only the
-**email** and **phone_number** attributes can be
+**email** and **phone\_number** attributes can be
 verified.
 
 Standard attributes have predefined properties that you can view in the
@@ -92,7 +92,7 @@ the Amazon Cognito console to mark an email address as verified.
 Value must be a [valid email address string](https://datatracker.ietf.org/doc/html/rfc3696#section-3 "https://datatracker.ietf.org/doc/html/rfc3696#section-3") following the standard email format with @ symbol
 and domain, up to 2048 characters in length.
 
-**phone_number**
+**phone\_number**
 
 A user must provide a phone number if SMS multi-factor authentication (MFA) is
 active. For more information, see [Adding MFA to a user pool](user-pool-settings-mfa.md "user-pool-settings-mfa.md").
@@ -115,7 +115,7 @@ other characters from a phone number, such as parentheses, spaces, or dashes
 a phone number based in the United States must follow this format:
 `+14325551212`.
 
-**preferred_username**
+**preferred\_username**
 
 You can select `preferred_username` as required or as an alias, but not
 both. If the `preferred_username` is an alias, you can make a request to the
@@ -129,6 +129,12 @@ Index and search your users based on the `sub` attribute. The
 can change attributes like `phone_number` and `email`. The
 `sub` attribute has a fixed value. For more information about finding
 users, see [Managing and searching for user accounts](how-to-manage-user-accounts.md "how-to-manage-user-accounts.md").
+
+###### Important
+
+Amazon Cognito generates `sub` in an Amazon Cognito-specific format that doesn't conform
+to a specific UUID format, including RFC UUID. You shouldn't strictly validate the
+format of `sub`.
 
 ### View required attributes
 

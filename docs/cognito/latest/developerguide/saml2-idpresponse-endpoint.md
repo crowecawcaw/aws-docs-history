@@ -44,25 +44,25 @@ parameters that you would otherwise pass to the
 `oauth2/authorize` endpoint. For detailed
 information about these parameters, see [Authorize endpoint](authorization-endpoint.md "authorization-endpoint.md").
 
-_response_type_
+_response\_type_
 
 The OAuth 2.0 grant type.
 
-_client_id_
+_client\_id_
 
 The app client ID.
 
-_redirect_uri_
+_redirect\_uri_
 
 The URL where the authentication server redirects
 the browser after Amazon Cognito authorizes the user.
 
-_identity_provider_
+_identity\_provider_
 
 The name of the identity provider where you want
 to redirect your user.
 
-_idp_identifier_
+_idp\_identifier_
 
 The identifier of the identity provider where you
 want to redirect your user.

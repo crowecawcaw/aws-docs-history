@@ -42,7 +42,7 @@ iOS.
 
 ### Request parameters
 
-_client_id_
+_client\_id_
 
 The app client ID for your app. To get an app client ID, you
 must register the app in the user pool. For more information,
@@ -50,27 +50,27 @@ see [Application-specific settings with app clients](user-pool-settings-client-a
 
 Required.
 
-_logout_uri_
+_logout\_uri_
 
-Redirect your user to a custom sign-out page with a _logout_uri_ parameter. Set its value
+Redirect your user to a custom sign-out page with a _logout\_uri_ parameter. Set its value
 to the app client **sign-out URL** where you
-want to redirect your user after they sign out. Use _logout_uri_ only with a _client_id_ parameter. For more
+want to redirect your user after they sign out. Use _logout\_uri_ only with a _client\_id_ parameter. For more
 information, see [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
 
-You can also use the _logout_uri_ parameter to redirect your user to
+You can also use the _logout\_uri_ parameter to redirect your user to
 the sign-in page for another app client. Set the sign-in page
 for the other app client as an **Allowed callback
 URL** in your app client. In your request to the
 `/logout` endpoint, set the value of the
-_logout_uri_ parameter to
+_logout\_uri_ parameter to
 the URL-encoded sign-in page.
 
-Amazon Cognito requires either a _logout_uri_ or a _redirect_uri_ parameter in your request to the
-`/logout` endpoint. A _logout_uri_ parameter redirects your user to
-another website. If both _logout_uri_ and _redirect_uri_ parameters are included in your
+Amazon Cognito requires either a _logout\_uri_ or a _redirect\_uri_ parameter in your request to the
+`/logout` endpoint. A _logout\_uri_ parameter redirects your user to
+another website. If both _logout\_uri_ and _redirect\_uri_ parameters are included in your
 request to the `/logout` endpoint, Amazon Cognito will utilize
-the _logout_uri_ parameter
-exclusively, overriding the _redirect_uri_ parameter.
+the _logout\_uri_ parameter
+exclusively, overriding the _redirect\_uri_ parameter.
 
 _`nonce`_
 
@@ -81,33 +81,33 @@ inspect the `nonce` claim in the ID token and compare
 it to the one you generated. For more information about the
 `nonce` claim, see [ID token validation](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation "https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation") in the _OpenID Connect standard_.
 
-**redirect_uri**
+**redirect\_uri**
 
 Redirect your user to your sign-in page to authenticate with a
-_redirect_uri_ parameter.
+_redirect\_uri_ parameter.
 Set its value to the app client **Allowed callback
 URL** where you want to redirect your user after
-they sign in again. Add _client_id_, _scope_, _state_,
-and _response_type_ parameters
+they sign in again. Add _client\_id_, _scope_, _state_,
+and _response\_type_ parameters
 that you want to pass to your `/login`
 endpoint.
 
-Amazon Cognito requires either a _logout_uri_ or a _redirect_uri_ parameter in your request to the
+Amazon Cognito requires either a _logout\_uri_ or a _redirect\_uri_ parameter in your request to the
 `/logout` endpoint. To redirect your user to your
 `/login` endpoint to reauthenticate and pass
-tokens to your app, add a _redirect_uri_ parameter. If both _logout_uri_ and _redirect_uri_ parameters are
+tokens to your app, add a _redirect\_uri_ parameter. If both _logout\_uri_ and _redirect\_uri_ parameters are
 included in your request to the `/logout` endpoint,
-Amazon Cognito overrides the _redirect_uri_ parameter and processes the
-_logout_uri_ parameter
+Amazon Cognito overrides the _redirect\_uri_ parameter and processes the
+_logout\_uri_ parameter
 exclusively.
 
-_response_type_
+_response\_type_
 
 The OAuth 2.0 response that you want to receive from Amazon Cognito
 after your user signs in. `code` and
-`token` are the valid values for the _response_type_ parameter.
+`token` are the valid values for the _response\_type_ parameter.
 
-Required if you use a _redirect_uri_ parameter.
+Required if you use a _redirect\_uri_ parameter.
 
 _state_
 
@@ -122,16 +122,16 @@ URL-encoded JSON string. To pass a string that matches this
 format in a `state` parameter, encode the string to
 base64, then decode it in your application.
 
-Strongly recommended if you use a _redirect_uri_ parameter.
+Strongly recommended if you use a _redirect\_uri_ parameter.
 
 _scope_
 
 The OAuth 2.0 scopes that you want to request from Amazon Cognito after
-you sign them out with a _redirect_uri_ parameter. Amazon Cognito redirects your
+you sign them out with a _redirect\_uri_ parameter. Amazon Cognito redirects your
 user to the `/login` endpoint with the _scope_ parameter in your request to
 the `/logout` endpoint.
 
-Optional if you use a _redirect_uri_ parameter. If you don't include a
+Optional if you use a _redirect\_uri_ parameter. If you don't include a
 _scope_ parameter, Amazon Cognito
 redirects your user to the `/login` endpoint with a
 _scope_ parameter. When

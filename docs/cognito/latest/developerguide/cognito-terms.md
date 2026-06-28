@@ -141,7 +141,8 @@ documents that your user passes to Amazon Cognito.
 **Universally Unique Identifier (UUID)**
 
 A 128-bit label that is applied to an object. Amazon Cognito UUIDs are unique per user pool
-or identity pool, but don't conform to a specific UUID format.
+or identity pool, but don't conform to a specific UUID format, including RFC UUID. You
+shouldn't strictly validate the format of Amazon Cognito identifiers.
 
 **User directory**
 

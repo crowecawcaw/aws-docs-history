@@ -101,6 +101,12 @@ A unique identifier ([UUID](cognito-terms.md#terms-uuid "cognito-terms.md#terms-
 authenticated user. The username might not be unique in your user pool. The
 `sub` claim is the best way to identify a given user.
 
+###### Important
+
+Amazon Cognito generates `sub` in an Amazon Cognito-specific format that doesn't
+conform to a specific UUID format, including RFC UUID. You shouldn't strictly
+validate the format of `sub`.
+
 **`cognito:groups`**
 
 An array of the names of user pool groups that have your user as a member. Groups

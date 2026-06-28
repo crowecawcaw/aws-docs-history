@@ -56,7 +56,7 @@ with one or more user pools and client apps.
    1. You can give users from that IdP the **Default role** that you
       set up when you configured your **Authenticated role**, or you can
       **Choose role with rules**. With an Amazon Cognito user pool IdP, you can
-      also **Choose role with preferred_role claim in tokens**. For more
+      also **Choose role with preferred\_role claim in tokens**. For more
       information about the `cognito:preferred_role` claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups "cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups").
 
       1. If you chose **Choose role with rules**, enter the source
@@ -67,7 +67,7 @@ with one or more user pools and client apps.
          **Role assignment** matches. Select **Add
          another** to create an additional rule based on a different
          condition.
-      2. If you chose **Choose role with preferred_role claim in
+      2. If you chose **Choose role with preferred\_role claim in
          tokens**, Amazon Cognito issues credentials for the role in your user's
          `cognito:preferred_role` claim. If no preferred role claim is
          present, Amazon Cognito issues credentials based on your **Role

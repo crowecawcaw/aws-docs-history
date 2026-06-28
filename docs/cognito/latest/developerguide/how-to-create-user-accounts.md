@@ -121,7 +121,7 @@ can omit values for required attributes when they create users _with
 temporary passwords_. You can't omit required-attribute values for passwordless
 users.
 
-Users with missing values for required attributes and a temporary password get a [NEW_PASSWORD_REQUIRED](../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md#CognitoUserPools-RespondToAuthChallenge-request-ChallengeResponses "../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md#CognitoUserPools-RespondToAuthChallenge-request-ChallengeResponses") challenge at first sign-in. They can then provide a value for
+Users with missing values for required attributes and a temporary password get a [NEW\_PASSWORD\_REQUIRED](../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md#CognitoUserPools-RespondToAuthChallenge-request-ChallengeResponses "../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md#CognitoUserPools-RespondToAuthChallenge-request-ChallengeResponses") challenge at first sign-in. They can then provide a value for
 the missing required attributes in the `requiredAttributes` parameter. You can
 create users with passwords and without required attributes only if all required attributes
 are [mutable](user-pool-settings-attributes.md#user-pool-settings-custom-attributes "user-pool-settings-attributes.md#user-pool-settings-custom-attributes"). Users can only
@@ -215,23 +215,41 @@ message. If the variable, for example **{####}**, is not included,
 your user will have insufficient information to complete the message action.
 
 For more information, see [Message
-templates](cognito-user-pool-settings-message-templates.md "cognito-user-pool-settings-message-templates.md"). 5. 1. **Verification messages** 1. Choose a **Verification type** for
-**Email** messages. A **Code** verification
-sends a numeric code that the user must enter. A **Link**
-verification sends a link the user can click to verify their contact
-information. The text in the variable for a **Link** message is
-displayed as hyperlink text. For example, a message template using the variable
-{##Click here##} is displayed as Click here in the email
-message. 2. Enter an **Email subject** for **Email**
-messages. 3. Enter a custom **Email message** template for
-**Email** messages. You can customize this template with
-HTML. 4. Enter a custom **SMS message** template for
-**SMS** messages. 5. Choose **Save changes**. 2. **Invitation messages** 1. Enter an **Email subject** for **Email**
-messages. 2. Enter a custom **Email message** template for
-**Email** messages. You can customize this template with
-HTML. 3. Enter a custom **SMS message** template for
-**SMS** messages. 4. Choose **Save changes**. 3. **MFA messages** 1. Enter a custom **SMS message** template for
-**SMS** messages. 2. Choose **Save changes**.
+templates](cognito-user-pool-settings-message-templates.md "cognito-user-pool-settings-message-templates.md"). 5. 1. **Verification messages**
+
+    	1. Choose a **Verification type** for
+    	 **Email** messages. A **Code** verification
+    	 sends a numeric code that the user must enter. A **Link**
+    	 verification sends a link the user can click to verify their contact
+    	 information. The text in the variable for a **Link** message is
+    	 displayed as hyperlink text. For example, a message template using the variable
+    	 {##Click here##} is displayed as Click here in the email
+    	 message.
+    	2. Enter an **Email subject** for **Email**
+    	 messages.
+    	3. Enter a custom **Email message** template for
+    	 **Email** messages. You can customize this template with
+    	 HTML.
+    	4. Enter a custom **SMS message** template for
+    	 **SMS** messages.
+    	5. Choose **Save changes**.
+    2. **Invitation messages**
+
+
+    	1. Enter an **Email subject** for **Email**
+    	 messages.
+    	2. Enter a custom **Email message** template for
+    	 **Email** messages. You can customize this template with
+    	 HTML.
+    	3. Enter a custom **SMS message** template for
+    	 **SMS** messages.
+    	4. Choose **Save changes**.
+    3. **MFA messages**
+
+
+    	1. Enter a custom **SMS message** template for
+    	 **SMS** messages.
+    	2. Choose **Save changes**.
 
 ### Create a user
 

@@ -223,14 +223,13 @@ contain additional characters of any type up to the maximum password length.
     * Non-leading, non-trailing space characters.
 
 6. Set a value for **Temporary passwords set by administrators expire
-   in**. After this period has passed, a new user that you created in the Amazon Cognito
-   console or with `AdminCreateUser` can't sign in and set a new password. After
-   they sign in with their temporary password, their user accounts never expire. To update
-   the password duration in the Amazon Cognito user pools API, set a value for [TemporaryPasswordValidityDays](../../../cognito-user-identity-pools/latest/APIReference/API_PasswordPolicyType.md#CognitoUserPools-Type-PasswordPolicyType-TemporaryPasswordValidityDays "../../../cognito-user-identity-pools/latest/APIReference/API_PasswordPolicyType.md#CognitoUserPools-Type-PasswordPolicyType-TemporaryPasswordValidityDays") in your [CreateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md") or [UpdateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md") API request.
-7. Set a value for **Prevent use of previous passwords**, if available.
-   To use this feature, choose the Essentials or Plus [feature tier](cognito-sign-in-feature-plans.md "cognito-sign-in-feature-plans.md") in your user pool. The value
-   of this parameter is the number of previous passwords that a new password is prevented
-   from matching when a user resets their password.
+in**. After this period has passed, a new user that you created in the Amazon Cognito
+console or with `AdminCreateUser` can't sign in and set a new password. After
+they sign in with their temporary password, their user accounts never expire. To update
+the password duration in the Amazon Cognito user pools API, set a value for [TemporaryPasswordValidityDays](../../../cognito-user-identity-pools/latest/APIReference/API_PasswordPolicyType.md#CognitoUserPools-Type-PasswordPolicyType-TemporaryPasswordValidityDays "../../../cognito-user-identity-pools/latest/APIReference/API_PasswordPolicyType.md#CognitoUserPools-Type-PasswordPolicyType-TemporaryPasswordValidityDays") in your [CreateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md") or [UpdateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md") API request. 7. Set a value for **Prevent use of previous passwords**, if available.
+To use this feature, choose the Essentials or Plus [feature tier](cognito-sign-in-feature-plans.md "cognito-sign-in-feature-plans.md") in your user pool. The value
+of this parameter is the number of previous passwords that a new password is prevented
+from matching when a user resets their password.
 
 To reset access for an expired user account, do one of the following:
 

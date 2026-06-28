@@ -267,7 +267,7 @@ fields **awsSdkVersion** and
 The version of the AWS SDK that generated the
 request.
 
-\***\*clientId\*\***
+****clientId****
 
 The ID of the user pool app client.
 
@@ -446,72 +446,72 @@ request.
 The following table describes the source strings for the Lambda triggers that Amazon Cognito
 can invoke when your app creates, signs in, or updates a local user.
 
-| Local user trigger sources in the Amazon Cognito API                                                                                                                                                                                                                                                                                                                                                                                  | API operation                                                                                               | Lambda trigger                           | Trigger source |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------- | -------------- |
-| [AdminCreateUser](../../../cognito-user-identity-pools/latest/APIReference/API_AdminCreateUser.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminCreateUser.md")                                                                                                                                                                                                                                                  | Pre sign-up                                                                                                 | `PreSignUp_AdminCreateUser`              |
-| Pre token generation                                                                                                                                                                                                                                                                                                                                                                                                                  | `TokenGeneration_NewPasswordChallenge`                                                                      |
-| Custom message                                                                                                                                                                                                                                                                                                                                                                                                                        | `CustomMessage_AdminCreateUser`                                                                             |
-| Custom email sender                                                                                                                                                                                                                                                                                                                                                                                                                   | `CustomEmailSender_AdminCreateUser`                                                                         |
-| Custom SMS sender                                                                                                                                                                                                                                                                                                                                                                                                                     | `CustomSMSSender_AdminCreateUser`                                                                           |
-| [SignUp](../../../cognito-user-identity-pools/latest/APIReference/API_SignUp.md "../../../cognito-user-identity-pools/latest/APIReference/API_SignUp.md")                                                                                                                                                                                                                                                                             | Pre sign-up                                                                                                 | `PreSignUp_SignUp`                       |
-| Custom message                                                                                                                                                                                                                                                                                                                                                                                                                        | `CustomMessage_SignUp`                                                                                      |
-| Custom email sender                                                                                                                                                                                                                                                                                                                                                                                                                   | `CustomEmailSender_SignUp`                                                                                  |
-| Custom SMS sender                                                                                                                                                                                                                                                                                                                                                                                                                     | `CustomSMSSender_SignUp`                                                                                    |
-| [ConfirmSignUp](../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.md "../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.md")<br>[AdminConfirmSignUp](../../../cognito-user-identity-pools/latest/APIReference/API_AdminConfirmSignUp.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminConfirmSignUp.md")                                                       | Post confirmation                                                                                           | `PostConfirmation_ConfirmSignUp`         |
-| [InitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md")<br>[AdminInitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md")                                                             | Pre authentication                                                                                          | `PreAuthentication_Authentication`       |
-| Post authentication                                                                                                                                                                                                                                                                                                                                                                                                                   | `PostAuthentication_Authentication`                                                                         |
-| Define auth challenge                                                                                                                                                                                                                                                                                                                                                                                                                 | `DefineAuthChallenge_Authentication`                                                                        |
-| Create auth challenge                                                                                                                                                                                                                                                                                                                                                                                                                 | `CreateAuthChallenge_Authentication`                                                                        |
-| Verify auth challenge                                                                                                                                                                                                                                                                                                                                                                                                                 | `VerifyAuthChallenge_Authentication`                                                                        |
-| Pre token generation                                                                                                                                                                                                                                                                                                                                                                                                                  | `TokenGeneration_Authentication`<br>`TokenGeneration_AuthenticateDevice`<br>`TokenGeneration_RefreshTokens` |
-| Migrate user                                                                                                                                                                                                                                                                                                                                                                                                                          | `UserMigration_Authentication`                                                                              |
-| Custom message                                                                                                                                                                                                                                                                                                                                                                                                                        | `CustomMessage_Authentication`                                                                              |
-| Custom email sender                                                                                                                                                                                                                                                                                                                                                                                                                   | `CustomEmailSender_AccountTakeOverNotification`<br>`CustomEmailSender_Authentication`                       |
-| Custom SMS sender                                                                                                                                                                                                                                                                                                                                                                                                                     | `CustomSMSSender_Authentication`                                                                            |
-| [RespondToAuthChallenge](../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md "../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md")<br>[AdminRespondToAuthChallenge](../../../cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.md") | Post authentication                                                                                         | `PostAuthentication_Authentication`      |
-| Define auth challenge                                                                                                                                                                                                                                                                                                                                                                                                                 | `DefineAuthChallenge_Authentication`                                                                        |
-| Create auth challenge                                                                                                                                                                                                                                                                                                                                                                                                                 | `CreateAuthChallenge_Authentication`                                                                        |
-| Verify auth challenge                                                                                                                                                                                                                                                                                                                                                                                                                 | `VerifyAuthChallenge_Authentication`                                                                        |
-| Pre token generation                                                                                                                                                                                                                                                                                                                                                                                                                  | `TokenGeneration_Authentication`<br>`TokenGeneration_AuthenticateDevice`<br>`TokenGeneration_RefreshTokens` |
-| Custom message                                                                                                                                                                                                                                                                                                                                                                                                                        | `CustomMessage_Authentication`                                                                              |
-| Custom email sender                                                                                                                                                                                                                                                                                                                                                                                                                   | `CustomEmailSender_AccountTakeOverNotification`<br>`CustomEmailSender_Authentication`                       |
-| Custom SMS sender                                                                                                                                                                                                                                                                                                                                                                                                                     | `CustomSMSSender_Authentication`                                                                            |
-| [ForgotPassword](../../../cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.md "../../../cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.md")                                                                                                                                                                                                                                                     | Migrate user                                                                                                | `UserMigration_ForgotPassword`           |
-| Custom message                                                                                                                                                                                                                                                                                                                                                                                                                        | `CustomMessage_ForgotPassword`                                                                              |
-| Custom email sender                                                                                                                                                                                                                                                                                                                                                                                                                   | `CustomEmailSender_ForgotPassword`                                                                          |
-| Custom SMS sender                                                                                                                                                                                                                                                                                                                                                                                                                     | `CustomSMSSender_ForgotPassword`                                                                            |
-| [ConfirmForgotPassword](../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.md "../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.md")                                                                                                                                                                                                                                | Post confirmation                                                                                           | `PostConfirmation_ConfirmForgotPassword` |
-| [UpdateUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.md")<br>[AdminUpdateUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.md")             | Custom message                                                                                              | `CustomMessage_UpdateUserAttribute`      |
-| Custom email sender                                                                                                                                                                                                                                                                                                                                                                                                                   | `CustomEmailSender_UpdateUserAttribute`                                                                     |
-| Custom SMS sender                                                                                                                                                                                                                                                                                                                                                                                                                     | `CustomSMSSender_UpdateUserAttribute`                                                                       |
-| [VerifyUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttributes.md")                                                                                                                                                                                                                                   | Custom message                                                                                              | `CustomMessage_VerifyUserAttribute`      |
-| Custom email sender                                                                                                                                                                                                                                                                                                                                                                                                                   | `CustomEmailSender_VerifyUserAttribute`                                                                     |
-| Custom SMS sender                                                                                                                                                                                                                                                                                                                                                                                                                     | `CustomSMSSender_VerifyUserAttribute`                                                                       |
-| [GetTokensFromRefreshToken](../../../cognito-user-identity-pools/latest/APIReference/API_GetTokensFromRefreshToken.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetTokensFromRefreshToken.md")                                                                                                                                                                                                                    | Pre token generation                                                                                        | `TokenGeneration_Authentication`         |
+Local user trigger sources in the Amazon Cognito API| API operation | Lambda trigger | Trigger source |
+| --- | --- | --- |
+| [AdminCreateUser](../../../cognito-user-identity-pools/latest/APIReference/API_AdminCreateUser.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminCreateUser.md") | Pre sign-up | `PreSignUp_AdminCreateUser` |
+| Pre token generation | `TokenGeneration_NewPasswordChallenge` |
+| Custom message | `CustomMessage_AdminCreateUser` |
+| Custom email sender | `CustomEmailSender_AdminCreateUser` |
+| Custom SMS sender | `CustomSMSSender_AdminCreateUser` |
+| [SignUp](../../../cognito-user-identity-pools/latest/APIReference/API_SignUp.md "../../../cognito-user-identity-pools/latest/APIReference/API_SignUp.md") | Pre sign-up | `PreSignUp_SignUp` |
+| Custom message | `CustomMessage_SignUp` |
+| Custom email sender | `CustomEmailSender_SignUp` |
+| Custom SMS sender | `CustomSMSSender_SignUp` |
+| [ConfirmSignUp](../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.md "../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.md")<br>[AdminConfirmSignUp](../../../cognito-user-identity-pools/latest/APIReference/API_AdminConfirmSignUp.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminConfirmSignUp.md") | Post confirmation | `PostConfirmation_ConfirmSignUp` |
+| [InitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md")<br>[AdminInitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.md") | Pre authentication | `PreAuthentication_Authentication` |
+| Post authentication | `PostAuthentication_Authentication` |
+| Define auth challenge | `DefineAuthChallenge_Authentication` |
+| Create auth challenge | `CreateAuthChallenge_Authentication` |
+| Verify auth challenge | `VerifyAuthChallenge_Authentication` |
+| Pre token generation | `TokenGeneration_Authentication`<br>`TokenGeneration_AuthenticateDevice`<br>`TokenGeneration_RefreshTokens` |
+| Migrate user | `UserMigration_Authentication` |
+| Custom message | `CustomMessage_Authentication` |
+| Custom email sender | `CustomEmailSender_AccountTakeOverNotification`<br>`CustomEmailSender_Authentication` |
+| Custom SMS sender | `CustomSMSSender_Authentication` |
+| [RespondToAuthChallenge](../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md "../../../cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.md")<br>[AdminRespondToAuthChallenge](../../../cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.md") | Post authentication | `PostAuthentication_Authentication` |
+| Define auth challenge | `DefineAuthChallenge_Authentication` |
+| Create auth challenge | `CreateAuthChallenge_Authentication` |
+| Verify auth challenge | `VerifyAuthChallenge_Authentication` |
+| Pre token generation | `TokenGeneration_Authentication`<br>`TokenGeneration_AuthenticateDevice`<br>`TokenGeneration_RefreshTokens` |
+| Custom message | `CustomMessage_Authentication` |
+| Custom email sender | `CustomEmailSender_AccountTakeOverNotification`<br>`CustomEmailSender_Authentication` |
+| Custom SMS sender | `CustomSMSSender_Authentication` |
+| [ForgotPassword](../../../cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.md "../../../cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.md") | Migrate user | `UserMigration_ForgotPassword` |
+| Custom message | `CustomMessage_ForgotPassword` |
+| Custom email sender | `CustomEmailSender_ForgotPassword` |
+| Custom SMS sender | `CustomSMSSender_ForgotPassword` |
+| [ConfirmForgotPassword](../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.md "../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.md") | Post confirmation | `PostConfirmation_ConfirmForgotPassword` |
+| [UpdateUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.md")<br>[AdminUpdateUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.md") | Custom message | `CustomMessage_UpdateUserAttribute` |
+| Custom email sender | `CustomEmailSender_UpdateUserAttribute` |
+| Custom SMS sender | `CustomSMSSender_UpdateUserAttribute` |
+| [VerifyUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttributes.md") | Custom message | `CustomMessage_VerifyUserAttribute` |
+| Custom email sender | `CustomEmailSender_VerifyUserAttribute` |
+| Custom SMS sender | `CustomSMSSender_VerifyUserAttribute` |
+| [GetTokensFromRefreshToken](../../../cognito-user-identity-pools/latest/APIReference/API_GetTokensFromRefreshToken.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetTokensFromRefreshToken.md") | Pre token generation | `TokenGeneration_Authentication` |
 
 ### Lambda triggers for Amazon Cognito local users in managed login
 
 The following table describes the source strings for the Lambda triggers that Amazon Cognito
 can invoke when a local user signs in to your user pool with managed login.
 
-| Local user trigger sources in managed login | Managed login URI                                                                                           | Lambda trigger                           | Trigger source |
-| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------- | -------------- |
-| `/signup`                                   | Pre sign-up                                                                                                 | `PreSignUp_SignUp`                       |
-| Custom message                              | `CustomMessage_SignUp`                                                                                      |
-| Custom email sender                         | `CustomEmailSender_SignUp`                                                                                  |
-| Custom SMS sender                           | `CustomSMSSender_SignUp`                                                                                    |
-| `/confirmuser`                              | Post confirmation                                                                                           | `PostConfirmation_ConfirmSignUp`         |
-| `/login`                                    | Pre authentication                                                                                          | `PreAuthentication_Authentication`       |
-| Pre token generation                        | `TokenGeneration_Authentication`<br>`TokenGeneration_AuthenticateDevice`<br>`TokenGeneration_RefreshTokens` |
-| Migrate user                                | `UserMigration_Authentication`                                                                              |
-| Custom message                              | `CustomMessage_Authentication`                                                                              |
-| Custom email sender                         | `CustomEmailSender_AccountTakeOverNotification`<br>`CustomEmailSender_Authentication`                       |
-| Custom SMS sender                           | `CustomSMSSender_Authentication`                                                                            |
-| `/forgotpassword`                           | Migrate user                                                                                                | `UserMigration_ForgotPassword`           |
-| Custom message                              | `CustomMessage_ForgotPassword`                                                                              |
-| Custom email sender                         | `CustomEmailSender_ForgotPassword`                                                                          |
-| Custom SMS sender                           | `CustomSMSSender_ForgotPassword`                                                                            |
-| `/confirmforgotpassword`                    | Post confirmation                                                                                           | `PostConfirmation_ConfirmForgotPassword` |
+Local user trigger sources in managed login| Managed login URI | Lambda trigger | Trigger source |
+| --- | --- | --- |
+| `/signup` | Pre sign-up | `PreSignUp_SignUp` |
+| Custom message | `CustomMessage_SignUp` |
+| Custom email sender | `CustomEmailSender_SignUp` |
+| Custom SMS sender | `CustomSMSSender_SignUp` |
+| `/confirmuser` | Post confirmation | `PostConfirmation_ConfirmSignUp` |
+| `/login` | Pre authentication | `PreAuthentication_Authentication` |
+| Pre token generation | `TokenGeneration_Authentication`<br>`TokenGeneration_AuthenticateDevice`<br>`TokenGeneration_RefreshTokens` |
+| Migrate user | `UserMigration_Authentication` |
+| Custom message | `CustomMessage_Authentication` |
+| Custom email sender | `CustomEmailSender_AccountTakeOverNotification`<br>`CustomEmailSender_Authentication` |
+| Custom SMS sender | `CustomSMSSender_Authentication` |
+| `/forgotpassword` | Migrate user | `UserMigration_ForgotPassword` |
+| Custom message | `CustomMessage_ForgotPassword` |
+| Custom email sender | `CustomEmailSender_ForgotPassword` |
+| Custom SMS sender | `CustomSMSSender_ForgotPassword` |
+| `/confirmforgotpassword` | Post confirmation | `PostConfirmation_ConfirmForgotPassword` |
 
 ### Lambda triggers for federated users
 
@@ -525,14 +525,14 @@ request to the [Authorize endpoint](authorization-endpoint.md "authorization-end
 identity provider sign-in page. You can't sign in federated users with the Amazon Cognito
 user pools API.
 
-| Federated user trigger sources | Sign-in event                       | Lambda trigger                     | Trigger source |
-| ------------------------------ | ----------------------------------- | ---------------------------------- | -------------- |
-| First sign-in                  | Pre sign-up                         | `PreSignUp_ExternalProvider`       |
-| Post confirmation              | `PostConfirmation_ConfirmSignUp`    |
-| Pre token generation           | `TokenGeneration_HostedAuth`        |
-| Subsequent sign-ins            | Pre authentication                  | `PreAuthentication_Authentication` |
-| Post authentication            | `PostAuthentication_Authentication` |
-| Pre token generation           | `TokenGeneration_HostedAuth`        |
+Federated user trigger sources| Sign-in event | Lambda trigger | Trigger source |
+| --- | --- | --- |
+| First sign-in | Pre sign-up | `PreSignUp_ExternalProvider` |
+| Post confirmation | `PostConfirmation_ConfirmSignUp` |
+| Pre token generation | `TokenGeneration_HostedAuth` |
+| Subsequent sign-ins | Pre authentication | `PreAuthentication_Authentication` |
+| Post authentication | `PostAuthentication_Authentication` |
+| Pre token generation | `TokenGeneration_HostedAuth` |
 
 Federated sign-in does not invoke any [Custom authentication challenge Lambda triggers](user-pool-lambda-challenge.md "user-pool-lambda-challenge.md"), [Migrate user Lambda trigger](user-pool-lambda-migrate-user.md "user-pool-lambda-migrate-user.md"), [Custom message Lambda trigger](user-pool-lambda-custom-message.md "user-pool-lambda-custom-message.md"), or [Custom sender Lambda triggers](user-pool-lambda-custom-sender-triggers.md "user-pool-lambda-custom-sender-triggers.md") in your user pool.
 
@@ -550,55 +550,55 @@ Amazon Cognito also invokes all assigned functions when an event corresponds to 
 source. For example, when a user signs in to a user pool where you assigned migrate user
 and pre authentication triggers, they activate both.
 
-| Sign-up, confirmation, and sign-in (authentication) triggers | Trigger                                  | triggerSource value                           | Event |
-| ------------------------------------------------------------ | ---------------------------------------- | --------------------------------------------- | ----- |
-| Pre sign-up                                                  | `PreSignUp_SignUp`                       | Pre sign-up.                                  |
-| Pre sign-up                                                  | `PreSignUp_AdminCreateUser`              | Pre sign-up when an admin creates a new user. |
-| Pre sign-up                                                  | `PreSignUp_ExternalProvider`             | Pre sign-up for external identity providers.  |
-| Post confirmation                                            | `PostConfirmation_ConfirmSignUp`         | Post sign-up confirmation.                    |
-| Post confirmation                                            | `PostConfirmation_ConfirmForgotPassword` | Post Forgot Password confirmation.            |
-| Pre authentication                                           | `PreAuthentication_Authentication`       | Pre authentication.                           |
-| Post authentication                                          | `PostAuthentication_Authentication`      | Post authentication.                          |
+Sign-up, confirmation, and sign-in (authentication) triggers| Trigger | triggerSource value | Event |
+| --- | --- | --- |
+| Pre sign-up | `PreSignUp_SignUp` | Pre sign-up. |
+| Pre sign-up | `PreSignUp_AdminCreateUser` | Pre sign-up when an admin creates a new user. |
+| Pre sign-up | `PreSignUp_ExternalProvider` | Pre sign-up for external identity providers. |
+| Post confirmation | `PostConfirmation_ConfirmSignUp` | Post sign-up confirmation. |
+| Post confirmation | `PostConfirmation_ConfirmForgotPassword` | Post Forgot Password confirmation. |
+| Pre authentication | `PreAuthentication_Authentication` | Pre authentication. |
+| Post authentication | `PostAuthentication_Authentication` | Post authentication. |
 
-| Custom authentication challenge triggers | Trigger                                      | triggerSource value             | Event |
-| ---------------------------------------- | -------------------------------------------- | ------------------------------- | ----- |
-| Define auth challenge                    | `DefineAuthChallenge_Authentication`         | Define Auth Challenge.          |
-| Create auth challenge                    | `CreateAuthChallenge_Authentication`         | Create Auth Challenge.          |
-| Verify auth challenge                    | `VerifyAuthChallengeResponse_Authentication` | Verify Auth Challenge Response. |
+Custom authentication challenge triggers| Trigger | triggerSource value | Event |
+| --- | --- | --- |
+| Define auth challenge | `DefineAuthChallenge_Authentication` | Define Auth Challenge. |
+| Create auth challenge | `CreateAuthChallenge_Authentication` | Create Auth Challenge. |
+| Verify auth challenge | `VerifyAuthChallengeResponse_Authentication` | Verify Auth Challenge Response. |
 
-| Federation triggers | Trigger                              | triggerSource value | Event |
-| ------------------- | ------------------------------------ | ------------------- | ----- |
-| Inbound federation  | `InboundFederation_ExternalProvider` | Inbound federation. |
+Federation triggers| Trigger | triggerSource value | Event |
+| --- | --- | --- |
+| Inbound federation | `InboundFederation_ExternalProvider` | Inbound federation. |
 
-| Pre token generation triggers | Trigger                                | triggerSource value                                                                                    | Event |
-| ----------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----- |
-| Pre token generation          | `TokenGeneration_HostedAuth`           | Amazon Cognito authenticates the user from your managed login sign-in<br>page.                         |
-| Pre token generation          | `TokenGeneration_Authentication`       | User authentication or token refresh complete.                                                         |
-| Pre token generation          | `TokenGeneration_NewPasswordChallenge` | Admin creates the user. Amazon Cognito invokes this when the user must change<br>a temporary password. |
-| Pre token generation          | `TokenGeneration_AuthenticateDevice`   | End of the authentication of a user device.                                                            |
-| Pre token generation          | `TokenGeneration_RefreshTokens`        | User tries to refresh the identity and access tokens.                                                  |
+Pre token generation triggers| Trigger | triggerSource value | Event |
+| --- | --- | --- |
+| Pre token generation | `TokenGeneration_HostedAuth` | Amazon Cognito authenticates the user from your managed login sign-in<br>page. |
+| Pre token generation | `TokenGeneration_Authentication` | User authentication or token refresh complete. |
+| Pre token generation | `TokenGeneration_NewPasswordChallenge` | Admin creates the user. Amazon Cognito invokes this when the user must change<br>a temporary password. |
+| Pre token generation | `TokenGeneration_AuthenticateDevice` | End of the authentication of a user device. |
+| Pre token generation | `TokenGeneration_RefreshTokens` | User tries to refresh the identity and access tokens. |
 
-| Migrate user triggers | Trigger                        | triggerSource value                             | Event |
-| --------------------- | ------------------------------ | ----------------------------------------------- | ----- |
-| User migration        | `UserMigration_Authentication` | User migration at the time of sign-in.          |
-| User migration        | `UserMigration_ForgotPassword` | User migration during the forgot-password flow. |
+Migrate user triggers| Trigger | triggerSource value | Event |
+| --- | --- | --- |
+| User migration | `UserMigration_Authentication` | User migration at the time of sign-in. |
+| User migration | `UserMigration_ForgotPassword` | User migration during the forgot-password flow. |
 
-| Custom message triggers | Trigger                             | triggerSource value                                                                                                     | Event |
-| ----------------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----- |
-| Custom message          | `CustomMessage_SignUp`              | Custom message when a user signs up in your user pool.                                                                  |
-| Custom message          | `CustomMessage_AdminCreateUser`     | Custom message when you create a user as an administrator and Amazon Cognito<br>sends them a temporary password.        |
-| Custom message          | `CustomMessage_ResendCode`          | Custom message when your existing user requests a new confirmation<br>code.                                             |
-| Custom message          | `CustomMessage_ForgotPassword`      | Custom message when your user requests a password reset.                                                                |
-| Custom message          | `CustomMessage_UpdateUserAttribute` | Custom message when a user changes their email address or phone<br>number and Amazon Cognito sends a verification code. |
-| Custom message          | `CustomMessage_VerifyUserAttribute` | Custom message when a user adds an email address or phone number and<br>Amazon Cognito sends a verification code.       |
-| Custom message          | `CustomMessage_Authentication`      | Custom message when a user who has configured SMS MFA signs<br>in.                                                      |
+Custom message triggers| Trigger | triggerSource value | Event |
+| --- | --- | --- |
+| Custom message | `CustomMessage_SignUp` | Custom message when a user signs up in your user pool. |
+| Custom message | `CustomMessage_AdminCreateUser` | Custom message when you create a user as an administrator and Amazon Cognito<br>sends them a temporary password. |
+| Custom message | `CustomMessage_ResendCode` | Custom message when your existing user requests a new confirmation<br>code. |
+| Custom message | `CustomMessage_ForgotPassword` | Custom message when your user requests a password reset. |
+| Custom message | `CustomMessage_UpdateUserAttribute` | Custom message when a user changes their email address or phone<br>number and Amazon Cognito sends a verification code. |
+| Custom message | `CustomMessage_VerifyUserAttribute` | Custom message when a user adds an email address or phone number and<br>Amazon Cognito sends a verification code. |
+| Custom message | `CustomMessage_Authentication` | Custom message when a user who has configured SMS MFA signs<br>in. |
 
-| Custom sender triggers | Trigger                                                                          | triggerSource value                                                                                                                                             | Event |
-| ---------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| Custom sender          | `CustomEmailSender_SignUp`<br>`CustomSmsSender_SignUp`                           | When a user signs up in your user pool.                                                                                                                         |
-| Custom sender          | `CustomEmailSender_AdminCreateUser`<br>`CustomSmsSender_AdminCreateUser`         | When you create a user as an administrator and Amazon Cognito sends them a<br>temporary password.                                                               |
-| Custom sender          | `CustomEmailSender_ForgotPassword`<br>`CustomSmsSender_ForgotPassword`           | When your user requests a password reset.                                                                                                                       |
-| Custom sender          | `CustomEmailSender_UpdateUserAttribute`<br>`CustomSmsSender_UpdateUserAttribute` | When a user changes their email address or phone number and Amazon Cognito<br>sends a verification code.                                                        |
-| Custom sender          | `CustomEmailSender_VerifyUserAttribute`<br>`CustomSmsSender_VerifyUserAttribute` | When a user adds an email address or phone number and Amazon Cognito sends a<br>verification code.                                                              |
-| Custom sender          | `CustomEmailSender_Authentication`<br>`CustomSmsSender_Authentication`           | When a user who has configured SMS or email MFA or OTP signs<br>in.                                                                                             |
-| Custom sender          | `CustomEmailSender_AccountTakeOverNotification`                                  | When your threat protection settings take an automated action against<br>a user's sign-in attempt and the action for the risk level includes a<br>notification. |
+Custom sender triggers| Trigger | triggerSource value | Event |
+| --- | --- | --- |
+| Custom sender | `CustomEmailSender_SignUp`<br>`CustomSmsSender_SignUp` | When a user signs up in your user pool. |
+| Custom sender | `CustomEmailSender_AdminCreateUser`<br>`CustomSmsSender_AdminCreateUser` | When you create a user as an administrator and Amazon Cognito sends them a<br>temporary password. |
+| Custom sender | `CustomEmailSender_ForgotPassword`<br>`CustomSmsSender_ForgotPassword` | When your user requests a password reset. |
+| Custom sender | `CustomEmailSender_UpdateUserAttribute`<br>`CustomSmsSender_UpdateUserAttribute` | When a user changes their email address or phone number and Amazon Cognito<br>sends a verification code. |
+| Custom sender | `CustomEmailSender_VerifyUserAttribute`<br>`CustomSmsSender_VerifyUserAttribute` | When a user adds an email address or phone number and Amazon Cognito sends a<br>verification code. |
+| Custom sender | `CustomEmailSender_Authentication`<br>`CustomSmsSender_Authentication` | When a user who has configured SMS or email MFA or OTP signs<br>in. |
+| Custom sender | `CustomEmailSender_AccountTakeOverNotification` | When your threat protection settings take an automated action against<br>a user's sign-in attempt and the action for the risk level includes a<br>notification. |

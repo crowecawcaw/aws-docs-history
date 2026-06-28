@@ -71,7 +71,7 @@ follow the guided experience and inline help content.
       from that IdP the **Default role** that you set up when you
       configured your **Authenticated role**, or you can **Choose
       role with rules**. With an Amazon Cognito user pool IdP, you can also
-      **Choose role with preferred_role in tokens**. For more
+      **Choose role with preferred\_role in tokens**. For more
       information about the `cognito:preferred_role` claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups "cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups").
 
       1. If you chose **Choose role with rules**, enter the source

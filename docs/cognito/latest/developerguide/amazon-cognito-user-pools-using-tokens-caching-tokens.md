@@ -77,34 +77,34 @@ details.](https://aws.amazon.com/api-gateway/pricing "https://aws.amazon.com/api
 
 ###### To set up a caching proxy with API Gateway
 
-1.  Open the [API Gateway console](https://console.aws.amazon.com/apigateway/main/apis "https://console.aws.amazon.com/apigateway/main/apis") and
-    create a REST API.
-2.  In **Resources**, create a POST method.
+1. Open the [API Gateway console](https://console.aws.amazon.com/apigateway/main/apis "https://console.aws.amazon.com/apigateway/main/apis") and
+   create a REST API.
+2. In **Resources**, create a POST method.
 
-    1. Choose the HTTP **Integration type**.
-    2. Select **Use HTTP proxy integration**.
-    3. Enter an **Endpoint URL** of
-       `https://`<your user pool
-       domain>`/oauth2/token`.
+   1. Choose the HTTP **Integration type**.
+   2. Select **Use HTTP proxy integration**.
+   3. Enter an **Endpoint URL** of
+      `https://`<your user pool
+        domain>`/oauth2/token`.
 
-3.  In **Resources**, configure the cache key.
+3. In **Resources**, configure the cache key.
 
-    1. Edit the **Method request** of your POST method.
+   1. Edit the **Method request** of your POST method.
 
-    ###### Note
+   ###### Note
 
-    This method request validation is for use with
-    `client_secret_basic` authorization in token requests, where the
-    client secret is encoded in the `Authorization` request header. For
-    validation of the JSON request body in `client_secret_post`
-    authorization, create instead a [data
-    model](../../../apigateway/latest/developerguide/models-mappings-models.md "../../../apigateway/latest/developerguide/models-mappings-models.md") that requires that [client_secret](token-endpoint.md#post-token-request-parameters-in-body "token-endpoint.md#post-token-request-parameters-in-body") be present.
-    In this model, your **Request validator** should
-    **Validate body, query string parameters, and headers**. 2. Configure the method **Request validator** to
-    **Validate query string parameters and headers**. For more
-    information about request validation, see [Request validation](../../../apigateway/latest/developerguide/api-gateway-method-request-validation.md "../../../apigateway/latest/developerguide/api-gateway-method-request-validation.md") in the _Amazon API Gateway Developer
-    Guide_. 3. Set your `scope` parameter and `Authorization` header as
-    your caching key.
+   This method request validation is for use with
+   `client_secret_basic` authorization in token requests, where the
+   client secret is encoded in the `Authorization` request header. For
+   validation of the JSON request body in `client_secret_post`
+   authorization, create instead a [data
+   model](../../../apigateway/latest/developerguide/models-mappings-models.md "../../../apigateway/latest/developerguide/models-mappings-models.md") that requires that [client\_secret](token-endpoint.md#post-token-request-parameters-in-body "token-endpoint.md#post-token-request-parameters-in-body") be present.
+   In this model, your **Request validator** should
+   **Validate body, query string parameters, and headers**. 2. Configure the method **Request validator** to
+   **Validate query string parameters and headers**. For more
+   information about request validation, see [Request validation](../../../apigateway/latest/developerguide/api-gateway-method-request-validation.md "../../../apigateway/latest/developerguide/api-gateway-method-request-validation.md") in the _Amazon API Gateway Developer
+   Guide_. 3. Set your `scope` parameter and `Authorization` header as
+   your caching key.
 
         1. Add a query string to **URL query string parameters**.
          Enter a query string **Name** of `scope` and select
@@ -113,25 +113,25 @@ details.](https://aws.amazon.com/api-gateway/pricing "https://aws.amazon.com/api
          header **Name** of `Authorization` and select
          **Required** and **Caching**.
 
-4.  In **Stages**, configure caching.
+4. In **Stages**, configure caching.
 
-    1. Choose the stage that you want to modify and choose **Edit**
-       from **Stage Details**.
-    2. Under **Additional settings**, **Cache
-       settings**, turn on the **Provision API cache**
-       option.
-    3. Choose a **Cache capacity**. Higher cache capacity improves
-       performance but comes at additional cost.
-    4. Clear the **Require authorization** check box. Select
-       **Continue**.
-    5. API Gateway only applies cache policies to GET methods from the stage level. You must
-       apply a cache policy override to your POST method.
+   1. Choose the stage that you want to modify and choose **Edit**
+      from **Stage Details**.
+   2. Under **Additional settings**, **Cache
+      settings**, turn on the **Provision API cache**
+      option.
+   3. Choose a **Cache capacity**. Higher cache capacity improves
+      performance but comes at additional cost.
+   4. Clear the **Require authorization** check box. Select
+      **Continue**.
+   5. API Gateway only applies cache policies to GET methods from the stage level. You must
+      apply a cache policy override to your POST method.
 
-    Expand the stage you configured and select the `POST` method. To
-    create cache settings for the method, choose **Create
-    override**. 6. Activate the **Enable method cache** option. 7. Enter a \***\*Cache time-to-live (TTL)\*\*** of
-    3600 seconds. Choose **Save**.
+   Expand the stage you configured and select the `POST` method. To
+   create cache settings for the method, choose **Create
+   override**. 6. Activate the **Enable method cache** option. 7. Enter a ****Cache time-to-live (TTL)**** of
+   3600 seconds. Choose **Save**.
 
-5.  In **Stages**, note the **Invoke URL**.
-6.  Update your app to POST token requests to the **Invoke URL** of
-    your API instead of the `/oauth2/token` endpoint of your user pool.
+5. In **Stages**, note the **Invoke URL**.
+6. Update your app to POST token requests to the **Invoke URL** of
+   your API instead of the `/oauth2/token` endpoint of your user pool.

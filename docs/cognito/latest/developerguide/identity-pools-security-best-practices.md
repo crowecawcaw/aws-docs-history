@@ -81,7 +81,7 @@ JSON
 - `"Federated": "cognito-identity.amazonaws.com"`: Users must
   come from an identity pool.
 - `"cognito-identity.amazonaws.com:aud":
-"us-east-1:a1b2c3d4-5678-90ab-cdef-example11111"`: Users must come
+ "us-east-1:a1b2c3d4-5678-90ab-cdef-example11111"`: Users must come
   from the specific identity pool
   `us-east-1:a1b2c3d4-5678-90ab-cdef-example11111`.
 - `"cognito-identity.amazonaws.com:amr": "authenticated"`: Users
@@ -172,7 +172,7 @@ conditions:
 - To create accountability for the use of developer-authenticated
   credentials, design your developer provider name and identifiers to indicate
   the authentication source. For example: `"Logins" : {"MyCorp provider"
-: "`[provider application ID]`"}`.
+ : "`[provider application ID]`"}`.
 - Avoid long-lived user credentials. Configure your server-side client to
   request identities with service-linked roles like [EC2 instance profiles](../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md") and [Lambda execution
   roles](../../../lambda/latest/dg/lambda-intro-execution-role.md "../../../lambda/latest/dg/lambda-intro-execution-role.md").

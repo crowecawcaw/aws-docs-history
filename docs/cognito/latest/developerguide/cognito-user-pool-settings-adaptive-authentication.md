@@ -48,12 +48,12 @@ same characteristics. For example, after you choose to take no action, or
 **Allow**, user sessions that Amazon Cognito initially evaluates to be
 high-risk, Amazon Cognito considers similar sessions to have a lower risk.
 
-| For each risk level, you can choose from the following options: | Option                                                                                                                                                                                                                                                                           | Action |
-| --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| Allow                                                           | Users can sign in without an additional factor.                                                                                                                                                                                                                                  |
-| Optional MFA                                                    | Users who have a second factor configured must complete a second factor<br>challenge to sign in. A phone number for SMS and a TOTP software token are the<br>available second factors. Users without a second factor configured can sign in<br>with only one set of credentials. |
-| Require MFA                                                     | Users who have a second factor configured must complete a second factor<br>challenge to sign in. Amazon Cognito blocks sign-in for users who don't have a second<br>factor configured.                                                                                           |
-| Block                                                           | Amazon Cognito blocks all sign-in attempts at the designated risk level.                                                                                                                                                                                                         |
+For each risk level, you can choose from the following options:| Option | Action |
+| --- | --- |
+| Allow | Users can sign in without an additional factor. |
+| Optional MFA | Users who have a second factor configured must complete a second factor<br>challenge to sign in. A phone number for SMS and a TOTP software token are the<br>available second factors. Users without a second factor configured can sign in<br>with only one set of credentials. |
+| Require MFA | Users who have a second factor configured must complete a second factor<br>challenge to sign in. Amazon Cognito blocks sign-in for users who don't have a second<br>factor configured. |
+| Block | Amazon Cognito blocks all sign-in attempts at the designated risk level. |
 
 ###### Note
 

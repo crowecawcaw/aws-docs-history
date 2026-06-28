@@ -33,7 +33,7 @@ following steps to initialize the Amazon Cognito Sync client.
 
 1. Create a credentials provider, following the instructions in [Getting credentials](getting-credentials.md "getting-credentials.md").
 2. Import the Amazon Cognito package as follows: `import
-com.amazonaws.mobileconnectors.cognito.*;`
+ com.amazonaws.mobileconnectors.cognito.*;`
 3. Initialize Amazon Cognito Sync. Pass in the Android app context, the identity pool ID, an
    AWS Region, and an initialized Amazon Cognito credentials provider as follows:
 

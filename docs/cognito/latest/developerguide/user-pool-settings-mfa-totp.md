@@ -69,7 +69,7 @@ To add MFA to your user pool, see [Adding MFA to a user pool](user-pool-settings
    for the user pool later.
 5. Amazon Cognito only accepts TOTPs from authenticator apps that generate codes with the
    HMAC-SHA1 hash function. Codes generated with SHA-256 hashing return a `Code
-mismatch` error.
+ mismatch` error.
 
 ## Configuring TOTP MFA for a user
 

@@ -495,7 +495,7 @@ address.
    4. (Optional) Under **FROM sender address**, enter an
       email address. You can provide only an email address, or an email
       address and a friendly name in the format `Jane Doe
-<janedoe@example.com>`.
+  <janedoe@example.com>`.
    5. (Optional) Under **REPLY-TO email address**, enter
       the email address where you want to receive messages that your users
       send to your FROM address.

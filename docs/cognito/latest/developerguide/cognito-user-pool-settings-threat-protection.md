@@ -356,24 +356,26 @@ changes**. If you selected **Full function**:
     	 messages you send.
 
 9. If you chose **Notify user** in the previous step, you can
-   customize your email delivery settings and email message templates for adaptive
-   authentication.
+customize your email delivery settings and email message templates for adaptive
+authentication.
 
-   1. Under **Email configuration**, choose the **SES
-      Region**, **FROM email address**, **FROM
-      sender name**, and **REPLY-TO email address** that
-      you want to use with adaptive authentication. For more information about
-      integrating your user pool email messages with Amazon Simple Email Service, see [Email settings for Amazon Cognito user pools](user-pool-email.md "user-pool-email.md").
+    1. Under **Email configuration**, choose the **SES
+     Region**, **FROM email address**, **FROM
+     sender name**, and **REPLY-TO email address** that
+     you want to use with adaptive authentication. For more information about
+     integrating your user pool email messages with Amazon Simple Email Service, see [Email settings for Amazon Cognito user pools](user-pool-email.md "user-pool-email.md").
 
-   ![User event history](images/cup-advanced-security-ses-notification.png) 2. Expand **Email templates** to customize adaptive
-   authentication notifications with both HTML and plaintext versions of email
-   messages. To learn more about email message templates, see [Message templates](cognito-user-pool-settings-message-customizations.md#cognito-user-pool-settings-message-templates "cognito-user-pool-settings-message-customizations.md#cognito-user-pool-settings-message-templates").
+
+
+    ![User event history](images/cup-advanced-security-ses-notification.png)
+    2. Expand **Email templates** to customize adaptive
+     authentication notifications with both HTML and plaintext versions of email
+     messages. To learn more about email message templates, see [Message templates](cognito-user-pool-settings-message-customizations.md#cognito-user-pool-settings-message-templates "cognito-user-pool-settings-message-customizations.md#cognito-user-pool-settings-message-templates").
 
 10. Expand **IP address exceptions** to create an
-    **Always-allow** or an **Always-block** list
-    of IPv4 or IPv6 address ranges that will always be allowed or blocked, regardless
-    of the threat protection risk assessment. Specify the IP address ranges in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation "https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation") (such as 192.168.100.0/24).
-11. Choose **Save changes**.
+**Always-allow** or an **Always-block** list
+of IPv4 or IPv6 address ranges that will always be allowed or blocked, regardless
+of the threat protection risk assessment. Specify the IP address ranges in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation "https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation") (such as 192.168.100.0/24). 11. Choose **Save changes**.
 
 API (user pool)
 To set the threat protection configuration for a user pool, send a [SetRiskConfiguration](../../../cognito-user-identity-pools/latest/APIReference/API_SetRiskConfiguration.md "../../../cognito-user-identity-pools/latest/APIReference/API_SetRiskConfiguration.md") API request that includes a `UserPoolId`

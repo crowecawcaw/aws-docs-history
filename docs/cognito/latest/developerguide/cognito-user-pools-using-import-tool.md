@@ -228,20 +228,20 @@ see [Working with user attributes](user-pool-settings-attributes.md "user-pool-s
 - The following attributes are required:
 
   - **cognito:username**
-  - **email_verified** or
-    **phone_number_verified**
+  - **email\_verified** or
+    **phone\_number\_verified**
 
     - At least one of the auto-verified attributes must be `true` for
       each user. An auto-verified attribute is an email address or phone number that
       Amazon Cognito automatically sends a code to when a new user joins your user pool.
     - The user pool must have at least one auto-verified attribute, either
-      **email_verified** or
-      **phone_number_verified**. If the user pool has no
+      **email\_verified** or
+      **phone\_number\_verified**. If the user pool has no
       auto-verified attributes, the import job will not start.
     - If the user pool only has one auto-verified attribute, that attribute must be
       verified for each user. For example, if the user pool has only
-      **phone_number** as an auto-verified attribute, the
-      **phone_number_verified** value must be `true` for
+      **phone\_number** as an auto-verified attribute, the
+      **phone\_number\_verified** value must be `true` for
       each user.
 
   ###### Note
@@ -250,9 +250,9 @@ see [Working with user attributes](user-pool-settings-attributes.md "user-pool-s
   number. Amazon Cognito sends a message containing a reset password code to the email or phone
   number specified in the CSV file. If the message is sent to the phone number, it is
   sent by SMS message. For more information, see [Verifying contact information at sign-up](signing-up-users-in-your-app.md#allowing-users-to-sign-up-and-confirm-themselves "signing-up-users-in-your-app.md#allowing-users-to-sign-up-and-confirm-themselves").
-  - **email** (if **email_verified** is
+  - **email** (if **email\_verified** is
     `true`)
-  - **phone_number** (if **phone_number_verified**
+  - **phone\_number** (if **phone\_number\_verified**
     is `true`)
   - Any attributes that you marked as required when you created the user pool
 
@@ -268,7 +268,7 @@ see [Working with user attributes](user-pool-settings-attributes.md "user-pool-s
   _`mm/dd/yyyy`_. This means, for example,
   that a birthdate of February 1, 1985 must be encoded as
   `02/01/1985`.
-- The **cognito:mfa_enabled** field must correspond to the MFA
+- The **cognito:mfa\_enabled** field must correspond to the MFA
   requirements of your user pool. If you've set multi-factor authentication (MFA) to be
   required in your user pool, this field must be `true` or blank for all users.
   If you've set MFA to be off, this field must be `false` or blank for all
@@ -282,7 +282,7 @@ see [Working with user attributes](user-pool-settings-attributes.md "user-pool-s
 - The maximum CSV file size is 100 MB.
 - The maximum number of rows (users) in the file is 500,000. This maximum doesn't
   include the header row.
-- The **updated_at** field value is expected to be epoch time in
+- The **updated\_at** field value is expected to be epoch time in
   seconds, for example: `1471453471`.
 - Any leading or trailing white space in an attribute value will be trimmed.
 
@@ -612,7 +612,7 @@ The following steps describe how to view the user pool import results.
    - `[SUCCEEDED] Line Number 5956 - The import succeeded.`
    - `[SKIPPED] Line Number 5956 - The user already exists.`
    - `[FAILED] Line Number 5956 - The User Record does not set any of the auto
-verified attributes to true. (Example: email_verified to true).`
+  verified attributes to true. (Example: email_verified to true).`
 
 ### Interpreting the results
 

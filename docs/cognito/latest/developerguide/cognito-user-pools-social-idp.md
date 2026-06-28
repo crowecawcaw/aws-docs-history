@@ -158,7 +158,6 @@ Google Workspace for Developers documentation.
    1. `.../auth/userinfo.email`
    1. `.../auth/userinfo.profile`
    1. openid
-
 9. Under **Test users**, choose **Add
    users**. Enter your email address and any other
    authorized test users, then choose **SAVE AND
@@ -374,15 +373,12 @@ might not be returned:
      without removing the app from their Apple ID profile
 
 8. Map attributes from your IdP to your user pool. For more information, see
-   [Specifying Identity Provider Attribute Mappings for Your User
-   Pool](cognito-user-pools-specifying-attribute-mapping.md "cognito-user-pools-specifying-attribute-mapping.md").
-9. Choose **Create**.
-10. From the **App clients** menu, select an app client from
-    the list. To add the new social identity provider to the app client,
-    navigate to the **Login pages** tab and select
-    **Edit** on **Managed login pages
-    configuration**.
-11. Choose **Save changes**.
+[Specifying Identity Provider Attribute Mappings for Your User
+Pool](cognito-user-pools-specifying-attribute-mapping.md "cognito-user-pools-specifying-attribute-mapping.md"). 9. Choose **Create**. 10. From the **App clients** menu, select an app client from
+the list. To add the new social identity provider to the app client,
+navigate to the **Login pages** tab and select
+**Edit** on **Managed login pages
+configuration**. 11. Choose **Save changes**.
 
 ## Test your social IdP configuration
 

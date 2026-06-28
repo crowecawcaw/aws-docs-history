@@ -98,13 +98,11 @@ choice of IdP:
     	For Sign In with Apple (console), use the check boxes to
     	 choose scopes.
 
-7. Choose **Save changes**.
-8. From the **App clients** menu,
-   choose
-   an app client from the list and then select
-   **Edit**. Add the new social identity
-   provider to the app client under **Identity providers**.
-9. Choose **Save changes**.
+7. Choose **Save changes**. 8. From the **App clients** menu,
+choose
+an app client from the list and then select
+**Edit**. Add the new social identity
+provider to the app client under **Identity providers**. 9. Choose **Save changes**.
 
 For more information on social IdPs, see [Using social identity providers with a user pool](cognito-user-pools-social-idp.md "cognito-user-pools-social-idp.md").
 

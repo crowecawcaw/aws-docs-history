@@ -207,10 +207,10 @@ an [AssumeRoleWithWebIdentity](../../../STS/latest/APIReference/API_AssumeRoleWi
 Before you submit the OpenID token, verify it in your app. You can use OIDC
 libraries in your SDK or a library like [aws-jwt-verify](https://github.com/awslabs/aws-jwt-verify "https://github.com/awslabs/aws-jwt-verify") to confirm that Amazon Cognito issued the token. The
 signing key ID, or `kid`, of the OpenID token is one of those listed in the
-Amazon Cognito Identity [jwks_uri document](https://cognito-identity.amazonaws.com/.well-known/jwks_uri "https://cognito-identity.amazonaws.com/.well-known/jwks_uri")†. These keys are subject to
+Amazon Cognito Identity [jwks\_uri document](https://cognito-identity.amazonaws.com/.well-known/jwks_uri "https://cognito-identity.amazonaws.com/.well-known/jwks_uri")†. These keys are subject to
 change. Your function that verifies Amazon Cognito Identity tokens should periodically update its list
-of keys from the _jwks_uri_ document. Amazon Cognito sets the
-refresh duration in the _jwks_uri_ cache-control
+of keys from the _jwks\_uri_ document. Amazon Cognito sets the
+refresh duration in the _jwks\_uri_ cache-control
 response header, currently set to a `max-age` of 30 days.
 
 Unauthenticated access
@@ -274,10 +274,10 @@ request.
 Before you submit the OpenID Connect token, verify it in your app. You can use
 OIDC libraries in your SDK or a library like [aws-jwt-verify](https://github.com/awslabs/aws-jwt-verify "https://github.com/awslabs/aws-jwt-verify") to confirm that Amazon Cognito issued the token. The
 signing key ID, or `kid`, of the OpenID Connect token is one of those
-listed in the Amazon Cognito Identity [_jwks_uri_ document](https://cognito-identity.amazonaws.com/.well-known/jwks_uri "https://cognito-identity.amazonaws.com/.well-known/jwks_uri")†. These keys are subject
+listed in the Amazon Cognito Identity [_jwks\_uri_ document](https://cognito-identity.amazonaws.com/.well-known/jwks_uri "https://cognito-identity.amazonaws.com/.well-known/jwks_uri")†. These keys are subject
 to change. Your function that verifies Amazon Cognito Identity tokens should periodically update its
-list of keys from the _jwks_uri_ document. Amazon Cognito sets
-the refresh duration in the _jwks_uri_
+list of keys from the _jwks\_uri_ document. Amazon Cognito sets
+the refresh duration in the _jwks\_uri_
 `cache-control` response header, currently set to a `max-age` of
 30 days.
 
@@ -313,17 +313,17 @@ them to meet your needs.
 
 Learn more about [Role trust and permissions](iam-roles.md#role-trust-and-permissions "iam-roles.md#role-trust-and-permissions").
 
-† The default Amazon Cognito Identity [_jwks_uri_](https://cognito-identity.amazonaws.com/.well-known/jwks_uri "https://cognito-identity.amazonaws.com/.well-known/jwks_uri") document contains information about the keys that sign
+† The default Amazon Cognito Identity [_jwks\_uri_](https://cognito-identity.amazonaws.com/.well-known/jwks_uri "https://cognito-identity.amazonaws.com/.well-known/jwks_uri") document contains information about the keys that sign
 tokens for identity pools in most AWS Regions. The following Regions have different
-_jwks_uri_ documents.
+_jwks\_uri_ documents.
 
-| Amazon Cognito Identity JSON web key URIs in other AWS Regions | AWS Region                                                                  | Path to \*jwks_uri<br>• document |
-| -------------------------------------------------------------- | --------------------------------------------------------------------------- | -------------------------------- |
-| AWS GovCloud (US-West)                                         | `https://cognito-identity.us-gov-west-1.amazonaws.com/.well-known/jwks_uri` |
-| China (Beijing)                                                | `https://cognito-identity.cn-north-1.amazonaws.com.cn/.well-known/jwks_uri` |
-| Opt-in Regions like Europe (Milan) and Africa (Cape Town)      | `https://cognito-identity.`Region`.amazonaws.com/.well-known/jwks_uri`      |
+Amazon Cognito Identity JSON web key URIs in other AWS Regions| AWS Region | Path to *jwks\_uri<br>• document |
+| --- | --- |
+| AWS GovCloud (US-West) | `https://cognito-identity.us-gov-west-1.amazonaws.com/.well-known/jwks_uri` |
+| China (Beijing) | `https://cognito-identity.cn-north-1.amazonaws.com.cn/.well-known/jwks_uri` |
+| Opt-in Regions like Europe (Milan) and Africa (Cape Town) | `https://cognito-identity.`Region`.amazonaws.com/.well-known/jwks_uri` |
 
-You can also extrapolate the _jwks_uri_ from the issuer
+You can also extrapolate the _jwks\_uri_ from the issuer
 or `iss` that you receive in the OpenID token from Amazon Cognito. The OIDC-standard
 discovery endpoint `<issuer>/.well-known/openid-configuration` lists a path to
-the _jwks_uri_ for your token.
+the _jwks\_uri_ for your token.

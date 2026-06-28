@@ -101,20 +101,20 @@ preference.
 
 The following languages are available.
 
-| Managed login languages | Language | Code |
-| ----------------------- | -------- | ---- |
-| German                  | de       |
-| English                 | en       |
-| Spanish                 | es       |
-| French                  | fr       |
-| Bahasa Indonesia        | id       |
-| Dutch                   | nl       |
-| Italian                 | it       |
-| Japanese                | ja       |
-| Korean                  | ko       |
-| Portuguese (Brazil)     | pt-BR    |
-| Chinese (Simplified)    | zh-CN    |
-| Chinese (Traditional)   | zh-TW    |
+Managed login languages| Language | Code |
+| --- | --- |
+| German | de |
+| English | en |
+| Spanish | es |
+| French | fr |
+| Bahasa Indonesia | id |
+| Dutch | nl |
+| Italian | it |
+| Japanese | ja |
+| Korean | ko |
+| Portuguese (Brazil) | pt-BR |
+| Chinese (Simplified) | zh-CN |
+| Chinese (Traditional) | zh-TW |
 
 ## Terms documents
 

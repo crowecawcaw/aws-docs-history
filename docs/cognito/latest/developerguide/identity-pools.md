@@ -65,7 +65,7 @@ you can implement identity pool authentication.
       from that IdP the **Default role** that you set up when you
       configured your **Authenticated role**, or you can **Choose
       role with rules**. With a Amazon Cognito user pool IdP, you can also
-      **Choose role with preferred_role in tokens**. For more
+      **Choose role with preferred\_role in tokens**. For more
       information about the `cognito:preferred_role` claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups "cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups").
 
       1. If you chose **Choose role with rules**, enter the source
@@ -243,7 +243,7 @@ from authenticating with that identity pool. For more information, see [Identity
    1. You can assign users from that IdP the **Default role** that
       you set up when you configured your **Authenticated role**, or you
       can **Choose role with rules**. With a Amazon Cognito user pool IdP, you can
-      also **Choose role with preferred_role in tokens**. For more
+      also **Choose role with preferred\_role in tokens**. For more
       information about the `cognito:preferred_role` claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups "cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups").
 
       1. If you chose **Choose role with rules**, enter the source

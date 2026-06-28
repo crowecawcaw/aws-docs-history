@@ -95,11 +95,11 @@ credentials that you can use to access other AWS services. For more information,
 ## Access AWS AppSync resources with Amazon Cognito
 
 You can grant your users access to AWS AppSync resources with tokens from a successful Amazon Cognito
-user pool authentication. For more information, see [AMAZON_COGNITO_USER_POOLS authorization](../../../appsync/latest/devguide/security-authz.md#amazon-cognito-user-pools-authorization "../../../appsync/latest/devguide/security-authz.md#amazon-cognito-user-pools-authorization") in the _AWS AppSync
+user pool authentication. For more information, see [AMAZON\_COGNITO\_USER\_POOLS authorization](../../../appsync/latest/devguide/security-authz.md#amazon-cognito-user-pools-authorization "../../../appsync/latest/devguide/security-authz.md#amazon-cognito-user-pools-authorization") in the _AWS AppSync
 Developer Guide_.
 
 You can also sign requests to the AWS AppSync GraphQL API with the IAM credentials that you
-receive from an identity pool. See [AWS_IAM
+receive from an identity pool. See [AWS\_IAM
 authorization](../../../appsync/latest/devguide/security-authz.md#aws-iam-authorization "../../../appsync/latest/devguide/security-authz.md#aws-iam-authorization").
 
 ![Access AWS AppSync resources through a user pool or an identity pool](images/scenario-appsync.png)

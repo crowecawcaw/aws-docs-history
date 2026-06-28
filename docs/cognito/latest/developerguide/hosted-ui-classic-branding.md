@@ -314,13 +314,16 @@ pool.
 ###### To set the UI customization settings for a user pool's built-in app UI, use the following API operations.
 
 - AWS CLI from image file: `aws cognito-idp set-ui-customization
---user-pool-id `<your-user-pool-id>`--client-id`<your-app-client-id>`
---image-file
-fileb://"`<path-to-logo-image-file>`"
---css ".label-customizable{ color:
-`<color>`;}"`
+ --user-pool-id `<your-user-pool-id>` --client-id`<your-app-client-id>`
+ --image-file
+ fileb://"`<path-to-logo-image-file>`"
+ --css ".label-customizable{ color:
+ `<color>`;}"`
 - AWS CLI with image encoded as Base64 binary text: `aws cognito-idp
-set-ui-customization --user-pool-id
-`<your-user-pool-id>`--client-id`<your-app-client-id>`--image-file`<base64-encoded-image-file>`--css
-".label-customizable{ color:`<color>`;}"`
+ set-ui-customization --user-pool-id
+ `<your-user-pool-id>`--client-id
+`<your-app-client-id>`--image-file
+`<base64-encoded-image-file>`--css
+ ".label-customizable{ color:
+`<color>`;}"`
 - AWS API: [SetUICustomization](../../../cognito-user-identity-pools/latest/APIReference/API_SetUICustomization.md "../../../cognito-user-identity-pools/latest/APIReference/API_SetUICustomization.md")

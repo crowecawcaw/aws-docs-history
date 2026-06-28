@@ -281,8 +281,7 @@ You can also use AWS Lambda to decode user pool JWTs. For more information, see
    user pool created in the `us-east-1` Region will have the following
    `iss` value:
 
-`https://cognito-idp.us-east-1.amazonaws.com/`<userpoolID>``.
-4. Check the `token_use` claim.
+`https://cognito-idp.us-east-1.amazonaws.com/`<userpoolID>``. 4. Check the `token_use` claim.
 
     * If you are only accepting the access token in your web API operations, its
      value must be `access`.

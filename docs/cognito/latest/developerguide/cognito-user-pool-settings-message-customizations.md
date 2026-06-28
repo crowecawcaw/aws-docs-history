@@ -43,11 +43,11 @@ placeholders with the corresponding values. You can reference _Universal
 template placeholders_ in message templates of any type, although these values won't
 be present in all message types.
 
-| Universal template placeholders | Description  | Token                                        | Message type |
-| ------------------------------- | ------------ | -------------------------------------------- | ------------ |
-| Verification code               | `{####}`     | Verification, confirmation, and MFA messages |
-| Temporary password              | `{####}`     | Forgot-password and invitation messages      |
-| User name                       | `{username}` | Invitation and advanced security messages    |
+Universal template placeholders| Description | Token | Message type |
+| --- | --- | --- |
+| Verification code | `{####}` | Verification, confirmation, and MFA messages |
+| Temporary password | `{####}` | Forgot-password and invitation messages |
+| User name | `{username}` | Invitation and advanced security messages |
 
 One of the available automated responses with [threat protection](cognito-user-pool-settings-threat-protection.md "cognito-user-pool-settings-threat-protection.md") is to
 notify the user that Amazon Cognito detected potentially-malicious activity. You can use advanced
@@ -71,17 +71,17 @@ To configure message templates with these variables, update the
 **Full-function** configuration of your threat protection in the Amazon Cognito
 console, or submit templates in a [SetRiskConfiguration](../../../cognito-user-identity-pools/latest/APIReference/API_SetRiskConfiguration.md "../../../cognito-user-identity-pools/latest/APIReference/API_SetRiskConfiguration.md") request.
 
-| Advanced security template placeholders | Description                | Token |
-| --------------------------------------- | -------------------------- | ----- |
-| IP address                              | `{ip-address}`             |
-| City                                    | `{city}`                   |
-| Country                                 | `{country}`                |
-| Log-in time                             | `{login-time}`             |
-| Device name                             | `{device-name}`            |
-| One-click link is valid                 | `{one-click-link-valid}`   |
-| One-click link is not valid             | `{one-click-link-invalid}` |
-| Event ID                                | `{event-id}`               |
-| Feedback token                          | `{feedback-token}`         |
+Advanced security template placeholders| Description | Token |
+| --- | --- |
+| IP address | `{ip-address}` |
+| City | `{city}` |
+| Country | `{country}` |
+| Log-in time | `{login-time}` |
+| Device name | `{device-name}` |
+| One-click link is valid | `{one-click-link-valid}` |
+| One-click link is not valid | `{one-click-link-invalid}` |
+| Event ID | `{event-id}` |
+| Feedback token | `{feedback-token}` |
 
 ## Customizing email and SMS MFA messages
 

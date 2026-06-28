@@ -311,23 +311,23 @@ partial requests without any effect on existing settings.
 
 Some assets have limitations on the filetypes that you can submit.
 
-| Asset                  | Accepted file extensions |
-| ---------------------- | ------------------------ |
-| FAVICON_ICO            | ico                      |
-| FAVICON_SVG            | svg                      |
-| EMAIL_GRAPHIC          | png, svg, jpeg           |
-| SMS_GRAPHIC            | png, svg, jpeg           |
-| AUTH_APP_GRAPHIC       | png, svg, jpeg           |
-| PASSWORD_GRAPHIC       | png, svg, jpeg           |
-| PASSKEY_GRAPHIC        | png, svg, jpeg           |
-| PAGE_HEADER_LOGO       | png, svg, jpeg           |
-| PAGE_HEADER_BACKGROUND | png, svg, jpeg           |
-| PAGE_FOOTER_LOGO       | png, svg, jpeg           |
-| PAGE_FOOTER_BACKGROUND | png, svg, jpeg           |
-| PAGE_BACKGROUND        | png, svg, jpeg           |
-| FORM_BACKGROUND        | png, svg, jpeg           |
-| FORM_LOGO              | png, svg, jpeg           |
-| IDP_BUTTON_ICON        | ico, svg                 |
+| Asset                    | Accepted file extensions |
+| ------------------------ | ------------------------ |
+| FAVICON\_ICO             | ico                      |
+| FAVICON\_SVG             | svg                      |
+| EMAIL\_GRAPHIC           | png, svg, jpeg           |
+| SMS\_GRAPHIC             | png, svg, jpeg           |
+| AUTH\_APP\_GRAPHIC       | png, svg, jpeg           |
+| PASSWORD\_GRAPHIC        | png, svg, jpeg           |
+| PASSKEY\_GRAPHIC         | png, svg, jpeg           |
+| PAGE\_HEADER\_LOGO       | png, svg, jpeg           |
+| PAGE\_HEADER\_BACKGROUND | png, svg, jpeg           |
+| PAGE\_FOOTER\_LOGO       | png, svg, jpeg           |
+| PAGE\_FOOTER\_BACKGROUND | png, svg, jpeg           |
+| PAGE\_BACKGROUND         | png, svg, jpeg           |
+| FORM\_BACKGROUND         | png, svg, jpeg           |
+| FORM\_LOGO               | png, svg, jpeg           |
+| IDP\_BUTTON\_ICON        | ico, svg                 |
 
 Files of the SVG type support the following attributes and elements.
 

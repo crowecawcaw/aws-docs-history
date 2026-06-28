@@ -41,7 +41,7 @@ record for validation.
   - If using `auth.xyz.yourdomain.com` as the custom domain:
     `dig A xyz.yourdomain.com +short`
   - If using `xyz.yourdomain.com` as the custom domain: `dig A
-yourdomain.com +short`
+   yourdomain.com +short`
   - The command should return the IP address you configured. If it doesn't,
     wait until the change has fully propagated.
 
@@ -187,7 +187,7 @@ the IdP is attempting to remove or update an immutable attribute.
   the correct name.
 - For immutable attributes, run the following AWS CLI command to identify them:
   `aws cognito-idp describe-user-pool --user-pool-id USER-POOL-ID --query
-'UserPool.SchemaAttributes[?Mutable==`false`].Name'`.
+ 'UserPool.SchemaAttributes[?Mutable==`false`].Name'`.
 - In the SAML attribute mappings of your IdP, delete any mapping that targets an
   immutable Amazon Cognito attribute. Alternately, update the destination attribute to a
   different, mutable attribute.
@@ -220,7 +220,7 @@ user pool's Uniform Resource Name (URN).
 2. In the management console for your IdP, update the entity ID in the SAML
    application for your user pool. Configure the entity ID to match the format
    `urn:amazon:cognito:sp:`USER_POOL_ID``.
-Replace `USER_POOL_ID` with the user pool ID from the previous
+   Replace `USER_POOL_ID` with the user pool ID from the previous
    step.
 
 ### `An error was encountered with the requested page`

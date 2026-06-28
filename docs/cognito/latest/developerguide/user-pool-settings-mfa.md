@@ -51,26 +51,25 @@ Before you set up MFA, consider the following:
   `MULTI_FACTOR_WITH_USER_VERIFICATION` in your user pool
   `WebAuthnConfiguration`.
 
-      + You can't set MFA to required in user pools that support [one-time passwords](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless").
-      + You can't add `EMAIL_OTP` or
-       `SMS_OTP` to `AllowedFirstAuthFactors` when MFA is required
-       in your user pool. You can add `WEB_AUTHN` when
-       `FactorConfiguration` is set to
-       `MULTI_FACTOR_WITH_USER_VERIFICATION`.
-      + [Choice-based
-       sign-in](authentication-flows-selection-sdk.md#authentication-flows-selection-choice "authentication-flows-selection-sdk.md#authentication-flows-selection-choice") only offers `PASSWORD` and `PASSWORD_SRP`
-       factors in all app clients when MFA is required in the user pool. For more
-       information about username-password flows, see [Sign-in with persistent passwords](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-password "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-password") and
-       [Sign-in with persistent passwords and secure payload](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-srp "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-srp") in the
-       **Authentication** chapter of this guide.
-      + In user pools where MFA is optional, users who have configured an MFA factor can
-       only sign in with username-password authentication flows in choice-based sign-in.
-       These users are eligible for all [client-based sign-in](authentication-flows-selection-sdk.md#authentication-flows-selection-client "authentication-flows-selection-sdk.md#authentication-flows-selection-client")
-       flows.
-
-  The following table describes the effect of user pool MFA settings and user
-  configuration of MFA factors on users' ability to sign in with passwordless
-  factors.
+  - You can't set MFA to required in user pools that support [one-time passwords](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless").
+  - You can't add `EMAIL_OTP` or
+    `SMS_OTP` to `AllowedFirstAuthFactors` when MFA is required
+    in your user pool. You can add `WEB_AUTHN` when
+    `FactorConfiguration` is set to
+    `MULTI_FACTOR_WITH_USER_VERIFICATION`.
+  - [Choice-based
+    sign-in](authentication-flows-selection-sdk.md#authentication-flows-selection-choice "authentication-flows-selection-sdk.md#authentication-flows-selection-choice") only offers `PASSWORD` and `PASSWORD_SRP`
+    factors in all app clients when MFA is required in the user pool. For more
+    information about username-password flows, see [Sign-in with persistent passwords](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-password "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-password") and
+    [Sign-in with persistent passwords and secure payload](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-srp "amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-srp") in the
+    **Authentication** chapter of this guide.
+  - In user pools where MFA is optional, users who have configured an MFA factor can
+    only sign in with username-password authentication flows in choice-based sign-in.
+    These users are eligible for all [client-based sign-in](authentication-flows-selection-sdk.md#authentication-flows-selection-client "authentication-flows-selection-sdk.md#authentication-flows-selection-client")
+    flows.
+    The following table describes the effect of user pool MFA settings and user
+    configuration of MFA factors on users' ability to sign in with passwordless
+    factors.
 
 | User pool MFA setting               | User MFA status        | Webauthn/OTP available                             | Prompted for MFA after password sign-in | Can sign in with WebAuthn/OTP                      |
 | ----------------------------------- | ---------------------- | -------------------------------------------------- | --------------------------------------- | -------------------------------------------------- |
@@ -303,112 +302,108 @@ indicates a successful authentication and the conclusion of the flow. A
 ![error](images/error.png)
 indicates unsuccessful authentication.
 
-1.  A user presents their username or username and password at your sign-in screen. If
-    they don't present valid credentials, their sign-in request is denied.
-2.  If they succeed username-password authentication, determine whether MFA is required,
-    optional, or off. If it is off, the correct username and password results in successful
-    authentication.
-    ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
+1. A user presents their username or username and password at your sign-in screen. If
+   they don't present valid credentials, their sign-in request is denied.
+2. If they succeed username-password authentication, determine whether MFA is required,
+   optional, or off. If it is off, the correct username and password results in successful
+   authentication.
+   ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
 
-        1. If MFA is optional, determine if the user has previously set up a TOTP
-         authenticator. If they have set up TOTP, prompt for TOTP MFA. If they successfully
-         respond to the MFA challenge, they're signed in.
-        ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
-        2. Determine if the adaptive authentication feature of threat protection has
-         required the user to set up MFA. If it hasn't assigned MFA, the user is signed in.
-        ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
+   1. If MFA is optional, determine if the user has previously set up a TOTP
+      authenticator. If they have set up TOTP, prompt for TOTP MFA. If they successfully
+      respond to the MFA challenge, they're signed in.
+      ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
+   2. Determine if the adaptive authentication feature of threat protection has
+      required the user to set up MFA. If it hasn't assigned MFA, the user is signed in.
+      ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
 
-3.  If MFA is required or adaptive authentication has assigned MFA, determine if the
-    user has set an MFA factor as enabled and preferred. If they have, prompt for MFA with
-    that factor. If they successfully respond to the MFA challenge, they're signed in.
-    ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
-4.  If the user hasn't set an MFA preference, determine if the user has registered a
-    TOTP authenticator.
+3. If MFA is required or adaptive authentication has assigned MFA, determine if the
+   user has set an MFA factor as enabled and preferred. If they have, prompt for MFA with
+   that factor. If they successfully respond to the MFA challenge, they're signed in.
+   ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
+4. If the user hasn't set an MFA preference, determine if the user has registered a
+   TOTP authenticator.
 
-    1. If the user has registered a TOTP authenticator, determine if TOTP MFA is
-       available in the user pool (TOTP MFA can be disabled after users have previously set
-       up authenticators).
-    2. Determine whether email-message or SMS-message MFA is also available in the user
-       pool.
-    3. If neither email nor SMS MFA is available, prompt the user for TOTP MFA. If
-       they successfully respond to the MFA challenge, they're signed in.
-       ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
-    4. If email or SMS MFA are available, determine whether the user has the
-       corresponding `email` or `phone_number` attribute. If so, any
-       attribute that isn't the primary method for self-service account recovery and is
-       enabled for MFA is available to them.
-    5. Prompt the user with a `SELECT_MFA_TYPE` challenge with
-       `MFAS_CAN_SELECT` options that include TOTP and the available SMS or
-       email MFA factors.
-    6. Prompt the user for the factor that they select in response to the
-       `SELECT_MFA_TYPE` challenge. If they successfully respond to the MFA
-       challenge, they're signed in.
-       ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
+   1. If the user has registered a TOTP authenticator, determine if TOTP MFA is
+      available in the user pool (TOTP MFA can be disabled after users have previously set
+      up authenticators).
+   2. Determine whether email-message or SMS-message MFA is also available in the user
+      pool.
+   3. If neither email nor SMS MFA is available, prompt the user for TOTP MFA. If
+      they successfully respond to the MFA challenge, they're signed in.
+      ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
+   4. If email or SMS MFA are available, determine whether the user has the
+      corresponding `email` or `phone_number` attribute. If so, any
+      attribute that isn't the primary method for self-service account recovery and is
+      enabled for MFA is available to them.
+   5. Prompt the user with a `SELECT_MFA_TYPE` challenge with
+      `MFAS_CAN_SELECT` options that include TOTP and the available SMS or
+      email MFA factors.
+   6. Prompt the user for the factor that they select in response to the
+      `SELECT_MFA_TYPE` challenge. If they successfully respond to the MFA
+      challenge, they're signed in.
+      ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
 
-5.  If the user hasn't registered a TOTP authenticator, or if they have but TOTP MFA is
-    currently disabled, determine whether the user has an `email` or
-    `phone_number` attribute.
-6.  If the user has only an email address or only a phone number, determine whether
-    that attribute is also the method the user pool implements to send account-recovery
-    messages for password reset. If true, they can't complete sign-in with MFA required and
-    Amazon Cognito returns an error. To activate sign-in for this user, you must add a non-recovery
-    attribute or register a TOTP authenticator for them.
-    ![Red circle with white X icon indicating error or deletion.](images/error.png)
+5. If the user hasn't registered a TOTP authenticator, or if they have but TOTP MFA is
+   currently disabled, determine whether the user has an `email` or
+   `phone_number` attribute.
+6. If the user has only an email address or only a phone number, determine whether
+   that attribute is also the method the user pool implements to send account-recovery
+   messages for password reset. If true, they can't complete sign-in with MFA required and
+   Amazon Cognito returns an error. To activate sign-in for this user, you must add a non-recovery
+   attribute or register a TOTP authenticator for them.
+   ![Red circle with white X icon indicating error or deletion.](images/error.png)
 
-        1. If they have an available non-recovery email address or phone number, determine
-         whether the corresponding email or SMS MFA factor is enabled.
-        2. If they have a non-recovery email address attribute and email MFA is enabled,
-         prompt them with an `EMAIL_OTP` challenge. If they successfully respond
-         to the MFA challenge, they're signed in.
-        ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
-        3. If they have a non-recovery phone number attribute and SMS MFA is enabled,
-         prompt them with an `SMS_MFA` challenge. If they successfully respond to
-         the MFA challenge, they're signed in.
-        ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
-        4. If they don't have an attribute that's eligible for an enabled email or SMS MFA
-         factor, determine whether TOTP MFA is enabled. If TOTP MFA is disabled, they can't
-         complete sign-in with MFA required and Amazon Cognito returns an error. To activate sign-in
-         for this user, you must add a non-recovery attribute or register a TOTP
-         authenticator for them.
-        ![Red circle with white X icon indicating error or deletion.](images/error.png)
+   1. If they have an available non-recovery email address or phone number, determine
+      whether the corresponding email or SMS MFA factor is enabled.
+   2. If they have a non-recovery email address attribute and email MFA is enabled,
+      prompt them with an `EMAIL_OTP` challenge. If they successfully respond
+      to the MFA challenge, they're signed in.
+      ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
+   3. If they have a non-recovery phone number attribute and SMS MFA is enabled,
+      prompt them with an `SMS_MFA` challenge. If they successfully respond to
+      the MFA challenge, they're signed in.
+      ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
+   4. If they don't have an attribute that's eligible for an enabled email or SMS MFA
+      factor, determine whether TOTP MFA is enabled. If TOTP MFA is disabled, they can't
+      complete sign-in with MFA required and Amazon Cognito returns an error. To activate sign-in
+      for this user, you must add a non-recovery attribute or register a TOTP
+      authenticator for them.
+      ![Red circle with white X icon indicating error or deletion.](images/error.png)
 
+   ###### Note
 
+   This step has already been evaluated as **No** if the user
+   has a TOTP authenticator but TOTP MFA is disabled. 5. If TOTP MFA is enabled, present the user with a `MFA_SETUP` challenge
+   with `SOFTWARE_TOKEN_MFA` in the `MFAS_CAN_SETUP` options. To
+   complete this challenge, you must separately register a TOTP authenticator for the
+   user and respond with `"ChallengeName": "MFA_SETUP", "ChallengeResponses":
+  {"USERNAME": "[username]", "SESSION": "[Session ID from
+  VerifySoftwareToken]}"`. 6. After the user responds to the `MFA_SETUP` challenge with the session
+   token from a [VerifySoftwareToken](../../../cognito-user-identity-pools/latest/APIReference/API_VerifySoftwareToken.md "../../../cognito-user-identity-pools/latest/APIReference/API_VerifySoftwareToken.md") request, prompt them with an
+   `SOFTWARE_TOKEN_MFA` challenge. If they successfully respond to the MFA
+   challenge, they're signed in.
+   ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
 
-        ###### Note
+7. If the user has both an email address and phone number, determine which attribute,
+   if any, is the primary method for account-recovery messages for password reset.
 
-        This step has already been evaluated as **No** if the user
-         has a TOTP authenticator but TOTP MFA is disabled.
-        5. If TOTP MFA is enabled, present the user with a `MFA_SETUP` challenge
-         with `SOFTWARE_TOKEN_MFA` in the `MFAS_CAN_SETUP` options. To
-         complete this challenge, you must separately register a TOTP authenticator for the
-         user and respond with `"ChallengeName": "MFA_SETUP", "ChallengeResponses":
-         {"USERNAME": "[username]", "SESSION": "[Session ID from
-         VerifySoftwareToken]}"`.
-        6. After the user responds to the `MFA_SETUP` challenge with the session
-         token from a [VerifySoftwareToken](../../../cognito-user-identity-pools/latest/APIReference/API_VerifySoftwareToken.md "../../../cognito-user-identity-pools/latest/APIReference/API_VerifySoftwareToken.md") request, prompt them with an
-         `SOFTWARE_TOKEN_MFA` challenge. If they successfully respond to the MFA
-         challenge, they're signed in.
-        ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
+   1. If self-service account recovery is disabled, either attribute can be used for
+      MFA. Determine whether one or both of the email and SMS MFA factors are
+      enabled.
+   2. If both attributes are enabled as an MFA factor, prompt the user with a
+      `SELECT_MFA_TYPE` challenge with `MFAS_CAN_SELECT` options
+      `SMS_MFA` and `EMAIL_OTP`.
+   3. Prompt them for the factor that they select in response to the
+      `SELECT_MFA_TYPE` challenge. If they successfully respond to the MFA
+      challenge, they're signed in.
+      ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
+   4. If only one attribute is an eligible MFA factor, prompt them with a challenge
+      for the remaining factor. If they successfully respond to the MFA challenge, they're
+      signed in.
+      ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
 
-7.  If the user has both an email address and phone number, determine which attribute,
-    if any, is the primary method for account-recovery messages for password reset.
-
-    1. If self-service account recovery is disabled, either attribute can be used for
-       MFA. Determine whether one or both of the email and SMS MFA factors are
-       enabled.
-    2. If both attributes are enabled as an MFA factor, prompt the user with a
-       `SELECT_MFA_TYPE` challenge with `MFAS_CAN_SELECT` options
-       `SMS_MFA` and `EMAIL_OTP`.
-    3. Prompt them for the factor that they select in response to the
-       `SELECT_MFA_TYPE` challenge. If they successfully respond to the MFA
-       challenge, they're signed in.
-       ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
-    4. If only one attribute is an eligible MFA factor, prompt them with a challenge
-       for the remaining factor. If they successfully respond to the MFA challenge, they're
-       signed in.
-       ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
-
-    This outcome happens in the following scenarios.
+   This outcome happens in the following scenarios.
 
         1. When they have `email` and `phone_number` attributes,
          SMS and email MFA are enabled, and the primary account-recovery method is by
@@ -417,13 +412,13 @@ indicates unsuccessful authentication.
          only SMS MFA or email MFA is enabled, and self-service account recovery is
          disabled.
 
-8.  If the user hasn't registered a TOTP authenticator and has neither an
-    `email` nor `phone_number` attribute, prompt them with an
-    `MFA_SETUP` challenge. The list in `MFAS_CAN_SETUP` includes all
-    enabled MFA factors in the user pool that aren't the primary account-recovery option.
-    They can respond to this challenge with `ChallengeResponses` for email or
-    TOTP MFA. To set up SMS MFA, add a phone number attribute separately and restart
-    authentication.
+8. If the user hasn't registered a TOTP authenticator and has neither an
+   `email` nor `phone_number` attribute, prompt them with an
+   `MFA_SETUP` challenge. The list in `MFAS_CAN_SETUP` includes all
+   enabled MFA factors in the user pool that aren't the primary account-recovery option.
+   They can respond to this challenge with `ChallengeResponses` for email or
+   TOTP MFA. To set up SMS MFA, add a phone number attribute separately and restart
+   authentication.
 
 For TOTP MFA, respond with `"ChallengeName": "MFA_SETUP", "ChallengeResponses":
  {"USERNAME": "[username]", "SESSION": "[Session ID from
@@ -467,14 +462,13 @@ You can configure MFA in the Amazon Cognito console or with the [SetUserPoolMfaC
      factor.
 
 6. Choose the **MFA methods** that you support in your app. You can
-   set **Email message**, **SMS message** or
-   TOTP-generating **Authenticator apps** as a second factor.
-7. If you use SMS text messages as a second factor and you haven't configured an IAM
-   role to use with Amazon Simple Notification Service (Amazon SNS) for SMS messages, create one in the console. In the
-   **Authentication methods** menu for your user pool, locate
-   **SMS** and choose **Edit**. You can also use an
-   existing role that allows Amazon Cognito to send SMS messages to your users for you. For more
-   information, see [IAM Roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md").
+set **Email message**, **SMS message** or
+TOTP-generating **Authenticator apps** as a second factor. 7. If you use SMS text messages as a second factor and you haven't configured an IAM
+role to use with Amazon Simple Notification Service (Amazon SNS) for SMS messages, create one in the console. In the
+**Authentication methods** menu for your user pool, locate
+**SMS** and choose **Edit**. You can also use an
+existing role that allows Amazon Cognito to send SMS messages to your users for you. For more
+information, see [IAM Roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md").
 
 If you use email messages as a second factor and you haven't configured an
 originating identity to use with Amazon Simple Email Service (Amazon SES) for email messages, create one in the

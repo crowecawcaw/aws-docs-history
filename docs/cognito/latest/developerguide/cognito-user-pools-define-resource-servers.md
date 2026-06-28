@@ -260,7 +260,7 @@ provide the scope name and description.
 
 - **Resource server name**: A friendly name for the resource
   server, such as `Solar system object tracker` or `Photo
-API`.
+ API`.
 - **Resource server identifier**: A unique identifier for the
   resource server. The identifier is any name that you want to associate with your
   API, for example `solar-system-data`. You can configure longer

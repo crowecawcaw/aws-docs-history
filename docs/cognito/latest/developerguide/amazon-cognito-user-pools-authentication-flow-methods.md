@@ -85,15 +85,15 @@ permit it. In the Amazon Cognito console, navigate to the **App clients** menu
 under **Applications** in your user pool configuration. To permit
 plain-password sign-in for a client-side mobile or native app, edit an app client and
 choose **Sign in with username and password:
-ALLOW_USER_PASSWORD_AUTH** under **Authentication flows**.
+ALLOW\_USER\_PASSWORD\_AUTH** under **Authentication flows**.
 To permit plain-password sign-in for a server-side app, edit an app client and choose
 **Sign in with server-side administrative credentials:
-ALLOW_ADMIN_USER_PASSWORD_AUTH**.
+ALLOW\_ADMIN\_USER\_PASSWORD\_AUTH**.
 
 To activate [choice-based
 authentication](authentication-flows-selection-sdk.md#authentication-flows-selection-choice "authentication-flows-selection-sdk.md#authentication-flows-selection-choice") with username and password, configure your app client to
 permit it. Edit your app client and choose **Choice-based sign-in:
-ALLOW_USER_AUTH**.
+ALLOW\_USER\_AUTH**.
 
 ![A screenshot from the Amazon Cognito console that illustrates the choice of plain password authentication flows for an app client. The options ALLOW_USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, and ALLOW_USER_AUTH have been selected.](images/screenshot-choose-password-admin-password-and-user-auth.png)
 
@@ -256,12 +256,12 @@ authentication](authentication-flows-selection-sdk.md#authentication-flows-selec
 In the Amazon Cognito console, navigate to the **App clients** menu under
 **Applications** in your user pool configuration. To permit SRP
 sign-in for a client-side mobile or native app, edit an app client and choose
-**Sign in with secure remote password (SRP): ALLOW_USER_SRP_AUTH**
+**Sign in with secure remote password (SRP): ALLOW\_USER\_SRP\_AUTH**
 under **Authentication flows**.
 
 To activate [choice-based
 authentication](authentication-flows-selection-sdk.md#authentication-flows-selection-choice "authentication-flows-selection-sdk.md#authentication-flows-selection-choice") with username and SRP, edit your app client and choose
-**Choice-based sign-in: ALLOW_USER_AUTH**.
+**Choice-based sign-in: ALLOW\_USER\_AUTH**.
 
 ![A screenshot from the Amazon Cognito console that illustrates the choice of secure remote password authentication flows for an app client. The options ALLOW_USER_SRP_AUTH and ALLOW_USER_AUTH have been selected.](images/screenshot-choose-SRP-and-user-auth.png)
 
@@ -465,7 +465,7 @@ application with an AWS SDK, pass the following parameters to an [InitiateAuth](
   parameter.
 - An [AuthFlow](../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md#CognitoUserPools-InitiateAuth-request-AuthFlow "../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md#CognitoUserPools-InitiateAuth-request-AuthFlow") of `USER_AUTH`.
 
-You can pass a [PREFERRED_CHALLENGE](../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md#CognitoUserPools-InitiateAuth-request-AuthParameters "../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md#CognitoUserPools-InitiateAuth-request-AuthParameters") of `EMAIL_OTP` or `SMS_OTP`, but it's
+You can pass a [PREFERRED\_CHALLENGE](../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md#CognitoUserPools-InitiateAuth-request-AuthParameters "../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md#CognitoUserPools-InitiateAuth-request-AuthParameters") of `EMAIL_OTP` or `SMS_OTP`, but it's
 not required. The `Session` parameter provides proof of authentication and Amazon Cognito
 ignores the `AuthParameters` when you pass a valid session code.
 
@@ -491,7 +491,7 @@ options. Save your changes.
 
 Navigate to the **App clients** menu and choose an app client or
 create a new one. Select **Edit** and choose **Select an
-authentication type at sign-in: ALLOW_USER_AUTH**.
+authentication type at sign-in: ALLOW\_USER\_AUTH**.
 
 ###### API/SDK
 
@@ -797,7 +797,7 @@ backend.
 Navigate to the **App clients** menu and choose an app client or
 create a new one. Select **Edit** and under **Authentication
 flows**, choose **Select an authentication type at sign-in:
-ALLOW_USER_AUTH**.
+ALLOW\_USER\_AUTH**.
 
 ###### API/SDK
 
@@ -1045,7 +1045,7 @@ SRP.
   `InitiateAuth` with `CUSTOM_AUTH` as the
   `Authflow`. In the `AuthParameters` map, the request from your
   app includes `SRP_A:` (the SRP A value) and `CHALLENGE_NAME:
-SRP_A`.
+ SRP_A`.
 - The `CUSTOM_AUTH` flow invokes the `DefineAuthChallenge`
   Lambda trigger with an initial session of `challengeName: SRP_A` and
   `challengeResult: true`. Your Lambda function responds with
@@ -1057,7 +1057,7 @@ SRP_A`.
 - If Amazon Cognito verifies the password, `RespondToAuthChallenge` invokes the
   `DefineAuthChallenge` Lambda trigger with a second session of
   `challengeName: PASSWORD_VERIFIER` and `challengeResult:
-true`. At that point, the `DefineAuthChallenge` Lambda trigger
+ true`. At that point, the `DefineAuthChallenge` Lambda trigger
   responds with `challengeName: CUSTOM_CHALLENGE` to start the custom
   challenge.
 - If MFA is enabled for a user, after Amazon Cognito verifies the password, your user is then

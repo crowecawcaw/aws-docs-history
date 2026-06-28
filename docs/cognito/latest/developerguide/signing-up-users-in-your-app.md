@@ -275,39 +275,37 @@ signs in.
 If you require your users to verify both email addresses and phone numbers, do the
 following:
 
-1.  Configure your user pool to allow users to verify email address or phone
-    numbers.
-2.  In the sign-up flow for your app, require users to provide both an email address and
-    a phone number. Call the [`SignUp`](../../../cognito-user-identity-pools/latest/APIReference/API_SignUp.md "../../../cognito-user-identity-pools/latest/APIReference/API_SignUp.md") API action, and provide the email address and phone
-    number for the `UserAttributes` parameter. At this point, Amazon Cognito sends a
-    verification code to the user's phone.
-3.  In your app interface, present a confirmation page where the user enters the
-    verification code. Confirm the user by calling the [`ConfirmSignUp`](../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.md "../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.md") API action. At this point, the user's status is
-    `CONFIRMED`, and the user's phone number is verified, but the email address
-    is not verified.
-4.  Present the sign-in page, and authenticate the user by calling the [`InitiateAuth`](../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md") API action. After the user is authenticated,
-    Amazon Cognito returns an access token to your app.
-5.  Call the [`GetUserAttributeVerificationCode`](../../../cognito-user-identity-pools/latest/APIReference/API_GetUserAttributeVerificationCode.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetUserAttributeVerificationCode.md") API action. Specify the
-    following parameters in the request:
+1. Configure your user pool to allow users to verify email address or phone
+   numbers.
+2. In the sign-up flow for your app, require users to provide both an email address and
+   a phone number. Call the [`SignUp`](../../../cognito-user-identity-pools/latest/APIReference/API_SignUp.md "../../../cognito-user-identity-pools/latest/APIReference/API_SignUp.md") API action, and provide the email address and phone
+   number for the `UserAttributes` parameter. At this point, Amazon Cognito sends a
+   verification code to the user's phone.
+3. In your app interface, present a confirmation page where the user enters the
+   verification code. Confirm the user by calling the [`ConfirmSignUp`](../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.md "../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.md") API action. At this point, the user's status is
+   `CONFIRMED`, and the user's phone number is verified, but the email address
+   is not verified.
+4. Present the sign-in page, and authenticate the user by calling the [`InitiateAuth`](../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md") API action. After the user is authenticated,
+   Amazon Cognito returns an access token to your app.
+5. Call the [`GetUserAttributeVerificationCode`](../../../cognito-user-identity-pools/latest/APIReference/API_GetUserAttributeVerificationCode.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetUserAttributeVerificationCode.md") API action. Specify the
+   following parameters in the request:
 
-        * `AccessToken` – The access token returned by Amazon Cognito when the
-         user signed in.
-        * `AttributeName` – Specify `"email"` as the
-         attribute value.
+   - `AccessToken` – The access token returned by Amazon Cognito when the
+     user signed in.
+   - `AttributeName` – Specify `"email"` as the
+     attribute value.
+     Amazon Cognito sends a verification code to the user's email address.
 
-    Amazon Cognito sends a verification code to the user's email address.
+6. Present a confirmation page where the user enters the verification code. When the
+   user submits the code, call the [`VerifyUserAttribute`](../../../cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.md "../../../cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.md") API action. Specify the following
+   parameters in the request:
 
-6.  Present a confirmation page where the user enters the verification code. When the
-    user submits the code, call the [`VerifyUserAttribute`](../../../cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.md "../../../cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.md") API action. Specify the following
-    parameters in the request:
-
-        * `AccessToken` – The access token returned by Amazon Cognito when the
-         user signed in.
-        * `AttributeName` – Specify `"email"` as the
-         attribute value.
-        * `Code` – The verification code that the user provided.
-
-    At this point, the email address is verified.
+   - `AccessToken` – The access token returned by Amazon Cognito when the
+     user signed in.
+   - `AttributeName` – Specify `"email"` as the
+     attribute value.
+   - `Code` – The verification code that the user provided.
+     At this point, the email address is verified.
 
 ## Allowing users to sign up in your app but confirming them as a user pool administrator
 
@@ -370,12 +368,12 @@ Additionally, the following APIs accept a client-secret hash value in a
 `SECRET_HASH` parameter, either in authentication parameters or in a challenge
 response.
 
-| API operation               | Parent parameter for SECRET_HASH |
-| --------------------------- | -------------------------------- |
-| InitiateAuth                | AuthParameters                   |
-| AdminInitiateAuth           | AuthParameters                   |
-| RespondToAuthChallenge      | ChallengeResponses               |
-| AdminRespondToAuthChallenge | ChallengeResponses               |
+| API operation               | Parent parameter for SECRET\_HASH |
+| --------------------------- | --------------------------------- |
+| InitiateAuth                | AuthParameters                    |
+| AdminInitiateAuth           | AuthParameters                    |
+| RespondToAuthChallenge      | ChallengeResponses                |
+| AdminRespondToAuthChallenge | ChallengeResponses                |
 
 The secret hash value is a Base 64-encoded keyed-hash message authentication code (HMAC)
 calculated using the secret key of a user pool client and username plus the client ID in the

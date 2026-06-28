@@ -137,7 +137,7 @@ func requestDidSucceed(apiResult: APIResult!) {
 ## Use Login with Amazon: JavaScript
 
 After the user authenticates with Login with Amazon and is redirected back to your
-website, the Login with Amazon access_token is provided in the query string. Pass that token
+website, the Login with Amazon access\_token is provided in the query string. Pass that token
 into the credentials login map.
 
 ```

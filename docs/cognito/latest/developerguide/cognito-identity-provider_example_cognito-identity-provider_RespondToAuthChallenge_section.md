@@ -11,9 +11,9 @@ CLI
 
 **AWS CLI**
 
-**Example 1: To respond to a NEW_PASSWORD_REQUIRED challenge**
+**Example 1: To respond to a NEW\_PASSWORD\_REQUIRED challenge**
 
-The following `respond-to-auth-challenge` example responds to a NEW_PASSWORD_REQUIRED challenge that initiate-auth returned. It sets a password for the user `jane@example.com`.
+The following `respond-to-auth-challenge` example responds to a NEW\_PASSWORD\_REQUIRED challenge that initiate-auth returned. It sets a password for the user `jane@example.com`.
 
 ```
 `aws cognito-idp respond-to-auth-challenge \
@@ -45,7 +45,7 @@ Output:
 
 For more information, see [Authentication](authentication.md "authentication.md") in the _Amazon Cognito Developer Guide_.
 
-**Example 2: To respond to a SELECT_MFA_TYPE challenge**
+**Example 2: To respond to a SELECT\_MFA\_TYPE challenge**
 
 The following `respond-to-auth-challenge` example chooses TOTP MFA as the MFA option for the current user. The user was prompted to select an MFA type and will next be prompted to enter their MFA code.
 
@@ -72,7 +72,7 @@ Output:
 
 For more information, see [Adding MFA](user-pool-settings-mfa.md "user-pool-settings-mfa.md") in the _Amazon Cognito Developer Guide_.
 
-**Example 3: To respond to a SOFTWARE_TOKEN_MFA challenge**
+**Example 3: To respond to a SOFTWARE\_TOKEN\_MFA challenge**
 
 The following `respond-to-auth-challenge` example provides a TOTP MFA code and completes sign-in.
 

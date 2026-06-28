@@ -101,7 +101,7 @@ user pool.
 ###### To get information about a domain
 
 - AWS CLI: `aws cognito-idp
-describe-user-pool-domain`
+ describe-user-pool-domain`
 
 **Example:**
 `aws cognito-idp describe-user-pool-domain --domain

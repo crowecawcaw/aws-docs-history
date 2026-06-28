@@ -16,7 +16,7 @@ following steps.**
    **Amazon Cognito user pools** or **Amazon Cognito Federated Identities**. The
    service quota page appears.
 4. Select a quota that supports CloudWatch monitoring. For example, choose `Rate of
-UserAuthentication requests` in Amazon Cognito user pools.
+ UserAuthentication requests` in Amazon Cognito user pools.
 5. Scroll down to **Monitoring**. This section appears only for quotas
    that support CloudWatch monitoring.
 6. In **Monitoring** you can view current service quota utilization in

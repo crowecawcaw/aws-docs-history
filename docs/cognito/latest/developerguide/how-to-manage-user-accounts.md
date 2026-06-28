@@ -171,12 +171,12 @@ searchable.
 
 - username (case-sensitive)
 - email
-- phone_number
+- phone\_number
 - name
-- given_name
-- family_name
-- preferred_username
-- cognito:user_status (called **Status** in the Console)
+- given\_name
+- family\_name
+- preferred\_username
+- cognito:user\_status (called **Status** in the Console)
   (case-insensitive)
 - status (called **Enabled** in the Console) (case-sensitive)
 - sub
@@ -230,20 +230,19 @@ To search for users from your app, use the Amazon Cognito [ListUsers API](../../
   `"family_name = \"Reddy\""`. If the filter string is empty,
   `ListUsers` returns all users in the user pool.
 
-      + `AttributeName`: The name of the attribute to search for. You can only
-       search for one attribute at a time.
+  - `AttributeName`: The name of the attribute to search for. You can only
+    search for one attribute at a time.
 
+  ###### Note
 
-      ###### Note
-
-      You can only search for standard attributes. Custom attributes are not
-       searchable. This is because only indexed attributes are searchable, and custom
-       attributes cannot be indexed.
-      + `Filter-Type`: For an exact match, use `=`, for example,
-       `given_name = "Jon"`. For a prefix ("starts with") match, use
-       `^=`, for example, `given_name ^= "Jon"`.
-      + `AttributeValue`: The attribute value that must be matched for each
-       user.
+  You can only search for standard attributes. Custom attributes are not
+  searchable. This is because only indexed attributes are searchable, and custom
+  attributes cannot be indexed.
+  - `Filter-Type`: For an exact match, use `=`, for example,
+    `given_name = "Jon"`. For a prefix ("starts with") match, use
+    `^=`, for example, `given_name ^= "Jon"`.
+  - `AttributeValue`: The attribute value that must be matched for each
+    user.
 
 - `Limit`: Maximum number of users to be returned.
 - `PaginationToken`: A token to get more results from a previous search. Amazon Cognito

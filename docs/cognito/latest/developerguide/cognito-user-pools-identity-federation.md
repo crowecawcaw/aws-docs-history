@@ -80,7 +80,7 @@ Example: `MyIDP_bob@example.com`
 - Amazon Cognito creates a [user
   group](cognito-user-pools-user-groups.md "cognito-user-pools-user-groups.md") for each OIDC, SAMl, and social IdP that you add to your user
   pool. The name of the group is in the format `[user pool ID]_[IdP
-name]`, for example `us-east-1_EXAMPLE_MYSSO` or
+ name]`, for example `us-east-1_EXAMPLE_MYSSO` or
   `us-east-1_EXAMPLE_Google`. Each unique automatically-generated
   IdP user profile is automatically added to this group. [Linked
   users](cognito-user-pools-identity-federation-consolidate-users.md "cognito-user-pools-identity-federation-consolidate-users.md") aren't automatically added to this group, but you can add their

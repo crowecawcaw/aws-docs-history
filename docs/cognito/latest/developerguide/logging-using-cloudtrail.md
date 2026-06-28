@@ -81,51 +81,51 @@ CloudTrail.
 
 Hosted UI (classic) events
 
-| Hosted UI (classic) events in CloudTrail                     | Operation                                                                                                                                                                                                                                               | Description |
-| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `Login_GET`, `CognitoAuthentication`                         | A user views or submits credentials to your [Login endpoint](login-endpoint.md "login-endpoint.md").                                                                                                                                                    |
-| `OAuth2_Authorize_GET`,<br>`Beta_Authorize_GET`              | A user views your [Authorize endpoint](authorization-endpoint.md "authorization-endpoint.md").                                                                                                                                                          |
-| `OAuth2Response_GET`,<br>`OAuth2Response_POST`               | A user submits an IdP token to your `/oauth2/idpresponse`<br>endpoint.                                                                                                                                                                                  |
-| `SAML2Response_POST`,<br>`Beta_SAML2Response_POST`           | A user submits an IdP SAML assertion to your<br>`/saml2/idpresponse` endpoint.                                                                                                                                                                          |
-| `Login_OIDC_SAML_POST`                                       | A user enters a username at your [Login endpoint](login-endpoint.md "login-endpoint.md") and matches with an [IdP identifier](cognito-user-pools-integrating-3rd-party-saml-providers.md "cognito-user-pools-integrating-3rd-party-saml-providers.md"). |
-| `Token_POST`, `Beta_Token_POST`                              | A user submits an authorization code to your [Token endpoint](token-endpoint.md "token-endpoint.md").                                                                                                                                                   |
-| `Signup_GET`, `Signup_POST`                                  | A user submits sign-up information to your `/signup`<br>endpoint.                                                                                                                                                                                       |
-| `Confirm_GET`, `Confirm_POST`                                | A user submits a confirmation code in the hosted UI.                                                                                                                                                                                                    |
-| `ResendCode_POST`                                            | A user submits a request to resend a confirmation code in the hosted<br>UI.                                                                                                                                                                             |
-| `ForgotPassword_GET`,<br>`ForgotPassword_POST`               | A user submits a request to reset their password to your<br>`/forgotPassword` endpoint.                                                                                                                                                                 |
-| `ConfirmForgotPassword_GET`,<br>`ConfirmForgotPassword_POST` | A user submits a code to your `/confirmForgotPassword`<br>endpoint that confirms their `ForgotPassword` request.                                                                                                                                        |
-| `ResetPassword_GET`, `ResetPassword_POST`                    | A user submits a new password in the hosted UI.                                                                                                                                                                                                         |
-| `Mfa_GET`, `Mfa_POST`                                        | A user submits a multi-factor authentication (MFA) code in the hosted<br>UI.                                                                                                                                                                            |
-| `MfaOption_GET`, `MfaOption_POST`                            | A user chooses their preferred method for MFA in the hosted UI.                                                                                                                                                                                         |
-| `MfaRegister_GET`, `MfaRegister_POST`                        | A user submits a multi-factor authentication (MFA) code in the hosted<br>UI when registering the MFA.                                                                                                                                                   |
-| `Logout`                                                     | A user signs out at your `/logout` endpoint.                                                                                                                                                                                                            |
-| `SAML2Logout_POST`                                           | A user signs out at your `/saml2/logout` endpoint.                                                                                                                                                                                                      |
-| `Error_GET`                                                  | A user views an error page in the hosted UI.                                                                                                                                                                                                            |
-| `UserInfo_GET`, `UserInfo_POST`                              | A user or IdP exchanges information with your [userInfo endpoint](userinfo-endpoint.md "userinfo-endpoint.md").                                                                                                                                         |
-| `Confirm_With_Link_GET`                                      | A user submits a confirmation based on a link that Amazon Cognito sent in an<br>email message.                                                                                                                                                          |
-| `Event_Feedback_GET`                                         | A user submits feedback to Amazon Cognito about a [threat<br>protection](cognito-user-pool-settings-threat-protection.md "cognito-user-pool-settings-threat-protection.md") event.                                                                      |
+Hosted UI (classic) events in CloudTrail| Operation | Description |
+| --- | --- |
+| `Login_GET`, `CognitoAuthentication` | A user views or submits credentials to your [Login endpoint](login-endpoint.md "login-endpoint.md"). |
+| `OAuth2_Authorize_GET`,<br>`Beta_Authorize_GET` | A user views your [Authorize endpoint](authorization-endpoint.md "authorization-endpoint.md"). |
+| `OAuth2Response_GET`,<br>`OAuth2Response_POST` | A user submits an IdP token to your `/oauth2/idpresponse`<br>endpoint. |
+| `SAML2Response_POST`,<br>`Beta_SAML2Response_POST` | A user submits an IdP SAML assertion to your<br>`/saml2/idpresponse` endpoint. |
+| `Login_OIDC_SAML_POST` | A user enters a username at your [Login endpoint](login-endpoint.md "login-endpoint.md") and matches with an [IdP identifier](cognito-user-pools-integrating-3rd-party-saml-providers.md "cognito-user-pools-integrating-3rd-party-saml-providers.md"). |
+| `Token_POST`, `Beta_Token_POST` | A user submits an authorization code to your [Token endpoint](token-endpoint.md "token-endpoint.md"). |
+| `Signup_GET`, `Signup_POST` | A user submits sign-up information to your `/signup`<br>endpoint. |
+| `Confirm_GET`, `Confirm_POST` | A user submits a confirmation code in the hosted UI. |
+| `ResendCode_POST` | A user submits a request to resend a confirmation code in the hosted<br>UI. |
+| `ForgotPassword_GET`,<br>`ForgotPassword_POST` | A user submits a request to reset their password to your<br>`/forgotPassword` endpoint. |
+| `ConfirmForgotPassword_GET`,<br>`ConfirmForgotPassword_POST` | A user submits a code to your `/confirmForgotPassword`<br>endpoint that confirms their `ForgotPassword` request. |
+| `ResetPassword_GET`, `ResetPassword_POST` | A user submits a new password in the hosted UI. |
+| `Mfa_GET`, `Mfa_POST` | A user submits a multi-factor authentication (MFA) code in the hosted<br>UI. |
+| `MfaOption_GET`, `MfaOption_POST` | A user chooses their preferred method for MFA in the hosted UI. |
+| `MfaRegister_GET`, `MfaRegister_POST` | A user submits a multi-factor authentication (MFA) code in the hosted<br>UI when registering the MFA. |
+| `Logout` | A user signs out at your `/logout` endpoint. |
+| `SAML2Logout_POST` | A user signs out at your `/saml2/logout` endpoint. |
+| `Error_GET` | A user views an error page in the hosted UI. |
+| `UserInfo_GET`, `UserInfo_POST` | A user or IdP exchanges information with your [userInfo endpoint](userinfo-endpoint.md "userinfo-endpoint.md"). |
+| `Confirm_With_Link_GET` | A user submits a confirmation based on a link that Amazon Cognito sent in an<br>email message. |
+| `Event_Feedback_GET` | A user submits feedback to Amazon Cognito about a [threat<br>protection](cognito-user-pool-settings-threat-protection.md "cognito-user-pool-settings-threat-protection.md") event. |
 
 Managed login events
 
-| Managed login events in CloudTrail | Operation                                                                                                                                     | Description |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `login_POST`                       | A user submits credentials to your [Login endpoint](login-endpoint.md "login-endpoint.md").                                                   |
-| `login_continue_POST`              | A user who has already signed in one time chooses to sign in<br>again.                                                                        |
-| `forgotPassword_POST`              | A user resets their password.                                                                                                                 |
-| `selectChallenge_POST`             | A user responds to an authentication challenge after they submit their<br>username or credentials.                                            |
-| `confirmUser_GET`                  | A user opens the link in a [confirmation or verification email message](signing-up-users-in-your-app.md "signing-up-users-in-your-app.md").   |
-| `mfa_back_POST`                    | A user chooses the \*_Back_<br>• button after an MFA<br>prompt.                                                                               |
-| `mfa_options_POST`                 | A user selects an MFA option.                                                                                                                 |
-| `mfa_phone_register_POST`          | A user submits a phone number to register as a MFA factor. This<br>operation causes Amazon Cognito to send an MFA code to their phone number. |
-| `mfa_phone_verify_POST`            | A user submits an MFA code sent to their phone number.                                                                                        |
-| `mfa_phone_resendCode_POST`        | A user submits a request to resend a MFA code to their phone<br>number.                                                                       |
-| `mfa_totp_POST`                    | A user submits a TOTP MFA code.                                                                                                               |
-| `signup_POST`                      | A user submits information to your `/signup` managed login<br>page.                                                                           |
-| `signup_confirm_POST`              | A user submits a confirmation code from an email or SMS<br>message.                                                                           |
-| `verifyCode_POST`                  | A user submits a one-time password (OTP) for passwordless<br>authentication.                                                                  |
-| `passkeys_add_POST`                | A user submits a request to register a new passkey credential.                                                                                |
-| `passkeys_add_GET`                 | A user navigates to the page where they can register a passkey.                                                                               |
-| `login_passkey_POST`               | A user signs in with a passkey.                                                                                                               |
+Managed login events in CloudTrail| Operation | Description |
+| --- | --- |
+| `login_POST` | A user submits credentials to your [Login endpoint](login-endpoint.md "login-endpoint.md"). |
+| `login_continue_POST` | A user who has already signed in one time chooses to sign in<br>again. |
+| `forgotPassword_POST` | A user resets their password. |
+| `selectChallenge_POST` | A user responds to an authentication challenge after they submit their<br>username or credentials. |
+| `confirmUser_GET` | A user opens the link in a [confirmation or verification email message](signing-up-users-in-your-app.md "signing-up-users-in-your-app.md"). |
+| `mfa_back_POST` | A user chooses the *_Back_<br>• button after an MFA<br>prompt. |
+| `mfa_options_POST` | A user selects an MFA option. |
+| `mfa_phone_register_POST` | A user submits a phone number to register as a MFA factor. This<br>operation causes Amazon Cognito to send an MFA code to their phone number. |
+| `mfa_phone_verify_POST` | A user submits an MFA code sent to their phone number. |
+| `mfa_phone_resendCode_POST` | A user submits a request to resend a MFA code to their phone<br>number. |
+| `mfa_totp_POST` | A user submits a TOTP MFA code. |
+| `signup_POST` | A user submits information to your `/signup` managed login<br>page. |
+| `signup_confirm_POST` | A user submits a confirmation code from an email or SMS<br>message. |
+| `verifyCode_POST` | A user submits a one-time password (OTP) for passwordless<br>authentication. |
+| `passkeys_add_POST` | A user submits a request to register a new passkey credential. |
+| `passkeys_add_GET` | A user navigates to the page where they can register a passkey. |
+| `login_passkey_POST` | A user signs in with a passkey. |
 
 ###### Note
 

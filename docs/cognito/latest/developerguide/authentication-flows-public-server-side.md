@@ -193,24 +193,26 @@ providers (IdPs). The services that they perform include the following.
      OIDC or OAuth 2.0 developer libraries.
 
 2. The [Amazon Cognito user pools API](../../../cognito-user-identity-pools/latest/APIReference/Welcome.md "../../../cognito-user-identity-pools/latest/APIReference/Welcome.md")
-   is a set of tools for your web or mobile app to authenticate users after it collects
-   sign-in information in your own custom front end. User pools API authentication produces
-   the following JSON web tokens.
+is a set of tools for your web or mobile app to authenticate users after it collects
+sign-in information in your own custom front end. User pools API authentication produces
+the following JSON web tokens.
 
-   1. An identity token with verifiable attribute claims from your user.
-   2. An access token that authorizes your user to create token-authorized API
-      requests to an [AWS service
-      endpoint](../../../general/latest/gr/cognito_identity.md "../../../general/latest/gr/cognito_identity.md").
+    1. An identity token with verifiable attribute claims from your user.
+    2. An access token that authorizes your user to create token-authorized API
+     requests to an [AWS service
+     endpoint](../../../general/latest/gr/cognito_identity.md "../../../general/latest/gr/cognito_identity.md").
 
-   ###### Note
 
-   By default, access tokens from user pools API authentication only contain the
-   `aws.cognito.signin.user.admin` scope. To generate an access token
-   with additional scopes, for example to authorize a request to a third-party API,
-   request scopes during authentication through your user pool endpoints or add
-   custom scopes in a [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md"). Access token customization
-   adds costs to your AWS bill. 3. A refresh token that authorizes requests for new ID and access tokens, and
-   refreshes user identity and access-control properties.
+    ###### Note
+
+    By default, access tokens from user pools API authentication only contain the
+     `aws.cognito.signin.user.admin` scope. To generate an access token
+     with additional scopes, for example to authorize a request to a third-party API,
+     request scopes during authentication through your user pool endpoints or add
+     custom scopes in a [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md"). Access token customization
+     adds costs to your AWS bill.
+    3. A refresh token that authorizes requests for new ID and access tokens, and
+     refreshes user identity and access-control properties.
 
 You can link a federated user, who would normally sign in through the user pools
 endpoints, with a user whose profile is _local_ to your

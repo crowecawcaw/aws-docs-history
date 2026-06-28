@@ -92,7 +92,7 @@ provider (IdP).
 ###### To create an IdP and upload a metadata document
 
 - AWS CLI: `aws cognito-idp
-create-identity-provider`
+ create-identity-provider`
 
 Example with metadata file: `aws cognito-idp
  create-identity-provider --user-pool-id
@@ -134,7 +134,7 @@ Example with metadata URL: `aws cognito-idp
 ###### To upload a new metadata document for an IdP
 
 - AWS CLI: `aws cognito-idp
-update-identity-provider`
+ update-identity-provider`
 
 Example with metadata file: `aws cognito-idp
  update-identity-provider --user-pool-id
@@ -175,7 +175,7 @@ Example with metadata URL: `aws cognito-idp
 ###### To get information about a specific IdP
 
 - AWS CLI: `aws cognito-idp
-describe-identity-provider`
+ describe-identity-provider`
 
 `aws cognito-idp describe-identity-provider
  --user-pool-id `us-east-1_EXAMPLE`
@@ -186,7 +186,7 @@ describe-identity-provider`
 ###### To list information about all IdPs
 
 - AWS CLI: `aws cognito-idp
-list-identity-providers`
+ list-identity-providers`
 
 Example: `aws cognito-idp list-identity-providers
  --user-pool-id `us-east-1_EXAMPLE`
@@ -197,7 +197,7 @@ Example: `aws cognito-idp list-identity-providers
 ###### To delete an IdP
 
 - AWS CLI: `aws cognito-idp
-delete-identity-provider`
+ delete-identity-provider`
 
 `aws cognito-idp delete-identity-provider --user-pool-id
  `us-east-1_EXAMPLE`

@@ -83,18 +83,16 @@ relying-party application that will manage authentication with your IdP.
 
 1. Create a developer account with the OIDC IdP.
 
-| Links to OIDC IdPs | OIDC IdP                                                                                                                                                                                                                                        | How to Install                                                                                                                                      | OIDC Discovery URL |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| Salesforce         | [Salesforce as an OpenID Connect Identity<br>Provider](https://help.salesforce.com/s/articleView?id=xcloud.service_provider_define_oid.htm&type=5 "https://help.salesforce.com/s/articleView?id=xcloud.service_provider_define_oid.htm&type=5") | `https://`MyDomainName`.my.salesforce.com/.well-known/openid-configuration`                                                                         |
-| OneLogin           | [Connect an OIDC enabled app](https://developers.onelogin.com/openid-connect/connect-to-onelogin "https://developers.onelogin.com/openid-connect/connect-to-onelogin")                                                                          | `https://`your-domain.onelogin.com`/oidc/2/.well-known/openid-configuration`                                                                        |
-| JumpCloud          | [SSO with OIDC](https://jumpcloud.com/support/sso-with-oidc "https://jumpcloud.com/support/sso-with-oidc")                                                                                                                                      | `https://oauth.id.jumpcloud.com/.well-known/openid-configuration`                                                                                   |
-| Okta               | [Install an Okta identity provider](https://help.okta.com/en/prev/Content/Topics/Apps/Apps_App_Integration_Wizard.htm#OIDCWizard "https://help.okta.com/en/prev/Content/Topics/Apps/Apps_App_Integration_Wizard.htm#OIDCWizard")                | `https://`Your Okta<br>subdomain`.okta.com/.well-known/openid-configuration`                                                                        |
-| Microsoft Entra ID | [OpenID Connect on the Microsoft identity<br>platform](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc "https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc")                               | `https://login.microsoftonline.com/`{tenant}`/v2.0`<br>Values of `tenant` can include a tenant ID,<br>`common`, `organizations`, or<br>`consumers`. |
-
-2. Register your user pool domain URL with the
-   `/oauth2/idpresponse` endpoint with your OIDC IdP.
-   This ensures that the OIDC IdP later accepts it from Amazon Cognito when it
-   authenticates users.
+Links to OIDC IdPs| OIDC IdP | How to Install | OIDC Discovery URL |
+| --- | --- | --- |
+| Salesforce | [Salesforce as an OpenID Connect Identity<br>Provider](https://help.salesforce.com/s/articleView?id=xcloud.service_provider_define_oid.htm&type=5 "https://help.salesforce.com/s/articleView?id=xcloud.service_provider_define_oid.htm&type=5") | `https://`MyDomainName`.my.salesforce.com/.well-known/openid-configuration` |
+| OneLogin | [Connect an OIDC enabled app](https://developers.onelogin.com/openid-connect/connect-to-onelogin "https://developers.onelogin.com/openid-connect/connect-to-onelogin") | `https://`your-domain.onelogin.com`/oidc/2/.well-known/openid-configuration` |
+| JumpCloud | [SSO with OIDC](https://jumpcloud.com/support/sso-with-oidc "https://jumpcloud.com/support/sso-with-oidc") | `https://oauth.id.jumpcloud.com/.well-known/openid-configuration` |
+| Okta | [Install an Okta identity provider](https://help.okta.com/en/prev/Content/Topics/Apps/Apps_App_Integration_Wizard.htm#OIDCWizard "https://help.okta.com/en/prev/Content/Topics/Apps/Apps_App_Integration_Wizard.htm#OIDCWizard") | `https://`Your Okta<br>subdomain`.okta.com/.well-known/openid-configuration` |
+| Microsoft Entra ID | [OpenID Connect on the Microsoft identity<br>platform](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc "https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc") | `https://login.microsoftonline.com/`{tenant}`/v2.0`<br>Values of `tenant` can include a tenant ID,<br>`common`, `organizations`, or<br>`consumers`. | 2. Register your user pool domain URL with the
+`/oauth2/idpresponse` endpoint with your OIDC IdP.
+This ensures that the OIDC IdP later accepts it from Amazon Cognito when it
+authenticates users.
 
 ```
 `https://`mydomain.auth.us-east-1.amazoncognito.com`/oauth2/idpresponse`
@@ -163,7 +161,7 @@ OIDC-compatible IdP such as Salesforce and your user pool.
 
 9. Select your [scopes](https://openid.net/specs/openid-connect-basic-1_0.html#Scopes "https://openid.net/specs/openid-connect-basic-1_0.html#Scopes"). You must include the scope **openid**.
    To grant access to the **email** and
-   **email_verified**
+   **email\_verified**
    [claims](https://openid.net/specs/openid-connect-basic-1_0.html#StandardClaims "https://openid.net/specs/openid-connect-basic-1_0.html#StandardClaims"), add the **email** scope. Separate
    scopes by spaces.
 10. Choose **Create**.

@@ -159,7 +159,7 @@ IP address.
    **Connect** tab, choose **Connect using
    SSH**.
 8. An SSH session opens in a browser window. Run `node -v` and `npm
--v` to confirm that your instance was provisioned with Node.js and the minimum
+ -v` to confirm that your instance was provisioned with Node.js and the minimum
    npm version of 10.2.3.
 9. Proceed to [configure your
    React application](#getting-started-test-application-react "#getting-started-test-application-react").
@@ -200,59 +200,60 @@ To set up this application, you user pool must meet the following requirements:
 
 ###### To create an example Android app
 
-1.  Install [Android studio](https://developer.android.com/studio "https://developer.android.com/studio")
-    and [command-line
-    tools](https://developer.android.com/tools "https://developer.android.com/tools").
-2.  In Android Studio, install the [Flutter
-    plugin](https://docs.flutter.dev/get-started/editor?tab=androidstudio "https://docs.flutter.dev/get-started/editor?tab=androidstudio").
-3.  Create a new Android Studio project from the contents of the
-    `cognito_flutter_mobile_app` directory in [this example app](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/usecases/cognito_flutter_mobile_app "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/usecases/cognito_flutter_mobile_app").
+1. Install [Android studio](https://developer.android.com/studio "https://developer.android.com/studio")
+   and [command-line
+   tools](https://developer.android.com/tools "https://developer.android.com/tools").
+2. In Android Studio, install the [Flutter
+   plugin](https://docs.flutter.dev/get-started/editor?tab=androidstudio "https://docs.flutter.dev/get-started/editor?tab=androidstudio").
+3. Create a new Android Studio project from the contents of the
+   `cognito_flutter_mobile_app` directory in [this example app](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/usecases/cognito_flutter_mobile_app "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/usecases/cognito_flutter_mobile_app").
 
-    1. Edit `assets/config.json` and replace `<<YOUR USER POOL
-ID>>` and `<< YOUR CLIENT ID>>` with the IDs of your user
-       pool and app client.
+   1. Edit `assets/config.json` and replace `<<YOUR USER POOL
+  ID>>` and `<< YOUR CLIENT ID>>` with the IDs of your user
+      pool and app client.
 
-4.  Install [Flutter](https://docs.flutter.dev/get-started/install "https://docs.flutter.dev/get-started/install").
+4. Install [Flutter](https://docs.flutter.dev/get-started/install "https://docs.flutter.dev/get-started/install").
 
-    1. Add Flutter to your PATH variable.
-    2. Accept licenses with the following command.
+   1. Add Flutter to your PATH variable.
+   2. Accept licenses with the following command.
 
-    `flutter doctor --android-licenses` 3. Verify your Flutter environment and install any missing components.
+   `flutter doctor --android-licenses` 3. Verify your Flutter environment and install any missing components.
 
-    `flutter doctor`
+   `flutter doctor`
 
         1. If any components are missing, run `flutter doctor -v` to learn
          how to fix the issue.
-    4. Change to the directory of your new Flutter project and install
-       dependencies.
 
-       1. Run `flutter pub add amazon_cognito_identity_dart_2`.
+   4. Change to the directory of your new Flutter project and install
+   dependencies.
 
-    5. Run `flutter pub add flutter_secure_storage`.
+        1. Run `flutter pub add amazon_cognito_identity_dart_2`.
 
-5.  Create a virtual Android device.
+   5. Run `flutter pub add flutter_secure_storage`.
 
-    1. In the Android studio GUI, create a new device with the [device
-       manager](https://developer.android.com/studio/run/managing-avds "https://developer.android.com/studio/run/managing-avds").
-    2. In the CLI, run `flutter emulators --create --name
-android-device`.
+5. Create a virtual Android device.
 
-6.  Launch your virtual Android device.
+   1. In the Android studio GUI, create a new device with the [device
+      manager](https://developer.android.com/studio/run/managing-avds "https://developer.android.com/studio/run/managing-avds").
+   2. In the CLI, run `flutter emulators --create --name
+  android-device`.
 
-    1. In the Android Studio GUI, select the start
-       ![Play button icon with a blue triangle pointing to the right.](images/cognito-getting-started-android-virtual-device-start.png)
-       icon next to your virtual device.
-    2. In the CLI, run `flutter emulators --launch android-device`.
+6. Launch your virtual Android device.
 
-7.  Launch your app on your virtual device.
+   1. In the Android Studio GUI, select the start
+      ![Play button icon with a blue triangle pointing to the right.](images/cognito-getting-started-android-virtual-device-start.png)
+      icon next to your virtual device.
+   2. In the CLI, run `flutter emulators --launch android-device`.
 
-    1. In the Android Studio GUI, select the deploy
-       ![Green play button icon representing a start or play action.](images/cognito-getting-started-android-app-start.png)
-       icon.
-    2. In the CLI, run `flutter run`.
+7. Launch your app on your virtual device.
 
-8.  Navigate to your running virtual device in Android Studio.
-9.  Sign up a new user with a valid email address.
+   1. In the Android Studio GUI, select the deploy
+      ![Green play button icon representing a start or play action.](images/cognito-getting-started-android-app-start.png)
+      icon.
+   2. In the CLI, run `flutter run`.
+
+8. Navigate to your running virtual device in Android Studio.
+9. Sign up a new user with a valid email address.
 10. Retrieve the confirmation code from your email message. Enter the confirmation
     code into the application.
 11. Sign in with your username and password.
