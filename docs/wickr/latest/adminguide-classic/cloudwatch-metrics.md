@@ -9,20 +9,20 @@ running on.
 
 Following are the existing metrics supported by the data retention bot.
 
-| Metric                | Description                                                       |
-| --------------------- | ----------------------------------------------------------------- |
-| Messages_Rx           | Messages received.                                                |
-| Messages_Rx_Failed    | Failures to process received messages.                            |
-| Messages_Saved        | Messages saved to the received messages file.                     |
-| Messages_Saved_Failed | Failures to save messages to the received messages<br>file.       |
-| Files_Saved           | Files received.                                                   |
-| Files_Saved_Bytes     | Number of bytes for files received.                               |
-| Files_Saved_Failed    | Failures to save files.                                           |
-| Logins                | Logins (normally this will be 1 for each interval).               |
-| Login_Failures        | Failures to login (normally this will be 1 for each<br>interval). |
-| S3_Post_Errors        | Errors posting message files and files to Amazon S3<br>bucket.    |
-| Watchdog_Failures     | Watchdog failures.                                                |
-| Watchdog_Warnings     | Watchdog warnings.                                                |
+| Metric                  | Description                                                       |
+| ----------------------- | ----------------------------------------------------------------- |
+| Messages\_Rx            | Messages received.                                                |
+| Messages\_Rx\_Failed    | Failures to process received messages.                            |
+| Messages\_Saved         | Messages saved to the received messages file.                     |
+| Messages\_Saved\_Failed | Failures to save messages to the received messages<br>file.       |
+| Files\_Saved            | Files received.                                                   |
+| Files\_Saved\_Bytes     | Number of bytes for files received.                               |
+| Files\_Saved\_Failed    | Failures to save files.                                           |
+| Logins                  | Logins (normally this will be 1 for each interval).               |
+| Login\_Failures         | Failures to login (normally this will be 1 for each<br>interval). |
+| S3\_Post\_Errors        | Errors posting message files and files to Amazon S3<br>bucket.    |
+| Watchdog\_Failures      | Watchdog failures.                                                |
+| Watchdog\_Warnings      | Watchdog warnings.                                                |
 
 Metrics are generated to be consumed by CloudWatch. The namespace used for bots is
 `WickrIO`. Each metric has an array of dimensions. Following is

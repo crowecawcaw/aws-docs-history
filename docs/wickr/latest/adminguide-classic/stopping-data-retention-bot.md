@@ -5,8 +5,8 @@ This guide documents the classic version of the AWS Wickr administration console
 
 The software running on the data retention bot will capture `SIGTERM`
 signals and gracefully shutdown. Use the `docker stop `<container ID
- or container name>``command, as shown in the following
- example, to issue the`SIGTERM` command to the data retention bot Docker
+ or container name>`` command, as shown in the following
+example, to issue the `SIGTERM` command to the data retention bot Docker
 image.
 
 ```

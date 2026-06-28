@@ -32,9 +32,8 @@ available:
      **Global Federation** section of the page.
 
 7. Select **Allow guest users** to enable guest users for the
-   security group, or deselect it to disable it.
-8. Choose **Save** to save the change and make it effective for
-   the security group.
+security group, or deselect it to disable it. 8. Choose **Save** to save the change and make it effective for
+the security group.
 
 Registered users in the specific security group in your Wickr network can
 now interact with guest users. For more information, see [Guest

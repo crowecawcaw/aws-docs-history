@@ -59,4 +59,4 @@ for the security group in different tabs. 5. The following tabs and correspondin
     	 to use restricted federation.
 
 6. Choose **Save** to save edits that you make to the
-   security group details.
+security group details.

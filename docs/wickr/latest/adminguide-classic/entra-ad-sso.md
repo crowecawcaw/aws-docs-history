@@ -95,7 +95,7 @@ Complete the following procedure to setup API permissions in Microsoft Entra.
    permission**.
 
 ![Add an permission image.](images/entra-api-permissions.png) 3. Select **Microsoft Graph** and then select **Delegated
-Permissions** . 4. Select the checkbox for **email** , **offline_access**,
+Permissions** . 4. Select the checkbox for **email** , **offline\_access**,
 **openid**, **profile**. 5. Choose **Add permissions**.
 Complete the following procedure to expose an API for each of the 4 scopes in Microsoft
 Entra.
@@ -111,7 +111,7 @@ URI should match the **Application ID** (created in _Register
 AWS Wickr as an application_).
 
 ![Add a scope image.](images/entra-add-scope.png) 3. Choose **Save and continue**. 4. Select the **Admins and users** tag, and then enter the scope name as
-**offline_access**. 5. Select **State**, and then select **Enable**. 6. Choose **Add scope**. 7. Repeat steps 1—6 of this section to add the following scopes: **email**,
+**offline\_access**. 5. Select **State**, and then select **Enable**. 6. Choose **Add scope**. 7. Repeat steps 1—6 of this section to add the following scopes: **email**,
 **openid**, and **profile**.
 
 ![Add scopes image.](images/entra-scopes-api.png) 8. Under **Authorized client applications**, choose **Add a client
@@ -164,7 +164,7 @@ Following are common issues you might encounter and suggestions for resolving th
   - Make sure the user is added to the Wickr application you registered in Microsoft
     Entra.
   - Make sure the user is using the correct company ID, including the prefix.
-    _E.g. UE1-DemoNetworkW_drqtva_.
+    _E.g. UE1-DemoNetworkW\_drqtva_.
   - The **Client Secret** may not be set correctly in the
     **AWS Wickr SSO Configuration**. Re-set it by creating another
     **Client secret** in Microsoft Entra and set the new **Client
