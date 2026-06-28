@@ -32,9 +32,9 @@
     origin failover capability to automatically serve your
     content from a backup origin when your primary origin is
     unavailable.
-  - \*\*[Amazon RDS Multi-AZ](https://aws.amazon.com/rds/features/multi-az/ "https://aws.amazon.com/rds/features/multi-az/") or
+  - **[Amazon RDS Multi-AZ](https://aws.amazon.com/rds/features/multi-az/ "https://aws.amazon.com/rds/features/multi-az/") or
 
-  [Amazon Aurora](https://aws.amazon.com/rds/aurora/ "https://aws.amazon.com/rds/aurora/"):\*\* Use Amazon RDS or Aurora
+  [Amazon Aurora](https://aws.amazon.com/rds/aurora/ "https://aws.amazon.com/rds/aurora/"):** Use Amazon RDS or Aurora
   Multi-AZ deployments to provide enhanced availability
   for production database workloads. Amazon RDS
   synchronously replicates data from a primary instance to

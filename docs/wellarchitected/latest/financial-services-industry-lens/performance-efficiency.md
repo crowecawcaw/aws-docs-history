@@ -54,11 +54,11 @@ as:
 - Multi-model orchestration to balance accuracy and performance across different
   financial use cases
 
-  **Use managed services:** Use AWS Cloud services to
-  allow teams to use a wide range of technologies, to experiment with options and achieve
-  their performance goals, while maintaining overall control. You can reduce the time it
-  takes to configure, and invest in operations and on- going management, reducing
-  operational overhead and using the right tool for the job.
+**Use managed services:** Use AWS Cloud services to
+allow teams to use a wide range of technologies, to experiment with options and achieve
+their performance goals, while maintaining overall control. You can reduce the time it
+takes to configure, and invest in operations and on- going management, reducing
+operational overhead and using the right tool for the job.
 
 **Agent orchestration optimization:** Design efficient
 workflows for multi-agent systems.
