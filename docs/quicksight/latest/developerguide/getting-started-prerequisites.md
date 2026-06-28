@@ -18,8 +18,8 @@ can download for your preferred IDE. Some IDEs also offer tutorials to help you
 learn more about programming languages.
 
 Before you can call the Quick Sight API operations, make sure that you have the
-`quicksight:`operation-name``permission in
- an IAM policy attached to your IAM identity. For example, to call
+`quicksight:`operation-name`` permission in
+an IAM policy attached to your IAM identity. For example, to call
 `list-users`, you need the permission `quicksight:ListUsers`.
 The same pattern applies to all operations.
 
@@ -116,7 +116,7 @@ Use the following procedure to set up a Java app that interacts with Quick Sight
 import com.amazonaws.services.quicksight.AmazonQuickSight;
 ```
 
-If your IDE doesn't recognize line this as valid, verify that you imported the
+If your IDE doesn't recognize this line as valid, verify that you imported the
 SDK. 4. Download and import external dependencies for the Quick Sight SDK.
 
 Like other AWS SDKs, Quick Sight SDK requires external dependencies to perform many of its
@@ -195,20 +195,19 @@ Use the following procedure to interact with Quick Sight using Node.js.
 
 ###### To work with Quick Sight using Node.js
 
-1.  Set up your node environment using the following commands:
+1. Set up your node environment using the following commands:
 
-        * `npm install aws-sdk`
-        * `npm install aws4`
-        * `npm install request`
-        * `npm install url`
+   - `npm install aws-sdk`
+   - `npm install aws4`
+   - `npm install request`
+   - `npm install url`
+     For information on configuring the Node.js with AWS SDK and
+     setting your credentials, see the [AWS SDK for JavaScript Developer Guide for SDK v2](../../../sdk-for-javascript/v2/developer-guide/welcome.md "../../../sdk-for-javascript/v2/developer-guide/welcome.md").
 
-    For information on configuring the Node.js with AWS SDK and
-    setting your credentials, see the [AWS SDK for JavaScript Developer Guide for SDK v2](../../../sdk-for-javascript/v2/developer-guide/welcome.md "../../../sdk-for-javascript/v2/developer-guide/welcome.md").
-
-2.  Use the following code example to test your setup. HTTPS is required. The example
-    displays a full listing of Quick Sight operations along with their URL
-    request parameters, followed by a list of Quick Sight users in your
-    account.
+2. Use the following code example to test your setup. HTTPS is required. The example
+   displays a full listing of Quick Sight operations along with their URL
+   request parameters, followed by a list of Quick Sight users in your
+   account.
 
 ```
 const AWS = require('aws-sdk');

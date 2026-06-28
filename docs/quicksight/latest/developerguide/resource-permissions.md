@@ -24,7 +24,7 @@ prevent certain users from being added to that group.
 
 For more information, see the following:
 
-- [Actions, Resources, and Condition Keys](../../../IAM/latest/UserGuide/list_amazonquicksight.md "../../../IAM/latest/UserGuide/list_amazonquicksight.md")
+- [Actions, Resources, and Condition Keys for Quick Sight](../../../service-authorization/latest/reference/list_amazonquicksight.md "../../../service-authorization/latest/reference/list_amazonquicksight.md")
 - [IAM
   JSON Policy Elements](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md")
 

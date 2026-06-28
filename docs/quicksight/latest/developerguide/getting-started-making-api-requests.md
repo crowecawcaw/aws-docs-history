@@ -1,13 +1,18 @@
-# Make API requests with the Quick Sight SDKs
+# Make Quick Sight API requests
 
 You can use API operations for Amazon Quick Sight and AWS SDKs to access Quick Sight from your
-preferred programming language. Currently, you can use the Amazon Quick Sight API to manage users
-and groups. In Enterprise Edition, you can also use the API to embed dashboards in your
-webpage or app.
+preferred programming language. Quick Sight API operations provide:
 
-To monitor the calls made to the Quick Sight API for your account, including
-calls made by the AWS Management Console, command line tools, and other services, use
-AWS CloudTrail. For more information, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+- User, group, and namespace management
+- Data management (data sources, datasets, and SPICE ingestion)
+- Dashboard, analysis, template, and theme management
+- Security management, including IAM policies, IP restrictions, customer managed keys (CMK) using AWS KMS, and tags
+- Asset management and import/export
+- Folder management for organizing Quick Sight assets and controlling access through folder-level permissions
+- Account customization management
+  To monitor the calls made to the Quick Sight API for your account, including
+  calls made by the AWS Management Console, command line tools, and other services, use
+  AWS CloudTrail. For more information, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
 AWS provides libraries, sample code, tutorials, and other resources
 for software developers who prefer to build applications using

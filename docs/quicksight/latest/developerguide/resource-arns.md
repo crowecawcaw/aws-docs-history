@@ -1,16 +1,21 @@
 # Quick Sight resource ARNs
 
-The following resource types are defined by Quick Sight: user, group, and dashboard. These
+The following resource types are defined by Quick Sight: user, group, dashboard, topic,
+analysis, template, and theme. These
 are used in Quick Sight API calls and as elements of IAM permission statements. To find
 up-to-date information for Quick Sight (service prefix: quicksight) resources, actions, and
-condition context keys for use in IAM permission policies, see Actions, Resources, and
-Condition Keys for Quick Sight in the _IAM User Guide_.
+condition context keys for use in IAM permission policies, see [Actions, Resources, and
+Condition Keys for Quick Sight](../../../service-authorization/latest/reference/list_amazonquicksight.md "../../../service-authorization/latest/reference/list_amazonquicksight.md") in the _Service Authorization Reference_.
 
 | Resource type | ARN format                                                               | Condition keys |
 | ------------- | ------------------------------------------------------------------------ | -------------- |
 | user          | arn:${Partition}:quicksight:${Region}:${Account}:user/${ResourceId}      | N/A            |
 | group         | arn:${Partition}:quicksight:${Region}:${Account}:group/${ResourceId}     | N/A            |
 | dashboard     | arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId} | N/A            |
+| topic         | arn:${Partition}:quicksight:${Region}:${Account}:topic/${ResourceId}     | N/A            |
+| analysis      | arn:${Partition}:quicksight:${Region}:${Account}:analysis/${ResourceId}  | N/A            |
+| template      | arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}  | N/A            |
+| theme         | arn:${Partition}:quicksight:${Region}:${Account}:theme/${ResourceId}     | N/A            |
 
 Resource ARNs are constructed from the segments that describe your resource. For example, a
 resource ARN for an analysis consists of the following segments.
@@ -49,3 +54,35 @@ arn:aws:quicksight:us-east-2:111122223333:analysis/4036e682-7de6-4c05-8a76-be51b
 ```
 
 To get your AWS account number, contact your system administrator.
+
+###### To get the dataset ID
+
+1. Navigate to the dataset page. You can find the ID in the URL. For example,
+   in the URL
+   `https://us-east-1.quicksight.aws.amazon.com/sn/data-sets/085fb6a4-c606-4949-b1ee-52cffadac462/`,
+   the dataset ID is `085fb6a4-c606-4949-b1ee-52cffadac462`.
+2. Alternatively, you can use an API call to find the dataset ID.
+
+```
+aws quicksight list-data-sets --aws-account-id `your-aws-account-id`
+```
+
+The dataset ID appears in the result, for example:
+
+```
+"DataSetId": "a165d37b-c071-4648-8039-e4db5e5f7f08"
+```
+
+###### To get the data source ID
+
+- Use an API call to find the data source ID.
+
+```
+aws quicksight list-data-sources --aws-account-id `your-aws-account-id`
+```
+
+The data source ID appears in the result, for example:
+
+```
+"DataSourceId": "1491fa60-1f19-4c0f-9f56-c72413a24986"
+```

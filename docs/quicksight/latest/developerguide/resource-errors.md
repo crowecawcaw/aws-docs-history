@@ -77,7 +77,7 @@ request. Some errors can be prevented or easily solved by following these
 guidelines:
 
 - **Specify the AWS account ID and namespace** – Make sure that
-  the relevant AWS account ID are provided with each request. The
+  the relevant AWS account ID is provided with each request. The
   namespace must be set to `default`.
 - **Allow for eventual consistency** – Some errors are caused
   because a previous request hasn't yet propagated through the system.
