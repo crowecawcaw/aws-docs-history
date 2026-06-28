@@ -42,7 +42,7 @@ apache-airflow-providers-microsoft-mssql==1.0.1
 
 If you're using a connection in Apache Airflow v2, ensure the Airflow connection object includes the following key-value pairs:
 
-1. **Conn Id:** mssql_default
+1. **Conn Id:** mssql\_default
 2. **Conn Type:** Amazon Web Services
 3. **Host:** `YOUR_DB_HOST`
 4. **Schema:**
@@ -159,4 +159,4 @@ drop_db >> create_db >> create_table >> insert_into_table >> select_query
 - Learn how to upload the `requirements.txt` file in this example to your Amazon S3 bucket in [Installing Python dependencies](working-dags-dependencies.md "working-dags-dependencies.md").
 - Learn how to upload the DAG code in this example to the `dags` folder in your Amazon S3 bucket in [Adding or updating DAGs](configuring-dag-folder.md "configuring-dag-folder.md").
 - Explore example scripts and other [pymssql module examples](https://pymssql.readthedocs.io/en/stable/pymssql_examples.html "https://pymssql.readthedocs.io/en/stable/pymssql_examples.html").
-- Learn more about executing SQL code in a specific Microsoft SQL database using the [mssql_operator](https://airflow.apache.org/docs/apache-airflow/1.10.12/_api/airflow/operators/mssql_operator/index.html?highlight=mssqloperator#airflow.operators.mssql_operator.MsSqlOperator "https://airflow.apache.org/docs/apache-airflow/1.10.12/_api/airflow/operators/mssql_operator/index.html?highlight=mssqloperator#airflow.operators.mssql_operator.MsSqlOperator") in the _Apache Airflow reference guide_.
+- Learn more about executing SQL code in a specific Microsoft SQL database using the [mssql\_operator](https://airflow.apache.org/docs/apache-airflow/1.10.12/_api/airflow/operators/mssql_operator/index.html?highlight=mssqloperator#airflow.operators.mssql_operator.MsSqlOperator "https://airflow.apache.org/docs/apache-airflow/1.10.12/_api/airflow/operators/mssql_operator/index.html?highlight=mssqloperator#airflow.operators.mssql_operator.MsSqlOperator") in the _Apache Airflow reference guide_.

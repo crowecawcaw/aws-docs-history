@@ -85,9 +85,9 @@ Apache Airflow's built-in plugin manager can integrate external features to its 
 
 ### Custom plugins directory and size limits
 
-The Apache Airflow scheduler and the workers search for custom plugins during startup on the AWS-managed Fargate container for your environment at `/usr/local/airflow/plugins/`\*``.
+The Apache Airflow scheduler and the workers search for custom plugins during startup on the AWS-managed Fargate container for your environment at `/usr/local/airflow/plugins/`*``.
 
-- **Directory structure**. The directory structure (at `/`\*``) is based on the contents of your `plugins.zip` file. For example, if your `plugins.zip` contains the `operators` directory as a main-level directory, then the directory will be extracted to `/usr/local/airflow/plugins/`operators`` on your environment.
+- **Directory structure**. The directory structure (at `/`*``) is based on the contents of your `plugins.zip` file. For example, if your `plugins.zip` contains the `operators` directory as a main-level directory, then the directory will be extracted to `/usr/local/airflow/plugins/`operators`` on your environment.
 - **Size limit**. We recommend a `plugins.zip` file less than than 1 GB. The larger the size of a `plugins.zip` file, the longer the startup time on an environment. Although Amazon MWAA doesn't limit the size of a `plugins.zip` file explicitly, if dependencies can't be installed within ten minutes, the Fargate service will time-out and attempt to rollback the environment to a stable state.
 
 ###### Note
@@ -115,7 +115,7 @@ The following example displays the main-level tree of a plugins.zip file for the
 ├── virtual_python_plugin.py
 ```
 
-###### Example plugins/virtual_python_plugin.py
+###### Example plugins/virtual\_python\_plugin.py
 
 The following example displays the `PythonVirtualenvOperator` custom plugin.
 
@@ -165,7 +165,7 @@ The following example displays the main-level tree of a plugins.zip file for the
 ├── virtual_python_plugin.py
 ```
 
-###### Example plugins/virtual_python_plugin.py
+###### Example plugins/virtual\_python\_plugin.py
 
 The following example displays the `PythonVirtualenvOperator` custom plugin.
 
@@ -228,7 +228,7 @@ my_airflow_plugin.py
 
 The following example displays the import statements in the DAG ([DAGs folder](configuring-dag-folder.md#configuring-dag-folder-how "configuring-dag-folder.md#configuring-dag-folder-how")) that uses the custom plugins.
 
-###### Example dags/your_dag.py
+###### Example dags/your\_dag.py
 
 ```
 from airflow import DAG
@@ -269,7 +269,7 @@ with DAG('customdag',
 	sens >> op >> hello_task
 ```
 
-###### Example plugins/my_airflow_plugin.py
+###### Example plugins/my\_airflow\_plugin.py
 
 ```
 from airflow.plugins_manager import AirflowPlugin
@@ -288,7 +288,7 @@ class PluginName(AirflowPlugin):
 
 The following examples present each of the import statements needed in the custom plugin files.
 
-###### Example hooks/my_airflow_hook.py
+###### Example hooks/my\_airflow\_hook.py
 
 ```
 from airflow.hooks.base import BaseHook
@@ -301,7 +301,7 @@ class MyHook(BaseHook):
 
 ```
 
-###### Example sensors/my_airflow_sensor.py
+###### Example sensors/my\_airflow\_sensor.py
 
 ```
 from airflow.sensors.base import BaseSensorOperator
@@ -321,7 +321,7 @@ class MySensor(BaseSensorOperator):
 
 ```
 
-###### Example operators/my_airflow_operator.py
+###### Example operators/my\_airflow\_operator.py
 
 ```
 from airflow.operators.bash import BaseOperator
@@ -344,7 +344,7 @@ class MyOperator(BaseOperator):
         hook.my_method()
 ```
 
-###### Example operators/hello_operator.py
+###### Example operators/hello\_operator.py
 
 ```
 from airflow.models.baseoperator import BaseOperator
@@ -390,7 +390,7 @@ __init__.py
 
 The following example displays the import statements in the DAG ([DAGs folder](configuring-dag-folder.md#configuring-dag-folder-how "configuring-dag-folder.md#configuring-dag-folder-how")) that uses the custom plugins.
 
-###### Example dags/your_dag.py
+###### Example dags/your\_dag.py
 
 ```
 from airflow import DAG
@@ -431,7 +431,7 @@ with DAG('customdag',
 	sens >> op >> hello_task
 ```
 
-###### Example plugins/my_airflow_plugin.py
+###### Example plugins/my\_airflow\_plugin.py
 
 ```
 from airflow.plugins_manager import AirflowPlugin
@@ -450,7 +450,7 @@ class PluginName(AirflowPlugin):
 
 The following examples present each of the import statements needed in the custom plugin files.
 
-###### Example hooks/my_airflow_hook.py
+###### Example hooks/my\_airflow\_hook.py
 
 ```
 from airflow.hooks.base import BaseHook
@@ -463,7 +463,7 @@ class MyHook(BaseHook):
 
 ```
 
-###### Example sensors/my_airflow_sensor.py
+###### Example sensors/my\_airflow\_sensor.py
 
 ```
 from airflow.sensors.base import BaseSensorOperator
@@ -483,7 +483,7 @@ class MySensor(BaseSensorOperator):
 
 ```
 
-###### Example operators/my_airflow_operator.py
+###### Example operators/my\_airflow\_operator.py
 
 ```
 from airflow.operators.bash import BaseOperator
@@ -506,7 +506,7 @@ class MyOperator(BaseOperator):
         hook.my_method()
 ```
 
-###### Example operators/hello_operator.py
+###### Example operators/hello\_operator.py
 
 ```
 from airflow.models.baseoperator import BaseOperator

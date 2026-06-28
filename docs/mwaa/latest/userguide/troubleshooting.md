@@ -67,11 +67,11 @@ This chapter describes common issues and errors you can encounter when using Apa
 
   - [Logs](t-cloudwatch-cloudtrail-logs.md#troubleshooting-view-logs "t-cloudwatch-cloudtrail-logs.md#troubleshooting-view-logs")
 
-    - [I can't find my task logs, or I received a Reading remote log from Cloudwatch log_group error](t-cloudwatch-cloudtrail-logs.md#t-task-logs "t-cloudwatch-cloudtrail-logs.md#t-task-logs")
+    - [I can't find my task logs, or I received a Reading remote log from Cloudwatch log\_group error](t-cloudwatch-cloudtrail-logs.md#t-task-logs "t-cloudwatch-cloudtrail-logs.md#t-task-logs")
     - [Tasks are failing without any logs](t-cloudwatch-cloudtrail-logs.md#t-task-failing-no-logs "t-cloudwatch-cloudtrail-logs.md#t-task-failing-no-logs")
     - [I get a ResourceAlreadyExistsException error in CloudTrail](t-cloudwatch-cloudtrail-logs.md#t-cloudtrail "t-cloudwatch-cloudtrail-logs.md#t-cloudtrail")
     - [I get an Invalid request error in CloudTrail](t-cloudwatch-cloudtrail-logs.md#t-cloudtrail-bucket "t-cloudwatch-cloudtrail-logs.md#t-cloudtrail-bucket")
     - [I get Cannot locate a 64-bit Oracle Client library: "libclntsh.so: cannot open shared object file: No such file or directory in Apache Airflow logs](t-cloudwatch-cloudtrail-logs.md#t-plugins-logs "t-cloudwatch-cloudtrail-logs.md#t-plugins-logs")
     - [I get psycopg2 'server closed the connection unexpectedly' in my scheduler logs](t-cloudwatch-cloudtrail-logs.md#scheduler-postgres-library "t-cloudwatch-cloudtrail-logs.md#scheduler-postgres-library")
     - [I get Executor reports task instance %s finished (%s) although the task says its %s in my DAG processing logs](t-cloudwatch-cloudtrail-logs.md#long-running-tasks "t-cloudwatch-cloudtrail-logs.md#long-running-tasks")
-    - [I get Could not read remote logs from log_group: airflow-\*{\*environmentName}-Task log_stream:\* {\*DAG_ID}/\*{\*TASK_ID}/\*{\*time}/\*{\*n}.log. in my task logs](t-cloudwatch-cloudtrail-logs.md#t-task-fail-permission "t-cloudwatch-cloudtrail-logs.md#t-task-fail-permission")
+    - [I get Could not read remote logs from log\_group: airflow-\*{\*environmentName}-Task log\_stream:\* {\*DAG\_ID}/\*{\*TASK\_ID}/\*{\*time}/\*{\*n}.log. in my task logs](t-cloudwatch-cloudtrail-logs.md#t-task-fail-permission "t-cloudwatch-cloudtrail-logs.md#t-task-fail-permission")

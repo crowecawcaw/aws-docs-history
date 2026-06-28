@@ -207,7 +207,7 @@ client.zip		instantclient_18_5
 rm client.zip
 ```
 
-###### Zip the env_var_plugin_oracle.py file
+###### Zip the env\_var\_plugin\_oracle.py file
 
 1. Add the `env_var_plugin_oracle.py` file to the root of the plugins.zip. For example:
 

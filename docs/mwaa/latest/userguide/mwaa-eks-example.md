@@ -15,7 +15,7 @@ The following sample demonstrates how to use Amazon Managed Workflows for Apache
 - [Create an identity mapping for Amazon EKS](#eksctl-identity-map "#eksctl-identity-map")
 - [Create the kubeconfig](#eksctl-kube-config "#eksctl-kube-config")
 - [Create a DAG](#eksctl-create-dag "#eksctl-create-dag")
-- [Add the DAG and kube_config.yaml to the Amazon S3 bucket](#eksctl-dag-bucket "#eksctl-dag-bucket")
+- [Add the DAG and kube\_config.yaml to the Amazon S3 bucket](#eksctl-dag-bucket "#eksctl-dag-bucket")
 - [Enable and trigger the example](#eksctl-trigger-pod "#eksctl-trigger-pod")
 
 ## Version
@@ -333,7 +333,7 @@ aws eks update-kubeconfig \
 --alias aws
 ```
 
-If you used a specific profile when you ran `update-kubeconfig` you need to remove the `env:` section added to the kube_config.yaml file so that it works correctly with Amazon MWAA. To do so, delete the following from the file and then save it:
+If you used a specific profile when you ran `update-kubeconfig` you need to remove the `env:` section added to the kube\_config.yaml file so that it works correctly with Amazon MWAA. To do so, delete the following from the file and then save it:
 
 ```
 env:

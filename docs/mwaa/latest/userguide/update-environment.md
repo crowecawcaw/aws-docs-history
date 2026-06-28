@@ -127,11 +127,11 @@ For more information about web server automatic scaling, refer to [Configuring A
 
 7. **Recommended**. Under **Monitoring**, choose one or more log categories for **Airflow logging configuration** to send Apache Airflow logs to CloudWatch Logs:
 
-   1. **Airflow task logs**. Choose the type of Apache Airflow task logs to send to CloudWatch Logs in **Log level**.
-   2. **Airflow webserver logs**. Choose the type of Apache Airflow webserver logs to send to CloudWatch Logs in **Log level**.
-   3. **Airflow scheduler logs**. Choose the type of Apache Airflow scheduler logs to send to CloudWatch Logs in **Log level**.
-   4. **Airflow worker logs**. Choose the type of Apache Airflow worker logs to send to CloudWatch Logs in **Log level**.
-   5. **Airflow DAG processing logs**. Choose the type of Apache Airflow DAG processing logs to send to CloudWatch Logs in **Log level**.
+    1. **Airflow task logs**. Choose the type of Apache Airflow task logs to send to CloudWatch Logs in **Log level**.
+    2. **Airflow webserver logs**. Choose the type of Apache Airflow webserver logs to send to CloudWatch Logs in **Log level**.
+    3. **Airflow scheduler logs**. Choose the type of Apache Airflow scheduler logs to send to CloudWatch Logs in **Log level**.
+    4. **Airflow worker logs**. Choose the type of Apache Airflow worker logs to send to CloudWatch Logs in **Log level**.
+    5. **Airflow DAG processing logs**. Choose the type of Apache Airflow DAG processing logs to send to CloudWatch Logs in **Log level**.
 
 8. **Optional**. For **Airflow configuration options**, choose **Add custom configuration option**.
 
@@ -140,8 +140,7 @@ You can choose from the suggested dropdown list of [Apache Airflow configuration
     1. By default, Amazon MWAA creates an [execution role](mwaa-create-role.md "mwaa-create-role.md") in **Create a new role**. You must have permission to create IAM roles to use this option.
     2. **Optional**. Choose **Enter role ARN** to enter the Amazon Resource Name (ARN) of an existing execution role.
 
-10. Under **Update specifications**, choose a [Worker replacement strategy](#worker-replacement-strategy "#worker-replacement-strategy") to control how active workers are handled during an update.
-11. Choose **Next**.
+10. Under **Update specifications**, choose a [Worker replacement strategy](#worker-replacement-strategy "#worker-replacement-strategy") to control how active workers are handled during an update. 11. Choose **Next**.
 
 ### Step three: Review and update
 

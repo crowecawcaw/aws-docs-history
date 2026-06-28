@@ -37,7 +37,7 @@ using wheel, refer to [Managing dependencies using Python wheel](best-practices-
 
 The following image depicts where to find the **Private network** option on the Amazon MWAA console.
 
-![This image depicts where to find the Private network option on the Amazon MWAA console.](/images/mwaa/latest/userguide/images/mwaa-console-private-network-2026.png)
+![This image depicts where to find the Private network option on the Amazon MWAA console.](images/mwaa-console-private-network-2026.png)
 
 ## Use cases
 
@@ -66,17 +66,16 @@ The following section explains how to identify the CIDR rules, which you'll need
 
 ###### To identify the CIDR for your Client VPN
 
-1.  Open the [Your Amazon VPCs page](https://console.aws.amazon.com/vpc/home#/vpcs: "https://console.aws.amazon.com/vpc/home#/vpcs:") on the Amazon VPC console.
-2.  Use the region selector in the navigation bar to choose the same AWS Region as an Amazon MWAA environment.
-3.  Choose your Amazon VPC.
-4.  Assuming the CIDRs for your private subnets are:
+1. Open the [Your Amazon VPCs page](https://console.aws.amazon.com/vpc/home#/vpcs: "https://console.aws.amazon.com/vpc/home#/vpcs:") on the Amazon VPC console.
+2. Use the region selector in the navigation bar to choose the same AWS Region as an Amazon MWAA environment.
+3. Choose your Amazon VPC.
+4. Assuming the CIDRs for your private subnets are:
 
-        * Private Subnet 1: 10.192.10.0`/24`
-        * Private Subnet 2: 10.192.11.0`/24`
+   - Private Subnet 1: 10.192.10.0`/24`
+   - Private Subnet 2: 10.192.11.0`/24`
+     If the CIDR for your Amazon VPC is 10.192.0.0`/16`, then the **Client IPv4 CIDR** you'd specify for your Client VPN would be 10.192.0.0`/22`.
 
-    If the CIDR for your Amazon VPC is 10.192.0.0`/16`, then the **Client IPv4 CIDR** you'd specify for your Client VPN would be 10.192.0.0`/22`.
-
-5.  Save this CIDR value, and the value of your VPC ID for subsequent steps.
+5. Save this CIDR value, and the value of your VPC ID for subsequent steps.
 
 ### Identify your VPC and security groups
 

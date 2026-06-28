@@ -25,7 +25,7 @@ To use the sample code on this page, you'll need the following:
 ## Permissions
 
 - The execution role for your environment needs permission to run tasks in Amazon ECS. You can either attach the
-  [AmazonECS_FullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonECS_FullAccess$jsonEditor "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonECS_FullAccess$jsonEditor")
+  [AmazonECS\_FullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonECS_FullAccess$jsonEditor "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonECS_FullAccess$jsonEditor")
   AWS-managed policy to your execution role, or create and attach the following policy to your execution role.
 
 JSON

@@ -154,8 +154,8 @@ in your `requirements.txt`.
 #### Using the `plugins.zip` file on an Amazon S3 bucket
 
 The Apache Airflow scheduler, workers, and webserver (for Apache Airflow v2.2.2 and later) search for custom plugins during startup on the AWS-managed Fargate container for your environment at
-`/usr/local/airflow/plugins/`\*``. This process begins prior to Amazon MWAA's `pip3 install -r requirements.txt`for Python dependencies and Apache Airflow service startup.
- A`plugins.zip` file can be used for any files that you don't want continuously changed during environment execution, or that you do not want to grant access to users that write DAGs.
+`/usr/local/airflow/plugins/`*``. This process begins prior to Amazon MWAA's `pip3 install -r requirements.txt` for Python dependencies and Apache Airflow service startup.
+A `plugins.zip` file can be used for any files that you don't want continuously changed during environment execution, or that you do not want to grant access to users that write DAGs.
 For example, Python library wheel files, certificate PEM files, and configuration YAML files.
 
 The following section describes how to install a wheel that's in the `plugins.zip` file on your Amazon S3 bucket.

@@ -61,7 +61,7 @@ An execution role also needs permission to the following IAM actions:
 You can use the default options on the Amazon MWAA console to create an execution role and an [AWS-owned key](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk"), then use the steps on this page to add permission policies to your execution role.
 
 - When you choose the **Create new role** option on the console, Amazon MWAA attaches the minimal permissions needed by an environment to your execution role.
-- In some cases, Amazon MWAA attaches the maximum permissions. For example, we recommend choosing the option on the Amazon MWAA console to create an execution role when you create an environment. Amazon MWAA adds the permissions policies for all CloudWatch Logs groups automatically by using the regex pattern in the execution role as `"arn:aws:logs:`us-east-1`:`111122223333`:log-group:`airflow-your-environment-name-\*`"`.
+- In some cases, Amazon MWAA attaches the maximum permissions. For example, we recommend choosing the option on the Amazon MWAA console to create an execution role when you create an environment. Amazon MWAA adds the permissions policies for all CloudWatch Logs groups automatically by using the regex pattern in the execution role as `"arn:aws:logs:`us-east-1`:`111122223333`:log-group:`airflow-your-environment-name-*`"`.
 
 ### How to add permission to use other AWS services
 

@@ -70,7 +70,7 @@ from airflow.providers.snowflake.operators.snowflake import SnowflakeOperator
 
 Ensure the Apache Airflow connection object includes the following key-value pairs:
 
-1. **Conn Id:** snowflake_conn
+1. **Conn Id:** snowflake\_conn
 2. **Conn Type:** Snowflake
 3. **Host:** <my account>.<my region if not us-west-2>.snowflakecomputing.com
 4. **Schema:** <my schema>
@@ -147,10 +147,10 @@ We recommend the following steps:
     * Database-related errors are usually a symptom of scheduler failure and not the root cause.
 
 2. If the scheduler is not running, it might be due to a number of factors such as
-   [dependency installation failures](best-practices-dependencies.md "best-practices-dependencies.md"),
-   or an [overloaded scheduler](best-practices-tuning.md "best-practices-tuning.md"). Confirm that your DAGs,
-   plugins, and requirements are working correctly by accessing the corresponding log groups in CloudWatch Logs.
-   To learn more, refer to [Monitoring and metrics for Amazon Managed Workflows for Apache Airflow](cw-metrics.md "cw-metrics.md").
+[dependency installation failures](best-practices-dependencies.md "best-practices-dependencies.md"),
+or an [overloaded scheduler](best-practices-tuning.md "best-practices-tuning.md"). Confirm that your DAGs,
+plugins, and requirements are working correctly by accessing the corresponding log groups in CloudWatch Logs.
+To learn more, refer to [Monitoring and metrics for Amazon Managed Workflows for Apache Airflow](cw-metrics.md "cw-metrics.md").
 
 ## Tasks
 
@@ -195,7 +195,7 @@ If your Apache Airflow 3 tasks are failing without logs, follow these steps:
 
 - If the worker logs present an error such as `Task handler raised error: WorkerLostError('Worker exited prematurely: exitcode 15 Job: 12.')` around the time the task failed, this indicates that the forked worker process assigned to the task was likely terminated unexpectedly.
 
-To address this, consider configuring celery.worker_autoscale with the same minimum and maximum values. For example:
+To address this, consider configuring celery.worker\_autoscale with the same minimum and maximum values. For example:
 
 ```
 celery.worker_autoscale=5,5  # for mw1.small

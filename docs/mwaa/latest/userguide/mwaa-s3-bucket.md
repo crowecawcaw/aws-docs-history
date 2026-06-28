@@ -39,24 +39,24 @@ Avoid including sensitive information, such as account numbers, in the bucket na
 
     1. We recommend choosing a region close to you to minimize latency and costs and address regulatory requirements.
 
-5. Choose **Block all public access**.
-6. Choose **Enable** in **Bucket Versioning**.
-7. **Optional** - _Tags_. Add key-value tag pairs to identify your Amazon S3 bucket in **Tags**. For example, `Bucket` : `Staging`.
-8. **Optional** - _Server-side encryption_. You can optionally **Enable** one of the following encryption options on your Amazon S3 bucket.
+5. Choose **Block all public access**. 6. Choose **Enable** in **Bucket Versioning**. 7. **Optional** - _Tags_. Add key-value tag pairs to identify your Amazon S3 bucket in **Tags**. For example, `Bucket` : `Staging`. 8. **Optional** - _Server-side encryption_. You can optionally **Enable** one of the following encryption options on your Amazon S3 bucket.
 
-   1. Choose **Amazon S3 key (SSE-S3)** in **Server-side encryption** to enable server-side encryption for the bucket.
-   2. Choose **AWS Key Management Service key (SSE-KMS)** to use an AWS KMS key for encryption on your Amazon S3 bucket:
+    1. Choose **Amazon S3 key (SSE-S3)** in **Server-side encryption** to enable server-side encryption for the bucket.
+    2. Choose **AWS Key Management Service key (SSE-KMS)** to use an AWS KMS key for encryption on your Amazon S3 bucket:
 
-      1. **AWS managed key (aws/s3)** - If you choose this option, you can either use an [AWS-owned key](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk") managed by Amazon MWAA, or specify a [Customer-managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") for encryption of your Amazon MWAA environment.
-      2. **Choose from your AWS KMS keys** or **Enter AWS KMS key ARN** - If you choose to specify a [Customer-managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in this step, you must specify an AWS KMS key ID or ARN. [AWS KMS aliases and multi-region keys are not supported by Amazon MWAA](custom-keys-certs.md "custom-keys-certs.md"). The AWS KMS key you specify must also be used for encryption on your Amazon MWAA environment.
+
+    	1. **AWS managed key (aws/s3)** - If you choose this option, you can either use an [AWS-owned key](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk") managed by Amazon MWAA, or specify a [Customer-managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") for encryption of your Amazon MWAA environment.
+    	2. **Choose from your AWS KMS keys** or **Enter AWS KMS key ARN** - If you choose to specify a [Customer-managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in this step, you must specify an AWS KMS key ID or ARN. [AWS KMS aliases and multi-region keys are not supported by Amazon MWAA](custom-keys-certs.md "custom-keys-certs.md"). The AWS KMS key you specify must also be used for encryption on your Amazon MWAA environment.
 
 9. **Optional** - _Advanced settings_. If you want to enable Amazon S3 Object Lock:
 
-   1. Choose **Advanced settings**, **Enable**.
+    1. Choose **Advanced settings**, **Enable**.
 
-   ###### Important
 
-   Enabling Object Lock will permanently allow objects in this bucket to be locked. To learn more, refer to [Locking Objects Using Amazon S3 Object Lock](../../../AmazonS3/latest/dev/object-lock.md "../../../AmazonS3/latest/dev/object-lock.md") in the _Amazon Simple Storage Service User Guide_. 2. Choose the acknowledgement.
+    ###### Important
+
+    Enabling Object Lock will permanently allow objects in this bucket to be locked. To learn more, refer to [Locking Objects Using Amazon S3 Object Lock](../../../AmazonS3/latest/dev/object-lock.md "../../../AmazonS3/latest/dev/object-lock.md") in the *Amazon Simple Storage Service User Guide*.
+    2. Choose the acknowledgement.
 
 10. Choose **Create bucket**.
 

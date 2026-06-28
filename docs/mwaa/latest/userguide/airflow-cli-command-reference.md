@@ -253,8 +253,10 @@ Use the following example to run Airflow CLI commands using an SSH tunnel proxy 
 ###### Using curl
 
 1. ```
-   ssh -D 8080 -f -C -q -N `YOUR_USER`@`YOUR_BASTION_HOST`
+
    ```
+
+ssh -D 8080 -f -C -q -N `YOUR_USER`@`YOUR_BASTION_HOST`
 
 ````
 2. ```
