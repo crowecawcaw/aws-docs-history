@@ -91,7 +91,7 @@ of the following policies:
   "allow list" strategy or a deny list strategy.
 
 An allow list strategy takes advantage of the fact that access is
-denied by default until you **_explicitly allow_** it in a
+denied by default until you _**explicitly allow**_ it in a
 policy. So you can use a policy like the following example:
 
 JSON

@@ -28,7 +28,7 @@ Resource Groups uses the permissions in this role to query the AWS services that
 resources to help resolve group membership and to keep the group up-to-date. It allows
 Resource Groups to emit service-related events to the Amazon EventBridge service.
 
-The `AWSServiceRoleForResourceGroups` service-linked role trusts **_only_** the following service to assume the
+The `AWSServiceRoleForResourceGroups` service-linked role trusts _**only**_ the following service to assume the
 role:
 
 - `resourcegroups.amazonaws.com`

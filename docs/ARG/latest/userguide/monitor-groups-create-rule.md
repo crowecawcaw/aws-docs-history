@@ -18,7 +18,7 @@ Step 1: Create the EventBridge rule to
 capture the events
 
 The following AWS CLI `put-rule` example command creates an EventBridge rule
-that captures **_all_** Resource Groups lifecycle event
+that captures _**all**_ Resource Groups lifecycle event
 changes.
 
 ```

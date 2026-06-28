@@ -148,10 +148,10 @@ Only resources that are directly created as part of the stack in the
 query are included in the resource group. Resources created later by
 members of the CloudFormation stack do not become members of the group. For
 example, if an auto-scaling group is created by CloudFormation as part of the
-stack, then that auto-scaling group **_is_** a member of the group.
+stack, then that auto-scaling group _**is**_ a member of the group.
 However, an Amazon EC2 instance created by that auto-scaling group as part of
-its operation **_is
-not_** a member of the CloudFormation stack-based
+its operation _**is
+not**_ a member of the CloudFormation stack-based
 resource group.
 
 If you create a group based on an CloudFormation stack, and the stack's status
