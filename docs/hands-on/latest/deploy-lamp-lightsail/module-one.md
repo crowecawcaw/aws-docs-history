@@ -122,14 +122,14 @@ processor, on your machine using a packet manager of your choice.
 
 - Now that we prepared everything, we can use the AWS CLI to create the instance. For
   this guide, we will be using the Ireland (eu-west-1) Region, and the LAmazon Managed Service for Prometheus blueprint
-  with the **blueprintId** of **lamp_7**.
+  with the **blueprintId** of **lamp\_7**.
 
 ```
 aws lightsail get-blueprints
 ```
 
 - You must specify an instance bundle when creating a Lightsail instance. For this
-  guide, we will use a **micro_2_0** bundle. You can view a
+  guide, we will use a **micro\_2\_0** bundle. You can view a
   list of available bundles with the following command:
 
 ```
