@@ -19,14 +19,13 @@ Specifically, Microservice Extractor supports the following versions:
 
 - **Application extraction**:
 
-      + .NET Framework version 4.5 and later
-      + .NET Core version 3.1
-      + .NET version 5.0
-      + .NET version 6.0
-      + .NET version 7.0
-
-  Microservice Extractor supports analysis of `C#` source code. Extraction is supported for
-  only ASP.NET MVC applications.
+  - .NET Framework version 4.5 and later
+  - .NET Core version 3.1
+  - .NET version 5.0
+  - .NET version 6.0
+  - .NET version 7.0
+    Microservice Extractor supports analysis of `C#` source code. Extraction is supported for
+    only ASP.NET MVC applications.
 
 ###### Extraction
 

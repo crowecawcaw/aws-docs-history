@@ -37,8 +37,8 @@ The following shared state accesses are detected:
      controller.
 
 2. Select the options under **Method invocations from the original
-   application to the extracted service**. Consider the following
-   limitations for each method.
+application to the extracted service**. Consider the following
+limitations for each method.
 
 ###### How Microservice Extractor extracts the service code repository:
 
@@ -61,11 +61,11 @@ The following shared state accesses are detected:
      conflicting states in the application.
 
 3. When you are satisfied with the extraction details, choose
-   **Extract**. The progress of the extraction is
-   displayed at the top of the page . To cancel the extraction, in the
-   extraction progress banner, select **Cancel extraction**.
-   If you cancel the extraction, the extraction configuration is deleted, and
-   you must restart the extraction.
+**Extract**. The progress of the extraction is
+displayed at the top of the page . To cancel the extraction, in the
+extraction progress banner, select **Cancel extraction**.
+If you cancel the extraction, the extraction configuration is deleted, and
+you must restart the extraction.
 
 A successful extraction will display the output location of the extraction
 in the green status banner. To view the extraction details, choose

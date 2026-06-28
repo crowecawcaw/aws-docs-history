@@ -104,12 +104,14 @@ Command failed: failed to run build command on ...\MyApp.sln: failed to execute 
 **Check logs**
 
 - You can determine the cause of most extraction failures by viewing
-  ``%USERPORFILE%`\AppData\Roaming\ServiceExtract\logs\Extraction\extract\*log`.
+  ``%USERPORFILE%`\AppData\Roaming\ServiceExtract\logs\Extraction\extract*log`.
   Generally, the last line in this file contains a message with the cause of the
   error.
 - If the error message in the log refers to a build failure, check
-  ``%USERPORFILE%`\AppData\Roaming\ServiceExtract\logs\msbuild.log`for details. Note that the extraction builds both the new service and the
-modified original application. The output of each of these builds is sent to`msbuild.log`.
+  ``%USERPORFILE%`\AppData\Roaming\ServiceExtract\logs\msbuild.log`
+  for details. Note that the extraction builds both the new service and the
+  modified original application. The output of each of these builds is sent to
+  `msbuild.log`.
 
 ## Application artifact location
 
