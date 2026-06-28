@@ -70,7 +70,7 @@ Already have an account? [Sign in](https://console.aws.amazon.com/console/home "
 
   ![The AWS CloudFormation console showing the 'Review WWAMAStack' step for creating a stack, specifying template and stack details, with the Submit button highlighted.](images/stack-abe-cfnlong-console-wwamastack.png) 5. Verify completion
 
-  Once the stack has been created, you will see its status change to **CREATE_COMPLETE**.
+  Once the stack has been created, you will see its status change to **CREATE\_COMPLETE**.
 
   ![The AWS CloudFormation console with the WWAMAStack stack creation marked as complete. This image is used to verify the successful completion of migrating an ASP.NET Web Application.](images/verify-completion-adcd-cfnlong-console.png)
 
@@ -165,8 +165,8 @@ as Administrator**.
 
 In the PowerShell window, run the commands provided in the
 PowerShell sample to configure the AWS credentials. Replace
-**ACCESS_KEY** and
-**SECRET_ACCESS_KEY** with the
+**ACCESS\_KEY** and
+**SECRET\_ACCESS\_KEY** with the
 values in the CSV file you downloaded earlier during the creation
 of the **MigrationUser**.
 
@@ -301,8 +301,8 @@ environment.
 ![The AWS Elastic Beanstalk console with the 'Delete application' option highlighted for a migrated ASP.NET web application.](images/stlom-delete-resources-aeblong-console.png) 2. Delete temporary files from Amazon S3
 
 Go to the [Amazon S3
-console](https://s3.console.aws.amazon.com/s3/buckets?region=us-east-1 "https://s3.console.aws.amazon.com/s3/buckets?region=us-east-1"), select the radio button next to the bucket named **elastic-beanstalk-migration-ACCOUNT_ID-TIMESTAmazon Managed Service for Prometheus**, where
-**ACCOUNT_ID** is your AWS account ID and **TIMESTAmazon Managed Service for Prometheus** is the time that your application was deployed.
+console](https://s3.console.aws.amazon.com/s3/buckets?region=us-east-1 "https://s3.console.aws.amazon.com/s3/buckets?region=us-east-1"), select the radio button next to the bucket named **elastic-beanstalk-migration-ACCOUNT\_ID-TIMESTAmazon Managed Service for Prometheus**, where
+**ACCOUNT\_ID** is your AWS account ID and **TIMESTAmazon Managed Service for Prometheus** is the time that your application was deployed.
 
 Then choose **Empty** to first empty the contents of
 the bucket. You will need to confirm this action by entering **permanently**
