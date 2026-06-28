@@ -107,25 +107,22 @@ aws iotfleetwise create-vehicle --cli-input-json file://`file-name`.json
 - (Optional) The `associationBehavior` value can be one of the
   following:
 
-      + `CreateIotThing` – When your vehicle is created,
-       AWS IoT FleetWise automatically creates an AWS IoT thing with the name of your
-       vehicle ID for your vehicle.
-      + `ValidateIotThingExists` – Use an existing AWS IoT
-       thing to create a vehicle.
+  - `CreateIotThing` – When your vehicle is created,
+    AWS IoT FleetWise automatically creates an AWS IoT thing with the name of your
+    vehicle ID for your vehicle.
+  - `ValidateIotThingExists` – Use an existing AWS IoT
+    thing to create a vehicle.
 
+  To create an AWS IoT thing, run the following command. Replace
+  `thing-name` with the name of the thing
+  you want to create.
 
-      To create an AWS IoT thing, run the following command. Replace
-       `thing-name` with the name of the thing
-       you want to create.
+  ```
+  aws iot create-thing --thing-name `thing-name`
+  ```
 
-
-
-      ```
-      aws iot create-thing --thing-name `thing-name`
-      ```
-
-  If it's not specified, AWS IoT FleetWise automatically creates an AWS IoT thing for
-  your vehicle.
+If it's not specified, AWS IoT FleetWise automatically creates an AWS IoT thing for
+your vehicle.
 
 ###### Important
 

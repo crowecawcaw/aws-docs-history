@@ -61,10 +61,10 @@ To configure an attribute, specify the following information.
 
 - `dataType` – The attribute's data type must be one
   of the following: INT8, UINT8, INT16, UINT16, INT32, UINT32, INT64,
-  UINT64, BOOLEAN, FLOAT, DOUBLE, STRING, UNIX_TIMESTAMP, INT8_ARRAY,
-  UINT8_ARRAY, INT16_ARRAY, UINT16_ARRAY, INT32_ARRAY, UINT32_ARRAY,
-  INT64_ARRAY, UINT64_ARRAY, BOOLEAN_ARRAY, FLOAT_ARRAY, DOUBLE_ARRAY,
-  STRING_ARRAY, UNIX_TIMESTAMP_ARRAY, UNKNOWN, fullyQualifiedName, or a
+  UINT64, BOOLEAN, FLOAT, DOUBLE, STRING, UNIX\_TIMESTAMP, INT8\_ARRAY,
+  UINT8\_ARRAY, INT16\_ARRAY, UINT16\_ARRAY, INT32\_ARRAY, UINT32\_ARRAY,
+  INT64\_ARRAY, UINT64\_ARRAY, BOOLEAN\_ARRAY, FLOAT\_ARRAY, DOUBLE\_ARRAY,
+  STRING\_ARRAY, UNIX\_TIMESTAMP\_ARRAY, UNKNOWN, fullyQualifiedName, or a
   custom struct defined in the data type branch.
 - `fullyQualifiedName` – The fully qualified name of
   the attribute is the path to the attribute plus the attribute's name.
@@ -119,10 +119,10 @@ To configure a sensor or actuator, specify the following information.
 
 - `dataType` – The signal's data type must be one of
   the following: INT8, UINT8, INT16, UINT16, INT32, UINT32, INT64, UINT64,
-  BOOLEAN, FLOAT, DOUBLE, STRING, UNIX_TIMESTAMP, INT8_ARRAY, UINT8_ARRAY,
-  INT16_ARRAY, UINT16_ARRAY, INT32_ARRAY, UINT32_ARRAY, INT64_ARRAY,
-  UINT64_ARRAY, BOOLEAN_ARRAY, FLOAT_ARRAY, DOUBLE_ARRAY, STRING_ARRAY,
-  UNIX_TIMESTAMP_ARRAY, UNKNOWN, fullyQualifiedName, or a custom struct
+  BOOLEAN, FLOAT, DOUBLE, STRING, UNIX\_TIMESTAMP, INT8\_ARRAY, UINT8\_ARRAY,
+  INT16\_ARRAY, UINT16\_ARRAY, INT32\_ARRAY, UINT32\_ARRAY, INT64\_ARRAY,
+  UINT64\_ARRAY, BOOLEAN\_ARRAY, FLOAT\_ARRAY, DOUBLE\_ARRAY, STRING\_ARRAY,
+  UNIX\_TIMESTAMP\_ARRAY, UNKNOWN, fullyQualifiedName, or a custom struct
   defined in the data type branch.
 - `fullyQualifiedName` – The fully qualified name of
   the signal is the path to the signal plus the signal's name. Use a
@@ -258,11 +258,11 @@ information.
 
 - `dataType` – The signal's data type must be
   one of the following: INT8, UINT8, INT16, UINT16, INT32, UINT32,
-  INT64, UINT64, BOOLEAN, FLOAT, DOUBLE, STRING, UNIX_TIMESTAMP,
-  INT8_ARRAY, UINT8_ARRAY, INT16_ARRAY, UINT16_ARRAY, INT32_ARRAY,
-  UINT32_ARRAY, INT64_ARRAY, UINT64_ARRAY, BOOLEAN_ARRAY,
-  FLOAT_ARRAY, DOUBLE_ARRAY, STRING_ARRAY, UNIX_TIMESTAMP_ARRAY,
-  STRUCT, STRUCT_ARRAY, or UNKNOWN.
+  INT64, UINT64, BOOLEAN, FLOAT, DOUBLE, STRING, UNIX\_TIMESTAMP,
+  INT8\_ARRAY, UINT8\_ARRAY, INT16\_ARRAY, UINT16\_ARRAY, INT32\_ARRAY,
+  UINT32\_ARRAY, INT64\_ARRAY, UINT64\_ARRAY, BOOLEAN\_ARRAY,
+  FLOAT\_ARRAY, DOUBLE\_ARRAY, STRING\_ARRAY, UNIX\_TIMESTAMP\_ARRAY,
+  STRUCT, STRUCT\_ARRAY, or UNKNOWN.
 - `fullyQualifiedName` – The fully qualified
   name of the custom property. For example, the fully qualified
   name of a custom property might be

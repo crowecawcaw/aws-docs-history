@@ -36,33 +36,30 @@ aws iotfleetwise update-vehicle --cli-input-json file://`file-name`.json
   you specified.
 - (Optional) Replace `attribute-update-mode` with vehicle attributes.
 
-      + `Merge` – Merge new attributes into existing
-       attributes by updating existing attributes with new values and
-       adding new attributes if they don't exist.
+  - `Merge` – Merge new attributes into existing
+    attributes by updating existing attributes with new values and
+    adding new attributes if they don't exist.
 
+  For example, if a vehicle has the following attributes:
+  `{"color": "black", "fuelType": "electric"}`, and you
+  update the vehicle with the following attributes: `{"color":
+   "", "fuelType": "gasoline", "model": "x"}`, the updated
+  vehicle has the following attributes: `{"fuelType": "gasoline",
+   "model": "x"}`.
+  - `Overwrite` – Replace existing attributes with new
+    attributes.
 
-      For example, if a vehicle has the following attributes:
-       `{"color": "black", "fuelType": "electric"}`, and you
-       update the vehicle with the following attributes: `{"color":
-       "", "fuelType": "gasoline", "model": "x"}`, the updated
-       vehicle has the following attributes: `{"fuelType": "gasoline",
-       "model": "x"}`.
-      + `Overwrite` – Replace existing attributes with new
-       attributes.
-
-
-      For example, if a vehicle has the following attributes:
-       `{"color": "black", "fuelType": "electric"}`, and you
-       update the vehicle with the `{"model": "x"}` attribute,
-       the updated vehicle has the `{"model": "x"}`
-       attribute.
-
+  For example, if a vehicle has the following attributes:
+  `{"color": "black", "fuelType": "electric"}`, and you
+  update the vehicle with the `{"model": "x"}` attribute,
+  the updated vehicle has the `{"model": "x"}`
+  attribute.
   This is required if attributes are present in the input.
 
 - (Optional) To add new attributes or update existing ones with new values,
   configure `attributes`. For example, if you have an electric car,
   you can specify the following value for an attribute: `{"fuelType":
-"electric"}`.
+ "electric"}`.
 
 To delete attributes, configure `attributeUpdateMode` to
 `Merge`.

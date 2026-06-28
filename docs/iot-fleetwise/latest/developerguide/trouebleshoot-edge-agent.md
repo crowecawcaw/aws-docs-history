@@ -22,9 +22,11 @@ Troubleshoot Edge Agent software issues.
 You might see the following errors when the Edge Agent software doesn't start.
 
 - ```
-  Error from reader: * Line 1, Column 1
-  Syntax error: value, object or array expected.
+
   ```
+
+Error from reader: * Line 1, Column 1
+Syntax error: value, object or array expected.
 
 ````
 
@@ -64,9 +66,11 @@ sudo ip link set `network-interface-id` up
 ```
 
 - ```
-  [ERROR] [AwsIotConnectivityModule::connect]: [Connection failed with error]
-  [WARN] [AwsIotChannel::send]: [No alive MQTT Connection.]
+
   ```
+
+[ERROR] [AwsIotConnectivityModule::connect]: [Connection failed with error]
+[WARN] [AwsIotChannel::send]: [No alive MQTT Connection.]
 
 # or
 

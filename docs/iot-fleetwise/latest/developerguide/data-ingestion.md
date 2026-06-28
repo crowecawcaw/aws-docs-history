@@ -52,7 +52,7 @@ communication between your vehicles and the cloud.
      per AWS Region.
 
 3. Use signals in the signal catalog to create a vehicle model. For more information,
-   see [Create an AWS IoT FleetWise vehicle model](create-vehicle-model.md "create-vehicle-model.md").
+see [Create an AWS IoT FleetWise vehicle model](create-vehicle-model.md "create-vehicle-model.md").
 
 ###### Note
 
@@ -70,9 +70,9 @@ communication between your vehicles and the cloud.
      automatically activates the vehicle model for you.
 
 4. Create a decoder manifest. The decoder manifest contains decoding information for
-   every signal specified in the vehicle model that you created in the previous step.
-   The decoder manifest is associated with the vehicle model that you created. For more
-   information, see [Manage AWS IoT FleetWise decoder manifests](decoder-manifests.md "decoder-manifests.md").
+every signal specified in the vehicle model that you created in the previous step.
+The decoder manifest is associated with the vehicle model that you created. For more
+information, see [Manage AWS IoT FleetWise decoder manifests](decoder-manifests.md "decoder-manifests.md").
 
 ###### Note
 
@@ -84,15 +84,13 @@ communication between your vehicles and the cloud.
      AWS IoT FleetWise automatically activates the decoder manifest for you.
 
 5. Create vehicles from the vehicle model. Vehicles created from the same vehicle
-   model inherit the same group of signals. You must use AWS IoT Core to provision your
-   vehicle before you can ingest data to the cloud. For more information, see [Manage AWS IoT FleetWise vehicles](vehicles.md "vehicles.md").
-6. (Optional) Create a fleet to represent a group of vehicles, and then associate
-   individual vehicles with the fleet. This helps you manage multiple vehicles at the
-   same time. For more information, see [Manage fleets in AWS IoT FleetWise](fleets.md "fleets.md").
-7. (Optional) Create campaigns. Campaigns are deployed to a vehicle or a fleet of vehicles.
-   Campaigns give the Edge Agent software instructions on how to select, collect, and transfer
-   data to the cloud. For more information, see [Collect AWS IoT FleetWise data with campaigns](campaigns.md "campaigns.md"). You can create campaigns, state templates (below), or
-   both to collect data.
+model inherit the same group of signals. You must use AWS IoT Core to provision your
+vehicle before you can ingest data to the cloud. For more information, see [Manage AWS IoT FleetWise vehicles](vehicles.md "vehicles.md"). 6. (Optional) Create a fleet to represent a group of vehicles, and then associate
+individual vehicles with the fleet. This helps you manage multiple vehicles at the
+same time. For more information, see [Manage fleets in AWS IoT FleetWise](fleets.md "fleets.md"). 7. (Optional) Create campaigns. Campaigns are deployed to a vehicle or a fleet of vehicles.
+Campaigns give the Edge Agent software instructions on how to select, collect, and transfer
+data to the cloud. For more information, see [Collect AWS IoT FleetWise data with campaigns](campaigns.md "campaigns.md"). You can create campaigns, state templates (below), or
+both to collect data.
 
 ###### Note
 

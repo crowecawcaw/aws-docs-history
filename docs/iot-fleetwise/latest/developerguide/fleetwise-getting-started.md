@@ -105,9 +105,9 @@ following:
 4. In the **Capabilities** section, select the box to
    acknowledge that CloudFormation creates IAM resources.
 5. Choose **Create stack**, then wait approximately 15 minutes
-   for the status of the stack to display CREATE_COMPLETE.
+   for the status of the stack to display CREATE\_COMPLETE.
 6. To confirm the stack was created, choose the **Stack info** tab, refresh the view,
-   and look for CREATE_COMPLETE.
+   and look for CREATE\_COMPLETE.
 
 ![The AWS IoT FleetWise Stack info tab showing CREATE COMPLETE confirmation notification.](images/create-complete.png)
 
@@ -169,8 +169,8 @@ to upload for this step. 7. Add attributes to your vehicle model and then choose
      of the attribute.
 
 8. Review your configurations. When you're ready, choose
-   **Create**. A notification appears saying your vehicle
-   model was successfully created.
+**Create**. A notification appears saying your vehicle
+model was successfully created.
 
 ![The AWS IoT FleetWise notification saying your vehicle model was successfully created.](images/vehicle-model-status.png)
 
@@ -201,8 +201,8 @@ You can't configure vision system data signals in decoder manifests using the AW
 
 1. To help you identify your decoder manifest, enter a name and an optional
    description for it. Then, choose **Next**.
-2. To add one or more network interfaces, choose either the CAN_INTERFACE or the
-   OBD_INTERFACE type.
+2. To add one or more network interfaces, choose either the CAN\_INTERFACE or the
+   OBD\_INTERFACE type.
 
    - **On-board diagnostic (OBD) interface ‐** Choose this interface type
      if you want a protocol that defines how self-diagnostic data is

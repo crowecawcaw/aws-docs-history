@@ -62,18 +62,18 @@ control plane and data plane API operations for the commands
 feature. The user of the application will have permissions to perform all remote
 command API operations, as shown in the table.
 
-| API operation            | API action    | Control/data plane | Protocol                                               | Description          | Resource |
-| ------------------------ | ------------- | ------------------ | ------------------------------------------------------ | -------------------- | -------- |
-| `CreateCommand`          | Control plane | HTTP               | Creates a command resource                             | • command            |
-| `GetCommand`             | Control plane | HTTP               | Retrieves information about a command                  | • command            |
-| `UpdateCommand`          | Control plane | HTTP               | Updates information about a command or to deprecate it | • command            |
-| `ListCommands`           | Control plane | HTTP               | Lists commands in your account                         | • command            |
-| `DeleteCommand`          | Control plane | HTTP               | Deletes a command                                      | • command            |
-| `StartCommandExecution`  | Data plane    | HTTP               | Starts executing a command                             | • command<br>• thing |
-| `UpdateCommandExecution` | Data plane    | MQTT               | Update a command execution                             | • command<br>• thing |
-| `GetCommandExecution`    | Control plane | HTTP               | Retrieves information about a command execution        | • command<br>• thing |
-| `ListCommandExecutions`  | Control plane | HTTP               | Lists command executions in your account               | • command<br>• thing |
-| `DeleteCommandExecution` | Control plane | HTTP               | Deletes a command execution                            | • command<br>• thing |
+API operation| API action | Control/data plane | Protocol | Description | Resource |
+| --- | --- | --- | --- | --- |
+| `CreateCommand` | Control plane | HTTP | Creates a command resource | • command |
+| `GetCommand` | Control plane | HTTP | Retrieves information about a command | • command |
+| `UpdateCommand` | Control plane | HTTP | Updates information about a command or to deprecate it | • command |
+| `ListCommands` | Control plane | HTTP | Lists commands in your account | • command |
+| `DeleteCommand` | Control plane | HTTP | Deletes a command | • command |
+| `StartCommandExecution` | Data plane | HTTP | Starts executing a command | • command<br>• thing |
+| `UpdateCommandExecution` | Data plane | MQTT | Update a command execution | • command<br>• thing |
+| `GetCommandExecution` | Control plane | HTTP | Retrieves information about a command execution | • command<br>• thing |
+| `ListCommandExecutions` | Control plane | HTTP | Lists command executions in your account | • command<br>• thing |
+| `DeleteCommandExecution` | Control plane | HTTP | Deletes a command execution | • command<br>• thing |
 
 In this example, replace:
 

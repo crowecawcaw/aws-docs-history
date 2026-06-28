@@ -56,42 +56,42 @@ _Amazon CloudWatch Logs User Guide_.
 }
 ```
 
-| Signal event types          | Event type                                                                                                                                                                                                                                                                                                                                                                                   | Description |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| MODELING_ERROR              | A message sent from the vehicle and received by AWS IoT FleetWise contains signals that fail to<br>validate against the vehicle model.<br>Attributes: vehicleName, campaignName (optional), signalCatalogName, signalId (optional),<br>signalValue (optional), signalValueRangeMin (optional), signalValueRangeMax (optional),<br>modelManifestName (optional), signalIds, stateTemplateName |
-| ILLEGAL_MESSAGE_FROM_EDGE   | A message sent from the vehicle and received by AWS IoT FleetWise didn't match the required format.<br>Attributes: vehicleName, campaignName, signalCatalogName                                                                                                                                                                                                                              |
-| DECODING_ERROR              | A message sent from the vehicle and received by AWS IoT FleetWise contains signals that fail to decoder against the vehicle's decoder manifest.<br>Attributes: campaignName, signalCatalogName, decoderManifestName, (optional) signalName, (optional) s3URI                                                                                                                                 |
-| MESSAGE_THROTTLED           | A message sent from the vehicle to AWS IoT FleetWise was throttled. This is because you exceeded the service limits for this account in the current Region.<br>Attributes: accountId, vehicleName, message, eventType, logLevel, timestamp                                                                                                                                                   |
-| MESSAGE_SIZE_LIMIT_EXCEEDED | A message sent from the vehicle and received by AWS IoT FleetWise exceeds the maximum size of a message [service limit](../../../general/latest/gr/iotfleetwise.md "../../../general/latest/gr/iotfleetwise.md").<br>Attributes: accountId, vehicleName                                                                                                                                      |
-| CHECKIN_THROTTLED           | A check-in sent from the vehicle to AWS IoT FleetWise was throttled. This is because you exceeded the [service limit](../../../general/latest/gr/iotfleetwise.md "../../../general/latest/gr/iotfleetwise.md") for this account in the current Region.<br>Attributes: vehicleName                                                                                                            |
-| VEHICLE_ATTRIBUTE_NOT_FOUND | A message sent from the vehicle and received by AWS IoT FleetWise could not be enriched with the specified vehicle attributes.<br>Attributes: campaignName (optional), stateTemplateName (optional), vehicleName, vehicleAttributeNames                                                                                                                                                      |
+Signal event types| Event type | Description |
+| --- | --- |
+| MODELING\_ERROR | A message sent from the vehicle and received by AWS IoT FleetWise contains signals that fail to<br>validate against the vehicle model.<br>Attributes: vehicleName, campaignName (optional), signalCatalogName, signalId (optional),<br>signalValue (optional), signalValueRangeMin (optional), signalValueRangeMax (optional),<br>modelManifestName (optional), signalIds, stateTemplateName |
+| ILLEGAL\_MESSAGE\_FROM\_EDGE | A message sent from the vehicle and received by AWS IoT FleetWise didn't match the required format.<br>Attributes: vehicleName, campaignName, signalCatalogName |
+| DECODING\_ERROR | A message sent from the vehicle and received by AWS IoT FleetWise contains signals that fail to decoder against the vehicle's decoder manifest.<br>Attributes: campaignName, signalCatalogName, decoderManifestName, (optional) signalName, (optional) s3URI |
+| MESSAGE\_THROTTLED | A message sent from the vehicle to AWS IoT FleetWise was throttled. This is because you exceeded the service limits for this account in the current Region.<br>Attributes: accountId, vehicleName, message, eventType, logLevel, timestamp |
+| MESSAGE\_SIZE\_LIMIT\_EXCEEDED | A message sent from the vehicle and received by AWS IoT FleetWise exceeds the maximum size of a message [service limit](../../../general/latest/gr/iotfleetwise.md "../../../general/latest/gr/iotfleetwise.md").<br>Attributes: accountId, vehicleName |
+| CHECKIN\_THROTTLED | A check-in sent from the vehicle to AWS IoT FleetWise was throttled. This is because you exceeded the [service limit](../../../general/latest/gr/iotfleetwise.md "../../../general/latest/gr/iotfleetwise.md") for this account in the current Region.<br>Attributes: vehicleName |
+| VEHICLE\_ATTRIBUTE\_NOT\_FOUND | A message sent from the vehicle and received by AWS IoT FleetWise could not be enriched with the specified vehicle attributes.<br>Attributes: campaignName (optional), stateTemplateName (optional), vehicleName, vehicleAttributeNames |
 
-| Vehicle event types | Event type                                                                                                                                                | Description |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| VEHICLE_NOT_FOUND   | A message received by AWS IoT FleetWise, where the vehicle was unknown.<br>Attributes: vehicleName, campaignName (optional), stateTemplateName (optional) |
+Vehicle event types| Event type | Description |
+| --- | --- |
+| VEHICLE\_NOT\_FOUND | A message received by AWS IoT FleetWise, where the vehicle was unknown.<br>Attributes: vehicleName, campaignName (optional), stateTemplateName (optional) |
 
-| Deployment event types      | Event type                                                                                                                                                                         | Description |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| PAYLOAD_SIZE_LIMIT_EXCEEDED | A message sent from AWS IoT FleetWise to the vehicle exceeded the maximum size service<br>limit.<br>Attributes: vehicleName, campaignName (optional), stateTemplateName (optional) |
+Deployment event types| Event type | Description |
+| --- | --- |
+| PAYLOAD\_SIZE\_LIMIT\_EXCEEDED | A message sent from AWS IoT FleetWise to the vehicle exceeded the maximum size service<br>limit.<br>Attributes: vehicleName, campaignName (optional), stateTemplateName (optional) |
 
-| Campaign event types | Event type                                                                                                                                               | Description |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| CAMPAIGN_NOT_FOUND   | A message sent from the vehicle and received by AWS IoT FleetWise, where the campaign was unknown.<br>Attributes: vehicleName (optional), campaignName   |
-| CAMPAIGN_INVALID     | A message sent from the vehicle and received by AWS IoT FleetWise, where the campaign was not valid.<br>Attributes: vehicleName (optional), campaignName |
+Campaign event types| Event type | Description |
+| --- | --- |
+| CAMPAIGN\_NOT\_FOUND | A message sent from the vehicle and received by AWS IoT FleetWise, where the campaign was unknown.<br>Attributes: vehicleName (optional), campaignName |
+| CAMPAIGN\_INVALID | A message sent from the vehicle and received by AWS IoT FleetWise, where the campaign was not valid.<br>Attributes: vehicleName (optional), campaignName |
 
-| Campaign data destination event types | Event type                                                                                                                                                                        | Description |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| TIMESTREAM_WRITE_ERROR                | AWS IoT FleetWise couldn't write a message from the vehicle to the Amazon Timestream table.<br>Attributes: vehicleName, campaignName, timestreamDatabaseName, timestreamTableName |
-| S3_WRITE_ERROR                        | AWS IoT FleetWise couldn't write a message from the vehicle to the Amazon Simple Storage Service (Amazon S3) bucket.<br>Attributes: campaignName, destinationName                 |
-| S3_READ_ERROR                         | AWS IoT FleetWise couldn't read an object key from the vehicle in the Amazon Simple Storage Service (Amazon S3) bucket.<br>Attributes: campaignName, destinationName              |
+Campaign data destination event types| Event type | Description |
+| --- | --- |
+| TIMESTREAM\_WRITE\_ERROR | AWS IoT FleetWise couldn't write a message from the vehicle to the Amazon Timestream table.<br>Attributes: vehicleName, campaignName, timestreamDatabaseName, timestreamTableName |
+| S3\_WRITE\_ERROR | AWS IoT FleetWise couldn't write a message from the vehicle to the Amazon Simple Storage Service (Amazon S3) bucket.<br>Attributes: campaignName, destinationName |
+| S3\_READ\_ERROR | AWS IoT FleetWise couldn't read an object key from the vehicle in the Amazon Simple Storage Service (Amazon S3) bucket.<br>Attributes: campaignName, destinationName |
 
-| State template event types | Event type                                                                                                                                                        | Description |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| STATE_TEMPLATE_NOT_FOUND   | A message sent from the vehicle and received by AWS IoT FleetWise, where the state template was unknown.<br>Attributes: vehicleName (optional), stateTemplateName |
+State template event types| Event type | Description |
+| --- | --- |
+| STATE\_TEMPLATE\_NOT\_FOUND | A message sent from the vehicle and received by AWS IoT FleetWise, where the state template was unknown.<br>Attributes: vehicleName (optional), stateTemplateName |
 
-| Customer managed AWS KMS key event types | Event type                                                                                                                                                                                                            | Description |
-| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| KMS_KEY_ACCESS_DENIED                    | AWS IoT FleetWise couldn't write a message from the vehicle to the Timestream table or the Amazon S3 bucket because of an AWS KMS key access denied error.<br>Attributes: kmsKeyId (optional), resourceArn (optional) |
+Customer managed AWS KMS key event types| Event type | Description |
+| --- | --- |
+| KMS\_KEY\_ACCESS\_DENIED | AWS IoT FleetWise couldn't write a message from the vehicle to the Timestream table or the Amazon S3 bucket because of an AWS KMS key access denied error.<br>Attributes: kmsKeyId (optional), resourceArn (optional) |
 
 ### Attributes
 

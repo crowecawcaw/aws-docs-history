@@ -43,15 +43,14 @@ To request that only one vehicle uploads data, set the job target to the AWS IoT
 
 ###### To create a job using a managed job template
 
-1.  Choose **IoT-IoTFleetWise-CollectCampaignData** from the list of managed templates. For more information, see [Create a job from AWS managed templates](../../../iot/latest/developerguide/job-template-manage-console-create.md "../../../iot/latest/developerguide/job-template-manage-console-create.md") in the
-    _AWS IoT Developer Guide_.
-2.  The managed template has the `CampaignArn` and `endTime` parameters.
+1. Choose **IoT-IoTFleetWise-CollectCampaignData** from the list of managed templates. For more information, see [Create a job from AWS managed templates](../../../iot/latest/developerguide/job-template-manage-console-create.md "../../../iot/latest/developerguide/job-template-manage-console-create.md") in the
+   _AWS IoT Developer Guide_.
+2. The managed template has the `CampaignArn` and `endTime` parameters.
 
-        1. Replace `CampaignArn` with the Amazon Resource Name (ARN) of a campaign in the same Region and account. The campaign ARN is required.
-        2. (Optional) Replace `endTime` with the timestamp of data collected on the vehicle in ISO 8601 UTC format (without milliseconds). For example, `2024-03-05T23:00:00Z`. The timestamp is exclusive and determines the last datapoint to be uploaded. If you omit `endTime`, the Edge Agent software continues to upload until all of a campaign's stored data is uploaded. After all data is uploaded, it updates the [job execution status](../../../iot/latest/developerguide/iot-jobs-lifecycle.md#iot-job-execution-states "../../../iot/latest/developerguide/iot-jobs-lifecycle.md#iot-job-execution-states") to `SUCCEEDED`. The
-         job's [state](../../../iot/latest/developerguide/iot-jobs-lifecycle.md#iot-jobs-states "../../../iot/latest/developerguide/iot-jobs-lifecycle.md#iot-jobs-states") updates to `COMPLETED`.
-
-    For related troubleshooting topics, see [Store and forward issues](troubleshooting-campaign.md "troubleshooting-campaign.md").
+   1. Replace `CampaignArn` with the Amazon Resource Name (ARN) of a campaign in the same Region and account. The campaign ARN is required.
+   2. (Optional) Replace `endTime` with the timestamp of data collected on the vehicle in ISO 8601 UTC format (without milliseconds). For example, `2024-03-05T23:00:00Z`. The timestamp is exclusive and determines the last datapoint to be uploaded. If you omit `endTime`, the Edge Agent software continues to upload until all of a campaign's stored data is uploaded. After all data is uploaded, it updates the [job execution status](../../../iot/latest/developerguide/iot-jobs-lifecycle.md#iot-job-execution-states "../../../iot/latest/developerguide/iot-jobs-lifecycle.md#iot-job-execution-states") to `SUCCEEDED`. The
+      job's [state](../../../iot/latest/developerguide/iot-jobs-lifecycle.md#iot-jobs-states "../../../iot/latest/developerguide/iot-jobs-lifecycle.md#iot-jobs-states") updates to `COMPLETED`.
+      For related troubleshooting topics, see [Store and forward issues](troubleshooting-campaign.md "troubleshooting-campaign.md").
 
 For more information on AWS IoT Jobs, see [Jobs](../../../iot/latest/developerguide/iot-jobs.md "../../../iot/latest/developerguide/iot-jobs.md") in the
 _AWS IoT Developer Guide_.

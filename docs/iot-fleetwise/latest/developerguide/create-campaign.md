@@ -125,53 +125,47 @@ For example, if you specify the
 
 Enter the logical expression used to recognize
 what data to collect. 4. (Optional) Specify the language version of the
-conditional expression. The default value is
+conditional expression. The default value is 1. 5. (Optional) Specify the minimum trigger interval,
+which is the smallest duration of time between two
+data collection events. For example, if a signal
+changes often, you might want to collect data at a
+slower rate. 6. Specify the **Trigger mode**
+condition for the Edge Agent software to collect data. By
+default, the Edge Agent for AWS IoT FleetWise software
+**Always** collects data whenever
+the condition is met. Or, it can collect data only
+when the condition is met for the first time,
+**On first trigger**. 7. If you specified a time-based data collection
+scheme, you must specify a time
+**Period**, in milliseconds, from
+10,000 ‐ 60,000 milliseconds. The Edge Agent software
+uses the time period to decide how often to collect
+data. 8. (Optional) Edit the scheme’s **Advanced
+scheme options**.
 
-1.
-2. (Optional) Specify the minimum trigger interval,
-   which is the smallest duration of time between two
-   data collection events. For example, if a signal
-   changes often, you might want to collect data at a
-   slower rate.
-3. Specify the **Trigger mode**
-   condition for the Edge Agent software to collect data. By
-   default, the Edge Agent for AWS IoT FleetWise software
-   **Always** collects data whenever
-   the condition is met. Or, it can collect data only
-   when the condition is met for the first time,
-   **On first trigger**.
-4. If you specified a time-based data collection
-   scheme, you must specify a time
-   **Period**, in milliseconds, from
-   10,000 ‐ 60,000 milliseconds. The Edge Agent software
-   uses the time period to decide how often to collect
-   data.
-5. (Optional) Edit the scheme’s **Advanced
-   scheme options**.
-
-   1. To save wireless bandwidth and reduce
-      network traffic by compressing data, choose
-      **Snappy**.
-   2. (Optional) To define how long, in
-      milliseconds, to continue collecting data after a
-      data collection event, you can specify the
-      **Post trigger collection
-      duration**.
-   3. (Optional) To indicate the priority level of
-      the campaign, specify the campaign
-      **Priority**. Campaigns with a
-      smaller number for priority are deployed first and
-      are considered to have a higher priority.
-   4. The Edge Agent software can temporarily store data
-      locally when a vehicle isn't connected to the
-      cloud. After the connection is reestablished, the
-      data stored locally is automatically transferred
-      to the cloud. Specify if you want the Edge Agent
-      to **Store data locally** during
-      a lost connection.
-   5. (Optional) To provide additional information
-      for a signal, add up to five attributes as
-      **Extra data dimensions**.
+    1. To save wireless bandwidth and reduce
+     network traffic by compressing data, choose
+     **Snappy**.
+    2. (Optional) To define how long, in
+     milliseconds, to continue collecting data after a
+     data collection event, you can specify the
+     **Post trigger collection
+     duration**.
+    3. (Optional) To indicate the priority level of
+     the campaign, specify the campaign
+     **Priority**. Campaigns with a
+     smaller number for priority are deployed first and
+     are considered to have a higher priority.
+    4. The Edge Agent software can temporarily store data
+     locally when a vehicle isn't connected to the
+     cloud. After the connection is reestablished, the
+     data stored locally is automatically transferred
+     to the cloud. Specify if you want the Edge Agent
+     to **Store data locally** during
+     a lost connection.
+    5. (Optional) To provide additional information
+     for a signal, add up to five attributes as
+     **Extra data dimensions**.
 
 Upload a .json file with details about the data collection
 scheme.

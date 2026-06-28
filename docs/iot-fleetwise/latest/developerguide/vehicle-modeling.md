@@ -63,7 +63,7 @@ You can use the AWS IoT FleetWise console or API to model vehicles in the follow
      per AWS Region.
 
 2. Use signals in the signal catalog to create a vehicle model. For more information,
-   see [Create an AWS IoT FleetWise vehicle model](create-vehicle-model.md "create-vehicle-model.md").
+see [Create an AWS IoT FleetWise vehicle model](create-vehicle-model.md "create-vehicle-model.md").
 
 ###### Note
 
@@ -81,9 +81,9 @@ You can use the AWS IoT FleetWise console or API to model vehicles in the follow
      automatically activates the vehicle model for you.
 
 3. Create a decoder manifest. The decoder manifest contains decoding information for
-   every signal specified in the vehicle model that you created in the previous step.
-   The decoder manifest is associated with the vehicle model that you created. For more
-   information, see [Manage AWS IoT FleetWise decoder manifests](decoder-manifests.md "decoder-manifests.md").
+every signal specified in the vehicle model that you created in the previous step.
+The decoder manifest is associated with the vehicle model that you created. For more
+information, see [Manage AWS IoT FleetWise decoder manifests](decoder-manifests.md "decoder-manifests.md").
 
 ###### Note
 

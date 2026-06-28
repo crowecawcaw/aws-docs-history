@@ -75,7 +75,7 @@ collection scheme and the time-based collection scheme.
   - `expression` – the logical expression used
     to recognize what data to collect. For example, if the
     `$variable.`myVehicle.InVehicleTemperature` >
-50.0` expression is specified, the Edge Agent software collects
+   50.0` expression is specified, the Edge Agent software collects
     temperature values that are greater than 50.0. For instructions
     on how to write expressions, see [Logical expressions for AWS IoT FleetWise campaigns](logical-expression.md "logical-expression.md").
   - (Optional) `conditionLanguageVersion` – the
@@ -91,7 +91,7 @@ collection scheme and the time-based collection scheme.
       collects data only when the condition is met for the
       first time. For example,
       `$variable.`myVehicle.AirBagDeployed` ==
-true`.
+   true`.
     - `ALWAYS` – Edge Agent software collects data
       whenever the condition is met.
 
