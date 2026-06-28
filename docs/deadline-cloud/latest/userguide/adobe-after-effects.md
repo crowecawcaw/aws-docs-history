@@ -72,7 +72,7 @@ your queue.
      panel.
 
      - Windows: `C:\Program Files\Adobe\Adobe After Effects
-<version>\Support Files\Scripts\Script UI Panels`
+   <version>\Support Files\Scripts\Script UI Panels`
 
 ## Installation
 

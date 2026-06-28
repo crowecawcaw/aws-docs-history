@@ -6,16 +6,15 @@ In the AWS Deadline Cloud monitor, you can see the following two types of logs:
 - _Session logs_ detail the timeline of actions,
   including:
 
-      + Setup actions, such as attachment syncing and loading the software
-       environment
-      + Running a task or set of tasks
-      + Closure actions, such as shutting down the environment on a
-       worker
-
-  A session includes processing of at least one task, and can include multiple
-  tasks. Session logs also show information about Amazon Elastic Compute Cloud (Amazon EC2) instance type,
-  vCPU, and memory. Session logs also include a link to the log for the worker
-  used in the session.
+  - Setup actions, such as attachment syncing and loading the software
+    environment
+  - Running a task or set of tasks
+  - Closure actions, such as shutting down the environment on a
+    worker
+    A session includes processing of at least one task, and can include multiple
+    tasks. Session logs also show information about Amazon Elastic Compute Cloud (Amazon EC2) instance type,
+    vCPU, and memory. Session logs also include a link to the log for the worker
+    used in the session.
 
 - _Worker logs_ provide details for the timeline of actions
   that a worker processes during its lifecycle. Worker logs can contain

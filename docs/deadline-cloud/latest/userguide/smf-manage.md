@@ -18,24 +18,24 @@ instances are priced by the second, have no long-term commitment, and will not b
 interrupted. Wait-and-save provides delayed job scheduling for reduced cost
 and can be interrupted by on-demand and spot requests.
 
-1.  From the [Deadline Cloud
-    console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home"), navigate to the farm you want to create the fleet in.
-2.  Select the **Fleets** tab, and then choose **Create fleet**.
-3.  Enter a **Name** for your fleet.
-4.  (Optional) Enter a **Description**. A clear description can
-    help you quickly identify your fleet's purpose.
-5.  Select **Service-managed** fleet type.
-6.  Choose the **Spot**, **On-demand**, or
-    **Wait and Save** instance market option for your fleet.
-    By default, fleets use the Spot option.
-7.  For service access for your fleet, select an existing role or create a new
-    role. A service role provides credentials to instances in the fleet, granting
-    them permission to process jobs, and to users in the monitor so that they can
-    read log information.
-8.  Choose **Next**.
-9.  Choose between CPU only instances or GPU accelerated instances. GPU
-    accelerated instances may be able to process your jobs faster, but can be more
-    expensive.
+1. From the [Deadline Cloud
+   console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home"), navigate to the farm you want to create the fleet in.
+2. Select the **Fleets** tab, and then choose **Create fleet**.
+3. Enter a **Name** for your fleet.
+4. (Optional) Enter a **Description**. A clear description can
+   help you quickly identify your fleet's purpose.
+5. Select **Service-managed** fleet type.
+6. Choose the **Spot**, **On-demand**, or
+   **Wait and Save** instance market option for your fleet.
+   By default, fleets use the Spot option.
+7. For service access for your fleet, select an existing role or create a new
+   role. A service role provides credentials to instances in the fleet, granting
+   them permission to process jobs, and to users in the monitor so that they can
+   read log information.
+8. Choose **Next**.
+9. Choose between CPU only instances or GPU accelerated instances. GPU
+   accelerated instances may be able to process your jobs faster, but can be more
+   expensive.
 10. Select the operating system for your workers. You can leave the default,
     **Linux** or choose **Windows**.
 11. (Optional) If you selected GPU accelerated instances, set the maximum and
@@ -56,20 +56,19 @@ and can be interrupted by on-demand and spot requests.
 17. Under **Storage capabilities**, choose a
     **Storage mode** for your fleet:
 
-        * **Persistent storage** (Recommended) –
-         Preserves cached data across worker lifecycle events, eliminating
-         cold-start delays by maintaining application caches, packages, and
-         workspaces. Additional Amazon Elastic Block Store
-         (Amazon EBS) storage charges apply.
-        * **Root storage only** – Does not cache data
-         across worker lifecycle events. Best for jobs with minimal dependencies
-         or fast startup times.
-
-    Configure the **Root storage** settings (Size, IOPS, and
-    Throughput) for the boot volume. If you chose **Persistent
-    storage**, also configure the persistent volume settings (Size,
-    Mount path, Throughput, Max idle time, and IOPS). For more information about
-    persistent storage, see [Persistent storage for service-managed fleets](volumes.md "volumes.md").
+    - **Persistent storage** (Recommended) –
+      Preserves cached data across worker lifecycle events, eliminating
+      cold-start delays by maintaining application caches, packages, and
+      workspaces. Additional Amazon Elastic Block Store
+      (Amazon EBS) storage charges apply.
+    - **Root storage only** – Does not cache data
+      across worker lifecycle events. Best for jobs with minimal dependencies
+      or fast startup times.
+      Configure the **Root storage** settings (Size, IOPS, and
+      Throughput) for the boot volume. If you chose **Persistent
+      storage**, also configure the persistent volume settings (Size,
+      Mount path, Throughput, Max idle time, and IOPS). For more information about
+      persistent storage, see [Persistent storage for service-managed fleets](volumes.md "volumes.md").
 
 18. Choose **Next**.
 19. (Optional) Define custom worker capabilities that define features of this

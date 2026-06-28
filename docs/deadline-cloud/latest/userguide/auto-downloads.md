@@ -101,12 +101,11 @@ JSON
 
 - Store the user access keys in the AWS credentials file on your system:
 
-      + On Linux, the file is located at
-       `~/.aws/credentials`
-      + On Windows, the file is located at
-       `%USERPROFILE\.aws\credentials`
-
-  Replace the following keys:
+  - On Linux, the file is located at
+    `~/.aws/credentials`
+  - On Windows, the file is located at
+    `%USERPROFILE\.aws\credentials`
+    Replace the following keys:
 
 ```
 [deadline-downloader]
@@ -174,27 +173,27 @@ PS C:\> Get-Command deadline
   --checkpoint-dir /path/to/checkpoint/directory \
 ```
 
-3.  You only need to do this step if your downloading machine is the same as submitting machine. Replace
-    `--storage-profile-id YOUR_PROFILE_ID \` above with `--ignore-storage-profiles`.
-4.  Submit a test job.
+3. You only need to do this step if your downloading machine is the same as submitting machine. Replace
+   `--storage-profile-id YOUR_PROFILE_ID \` above with `--ignore-storage-profiles`.
+4. Submit a test job.
 
-    1. Download the .zip file from GitHub.
+   1. Download the .zip file from GitHub.
 
-       1. Open the [deadline-cloud-samples
-          GitHub repository](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline").
-       2. Choose **Code** and then, from the dropdown menu, select **Download ZIP**.
-       3. Unzip the downloaded archive to a local directory.
+      1. Open the [deadline-cloud-samples
+         GitHub repository](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline").
+      2. Choose **Code** and then, from the dropdown menu, select **Download ZIP**.
+      3. Unzip the downloaded archive to a local directory.
 
-    2. Run
+   2. Run
 
-    ```
-     cd /path/to/unzipped/deadline-cloud-samples-mainline/job_bundles/job_attachments_devguide_output
-    ```
-    3. Run
+   ```
+    cd /path/to/unzipped/deadline-cloud-samples-mainline/job_bundles/job_attachments_devguide_output
+   ```
+   3. Run
 
-    ```
-    deadline bundle submit .
-    ```
+   ```
+   deadline bundle submit .
+   ```
 
         1. If you don’t have the default deadline config setup, you might need to supply the following in the command line.
 
@@ -203,9 +202,10 @@ PS C:\> Get-Command deadline
         ```
         --farm-id `YOUR-FARM-ID` --queue-id `YOUR-QUEUE-ID`
         ```
-    4. Wait for the job to complete before going to the next step.
 
-5.  Run the sync-output command again.
+   4. Wait for the job to complete before going to the next step.
+
+5. Run the sync-output command again.
 
 ```
  /path/to/deadline queue sync-output \
@@ -362,7 +362,7 @@ Create a configuration file at `~/Library/LaunchAgents/com.user.deadlinesync.pli
 </plist>
 ```
 
-Replace `--storage-profile-id `YOUR_PROFILE_ID``above with`--ignore-storage-profiles` if your downloading machine is the same as submitting machine. 4. **Validate Plist File**
+Replace `--storage-profile-id `YOUR_PROFILE_ID`` above with `--ignore-storage-profiles` if your downloading machine is the same as submitting machine. 4. **Validate Plist File**
 
 Validate the XML syntax of your plist file:
 

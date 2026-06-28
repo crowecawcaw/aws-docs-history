@@ -51,7 +51,7 @@ Before setting up the 3ds Max submitter, configure the Deadline Cloud fleet as f
 
 Examples are available for 3ds Max 2024 and 2025 with V-Ray, and for integrations with plugins such as tyFlow. To request additional examples, suggest ideas in the [discussion forum](https://github.com/aws-deadline/deadline-cloud-for-3ds-max/discussions "https://github.com/aws-deadline/deadline-cloud-for-3ds-max/discussions").
 
-For complete host configuration script examples, see [deadline-cloud-samples/host_configuration_scripts/3dsmax](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax").
+For complete host configuration script examples, see [deadline-cloud-samples/host\_configuration\_scripts/3dsmax](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax").
 
 ###### Note
 
@@ -217,7 +217,7 @@ For general information about creating and submitting job bundles, see [Open Job
 
 **Reference implementation**:
 
-The [tile_render_with_vray_linux](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/tile_render_with_vray_linux "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/tile_render_with_vray_linux") sample in the deadline-cloud-samples repository demonstrates:
+The [tile\_render\_with\_vray\_linux](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/tile_render_with_vray_linux "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/tile_render_with_vray_linux") sample in the deadline-cloud-samples repository demonstrates:
 
 - How to split large images into tiles.
 - Parallel rendering of tiles on Linux workers.

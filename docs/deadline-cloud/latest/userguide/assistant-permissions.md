@@ -71,18 +71,18 @@ the inference request.
 The following table shows which geographic inference profile and destination Regions
 are used based on your monitor's Region:
 
-| Cross-region inference profile mapping | Monitor Region | Inference profile prefix                                                             | Destination Regions |
-| -------------------------------------- | -------------- | ------------------------------------------------------------------------------------ | ------------------- |
-| us-east-1                              | `us`           | us-east-1, us-east-2, us-west-2                                                      |
-| us-east-2                              | `us`           | us-east-1, us-east-2, us-west-2                                                      |
-| us-west-2                              | `us`           | us-east-1, us-east-2, us-west-2                                                      |
-| eu-central-1                           | `eu`           | eu-central-1, eu-north-1, eu-south-1, eu-south-2, eu-west-1, eu-west-3               |
-| eu-west-1                              | `eu`           | eu-central-1, eu-north-1, eu-south-1, eu-south-2, eu-west-1, eu-west-3               |
-| eu-west-2                              | `eu`           | eu-central-1, eu-north-1, eu-south-1, eu-south-2, eu-west-1, eu-west-2,<br>eu-west-3 |
-| ap-northeast-1                         | `jp`           | ap-northeast-1, ap-northeast-3                                                       |
-| ap-southeast-2                         | `au`           | ap-southeast-2, ap-southeast-4                                                       |
-| ap-northeast-2                         | `global`       | ap-northeast-2                                                                       |
-| ap-southeast-1                         | `global`       | ap-southeast-1                                                                       |
+Cross-region inference profile mapping| Monitor Region | Inference profile prefix | Destination Regions |
+| --- | --- | --- |
+| us-east-1 | `us` | us-east-1, us-east-2, us-west-2 |
+| us-east-2 | `us` | us-east-1, us-east-2, us-west-2 |
+| us-west-2 | `us` | us-east-1, us-east-2, us-west-2 |
+| eu-central-1 | `eu` | eu-central-1, eu-north-1, eu-south-1, eu-south-2, eu-west-1, eu-west-3 |
+| eu-west-1 | `eu` | eu-central-1, eu-north-1, eu-south-1, eu-south-2, eu-west-1, eu-west-3 |
+| eu-west-2 | `eu` | eu-central-1, eu-north-1, eu-south-1, eu-south-2, eu-west-1, eu-west-2,<br>eu-west-3 |
+| ap-northeast-1 | `jp` | ap-northeast-1, ap-northeast-3 |
+| ap-southeast-2 | `au` | ap-southeast-2, ap-southeast-4 |
+| ap-northeast-2 | `global` | ap-northeast-2 |
+| ap-southeast-1 | `global` | ap-southeast-1 |
 
 For Regions using the `global` inference profile prefix, might route
 requests to any supported commercial AWS Region worldwide.

@@ -33,15 +33,28 @@ You can open the Deadline Cloud monitor by any of the following ways:
 
 -or-
 
-Open the Deadline Cloud monitor - web from the monitor URL. 2. _ On the Deadline Cloud console, do the following: 1. In the monitor, choose **Go to Deadline Cloud
-dashboard**, and then choose
-**Downloads** from the left menu. 2. From **Deadline Cloud monitor**, choose the monitor version
-for your desktop. 3. Choose **Download**.
-_ On the Deadline Cloud monitor - web, do the following: + From the left menu, choose **Workstation
-setup**. If the **Workstation
-setup** item isn't visible, use the arrow to open
-the left menu. + Choose **Download**. + From **Select an OS**, choose your operating
-system. 3. Download the Deadline Cloud monitor - desktop. 4. After you download and install the monitor, open it on your computer.
+Open the Deadline Cloud monitor - web from the monitor URL. 2. * On the Deadline Cloud console, do the following:
+
+    	1. In the monitor, choose **Go to Deadline Cloud
+    	 dashboard**, and then choose
+    	 **Downloads** from the left menu.
+    	2. From **Deadline Cloud monitor**, choose the monitor version
+    	 for your desktop.
+    	3. Choose **Download**.
+    * On the Deadline Cloud monitor - web, do the following:
+
+
+
+
+    	+ From the left menu, choose **Workstation
+    	 setup**. If the **Workstation
+    	 setup** item isn't visible, use the arrow to open
+    	 the left menu.
+    	+ Choose **Download**.
+    	+ From **Select an OS**, choose your operating
+    	 system.
+
+3. Download the Deadline Cloud monitor - desktop. 4. After you download and install the monitor, open it on your computer.
 
     * If this is your first time opening the Deadline Cloud monitor, you must provide the
      monitor URL and create a profile name. Next you sign in to the monitor

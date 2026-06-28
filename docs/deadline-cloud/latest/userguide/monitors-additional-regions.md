@@ -20,12 +20,12 @@ monitor, you have the following options:
 ![Diagram comparing cross-Region IAM Identity Center access and IAM Identity Center multi-Region replication for Deadline Cloud monitors.](images/monitors-additional-regions.png)
 The following table compares the two approaches.
 
-| Comparison of multi-Region approaches | Consideration                                         | Cross-Region IAM Identity Center access                                       | IAM Identity Center multi-Region replication |
-| ------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------- | -------------------------------------------- |
-| Setup requirements                    | No additional IAM Identity Center setup required      | Requires configuring IAM Identity Center replication                          |
-| Identity data location                | Remains in the IAM Identity Center Region only        | Replicated to each configured Region                                          |
-| Latency                               | Depends on distance to the IAM Identity Center Region | Lower latency when an IAM Identity Center replica is in the same Region       |
-| Regional availability                 | Depends on IAM Identity Center Region availability    | Continues to work if the IAM Identity Center primary Region is<br>unavailable |
+Comparison of multi-Region approaches| Consideration | Cross-Region IAM Identity Center access | IAM Identity Center multi-Region replication |
+| --- | --- | --- |
+| Setup requirements | No additional IAM Identity Center setup required | Requires configuring IAM Identity Center replication |
+| Identity data location | Remains in the IAM Identity Center Region only | Replicated to each configured Region |
+| Latency | Depends on distance to the IAM Identity Center Region | Lower latency when an IAM Identity Center replica is in the same Region |
+| Regional availability | Depends on IAM Identity Center Region availability | Continues to work if the IAM Identity Center primary Region is<br>unavailable |
 
 ## Cross-Region IAM Identity Center access
 

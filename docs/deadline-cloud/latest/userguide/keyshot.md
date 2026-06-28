@@ -110,9 +110,7 @@ After selecting your submission option, the Deadline Cloud submitter interface a
     * **Output File Path**: Set the location and naming pattern for rendered images. The path must include the file's extension, and the extension must match the output format. Use `%d` as a placeholder for the frame number.
     * **Output Format**: Choose the image format (PNG, JPEG, EXR, TIFF, PSD).
 
-3. **Job attachments** (optional). Select which files are uploaded and attached to the job. The submitter automatically detects and attaches files by default.
-4. **Host requirements** (optional). Specify which types of hosts are eligible to pick up tasks for this job.
-5. Choose **Submit** to send your job to Deadline Cloud.
+3. **Job attachments** (optional). Select which files are uploaded and attached to the job. The submitter automatically detects and attaches files by default. 4. **Host requirements** (optional). Specify which types of hosts are eligible to pick up tasks for this job. 5. Choose **Submit** to send your job to Deadline Cloud.
 
 ## Advanced configurations
 

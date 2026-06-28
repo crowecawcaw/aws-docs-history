@@ -20,11 +20,10 @@ network containing your workstations. You can create one storage profile for eac
 
 - **Storage profile name**: MacOS-Host, **operating system family**: MacOS.
 
-      + **File system location name**: Projects, **path**: /Volumes/Projects, **type**: Local.
-      + **File system location name**: Tools, **path**: /Volumes/Tools, **type**: Local.
-
-  When you submit a job from Windows that uses a path X:\Projects\ProjectA\Textures\texture.jpg, Deadline Cloud will add a field containing the Windows-Host storage profile id to the job and
-  upload the file to the job attachments S3 bucket if it wasn't uploaded already.
+  - **File system location name**: Projects, **path**: /Volumes/Projects, **type**: Local.
+  - **File system location name**: Tools, **path**: /Volumes/Tools, **type**: Local.
+    When you submit a job from Windows that uses a path X:\Projects\ProjectA\Textures\texture.jpg, Deadline Cloud will add a field containing the Windows-Host storage profile id to the job and
+    upload the file to the job attachments S3 bucket if it wasn't uploaded already.
 
 If the job runs on a Linux fleet worker host, Deadline Cloud will make the texture file available in a local temporary directory, then create a path mapping rule from one of the directories
 containing the texture to the temporary directory. For example X:\Projects\ProjectA -> /sessions/session-123/projects, so that X:\Projects\ProjectA\Textures\texture.jpg maps to

@@ -14,14 +14,13 @@ data:
   managed by you and AWS KMS charges apply. You have full control over the KMS key. You can
   perform such tasks as:
 
-      + Establishing and maintaining key polices
-      + Establishing and maintaining IAM policies and grants
-      + Enabling and disabling key policies
-      + Adding tags
-      + Creating key aliases
-
-  You can't manually rotate a customer owned key used with a Deadline Cloud farm. Automatic
-  rotation of the key is supported.
+  - Establishing and maintaining key polices
+  - Establishing and maintaining IAM policies and grants
+  - Enabling and disabling key policies
+  - Adding tags
+  - Creating key aliases
+    You can't manually rotate a customer owned key used with a Deadline Cloud farm. Automatic
+    rotation of the key is supported.
 
 For more information, see [Customer owned keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk")
 in the _AWS Key Management Service Developer Guide_.

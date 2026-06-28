@@ -76,24 +76,20 @@ information about the potential security risks, see [Run jobs as users and group
      *Deadline Cloud Developer Guide*.
 
 8. Requiring a budget helps manage costs for your queue. Select either
-   **Don't require a budget** or **Require a
-   budget**.
-9. Your queue requires permission to access Amazon S3 on your behalf. You can create a
-   new service role or use an existing service role. If you don't have an existing
-   service role, create and use a new service role.
+**Don't require a budget** or **Require a
+budget**. 9. Your queue requires permission to access Amazon S3 on your behalf. You can create a
+new service role or use an existing service role. If you don't have an existing
+service role, create and use a new service role.
 
-   1. To use an existing service role, select **Choose a service
-      role**, and then select a role from the dropdown.
-   2. To create a new service role, select **Create and use a new
-      service role**, and then enter a role name and description.
+    1. To use an existing service role, select **Choose a service
+     role**, and then select a role from the dropdown.
+    2. To create a new service role, select **Create and use a new
+     service role**, and then enter a role name and description.
 
 10. (Optional) To add environment variables for the queue environment, choose
-    **Add new environment variable**, and then enter a name and
-    value for each variable you add.
-11. (Optional) Choose **Add new tag** to add one or more tags to
-    your queue.
-12. To create a default conda queue environment, keep the checkbox
-    selected. To learn more about queue environments, see [Create a queue environment](create-queue-environment.md "create-queue-environment.md"). If
-    you are creating a queue for a customer-managed fleet, clear the
-    checkbox.
-13. Choose **Create queue**.
+**Add new environment variable**, and then enter a name and
+value for each variable you add. 11. (Optional) Choose **Add new tag** to add one or more tags to
+your queue. 12. To create a default conda queue environment, keep the checkbox
+selected. To learn more about queue environments, see [Create a queue environment](create-queue-environment.md "create-queue-environment.md"). If
+you are creating a queue for a customer-managed fleet, clear the
+checkbox. 13. Choose **Create queue**.

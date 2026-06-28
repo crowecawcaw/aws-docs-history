@@ -11,18 +11,17 @@ following:
 
 ###### To view job details
 
-1.  Follow the steps to view a queue in [View queue and fleet details in Deadline Cloud](view-queue-and-fleet.md "view-queue-and-fleet.md").
-2.  In the navigation pane, select the queue where you submitted your job.
-3.  Select a job using one of the following methods:
+1. Follow the steps to view a queue in [View queue and fleet details in Deadline Cloud](view-queue-and-fleet.md "view-queue-and-fleet.md").
+2. In the navigation pane, select the queue where you submitted your job.
+3. Select a job using one of the following methods:
 
-        1. From the **Jobs** list, select a job to view its
-         details.
-        2. From the **search** field, enter any text associated
-         with the job, such as the job name or user that created the job. From
-         the results that display, select the job you want to view.
-
-    The details of a job include the steps in the job and the tasks in each step. You can
-    use the **Actions** menu to do the following:
+   1. From the **Jobs** list, select a job to view its
+      details.
+   2. From the **search** field, enter any text associated
+      with the job, such as the job name or user that created the job. From
+      the results that display, select the job you want to view.
+      The details of a job include the steps in the job and the tasks in each step. You can
+      use the **Actions** menu to do the following:
 
 - Change the status of the job. You can requeue, resume, suspend, mark as
   succeeded, mark as failed, or cancel a job.

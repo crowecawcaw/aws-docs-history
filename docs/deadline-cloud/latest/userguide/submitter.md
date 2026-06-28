@@ -77,28 +77,28 @@ For installation instructions, see the [Unreal Engine Submitter Setup Guide](htt
 
 Windows
 
-1.  In a file browser, navigate to the folder where the installer
-    downloaded, and then select
-    `DeadlineCloudSubmitter-windows-x64-installer.exe`.
+1. In a file browser, navigate to the folder where the installer
+   downloaded, and then select
+   `DeadlineCloudSubmitter-windows-x64-installer.exe`.
 
-    1. If a **Windows protected your PC**
-       pop-up displays, choose **More
-       info**.
-    2. Choose **Run anyway**.
+   1. If a **Windows protected your PC**
+      pop-up displays, choose **More
+      info**.
+   2. Choose **Run anyway**.
 
-2.  After the AWS Deadline Cloud Submitter Setup Wizard opens, choose
-    **Next**.
-3.  Choose the installation scope by completing one of the
-    following steps:
+2. After the AWS Deadline Cloud Submitter Setup Wizard opens, choose
+   **Next**.
+3. Choose the installation scope by completing one of the
+   following steps:
 
-    - To install for only the current user, choose
-      **User**.
-    - To install for all users, choose
-      **System**.
+   - To install for only the current user, choose
+     **User**.
+   - To install for all users, choose
+     **System**.
 
-    If you choose **System**, you must
-    exit the installer and re-run it as an administrator by
-    completing the following steps:
+   If you choose **System**, you must
+   exit the installer and re-run it as an administrator by
+   completing the following steps:
 
         1. Right-click on
          `DeadlineCloudSubmitter-windows-x64-installer.exe`,
@@ -109,18 +109,18 @@ Windows
         3. Choose **System** for the
          installation scope.
 
-4.  After selecting the installation scope, choose
-    **Next**.
-5.  Choose **Next** again to accept the
-    installation directory.
-6.  Select **Integrated submitter for
-    Nuke**, or whichever submitter you
-    want to install.
-7.  Choose **Next**.
-8.  Review the installation, and choose
-    **Next**.
-9.  Choose **Next** again, and then choose
-    **Finish**.
+4. After selecting the installation scope, choose
+   **Next**.
+5. Choose **Next** again to accept the
+   installation directory.
+6. Select **Integrated submitter for
+   Nuke**, or whichever submitter you
+   want to install.
+7. Choose **Next**.
+8. Review the installation, and choose
+   **Next**.
+9. Choose **Next** again, and then choose
+   **Finish**.
 
 Linux
 
@@ -320,9 +320,7 @@ folder.
 
 After you complete the download, you can verify the authenticity of the downloaded
 software. You might want to do this to ensure no one has tampered with the files during
-or after the download process. See [Verify the authenticity of downloaded software](security-best-practices.md#verify-installer "security-best-practices.md#verify-installer") in Step
-
-1.
+or after the download process. See [Verify the authenticity of downloaded software](security-best-practices.md#verify-installer "security-best-practices.md#verify-installer") in Step 1.
 
 After downloading Deadline Cloud monitor and verifying the authenticity, use the following procedure
 to set up the Deadline Cloud monitor.
@@ -345,7 +343,8 @@ to set up the Deadline Cloud monitor.
 
    1. Delete the profile. In the left navigation pane, choose
       **Deadline Cloud monitor** > **Settings**
-      > **Delete**.
+
+   > **Delete**.
    2. Create a new profile with the changes that you want.
 
 4. From the left navigation pane, use the **>Deadline Cloud monitor** option to
@@ -383,7 +382,7 @@ environment for service-managed fleets. For more information, see [Default conda
 
    1. If you are not already authenticated in the Deadline Cloud submitter, the
       **Credentials Status** shows as
-      **NEEDS_LOGIN**.
+      **NEEDS\_LOGIN**.
    2. Choose **Login**. You will be prompted to log in with your user
       credentials in a browser.
    3. You are now logged in and the

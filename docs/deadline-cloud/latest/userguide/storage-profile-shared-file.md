@@ -20,10 +20,9 @@ the three operating systems Windows, macOS, and Linux. You can create one storag
 
 - **Storage profile name**: MacOS-Host, **operating system family**: MacOS.
 
-      + **File system location name**: Projects, **path**: /Volumes/Projects, **type**: Shared.
-      + **File system location name**: Tools, **path**: /Volumes/Tools, **type**: Shared.
-
-  When you submit a job from Windows that uses a path X:\Projects\ProjectA\Textures\texture.jpg, Deadline Cloud will add a field containing the Windows-Host storage profile id to the job.
+  - **File system location name**: Projects, **path**: /Volumes/Projects, **type**: Shared.
+  - **File system location name**: Tools, **path**: /Volumes/Tools, **type**: Shared.
+    When you submit a job from Windows that uses a path X:\Projects\ProjectA\Textures\texture.jpg, Deadline Cloud will add a field containing the Windows-Host storage profile id to the job.
 
 If the job runs on a Linux fleet worker host, Deadline Cloud will create two path mapping rules for the job based on corresponding file system location names: X:\Projects -> /mnt/projects, Z: -> /mnt/tools.
 The job will apply these rules to resolve the original paths to where the Linux host sees them.

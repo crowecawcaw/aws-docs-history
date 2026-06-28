@@ -45,10 +45,10 @@ Choose tag keys that align with your organizational structure, such as
      **Activate**.
 
 3. In (), filter or group by your activated IAM
-   principal tags to view costs.
+principal tags to view costs.
 
-   1. Choose **Tag** as the grouping dimension.
-   2. Select your tag key.
+    1. Choose **Tag** as the grouping dimension.
+    2. Select your tag key.
 
 After you apply tags to your IAM roles, it can take up to 24 hours for
 the tag keys to appear on the cost allocation tags page. It can then take up to

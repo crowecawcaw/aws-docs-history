@@ -249,7 +249,7 @@ This example uses the Meerkat Demo from the Unreal Marketplace:
 8. Exit the Project Settings window.
 9. Choose **Windows**, **Cinematics**, **Movie Render Queue**.
 
-   - Choose **+ Render**, and select **Main_SEQ**.
+   - Choose **+ Render**, and select **Main\_SEQ**.
    - Choose **UnsavedConfig** in the settings column.
 
      - In the popup window, you should see Deadline Cloud settings on the left. This window can then be closed.
@@ -556,7 +556,7 @@ Save the secret name - you'll need it when configuring P4 render jobs. See [Crea
 
 This approach is not recommended for production as it exposes credentials in job configurations and logs. Use Secrets Manager for production environments.
 
-You can pass connection credentials within the job environment where workspace creation happens, for example in [p4_sync_smf_environment](https://github.com/aws-deadline/deadline-cloud-for-unreal-engine/blob/mainline/src/unreal_plugin/Content/Python/openjd_templates/p4/p4_sync_smf_environment.yml "https://github.com/aws-deadline/deadline-cloud-for-unreal-engine/blob/mainline/src/unreal_plugin/Content/Python/openjd_templates/p4/p4_sync_smf_environment.yml"), [ugs_sync_smf_environment](https://github.com/aws-deadline/deadline-cloud-for-unreal-engine/blob/mainline/src/unreal_plugin/Content/Python/openjd_templates/ugs/ugs_sync_smf_environment.yml "https://github.com/aws-deadline/deadline-cloud-for-unreal-engine/blob/mainline/src/unreal_plugin/Content/Python/openjd_templates/ugs/ugs_sync_smf_environment.yml"), or similar environments for CMF. Alternatively, create a new environment template and prepend it to your job.
+You can pass connection credentials within the job environment where workspace creation happens, for example in [p4\_sync\_smf\_environment](https://github.com/aws-deadline/deadline-cloud-for-unreal-engine/blob/mainline/src/unreal_plugin/Content/Python/openjd_templates/p4/p4_sync_smf_environment.yml "https://github.com/aws-deadline/deadline-cloud-for-unreal-engine/blob/mainline/src/unreal_plugin/Content/Python/openjd_templates/p4/p4_sync_smf_environment.yml"), [ugs\_sync\_smf\_environment](https://github.com/aws-deadline/deadline-cloud-for-unreal-engine/blob/mainline/src/unreal_plugin/Content/Python/openjd_templates/ugs/ugs_sync_smf_environment.yml "https://github.com/aws-deadline/deadline-cloud-for-unreal-engine/blob/mainline/src/unreal_plugin/Content/Python/openjd_templates/ugs/ugs_sync_smf_environment.yml"), or similar environments for CMF. Alternatively, create a new environment template and prepend it to your job.
 
 ```
 name: P4Credentials
@@ -579,7 +579,7 @@ This approach has the following security risks:
 
 This approach is not recommended for production as it stores credentials in queue configurations. Use Secrets Manager for secure credential management.
 
-Per the [Deadline Cloud user guide](create-queue-environment.md "create-queue-environment.md"), you can use queue environments to provide software applications, environment variables, and other resources to jobs in the queue. Queue environment samples can be found in the [queue_environments folder in deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments").
+Per the [Deadline Cloud user guide](create-queue-environment.md "create-queue-environment.md"), you can use queue environments to provide software applications, environment variables, and other resources to jobs in the queue. Queue environment samples can be found in the [queue\_environments folder in deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments").
 
 #### Add queue environment using Deadline Cloud monitor or console
 
@@ -730,7 +730,7 @@ Set up an OpenJD environment for creating a Perforce workspace, syncing files fr
 
 4. Configure the secret reference:
 
-   - Enter your Perforce credential secret name in **AWS_SECRET_P4INFO**.
+   - Enter your Perforce credential secret name in **AWS\_SECRET\_P4INFO**.
    - Must match the secret from step 1.
 
 ![Perforce sync environment data asset properties: Name P4SyncSmf, Path to Template p4_sync_smf_environment.yml, and AWS_SECRET_P4INFO variable set to P4AccessSecretName.](images/unreal-engine-p4-sync-smf-environment.png)
@@ -746,7 +746,7 @@ Set up an OpenJD environment for launching Unreal Engine with Perforce integrati
 3. Select the `p4_launch_ue_environment.yml` template from `Content/Python/openjd_templates/p4/`.
 4. Configure environment settings:
 
-   - Set **REMOTE_EXECUTION** to `True`.
+   - Set **REMOTE\_EXECUTION** to `True`.
    - This setting enables remote rendering capabilities.
 
 ![Launch Unreal Engine with Perforce environment data asset properties: Name LaunchUnrealEditorWithP4, Path to Template p4_launch_ue_environment.yml, and REMOTE_EXECUTION variable set to True.](images/unreal-engine-p4-launch-UE-environment.png)
