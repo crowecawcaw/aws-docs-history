@@ -16,10 +16,10 @@ device is a violation of the AWS Acceptable Use Policy.
 Verify the hardware you've received against the information in the following
 table. Contact Support if there is a discrepancy.
 
-| Snowball Edge hardware | Item | Quantity |
-| ---------------------- | ---- | -------- |
-| Snowball Edge          | 1    |
-| Power cable            | 1    |
+Snowball Edge hardware| Item | Quantity |
+| --- | --- |
+| Snowball Edge | 1 |
+| Power cable | 1 |
 
 ## Setting up a Snowball Edge
 
