@@ -14,8 +14,8 @@ significant availability risk if the pinned certificate is replaced, which can o
 number of reasons. A question and guidance in your ORR checklist for certificate pinning might
 look like the following.
 
-| \*_Question:_<br>• Do any of your hosts pin certificates?                                                                                                                                                                                                                                                                                                            |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------- |
+| **Question:*<br>• Do any of your hosts pin certificates?                                                                                                                                                                                                                                                                                                             |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Guidance**<br>We recommend against using certificate pinning because it introduces a potential<br>availability risk. If the certificate to which you pin is replaced, your application<br>will fail to connect. If your use case requires pinning, we recommend that you pin<br>to a certificate authority (CA) rather than to an individual certificate.<br>☐ Yes | High Risk<br>☐ No | No Risk |
 
 If you haven’t had an incident related to certificate pinning, or it’s not a high-priority
