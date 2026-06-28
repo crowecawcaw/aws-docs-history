@@ -147,9 +147,7 @@ When you select Pricing Calculator URL, you can import estimates directly from t
 
     	* To modify products or pricing after importing, you must update your Pricing Calculator estimate URL and reimport.
 
-7. Enter optional details as desired and choose **Next**.
-8. Enter optional customer contact details and choose **Next**. For more information, refer to [Opportunity contacts](contact-roles.md "contact-roles.md").
-9. Review the opportunity details and choose **Submit**.
+7. Enter optional details as desired and choose **Next**. 8. Enter optional customer contact details and choose **Next**. For more information, refer to [Opportunity contacts](contact-roles.md "contact-roles.md"). 9. Review the opportunity details and choose **Submit**.
 
 Partners can add up to two (2) partner contacts on a given opportunity. These designated contacts serve as the primary points of communication with AWS sellers and receive all relevant notifications about the opportunity's progression. This includes automated alerts for status changes, requests for additional information, and validation updates.
 
