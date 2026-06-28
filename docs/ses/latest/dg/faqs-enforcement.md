@@ -479,15 +479,14 @@ such:
 - `FeedBackId:((SESInternalID):(AmazonSES))`,
   where:
 
-      + *SESInternalID* is the identifier used
-       by SES for collecting complaint information.
-      + *AmazonSES* is a static tag identifying
-       SES as the sending platform.
-
-  Optionally, in addition to the standard Feedback-ID header value that
-  SES provides, you can also specify your own customized feedback IDs
-  (up to two) using the `ses:feedback-id-a` and
-  `ses:feedback-id-b` message tags, see [Fine-grained feedback for email campaigns](monitor-using-event-publishing.md#event-publishing-fine-grained-feedback "monitor-using-event-publishing.md#event-publishing-fine-grained-feedback").
+  - _SESInternalID_ is the identifier used
+    by SES for collecting complaint information.
+  - _AmazonSES_ is a static tag identifying
+    SES as the sending platform.
+    Optionally, in addition to the standard Feedback-ID header value that
+    SES provides, you can also specify your own customized feedback IDs
+    (up to two) using the `ses:feedback-id-a` and
+    `ses:feedback-id-b` message tags, see [Fine-grained feedback for email campaigns](monitor-using-event-publishing.md#event-publishing-fine-grained-feedback "monitor-using-event-publishing.md#event-publishing-fine-grained-feedback").
 
 #### Q2. Are these complaints included in the complaint rate statistic shown in the SES console and returned by the GetSendStatistics API?
 

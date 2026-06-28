@@ -41,6 +41,5 @@ definitions of all possible status values are as follows:
      started the verification process.
 
 4. To sort identities by verification status, choose the **Status**
-   column.
-5. To view an identity’s details page, select the identity that you want to
-   view.
+column. 5. To view an identity’s details page, select the identity that you want to
+view.

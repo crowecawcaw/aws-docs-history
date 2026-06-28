@@ -133,9 +133,8 @@ This code contains the following properties:
     	 also contain replacement tags.
 
 2. Customize the preceding example to fit your needs, and then save the file as
-   `mytemplate.json`.
-3. At the command line, type the following command to create a new template using
-   the [`CreateEmailTemplate`](../APIReference-V2/API_CreateEmailTemplate.md "../APIReference-V2/API_CreateEmailTemplate.md") v2 API operation:
+`mytemplate.json`. 3. At the command line, type the following command to create a new template using
+the [`CreateEmailTemplate`](../APIReference-V2/API_CreateEmailTemplate.md "../APIReference-V2/API_CreateEmailTemplate.md") v2 API operation:
 
 ```
 aws sesv2 create-email-template --cli-input-json file://`mytemplate.json`
@@ -312,9 +311,8 @@ This code contains the following properties:
      Amazon SNS. For more information, see [(Optional) Part 1: Set up Rendering Failure event notifications](#send-personalized-email-set-up-notifications "#send-personalized-email-set-up-notifications").
 
 2. Customize the preceding example to fit your needs, and then save the file
-   as `myemail.json`.
-3. At the command line, type the following v2 API command to send the
-   email:
+as `myemail.json`. 3. At the command line, type the following v2 API command to send the
+email:
 
 ```
 aws sesv2 send-email --cli-input-json file://`myemail.json`
@@ -596,9 +594,8 @@ This code contains the following properties:
      Amazon SNS. For more information, see [(Optional) Part 1: Set up Rendering Failure event notifications](#send-personalized-email-set-up-notifications "#send-personalized-email-set-up-notifications").
 
 2. Change the values in the code in the previous step to meet your needs, and
-   then save the file as `mybulkemail.json`.
-3. At the command line, type the following v2 API command to send the bulk
-   email:
+then save the file as `mybulkemail.json`. 3. At the command line, type the following v2 API command to send the bulk
+email:
 
 ```
 aws sesv2 send-bulk-email --cli-input-json file://`mybulkemail.json`

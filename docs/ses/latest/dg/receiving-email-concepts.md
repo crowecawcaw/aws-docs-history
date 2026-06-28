@@ -112,45 +112,44 @@ deliverability.
 
 When Amazon SES receives an email for your domain, the following events occur:
 
-1.  Amazon SES first looks at the IP address of the sender. Amazon SES allows the mail to
-    pass this stage unless:
+1. Amazon SES first looks at the IP address of the sender. Amazon SES allows the mail to
+   pass this stage unless:
 
-    - The IP address is in your block list.
-    - The IP address is in the Amazon SES block list, but not on your allow
-      list.
+   - The IP address is in your block list.
+   - The IP address is in the Amazon SES block list, but not on your allow
+     list.
 
-2.  Amazon SES examines your active rule set to determine whether any of your receipt
-    rules contain a recipient condition:
+2. Amazon SES examines your active rule set to determine whether any of your receipt
+   rules contain a recipient condition:
 
-    - If there's a recipient condition and it matches any of the incoming
-      email's recipients, Amazon SES accepts the email. Otherwise, if there aren't
-      any matches, Amazon SES blocks the email.
-    - If the receipt rule does not contain a recipient condition, Amazon SES
-      accepts the mail - all of the rule's actions will apply to all the
-      verified identities you own.
+   - If there's a recipient condition and it matches any of the incoming
+     email's recipients, Amazon SES accepts the email. Otherwise, if there aren't
+     any matches, Amazon SES blocks the email.
+   - If the receipt rule does not contain a recipient condition, Amazon SES
+     accepts the mail - all of the rule's actions will apply to all the
+     verified identities you own.
 
-3.  Amazon SES authenticates the email and scans its content for spam and
-    malware:
+3. Amazon SES authenticates the email and scans its content for spam and
+   malware:
 
-        * The IP address of the remote host that delivered the email to Amazon SES is
-         checked against the SPF policy specified under the MAIL FROM's domain
-         used during the SMTP transaction.
-        * The DKIM signatures present in the email's header section are
-         checked.
-        * If content scanning is enabled, the email content is scanned for spam
-         and malware.
-        * The email authentication and content scanning results are made
-         available to you during the receipt rules evaluation.
+   - The IP address of the remote host that delivered the email to Amazon SES is
+     checked against the SPF policy specified under the MAIL FROM's domain
+     used during the SMTP transaction.
+   - The DKIM signatures present in the email's header section are
+     checked.
+   - If content scanning is enabled, the email content is scanned for spam
+     and malware.
+   - The email authentication and content scanning results are made
+     available to you during the receipt rules evaluation.
+     See [Email authentication and
+     malware detection](#receiving-email-auth-and-scan "#receiving-email-auth-and-scan") for more
+     information.
 
-    See [Email authentication and
-    malware detection](#receiving-email-auth-and-scan "#receiving-email-auth-and-scan") for more
-    information.
-
-4.  For the
-    email that Amazon SES accepts, all of the receipt rules within your active rule set
-    are applied in the
-    order you've defined; and within each receipt rule, the actions are executed in
-    the order you've defined.
+4. For the
+   email that Amazon SES accepts, all of the receipt rules within your active rule set
+   are applied in the
+   order you've defined; and within each receipt rule, the actions are executed in
+   the order you've defined.
 
 ## Use cases and restrictions for Amazon SES email receiving
 

@@ -72,169 +72,169 @@ problematic areas.
     * Dashboard metrics are displayed in near real-time.
     * Dashboard messages are displayed within a few minutes from send time.
 
-3.  In the **Full account
-    overview** panel, choose a date range to be used for all metrics in
-    the cards, time series graphs, and drill-down tables.
+3. In the **Full account
+overview** panel, choose a date range to be used for all metrics in
+the cards, time series graphs, and drill-down tables.
 
     1. In the **Date range** field, choose
-       **Relative range** (default) or **Absolute
-       range**.
+     **Relative range** (default) or **Absolute
+     range**.
 
-       - **Relative range** – Select the radio
-         button that corresponds with the number of days desired.
 
-         - _Custom range_ – Enter a
-           range in either days (up to 60), weeks (up to 8), or
-           months (up to 2).
 
-       - **Absolute range** – The first date
-         you choose will be the _Start date_, the
-         second date will be the _End date_, not to
-         exceed 60 days total. To specify a single day, choose it for
-         both the _Start_ and _End
-         date_.
 
+    	* **Relative range** – Select the radio
+    	 button that corresponds with the number of days desired.
+
+
+
+
+
+    		+ *Custom range* – Enter a
+    		 range in either days (up to 60), weeks (up to 8), or
+    		 months (up to 2).
+    	* **Absolute range** – The first date
+    	 you choose will be the *Start date*, the
+    	 second date will be the *End date*, not to
+    	 exceed 60 days total. To specify a single day, choose it for
+    	 both the *Start* and *End
+    	 date*.
     ###### Note
 
     The following applies to all date ranges in the dashboard:
 
-        * All dates & times are UTC.
-        * For **Relative range** dates, the last
-         day ends on its UTC midnight timestamp. For example, if you
-         choose *Last 7 days*, the seventh day
-         would be yesterday, ending at midnight.
-        * If the date range is greater than 30 days, the *%
-         Difference* column in the *Account
-         statistics* table and the change percentages
-         in the cards will not have a value (indicated by dash
-         `-`).
 
+
+    	* All dates & times are UTC.
+    	* For **Relative range** dates, the last
+    	 day ends on its UTC midnight timestamp. For example, if you
+    	 choose *Last 7 days*, the seventh day
+    	 would be yesterday, ending at midnight.
+    	* If the date range is greater than 30 days, the *%
+    	 Difference* column in the *Account
+    	 statistics* table and the change percentages
+    	 in the cards will not have a value (indicated by dash
+    	 `-`).
     [Show moreShow less](# "#")
 
-4.  The cards, time series graphs, and all of the drill-down tables,
-    _Accounts statistics_, _ISP_,
-    _Sending identities_, and _Configuration
-    sets_, display metric totals calculated from the date range
-    entered, and use the metric math described in [How dashboard metrics are
-    calculated](#vdm-dashboard-rates "#vdm-dashboard-rates").
+4. The cards, time series graphs, and all of the drill-down tables,
+_Accounts statistics_, _ISP_,
+_Sending identities_, and _Configuration
+sets_, display metric totals calculated from the date range
+entered, and use the metric math described in [How dashboard metrics are
+calculated](#vdm-dashboard-rates "#vdm-dashboard-rates").
 
-    - To create a local `.csv` file of the data you’re currently
-      viewing in either the _ISP_, _Sending
-      identities_, or _Configuration sets_
-      table, select its **Export** button.
+    * To create a local `.csv` file of the data you’re currently
+     viewing in either the *ISP*, *Sending
+     identities*, or *Configuration sets*
+     table, select its **Export** button.
 
-5.  Time series graphs charting
-    **Volume** and **Rate** progression for
-    the date range you entered are shown in the **Metrics** pane.
-    Hovering over a date interval in the graphs will show the exact volume count or
-    rate percentage based on a daily aggregation. You can filter the metrics you
-    want to see using the _Select metrics_ dropdown.
-6.  Choose the **Accounts** tab to display the **Accounts
-    statistics** table.
+5. Time series graphs charting
+**Volume** and **Rate** progression for
+the date range you entered are shown in the **Metrics** pane.
+Hovering over a date interval in the graphs will show the exact volume count or
+rate percentage based on a daily aggregation. You can filter the metrics you
+want to see using the _Select metrics_ dropdown. 6. Choose the **Accounts** tab to display the **Accounts
+statistics** table.
 
-    - This table gives an overview of your deliverability and reputation
-      metrics, showing the total **Volume**, **%
-      Rate**, and **% Difference** for
-      _Sent_, _Delivered_,
-      _Complaints_, _Transient & Permanent
-      bounces_, _Opens & Clicks_ as
-      calculated from the date range entered.
+    * This table gives an overview of your deliverability and reputation
+     metrics, showing the total **Volume**, **%
+     Rate**, and **% Difference** for
+     *Sent*, *Delivered*,
+     *Complaints*, *Transient & Permanent
+     bounces*, *Opens & Clicks* as
+     calculated from the date range entered.
+
 
     ###### Note
 
-    If the date range is greater than 30 days, the _%
-    Difference_ column will not have a value (indicated by
-    dash `-`).
+    If the date range is greater than 30 days, the *%
+     Difference* column will not have a value (indicated by
+     dash `-`).
 
-7.  Choose the **ISP** tab to display the
-    **ISP** table.
+7. Choose the **ISP** tab to display the
+**ISP** table.
 
-        * This table displays metrics for *Send volume*,
-         *Delivered*, *Transient & Permanent
-         bounces*, *Complaints*, *Opens
-         & Clicks* for each ISP you’ve sent to as calculated
-         from the date range entered.
-        * To filter specific ISPs, inside the *Compare ISPs*
-         search box, choose the corresponding check box for each ISP to
-         include.
-        * To create a local `.csv` file of the data you’re currently
-         viewing in this table, select its **Export**
-         button.
+    * This table displays metrics for *Send volume*,
+     *Delivered*, *Transient & Permanent
+     bounces*, *Complaints*, *Opens
+     & Clicks* for each ISP you’ve sent to as calculated
+     from the date range entered.
+    * To filter specific ISPs, inside the *Compare ISPs*
+     search box, choose the corresponding check box for each ISP to
+     include.
+    * To create a local `.csv` file of the data you’re currently
+     viewing in this table, select its **Export**
+     button.
 
-    [Show moreShow less](# "#")
+[Show moreShow less](# "#") 8. Choose the **Sending identities** tab to display the
+**Sending identities** table.
 
-8.  Choose the **Sending identities** tab to display the
-    **Sending identities** table.
-
-        * This table displays metrics for *Send volume*,
-         *Delivered*, *Transient & Permanent
-         bounces*, *Complaints*, *Opens
-         & Clicks* for each sending identity you’ve used as
-         calculated from the date range entered.
-        * To filter specific sending identities, inside the *Compare
-         identities* search box, choose the corresponding check box
-         for each identity to include.
-        * To drill-down on a specific sending identity, choose its name in the
-         **Sending identity** column.
+    * This table displays metrics for *Send volume*,
+     *Delivered*, *Transient & Permanent
+     bounces*, *Complaints*, *Opens
+     & Clicks* for each sending identity you’ve used as
+     calculated from the date range entered.
+    * To filter specific sending identities, inside the *Compare
+     identities* search box, choose the corresponding check box
+     for each identity to include.
+    * To drill-down on a specific sending identity, choose its name in the
+     **Sending identity** column.
 
 
 
 
-        	+ Cards will appear displaying *Delivery
-        	 rate*, *Complaints*,
-        	 *Transient & Permanent bounces*,
-        	 *Open & Click rates* for the selected
-        	 sending identity as calculated from the date range
-        	 entered.
-        	+ The time series graphs will refresh displaying all the metrics
-        	 for the selected sending identity as calculated from the date
-        	 range entered.
-        	+ An ISP table will be displayed listing all the ISPs the
-        	 sending identity sent mail to with metrics given for each ISP as
-        	 calculated from the date range entered.
-        * To create a local `.csv` file of the data you’re currently
-         viewing in this table, select its **Export**
-         button.
+    	+ Cards will appear displaying *Delivery
+    	 rate*, *Complaints*,
+    	 *Transient & Permanent bounces*,
+    	 *Open & Click rates* for the selected
+    	 sending identity as calculated from the date range
+    	 entered.
+    	+ The time series graphs will refresh displaying all the metrics
+    	 for the selected sending identity as calculated from the date
+    	 range entered.
+    	+ An ISP table will be displayed listing all the ISPs the
+    	 sending identity sent mail to with metrics given for each ISP as
+    	 calculated from the date range entered.
+    * To create a local `.csv` file of the data you’re currently
+     viewing in this table, select its **Export**
+     button.
 
-    [Show moreShow less](# "#")
+[Show moreShow less](# "#") 9. Choose the **Configuration sets** tab to display the
+**Configuration sets** table.
 
-9.  Choose the **Configuration sets** tab to display the
-    **Configuration sets** table.
-
-        * This table displays metrics for *Send volume*,
-         *Delivered*, *Transient & Permanent
-         bounces*, *Complaints*, *Opens
-         & Clicks* for each configuration set that’s been used
-         to send mail as calculated from the date range entered.
-        * To filter specific configuration sets, inside the *Compare
-         configuration sets* search box, choose the corresponding
-         check box for each configuration set to include.
-        * To drill down on a specific configuration set, choose its name in the
-         **Configuration set** column.
+    * This table displays metrics for *Send volume*,
+     *Delivered*, *Transient & Permanent
+     bounces*, *Complaints*, *Opens
+     & Clicks* for each configuration set that’s been used
+     to send mail as calculated from the date range entered.
+    * To filter specific configuration sets, inside the *Compare
+     configuration sets* search box, choose the corresponding
+     check box for each configuration set to include.
+    * To drill down on a specific configuration set, choose its name in the
+     **Configuration set** column.
 
 
 
 
-        	+ Cards will appear displaying *Delivery
-        	 rate*, *Complaints*,
-        	 *Transient & Permanent bounces*,
-        	 *Open & Click rates* for the selected
-        	 configuration set as calculated from the date range
-        	 entered.
-        	+ The time series graphs will refresh displaying all the metrics
-        	 for the selected configuration set as calculated from the date
-        	 range entered.
-        	+ An ISP table will be displayed listing all the ISPs the
-        	 configuration set was used to send mail to with metrics given
-        	 for each ISP as calculated from the date range entered.
-        * To create a local `.csv` file of the data you’re currently
-         viewing in this table, select its **Export**
-         button.
+    	+ Cards will appear displaying *Delivery
+    	 rate*, *Complaints*,
+    	 *Transient & Permanent bounces*,
+    	 *Open & Click rates* for the selected
+    	 configuration set as calculated from the date range
+    	 entered.
+    	+ The time series graphs will refresh displaying all the metrics
+    	 for the selected configuration set as calculated from the date
+    	 range entered.
+    	+ An ISP table will be displayed listing all the ISPs the
+    	 configuration set was used to send mail to with metrics given
+    	 for each ISP as calculated from the date range entered.
+    * To create a local `.csv` file of the data you’re currently
+     viewing in this table, select its **Export**
+     button.
 
-    [Show moreShow less](# "#")
-
-10. Choose the **Messages** tab to
-    display the **Messages** table.
+[Show moreShow less](# "#") 10. Choose the **Messages** tab to
+display the **Messages** table.
 
 This is an
 interactive table that provides a way for you to search and find your sent

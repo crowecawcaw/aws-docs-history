@@ -190,41 +190,40 @@ namespace AmazonSESSample
 }
 ```
 
-4.  In the code editor, do the following:
+4. In the code editor, do the following:
 
-        * Replace `sender@example.com` with
-         the "From:" email address. This address must be verified.
-         For more information, see [Verified identities in Amazon SES](verify-addresses-and-domains.md "verify-addresses-and-domains.md").
-        * Replace `recipient@example.com`
-         with the "To:" address. If your account is still in the
-         sandbox, this address must also be verified.
-        * Replace `ConfigSet` with the name
-         of the configuration set to use when sending this
-         email.
-        * Replace `USWest2` with the name
-         of the AWS Region endpoint you use to send email using
-         Amazon SES. For a list of regions where Amazon SES is available, see
-         [Amazon Simple Email Service
-         (Amazon SES)](../../../general/latest/gr/rande.md#ses_region "../../../general/latest/gr/rande.md#ses_region") in the
-         *AWS General Reference*.
+   - Replace `sender@example.com` with
+     the "From:" email address. This address must be verified.
+     For more information, see [Verified identities in Amazon SES](verify-addresses-and-domains.md "verify-addresses-and-domains.md").
+   - Replace `recipient@example.com`
+     with the "To:" address. If your account is still in the
+     sandbox, this address must also be verified.
+   - Replace `ConfigSet` with the name
+     of the configuration set to use when sending this
+     email.
+   - Replace `USWest2` with the name
+     of the AWS Region endpoint you use to send email using
+     Amazon SES. For a list of regions where Amazon SES is available, see
+     [Amazon Simple Email Service
+     (Amazon SES)](../../../general/latest/gr/rande.md#ses_region "../../../general/latest/gr/rande.md#ses_region") in the
+     _AWS General Reference_.
+     When you finish, save `Program.cs`.
 
-    When you finish, save `Program.cs`.
+5. Build and run the application by completing the following
+   steps:
 
-5.  Build and run the application by completing the following
-    steps:
+   1. On the **Build** menu, choose
+      **Build Solution**.
+   2. On the **Debug** menu, choose
+      **Start Debugging**. A
+      console window appears.
 
-    1. On the **Build** menu, choose
-       **Build Solution**.
-    2. On the **Debug** menu, choose
-       **Start Debugging**. A
-       console window appears.
-
-6.  Review the output of the console. If the email was successfully
-    sent, the console displays "`The email was sent
-successfully.`"
-7.  If the email was successfully sent, sign in to the email client of
-    the recipient address. You will see the message that you
-    sent.
+6. Review the output of the console. If the email was successfully
+   sent, the console displays "`The email was sent
+ successfully.`"
+7. If the email was successfully sent, sign in to the email client of
+   the recipient address. You will see the message that you
+   sent.
 
 Java
 The following procedure shows you how to use [Eclipse IDE for Java EE Developers](http://www.eclipse.org/ "http://www.eclipse.org/")
@@ -370,9 +369,8 @@ addresses are exactly the same as the ones you verified.
      (Amazon SES)](../../../general/latest/gr/rande.md#ses_region "../../../general/latest/gr/rande.md#ses_region") in the
      *AWS General Reference*.
 
-6. Save `AmazonSESSample.java`.
-7. To build the project, choose **Project** and then choose **Build
-   Project**.
+6. Save `AmazonSESSample.java`. 7. To build the project, choose **Project** and then choose **Build
+Project**.
 
 ###### Note
 

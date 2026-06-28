@@ -103,7 +103,7 @@ If you used the SMTP interface to send the message, then the notifications are
 delivered according to the following rules:.
 
 - If you specified a `Return-Path` header in the `SMTP
-DATA` section, then notifications go to that address.
+ DATA` section, then notifications go to that address.
 - Otherwise, notifications go to the address you specified when you issued the
   MAIL FROM command.
 

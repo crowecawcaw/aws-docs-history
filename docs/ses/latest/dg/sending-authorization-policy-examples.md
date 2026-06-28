@@ -82,8 +82,8 @@ _123456789012_ to send email from the verified identity
 _example.com_ (which is owned by AWS account
 _888888888888_). The `Condition` statement in this policy only
 allows the delegate (that is, AWS ID _123456789012_) to send email from
-the address _marketing+.\*@example.com_, where \*\** is any
-string that the sender wants to add after *marketing+.\*.
+the address _marketing+.\*@example.com_, where _\*_ is any
+string that the sender wants to add after _marketing+._.
 
 JSON
 

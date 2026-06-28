@@ -25,33 +25,29 @@ list is provided to help illustrate the relationship of rule set components:
 
 - Rule sets contain:
 
-      + Rules – You can define the order in
-       which the rules are executed within the rule set.
+  - Rules – You can define the order in
+    which the rules are executed within the rule set.
+
+  **Rules contain:**
+
+        - Conditions – The rule applies
+         if the message matches the evaluation of the condition(s); and if
+         the rule has exceptions, see below.
+        - Exceptions – The rule applies
+         if the message does not match the evaluation of the exception(s);
+         and if the rule has conditions, see above.
+        - Actions – Actions are
+         triggered when the rule applies—all of the conditions match
+         and none of the exceptions.
 
 
-      **Rules contain:**
+        You can define the order in which the actions are executed within
+         the rule.
 
-
-
-
-      	- Conditions – The rule applies
-      	 if the message matches the evaluation of the condition(s); and if
-      	 the rule has exceptions, see below.
-      	- Exceptions – The rule applies
-      	 if the message does not match the evaluation of the exception(s);
-      	 and if the rule has conditions, see above.
-      	- Actions – Actions are
-      	 triggered when the rule applies—all of the conditions match
-      	 and none of the exceptions.
-
-
-      	You can define the order in which the actions are executed within
-      	 the rule.
-
-  Because each rule can have multiple conditions, exceptions, and actions, and the fact that
-  you can define the order of how rules and actions are executed, this enables you to build a
-  very customized and automated email handling solution tailored to your specific business
-  requirements.
+Because each rule can have multiple conditions, exceptions, and actions, and the fact that
+you can define the order of how rules and actions are executed, this enables you to build a
+very customized and automated email handling solution tailored to your specific business
+requirements.
 
 A rule set is an independent resource that can be used by more than one ingress endpoint, but
 rules belong exclusively to the rule set in which they were created. Thus, you must first
@@ -131,29 +127,25 @@ account; otherwise, the rule action will fail. 9. Apply the permission policy fo
      remaining steps for creating rules.
 
 10. When you're done creating the conditions, exceptions, and actions for the
-    rule, you save it to its rule set by choosing **Save rule set**
-    located in the **Edit rule set** panel on the left.
-11. If you want add more rules to the rule set, repeat steps 4 - 9 above.
+rule, you save it to its rule set by choosing **Save rule set**
+located in the **Edit rule set** panel on the left. 11. If you want add more rules to the rule set, repeat steps 4 - 9 above.
 
-    - When you create two or more rules, up/down arrows are displayed in the
-      rule set's **Reorder** column so that you can set the
-      order of execution.
+    * When you create two or more rules, up/down arrows are displayed in the
+     rule set's **Reorder** column so that you can set the
+     order of execution.
 
 12. You can view and manage the rule sets you've already created from the
-    **Rule sets** page. If there's a rule set you want to
-    remove, select it's radio button followed by **Delete**.
-13. To edit a rule set, select its name to open its overview page, from here,
-    select **Edit** where you can reorder the execution of its
-    rules, add more rules by choosing **Create new rule**, or
-    delete a rule by selecting it's radio button followed by
-    **Delete**.
-14. To edit a rule, select its radio button. In any of the containers on the
-    **Rule details** sidebar, you can edit any of the
-    conditions or exceptions and change or reorder any of the actions. You can also
-    remove conditions, exceptions, and actions, as well as add new ones.
-15. When you're done with all your edits, save your changes by selecting
-    **Save rule set** located in the **Edit rule
-    set** panel on the left.
+**Rule sets** page. If there's a rule set you want to
+remove, select it's radio button followed by **Delete**. 13. To edit a rule set, select its name to open its overview page, from here,
+select **Edit** where you can reorder the execution of its
+rules, add more rules by choosing **Create new rule**, or
+delete a rule by selecting it's radio button followed by
+**Delete**. 14. To edit a rule, select its radio button. In any of the containers on the
+**Rule details** sidebar, you can edit any of the
+conditions or exceptions and change or reorder any of the actions. You can also
+remove conditions, exceptions, and actions, as well as add new ones. 15. When you're done with all your edits, save your changes by selecting
+**Save rule set** located in the **Edit rule
+set** panel on the left.
 
 ## Reference for rule conditions and actions
 
@@ -166,14 +158,14 @@ and values. Selecting a property's expression type will take you to its referenc
 page in the _SES Mail Manager API Reference_ that lists
 all the available operators and valid values for that property.
 
-| Rule conditions: Properties, operators, and values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Property                                                                                                                                                                                                       | Expression type |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| From address<br>To address<br>CC address<br>Mail from<br>Recipient address<br>Subject<br>Helo<br>MIME header<br>Client certificate attribute _(mTLS ingress endpoints<br>only)_<br>• Serial number<br>• Common name<br>• Country<br>• Locality<br>• Organization<br>• Organizational unit<br>• State<br>• Subject alternative name<br>Vade Advanced Email Security [(if subscribed)](eb-addons.md "eb-addons.md")<br>• Category<br>• Verdict<br>Trend Micro Virus Scanning [(if<br>subscribed)](eb-addons.md "eb-addons.md")<br>• Category | [_Valid operators and values for string<br>expressions_](../../../sesmailmanager/latest/APIReference/API_RuleStringExpression.md "../../../sesmailmanager/latest/APIReference/API_RuleStringExpression.md")    |
-| IP range                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | [_Valid operators and values for IP<br>expressions_](../../../sesmailmanager/latest/APIReference/API_RuleIpExpression.md "../../../sesmailmanager/latest/APIReference/API_RuleIpExpression.md")                |
-| Message max size                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | [_Valid operators and values for number<br>expressions_](../../../sesmailmanager/latest/APIReference/API_RuleNumberExpression.md "../../../sesmailmanager/latest/APIReference/API_RuleNumberExpression.md")    |
-| DKIM<br>SPF                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | [_Valid operators and values for verdict<br>expressions_](../../../sesmailmanager/latest/APIReference/API_RuleVerdictExpression.md "../../../sesmailmanager/latest/APIReference/API_RuleVerdictExpression.md") |
-| TLS<br>TLS wrapped<br>Read receipt<br>Vade Advanced Email Security [(if subscribed)](eb-addons.md "eb-addons.md")<br>• Is passed<br>Trend Micro Virus Scanning [(if<br>subscribed)](eb-addons.md "eb-addons.md")<br>• Is passed                                                                                                                                                                                                                                                                                                            | [_Valid operators and values for boolean<br>expressions_](../../../sesmailmanager/latest/APIReference/API_RuleBooleanExpression.md "../../../sesmailmanager/latest/APIReference/API_RuleBooleanExpression.md") |
-| DMARC policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [_Valid operators and values for DMARC<br>expressions_](../../../sesmailmanager/latest/APIReference/API_RuleDmarcExpression.md "../../../sesmailmanager/latest/APIReference/API_RuleDmarcExpression.md")       |
+Rule conditions: Properties, operators, and values| Property | Expression type |
+| --- | --- |
+| From address<br>To address<br>CC address<br>Mail from<br>Recipient address<br>Subject<br>Helo<br>MIME header<br>Client certificate attribute _(mTLS ingress endpoints<br>only)_<br>• Serial number<br>• Common name<br>• Country<br>• Locality<br>• Organization<br>• Organizational unit<br>• State<br>• Subject alternative name<br>Vade Advanced Email Security [(if subscribed)](eb-addons.md "eb-addons.md")<br>• Category<br>• Verdict<br>Trend Micro Virus Scanning [(if<br>subscribed)](eb-addons.md "eb-addons.md")<br>• Category | [_Valid operators and values for string<br>expressions_](../../../sesmailmanager/latest/APIReference/API_RuleStringExpression.md "../../../sesmailmanager/latest/APIReference/API_RuleStringExpression.md") |
+| IP range | [_Valid operators and values for IP<br>expressions_](../../../sesmailmanager/latest/APIReference/API_RuleIpExpression.md "../../../sesmailmanager/latest/APIReference/API_RuleIpExpression.md") |
+| Message max size | [_Valid operators and values for number<br>expressions_](../../../sesmailmanager/latest/APIReference/API_RuleNumberExpression.md "../../../sesmailmanager/latest/APIReference/API_RuleNumberExpression.md") |
+| DKIM<br>SPF | [_Valid operators and values for verdict<br>expressions_](../../../sesmailmanager/latest/APIReference/API_RuleVerdictExpression.md "../../../sesmailmanager/latest/APIReference/API_RuleVerdictExpression.md") |
+| TLS<br>TLS wrapped<br>Read receipt<br>Vade Advanced Email Security [(if subscribed)](eb-addons.md "eb-addons.md")<br>• Is passed<br>Trend Micro Virus Scanning [(if<br>subscribed)](eb-addons.md "eb-addons.md")<br>• Is passed | [_Valid operators and values for boolean<br>expressions_](../../../sesmailmanager/latest/APIReference/API_RuleBooleanExpression.md "../../../sesmailmanager/latest/APIReference/API_RuleBooleanExpression.md") |
+| DMARC policy | [_Valid operators and values for DMARC<br>expressions_](../../../sesmailmanager/latest/APIReference/API_RuleDmarcExpression.md "../../../sesmailmanager/latest/APIReference/API_RuleDmarcExpression.md") |
 
 ###### Recipient address matching and subaddressing
 
@@ -209,17 +201,17 @@ _Drop_ if the action fails—this only applies when
 using the API; when using the console, `ActionFailurePolicy` has been set
 to the default value of _Continue_.
 
-| Rule actions: Actions and parameters                                                                                                                                                   | Actions & their parameters                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Description |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [_Write to S3_](../../../sesmailmanager/latest/APIReference/API_S3Action.md "../../../sesmailmanager/latest/APIReference/API_S3Action.md")                                             | Writes the MIME content of the email to an S3<br>bucket.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| [_SMTP relay_](../../../sesmailmanager/latest/APIReference/API_RelayAction.md "../../../sesmailmanager/latest/APIReference/API_RelayAction.md")                                        | Relays the email via SMTP to another specific SMTP server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| [_Archive_](../../../sesmailmanager/latest/APIReference/API_ArchiveAction.md "../../../sesmailmanager/latest/APIReference/API_ArchiveAction.md")                                       | Archives the email by delivering it to an Amazon SES<br>archive.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| [_Add header_](../../../sesmailmanager/latest/APIReference/API_AddHeaderAction.md "../../../sesmailmanager/latest/APIReference/API_AddHeaderAction.md")                                | Adds a custom header to the received email.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| [_Email recipients<br>rewrite_](../../../sesmailmanager/latest/APIReference/API_ReplaceRecipientAction.md "../../../sesmailmanager/latest/APIReference/API_ReplaceRecipientAction.md") | Replaces the email envelope recipients with the given list of<br>recipients. If the condition of this action applies only to a subset<br>of recipients, only those recipients are replaced.                                                                                                                                                                                                                                                                                                                                                                                                  |
-| [_Deliver to WorkMail mailbox_](../../../sesmailmanager/latest/APIReference/API_DeliverToMailboxAction.md "../../../sesmailmanager/latest/APIReference/API_DeliverToMailboxAction.md") | Delivers the email to an Amazon WorkMail mailbox.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| [_Deliver to Q Business_](../../../sesmailmanager/latest/APIReference/API_DeliverToQBusinessAction.md "../../../sesmailmanager/latest/APIReference/API_DeliverToQBusinessAction.md")   | Delivers an email to an Amazon Q Business application for ingestion into<br>its knowledge base.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| [_Publish to SNS_](../../../sesmailmanager/latest/APIReference/API_SnsAction.md "../../../sesmailmanager/latest/APIReference/API_SnsAction.md")                                        | Publishes the email content to an Amazon SNS topic.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| [_Send to internet_](../../../sesmailmanager/latest/APIReference/API_SendAction.md "../../../sesmailmanager/latest/APIReference/API_SendAction.md")                                    | Uses SES to send the email to the recipient(s) on the<br>email's recipient list.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| [_Bounce_](../../../sesmailmanager/latest/APIReference/API_BounceAction.md "../../../sesmailmanager/latest/APIReference/API_BounceAction.md")                                          | Bounces the email by returning a bounce response to the<br>sender.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| [_Invoke Lambda function_](../../../sesmailmanager/latest/APIReference/API_InvokeLambdaAction.md "../../../sesmailmanager/latest/APIReference/API_InvokeLambdaAction.md")              | Invokes an AWS Lambda function to process the email. The<br>Lambda payload format is the same as Amazon SES Email Receiving, as<br>described in [Notification<br>contents](receiving-email-notifications-contents.md "receiving-email-notifications-contents.md").<br>For more information, see [Use case examples](receiving-email-action-lambda-example-use-cases.md "receiving-email-action-lambda-example-use-cases.md").<br>For code examples, see [Lambda function examples](receiving-email-action-lambda-example-functions.md "receiving-email-action-lambda-example-functions.md"). |
-| [_Drop_](../../../sesmailmanager/latest/APIReference/API_DropAction.md "../../../sesmailmanager/latest/APIReference/API_DropAction.md")                                                | For email with multiple recipients, if this action applies to one<br>or more (but not all) of those recipients, they will be dropped from<br>the email’s recipient list, and continued processing of rules will<br>apply to remaining recipients. If this action applies to all<br>recipient(s), rules processing stops as all recipients are dropped<br>from the recipient list and will not receive the email.                                                                                                                                                                             |
+Rule actions: Actions and parameters| Actions & their parameters | Description |
+| --- | --- |
+| [_Write to S3_](../../../sesmailmanager/latest/APIReference/API_S3Action.md "../../../sesmailmanager/latest/APIReference/API_S3Action.md") | Writes the MIME content of the email to an S3<br>bucket. |
+| [_SMTP relay_](../../../sesmailmanager/latest/APIReference/API_RelayAction.md "../../../sesmailmanager/latest/APIReference/API_RelayAction.md") | Relays the email via SMTP to another specific SMTP server. |
+| [_Archive_](../../../sesmailmanager/latest/APIReference/API_ArchiveAction.md "../../../sesmailmanager/latest/APIReference/API_ArchiveAction.md") | Archives the email by delivering it to an Amazon SES<br>archive. |
+| [_Add header_](../../../sesmailmanager/latest/APIReference/API_AddHeaderAction.md "../../../sesmailmanager/latest/APIReference/API_AddHeaderAction.md") | Adds a custom header to the received email. |
+| [_Email recipients<br>rewrite_](../../../sesmailmanager/latest/APIReference/API_ReplaceRecipientAction.md "../../../sesmailmanager/latest/APIReference/API_ReplaceRecipientAction.md") | Replaces the email envelope recipients with the given list of<br>recipients. If the condition of this action applies only to a subset<br>of recipients, only those recipients are replaced. |
+| [_Deliver to WorkMail mailbox_](../../../sesmailmanager/latest/APIReference/API_DeliverToMailboxAction.md "../../../sesmailmanager/latest/APIReference/API_DeliverToMailboxAction.md") | Delivers the email to an Amazon WorkMail mailbox. |
+| [_Deliver to Q Business_](../../../sesmailmanager/latest/APIReference/API_DeliverToQBusinessAction.md "../../../sesmailmanager/latest/APIReference/API_DeliverToQBusinessAction.md") | Delivers an email to an Amazon Q Business application for ingestion into<br>its knowledge base. |
+| [_Publish to SNS_](../../../sesmailmanager/latest/APIReference/API_SnsAction.md "../../../sesmailmanager/latest/APIReference/API_SnsAction.md") | Publishes the email content to an Amazon SNS topic. |
+| [_Send to internet_](../../../sesmailmanager/latest/APIReference/API_SendAction.md "../../../sesmailmanager/latest/APIReference/API_SendAction.md") | Uses SES to send the email to the recipient(s) on the<br>email's recipient list. |
+| [_Bounce_](../../../sesmailmanager/latest/APIReference/API_BounceAction.md "../../../sesmailmanager/latest/APIReference/API_BounceAction.md") | Bounces the email by returning a bounce response to the<br>sender. |
+| [_Invoke Lambda function_](../../../sesmailmanager/latest/APIReference/API_InvokeLambdaAction.md "../../../sesmailmanager/latest/APIReference/API_InvokeLambdaAction.md") | Invokes an AWS Lambda function to process the email. The<br>Lambda payload format is the same as Amazon SES Email Receiving, as<br>described in [Notification<br>contents](receiving-email-notifications-contents.md "receiving-email-notifications-contents.md").<br>For more information, see [Use case examples](receiving-email-action-lambda-example-use-cases.md "receiving-email-action-lambda-example-use-cases.md").<br>For code examples, see [Lambda function examples](receiving-email-action-lambda-example-functions.md "receiving-email-action-lambda-example-functions.md"). |
+| [_Drop_](../../../sesmailmanager/latest/APIReference/API_DropAction.md "../../../sesmailmanager/latest/APIReference/API_DropAction.md") | For email with multiple recipients, if this action applies to one<br>or more (but not all) of those recipients, they will be dropped from<br>the email’s recipient list, and continued processing of rules will<br>apply to remaining recipients. If this action applies to all<br>recipient(s), rules processing stops as all recipients are dropped<br>from the recipient list and will not receive the email. |

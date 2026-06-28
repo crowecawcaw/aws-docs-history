@@ -118,7 +118,7 @@ list, you can identify the event by using the following indicators:
   The bounce reason is `ON_TENANT_SUPPRESSION_LIST`.
 - **Diagnostic code** –
   `"Amazon SES did not send the message to this address because it is on
-the suppression list for your tenant."`
+ the suppression list for your tenant."`
 - **Event tag** – SES adds a
   `ses:tenant-name` tag to bounce and complaint notifications so
   that you can identify which tenant the event belongs to.

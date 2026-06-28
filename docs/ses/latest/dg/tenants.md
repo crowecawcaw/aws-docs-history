@@ -304,8 +304,8 @@ reputation tracking.
      Serious issues likely affecting deliverability.
 
 4. Scroll down to **Sending statistics** under the
-   **Resources** tab to view delivery, bounce, and
-   complaint metrics for the date range selected.
+**Resources** tab to view delivery, bounce, and
+complaint metrics for the date range selected.
 
 **Using the AWS CLI:**
 
@@ -571,7 +571,7 @@ Field descriptions:
 - resources – Array containing the ARN
   of the affected tenant.
 - detail.data.origin – Source of the
-  status change (e.g., "CUSTOMER_MANAGED" or "AWS_MANAGED").
+  status change (e.g., "CUSTOMER\_MANAGED" or "AWS\_MANAGED").
 - detail.data.record.status – The new
   status of the tenant (ENABLED, DISABLED, or REINSTATED).
 - detail.data.record.cause –

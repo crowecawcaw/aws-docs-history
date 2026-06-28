@@ -50,8 +50,8 @@ If you need to create or verify a domain, see [Creating a domain identity](creat
 Identified Mail (DKIM)** container, choose
 **Edit**. 5. In the **Advanced DKIM settings** container, choose the
 **Easy DKIM** button in the **Identity
-type** field. 6. In the **DKIM signing key length** field, choose either [RSA_2048_BIT or
-RSA_1024_BIT](send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048 "send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048"). 7. In the **DKIM signatures** field, check the
+type** field. 6. In the **DKIM signing key length** field, choose either [RSA\_2048\_BIT or
+RSA\_1024\_BIT](send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048 "send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048"). 7. In the **DKIM signatures** field, check the
 **Enabled** box. 8. Choose **Save changes**. 9. Now that you’ve configured your domain identity with Easy DKIM, you must
 complete the verification process with your DNS provider - proceed to [Verifying a DKIM domain identity with your DNS provider](creating-identities.md#just-verify-domain-proc "creating-identities.md#just-verify-domain-proc") and follow the DNS authentication
 procedures for Easy DKIM.
@@ -92,7 +92,7 @@ invalid.
    Identified Mail (DKIM)** container, choose
    **Edit**.
 5. In the **Advanced DKIM settings** container, choose either
-   [RSA_2048_BIT or
-   RSA_1024_BIT](send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048 "send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048") in the **DKIM signing key
+   [RSA\_2048\_BIT or
+   RSA\_1024\_BIT](send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048 "send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048") in the **DKIM signing key
    length** field.
 6. Choose **Save changes**.

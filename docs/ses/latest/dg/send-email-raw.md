@@ -234,18 +234,18 @@ which include the following headers:
 
   - Plain text file –
     `Content-Type: text/plain;
-name="sample.txt"`
+   name="sample.txt"`
   - Microsoft Word Document
     – `Content-Type: application/msword;
-name="document.docx"`
+   name="document.docx"`
   - JPG image –
     `Content-Type: image/jpeg;
-name="photo.jpeg"`
+   name="photo.jpeg"`
 
 - Content-Disposition – Specifies
   how the recipient's email client should handle the content. For
   attachments, this value is `Content-Disposition:
-attachment`.
+ attachment`.
 - Content-Transfer-Encoding – The
   scheme that was used to encode the attachment. For file attachments,
   this value is almost always `base64`.

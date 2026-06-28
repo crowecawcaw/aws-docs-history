@@ -85,10 +85,10 @@ overview page:
 
 6. To unsubscribe from an Add On:
 
-   1. You must first remove it from any of your traffic policies or rule
-      sets where you have it defined in a condition; otherwise, the following
-      unsubscribe steps will fail.
-   2. Select its name on the **Email Add Ons** page to open
-      its overview page followed by **Unsubscribe**.
-   3. Type `confirm` in the **Confirm** field
-      followed by **Unsubscribe**.
+    1. You must first remove it from any of your traffic policies or rule
+     sets where you have it defined in a condition; otherwise, the following
+     unsubscribe steps will fail.
+    2. Select its name on the **Email Add Ons** page to open
+     its overview page followed by **Unsubscribe**.
+    3. Type `confirm` in the **Confirm** field
+     followed by **Unsubscribe**.

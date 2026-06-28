@@ -175,7 +175,7 @@ Python.
 - The following example uses **f-strings** that
   were introduced in Python 3.6; if using an older version, they won't
   work.
-- In the following example, the list of SMTP_REGIONS is simply an
+- In the following example, the list of SMTP\_REGIONS is simply an
   example—your actual list of regions could be shorter or longer
   depending on which regions you plan to send email in as you'll need SMTP
   credentials for each AWS Region.

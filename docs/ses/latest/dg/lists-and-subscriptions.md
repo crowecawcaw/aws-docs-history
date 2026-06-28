@@ -34,22 +34,21 @@ explained below.
   managed by the customer to protect their account reputation - _overrides
   the global suppression list_.
 
-      + Configuration set-level suppression –
-       An override mechanism to provide conditional or fine-grained control of the
-       account-level suppression list through the use of overrides specified in a
-       configuration set.
-
-  _The global suppression list_ was the only type of suppression list
-  until account-level and configuration set-level suppression was introduced in the new Amazon SES
-  console and API v2. The global suppression list is owned and managed by SES to
-  protect the reputation of SES. This is needed because all SES customers are
-  sharing the same pool of IP addresses (unless they have dedicated IPs), it’s important for
-  SES to ensure that customers aren’t sending spam or anything that would negatively
-  impact the reputation of those IP addresses in the SES shared IP pool. While you no
-  longer directly interact with the global suppression list, it still operates in the
-  background and the general tenets of how the global suppression list works can also be
-  applied to explain the overall principles of how the other types of suppression work. See
-  [Amazon SES global suppression list](sending-email-global-suppression-list.md "sending-email-global-suppression-list.md").
+  - Configuration set-level suppression –
+    An override mechanism to provide conditional or fine-grained control of the
+    account-level suppression list through the use of overrides specified in a
+    configuration set.
+    _The global suppression list_ was the only type of suppression list
+    until account-level and configuration set-level suppression was introduced in the new Amazon SES
+    console and API v2. The global suppression list is owned and managed by SES to
+    protect the reputation of SES. This is needed because all SES customers are
+    sharing the same pool of IP addresses (unless they have dedicated IPs), it’s important for
+    SES to ensure that customers aren’t sending spam or anything that would negatively
+    impact the reputation of those IP addresses in the SES shared IP pool. While you no
+    longer directly interact with the global suppression list, it still operates in the
+    background and the general tenets of how the global suppression list works can also be
+    applied to explain the overall principles of how the other types of suppression work. See
+    [Amazon SES global suppression list](sending-email-global-suppression-list.md "sending-email-global-suppression-list.md").
 
 ###### Note
 

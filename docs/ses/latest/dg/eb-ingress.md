@@ -133,7 +133,7 @@ This example contains the following properties:
   methods supported, `AUTH LOGIN` or `AUTH PLAIN`, the
   sender could choose either of them, and send SMTP commands compliant with
   the SMTP Service Extension for Authentication specification [RFC 2554](https://www.ietf.org/rfc/rfc2554.txt "https://www.ietf.org/rfc/rfc2554.txt"). `AUTH
-LOGIN` is used here.
+ LOGIN` is used here.
 - `334 VXNlcm5hbWU6` – Server prompting for the username in
   Base64.
 - `SW5ncmVzc1BvaW50` – Client responding with ingress endpoint ID

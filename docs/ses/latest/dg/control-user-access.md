@@ -77,7 +77,8 @@ APIs:**
   policy):
 
   - One with `Action` set to an explicit list of the
-    permitted non-email-sending APIs and `Resource` set to \*
+    permitted non-email-sending APIs and `Resource` set to
+    \*
   - One with `Action` set to one of the email-sending APIs
     (`ses:SendEmail` and/or
     `ses:SendRawEmail`), and `Resource` set to the

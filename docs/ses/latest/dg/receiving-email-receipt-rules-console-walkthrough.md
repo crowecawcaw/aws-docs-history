@@ -120,47 +120,46 @@ maximum of 100 recipient conditions per receipt rule.
      **Next**.
 
 12. On the **Add actions** page, use the following procedure to
-    add one or more actions to the receipt rule.
+add one or more actions to the receipt rule.
 
-    1.  Open the **Add new action** menu, and then choose one
-        of the following types of actions:
+    1. Open the **Add new action** menu, and then choose one
+     of the following types of actions:
 
-            * **[Add header](receiving-email-action-add-header.md "receiving-email-action-add-header.md")** - This action adds a custom header to the
-             received email.
-            * **[Return bounce
-             response](receiving-email-action-bounce.md "receiving-email-action-bounce.md")** - This action rejects the received email by
-             returning a bounce response to the sender.
-            * **[Invoke Lambda
-             function](receiving-email-action-lambda.md "receiving-email-action-lambda.md")** - This action calls your code via an AWS Lambda function.
-            * **[Deliver to S3
-             bucket](receiving-email-action-s3.md "receiving-email-action-s3.md")** - This action stores the received email in an
-             Amazon Simple Storage Service (S3) bucket.
-            * **[Publish to Amazon SNS
-             topic](receiving-email-action-sns.md "receiving-email-action-sns.md")** - This action publishes the complete email to
-             an Amazon Simple Notification Service (SNS) topic.
-            * **[Stop rule set](receiving-email-action-stop.md "receiving-email-action-stop.md")** - This action terminates the evaluation of the
-             receipt rule set.
-            * **[Integrate with
-             Amazon WorkMail](receiving-email-action-workmail.md "receiving-email-action-workmail.md")** - This action integrates with Amazon
-             WorkMail.
 
-        For more information about each of these actions, see [Action options](receiving-email-action.md "receiving-email-action.md").
 
-    2.  Repeat this step for each action that you want to define. If you have
-        multiple actions defined, you can reorder them by using the up/down
-        arrows within the action containers. Choose **Next** to
-        proceed to the **Review** page.
+
+    	* **[Add header](receiving-email-action-add-header.md "receiving-email-action-add-header.md")** - This action adds a custom header to the
+    	 received email.
+    	* **[Return bounce
+    	 response](receiving-email-action-bounce.md "receiving-email-action-bounce.md")** - This action rejects the received email by
+    	 returning a bounce response to the sender.
+    	* **[Invoke Lambda
+    	 function](receiving-email-action-lambda.md "receiving-email-action-lambda.md")** - This action calls your code via an AWS Lambda function.
+    	* **[Deliver to S3
+    	 bucket](receiving-email-action-s3.md "receiving-email-action-s3.md")** - This action stores the received email in an
+    	 Amazon Simple Storage Service (S3) bucket.
+    	* **[Publish to Amazon SNS
+    	 topic](receiving-email-action-sns.md "receiving-email-action-sns.md")** - This action publishes the complete email to
+    	 an Amazon Simple Notification Service (SNS) topic.
+    	* **[Stop rule set](receiving-email-action-stop.md "receiving-email-action-stop.md")** - This action terminates the evaluation of the
+    	 receipt rule set.
+    	* **[Integrate with
+    	 Amazon WorkMail](receiving-email-action-workmail.md "receiving-email-action-workmail.md")** - This action integrates with Amazon
+    	 WorkMail.
+    For more information about each of these actions, see [Action options](receiving-email-action.md "receiving-email-action.md").
+    2. Repeat this step for each action that you want to define. If you have
+     multiple actions defined, you can reorder them by using the up/down
+     arrows within the action containers. Choose **Next** to
+     proceed to the **Review** page.
 
 13. On the **Review** page, review the settings and actions of
-    the rule. If you need to make changes, choose the **Edit**
-    option, or use the navigation section on the left side of the page to go
-    directly to the step that contains the content you want to edit. You can
-    optionally make changes to the order of the actions listed in the
-    **Actions** table of the **Review** page
-    by using the up/down arrows in the **Reorder** column.
-14. When you’re ready to proceed, choose **Create rule**.
-15. On the confirmation page for the rule set, choose **Set as
-    active** if you want to enforce the rule set immediately.
+the rule. If you need to make changes, choose the **Edit**
+option, or use the navigation section on the left side of the page to go
+directly to the step that contains the content you want to edit. You can
+optionally make changes to the order of the actions listed in the
+**Actions** table of the **Review** page
+by using the up/down arrows in the **Reorder** column. 14. When you’re ready to proceed, choose **Create rule**. 15. On the confirmation page for the rule set, choose **Set as
+active** if you want to enforce the rule set immediately.
 
 ### Rule modifications after creation
 

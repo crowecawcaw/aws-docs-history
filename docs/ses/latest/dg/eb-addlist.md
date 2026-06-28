@@ -131,7 +131,7 @@ Use the format shown in the example for each file type:
     ```
 
 7. Once you've finished adding addresses or have selected a bulk file, choose
-   **Create address list**.
+**Create address list**.
 
 Using the AWS CLI:
 

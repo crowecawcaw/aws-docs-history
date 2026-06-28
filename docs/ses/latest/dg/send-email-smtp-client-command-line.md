@@ -198,11 +198,13 @@ echo "$Email" | openssl s_client -crlf -quiet -starttls smtp -connect `email-smt
 
 2. At the prompt for each variable, enter your values.
 3. - To send using implicit SSL over port 465, use:
-     ``
-	openssl s_client -crlf -quiet -connect `email-smtp.us-west-2.amazonaws.com`:465
-	``
-     If the message was accepted by Amazon SES, you see output that
-     resembles the following example:
+
+   ```
+   openssl s_client -crlf -quiet -connect `email-smtp.us-west-2.amazonaws.com`:465
+   ```
+
+If the message was accepted by Amazon SES, you see output that
+resembles the following example:
 
 ```
 250 Ok 01010160d7de98d8-21e57d9a-JZho-416c-bbe1-8ebaAexample-000000

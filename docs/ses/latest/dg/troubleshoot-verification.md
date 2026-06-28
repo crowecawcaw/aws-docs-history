@@ -58,19 +58,18 @@ causes and solutions below.
   DNS is managed by Amazon Route 53, you can set up multiple values for the same CNAME
   record by completing the following steps:
 
-      1. In the Route 53 console, choose the CNAME record you created when you
-       verified your domain in the first region.
-      2. In the **Value** box, go to the end of the existing
-       attribute value, and then press Enter.
-      3. Add the attribute value for the additional region, and then save the
-       record set.
-
-  If your DNS provider doesn't let you to assign multiple values to the same DNS
-  record, you can verify the domain once with _\_domainkey_ in
-  the attribute name of the DNS record, and another time with
-  _\_domainkey_ removed from the attribute name. The
-  downside of this solution is that you can only verify the same domain two
-  times.
+  1.  In the Route 53 console, choose the CNAME record you created when you
+      verified your domain in the first region.
+  2.  In the **Value** box, go to the end of the existing
+      attribute value, and then press Enter.
+  3.  Add the attribute value for the additional region, and then save the
+      record set.
+      If your DNS provider doesn't let you to assign multiple values to the same DNS
+      record, you can verify the domain once with _\_domainkey_ in
+      the attribute name of the DNS record, and another time with
+      _\_domainkey_ removed from the attribute name. The
+      downside of this solution is that you can only verify the same domain two
+      times.
 
 ## Checking domain verification settings
 
@@ -119,7 +118,7 @@ which can take time to propagate to other DNS servers.
    three._
 
    1. At the command prompt, type the following, where _<random
-      string>_ is the SES generated CNAME name,
+        string>_ is the SES generated CNAME name,
       _<domain>_ is your domain, and
       _<name server>_ is one of the name servers
       you found in step 1.

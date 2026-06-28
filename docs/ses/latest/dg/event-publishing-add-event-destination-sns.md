@@ -89,13 +89,14 @@ event destination's summary page from the previous step, choose
 
   Make the following changes to the preceding policy example:
 
-      * Replace `topic_region` with the AWS
-       Region where you created the SNS topic.
-      * Replace `111122223333` with
-       your AWS account ID.
-      * Replace `topic_name` with the name of
-       your SNS topic.
-      * Replace `configuration-set-name` with the
-       name of your configuration set associated with the SNS event
-       destination.
-  4.  Choose **Save changes**.
+       * Replace `topic_region` with the AWS
+        Region where you created the SNS topic.
+       * Replace `111122223333` with
+        your AWS account ID.
+       * Replace `topic_name` with the name of
+        your SNS topic.
+       * Replace `configuration-set-name` with the
+        name of your configuration set associated with the SNS event
+        destination.
+
+  4. Choose **Save changes**.

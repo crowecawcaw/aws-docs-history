@@ -40,4 +40,4 @@ changes, then choose **Save changes**.
      container.
 
 7. Repeat steps 5 & 6 for each attribute of the identity you'd like to
-   edit.
+edit.

@@ -71,9 +71,9 @@ Make the following changes to the preceding policy example:
      SNS topic.
 
 2. Subscribe at least one endpoint to the topic. For example, if you want to
-   receive notifications by text message, subscribe an SMS endpoint (that is, a
-   mobile phone number) to the topic. To receive notifications by email, subscribe
-   an email endpoint (an email address) to the topic.
+receive notifications by text message, subscribe an SMS endpoint (that is, a
+mobile phone number) to the topic. To receive notifications by email, subscribe
+an email endpoint (an email address) to the topic.
 
 For more information, see [Getting Started](../../../sns/latest/dg/sns-getting-started.md "../../../sns/latest/dg/sns-getting-started.md") in the _Amazon Simple Notification Service Developer Guide_. 3. (Optional) If your Amazon SNS topic uses AWS Key Management Service (AWS KMS) for server-side
 encryption, you have to add permissions to the AWS KMS key policy. You can add

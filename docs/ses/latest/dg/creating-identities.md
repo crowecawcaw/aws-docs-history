@@ -28,11 +28,11 @@ To help clarify the verification inheritance and email sending capabilities disc
 above, the following table categorizes each combination of domain/email address verification
 and lists the inheritance, sending level, and display status for each:
 
-|                       | Only domain verified                                                                   | Only email address verified                             | Both domain & email address verified                                                              |
-| --------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| **Inheritance level** | Subdomains and email addresses inherit verification from the parent<br>domain.         | Email address explicitly verified.                      | • Subdomains inherit verification from the parent domain.<br>• Email address explicitly verified. |
-| **Sending level**     | Email addresses limited to straightforward email sending.                              | Email address can be used in \*advanced<br>sending\*\*. | Email address can be used in \*advanced<br>sending\*\*.                                           |
-| **Displayed status**  | Console/API status:<br>• Domain/Subdomains = Verified<br>• Email address = Unverified. | Console/API status:<br>• Email address = Verified       | Console/API status:<br>• Domain/Subdomains = Verified<br>• Email address = Verified.              |
+|                       | Only domain verified                                                                   | Only email address verified                           | Both domain & email address verified                                                              |
+| --------------------- | -------------------------------------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| **Inheritance level** | Subdomains and email addresses inherit verification from the parent<br>domain.         | Email address explicitly verified.                    | • Subdomains inherit verification from the parent domain.<br>• Email address explicitly verified. |
+| **Sending level**     | Email addresses limited to straightforward email sending.                              | Email address can be used in _advanced<br>sending\*_. | Email address can be used in _advanced<br>sending\*_.                                             |
+| **Displayed status**  | Console/API status:<br>• Domain/Subdomains = Verified<br>• Email address = Unverified. | Console/API status:<br>• Email address = Verified     | Console/API status:<br>• Domain/Subdomains = Verified<br>• Email address = Verified.              |
 
 _\*Advanced sending includes using the email address
 with configuration sets, policy authorizations for delegate sending, and configurations
@@ -66,14 +66,14 @@ following:**
   b.example.com, and example.com. These are the verified identity settings
   that will be used in the following scenarios:
 
-      - Emails sent from user@example.com (an email address that isn’t
-       specifically verified) will use the settings for example.com.
-      - Emails sent from user@a.b.example.com (an email address that is
-       specifically verified) will use the settings for
-       user@a.b.example.com.
-      - Emails sent from user@b.example.com (an email address that isn’t
-       specifically verified) will use the settings for
-       b.example.com.
+        - Emails sent from user@example.com (an email address that isn’t
+         specifically verified) will use the settings for example.com.
+        - Emails sent from user@a.b.example.com (an email address that is
+         specifically verified) will use the settings for
+         user@a.b.example.com.
+        - Emails sent from user@b.example.com (an email address that isn’t
+         specifically verified) will use the settings for
+         b.example.com.
 
 - You can add labels to verified email addresses without performing additional
   verification steps. To add a label to an email address, add a plus sign (+) between
@@ -158,115 +158,116 @@ select the check box.
      specified, Amazon SES applies the specified set in place of the default
      set.
 
-7.  (Optional) If you want to **Use a custom MAIL FROM domain**,
-    select the check box and complete the following steps. For more information, see
-    [Using a custom MAIL FROM domain](mail-from.md "mail-from.md").
+7. (Optional) If you want to **Use a custom MAIL FROM domain**,
+select the check box and complete the following steps. For more information, see
+[Using a custom MAIL FROM domain](mail-from.md "mail-from.md").
 
     1. For **MAIL FROM domain**, enter the subdomain that you
-       want to use as the MAIL FROM domain. This must be a subdomain of the domain
-       identity that you’re verifying. The MAIL FROM domain shouldn't be a domain
-       from which you send email.
+     want to use as the MAIL FROM domain. This must be a subdomain of the domain
+     identity that you’re verifying. The MAIL FROM domain shouldn't be a domain
+     from which you send email.
     2. For **Behavior on MX failure**, indicate which action
-       Amazon SES should take if it can’t find the required MX record at the time of
-       sending. Choose one of the following options:
+     Amazon SES should take if it can’t find the required MX record at the time of
+     sending. Choose one of the following options:
 
-       - **Use default MAIL FROM domain** - If the custom
-         MAIL FROM domain's MX record is not set up correctly, Amazon SES will use
-         a subdomain of amazonses.com. The subdomain varies based on the
-         AWS Region in which you use Amazon SES.
-       - **Reject message** - If the custom MAIL FROM
-         domain's MX record is not set up correctly, Amazon SES will return a
-         `MailFromDomainNotVerified` error. If you choose this
-         option, emails that you attempt to send from this domain are
-         automatically rejected.
 
+
+
+    	* **Use default MAIL FROM domain** - If the custom
+    	 MAIL FROM domain's MX record is not set up correctly, Amazon SES will use
+    	 a subdomain of amazonses.com. The subdomain varies based on the
+    	 AWS Region in which you use Amazon SES.
+    	* **Reject message** - If the custom MAIL FROM
+    	 domain's MX record is not set up correctly, Amazon SES will return a
+    	 `MailFromDomainNotVerified` error. If you choose this
+    	 option, emails that you attempt to send from this domain are
+    	 automatically rejected.
     3. For **Publish DNS records to Route53**, if your domain is
-       hosted through Amazon Route 53, you have the option to let SES publish the
-       associated TXT and MX records at the time of creation by leaving
-       **Enabled** checked. If you'd rather publish these
-       records later, clear the **Enabled** checkbox. (You can
-       come back at a later time to publish the records to Route 53 by editing the
-       identity - see [Edit an identity using the SES console](edit-verified-domain.md "edit-verified-domain.md").)
+     hosted through Amazon Route 53, you have the option to let SES publish the
+     associated TXT and MX records at the time of creation by leaving
+     **Enabled** checked. If you'd rather publish these
+     records later, clear the **Enabled** checkbox. (You can
+     come back at a later time to publish the records to Route 53 by editing the
+     identity - see [Edit an identity using the SES console](edit-verified-domain.md "edit-verified-domain.md").)
 
-8.  (Optional) To configure customized DKIM-based verification, other than the
-    SES default setting which uses [Easy DKIM](send-email-authentication-dkim-easy.md "send-email-authentication-dkim-easy.md")
-    _with a 2048 bit signing length_, under **Verifying your
-    domain**, expand **Advanced DKIM settings** and choose
-    the type of DKIM you want to configure:
+8. (Optional) To configure customized DKIM-based verification, other than the
+SES default setting which uses [Easy DKIM](send-email-authentication-dkim-easy.md "send-email-authentication-dkim-easy.md")
+_with a 2048 bit signing length_, under **Verifying your
+domain**, expand **Advanced DKIM settings** and choose
+the type of DKIM you want to configure:
 
-        1. **Easy DKIM**:
-
-
-        	1. Under **Identity type**, choose **Easy
-        	 DKIM**.
-        	2. In the **DKIM signing key length** field, choose
-        	 either [RSA\_2048\_BIT or
-        	 RSA\_1024\_BIT](send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048 "send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048").
-        	3. For **Publish DNS records to Route53**, if your
-        	 domain is hosted through Amazon Route 53, you have the option to let
-        	 SES publish the associated CNAME records at the time of
-        	 creation by leaving **Enabled** checked. If you'd
-        	 rather publish these records later, clear the
-        	 **Enabled** checkbox. (You can come back at a
-        	 later time to publish the records to Route 53 by editing the identity -
-        	 see [Edit an identity using the SES console](edit-verified-domain.md "edit-verified-domain.md").)
-        2. **Deterministic Easy DKIM
-         (DEED)**:
+    1. **Easy DKIM**:
 
 
-        ###### Tip
-
-        This form of DKIM is to be used if you're creating a Global (replica)
-         identity. DEED will utilize the Easy DKIM setup of an existing identity
-         of the same name from a parent region and sign the new identity without
-         requiring you to perform additional DNS setup. For more information, see
-         [DEED](send-email-authentication-dkim-deed.md "send-email-authentication-dkim-deed.md").
-
-
-        	1. Under **Identity type**, choose
-        	 **Deterministic Easy DKIM**.
-        	2. From the **Parent region** dropdown menu, select
-        	 a parent region where an Easy DKIM-signed identity with the same
-        	 name as you entered for your Global (replica) identity resides.
-        	 (Your replica region defaults to the region you signed into the
-        	 SES console with.)
-        3. **Provide DKIM authentication token
-         (BYODKIM)**:
+    	1. Under **Identity type**, choose **Easy
+    	 DKIM**.
+    	2. In the **DKIM signing key length** field, choose
+    	 either [RSA\_2048\_BIT or
+    	 RSA\_1024\_BIT](send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048 "send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048").
+    	3. For **Publish DNS records to Route53**, if your
+    	 domain is hosted through Amazon Route 53, you have the option to let
+    	 SES publish the associated CNAME records at the time of
+    	 creation by leaving **Enabled** checked. If you'd
+    	 rather publish these records later, clear the
+    	 **Enabled** checkbox. (You can come back at a
+    	 later time to publish the records to Route 53 by editing the identity -
+    	 see [Edit an identity using the SES console](edit-verified-domain.md "edit-verified-domain.md").)
+    2. **Deterministic Easy DKIM
+     (DEED)**:
 
 
-        	1. Ensure you've already generated a public-private key pair and have
-        	 added the public key to your DNS host provider. For more
-        	 information, see [Provide your own DKIM authentication token (BYODKIM) in Amazon SES](send-email-authentication-dkim-bring-your-own.md "send-email-authentication-dkim-bring-your-own.md").
-        	2. Under **Identity type**, choose **Provide
-        	 DKIM authentication token (BYODKIM)**.
-        	3. For **Private key**, paste the private key you
-        	 generated from your public-private key pair. The private key must
-        	 use [at
-        	 least 1024-bit RSA encryption and up to 2048-bit](send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048 "send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048"), and
-        	 must be encoded using base64 [(PEM)](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail "https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail") encoding.
+    ###### Tip
+
+    This form of DKIM is to be used if you're creating a Global (replica)
+     identity. DEED will utilize the Easy DKIM setup of an existing identity
+     of the same name from a parent region and sign the new identity without
+     requiring you to perform additional DNS setup. For more information, see
+     [DEED](send-email-authentication-dkim-deed.md "send-email-authentication-dkim-deed.md").
 
 
-        	###### Note
+    	1. Under **Identity type**, choose
+    	 **Deterministic Easy DKIM**.
+    	2. From the **Parent region** dropdown menu, select
+    	 a parent region where an Easy DKIM-signed identity with the same
+    	 name as you entered for your Global (replica) identity resides.
+    	 (Your replica region defaults to the region you signed into the
+    	 SES console with.)
+    3. **Provide DKIM authentication token
+     (BYODKIM)**:
 
-        	You have to delete the first and last lines (`-----BEGIN
-        	 PRIVATE KEY-----` and `-----END PRIVATE
-        	 KEY-----`, respectively) of the generated private key.
-        	 Additionally, you have to remove the line breaks in the
-        	 generated private key. The resulting value is a string of
-        	 characters with no spaces or line breaks.
-        	4. For **Selector name**, enter the name of the
-        	 selector to be specified in your domain’s DNS settings.
 
-9.  Ensure that the **Enabled** box is checked in the **DKIM
-    signatures** field.
-10. (Optional) Add one or more **Tags** to your domain identity by
-    including a tag key and an optional value for the key:
+    	1. Ensure you've already generated a public-private key pair and have
+    	 added the public key to your DNS host provider. For more
+    	 information, see [Provide your own DKIM authentication token (BYODKIM) in Amazon SES](send-email-authentication-dkim-bring-your-own.md "send-email-authentication-dkim-bring-your-own.md").
+    	2. Under **Identity type**, choose **Provide
+    	 DKIM authentication token (BYODKIM)**.
+    	3. For **Private key**, paste the private key you
+    	 generated from your public-private key pair. The private key must
+    	 use [at
+    	 least 1024-bit RSA encryption and up to 2048-bit](send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048 "send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048"), and
+    	 must be encoded using base64 [(PEM)](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail "https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail") encoding.
+
+
+    	###### Note
+
+    	You have to delete the first and last lines (`-----BEGIN
+    	 PRIVATE KEY-----` and `-----END PRIVATE
+    	 KEY-----`, respectively) of the generated private key.
+    	 Additionally, you have to remove the line breaks in the
+    	 generated private key. The resulting value is a string of
+    	 characters with no spaces or line breaks.
+    	4. For **Selector name**, enter the name of the
+    	 selector to be specified in your domain’s DNS settings.
+
+9. Ensure that the **Enabled** box is checked in the **DKIM
+signatures** field. 10. (Optional) Add one or more **Tags** to your domain identity by
+including a tag key and an optional value for the key:
 
     1. Choose **Add new tag** and enter the
-       **Key**. You can optionally add a
-       **Value** for the tag.
+     **Key**. You can optionally add a
+     **Value** for the tag.
     2. Repeat for additional tags not to exceed 50, or choose
-       **Remove** to remove tags.
+     **Remove** to remove tags.
 
 11. Choose **Create identity**.
 
@@ -467,13 +468,12 @@ When adding CNAME records to your DNS configuration:
     `_abc123._domainkey.domain.com`
 
 4. It can take up to 72 hours for changes to DNS settings to propagate. As soon as
-   Amazon SES detects all of the required DKIM records in your domain’s DNS settings, the
-   verification process is complete. Your domain’s **DKIM
-   configuration** appears as **Successful** and the
-   **Identity status** appears as
-   **Verified**.
-5. If want to configure and verify a [custom MAIL FROM
-   domain](mail-from.md "mail-from.md"), follow the procedures in [Configuring your custom MAIL FROM domain](mail-from.md#mail-from-set "mail-from.md#mail-from-set").
+Amazon SES detects all of the required DKIM records in your domain’s DNS settings, the
+verification process is complete. Your domain’s **DKIM
+configuration** appears as **Successful** and the
+**Identity status** appears as
+**Verified**. 5. If want to configure and verify a [custom MAIL FROM
+domain](mail-from.md "mail-from.md"), follow the procedures in [Configuring your custom MAIL FROM domain](mail-from.md#mail-from-set "mail-from.md#mail-from-set").
 
 The following table includes links to the
 documentation for a few widely used DNS providers. This list isn't exhaustive and doesn't

@@ -227,15 +227,13 @@ Outbound
     	 list**, then select your newly created
     	 secret in **Secret ARN**.
 
-6. Select **Create SMTP relay**.
-7. You can view and manage the SMTP relays you've already created from the
-   **SMTP relays** page. If there's an SMTP relay you want to
-   remove, select it's radio button followed by **Delete**.
-8. To edit an SMTP relay, select its name. On the details page, you can change the
-   relay's name, the external SMTP server's name, port, and login credentials by
-   selecting the corresponding **Edit** or
-   **Update** button followed by **Save
-   changes**.
+6. Select **Create SMTP relay**. 7. You can view and manage the SMTP relays you've already created from the
+**SMTP relays** page. If there's an SMTP relay you want to
+remove, select it's radio button followed by **Delete**. 8. To edit an SMTP relay, select its name. On the details page, you can change the
+relay's name, the external SMTP server's name, port, and login credentials by
+selecting the corresponding **Edit** or
+**Update** button followed by **Save
+changes**.
 
 ## Setting up Google Workspaces for inbound (non-authenticated) SMTP relay
 
@@ -245,7 +243,9 @@ with a Mail Manager inbound (non-authenticated) SMTP relay.
 **Prerequisites**
 
 - Access to the Google administrator console ([Google administrator console](https://admin.google.com/ "https://admin.google.com/") > Apps
-  > Google Workspace > Gmail).
+
+> Google Workspace > Gmail).
+
 - Access to the domain nameserver hosting the MX records for the domains which
   will be used for Mail Manager setup.
 
@@ -264,17 +264,17 @@ with a Mail Manager inbound (non-authenticated) SMTP relay.
 
   ![Enable Inbound gateway, and configure it with details.](images/GoogleWSInboundGateway.png)
 
-      + In **Gateway IPs**, select **Add** , and add the ingress endpoint IPs specific to your region
-       from the [SMTP
-       Relay IP Ranges](../../../general/latest/gr/ses.md#ses_mm_relay_ip_ranges "../../../general/latest/gr/ses.md#ses_mm_relay_ip_ranges") table.
-      + Select **Automatically detect external
-       IP**.
-      + Select **Require TLS for connections from the email
-       gateways listed above**.
-      + Select **Save** at the bottom of the dialog
-       box to save the configuration. Once saved, the administrator
-       console will show the **Inbound gateway** as
-       enabled.
+        + In **Gateway IPs**, select **Add** , and add the ingress endpoint IPs specific to your region
+         from the [SMTP
+         Relay IP Ranges](../../../general/latest/gr/ses.md#ses_mm_relay_ip_ranges "../../../general/latest/gr/ses.md#ses_mm_relay_ip_ranges") table.
+        + Select **Automatically detect external
+         IP**.
+        + Select **Require TLS for connections from the email
+         gateways listed above**.
+        + Select **Save** at the bottom of the dialog
+         box to save the configuration. Once saved, the administrator
+         console will show the **Inbound gateway** as
+         enabled.
 
 ## Setting up Microsoft Office 365 for inbound (non-authenticated) SMTP relay
 

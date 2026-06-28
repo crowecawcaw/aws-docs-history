@@ -39,12 +39,12 @@ messages per second.
 
 ### Sender and recipient quotas
 
-| Resource                                                                                  | Default Quota                                                                                                                          | Adjustable                                                                                                                                                                   |
-| ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Maximum number of tenants                                                                 | 10,000                                                                                                                                 | [Yes](manage-sending-quotas-request-increase.md#user-requested-increased-sending-quotas "manage-sending-quotas-request-increase.md#user-requested-increased-sending-quotas") |
-| Maximum number of recipients per message                                                  | 50 recipients per message.<br>NoteA recipient is any "To", "CC", or "BCC" address.                                                     | No.                                                                                                                                                                          |
-| Maximum number of identities that you can verify                                          | 10,000 identities per AWS Region.<br>NoteAn \*identity<br>• is a domain or email<br>address that you use to send email through<br>SES. | Please contact your<br>AWS Account Manager to discuss your use case.                                                                                                         |
-| Maximum number of dedicated IP pools (inclusive of both<br>managed and standard IP pools) | 50                                                                                                                                     | No                                                                                                                                                                           |
+| Resource                                                                                  | Default Quota                                                                                                                         | Adjustable                                                                                                                                                                   |
+| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Maximum number of tenants                                                                 | 10,000                                                                                                                                | [Yes](manage-sending-quotas-request-increase.md#user-requested-increased-sending-quotas "manage-sending-quotas-request-increase.md#user-requested-increased-sending-quotas") |
+| Maximum number of recipients per message                                                  | 50 recipients per message.<br>NoteA recipient is any "To", "CC", or "BCC" address.                                                    | No.                                                                                                                                                                          |
+| Maximum number of identities that you can verify                                          | 10,000 identities per AWS Region.<br>NoteAn *identity<br>• is a domain or email<br>address that you use to send email through<br>SES. | Please contact your<br>AWS Account Manager to discuss your use case.                                                                                                         |
+| Maximum number of dedicated IP pools (inclusive of both<br>managed and standard IP pools) | 50                                                                                                                                    | No                                                                                                                                                                           |
 
 ### Quotas related to event publishing
 
@@ -57,12 +57,12 @@ messages per second.
 
 ### Email template quotas
 
-| Resource                                                 | Default Quota                                                                                                                                                                                                                               | Adjustable |
-| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| Maximum number of email templates in each AWS Region     | 20,000                                                                                                                                                                                                                                      | No         |
-| Maximum template size                                    | 500 KB                                                                                                                                                                                                                                      | No         |
-| Maximum number of replacement values in each template    | Unlimited                                                                                                                                                                                                                                   | N/A        |
-| Maximum number of recipients for each templated<br>email | 50 destinations. A \*destination<br>• is any<br>email address on the "To", "CC", or "BCC" lines.<br>NoteThe number of destinations you can contact in a single<br>call to the API may be limited by your account's maximum<br>sending rate. | No         |
+| Resource                                                 | Default Quota                                                                                                                                                                                                                              | Adjustable |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
+| Maximum number of email templates in each AWS Region     | 20,000                                                                                                                                                                                                                                     | No         |
+| Maximum template size                                    | 500 KB                                                                                                                                                                                                                                     | No         |
+| Maximum number of replacement values in each template    | Unlimited                                                                                                                                                                                                                                  | N/A        |
+| Maximum number of recipients for each templated<br>email | 50 destinations. A *destination<br>• is any<br>email address on the "To", "CC", or "BCC" lines.<br>NoteThe number of destinations you can contact in a single<br>call to the API may be limited by your account's maximum<br>sending rate. | No         |
 
 ## Email receiving quotas
 
@@ -89,6 +89,7 @@ The following table lists the quotas associated with Mail Manager.
 | -------------------------------------------------------- | ------------- | ---------- |
 | Maximum number of open ingress endpoints                 | 10            | No         |
 | Maximum number of authorized ingress endpoints           | 50            | No         |
+| Maximum number of mutual TLS ingress endpoints           | 10            | No         |
 | Maximum number of recipients per message                 | 100           | No         |
 | Maximum email size (including headers)                   | 40 MB         | No         |
 | Maximum number of traffic policy statements              | 20            | No         |
@@ -102,7 +103,7 @@ The following table lists the quotas associated with Mail Manager.
 | Maximum number of conditions per rule                    | 10            | No         |
 | Maximum number of actions per rule                       | 10            | No         |
 | Maximum number of relay or send actions per rule set     | 10            | No         |
-| Maximum number of \*active<br>• archives                 | 10            | No         |
+| Maximum number of *active<br>• archives                  | 10            | No         |
 | Maximum number of archive search results                 | 1000          | No         |
 | Maximum number of exported archive search results        | 250,000       | No         |
 | Maximum number of running search requests in parallel    | 1             | No         |

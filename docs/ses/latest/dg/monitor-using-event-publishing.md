@@ -34,14 +34,14 @@ any additional steps to use auto-tags.
 The following table lists the auto-tags that are automatically applied to messages you
 send using SES.
 
-| SES Auto-Tags              | Auto-tag name                                                | Description |
-| -------------------------- | ------------------------------------------------------------ | ----------- |
-| `ses:caller-identity`      | The IAM identity of the SES user who sent the email.         |
-| `ses:configuration-set`    | The name of the Configuration Set associated with the email. |
-| `ses:from-domain`          | The domain of the "From" address.                            |
-| `ses:outgoing-ip`          | The IP address that SES used to send the email.              |
-| `ses:source-ip`            | The IP address that the caller used to send the email.       |
-| `ses:source-tls-version`   | The TLS protocol version the caller used to send the email.  |
+SES Auto-Tags| Auto-tag name | Description |
+| --- | --- |
+| `ses:caller-identity` | The IAM identity of the SES user who sent the email. |
+| `ses:configuration-set` | The name of the Configuration Set associated with the email. |
+| `ses:from-domain` | The domain of the "From" address. |
+| `ses:outgoing-ip` | The IP address that SES used to send the email. |
+| `ses:source-ip` | The IP address that the caller used to send the email. |
+| `ses:source-tls-version` | The TLS protocol version the caller used to send the email. |
 | `ses:outgoing-tls-version` | The TLS protocol version that SES used to send the<br>email. |
 
 ## Fine-grained feedback for email campaigns

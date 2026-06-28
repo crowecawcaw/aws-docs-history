@@ -54,8 +54,8 @@ The **Create IP Pool** page opens. 5. In the **Pool details** panel,
      it will now only be associated with this IP pool.
 
 6. (Optional) You can associate this IP pool with a configuration set by selecting
-   one from the dropdown list in the **Configuration sets**
-   field.
+one from the dropdown list in the **Configuration sets**
+field.
 
 ###### Note
 
@@ -67,12 +67,13 @@ The **Create IP Pool** page opens. 5. In the **Pool details** panel,
     * If you haven’t created any configuration sets yet, see [Using configuration sets in Amazon SES](using-configuration-sets.md "using-configuration-sets.md").
 
 7. (Optional) You can add one or more **Tags** to this
-   IP pool by including a tag key and an optional value for the key.
+IP pool by including a tag key and an optional value for the key.
 
-   1. Choose **Add new tag** and enter the **Key**. You can also add an optional **Value** for the tag.
-   2. To add the tag, choose **Save changes**.
+    1. Choose **Add new tag** and enter the **Key**. You can also add an optional **Value** for the tag.
+    2. To add the tag, choose **Save changes**.
 
-   You can add up to 50 tags. You can remove a tag by choosing **Remove**.
+
+    You can add up to 50 tags. You can remove a tag by choosing **Remove**.
 
 8. Select **Create pool**.
 

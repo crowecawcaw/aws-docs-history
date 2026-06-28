@@ -8,25 +8,24 @@ overview of the sending process:
 
 ######
 
-1.  A client application, acting as an email sender, makes a request to SES to
-    send email to one or more recipients.
-2.  If the request is valid, SES accepts the email.
-3.  SES sends the message over the Internet to the recipient's receiver. Once
-    the message is passed to SES, it is usually sent immediately, with the first
-    delivery attempt normally occurring within milliseconds.
-4.  At this point, there are different possibilities. For example:
+1. A client application, acting as an email sender, makes a request to SES to
+   send email to one or more recipients.
+2. If the request is valid, SES accepts the email.
+3. SES sends the message over the Internet to the recipient's receiver. Once
+   the message is passed to SES, it is usually sent immediately, with the first
+   delivery attempt normally occurring within milliseconds.
+4. At this point, there are different possibilities. For example:
 
-        1. The ISP successfully delivers the message to the recipient's inbox.
-        2. The recipient's email address does not exist, so the ISP sends a bounce
-         notification to SES. SES then forwards the notification to the
-         sender.
-        3. The recipient receives the message but considers it to be spam and
-         registers a complaint with the ISP. The ISP, which has a feedback loop set
-         up with SES, sends the complaint to SES, which then forwards
-         it to the sender.
-
-    The following sections review the individual possible outcomes after a sender sends an
-    email request to SES and after SES sends an email message to the recipient.
+   1. The ISP successfully delivers the message to the recipient's inbox.
+   2. The recipient's email address does not exist, so the ISP sends a bounce
+      notification to SES. SES then forwards the notification to the
+      sender.
+   3. The recipient receives the message but considers it to be spam and
+      registers a complaint with the ISP. The ISP, which has a feedback loop set
+      up with SES, sends the complaint to SES, which then forwards
+      it to the sender.
+      The following sections review the individual possible outcomes after a sender sends an
+      email request to SES and after SES sends an email message to the recipient.
 
 ## After a sender sends an email request to SES
 

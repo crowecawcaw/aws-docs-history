@@ -71,17 +71,16 @@ field.
     4. Choose **Next**.
 
 6. On the **Configure actions** pane, choose **In
-   Alarm** in the **Alarm state trigger** field.
+Alarm** in the **Alarm state trigger** field.
 
-   1. Choose **Select an existing SNS topic** in the
-      **Select an SNS topic** field.
-   2. Choose the topic that you created and subscribed to in the prerequisites
-      in the **Send a notification to...** search box.
-   3. Choose **Next**.
+    1. Choose **Select an existing SNS topic** in the
+     **Select an SNS topic** field.
+    2. Choose the topic that you created and subscribed to in the prerequisites
+     in the **Send a notification to...** search box.
+    3. Choose **Next**.
 
 7. On the **Add name and description** pane, enter a name and
-   description for the alarm, and then choose **Next**.
-8. On the **Preview and create** pane, confirm your settings, and if
-   satisfied, choose **Create alarm**. If there's something you'd like
-   to change, select the **Previous** button for each section you'd
-   like to go back to and edit.
+description for the alarm, and then choose **Next**. 8. On the **Preview and create** pane, confirm your settings, and if
+satisfied, choose **Create alarm**. If there's something you'd like
+to change, select the **Previous** button for each section you'd
+like to go back to and edit.

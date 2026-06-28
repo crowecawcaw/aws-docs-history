@@ -65,26 +65,23 @@ In the preceding DMARC policy example as required for BIMI:
      use the DMARC policy values specific to BIMI as shown.
 
 4. Produce your BIMI logo as a Scalable Vector Graphics (SVG) `.svg`
-   file—the specific SVG profile required by BIMI is defined as SVG
-   Portable/Secure (SVG P/S). In order for your logo to display in the email client
-   it must conform exactly to these specifications. See the [BIMI Group's](https://bimigroup.org/ "https://bimigroup.org/") guidance on [creating SVG logo
-   files](https://bimigroup.org/creating-bimi-svg-logo-files/ "https://bimigroup.org/creating-bimi-svg-logo-files/") and recommended [SVG conversion
-   tools](https://bimigroup.org/svg-conversion-tools-released/ "https://bimigroup.org/svg-conversion-tools-released/").
-5. (Optional) Obtain a Verified Mark Certificate (VMC). Some ESPs, such as Gmail
-   and Apple, require a VMC to provide evidence that you own the trademark and
-   content of your BIMI logo. Although this isn't a requirement for implementing
-   BIMI on your domain, your BIMI logo will not display in the email client if the
-   ESP you send mail to enforces VMC compliance. See the BIMI Group's references to
-   [participating certificate authorities](https://bimigroup.org/verified-mark-certificates-vmc-and-bimi/ "https://bimigroup.org/verified-mark-certificates-vmc-and-bimi/") to obtain a VMC for your
-   logo.
-6. Host your BIMI logo's SVG file on a server you have access to making it
-   publicly accessible through HTTPS. For example, you could upload it to an [Amazon S3 bucket](../../../AmazonS3/latest/userguide/creating-buckets-s3.md "../../../AmazonS3/latest/userguide/creating-buckets-s3.md").
-7. Create and publish a BIMI DNS record that includes a URL to your logo. When an
-   [ESP that supports
-   BIMI](https://bimigroup.org/bimi-infographic/ "https://bimigroup.org/bimi-infographic/") checks your DMARC record, it will also look for a BIMI record
-   containing the URL for your logo's `.svg` file, and if configured,
-   the URL for your VMC's `.pem` file. If the records match, they'll
-   display your BIMI logo.
+file—the specific SVG profile required by BIMI is defined as SVG
+Portable/Secure (SVG P/S). In order for your logo to display in the email client
+it must conform exactly to these specifications. See the [BIMI Group's](https://bimigroup.org/ "https://bimigroup.org/") guidance on [creating SVG logo
+files](https://bimigroup.org/creating-bimi-svg-logo-files/ "https://bimigroup.org/creating-bimi-svg-logo-files/") and recommended [SVG conversion
+tools](https://bimigroup.org/svg-conversion-tools-released/ "https://bimigroup.org/svg-conversion-tools-released/"). 5. (Optional) Obtain a Verified Mark Certificate (VMC). Some ESPs, such as Gmail
+and Apple, require a VMC to provide evidence that you own the trademark and
+content of your BIMI logo. Although this isn't a requirement for implementing
+BIMI on your domain, your BIMI logo will not display in the email client if the
+ESP you send mail to enforces VMC compliance. See the BIMI Group's references to
+[participating certificate authorities](https://bimigroup.org/verified-mark-certificates-vmc-and-bimi/ "https://bimigroup.org/verified-mark-certificates-vmc-and-bimi/") to obtain a VMC for your
+logo. 6. Host your BIMI logo's SVG file on a server you have access to making it
+publicly accessible through HTTPS. For example, you could upload it to an [Amazon S3 bucket](../../../AmazonS3/latest/userguide/creating-buckets-s3.md "../../../AmazonS3/latest/userguide/creating-buckets-s3.md"). 7. Create and publish a BIMI DNS record that includes a URL to your logo. When an
+[ESP that supports
+BIMI](https://bimigroup.org/bimi-infographic/ "https://bimigroup.org/bimi-infographic/") checks your DMARC record, it will also look for a BIMI record
+containing the URL for your logo's `.svg` file, and if configured,
+the URL for your VMC's `.pem` file. If the records match, they'll
+display your BIMI logo.
 
 Configure your domain with BIMI by publishing a TXT record with your DNS
 provider with the following values as shown—sending from a domain is

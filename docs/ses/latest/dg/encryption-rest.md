@@ -16,16 +16,15 @@ SES provides the following encryption options:
   the use of symmetric customer managed keys that you create, own, and manage. Because you have full
   control of the encryption, you can perform such tasks as:
 
-      + Establishing and maintaining key policies
-      + Establishing and maintaining IAM policies and grants
-      + Enabling and disabling key policies
-      + Rotating key cryptographic material
-      + Adding tags
-      + Creating key aliases
-      + Scheduling keys for deletion
-
-  To use your own key, choose a customer managed key when you create your SES
-  resources.
+  - Establishing and maintaining key policies
+  - Establishing and maintaining IAM policies and grants
+  - Enabling and disabling key policies
+  - Rotating key cryptographic material
+  - Adding tags
+  - Creating key aliases
+  - Scheduling keys for deletion
+    To use your own key, choose a customer managed key when you create your SES
+    resources.
 
 For more information, see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk")
 in the _AWS Key Management Service Developer Guide_.

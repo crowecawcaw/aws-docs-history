@@ -107,44 +107,42 @@ attachments_—the following properties apply:
      selecting the **X**.
 
 5. Choose **Search** and the archived email matching
-   your search criteria will be populated in the **Search
-   results** table.
+your search criteria will be populated in the **Search
+results** table.
 
-   - The **Message ID**
+    * The **Message ID**
 
-   column is hidden by default, but can be displayed by
-   selecting the gear icon to customize how you view the
-   table.
-   - Every search you execute is automatically saved with a
+     column is hidden by default, but can be displayed by
+     selecting the gear icon to customize how you view the
+     table.
+    * Every search you execute is automatically saved with a
      unique search id and will be listed in the **Search
      history** table.
 
 6. To view the text of a message along with its envelope and header
-   information, select the message’s radio button followed by
-   **View details** to open the **Message
-   details** sidebar.
-7. To create a local file of the message,
-   select the message’s radio button followed by **Download
-   message**.
-8. Your filtered search can be saved to an Amazon S3 bucket by selecting
-   **Export to S3**.
+information, select the message’s radio button followed by
+**View details** to open the **Message
+details** sidebar. 7. To create a local file of the message,
+select the message’s radio button followed by **Download
+message**. 8. Your filtered search can be saved to an Amazon S3 bucket by selecting
+**Export to S3**.
 
-   1. If you know the URI of the S3 bucket you want to
-      use, enter it in the **S3 URI**
-      field; otherwise, choose **Browse S3** and
-      select an S3 bucket and folder to use on the
-      S3
-      page.
-   2. (Optional) You can encrypt your exported messages either
-      by entering your own AWS KMS key into the **KMS key
-      ARN** field, or by selecting **Create
-      new key**. Otherwise, encryption will be set to
-      whatever method is being used on the destination S3
-      bucket (even if none).
-   3. Choose **Export** and all the messages
-      found in your filtered search will be saved as individual
-      files in the S3 folder you
-      selected.
+    1. If you know the URI of the S3 bucket you want to
+     use, enter it in the **S3 URI**
+     field; otherwise, choose **Browse S3** and
+     select an S3 bucket and folder to use on the
+     S3
+     page.
+    2. (Optional) You can encrypt your exported messages either
+     by entering your own AWS KMS key into the **KMS key
+     ARN** field, or by selecting **Create
+     new key**. Otherwise, encryption will be set to
+     whatever method is being used on the destination S3
+     bucket (even if none).
+    3. Choose **Export** and all the messages
+     found in your filtered search will be saved as individual
+     files in the S3 folder you
+     selected.
 
 ###### Note
 

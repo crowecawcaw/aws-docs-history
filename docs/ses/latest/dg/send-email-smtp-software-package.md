@@ -39,7 +39,7 @@ whenever there is a change in the status of a software issue.
    ###### Note
 
    If you can't connect to Amazon SES using this setting, try
-   **SECURE_SMTP**. 5. Hostname—See [Connecting to an Amazon SES SMTP endpoint](smtp-connect.md "smtp-connect.md") for a list of
+   **SECURE\_SMTP**. 5. Hostname—See [Connecting to an Amazon SES SMTP endpoint](smtp-connect.md "smtp-connect.md") for a list of
    Amazon SES SMTP endpoints. For example, if you want to use the Amazon SES endpoint in
    the US West (Oregon) Region, the hostname would be
    _email-smtp.us-west-2.amazonaws.com_. 6. SMTP port—25, 587, or 2587 (to

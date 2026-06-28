@@ -69,20 +69,20 @@ you send email:
   part of that automatic process is working interactively with the
   SES shared IP pool.
 
-      - If your sending rate is too aggressive for your new
-       dedicated IPs while they're being warmed up, SES will
-       automatically spill part of your sending over into the
-       SES shared IP pool to protect the reputation of your
-       new dedicated IPs.
-      - Even after your new dedicated IPs are fully warmed up, it
-       isn't guaranteed that all of your sending will go through
-       them 100% of the time. For example, if your sending rate
-       suddenly rises and dedicated IPs (managed) determines it must allocate an
-       additional dedicated IP address, it will initiate the warmup
-       process which includes using the shared pool. Likewise, if
-       your sending rate suddenly drops very low, all of your
-       sending could switch over to the SES shared IP pool,
-       see [Why proper IP warmup is important](#importance-of-warmup "#importance-of-warmup").
+        - If your sending rate is too aggressive for your new
+         dedicated IPs while they're being warmed up, SES will
+         automatically spill part of your sending over into the
+         SES shared IP pool to protect the reputation of your
+         new dedicated IPs.
+        - Even after your new dedicated IPs are fully warmed up, it
+         isn't guaranteed that all of your sending will go through
+         them 100% of the time. For example, if your sending rate
+         suddenly rises and dedicated IPs (managed) determines it must allocate an
+         additional dedicated IP address, it will initiate the warmup
+         process which includes using the shared pool. Likewise, if
+         your sending rate suddenly drops very low, all of your
+         sending could switch over to the SES shared IP pool,
+         see [Why proper IP warmup is important](#importance-of-warmup "#importance-of-warmup").
 
 - Automatic request & relinquish of dedicated IP
   addresses – You don't need to request or relinquish managed

@@ -91,14 +91,11 @@ steps:
      dialog box, choose **Finish**.
 
 4. In Eclipse, in the **Package
-   Explorer** window, expand your project.
-5. Under your project, right-click the **src** directory, choose **New**, and then choose **Class**.
-6. In the **New Java Class** dialog box,
-   in the **Name** field, type
-   `AmazonSESSample` and then choose **Finish**.
-7. Replace the entire contents of
-   **AmazonSESSample.java** with the following
-   code:
+Explorer** window, expand your project. 5. Under your project, right-click the **src** directory, choose **New**, and then choose **Class**. 6. In the **New Java Class** dialog box,
+in the **Name** field, type
+`AmazonSESSample` and then choose **Finish**. 7. Replace the entire contents of
+**AmazonSESSample.java** with the following
+code:
 
 ```
 import java.util.Properties;
@@ -223,37 +220,31 @@ addresses are exactly the same as the ones you verified.
      you use it. For more information, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md "request-production-access.md").
 
 9. In **AmazonSESSample.java** replace the following
-   with your own values:
+with your own values:
 
-   - `smtp_username` – Replace
+    * `smtp_username` – Replace
      with your SMTP user name credential. Note that your SMTP
      user name credential is a 20-character string of letters and
      numbers, not an intelligible name.
-   - `smtp_password` –
-     Implement `fetchSMTPPasswordFromSecureStorage`
+    * `smtp_password` –
+     Implement ``fetchSMTPPasswordFromSecureStorage``
      to fetch the password.
 
 10. (Optional) If you want to use an Amazon SES SMTP endpoint in an
-    AWS Region other than
-    `email-smtp.us-west-2.amazonaws.com`, change the
-    value of the variable `HOST` to the endpoint you want to
-    use. For a list of regions where Amazon SES is available, see [Amazon Simple Email Service (Amazon SES)](../../../general/latest/gr/rande.md#ses_region "../../../general/latest/gr/rande.md#ses_region") in
-    the _AWS General Reference_.
-11. (Optional) If you want to use a configuration set when sending
-    this email, change the value of the variable
-    `ConfigSet` to the name of the
-    configuration set. For more information about configuration sets,
-    see [Using configuration sets in Amazon SES](using-configuration-sets.md "using-configuration-sets.md").
-12. Save **AmazonSESSample.java**.
-13. To build the project, choose **Project** and then choose **Build
-    Project**. (If this option is disabled, then you may
-    have automatic building enabled.)
-14. To start the program and send the email, choose **Run** and then choose **Run** again.
-15. Review the output. If the email was successfully sent, the console
-    displays _"Email sent!"_ Otherwise, it displays
-    an error message.
-16. Sign into the email client of the recipient address. You will see
-    the message that you sent.
+AWS Region other than
+`email-smtp.us-west-2.amazonaws.com`, change the
+value of the variable `HOST` to the endpoint you want to
+use. For a list of regions where Amazon SES is available, see [Amazon Simple Email Service (Amazon SES)](../../../general/latest/gr/rande.md#ses_region "../../../general/latest/gr/rande.md#ses_region") in
+the _AWS General Reference_. 11. (Optional) If you want to use a configuration set when sending
+this email, change the value of the variable
+`ConfigSet` to the name of the
+configuration set. For more information about configuration sets,
+see [Using configuration sets in Amazon SES](using-configuration-sets.md "using-configuration-sets.md"). 12. Save **AmazonSESSample.java**. 13. To build the project, choose **Project** and then choose **Build
+Project**. (If this option is disabled, then you may
+have automatic building enabled.) 14. To start the program and send the email, choose **Run** and then choose **Run** again. 15. Review the output. If the email was successfully sent, the console
+displays _"Email sent!"_ Otherwise, it displays
+an error message. 16. Sign into the email client of the recipient address. You will see
+the message that you sent.
 
 PHP
 This example uses the PHPMailer class to send email through Amazon SES using

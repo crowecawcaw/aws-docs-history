@@ -197,50 +197,47 @@ the Lambda function you created in [Part 2: Create the Lambda Function](#monitor
 
 ###### To create a CloudWatch alarm
 
-1.  Open the CloudWatch console at
-    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2.  Use the region selector to choose the region in which you want to
-    automatically pause email sending.
-3.  In the navigation pane, choose **Alarms**.
-4.  Choose **Create Alarm**.
-5.  On the **Create Alarm** window, under **SES
-    Metrics**, choose **Account Metrics**.
-6.  Under **Metric Name**, choose one of the following
-    options:
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. Use the region selector to choose the region in which you want to
+   automatically pause email sending.
+3. In the navigation pane, choose **Alarms**.
+4. Choose **Create Alarm**.
+5. On the **Create Alarm** window, under **SES
+   Metrics**, choose **Account Metrics**.
+6. Under **Metric Name**, choose one of the following
+   options:
 
-        * Reputation.BounceRate – Choose
-         this metric if you want to pause email sending for your account when the
-         overall hard bounce rate for your account crosses a threshold that you
-         define.
-        * Reputation.ComplaintRate – Choose
-         this metric if you want to pause email sending for your account when the
-         overall complaint rate for your account crosses a threshold that you
-         define.
+   - Reputation.BounceRate – Choose
+     this metric if you want to pause email sending for your account when the
+     overall hard bounce rate for your account crosses a threshold that you
+     define.
+   - Reputation.ComplaintRate – Choose
+     this metric if you want to pause email sending for your account when the
+     overall complaint rate for your account crosses a threshold that you
+     define.
+     Choose **Next**.
 
-    Choose **Next**.
+7. Complete the following steps:
 
-7.  Complete the following steps:
+   - Under **Alarm Threshold**, for
+     **Name**, type a name for the alarm.
+   - Under **Whenever: Reputation.BounceRate** or
+     **Whenever: Reputation.ComplaintRate**, specify the
+     threshold that causes the alarm to trigger.
 
-        * Under **Alarm Threshold**, for
-         **Name**, type a name for the alarm.
-        * Under **Whenever: Reputation.BounceRate** or
-         **Whenever: Reputation.ComplaintRate**, specify the
-         threshold that causes the alarm to trigger.
+   ###### Note
 
-
-        ###### Note
-
-        Your account is automatically placed under review if your bounce
-         rate exceeds 5%, or if your complaint rate exceeds 0.1%. When you
-         specify the bounce or complaint rate that causes the CloudWatch alarm to
-         trigger, we recommend that you use values that are below these rates
-         to prevent your account from being placed under review.
-        * Under **Actions**, for **Whenever this
-         alarm**, choose **State is ALARM**. For
-         **Send notification to**, choose the Amazon SNS topic
-         you created in [Part 4: Create an Amazon SNS Topic and Subscription](#monitoring-sender-reputation-pausing-account-part-4 "#monitoring-sender-reputation-pausing-account-part-4").
-
-    Choose **Create Alarm**.
+   Your account is automatically placed under review if your bounce
+   rate exceeds 5%, or if your complaint rate exceeds 0.1%. When you
+   specify the bounce or complaint rate that causes the CloudWatch alarm to
+   trigger, we recommend that you use values that are below these rates
+   to prevent your account from being placed under review.
+   - Under **Actions**, for **Whenever this
+     alarm**, choose **State is ALARM**. For
+     **Send notification to**, choose the Amazon SNS topic
+     you created in [Part 4: Create an Amazon SNS Topic and Subscription](#monitoring-sender-reputation-pausing-account-part-4 "#monitoring-sender-reputation-pausing-account-part-4").
+     Choose **Create Alarm**.
 
 ## Part 6: Test the solution
 

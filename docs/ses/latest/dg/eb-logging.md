@@ -132,9 +132,9 @@ log type:
 
 ###### Log examples
 
-- [Ingress endpoint logs – APPLICATION_LOGS](#ingress-endpoint-logs-app "#ingress-endpoint-logs-app")
-- [Ingress endpoint logs – TRAFFIC_POLICY_DEBUG_LOGS](#ingress-endpoint-logs-traffic "#ingress-endpoint-logs-traffic")
-- [Rule set logs – APPLICATION_LOGS](#rule-set-logs "#rule-set-logs")
+- [Ingress endpoint logs – APPLICATION\_LOGS](#ingress-endpoint-logs-app "#ingress-endpoint-logs-app")
+- [Ingress endpoint logs – TRAFFIC\_POLICY\_DEBUG\_LOGS](#ingress-endpoint-logs-traffic "#ingress-endpoint-logs-traffic")
+- [Rule set logs – APPLICATION\_LOGS](#rule-set-logs "#rule-set-logs")
 
 ### Ingress endpoint logs – `APPLICATION_LOGS`
 
@@ -387,7 +387,7 @@ fields @timestamp, @message, @logStream, @log
 | limit 10000
 ```
 
-Query for failed WRITE_TO_S3 actions:
+Query for failed WRITE\_TO\_S3 actions:
 
 ```
 fields @timestamp, @message, @logStream, @log

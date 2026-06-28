@@ -9,18 +9,17 @@ care of the setup. This action has the following options.
   `arn:aws:workmail:`region`:`account_ID`:organization/`organization_ID``,
   where:
 
-      + `region` is the region in which you are using Amazon SES and Amazon WorkMail.
-       (You must use them from the same Region.) An example is
-       us-east-1.
-      + `account_ID` is the AWS account ID. You can find your AWS
-       account ID on the [Account](https://console.aws.amazon.com/billing/home?#/account "https://console.aws.amazon.com/billing/home?#/account") page of the AWS Management Console.
-      + `organization_ID` is a unique identifier that Amazon WorkMail generates
-       when you create an organization. You can find the organization ID in the
-       Amazon WorkMail console on the Organization Settings page of your organization.
-
-  An example of a complete Amazon WorkMail organization ARN is
-  _arn:aws:workmail:us-east-1:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7_.
-  For information about Amazon WorkMail organizations, see the [Amazon WorkMail Administrator Guide](../../../workmail/latest/adminguide/organizations_overview.md "../../../workmail/latest/adminguide/organizations_overview.md").
+  - `region` is the region in which you are using Amazon SES and Amazon WorkMail.
+    (You must use them from the same Region.) An example is
+    us-east-1.
+  - `account_ID` is the AWS account ID. You can find your AWS
+    account ID on the [Account](https://console.aws.amazon.com/billing/home?#/account "https://console.aws.amazon.com/billing/home?#/account") page of the AWS Management Console.
+  - `organization_ID` is a unique identifier that Amazon WorkMail generates
+    when you create an organization. You can find the organization ID in the
+    Amazon WorkMail console on the Organization Settings page of your organization.
+    An example of a complete Amazon WorkMail organization ARN is
+    _arn:aws:workmail:us-east-1:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7_.
+    For information about Amazon WorkMail organizations, see the [Amazon WorkMail Administrator Guide](../../../workmail/latest/adminguide/organizations_overview.md "../../../workmail/latest/adminguide/organizations_overview.md").
 
 - SNS Topic—The name or ARN of the Amazon SNS topic
   to notify when the Amazon WorkMail action is taken. An example of an Amazon SNS topic ARN is
