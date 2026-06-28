@@ -24,7 +24,7 @@ The following Suricata features are not supported by Network Firewall:
 - IKEv2 protocol.
 - IP-in-IP protocol.
 - HTTP/2 overloading.
-- Application Layer drop established default rules are incompatible with a session-holding configuration. You can read more at [Managing evaluation order for Suricata compatible rules in AWS Network Firewall.](suricata-rule-evaluation-order.md "suricata-rule-evaluation-order.md")
+- Application drop established (bidirectional) and Application drop established (server-directed only) default rules are incompatible with a session-holding configuration. You can read more at [Managing evaluation order for Suricata compatible rules in AWS Network Firewall.](suricata-rule-evaluation-order.md "suricata-rule-evaluation-order.md")
 
 ## Suricata features that Network Firewall supports with caveats
 

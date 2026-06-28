@@ -2,74 +2,67 @@
 
 The Network Firewall logs contain the following information:
 
-- **firewall_name** – The name of the
+- **firewall\_name** – The name of the
   firewall that's associated with the log entry.
-- **availability_zone** – The
+- **availability\_zone** – The
   Availability Zone of the firewall endpoint that generated the log
   entry.
-- **event_timestamp** – The time that
+- **event\_timestamp** – The time that
   the log was created, written in epoch seconds at Coordinated Universal Time
   (UTC).
-- **aws_category** – For rules using URL or Domain Category filtering, contains the matched categories in JSON array format. For example, ["Search Engines and Portals"] or ["Technology and Internet"].
+- **aws\_category** – For rules using URL or Domain Category filtering, contains the matched categories in JSON array format. For example, ["Search Engines and Portals"] or ["Technology and Internet"].
 - **event** – Detailed information about
   the event. This information includes the event timestamp converted to human
   readable format, event type, network packet details, and, if applicable,
   details about the stateful rule that the packet matched against.
 
-      + **Alert and flow events** –
-       Alert and flow events are produced by Suricata, the open source
-       threat detection engine that the stateful rules engine runs on.
-       Suricata writes the event information in the Suricata EVE JSON
-       output format, with the exception of the AWS managed
-       `tls_inspected` attribute.
+  - **Alert and flow events** –
+    Alert and flow events are produced by Suricata, the open source
+    threat detection engine that the stateful rules engine runs on.
+    Suricata writes the event information in the Suricata EVE JSON
+    output format, with the exception of the AWS managed
+    `tls_inspected` attribute.
 
-
-
-
-      	- Flow log events use the EVE output type
-      	 `netflow`. The log type `netflow`
-      	 logs uni-directional flows, so each event represents traffic
-      	 going in a single direction.
-      	- Alert log events using the EVE output type
-      	 `alert`.
-      	- If the firewall that's associated with the log uses TLS
-      	 inspection and the firewall's traffic uses SSL/TLS,
-      	 Network Firewall adds the custom field `"tls_inspected":
-      	 true` to the log. If your firewall doesn't use TLS
-      	 inspection, Network Firewall omits this field.
+    - Flow log events use the EVE output type
+      `netflow`. The log type `netflow`
+      logs uni-directional flows, so each event represents traffic
+      going in a single direction.
+    - Alert log events using the EVE output type
+      `alert`.
+    - If the firewall that's associated with the log uses TLS
+      inspection and the firewall's traffic uses SSL/TLS,
+      Network Firewall adds the custom field `"tls_inspected":
+   true` to the log. If your firewall doesn't use TLS
+      inspection, Network Firewall omits this field.
       For detailed information about these Suricata events, see [EVE JSON Output](https://docs.suricata.io/en/suricata-7.0.8/output/eve/eve-json-output.html?highlight=EVE "https://docs.suricata.io/en/suricata-7.0.8/output/eve/eve-json-output.html?highlight=EVE") in the [Suricata User Guide](https://docs.suricata.io/en/suricata-7.0.8/index.html "https://docs.suricata.io/en/suricata-7.0.8/index.html").
-      + **TLS events** – TLS events are produced by a
-       dedicated stateful TLS engine, which is separate from Suricata. TLS events
-       have the output type `tls`. The
-       logs have a JSON structure that's similar to the Suricata EVE
-       output.
 
+  - **TLS events** – TLS events are produced by a
+    dedicated stateful TLS engine, which is separate from Suricata. TLS events
+    have the output type `tls`. The
+    logs have a JSON structure that's similar to the Suricata EVE
+    output.
 
-      These events require the firewall to be configured for TLS inspection. For information,
-       see [Inspecting SSL/TLS traffic with TLS inspection configurations in AWS Network Firewall](tls-inspection-configurations.md "tls-inspection-configurations.md").
+  These events require the firewall to be configured for TLS inspection. For information,
+  see [Inspecting SSL/TLS traffic with TLS inspection configurations in AWS Network Firewall](tls-inspection-configurations.md "tls-inspection-configurations.md").
 
+  TLS logs report the following types of errors:
 
-      TLS logs report the following types of errors:
+        - TLS errors, with the custom field `"tls_error":` containing the error details. Currently, this category includes Server Name Indication (SNI) mismatches and SNI naming errors. Typically these
+         errors are caused by problems with customer traffic or with the
+         customer's client or server. For example, errors caused
+         when the client hello SNI is NULL or doesn't match the subject name
+         in the server certificate.
+        - Revocation check errors, with the custom field `"revocation_check":` containing the check failure details. These report outbound traffic that fails
+         the server certificate revocation check
+         during TLS inspection. This requires the firewall to be configured
+         with TLS inspection for outbound traffic, and for the TLS inspection
+         to be configured to check the certificate revocation status.
+         The logs include the revocation check status, the action taken, and the
+         SNI that the revocation check was for.
+         For information about configuring certificate revocation checking, see
+         [Using SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall](tls-inspection-certificate-requirements.md "tls-inspection-certificate-requirements.md").
 
-
-
-
-      	- TLS errors, with the custom field `"tls_error":` containing the error details. Currently, this category includes Server Name Indication (SNI) mismatches and SNI naming errors. Typically these
-      	 errors are caused by problems with customer traffic or with the
-      	 customer's client or server. For example, errors caused
-      	 when the client hello SNI is NULL or doesn't match the subject name
-      	 in the server certificate.
-      	- Revocation check errors, with the custom field `"revocation_check":` containing the check failure details. These report outbound traffic that fails
-      	 the server certificate revocation check
-      	 during TLS inspection. This requires the firewall to be configured
-      	 with TLS inspection for outbound traffic, and for the TLS inspection
-      	 to be configured to check the certificate revocation status.
-      	 The logs include the revocation check status, the action taken, and the
-      	 SNI that the revocation check was for.
-      	 For information about configuring certificate revocation checking, see
-      	 [Using SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall](tls-inspection-certificate-requirements.md "tls-inspection-certificate-requirements.md").
-
-  For detailed information about these Suricata events, see [EVE JSON Output](https://docs.suricata.io/en/suricata-7.0.8/output/eve/eve-json-output.html?highlight=EVE "https://docs.suricata.io/en/suricata-7.0.8/output/eve/eve-json-output.html?highlight=EVE") in the [Suricata User Guide](https://docs.suricata.io/en/suricata-7.0.8/index.html "https://docs.suricata.io/en/suricata-7.0.8/index.html").
+For detailed information about these Suricata events, see [EVE JSON Output](https://docs.suricata.io/en/suricata-7.0.8/output/eve/eve-json-output.html?highlight=EVE "https://docs.suricata.io/en/suricata-7.0.8/output/eve/eve-json-output.html?highlight=EVE") in the [Suricata User Guide](https://docs.suricata.io/en/suricata-7.0.8/index.html "https://docs.suricata.io/en/suricata-7.0.8/index.html").
 
 ###### Example alert log entry
 

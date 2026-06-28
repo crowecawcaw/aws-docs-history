@@ -46,33 +46,26 @@ traffic in both directions.
      port**.
     6. Choose **Add scope configuration**. To add more scope configurations, adjust the settings in the **scope configuration** pane, then select **Add scope configuration**.
 
-10. Choose **Next**.
-11. (Optional) On the **Advanced settings** page, under **Customer
-    managed key**, you can change the key that Network Firewall uses to
-    decrypt and encrypt the TLS inspection configuration, to protect against unauthorized access. By
-    default, Network Firewall uses AWS owned keys. If you want to use your own keys, you
-    can configure customer managed keys from the AWS Key Management Service and provide them to Network Firewall. For
-    information about customer managed keys, see [Encryption at rest with AWS Key Management Service](kms-encryption-at-rest.md "kms-encryption-at-rest.md").
-12. (Optional) In the **Certificate revocation status** section, choose whether
-    Network Firewall should check if the certificate that's presented by the server in the
-    TLS connection has a revoked status. To enable this option, you must first
-    associate a certificate authority (CA) certificate for outbound inspection
-    in the **Associate SSL/TLS certificates** step. You can
-    also configure the actions that Network Firewall takes on outbound traffic if the
-    certificate is revoked or has an unknown status.
-13. Choose **Next**.
-14. (Optional) On the **Add tags** page, enter a key and optional value for any
-    tag that you want to add to this TLS inspection configuration. Tags help you to organize and manage
-    your AWS resources. For more information about tagging your resources, see
-    [Tagging AWS Network Firewall resources](tagging.md "tagging.md").
-15. Choose **Next**.
-16. On the **Review and confirm** page, check the TLS inspection configuration settings.
-    If you want to change anything, choose **Edit** for that
-    section. This returns you to the corresponding step in the create TLS inspection configuration
-    wizard. Make your changes, then choose **Next** on each
-    page until you come back to the review and confirm page.
-17. Choose **Create TLS inspection configuration**.
-    Your new TLS inspection configuration is added to the list in the Network Firewall TLS inspection configurations page.
+10. Choose **Next**. 11. (Optional) On the **Advanced settings** page, under **Customer
+managed key**, you can change the key that Network Firewall uses to
+decrypt and encrypt the TLS inspection configuration, to protect against unauthorized access. By
+default, Network Firewall uses AWS owned keys. If you want to use your own keys, you
+can configure customer managed keys from the AWS Key Management Service and provide them to Network Firewall. For
+information about customer managed keys, see [Encryption at rest with AWS Key Management Service](kms-encryption-at-rest.md "kms-encryption-at-rest.md"). 12. (Optional) In the **Certificate revocation status** section, choose whether
+Network Firewall should check if the certificate that's presented by the server in the
+TLS connection has a revoked status. To enable this option, you must first
+associate a certificate authority (CA) certificate for outbound inspection
+in the **Associate SSL/TLS certificates** step. You can
+also configure the actions that Network Firewall takes on outbound traffic if the
+certificate is revoked or has an unknown status. 13. Choose **Next**. 14. (Optional) On the **Add tags** page, enter a key and optional value for any
+tag that you want to add to this TLS inspection configuration. Tags help you to organize and manage
+your AWS resources. For more information about tagging your resources, see
+[Tagging AWS Network Firewall resources](tagging.md "tagging.md"). 15. Choose **Next**. 16. On the **Review and confirm** page, check the TLS inspection configuration settings.
+If you want to change anything, choose **Edit** for that
+section. This returns you to the corresponding step in the create TLS inspection configuration
+wizard. Make your changes, then choose **Next** on each
+page until you come back to the review and confirm page. 17. Choose **Create TLS inspection configuration**.
+Your new TLS inspection configuration is added to the list in the Network Firewall TLS inspection configurations page.
 
 If you've configured the inspection for certificate revocation checks on outbound traffic,
 you can log failures for these checks by enabling TLS logging. For information,

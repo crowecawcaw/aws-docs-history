@@ -7,10 +7,12 @@ To view your firewall settings and reports through the console, use the followin
 
 ###### Warning
 
-If your firewall update changes your stateful rule evaluation order type, you will experience an
-interruption of in-flight traffic through the firewall for a few seconds during the reset. This is the only type of update
-that has this effect. For more information about stateful rule evaluation order types, see
-[Managing evaluation order for Suricata compatible rules in AWS Network Firewall](suricata-rule-evaluation-order.md "suricata-rule-evaluation-order.md").
+If your firewall update changes any stateful engine option, including the rule evaluation order type,
+stream exception policy, or flow timeouts (such as TCP idle timeout), it may require a restart of
+the stateful engine in order to apply the changes. When this occurs, existing connections will be
+treated according to your stream exception policy configuration.
+For more information about stateful engine options, see
+[Firewall policy settings in AWS Network Firewall](firewall-policy-settings.md "firewall-policy-settings.md").
 
 Updating a firewall affects all endpoints for the firewall, both those defined inside the firewall and
 those defined as VPC endpoint associations.

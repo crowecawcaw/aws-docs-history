@@ -4,7 +4,7 @@
 
 To use session holding, you must have TLS Inspection configuration and TLS Inspection enabled in your firewall policy. For information, see [Creating a firewall policy in AWS Network Firewall](firewall-policy-creating.md "firewall-policy-creating.md").
 
-Application Layer drop established default rules are incompatible with a session-holding configuration. You can read more at [Managing evaluation order for Suricata compatible rules in AWS Network Firewall.](suricata-rule-evaluation-order.md "suricata-rule-evaluation-order.md")
+Application drop established (bidirectional) and Application drop established (server-directed only) default rules are incompatible with a session-holding configuration. You can read more at [Managing evaluation order for Suricata compatible rules in AWS Network Firewall.](suricata-rule-evaluation-order.md "suricata-rule-evaluation-order.md")
 
 Network Firewall session holding enhances TLS inspection security by controlling when TCP and TLS establishment packets reach destination servers. When enabled, Network Firewall holds these packets until it evaluates TLS Inspection rules for Server Name Indication (SNI).
 

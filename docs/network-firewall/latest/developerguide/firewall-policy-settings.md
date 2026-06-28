@@ -34,7 +34,7 @@ the options, see [Defining rule actions in AWS Network Firewall](rule-action.md 
 
 - **Default actions for fragmented packets** – Define how Network Firewall handles UDP packet fragments.
   Network Firewall silently drops packet fragments for other protocols.
-- **Stateful engine options** – The structure that holds stateful rule order settings.
+- **Stateful engine options** – The structure that holds stateful rule order, stream exception policy, and flow timeout settings.
   Note that you can only configure RuleOrder settings when you first create the policy. RuleOrder can't be edited later.
 - **Stateful rule groups** – Zero or more collections of
   stateful rules, provided in Suricata compatible format. For information about
@@ -68,6 +68,7 @@ For example, if `HOME_NET` is already configured for a primary firewall, you mus
 
 You can define the value to be between 60 and 6000 seconds. If no value is provided, it defaults to 350 seconds.
 
+- **Stateful engine options and traffic interruption** – Updating any stateful engine option may require a restart of the stateful engine in order to apply the changes. This includes changes to the rule evaluation order type, stream exception policy, and flow timeouts (such as TCP idle timeout). When this occurs, existing connections will be treated according to your stream exception policy configuration.
 - **Consumed domain capacity** – The total number of domain name specifications across all AWS Marketplace managed rule groups in the firewall policy that use the `stateful-domain-rulegroup`. Only rule groups from AWS Marketplace managed rules that use the `stateful-domain-rulegroup` resource type contribute to this capacity. A firewall policy can have a consumed domain capacity of up to 10,000,000 (10 million) domain name specifications. For more information about quotas, see [AWS Network Firewall quotas](quotas.md "quotas.md").
 - **TLS inspection configuration** (Optional) – Contains settings to turn on
   decryption and re-encryption of the Secure Socket Layer (SSL)/Transport Layer

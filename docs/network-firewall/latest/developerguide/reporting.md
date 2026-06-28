@@ -36,7 +36,7 @@ Consider the following in your use of traffic analysis reports:
 - When you generate a report, you create a snapshot into the last 30 days of network traffic monitored by your firewall.
 - The maximum number of results per report is 1000.
 - If your custom HTTP and TLS logs do not contain an SNI or the HTTP hostname,
-  Network Firewall will classify it as UNKNOWN_DOMAIN.
+  Network Firewall will classify it as UNKNOWN\_DOMAIN.
 - The observation count on reported domain access attempts cannot exceed the maximum of 2,147,483,647.
   For example, if one or more of your reported domains was accessed more than 2,147,483,647 times within the 30 day reporting period, the count shown in your generated report
   will not exceed 2,147,483,647.

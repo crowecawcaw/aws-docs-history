@@ -321,7 +321,7 @@ Before using any example rule, test and adapt it to your needs.
 
 For information about URL and Domain Category filtering in Network Firewall, see [URL and Domain Category Filtering in Suricata compatible AWS Network Firewall rule groups](rule-groups-url-filtering.md "rule-groups-url-filtering.md").
 
-aws_url_category evaluates complete URLs (with TLS inspection) and domains, while aws_domain_category evaluates only domain information from TLS SNI or HTTP host headers.
+aws\_url\_category evaluates complete URLs (with TLS inspection) and domains, while aws\_domain\_category evaluates only domain information from TLS SNI or HTTP host headers.
 
 The following shows an example Suricata rule string that generates an alert for traffic categorized as malicious:
 

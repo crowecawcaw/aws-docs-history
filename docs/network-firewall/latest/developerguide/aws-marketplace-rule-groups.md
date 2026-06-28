@@ -82,7 +82,7 @@ DEPRECATED
 
 The rule group has been deprecated by the seller. While the rule group will still be sent to the firewall, AWS Network Firewall does not have control over whether these rules are being updated or removed by the seller. It is recommended to remove this rule group from your firewall policy and use the recommended approach from the owner of the product.
 
-NOT_SUBSCRIBED
+NOT\_SUBSCRIBED
 
 You have a rule group configured in your firewall policy that does not have an active subscription to the product in AWS Marketplace. When this occurs, the rule group will not be sent to the firewall and will be effectively inactive. To resolve this, you need to either:
 

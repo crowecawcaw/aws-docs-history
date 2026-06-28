@@ -12,7 +12,7 @@ Network Firewall provides two filtering keywords:
 
 ###### How URL and Domain Category filtering works
 
-**aws_url_category keyword**
+**aws\_url\_category keyword**
 
 - Supported protocol in rules: HTTP
 - Traffic handling:
@@ -27,10 +27,9 @@ Network Firewall provides two filtering keywords:
 
 - Matches against:
 
-      + URI field from HTTP request headers (requires TLS inspection for HTTPS traffic)
-      + Host field from HTTP request headers
-
-  **aws_domain_category keyword**
+  - URI field from HTTP request headers (requires TLS inspection for HTTPS traffic)
+  - Host field from HTTP request headers
+    **aws\_domain\_category keyword**
 
 - Supported protocols in rules: TLS, HTTP
 - Traffic handling:

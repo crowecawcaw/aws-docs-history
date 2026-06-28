@@ -6,7 +6,7 @@ Network Firewall Proxy is in public preview release and is subject to change.
 
 This section provides a high-level view of simple architectures that you can configure with AWS Network Firewall Proxy.
 
-AWS Network Firewall Proxy is configured on your NAT Gateway and inspects traffic from your workloads in your VPC before the network address translation is performed. To implement the service, associate your proxy configuration with the NAT Gateway that handles your outbound traffic. To access the Proxy, you must set up the HTTP_PROXY, HTTPS_PROXY, and NO_PROXY environment variables appropriately on your applications. The proxy comes with a fully qualified domain name which resolves to the IP address of a PrivateLink interface endpoint that is used to carry your traffic to and from the proxy for inspection before it reaches the internet. For more information on setup, see details in [Pre-requisites](proxy-pre-requisites.md "proxy-pre-requisites.md").
+AWS Network Firewall Proxy is configured on your NAT Gateway and inspects traffic from your workloads in your VPC before the network address translation is performed. To implement the service, associate your proxy configuration with the NAT Gateway that handles your outbound traffic. To access the Proxy, you must set up the HTTP\_PROXY, HTTPS\_PROXY, and NO\_PROXY environment variables appropriately on your applications. The proxy comes with a fully qualified domain name which resolves to the IP address of a PrivateLink interface endpoint that is used to carry your traffic to and from the proxy for inspection before it reaches the internet. For more information on setup, see details in [Pre-requisites](proxy-pre-requisites.md "proxy-pre-requisites.md").
 
 ###### Note
 

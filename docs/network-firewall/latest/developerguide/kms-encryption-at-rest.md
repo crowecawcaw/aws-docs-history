@@ -11,15 +11,14 @@ By default, AWS Network Firewall provides encryption for your data at rest using
 - **Customer managed keys** — Network Firewall supports the use of
   a symmetric customer managed key that you create, own, and manage. You can specify a customer managed key when you create your firewall, firewall policy, and rule group resources. Because you have full control over this type of encryption, you can perform such tasks as:
 
-      + Establishing and maintaining key policies
-      + Establishing and maintaining IAM policies and grants
-      + Enabling and disabling key policies
-      + Rotating key cryptographic material
-      + Adding tags
-      + Creating key aliases
-      + Scheduling keys for deletion
-
-  For more information, see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in the _AWS Key Management Service Developer Guide_.
+  - Establishing and maintaining key policies
+  - Establishing and maintaining IAM policies and grants
+  - Enabling and disabling key policies
+  - Rotating key cryptographic material
+  - Adding tags
+  - Creating key aliases
+  - Scheduling keys for deletion
+    For more information, see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in the _AWS Key Management Service Developer Guide_.
 
 ###### Note
 

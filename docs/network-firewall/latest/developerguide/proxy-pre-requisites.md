@@ -154,7 +154,7 @@ You must set up the proxy variables on your applications to route HTTP and HTTPS
 
 For instructions on how to setup variables on workloads, you can refer this. https://docs.aws.amazon.com/cli/v1/userguide/cli-configure-proxy.html
 
-The most common way to route traffic to an explicit proxy is by using proxy environment variables. You can use http_proxy, and https_proxy variables to route http and https traffic to the proxy. You can combine it with no_proxy variable to exclude private and other trusted destinations that can bypass the proxy. As an example:
+The most common way to route traffic to an explicit proxy is by using proxy environment variables. You can use http\_proxy, and https\_proxy variables to route http and https traffic to the proxy. You can combine it with no\_proxy variable to exclude private and other trusted destinations that can bypass the proxy. As an example:
 
 ```
 HTTP_PROXY=http://proxy-server-hostname:port HTTPS_PROXY=https://proxy-server-hostname:port NO_PROXY='amazonaws.com,127.0.0.1,localhost'

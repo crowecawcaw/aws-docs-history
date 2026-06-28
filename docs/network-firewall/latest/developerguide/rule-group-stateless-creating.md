@@ -59,18 +59,12 @@ example, you might start with rule priorities numbered 100, 200, and so on. 13. 
      **Rules** list for the rule group, ordered by
      priority.
 
-14. Choose **Next**.
-15. (Optional) On the **Configure advanced settings** page, configure a customer managed AWS Key Management Service customer managed key to encrypt and decrypt your resources instead of the default key.
-16. Under **Customer managed key**, toggle the **Customize encryption settings** option to configure your customer managed key. For more information about this option, see [Encryption at rest with AWS Key Management Service](kms-encryption-at-rest.md "kms-encryption-at-rest.md").
-17. Choose **Next**.
-18. (Optional) On the **Add tags** page, enter a key and optional value for any
-    tag that you want added to this firewall policy. Tags help you organize and
-    manage your AWS resources. For more information about tagging your
-    resources, see [Tagging AWS Network Firewall resources](tagging.md "tagging.md").
-19. Choose **Next**.
-20. Review the settings for the rule group, then choose **Create stateless rule
-    group**.
-    Your new rule group is added to the list in the **Network Firewall rule
-    groups** page.
+14. Choose **Next**. 15. (Optional) On the **Configure advanced settings** page, configure a customer managed AWS Key Management Service customer managed key to encrypt and decrypt your resources instead of the default key. 16. Under **Customer managed key**, toggle the **Customize encryption settings** option to configure your customer managed key. For more information about this option, see [Encryption at rest with AWS Key Management Service](kms-encryption-at-rest.md "kms-encryption-at-rest.md"). 17. Choose **Next**. 18. (Optional) On the **Add tags** page, enter a key and optional value for any
+tag that you want added to this firewall policy. Tags help you organize and
+manage your AWS resources. For more information about tagging your
+resources, see [Tagging AWS Network Firewall resources](tagging.md "tagging.md"). 19. Choose **Next**. 20. Review the settings for the rule group, then choose **Create stateless rule
+group**.
+Your new rule group is added to the list in the **Network Firewall rule
+groups** page.
 
 To use your rule group in a firewall policy, follow the procedures at [Managing your firewall policy](firewall-policy-managing.md "firewall-policy-managing.md").

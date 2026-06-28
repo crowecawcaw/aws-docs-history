@@ -193,17 +193,12 @@ _AWS CloudFormation User Guide_.
     	+ In the **IP set reference** section, enter a **IP set variable name** and select an **IP set reference ID**. The **IP set reference ID** corresponds to the resource ID of the IP set Amazon Resource Name (ARN) that you want to reference. Network Firewall currently supports Amazon VPC prefix lists and resource groups as IP set references. For more information about working with IP set references in Network Firewall, see [Referencing Amazon VPC prefix lists](rule-groups-ip-set-references.md#rule-groups-referencing-prefix-lists "rule-groups-ip-set-references.md#rule-groups-referencing-prefix-lists").
     Paste your rules into the text box.
 
-11. Choose **Next**.
-12. (Optional) On the **Configure advanced settings** page, under **Customer managed key**, toggle the **Customize encryption settings** option to configure your customer managed key. For more information about this option, see [Encryption at rest with AWS Key Management Service](kms-encryption-at-rest.md "kms-encryption-at-rest.md").
-13. Choose **Next**.
-14. (Optional) On the **Add tags** page, enter a key and optional value for any
-    tag that you want added to this firewall policy. Tags help you organize and
-    manage your AWS resources. For more information about tagging your
-    resources, see [Tagging AWS Network Firewall resources](tagging.md "tagging.md").
-15. Choose **Next**.
-16. Review the settings that you've provided for the rule group, then choose **Create
-    stateful rule group**.
-    Your new rule group is added to the list in the **Network Firewall rule
-    groups** page.
+11. Choose **Next**. 12. (Optional) On the **Configure advanced settings** page, under **Customer managed key**, toggle the **Customize encryption settings** option to configure your customer managed key. For more information about this option, see [Encryption at rest with AWS Key Management Service](kms-encryption-at-rest.md "kms-encryption-at-rest.md"). 13. Choose **Next**. 14. (Optional) On the **Add tags** page, enter a key and optional value for any
+tag that you want added to this firewall policy. Tags help you organize and
+manage your AWS resources. For more information about tagging your
+resources, see [Tagging AWS Network Firewall resources](tagging.md "tagging.md"). 15. Choose **Next**. 16. Review the settings that you've provided for the rule group, then choose **Create
+stateful rule group**.
+Your new rule group is added to the list in the **Network Firewall rule
+groups** page.
 
 To use your rule group in a firewall policy, follow the procedures at [Managing your firewall policy](firewall-policy-managing.md "firewall-policy-managing.md").

@@ -72,8 +72,8 @@ defined.
 When configuring these actions, consider the following caveats:
 
 1. For drop actions, you can choose either none or only one drop action.
-2. For alert actions, you can choose none, one alert action, or **Alert all** plus any of the other two alert actions.
-3. Some combinations of actions are invalid. If either **Drop established** or **Alert established** is selected, you cannot select **Application Layer drop established** or **Application Layer alert established**, and vice versa.
+2. For alert actions, you can choose none, one alert action, or **Alert all** plus any of the other alert actions.
+3. Some combinations of actions are invalid. If either **Drop established** or **Alert established** is selected, you cannot select **Application drop established (bidirectional)**, **Application alert established (bidirectional)**, **Application drop established (server-directed only)**, or **Application alert established (server-directed only)**, and vice versa.
 4. When you choose **Strict** for your rule order, you can choose one or more **Default actions**.
    Note that this does not refer to default action rule ordering, but rather, to the default actions that Network Firewall takes
    when following your strict, or exact, rule ordering.
@@ -95,15 +95,22 @@ Choose this option when using strict order for your own domain list rule groups 
 
 For other protocols, such as UDP, Network Firewall considers the connection established only after seeing traffic from both sides of the connection. For connectionless protocols, such as UDP and ICMP, the `drop` established action drops all packets. You must write specific rules to allow these packets as needed.
 
-- **Application Layer drop established** – Drops server-initiated banner packets and packets in established connections.
+- **Application drop established (bidirectional)** – Drops server-initiated banner packets and packets in established connections.
   It also provides enhanced support for segmented application layer traffic through the following behaviors:
 
   - Allows segmented TLS client hello packets until a `TLS.SNI` field is detected, then applies rules based on SNI.
   - Allows segmented HTTPS request packets until the `HTTP.HOST` field is detected, then applies rules based on host
 
-###### About the application layer drop established action
+- **Application drop established (server-directed only)** – Drops client-to-server TCP and IP packets in established connections that don't match any stateful pass rule. Server-to-client traffic is allowed, including TCP control packets and server-initiated banners.
+  Like the Application drop established (bidirectional) action, it provides enhanced support for segmented application layer traffic through the following behaviors:
 
-When you select the application layer drop established option, the firewall drops connections that have banner packets.
+  - Allows segmented TLS client hello packets until a `TLS.SNI` field is detected, then applies rules based on SNI.
+  - Allows segmented HTTPS request packets until the `HTTP.HOST` field is detected, then applies rules based on host.
+    Unlike the Application drop established (bidirectional) action, this action does not drop server-to-client packets for TCP and IP protocols, making it suitable for environments where server-initiated communication must be preserved.
+
+###### About the Application drop established (bidirectional) action
+
+When you select the Application drop established (bidirectional) option, the firewall drops connections that have banner packets.
 After a connection is established, if the firewall sees a packet that no explicit pass rule allows,
 the firewall drops that packet and all subsequent packets in the connection. This behavior affects TCP flow control packets that occur after the TCP handshake
 but before a pass rule applies.
@@ -136,6 +143,21 @@ pass tcp any any -> any any (msg:"Allow TCP resets from server to client"; tcp.f
 pass tcp any any -> any any (msg:"Allow TCP resets from client to server"; tcp.flags:+R; dsize:0; flow:established, to_server; sid:1000006;)
 ```
 
+###### About the Application drop established (server-directed only) action
+
+When you select the Application drop established (server-directed only) option, the firewall inspects application layer protocols before making drop decisions, and only drops TCP and IP traffic flowing from client to server. Server-to-client TCP and IP traffic is not dropped by this action.
+
+This action allows the following server-to-client packets to pass through the firewall without requiring explicit pass rules:
+
+- TCP window updates
+- TCP keep-alives
+- TCP resets (RST)
+- Server-initiated banner packets (for example, FTP, SMTP, and SSH greetings)
+- Server responses to allowed application layer requests
+  Client-to-server TCP traffic that does not match any stateful pass rule is dropped after application layer inspection. UDP and ICMP traffic is dropped regardless of direction, as these are connectionless protocols.
+
+Use this action instead of Application drop established (bidirectional) when your environment includes server-initiated protocols or when TCP control packets are causing unexpected connection drops.
+
 _Choose none, one, or all._
 
 - **Alert all** - Logs an `ALERT` message on all packets. This does not drop packets, but alerts you
@@ -143,10 +165,12 @@ _Choose none, one, or all._
 - **Alert established** - Logs an `ALERT` message on only the packets that are in established
   connections. This does not drop packets, but alerts you to what would be dropped if you were to choose
   **Drop established**.
-- **Application Layer alert established** – Logs an `ALERT` message on only the packets that are in
+- **Application alert established (bidirectional)** – Logs an `ALERT` message on only the packets that are in
   established connections, with enhanced support for segmented application layer traffic.
 
 ###### Tip
 
-You can use these logged messages to better understand the impact that the Application Layer Drop Established action has on firewall behavior.
-For more information about logging network traffic, see [Logging network traffic from AWS Network Firewall](firewall-logging.md "firewall-logging.md").
+You can use these logged messages to better understand the impact that the Application Drop Established (bidirectional) action has on firewall behavior.
+
+- **Application alert established (server-directed only)** – Logs an `ALERT` message on client-to-server TCP and IP packets in established connections, with enhanced support for segmented application layer traffic. Server-to-client packets are not alerted.
+  For more information about logging network traffic, see [Logging network traffic from AWS Network Firewall](firewall-logging.md "firewall-logging.md").

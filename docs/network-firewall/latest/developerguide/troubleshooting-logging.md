@@ -43,10 +43,9 @@ If your firewall policy is correctly configured, then it's possible that your tr
 - For TLS errors, currently the logs report SNI mismatches and naming errors. If your traffic doesn't have these errors, the logs might not report anything in this category.
 - For revocation checks:
 
-      + TLS inspection performs checks only on outbound traffic, and only for
-       servers that you don't own or control.
-      + TLS inspection only creates a log record when the check returns a status
-       of `REVOKED` or `UNKNOWN`.
-
-  If you don't have traffic of this type, or if the certificates for this type of
-  traffic are all passing the revocation checks, Network Firewall won't log anything into your TLS logs for revocation checks.
+  - TLS inspection performs checks only on outbound traffic, and only for
+    servers that you don't own or control.
+  - TLS inspection only creates a log record when the check returns a status
+    of `REVOKED` or `UNKNOWN`.
+    If you don't have traffic of this type, or if the certificates for this type of
+    traffic are all passing the revocation checks, Network Firewall won't log anything into your TLS logs for revocation checks.

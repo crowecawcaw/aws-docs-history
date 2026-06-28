@@ -38,32 +38,39 @@ The subnets that you specify should be dedicated for Network Firewall firewall u
 
 11. Based on your attachment type selection:
 
-    1.  If you selected **VPC**:
+    1. If you selected **VPC**:
 
-        1. Choose your **VPC** from the dropdown list.
 
-        ###### Note
+    	1. Choose your **VPC** from the dropdown list.
 
-        You can't change the VPC after you create the firewall. 2. For **Firewall subnets**, choose the Availability Zones and subnets that you want to use for your firewall endpoints.
 
-    2.  If you selected **Transit Gateway**:
+    	###### Note
 
-        1. For **Transit Gateway**, choose an existing transit gateway from the dropdown list. The list includes:
+    	You can't change the VPC after you create the firewall.
+    	2. For **Firewall subnets**, choose the Availability Zones and subnets that you want to use for your firewall endpoints.
+    2. If you selected **Transit Gateway**:
 
-           - Any transit gateway attachment in your account (marked as "this account")
-           - AWS Transit Gateways shared with you from other accounts (showing the owner account ID)
 
-        ###### Note
+    	1. For **Transit Gateway**, choose an existing transit gateway from the dropdown list. The list includes:
 
-        If you need to create a new transit gateway, open the Transit Gateway console in a new tab. After creating the transit gateway, return to this page and refresh the Transit Gateway selector. 2. For **Availability Zones**, select the Availability Zones for your firewall. Consider:
 
-            * To maintain Availability Zone isolation, enable the firewall in every Availability Zone where you have workloads
-            * You must select at least one Availability Zone
-            * You can modify Availability Zones later, but this may briefly disrupt traffic
 
-12. (Optional) Under **Protection against changes**, optionally enable **Deletion protection** and **Subnet change protection** to protect your firewall against accidental changes.
-13. (Optional) Under **Customer managed key**, optionally toggle **Customize encryption settings** to use a AWS Key Management Service customer managed key to encrypt your resources. For more information about this option, see [Encryption at rest with AWS Key Management Service](kms-encryption-at-rest.md "kms-encryption-at-rest.md").
-14. Choose **Next**.
+
+    		* Any transit gateway attachment in your account (marked as "this account")
+    		* AWS Transit Gateways shared with you from other accounts (showing the owner account ID)
+    	###### Note
+
+    	If you need to create a new transit gateway, open the Transit Gateway console in a new tab. After creating the transit gateway, return to this page and refresh the Transit Gateway selector.
+    	2. For **Availability Zones**, select the Availability Zones for your firewall. Consider:
+
+
+
+
+    		* To maintain Availability Zone isolation, enable the firewall in every Availability Zone where you have workloads
+    		* You must select at least one Availability Zone
+    		* You can modify Availability Zones later, but this may briefly disrupt traffic
+
+12. (Optional) Under **Protection against changes**, optionally enable **Deletion protection** and **Subnet change protection** to protect your firewall against accidental changes. 13. (Optional) Under **Customer managed key**, optionally toggle **Customize encryption settings** to use a AWS Key Management Service customer managed key to encrypt your resources. For more information about this option, see [Encryption at rest with AWS Key Management Service](kms-encryption-at-rest.md "kms-encryption-at-rest.md"). 14. Choose **Next**.
 
 (Optional) Under **Traffic analysis mode** optionally select **Enable traffic analysis mode** to enable access to HTTP and HTTPS traffic reporting.
 

@@ -27,8 +27,8 @@ CLI
 ###### To copy a managed threat signature rule group's rules using the AWS CLI
 
 1. Run `aws network-firewall
-list-rule-groups --scope MANAGED --managed-type
-AWS_MANAGED_THREAT_SIGNATURES` to filter the
+ list-rule-groups --scope MANAGED --managed-type
+ AWS_MANAGED_THREAT_SIGNATURES` to filter the
    AWS managed threat signature rule
    groups.
 2. In the following command, replace `rulegroup-arn` with the Amazon Resource Name (ARN) of the threat signature managed rule group that you'd like to copy:

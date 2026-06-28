@@ -20,7 +20,7 @@ Steps to configure logging:
 
 ###### Note
 
-There are some mandatory fields that cannot be unselected if you choose to configure logging. These include - event_timestamp, proxy_name and final_action. Some log fields will be selected by default and if you do not make changes, these will be included in the logs. You can enable/ disable fields to customize the fields that will appear in your log.
+There are some mandatory fields that cannot be unselected if you choose to configure logging. These include - event\_timestamp, proxy\_name and final\_action. Some log fields will be selected by default and if you do not make changes, these will be included in the logs. You can enable/ disable fields to customize the fields that will appear in your log.
 
 99. (Optional) You can also configure other fields such as output format and field delimiter.
 100. Click Add.
@@ -59,7 +59,7 @@ Proxy provides comprehensive logs that include details of each request it receiv
 - All matching rules, including:
 
   - Rule IDs
-  - Hook points (pre_dns, pre_request, post_response)
+  - Hook points (pre\_dns, pre\_request, post\_response)
   - Actions taken (alert, allow)
 
 - Final action

@@ -216,24 +216,21 @@ end of the tutorial.
     * The subnet's route table typically has an entry with a destination set
      to `0.0.0.0/0` and a target set to the internet gateway ID.
 
-2.  Create a route table configuration for the firewall endpoint with the
-    following two routes:
+2. Create a route table configuration for the firewall endpoint with the
+following two routes:
 
-        * An entry that matches the internet gateway's route specification for
-         traffic going to the customer subnet's CIDR block.
-        * An entry that matches the subnet's route specification for traffic
-         going to the internet gateway.
+    * An entry that matches the internet gateway's route specification for
+     traffic going to the customer subnet's CIDR block.
+    * An entry that matches the subnet's route specification for traffic
+     going to the internet gateway.
 
-    The firewall endpoint is now ready to filter and forward traffic between the
-    internet gateway and the customer subnet. The endpoint only forwards traffic to
-    its intended destination if it passes the inspection criteria that you defined
-    in the rule groups and firewall policy.
-
-3.  Update the internet gateway's routing to modify the entry with a destination
-    set to your customer subnet's CIDR block. Change the target to the firewall
-    endpoint ID.
-4.  Update the customer subnet routing to modify the entry with a destination set
-    to the internet gateway ID. Change the target to the firewall endpoint ID.
+The firewall endpoint is now ready to filter and forward traffic between the
+internet gateway and the customer subnet. The endpoint only forwards traffic to
+its intended destination if it passes the inspection criteria that you defined
+in the rule groups and firewall policy. 3. Update the internet gateway's routing to modify the entry with a destination
+set to your customer subnet's CIDR block. Change the target to the firewall
+endpoint ID. 4. Update the customer subnet routing to modify the entry with a destination set
+to the internet gateway ID. Change the target to the firewall endpoint ID.
 
 The firewall endpoint is now
 filtering

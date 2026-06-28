@@ -30,33 +30,32 @@ A Rule Group in VPC proxy is a reusable collection of ordered access control rul
 
 ###### To create a Rule Group
 
-1.  Sign in to the AWS Management Console and open the Amazon VPC console.
-2.  In the navigation pane, under **Network Firewall Proxy**, choose **Proxy rule groups**.
-3.  Choose **Create rule group.**
-4.  Enter a name.
-5.  Optionally enter the description for your Rule Group and add a tag.
-6.  Click Next.
-7.  Enter the phase to which this rule would apply. If you want the rule to apply to all 3 phases, select all 3 phases (Note: This will create 3 different rules for each phase).
-8.  Next, enter the action that you would like to take on the traffic. This can be allow, deny or alert.
-9.  Optionally, enter a description for the rule.
+1. Sign in to the AWS Management Console and open the Amazon VPC console.
+2. In the navigation pane, under **Network Firewall Proxy**, choose **Proxy rule groups**.
+3. Choose **Create rule group.**
+4. Enter a name.
+5. Optionally enter the description for your Rule Group and add a tag.
+6. Click Next.
+7. Enter the phase to which this rule would apply. If you want the rule to apply to all 3 phases, select all 3 phases (Note: This will create 3 different rules for each phase).
+8. Next, enter the action that you would like to take on the traffic. This can be allow, deny or alert.
+9. Optionally, enter a description for the rule.
 10. Enter the conditions, operators and values. Condition operators will be used to define how to perform a match. This is similar to how conditions are defined in AWS IAM service. For more details, look [here](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md"). Condition keys define what is to be matched. Condition value specifies the exact value that needs to be matched against. For example, if you want to deny traffic for certain social media sites, you would define the following:
 
-        * Rule group name: Deny social media.
+    - Rule group name: Deny social media.
+      Create a rule with the following
 
-    Create a rule with the following
-
-        * Action: deny.
-        * Description: Rule that will deny if requests attempt to go to social media websites.
-        * ConditionOperator: "StringLike"
-        * ConditionKey: "request:DestinationDomain"
-        * "ConditionValues": [
-         \*facebook.com,
-         \*instagram.com,
-         wa.com,
-         whatsapp.net,
-         whatsapp.com,
-         x.com
-         ]
+    - Action: deny.
+    - Description: Rule that will deny if requests attempt to go to social media websites.
+    - ConditionOperator: "StringLike"
+    - ConditionKey: "request:DestinationDomain"
+    - "ConditionValues": [
+      \*facebook.com,
+      \*instagram.com,
+      wa.com,
+      whatsapp.net,
+      whatsapp.com,
+      x.com
+      ]
 
 11. Click next
 12. Review the details and click Create
