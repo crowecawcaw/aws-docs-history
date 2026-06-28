@@ -32,10 +32,9 @@ workloads migrated by MGN.
     * If your MPE ID is `ABCDE12345`, use the value
      `migABCDE12345`.
 
-7. Choose **Save template**.
-8. Proceed migrating your workloads with MGN as detailed in Source Servers of the
-   Application Migration Service guide. For more information about tagging in MGN, see [Tags](../../../mgn/latest/ug/Cirrus_tags.md "../../../mgn/latest/ug/Cirrus_tags.md") in the
-   _Application Migration Service guide_.
+7. Choose **Save template**. 8. Proceed migrating your workloads with MGN as detailed in Source Servers of the
+Application Migration Service guide. For more information about tagging in MGN, see [Tags](../../../mgn/latest/ug/Cirrus_tags.md "../../../mgn/latest/ug/Cirrus_tags.md") in the
+_Application Migration Service guide_.
 
 The MAP 2.0 tags are automatically applied to all workloads migrated using MGN. Repeat
 Steps 2 - 7 if you are using MGN to migrate to multiple accounts or regions.

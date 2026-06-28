@@ -155,8 +155,8 @@ if __name__ == '__main__':
      `migABCDE12345`.
 
 6. Choose **Add tags**.
-   Depending on your migrated resource and MPE ID, the tag value can be any of the
-   following:
+Depending on your migrated resource and MPE ID, the tag value can be any of the
+following:
 
 - `mig`5-digit MPE ID``
 - `sap`5-digit MPE ID``

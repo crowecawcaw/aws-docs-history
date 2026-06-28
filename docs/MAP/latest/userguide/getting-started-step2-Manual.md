@@ -26,8 +26,8 @@ want to apply to the migrated workloads.
      `migABCDE12345`.
 
 6. Choose **Save**.
-   Depending on your migrated resource and MPE ID, the tag value can be any of the
-   following:
+Depending on your migrated resource and MPE ID, the tag value can be any of the
+following:
 
 - `mig`5-digit MPE ID``
 - `sap`5-digit MPE ID``

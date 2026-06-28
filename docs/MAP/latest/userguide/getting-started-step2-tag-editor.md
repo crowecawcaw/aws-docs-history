@@ -35,10 +35,9 @@ want to apply to the migrated workloads.
     * If your MPE ID is `ABCDE12345`, use the value
      `migABCDE12345`.
 
-10. Choose **Review**.
-11. Choose **Apply tag** changes.
-    Depending on your migrated resource and MPE ID, the tag value can be any of the
-    following:
+10. Choose **Review**. 11. Choose **Apply tag** changes.
+Depending on your migrated resource and MPE ID, the tag value can be any of the
+following:
 
 - `mig`5-digit MPE ID``
 - `sap`5-digit MPE ID``

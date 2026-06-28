@@ -23,7 +23,7 @@ and Amazon Bedrock AgentCore workloads.
 
 ## IAM principal tagging (recommended)
 
-Tag the IAM role used for Amazon Bedrock or Amazon Bedrock AgentCore API calls with the
+Tag the IAM principal (role or user) used for Amazon Bedrock or Amazon Bedrock AgentCore API calls with the
 `map-migrated` tag. This approach uses IAM principal cost allocation tags,
 which allows MAP spend tracking without requiring you to create and manage
 application inference profiles or change your application code.
@@ -40,10 +40,12 @@ application inference profiles or change your application code.
    in the Billing console under
    **Cost allocation tags**. Cost allocation tags
    are available for both resource tags and IAM principal tags.
-4. Your role must have permission to tag IAM roles. If your role has the
+4. Your role must have permission to tag IAM principals. If your role has the
    IAMFullAccess AWS-managed policy attached, you can skip this step.
-   Otherwise, ensure your role has the `iam:TagRole` and
-   `iam:ListRoleTags` permissions.
+   Otherwise, ensure your role has `iam:TagRole` and
+   `iam:ListRoleTags` permissions (for tagging roles) or
+   `iam:TagUser` and `iam:ListUserTags` permissions
+   (for tagging users).
 
 ### Tagging your IAM role
 
@@ -83,8 +85,29 @@ that role will be tracked for MAP spend. The
 `iamPrincipal/map-migrated` tag will appear in your Cost and Usage Report
 (CUR) data for eligible billing lines.
 
+###### Tagging IAM Users
+
+If your application calls Amazon Bedrock using an IAM user rather than an
+IAM role, tag the user instead:
+
+```
+$ aws iam tag-user --user-name `MyBedrockUser` --tags "Key=map-migrated,Value=mig`YOUR_MPE_ID`"
+```
+
+Verify with:
+
+```
+$ aws iam list-user-tags --user-name `MyBedrockUser`
+```
+
+MAP spend tracking recognizes the `map-migrated` tag on any IAM
+principal that appears on an eligible billing line.
+
 ### Important considerations
 
+- **Supported principal types**: Both IAM
+  roles and IAM users are supported. Tag whichever principal your application
+  uses to invoke Amazon Bedrock APIs.
 - **Supported services**: IAM principal
   tagging for MAP is only recognized for Amazon Bedrock and Amazon Bedrock
   AgentCore billing lines. Other AWS services are not eligible for MAP

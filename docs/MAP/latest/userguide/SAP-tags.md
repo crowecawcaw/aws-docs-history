@@ -2,13 +2,13 @@
 
 Use the following tables for migration plans using MAP 2.0 for SAP Migration.
 
-| SAP workload tags with short ID | Source | Destination    | Tag key               | Tag value |
-| ------------------------------- | ------ | -------------- | --------------------- | --------- |
-| On-premises                     | AWS    | `map-migrated` | `sap`5-digit MPE ID`` |
+SAP workload tags with short ID| Source | Destination | Tag key | Tag value |
+| --- | --- | --- | --- |
+| On-premises | AWS | `map-migrated` | `sap`5-digit MPE ID`` |
 
-| SAP workload tags with long ID | Source | Destination    | Tag key                                  | Tag value |
-| ------------------------------ | ------ | -------------- | ---------------------------------------- | --------- |
-| On-premises                    | AWS    | `map-migrated` | `sap`10 alphanumeric MPE ID characters`` |
+SAP workload tags with long ID| Source | Destination | Tag key | Tag value |
+| --- | --- | --- | --- |
+| On-premises | AWS | `map-migrated` | `sap`10 alphanumeric MPE ID characters`` |
 
 ###### Note
 

@@ -2,13 +2,13 @@
 
 Use the following tables for migration plans using MAP 2.0 for Oracle Migration.
 
-| Oracle workload tags with short ID | Source | Destination    | Tag key                  | Tag value |
-| ---------------------------------- | ------ | -------------- | ------------------------ | --------- |
-| On-premises                        | AWS    | `map-migrated` | `oracle`5-digit MPE ID`` |
+Oracle workload tags with short ID| Source | Destination | Tag key | Tag value |
+| --- | --- | --- | --- |
+| On-premises | AWS | `map-migrated` | `oracle`5-digit MPE ID`` |
 
-| Oracle workload tags with long ID | Source | Destination    | Tag key                                        | Tag value |
-| --------------------------------- | ------ | -------------- | ---------------------------------------------- | --------- |
-| On-premises                       | AWS    | `map-migrated` | `oracle`10 alphanumeric MPE ID<br>characters`` |
+Oracle workload tags with long ID| Source | Destination | Tag key | Tag value |
+| --- | --- | --- | --- |
+| On-premises | AWS | `map-migrated` | `oracle`10 alphanumeric MPE ID<br>characters`` |
 
 ###### Note
 
