@@ -49,7 +49,7 @@ operation.
 - Paginated calls may return less results than count but as long as nextCursor is present in the response, additional pages are available.
 - Supported comparison operator in filters: `eq`
 - Filter must be specified as: `<filterAttribute> eq
-"<filterValue>"`
+ "<filterValue>"`
 
 ## Errors
 
