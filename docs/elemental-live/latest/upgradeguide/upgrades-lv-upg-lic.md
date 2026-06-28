@@ -16,25 +16,25 @@ If you didn't purchase any add-on packages, skip this step.
 
 ###### To obtain the license for qualified hardware or a VM
 
-1.  Contact your AWS Elemental sales person and provide the following information:
+1. Contact your AWS Elemental sales person and provide the following information:
 
-    - The names of the add-on packages you want. For a list of add-on packages, see
-      [Purchasing an add-on
-      package](../ug/ref-licenses-purchase.md "../ug/ref-licenses-purchase.md") in Elemental Live User Guide.
-    - The key file that you generated when you initially installed the software. The
-      file name has this syntax:
+   - The names of the add-on packages you want. For a list of add-on packages, see
+     [Purchasing an add-on
+     package](../ug/ref-licenses-purchase.md "../ug/ref-licenses-purchase.md") in Elemental Live User Guide.
+   - The key file that you generated when you initially installed the software. The
+     file name has this syntax:
 
-    `activation_<hostname of the
- system>`.key``
+   `activation_<hostname of the
+  system>`.key``
 
-    You can find this key in either of these places:
+   You can find this key in either of these places:
 
         + In the home directory of the hardware unit or VM
         + On your workstation. If you followed the recommendation that we gave in the
          installation procedure, this folder has a name such as
          `elemental_live_license_keys`.
 
-2.  AWS Elemental provides you with a new license. The license has the following syntax:
+2. AWS Elemental provides you with a new license. The license has the following syntax:
 
 `lic-download-<hostname>.tgz`
 

@@ -16,36 +16,32 @@ deployment.
 
 Follow this procedure if you don't need to change anything about the deployment.
 
-1.  From a Linux prompt, log in with the _elemental_ user
-    credentials. Once you're logged in, the initial directory is
-    `/home/elemental`.
-2.  Run the installer with the skip-all option:
+1. From a Linux prompt, log in with the _elemental_ user
+   credentials. Once you're logged in, the initial directory is
+   `/home/elemental`.
+2. Run the installer with the skip-all option:
 
-        * For GPU and CPU versions of the software.
+   - For GPU and CPU versions of the software.
 
+   ```
+   [elemental@hostname ~]$ **sudo sh ./elemental\_production\_live\_2.25.4.12345.run --skip-all --start**
+   ```
+   - For CPU-only versions of the software.
 
+   ```
+   [elemental@hostname ~]$ **sudo sh ./elemental\_production\_live\_cpu\_2.25.4.12345.run --skip-all --start**
+   ```
 
-        ```
-        [elemental@hostname ~]$ **sudo sh ./elemental\_production\_live\_2.25.4.12345.run --skip-all --start**
-        ```
-        * For CPU-only versions of the software.
+The installer automatically stops the software, if it's still running. The following
+prompts are skipped:
 
+    * You are not prompted to change the network setup (eth0 and eth1) or the Ethernet
+     partitioning (setup of eth0 as a management interface).
+    * You are not prompted to choose the time zone.
+    * You are not prompted to enable or disable user authentication.
 
-
-        ```
-        [elemental@hostname ~]$ **sudo sh ./elemental\_production\_live\_cpu\_2.25.4.12345.run --skip-all --start**
-        ```
-
-    The installer automatically stops the software, if it's still running. The following
-    prompts are skipped:
-
-        * You are not prompted to change the network setup (eth0 and eth1) or the Ethernet
-         partitioning (setup of eth0 as a management interface).
-        * You are not prompted to choose the time zone.
-        * You are not prompted to enable or disable user authentication.
-
-    You _are_ prompted to accept the EULA (end user license
-    agreement).
+You _are_ prompted to accept the EULA (end user license
+agreement).
 
 The new software is installed and all services except `elemental_se` are
 automatically be restarted. 3. Once installation is complete, you might be prompted to reboot.
@@ -71,7 +67,7 @@ The reboot takes approximately 5 minutes. When the reboot completes, the element
 Starting elemental_se: [ OK ]
 ```
 
-4. If you're not prompted to reboot, you are prompted to start elemental_se:
+4. If you're not prompted to reboot, you are prompted to start elemental\_se:
 
 ```
 Would you like to start the Elemental service now? [Y]
@@ -131,7 +127,7 @@ The reboot takes approximately 5 minutes. When the reboot completes, the element
 Starting elemental_se: [ OK ]
 ```
 
-3. If you're not prompted to reboot, you are prompted to start elemental_se:
+3. If you're not prompted to reboot, you are prompted to start elemental\_se:
 
 ```
 Would you like to start the Elemental service now? [Y]

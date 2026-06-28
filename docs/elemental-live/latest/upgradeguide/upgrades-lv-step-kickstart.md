@@ -65,7 +65,7 @@ Install the operating system on the node.
 | `Set Hostname`                                | Change the hostname to a useful name such as<br>`live-01` or<br>`live-chicago-01`.<br>Do not use `localhost` as the hostname.<br>Do not use periods or underscores in the hostname. |
 | `Disk layout: Auto-detect`                    | Keep this set to `Auto-detect`.                                                                                                                                                     |
 | `Set Key`                                     | Arrow down to skip this option.                                                                                                                                                     |
-| `Install and configure base operating system` | Press \*_Enter_<br>• to begin the OS installation.                                                                                                                                  |
+| `Install and configure base operating system` | Press *_Enter_<br>• to begin the OS installation.                                                                                                                                   |
 
 The operating system is installed. 4. At the `Press return to quit` prompt, press **Enter** to
 reboot the system.
