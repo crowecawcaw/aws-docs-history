@@ -17,18 +17,18 @@ Each rule in the event catalog defines:
 
 ## Event types and thresholds
 
-| Event Type         | Trigger Signal    | Operator | Threshold | Description                            |
-| ------------------ | ----------------- | -------- | --------- | -------------------------------------- |
-| SPEEDING           | speed             | >        | 65 mph    | Vehicle exceeding speed limit          |
-| HARD_BRAKING       | harsh_brk         | >        | 0.3g      | Sudden deceleration                    |
-| RAPID_ACCELERATION | harsh_acc         | >        | 0.3g      | Sudden acceleration                    |
-| HARSH_CORNERING    | harsh_turn        | >        | 40 deg/s  | Sharp turn                             |
-| SEATBELT_VIOLATION | seatbelt          | =        | 0         | Seatbelt unfastened while driving      |
-| PHONE_USAGE        | phone_use         | =        | 1         | Phone in use while driving             |
-| LANE_DEPARTURE     | lateralG          | >        | 0.5g      | Excessive lateral acceleration         |
-| TAILGATING         | followingDistance | <        | 2.0m      | Following too closely                  |
-| AEB_ACTIVATION     | aeb_act           | =        | 1         | Automatic emergency braking triggered  |
-| ESC_ACTIVATION     | esc_act           | =        | 1         | Electronic stability control triggered |
+| Event Type          | Trigger Signal    | Operator | Threshold | Description                            |
+| ------------------- | ----------------- | -------- | --------- | -------------------------------------- |
+| SPEEDING            | speed             | >        | 65 mph    | Vehicle exceeding speed limit          |
+| HARD\_BRAKING       | harsh\_brk        | >        | 0.3g      | Sudden deceleration                    |
+| RAPID\_ACCELERATION | harsh\_acc        | >        | 0.3g      | Sudden acceleration                    |
+| HARSH\_CORNERING    | harsh\_turn       | >        | 40 deg/s  | Sharp turn                             |
+| SEATBELT\_VIOLATION | seatbelt          | =        | 0         | Seatbelt unfastened while driving      |
+| PHONE\_USAGE        | phone\_use        | =        | 1         | Phone in use while driving             |
+| LANE\_DEPARTURE     | lateralG          | >        | 0.5g      | Excessive lateral acceleration         |
+| TAILGATING          | followingDistance | <        | 2.0m      | Following too closely                  |
+| AEB\_ACTIVATION     | aeb\_act          | =        | 1         | Automatic emergency braking triggered  |
+| ESC\_ACTIVATION     | esc\_act          | =        | 1         | Electronic stability control triggered |
 
 ## Processing flow
 

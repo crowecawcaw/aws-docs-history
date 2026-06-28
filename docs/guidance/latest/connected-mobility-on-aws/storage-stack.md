@@ -104,20 +104,20 @@ Stores remote command history with status tracking and latency measurement.
 
 **Schema:**
 
-| Attribute   | Type        | Description                                   |
-| ----------- | ----------- | --------------------------------------------- |
-| commandId   | String (PK) | Unique command identifier                     |
-| vehicleId   | String      | Target vehicle ID                             |
-| commandName | String      | Command name from catalog                     |
-| value       | String      | Command value                                 |
-| status      | String      | SENT, IN_PROGRESS, SUCCEEDED, FAILED, TIMEOUT |
-| issuedAt    | String      | ISO 8601 timestamp                            |
-| timestamp   | Number      | Issued time in epoch milliseconds             |
-| respondedAt | String      | Response timestamp                            |
-| latencyMs   | Number      | Round-trip latency in milliseconds            |
-| reason      | String      | Failure reason                                |
-| topic       | String      | MQTT topic the command was published to       |
-| ttl         | Number      | DynamoDB TTL (7 days)                         |
+| Attribute   | Type        | Description                                    |
+| ----------- | ----------- | ---------------------------------------------- |
+| commandId   | String (PK) | Unique command identifier                      |
+| vehicleId   | String      | Target vehicle ID                              |
+| commandName | String      | Command name from catalog                      |
+| value       | String      | Command value                                  |
+| status      | String      | SENT, IN\_PROGRESS, SUCCEEDED, FAILED, TIMEOUT |
+| issuedAt    | String      | ISO 8601 timestamp                             |
+| timestamp   | Number      | Issued time in epoch milliseconds              |
+| respondedAt | String      | Response timestamp                             |
+| latencyMs   | Number      | Round-trip latency in milliseconds             |
+| reason      | String      | Failure reason                                 |
+| topic       | String      | MQTT topic the command was published to        |
+| ttl         | Number      | DynamoDB TTL (7 days)                          |
 
 **Indexes:**
 
@@ -153,17 +153,17 @@ Stores the standardized signal definitions used throughout the guidance.
 
 **Schema:**
 
-| Attribute    | Type        | Description                                    |
-| ------------ | ----------- | ---------------------------------------------- |
-| json_field   | String (PK) | JSON field name (for example, `speed`)         |
-| signal_name  | String      | Human-readable signal name                     |
-| vss_path     | String      | COVESA VSS path (for example, `Vehicle.Speed`) |
-| signal_group | String      | Signal group (engine, tire, safety, etc.)      |
-| data_type    | String      | float, int, boolean, string                    |
-| unit         | String      | Unit of measurement                            |
-| min          | Number      | Minimum valid value                            |
-| max          | Number      | Maximum valid value                            |
-| actuator     | Map         | Actuator definition (if signal is commandable) |
+| Attribute     | Type        | Description                                    |
+| ------------- | ----------- | ---------------------------------------------- |
+| json\_field   | String (PK) | JSON field name (for example, `speed`)         |
+| signal\_name  | String      | Human-readable signal name                     |
+| vss\_path     | String      | COVESA VSS path (for example, `Vehicle.Speed`) |
+| signal\_group | String      | Signal group (engine, tire, safety, etc.)      |
+| data\_type    | String      | float, int, boolean, string                    |
+| unit          | String      | Unit of measurement                            |
+| min           | Number      | Minimum valid value                            |
+| max           | Number      | Maximum valid value                            |
+| actuator      | Map         | Actuator definition (if signal is commandable) |
 
 ## S3 buckets
 

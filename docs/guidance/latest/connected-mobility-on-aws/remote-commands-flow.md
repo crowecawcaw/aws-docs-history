@@ -37,7 +37,7 @@ Topic: `cms/commands/{vehicleId}/request`
 
 Topic: `cms/commands/things/{vin}/executions/{commandId}/response/protobuf`
 
-The FWE agent publishes a `CommandResponse` protobuf containing the command ID, status enum (SUCCEEDED=1, TIMEOUT=2, FAILED=4, IN_PROGRESS=10), and an optional reason description.
+The FWE agent publishes a `CommandResponse` protobuf containing the command ID, status enum (SUCCEEDED=1, TIMEOUT=2, FAILED=4, IN\_PROGRESS=10), and an optional reason description.
 
 **JSON response** (simulators):
 
@@ -53,15 +53,14 @@ Topic: `cms/commands/{vehicleId}/response`
 }
 ```
 
-6.  **IoT Rules → Response Handler Lambda** — Two IoT Rules route responses to the Command Response Handler Lambda:
+6. **IoT Rules → Response Handler Lambda** — Two IoT Rules route responses to the Command Response Handler Lambda:
 
-        * `cms_prod_fwe_command_response_rule` — Matches `cms/commands/things/+/executions/+/response/protobuf`. The SQL uses `encode(*, 'base64')` to pass the binary payload as a base64 string, along with the VIN extracted from the topic via `topic(3)`.
-        * `cms_prod_command_response_rule` — Matches `cms/commands/+/response` for JSON responses.
+   - `cms_prod_fwe_command_response_rule` — Matches `cms/commands/things/+/executions/+/response/protobuf`. The SQL uses `encode(*, 'base64')` to pass the binary payload as a base64 string, along with the VIN extracted from the topic via `topic(3)`.
+   - `cms_prod_command_response_rule` — Matches `cms/commands/+/response` for JSON responses.
+     The Response Handler detects the format (base64-encoded protobuf vs. JSON), decodes accordingly, and maps the FWE status enum to a string status.
 
-    The Response Handler detects the format (base64-encoded protobuf vs. JSON), decodes accordingly, and maps the FWE status enum to a string status.
-
-7.  **Status update** — The Response Handler updates the command in DynamoDB: sets the status, records the response timestamp, and calculates the round-trip latency in milliseconds.
-8.  **UI update** — The Fleet Manager UI polls the command history endpoint and displays the updated status and latency.
+7. **Status update** — The Response Handler updates the command in DynamoDB: sets the status, records the response timestamp, and calculates the round-trip latency in milliseconds.
+8. **UI update** — The Fleet Manager UI polls the command history endpoint and displays the updated status and latency.
 
 ## Why dual-path publishing
 
@@ -85,7 +84,7 @@ The FWE command protocol uses two protobuf message types:
 **CommandResponse** (vehicle → Lambda):
 
 - `command_id` (string) — Matches the request
-- `status` (enum) — 0=UNKNOWN, 1=SUCCEEDED, 2=TIMEOUT, 4=FAILED, 10=IN_PROGRESS
+- `status` (enum) — 0=UNKNOWN, 1=SUCCEEDED, 2=TIMEOUT, 4=FAILED, 10=IN\_PROGRESS
 - `reason_code` (uint32) — OEM-specific error code
 - `reason_description` (string) — Human-readable failure reason
 

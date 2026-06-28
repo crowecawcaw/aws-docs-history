@@ -21,16 +21,16 @@ When the signal catalog is updated, the SignalCatalogLoader detects the version 
 
 Each signal in the catalog contains:
 
-| Field        | Description                                                                                                                  |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------- |
-| json_field   | The key used in standard telemetry JSON (for example, `speed`)                                                               |
-| signal_name  | Human-readable name (for example, "Vehicle Speed")                                                                           |
-| vss_path     | COVESA Vehicle Signal Specification fully qualified path (for example, `Vehicle.Speed`)                                      |
-| signal_group | Logical grouping: engine, transmission, body, tire, safety, battery, climate, maintenance                                    |
-| data_type    | float, int, boolean, or string                                                                                               |
-| unit         | Physical unit (mph, PSI, °F, rpm, etc.)                                                                                      |
-| min / max    | Valid range for the signal                                                                                                   |
-| actuator     | If present, this signal can be commanded remotely (see [Remote commands](remote-commands-flow.md "remote-commands-flow.md")) |
+| Field         | Description                                                                                                                  |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| json\_field   | The key used in standard telemetry JSON (for example, `speed`)                                                               |
+| signal\_name  | Human-readable name (for example, "Vehicle Speed")                                                                           |
+| vss\_path     | COVESA Vehicle Signal Specification fully qualified path (for example, `Vehicle.Speed`)                                      |
+| signal\_group | Logical grouping: engine, transmission, body, tire, safety, battery, climate, maintenance                                    |
+| data\_type    | float, int, boolean, or string                                                                                               |
+| unit          | Physical unit (mph, PSI, °F, rpm, etc.)                                                                                      |
+| min / max     | Valid range for the signal                                                                                                   |
+| actuator      | If present, this signal can be commanded remotely (see [Remote commands](remote-commands-flow.md "remote-commands-flow.md")) |
 
 ### Default signal catalog
 
@@ -43,47 +43,47 @@ All IDs are unique and aligned across the signal catalog, decoder manifest, prot
 
 **Original core signals (15 messages, 75 signals):**
 
-| Message          | CAN ID | Signals | Coverage                                                      |
-| ---------------- | ------ | ------- | ------------------------------------------------------------- |
-| ECM_Engine_1     | 0x100  | 4       | Speed, RPM, engine temp, ignition                             |
-| ECM_Engine_2     | 0x101  | 6       | Oil pressure, throttle, coolant, intake air, engine hours     |
-| ECM_Engine_3     | 0x102  | 4       | Acceleration, deceleration, odometer, fuel rate               |
-| TCM_Transmission | 0x110  | 4       | Transmission temp, gear, cruise, parking brake                |
-| BCM_Body_1       | 0x120  | 12      | Seatbelt, phone, windows, trunk, lights, connectivity         |
-| TPMS_Pressure    | 0x130  | 5       | Tire pressure (4 wheels) + max tire temp                      |
-| TPMS_Tread       | 0x131  | 4       | Tire tread depth (4 wheels)                                   |
-| ADAS_Safety_1    | 0x140  | 10      | Braking, acceleration, turn, AEB, ABS, ESC, airbag            |
-| ADAS_Safety_2    | 0x141  | 4       | Phone usage, seatbelt, lateral G, following distance          |
-| BMS_Battery      | 0x150  | 3       | 12V battery, alternator, fuel level                           |
-| BMS_EV           | 0x151  | 4       | EV: SOC, HV voltage, regen power                              |
-| ICM_Instrument   | 0x160  | 2       | Heading, DTC active                                           |
-| HVAC_Climate     | 0x170  | 4       | HVAC, target temp, cabin temp, seat heat                      |
-| MAINT_Indicators | 0x180  | 6       | Oil life, brake wear, filter life, idle hours, brake pressure |
-| LIGHT_Systems    | 0x190  | 3       | Headlights, hazard, turn signal                               |
+| Message           | CAN ID | Signals | Coverage                                                      |
+| ----------------- | ------ | ------- | ------------------------------------------------------------- |
+| ECM\_Engine\_1    | 0x100  | 4       | Speed, RPM, engine temp, ignition                             |
+| ECM\_Engine\_2    | 0x101  | 6       | Oil pressure, throttle, coolant, intake air, engine hours     |
+| ECM\_Engine\_3    | 0x102  | 4       | Acceleration, deceleration, odometer, fuel rate               |
+| TCM\_Transmission | 0x110  | 4       | Transmission temp, gear, cruise, parking brake                |
+| BCM\_Body\_1      | 0x120  | 12      | Seatbelt, phone, windows, trunk, lights, connectivity         |
+| TPMS\_Pressure    | 0x130  | 5       | Tire pressure (4 wheels) + max tire temp                      |
+| TPMS\_Tread       | 0x131  | 4       | Tire tread depth (4 wheels)                                   |
+| ADAS\_Safety\_1   | 0x140  | 10      | Braking, acceleration, turn, AEB, ABS, ESC, airbag            |
+| ADAS\_Safety\_2   | 0x141  | 4       | Phone usage, seatbelt, lateral G, following distance          |
+| BMS\_Battery      | 0x150  | 3       | 12V battery, alternator, fuel level                           |
+| BMS\_EV           | 0x151  | 4       | EV: SOC, HV voltage, regen power                              |
+| ICM\_Instrument   | 0x160  | 2       | Heading, DTC active                                           |
+| HVAC\_Climate     | 0x170  | 4       | HVAC, target temp, cabin temp, seat heat                      |
+| MAINT\_Indicators | 0x180  | 6       | Oil life, brake wear, filter life, idle hours, brake pressure |
+| LIGHT\_Systems    | 0x190  | 3       | Headlights, hazard, turn signal                               |
 
 **Expanded signals (40 messages, 185 signals):**
 
-| Message Group              | CAN IDs     | Signals | Coverage                                                                                                                                                         |
-| -------------------------- | ----------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ADAS / ADAS_1 / ADAS_2     | 0x1A0–0x1A2 | 18      | Cruise control, adaptive cruise, lane keep, blind spot, AEB, forward collision, parking assist, traffic sign recognition, driver monitoring, auto park           |
-| CABIN_CLIMATE / \_1 / \_2  | 0x1A3–0x1A5 | 13      | HVAC mode, dual-zone temp, fan speed, recirculation, defrost, seat heat/vent (driver + passenger), steering wheel heat, remote preconditioning                   |
-| CONNECTIVITY / \_1         | 0x1A6–0x1A7 | 8       | Cellular signal/network, WiFi, Bluetooth, OTA updates, software version                                                                                          |
-| CORE_TELEMETRY / \_1 / \_2 | 0x1A8–0x1AA | 10      | Extended core vehicle telemetry                                                                                                                                  |
-| DOORS                      | 0x1AB       | 18      | Per-door open/locked/child-lock (4 doors), all-doors lock, trunk, hood, fuel door, charge door                                                                   |
-| ENVIRONMENT / \_1          | 0x1AC–0x1AD | 5       | Ambient temp, humidity, barometric pressure, rain intensity, light level                                                                                         |
-| EV_CHARGING / \_1–\_4      | 0x1AE–0x1B2 | 19      | SOC, SOH, HV voltage/current, battery temp, range, charge rate/type/limit, time-to-full, scheduled charging, regen level, motor torque/RPM/temp, energy consumed |
-| EV_SPECIFIC / \_1          | 0x1B3–0x1B4 | 5       | Extended EV-specific signals                                                                                                                                     |
-| GEOFENCE / \_1             | 0x1B5–0x1B6 | 14      | Geofence active/center/radius/violation, speed limit, curfew, valet mode, immobilizer                                                                            |
-| LIGHTING                   | 0x1B7       | 6       | Headlight mode, high beam, fog lights (front/rear), hazard, interior lights, ambient color                                                                       |
-| MAINTENANCE / \_1          | 0x1B8–0x1B9 | 8       | Extended maintenance indicators                                                                                                                                  |
-| MIRRORS                    | 0x1BA       | 5       | Per-mirror fold/heat (left/right), fold-all                                                                                                                      |
-| POWERTRAIN / \_1 / \_2     | 0x1BB–0x1BD | 10      | Transmission gear/mode/temp, turbo boost, throttle, intake/exhaust/catalyst temp, fuel pressure/type, remote start                                               |
-| SAFETY / \_1               | 0x1BE–0x1BF | 10      | Extended safety signals                                                                                                                                          |
-| SECURITY                   | 0x1C0       | 3       | Horn, alarm armed/triggered, panic mode, find-my-vehicle                                                                                                         |
-| TPMS / \_1                 | 0x1C1–0x1C2 | 8       | Per-wheel pressure + temperature (expanded)                                                                                                                      |
-| VEHICLE_CONTROL / \_1      | 0x1C3–0x1C4 | 15      | Vehicle control signals                                                                                                                                          |
-| WINDOWS / \_1              | 0x1C5–0x1C6 | 6       | Per-window position (4 windows), sunroof position/shade                                                                                                          |
-| WIPERS                     | 0x1C7       | 4       | Front wiper mode/active, washer fluid level, rear wiper                                                                                                          |
+| Message Group               | CAN IDs     | Signals | Coverage                                                                                                                                                         |
+| --------------------------- | ----------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ADAS / ADAS\_1 / ADAS\_2    | 0x1A0–0x1A2 | 18      | Cruise control, adaptive cruise, lane keep, blind spot, AEB, forward collision, parking assist, traffic sign recognition, driver monitoring, auto park           |
+| CABIN\_CLIMATE / \_1 / \_2  | 0x1A3–0x1A5 | 13      | HVAC mode, dual-zone temp, fan speed, recirculation, defrost, seat heat/vent (driver + passenger), steering wheel heat, remote preconditioning                   |
+| CONNECTIVITY / \_1          | 0x1A6–0x1A7 | 8       | Cellular signal/network, WiFi, Bluetooth, OTA updates, software version                                                                                          |
+| CORE\_TELEMETRY / \_1 / \_2 | 0x1A8–0x1AA | 10      | Extended core vehicle telemetry                                                                                                                                  |
+| DOORS                       | 0x1AB       | 18      | Per-door open/locked/child-lock (4 doors), all-doors lock, trunk, hood, fuel door, charge door                                                                   |
+| ENVIRONMENT / \_1           | 0x1AC–0x1AD | 5       | Ambient temp, humidity, barometric pressure, rain intensity, light level                                                                                         |
+| EV\_CHARGING / \_1–\_4      | 0x1AE–0x1B2 | 19      | SOC, SOH, HV voltage/current, battery temp, range, charge rate/type/limit, time-to-full, scheduled charging, regen level, motor torque/RPM/temp, energy consumed |
+| EV\_SPECIFIC / \_1          | 0x1B3–0x1B4 | 5       | Extended EV-specific signals                                                                                                                                     |
+| GEOFENCE / \_1              | 0x1B5–0x1B6 | 14      | Geofence active/center/radius/violation, speed limit, curfew, valet mode, immobilizer                                                                            |
+| LIGHTING                    | 0x1B7       | 6       | Headlight mode, high beam, fog lights (front/rear), hazard, interior lights, ambient color                                                                       |
+| MAINTENANCE / \_1           | 0x1B8–0x1B9 | 8       | Extended maintenance indicators                                                                                                                                  |
+| MIRRORS                     | 0x1BA       | 5       | Per-mirror fold/heat (left/right), fold-all                                                                                                                      |
+| POWERTRAIN / \_1 / \_2      | 0x1BB–0x1BD | 10      | Transmission gear/mode/temp, turbo boost, throttle, intake/exhaust/catalyst temp, fuel pressure/type, remote start                                               |
+| SAFETY / \_1                | 0x1BE–0x1BF | 10      | Extended safety signals                                                                                                                                          |
+| SECURITY                    | 0x1C0       | 3       | Horn, alarm armed/triggered, panic mode, find-my-vehicle                                                                                                         |
+| TPMS / \_1                  | 0x1C1–0x1C2 | 8       | Per-wheel pressure + temperature (expanded)                                                                                                                      |
+| VEHICLE\_CONTROL / \_1      | 0x1C3–0x1C4 | 15      | Vehicle control signals                                                                                                                                          |
+| WINDOWS / \_1               | 0x1C5–0x1C6 | 6       | Per-window position (4 windows), sunroof position/shade                                                                                                          |
+| WIPERS                      | 0x1C7       | 4       | Front wiper mode/active, washer fluid level, rear wiper                                                                                                          |
 
 **Actuatable commands (48 commands across 6 categories):**
 
@@ -137,7 +137,7 @@ BO_ 256 ECM_Engine_1: 8 Vector__XXX
 
 Reading this:
 
-- `BO_ 256 ECM_Engine_1: 8` — CAN message with ID 256 (0x100), named ECM_Engine_1, 8 bytes long
+- `BO_ 256 ECM_Engine_1: 8` — CAN message with ID 256 (0x100), named ECM\_Engine\_1, 8 bytes long
 - `SG_ VehicleSpeed : 0|16@1+` — Signal starting at bit 0, 16 bits wide, little-endian, unsigned
 - `(0.1,0)` — Factor 0.1, offset 0. Physical value = raw × 0.1 + 0
 - `[0|655]` — Valid range 0 to 655 mph
@@ -149,47 +149,47 @@ The default DBC defines 55 CAN messages with different cycle times based on how 
 
 **Original messages (0x100–0x190):**
 
-| Message          | CAN ID | Cycle  | Signals | Purpose                                               |
-| ---------------- | ------ | ------ | ------- | ----------------------------------------------------- |
-| ECM_Engine_1     | 0x100  | 100ms  | 4       | Speed, RPM, engine temp, ignition                     |
-| ECM_Engine_2     | 0x101  | 500ms  | 6       | Oil pressure, throttle, coolant, intake air           |
-| ECM_Engine_3     | 0x102  | 100ms  | 4       | Acceleration, deceleration, odometer, fuel rate       |
-| TCM_Transmission | 0x110  | 200ms  | 4       | Transmission temp, gear, cruise, parking brake        |
-| BCM_Body_1       | 0x120  | 500ms  | 12      | Seatbelt, phone, windows, trunk, lights, connectivity |
-| TPMS_Pressure    | 0x130  | 1000ms | 5       | Tire pressure (4 wheels) + max tire temp              |
-| TPMS_Tread       | 0x131  | 5000ms | 4       | Tire tread depth (4 wheels)                           |
-| ADAS_Safety_1    | 0x140  | 100ms  | 10      | Braking, acceleration, turn, AEB, ABS, ESC            |
-| ADAS_Safety_2    | 0x141  | 100ms  | 4       | Phone usage, seatbelt, lateral G, following distance  |
-| BMS_Battery      | 0x150  | 1000ms | 3       | 12V battery, alternator, fuel level                   |
-| BMS_EV           | 0x151  | 1000ms | 4       | EV: SOC, HV voltage, regen power                      |
-| ICM_Instrument   | 0x160  | 200ms  | 2       | Heading, DTC active                                   |
-| HVAC_Climate     | 0x170  | 2000ms | 4       | HVAC, target temp, cabin temp, seat heat              |
-| MAINT_Indicators | 0x180  | 5000ms | 6       | Oil life, brake wear, filter life, idle hours         |
-| LIGHT_Systems    | 0x190  | 500ms  | 3       | Headlights, hazard, turn signal                       |
+| Message           | CAN ID | Cycle  | Signals | Purpose                                               |
+| ----------------- | ------ | ------ | ------- | ----------------------------------------------------- |
+| ECM\_Engine\_1    | 0x100  | 100ms  | 4       | Speed, RPM, engine temp, ignition                     |
+| ECM\_Engine\_2    | 0x101  | 500ms  | 6       | Oil pressure, throttle, coolant, intake air           |
+| ECM\_Engine\_3    | 0x102  | 100ms  | 4       | Acceleration, deceleration, odometer, fuel rate       |
+| TCM\_Transmission | 0x110  | 200ms  | 4       | Transmission temp, gear, cruise, parking brake        |
+| BCM\_Body\_1      | 0x120  | 500ms  | 12      | Seatbelt, phone, windows, trunk, lights, connectivity |
+| TPMS\_Pressure    | 0x130  | 1000ms | 5       | Tire pressure (4 wheels) + max tire temp              |
+| TPMS\_Tread       | 0x131  | 5000ms | 4       | Tire tread depth (4 wheels)                           |
+| ADAS\_Safety\_1   | 0x140  | 100ms  | 10      | Braking, acceleration, turn, AEB, ABS, ESC            |
+| ADAS\_Safety\_2   | 0x141  | 100ms  | 4       | Phone usage, seatbelt, lateral G, following distance  |
+| BMS\_Battery      | 0x150  | 1000ms | 3       | 12V battery, alternator, fuel level                   |
+| BMS\_EV           | 0x151  | 1000ms | 4       | EV: SOC, HV voltage, regen power                      |
+| ICM\_Instrument   | 0x160  | 200ms  | 2       | Heading, DTC active                                   |
+| HVAC\_Climate     | 0x170  | 2000ms | 4       | HVAC, target temp, cabin temp, seat heat              |
+| MAINT\_Indicators | 0x180  | 5000ms | 6       | Oil life, brake wear, filter life, idle hours         |
+| LIGHT\_Systems    | 0x190  | 500ms  | 3       | Headlights, hazard, turn signal                       |
 
 **Expanded messages (0x1A0–0x1C7):**
 
-| Message Group                | CAN IDs     | Signals | Purpose                                                                                                                                     |
-| ---------------------------- | ----------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| ADAS (3 messages)            | 0x1A0–0x1A2 | 18      | Cruise control, adaptive cruise, lane keep, blind spot, AEB, collision warning, parking assist, traffic sign recognition, driver monitoring |
-| CABIN_CLIMATE (3 messages)   | 0x1A3–0x1A5 | 13      | Dual-zone HVAC, fan speed, defrost, seat heat/vent, steering wheel heat, remote preconditioning                                             |
-| CONNECTIVITY (2 messages)    | 0x1A6–0x1A7 | 8       | Cellular signal, WiFi, Bluetooth, OTA updates, software version                                                                             |
-| CORE_TELEMETRY (3 messages)  | 0x1A8–0x1AA | 10      | Extended core telemetry                                                                                                                     |
-| DOORS (1 message)            | 0x1AB       | 18      | Per-door open/locked/child-lock, trunk, hood, fuel door, charge door                                                                        |
-| ENVIRONMENT (2 messages)     | 0x1AC–0x1AD | 5       | Ambient temp, humidity, barometric pressure, rain, light level                                                                              |
-| EV_CHARGING (5 messages)     | 0x1AE–0x1B2 | 19      | Battery SOC/SOH/voltage/current/temp, range, charge rate/type/limit, motor torque/RPM/temp                                                  |
-| EV_SPECIFIC (2 messages)     | 0x1B3–0x1B4 | 5       | Extended EV signals                                                                                                                         |
-| GEOFENCE (2 messages)        | 0x1B5–0x1B6 | 14      | Geofence, speed limit, curfew, valet mode, immobilizer                                                                                      |
-| LIGHTING (1 message)         | 0x1B7       | 6       | Headlights, high beam, fog lights, interior, ambient                                                                                        |
-| MAINTENANCE (2 messages)     | 0x1B8–0x1B9 | 8       | Extended maintenance indicators                                                                                                             |
-| MIRRORS (1 message)          | 0x1BA       | 5       | Per-mirror fold/heat, fold-all                                                                                                              |
-| POWERTRAIN (3 messages)      | 0x1BB–0x1BD | 10      | Transmission, turbo, throttle, exhaust/catalyst temp, fuel pressure, remote start                                                           |
-| SAFETY (2 messages)          | 0x1BE–0x1BF | 10      | Extended safety signals                                                                                                                     |
-| SECURITY (1 message)         | 0x1C0       | 3       | Horn, alarm, panic mode                                                                                                                     |
-| TPMS (2 messages)            | 0x1C1–0x1C2 | 8       | Per-wheel pressure + temperature (expanded)                                                                                                 |
-| VEHICLE_CONTROL (2 messages) | 0x1C3–0x1C4 | 15      | Vehicle control signals                                                                                                                     |
-| WINDOWS (2 messages)         | 0x1C5–0x1C6 | 6       | Per-window position, sunroof                                                                                                                |
-| WIPERS (1 message)           | 0x1C7       | 4       | Front/rear wipers, washer fluid level                                                                                                       |
+| Message Group                 | CAN IDs     | Signals | Purpose                                                                                                                                     |
+| ----------------------------- | ----------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| ADAS (3 messages)             | 0x1A0–0x1A2 | 18      | Cruise control, adaptive cruise, lane keep, blind spot, AEB, collision warning, parking assist, traffic sign recognition, driver monitoring |
+| CABIN\_CLIMATE (3 messages)   | 0x1A3–0x1A5 | 13      | Dual-zone HVAC, fan speed, defrost, seat heat/vent, steering wheel heat, remote preconditioning                                             |
+| CONNECTIVITY (2 messages)     | 0x1A6–0x1A7 | 8       | Cellular signal, WiFi, Bluetooth, OTA updates, software version                                                                             |
+| CORE\_TELEMETRY (3 messages)  | 0x1A8–0x1AA | 10      | Extended core telemetry                                                                                                                     |
+| DOORS (1 message)             | 0x1AB       | 18      | Per-door open/locked/child-lock, trunk, hood, fuel door, charge door                                                                        |
+| ENVIRONMENT (2 messages)      | 0x1AC–0x1AD | 5       | Ambient temp, humidity, barometric pressure, rain, light level                                                                              |
+| EV\_CHARGING (5 messages)     | 0x1AE–0x1B2 | 19      | Battery SOC/SOH/voltage/current/temp, range, charge rate/type/limit, motor torque/RPM/temp                                                  |
+| EV\_SPECIFIC (2 messages)     | 0x1B3–0x1B4 | 5       | Extended EV signals                                                                                                                         |
+| GEOFENCE (2 messages)         | 0x1B5–0x1B6 | 14      | Geofence, speed limit, curfew, valet mode, immobilizer                                                                                      |
+| LIGHTING (1 message)          | 0x1B7       | 6       | Headlights, high beam, fog lights, interior, ambient                                                                                        |
+| MAINTENANCE (2 messages)      | 0x1B8–0x1B9 | 8       | Extended maintenance indicators                                                                                                             |
+| MIRRORS (1 message)           | 0x1BA       | 5       | Per-mirror fold/heat, fold-all                                                                                                              |
+| POWERTRAIN (3 messages)       | 0x1BB–0x1BD | 10      | Transmission, turbo, throttle, exhaust/catalyst temp, fuel pressure, remote start                                                           |
+| SAFETY (2 messages)           | 0x1BE–0x1BF | 10      | Extended safety signals                                                                                                                     |
+| SECURITY (1 message)          | 0x1C0       | 3       | Horn, alarm, panic mode                                                                                                                     |
+| TPMS (2 messages)             | 0x1C1–0x1C2 | 8       | Per-wheel pressure + temperature (expanded)                                                                                                 |
+| VEHICLE\_CONTROL (2 messages) | 0x1C3–0x1C4 | 15      | Vehicle control signals                                                                                                                     |
+| WINDOWS (2 messages)          | 0x1C5–0x1C6 | 6       | Per-window position, sunroof                                                                                                                |
+| WIPERS (1 message)            | 0x1C7       | 4       | Front/rear wipers, washer fluid level                                                                                                       |
 
 Safety-critical signals (speed, braking, acceleration) use 100ms cycle times for rapid detection. Slow-changing signals (tire tread, maintenance indicators) use 5000ms cycles to reduce bus load.
 
@@ -210,7 +210,7 @@ The decoder manifest bridges the gap between raw CAN bus data and human-readable
 
 Each entry in the decoder manifest maps:
 
-- **CAN message ID** — The CAN frame identifier (for example, `0x100` for ECM_Engine_1)
+- **CAN message ID** — The CAN frame identifier (for example, `0x100` for ECM\_Engine\_1)
 - **Signal bit position and length** — Where the signal sits within the 8-byte CAN frame
 - **Factor and offset** — Scaling values to convert raw integer values to physical units (for example, raw value 655 × factor 0.1 = 65.5 mph)
 - **Signal ID** — A numeric identifier used in the protobuf encoding

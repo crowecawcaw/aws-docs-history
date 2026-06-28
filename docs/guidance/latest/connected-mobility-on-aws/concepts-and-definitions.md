@@ -30,7 +30,7 @@
 
 **Collection Scheme** – A protobuf message pushed to the FWE agent that specifies which signals to collect and at what interval. Collection schemes are generated from campaign definitions in DynamoDB.
 
-**Remote Command** – A message sent from the cloud to a vehicle through IoT Core MQTT to trigger an action such as locking doors, activating lights, or starting the engine. Commands follow a request/response pattern with status tracking (SENT, IN_PROGRESS, SUCCEEDED, FAILED, TIMEOUT) and latency measurement.
+**Remote Command** – A message sent from the cloud to a vehicle through IoT Core MQTT to trigger an action such as locking doors, activating lights, or starting the engine. Commands follow a request/response pattern with status tracking (SENT, IN\_PROGRESS, SUCCEEDED, FAILED, TIMEOUT) and latency measurement.
 
 **Command Catalog** – The set of available commands derived from actuatable signals in the signal catalog. Each actuatable signal defines a command name, value type, valid range, and expected response timeout.
 

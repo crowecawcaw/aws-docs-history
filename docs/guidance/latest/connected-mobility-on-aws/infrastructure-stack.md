@@ -70,7 +70,7 @@ The LKS store uses five Redis data structures per vehicle, plus a shared signal 
 **Signal catalog keys:**
 
 | Redis Key                | Type | Content                                                   |
-| ------------------------ | ---- | --------------------------------------------------------- | ------- | ---- | ------------------------- | ------------- | --- | ------- |
+| ------------------------ | ---- | --------------------------------------------------------- |
 | `signal_catalog:map`     | HASH | JSON field name → signal ID mapping (e.g., `speed` → `1`) |
 | `signal_catalog:reverse` | HASH | Signal ID → metadata string: `name                        | vssPath | unit | dataType`(e.g.,`1`→`speed | Vehicle.Speed | mph | float`) |
 
@@ -105,7 +105,7 @@ The `EventDrivenTelemetryProcessor` Flink application writes to Redis on every t
 5. `XADD vehicle:{id}:stream` — append to capped stream (MAXLEN ~100)
 6. `GEOADD vehicle:locations` — update geospatial position (if lat/lng present)
 7. `EXPIRE` on all keys — reset TTL on each write
-8. On ignition off or ENGINE_STOP: `ZREM vehicle:locations` — remove from geo index
+8. On ignition off or ENGINE\_STOP: `ZREM vehicle:locations` — remove from geo index
 
 The `SignalCatalogLoader` loads the signal catalog from DynamoDB on Flink startup and writes it to `signal_catalog:map` and `signal_catalog:reverse` in Redis. It checks a version key for hot-reload without restarting the Flink application.
 

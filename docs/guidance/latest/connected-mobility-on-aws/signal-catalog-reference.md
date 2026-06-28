@@ -19,7 +19,7 @@ The loader checks a version key in Redis and only refreshes the catalog when the
 
 ## Engine signals
 
-**ECM_Engine_1 (CAN ID 0x100, 100ms cycle):**
+**ECM\_Engine\_1 (CAN ID 0x100, 100ms cycle):**
 
 | DBC Signal   | JSON Field | VSS Path                              | Unit | Range   |
 | ------------ | ---------- | ------------------------------------- | ---- | ------- |
@@ -28,80 +28,80 @@ The loader checks a version key in Redis and only refreshes the catalog when the
 | EngineTemp   | engineTemp | Vehicle.Powertrain.Engine.Temperature | °F   | -40–370 |
 | IgnitionOn   | ignitionOn | Vehicle.Powertrain.IgnitionOn         | bool | 0/1     |
 
-**ECM_Engine_2 (CAN ID 0x101, 500ms cycle):**
+**ECM\_Engine\_2 (CAN ID 0x101, 500ms cycle):**
 
-| DBC Signal       | JSON Field         | VSS Path                                       | Unit | Range   |
-| ---------------- | ------------------ | ---------------------------------------------- | ---- | ------- |
-| OilPressure      | oilPressure        | Vehicle.Powertrain.Engine.OilPressure          | PSI  | 0–102   |
-| EngineLoad       | engineLoad         | Vehicle.Powertrain.Engine.Load                 | %    | 0–128   |
-| ThrottlePosition | throttle           | Vehicle.Powertrain.Engine.ThrottlePosition     | %    | 0–102   |
-| CoolantTemp      | coolant_temp       | Vehicle.Powertrain.Engine.CoolantTemperature   | °F   | -40–370 |
-| IntakeAirTemp    | intakeAirTemp      | Vehicle.Powertrain.Engine.IntakeAirTemperature | °F   | -40–62  |
-| EngineHoursTotal | engine_hours_total | Vehicle.Powertrain.Engine.HoursTotal           | hrs  | 0–16383 |
+| DBC Signal       | JSON Field           | VSS Path                                       | Unit | Range   |
+| ---------------- | -------------------- | ---------------------------------------------- | ---- | ------- |
+| OilPressure      | oilPressure          | Vehicle.Powertrain.Engine.OilPressure          | PSI  | 0–102   |
+| EngineLoad       | engineLoad           | Vehicle.Powertrain.Engine.Load                 | %    | 0–128   |
+| ThrottlePosition | throttle             | Vehicle.Powertrain.Engine.ThrottlePosition     | %    | 0–102   |
+| CoolantTemp      | coolant\_temp        | Vehicle.Powertrain.Engine.CoolantTemperature   | °F   | -40–370 |
+| IntakeAirTemp    | intakeAirTemp        | Vehicle.Powertrain.Engine.IntakeAirTemperature | °F   | -40–62  |
+| EngineHoursTotal | engine\_hours\_total | Vehicle.Powertrain.Engine.HoursTotal           | hrs  | 0–16383 |
 
-**ECM_Engine_3 (CAN ID 0x102, 100ms cycle):**
+**ECM\_Engine\_3 (CAN ID 0x102, 100ms cycle):**
 
 | DBC Signal   | JSON Field   | VSS Path                               | Unit  | Range  |
 | ------------ | ------------ | -------------------------------------- | ----- | ------ |
 | Acceleration | acceleration | Vehicle.Acceleration                   | m/s²  | -20–21 |
 | Deceleration | deceleration | Vehicle.Deceleration                   | m/s²  | -20–21 |
 | Odometer     | odometer     | Vehicle.Odometer                       | miles | 0–16M  |
-| FuelRate     | fuel_rate    | Vehicle.Powertrain.FuelSystem.FuelRate | L/h   | 0–51   |
+| FuelRate     | fuel\_rate   | Vehicle.Powertrain.FuelSystem.FuelRate | L/h   | 0–51   |
 
 ## Transmission signals
 
-**TCM_Transmission (CAN ID 0x110, 200ms cycle):**
+**TCM\_Transmission (CAN ID 0x110, 200ms cycle):**
 
 | DBC Signal       | JSON Field       | VSS Path                                     | Unit | Range   |
 | ---------------- | ---------------- | -------------------------------------------- | ---- | ------- |
 | TransmissionTemp | transmissionTemp | Vehicle.Powertrain.Transmission.Temperature  | °F   | -40–472 |
 | GearPosition     | gearPosition     | Vehicle.Powertrain.Transmission.GearPosition | enum | 0–7     |
-| CruiseControl    | cruise_control   | Vehicle.ADAS.CruiseControl.Active            | bool | 0/1     |
-| ParkingBrake     | parking_brake    | Vehicle.Chassis.ParkingBrake.Active          | bool | 0/1     |
+| CruiseControl    | cruise\_control  | Vehicle.ADAS.CruiseControl.Active            | bool | 0/1     |
+| ParkingBrake     | parking\_brake   | Vehicle.Chassis.ParkingBrake.Active          | bool | 0/1     |
 
 ## Body control signals
 
-**BCM_Body_1 (CAN ID 0x120, 500ms cycle):**
+**BCM\_Body\_1 (CAN ID 0x120, 500ms cycle):**
 
-| DBC Signal       | JSON Field         | VSS Path                                     | Unit  | Range |
-| ---------------- | ------------------ | -------------------------------------------- | ----- | ----- |
-| SeatbeltStatus   | seatbeltStatus     | Vehicle.Cabin.Seatbelt.Driver.Fastened       | bool  | 0/1   |
-| PhoneConnected   | phoneConnected     | Vehicle.Cabin.Infotainment.PhoneConnected    | bool  | 0/1   |
-| WindowsUp        | windows_up         | Vehicle.Cabin.Windows.AllClosed              | bool  | 0/1   |
-| TrunkLocked      | trunk_locked       | Vehicle.Body.Trunk.Locked                    | bool  | 0/1   |
-| AlarmArmed       | alarm_armed        | Vehicle.Body.Alarm.Armed                     | bool  | 0/1   |
-| KeylessEntry     | keyless_entry      | Vehicle.Body.KeylessEntry.Proximity          | bool  | 0/1   |
-| Headlights       | headlights         | Vehicle.Body.Lights.Headlights.Mode          | enum  | 0–2   |
-| HazardLights     | hazard_lights      | Vehicle.Body.Lights.Hazard.Active            | bool  | 0/1   |
-| TurnSignalActive | turn_signal_active | Vehicle.Body.Lights.TurnSignal.Active        | bool  | 0/1   |
-| WifiConnected    | wifi_connected     | Vehicle.Connectivity.WiFi.Connected          | bool  | 0/1   |
-| BluetoothDevices | bluetooth_devices  | Vehicle.Connectivity.Bluetooth.DeviceCount   | count | 0–7   |
-| NavigationActive | navigation_active  | Vehicle.Cabin.Infotainment.Navigation.Active | bool  | 0/1   |
+| DBC Signal       | JSON Field           | VSS Path                                     | Unit  | Range |
+| ---------------- | -------------------- | -------------------------------------------- | ----- | ----- |
+| SeatbeltStatus   | seatbeltStatus       | Vehicle.Cabin.Seatbelt.Driver.Fastened       | bool  | 0/1   |
+| PhoneConnected   | phoneConnected       | Vehicle.Cabin.Infotainment.PhoneConnected    | bool  | 0/1   |
+| WindowsUp        | windows\_up          | Vehicle.Cabin.Windows.AllClosed              | bool  | 0/1   |
+| TrunkLocked      | trunk\_locked        | Vehicle.Body.Trunk.Locked                    | bool  | 0/1   |
+| AlarmArmed       | alarm\_armed         | Vehicle.Body.Alarm.Armed                     | bool  | 0/1   |
+| KeylessEntry     | keyless\_entry       | Vehicle.Body.KeylessEntry.Proximity          | bool  | 0/1   |
+| Headlights       | headlights           | Vehicle.Body.Lights.Headlights.Mode          | enum  | 0–2   |
+| HazardLights     | hazard\_lights       | Vehicle.Body.Lights.Hazard.Active            | bool  | 0/1   |
+| TurnSignalActive | turn\_signal\_active | Vehicle.Body.Lights.TurnSignal.Active        | bool  | 0/1   |
+| WifiConnected    | wifi\_connected      | Vehicle.Connectivity.WiFi.Connected          | bool  | 0/1   |
+| BluetoothDevices | bluetooth\_devices   | Vehicle.Connectivity.Bluetooth.DeviceCount   | count | 0–7   |
+| NavigationActive | navigation\_active   | Vehicle.Cabin.Infotainment.Navigation.Active | bool  | 0/1   |
 
 ## Tire signals
 
-**TPMS_Pressure (CAN ID 0x130, 1000ms cycle):**
+**TPMS\_Pressure (CAN ID 0x130, 1000ms cycle):**
 
-| DBC Signal     | JSON Field    | VSS Path                                            | Unit | Range |
-| -------------- | ------------- | --------------------------------------------------- | ---- | ----- |
-| TirePressureFL | tire_fl       | Vehicle.Chassis.Axle.Row1.Wheel.Left.Tire.Pressure  | PSI  | 0–102 |
-| TirePressureFR | tire_fr       | Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.Pressure | PSI  | 0–102 |
-| TirePressureRL | tire_rl       | Vehicle.Chassis.Axle.Row2.Wheel.Left.Tire.Pressure  | PSI  | 0–102 |
-| TirePressureRR | tire_rr       | Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire.Pressure | PSI  | 0–102 |
-| TireTempMax    | tire_temp_max | Vehicle.Chassis.Tire.TemperatureMax                 | °F   | 0–255 |
+| DBC Signal     | JSON Field      | VSS Path                                            | Unit | Range |
+| -------------- | --------------- | --------------------------------------------------- | ---- | ----- |
+| TirePressureFL | tire\_fl        | Vehicle.Chassis.Axle.Row1.Wheel.Left.Tire.Pressure  | PSI  | 0–102 |
+| TirePressureFR | tire\_fr        | Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.Pressure | PSI  | 0–102 |
+| TirePressureRL | tire\_rl        | Vehicle.Chassis.Axle.Row2.Wheel.Left.Tire.Pressure  | PSI  | 0–102 |
+| TirePressureRR | tire\_rr        | Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire.Pressure | PSI  | 0–102 |
+| TireTempMax    | tire\_temp\_max | Vehicle.Chassis.Tire.TemperatureMax                 | °F   | 0–255 |
 
-**TPMS_Tread (CAN ID 0x131, 5000ms cycle):**
+**TPMS\_Tread (CAN ID 0x131, 5000ms cycle):**
 
-| DBC Signal  | JSON Field    | VSS Path                                              | Unit | Range  |
-| ----------- | ------------- | ----------------------------------------------------- | ---- | ------ |
-| TireTreadFL | tire_tread_fl | Vehicle.Chassis.Axle.Row1.Wheel.Left.Tire.TreadDepth  | mm   | 0–25.5 |
-| TireTreadFR | tire_tread_fr | Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.TreadDepth | mm   | 0–25.5 |
-| TireTreadRL | tire_tread_rl | Vehicle.Chassis.Axle.Row2.Wheel.Left.Tire.TreadDepth  | mm   | 0–25.5 |
-| TireTreadRR | tire_tread_rr | Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire.TreadDepth | mm   | 0–25.5 |
+| DBC Signal  | JSON Field      | VSS Path                                              | Unit | Range  |
+| ----------- | --------------- | ----------------------------------------------------- | ---- | ------ |
+| TireTreadFL | tire\_tread\_fl | Vehicle.Chassis.Axle.Row1.Wheel.Left.Tire.TreadDepth  | mm   | 0–25.5 |
+| TireTreadFR | tire\_tread\_fr | Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.TreadDepth | mm   | 0–25.5 |
+| TireTreadRL | tire\_tread\_rl | Vehicle.Chassis.Axle.Row2.Wheel.Left.Tire.TreadDepth  | mm   | 0–25.5 |
+| TireTreadRR | tire\_tread\_rr | Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire.TreadDepth | mm   | 0–25.5 |
 
 ## Safety signals
 
-**ADAS_Safety_1 (CAN ID 0x140, 100ms cycle):**
+**ADAS\_Safety\_1 (CAN ID 0x140, 100ms cycle):**
 
 | DBC Signal               | JSON Field               | VSS Path                                      | Unit  | Range  |
 | ------------------------ | ------------------------ | --------------------------------------------- | ----- | ------ |
@@ -111,69 +111,69 @@ The loader checks a version key in Redis and only refreshes the catalog when the
 | LaneDepartureWarning     | laneDepartureWarning     | Vehicle.ADAS.LaneDepartureDetection.IsWarning | bool  | 0/1    |
 | ForwardCollisionDistance | forwardCollisionDistance | Vehicle.ADAS.ForwardCollisionWarning.Distance | m     | 0–100  |
 | DriverDrowsinessLevel    | driverDrowsinessLevel    | Vehicle.Driver.DrowsinessLevel                | level | 0–3    |
-| AEBActivation            | aeb_act                  | Vehicle.ADAS.AEB.IsActive                     | bool  | 0/1    |
-| ABSActivation            | abs_act                  | Vehicle.ADAS.ABS.IsActive                     | bool  | 0/1    |
-| ESCActivation            | esc_act                  | Vehicle.ADAS.ESC.IsActive                     | bool  | 0/1    |
-| AirbagWarning            | airbag_warn              | Vehicle.Safety.Airbag.IsWarning               | bool  | 0/1    |
+| AEBActivation            | aeb\_act                 | Vehicle.ADAS.AEB.IsActive                     | bool  | 0/1    |
+| ABSActivation            | abs\_act                 | Vehicle.ADAS.ABS.IsActive                     | bool  | 0/1    |
+| ESCActivation            | esc\_act                 | Vehicle.ADAS.ESC.IsActive                     | bool  | 0/1    |
+| AirbagWarning            | airbag\_warn             | Vehicle.Safety.Airbag.IsWarning               | bool  | 0/1    |
 
-**ADAS_Safety_2 (CAN ID 0x141, 100ms cycle):**
+**ADAS\_Safety\_2 (CAN ID 0x141, 100ms cycle):**
 
 | DBC Signal        | JSON Field        | VSS Path                                | Unit | Range  |
 | ----------------- | ----------------- | --------------------------------------- | ---- | ------ |
-| PhoneUsage        | phone_use         | Vehicle.Safety.Driver.PhoneUsage        | bool | 0/1    |
+| PhoneUsage        | phone\_use        | Vehicle.Safety.Driver.PhoneUsage        | bool | 0/1    |
 | SeatbeltViolation | seatbelt          | Vehicle.Safety.Driver.SeatbeltViolation | bool | 0/1    |
 | LateralG          | lateralG          | Vehicle.Acceleration.Lateral            | g    | -5–5.2 |
 | FollowingDistance | followingDistance | Vehicle.ADAS.FollowingDistance          | m    | 0–102  |
 
 ## Battery and fuel signals
 
-**BMS_Battery (CAN ID 0x150, 1000ms cycle):**
+**BMS\_Battery (CAN ID 0x150, 1000ms cycle):**
 
-| DBC Signal       | JSON Field        | VSS Path                              | Unit | Range  |
-| ---------------- | ----------------- | ------------------------------------- | ---- | ------ |
-| BatteryVoltage   | batteryVoltage    | Vehicle.Powertrain.Battery.Voltage    | V    | 0–20.5 |
-| AlternatorOutput | alternator_output | Vehicle.Powertrain.Alternator.Voltage | V    | 0–20.5 |
-| FuelLevel        | fuelLevel         | Vehicle.Powertrain.FuelSystem.Level   | %    | 0–128  |
+| DBC Signal       | JSON Field         | VSS Path                              | Unit | Range  |
+| ---------------- | ------------------ | ------------------------------------- | ---- | ------ |
+| BatteryVoltage   | batteryVoltage     | Vehicle.Powertrain.Battery.Voltage    | V    | 0–20.5 |
+| AlternatorOutput | alternator\_output | Vehicle.Powertrain.Alternator.Voltage | V    | 0–20.5 |
+| FuelLevel        | fuelLevel          | Vehicle.Powertrain.FuelSystem.Level   | %    | 0–128  |
 
-**BMS_EV (CAN ID 0x151, 1000ms cycle):**
+**BMS\_EV (CAN ID 0x151, 1000ms cycle):**
 
 | DBC Signal       | JSON Field | VSS Path                                 | Unit | Range   |
 | ---------------- | ---------- | ---------------------------------------- | ---- | ------- |
-| IsEV             | is_ev      | Vehicle.Powertrain.Type.IsEV             | bool | 0/1     |
+| IsEV             | is\_ev     | Vehicle.Powertrain.Type.IsEV             | bool | 0/1     |
 | StateOfCharge    | soc        | Vehicle.Powertrain.Battery.StateOfCharge | %    | 0–128   |
 | HVBatteryVoltage | volt       | Vehicle.Powertrain.Battery.HVVoltage     | V    | 0–410   |
-| RegenPower       | regen_pwr  | Vehicle.Powertrain.Battery.RegenPower    | kW   | -50–155 |
+| RegenPower       | regen\_pwr | Vehicle.Powertrain.Battery.RegenPower    | kW   | -50–155 |
 
 ## Instrument and climate signals
 
-**ICM_Instrument (CAN ID 0x160, 200ms cycle):**
+**ICM\_Instrument (CAN ID 0x160, 200ms cycle):**
 
-| DBC Signal     | JSON Field       | VSS Path                      | Unit | Range |
-| -------------- | ---------------- | ----------------------------- | ---- | ----- |
-| Heading        | heading          | Vehicle.Navigation.Heading    | deg  | 0–410 |
-| DTCCodesActive | dtc_codes_active | Vehicle.Diagnostics.DTCActive | bool | 0/1   |
+| DBC Signal     | JSON Field         | VSS Path                      | Unit | Range |
+| -------------- | ------------------ | ----------------------------- | ---- | ----- |
+| Heading        | heading            | Vehicle.Navigation.Heading    | deg  | 0–410 |
+| DTCCodesActive | dtc\_codes\_active | Vehicle.Diagnostics.DTCActive | bool | 0/1   |
 
-**HVAC_Climate (CAN ID 0x170, 2000ms cycle):**
+**HVAC\_Climate (CAN ID 0x170, 2000ms cycle):**
 
-| DBC Signal     | JSON Field       | VSS Path                               | Unit  | Range  |
-| -------------- | ---------------- | -------------------------------------- | ----- | ------ |
-| HVACOn         | hvac_on          | Vehicle.Cabin.HVAC.Active              | bool  | 0/1    |
-| TargetTemp     | target_temp      | Vehicle.Cabin.HVAC.TargetTemperature   | °F    | 40–168 |
-| CabinTemp      | cabin_temp       | Vehicle.Cabin.HVAC.CabinTemperature    | °F    | 40–168 |
-| SeatHeatDriver | seat_heat_driver | Vehicle.Cabin.Seat.Driver.HeatingLevel | level | 0–3    |
+| DBC Signal     | JSON Field         | VSS Path                               | Unit  | Range  |
+| -------------- | ------------------ | -------------------------------------- | ----- | ------ |
+| HVACOn         | hvac\_on           | Vehicle.Cabin.HVAC.Active              | bool  | 0/1    |
+| TargetTemp     | target\_temp       | Vehicle.Cabin.HVAC.TargetTemperature   | °F    | 40–168 |
+| CabinTemp      | cabin\_temp        | Vehicle.Cabin.HVAC.CabinTemperature    | °F    | 40–168 |
+| SeatHeatDriver | seat\_heat\_driver | Vehicle.Cabin.Seat.Driver.HeatingLevel | level | 0–3    |
 
 ## Maintenance signals
 
-**MAINT_Indicators (CAN ID 0x180, 5000ms cycle):**
+**MAINT\_Indicators (CAN ID 0x180, 5000ms cycle):**
 
-| DBC Signal        | JSON Field         | VSS Path                                 | Unit | Range   |
-| ----------------- | ------------------ | ---------------------------------------- | ---- | ------- |
-| OilLife           | oil_life           | Vehicle.Maintenance.OilLife              | %    | 0–128   |
-| BrakeWear         | brake_wear         | Vehicle.Maintenance.BrakeWear            | %    | 0–128   |
-| FilterLife        | filter_life        | Vehicle.Maintenance.FilterLife           | %    | 0–128   |
-| IdleHoursTotal    | idle_hours_total   | Vehicle.Powertrain.Engine.IdleHoursTotal | hrs  | 0–16383 |
-| AirPressure       | air_pressure       | Vehicle.Chassis.Brake.AirPressure        | PSI  | 0–128   |
-| HydraulicPressure | hydraulic_pressure | Vehicle.Chassis.Brake.HydraulicPressure  | PSI  | 0–4095  |
+| DBC Signal        | JSON Field          | VSS Path                                 | Unit | Range   |
+| ----------------- | ------------------- | ---------------------------------------- | ---- | ------- |
+| OilLife           | oil\_life           | Vehicle.Maintenance.OilLife              | %    | 0–128   |
+| BrakeWear         | brake\_wear         | Vehicle.Maintenance.BrakeWear            | %    | 0–128   |
+| FilterLife        | filter\_life        | Vehicle.Maintenance.FilterLife           | %    | 0–128   |
+| IdleHoursTotal    | idle\_hours\_total  | Vehicle.Powertrain.Engine.IdleHoursTotal | hrs  | 0–16383 |
+| AirPressure       | air\_pressure       | Vehicle.Chassis.Brake.AirPressure        | PSI  | 0–128   |
+| HydraulicPressure | hydraulic\_pressure | Vehicle.Chassis.Brake.HydraulicPressure  | PSI  | 0–4095  |
 
 ## GPS signals (separate interface)
 
@@ -188,19 +188,19 @@ GPS coordinates are not transmitted on the CAN bus. In MQTT Direct mode, the sim
 
 The SafetyProcessor evaluates every telemetry message against the event catalog rules stored in the `cms-{stage}-event-catalog` DynamoDB table. Detection uses real CAN bus signals — not synthetic derived values — so the same rules work for both simulated and production vehicles.
 
-| Event Type          | Trigger Signal               | Threshold             | Detection     |
-| ------------------- | ---------------------------- | --------------------- | ------------- |
-| HARSH_BRAKING       | deceleration (m/s²)          | < -3.9 (0.4g)         | Cloud         |
-| HARSH_ACCELERATION  | acceleration (m/s²)          | > 3.5 (0.35g)         | Cloud         |
-| HARSH_CORNERING     | lateralAcceleration (m/s²)   | > 4.4 (0.45g)         | Cloud         |
-| SPEEDING            | speed (mph)                  | > 80                  | Cloud         |
-| SEATBELT_UNFASTENED | seatbeltStatus               | = false while driving | Cloud         |
-| PHONE_USAGE         | phone_use                    | = 1 while driving     | Cloud         |
-| LANE_DEPARTURE      | laneDepartureWarning         | = 1                   | Cloud or Edge |
-| TAILGATING          | forwardCollisionDistance (m) | < 2.0                 | Cloud         |
-| DROWSY_DRIVING      | driverDrowsinessLevel        | >= 1                  | Cloud         |
-| AEB_ACTIVATION      | aeb_act                      | = 1                   | Edge          |
-| ESC_ACTIVATION      | esc_act                      | = 1                   | Edge          |
+| Event Type           | Trigger Signal               | Threshold             | Detection     |
+| -------------------- | ---------------------------- | --------------------- | ------------- |
+| HARSH\_BRAKING       | deceleration (m/s²)          | < -3.9 (0.4g)         | Cloud         |
+| HARSH\_ACCELERATION  | acceleration (m/s²)          | > 3.5 (0.35g)         | Cloud         |
+| HARSH\_CORNERING     | lateralAcceleration (m/s²)   | > 4.4 (0.45g)         | Cloud         |
+| SPEEDING             | speed (mph)                  | > 80                  | Cloud         |
+| SEATBELT\_UNFASTENED | seatbeltStatus               | = false while driving | Cloud         |
+| PHONE\_USAGE         | phone\_use                   | = 1 while driving     | Cloud         |
+| LANE\_DEPARTURE      | laneDepartureWarning         | = 1                   | Cloud or Edge |
+| TAILGATING           | forwardCollisionDistance (m) | < 2.0                 | Cloud         |
+| DROWSY\_DRIVING      | driverDrowsinessLevel        | >= 1                  | Cloud         |
+| AEB\_ACTIVATION      | aeb\_act                     | = 1                   | Edge          |
+| ESC\_ACTIVATION      | esc\_act                     | = 1                   | Edge          |
 
 Cloud detection evaluates rules in the SafetyProcessor Flink application against every telemetry message on the `cms-telemetry-safety` Kafka topic. Edge detection uses FleetWise condition-based campaigns where the FWE agent detects the event on the vehicle and reports it directly. Both detection methods write to the same `cms-{stage}-storage-safety-events` DynamoDB table.
 
@@ -210,18 +210,18 @@ The event catalog is seeded by `make seed-event-catalog` and can be modified at 
 
 The MaintenanceProcessor uses the following thresholds to generate maintenance alerts:
 
-| Alert Type         | Trigger Signal | Threshold | DTC Code |
-| ------------------ | -------------- | --------- | -------- |
-| LOW_OIL_PRESSURE   | OilPressure    | < 15 PSI  | P0520    |
-| HIGH_ENGINE_TEMP   | EngineTemp     | > 230°F   | P0217    |
-| LOW_BATTERY        | BatteryVoltage | < 11.5V   | P0562    |
-| ENGINE_OVERSPEED   | EngineRPM      | > 6000    | P0219    |
-| LOW_FUEL           | FuelLevel      | < 5%      | P0461    |
-| BRAKE_WEAR         | BrakeWear      | < 20%     | P0301    |
-| TIRE_PRESSURE      | TirePressureXX | < 25 PSI  | C1234    |
-| OIL_LIFE_LOW       | OilLife        | < 10%     | P0524    |
-| FILTER_REPLACEMENT | FilterLife     | < 15%     | P0102    |
-| TIRE_TREAD_LOW     | TireTreadXX    | < 3mm     | C1235    |
+| Alert Type          | Trigger Signal | Threshold | DTC Code |
+| ------------------- | -------------- | --------- | -------- |
+| LOW\_OIL\_PRESSURE  | OilPressure    | < 15 PSI  | P0520    |
+| HIGH\_ENGINE\_TEMP  | EngineTemp     | > 230°F   | P0217    |
+| LOW\_BATTERY        | BatteryVoltage | < 11.5V   | P0562    |
+| ENGINE\_OVERSPEED   | EngineRPM      | > 6000    | P0219    |
+| LOW\_FUEL           | FuelLevel      | < 5%      | P0461    |
+| BRAKE\_WEAR         | BrakeWear      | < 20%     | P0301    |
+| TIRE\_PRESSURE      | TirePressureXX | < 25 PSI  | C1234    |
+| OIL\_LIFE\_LOW      | OilLife        | < 10%     | P0524    |
+| FILTER\_REPLACEMENT | FilterLife     | < 15%     | P0102    |
+| TIRE\_TREAD\_LOW    | TireTreadXX    | < 3mm     | C1235    |
 
 ## Decoder manifest
 

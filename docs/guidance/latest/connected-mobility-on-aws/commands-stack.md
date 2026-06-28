@@ -11,7 +11,7 @@ The remote commands system uses a request/response pattern over MQTT:
 3. Command is stored in DynamoDB with status `SENT`
 4. Vehicle (or simulator) receives the command, executes it, and publishes a response to `cms/commands/{vehicleId}/response`
 5. IoT Rule triggers the Command Response Handler Lambda
-6. Response Handler updates the command status in DynamoDB (SUCCEEDED, FAILED, TIMEOUT, IN_PROGRESS)
+6. Response Handler updates the command status in DynamoDB (SUCCEEDED, FAILED, TIMEOUT, IN\_PROGRESS)
 7. Response Handler calculates round-trip latency in milliseconds
 
 ## Command API endpoints
@@ -88,19 +88,19 @@ Each actuator definition includes:
 
 ## Commands table schema
 
-| Attribute   | Type        | Description                                   |
-| ----------- | ----------- | --------------------------------------------- |
-| commandId   | String (PK) | Unique command identifier (UUID prefix)       |
-| vehicleId   | String      | Target vehicle ID (GSI: vehicleId-index)      |
-| commandName | String      | Command name from catalog                     |
-| value       | String      | Command value                                 |
-| status      | String      | SENT, IN_PROGRESS, SUCCEEDED, FAILED, TIMEOUT |
-| issuedAt    | String      | ISO 8601 timestamp when command was sent      |
-| respondedAt | String      | ISO 8601 timestamp when response was received |
-| latencyMs   | Number      | Round-trip latency in milliseconds            |
-| reason      | String      | Failure reason (if status is FAILED)          |
-| resultValue | String      | Value returned by the vehicle                 |
-| ttl         | Number      | DynamoDB TTL (7 days after creation)          |
+| Attribute   | Type        | Description                                    |
+| ----------- | ----------- | ---------------------------------------------- |
+| commandId   | String (PK) | Unique command identifier (UUID prefix)        |
+| vehicleId   | String      | Target vehicle ID (GSI: vehicleId-index)       |
+| commandName | String      | Command name from catalog                      |
+| value       | String      | Command value                                  |
+| status      | String      | SENT, IN\_PROGRESS, SUCCEEDED, FAILED, TIMEOUT |
+| issuedAt    | String      | ISO 8601 timestamp when command was sent       |
+| respondedAt | String      | ISO 8601 timestamp when response was received  |
+| latencyMs   | Number      | Round-trip latency in milliseconds             |
+| reason      | String      | Failure reason (if status is FAILED)           |
+| resultValue | String      | Value returned by the vehicle                  |
+| ttl         | Number      | DynamoDB TTL (7 days after creation)           |
 
 ## Geofence management
 

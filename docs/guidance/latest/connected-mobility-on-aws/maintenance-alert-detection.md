@@ -13,43 +13,43 @@ A vehicle can be both (hybrid). The processor applies the appropriate maintenanc
 
 ## ICE vehicle alerts
 
-| Alert Type           | Severity | Condition            | DTC Code |
-| -------------------- | -------- | -------------------- | -------- |
-| OIL_CHANGE_OVERDUE   | CRITICAL | oil_life < 10%       | P0524    |
-| OIL_CHANGE_DUE       | HIGH     | oil_life < 25%       | P0524    |
-| OIL_PRESSURE_LOW     | CRITICAL | oilPressure < 15 PSI | P0520    |
-| OIL_PRESSURE_WARNING | HIGH     | oilPressure < 25 PSI | P0520    |
-| ENGINE_OVERHEATING   | CRITICAL | engineTemp > 230°F   | P0217    |
-| ENGINE_RUNNING_HOT   | HIGH     | engineTemp > 210°F   | P0217    |
-| COOLANT_OVERHEATING  | CRITICAL | coolant_temp > 220°F | P0217    |
+| Alert Type             | Severity | Condition             | DTC Code |
+| ---------------------- | -------- | --------------------- | -------- |
+| OIL\_CHANGE\_OVERDUE   | CRITICAL | oil\_life < 10%       | P0524    |
+| OIL\_CHANGE\_DUE       | HIGH     | oil\_life < 25%       | P0524    |
+| OIL\_PRESSURE\_LOW     | CRITICAL | oilPressure < 15 PSI  | P0520    |
+| OIL\_PRESSURE\_WARNING | HIGH     | oilPressure < 25 PSI  | P0520    |
+| ENGINE\_OVERHEATING    | CRITICAL | engineTemp > 230°F    | P0217    |
+| ENGINE\_RUNNING\_HOT   | HIGH     | engineTemp > 210°F    | P0217    |
+| COOLANT\_OVERHEATING   | CRITICAL | coolant\_temp > 220°F | P0217    |
 
 ## EV vehicle alerts
 
-| Alert Type                   | Severity | Condition                                           |
-| ---------------------------- | -------- | --------------------------------------------------- |
-| HV_BATTERY_VOLTAGE_LOW       | CRITICAL | volt < 300V (battery pack failure risk)             |
-| HV_BATTERY_DEGRADATION       | HIGH     | volt < 320V (capacity loss)                         |
-| HV_BATTERY_OVERVOLTAGE       | CRITICAL | volt > 450V (charger malfunction)                   |
-| BATTERY_CRITICALLY_LOW       | CRITICAL | soc < 5%                                            |
-| BATTERY_LOW_WARNING          | HIGH     | soc < 15%                                           |
-| BATTERY_CAPACITY_DEGRADATION | MEDIUM   | soc > 95% AND volt < 380V (full charge voltage low) |
-| REGEN_BRAKING_EXCESSIVE      | MEDIUM   | regen_pwr < -50 kW                                  |
-| BATTERY_COOLING_OVERTEMP     | HIGH     | coolant_temp > 60°F (thermal management failure)    |
-| MOTOR_OVERHEATING            | CRITICAL | engineTemp > 150°F (motor protection required)      |
-| MOTOR_RUNNING_HOT            | HIGH     | engineTemp > 130°F                                  |
-| CHARGING_SYSTEM_OVERVOLTAGE  | HIGH     | batteryVoltage > 15V (12V system)                   |
+| Alert Type                     | Severity | Condition                                           |
+| ------------------------------ | -------- | --------------------------------------------------- |
+| HV\_BATTERY\_VOLTAGE\_LOW      | CRITICAL | volt < 300V (battery pack failure risk)             |
+| HV\_BATTERY\_DEGRADATION       | HIGH     | volt < 320V (capacity loss)                         |
+| HV\_BATTERY\_OVERVOLTAGE       | CRITICAL | volt > 450V (charger malfunction)                   |
+| BATTERY\_CRITICALLY\_LOW       | CRITICAL | soc < 5%                                            |
+| BATTERY\_LOW\_WARNING          | HIGH     | soc < 15%                                           |
+| BATTERY\_CAPACITY\_DEGRADATION | MEDIUM   | soc > 95% AND volt < 380V (full charge voltage low) |
+| REGEN\_BRAKING\_EXCESSIVE      | MEDIUM   | regen\_pwr < -50 kW                                 |
+| BATTERY\_COOLING\_OVERTEMP     | HIGH     | coolant\_temp > 60°F (thermal management failure)   |
+| MOTOR\_OVERHEATING             | CRITICAL | engineTemp > 150°F (motor protection required)      |
+| MOTOR\_RUNNING\_HOT            | HIGH     | engineTemp > 130°F                                  |
+| CHARGING\_SYSTEM\_OVERVOLTAGE  | HIGH     | batteryVoltage > 15V (12V system)                   |
 
 ## Common alerts (ICE and EV)
 
-| Alert Type                 | Severity | Condition                            |
-| -------------------------- | -------- | ------------------------------------ |
-| BRAKE_REPLACEMENT_CRITICAL | CRITICAL | brake_wear < 20% (ICE) or < 15% (EV) |
-| BRAKE_REPLACEMENT_DUE      | HIGH     | brake_wear < 35% (ICE) or < 30% (EV) |
-| TIRE_REPLACEMENT_CRITICAL  | CRITICAL | any tire tread < 2.0mm               |
-| TIRE_REPLACEMENT_DUE       | HIGH     | any tire tread < 4.0mm               |
-| FILTER_REPLACEMENT         | HIGH     | filter_life < 15%                    |
-| LOW_BATTERY_12V            | CRITICAL | batteryVoltage < 11.5V               |
-| DTC_ACTIVE                 | HIGH     | dtc_codes_active = 1                 |
+| Alert Type                   | Severity | Condition                             |
+| ---------------------------- | -------- | ------------------------------------- |
+| BRAKE\_REPLACEMENT\_CRITICAL | CRITICAL | brake\_wear < 20% (ICE) or < 15% (EV) |
+| BRAKE\_REPLACEMENT\_DUE      | HIGH     | brake\_wear < 35% (ICE) or < 30% (EV) |
+| TIRE\_REPLACEMENT\_CRITICAL  | CRITICAL | any tire tread < 2.0mm                |
+| TIRE\_REPLACEMENT\_DUE       | HIGH     | any tire tread < 4.0mm                |
+| FILTER\_REPLACEMENT          | HIGH     | filter\_life < 15%                    |
+| LOW\_BATTERY\_12V            | CRITICAL | batteryVoltage < 11.5V                |
+| DTC\_ACTIVE                  | HIGH     | dtc\_codes\_active = 1                |
 
 Note: EV vehicles have higher brake wear thresholds because regenerative braking reduces mechanical brake usage.
 

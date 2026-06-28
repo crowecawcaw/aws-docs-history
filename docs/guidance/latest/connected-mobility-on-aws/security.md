@@ -10,7 +10,7 @@ Security is built into every layer of the Connected Mobility guidance:
 
 **Device Authentication** - X.509 certificates provide mutual authentication between vehicles and AWS IoT Core, ensuring only authorized devices can connect.
 
-**Data in Transit** - All communication uses TLS encryption, including MQTT over TLS for vehicle communication and SASL_SSL for Kafka communication.
+**Data in Transit** - All communication uses TLS encryption, including MQTT over TLS for vehicle communication and SASL\_SSL for Kafka communication.
 
 **Access Control** - IAM roles and policies provide fine-grained access control for all AWS services, following the principle of least privilege.
 

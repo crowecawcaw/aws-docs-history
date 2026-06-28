@@ -52,7 +52,7 @@ A Python-based vehicle simulator generates realistic telemetry data for testing 
 
 **Remote Vehicle Commands**
 
-The solution enables bidirectional communication with vehicles through a remote commands system. Fleet managers send commands (door locks, lights, climate control, horn, engine start/stop) from the web application, which are published to vehicles via IoT Core MQTT. The system tracks command execution status (SENT, IN_PROGRESS, SUCCEEDED, FAILED, TIMEOUT) and measures round-trip latency. The command catalog is dynamically derived from actuatable signals in the signal catalog, making it extensible without code changes.
+The solution enables bidirectional communication with vehicles through a remote commands system. Fleet managers send commands (door locks, lights, climate control, horn, engine start/stop) from the web application, which are published to vehicles via IoT Core MQTT. The system tracks command execution status (SENT, IN\_PROGRESS, SUCCEEDED, FAILED, TIMEOUT) and measures round-trip latency. The command catalog is dynamically derived from actuatable signals in the signal catalog, making it extensible without code changes.
 
 **Geofence Management**
 
