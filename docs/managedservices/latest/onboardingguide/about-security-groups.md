@@ -42,21 +42,21 @@ security groups, per VPC, in either the AWS EC2 console or VPC console.
 
 There are additional default security groups that are used for internal AMS purposes.
 
-| AMS default security groups (inbound traffic) | Type | Protocol                                                                   | Port range                                                                                                    | Source |
-| --------------------------------------------- | ---- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------ |
-| All traffic                                   | All  | All                                                                        | SentinelDefaultSecurityGroupPrivateOnly (restricts outbound traffic to members of the same<br>security group) |
-| All traffic                                   | All  | All                                                                        | SentinelDefaultSecurityGroupPrivateOnlyEgressAll (does not restrict outbound traffic)                         |
-| HTTP, HTTPS, SSH, RDP                         | TCP  | 80 / 443 (Source 0.0.0.0/0)<br>SSH and RDP access is allowed from bastions | SentinelDefaultSecurityGroupPublic (does not restrict outbound traffic)                                       |
-| **MALZ bastions**:                            |
-| SSH                                           | TCP  | 22                                                                         | SharedServices VPC CIDR and DMZ VPC CIDR, plus Customer-provided on-prem CIDRs                                |
-| SSH                                           | TCP  | 22                                                                         |
-| RDP                                           | TCP  | 3389                                                                       |
-| RDP                                           | TCP  | 3389                                                                       |
-| **SALZ bastions**:                            |
-| SSH                                           | TCP  | 22                                                                         | mc-initial-garden-LinuxBastionSG                                                                              |
-| SSH                                           | TCP  | 22                                                                         | mc-initial-garden-LinuxBastionDMZSG                                                                           |
-| RDP                                           | TCP  | 3389                                                                       | mc-initial-garden-WindowsBastionSG                                                                            |
-| RDP                                           | TCP  | 3389                                                                       | mc-initial-garden-WindowsBastionDMZSG                                                                         |
+AMS default security groups (inbound traffic)| Type | Protocol | Port range | Source |
+| --- | --- | --- | --- |
+| All traffic | All | All | SentinelDefaultSecurityGroupPrivateOnly (restricts outbound traffic to members of the same<br>security group) |
+| All traffic | All | All | SentinelDefaultSecurityGroupPrivateOnlyEgressAll (does not restrict outbound traffic) |
+| HTTP, HTTPS, SSH, RDP | TCP | 80 / 443 (Source 0.0.0.0/0)<br>SSH and RDP access is allowed from bastions | SentinelDefaultSecurityGroupPublic (does not restrict outbound traffic) |
+| **MALZ bastions**: |
+| SSH | TCP | 22 | SharedServices VPC CIDR and DMZ VPC CIDR, plus Customer-provided on-prem CIDRs |
+| SSH | TCP | 22 |
+| RDP | TCP | 3389 |
+| RDP | TCP | 3389 |
+| **SALZ bastions**: |
+| SSH | TCP | 22 | mc-initial-garden-LinuxBastionSG |
+| SSH | TCP | 22 | mc-initial-garden-LinuxBastionDMZSG |
+| RDP | TCP | 3389 | mc-initial-garden-WindowsBastionSG |
+| RDP | TCP | 3389 | mc-initial-garden-WindowsBastionDMZSG |
 
 SALZ
 The following table describes the default inbound security group (SG) settings for your stacks.
@@ -76,21 +76,21 @@ security groups, per VPC, in either the AWS EC2 console or VPC console.
 
 There are additional default security groups that are used for internal AMS purposes.
 
-| AMS default security groups (inbound traffic) | Type | Protocol                                                                   | Port range                                                                                                    | Source |
-| --------------------------------------------- | ---- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------ |
-| All traffic                                   | All  | All                                                                        | SentinelDefaultSecurityGroupPrivateOnly (restricts outbound traffic to members of the same<br>security group) |
-| All traffic                                   | All  | All                                                                        | SentinelDefaultSecurityGroupPrivateOnlyEgressAll (does not restrict outbound traffic)                         |
-| HTTP, HTTPS, SSH, RDP                         | TCP  | 80 / 443 (Source 0.0.0.0/0)<br>SSH and RDP access is allowed from bastions | SentinelDefaultSecurityGroupPublic (does not restrict outbound traffic)                                       |
-| **MALZ bastions**:                            |
-| SSH                                           | TCP  | 22                                                                         | SharedServices VPC CIDR and DMZ VPC CIDR, plus Customer-provided on-prem CIDRs                                |
-| SSH                                           | TCP  | 22                                                                         |
-| RDP                                           | TCP  | 3389                                                                       |
-| RDP                                           | TCP  | 3389                                                                       |
-| **SALZ bastions**:                            |
-| SSH                                           | TCP  | 22                                                                         | mc-initial-garden-LinuxBastionSG                                                                              |
-| SSH                                           | TCP  | 22                                                                         | mc-initial-garden-LinuxBastionDMZSG                                                                           |
-| RDP                                           | TCP  | 3389                                                                       | mc-initial-garden-WindowsBastionSG                                                                            |
-| RDP                                           | TCP  | 3389                                                                       | mc-initial-garden-WindowsBastionDMZSG                                                                         |
+AMS default security groups (inbound traffic)| Type | Protocol | Port range | Source |
+| --- | --- | --- | --- |
+| All traffic | All | All | SentinelDefaultSecurityGroupPrivateOnly (restricts outbound traffic to members of the same<br>security group) |
+| All traffic | All | All | SentinelDefaultSecurityGroupPrivateOnlyEgressAll (does not restrict outbound traffic) |
+| HTTP, HTTPS, SSH, RDP | TCP | 80 / 443 (Source 0.0.0.0/0)<br>SSH and RDP access is allowed from bastions | SentinelDefaultSecurityGroupPublic (does not restrict outbound traffic) |
+| **MALZ bastions**: |
+| SSH | TCP | 22 | SharedServices VPC CIDR and DMZ VPC CIDR, plus Customer-provided on-prem CIDRs |
+| SSH | TCP | 22 |
+| RDP | TCP | 3389 |
+| RDP | TCP | 3389 |
+| **SALZ bastions**: |
+| SSH | TCP | 22 | mc-initial-garden-LinuxBastionSG |
+| SSH | TCP | 22 | mc-initial-garden-LinuxBastionDMZSG |
+| RDP | TCP | 3389 | mc-initial-garden-WindowsBastionSG |
+| RDP | TCP | 3389 | mc-initial-garden-WindowsBastionDMZSG |
 
 ## Create, Change, or Delete Security Groups
 

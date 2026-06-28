@@ -5,10 +5,10 @@ account onboarding.
 These roles allow you to submit and monitor RFCs, service requests, and incident reports, as well as get information on your VPCs
 and stacks.
 
-| Role                          | Identity Provider | Permissions                                                                                                                                           |
-| ----------------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Customer_ReadOnly_Role        | SAML              | For standard AMS accounts. Allows you to submit RFCs to make changes to AMS-managed infrastructure, as well as create service requests and incidents. |
-| customer_managed_ad_user_role | SAML              | For AMS Managed Active Directory accounts. Allows you to login to the AMS Console to create service requests and incidents (no RFCs).                 |
+| Role                              | Identity Provider | Permissions                                                                                                                                           |
+| --------------------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Customer\_ReadOnly\_Role          | SAML              | For standard AMS accounts. Allows you to submit RFCs to make changes to AMS-managed infrastructure, as well as create service requests and incidents. |
+| customer\_managed\_ad\_user\_role | SAML              | For AMS Managed Active Directory accounts. Allows you to login to the AMS Console to create service requests and incidents (no RFCs).                 |
 
 For the full list of the roles available under different accounts see
 [IAM user role in AMS](defaults-user-role.md "defaults-user-role.md").
@@ -43,12 +43,12 @@ c:[Type == "http://temp/variable", Value =~ "(?i)^AWS-([^d]{12})-"]
 ```
 
 When using AD FS, you must create Active Directory security groups for each
-role in the format shown in the following table (customer_managed_ad_user_role is for AMS Managed AD accounts only):
+role in the format shown in the following table (customer\_managed\_ad\_user\_role is for AMS Managed AD accounts only):
 
-| Group                                         | Role                          |
-| --------------------------------------------- | ----------------------------- |
-| AWS-[AccountNo]-Customer_ReadOnly_Role        | Customer_ReadOnly_Role        |
-| AWS-[AccountNo]-customer_managed_ad_user_role | customer_managed_ad_user_role |
+| Group                                             | Role                              |
+| ------------------------------------------------- | --------------------------------- |
+| AWS-[AccountNo]-Customer\_ReadOnly\_Role          | Customer\_ReadOnly\_Role          |
+| AWS-[AccountNo]-customer\_managed\_ad\_user\_role | customer\_managed\_ad\_user\_role |
 
 For further information, see [Configuring SAML Assertions for the Authentication Response](../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md "../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md").
 

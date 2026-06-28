@@ -51,69 +51,69 @@ or sign in to the AWS Management ->
 A core account is an MALZ-managed infrastructure account. AMS multi-account landing zone Core accounts include a management account
 and a networking account.
 
-| Core OU account: Common roles and policies                    | Role                                                       | Policy or policies |
-| ------------------------------------------------------------- | ---------------------------------------------------------- | ------------------ |
-| AWSManagedServicesReadOnlyRole                                | [ReadOnlyAccess](#ROA "#ROA") (Public AWS Managed Policy). |
-| AWSManagedServicesCaseRole                                    | [ReadOnlyAccess](#ROA "#ROA")                              |
-| [AWSSupportAccess](#SAP "#SAP") (Public AWS Managed Policy).  |
-| AWSManagedServicesChangeManagementRole (Core account version) | [ReadOnlyAccess](#ROA "#ROA")                              |
-| [AWSSupportAccess](#SAP "#SAP")                               |
-| [AMSChangeManagementReadOnlyPolicy](#ROP "#ROP")              |
-| [AMSChangeManagementInfrastructurePolicy](#INP "#INP")        |
+Core OU account: Common roles and policies| Role | Policy or policies |
+| --- | --- |
+| AWSManagedServicesReadOnlyRole | [ReadOnlyAccess](#ROA "#ROA") (Public AWS Managed Policy). |
+| AWSManagedServicesCaseRole | [ReadOnlyAccess](#ROA "#ROA") |
+| [AWSSupportAccess](#SAP "#SAP") (Public AWS Managed Policy). |
+| AWSManagedServicesChangeManagementRole (Core account version) | [ReadOnlyAccess](#ROA "#ROA") |
+| [AWSSupportAccess](#SAP "#SAP") |
+| [AMSChangeManagementReadOnlyPolicy](#ROP "#ROP") |
+| [AMSChangeManagementInfrastructurePolicy](#INP "#INP") |
 
-| Core OU account: Management account roles and policies                              | Role                                                       | Policy or policies |
-| ----------------------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------ |
-| AWSManagedServicesBillingRole                                                       | [AMSBillingPolicy](#ABP "#ABP") (AMSBillingPolicy).        |
-| AWSManagedServicesReadOnlyRole                                                      | [ReadOnlyAccess](#ROA "#ROA") (Public AWS Managed Policy). |
-| AWSManagedServicesCaseRole                                                          | [ReadOnlyAccess](#ROA "#ROA")                              |
-| [AWSSupportAccess](#SAP "#SAP") (Public AWS Managed Policy).                        |
-| AWSManagedServicesChangeManagementRole (Management account version)                 | [ReadOnlyAccess](#ROA "#ROA")                              |
-| [AWSSupportAccess](#SAP "#SAP")                                                     |
-| [AMSChangeManagementReadOnlyPolicy](#ROP "#ROP")                                    |
-| [AMSChangeManagementInfrastructurePolicy](#INP "#INP")                              |
+Core OU account: Management account roles and policies| Role | Policy or policies |
+| --- | --- |
+| AWSManagedServicesBillingRole | [AMSBillingPolicy](#ABP "#ABP") (AMSBillingPolicy). |
+| AWSManagedServicesReadOnlyRole | [ReadOnlyAccess](#ROA "#ROA") (Public AWS Managed Policy). |
+| AWSManagedServicesCaseRole | [ReadOnlyAccess](#ROA "#ROA") |
+| [AWSSupportAccess](#SAP "#SAP") (Public AWS Managed Policy). |
+| AWSManagedServicesChangeManagementRole (Management account version) | [ReadOnlyAccess](#ROA "#ROA") |
+| [AWSSupportAccess](#SAP "#SAP") |
+| [AMSChangeManagementReadOnlyPolicy](#ROP "#ROP") |
+| [AMSChangeManagementInfrastructurePolicy](#INP "#INP") |
 | [AMSMasterAccountSpecificChangeManagementInfrastructurePolicy](#MASCMIP "#MASCMIP") |
 
-| Core OU Account: Networking account roles and policies                                  | Role                                                       | Policy or policies |
-| --------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------ |
-| AWSManagedServicesReadOnlyRole                                                          | [ReadOnlyAccess](#ROA "#ROA") (Public AWS Managed Policy). |
-| AWSManagedServicesCaseRole                                                              | [ReadOnlyAccess](#ROA "#ROA")                              |
-| [AWSSupportAccess](#SAP "#SAP") (Public AWS Managed Policy).                            |
-| AWSManagedServicesChangeManagementRole (Networking account version)                     | [ReadOnlyAccess](#ROA "#ROA")                              |
-| [AWSSupportAccess](#SAP "#SAP")                                                         |
-| [AMSChangeManagementReadOnlyPolicy](#ROP "#ROP")                                        |
-| [AMSChangeManagementInfrastructurePolicy](#INP "#INP")                                  |
+Core OU Account: Networking account roles and policies| Role | Policy or policies |
+| --- | --- |
+| AWSManagedServicesReadOnlyRole | [ReadOnlyAccess](#ROA "#ROA") (Public AWS Managed Policy). |
+| AWSManagedServicesCaseRole | [ReadOnlyAccess](#ROA "#ROA") |
+| [AWSSupportAccess](#SAP "#SAP") (Public AWS Managed Policy). |
+| AWSManagedServicesChangeManagementRole (Networking account version) | [ReadOnlyAccess](#ROA "#ROA") |
+| [AWSSupportAccess](#SAP "#SAP") |
+| [AMSChangeManagementReadOnlyPolicy](#ROP "#ROP") |
+| [AMSChangeManagementInfrastructurePolicy](#INP "#INP") |
 | [AMSNetworkingAccountSpecificChangeManagementInfrastructurePolicy](#NASCMIP "#NASCMIP") |
 
 ### Application Account Roles
 
 Application account roles are applied to your application-specific accounts.
 
-| Application account: Roles and policies                                                                                                                                                                                                                                                                      | Role                                                       | Policy or policies |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- | ------------------ |
-| AWSManagedServicesReadOnlyRole                                                                                                                                                                                                                                                                               | [ReadOnlyAccess](#ROA "#ROA") (Public AWS Managed Policy). |
-| AWSManagedServicesCaseRole                                                                                                                                                                                                                                                                                   | [ReadOnlyAccess](#ROA "#ROA")                              |
-| [AWSSupportAccess](#SAP "#SAP") (Public AWS Managed Policy).<br>This policy provides access to all support operations and resources. For<br>information, see [Getting Started with AWS Support](../../../awssupport/latest/user/getting-started.md "../../../awssupport/latest/user/getting-started.md").    |
-| AWSManagedServicesSecurityOpsRole                                                                                                                                                                                                                                                                            | [ReadOnlyAccess](#ROA "#ROA")                              |
-| AWSSupportAccess [Example](#SAP "#SAP")<br>This policy provides access to all support operations and resources.                                                                                                                                                                                              |
-| [`AWSCertificateManagerFullAccess`](../../../acm/latest/userguide/authen-awsmanagedpolicies.md#acm-full-access-managed-policy "../../../acm/latest/userguide/authen-awsmanagedpolicies.md#acm-full-access-managed-policy") information, (Public AWS Managed Policy)                                          |
-| [`AWSWAFFullAccess`](../../../waf/latest/developerguide/access-control-identity-based.md "../../../waf/latest/developerguide/access-control-identity-based.md") information, (Public AWS Managed policy). This policy grants full access to AWS WAF resources.                                               |
-| [AMSSecretsManagerSharedPolicy](#SMS "#SMS")                                                                                                                                                                                                                                                                 |
-| AWSManagedServicesChangeManagementRole (Application account version)                                                                                                                                                                                                                                         | [ReadOnlyAccess](#ROA "#ROA")                              |
+Application account: Roles and policies| Role | Policy or policies |
+| --- | --- |
+| AWSManagedServicesReadOnlyRole | [ReadOnlyAccess](#ROA "#ROA") (Public AWS Managed Policy). |
+| AWSManagedServicesCaseRole | [ReadOnlyAccess](#ROA "#ROA") |
+| [AWSSupportAccess](#SAP "#SAP") (Public AWS Managed Policy).<br>This policy provides access to all support operations and resources. For<br>information, see [Getting Started with AWS Support](../../../awssupport/latest/user/getting-started.md "../../../awssupport/latest/user/getting-started.md"). |
+| AWSManagedServicesSecurityOpsRole | [ReadOnlyAccess](#ROA "#ROA") |
+| AWSSupportAccess [Example](#SAP "#SAP")<br>This policy provides access to all support operations and resources. |
+| [`AWSCertificateManagerFullAccess`](../../../acm/latest/userguide/authen-awsmanagedpolicies.md#acm-full-access-managed-policy "../../../acm/latest/userguide/authen-awsmanagedpolicies.md#acm-full-access-managed-policy") information, (Public AWS Managed Policy) |
+| [`AWSWAFFullAccess`](../../../waf/latest/developerguide/access-control-identity-based.md "../../../waf/latest/developerguide/access-control-identity-based.md") information, (Public AWS Managed policy). This policy grants full access to AWS WAF resources. |
+| [AMSSecretsManagerSharedPolicy](#SMS "#SMS") |
+| AWSManagedServicesChangeManagementRole (Application account version) | [ReadOnlyAccess](#ROA "#ROA") |
 | [AWSSupportAccess](#SAP "#SAP") (Public AWS Managed Policy).<br>This policy provides access to all support operations and resources. For<br>information, see [Getting Started<br>with AWS Support](../../../awssupport/latest/user/getting-started.md "../../../awssupport/latest/user/getting-started.md"). |
-| [AMSSecretsManagerSharedPolicy](#SMS "#SMS")                                                                                                                                                                                                                                                                 |
-| [AMSChangeManagementPolicy](#CMP "#CMP")                                                                                                                                                                                                                                                                     |
-| [AMSReservedInstancesPolicy](#RIP "#RIP")                                                                                                                                                                                                                                                                    |
-| [AMSS3Policy](#S3P "#S3P")                                                                                                                                                                                                                                                                                   |
-| AWSManagedServicesAdminRole                                                                                                                                                                                                                                                                                  | [ReadOnlyAccess](#ROA "#ROA")                              |
-| [AWSSupportAccess](#SAP "#SAP")                                                                                                                                                                                                                                                                              |
-| [AMSChangeManagementInfrastructurePolicy](#INP "#INP")                                                                                                                                                                                                                                                       |
-| [AWSMarketplaceManageSubscriptions](#MMS "#MMS")                                                                                                                                                                                                                                                             |
-| [AMSSecretsManagerSharedPolicy](#SMS "#SMS")                                                                                                                                                                                                                                                                 |
-| [AMSChangeManagementPolicy](#CMP "#CMP")                                                                                                                                                                                                                                                                     |
-| [AWSCertificateManagerFullAccess](#CMFA "#CMFA")                                                                                                                                                                                                                                                             |
-| [AWSWAFFullAccess](#WAF "#WAF")                                                                                                                                                                                                                                                                              |
-| [AMSS3Policy](#S3P "#S3P")                                                                                                                                                                                                                                                                                   |
-| [AMSReservedInstancesPolicy](#RIP "#RIP")                                                                                                                                                                                                                                                                    |
+| [AMSSecretsManagerSharedPolicy](#SMS "#SMS") |
+| [AMSChangeManagementPolicy](#CMP "#CMP") |
+| [AMSReservedInstancesPolicy](#RIP "#RIP") |
+| [AMSS3Policy](#S3P "#S3P") |
+| AWSManagedServicesAdminRole | [ReadOnlyAccess](#ROA "#ROA") |
+| [AWSSupportAccess](#SAP "#SAP") |
+| [AMSChangeManagementInfrastructurePolicy](#INP "#INP") |
+| [AWSMarketplaceManageSubscriptions](#MMS "#MMS") |
+| [AMSSecretsManagerSharedPolicy](#SMS "#SMS") |
+| [AMSChangeManagementPolicy](#CMP "#CMP") |
+| [AWSCertificateManagerFullAccess](#CMFA "#CMFA") |
+| [AWSWAFFullAccess](#WAF "#WAF") |
+| [AMSS3Policy](#S3P "#S3P") |
+| [AMSReservedInstancesPolicy](#RIP "#RIP") |
 
 ### Policy Examples
 

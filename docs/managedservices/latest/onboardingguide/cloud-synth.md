@@ -17,15 +17,15 @@ To learn more, see [Amazon CloudWatch: Using synthetic monitoring](../../../Amaz
 
 Request access to Amazon CloudWatch Synthetics by submitting an RFC with the
 Management | AWS service | Self-provisioned
-service | Add (ct-1w8z66n899dct) change type. This RFC provisions the following IAM role to your account: 'customer_cw_synthetics_console_role'
-and 'customer_cw_synthetics_canary_lambda_role'. Once provisioned in your account, you must onboard the
-'customer_cw_synthetics_console_role' role in your federation solution.
+service | Add (ct-1w8z66n899dct) change type. This RFC provisions the following IAM role to your account: 'customer\_cw\_synthetics\_console\_role'
+and 'customer\_cw\_synthetics\_canary\_lambda\_role'. Once provisioned in your account, you must onboard the
+'customer\_cw\_synthetics\_console\_role' role in your federation solution.
 
 **Q: What are the restrictions to using Amazon CloudWatch Synthetics in my AMS account?**
 
 There are no restrictions for the use of Amazon CloudWatch Synthetics in your AMS account.
 Creating roles for canaries outside of
-the AMS-provided service role 'customer_cw_synthetics_canary_lambda_role' is prohibited.
+the AMS-provided service role 'customer\_cw\_synthetics\_canary\_lambda\_role' is prohibited.
 
 **Q: What are the prerequisites or dependencies to using Amazon CloudWatch Synthetics in
 my AMS account?**

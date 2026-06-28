@@ -65,26 +65,24 @@ AWS CloudFormation template and must be explicitly added.
 - You cannot create custom IAM roles.
 - Service Actions are limited to:
 
-      + [AWS-RebootRdsInstance](https://console.aws.amazon.com/systems-manager/documents/AWS-RebootRdsInstance/description?region=us-east-1 "https://console.aws.amazon.com/systems-manager/documents/AWS-RebootRdsInstance/description?region=us-east-1")
-      + [AWS-RestartEC2Instance](https://console.aws.amazon.com/systems-manager/documents/AWS-RestartEC2Instance/description?region=us-east-1 "https://console.aws.amazon.com/systems-manager/documents/AWS-RestartEC2Instance/description?region=us-east-1")
-      + [AWS-StartEC2Instance](https://console.aws.amazon.com/systems-manager/documents/AWS-StartEC2Instance/description?region=us-east-1 "https://console.aws.amazon.com/systems-manager/documents/AWS-StartEC2Instance/description?region=us-east-1")
-      + [AWS-StartRdsInstance](https://console.aws.amazon.com/systems-manager/documents/AWS-StartRdsInstance/description?region=us-east-1 "https://console.aws.amazon.com/systems-manager/documents/AWS-StartRdsInstance/description?region=us-east-1")
-      + [AWS-StopEC2Instance](https://console.aws.amazon.com/systems-manager/documents/AWS-StopEC2Instance/description?region=us-east-1 "https://console.aws.amazon.com/systems-manager/documents/AWS-StopEC2Instance/description?region=us-east-1")
-      + [AWS-StopRdsInstance](https://console.aws.amazon.com/systems-manager/documents/AWS-StopRdsInstance/description?region=us-east-1 "https://console.aws.amazon.com/systems-manager/documents/AWS-StopRdsInstance/description?region=us-east-1")
-      + [AWS-CreateImage](https://console.aws.amazon.com/systems-manager/documents/AWS-CreateImage/description?region=us-east-1 "https://console.aws.amazon.com/systems-manager/documents/AWS-CreateImage/description?region=us-east-1")
-      + [AWS-CreateRdsSnapshot](https://console.aws.amazon.com/systems-manager/documents/AWS-CreateRdsSnapshot/description?region=us-east-1 "https://console.aws.amazon.com/systems-manager/documents/AWS-CreateRdsSnapshot/description?region=us-east-1")
-      + [AWS-CreateSnapshot](https://console.aws.amazon.com/systems-manager/documents/AWS-CreateSnapshot/description?region=us-east-1 "https://console.aws.amazon.com/systems-manager/documents/AWS-CreateSnapshot/description?region=us-east-1")
+  - [AWS-RebootRdsInstance](https://console.aws.amazon.com/systems-manager/documents/AWS-RebootRdsInstance/description?region=us-east-1 "https://console.aws.amazon.com/systems-manager/documents/AWS-RebootRdsInstance/description?region=us-east-1")
+  - [AWS-RestartEC2Instance](https://console.aws.amazon.com/systems-manager/documents/AWS-RestartEC2Instance/description?region=us-east-1 "https://console.aws.amazon.com/systems-manager/documents/AWS-RestartEC2Instance/description?region=us-east-1")
+  - [AWS-StartEC2Instance](https://console.aws.amazon.com/systems-manager/documents/AWS-StartEC2Instance/description?region=us-east-1 "https://console.aws.amazon.com/systems-manager/documents/AWS-StartEC2Instance/description?region=us-east-1")
+  - [AWS-StartRdsInstance](https://console.aws.amazon.com/systems-manager/documents/AWS-StartRdsInstance/description?region=us-east-1 "https://console.aws.amazon.com/systems-manager/documents/AWS-StartRdsInstance/description?region=us-east-1")
+  - [AWS-StopEC2Instance](https://console.aws.amazon.com/systems-manager/documents/AWS-StopEC2Instance/description?region=us-east-1 "https://console.aws.amazon.com/systems-manager/documents/AWS-StopEC2Instance/description?region=us-east-1")
+  - [AWS-StopRdsInstance](https://console.aws.amazon.com/systems-manager/documents/AWS-StopRdsInstance/description?region=us-east-1 "https://console.aws.amazon.com/systems-manager/documents/AWS-StopRdsInstance/description?region=us-east-1")
+  - [AWS-CreateImage](https://console.aws.amazon.com/systems-manager/documents/AWS-CreateImage/description?region=us-east-1 "https://console.aws.amazon.com/systems-manager/documents/AWS-CreateImage/description?region=us-east-1")
+  - [AWS-CreateRdsSnapshot](https://console.aws.amazon.com/systems-manager/documents/AWS-CreateRdsSnapshot/description?region=us-east-1 "https://console.aws.amazon.com/systems-manager/documents/AWS-CreateRdsSnapshot/description?region=us-east-1")
+  - [AWS-CreateSnapshot](https://console.aws.amazon.com/systems-manager/documents/AWS-CreateSnapshot/description?region=us-east-1 "https://console.aws.amazon.com/systems-manager/documents/AWS-CreateSnapshot/description?region=us-east-1")
 
+  ###### Note
 
-      ###### Note
-
-      When creating service actions, you can configure the execution role to be the end user's permissions,
-       the launch role, or a custom IAM role of your choosing. The selected execution role must have sufficient
-       permissions to perform the service action, and have a TrustPolicy that allows it to be assumed
-       by Service Catalog, otherwise that service action will fail at execution time.
-       We recommend using the AWSManagedServicesServiceCatalogLaunchRole, which has the correct permissions
-       and trust policy to be used as a service action.
-
+  When creating service actions, you can configure the execution role to be the end user's permissions,
+  the launch role, or a custom IAM role of your choosing. The selected execution role must have sufficient
+  permissions to perform the service action, and have a TrustPolicy that allows it to be assumed
+  by Service Catalog, otherwise that service action will fail at execution time.
+  We recommend using the AWSManagedServicesServiceCatalogLaunchRole, which has the correct permissions
+  and trust policy to be used as a service action.
   **What will I still need to use the AMS RFC system for?**
   At general availability (GA) you will still need to use RFCS to run the following actions:
 

@@ -23,14 +23,14 @@ communication includes the RFC ID. After the communication is sent, do one of th
 
 - API / CLI Approve: [ApproveRfc](../ApiReference-cm/API_ApproveRfc.md "../ApiReference-cm/API_ApproveRfc.md") marks a change as approved. The
   action must be taken by both the owner and operator, if both are required. The
-  following is an example CLI approve command. In the following example, replace RFC_ID with the appropriate RFC ID.
+  following is an example CLI approve command. In the following example, replace RFC\_ID with the appropriate RFC ID.
 
 ```
 aws amscm approve-rfc --rfc-id `RFC_ID`
 ```
 
 - API / CLI Reject: [RejectRfc](../ApiReference-cm/API_RejectRfc.md "../ApiReference-cm/API_RejectRfc.md") marks a change as rejected. The following is an example CLI reject
-  command. In the following example, replace RFC_ID with the appropriate RFC ID.
+  command. In the following example, replace RFC\_ID with the appropriate RFC ID.
 
 ```
 aws amscm reject-rfc --rfc-id `RFC_ID` --reason "no longer relevant"

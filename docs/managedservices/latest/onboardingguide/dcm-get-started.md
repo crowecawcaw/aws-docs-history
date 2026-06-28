@@ -36,8 +36,8 @@ Managed policies that are deployed and attached to the role `AWSManagedServices
 
 - AMS Advanced multi-account landing zone (MALZ) Application account
 
-  - AWSManagedServices_CloudFormationAdminPolicy1
-  - AWSManagedServices_CloudFormationAdminPolicy2
+  - AWSManagedServices\_CloudFormationAdminPolicy1
+  - AWSManagedServices\_CloudFormationAdminPolicy2
 
     - This policy represents the permissions granted to the `AWSManagedServicesCloudFormationAdminRole`. You
       and partners use this policy to grant access to an existing role in the account and allow that role to launch and update
@@ -46,8 +46,8 @@ Managed policies that are deployed and attached to the role `AWSManagedServices
 
 - AMS Advanced single-account landing zone (SALZ) account
 
-  - AWSManagedServices_CloudFormationAdminPolicy1
-  - AWSManagedServices_CloudFormationAdminPolicy2
+  - AWSManagedServices\_CloudFormationAdminPolicy1
+  - AWSManagedServices\_CloudFormationAdminPolicy2
   - cdk-legacy-mode-s3-access [in-line policy]
   - AWS ReadOnlyAccess policy
 

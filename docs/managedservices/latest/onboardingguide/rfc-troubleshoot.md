@@ -196,7 +196,7 @@ AMS "Deployment" Category change types (CTs) allow you to request various AMS-su
 
 Most AMS CTs that create a resource are based on CloudFormation templates. As a customer you have read-only access to all AWS services including CloudFormation, you can quickly identify
 the CloudFormation stack that represents your stack based on the stack description using the CloudFormation Console. The failed stack will likely be in
-a state of DELETE_COMPLETE. Once you have identified the CloudFormation stack, the events will show you the specific resource that failed to
+a state of DELETE\_COMPLETE. Once you have identified the CloudFormation stack, the events will show you the specific resource that failed to
 create, and why.
 
 ### Using CloudFormation documentation to troubleshoot
@@ -318,7 +318,7 @@ _AMS Advanced Application Developer's Guide_
 
 ### EC2 instance stack create errors
 
-The `InternalError` message is from CloudFormation; a CREATION_FAILED status reason. You can find details on the stack failure in
+The `InternalError` message is from CloudFormation; a CREATION\_FAILED status reason. You can find details on the stack failure in
 CloudWatch stack events by following these steps:
 
 - In the AWS Management console, you can view a list of stack events while your stack is being created, updated, or deleted.

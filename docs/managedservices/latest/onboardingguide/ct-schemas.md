@@ -4,11 +4,11 @@ All change types provide a JSON schema for your input in the creation, modificat
 The schema provides the parameters, and their descriptions, for you to create a request for change (RFC).
 
 The successful execution of an RFC results in execution output. For provisioning RFCs,
-the execution output includes a "stack_id" that represents the stack in CloudFormation
+the execution output includes a "stack\_id" that represents the stack in CloudFormation
 and can be searched in the CloudFormation console. The execution output sometimes
 includes output of the ID of the instance created and that ID can be used to search for
 the instance in the corresponding AWS console. For example, the Create ELB CT execution
-output includes a "stack_id" that is searchable in CloudFormation and outputs a key=ELB
+output includes a "stack\_id" that is searchable in CloudFormation and outputs a key=ELB
 value=<stack-xxxx> that is searchable in the Amazon EC2 console for Elastic Load Balancing.
 
 Let's examine a CT schema. This is the schema for CodeDeploy Application Create, a fairly small schema.

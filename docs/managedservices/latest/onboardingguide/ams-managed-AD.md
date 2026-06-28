@@ -92,13 +92,11 @@ The following is the information a systems integrator would need to gather from 
     		- Whether or not your VPN connection requires static routes: [yes/no]
 
 2. AMS provides you with the Admin account password for the AD environment and asks you to reset the password so
-   AMS engineers can no longer access your AD environment.
-3. To reset the Admin account password, connect to your Active Directory environment using Active Directory Users and Computers (ADUC).
-   ADUC and other Remote Server Administration Tools (RSAT) should be installed and run on Administrative hosts provisioned by you
-   on non-AMS infrastructure. Microsoft has best practices for securing such administrative hosts. For information, see
-   [Implementing Secure Administrative Hosts](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts "https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts"). You manage your Active Directory environment using these Administrative hosts.
-4. In daily operations, AMS manages the AWS account up to the AWS Directory Service side of things; for example, VPC configuration,
-   AD backups, AD trust creation and deletion, and so forth. You use, and manage, your AD environment; for example, user creation,
-   group creation, group policy creation, and so forth.
-   For the most recent RACI table, see the "Roles and Responsibilities" section in the
-   See [Service description](../userguide/ams-sd.md "../userguide/ams-sd.md").
+AMS engineers can no longer access your AD environment. 3. To reset the Admin account password, connect to your Active Directory environment using Active Directory Users and Computers (ADUC).
+ADUC and other Remote Server Administration Tools (RSAT) should be installed and run on Administrative hosts provisioned by you
+on non-AMS infrastructure. Microsoft has best practices for securing such administrative hosts. For information, see
+[Implementing Secure Administrative Hosts](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts "https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts"). You manage your Active Directory environment using these Administrative hosts. 4. In daily operations, AMS manages the AWS account up to the AWS Directory Service side of things; for example, VPC configuration,
+AD backups, AD trust creation and deletion, and so forth. You use, and manage, your AD environment; for example, user creation,
+group creation, group policy creation, and so forth.
+For the most recent RACI table, see the "Roles and Responsibilities" section in the
+See [Service description](../userguide/ams-sd.md "../userguide/ams-sd.md").

@@ -27,12 +27,12 @@ The AWS CLI is a prerequisite for using the AMS CLIs (Change Management and SKMS
    **Managed Cloud Distributables -> CLI -> Linux / MacOS** directory, depending on your operating system, and:
 5. For **Windows**, execute the appropriate installer (this method only works on Windows 32 or 64 bits systems):
 
-   - 32 Bits: ManagedCloudAPI_x86.msi
-   - 64 Bits: ManagedCloudAPI_x64.msi
+   - 32 Bits: ManagedCloudAPI\_x86.msi
+   - 64 Bits: ManagedCloudAPI\_x64.msi
 
-6. For **Mac/Linux**, execute the file named: **MC_CLI.sh** by running
-   this command: sh MC_CLI.sh. Note that the **amscm** and **amsskms** directories and their
-   contents must be in the same directory as the **MC_CLI.sh** file.
+6. For **Mac/Linux**, execute the file named: **MC\_CLI.sh** by running
+   this command: sh MC\_CLI.sh. Note that the **amscm** and **amsskms** directories and their
+   contents must be in the same directory as the **MC\_CLI.sh** file.
 7. If your corporate credentials are used via federation with AWS (the AMS default configuration) you must install a credential
    management tool that can access your federation service. For example, you can use this AWS Security Blog
    [How

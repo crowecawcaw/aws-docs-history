@@ -73,26 +73,26 @@ The python packages are sourced from the blog posts below:
 
 The instructions below are for the python packages. The credentials generated will be valid for 1 hour.
 
-1.  [Download and install python (2.7.11)](https://www.python.org/downloads/ "https://www.python.org/downloads/")
-2.  [Download and install AWS CLI tools](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/")
-3.  Install the AMS CLI:
+1. [Download and install python (2.7.11)](https://www.python.org/downloads/ "https://www.python.org/downloads/")
+2. [Download and install AWS CLI tools](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/")
+3. Install the AMS CLI:
 
-    1. Download the AMS distributables zip file provided by your cloud service delivery manager (CSDM) and unzip.
+   1. Download the AMS distributables zip file provided by your cloud service delivery manager (CSDM) and unzip.
 
-    Several directories and files are made available. 2. Open either the **Managed Cloud Distributables -> CLI -> Windows** or the **Managed Cloud Distributables -> CLI -> Linux / MacOS**
-    directory, depending on your operating system, and:
+   Several directories and files are made available. 2. Open either the **Managed Cloud Distributables -> CLI -> Windows** or the **Managed Cloud Distributables -> CLI -> Linux / MacOS**
+   directory, depending on your operating system, and:
 
-    For **Windows**, execute the appropriate installer (this method only works on Windows 32 or 64 bits systems):
+   For **Windows**, execute the appropriate installer (this method only works on Windows 32 or 64 bits systems):
 
         * 32 Bits: ManagedCloudAPI\_x86.msi
         * 64 Bits: ManagedCloudAPI\_x64.msi
 
-    For **Mac/Linux**, execute the file named: **MC_CLI.sh**. You can do this by running this command: `sh MC_CLI.sh`.
-    Note that the **amscm** and **amsskms** directories and their contents must be in the same directory as the **MC_CLI.sh** file. 3. If your corporate credentials are used via federation with AWS (the AMS default configuration) you must install a credential
-    management tool that can access your federation service. For example, you can use this AWS Security Blog
-    [How to Implement Federated API and CLI Access Using SAML 2.0 and AD FS](https://blogs.aws.amazon.com/security/post/Tx1LDN0UBGJJ26Q/How-to-Implement-Federated-API-and-CLI-Access-Using-SAML-2-0-and-AD-FS "https://blogs.aws.amazon.com/security/post/Tx1LDN0UBGJJ26Q/How-to-Implement-Federated-API-and-CLI-Access-Using-SAML-2-0-and-AD-FS") for help configuring your credential management tooling. 4. After the installation, run `aws amscm help` and `aws amsskms help` to see commands and options.
+   For **Mac/Linux**, execute the file named: **MC\_CLI.sh**. You can do this by running this command: `sh MC_CLI.sh`.
+   Note that the **amscm** and **amsskms** directories and their contents must be in the same directory as the **MC\_CLI.sh** file. 3. If your corporate credentials are used via federation with AWS (the AMS default configuration) you must install a credential
+   management tool that can access your federation service. For example, you can use this AWS Security Blog
+   [How to Implement Federated API and CLI Access Using SAML 2.0 and AD FS](https://blogs.aws.amazon.com/security/post/Tx1LDN0UBGJJ26Q/How-to-Implement-Federated-API-and-CLI-Access-Using-SAML-2-0-and-AD-FS "https://blogs.aws.amazon.com/security/post/Tx1LDN0UBGJJ26Q/How-to-Implement-Federated-API-and-CLI-Access-Using-SAML-2-0-and-AD-FS") for help configuring your credential management tooling. 4. After the installation, run `aws amscm help` and `aws amsskms help` to see commands and options.
 
-4.  Download the required SAML script
+4. Download the required SAML script
 
 Download to c:\aws\scripts 5. [Download PIP](https://bootstrap.pypa.io/get-pip.py "https://bootstrap.pypa.io/get-pip.py")
 

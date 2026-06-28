@@ -80,13 +80,13 @@ AMS measures the cost impact and include the savings realised in the monthly bus
 
 Responsibilities in AMS cost optimization.
 
-| Cost optimization RACI                                           | Activity | Customer | AMS |
-| ---------------------------------------------------------------- | -------- | -------- | --- |
-| Compiling cost saving recommendations and preparing the report   | I        | R        |
-| Presenting cost savings report                                   | C        | R        |
-| Planning changes associated with cost savings                    | R        | C        |
-| Assessing the change impact and risk                             | R        | C        |
-| Raising RFCs for implementing the changes                        | R        | C        |
-| Reviewing the RFCs and implementing the changes                  | C        | R        |
-| Testing the application and validating the change implementation | R        | C        |
-| Measuring the cost impact post change and presenting to customer | I        | R        |
+Cost optimization RACI| Activity | Customer | AMS |
+| --- | --- | --- |
+| Compiling cost saving recommendations and preparing the report | I | R |
+| Presenting cost savings report | C | R |
+| Planning changes associated with cost savings | R | C |
+| Assessing the change impact and risk | R | C |
+| Raising RFCs for implementing the changes | R | C |
+| Reviewing the RFCs and implementing the changes | C | R |
+| Testing the application and validating the change implementation | R | C |
+| Measuring the cost impact post change and presenting to customer | I | R |

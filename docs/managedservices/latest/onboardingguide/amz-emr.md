@@ -34,7 +34,7 @@ This RFC provisions the following IAM roles to your account:
 - `customer_emr_console_role`
 - `customer_emr_cluster_service_role`
 
-After it's provisioned in your account, you must onboard the customer_emr_console_role in your federation solution.
+After it's provisioned in your account, you must onboard the customer\_emr\_console\_role in your federation solution.
 
 **Q: What are the restrictions to using Amazon EMR in my AMS account?**
 
@@ -44,9 +44,9 @@ following configurations in the **Security** options:
 
 - Select custom roles for your cluster:
 
-  - EMR Role : customer_emr_cluster_service_role
-  - EC2 Instance Profile : customer_emr_cluster_instance_profile
-  - Auto Scaling Role : customer_emr_cluster_autoscaling_role
+  - EMR Role : customer\_emr\_cluster\_service\_role
+  - EC2 Instance Profile : customer\_emr\_cluster\_instance\_profile
+  - Auto Scaling Role : customer\_emr\_cluster\_autoscaling\_role
 
 - EC2 Security groups:
 
@@ -63,7 +63,7 @@ value **"true"**.
 
 The default Amazon EMR cluster instance profile enables access to the resources such as s3 buckets and dynamodb tables with their names containing "emr".
 You can request additional IAM policies to use any additional resources to be used with Amazon EMR. The following resource ARN's can be used with Amazon EMR
-jobs using the **customer_emr_cluster_instance_profile**:
+jobs using the **customer\_emr\_cluster\_instance\_profile**:
 
 - arn:aws:dynamodb:\*:\*:table/\*emr\*
 - arn:aws:kinesis:\*:\*:stream/\*emr\*

@@ -94,15 +94,14 @@ account. An AWS Managed Services Activation Notification occurs when:
 - _Incident Priority_: How incidents are prioritized by
   AMS, or by you, as either Low, Medium, or High.
 
-      + *Low*: A non-critical problem with your AMS service.
-      + *Medium*: An AWS service within your
-       managed environment is available but is not performing as intended (per the applicable service description).
-      + *High*: Either (1) the AMS Console,
-       or one or more AMS APIs within your managed environment are unavailable;
-       or (2) one or more AMS stacks or resources within your managed
-       environment are unavailable and the unavailability prevents your application from performing its function.
-
-  AMS may re-categorize incidents in accordance with the above guidelines.
+  - _Low_: A non-critical problem with your AMS service.
+  - _Medium_: An AWS service within your
+    managed environment is available but is not performing as intended (per the applicable service description).
+  - _High_: Either (1) the AMS Console,
+    or one or more AMS APIs within your managed environment are unavailable;
+    or (2) one or more AMS stacks or resources within your managed
+    environment are unavailable and the unavailability prevents your application from performing its function.
+    AMS may re-categorize incidents in accordance with the above guidelines.
 
 - _Infrastructure Restore_: Re-deploying existing
   stacks, based on templates of impacted stacks, and initiating a data restore based on

@@ -66,7 +66,7 @@ While submitting the RFC to onboard WorkSpaces Applications, include the Amazon 
 - In order to create and choose an IAM role that will be available on all fleet streaming
   instances, submit a Deployment | Advanced stack components | Identity and Access Management (IAM) | Create entity or policy (managed automation) change type (ct-3dpd8mdd9jn1r)
   RFC requesting the IAM role with the required policy. The IAM role
-  name should always start with prefix : "customer_appstream".
+  name should always start with prefix : "customer\_appstream".
 - Amazon WorkSpaces Applications fleets and image builders can be joined to domains in
   Microsoft Active Directory by submitting a Management | Other | Other | Update change type
   RFC for the Service Account creation in Active Directory (AD). Minimal permissions
@@ -75,17 +75,13 @@ While submitting the RFC to onboard WorkSpaces Applications, include the Amazon 
 - In order to create custom WorkSpaces Applications Usage Reports, submit a Management | Other | Other | Create
   change type RFC requesting following:
 
-      + "AppStreamUsageReports" CFN stack creation
-      + "customer\_appstream\_usagereports\_role" be provisioned in the account
-      + Also, provide the following details:
+  - "AppStreamUsageReports" CFN stack creation
+  - "customer\_appstream\_usagereports\_role" be provisioned in the account
+  - Also, provide the following details:
 
-
-
-
-      	- Provide CRON expression to schedule Crawler run. By default it is 23:00 UTC everyday.
-      	- Amazon S3 bucket ARN to be used for Athena query results. This bucket should have prefix: `aws-athena-query-results`
-      	- Amazon S3 bucket ARN for WorkSpaces Applications Usage Reports Logs.
-
-  After the role is provisioned, onboard the role into your federation solution and login, then access AWS GlueAWS Glue and Athena for generating
-  custom reports using the usage report role. For details about using WorkSpaces Applications Usage Reports see
-  [Create Custom Reports and Analyze WorkSpaces Applications Usage Data](../../../appstream2/latest/developerguide/configure-custom-reports-analyze-usage-data.md "../../../appstream2/latest/developerguide/configure-custom-reports-analyze-usage-data.md"), in the WorkSpaces Applications documentation.
+    - Provide CRON expression to schedule Crawler run. By default it is 23:00 UTC everyday.
+    - Amazon S3 bucket ARN to be used for Athena query results. This bucket should have prefix: `aws-athena-query-results`
+    - Amazon S3 bucket ARN for WorkSpaces Applications Usage Reports Logs.
+      After the role is provisioned, onboard the role into your federation solution and login, then access AWS GlueAWS Glue and Athena for generating
+      custom reports using the usage report role. For details about using WorkSpaces Applications Usage Reports see
+      [Create Custom Reports and Analyze WorkSpaces Applications Usage Data](../../../appstream2/latest/developerguide/configure-custom-reports-analyze-usage-data.md "../../../appstream2/latest/developerguide/configure-custom-reports-analyze-usage-data.md"), in the WorkSpaces Applications documentation.

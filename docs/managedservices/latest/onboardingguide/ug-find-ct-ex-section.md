@@ -54,13 +54,13 @@ You can use a filter or query to search. The ListChangeTypeClassificationSummari
 options for `Category`, `Subcategory`, `Item`, and `Operation`, but the values must match the existing values exactly. For more
 flexible results when using the CLI, you can use the `--query` option.
 
-| Change type filtering with the AMS CM API/CLI | Attribute                                                         | Valid values | Valid/Default condition                                                                                                                                    | Notes |
-| --------------------------------------------- | ----------------------------------------------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| ChangeTypeId                                  | Any string representing a ChangeTypeId (For ex: ct-abc123xyz7890) | Equals       | For change type IDs, see the<br>[Change Type Reference](../ctref/index.md "../ctref/index.md").<br>For change type IDs, see Finding a Change Type or CSIO. |
-| Category                                      | Any free-form text                                                | Contains     | Regular expressions in each individual field are not supported.<br>Case insensitive search                                                                 |
-| Subcategory                                   |
-| Item                                          |
-| Operation                                     |
+Change type filtering with the AMS CM API/CLI| Attribute | Valid values | Valid/Default condition | Notes |
+| --- | --- | --- | --- |
+| ChangeTypeId | Any string representing a ChangeTypeId (For ex: ct-abc123xyz7890) | Equals | For change type IDs, see the<br>[Change Type Reference](../ctref/index.md "../ctref/index.md").<br>For change type IDs, see Finding a Change Type or CSIO. |
+| Category | Any free-form text | Contains | Regular expressions in each individual field are not supported.<br>Case insensitive search |
+| Subcategory |
+| Item |
+| Operation |
 
 1. Here are some examples of listing change type classifications:
 

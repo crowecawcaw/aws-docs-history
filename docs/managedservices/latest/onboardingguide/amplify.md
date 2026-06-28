@@ -23,4 +23,4 @@ AMS account?**
 
 There are no prerequisites for the use of AWS Amplify in your AMS account.
 
-**Malz environments only**: The default onboarded role for Amplify is "customer_amplify_console_role". To use a custom role, first deploy the IAM entities. Then, create an additional RFC to add your custom role to the Service Control Policy for Application Accounts allow list.
+**Malz environments only**: The default onboarded role for Amplify is "customer\_amplify\_console\_role". To use a custom role, first deploy the IAM entities. Then, create an additional RFC to add your custom role to the Service Control Policy for Application Accounts allow list.

@@ -22,7 +22,7 @@ refreshing the page, and searching existing policies. A list of existing policie
 
 The Create role **Review** page opens.
 
-![Review page showing role name, description, trusted entities, and policies before creation.](images/iamConsoleCreateRoleReview.PNG) 5. Name the new role **aws_managedservices_onboarding_role** and type "AMS Onboarding Role" for the **Role description**.
+![Review page showing role name, description, trusted entities, and policies before creation.](images/iamConsoleCreateRoleReview.PNG) 5. Name the new role **aws\_managedservices\_onboarding\_role** and type "AMS Onboarding Role" for the **Role description**.
 Review the settings for the new role and, if satisfied, click **Create role**.
 
 The role management page opens with your new role listed.

@@ -42,7 +42,7 @@ CloudTrail must be enabled and allowed to store the log files to S3
 buckets. Note: All AMS accounts have CloudTrail enabled, so no action is
 needed.
 
-**Q: The role customer_eventbridge_scheduler_execution_role has a prerequisite for an AWS Key Management Service Key (optional, if used for encryption). How do I adopt AWS KMS CMKs in data encryption at rest/transit?**
+**Q: The role customer\_eventbridge\_scheduler\_execution\_role has a prerequisite for an AWS Key Management Service Key (optional, if used for encryption). How do I adopt AWS KMS CMKs in data encryption at rest/transit?**
 
 By default, EventBridge Scheduler encrypts event metadata and message data that it stores under an AWS owned key (encryption at rest). EventBridge Scheduler also encrypts data that passes between EventBridge Scheduler and other services using Transport Layer Security (TLS) (encryption in transit).
 

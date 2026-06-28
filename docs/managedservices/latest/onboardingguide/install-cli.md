@@ -36,10 +36,10 @@ For **Windows**, run the appropriate installer (only 32 or 64 bits systems):
     * 32 Bits: **ManagedCloudAPI\_x86.msi**
     * 64 Bits: **ManagedCloudAPI\_x64.msi**
 
-For **Mac/Linux**, run the file named: **AWSManagedServices_InstallCLI.sh**
+For **Mac/Linux**, run the file named: **AWSManagedServices\_InstallCLI.sh**
 by running this command: `sh AWSManagedServices_InstallCLI.sh`.
 Note that the **amscm** and **amsskms** directories and their contents
-must be in the same directory as the **AWSManagedServices_InstallCLI.sh** file. 4. If your corporate credentials are used through federation with AWS (the AMS default configuration) you must install a credential
+must be in the same directory as the **AWSManagedServices\_InstallCLI.sh** file. 4. If your corporate credentials are used through federation with AWS (the AMS default configuration) you must install a credential
 management tool that can access your federation service. For example, you can use this AWS Security Blog
 [How to Implement Federated API and CLI Access Using SAML 2.0 and AD FS](https://blogs.aws.amazon.com/security/post/Tx1LDN0UBGJJ26Q/How-to-Implement-Federated-API-and-CLI-Access-Using-SAML-2-0-and-AD-FS "https://blogs.aws.amazon.com/security/post/Tx1LDN0UBGJJ26Q/How-to-Implement-Federated-API-and-CLI-Access-Using-SAML-2-0-and-AD-FS") for help configuring your credential management tooling. 5. After the installation, run `aws amscm help` and `aws amsskms help` to see commands and options.
 

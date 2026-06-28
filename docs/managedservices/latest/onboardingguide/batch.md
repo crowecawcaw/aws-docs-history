@@ -40,7 +40,7 @@ Policies:
 **Q: What are the restrictions to using AWS Batch?**
 
 When creating the Compute Environment, you should tag EC2 instances as
-"customer_batch" or "customer-batch". If the instances are not tagged, instances will not be
+"customer\_batch" or "customer-batch". If the instances are not tagged, instances will not be
 terminated by batch when the job completes.
 
 **Q: What are the prerequisites or dependencies to using AWS Batch?**

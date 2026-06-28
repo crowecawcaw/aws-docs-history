@@ -15,12 +15,11 @@ TrendMicro offers two license models: Per Protected Instance Hour and Bring your
 
 - **Per Protected Instance Hour**:
 
-      1. In this subscription, you are not required to have any previously-procured Trend license.
-      2. However, you must subscribe to the Marketplace subscription.
-      3. No license key sharing with AMS is required in this model, as the Trend usage is metered automatically including the software license + EC2 infrastructure usage. See
-       [Trend Micro Deep Security](https://aws.amazon.com/marketplace/pp/B01AVYHVHO "https://aws.amazon.com/marketplace/pp/B01AVYHVHO").
-
-  To subscribe to Trend Micro, follow these steps:
+  1.  In this subscription, you are not required to have any previously-procured Trend license.
+  2.  However, you must subscribe to the Marketplace subscription.
+  3.  No license key sharing with AMS is required in this model, as the Trend usage is metered automatically including the software license + EC2 infrastructure usage. See
+      [Trend Micro Deep Security](https://aws.amazon.com/marketplace/pp/B01AVYHVHO "https://aws.amazon.com/marketplace/pp/B01AVYHVHO").
+      To subscribe to Trend Micro, follow these steps:
 
 1. Login into your AWS account.
 2. Navigate to Trend Micro Deep Security ([BYOL](https://aws.amazon.com/marketplace/pp/B00OCI4H82/ref=dtl_recsim_B00OCI4J0I_B00OCI4H82_2 "https://aws.amazon.com/marketplace/pp/B00OCI4H82/ref=dtl_recsim_B00OCI4J0I_B00OCI4H82_2")
