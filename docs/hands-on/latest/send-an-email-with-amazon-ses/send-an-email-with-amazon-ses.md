@@ -83,8 +83,8 @@ reputation with AWS as a trusted email sender.
 ![Interface element requiring manual review.](images/interface-interface-element.png) 4. Keep MAIL FROM defaults
 
 Leave default selections for **Add MAIL FROM
-domain - **optional\***\*, and choose
-**Next\*\*.
+domain - **optional****, and choose
+**Next**.
 
 ![Interface element requiring manual review.](images/interface-interface-element-1.png) 5. Review configuration
 
