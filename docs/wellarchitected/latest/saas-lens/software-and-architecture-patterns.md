@@ -21,7 +21,7 @@
   These patterns—silo, bridge, and pool—can be applied in combinations to enable the most
   efficient consumption of infrastructure resources.
 
-  **AWS services recommendation:**
+**AWS services recommendation:**
 
 - AWS WA SaaS Lens guidance on [Architectural
   model](silo-pool-and-bridge-models.md "silo-pool-and-bridge-models.md")
