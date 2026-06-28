@@ -18,9 +18,11 @@ In the following [**ssm get-parameter**](https://awscli.amazonaws.com/v2/documen
 To use this command, the AWS Identity and Access Management (IAM) principal that you use must have the `ssm:GetParameter` permission. For more information about IAM principals, see the [Additional resources](../../../IAM/latest/UserGuide/id_roles.md#id_roles_additional-resources "../../../IAM/latest/UserGuide/id_roles.md#id_roles_additional-resources") section of **IAM roles** in the _IAM User Guide_.
 
 - ```
-  aws ssm get-parameter --name `/aws/service/deeplearning/ami/x86_64/base-oss-nvidia-driver-ubuntu-22.04/latest/ami-id`  \
-  --region `us-east-1` --query "Parameter.Value" --output text
+
   ```
+
+aws ssm get-parameter --name `/aws/service/deeplearning/ami/x86_64/base-oss-nvidia-driver-ubuntu-22.04/latest/ami-id` \
+--region `us-east-1` --query "Parameter.Value" --output text
 
 ```
 

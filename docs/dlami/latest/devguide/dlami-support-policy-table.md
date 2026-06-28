@@ -3,10 +3,17 @@
 For more details see the [Support
 Policy](support-policy.md "support-policy.md").
 
+###### Important
+
+Amazon Linux 2 reaches end of life on June 30, 2026.
+
+After this date, no new Amazon Linux 2 DLAMI releases, updates, or security patches will be provided.
+
 ## Supported Framework Versions
 
 | Framework | Current version | CUDA version | GitHub GA  | End of patch |
 | --------- | --------------- | ------------ | ---------- | ------------ |
+| PyTorch   | 2.12.0          | 13.0         | 2026-05-13 | 2027-05-13   |
 | PyTorch   | 2.11.0          | 13.0         | 2026-03-23 | 2027-03-23   |
 | PyTorch   | 2.10.0          | 13.0         | 2026-01-21 | 2027-01-21   |
 | PyTorch   | 2.9.0           | 13.0         | 2025-10-15 | 2026-10-15   |

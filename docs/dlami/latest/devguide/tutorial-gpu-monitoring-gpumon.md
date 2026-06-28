@@ -225,8 +225,8 @@ Options:
      `store_reso`.
 
 4. Currently the script only supports Python 3. Activate your preferred
-   framework’s Python 3 environment or activate the DLAMI general Python 3
-   environment.
+framework’s Python 3 environment or activate the DLAMI general Python 3
+environment.
 
 ```
 `$` source activate python3

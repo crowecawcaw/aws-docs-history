@@ -88,7 +88,7 @@ When constructing your own script, refer to the following guidance:
 
 - Use the complete path to mpirun as shown in the example while running NCCL applications with EFA.
 - Change the params np and N based on the number of instances and GPUs in your cluster.
-- Add the NCCL_DEBUG=INFO flag and make sure that the logs indicate EFA usage as
+- Add the NCCL\_DEBUG=INFO flag and make sure that the logs indicate EFA usage as
   "Selected Provider is EFA".
 - Set the Training Log Location to parse for validation
 
@@ -254,7 +254,7 @@ fi
 
 ```
 
-- To access the benchmark data, we can parse the final row of table output from the Multi Node all_reduce test:
+- To access the benchmark data, we can parse the final row of table output from the Multi Node all\_reduce test:
 
 ```
 benchmark=$(sudo cat ${TRAINING_LOG} | grep '1073741824' | tail -n1 | awk -F " " '{{print $12}}' | sed 's/ //' | sed  's/  5e-07//')

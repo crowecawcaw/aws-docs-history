@@ -96,7 +96,7 @@ INFO:tensorflow:Successfully converted ./resnet50/1 to /home/ubuntu/resnet50_inf
 ## Serving the Saved Model
 
 Once the model has been compiled, you can use the following command to serve the saved
-model with the tensorflow_model_server_neuron binary:
+model with the tensorflow\_model\_server\_neuron binary:
 
 ```
 
