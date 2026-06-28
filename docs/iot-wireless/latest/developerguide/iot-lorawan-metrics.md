@@ -18,16 +18,16 @@ have correctly configured your LoRaWAN devices, gateways, and destinations, and
 activated summary metrics. For information about onboarding your LoRaWAN resources, see
 [Connecting gateways and devices to AWS IoT Core for LoRaWAN](lorawan-getting-started.md "lorawan-getting-started.md").
 
-| List of summary metrics                           | Metric name | AWS account | Individual devices | Individual gateways |
-| ------------------------------------------------- | ----------- | ----------- | ------------------ | ------------------- |
-| Active devices/gateways                           | Yes         | –           | –                  |
-| Uplink message count                              | Yes         | Yes         | Yes                |
-| Downlink message count                            | Yes         | Yes         | Yes                |
-| Join metrics                                      | Yes         | Yes         | Yes                |
-| Message lost rate                                 | Yes         | Yes         | Yes                |
-| Signal to noise ratio (SNR) average               | –           | Yes         | Yes                |
-| Received signal strength indicator (RSSI) average | –           | Yes         | Yes                |
-| Gateway availability                              | –           | –           | Yes                |
+List of summary metrics| Metric name | AWS account | Individual devices | Individual gateways |
+| --- | --- | --- | --- |
+| Active devices/gateways | Yes | – | – |
+| Uplink message count | Yes | Yes | Yes |
+| Downlink message count | Yes | Yes | Yes |
+| Join metrics | Yes | Yes | Yes |
+| Message lost rate | Yes | Yes | Yes |
+| Signal to noise ratio (SNR) average | – | Yes | Yes |
+| Received signal strength indicator (RSSI) average | – | Yes | Yes |
+| Gateway availability | – | – | Yes |
 
 ## How to view summary metrics?
 

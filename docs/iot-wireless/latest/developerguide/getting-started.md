@@ -142,12 +142,12 @@ to 50 tags attached to them. Devices don't support tags.
 
 ### Resource names and description
 
-| AWS IoT Wireless resource support for name | Resource                                                    | Name field support |
-| ------------------------------------------ | ----------------------------------------------------------- | ------------------ |
-| Destination                                | Name is unique ID of resource and can't be changed.         |
-| Wireless device                            | Name is optional descriptor of resource and can be changed. |
-| LoRaWAN gateway                            | Name is optional descriptor of resource and can be changed. |
-| Profile                                    | Name is optional descriptor of resource and can be changed. |
+AWS IoT Wireless resource support for name| Resource | Name field support |
+| --- | --- |
+| Destination | Name is unique ID of resource and can't be changed. |
+| Wireless device | Name is optional descriptor of resource and can be changed. |
+| LoRaWAN gateway | Name is optional descriptor of resource and can be changed. |
+| Profile | Name is optional descriptor of resource and can be changed. |
 
 The name field appears in resource hub lists of resources; however, the space is limited
 and so only the first 15-30 characters of the name might be visible. When selecting names for
@@ -164,12 +164,12 @@ resources.
 
 ### Resource tags
 
-| AWS IoT Wireless resource support for AWS tags | Resource                                        | AWS tag support |
-| ---------------------------------------------- | ----------------------------------------------- | --------------- |
-| Destination                                    | Up to 50 AWS tags can be added to the resource. |
-| Wireless device                                | This resource doesn't support AWS tags.         |
-| LoRaWAN gateway                                | Up to 50 AWS tags can be added to the resource. |
-| Profile                                        | Up to 50 AWS tags can be added to the resource. |
+AWS IoT Wireless resource support for AWS tags| Resource | AWS tag support |
+| --- | --- |
+| Destination | Up to 50 AWS tags can be added to the resource. |
+| Wireless device | This resource doesn't support AWS tags. |
+| LoRaWAN gateway | Up to 50 AWS tags can be added to the resource. |
+| Profile | Up to 50 AWS tags can be added to the resource. |
 
 Tags are words or phrases that act as metadata that you can use to identify and organize
 your AWS resources. You can think of the tag key as a category of information and the tag

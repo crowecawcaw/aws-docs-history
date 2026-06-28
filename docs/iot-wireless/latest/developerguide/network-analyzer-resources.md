@@ -2,7 +2,7 @@
 
 Before you can activate trace messaging, you must add resources to your
 configuration. You can use only a single, default network analyzer configuration.
-AWS IoT Core for LoRaWAN assigns the name, **NetworkAnalyzerConfig_Default**,
+AWS IoT Core for LoRaWAN assigns the name, **NetworkAnalyzerConfig\_Default**,
 to this configuration, and this field can't be edited. This configuration is
 automatically added to your AWS account when you use network analyzer from the
 console.
@@ -71,7 +71,7 @@ edit your configuration settings and save the updated configuration.
 
 1. Open the [Network Analyzer hub of the AWS IoT console](https://console.aws.amazon.com/iot/home#/wireless/networkAnalyzer "https://console.aws.amazon.com/iot/home#/wireless/networkAnalyzer") and choose the
    network analyzer configuration,
-   **NetworkAnalyzerConfig_Default**.
+   **NetworkAnalyzerConfig\_Default**.
 2. Choose **Add resources**.
 3. Add the resources you want to monitor by using the wireless gateway
    and wireless device identifiers. You can add up to 250 wireless gateways
@@ -107,7 +107,7 @@ disable frame info and the log level for your trace message logs.
 
 1. Open the [Network Analyzer hub of the AWS IoT console](https://console.aws.amazon.com/iot/home#/wireless/networkAnalyzer "https://console.aws.amazon.com/iot/home#/wireless/networkAnalyzer") and choose the
    network analyzer configuration,
-   **NetworkAnalyzerConfig_Default**.
+   **NetworkAnalyzerConfig\_Default**.
 2. Choose **Edit**.
 3. Choose whether to disable frame info and use **Select log
    levels** to choose the log levels that you want to use for

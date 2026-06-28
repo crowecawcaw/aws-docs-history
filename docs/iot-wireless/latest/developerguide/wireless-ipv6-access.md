@@ -131,11 +131,11 @@ The following table shows the format of the control plane and data plane endpoin
 AWS IoT Wireless when using IPv4 and the dual-stack modes. For more information about these
 endpoints, see [AWS IoT Wireless endpoints](../../../general/latest/gr/iot-lorawan.md#iot-wireless_region "../../../general/latest/gr/iot-lorawan.md#iot-wireless_region").
 
-| Dual-stack endpoints for AWS IoT Wireless | Endpoint                                         | IPv4 address                                     | Dual-stack mode |
-| ----------------------------------------- | ------------------------------------------------ | ------------------------------------------------ | --------------- |
-| Control plane                             | api.iotwireless.`<region>`.amazonaws.com         | api.iotwireless.`<region>`.api.aws               |
-| LNS (Data plane)                          | `<prefix>`.lns.lorawan.`<region>`.amazonaws.com  | `<prefix>`.lns.lorawan.`<region>`.amazonaws.com  |
-| CUPS (Data plane)                         | `<prefix>`.cups.lorawan.`<region>`.amazonaws.com | `<prefix>`.cups.lorawan.`<region>`.amazonaws.com |
+Dual-stack endpoints for AWS IoT Wireless| Endpoint | IPv4 address | Dual-stack mode |
+| --- | --- | --- |
+| Control plane | api.iotwireless.`<region>`.amazonaws.com | api.iotwireless.`<region>`.api.aws |
+| LNS (Data plane) | `<prefix>`.lns.lorawan.`<region>`.amazonaws.com | `<prefix>`.lns.lorawan.`<region>`.amazonaws.com |
+| CUPS (Data plane) | `<prefix>`.cups.lorawan.`<region>`.amazonaws.com | `<prefix>`.cups.lorawan.`<region>`.amazonaws.com |
 
 When using the AWS CLI and AWS SDKs, you can use a `AWS_USE_DUALSTACK_ENDPOINT` environment
 variable, or the `use_dualstack_endpoint` parameter, which is a shared config file setting, to

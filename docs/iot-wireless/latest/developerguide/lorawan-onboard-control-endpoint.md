@@ -80,7 +80,7 @@ To launch your EC2 instance:
      earlier (for example, `VPC-A`).
    - For **Subnet**, choose the subnet that you
      created earlier (for example, `Private
-subnet`).
+  subnet`).
 
    ###### Note
 

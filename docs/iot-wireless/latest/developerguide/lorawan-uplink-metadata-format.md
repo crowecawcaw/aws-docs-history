@@ -33,20 +33,19 @@ information.
   sent from the wireless device.
 - Wireless metadata that includes:
 
-      + Device information such as DevEui, the data rate, and the
-       frequency channel in which the device is operating.
-      + Optional additional parameters and the gateway information for
-       gateways that are connected to the device. The gateway
-       parameters include the gateway's EUI, the SNR, and RSSi.
-
-  By using the wireless metadata, you can obtain useful information
-  about the wireless device and the data that is transmitted between your
-  device and AWS IoT. For example, you can use the
-  `AckedMessageId` parameter to check whether the last
-  confirmed downlink message has been received by the device. Optionally,
-  if you choose to include the gateway information, you can identify
-  whether you want to switch to a stronger gateway channel that's closer
-  to your device.
+  - Device information such as DevEui, the data rate, and the
+    frequency channel in which the device is operating.
+  - Optional additional parameters and the gateway information for
+    gateways that are connected to the device. The gateway
+    parameters include the gateway's EUI, the SNR, and RSSi.
+    By using the wireless metadata, you can obtain useful information
+    about the wireless device and the data that is transmitted between your
+    device and AWS IoT. For example, you can use the
+    `AckedMessageId` parameter to check whether the last
+    confirmed downlink message has been received by the device. Optionally,
+    if you choose to include the gateway information, you can identify
+    whether you want to switch to a stronger gateway channel that's closer
+    to your device.
 
 ## How to observe the uplink messages?
 

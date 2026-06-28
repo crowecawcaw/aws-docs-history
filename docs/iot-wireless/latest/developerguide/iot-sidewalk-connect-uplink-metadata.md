@@ -88,13 +88,13 @@ wireless device, such as `ABCDEF1234` and the
 `messageType` is the type of uplink
 message that's received from the device.
 
-| Sidewalk uplink metadata parameters | Parameter                                                                                                                                                                    | Description      | Type | Required |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ---- | -------- |
-| `PayloadData`                       | The message payload that is sent from the wireless device.                                                                                                                   | String           | Yes  |
-| `WirelessDeviceID`                  | The identifier of the wireless device that's sending the<br>data                                                                                                             | String           | Yes  |
-| `Sidewalk.CmdExStatus`              | Command runtime status. Response-type messages shall include<br>the status code, `COMMAND_EXEC_STATUS_SUCCESS`.<br>However, notifications might not include the status code. | Enumeration      | No   |
-| `Seq`                               | The message sequence number.                                                                                                                                                 | Integer          | Yes  |
-| `Sidewalk.NackExStatus`             | Response nack status, which can be `RADIO_TX_ERROR`<br>or `MEMORY_ERROR`.                                                                                                    | Array of strings | No   |
-| `Timestamp`                         | The time when the Sidewalk device sent an uplink<br>request.                                                                                                                 | Timestamp        | Yes  |
-| `Rssi`                              | Received Signal Strength Indicator, which is a measurement of a wireless network's signal strength                                                                           | Integer          | No   |
-| `LinkType`                          | The type of link that was used to perform the uplink which can be one of `LoRa`, `BLE`, or `FSK`                                                                             | String           | No   |
+Sidewalk uplink metadata parameters| Parameter | Description | Type | Required |
+| --- | --- | --- | --- |
+| `PayloadData` | The message payload that is sent from the wireless device. | String | Yes |
+| `WirelessDeviceID` | The identifier of the wireless device that's sending the<br>data | String | Yes |
+| `Sidewalk.CmdExStatus` | Command runtime status. Response-type messages shall include<br>the status code, `COMMAND_EXEC_STATUS_SUCCESS`.<br>However, notifications might not include the status code. | Enumeration | No |
+| `Seq` | The message sequence number. | Integer | Yes |
+| `Sidewalk.NackExStatus` | Response nack status, which can be `RADIO_TX_ERROR`<br>or `MEMORY_ERROR`. | Array of strings | No |
+| `Timestamp` | The time when the Sidewalk device sent an uplink<br>request. | Timestamp | Yes |
+| `Rssi` | Received Signal Strength Indicator, which is a measurement of a wireless network's signal strength | Integer | No |
+| `LinkType` | The type of link that was used to perform the uplink which can be one of `LoRa`, `BLE`, or `FSK` | String | No |

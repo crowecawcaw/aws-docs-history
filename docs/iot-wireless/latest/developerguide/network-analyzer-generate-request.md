@@ -55,7 +55,7 @@ Use the following values for the Signature Version 4 parameters:
   separated by slashes ("/") that is formed by concatenating your
   access-key ID and your credential scope components. Credential scope
   includes the date in YYYYMMDD format, the AWS Region, the service
-  name, and a termination string (aws4_request).
+  name, and a termination string (aws4\_request).
 - **X-Amz-Date** – The date and time
   that the signature was created. Generate the date and time by following
   the instructions in [SigV4 request elements](../../../IAM/latest/UserGuide/reference_sigv-signing-elements.md "../../../IAM/latest/UserGuide/reference_sigv-signing-elements.md") in the _Amazon Web Services General

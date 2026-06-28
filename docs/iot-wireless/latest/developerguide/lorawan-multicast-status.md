@@ -51,7 +51,7 @@ out or you canceled your multicast session, the group status changes to
 If you delete your multicast group, its group status changes to
 **Delete waiting**. Deletions are permanent and
 can't be undone. This action can take time and the group status will
-be **Delete_Waiting** until the multicast group has
+be **Delete\_Waiting** until the multicast group has
 been deleted. After your multicast group enters this state, it can't
 transition to one of the other states.
 

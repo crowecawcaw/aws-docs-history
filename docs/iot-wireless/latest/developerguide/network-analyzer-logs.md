@@ -22,7 +22,7 @@ To activate trace messaging
 
 1. Open the [Network Analyzer hub of the AWS IoT console](https://console.aws.amazon.com/iot/home#/wireless/networkAnalyzer "https://console.aws.amazon.com/iot/home#/wireless/networkAnalyzer") and choose your
    network analyzer configuration,
-   **NetworkAnalyzerConfig_Default**.
+   **NetworkAnalyzerConfig\_Default**.
 2. In the details page of your network analyzer configuration, choose
    **Activate trace messaging** and then choose
    **Activate**.
@@ -63,7 +63,7 @@ following information.
   wireless device or a wireless gateway.
 - **Event**: The event for a log message for a wireless
   device, which can be **Join**, **Rejoin**,
-  **Uplink_Data**, **Downlink_Data**, or
+  **Uplink\_Data**, **Downlink\_Data**, or
   **Registration**.
 - **Log level**:Information about `INFO` or
   `ERROR` log streams for your device.

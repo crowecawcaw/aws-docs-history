@@ -79,7 +79,7 @@ using the console:
    then choose **This device supports firmware updates over the air
    (FUOTA)**. You can now enter the **FPort**
    values for multicast, FUOTA, and clock sync. If you chose `OTAA
-v1.0.x` for the wireless device specification, enter the
+ v1.0.x` for the wireless device specification, enter the
    **GenAppKey**.
 5. Add your device to AWS IoT Core for LoRaWAN by choosing your profiles and a
    destination for routing messages. For the device profile linked to the

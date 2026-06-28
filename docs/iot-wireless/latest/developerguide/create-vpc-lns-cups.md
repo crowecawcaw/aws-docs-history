@@ -164,7 +164,7 @@ To create a record of type A, perform the following steps.
      REST API.
    - For **Record type**, keep the value as
      `A - Routes traffic to an IPv4 address and some AWS
-resources`.
+  resources`.
    - For **Value/Route traffic to**, choose
      **Alias to VPC endpoint**. Then choose your
      **Region** and then choose the endpoint
@@ -227,7 +227,7 @@ policy** and then choose
      using the `nslookup` command.
 
 11. Choose **Define simple record** to create your
-    record.
+record.
 
 ## Configure Route 53 inbound resolver
 
@@ -265,7 +265,7 @@ following information.
      selected automatically.**
 
 3. Choose **Submit** to create your inbound
-   resolver.
+resolver.
 
 For this eample, let's assume that the IP addresses `10.100.0.145`
 and `10.100.192.10` were assigned for the inbound Route 53 Resolver for routing

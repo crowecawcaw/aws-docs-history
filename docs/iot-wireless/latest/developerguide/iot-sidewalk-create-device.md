@@ -32,22 +32,20 @@ ID, the device certificates, application server public key, and the SMSN.
      Specify a destination name and the ID of the device profile obtained
      previously.
 
-| Wireless device parameters         | Parameter                                                                                                                                    | Description                                                                                                                                                                                                                                  | Notes |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| Destination name (uplink)          | The name of the uplink destination that describes the<br>AWS IoT rules for processing the device's data that other<br>AWS services will use. | If you haven't already created a destination, you can<br>provide any string value. AWS IoT Core for Amazon Sidewalk will create an<br>empty destination when creating the device, which you can<br>then update when adding your destination. |
-| Device profile                     | The device profile that you previously created.                                                                                              | –                                                                                                                                                                                                                                            |
-| Positioning                        | The Sidewalk positioning option. You can enable<br>or disable this.                                                                          | You must enable positioning to use the location<br>destination feature. If you enable device location for the<br>Sidewalk-enabled device, your raw uplink payload<br>won't be propagated to the destination.                                 |
-| Destination name (device location) | (Optional) The name of the destination for the device<br>location.                                                                           | You must enable positioning to use the location<br>destination feature. If you enable device location for the<br>Sidewalk-enabled device, your raw uplink payload<br>won't be propagated to the destination.                                 |
+Wireless device parameters| Parameter | Description | Notes |
+| --- | --- | --- |
+| Destination name (uplink) | The name of the uplink destination that describes the<br>AWS IoT rules for processing the device's data that other<br>AWS services will use. | If you haven't already created a destination, you can<br>provide any string value. AWS IoT Core for Amazon Sidewalk will create an<br>empty destination when creating the device, which you can<br>then update when adding your destination. |
+| Device profile | The device profile that you previously created. | – |
+| Positioning | The Sidewalk positioning option. You can enable<br>or disable this. | You must enable positioning to use the location<br>destination feature. If you enable device location for the<br>Sidewalk-enabled device, your raw uplink payload<br>won't be propagated to the destination. |
+| Destination name (device location) | (Optional) The name of the destination for the device<br>location. | You must enable positioning to use the location<br>destination feature. If you enable device location for the<br>Sidewalk-enabled device, your raw uplink payload<br>won't be propagated to the destination. | 3. Obtain the JSON file that contains the required information for
+provisioning your end device.
 
-3. Obtain the JSON file that contains the required information for
-   provisioning your end device.
-
-   - (Console) Download this file from the details page of the
+    * (Console) Download this file from the details page of the
      Sidewalk device that you created.
-   - (API) Use the `GetDeviceProfile` and
+    * (API) Use the `GetDeviceProfile` and
      `GetWirelessDevice` API operations to retrieve
      information about your device profile and wireless device. Store the
      API response information as JSON files, such as
-     `device_profile.json`
+     ``device_profile.json``
      and
-     `wireless_device.json`.
+     ``wireless_device.json``.

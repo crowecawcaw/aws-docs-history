@@ -300,12 +300,12 @@ not included in the API response.
 The following table shows a definition of the different parameters in the
 resolved location metadata.
 
-| Sidewalk resolved location metadata parameters | Parameter                                                                                                                                                                                                                      | Description | Type |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- | ---- |
-| `coordinates`                                  | The resolved coordinates of the Sidewalk device.<br>Coordinates are ordered as `[longitude, latitude, altitude]`.                                                                                                              | Array       |
-| `WirelessDeviceId`                             | The identifier of the wireless device that sends the<br>location uplink data.                                                                                                                                                  | String      |
-| `type`                                         | GeoJSON type. Currently supports the `"Point"` type.                                                                                                                                                                           | String      |
-| `measurementType`                              | The measurement type for resolved location metadata.<br>For Sidewalk devices, the supported values are<br>`"GNSS"`, `"Wi-Fi"`, and `"BLE"`.<br>If triggered by update-resource-position API or CLI, it would be `"UserInput"`. | String      |
-| `horizontalAccuracy`                           | The horizontal accuracy of the resolved position, in meters.                                                                                                                                                                   | Number      |
-| `verticalAccuracy`                             | The vertical accuracy of the resolved position, in meters.                                                                                                                                                                     | Number      |
-| `timestamp`                                    | The timestamp when the Sidewalk device location was resolved.                                                                                                                                                                  | Timestamp   |
+Sidewalk resolved location metadata parameters| Parameter | Description | Type |
+| --- | --- | --- |
+| `coordinates` | The resolved coordinates of the Sidewalk device.<br>Coordinates are ordered as `[longitude, latitude, altitude]`. | Array |
+| `WirelessDeviceId` | The identifier of the wireless device that sends the<br>location uplink data. | String |
+| `type` | GeoJSON type. Currently supports the `"Point"` type. | String |
+| `measurementType` | The measurement type for resolved location metadata.<br>For Sidewalk devices, the supported values are<br>`"GNSS"`, `"Wi-Fi"`, and `"BLE"`.<br>If triggered by update-resource-position API or CLI, it would be `"UserInput"`. | String |
+| `horizontalAccuracy` | The horizontal accuracy of the resolved position, in meters. | Number |
+| `verticalAccuracy` | The vertical accuracy of the resolved position, in meters. | Number |
+| `timestamp` | The timestamp when the Sidewalk device location was resolved. | Timestamp |
