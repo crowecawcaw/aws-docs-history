@@ -20,7 +20,7 @@ To provide content key encryption, include the following in your DRM key provide
 - Provide encrypted values in the `<cpix:ContentKeyList>` of the response payloads.
   For more information about these elements, see the [DASH-IF CPIX 2.3 specification](https://dashif.org/docs/CPIX2.3/Cpix.html "https://dashif.org/docs/CPIX2.3/Cpix.html").
 
-_Example Content Key Encryption Element `_<cpix:DeliveryDataList>_` in the Request Payload_
+_Example Content Key Encryption Element `*<cpix:DeliveryDataList>*` in the Request Payload_
 
 ```
 <cpix:CPIX contentId="abc123"
@@ -42,7 +42,7 @@ _Example Content Key Encryption Element `_<cpix:DeliveryDataList>_` in the Reque
 </cpix:CPIX>
 ```
 
-_Example Content Key Encryption Element `_<cpix:DeliveryDataList>_` in the Response Payload_
+_Example Content Key Encryption Element `*<cpix:DeliveryDataList>*` in the Response Payload_
 
 ```
 <cpix:CPIX contentId="abc123"
@@ -88,7 +88,7 @@ _Example Content Key Encryption Element `_<cpix:DeliveryDataList>_` in the Respo
 </cpix:CPIX>
 ```
 
-_Example Content Key Encryption Element `_<cpix:ContentKeyList>_` in the Response Payload_
+_Example Content Key Encryption Element `*<cpix:ContentKeyList>*` in the Response Payload_
 
 The following example shows encrypted content key handling in the `<cpix:ContentKeyList>` element of the response payload. This uses the `<pskc:EncryptedValue>` element:
 
