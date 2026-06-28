@@ -276,8 +276,8 @@ using the AWS CLI:
     ```
 
 4. Choose **Next** to review the catalog details and create a federated catalog.
-   The newly created federated catalog and the catalog objects appear in the
-   **Catalogs** page.
+The newly created federated catalog and the catalog objects appear in the
+**Catalogs** page.
 
 An Amazon Redshift federated catalog is referenced with `catalogID = 
  123456789012:Redshift-federated catalog id`.

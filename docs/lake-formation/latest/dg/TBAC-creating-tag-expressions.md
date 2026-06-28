@@ -19,8 +19,8 @@ Console
 1. Open the Lake Formation console at
    [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/").
 
-Sign in as a principal with LF-Tag expression creator permissions or as data lake administrator. 2. In the navigation pane, under **Permissions\*\***, choose LF-Tags and permissions**. 3. Choose **LF-Tag expressions**. The **Add
-LF-Tag expressions\*\* page appears.
+Sign in as a principal with LF-Tag expression creator permissions or as data lake administrator. 2. In the navigation pane, under **Permissions****, choose LF-Tags and permissions**. 3. Choose **LF-Tag expressions**. The **Add
+LF-Tag expressions** page appears.
 
 ![The page has fields to add a name, description, and a drop down to select expression body. Users can also have the option to grant permissions.](images/add-tag-expression.png) 4. Enter the following information:
 

@@ -39,12 +39,12 @@ your first data lake from an AWS CloudTrail source.
 
 The following table lists the roles used in this tutorial to create a data lake.
 
-| Intended audience       | Role                                                                                                                                                                                                                             | Description |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| IAM Administrator       | Has the AWS managed policy: `AdministratorAccess`. Can create IAM roles and Amazon S3 buckets.                                                                                                                                   |
-| Data lake administrator | User who can access the data catalog, create databases, and grant Lake Formation permissions to<br>other users. Has fewer IAM permissions than the IAM administrator, but enough to<br>administer the data lake.                 |
-| Data analyst            | User who can run queries against the data lake. Has only enough permissions to run<br>queries.                                                                                                                                   |
-| Workflow role           | Role with the required IAM policies to run a workflow. For more information, see [(Optional) Create an IAM role for workflows](initial-lf-config.md#iam-create-blueprint-role "initial-lf-config.md#iam-create-blueprint-role"). |
+Intended audience| Role | Description |
+| --- | --- |
+| IAM Administrator | Has the AWS managed policy: `AdministratorAccess`. Can create IAM roles and Amazon S3 buckets. |
+| Data lake administrator | User who can access the data catalog, create databases, and grant Lake Formation permissions to<br>other users. Has fewer IAM permissions than the IAM administrator, but enough to<br>administer the data lake. |
+| Data analyst | User who can run queries against the data lake. Has only enough permissions to run<br>queries. |
+| Workflow role | Role with the required IAM policies to run a workflow. For more information, see [(Optional) Create an IAM role for workflows](initial-lf-config.md#iam-create-blueprint-role "initial-lf-config.md#iam-create-blueprint-role"). |
 
 ## Prerequisites
 
@@ -135,7 +135,8 @@ Create the Amazon S3 bucket that is to be the root location of your data lake.
    access.
 2. Choose **Create bucket**, and go through the wizard to create a bucket
    named ``<yourName>`-datalake-cloudtrail`, where
-`<yourName>`is your first initial and last name. For example:`jdoe-datalake-cloudtrail`.
+   `<yourName>` is your first initial and last name. For example:
+   `jdoe-datalake-cloudtrail`.
 
 For detailed instructions on creating an Amazon S3 bucket, see [Creating a bucket](../../../AmazonS3/latest/user-guide/create-bucket.md "../../../AmazonS3/latest/user-guide/create-bucket.md").
 
@@ -147,7 +148,9 @@ Register an Amazon S3 path as the root location of your data lake.
 2. In the navigation pane, under **Register and ingest**, choose
    **Data lake locations**.
 3. Choose **Register location** and then **Browse**.
-4. Select the ``<yourName>`-datalake-cloudtrail`bucket that you created previously, accept the default IAM role`AWSServiceRoleForLakeFormationDataAccess`, and then choose **Register
+4. Select the ``<yourName>`-datalake-cloudtrail`
+   bucket that you created previously, accept the default IAM role
+   `AWSServiceRoleForLakeFormationDataAccess`, and then choose **Register
    location**.
 
 For more information about registering locations, see [Adding an Amazon S3 location to your data lake](register-data-lake.md "register-data-lake.md").

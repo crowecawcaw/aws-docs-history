@@ -55,10 +55,10 @@ Amazon S3 bucket location of the underlying data and register it with Lake Forma
 describe how permissions work for AWS Glue and Lake Formation users (principals) based on the Amazon S3 data
 location of the table or database.
 
-| Amazon S3 location registered with Lake Formation                                | Amazon S3 location of a database                                                                                                                   | AWS Glue users                                                                                     | Lake Formation users |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------- |
-| Registered with Lake Formation (in hybrid access mode or in Lake Formation mode) | Have read/write access to the Amazon S3 data location by inheriting permissions<br>from the IAMAllowedPrincipals group (super access) permissions. | Inherit permissions to create tables from their granted CREATE TABLE<br>permission.                |
-| No associated Amazon S3 location                                                 | Require explicit DATA LOCATION permission for running CREATE TABLE and<br>INSERT TABLE statements.                                                 | Require explicit DATA LOCATION permission for running CREATE TABLE and<br>INSERT TABLE statements. |
+Amazon S3 location registered with Lake Formation| Amazon S3 location of a database | AWS Glue users | Lake Formation users |
+| --- | --- | --- |
+| Registered with Lake Formation (in hybrid access mode or in Lake Formation mode) | Have read/write access to the Amazon S3 data location by inheriting permissions<br>from the IAMAllowedPrincipals group (super access) permissions. | Inherit permissions to create tables from their granted CREATE TABLE<br>permission. |
+| No associated Amazon S3 location | Require explicit DATA LOCATION permission for running CREATE TABLE and<br>INSERT TABLE statements. | Require explicit DATA LOCATION permission for running CREATE TABLE and<br>INSERT TABLE statements. |
 
 ###### **IsRegisteredWithLakeFormation** table property
 
@@ -70,8 +70,8 @@ accessing the data location because all users are considered as opted in for tha
 If the location is registered in hybrid access mode, then the value is set to
 `true` only for users who have opted in for that table.
 
-| How `IsRegisteredWithLakeFormation` works | Permission mode | Users/Roles | `IsRegisteredWithLakeFormation`                                                                                                                                                                                                                                                                                        | Description |
-| ----------------------------------------- | --------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Lake Formation                            | All             | True        | When a location is registered with Lake Formation, the `IsRegisteredWithLakeFormation`<br>property will be set to true for all users. This means that the permissions<br>defined in Lake Formation apply to the registered location. Credential vending will be<br>done by Lake Formation.                             |
-| Hybrid access mode                        | Opted in        | True        | For users who have opted in to using Lake Formation for data access and governance for<br>a table, the `IsRegisteredWithLakeFormation` property will be set to<br>`true` for that table. They are subject to the permission policies<br>defined in Lake Formation for the registered location.                         |
-| Hybrid access mode                        | Not opted in    | False       | For users who have not opted in to using Lake Formation permissions, the<br>`IsRegisteredWithLakeFormation` property is set to<br>`false`. They are not subject to the permission policies defined in<br>Lake Formation for the registered location. Instead, users will follow the Amazon S3<br>permissions policies. |
+How `IsRegisteredWithLakeFormation` works| Permission mode | Users/Roles | `IsRegisteredWithLakeFormation` | Description |
+| --- | --- | --- | --- |
+| Lake Formation | All | True | When a location is registered with Lake Formation, the `IsRegisteredWithLakeFormation`<br>property will be set to true for all users. This means that the permissions<br>defined in Lake Formation apply to the registered location. Credential vending will be<br>done by Lake Formation. |
+| Hybrid access mode | Opted in | True | For users who have opted in to using Lake Formation for data access and governance for<br>a table, the `IsRegisteredWithLakeFormation` property will be set to<br>`true` for that table. They are subject to the permission policies<br>defined in Lake Formation for the registered location. |
+| Hybrid access mode | Not opted in | False | For users who have not opted in to using Lake Formation permissions, the<br>`IsRegisteredWithLakeFormation` property is set to<br>`false`. They are not subject to the permission policies defined in<br>Lake Formation for the registered location. Instead, users will follow the Amazon S3<br>permissions policies. |

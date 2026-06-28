@@ -2,23 +2,22 @@
 
 You can create databases to organize your Apache Iceberg tables, and tables to define the schema and location of your data in the S3 tables catalog.
 
-1.  Open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/"), and sign in as a data lake administrator or database creator.
-2.  In the navigation pane, choose **Databases** under **Data Catalog**.
-3.  Choose **Create database**.
-4.  On the **Create database** page, choose the **Database** option, and enter the following details:
+1. Open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/"), and sign in as a data lake administrator or database creator.
+2. In the navigation pane, choose **Databases** under **Data Catalog**.
+3. Choose **Create database**.
+4. On the **Create database** page, choose the **Database** option, and enter the following details:
 
-        * **Name** – A unique name for the
-         database
-        * **Data catalog** – Choose the S3 tables
-         catalog. The database will reside in this catalog.
-        * **Description** –(Optional) Add a
-         description and location.
-        * **IAM access control for new tables** –
-         Optionally select Use only IAM access control for new tables in this database. For
-         information about this option, see the [Changing the default settings for your data lake](change-settings.md "change-settings.md") section.
-        * Choose **Create database**.You can see the database created under the S3 tables catalog.
-
-    The following CLI command shows how to create a database in the S3 tables catalog.
+   - **Name** – A unique name for the
+     database
+   - **Data catalog** – Choose the S3 tables
+     catalog. The database will reside in this catalog.
+   - **Description** –(Optional) Add a
+     description and location.
+   - **IAM access control for new tables** –
+     Optionally select Use only IAM access control for new tables in this database. For
+     information about this option, see the [Changing the default settings for your data lake](change-settings.md "change-settings.md") section.
+   - Choose **Create database**.You can see the database created under the S3 tables catalog.
+     The following CLI command shows how to create a database in the S3 tables catalog.
 
 ```
 aws glue create-database

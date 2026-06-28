@@ -457,6 +457,5 @@ The following are brief descriptions of the permissions in this policy:
      and to attach the role to the created crawlers and jobs.
 
 7. Verify that the role `LakeFormationWorkflowRole` has two policies
-   attached.
-8. If you are ingesting data that is outside the data lake location, add an
-   inline policy granting permissions to read the source data.
+attached. 8. If you are ingesting data that is outside the data lake location, add an
+inline policy granting permissions to read the source data.

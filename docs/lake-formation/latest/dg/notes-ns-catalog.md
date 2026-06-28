@@ -33,7 +33,7 @@ AWS Glue Data Catalog. The following limitations apply:
   Catalog.
 - Hive tables are not accessible from third-party engines connected to the AWS Glue Iceberg REST
   Catalog.
-- The read_committed isolation level on RMS tables through Spark will be
+- The read\_committed isolation level on RMS tables through Spark will be
   supported.
 - Redshift database names are treated as case-insensitive in the AWS Glue Data Catalog,
   restricted to 128 characters, and can be alphanumeric with dashes (-) and underscores (\_).

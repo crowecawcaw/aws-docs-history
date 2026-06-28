@@ -174,12 +174,12 @@ In this diagram:
   The following are the results when user `datalake_user` tries to create a
   catalog table in a particular database at a particular location.
 
-| Location where `datalake_user` tries to create a table | Database and Location | Succeeds or Fails                                    | Reason |
-| ------------------------------------------------------ | --------------------- | ---------------------------------------------------- | ------ |
-| Database A at `Finance/Sales`                          | Fails                 | No data location permission                          |
-| Database A at `Products`                               | Succeeds              | Has data location permission                         |
-| Database A at `HR/Plans`                               | Succeeds              | Location is not registered                           |
-| Database B at `Customer Service/Incidents`             | Succeeds              | Database has location property at `Customer Service` |
+Location where `datalake_user` tries to create a table| Database and Location | Succeeds or Fails | Reason |
+| --- | --- | --- |
+| Database A at `Finance/Sales` | Fails | No data location permission |
+| Database A at `Products` | Succeeds | Has data location permission |
+| Database A at `HR/Plans` | Succeeds | Location is not registered |
+| Database B at `Customer Service/Incidents` | Succeeds | Database has location property at `Customer Service` |
 
 For more information, see the following:
 

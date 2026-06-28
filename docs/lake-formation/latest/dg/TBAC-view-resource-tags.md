@@ -20,8 +20,8 @@ one of the following:
      **Tables**.
 
 3. On the **Tables** or **Databases** page,
-   choose the name of the database or table. Then on the details page, scroll down to
-   the **LF-Tags** section.
+choose the name of the database or table. Then on the details page, scroll down to
+the **LF-Tags** section.
 
 The following screenshot shows the LF-Tags assigned to a
 `customers` table, which is contained in the `retail`

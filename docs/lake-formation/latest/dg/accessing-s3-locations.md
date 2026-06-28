@@ -16,6 +16,10 @@ To enable this feature, you must complete the following steps.
 
 Complete the following prerequisites before enabling the feature flag:
 
+- **Specify table location** – Specify the path to your
+  data in Amazon S3 using the LOCATION property in the table attributes. For more information about
+  the location format, see [Table
+  location in Amazon S3](../../../athena/latest/ug/tables-location-format.md "../../../athena/latest/ug/tables-location-format.md") in the _Amazon Athena User Guide_.
 - **Register Amazon S3 locations** – Catalog your tables in
   the Data Catalog for your Amazon S3 locations and register them with Lake Formation by providing the Amazon S3 bucket
   owner account. When you register a location, that Amazon S3 path and all folders under that path
@@ -53,7 +57,7 @@ Lake Formation-based Amazon S3 location access follows this flow:
 1. A principal or role requests access to Amazon S3 data files through a service such as an
    Amazon EMR Spark job, or data processing pipeline.
 2. The AWS SDK plugin integrated with EMR intercepts the Amazon S3 request and calls the Lake Formation
-   `GetTemporaryDataLocationCredentials` API.
+   [GetTemporaryDataLocationCredentials](../APIReference/API_GetTemporaryDataLocationCredentials.md "../APIReference/API_GetTemporaryDataLocationCredentials.md") API.
 3. Lake Formation checks if the Amazon S3 path corresponds to a registered location and cataloged table,
    and evaluates the caller's permissions on the associated AWS Glue table.
 4. If the caller has `SELECT` or `SUPER` permissions on the
@@ -154,3 +158,8 @@ Note the following considerations when using credential vending for Amazon S3 lo
 - Credential vending for Amazon S3 locations is not supported cross-region.
 - Credential vending is supported for Amazon S3 locations included as the table's primary
   location.
+- The plugin supports Apache Hive, Apache Hudi, and
+  Delta Lake table formats. Apache Iceberg is not currently
+  supported.
+- The plugin is not currently supported with Amazon EMR Spark Fine-Grained Access Control
+  (FGAC) mode.

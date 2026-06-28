@@ -18,6 +18,6 @@ accept an Amazon Redshift datashare in Lake Formation:
 
 The data lake administrator IAM user has the following permissions implicitly.
 
-- data_location_access
-- create_database
+- data\_location\_access
+- create\_database
 - lakefomation:registerResource

@@ -22,7 +22,7 @@ The following are the status fields:
   jobs:
 
   - QUEUED
-  - IN_PROGRESS
+  - IN\_PROGRESS
   - SUCCESS
   - FAILED
 

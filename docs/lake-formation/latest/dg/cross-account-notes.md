@@ -69,6 +69,6 @@ See the example CLI command for granting permissions to `ALLIAMPrincipals` in [G
 ###### See also
 
 - [Lake Formation tag-based access control best practices and considerations](lf-tag-considerations.md "lf-tag-considerations.md")
-- [CREATE_TABLE](lf-permissions-reference.md#perm-create-table "lf-permissions-reference.md#perm-create-table") in the
+- [CREATE\_TABLE](lf-permissions-reference.md#perm-create-table "lf-permissions-reference.md#perm-create-table") in the
   [Lake Formation permissions reference](lf-permissions-reference.md "lf-permissions-reference.md") for more cross-account access rules
   and limitations.

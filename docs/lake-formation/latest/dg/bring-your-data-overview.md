@@ -41,7 +41,7 @@ catalog OpenAPI specification, such as Amazon EMR Serverless, and Amazon Athena.
   but want to create and manage Amazon Redshift tables using Data Catalog. You can get started by creating an
   AWS Glue managed catalog using the `glue:CreateCatalog` API operation or the
   AWS Lake Formation console by setting the catalog type as `Managed` and `Catalog
-source` as **Redshift.**
+ source` as **Redshift.**
 - **Publish Amazon Redshift datashares with Data Catalog** – Publish
   [Amazon Redshift](../../../redshift/index.md "../../../redshift/index.md") datashares to Data Catalog,
   and use Lake Formation to centrally manage data access of datashares and restrict user access.

@@ -16,9 +16,11 @@ You can delete the federated catalogs that you created in the AWS Glue Data Cata
 ###### To delete a federated catalog (CLI)
 
 - ```
-  aws glue delete-catalog
-    --catalog-id `123456789012:catalog name`
+
   ```
+
+aws glue delete-catalog
+--catalog-id `123456789012:catalog name`
 
 ```
 

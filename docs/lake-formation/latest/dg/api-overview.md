@@ -12,7 +12,7 @@ The following is the work flow for application integration API operations:
 3. Lake Formation performs authorization for the request. If the user doesn't have appropriate
    permissions on the table, then _AccessDeniedException_ is thrown.
 4. As part of the request, the query engine sends the filtering it supports. There are
-   two flags that can be sent within an array: _COLUMN_PERMISSIONS_ and _CELL_FILTER_PERMISSION_. If the query engine doesn't support any of these
+   two flags that can be sent within an array: _COLUMN\_PERMISSIONS_ and _CELL\_FILTER\_PERMISSION_. If the query engine doesn't support any of these
    features, and a policy exists on the table for the feature, then a _PermissionTypeMismatchException_ is thrown and the query
    fails. This is to avoid data leakage.
 5. The returned response contains the following:
@@ -27,7 +27,7 @@ The following is the work flow for application integration API operations:
      credentials should be used to access Amazon S3.
    - A list of `CellFilters` if any that should be applied to rows of
      data. This list contains columns and an expression to evaluate each row. This should
-     only be populated if _CELL_FILTER_PERMISSION_ is
+     only be populated if _CELL\_FILTER\_PERMISSION_ is
      sent as part of the request and there is a data filter against the table for the
      calling user.
 

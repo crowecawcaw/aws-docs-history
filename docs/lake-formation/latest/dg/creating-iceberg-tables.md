@@ -12,7 +12,7 @@ Iceberg also provides support for data versioning, which allows users to track c
 This enables the time travel feature, which allows users to access and query historical versions of data and analyze changes to the data between updates and deletes.
 
 You can use Lake Formation console or the `CreateTable` operation in the AWS Glue API to create an Iceberg table in the Data Catalog.
-For more information, see [CreateTable action (Python: create_table)](../../../glue/latest/dg/aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-CreateTable "../../../glue/latest/dg/aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-CreateTable").
+For more information, see [CreateTable action (Python: create\_table)](../../../glue/latest/dg/aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-CreateTable "../../../glue/latest/dg/aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-CreateTable").
 
 When you create an Iceberg table in the Data Catalog, you must specify the table format and
 metadata file path in Amazon S3 to be able to perform reads and writes.
@@ -75,53 +75,52 @@ AWS Glue Developer Guide.
 
 Console
 
-1.  Sign in to the AWS Management Console, and open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/").
-2.  Under Data Catalog, choose **Tables**, and use the **Create
-    table** button to specify the following attributes:
+1. Sign in to the AWS Management Console, and open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/").
+2. Under Data Catalog, choose **Tables**, and use the **Create
+   table** button to specify the following attributes:
 
-    - **Table name**: Enter a name for the table. If you’re using
-      Athena to access tables, use these [naming
-      tips](../../../athena/latest/ug/tables-databases-columns-names.md "../../../athena/latest/ug/tables-databases-columns-names.md") in the Amazon Athena User Guide.
-    - **Database**: Choose an existing database or create a new one.
-    - **Description**:The description of the table. You can write a description to help you understand the contents of the table.
-    - **Table format**: For **Table format**, choose Apache
-      Iceberg.
+   - **Table name**: Enter a name for the table. If you’re using
+     Athena to access tables, use these [naming
+     tips](../../../athena/latest/ug/tables-databases-columns-names.md "../../../athena/latest/ug/tables-databases-columns-names.md") in the Amazon Athena User Guide.
+   - **Database**: Choose an existing database or create a new one.
+   - **Description**:The description of the table. You can write a description to help you understand the contents of the table.
+   - **Table format**: For **Table format**, choose Apache
+     Iceberg.
 
-    ![Apache Iceberg table option selected with table optimization options.](images/table-optimization.png)
-    - **Table optimization**
+   ![Apache Iceberg table option selected with table optimization options.](images/table-optimization.png)
+   - **Table optimization**
 
-          + **Compaction** – Data
-           files are merged and rewritten remove obsolete data and consolidate
-           fragmented data into larger, more efficient files.
-          + **Snapshot retention** – Snapshots are timestamped versions
-           of an Iceberg table. Snapshot retention configurations allow customers to enforce how long
-           to retain snapshots and how many snapshots to retain. Configuring a snapshot retention
-           optimizer can help manage storage overhead by removing older, unnecessary snapshots and
-           their associated underlying files.
-          + **Orphan file deletion** – Orphan files are files that are no longer referenced by the Iceberg table metadata. These files can
-           accumulate over time, especially after operations like table deletions or failed ETL jobs.
-           Enabling orphan file deletion allows AWS Glue to periodically identify and remove these
-           unnecessary files, freeing up storage.
+     - **Compaction** – Data
+       files are merged and rewritten remove obsolete data and consolidate
+       fragmented data into larger, more efficient files.
+     - **Snapshot retention** – Snapshots are timestamped versions
+       of an Iceberg table. Snapshot retention configurations allow customers to enforce how long
+       to retain snapshots and how many snapshots to retain. Configuring a snapshot retention
+       optimizer can help manage storage overhead by removing older, unnecessary snapshots and
+       their associated underlying files.
+     - **Orphan file deletion** – Orphan files are files that are no longer referenced by the Iceberg table metadata. These files can
+       accumulate over time, especially after operations like table deletions or failed ETL jobs.
+       Enabling orphan file deletion allows AWS Glue to periodically identify and remove these
+       unnecessary files, freeing up storage.
+       For more information, see [Optimizing Iceberg tables](../../../glue/latest/dg/table-optimizers.md "../../../glue/latest/dg/table-optimizers.md").
 
-      For more information, see [Optimizing Iceberg tables](../../../glue/latest/dg/table-optimizers.md "../../../glue/latest/dg/table-optimizers.md").
+   - **IAM role**: To run compaction, the service assumes an
+     IAM role on your behalf. You can choose an IAM role using the
+     drop-down. Ensure that the role has the permissions required to enable
+     compaction.
 
-    - **IAM role**: To run compaction, the service assumes an
-      IAM role on your behalf. You can choose an IAM role using the
-      drop-down. Ensure that the role has the permissions required to enable
-      compaction.
+   To learn more about the required permissions, see [Table optimization prerequisites](../../../glue/latest/dg/optimization-prerequisites.md "../../../glue/latest/dg/optimization-prerequisites.md").
+   - **Location**: Specify the path to the folder in Amazon S3 that
+     stores the metadata table. Iceberg needs a metadata file and location in the
+     Data Catalog to be able to perform reads and writes.
+   - **Schema**: Choose **Add columns** to add
+     columns and data types of the columns. You have the option to create an
+     empty table and update the schema later. Data Catalog supports Hive data types.
+     For more information, see [Hive data types](https://cwiki.apache.org/confluence/plugins/servlet/mobile?contentId=27838462#content/view/27838462 "https://cwiki.apache.org/confluence/plugins/servlet/mobile?contentId=27838462#content/view/27838462").
 
-    To learn more about the required permissions, see [Table optimization prerequisites](../../../glue/latest/dg/optimization-prerequisites.md "../../../glue/latest/dg/optimization-prerequisites.md").
-    - **Location**: Specify the path to the folder in Amazon S3 that
-      stores the metadata table. Iceberg needs a metadata file and location in the
-      Data Catalog to be able to perform reads and writes.
-    - **Schema**: Choose **Add columns** to add
-      columns and data types of the columns. You have the option to create an
-      empty table and update the schema later. Data Catalog supports Hive data types.
-      For more information, see [Hive data types](https://cwiki.apache.org/confluence/plugins/servlet/mobile?contentId=27838462#content/view/27838462 "https://cwiki.apache.org/confluence/plugins/servlet/mobile?contentId=27838462#content/view/27838462").
-
-    Iceberg allows you to evolve schema and partition after you create the
-    table. You can use [Athena
-    queries](../../../athena/latest/ug/querying-iceberg-evolving-table-schema.md "../../../athena/latest/ug/querying-iceberg-evolving-table-schema.md") to update the table schema and [Spark queries](https://iceberg.apache.org/docs/latest/spark-ddl/#alter-table-sql-extensions "https://iceberg.apache.org/docs/latest/spark-ddl/#alter-table-sql-extensions") for updating partitions.
+   Iceberg allows you to evolve schema and partition after you create the
+   table. You can use [Athena
+   queries](../../../athena/latest/ug/querying-iceberg-evolving-table-schema.md "../../../athena/latest/ug/querying-iceberg-evolving-table-schema.md") to update the table schema and [Spark queries](https://iceberg.apache.org/docs/latest/spark-ddl/#alter-table-sql-extensions "https://iceberg.apache.org/docs/latest/spark-ddl/#alter-table-sql-extensions") for updating partitions.
 
 AWS CLI
 

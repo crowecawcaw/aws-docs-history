@@ -149,7 +149,7 @@ The definer role must have the following Lake Formation permissions:
 
 - On source tables – SELECT or ALL permissions without row, column, or cell
   filters
-- On the target database – CREATE_TABLE permission
+- On the target database – CREATE\_TABLE permission
 - On the AWS Glue Data Catalog – GetTable and CreateTable API permissions
 
 When you create a materialized view, the definer role's ARN is stored in the view

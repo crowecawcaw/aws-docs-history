@@ -12,14 +12,13 @@ and tables in the Data Catalog.
   (_data access permissions_ and _data
   location permissions_).
 
-      + Data lake permissions enable principals to read and write data to *underlying* Amazon S3 locations—data pointed to by
-       Data Catalog resources.
-      + Data location permissions enable principals to create and alter metadata databases and
-       tables that point to specific Amazon S3 locations.
-
-  For both areas, Lake Formation uses a combination of Lake Formation permissions and AWS Identity and Access Management (IAM)
-  permissions. The IAM permissions model consists of IAM policies. The Lake Formation permissions
-  model is implemented as DBMS-style GRANT/REVOKE commands, such as `Grant SELECT on
+  - Data lake permissions enable principals to read and write data to _underlying_ Amazon S3 locations—data pointed to by
+    Data Catalog resources.
+  - Data location permissions enable principals to create and alter metadata databases and
+    tables that point to specific Amazon S3 locations.
+    For both areas, Lake Formation uses a combination of Lake Formation permissions and AWS Identity and Access Management (IAM)
+    permissions. The IAM permissions model consists of IAM policies. The Lake Formation permissions
+    model is implemented as DBMS-style GRANT/REVOKE commands, such as `Grant SELECT on
  *tableName* to *userName*`.
 
 When a principal makes a request to access Data Catalog resources or underlying data, for the

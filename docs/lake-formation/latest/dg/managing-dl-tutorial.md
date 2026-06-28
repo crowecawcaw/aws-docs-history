@@ -336,7 +336,7 @@ columns for testing purposes.
    3. Choose **Assign new LF-tag**.
    4. For **Assigned keys**¸ choose the `Confidential` LF-Tag you created earlier.
    5. For **Values**, choose `True`.
-   6. Choose **Save**.This completes the LF-Tag assignment to the tag_database database.
+   6. Choose **Save**.This completes the LF-Tag assignment to the tag\_database database.
 
 ###### Create your database and table for column-level access
 
@@ -484,12 +484,12 @@ Repeat the following steps to create the database `col_tag_database` and table `
 
 18. Next, associate the `Confidential=False` LF-Tag to `col_tag_database`. This is required for `lf-data-analyst` to be able to describe the database `col_tag_database` when logged in from Amazon Athena.
 
-    1.  On the **Databases** page, find and select `col_tag_database`.
-    2.  On the **Actions** menu, choose **Edit LF-Tags**.
-    3.  Choose **Assign new LF-Tag**.
-    4.  For **Assigned keys**, choose the `Confidential` LF-Tag you created earlier.
-    5.  For **Values**, choose `False`.
-    6.  Choose **Save**.
+    1. On the **Databases** page, find and select `col_tag_database`.
+    2. On the **Actions** menu, choose **Edit LF-Tags**.
+    3. Choose **Assign new LF-Tag**.
+    4. For **Assigned keys**, choose the `Confidential` LF-Tag you created earlier.
+    5. For **Values**, choose `False`.
+    6. Choose **Save**.
 
 ## Step 4: Grant table permissions
 
@@ -497,7 +497,7 @@ Grant permissions to data analysts for consumption of the databases `tag_databas
 and the table `col_tag_database` using LF-tags `Confidential` and `Sensitive`.
 
 1. Follow these steps to grant permissions to the `lf-data-analyst` user on the objects associated with the LF-Tag
-   `Confidential=True` (Database:tag_database) to have `Describe` the database and `Select` permission on tables.
+   `Confidential=True` (Database:tag\_database) to have `Describe` the database and `Select` permission on tables.
 
    1. Sign in to the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") as `lf-data-engineer`.
    2. Under **Permissions**, select **Data lake permissions**.

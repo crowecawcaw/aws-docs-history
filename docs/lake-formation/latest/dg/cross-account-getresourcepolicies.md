@@ -62,5 +62,5 @@ JSON
 
 ###### See also:
 
-- [GetResourceShares Action (Python: get_resource_policies)](../../../glue/latest/dg/aws-glue-api-jobs-security.md#aws-glue-api-jobs-security-GetResourcePolicies "../../../glue/latest/dg/aws-glue-api-jobs-security.md#aws-glue-api-jobs-security-GetResourcePolicies") in the
+- [GetResourceShares Action (Python: get\_resource\_policies)](../../../glue/latest/dg/aws-glue-api-jobs-security.md#aws-glue-api-jobs-security-GetResourcePolicies "../../../glue/latest/dg/aws-glue-api-jobs-security.md#aws-glue-api-jobs-security-GetResourcePolicies") in the
   _AWS Glue Developer Guide_

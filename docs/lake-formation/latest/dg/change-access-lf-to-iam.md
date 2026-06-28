@@ -27,7 +27,7 @@ Before you begin, ensure the following:
 
 - You have identified all Lake Formation grants currently in effect for the resources
   being migrated. Run `aws lakeformation list-permissions --resource-type
-TABLE` to review them.
+ TABLE` to review them.
 - You have prepared IAM policies that provide equivalent access for all affected
   principals.
 - The IAM role registered with Lake Formation still has

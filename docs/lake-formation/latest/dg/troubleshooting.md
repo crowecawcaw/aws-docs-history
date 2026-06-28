@@ -255,4 +255,4 @@ database.
 One possible cause is that the workflow role did not have data location permissions on the
 target storage location. Grant data location permissions to the role.
 
-For more information, see [DATA_LOCATION_ACCESS](lf-permissions-reference.md#perm-location "lf-permissions-reference.md#perm-location").
+For more information, see [DATA\_LOCATION\_ACCESS](lf-permissions-reference.md#perm-location "lf-permissions-reference.md#perm-location").

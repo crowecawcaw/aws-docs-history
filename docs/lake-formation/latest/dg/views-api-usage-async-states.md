@@ -24,23 +24,22 @@ indicates the state of the asynchronous operation, as well as the actions that c
 be performed on this view. Below are the possible values that these attributes can
 take on.
 
-1.  `Status.Action`
+1. `Status.Action`
 
-    1. CREATE
-    2. UPDATE
+   1. CREATE
+   2. UPDATE
 
-2.  `Status.State`
+2. `Status.State`
 
-        1. QUEUED
-        2. IN\_PROGRESS
-        3. SUCCESS
-        4. FAILED
-
-    It is also important to note that some updates on a Data Catalog view don't require an
-    asynchronous operation. For example, one may wish to update the
-    `Description` attribute of the table. Since this does not require any
-    asynchronous operations, the resulting table metadata will not have any
-    `Status`, and the attribute will be `NULL`.
+   1. QUEUED
+   2. IN\_PROGRESS
+   3. SUCCESS
+   4. FAILED
+      It is also important to note that some updates on a Data Catalog view don't require an
+      asynchronous operation. For example, one may wish to update the
+      `Description` attribute of the table. Since this does not require any
+      asynchronous operations, the resulting table metadata will not have any
+      `Status`, and the attribute will be `NULL`.
 
 ```
 {
@@ -67,10 +66,10 @@ This operation cannot be performed on an AWS Glue view which has the following
 status information:
 
 1. Action == CREATE and State == QUEUED
-2. Action == CREATE and State == IN_PROGRESS
+2. Action == CREATE and State == IN\_PROGRESS
 3. Action == CREATE and state == FAILED
 4. Action == UPDATE and state == QUEUED
-5. Action == UPDATE and state == IN_PROGRESS
+5. Action == UPDATE and state == IN\_PROGRESS
    To summarize, you can update a Data Catalog view only when it meets the following
    requirements.
 

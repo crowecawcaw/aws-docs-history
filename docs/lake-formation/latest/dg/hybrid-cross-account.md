@@ -48,7 +48,7 @@ calling `glue:PutResourcePolicy`.
 
 When creating AWS Glue resource policies for cross-account access, grant only the minimum permissions required for your specific use case.
 
-For more information, see [PutResourcePolicy Action (Python: put_resource_policy)](../../../glue/latest/dg/aws-glue-api-jobs-security.md#aws-glue-api-jobs-security-PutResourcePolicy "../../../glue/latest/dg/aws-glue-api-jobs-security.md#aws-glue-api-jobs-security-PutResourcePolicy") in
+For more information, see [PutResourcePolicy Action (Python: put\_resource\_policy)](../../../glue/latest/dg/aws-glue-api-jobs-security.md#aws-glue-api-jobs-security-PutResourcePolicy "../../../glue/latest/dg/aws-glue-api-jobs-security.md#aws-glue-api-jobs-security-PutResourcePolicy") in
 the _AWS Glue Developer Guide_.
 
 ###### When granting cross-account permissions using the Lake Formation named resources method

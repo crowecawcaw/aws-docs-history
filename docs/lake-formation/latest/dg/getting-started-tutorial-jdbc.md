@@ -131,7 +131,8 @@ your data lake.
    access.
 2. Choose **Create bucket**, and go through the wizard to create a
    bucket named ``<yourName>`-datalake-tutorial`, where
-`<yourName>`is your first initial and last name. For example:`jdoe-datalake-tutorial`.
+   `<yourName>` is your first initial and last name. For example:
+   `jdoe-datalake-tutorial`.
 
 For detailed instructions on creating an Amazon S3 bucket, see [How Do I
 Create an S3 Bucket?](../../../AmazonS3/latest/user-guide/create-bucket.md "../../../AmazonS3/latest/user-guide/create-bucket.md") in the _Amazon Simple Storage Service User Guide_.
@@ -147,7 +148,9 @@ lake.
    **Data lake locations**.
 3. Choose **Register location**, and then choose
    **Browse**.
-4. Select the ``<yourName>`-datalake-tutorial`bucket that you created previously, accept the default IAM role`AWSServiceRoleForLakeFormationDataAccess`, and then choose
+4. Select the ``<yourName>`-datalake-tutorial`
+   bucket that you created previously, accept the default IAM role
+   `AWSServiceRoleForLakeFormationDataAccess`, and then choose
    **Register location**.
 
 For more information about registering locations, see [Adding an Amazon S3 location to your data lake](register-data-lake.md "register-data-lake.md").
@@ -500,13 +503,12 @@ complete the following steps.
     	* `AmazonRedshiftReadOnlyAccess`
 
 11. Sign out of the Amazon Redshift console and sign back in as user
-    `datalake_user`.
-12. In the left vertical toolbar, choose the **EDITOR** icon to open the
-    query editor and connect to the cluster. If the **Connect to database**
-    dialog box appears, choose the cluster name `redshift-lakeformation-demo`, and
-    enter the database name `dev`, the user name
-    `awsuser`, and the password that you created. Then choose
-    **Connect to database**.
+`datalake_user`. 12. In the left vertical toolbar, choose the **EDITOR** icon to open the
+query editor and connect to the cluster. If the **Connect to database**
+dialog box appears, choose the cluster name `redshift-lakeformation-demo`, and
+enter the database name `dev`, the user name
+`awsuser`, and the password that you created. Then choose
+**Connect to database**.
 
 ###### Note
 
@@ -527,7 +529,7 @@ create external schema if not exists redshift_jdbc from DATA CATALOG database 'l
 ```
 
 14. In the schema list under **Select schema**, choose
-    **redshift_jdbc**.
+    **redshift\_jdbc**.
 
 The tables list populates. The query editor shows only the tables on which you were
 granted Lake Formation data lake permissions. 15. On the pop-up menu next to a table name, choose **Preview

@@ -86,7 +86,7 @@ following:
     * To assign LF-Tags to tables, choose **Tables**.
 
 3. Choose a database or table, and on the **Actions** menu,
-   choose **Edit LF-Tags**.
+choose **Edit LF-Tags**.
 
 The **Edit LF-Tags:
 `resource-name`** dialog box appears.

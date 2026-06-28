@@ -19,26 +19,31 @@ Before you begin, make sure that you have completed the steps in [Getting starte
 
 2. **Securing data lakes:** Learn to use tag-based and row-level access controls to effectively secure and manage access to your data lakes.
 
-   - [Setting up permissions for open table storage formats in Lake Formation](otf-tutorial.md "otf-tutorial.md")
+    * [Setting up permissions for open table storage formats in Lake Formation](otf-tutorial.md "otf-tutorial.md")
 
-   This tutorial demonstrates how to set up permissions for open source transactional table formats (Apache Iceberg, Apache Hudi, and Linux Foundation Delta Lake tables) in Lake Formation.
-   - [Managing a data lake using Lake Formation tag-based access control](managing-dl-tutorial.md "managing-dl-tutorial.md")
 
-   Learn to manage access to the data within a data lake using tag-based access control in Lake Formation.
-   - [Securing data lakes with row-level access control](cbac-tutorial.md "cbac-tutorial.md")
+    This tutorial demonstrates how to set up permissions for open source transactional table formats (Apache Iceberg, Apache Hudi, and Linux Foundation Delta Lake tables) in Lake Formation.
+    * [Managing a data lake using Lake Formation tag-based access control](managing-dl-tutorial.md "managing-dl-tutorial.md")
 
-   Learn to set up row-level permissions that allow you to restrict access to specific rows based on data compliance and governance policies in Lake Formation.
+
+    Learn to manage access to the data within a data lake using tag-based access control in Lake Formation.
+    * [Securing data lakes with row-level access control](cbac-tutorial.md "cbac-tutorial.md")
+
+
+    Learn to set up row-level permissions that allow you to restrict access to specific rows based on data compliance and governance policies in Lake Formation.
 
 3. **Sharing data:** Learn to securely share your data across
-   AWS accounts using tag-based access control (TBAC) and manage granular permissions on datasets shared between AWS accounts.
+AWS accounts using tag-based access control (TBAC) and manage granular permissions on datasets shared between AWS accounts.
 
-   - [Sharing a data lake using Lake Formation tag-based access control and named resources](share-dl-tbac-tutorial.md "share-dl-tbac-tutorial.md")
+    * [Sharing a data lake using Lake Formation tag-based access control and named resources](share-dl-tbac-tutorial.md "share-dl-tbac-tutorial.md")
 
-   In this tutorial, you learn how to securely share your data across AWS accounts
-   using Lake Formation.
-   - [Sharing a data lake using Lake Formation fine-grained access control](share-dl-fgac-tutorial.md "share-dl-fgac-tutorial.md")
 
-   In this tutorial, you learn how to quickly and easily share datasets using Lake Formation when managing multiple AWS accounts with AWS Organizations.
+    In this tutorial, you learn how to securely share your data across AWS accounts
+     using Lake Formation.
+    * [Sharing a data lake using Lake Formation fine-grained access control](share-dl-fgac-tutorial.md "share-dl-fgac-tutorial.md")
+
+
+    In this tutorial, you learn how to quickly and easily share datasets using Lake Formation when managing multiple AWS accounts with AWS Organizations.
 
 ###### Topics
 

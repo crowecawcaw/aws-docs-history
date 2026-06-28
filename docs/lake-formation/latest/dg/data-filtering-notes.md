@@ -50,7 +50,7 @@ The following notes and restrictions apply to nested column filtering:
 
 ###### Example
 
-Col1.Col1_1.Col1_1_1.Col1_1_1_1.Col1_1_1_1_1
+Col1.Col1\_1.Col1\_1\_1.Col1\_1\_1\_1.Col1\_1\_1\_1\_1
 
 - You can't apply column filtering on nested fields within partition columns.
 - If your table schema contains a top-level column name ("customer"."address") that has

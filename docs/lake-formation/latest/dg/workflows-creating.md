@@ -119,7 +119,7 @@ role must have permissions on the CloudTrail location in Amazon S3. 5. Do one of
      *AWS Glue Developer Guide*.
 
 6. Under **Import target**, specify the target database, target Amazon S3
-   location, and data format.
+location, and data format.
 
 Ensure that the workflow role has the required Lake Formation permissions on the database and
 Amazon S3 target location.
@@ -138,7 +138,7 @@ option. 8. Under **Import options**:
      tables that the workflow creates.
 
 9. Choose **Create**, and wait for the console to report that the
-   workflow was successfully created.
+workflow was successfully created.
 
 ###### Tip
 

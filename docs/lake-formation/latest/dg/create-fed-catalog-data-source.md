@@ -38,9 +38,9 @@ AWS Management Console
     * **Description** – Enter a description for the catalog created from the data source.
 
 5. Choose an **IAM role** for Lake Formation to assume to vend
-   credentials for the querying engine to access data from the data source. This role
-   must have the required permissions to access the AWS Glue connection and invoke the
-   Lambda function to access data from the external data source.
+credentials for the querying engine to access data from the data source. This role
+must have the required permissions to access the AWS Glue connection and invoke the
+Lambda function to access data from the external data source.
 
 You can also **Create a new role** in the IAM console.
 
@@ -121,7 +121,35 @@ aws lakeformation register-resource
 
 ```
 
-3. The following example shows how to create a federated catalog.
+3. If you are not a data lake administrator, grant
+   `DATA_LOCATION_ACCESS` on the registered connection to the
+   principal that creates the federated catalog. A data lake administrator
+   has implicit data location permissions and does not need this grant. For more
+   information, see [Implicit Lake
+   Formation permissions](implicit-permissions.md "implicit-permissions.md").
+
+The following example shows how to grant
+`DATA_LOCATION_ACCESS` on a registered connection.
+
+```
+aws lakeformation grant-permissions \
+  --cli-input-json \
+    '{
+      "Principal": {
+        "DataLakePrincipalIdentifier": `"arn:aws:iam::123456789012:role/non-admin-role"`
+      },
+      "Resource": {
+        "DataLocation": {
+          "CatalogId": `"123456789012"`,
+          "ResourceArn": `"arn:aws:glue:us-east-1:123456789012:connection/connection-name"`
+        }
+      },
+      "Permissions": ["DATA_LOCATION_ACCESS"]
+    }'
+
+```
+
+4. The following example shows how to create a federated catalog.
 
 ```
 aws glue create-catalog

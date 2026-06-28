@@ -59,7 +59,7 @@ For more information on cross-account data sharing and data filtering, see:
 1. You create IAM users and roles that have appropriate permissions to deploy the AWS SAM
    application and to create federated databases.
 2. You register the Amazon S3 data location with Lake Formation by selecting the `Enable Data Catalog
-federation` option for datasets that use an external Hive metastore.
+ federation` option for datasets that use an external Hive metastore.
 3. You configure the AWS SAM application settings (AWS Glue connection name, URL to the Hive
    metastore, and Lambda function parameters) and deploy the AWS SAM application.
 4. The AWS SAM application deploys the resources that are required to connect the external Hive

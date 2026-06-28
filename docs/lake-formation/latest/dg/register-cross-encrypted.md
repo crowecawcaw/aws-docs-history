@@ -130,7 +130,7 @@ JSON
       view**.
    4. In the **Key policy** section, choose **Edit**,
       and add the Amazon Resource Name (ARN) of the role to the `Allow use of
-the key` object, as shown in the following example.
+  the key` object, as shown in the following example.
 
    ###### Note
 
@@ -171,7 +171,8 @@ the key` object, as shown in the following example.
 9. On the **Register location page**, for **Amazon S3
    path**, enter the location path as
    `s3://`<bucket>`/`<prefix>``.
-Replace `<bucket>`with the name of the bucket and`<prefix>` with the rest of the path for the
+   Replace `<bucket>` with the name of the bucket and
+   `<prefix>` with the rest of the path for the
    location.
 
 ###### Note

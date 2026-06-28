@@ -72,53 +72,50 @@ tagged with the same key(s) and value(s).
 
 ###### Set up required on the receiving/grantee account
 
-1.  Sign in to Lake Formation console as a data lake administrator of the consumer account.
-2.  Next, receive the resource share in the consumer account.
+1. Sign in to Lake Formation console as a data lake administrator of the consumer account.
+2. Next, receive the resource share in the consumer account.
 
-    1. Open the AWS RAM console.
-    2. In the navigation pane, under **Shared with me**, choose **Resource shares**.
-    3. Select the resource shares, choose **Accept resource share**.
+   1. Open the AWS RAM console.
+   2. In the navigation pane, under **Shared with me**, choose **Resource shares**.
+   3. Select the resource shares, choose **Accept resource share**.
 
-3.  When you share a resource with another account, the resource still belongs to the
-    producer account and is not visible within the Athena console. To make the
-    resource visible in the Athena console, you need to create a resource link
-    pointing to the shared resource. For instructions on creating a resource link, see
-    [Creating a resource link to a shared Data Catalog table](create-resource-link-table.md "create-resource-link-table.md") and [Creating a resource link to a shared Data Catalog database](create-resource-link-database.md "create-resource-link-database.md")
+3. When you share a resource with another account, the resource still belongs to the
+   producer account and is not visible within the Athena console. To make the
+   resource visible in the Athena console, you need to create a resource link
+   pointing to the shared resource. For instructions on creating a resource link, see
+   [Creating a resource link to a shared Data Catalog table](create-resource-link-table.md "create-resource-link-table.md") and [Creating a resource link to a shared Data Catalog database](create-resource-link-database.md "create-resource-link-database.md")
 
-        1. Choose **Databases** or **Tables** under the Data Catalog.
-        2. On the Databases/Tables page, choose **Create**, **Resource link** .
-        3. Enter the following information for a database resource link:
+   1. Choose **Databases** or **Tables** under the Data Catalog.
+   2. On the Databases/Tables page, choose **Create**, **Resource link** .
+   3. Enter the following information for a database resource link:
 
+      - **Resource link name** – A unique name for the resource
+        link.
+      - **Destination catalog** – The catalog where you're creating
+        the resource link.
+      - **Shared database Region** – The Region
+        of the database shared with you if you are creating the resource link in a
+        different Region.
+      - **Shared database** – Choose the shared
+        database.
+      - **Shared database’s catalog ID** – Enter
+        the catalog ID for the shared database.
 
+   4. Choose **Create**.
+      You can see the newly created resource link in the databases list.
+      Similarly, you can create a resource link to a shared table.
 
+4. Now grant **Describe** permission on the resource link to the IAM principals that you are sharing the resource.
 
-        	* **Resource link name** – A unique name for the resource
-        	 link.
-        	* **Destination catalog** – The catalog where you're creating
-        	 the resource link.
-        	* **Shared database Region** – The Region
-        	 of the database shared with you if you are creating the resource link in a
-        	 different Region.
-        	* **Shared database** – Choose the shared
-        	 database.
-        	* **Shared database’s catalog ID** – Enter
-        	 the catalog ID for the shared database.
-        4. Choose **Create**.
-         You can see the newly created resource link in the databases list.
+   1. On the **Databases/Tables** page, select the resource link, and
+      on the **Actions** menu, choose **Grant**.
+   2. In the **Grant permissions** section, select **IAM users and roles**.
+   3. Choose the IAM role that you want to grant access to the resource link.
+   4. In the **Resource link** permissions section, select **Describe**.
+   5. Choose **Grant**.
 
-    Similarly, you can create a resource link to a shared table.
-
-4.  Now grant **Describe** permission on the resource link to the IAM principals that you are sharing the resource.
-
-    1. On the **Databases/Tables** page, select the resource link, and
-       on the **Actions** menu, choose **Grant**.
-    2. In the **Grant permissions** section, select **IAM users and roles**.
-    3. Choose the IAM role that you want to grant access to the resource link.
-    4. In the **Resource link** permissions section, select **Describe**.
-    5. Choose **Grant**.
-
-5.  Next, grant **LF-Tag key-value permissions** to the principals in
-    the consumer account.
+5. Next, grant **LF-Tag key-value permissions** to the principals in
+   the consumer account.
 
 You should be able to find the LF-Tags that are shared with you in the consumer
 account on the Lake Formation console, under **Permissions**, **LF-Tags
