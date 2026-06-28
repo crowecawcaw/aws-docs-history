@@ -123,7 +123,7 @@ end
 With X-Ray SDK
 With X-Ray SDK, X-Ray tracing is configured for the Rails framework upon initialization.
 
-**Example** – config/initializers/aws_xray.rb
+**Example** – config/initializers/aws\_xray.rb
 
 ```
 Rails.application.config.xray = {

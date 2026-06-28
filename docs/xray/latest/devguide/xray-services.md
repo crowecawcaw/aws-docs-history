@@ -37,14 +37,13 @@ Here are some examples of AWS services that are integrated with X-Ray:
 - [AWS Elastic Beanstalk](xray-services-beanstalk.md "xray-services-beanstalk.md") – Tooling. Elastic Beanstalk includes the X-Ray daemon on the
   following platforms:
 
-      + *Java SE* – 2.3.0 and later configurations
-      + *Tomcat* – 2.4.0 and later configurations
-      + *Node.js* – 3.2.0 and later configurations
-      + *Windows Server* – All configurations other than Windows Server Core that have
-       been released after December 9th, 2016
-
-  You can use the Elastic Beanstalk console to tell Elastic Beanstalk to run the daemon on these platforms, or use the
-  `XRayEnabled` option in the `aws:elasticbeanstalk:xray` namespace.
+  - _Java SE_ – 2.3.0 and later configurations
+  - _Tomcat_ – 2.4.0 and later configurations
+  - _Node.js_ – 3.2.0 and later configurations
+  - _Windows Server_ – All configurations other than Windows Server Core that have
+    been released after December 9th, 2016
+    You can use the Elastic Beanstalk console to tell Elastic Beanstalk to run the daemon on these platforms, or use the
+    `XRayEnabled` option in the `aws:elasticbeanstalk:xray` namespace.
 
 - [Elastic Load Balancing](xray-services-elb.md "xray-services-elb.md") – Request tracing on Application Load Balancers.
   The Application Load Balancer adds the trace ID to the request header before sending it to a target

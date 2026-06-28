@@ -71,7 +71,7 @@ page.
 3. Provide a name and description for the rule.
 4. Choose **Event pattern**, and then choose **Custom pattern**.
    Provide a pattern containing `"source": [ "aws.xray" ]` and `"detail-type": [ "AWS X-Ray
-Insight Update" ]`. The following are some examples of possible patterns.
+ Insight Update" ]`. The following are some examples of possible patterns.
 
    - Event pattern to match all incoming events from X-Ray insights:
 

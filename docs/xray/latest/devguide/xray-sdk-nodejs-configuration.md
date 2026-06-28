@@ -226,7 +226,7 @@ spawns a new thread.
   the console, at `debug` level.
 - `AWS_XRAY_LOG_LEVEL` – Set a log level for the default logger. Valid values are
   `debug`, `info`, `warn`, `error`, and `silent`. This
-  value is ignored when AWS_XRAY_DEBUG_MODE is set to `TRUE`.
+  value is ignored when AWS\_XRAY\_DEBUG\_MODE is set to `TRUE`.
 - `AWS_XRAY_TRACING_NAME` – Set a service name that the SDK uses for segments. Overrides
   the segment name that you [set on the Express
   middleware](xray-sdk-nodejs-middleware.md "xray-sdk-nodejs-middleware.md").

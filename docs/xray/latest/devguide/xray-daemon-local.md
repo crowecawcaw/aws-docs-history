@@ -80,7 +80,7 @@ This command uses the following options:
 - `--attach STDOUT` – View output from the daemon in the terminal.
 - `-v ~/.aws/:/root/.aws/:ro` – Give the container read-only access to the
   `.aws` directory to let it read your AWS SDK credentials.
-- `AWS_REGION=`us-east-2``– Set the`AWS_REGION`
+- `AWS_REGION=`us-east-2`` – Set the `AWS_REGION`
   environment variable to tell the daemon which region to use.
 - `--net=host` – Attach the container to the `host` network. Containers on the
   host network can communicate with each other without publishing ports.

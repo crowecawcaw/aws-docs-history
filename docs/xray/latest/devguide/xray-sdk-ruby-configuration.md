@@ -245,7 +245,7 @@ configuration key for use with Rails.
 Configure the available settings in a configuration object named
 `Rails.application.config.xray`.
 
-###### Example config/initializers/aws_xray.rb
+###### Example config/initializers/aws\_xray.rb
 
 ```
 Rails.application.config.xray = {

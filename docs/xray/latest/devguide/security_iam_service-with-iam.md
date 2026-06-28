@@ -248,22 +248,21 @@ that runs the daemon.
 
 ###### To create a role for use with X-Ray
 
-1.  Open the [IAM console](https://console.aws.amazon.com/iam/home "https://console.aws.amazon.com/iam/home").
-2.  Choose **Roles**.
-3.  Choose **Create New Role**.
-4.  For **Role Name**, type `xray-application`. Choose **Next
-    Step.**
-5.  For **Role Type**, choose **Amazon EC2**.
-6.  Attach the following managed policy to give your application access to AWS services:
+1. Open the [IAM console](https://console.aws.amazon.com/iam/home "https://console.aws.amazon.com/iam/home").
+2. Choose **Roles**.
+3. Choose **Create New Role**.
+4. For **Role Name**, type `xray-application`. Choose **Next
+   Step.**
+5. For **Role Type**, choose **Amazon EC2**.
+6. Attach the following managed policy to give your application access to AWS services:
 
-        * **AWSXRayDaemonWriteAccess** – Gives the X-Ray daemon permission to upload trace
-         data.
+   - **AWSXRayDaemonWriteAccess** – Gives the X-Ray daemon permission to upload trace
+     data.
+     If your application uses the AWS SDK to access other services, add policies that grant access to those
+     services.
 
-    If your application uses the AWS SDK to access other services, add policies that grant access to those
-    services.
-
-7.  Choose **Next Step**.
-8.  Choose **Create Role**.
+7. Choose **Next Step**.
+8. Choose **Create Role**.
 
 ## User permissions for encryption
 

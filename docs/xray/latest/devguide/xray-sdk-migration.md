@@ -316,10 +316,10 @@ CloudWatch console’s Traces and Trace Map pages, or retrieve your trace data t
 
 You need to replace the X-Ray setup with an OpenTelemetry setup.
 
-| Comparison of X-Ray and OpenTelemetry setup | Feature                                                                                             | X-Ray SDK                                                                                                              | OpenTelemetry |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------- |
-| Default configurations                      | • X-Ray Centralized Sampling<br>• X-Ray Trace Context propagation<br>• Trace Export to X-Ray Daemon | • Exporting traces to OpenTelemetry Collector or CloudWatch Agent (HTTP/gRPC)<br>• W3C Trace Context propagation       |
-| Manual configurations                       | • Local sampling rules<br>• Resource detection plug-ins                                             | • X-Ray Sampling (may not be available for all languages)<br>• Resource detection<br>• X-Ray Trace Context propagation |
+Comparison of X-Ray and OpenTelemetry setup| Feature | X-Ray SDK | OpenTelemetry |
+| --- | --- | --- |
+| Default configurations | • X-Ray Centralized Sampling<br>• X-Ray Trace Context propagation<br>• Trace Export to X-Ray Daemon | • Exporting traces to OpenTelemetry Collector or CloudWatch Agent (HTTP/gRPC)<br>• W3C Trace Context propagation |
+| Manual configurations | • Local sampling rules<br>• Resource detection plug-ins | • X-Ray Sampling (may not be available for all languages)<br>• Resource detection<br>• X-Ray Trace Context propagation |
 
 ### Library instrumentation changes
 

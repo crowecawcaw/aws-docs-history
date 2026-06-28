@@ -296,7 +296,7 @@ rootcause.fault.service { name = "Auth" }
 rootcause.responsetime.service { last and type = "AWS::DynamoDB" }
 ```
 
-###### Example– select traces with a fault root cause whose last exception has the message "access denied for account_id: 1234567890"
+###### Example– select traces with a fault root cause whose last exception has the message "access denied for account\_id: 1234567890"
 
 ```
 rootcause.fault.exception { last and message = "Access Denied for account_id: 1234567890"
@@ -318,14 +318,14 @@ specific key using Boolean, number, or string operators.
   keyword. An annotation key that contains dots (periods) must be wrapped in square brackets
   (**[ ]**).
 - `edge(`source`, `destination`)
-{`filter`}` – Connection between services
+ {`filter`}` – Connection between services
   `source` and `destination`. Optional curly braces can
   contain a filter expression that applies to segments on this connection.
 - `group.`name` / group.`arn`` – The value of a group's filter expression, referenced by group name or group ARN.
 - `json` – JSON root cause object. See [Getting data
   from AWS X-Ray](xray-api-gettingdata.md "xray-api-gettingdata.md") for steps to create JSON entities programmatically.
 - `service(`name`)
-{`filter`}` – Service with name
+ {`filter`}` – Service with name
   `name`. Optional curly braces can contain a filter expression
   that applies to segments created by the service.
 
@@ -339,7 +339,7 @@ Complex keyword operators find segments where the specified key has been set, or
 - `!` – The expression is true if the keyword is not set. If the keyword is of boolean type, it will evaluate to the boolean value.
 - `=`,`!=` – Compare the value of the keyword.
 - `edge(`source`, `destination`)
-{`filter`}` – Connection between services
+ {`filter`}` – Connection between services
   `source` and `destination`. Optional
   curly braces can contain a filter expression that applies to segments on this
   connection.

@@ -61,7 +61,7 @@ gem 'aws-xray-sdk', require: ['aws-xray-sdk/facets/rails/railtie']
 To use the middleware, you must also [configure the recorder](xray-sdk-ruby-configuration.md#xray-sdk-ruby-middleware-configuration-rails "xray-sdk-ruby-configuration.md#xray-sdk-ruby-middleware-configuration-rails") with a
 name that represents the application in the trace map.
 
-###### Example config/initializers/aws_xray.rb
+###### Example config/initializers/aws\_xray.rb
 
 ```
 Rails.application.config.xray = {

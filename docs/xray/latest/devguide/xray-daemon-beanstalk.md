@@ -55,9 +55,9 @@ location.
 ###### On Windows Server Platforms
 
 - **Configuration file** – `C:\Program
-Files\Amazon\XRay\cfg.yaml`
+ Files\Amazon\XRay\cfg.yaml`
 - **Logs** – `c:\Program
-Files\Amazon\XRay\logs\xray-service.log`
+ Files\Amazon\XRay\logs\xray-service.log`
 
 ###### On Linux Platforms
 

@@ -92,7 +92,7 @@ When the Lambda function is created, note the function's ARN, and go to the AWS 
 
 5. For **Resource type**, choose **EncryptionConfig** in the
    X-Ray section.
-6. Choose \***\*Save\*\***.
+6. Choose ****Save****.
    The AWS Config console begins to evaluate the rule's compliance immediately. The evaluation can take several minutes
    to complete.
 
