@@ -5,22 +5,22 @@ modes of operation:
 
 - **Standalone context** – this mode is used
   when a user or role in an account accesses or changes an account attribute in the
-  **_same
-  account_**. The standalone context mode is automatically used
-  when you **_don't_** include the
+  _**same
+  account**_. The standalone context mode is automatically used
+  when you _**don't**_ include the
   `AccountId` parameter when you call one of the Account Management AWS CLI or AWS
   SDK operations.
 - **Organizations context** – this mode is used when a
   user or role in one account in an organization accesses or changes an account
   attribute in a different member account in the same organization. The organizations
-  context mode is automatically used when you **_do_** include the `AccountId` parameter when
+  context mode is automatically used when you _**do**_ include the `AccountId` parameter when
   you call one of the Account Management AWS CLI or AWS SDK operations. You can call the operations
   in this mode from only the management account of the organization, or the delegated
   admin account for Account Management.
   The AWS CLI and AWS SDK operations can work in either standalone or organizations
   context.
 
-- If you **_don't_**
+- If you _**don't**_
   include the `AccountId` parameter, then the operation runs in the
   standalone context and automatically applies the request to the account you used to
   make the request. This is true whether or not the account is a member of an

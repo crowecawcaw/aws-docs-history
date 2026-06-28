@@ -14,11 +14,12 @@ You can update the root user
 email differently, depending on
 whether or not the accounts are standalone, or part of an organization:
 
-- **Standalone AWS accounts** – For
-  AWS accounts not associated with an organization, you can update the root user email
-  using the AWS Management Console. To learn how to do this, see [Update the root user
+- **Standalone AWS accounts or management accounts**
+  – For AWS accounts not associated with an organization, or for the
+  management account of an organization, you can update the root user email using the
+  AWS Management Console. To learn how to do this, see [Update the root user
   email for a standalone
-  AWS account](#root-user-email-standalone "#root-user-email-standalone").
+  AWS account or management account](#root-user-email-standalone "#root-user-email-standalone").
 - **AWS accounts within an organization** –
   For member accounts that are part of an AWS organization, a user in the management
   account or delegated admin account can centrally update the root user email of the
@@ -33,8 +34,8 @@ whether or not the accounts are standalone, or part of an organization:
 
 ## Update the root user email for a standalone AWS account or management account
 
-To edit the root user email address for a standalone AWS account, perform the steps
-in the following procedure.
+To edit the root user email address for a standalone AWS account or a management
+account, perform the steps in the following procedure.
 
 AWS Management Console
 
@@ -131,7 +132,7 @@ step, and then choose **Confirm**. This commits the
 update to the root user for the account.
 
 AWS CLI & SDKs
-You can retrieve, or update the **_root user_** email address
+You can retrieve, or update the _**root user**_ email address
 (also referred to as the primary email address) by using the following AWS CLI
 commands or their AWS SDK equivalent operations:
 
@@ -162,8 +163,7 @@ operation:
   read and write.
 
 To complete the root user email address process, you must use the
-primary email APIs together in the order they are shown in the examples
-below.
+primary email APIs together in the order they are shown in the following examples.
 
 ###### Example `GetPrimaryEmail`
 

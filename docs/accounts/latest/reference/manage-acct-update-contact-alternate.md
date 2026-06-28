@@ -50,7 +50,7 @@ and email addresses.
 ## Update the alternate contacts for a standalone AWS account
 
 To add or edit the alternate contacts for a standalone AWS account, perform the
-steps in the following procedure. The AWS Management Console procedure below always works
+steps in the following procedure. The following AWS Management Console procedure always works
 _only_ in the standalone context. You can use the AWS Management Console to
 access or change only the alternate contacts in the account you used to call the
 operation.
@@ -86,7 +86,7 @@ To perform the following steps, you must have at least the following IAM permiss
 If you don't see the **Edit** option, it
 is likely that you are not signed in as the root user for your
 account or as someone who has the minimum permissions
-specified above. 4. Change the values in any of the available fields.
+specified previously. 4. Change the values in any of the available fields.
 
 ###### Important
 
@@ -96,7 +96,7 @@ belonging to an individual. 5. After you have made all of your changes, choose
 **Update**.
 
 AWS CLI & SDKs
-You can retrieve, update, or delete the **_alternate_** contact
+You can retrieve, update, or delete the _**alternate**_ contact
 information by using the following AWS CLI commands or their AWS SDK
 equivalent operations:
 
@@ -241,7 +241,7 @@ belonging to an individual. 6. After you have made all of your changes, choose
 **Update**.
 
 AWS CLI & SDKs
-You can retrieve, update, or delete the **_alternate_** contact
+You can retrieve, update, or delete the _**alternate**_ contact
 information by using the following AWS CLI commands or their AWS SDK
 equivalent operations:
 

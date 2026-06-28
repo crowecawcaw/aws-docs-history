@@ -13,9 +13,10 @@ _sales_-_catalog_-_prod_). For privacy and security
 reasons, avoid using account names that reflect personally identifiable information
 (PII).
 
-- **Standalone AWS accounts –** For
-  AWS accounts not associated with an organization, you can update your account name
-  using the AWS Management Console, or the AWS CLI and SDKs. To learn how to do this, see [Update your account name for a standalone AWS account](#update-account-name-standalone "#update-account-name-standalone").
+- **Standalone AWS accounts or management accounts
+  –** For AWS accounts not associated with an organization, or
+  for the management account of an organization, you can update your account name
+  using the AWS Management Console, or the AWS CLI and SDKs. To learn how to do this, see [Update your account name for a standalone AWS account or management account](#update-account-name-standalone "#update-account-name-standalone").
 - **AWS accounts within an organization –**
   For member accounts that are part of an AWS Organizations, a user in the management account or
   delegated admin account can centrally update the account name of any member account
@@ -28,13 +29,13 @@ Changes to an AWS account can take up to four hours to propagate everywhere.
 
 ###### Topics
 
-- [Update your account name for a standalone AWS account](#update-account-name-standalone "#update-account-name-standalone")
+- [Update your account name for a standalone AWS account or management account](#update-account-name-standalone "#update-account-name-standalone")
 - [Update your account name for any AWS account in your organization](#update-account-name-orgs "#update-account-name-orgs")
 
-## Update your account name for a standalone AWS account
+## Update your account name for a standalone AWS account or management account
 
-To change the account name for a standalone AWS account, perform the steps in the
-following procedure.
+To change the account name for a standalone AWS account or a management account,
+perform the steps in the following procedure.
 
 AWS Management Console
 
@@ -49,7 +50,7 @@ permissions:
 - `account:GetAccountInformation`
 - `account:PutAccountName`
 
-###### To update the account name for a standalone account
+###### To update the account name for a standalone account or management account
 
 1. Use your AWS account's email address and password to sign in to
    the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/") as your AWS account root user.
@@ -73,7 +74,7 @@ IAM role must have at least the following IAM permissions:
 - `account:GetAccountInformation`
 - `account:PutAccountName`
 
-###### To update the account name for a standalone account
+###### To update the account name for a standalone account or management account
 
 You can use one of the following operations:
 

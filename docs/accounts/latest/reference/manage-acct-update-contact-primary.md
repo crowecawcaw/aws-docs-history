@@ -47,15 +47,15 @@ and email addresses.
 
 ## Update the primary contact for a standalone AWS account or management account
 
-To edit your primary contact details for a standalone AWS account, perform the steps
-in the following procedure. The AWS Management Console procedure below always works
-_only_ in the standalone context. You can use the AWS Management Console to
-access or change only the primary contact information of the account you used to call
-the operation.
+To edit your primary contact details for a standalone AWS account or a management
+account, perform the steps in the following procedure. The following AWS Management Console procedure
+always works _only_ in the standalone context. You can use the
+AWS Management Console to access or change only the primary contact information of the account you
+used to call the operation.
 
 AWS Management Console
 
-###### To edit your primary contact for a standalone AWS account
+###### To edit your primary contact for a standalone AWS account or management account
 
 ###### Minimum permissions
 
@@ -80,7 +80,7 @@ To perform the following steps, you must have at least the following IAM permiss
    **Update**.
 
 AWS CLI & SDKs
-You can retrieve, update, or delete the **_primary_** contact
+You can retrieve, update, or delete the _**primary**_ contact
 information by using the following AWS CLI commands or their AWS SDK
 equivalent operations:
 
@@ -175,7 +175,7 @@ AWS Management Console
    **Update**.
 
 AWS CLI & SDKs
-You can retrieve, update, or delete the **_primary_**
+You can retrieve, update, or delete the _**primary**_
 contact information by using the following AWS CLI commands or their
 AWS SDK equivalent operations:
 

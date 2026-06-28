@@ -184,17 +184,16 @@ following:
   the asynchronous nature of enabling/disabling an opt-in region, there are four
   potential statuses for a region-opt request:
 
-      + `ENABLING`
-      + `DISABLING`
-      + `ENABLED`
-      + `DISABLED`
-
-  You cannot cancel an opt-in or opt-out when it is in either
-  `ENABLING` or `DISABLING` status. Otherwise, a
-  `ConflictException` will be thrown. A completed
-  (Enabled/Disabled) region-opt request is dependent on the provisioning of key
-  underlying AWS services. There might be some AWS services that will not be
-  immediately usable despite the status being `ENABLED`.
+  - `ENABLING`
+  - `DISABLING`
+  - `ENABLED`
+  - `DISABLED`
+    You cannot cancel an opt-in or opt-out when it is in either
+    `ENABLING` or `DISABLING` status. Otherwise, a
+    `ConflictException` will be thrown. A completed
+    (Enabled/Disabled) region-opt request is dependent on the provisioning of key
+    underlying AWS services. There might be some AWS services that will not be
+    immediately usable despite the status being `ENABLED`.
 
 ## Processing times and request limits
 
@@ -222,7 +221,7 @@ When enabling or disabling Regions, be aware of the following timing and request
 ## Enable or disable a Region for standalone accounts
 
 To update which Regions your AWS account has access to, perform the steps in the
-following procedure. The AWS Management Console procedure below always works only in the standalone
+following procedure. The following AWS Management Console procedure always works only in the standalone
 context. You can use the AWS Management Console to view or update only the available Regions in the
 account you used to call the operation.
 

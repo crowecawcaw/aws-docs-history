@@ -199,7 +199,7 @@ customer verification.
 
 ###### Note
 
-The links shared below are subject to change by the government.
+The following links are subject to change by the government.
 
 - **PAN Card** - Available in both digital and physical
   formats, the Permanent Account Number (PAN) card contains a unique alphanumeric identifier

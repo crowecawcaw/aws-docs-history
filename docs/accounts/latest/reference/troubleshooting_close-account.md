@@ -1,6 +1,6 @@
 # Troubleshooting issues with AWS account closure
 
-Use the information below to help you diagnose and fix common issues found during the
+Use the following information to help you diagnose and fix common issues found during the
 account closure process. For general information about the account closure process, see
 [Close an AWS account](manage-acct-closing.md "manage-acct-closing.md").
 
@@ -10,7 +10,7 @@ account closure process. For general information about the account closure proce
 - [I don’t see the Close account button on the Accounts page](#no-close-account-button "#no-close-account-button")
 - [I closed my account but still haven’t received an email confirmation](#no-email-confirmation "#no-email-confirmation")
 - [I receive a "ConstraintViolationException" error when trying to close my account](#constraint-error "#constraint-error")
-- [I receive a "CLOSE_ACCOUNT_QUOTA_EXCEEDED" error when trying to close a member account](#quota-exceeded-error "#quota-exceeded-error")
+- [I receive a "CLOSE\_ACCOUNT\_QUOTA\_EXCEEDED" error when trying to close a member account](#quota-exceeded-error "#quota-exceeded-error")
 - [Do I need to delete my AWS organization before closing the management account?](#delete-organization "#delete-organization")
 
 ## I don’t know how to delete or cancel my account
@@ -57,12 +57,12 @@ from the **Accounts** page. For more information, see [Closing a
 management account in your organization](../../../organizations/latest/userguide/orgs_manage_accounts_close_management.md "../../../organizations/latest/userguide/orgs_manage_accounts_close_management.md") in the
 _AWS Organizations User Guide_.
 
-## I receive a "CLOSE_ACCOUNT_QUOTA_EXCEEDED" error when trying to close a member account
+## I receive a "CLOSE\_ACCOUNT\_QUOTA\_EXCEEDED" error when trying to close a member account
 
-You can only close 10% of member accounts within a rolling 30 day period. This quota
+You can only close 20% of member accounts within a rolling 30 day period. This quota
 is not bound by a calendar month, but starts when you close an account. Within 30 days
-of that initial account closure, you can't exceed the 10% account closure limit. The
-minimum account closure is 10 and the maximum account closure is 1000, even if 10% of
+of that initial account closure, you can't exceed the 20% account closure limit. The
+minimum account closure is 250 and the maximum account closure is 1000, even if 20% of
 accounts exceeds 1000. For more information about Organizations quotas, see [Quotas for AWS Organizations](../../../organizations/latest/userguide/orgs_reference_limits.md "../../../organizations/latest/userguide/orgs_reference_limits.md") in the _AWS Organizations User Guide_.
 
 ## Do I need to delete my AWS organization before closing the management account?
