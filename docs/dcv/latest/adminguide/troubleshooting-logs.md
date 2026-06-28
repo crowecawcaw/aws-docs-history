@@ -81,7 +81,7 @@ Make sure you are using both double and single quotation marks.
 ###### Release 2022.2 and older
 
 1. Open the Windows Registry Editor.
-2. Navigate to the \*\*HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\log\*\* key.
+2. Navigate to the *_HKEY\_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\log\*_ key.
 3. Open the **level** parameter by double-clicking. For **Value
    data**, type either `error`, `warn`,
    `info`, or `debug`, depending on the required

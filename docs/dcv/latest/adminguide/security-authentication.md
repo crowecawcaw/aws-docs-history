@@ -32,8 +32,8 @@ Registry Editor.
 ###### To change the authentication method on Windows
 
 1. Open the Windows Registry Editor.
-2. Navigate to the **HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\security\*\* key and select the
-   **authentication\*\* parameter.
+2. Navigate to the *_HKEY\_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\security\*_ key and select the
+   **authentication** parameter.
 
 If there's no `authentication` parameter in the registry key, create one:
 
@@ -42,8 +42,7 @@ If there's no `authentication` parameter in the registry key, create one:
     2. For **Name**, enter `authentication` and press **Enter**.
 
 3. Open the **authentication** parameter. For **Value data**, enter either `system` or
-   `none`.
-4. Choose **OK** and close the Windows Registry Editor.
+`none`. 4. Choose **OK** and close the Windows Registry Editor.
 
 ### Windows Credentials Provider
 
@@ -58,7 +57,7 @@ By default, Windows Credentials Provider is enabled when you install the Amazon 
 ###### To disable Windows Credentials Provider
 
 1. Open the Windows Registry Editor.
-2. Navigate to the **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential
+2. Navigate to the **HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential
    Providers\{8A2C93D0-D55F-4045-99D7-B27F5E263407}** key.
 3. Choose **Edit**, **New**, **DWORD Value**.
 4. For the name, enter `Disabled`.
@@ -68,7 +67,7 @@ By default, Windows Credentials Provider is enabled when you install the Amazon 
 ###### To re-enable Windows Credentials Provider
 
 1. Open the Windows Registry Editor.
-2. Navigate to the **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential
+2. Navigate to the **HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential
    Providers\{8A2C93D0-D55F-4045-99D7-B27F5E263407}** key.
 3. Open the **Disabled** value. For **Value data**, enter `0` and choose
    **OK**.

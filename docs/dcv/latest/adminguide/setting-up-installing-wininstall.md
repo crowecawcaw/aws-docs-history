@@ -43,11 +43,10 @@ feature will be unavailable**. 7. On the DCV Service Configuration screen:
      you can't start a console session automatically after the installation is
      complete. If you select this option, step 9 is skipped.
 
-8. Choose **Next**.
-9. On the DCV Session Management Configuration screen, specify the owner for the automatic
-   console session. Or, to prevent the automatic console session from
-   starting after the installation is complete, select **No, I
-   will create the session manually**.
+8. Choose **Next**. 9. On the DCV Session Management Configuration screen, specify the owner for the automatic
+console session. Or, to prevent the automatic console session from
+starting after the installation is complete, select **No, I
+will create the session manually**.
 
 ###### Note
 
@@ -84,7 +83,7 @@ You can override the default actions by appending the following options to the i
 The `REMOVE` option is evaluated after the `ADDLOCAL`
 option. An element that's on both lists isn't installed.
 
-The component_list is a comma-separated list that can contain the following values:
+The component\_list is a comma-separated list that can contain the following values:
 
 - `audioMicDriver`: Microphone driver
 - `audioSpkDriver`: Speaker driver

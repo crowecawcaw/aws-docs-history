@@ -21,12 +21,11 @@ If connecting through a Amazon DCV Connection Gateway, the x-frame options need 
 
 Windows server
 
-1. Open the Windows Registry Editor and navigate to the
-   \*\*HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\connectivity\*\*
+1. Open the Windows Registry Editor and navigate to the *_HKEY\_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\connectivity\*_
    key.
 2. Open the **web-x-frame-options** parameter. For
    **Value data**, enter `"ALLOW-FROM
-https://`server_hostname`"`.
+ https://`server_hostname`"`.
 
 ###### Note
 
@@ -43,19 +42,18 @@ and name it `web-extra-http-headers`. 4. Close the Windows Registry Editor. 5. [
 
 Linux server
 
-1.  Open `/etc/dcv/dcv.conf` with your preferred text
-    editor.
-2.  In the `[connectivity]` section, do the
-    following:
+1. Open `/etc/dcv/dcv.conf` with your preferred text
+   editor.
+2. In the `[connectivity]` section, do the
+   following:
 
-        * For `web-x-frame-options`, enter
-         `"ALLOW-FROM
-         https://`server_hostname`"`.
-        * For `web-extra-http-headers`, enter
-         `[("Content-Security-Policy", "frame-ancestors
-         https://`server_hostname`")]`.
-
-    For example:
+   - For `web-x-frame-options`, enter
+     `"ALLOW-FROM
+  https://`server_hostname`"`.
+   - For `web-extra-http-headers`, enter
+     `[("Content-Security-Policy", "frame-ancestors
+  https://`server_hostname`")]`.
+     For example:
 
 ```
 [connectivity]

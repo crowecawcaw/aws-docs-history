@@ -49,7 +49,7 @@ Windows Amazon DCV server
 ###### To specify an external authentication server on Windows
 
 1. Open the Windows Registry Editor.
-2. Navigate to the \*\*HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\*\*
+2. Navigate to the *_HKEY\_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\*_
    key.
 3. Locate the **auth-token-verifier** parameter in the [security Parameters](config-param-ref.md#security "config-param-ref.md#security").
 4. Do one of the following:

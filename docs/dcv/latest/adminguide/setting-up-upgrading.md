@@ -24,13 +24,13 @@ EC2-based servers, see [Licensing requirements](setting-up-license.md#licensing-
 
 1. Using an RDP client, connect to the Amazon DCV server as the administrator.
 2. Ensure that there are no running Amazon DCV sessions. Use the `dcv
-list-sessions` Amazon DCV command to check for any running sessions. If
+ list-sessions` Amazon DCV command to check for any running sessions. If
    there are running sessions, use the `dcv close-session` Amazon DCV
    command to stop them.
 3. After you confirm that there are no running sessions, stop the Amazon DCV server. For more
    information, see [Stopping the Amazon DCV Server](manage-stop.md "manage-stop.md").
 4. Back up your Amazon DCV server configuration. Open the Registry Editor, navigate to
-   **HKEY_USERS/S-1-5-18/Software/GSettings/com/nicesoftware/dcv**,
+   **HKEY\_USERS/S-1-5-18/Software/GSettings/com/nicesoftware/dcv**,
    right-click the **dcv** key, and choose
    **Export**.
 5. Download the latest version of the Amazon DCV Server from the [NICE](http://download.amazondcv.com "http://download.amazondcv.com") website.
@@ -38,7 +38,7 @@ list-sessions` Amazon DCV command to check for any running sessions. If
 7.
 8. After the installation is complete, confirm that the Amazon DCV server configuration is still
    correct. Open the Registry Editor, navigate to
-   **HKEY_USERS/S-1-5-18/Software/GSettings/com/nicesoftware/dcv**
+   **HKEY\_USERS/S-1-5-18/Software/GSettings/com/nicesoftware/dcv**
    and compare the parameters to the configuration that you exported in step
 9.
 10. Test the Amazon DCV server by starting a new Amazon DCV session. For more information, see
@@ -50,7 +50,7 @@ list-sessions` Amazon DCV command to check for any running sessions. If
 
 1. Use SSH to sign in to the server using the `root` user.
 2. Ensure that there are no running Amazon DCV sessions. Use the `dcv
-list-sessions` Amazon DCV command to check for any running sessions. If
+ list-sessions` Amazon DCV command to check for any running sessions. If
    there are running sessions, use the `dcv close-session` Amazon DCV
    command to stop them.
 3. After you confirm that there are no running sessions, stop the Amazon DCV server. For more
@@ -70,7 +70,7 @@ list-sessions` Amazon DCV command to check for any running sessions. If
 
 1. Use SSH to sign in to the server using the root user.
 2. Ensure that there are no running Amazon DCV sessions. Use the `dcv
-list-sessions` Amazon DCV command to check for any running sessions. If
+ list-sessions` Amazon DCV command to check for any running sessions. If
    there are running sessions, use the `dcv close-session` Amazon DCV
    command to stop them.
 3. After you confirm that there are no running sessions, stop the Amazon DCV server. For more

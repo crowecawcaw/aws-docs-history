@@ -17,34 +17,35 @@ the Windows Registry Editor.
 
 ###### To enable session storage on Windows
 
-1.  Create the folder to use for session storage (for example, `c:\session-storage`).
-2.  Configure the `storage-root` parameter.
+1. Create the folder to use for session storage (for example, `c:\session-storage`).
+2. Configure the `storage-root` parameter.
 
-    1. Open the Windows Registry Editor.
-    2. Navigate to the
-       **HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\session-management\automatic-console-session** key and select
-       the **storage-root** parameter.
+   1. Open the Windows Registry Editor.
+   2. Navigate to the
+      **HKEY\_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\session-management\automatic-console-session** key and select
+      the **storage-root** parameter.
 
-    If there's no `storage-root` parameter in the registry key, create one as follows:
+   If there's no `storage-root` parameter in the registry key, create one as follows:
 
         1. In the navigation pane, open the context (right-click) menu for the **session-management/automatic-console-session**
          key. Then, choose **New**, **String**.
         2. For **Name**, enter `storage-root` and press **Enter**.
-    3. Open the **storage-root** parameter. For **Value data**, enter the full path to the folder that's
-       created in step 1.
 
-    You can also use `%home%` in the path to specify the home directory of the user who's currently signed in. For example, the
-    following path uses `c:\Users\`username`\storage\` as the session storage directory.
+   3. Open the **storage-root** parameter. For **Value data**, enter the full path to the folder that's
+   created in step 1.
 
-    ```
-    %home%/storage/
-    ```
+   You can also use `%home%` in the path to specify the home directory of the user who's currently signed in. For example, the
+   following path uses `c:\Users\`username`\storage\` as the session storage directory.
 
-    ###### Note
+   ```
+   %home%/storage/
+   ```
 
-    If the specified subdirectory doesn't exist, then session storage is disabled. 4. Choose **OK** and close the Windows Registry Editor. 5. [Stop](manage-stop.md "manage-stop.md") and [restart](manage-start.md "manage-start.md") the Amazon DCV server.
+   ###### Note
 
-3.  Start the session and specify the `--storage-root` option. For more information, see [Starting Amazon DCV sessions](managing-sessions-start.md "managing-sessions-start.md").
+   If the specified subdirectory doesn't exist, then session storage is disabled. 4. Choose **OK** and close the Windows Registry Editor. 5. [Stop](manage-stop.md "manage-stop.md") and [restart](manage-start.md "manage-start.md") the Amazon DCV server.
+
+3. Start the session and specify the `--storage-root` option. For more information, see [Starting Amazon DCV sessions](managing-sessions-start.md "managing-sessions-start.md").
 
 ## Enabling session storage on a Linux Amazon DCV Server
 

@@ -476,8 +476,8 @@ the specification with `;`.
 ###### To configure the `license-file` configuration parameter on a Windows server
 
 1. Open the Windows Registry Editor.
-2. Navigate to the **HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\license\*\* key
-   and select the **license-file\*\* parameter.
+2. Navigate to the *_HKEY\_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\license\*_ key
+   and select the **license-file** parameter.
 
 If there is no `license-file` parameter in the registry key, you must create
 it:
@@ -489,10 +489,9 @@ it:
      **Enter**.
 
 3. Open the **license-file** parameter. For **Value
-   data**, enter the RLM server's port number and hostname in the
-   ``RLM_server_port`@`RLM_server``
-   format. Check the note above if you need to setup connection to multiple RLM servers.
-4. Choose **OK** and close the Windows Registry Editor.
+data**, enter the RLM server's port number and hostname in the
+``RLM_server_port`@`RLM_server``
+format. Check the note above if you need to setup connection to multiple RLM servers. 4. Choose **OK** and close the Windows Registry Editor.
 
 ### Linux Amazon DCV Server configuration
 

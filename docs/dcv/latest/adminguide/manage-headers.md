@@ -16,7 +16,7 @@ Editor.
 ###### To configure the HTTP headers on Windows
 
 1. Open the Windows Registry Editor.
-2. Navigate to the \*\*HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\connectivity\*\* key.
+2. Navigate to the *_HKEY\_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\connectivity\*_ key.
 3. In the navigation pane, open the context (right-click) menu for the **connectivity** key. Then, choose
    **New**, **String**.
 4. For **Name**, enter `web-extra-http-headers` and press **Enter**.

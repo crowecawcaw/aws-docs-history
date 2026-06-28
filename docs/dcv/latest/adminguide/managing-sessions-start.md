@@ -250,7 +250,7 @@ Windows Amazon DCV server
 
 1. Open the Windows Registry Editor.
 2. Navigate to the
-   **HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\session-management**
+   **HKEY\_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\session-management**
    key.
 3. Create a `create-session` parameter:
 
@@ -263,7 +263,7 @@ Windows Amazon DCV server
       `1`, and choose **OK**.
 
 4. Navigate to the
-   **HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\session-management/automatic-console-session**
+   **HKEY\_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\session-management/automatic-console-session**
    key.
 5. Create an `owner` parameter:
 

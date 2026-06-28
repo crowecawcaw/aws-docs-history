@@ -32,8 +32,8 @@ Editor.
 ###### To change the idle timeout period on Windows
 
 1. Open the Windows Registry Editor.
-2. Navigate to the **HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\connectivity\*\* key and select the
-   **idle-timeout\*\* parameter.
+2. Navigate to the *_HKEY\_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\connectivity\*_ key and select the
+   **idle-timeout** parameter.
 
 If the parameter can't be found, use the following steps to create it:
 
@@ -42,13 +42,12 @@ If the parameter can't be found, use the following steps to create it:
     2. For **Name**, enter `idle-timeout` and press **Enter**.
 
 3. Open the **idle-timeout** parameter. For **Value data**, enter a value for the idle timeout period (in
-   minutes, decimal). To avoid disconnecting idle clients, enter `0`.
-4. Choose **OK** and close the Windows Registry Editor.
+minutes, decimal). To avoid disconnecting idle clients, enter `0`. 4. Choose **OK** and close the Windows Registry Editor.
 
 ###### (Optional) To configure the Amazon DCV server to send timeout notifications to idle clients
 
-1. Navigate to the **HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\connectivity\*\* key and select the
-   **idle-timeout-warning\*\* parameter.
+1. Navigate to the *_HKEY\_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\connectivity\*_ key and select the
+   **idle-timeout-warning** parameter.
 
 If the parameter can't be found, use the following steps to create it:
 
@@ -57,9 +56,8 @@ If the parameter can't be found, use the following steps to create it:
     2. For **Name**, enter `idle-timeout-warning` and press **Enter**.
 
 2. Open the **idle-timeout-warning** parameter. For **Value data**, enter the number of seconds (decimal) in
-   advance of the disconnection that the associated warning notification is sent. For example, if you want the notification to be sent two minutes
-   before the idle timeout is reached, enter `120`.
-3. Choose **OK** and close the Windows Registry Editor.
+advance of the disconnection that the associated warning notification is sent. For example, if you want the notification to be sent two minutes
+before the idle timeout is reached, enter `120`. 3. Choose **OK** and close the Windows Registry Editor.
 
 Linux Amazon DCV server
 To change the Amazon DCV server's idle timeout period, you must configure the `idle-timeout` parameter in the `dcv.conf`

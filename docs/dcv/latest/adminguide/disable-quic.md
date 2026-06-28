@@ -16,8 +16,7 @@ Windows Amazon DCV server
 
 ###### To disable the use of QUIC (UDP) for data transport in Amazon DCV
 
-1. Open the Windows Registry Editor and navigate to the
-   \*\*HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\connectivity\*\* key.
+1. Open the Windows Registry Editor and navigate to the *_HKEY\_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\connectivity\*_ key.
 2. Open the **enable-quic-frontend** parameter. For **Value data**, enter `0`.
 
 ###### Note

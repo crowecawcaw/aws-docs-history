@@ -60,8 +60,10 @@ Manually start the Amazon DCV server using the command line.
 Use the following commands:
 
 - ```
-  `$` sudo launchctl start com.amazon.dcv.server.dcvserver
+
   ```
+
+`$` sudo launchctl start com.amazon.dcv.server.dcvserver
 
 ````
 

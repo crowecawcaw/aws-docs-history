@@ -7,11 +7,10 @@ Counters in this set are divided in two groups:
 - For those in the first group, Amazon DCV collects one value for each session and publishes it in the `$session_name` instance.
 - For those in the second group, Amazon DCV collects one value for each encoder in each session. There are three active encoders:
 
-      + one full-frame encoder
-      + one tile-based encoder
-      + one lossless encoder
-
-  These counters are published in the `$session_name:$encoder_name` instances.
+  - one full-frame encoder
+  - one tile-based encoder
+  - one lossless encoder
+    These counters are published in the `$session_name:$encoder_name` instances.
 
 | Counter name                   | Description                                                                                                                  | Unit         | Instance        |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- |

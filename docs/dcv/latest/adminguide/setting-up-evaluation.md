@@ -33,8 +33,8 @@ path for the license file.
 ###### To update the `license-file` configuration parameter on a Windows server
 
 1. Open the Windows Registry Editor.
-2. Navigate to the **HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\license\*\* key
-   and select the **license-file\*\* parameter.
+2. Navigate to the *_HKEY\_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\license\*_ key
+   and select the **license-file** parameter.
 
 If there is no `license-file` parameter in the registry key, create
 one:
@@ -45,9 +45,8 @@ one:
      **Enter**.
 
 3. Open the **license-file** parameter. For **Value
-   data**, enter the full path to the `license.lic`
-   file.
-4. Choose **OK** and close the Windows Registry Editor.
+data**, enter the full path to the `license.lic`
+file. 4. Choose **OK** and close the Windows Registry Editor.
 
 ## Changing the license path on a Linux server
 

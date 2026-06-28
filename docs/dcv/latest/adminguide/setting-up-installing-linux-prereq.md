@@ -505,8 +505,10 @@ sudo rm -rf /etc/X11/XF86Config*
 2. Restart the X server for the changes to take effect.
 
    - ```
-     `$` sudo systemctl isolate multi-user.target
+
      ```
+
+   `$` sudo systemctl isolate multi-user.target
 
    ```
 

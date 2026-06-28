@@ -36,7 +36,7 @@ Windows Registry Editor.
 ###### To change the ports for the server on Windows
 
 1. Open the Windows Registry Editor.
-2. Navigate to the **HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\connectivity/** key.
+2. Navigate to the **HKEY\_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\connectivity/** key.
 3. To configure the TCP port, select the **web-port** parameter.
 
 If there's no `web-port` parameter in the registry key, create one:
@@ -46,7 +46,7 @@ If there's no `web-port` parameter in the registry key, create one:
     2. For **Name**, enter `web-port` and press **Enter**.
 
 4. Open the **web-port** parameter. For **Value data**, enter the new TCP port number. If you don't
-   configure this parameter, the Amazon DCV server uses TCP port 8443 by default.
+configure this parameter, the Amazon DCV server uses TCP port 8443 by default.
 
 ###### Note
 
@@ -59,7 +59,7 @@ If there's no `quic-port` parameter in the registry key, create one:
     2. For **Name**, enter `quic-port` and press **Enter**.
 
 6. Open the **quic-port** parameter. For **Value data**, enter the new UDP port number. If you don't
-   configure this parameter and QUIC support is enabled, the Amazon DCV server uses UDP port 8443 by default.
+configure this parameter and QUIC support is enabled, the Amazon DCV server uses UDP port 8443 by default.
 
 ###### Note
 
@@ -158,7 +158,7 @@ Windows Amazon DCV server
 ###### To change the endpoints for the server on Windows
 
 1. Open the Windows Registry Editor.
-2. Navigate to the \*\*HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\connectivity\*\* key.
+2. Navigate to the *_HKEY\_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\connectivity\*_ key.
 3. To configure the TCP endpoints, select the **web-listen-endpoints** parameter.
 
 If there's no `web-listen-endpoints` parameter in the registry key, create one:
@@ -167,8 +167,7 @@ If there's no `web-listen-endpoints` parameter in the registry key, create one:
      **New**, **String value**.
     2. For **Name**, enter `web-listen-endpoints` and press **Enter**.
 
-4. Open the **web-listen-endpoints** parameter. For **Value data**, enter a list of endpoints.
-5. If QUIC is enabled, to configure the UDP endpoints, select the **quic-listen-endpoints** parameter.
+4. Open the **web-listen-endpoints** parameter. For **Value data**, enter a list of endpoints. 5. If QUIC is enabled, to configure the UDP endpoints, select the **quic-listen-endpoints** parameter.
 
 If there's no `quic-listen-endpoints` parameter in the registry key, create one:
 
@@ -176,9 +175,7 @@ If there's no `quic-listen-endpoints` parameter in the registry key, create one:
      **New**, **String value**.
     2. For **Name**, enter `quic-listen-endpoints` and press **Enter**.
 
-6. Open the **quic-listen-endpoints** parameter. For **Value data**, enter a list of endpoints.
-7. Choose **OK** and close the Windows Registry Editor.
-8. [Stop](manage-stop.md "manage-stop.md") and [restart](manage-start.md "manage-start.md") the Amazon DCV server.
+6. Open the **quic-listen-endpoints** parameter. For **Value data**, enter a list of endpoints. 7. Choose **OK** and close the Windows Registry Editor. 8. [Stop](manage-stop.md "manage-stop.md") and [restart](manage-start.md "manage-start.md") the Amazon DCV server.
 
 Linux Amazon DCV server
 
