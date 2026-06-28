@@ -26,9 +26,9 @@ In this module, you will:
 
 Start **Xcode** and create a new
 project by going to **File > New >
-Project...** or by pressing \*\*Shift
+Project...** or by pressing **Shift
 
-- Cmd + N\*\*.
+- Cmd + N**.
 
 ![The resource creation interface.](images/xcode-new-project-resource-creation.png) 2. Choose your app template
 
@@ -59,7 +59,8 @@ clicking the plus (**+**) at the
 bottom of the navigation pane, or by
 pressing **Cmd + N**.
 
-Name the file \***\*Note.swift\*\***,
+Name the file
+****Note.swift****,
 and add the following content:
 
 ```
@@ -94,7 +95,7 @@ Only the name is a
 mandatory parameter in its initializer. 2. Create view for Note objects
 
 Next, create another file
-named \***\*NoteView.swift\*\*** with
+named ****NoteView.swift**** with
 the following content:
 
 ```
@@ -133,7 +134,7 @@ This defines a view that displays the information of a Note object,
 including creating an Image from its image property. 3. Create view for Notes array
 
 Create a new **SwiftUI View** file
-named \***\*NotesView.swift\*\*** with
+named ****NotesView.swift**** with
 the following content:
 
 ```
@@ -204,13 +205,14 @@ the view looks when the array is populated. For example:
 
 ![The configuration settings interface.](images/xcode-notes-arguments-configuration.png) 5. Configure the App instance
 
-Open the file that defines your App instance (for example, \***\*GettingStartedApp.swift\*\***)
+Open the file that defines your App instance (for example,
+****GettingStartedApp.swift****)
 and replace
-the \***\*ContentView() initialization\*\***
-with \***\*NotesView()\*\***.
+the ****ContentView() initialization****
+with ****NotesView()****.
 
 Delete
-the \***\*ContentView.swift\*\***
+the ****ContentView.swift****
 file, we will not be using it for this tutorial.
 
 ```

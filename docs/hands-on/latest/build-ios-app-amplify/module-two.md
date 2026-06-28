@@ -153,7 +153,7 @@ the Package Products in the Add to Target section, and choose
 - Modify the file
 
 Open
-the \***\*GettingStartedApp.swift\*\***
+the ****GettingStartedApp.swift****
 **file** and
 replace its content with the following information:
 

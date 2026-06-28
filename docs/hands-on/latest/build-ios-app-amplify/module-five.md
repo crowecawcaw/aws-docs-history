@@ -113,7 +113,7 @@ dependency for your project.
 - Modify the Xcode
 
 Navigate back to **Xcode** and open
-the \***\*GettingStartedApp.swift\*\***
+the ****GettingStartedApp.swift****
 file. To configure Amplify API, you will need to:
 
     + Add the****import AWSS3StoragePlugin****statement.
@@ -156,7 +156,8 @@ struct GettingStartedApp: App {
 
 - Create a StorageSwift file
 
-Create a **new Swift file** named \***\*StorageService.swift\*\*** with
+Create a **new Swift file** named
+****StorageService.swift**** with
 the following content:
 
 ```
@@ -218,13 +219,13 @@ Amplify Storage has three file protection levels:
      writable only by the creating user
 
 For this app, we want the images to only be available to the note
-owner, so we set the \***\*accessLevel:
-.private property\*\*** in each operation's options.
+owner, so we set the ****accessLevel:
+.private property**** in each operation's options.
 
 1. Create a RemoteImage file
 
 Create a **new Swift file**
-named \***\*RemoteImage.swift\*\***with
+named ****RemoteImage.swift****with
 the following content:
 
 ```
@@ -267,7 +268,7 @@ the operation is in progress. If the data cannot be downloaded, it
 shows an empty view. 2. Update the NoteView file
 
 Next,
-update \***\*NoteView.swift\*\*** to
+update ****NoteView.swift**** to
 use this new view when displaying the image:
 
 ```
@@ -280,8 +281,10 @@ use this new view when displaying the image:
 
 3. Update the GettingStartedApp file
 
-Finally, update the \***\*GettingStartedApp.swift's\*\***
-body to set the \***\*StorageService\*\***
+Finally, update the
+****GettingStartedApp.swift's****
+body to set the
+****StorageService****
 object:
 
 ```
@@ -299,7 +302,7 @@ object:
 
 In order to allow the user to select a picture from their library,
 create a **new Swift file**
-named \***\*PicturePicker.swift\*\***with
+named ****PicturePicker.swift****with
 the following content:
 
 ```
@@ -339,7 +342,7 @@ struct PicturePicker: View {
 5. Update the SaveNoteView file
 
 Make the following changes to
-the \***\*SaveNoteView.swift\*\*** files:
+the ****SaveNoteView.swift**** files:
 
     * Add a new ****@EnvironmentObject
      private var storageService:
@@ -404,7 +407,7 @@ struct SaveNoteView: View {
 
 To delete images that are associated with a note that is deleted,
 update
-the \***\*NotesView.swift\*\*** file:
+the ****NotesView.swift**** file:
 
     * Add a new****@EnvironmentObject
      private var storageService:

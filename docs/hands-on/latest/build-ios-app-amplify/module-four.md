@@ -100,7 +100,8 @@ Do you want to edit the schema now?
 
 5. Update the schema
 
-As we want to represent the model we previously defined in the  \***\*Note.swift\*\***
+As we want to represent the model we previously defined in the 
+****Note.swift****
  file, use the following schema and
 **save** the file:
 
@@ -194,7 +195,8 @@ as a dependency for your project.
 - Configure the library
 
 Navigate back to **Xcode** , and open
-the  \***\*GettingStartedApp.swift\*\***
+the 
+****GettingStartedApp.swift****
  file.
 
 To configure Amplify API, you will need to:
@@ -238,7 +240,7 @@ struct GettingStartedApp: App {
 - Create a NotesService.swift file
 
 Create a **new Swift file**
-named \***\*NotesService.swift\*\***
+named ****NotesService.swift****
 with the following code.
 
 ```
@@ -302,7 +304,8 @@ a notes array.
 
 - List notes
 
-Make the following changes to the  \***\*NotesView.swift\*\***
+Make the following changes to the 
+****NotesView.swift****
 file:
 
     + Add a new  ****@EnvironmentObject
