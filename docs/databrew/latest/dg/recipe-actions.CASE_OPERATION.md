@@ -1,4 +1,4 @@
-# CASE_OPERATION
+# CASE\_OPERATION
 
 Create a new column, based on the result of logical condition CASE. The case operation
 goes through case conditions and returns a value when the first condition is

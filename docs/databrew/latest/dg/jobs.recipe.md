@@ -108,47 +108,45 @@ start your existing jobs. 6. For Amazon S3 output destinations only, you have fu
     For an example of column partitioning, see [Example of column partitioning](#jobs.recipe-column-partition-example "#jobs.recipe-column-partition-example"), following.
 
 7. (Optional) Choose **Enable encryption for job output** to encrypt the
-   job output that DataBrew writes to your output location, and then choose the encryption
-   method:
+job output that DataBrew writes to your output location, and then choose the encryption
+method:
 
-   - **Use SSE-S3 encryption** – The output is
+    * **Use SSE-S3 encryption** – The output is
      encrypted using server-side encryption with Amazon S3–managed encryption keys.
-   - **Use AWS Key Management Service (AWS KMS)** – The output is encrypted
+    * **Use AWS Key Management Service (AWS KMS)** – The output is encrypted
      using AWS KMS. To use this option, choose the Amazon Resource Name (ARN) of the AWS KMS key
      that you want to use. If you don't have an AWS KMS key, you can create one by choosing
      **Create an AWS KMS key**.
 
 8. For **Access permissions**, choose an AWS Identity and Access Management (IAM) role that allows DataBrew to
-   write to your output location. For a location owned by your AWS
-   account, you can choose the `AwsGlueDataBrewDataAccessRole`
-   service-managed role. Doing this allows DataBrew to access AWS resources that you
-   own.
-9. On the **Advanced job settings** pane, you can choose more options
-   for how your job is to run:
+write to your output location. For a location owned by your AWS
+account, you can choose the `AwsGlueDataBrewDataAccessRole`
+service-managed role. Doing this allows DataBrew to access AWS resources that you
+own. 9. On the **Advanced job settings** pane, you can choose more options
+for how your job is to run:
 
-   - **Maximum number of units** – DataBrew processes
+    * **Maximum number of units** – DataBrew processes
      jobs using multiple compute nodes, running in parallel. The default
      number of nodes is 5. The maximum number of nodes is 149.
-   - **Job timeout –** If a job takes more than the
+    * **Job timeout –** If a job takes more than the
      number of minutes that you set here to run, it fails with a timeout
      error. The default value is 2,880 minutes, or 48 hours.
-   - **Number of retries** – If a job fails while
+    * **Number of retries** – If a job fails while
      running, DataBrew can try to run it again. By default, the job isn't
      retried.
-   - **Enable Amazon CloudWatch Logs for job** – Allows DataBrew to publish
+    * **Enable Amazon CloudWatch Logs for job** – Allows DataBrew to publish
      diagnostic information to CloudWatch Logs. These logs can be useful for
      troubleshooting purposes, or for more details on how the job is
      processed.
 
 10. For **Schedule jobs**, you can apply a DataBrew job schedule so that
-    your job runs at a particular time, or on a recurring basis. For more
-    information, see [Automating job runs with a schedule](#jobs.scheduling "#jobs.scheduling").
-11. When the settings are as you want them, choose **Create
-    job**. Or, if you want to run the job immediately, choose **Create and run job**.
-    You can monitor your job's progress by checking its status while the job is
-    running. When the job run is complete, the status changes to
-    **Succeeded**. The job output is now available at your chosen
-    output location.
+your job runs at a particular time, or on a recurring basis. For more
+information, see [Automating job runs with a schedule](#jobs.scheduling "#jobs.scheduling"). 11. When the settings are as you want them, choose **Create
+job**. Or, if you want to run the job immediately, choose **Create and run job**.
+You can monitor your job's progress by checking its status while the job is
+running. When the job run is complete, the status changes to
+**Succeeded**. The job output is now available at your chosen
+output location.
 
 DataBrew saves your job definition, so that you can run the same job later. To rerun a
 job, choose **Jobs** from the navigation pane. Choose the job that you

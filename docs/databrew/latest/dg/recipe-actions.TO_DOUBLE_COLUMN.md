@@ -1,10 +1,10 @@
-# TO_DOUBLE_COLUMN
+# TO\_DOUBLE\_COLUMN
 
 Changes the data type of an existing column to DOUBLE.
 
 ###### Note
 
-We recommend using CHANGE_DATA_TYPE recipe action rather than TO_DOUBLE_COLUMN.
+We recommend using CHANGE\_DATA\_TYPE recipe action rather than TO\_DOUBLE\_COLUMN.
 
 ###### Parameters
 

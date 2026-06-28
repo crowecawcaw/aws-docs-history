@@ -1,4 +1,4 @@
-# DATE_FORMAT
+# DATE\_FORMAT
 
 Creates a new column containing a date, in a specific format, from a string that
 represents a date.

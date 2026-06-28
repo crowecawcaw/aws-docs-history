@@ -1,4 +1,4 @@
-# STANDARD_DEVIATION
+# STANDARD\_DEVIATION
 
 Returns the standard deviation from the selected source columns in a new column.
 

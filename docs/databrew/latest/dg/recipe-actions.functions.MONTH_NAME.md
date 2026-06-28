@@ -1,4 +1,4 @@
-# MONTH_NAME
+# MONTH\_NAME
 
 Creates a new column containing the name of the month, from a string that represents a
 date.

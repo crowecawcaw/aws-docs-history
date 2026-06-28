@@ -1,4 +1,4 @@
-# UNNEST_STRUCT_N
+# UNNEST\_STRUCT\_N
 
 Creates a new column for each field of a selected column of type `struct`.
 

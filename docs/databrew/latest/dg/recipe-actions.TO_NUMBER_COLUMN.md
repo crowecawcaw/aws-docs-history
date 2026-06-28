@@ -1,10 +1,10 @@
-# TO_NUMBER_COLUMN
+# TO\_NUMBER\_COLUMN
 
 Changes the data type of an existing column to NUMBER.
 
 ###### Note
 
-We recommend using CHANGE_DATA_TYPE recipe action rather than TO_NUMBER_COLUMN.
+We recommend using CHANGE\_DATA\_TYPE recipe action rather than TO\_NUMBER\_COLUMN.
 
 ###### Parameters
 

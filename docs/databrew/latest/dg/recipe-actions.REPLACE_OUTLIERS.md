@@ -1,4 +1,4 @@
-# REPLACE_OUTLIERS
+# REPLACE\_OUTLIERS
 
 Updates the data point values that classify as outliers, based on the settings in the parameters.
 
@@ -49,15 +49,14 @@ Updates the data point values that classify as outliers, based on the settings i
 - `trimValue`
   – Specifies whether to remove all or some of the outliers. This Boolean value is set to `TRUE` when `replaceType` is `REPLACE_WITH_NULL`, `REPLACE_WITH_MODE`, or `WINSORIZE_VALUES`. It defaults to `FALSE` for all others.
 
-      + `FALSE` – Removes all outliers
-      + `TRUE`
-       –Removes outliers that rank outside of the percentile cap threshold specified in `minValue` and `maxValue`.
-
-  The following examples display syntax for a single [RecipeAction](API_RecipeAction.md "API_RecipeAction.md")
-  operation. A _recipe_ contains at least one [RecipeStep](API_RecipeStep.md "API_RecipeStep.md") operation, and a recipe step contains at least
-  one recipe action. A _recipe action_ runs the data
-  transform that you specify. A group of recipe actions run in sequential order to create the
-  final dataset.
+  - `FALSE` – Removes all outliers
+  - `TRUE`
+    –Removes outliers that rank outside of the percentile cap threshold specified in `minValue` and `maxValue`.
+    The following examples display syntax for a single [RecipeAction](API_RecipeAction.md "API_RecipeAction.md")
+    operation. A _recipe_ contains at least one [RecipeStep](API_RecipeStep.md "API_RecipeStep.md") operation, and a recipe step contains at least
+    one recipe action. A _recipe action_ runs the data
+    transform that you specify. A group of recipe actions run in sequential order to create the
+    final dataset.
 
 JSON
 The following shows an example `RecipeAction` to use as member of

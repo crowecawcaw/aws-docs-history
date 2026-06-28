@@ -1,4 +1,4 @@
-# SHUFFLE_ROWS
+# SHUFFLE\_ROWS
 
 Shuffles values in a given column. The shuffling can occur with values grouped by a
 secondary column.

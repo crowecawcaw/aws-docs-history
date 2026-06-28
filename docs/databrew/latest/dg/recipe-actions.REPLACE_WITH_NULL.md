@@ -1,4 +1,4 @@
-# REPLACE_WITH_NULL
+# REPLACE\_WITH\_NULL
 
 Replaces each invalid value in a column with a null value.
 

@@ -1,4 +1,4 @@
-# SPLIT_COLUMN_BETWEEN_DELIMITER
+# SPLIT\_COLUMN\_BETWEEN\_DELIMITER
 
 Splits a column into three new columns, according to a beginning and ending
 delimiter.

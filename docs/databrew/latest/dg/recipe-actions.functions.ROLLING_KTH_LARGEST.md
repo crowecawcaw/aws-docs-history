@@ -1,4 +1,4 @@
-# ROLLING_KTH_LARGEST
+# ROLLING\_KTH\_LARGEST
 
 Returns in a new column the rolling *k*th largest
 value from a specified number of rows before to a specified number of rows after the

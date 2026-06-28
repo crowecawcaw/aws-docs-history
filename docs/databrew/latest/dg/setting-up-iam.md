@@ -26,20 +26,19 @@ help, contact your administrator or AWS Support.
 
 ###### To add the required permissions
 
-1.  Create IAM policies to enable users to run DataBrew by doing the following:
+1. Create IAM policies to enable users to run DataBrew by doing the following:
 
-        * [Add a custom IAM
-         policy for a console user](setting-up-iam-policy-for-databrew-console-access.md "setting-up-iam-policy-for-databrew-console-access.md"). If you don't need a custom policy, you can choose
-         the AWS-managed policy instead. Just add it to the user in step 2. A user with these
-         permissions can access the DataBrew service console.
-        * [Add permissions
-         for data resources](setting-up-iam-policy-for-data-resources-role.md "setting-up-iam-policy-for-data-resources-role.md"). An IAM role with these permissions can access
-         data on behalf of the user.
+   - [Add a custom IAM
+     policy for a console user](setting-up-iam-policy-for-databrew-console-access.md "setting-up-iam-policy-for-databrew-console-access.md"). If you don't need a custom policy, you can choose
+     the AWS-managed policy instead. Just add it to the user in step 2. A user with these
+     permissions can access the DataBrew service console.
+   - [Add permissions
+     for data resources](setting-up-iam-policy-for-data-resources-role.md "setting-up-iam-policy-for-data-resources-role.md"). An IAM role with these permissions can access
+     data on behalf of the user.
+     You need to be an administrator to create users, roles, and policies.
 
-    You need to be an administrator to create users, roles, and policies.
-
-2.  [Add users or groups for
-    DataBrew](setting-up-iam-users-and-groups-for-databrew.md "setting-up-iam-users-and-groups-for-databrew.md"). A user or group with the correct permissions attached can access the DataBrew
-    console.
-3.  [Add a role with permissions to access data
-    for DataBrew](setting-up-iam-role-to-use-in-databrew.md "setting-up-iam-role-to-use-in-databrew.md"). A role with the correct permissions can access data on the user's behalf.
+2. [Add users or groups for
+   DataBrew](setting-up-iam-users-and-groups-for-databrew.md "setting-up-iam-users-and-groups-for-databrew.md"). A user or group with the correct permissions attached can access the DataBrew
+   console.
+3. [Add a role with permissions to access data
+   for DataBrew](setting-up-iam-role-to-use-in-databrew.md "setting-up-iam-role-to-use-in-databrew.md"). A role with the correct permissions can access data on the user's behalf.

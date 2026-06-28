@@ -1,4 +1,4 @@
-# FLAG_OUTLIERS
+# FLAG\_OUTLIERS
 
 Returns a new column containing a customizable value in each row that indicates if the source column value is an outlier.
 

@@ -1,4 +1,4 @@
-# SPLIT_COLUMN_WITH_INTERVALS
+# SPLIT\_COLUMN\_WITH\_INTERVALS
 
 Splits a column at intervals of _n_ characters, where you specify
 _n_.

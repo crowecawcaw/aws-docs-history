@@ -5,11 +5,11 @@ with non-aggregated conditions in the same rule.
 
 ###### Note
 
-For SDK users, to apply the same rule to multiple columns use the [ColumnSelectors](API_ColumnSelector.md "API_ColumnSelector.md")
-attribute of a [Rule](API_Rule.md "API_Rule.md") and specify validated columns using either their names or a regular expression.
+For SDK users, to apply the same rule to multiple columns use the [ColumnSelectors](../APIReference/API_ColumnSelector.md "../APIReference/API_ColumnSelector.md")
+attribute of a [Rule](../APIReference/API_Rule.md "../APIReference/API_Rule.md") and specify validated columns using either their names or a regular expression.
 In this case, you should use implicit _CheckExpression_. For example, `“> :val”` to compare values in each of the selected columns
 with the provided value. DataBrew uses implicit syntax for defining
-[FilterExpression](API_FilterExpression.md "API_FilterExpression.md") in dynamic datasets. If you want to specify column(s)
+[FilterExpression](../APIReference/API_FilterExpression.md "../APIReference/API_FilterExpression.md") in dynamic datasets. If you want to specify column(s)
 for each check individually, don't set the _ColumnSelectors_ attribute. Instead, provide an explicit expression. For example,
 `“:col > :val”` as a _CheckExpression_ in a _Rule_.
 
@@ -36,7 +36,7 @@ for each check individually, don't set the _ColumnSelectors_ attribute. Instead,
 
 DataBrew supports the following operations for numeric comparison: _Is equals (==)_, _Is not equals (!=)_,
 _Less than (<)_, _Less than equals (<=)_, _Greater than (>)_, _Greater than equals (>=)_
-and _Is between (is_between :val1 and :val2)_.
+and _Is between (is\_between :val1 and :val2)_.
 
 **String comparisons**
 

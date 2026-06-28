@@ -1,4 +1,4 @@
-# UNNEST_MAP
+# UNNEST\_MAP
 
 Unnests a column of type `map` and generates a column for the key and
 value. If there is more than one key-value pair, a row corresponding to each key value

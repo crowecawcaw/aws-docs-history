@@ -1,4 +1,4 @@
-# REMOVE_SYMBOLS
+# REMOVE\_SYMBOLS
 
 Removes characters that aren't letters, numbers, accented Latin characters, or white
 space from the strings in the source column or custom strings, and returns the result in

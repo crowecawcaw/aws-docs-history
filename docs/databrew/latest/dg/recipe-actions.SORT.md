@@ -9,7 +9,7 @@ Sorts the data in one or more columns of a dataset in ascending, descending, or 
 
   - `sourceColumn` – A string that contains the name of an existing column.
   - `ordering` – Ordering can be either ASCENDING or DESCENDING.
-  - `nullsOrdering` – Nulls ordering can be either NULLS_TOP or NULLS_BOTTOM to
+  - `nullsOrdering` – Nulls ordering can be either NULLS\_TOP or NULLS\_BOTTOM to
     place null or missing values at the beginning or at the bottom of the column.
   - `customOrder` – A list of strings that defines a custom
     order for the string sorting. By default, strings are sorted alphabetically.

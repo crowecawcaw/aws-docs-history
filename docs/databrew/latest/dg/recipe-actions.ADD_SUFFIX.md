@@ -1,4 +1,4 @@
-# ADD_SUFFIX
+# ADD\_SUFFIX
 
 Adds one more characters concatenating them as a suffix to the end of a column.
 

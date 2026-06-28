@@ -1,4 +1,4 @@
-# ADD_PREFIX
+# ADD\_PREFIX
 
 Adds one or more characters, concatenating them as a prefix to the beginning of a
 column.

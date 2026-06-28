@@ -1,4 +1,4 @@
-# STRING_LESS_THAN
+# STRING\_LESS\_THAN
 
 Creates a new column populated with one of the following:
 
@@ -20,7 +20,7 @@ You can specify only one of the following combinations:
 
 - Both of `sourceColumn`N``.
 - One of `sourceColumn`N`` and one of
-`value`N``.
+ `value`N``.
 - Both of `value`N``.
 
 ###### Example

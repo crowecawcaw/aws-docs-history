@@ -61,16 +61,15 @@ Categories for transformations in the UI include the following:
 
 - Functions
 
-      + Mathematical functions
-      + Aggregate functions
-      + Text functions
-      + Date and time functions
-      + Window functions
-      + Web functions
-      + Other functions
-
-  For more information about how these recipe steps and functions are used in a recipe (including the use of
-  condition expressions) see [Defining a recipe structure](recipes.md#recipes.structure "recipes.md#recipes.structure").
+  - Mathematical functions
+  - Aggregate functions
+  - Text functions
+  - Date and time functions
+  - Window functions
+  - Web functions
+  - Other functions
+    For more information about how these recipe steps and functions are used in a recipe (including the use of
+    condition expressions) see [Defining a recipe structure](recipes.md#recipes.structure "recipes.md#recipes.structure").
 
 The following sections describe the recipe steps and functions, organized by what they do.
 

@@ -4,8 +4,8 @@ Use these recipe steps to work with outliers in your data and perform advanced t
 
 ###### Topics
 
-- [FLAG_OUTLIERS](recipe-actions.FLAG_OUTLIERS.md "recipe-actions.FLAG_OUTLIERS.md")
-- [REMOVE_OUTLIERS](recipe-actions.outliers.REMOVE_OUTLIERS.md "recipe-actions.outliers.REMOVE_OUTLIERS.md")
-- [REPLACE_OUTLIERS](recipe-actions.REPLACE_OUTLIERS.md "recipe-actions.REPLACE_OUTLIERS.md")
-- [RESCALE_OUTLIERS_WITH_Z_SCORE](recipe-actions.RESCALE_OUTLIERS_WITH_Z_SCORE.md "recipe-actions.RESCALE_OUTLIERS_WITH_Z_SCORE.md")
-- [RESCALE_OUTLIERS_WITH_SKEW](recipe-actions.outliers.RESCALE_OUTLIERS_WITH_SKEW.md "recipe-actions.outliers.RESCALE_OUTLIERS_WITH_SKEW.md")
+- [FLAG\_OUTLIERS](recipe-actions.FLAG_OUTLIERS.md "recipe-actions.FLAG_OUTLIERS.md")
+- [REMOVE\_OUTLIERS](recipe-actions.outliers.REMOVE_OUTLIERS.md "recipe-actions.outliers.REMOVE_OUTLIERS.md")
+- [REPLACE\_OUTLIERS](recipe-actions.REPLACE_OUTLIERS.md "recipe-actions.REPLACE_OUTLIERS.md")
+- [RESCALE\_OUTLIERS\_WITH\_Z\_SCORE](recipe-actions.RESCALE_OUTLIERS_WITH_Z_SCORE.md "recipe-actions.RESCALE_OUTLIERS_WITH_Z_SCORE.md")
+- [RESCALE\_OUTLIERS\_WITH\_SKEW](recipe-actions.outliers.RESCALE_OUTLIERS_WITH_SKEW.md "recipe-actions.outliers.RESCALE_OUTLIERS_WITH_SKEW.md")

@@ -1,4 +1,4 @@
-# REMOVE_OUTLIERS
+# REMOVE\_OUTLIERS
 
 Removes data points that classify as outliers, based on the settings in the parameters.
 

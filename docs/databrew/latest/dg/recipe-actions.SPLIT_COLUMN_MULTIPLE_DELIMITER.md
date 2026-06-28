@@ -1,4 +1,4 @@
-# SPLIT_COLUMN_MULTIPLE_DELIMITER
+# SPLIT\_COLUMN\_MULTIPLE\_DELIMITER
 
 Splits a column according to multiple delimiters.
 

@@ -1,4 +1,4 @@
-# ROLLING_COUNT_A
+# ROLLING\_COUNT\_A
 
 Returns in a new column the rolling count of non-null values from a specified number
 of rows before to a specified number of rows after the current row in the specified

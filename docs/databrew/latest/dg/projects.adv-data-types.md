@@ -23,11 +23,11 @@ The data types DataBrew can detect are:
 
 You can use the following transforms to work with advanced data types:
 
-- [GET_ADVANCED_DATATYPE](recipe-actions.GET_ADVANCED_DATATYPE.md "recipe-actions.GET_ADVANCED_DATATYPE.md"): Given a string
+- [GET\_ADVANCED\_DATATYPE](recipe-actions.GET_ADVANCED_DATATYPE.md "recipe-actions.GET_ADVANCED_DATATYPE.md"): Given a string
   column, identifies the advanced data type of the column, if any.
-- [EXTRACT_ADVANCED_DATATYPE_DETAILS](recipe-actions.EXTRACT_ADVANCED_DATATYPE_DETAILS.md "recipe-actions.EXTRACT_ADVANCED_DATATYPE_DETAILS.md"): Extracts
+- [EXTRACT\_ADVANCED\_DATATYPE\_DETAILS](recipe-actions.EXTRACT_ADVANCED_DATATYPE_DETAILS.md "recipe-actions.EXTRACT_ADVANCED_DATATYPE_DETAILS.md"): Extracts
   details for an advanced data type.
-- [ADVANCED_DATATYPE_FILTER](recipe-actions.ADVANCED_DATATYPE_FILTER.md "recipe-actions.ADVANCED_DATATYPE_FILTER.md"): Filters a current
+- [ADVANCED\_DATATYPE\_FILTER](recipe-actions.ADVANCED_DATATYPE_FILTER.md "recipe-actions.ADVANCED_DATATYPE_FILTER.md"): Filters a current
   source column based on advanced data type detection.
-- [ADVANCED_DATATYPE_FLAG](recipe-actions.ADVANCED_DATATYPE_FLAG.md "recipe-actions.ADVANCED_DATATYPE_FLAG.md"): Creates a new flag
+- [ADVANCED\_DATATYPE\_FLAG](recipe-actions.ADVANCED_DATATYPE_FLAG.md "recipe-actions.ADVANCED_DATATYPE_FLAG.md"): Creates a new flag
   column based on the values for the current source column.

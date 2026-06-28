@@ -1,4 +1,4 @@
-# GET_ACTION_RESULT
+# GET\_ACTION\_RESULT
 
 Fetches the result of a previously submitted action. Only for use in the interactive experience.
 

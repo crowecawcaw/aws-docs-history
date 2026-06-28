@@ -1,4 +1,4 @@
-# DATE_ADD
+# DATE\_ADD
 
 Adds a year, month, or day to the date from a source column or value, and creates a
 new column containing the results.

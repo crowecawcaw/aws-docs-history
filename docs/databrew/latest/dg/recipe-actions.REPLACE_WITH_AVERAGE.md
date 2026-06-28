@@ -1,4 +1,4 @@
-# REPLACE_WITH_AVERAGE
+# REPLACE\_WITH\_AVERAGE
 
 Replaces each invalid value in a column with the average of all other values.
 

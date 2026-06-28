@@ -11,17 +11,16 @@ values provided.
 - `dateTimeParameters` – A JSON-encoded string representing the
   components of the date and time:
 
-      + `year`
-      + `value`
-      + `month`
-      + `day`
-      + `hour`
-      + `second`
+  - `year`
+  - `value`
+  - `month`
+  - `day`
+  - `hour`
+  - `second`
+    Each component must specify one of the following:
 
-  Each component must specify one of the following:
-
-      + `sourceColumn` – The name of an existing column.
-      + `value` – A character string to evaluate.
+  - `sourceColumn` – The name of an existing column.
+  - `value` – A character string to evaluate.
 
 - `targetColumn` – A name for the newly created column.
 

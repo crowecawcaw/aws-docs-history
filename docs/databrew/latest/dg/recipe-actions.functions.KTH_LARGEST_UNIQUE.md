@@ -1,4 +1,4 @@
-# KTH_LARGEST_UNIQUE
+# KTH\_LARGEST\_UNIQUE
 
 Returns the *k*th largest unique number from the
 selected source columns in a new column.

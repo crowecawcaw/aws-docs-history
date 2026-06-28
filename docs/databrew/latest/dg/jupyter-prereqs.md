@@ -14,7 +14,7 @@ Before you begin, set up the following items:
 
   - [JupyterLab prerequisites](https://JupyterLab.readthedocs.io/en/stable/getting_started/installation.html#prerequisites "https://JupyterLab.readthedocs.io/en/stable/getting_started/installation.html#prerequisites")
   - [JupyterLab installation](https://JupyterLab.readthedocs.io/en/stable/getting_started/installation.html "https://JupyterLab.readthedocs.io/en/stable/getting_started/installation.html") – We recommend using `pip install
-jupyterlab`.
+   jupyterlab`.
 
 - A Node.js installation (version 12.0 or greater).
 - An AWS Command Line Interface (AWS CLI) installation – For more information, see [Setting up the AWS CLI](setting-up-the-aws-cli.md "setting-up-the-aws-cli.md").

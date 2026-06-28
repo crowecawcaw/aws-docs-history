@@ -1,4 +1,4 @@
-# REPLACE_WITH_ROLLING_AVERAGE
+# REPLACE\_WITH\_ROLLING\_AVERAGE
 
 Replaces each value in a column with the rolling average from a previous "window"
 of rows.

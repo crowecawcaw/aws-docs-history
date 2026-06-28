@@ -56,7 +56,7 @@ copy of your recipe. This appears at the right side of your workspace. 4. Try th
      choose **Apply**.
 
 5. Collapse the recipe pane at upper right by choosing **RECIPE**.
-   To expand the recipe pane, choose **RECIPE** again.
+To expand the recipe pane, choose **RECIPE** again.
 
 ### Publishing a new version of your recipe
 

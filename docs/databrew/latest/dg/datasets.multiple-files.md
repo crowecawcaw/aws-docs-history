@@ -228,18 +228,18 @@ last modified date attribute.
 Following, you can find lists of supported conditions for each parameter
 type.
 
-| Conditions used with String parameters | Name in DataBrew SDK | SDK synonyms        | Name in DataBrew console                                                                              | Description |
-| -------------------------------------- | -------------------- | ------------------- | ----------------------------------------------------------------------------------------------------- | ----------- |
-| is                                     | eq, ==               | Is exactly          | The value of the parameter is the same as the value that<br>was provided in the condition.            |
-| is not                                 | not eq, !=           | Is not              | The value of the parameter isn't the same as the<br>value that was provided in the condition.         |
-| contains                               |                      | Contains            | The string value of the parameter contains the value that was<br>provided in the condition.           |
-| not contains                           |                      | Does not contain    | The string value of the parameter doesn't contain the<br>value that was provided in the condition.    |
-| starts_with                            |                      | Starts with         | The string value of the parameter starts with the value that<br>was provided in the condition.        |
-| not starts_with                        |                      | Does not start with | The string value of the parameter doesn't start with the<br>value that was provided in the condition. |
-| ends_with                              |                      | Ends with           | The string value of the parameter ends with the<br>value that was provided in the condition.          |
-| not ends_with                          |                      | Does not end with   | The string value of the parameter doesn't end with the<br>value that was provided in the condition.   |
-| matches                                |                      | Matches             | The value of the parameter matches the regular<br>expression provided in the condition.               |
-| not matches                            |                      | Does not match      | The value of the parameter doesn't match the<br>regular expression provided in the condition.         |
+Conditions used with String parameters| Name in DataBrew SDK | SDK synonyms | Name in DataBrew console | Description |
+| --- | --- | --- | --- |
+| is | eq, == | Is exactly | The value of the parameter is the same as the value that<br>was provided in the condition. |
+| is not | not eq, != | Is not | The value of the parameter isn't the same as the<br>value that was provided in the condition. |
+| contains | | Contains | The string value of the parameter contains the value that was<br>provided in the condition. |
+| not contains | | Does not contain | The string value of the parameter doesn't contain the<br>value that was provided in the condition. |
+| starts\_with | | Starts with | The string value of the parameter starts with the value that<br>was provided in the condition. |
+| not starts\_with | | Does not start with | The string value of the parameter doesn't start with the<br>value that was provided in the condition. |
+| ends\_with | | Ends with | The string value of the parameter ends with the<br>value that was provided in the condition. |
+| not ends\_with | | Does not end with | The string value of the parameter doesn't end with the<br>value that was provided in the condition. |
+| matches | | Matches | The value of the parameter matches the regular<br>expression provided in the condition. |
+| not matches | | Does not match | The value of the parameter doesn't match the<br>regular expression provided in the condition. |
 
 ###### Note
 
@@ -253,21 +253,21 @@ For example, suppose that you want your string parameter to start with
 possible. In this case, you can use the "matches" condition with
 `(?i)^abc` as the condition value.
 
-| Conditions used with Number parameters | Name in DataBrew SDK | SDK synonyms             | Name in DataBrew console                                                                                        | Description |
-| -------------------------------------- | -------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------- | ----------- |
-| is                                     | eq, ==               | Is exactly               | The value of the parameter is the same as the value that<br>was provided in the condition.                      |
-| is not                                 | not eq, !=           | Is not                   | The value of the parameter isn't the same as the<br>value that was provided in the condition.                   |
-| less_than                              | lt, <                | Less than                | The numeric value of the parameter is less than<br>the value that was provided in the condition.                |
-| less_than_equal                        | lte, <=              | Less than or equal to    | The numeric value of the parameter is less than or equal<br>to the value that was provided in the condition.    |
-| greater_than                           | gt, >                | Greater than             | The numeric value of the parameter is greater<br>than the value that was provided in the condition.             |
-| greater_than_equal                     | gte, >=              | Greater than or equal to | The numeric value of the parameter is greater than<br>or equal to the value that was provided in the condition. |
+Conditions used with Number parameters| Name in DataBrew SDK | SDK synonyms | Name in DataBrew console | Description |
+| --- | --- | --- | --- |
+| is | eq, == | Is exactly | The value of the parameter is the same as the value that<br>was provided in the condition. |
+| is not | not eq, != | Is not | The value of the parameter isn't the same as the<br>value that was provided in the condition. |
+| less\_than | lt, < | Less than | The numeric value of the parameter is less than<br>the value that was provided in the condition. |
+| less\_than\_equal | lte, <= | Less than or equal to | The numeric value of the parameter is less than or equal<br>to the value that was provided in the condition. |
+| greater\_than | gt, > | Greater than | The numeric value of the parameter is greater<br>than the value that was provided in the condition. |
+| greater\_than\_equal | gte, >= | Greater than or equal to | The numeric value of the parameter is greater than<br>or equal to the value that was provided in the condition. |
 
-| Conditions used with Date parameters | Name in DataBrew SDK | Name in DataBrew console                                                           | Condition value format (SDK)                                                                                                                                                                                                                                                                                    | Description |
-| ------------------------------------ | -------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| after                                | Start                | ISO 8601 date format like<br>`2021-03-30T01:00:00Z` or<br>`2021-03-30T01:00-07:00` | The value of the date parameter is after the<br>date provided in the condition.                                                                                                                                                                                                                                 |
-| before                               | End                  | ISO 8601 date format like<br>`2021-03-30T01:00:00Z` or<br>`2021-03-30T01:00-07:00` | The value of the date parameter is before the<br>date provided in the condition.                                                                                                                                                                                                                                |
-| relative_after                       | Start (relative)     | Positive or negative number of time units, like<br>`-48h` or `+7d`.                | The value of the date parameter is after the<br>relative date provided in the condition.<br>Relative dates are evaluated when the dataset is loaded,<br>either when an interactive session is initialized or when an<br>associated job is started. This is the moment that is called<br>"now" in the examples.  |
-| relative_before                      | End (relative)       | Positive or negative number of time units, like<br>`-48h` or `+7d`.                | The value of the date parameter is before the relative<br>date provided in the condition.<br>Relative dates are evaluated when the dataset is loaded,<br>either when an interactive session is initialized or when an<br>associated job is started. This is the moment that is called<br>"now" in the examples. |
+Conditions used with Date parameters| Name in DataBrew SDK | Name in DataBrew console | Condition value format (SDK) | Description |
+| --- | --- | --- | --- |
+| after | Start | ISO 8601 date format like<br>`2021-03-30T01:00:00Z` or<br>`2021-03-30T01:00-07:00` | The value of the date parameter is after the<br>date provided in the condition. |
+| before | End | ISO 8601 date format like<br>`2021-03-30T01:00:00Z` or<br>`2021-03-30T01:00-07:00` | The value of the date parameter is before the<br>date provided in the condition. |
+| relative\_after | Start (relative) | Positive or negative number of time units, like<br>`-48h` or `+7d`. | The value of the date parameter is after the<br>relative date provided in the condition.<br>Relative dates are evaluated when the dataset is loaded,<br>either when an interactive session is initialized or when an<br>associated job is started. This is the moment that is called<br>"now" in the examples. |
+| relative\_before | End (relative) | Positive or negative number of time units, like<br>`-48h` or `+7d`. | The value of the date parameter is before the relative<br>date provided in the condition.<br>Relative dates are evaluated when the dataset is loaded,<br>either when an interactive session is initialized or when an<br>associated job is started. This is the moment that is called<br>"now" in the examples. |
 
 If you use the SDK, provide relative dates in the following format:
 `±{number_of_time_units}{time_unit}`. You can use these time

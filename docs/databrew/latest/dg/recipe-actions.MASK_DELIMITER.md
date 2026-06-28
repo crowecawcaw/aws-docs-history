@@ -1,4 +1,4 @@
-# MASK_DELIMITER
+# MASK\_DELIMITER
 
 Masks characters between two delimiters with a user-specified masking symbol.
 
@@ -14,7 +14,7 @@ Masks characters between two delimiters with a user-specified masking symbol.
 - `alphabet` – An array of character sets to preserve during
   masking. Valid enum values: SYMBOLS, WHITESPACE.
 - `entityTypeFilter` – Optional array of [entity
-  types](API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes "API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes"). Can be used to encrypt only detected PII in free-text column.
+  types](../APIReference/API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes "../APIReference/API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes"). Can be used to encrypt only detected PII in free-text column.
 
 ###### Example
 

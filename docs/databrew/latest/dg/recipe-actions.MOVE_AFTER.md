@@ -1,4 +1,4 @@
-# MOVE_AFTER
+# MOVE\_AFTER
 
 Moves a column to the position immediately after another column.
 

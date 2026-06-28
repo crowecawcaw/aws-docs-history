@@ -184,7 +184,7 @@ The actions are performed sequentially, in the same order as in the file:
   chess player. There are two occurrences of this action—one to remove
   players on the black side who aren't at least Class A players, and another to
   remove players on the white side who aren't at this level.
-- `GROUP_BY` – To summarize the data. In this case, GROUP_BY
+- `GROUP_BY` – To summarize the data. In this case, GROUP\_BY
   sorts the rows into groups based on the values of `winner`
   (`black` and `white`). Each of those groups is then
   broken down further, sorting the rows into subgroups based on the values of

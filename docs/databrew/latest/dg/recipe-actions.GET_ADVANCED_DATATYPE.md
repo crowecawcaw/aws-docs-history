@@ -1,4 +1,4 @@
-# GET_ADVANCED_DATATYPE
+# GET\_ADVANCED\_DATATYPE
 
 Given a string column, identifies the advanced data type of the column, if any.
 

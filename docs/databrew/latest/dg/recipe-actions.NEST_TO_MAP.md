@@ -1,4 +1,4 @@
-# NEST_TO_MAP
+# NEST\_TO\_MAP
 
 Converts user-selected columns into key-value pairs, each with a key representing the
 column name and a value representing the row value. The order of the selected column is

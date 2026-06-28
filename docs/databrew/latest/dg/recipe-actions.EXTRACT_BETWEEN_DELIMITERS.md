@@ -1,4 +1,4 @@
-# EXTRACT_BETWEEN_DELIMITERS
+# EXTRACT\_BETWEEN\_DELIMITERS
 
 Creates a new column, based on delimiters, from the values in an existing column.
 

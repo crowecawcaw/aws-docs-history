@@ -1,4 +1,4 @@
-# MASK_CUSTOM
+# MASK\_CUSTOM
 
 Masks characters that match a provided custom value.
 
@@ -10,7 +10,7 @@ Masks characters that match a provided custom value.
 - `customValue` – All occurrences (or regex matches) of `customValue` will be masked
   in the string.
 - `entityTypeFilter` – Optional array of [entity
-  types](API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes "API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes"). Can be used to encrypt only detected PII in free-text column.
+  types](../APIReference/API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes "../APIReference/API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes"). Can be used to encrypt only detected PII in free-text column.
 
 ###### Example
 

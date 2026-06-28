@@ -1,4 +1,4 @@
-# COUNT_DISTINCT
+# COUNT\_DISTINCT
 
 Returns the total number of distinct values from the selected source columns in a new
 column. Empty and null values are ignored.

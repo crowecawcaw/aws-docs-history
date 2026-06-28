@@ -1,4 +1,4 @@
-# FORMAT_DATE
+# FORMAT\_DATE
 
 Returns a column in which a date string is converted into a formatted value.
 

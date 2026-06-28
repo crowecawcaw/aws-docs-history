@@ -1,4 +1,4 @@
-# ADD_DOUBLE_QUOTES
+# ADD\_DOUBLE\_QUOTES
 
 Encloses the characters in a column with double quotation marks.
 

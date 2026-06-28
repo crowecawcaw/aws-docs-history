@@ -1,4 +1,4 @@
-# RESCALE_OUTLIERS_WITH_Z_SCORE
+# RESCALE\_OUTLIERS\_WITH\_Z\_SCORE
 
 Returns a new column with a rescaled outlier value in each row, based on the settings in
 the parameters. This action also applies Z-score normalization to linearly scale data values

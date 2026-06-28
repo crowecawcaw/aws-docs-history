@@ -1,4 +1,4 @@
-# LOWER_CASE
+# LOWER\_CASE
 
 Changes each string in a column to lowercase, for example: the quick brown fox jumped
 over the fence

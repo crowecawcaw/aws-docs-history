@@ -1,6 +1,6 @@
-# DETERMINISTIC_DECRYPT
+# DETERMINISTIC\_DECRYPT
 
-Decrypts data encrypted with DETERMINISTIC_ENCRYPT.
+Decrypts data encrypted with DETERMINISTIC\_ENCRYPT.
 
 This transformation is a no-op if the provided secret id and version does
 not match what was used to encrypt the column.

@@ -1,4 +1,4 @@
-# FLAG_DUPLICATES_IN_COLUMN
+# FLAG\_DUPLICATES\_IN\_COLUMN
 
 Returns a new column with a specified value in each row that indicates whether the
 value in the row's source column matches a value in an earlier row of the source column.

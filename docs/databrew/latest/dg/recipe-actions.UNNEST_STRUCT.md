@@ -1,4 +1,4 @@
-# UNNEST_STRUCT
+# UNNEST\_STRUCT
 
 Unnest a column of type `struct` and generates a column for each of the keys present in
 the struct. This function only unnests struct level one.

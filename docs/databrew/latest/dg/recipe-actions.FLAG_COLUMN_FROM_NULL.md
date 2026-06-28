@@ -1,4 +1,4 @@
-# FLAG_COLUMN_FROM_NULL
+# FLAG\_COLUMN\_FROM\_NULL
 
 Creates a new column, based on the presence of null values in an existing
 column.
@@ -9,7 +9,7 @@ column.
 - `targetColumn` – The name of a new column to be
   created.
 - `flagType` – A value that must be set to `Null
-values`.
+ values`.
 - `trueString` – A value for the new column, if a null value
   is found in the source. If no value is specified, the default is
   `True`.

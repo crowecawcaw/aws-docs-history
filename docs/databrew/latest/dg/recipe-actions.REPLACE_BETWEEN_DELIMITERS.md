@@ -1,4 +1,4 @@
-# REPLACE_BETWEEN_DELIMITERS
+# REPLACE\_BETWEEN\_DELIMITERS
 
 Replaces the characters between two delimiters with user-specified text.
 

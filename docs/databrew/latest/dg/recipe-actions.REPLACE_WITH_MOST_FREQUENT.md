@@ -1,4 +1,4 @@
-# REPLACE_WITH_MOST_FREQUENT
+# REPLACE\_WITH\_MOST\_FREQUENT
 
 Replaces each invalid value in a column with the most frequent column value.
 

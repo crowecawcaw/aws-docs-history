@@ -1,4 +1,4 @@
-# REPEAT_STRING
+# REPEAT\_STRING
 
 Repeats the strings in the source column or custom input value a specified number of
 times, and returns the result in a new column.

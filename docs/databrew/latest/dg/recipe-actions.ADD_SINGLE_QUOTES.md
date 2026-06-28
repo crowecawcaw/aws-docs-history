@@ -1,4 +1,4 @@
-# ADD_SINGLE_QUOTES
+# ADD\_SINGLE\_QUOTES
 
 Encloses the characters in a column with single quotation marks.
 

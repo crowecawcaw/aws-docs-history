@@ -1,4 +1,4 @@
-# ENDS_WITH
+# ENDS\_WITH
 
 Returns `true` in a new column if a specified number of rightmost
 characters, or custom string, matches a pattern.

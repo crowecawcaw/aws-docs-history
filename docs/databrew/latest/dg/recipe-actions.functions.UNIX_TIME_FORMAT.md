@@ -1,4 +1,4 @@
-# UNIX_TIME_FORMAT
+# UNIX\_TIME\_FORMAT
 
 Converts Unix time for a source column or input value to a specified numerical date
 format, and returns the result in a new column.

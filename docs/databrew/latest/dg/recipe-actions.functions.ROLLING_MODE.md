@@ -1,4 +1,4 @@
-# ROLLING_MODE
+# ROLLING\_MODE
 
 Returns in a new column the rolling mode (most common value) from a specified number
 of rows before to a specified number of rows after the current row in the specified

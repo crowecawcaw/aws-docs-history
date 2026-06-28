@@ -1,4 +1,4 @@
-# REPLACE_WITH_CUSTOM
+# REPLACE\_WITH\_CUSTOM
 
 Replace detected entities with a custom value.
 

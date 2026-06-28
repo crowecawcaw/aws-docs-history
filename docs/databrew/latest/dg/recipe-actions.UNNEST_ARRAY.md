@@ -1,4 +1,4 @@
-# UNNEST_ARRAY
+# UNNEST\_ARRAY
 
 Unnests a column of type `array` into a new column. If the array contains more
 than one value, then a row corresponding to each element is generated. This function only

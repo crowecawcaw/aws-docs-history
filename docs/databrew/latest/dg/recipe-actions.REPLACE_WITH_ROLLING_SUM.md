@@ -1,4 +1,4 @@
-# REPLACE_WITH_ROLLING_SUM
+# REPLACE\_WITH\_ROLLING\_SUM
 
 Replaces each value in a column with the rolling sum from a previous "window" of
 rows.

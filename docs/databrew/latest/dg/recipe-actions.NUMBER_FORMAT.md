@@ -1,4 +1,4 @@
-# NUMBER_FORMAT
+# NUMBER\_FORMAT
 
 Returns a column in which a numeric value is converted into a formatted string.
 
@@ -35,12 +35,12 @@ Returns a column in which a numeric value is converted into a formatted string.
   values or any custom value, indicating unit abbreviation:
 
   - null. Indicates that unit abbreviation isn't enabled.
-  - | Abbreviation unit | Options                   |
-    | ----------------- | ------------------------- |
-    | Thousands         | K, k, M, thousand, custom |
-    | Million           | M, m, MM, million, custom |
-    | Billion           | B, bn, billion, custom    |
-    | Trillion          | T, tn, trillion, custom   |
+  - | Abbreviation unit | Options |
+    | --- | --- |
+    | Thousands | K, k, M, thousand, custom |
+    | Million | M, m, MM, million, custom |
+    | Billion | B, bn, billion, custom |
+    | Trillion | T, tn, trillion, custom |
 
 ###### Example
 

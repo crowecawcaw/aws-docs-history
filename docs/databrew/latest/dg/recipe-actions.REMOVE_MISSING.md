@@ -1,4 +1,4 @@
-# REMOVE_MISSING
+# REMOVE\_MISSING
 
 Returns only the rows in which a specified column isn't missing data.
 

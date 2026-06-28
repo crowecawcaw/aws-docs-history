@@ -1,4 +1,4 @@
-# MASK_RANGE
+# MASK\_RANGE
 
 Masks characters between two positions with a user-specified masking symbol.
 
@@ -14,7 +14,7 @@ Masks characters between two positions with a user-specified masking symbol.
   'start' until the end of the string.
 - `alphabet` – An array of character sets enums to preserve during masking. Valid enum values: SYMBOLS, WHITESPACE.
 - `entityTypeFilter` – Optional array of [entity
-  types](API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes "API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes"). Can be used to encrypt only detected PII in free-text column.
+  types](../APIReference/API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes "../APIReference/API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes"). Can be used to encrypt only detected PII in free-text column.
 
 ###### Example
 

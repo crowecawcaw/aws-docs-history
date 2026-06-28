@@ -1,4 +1,4 @@
-# RESCALE_OUTLIERS_WITH_SKEW
+# RESCALE\_OUTLIERS\_WITH\_SKEW
 
 Returns a new column with a rescaled outlier value in each row, based on the settings in
 the parameters. This action works to reduce distribution skewness by applying the specified

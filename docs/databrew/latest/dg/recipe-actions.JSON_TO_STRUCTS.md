@@ -1,4 +1,4 @@
-# JSON_TO_STRUCTS
+# JSON\_TO\_STRUCTS
 
 Converts a JSON string to statically typed structs. During conversion, it detects the
 schema of every JSON object and merges them in order to get the most generic schema to

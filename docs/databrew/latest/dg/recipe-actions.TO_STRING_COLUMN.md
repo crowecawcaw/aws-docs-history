@@ -1,10 +1,10 @@
-# TO_STRING_COLUMN
+# TO\_STRING\_COLUMN
 
 Changes the data type of an existing column to STRING.
 
 ###### Note
 
-We recommend using CHANGE_DATA_TYPE recipe action rather than TO_STRING_COLUMN.
+We recommend using CHANGE\_DATA\_TYPE recipe action rather than TO\_STRING\_COLUMN.
 
 ###### Parameters
 

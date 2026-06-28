@@ -7,8 +7,8 @@ perform advanced transformations.
 
 - [BINARIZATION](recipe-actions.BINARIZATION.md "recipe-actions.BINARIZATION.md")
 - [BUCKETIZATION](recipe-actions.BUCKETIZATION.md "recipe-actions.BUCKETIZATION.md")
-- [CATEGORICAL_MAPPING](recipe-actions.CATEGORICAL_MAPPING.md "recipe-actions.CATEGORICAL_MAPPING.md")
-- [ONE_HOT_ENCODING](recipe-actions.ONE_HOT_ENCODING.md "recipe-actions.ONE_HOT_ENCODING.md")
+- [CATEGORICAL\_MAPPING](recipe-actions.CATEGORICAL_MAPPING.md "recipe-actions.CATEGORICAL_MAPPING.md")
+- [ONE\_HOT\_ENCODING](recipe-actions.ONE_HOT_ENCODING.md "recipe-actions.ONE_HOT_ENCODING.md")
 - [SCALE](#recipe-actions.SCALE "#recipe-actions.SCALE")
 - [SKEWNESS](recipe-actions.SKEWNESS.md "recipe-actions.SKEWNESS.md")
 - [TOKENIZATION](recipe-actions.TOKENIZATION.md "recipe-actions.TOKENIZATION.md")

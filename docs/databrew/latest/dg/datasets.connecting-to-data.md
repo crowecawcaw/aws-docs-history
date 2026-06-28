@@ -7,14 +7,13 @@ that applies to you.
   – You can use the Data Catalog to define references to data objects
   stored in the AWS Cloud, including the following services:
 
-      + Amazon Redshift
-      + Aurora MySQL
-      + Aurora PostgreSQL
-      + Amazon RDS for MySQL
-      + Amazon RDS for PostgreSQL
-
-  DataBrew recognizes all Lake Formation permissions that have been applied to Data Catalog
-  resources, so DataBrew users can only access these resources if they're authorized.
+  - Amazon Redshift
+  - Aurora MySQL
+  - Aurora PostgreSQL
+  - Amazon RDS for MySQL
+  - Amazon RDS for PostgreSQL
+    DataBrew recognizes all Lake Formation permissions that have been applied to Data Catalog
+    resources, so DataBrew users can only access these resources if they're authorized.
 
 To create a dataset, you specify a Data Catalog database name and a table name.
 DataBrew takes care of the other connection details.

@@ -1,4 +1,4 @@
-# DATE_DIFF
+# DATE\_DIFF
 
 Creates a new column containing the difference between two dates.
 

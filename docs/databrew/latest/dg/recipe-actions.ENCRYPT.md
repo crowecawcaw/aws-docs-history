@@ -21,7 +21,7 @@ context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../.
   [Key ARN](../../../kms/latest/developerguide/concepts.md#key-id-key-ARN "../../../kms/latest/developerguide/concepts.md#key-id-key-ARN")
   in the _AWS Key Management Service Developer Guide_.
 - `entityTypeFilter` – Optional array of [entity
-  types](API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes "API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes"). Can be used to encrypt only detected PII in free-text column.
+  types](../APIReference/API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes "../APIReference/API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes"). Can be used to encrypt only detected PII in free-text column.
 - `preserveDataType` – Optional boolean. Defaults to true. If false, the data type will not be stored.
   In the following example, `entityTypeFilter` and `preserveDataType`
   are optional.

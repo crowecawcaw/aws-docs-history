@@ -1,4 +1,4 @@
-# SQUARE_ROOT
+# SQUARE\_ROOT
 
 Returns the square root of a value in a new column.
 

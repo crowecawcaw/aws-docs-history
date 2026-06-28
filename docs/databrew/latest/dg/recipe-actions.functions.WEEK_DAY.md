@@ -1,4 +1,4 @@
-# WEEK_DAY
+# WEEK\_DAY
 
 Creates a new column containing the day of the week, from a string that represents a
 date.

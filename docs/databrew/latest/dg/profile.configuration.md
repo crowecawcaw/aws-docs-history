@@ -142,10 +142,10 @@ In the `DatasetStatisticsConfiguration` section of your
 structure, a profile job supports the evaluations shown in the table
 following.
 
-| **Statistic name**   | **Description**                                     | **Supported data types** | **Default status** | **Attributes of profile result**       | **Type of profile result** |
-| -------------------- | --------------------------------------------------- | ------------------------ | ------------------ | -------------------------------------- | -------------------------- |
-| DUPLICATE_ROWS_COUNT | Count of duplicate rows in the dataset              | all                      | Enable             | duplicateRowsCount                     | Int                        |
-| CORRELATION          | Pearson Correlation Coefficient between two columns | number                   | Enable             | correlations (in each selected column) | Object                     |
+| **Statistic name**     | **Description**                                     | **Supported data types** | **Default status** | **Attributes of profile result**       | **Type of profile result** |
+| ---------------------- | --------------------------------------------------- | ------------------------ | ------------------ | -------------------------------------- | -------------------------- |
+| DUPLICATE\_ROWS\_COUNT | Count of duplicate rows in the dataset              | all                      | Enable             | duplicateRowsCount                     | Int                        |
+| CORRELATION            | Pearson Correlation Coefficient between two columns | number                   | Enable             | correlations (in each selected column) | Object                     |
 
 In `IncludedStatistics`, you can override each evaluation's
 default settings by adding an override. Each override includes the name of a
@@ -258,35 +258,35 @@ attribute's data type is one of the following: `ByteType`,
 `ShortType`, `IntegerType`, `LongType`,
 `FloatType`, or `DoubleType`.
 
-| **Statistic name**        | **Description**                                                                                                                              | **Supported data types** | **Default status** | **Attributes of profile result**                      | **Type of profile result** |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------ | ----------------------------------------------------- | -------------------------- |
-| –                         | Name of the column.                                                                                                                          | all                      | –                  | name                                                  | string                     |
-| –                         | Data type of the column.                                                                                                                     | all                      | –                  | type                                                  | string                     |
-| DISTINCT_VALUES_COUNT     | Number of distinct values. A \*distinct value<br>• is value that<br>appears at least once.                                                   | number/boolean/string    | Enabled            | distinctValuesCount                                   | Int                        |
-| ENTROPY                   | Entropy (information theory).                                                                                                                | number/boolean/string    | Enabled            | entropy                                               | Double                     |
-| INTER_QUARTILE_RANGE      | Range between the 25th percent and 75th percent of numbers.                                                                                  | number                   | Enabled            | interquartileRange                                    | Double                     |
-| KURTOSIS                  | Kurtosis of the column.                                                                                                                      | number                   | Enabled            | kurtosis                                              | Double                     |
-| MAX                       | Maximum value in the column.                                                                                                                 | number/string length     | Enabled            | max                                                   | Int/Double                 |
-| MAXIMUM_VALUES            | List of the maximum values in the column and their counts.                                                                                   | number                   | Enabled            | maximumValues                                         | List                       |
-| MEAN                      | Mean value of values in the column.                                                                                                          | number/string length     | Enabled            | mean                                                  | Double                     |
-| MEDIAN                    | Median of values in the column.                                                                                                              | number/string length     | Enabled            | median                                                | Double                     |
-| MEDIAN_ABSOLUTE_DEVIATION | The median of the absolute differences between each data point and the median of a numeric<br>column.                                        | number                   | Enabled            | medianAbsoluteDeviation                               | Double                     |
-| MIN                       | Minimum value in the column.                                                                                                                 | number/string length     | Enabled            | min                                                   | Int/Double                 |
-| MINIMUM_VALUES            | List of the minimum values in the column and their counts.                                                                                   | number                   | Enabled            | minimumValues                                         | List                       |
-| MISSING_VALUES_COUNT      | Number of missing values in the column. Null and empty<br>strings are considered as missing.                                                 | all                      | Enabled            | missingValuesCount                                    | Int                        |
-| MODE                      | The most frequently occurring value in the column. If several values<br>appear that often, the mode is one of those values.                  | number/string length     | Enabled            | mode                                                  | Int/Double                 |
-| MOST_COMMON_VALUES        | List of the most common values in the column.                                                                                                | number/boolean/string    | Enabled            | mostCommonValues                                      | List                       |
-| OUTLIER_DETECTION         | Detect outliers in the column by Z_score algorithm.<br>Count the number of outliers and extract a list of samples from<br>detected outliers. | number/string length     | Enabled            | zScoreOutliersCount, zScoreOutliersSample             | Int/List                   |
-| PERCENTILES               | Percentile values of numeric column (5%, 25%, 75%, 95%).                                                                                     | number                   | Enabled            | percentile5, percentile25, percentile75, percentile95 | Double                     |
-| RANGE                     | Range of values in the column.                                                                                                               | number                   | Enabled            | range                                                 | Int/Double                 |
-| SKEWNESS                  | Skewness of values in the column.                                                                                                            | number                   | Enabled            | skewness                                              | Double                     |
-| STANDARD_DEVIATION        | Unbiased sample standard deviation of values in the column.                                                                                  | number/string length     | Enabled            | standardDeviation                                     | Double                     |
-| SUM                       | Sum of values in the column.                                                                                                                 | number                   | Enabled            | sum                                                   | Int/Double                 |
-| UNIQUE_VALUES_COUNT       | Number of unique values. A unique value means that the value appears only once.                                                              | number/boolean/string    | Enabled            | uniqueValuesCount                                     | Int                        |
-| VALUE_DISTRIBUTION        | Measure of the distribution of values in the column by<br>range.                                                                             | number/string length     | Enabled            | valueDistribution                                     | List                       |
-| VARIANCE                  | Variance of values in the column.                                                                                                            | number                   | Enabled            | variance                                              | Double                     |
-| Z_SCORE_DISTRIBUTION      | Measure of the distribution of data points' z-score values by range.                                                                         | number                   | Enabled            | zScoreDistribution                                    | List                       |
-| ZEROS_COUNT               | Number of zeroes (0s) in the column.                                                                                                         | number                   | Enabled            | zerosCount                                            | Int                        |
+| **Statistic name**          | **Description**                                                                                                                               | **Supported data types** | **Default status** | **Attributes of profile result**                      | **Type of profile result** |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------ | ----------------------------------------------------- | -------------------------- |
+| –                           | Name of the column.                                                                                                                           | all                      | –                  | name                                                  | string                     |
+| –                           | Data type of the column.                                                                                                                      | all                      | –                  | type                                                  | string                     |
+| DISTINCT\_VALUES\_COUNT     | Number of distinct values. A *distinct value<br>• is value that<br>appears at least once.                                                     | number/boolean/string    | Enabled            | distinctValuesCount                                   | Int                        |
+| ENTROPY                     | Entropy (information theory).                                                                                                                 | number/boolean/string    | Enabled            | entropy                                               | Double                     |
+| INTER\_QUARTILE\_RANGE      | Range between the 25th percent and 75th percent of numbers.                                                                                   | number                   | Enabled            | interquartileRange                                    | Double                     |
+| KURTOSIS                    | Kurtosis of the column.                                                                                                                       | number                   | Enabled            | kurtosis                                              | Double                     |
+| MAX                         | Maximum value in the column.                                                                                                                  | number/string length     | Enabled            | max                                                   | Int/Double                 |
+| MAXIMUM\_VALUES             | List of the maximum values in the column and their counts.                                                                                    | number                   | Enabled            | maximumValues                                         | List                       |
+| MEAN                        | Mean value of values in the column.                                                                                                           | number/string length     | Enabled            | mean                                                  | Double                     |
+| MEDIAN                      | Median of values in the column.                                                                                                               | number/string length     | Enabled            | median                                                | Double                     |
+| MEDIAN\_ABSOLUTE\_DEVIATION | The median of the absolute differences between each data point and the median of a numeric<br>column.                                         | number                   | Enabled            | medianAbsoluteDeviation                               | Double                     |
+| MIN                         | Minimum value in the column.                                                                                                                  | number/string length     | Enabled            | min                                                   | Int/Double                 |
+| MINIMUM\_VALUES             | List of the minimum values in the column and their counts.                                                                                    | number                   | Enabled            | minimumValues                                         | List                       |
+| MISSING\_VALUES\_COUNT      | Number of missing values in the column. Null and empty<br>strings are considered as missing.                                                  | all                      | Enabled            | missingValuesCount                                    | Int                        |
+| MODE                        | The most frequently occurring value in the column. If several values<br>appear that often, the mode is one of those values.                   | number/string length     | Enabled            | mode                                                  | Int/Double                 |
+| MOST\_COMMON\_VALUES        | List of the most common values in the column.                                                                                                 | number/boolean/string    | Enabled            | mostCommonValues                                      | List                       |
+| OUTLIER\_DETECTION          | Detect outliers in the column by Z\_score algorithm.<br>Count the number of outliers and extract a list of samples from<br>detected outliers. | number/string length     | Enabled            | zScoreOutliersCount, zScoreOutliersSample             | Int/List                   |
+| PERCENTILES                 | Percentile values of numeric column (5%, 25%, 75%, 95%).                                                                                      | number                   | Enabled            | percentile5, percentile25, percentile75, percentile95 | Double                     |
+| RANGE                       | Range of values in the column.                                                                                                                | number                   | Enabled            | range                                                 | Int/Double                 |
+| SKEWNESS                    | Skewness of values in the column.                                                                                                             | number                   | Enabled            | skewness                                              | Double                     |
+| STANDARD\_DEVIATION         | Unbiased sample standard deviation of values in the column.                                                                                   | number/string length     | Enabled            | standardDeviation                                     | Double                     |
+| SUM                         | Sum of values in the column.                                                                                                                  | number                   | Enabled            | sum                                                   | Int/Double                 |
+| UNIQUE\_VALUES\_COUNT       | Number of unique values. A unique value means that the value appears only once.                                                               | number/boolean/string    | Enabled            | uniqueValuesCount                                     | Int                        |
+| VALUE\_DISTRIBUTION         | Measure of the distribution of values in the column by<br>range.                                                                              | number/string length     | Enabled            | valueDistribution                                     | List                       |
+| VARIANCE                    | Variance of values in the column.                                                                                                             | number                   | Enabled            | variance                                              | Double                     |
+| Z\_SCORE\_DISTRIBUTION      | Measure of the distribution of data points' z-score values by range.                                                                          | number                   | Enabled            | zScoreDistribution                                    | List                       |
+| ZEROS\_COUNT                | Number of zeroes (0s) in the column.                                                                                                          | number                   | Enabled            | zerosCount                                            | Int                        |
 
 In `IncludedStatistics`, you can override each evaluation's default
 parameters by adding an override. Each override includes the name of a
@@ -305,7 +305,7 @@ these cases, the profile job picks the last configuration in
 `IncludedStatistics` to the selected column. A new configuration
 overrides older configurations.
 
-### MAXIMUM_VALUES
+### MAXIMUM\_VALUES
 
 Lists the maximum values in the numeric column and their counts. The default list
 size is 5. You can override the list size by specifying a value for
@@ -329,7 +329,7 @@ and count of values in the numeric column. This value should be greater than 0. 
 
 ```
 
-### MINIMUM_VALUES
+### MINIMUM\_VALUES
 
 Lists the minimum values in the numeric column and their counts. The default list
 size is 5. You can override the list size by specifying a value for
@@ -354,7 +354,7 @@ greater than 0. Use `"ALL"` to list all values.
 
 ```
 
-### MOST_COMMON_VALUES
+### MOST\_COMMON\_VALUES
 
 Lists the most common values in the column and their counts. The default list size
 is 50. You can override the list size by specifying a value for
@@ -379,16 +379,16 @@ greater than 0. Use `"ALL"` to list all values.
 
 ```
 
-### OUTLIER_DETECTION
+### OUTLIER\_DETECTION
 
 Detects outliers in the numeric column or string column (based on string length)
-by Z_score algorithm.
+by Z\_score algorithm.
 
 Your profile job counts the number of outliers and generates a sample list
 of outliers and their z-scores. The sample list is ordered by the
 z-score's absolute value. The default list size is 50.
 
-The Z_Score algorithm identifies a value as an outlier when it deviates from the
+The Z\_Score algorithm identifies a value as an outlier when it deviates from the
 mean by more than the standard deviation threshold. The default outlier
 threshold is 3.
 
@@ -424,7 +424,7 @@ outliers in this case.
 
 ```
 
-### VALUE_DISTRIBUTION
+### VALUE\_DISTRIBUTION
 
 Measures the distribution of values in the column by the values' ranges. A profile
 job groups values from a numeric column or string column (based on string
@@ -449,7 +449,7 @@ next bucket.
 
 ```
 
-### Z_SCORE_DISTRIBUTION
+### Z\_SCORE\_DISTRIBUTION
 
 Measures the distribution of values’ z-scores in numeric column. A profile job
 groups z-scores of values into bins by numeric ranges, and generates a list
@@ -486,24 +486,24 @@ You configure the entity types you want DataBrew to detect as PII for your profi
 When `EntityDetectorConfiguration` is undefined, entity detection is disabled. The following
 entity types can be detected in your dataset:
 
-- USA_SSN
+- USA\_SSN
 - EMAIL
-- USA_ITIN
-- USA_PASSPORT_NUMBER
-- PHONE_NUMBER
-- USA_DRIVING_LICENSE
-- BANK_ACCOUNT
-- CREDIT_CARD
-- IP_ADDRESS
-- MAC_ADDRESS
-- USA_DEA_NUMBER
-- USA_HCPCS_CODE
-- USA_NATIONAL_PROVIDER_IDENTIFIER
-- USA_NATIONAL_DRUG_CODE
-- USA_HEALTH_INSURANCE_CLAIM_NUMBER
-- USA_MEDICARE_BENEFICIARY_IDENTIFIER
-- USA_CPT_CODE
-- PERSON_NAME
+- USA\_ITIN
+- USA\_PASSPORT\_NUMBER
+- PHONE\_NUMBER
+- USA\_DRIVING\_LICENSE
+- BANK\_ACCOUNT
+- CREDIT\_CARD
+- IP\_ADDRESS
+- MAC\_ADDRESS
+- USA\_DEA\_NUMBER
+- USA\_HCPCS\_CODE
+- USA\_NATIONAL\_PROVIDER\_IDENTIFIER
+- USA\_NATIONAL\_DRUG\_CODE
+- USA\_HEALTH\_INSURANCE\_CLAIM\_NUMBER
+- USA\_MEDICARE\_BENEFICIARY\_IDENTIFIER
+- USA\_CPT\_CODE
+- PERSON\_NAME
 - DATE
 
 The entity type group `USA_ALL` is also supported, and includes all of the above entity types

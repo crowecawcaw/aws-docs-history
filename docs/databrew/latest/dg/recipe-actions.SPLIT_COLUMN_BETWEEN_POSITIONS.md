@@ -1,4 +1,4 @@
-# SPLIT_COLUMN_BETWEEN_POSITIONS
+# SPLIT\_COLUMN\_BETWEEN\_POSITIONS
 
 Splits a column into three new columns, according to offsets that you specify.
 

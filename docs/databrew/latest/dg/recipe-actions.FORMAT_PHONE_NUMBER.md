@@ -1,4 +1,4 @@
-# FORMAT_PHONE_NUMBER
+# FORMAT\_PHONE\_NUMBER
 
 Returns a column in which a phone number string is converted into a formatted value.
 

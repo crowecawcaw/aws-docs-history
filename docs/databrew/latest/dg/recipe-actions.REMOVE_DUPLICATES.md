@@ -1,4 +1,4 @@
-# REMOVE_DUPLICATES
+# REMOVE\_DUPLICATES
 
 Deletes an entire row, if a duplicate value is encountered in a selected source column.
 

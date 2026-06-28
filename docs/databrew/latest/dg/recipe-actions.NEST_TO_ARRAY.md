@@ -1,4 +1,4 @@
-# NEST_TO_ARRAY
+# NEST\_TO\_ARRAY
 
 Converts user-selected columns into array values. The order of the selected
 columns is maintained while creating the resultant array. The different column

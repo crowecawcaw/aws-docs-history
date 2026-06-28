@@ -11,24 +11,23 @@ DataBrew extension so you can run DataBrew in your notebook.
 jupyter lab
 ```
 
-2.  On the JupyterLab webpage, choose the **Extension Manager** icon in the
-    menu at left.
-3.  Search for the DataBrew extension by entering "`brew`" for
-    **Search** at top left.
-4.  Locate **aws_glue_databrew_jupyter** in the list, but don't
-    click it. If you click the highlighted name of the extension, a new browser
-    window opens with the [aws_glue_databrew_jupyter](https://github.com/aws/aws-glue-databrew-jupyter-extension#readme "https://github.com/aws/aws-glue-databrew-jupyter-extension#readme") page on GitHub.
-5.  To install the DataBrew extension, choose one of the following:
+2. On the JupyterLab webpage, choose the **Extension Manager** icon in the
+   menu at left.
+3. Search for the DataBrew extension by entering "`brew`" for
+   **Search** at top left.
+4. Locate **aws\_glue\_databrew\_jupyter** in the list, but don't
+   click it. If you click the highlighted name of the extension, a new browser
+   window opens with the [aws\_glue\_databrew\_jupyter](https://github.com/aws/aws-glue-databrew-jupyter-extension#readme "https://github.com/aws/aws-glue-databrew-jupyter-extension#readme") page on GitHub.
+5. To install the DataBrew extension, choose one of the following:
 
-        * At the command line, run `jupyter labextension install
-         aws_glue_databrew_jupyter`.
-        * Choose **Install** at the bottom of the extension card,
-         underneath "**aws\_glue\_databrew\_jupyter**" in gray lettering.
+   - At the command line, run `jupyter labextension install
+  aws_glue_databrew_jupyter`.
+   - Choose **Install** at the bottom of the extension card,
+     underneath "**aws\_glue\_databrew\_jupyter**" in gray lettering.
+     DataBrew extension is compatible with JupyterLab version 1.2 and 2.x.
 
-    DataBrew extension is compatible with JupyterLab version 1.2 and 2.x.
-
-6.  To verify that it installed, run `jupyter labextension list`. The output
-    should look something like the following.
+6. To verify that it installed, run `jupyter labextension list`. The output
+   should look something like the following.
 
 ```
 JupyterLab v2.2.9

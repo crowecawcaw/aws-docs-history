@@ -1,7 +1,7 @@
-# DETERMINISTIC_ENCRYPT
+# DETERMINISTIC\_ENCRYPT
 
 Encrypts the column using AES-GCM-SIV with a 256 bit key. Data encrypted with
-DETERMINISTIC_ENCRYPT can only be decrypted inside of DataBrew with the DETERMINISTIC_DECRYPT
+DETERMINISTIC\_ENCRYPT can only be decrypted inside of DataBrew with the DETERMINISTIC\_DECRYPT
 transform. This transform does not use AWS KMS or the AWS Encryption SDK, and instead uses
 the [AWS LC github library](https://github.com/awslabs/aws-lc "https://github.com/awslabs/aws-lc").
 
@@ -18,7 +18,7 @@ Note: Using a secret for more than a year is discouraged.
   use to encrypt the source columns, or databrew!default.
 - `secretVersion` – Optional. Defaults to the latest secret version.
 - `entityTypeFilter` – Optional array of [entity
-  types](API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes "API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes"). Can be used to encrypt only detected PII in free-text column.
+  types](../APIReference/API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes "../APIReference/API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes"). Can be used to encrypt only detected PII in free-text column.
 - `createSecretIfMissing` – Optional boolean. If true will attempt
   to create the secret on behalf of the caller.
   **Example**

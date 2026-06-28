@@ -1,4 +1,4 @@
-# MOVE_TO_INDEX
+# MOVE\_TO\_INDEX
 
 Moves a column to a position specified by a number.
 

@@ -1,4 +1,4 @@
-# ADVANCED_DATATYPE_FILTER
+# ADVANCED\_DATATYPE\_FILTER
 
 Filters the current source column based on advanced data type detection. For example,
 given a column that DataBrew has identified as containing zip codes, this transform can
@@ -13,20 +13,20 @@ on the pattern that is detected, as described in **Notes** below.
   State, Credit Card, URL, Email, SSN, or Gender.
 - `filter values` – List of string values that the user wants
   to filter the column based on.
-- `strategy` – KEEP_ROWS or DISCARD_ROWS or CLEAR_FILTERS or CLEAR_OTHERS.
+- `strategy` – KEEP\_ROWS or DISCARD\_ROWS or CLEAR\_FILTERS or CLEAR\_OTHERS.
 - `clearWithEmpty` – Boolean `true` or `false`,
   to clear rows with `empty` instead of `null`.
 
 ###### Notes
 
 - If advancedDataType is **Phone**, then the
-  pattern can be AREA_CODE, TIME_ZONE, or COUNTRY_CODE.
+  pattern can be AREA\_CODE, TIME\_ZONE, or COUNTRY\_CODE.
 - If advancedDataType is **Zip Code**, then the
-  pattern can be TIME_ZONE, COUNTRY, STATE, CITY, TYPE, or REGION.
+  pattern can be TIME\_ZONE, COUNTRY, STATE, CITY, TYPE, or REGION.
 - If advancedDataType is **Date Time**, then the
-  pattern can be DAY, MONTH, MONTH_NAME, WEEK, QUARTER, or YEAR.
+  pattern can be DAY, MONTH, MONTH\_NAME, WEEK, QUARTER, or YEAR.
 - If advancedDataType is **State**, then the
-  pattern can be TIME_ZONE.
+  pattern can be TIME\_ZONE.
 - If advancedDataType is **Credit Card**, then the
   pattern can be LENGTH or NETWORK.
 - If advancedDataType is **URL**, then the

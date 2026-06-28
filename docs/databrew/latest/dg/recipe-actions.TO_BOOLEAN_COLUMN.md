@@ -1,10 +1,10 @@
-# TO_BOOLEAN_COLUMN
+# TO\_BOOLEAN\_COLUMN
 
 Changes the data type of an existing column to BOOLEAN.
 
 ###### Note
 
-We recommend using CHANGE_DATA_TYPE recipe action rather than TO_BOOLEAN_COLUMN.
+We recommend using CHANGE\_DATA\_TYPE recipe action rather than TO\_BOOLEAN\_COLUMN.
 
 ###### Parameters
 

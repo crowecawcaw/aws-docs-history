@@ -1,4 +1,4 @@
-# SPLIT_COLUMN_FROM_START
+# SPLIT\_COLUMN\_FROM\_START
 
 Splits a column into two new columns, at an offset from the beginning of the
 string.

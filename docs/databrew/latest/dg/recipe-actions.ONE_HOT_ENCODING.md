@@ -1,4 +1,4 @@
-# ONE_HOT_ENCODING
+# ONE\_HOT\_ENCODING
 
 Creates _n_ numerical columns, where _n_ is the
 number of unique values in a selected categorical variable.
@@ -27,7 +27,7 @@ M
 In this scenario, there are four distinct values for `shirt_size`.
 Therefore, `ONE_HOT_ENCODING` generates four new columns. Each new column is
 named `shirt_size_`x`, where
- `x``represents a distinct`shirt_size` value.
+ `x`` represents a distinct `shirt_size` value.
 
 The results of `shirt_size` and the four generated columns look like
 this.

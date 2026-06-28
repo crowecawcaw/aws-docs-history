@@ -1,4 +1,4 @@
-# REPLACE_BETWEEN_POSITIONS
+# REPLACE\_BETWEEN\_POSITIONS
 
 Replaces the characters between two positions with user-specified text.
 

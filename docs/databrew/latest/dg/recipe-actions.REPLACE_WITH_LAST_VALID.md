@@ -1,4 +1,4 @@
-# REPLACE_WITH_LAST_VALID
+# REPLACE\_WITH\_LAST\_VALID
 
 Replaces each invalid value in a column with the last valid value.
 

@@ -1,4 +1,4 @@
-# REMOVE_INVALID
+# REMOVE\_INVALID
 
 Deletes an entire row if an invalid value is encountered in a column of that
 row.

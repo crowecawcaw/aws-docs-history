@@ -1,4 +1,4 @@
-# IS_EVEN
+# IS\_EVEN
 
 Returns a Boolean value in a new column that indicates whether the source column or
 value is even. If the source column or value is a decimal, the result is false.

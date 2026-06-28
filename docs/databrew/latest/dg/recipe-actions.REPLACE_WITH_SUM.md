@@ -1,4 +1,4 @@
-# REPLACE_WITH_SUM
+# REPLACE\_WITH\_SUM
 
 Replaces each invalid value in a column with the sum of all other values.
 

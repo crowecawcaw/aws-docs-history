@@ -1,4 +1,4 @@
-# REPLACE_WITH_MODE
+# REPLACE\_WITH\_MODE
 
 Replaces each invalid value in a column with the mode of all other values.
 

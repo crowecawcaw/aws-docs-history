@@ -102,7 +102,7 @@ dataset:
      initialization and interactive transformations are slower.
 
 7. (Optional) Choose **Tags** to attach tags to your
-   dataset.
+dataset.
 
 _Tags_ are simple labels consisting of a
 user-defined key and an optional value that can make it easier to manage, search

@@ -1,4 +1,4 @@
-# SPLIT_COLUMN_SINGLE_DELIMITER
+# SPLIT\_COLUMN\_SINGLE\_DELIMITER
 
 Splits a column into one or more new columns, according to a specific
 delimiter.

@@ -1,4 +1,4 @@
-# MERGE_COLUMNS_AND_VALUES
+# MERGE\_COLUMNS\_AND\_VALUES
 
 Concatenates the strings in the source columns and returns the result in a new column.
 You can insert a delimiter between the merged values.

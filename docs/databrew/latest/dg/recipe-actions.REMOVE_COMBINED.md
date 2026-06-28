@@ -1,4 +1,4 @@
-# REMOVE_COMBINED
+# REMOVE\_COMBINED
 
 Removes one or more characters from a column, according to what a user
 specifies.
@@ -24,7 +24,7 @@ specifies.
   characters specified by `customValue` parameter.
 - `punctuationally` – If `true`, removes the
   following characters if they occur at the start or end of the value:`. ! ,
-?`
+ ?`
 - `antidisestablishmentarianism` – If `true`,
   removes single quotation marks and double quotation marks from the beginning and
   end of the value.
@@ -37,7 +37,7 @@ specifies.
   characters (`0` through `9`).
 - `removeSpecialCharacters` – If `true`, removes
   all of the following characters: `! " # $ % & ' ( ) * + , - . / : ;
-< = > ? @ [ \ ] ^ _ ` { | } ~`
+ < = > ? @ [ \ ] ^ _ ` { | } ~`
 
 ###### Examples
 

@@ -1,4 +1,4 @@
-# REPLACE_TEXT
+# REPLACE\_TEXT
 
 Replaces a specified sequence of characters with another.
 

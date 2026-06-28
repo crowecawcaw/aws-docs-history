@@ -41,32 +41,32 @@ your identity source](../../../singlesignon/latest/userguide/step2.md "../../../
      users.
 
 5. In the IAM Identity Center navigation pane, choose **Groups**,
-   and choose **Create group**. Enter the group name
-   and choose **Create**.
-6. Add a user to IAM Identity Center store:
+and choose **Create group**. Enter the group name
+and choose **Create**. 6. Add a user to IAM Identity Center store:
 
-   1. In the IAM Identity Center navigation pane, choose **Users**.
-   2. On the **Add user** screen, enter the required information and choose
-      **Send an email to the user with password setup
-      instructions**. The user should get an email about the next
-      setup steps.
-   3. Choose **Next: Groups**, choose the group that you want, and choose
-      **Add user**.
+    1. In the IAM Identity Center navigation pane, choose **Users**.
+    2. On the **Add user** screen, enter the required information and choose
+     **Send an email to the user with password setup
+     instructions**. The user should get an email about the next
+     setup steps.
+    3. Choose **Next: Groups**, choose the group that you want, and choose
+     **Add user**.
 
-   Users should receive an email inviting them to use SSO. In this email,
-   they need to choose **Accept invitation** and set the
-   password. They can also find the portal URL in the email. They can use
-   this URL to access DataBrew.
+
+    Users should receive an email inviting them to use SSO. In this email,
+     they need to choose **Accept invitation** and set the
+     password. They can also find the portal URL in the email. They can use
+     this URL to access DataBrew.
 
 7. Assign each user to an account:
 
-   1. Open the [IAM Identity Center console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon"), and in
-      the navigation pane, choose **AWS accounts**.
-   2. Choose **AWS organization** and choose an AWS account.
-   3. On the **Assign Users** screen, choose the **Groups** tab
-      and choose the group that you want.
-   4. Choose **Next: Permission sets**.
-   5. Choose the permission set for DataBrew, and choose **Finish**.
+    1. Open the [IAM Identity Center console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon"), and in
+     the navigation pane, choose **AWS accounts**.
+    2. Choose **AWS organization** and choose an AWS account.
+    3. On the **Assign Users** screen, choose the **Groups** tab
+     and choose the group that you want.
+    4. Choose **Next: Permission sets**.
+    5. Choose the permission set for DataBrew, and choose **Finish**.
 
 ## Login steps for an IAM Identity Center-enabled user
 

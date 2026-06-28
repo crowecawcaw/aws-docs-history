@@ -1,4 +1,4 @@
-# MOVE_BEFORE
+# MOVE\_BEFORE
 
 Moves a column to the position immediately before another column.
 

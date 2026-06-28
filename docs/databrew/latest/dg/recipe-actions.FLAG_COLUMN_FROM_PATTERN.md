@@ -1,4 +1,4 @@
-# FLAG_COLUMN_FROM_PATTERN
+# FLAG\_COLUMN\_FROM\_PATTERN
 
 Creates a new column, based on the presence of a user-specified pattern in an existing
 column.

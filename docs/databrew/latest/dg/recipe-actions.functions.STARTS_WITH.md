@@ -1,4 +1,4 @@
-# STARTS_WITH
+# STARTS\_WITH
 
 Returns `true` in a new column if a specified number of leftmost
 characters, or custom string, matches a pattern.

@@ -1,4 +1,4 @@
-# CATEGORICAL_MAPPING
+# CATEGORICAL\_MAPPING
 
 Maps one or more categorical values to numeric or other values
 

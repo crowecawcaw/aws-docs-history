@@ -1,4 +1,4 @@
-# CAPITAL_CASE
+# CAPITAL\_CASE
 
 Changes each string in a column to capitalize each word. In _capital
 case,_ the first letter of each word is capitalized and the rest of the

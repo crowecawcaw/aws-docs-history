@@ -36,7 +36,7 @@ see the following in the _AWS CloudTrail User Guide_:
   Files from Multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail Log
   Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
 
-All DataBrew actions are logged by CloudTrail and are documented in the [API reference](api-reference.md "api-reference.md").. For example, calls to the
+All DataBrew actions are logged by CloudTrail and are documented in the [API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md"). For example, calls to the
 `CreateDataset`, `UpdateRecipe` and `StartJobRun` actions
 generate entries in the CloudTrail log files.
 

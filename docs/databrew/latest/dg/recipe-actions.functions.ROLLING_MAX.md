@@ -1,4 +1,4 @@
-# ROLLING_MAX
+# ROLLING\_MAX
 
 Returns in a new column the rolling maximum of values from a specified number of rows
 before to a specified number of rows after the current row in the specified

@@ -1,4 +1,4 @@
-# CONVERT_TIMEZONE
+# CONVERT\_TIMEZONE
 
 Converts a time value from the source column into a new column based on a
 specified timezone.

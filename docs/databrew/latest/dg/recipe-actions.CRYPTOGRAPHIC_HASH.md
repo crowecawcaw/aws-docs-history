@@ -1,4 +1,4 @@
-# CRYPTOGRAPHIC_HASH
+# CRYPTOGRAPHIC\_HASH
 
 Applies an algorithm to hash values in the column.
 
@@ -8,14 +8,14 @@ Applies an algorithm to hash values in the column.
 - `secretId` – The ARN of the Secrets Manager secret key. The key used in the hash-based message authentication code (HMAC) prefix algorithm to hash the source columns, or `databrew!default` is the base64 decoded output for the value of the Secrets Manager secret key.
 - `secretVersion` – Optional. Defaults to the latest secret version.
 - `entityTypeFilter` – Optional array of [entity
-  types](API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes "API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes"). Can be used to encrypt only detected PII in free-text column.
+  types](../APIReference/API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes "../APIReference/API_EntityDetectorConfiguration.md#databrew-Type-EntityDetectorConfiguration-EntityTypes"). Can be used to encrypt only detected PII in free-text column.
 - `createSecretIfMissing` – Optional boolean. If true will attempt to
   create the secret on behalf of the caller.
-- `algorithm` – The algorithm used to hash your data. Valid enum values: MD5, SHA1, SHA256, SHA512, HMAC_MD5, HMAC_SHA1, HMAC_SHA256, HMAC_SHA512
+- `algorithm` – The algorithm used to hash your data. Valid enum values: MD5, SHA1, SHA256, SHA512, HMAC\_MD5, HMAC\_SHA1, HMAC\_SHA256, HMAC\_SHA512
 
 Each option refers to a different hashing algorithm. Those options with the "HMAC" prefix refer to a keyed hashing algorithm, and require the `secretId` parameter. For options without the "HMAC" prefix, the `secretId` parameter is not required.
 
-If you do not provide a hash algorithm, the service defaults to "HMAC_SHA256".
+If you do not provide a hash algorithm, the service defaults to "HMAC\_SHA256".
 
 ```
 {

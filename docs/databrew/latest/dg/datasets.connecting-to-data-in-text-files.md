@@ -12,30 +12,30 @@ You can configure the following format options for the input files that DataBrew
   section when you create your dataset. The following delimiters are supported for
   .csv files:
 
-      - Comma (,)
-      - Colon (:)
-      - Semi-colon (;)
-      - Pipe (|)
-      - Tab (\t)
-      - Caret (^)
-      - Backslash (\)
-      - Space
+        - Comma (,)
+        - Colon (:)
+        - Semi-colon (;)
+        - Pipe (|)
+        - Tab (\t)
+        - Caret (^)
+        - Backslash (\)
+        - Space
   - **Column header values**
 
   Your CSV file can include a header row as the first row of the file. If it
   doesn't, DataBrew creates a header row for you.
 
-      - If your CSV file includes a header row, choose **Treat first
-       row as header**. If you do, the first row of your CSV file is treated as
-       containing the column header values.
-      - If your CSV file doesn't include a header row, choose
-       **Add default
-       header**. If you do, DataBrew creates a header row for
-       the file and doesn't treat your first row of data as
-       containing header values. The headers that DataBrew creates consist
-       of an underscore and a number for each column in the file, in
-       the format `Column_1`, `Column_2`,
-       `Column_3`, and so on.
+        - If your CSV file includes a header row, choose **Treat first
+         row as header**. If you do, the first row of your CSV file is treated as
+         containing the column header values.
+        - If your CSV file doesn't include a header row, choose
+         **Add default
+         header**. If you do, DataBrew creates a header row for
+         the file and doesn't treat your first row of data as
+         containing header values. The headers that DataBrew creates consist
+         of an underscore and a number for each column in the file, in
+         the format `Column_1`, `Column_2`,
+         `Column_3`, and so on.
 
 - **JSON files**
 

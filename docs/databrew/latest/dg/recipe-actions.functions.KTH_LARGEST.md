@@ -1,4 +1,4 @@
-# KTH_LARGEST
+# KTH\_LARGEST
 
 Returns the *k*th largest number from the selected source columns
 in a new column.

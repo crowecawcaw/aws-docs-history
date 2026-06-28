@@ -1,4 +1,4 @@
-# EXTRACT_BETWEEN_POSITIONS
+# EXTRACT\_BETWEEN\_POSITIONS
 
 Creates a new column, based on character positions, from the values in an existing
 column.

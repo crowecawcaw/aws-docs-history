@@ -1,4 +1,4 @@
-# WEEK_NUMBER
+# WEEK\_NUMBER
 
 Creates a new column containing the number of the week (from 1 to 52), from a string that represents
 a date.

@@ -1,4 +1,4 @@
-# FILL_WITH_MODE
+# FILL\_WITH\_MODE
 
 Returns a column with missing data replaced by the mode of all values.
 

@@ -1,4 +1,4 @@
-# CHANGE_DATA_TYPE
+# CHANGE\_DATA\_TYPE
 
 Changes the data type of an existing column.
 

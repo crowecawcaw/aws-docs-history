@@ -1,4 +1,4 @@
-# MASK_DATE
+# MASK\_DATE
 
 Masks components of a date with a user-specified mask symbol.
 

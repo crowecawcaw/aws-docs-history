@@ -1,4 +1,4 @@
-# GET_STEP_DATAFRAME
+# GET\_STEP\_DATAFRAME
 
 Fetches the data frame from a step in the project's recipe. Only for use in the interactive experience.
 Used with the ViewFrame parameter to paginate across a large data frame.

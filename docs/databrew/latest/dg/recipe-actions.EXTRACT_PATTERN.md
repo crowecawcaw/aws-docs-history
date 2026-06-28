@@ -1,4 +1,4 @@
-# EXTRACT_PATTERN
+# EXTRACT\_PATTERN
 
 Creates a new column, based on a regular expression, from the values in an existing
 column.

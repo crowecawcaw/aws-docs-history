@@ -1,4 +1,4 @@
-# EXTRACT_ADVANCED_DATATYPE_DETAILS
+# EXTRACT\_ADVANCED\_DATATYPE\_DETAILS
 
 Extracts details for the advanced data type. The details that you can extract depend on the pattern
 that is detected, as described in **Notes** below.
@@ -14,13 +14,13 @@ that is detected, as described in **Notes** below.
 ###### Notes
 
 - If advancedDataType is **Phone**, then the
-  pattern can be AREA_CODE, TIME_ZONE, or COUNTRY_CODE.
+  pattern can be AREA\_CODE, TIME\_ZONE, or COUNTRY\_CODE.
 - If advancedDataType is **Zip Code**, then the
-  pattern can be TIME_ZONE, COUNTRY, STATE, CITY, TYPE, or REGION.
+  pattern can be TIME\_ZONE, COUNTRY, STATE, CITY, TYPE, or REGION.
 - If advancedDataType is **Date Time**, then the
-  pattern can be DAY, MONTH, MONTH_NAME, WEEK, QUARTER, or YEAR.
+  pattern can be DAY, MONTH, MONTH\_NAME, WEEK, QUARTER, or YEAR.
 - If advancedDataType is **State**, then the
-  pattern can be TIME_ZONE.
+  pattern can be TIME\_ZONE.
 - If advancedDataType is **Credit Card**, then the
   pattern can be LENGTH or NETWORK.
 - If advancedDataType is **URL**, then the

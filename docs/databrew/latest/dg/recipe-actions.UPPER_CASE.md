@@ -1,4 +1,4 @@
-# UPPER_CASE
+# UPPER\_CASE
 
 Changes each string in a column to uppercase, for example: THE QUICK BROWN FOX
 JUMPED OVER THE FENCE
