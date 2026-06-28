@@ -140,13 +140,12 @@ Where:
   the import job registers the endpoints with Amazon Pinpoint, when the
   endpoint definitions are imported.
 
-| RegisterEndpoints and DefineSegments combinations | RegisterEndpoints | DefineSegments                                                                                                                                                                 | Description |
-| ------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| true                                              | true              | Amazon Pinpoint will import the endpoints and create a<br>segment that contain the endpoints.                                                                                  |
-| true                                              | false             | Amazon Pinpoint will import the endpoints and not<br>create a segment.                                                                                                         |
-| false                                             | true              | Amazon Pinpoint will import the endpoints and create a<br>segment that contain the endpoints. The endpoints<br>will not be saved and will not overwrite existing<br>endpoints. |
-| false                                             | false             | Amazon Pinpoint will reject this request.                                                                                                                                      |
-
+RegisterEndpoints and DefineSegments combinations| RegisterEndpoints | DefineSegments | Description |
+| --- | --- | --- |
+| true | true | Amazon Pinpoint will import the endpoints and create a<br>segment that contain the endpoints. |
+| true | false | Amazon Pinpoint will import the endpoints and not<br>create a segment. |
+| false | true | Amazon Pinpoint will import the endpoints and create a<br>segment that contain the endpoints. The endpoints<br>will not be saved and will not overwrite existing<br>endpoints. |
+| false | false | Amazon Pinpoint will reject this request. |
 The response includes details about the import job:
 
 ```
@@ -508,9 +507,9 @@ Cache-Control: no-cache
 
 Where:
 
-- _application_id_ is the ID of
+- _application\_id_ is the ID of
   the Amazon Pinpoint project for which the import job was initiated.
-- _job_id_ is the ID of the
+- _job\_id_ is the ID of the
   import job that you're checking.
   If your request succeeds, you receive a response like the
   following:

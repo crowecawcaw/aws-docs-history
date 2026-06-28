@@ -10,7 +10,7 @@ supported by AWS End User Messaging.
 
 |                                                                                                       |
 | ----------------------------------------------------------------------------------------------------- |
-| **_This is prerelease documentation for a feature in public beta release. It is subject to change._** |
+| _**This is prerelease documentation for a feature in public beta release. It is subject to change.**_ |
 
 You can use AWS Lambda to tailor how an Amazon Pinpoint campaign engages
 your target audience. With AWS Lambda, you can modify the campaign's segment the moment when

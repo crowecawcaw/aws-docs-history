@@ -70,7 +70,7 @@ In the preceding example, do the following:
      of the project.
 
 2. At the command line, use the [`create-role`](../../../cli/latest/reference/iam/create-role.md "../../../cli/latest/reference/iam/create-role.md") command to create the role and attach
-   the trust policy:
+the trust policy:
 
 ```
 aws iam create-role --role-name `PinpointSegmentImport` --assume-role-policy-document file://`PinpointImportTrustPolicy`.json
