@@ -17,12 +17,11 @@ The example rule set creates a match using the following instructions:
 - If the match is not filled quickly, relax the requirements to complete a match
   in reasonable time.
 
-      + After 10 seconds, accept a team with 150 players.
-      + After 12 seconds, raise the maximum acceptable latency to 200
-       milliseconds.
-      + After 15 seconds, accept a team with 100 players.
-
-  Notes on using this rule set:
+  - After 10 seconds, accept a team with 150 players.
+  - After 12 seconds, raise the maximum acceptable latency to 200
+    milliseconds.
+  - After 15 seconds, accept a team with 100 players.
+    Notes on using this rule set:
 
 - Because the algorithm uses the "largest population" batching preference,
   players are first sorted based on the balancing criteria. As a result, matches

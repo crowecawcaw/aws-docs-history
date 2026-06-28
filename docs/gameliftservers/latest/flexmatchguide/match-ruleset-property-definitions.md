@@ -45,8 +45,8 @@ Required? Yes
 
 The data type of the player attribute value.
 
-Allowed values: "string", "number", "string_list",
-"string_number_map"
+Allowed values: "string", "number", "string\_list",
+"string\_number\_map"
 
 Required? Yes
 
@@ -230,7 +230,7 @@ Required? Yes
 
 The number of teams of this type to create in a match. Teams with
 quantities greater than 1 are designated with an appended number
-("Red_1", "Red_2", etc.). If this property is not set, the default
+("Red\_1", "Red\_2", etc.). If this property is not set, the default
 value is "1".
 
 Allowed values: Number

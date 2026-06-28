@@ -14,16 +14,16 @@ server integration:
 1. Implement the `onUpdateGameSession` function. This function must be
    able to handle the following status messages (`updateReason`):
 
-   - MATCHMAKING_DATA_UPDATED – New players were successfully
+   - MATCHMAKING\_DATA\_UPDATED – New players were successfully
      matched to the game session. The `GameSession` object
      contains updated matchmaker data, including player data on existing
      players and newly matched players.
-   - BACKFILL_FAILED – The match backfill attempt failed due to an
+   - BACKFILL\_FAILED – The match backfill attempt failed due to an
      internal error. The `GameSession` object is unchanged.
-   - BACKFILL_TIMED_OUT – The matchmaker failed to find a backfill
+   - BACKFILL\_TIMED\_OUT – The matchmaker failed to find a backfill
      match within the time limit. The `GameSession` object is
      unchanged.
-   - BACKFILL_CANCELLED – The match backfill request was canceled by
+   - BACKFILL\_CANCELLED – The match backfill request was canceled by
      a call to StopMatchmaking (client) or StopMatchBackfill (server). The
      `GameSession` object is unchanged.
 

@@ -31,12 +31,11 @@ instructions:
 - If a match is not filled quickly, relax the hunter team's minimum size as
   follows:
 
-      + After 30 seconds, allow a game to start with only four players in the
-       hunter team.
-      + After 60 seconds, allow a game to start with only three people in the
-       hunter team.
-
-  Notes on using this rule set:
+  - After 30 seconds, allow a game to start with only four players in the
+    hunter team.
+  - After 60 seconds, allow a game to start with only three people in the
+    hunter team.
+    Notes on using this rule set:
 
 - By using two separate teams for hunters and monster, you can evaluate
   membership based on different sets of criteria.

@@ -15,12 +15,11 @@ following instructions.
 - If the match is not filled quickly, relax the player skill requirement to
   complete a match in reasonable time.
 
-      + After 5 seconds, expand the search to allow teams with average player
-       skills within 50 points.
-      + After 15 seconds, expand the search to allow teams with average player
-       skills within 100 points.
-
-  Notes on using this rule set:
+  - After 5 seconds, expand the search to allow teams with average player
+    skills within 50 points.
+  - After 15 seconds, expand the search to allow teams with average player
+    skills within 100 points.
+    Notes on using this rule set:
 
 - This example allows for teams to be any size between four and eight players
   (although they must be the same size). For teams with a range of valid sizes,
@@ -32,8 +31,8 @@ following instructions.
   rule fails, the prospective player is not added to the match.
 - Since both teams have identical structures, you could opt to create just one
   team definition and set the team quantity to "2". In this scenario, if you named
-  the team "aliens", then your teams would be assigned the names "aliens_1" and
-  "aliens_2".
+  the team "aliens", then your teams would be assigned the names "aliens\_1" and
+  "aliens\_2".
 
 ```
 {

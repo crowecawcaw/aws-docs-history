@@ -32,10 +32,9 @@ following instructions:
 - If a match is not filled quickly, relax the player latency requirement as
   follows:
 
-      + After 10 seconds, allow player latency values up to 100 ms.
-      + After 20 seconds, allow player latency values up to 150 ms.
-
-  Notes on using this rule set:
+  - After 10 seconds, allow player latency values up to 100 ms.
+  - After 20 seconds, allow player latency values up to 150 ms.
+    Notes on using this rule set:
 
 - The rule set ensures that teams are evenly matched based on player skill. To
   evaluate the `FairTeamSkill` rule, FlexMatch tentatively adds the

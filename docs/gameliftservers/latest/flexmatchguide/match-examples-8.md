@@ -17,10 +17,9 @@ The example rule set creates a match using the following instructions:
 - If the match is not filled quickly, relax the requirements to complete a match
   in reasonable time.
 
-      + After 15 seconds, accept teams with 10 players.
-      + After 20 seconds, accept teams with 8 players.
-
-  Notes on using this rule set:
+  - After 15 seconds, accept teams with 10 players.
+  - After 20 seconds, accept teams with 8 players.
+    Notes on using this rule set:
 
 - This rule set defines teams that can potentially hold up to 155 players, which
   makes it a large match. (10 x 15 hunters + 5 monsters = 155)
