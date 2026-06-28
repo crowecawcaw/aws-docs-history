@@ -95,7 +95,7 @@ the agent doesn't start on instances that are launched from your AMI.
     ```
 
 5. Create a new AMI from your running instance. For more information, see [Creating an Amazon EBS Backed Linux AMI](../../../AWSEC2/latest/UserGuide/creating-an-ami-ebs.md "../../../AWSEC2/latest/UserGuide/creating-an-ami-ebs.md") in
-   the _Amazon EC2 User Guide_ guide.
+the _Amazon EC2 User Guide_ guide.
 
 ###### To use your new AMI with AWS Batch
 

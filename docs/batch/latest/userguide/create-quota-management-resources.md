@@ -68,12 +68,12 @@ a single quota management enabled job queue.
 
 7. (Optional) For **Job state limits**:
 
-   1. For **Misconfiguration**, choose either
-      `SERVICE_ENVIRONMENT_MAX_RESOURCE` and enter the
-      **Maximum runnable time (seconds)**.
-   2. For **Capacity**, choose
-      `INSUFFICIENT_INSTANCE_CAPACITY` and enter the
-      **Maximum runnable time (seconds)**.
+    1. For **Misconfiguration**, choose either
+     `SERVICE_ENVIRONMENT_MAX_RESOURCE` and enter the
+     **Maximum runnable time (seconds)**.
+    2. For **Capacity**, choose
+     `INSUFFICIENT_INSTANCE_CAPACITY` and enter the
+     **Maximum runnable time (seconds)**.
 
 8. Choose **Create job queue**.
 

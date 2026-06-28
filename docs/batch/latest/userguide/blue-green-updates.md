@@ -51,11 +51,10 @@ Before performing a blue/green update, ensure you have:
   - A custom AMI that meets the Amazon ECS container instance AMI specification. When
     using a custom AMI, you can specify it in one of these ways:
 
-        - Using the **Image ID override** field in the EC2
-         configuration.
-        - Specifying it in a launch template.
-
-    For more information about creating custom AMIs, see [Tutorial: Create a compute resource AMI](create-batch-ami.md "create-batch-ami.md").
+    - Using the **Image ID override** field in the EC2
+      configuration.
+    - Specifying it in a launch template.
+      For more information about creating custom AMIs, see [Tutorial: Create a compute resource AMI](create-batch-ami.md "create-batch-ami.md").
 
 Before creating the new environment, you need to record the configuration of your
 existing compute environment. You can do this using either the AWS Management Console or the

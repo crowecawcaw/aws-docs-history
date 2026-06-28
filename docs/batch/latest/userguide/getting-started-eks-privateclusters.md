@@ -177,7 +177,7 @@ privateCluster:
 ```
 
 3. Create your resources using the command: `eksctl create cluster -f
-clusterConfig.yaml`. Cluster creation can take between 10–15
+ clusterConfig.yaml`. Cluster creation can take between 10–15
    minutes.
 4. Once the cluster has finished being created you have to add your AWS CloudShell IP
    address to the allow list. To find your AWS CloudShell IP address run the following
@@ -396,7 +396,7 @@ service-linked role has access to your Amazon EKS cluster, you can create AWS Ba
 First, create a compute environment that points to your Amazon EKS cluster.
 
 - For `subnets` run `eksctl get cluster
-`my-test-cluster`` to get the subnets
+ `my-test-cluster`` to get the subnets
   used by the cluster.
 - For `securityGroupIds` parameter you can use the same security
   group as the Amazon EKS cluster. This command retrieves the security group ID for the

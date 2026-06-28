@@ -179,11 +179,9 @@ GPU scheduling, the compute environment must include instance types from the
     	 environment](mixed-ami-environments.md "mixed-ami-environments.md") where you're using both AL2 and AL2023-based custom AMIs in the same
     	 compute environment.
 
-20. Choose **Next page**.
-21. For **Virtual Private Cloud (VPC) ID**, choose a VPC where to launch
-    the instances.
-22. For **Subnets**, choose the subnets to use. By default, all subnets
-    within the selected VPC are available.
+20. Choose **Next page**. 21. For **Virtual Private Cloud (VPC) ID**, choose a VPC where to launch
+the instances. 22. For **Subnets**, choose the subnets to use. By default, all subnets
+within the selected VPC are available.
 
 ###### Note
 

@@ -94,27 +94,27 @@ To create a job queue for a Fargate orchestration, do the following:
 
 To create the job definition:
 
-1.  In the **General configuration** section:
+1. In the **General configuration** section:
 
-    1. In the **General configuration** section for
-       **Name**, specify a unique name for your job definition. The name can be up to 128 characters in length. It can
-       contain uppercase and lowercase letters, numbers, hyphens (-), and
-       underscores (\_).
+   1. In the **General configuration** section for
+      **Name**, specify a unique name for your job definition. The name can be up to 128 characters in length. It can
+      contain uppercase and lowercase letters, numbers, hyphens (-), and
+      underscores (\_).
 
-2.  In the **Fargate platform configuration** section:
+2. In the **Fargate platform configuration** section:
 
-    1. Turn on **Assign public IP** to assign a public IP
-       address. You need a public IP to download the container image unless
-       you've setup a private image repository.
-    2. For **Execution role**, choose a task execution role
-       that lets Amazon Elastic Container Service (Amazon ECS) agents make AWS calls on your behalf. Choose
-       either **ecsTaskExecutionRole** or
-       **BatchEcsTaskExecutionRole**.
+   1. Turn on **Assign public IP** to assign a public IP
+      address. You need a public IP to download the container image unless
+      you've setup a private image repository.
+   2. For **Execution role**, choose a task execution role
+      that lets Amazon Elastic Container Service (Amazon ECS) agents make AWS calls on your behalf. Choose
+      either **ecsTaskExecutionRole** or
+      **BatchEcsTaskExecutionRole**.
 
-    To create the **Execution role** choose
-    **Create an execution role**. In the
-    **Create IAM role** modal choose **Create
-    IAM role**.
+   To create the **Execution role** choose
+   **Create an execution role**. In the
+   **Create IAM role** modal choose **Create
+   IAM role**.
 
         1. The IAM console has the permission setting already
          configured for creating the execution role.
@@ -136,14 +136,14 @@ To create the job definition:
          **BatchEcsTaskExecutionRole** execution
          role.
 
-3.  In the **Container configuration** section:
+3. In the **Container configuration** section:
 
-    1. For **Command**, you can change `hello
-world` to a custom message or leave it as is.
+   1. For **Command**, you can change `hello
+  world` to a custom message or leave it as is.
 
-4.  For all other configuration options you can leave the default
-    value.
-5.  Choose **Next**.
+4. For all other configuration options you can leave the default
+   value.
+5. Choose **Next**.
 
 ## Step 4: Create a job
 

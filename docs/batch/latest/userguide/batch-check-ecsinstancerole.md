@@ -7,33 +7,31 @@ attach the managed IAM policy.
 
 ###### Tutorial: Check for the `ecsInstanceRole` in the IAM console
 
-1.  Open the IAM console at
-    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2.  In the navigation pane, choose **Roles**.
-3.  Search the list of roles for `ecsInstanceRole`. If the role doesn't exist, use the following steps
-    to create the role.
+1. Open the IAM console at
+   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane, choose **Roles**.
+3. Search the list of roles for `ecsInstanceRole`. If the role doesn't exist, use the following steps
+   to create the role.
 
-        1. Choose **Create Role**.
-        2. For **Trusted entity type**, choose
-         **AWS service**.
-        3. For **Common use cases**, choose **EC2**.
-        4. Choose **Next**.
-        5. For **Permissions policies**, search for
-         **AmazonEC2ContainerServiceforEC2Role**.
-        6. Choose the check box next to **AmazonEC2ContainerServiceforEC2Role**,
-         then choose **Next**.
-        7. For **Role Name**, type `ecsInstanceRole` and choose
-         **Create Role**.
+   1. Choose **Create Role**.
+   2. For **Trusted entity type**, choose
+      **AWS service**.
+   3. For **Common use cases**, choose **EC2**.
+   4. Choose **Next**.
+   5. For **Permissions policies**, search for
+      **AmazonEC2ContainerServiceforEC2Role**.
+   6. Choose the check box next to **AmazonEC2ContainerServiceforEC2Role**,
+      then choose **Next**.
+   7. For **Role Name**, type `ecsInstanceRole` and choose
+      **Create Role**.
 
+   ###### Note
 
-        ###### Note
-
-        If you use the AWS Management Console to create a role for Amazon EC2, the console creates an instance
-         profile with the same name as the role.
-
-    Alternatively, you can use the AWS CLI to create the `ecsInstanceRole` IAM role.
-    The following example creates an IAM role with a trust policy and an AWS managed
-    policy.
+   If you use the AWS Management Console to create a role for Amazon EC2, the console creates an instance
+   profile with the same name as the role.
+   Alternatively, you can use the AWS CLI to create the `ecsInstanceRole` IAM role.
+   The following example creates an IAM role with a trust policy and an AWS managed
+   policy.
 
 ###### Tutorial: Create an IAM role and instance profile (AWS CLI)
 

@@ -4,25 +4,25 @@ Complete the following steps to create a single-node job definition on Amazon El
 
 ###### To create a new job definition on Amazon EKS resources:
 
-1.  Open the AWS Batch console at [https://console.aws.amazon.com/batch/](https://console.aws.amazon.com/batch/ "https://console.aws.amazon.com/batch/").
-2.  From the top navigation bar, choose the AWS Region to use.
-3.  In the left navigation pane, choose **Job definitions**.
-4.  Choose **Create**.
-5.  For **Orchestration type**, choose **Elastic Kubernetes
-    Service (EKS)**.
-6.  For **Name**, enter a unique name for your job definition. The
-    name can be up to 128 characters in length. It can contain uppercase and lowercase
-    letters, numbers, hyphens (-), and underscores (\_).
-7.  (Optional) For **Execution timeout**, enter the timeout value (in
-    seconds). The execution timeout is the length of time before an unfinished job is
-    terminated. If an attempt exceeds the timeout duration, the attempt is stopped and
-    moves to a `FAILED` status. For more information, see [Job timeouts](job_timeouts.md "job_timeouts.md"). The minimum value is 60
-    seconds.
-8.  (Optional) Turn on **Scheduling priority**. Enter a scheduling
-    priority value between 0 and 100. Higher values are given higher priority over lower
-    values.
-9.  (Optional) Expand **Tags**, and then choose **Add
-    tag** to add tags to the resource.
+1. Open the AWS Batch console at [https://console.aws.amazon.com/batch/](https://console.aws.amazon.com/batch/ "https://console.aws.amazon.com/batch/").
+2. From the top navigation bar, choose the AWS Region to use.
+3. In the left navigation pane, choose **Job definitions**.
+4. Choose **Create**.
+5. For **Orchestration type**, choose **Elastic Kubernetes
+   Service (EKS)**.
+6. For **Name**, enter a unique name for your job definition. The
+   name can be up to 128 characters in length. It can contain uppercase and lowercase
+   letters, numbers, hyphens (-), and underscores (\_).
+7. (Optional) For **Execution timeout**, enter the timeout value (in
+   seconds). The execution timeout is the length of time before an unfinished job is
+   terminated. If an attempt exceeds the timeout duration, the attempt is stopped and
+   moves to a `FAILED` status. For more information, see [Job timeouts](job_timeouts.md "job_timeouts.md"). The minimum value is 60
+   seconds.
+8. (Optional) Turn on **Scheduling priority**. Enter a scheduling
+   priority value between 0 and 100. Higher values are given higher priority over lower
+   values.
+9. (Optional) Expand **Tags**, and then choose **Add
+   tag** to add tags to the resource.
 10. Choose **Next page**.
 11. In the **EKS pod properties** section:
 
@@ -128,58 +128,60 @@ Complete the following steps to create a single-node job definition on Amazon El
         5. (Optional) For **Arguments**, enter arguments to
          pass to the container. If an argument isn't provided, the container
          image command is used.
+
     9. (Optional) You can add parameters to the job definition as name-value
-       mappings to override the job definition defaults. To add a parameter:
+    mappings to override the job definition defaults. To add a parameter:
 
-       1. For **Parameters**, enter a name-value pair, then
-          choose **Add parameter**.
+        1. For **Parameters**, enter a name-value pair, then
+         choose **Add parameter**.
 
-       ###### Important
 
-       If you choose **Add parameter**, you must
-       configure at least one parameter or choose **Remove
-       parameter**
+        ###### Important
+
+        If you choose **Add parameter**, you must
+         configure at least one parameter or choose **Remove
+         parameter**
 
     10. In the **Environment configuration** section:
 
         1. For **vCPUs**, enter the number of vCPUs to
-           reserve for the container. This parameter maps to
-           `CpuShares` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate "https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate")
-           section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/ "https://docs.docker.com/engine/api/v1.38/") and the `--cpu-shares`
-           option to [**docker run**](https://docs.docker.com/engine/reference/commandline/run/ "https://docs.docker.com/engine/reference/commandline/run/"). Each vCPU is
-           equivalent to 1,024 CPU shares. You must specify at least one
-           vCPU.
+         reserve for the container. This parameter maps to
+         `CpuShares` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate "https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate")
+         section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/ "https://docs.docker.com/engine/api/v1.38/") and the `--cpu-shares`
+         option to [**docker run**](https://docs.docker.com/engine/reference/commandline/run/ "https://docs.docker.com/engine/reference/commandline/run/"). Each vCPU is
+         equivalent to 1,024 CPU shares. You must specify at least one
+         vCPU.
         2. For **Memory**, enter the memory limit available
-           to the container. If your container attempts to exceed the memory
-           specified here, the container is stopped. This parameter maps to
-           `Memory` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate "https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate")
-           section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/ "https://docs.docker.com/engine/api/v1.38/") and the `--memory`
-           option to [**docker run**](https://docs.docker.com/engine/reference/commandline/run/ "https://docs.docker.com/engine/reference/commandline/run/"). You must specify at
-           least 4 MiB of memory for a job.
+         to the container. If your container attempts to exceed the memory
+         specified here, the container is stopped. This parameter maps to
+         `Memory` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate "https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate")
+         section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/ "https://docs.docker.com/engine/api/v1.38/") and the `--memory`
+         option to [**docker run**](https://docs.docker.com/engine/reference/commandline/run/ "https://docs.docker.com/engine/reference/commandline/run/"). You must specify at
+         least 4 MiB of memory for a job.
+
 
         ###### Note
 
         To maximize your resource utilization, prioritize memory for
-        jobs of a specific instance type. For more information, see
-        [Compute resource memory management](memory-management.md "memory-management.md").
+         jobs of a specific instance type. For more information, see
+         [Compute resource memory management](memory-management.md "memory-management.md").
 
     11. (Optional) For **Environment variables**, choose
-        **Add environment variable** to add environment
-        variables as name-value pairs. These variables are passed to the
-        container.
-    12. (Optional) For **Volume mount**:
+    **Add environment variable** to add environment
+    variables as name-value pairs. These variables are passed to the
+    container. 12. (Optional) For **Volume mount**:
 
         1. Choose **Add volume mount**.
         2. Enter a **Name**, and then enter a
-           **Mount path** in the container where the
-           volume is mounted. Enter a **SubPath** to specify a
-           sub-path inside the referenced volume instead of its root.
+         **Mount path** in the container where the
+         volume is mounted. Enter a **SubPath** to specify a
+         sub-path inside the referenced volume instead of its root.
         3. Choose **Read only** to remove write permissions
-           to the volume.
+         to the volume.
         4. Choose **Add volume mount**.
 
     13. (Optional) For **Run as user**, enter a user ID to run
-        the container process.
+    the container process.
 
     ###### Note
 

@@ -29,12 +29,12 @@ Compute environments for Windows containers on AWS Fargate jobs must at least on
 
 6. In the **Instance configuration** section:
 
-   1. (Optional) For **Use Fargate Spot capacity**, turn on Fargate
-      Spot. For information about Fargate Spot, see [Using Amazon EC2 Spot
-      and Fargate_SPOT](../../../AmazonECS/latest/bestpracticesguide/ec2-and-fargate-spot.md "../../../AmazonECS/latest/bestpracticesguide/ec2-and-fargate-spot.md").
-   2. For **Maximum vCPUs**, choose the maximum number of vCPUs that
-      your compute environment can scale out to, regardless of job queue demand.
-   3. Choose **Next page**.
+    1. (Optional) For **Use Fargate Spot capacity**, turn on Fargate
+     Spot. For information about Fargate Spot, see [Using Amazon EC2 Spot
+     and Fargate\_SPOT](../../../AmazonECS/latest/bestpracticesguide/ec2-and-fargate-spot.md "../../../AmazonECS/latest/bestpracticesguide/ec2-and-fargate-spot.md").
+    2. For **Maximum vCPUs**, choose the maximum number of vCPUs that
+     your compute environment can scale out to, regardless of job queue demand.
+    3. Choose **Next page**.
 
 7. Configure networking.
 
@@ -71,5 +71,5 @@ _Amazon VPC User Guide_. For more information, see
     4. Choose **Next page**.
 
 8. For **Review**, review the configuration steps. If you
-   need to make changes, choose **Edit**. When you're finished,
-   choose **Create compute environment**.
+need to make changes, choose **Edit**. When you're finished,
+choose **Create compute environment**.

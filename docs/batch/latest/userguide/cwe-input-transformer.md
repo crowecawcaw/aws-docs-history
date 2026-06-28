@@ -43,46 +43,41 @@ immediately. 9. For **Rule type**, choose **Schedule**. 10. Choose **Continue to
     * Choose **A schedule that runs at a regular rate, such as every 10
      minutes.** and then enter a rate expression.
 
-12. Choose **Next**.
-13. For **Target types**, choose
-    **AWS service**.
-14. For **Select a target**, choose **Batch job queue**.
-    Then, configure the following:
+12. Choose **Next**. 13. For **Target types**, choose
+**AWS service**. 14. For **Select a target**, choose **Batch job queue**.
+Then, configure the following:
 
-    - **Job queue:** Enter the Amazon Resource Name (ARN) of the job queue to schedule
-      your job in.
-    - **Job definition:** Enter the name and revision or full ARN of
-      the job definition to use for your job.
-    - **Job name:** Enter a name for your job.
-    - **Array size:** (Optional) Enter an array size for your job to
-      run more than one copy. For more information, see [Array jobs](array_jobs.md "array_jobs.md").
-    - **Job attempts:** (Optional) Enter the number of times to retry
-      your job if it fails. For more information, see [Automated job retries](job_retries.md "job_retries.md").
+    * **Job queue:** Enter the Amazon Resource Name (ARN) of the job queue to schedule
+     your job in.
+    * **Job definition:** Enter the name and revision or full ARN of
+     the job definition to use for your job.
+    * **Job name:** Enter a name for your job.
+    * **Array size:** (Optional) Enter an array size for your job to
+     run more than one copy. For more information, see [Array jobs](array_jobs.md "array_jobs.md").
+    * **Job attempts:** (Optional) Enter the number of times to retry
+     your job if it fails. For more information, see [Automated job retries](job_retries.md "job_retries.md").
 
 15. For **Batch job queue** target types, EventBridge needs permission to send
-    events to the target. EventBridge can create the IAM role needed for your rule to run. Do one
-    of the following:
+events to the target. EventBridge can create the IAM role needed for your rule to run. Do one
+of the following:
 
-    - To create an IAM role automatically, choose **Create a new role for this
-      specific resource**.
-    - To use an IAM role that you've already created, choose **Use existing
-      role**.
+    * To create an IAM role automatically, choose **Create a new role for this
+     specific resource**.
+    * To use an IAM role that you've already created, choose **Use existing
+     role**.
 
-16. (Optional) Expand **Additional settings**.
-17. In the **Additional settings** section, for **Configure
-    target input**, choose **Input Transformer**.
-18. Choose **Configure input transformer**.
-19. (Optional) For **Sample event**:
+16. (Optional) Expand **Additional settings**. 17. In the **Additional settings** section, for **Configure
+target input**, choose **Input Transformer**. 18. Choose **Configure input transformer**. 19. (Optional) For **Sample event**:
 
-    1.  For **Sample event type**, choose **AWS
-        events**.
-    2.  For **Sample events**, choose **Batch Job State
-        Change**.
+    1. For **Sample event type**, choose **AWS
+     events**.
+    2. For **Sample events**, choose **Batch Job State
+     Change**.
 
 20. In the **Target input transformer** section, for **Input
-    path**, specify the values to parse from the triggering event. For example, to
-    parse **Batch Job State Change** event, use the following JSON
-    format.
+path**, specify the values to parse from the triggering event. For example, to
+parse **Batch Job State Change** event, use the following JSON
+format.
 
 ```
 {

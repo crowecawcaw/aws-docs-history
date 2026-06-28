@@ -18,10 +18,10 @@ supported when updating compute environments. For more information, see [Update 
 
 ###### Note
 
-AWS Batch manages AWS resources in your account. Compute environments with the BEST_FIT
+AWS Batch manages AWS resources in your account. Compute environments with the BEST\_FIT
 allocation strategy originally utilized launch configurations by default. However, the use of
 launch configurations with new AWS accounts will be restricted over time. Therefore,
-beginning in late April 2024, newly-created BEST_FIT compute environments will default to launch
+beginning in late April 2024, newly-created BEST\_FIT compute environments will default to launch
 templates. If your service role lacks permissions to manage launch templates, AWS Batch may
 continue to utilize launch configurations. Existing compute environments will continue to use
 launch configurations.

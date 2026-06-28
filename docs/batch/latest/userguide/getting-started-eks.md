@@ -323,7 +323,7 @@ service-linked role has access to your Amazon EKS cluster, you can create AWS Ba
 create a compute environment that points to your Amazon EKS cluster.
 
 - For `subnets` run `eksctl get cluster
-`my-cluster-name`` to get the subnets used by the
+ `my-cluster-name`` to get the subnets used by the
   cluster.
 - For `securityGroupIds` parameter you can use the same security group as the
   Amazon EKS cluster. This command retrieves the security group ID for the cluster.

@@ -17,7 +17,7 @@ and size for faster startup times.
 - Create layers that are even in size and break up large layers – Each layer is retrieved by one thread. So, a large layer might
   significantly impact your job startup time. We recommend a maximum layer size of 2 GB as a good
   tradeoff between larger container size and faster startup times. You can run the `docker
-history your_image_id` command to check your container image structure and layer size.
+ history your_image_id` command to check your container image structure and layer size.
   For more information, see the [Docker
   documentation](https://docs.docker.com/engine/reference/commandline/history/ "https://docs.docker.com/engine/reference/commandline/history/").
 - Use Amazon Elastic Container Registry as your container repository – When you run

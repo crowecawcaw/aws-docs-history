@@ -57,9 +57,8 @@ On the **Inbound** tab, create the following rules and choose
      (`0.0.0.0/0`) to your instance but only for testing purposes and only for a short time.
 
 7. You can add tags now, or you can add them later. To add a tag, choose **Add new tag** and
-   enter the tag key and value.
-8. Choose **Create security group**.
-   To create a security group using the command line, see [>create-security-group](../../../cli/latest/reference/ec2/create-security-group.md "../../../cli/latest/reference/ec2/create-security-group.md") (AWS CLI)
+enter the tag key and value. 8. Choose **Create security group**.
+To create a security group using the command line, see [>create-security-group](../../../cli/latest/reference/ec2/create-security-group.md "../../../cli/latest/reference/ec2/create-security-group.md") (AWS CLI)
 
 For more information about security groups, see [Work with security
 groups](../../../vpc/latest/userguide/VPC_SecurityGroups.md#working-with-security-groups "../../../vpc/latest/userguide/VPC_SecurityGroups.md#working-with-security-groups").

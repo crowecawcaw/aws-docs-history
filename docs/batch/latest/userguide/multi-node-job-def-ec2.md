@@ -155,123 +155,129 @@ parameter substitution placeholders as **Key** and optional
 
 19. (Optional) Expand **Additional configuration**:
 
-    1.  For **Environment variables**, choose **Add environment
-        variable** to add environment variables as name-value pairs. These variables are
-        passed to the container.
-    2.  For **Job role configuration**, you can specify an IAM role that
-        provides the container in your job with permissions to use the AWS APIs. This feature uses
-        Amazon ECS IAM roles for task functionality. For more information including configuration
-        prerequisites, see [IAM Roles for Tasks](../../../AmazonECS/latest/developerguide/task-iam-roles.md "../../../AmazonECS/latest/developerguide/task-iam-roles.md")
-        in the _Amazon Elastic Container Service Developer Guide_.
+    1. For **Environment variables**, choose **Add environment
+     variable** to add environment variables as name-value pairs. These variables are
+     passed to the container.
+    2. For **Job role configuration**, you can specify an IAM role that
+     provides the container in your job with permissions to use the AWS APIs. This feature uses
+     Amazon ECS IAM roles for task functionality. For more information including configuration
+     prerequisites, see [IAM Roles for Tasks](../../../AmazonECS/latest/developerguide/task-iam-roles.md "../../../AmazonECS/latest/developerguide/task-iam-roles.md")
+     in the *Amazon Elastic Container Service Developer Guide*.
+
 
     ###### Note
 
     For jobs that are running on Fargate resources, a job role is required.
 
+
     ###### Note
 
     Only roles that have the **Amazon Elastic Container Service Task Role** trust relationship
-    are shown here. For more information about how to create an IAM role for your AWS Batch
-    jobs, see [Creating an IAM Role and Policy for your Tasks](../../../AmazonECS/latest/developerguide/task-iam-roles.md#create_task_iam_policy_and_role "../../../AmazonECS/latest/developerguide/task-iam-roles.md#create_task_iam_policy_and_role") in the
-    _Amazon Elastic Container Service Developer Guide_. 3. For **Execution role**, specify an IAM role that grants the Amazon ECS
-    container agents permission to make AWS API calls on your behalf. This feature uses Amazon ECS
-    IAM roles for task functionality. For more information, see [Amazon ECS task execution IAM
-    roles](../../../AmazonECS/latest/developerguide/task_execution_IAM_role.md "../../../AmazonECS/latest/developerguide/task_execution_IAM_role.md") in the _Amazon Elastic Container Service Developer Guide_.
+     are shown here. For more information about how to create an IAM role for your AWS Batch
+     jobs, see [Creating an IAM Role and Policy for your Tasks](../../../AmazonECS/latest/developerguide/task-iam-roles.md#create_task_iam_policy_and_role "../../../AmazonECS/latest/developerguide/task-iam-roles.md#create_task_iam_policy_and_role") in the
+     *Amazon Elastic Container Service Developer Guide*.
+    3. For **Execution role**, specify an IAM role that grants the Amazon ECS
+     container agents permission to make AWS API calls on your behalf. This feature uses Amazon ECS
+     IAM roles for task functionality. For more information, see [Amazon ECS task execution IAM
+     roles](../../../AmazonECS/latest/developerguide/task_execution_IAM_role.md "../../../AmazonECS/latest/developerguide/task_execution_IAM_role.md") in the *Amazon Elastic Container Service Developer Guide*.
 
 20. In the **Security Configuration** section:
 
-    1.  (Optional) To give your job's container elevated privileges on the host instance
-        (similar to the `root` user), turn on **Privileged**. This
-        parameter maps to `Privileged` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate "https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate") section
-        of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/ "https://docs.docker.com/engine/api/v1.38/") and the `--privileged` option to [**docker
-        run**](https://docs.docker.com/engine/reference/commandline/run/ "https://docs.docker.com/engine/reference/commandline/run/").
-    2.  (Optional) For **User**, enter the user name to use inside the
-        container. This parameter maps to `User` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate "https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate")
-        section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/ "https://docs.docker.com/engine/api/v1.38/") and the `--user` option to [**docker
-        run**](https://docs.docker.com/engine/reference/commandline/run/ "https://docs.docker.com/engine/reference/commandline/run/").
-    3.  (Optional) For **Secrets**, choose **Add secret** to
-        add secrets as a name-value pairs. These secrets are exposed in the container. For more
-        information, see [LogConfiguration:secretOptions](../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-secretOptions "../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-secretOptions").
+    1. (Optional) To give your job's container elevated privileges on the host instance
+     (similar to the `root` user), turn on **Privileged**. This
+     parameter maps to `Privileged` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate "https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate") section
+     of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/ "https://docs.docker.com/engine/api/v1.38/") and the `--privileged` option to [**docker
+     run**](https://docs.docker.com/engine/reference/commandline/run/ "https://docs.docker.com/engine/reference/commandline/run/").
+    2. (Optional) For **User**, enter the user name to use inside the
+     container. This parameter maps to `User` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate "https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate")
+     section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/ "https://docs.docker.com/engine/api/v1.38/") and the `--user` option to [**docker
+     run**](https://docs.docker.com/engine/reference/commandline/run/ "https://docs.docker.com/engine/reference/commandline/run/").
+    3. (Optional) For **Secrets**, choose **Add secret** to
+     add secrets as a name-value pairs. These secrets are exposed in the container. For more
+     information, see [LogConfiguration:secretOptions](../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-secretOptions "../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-secretOptions").
 
 21. In the **Linux configuration** section:
 
-    1.  Turn on **Enable read only filesystem** to remove write access to the
-        volume.
-    2.  (Optional) Turn on **Enable init process** to run an
-        `init` process inside the container. This process forwards signals and reaps
-        processes.
-    3.  For **Shared memory size**, enter the size (in MiB) of the
-        `/dev/shm` volume.
-    4.  For **Max swap size**, enter the total amount of swap memory (in MiB)
-        that the container can use.
-    5.  For **Swappiness** enter a value between 0 and 100 to indicate the
-        swappiness behavior of the container. If you don't specify a value and swapping is enabled,
-        value defaults to 60. For more information, see [LinuxParameters:swappiness](../APIReference/API_LinuxParameters.md#Batch-Type-LinuxParameters-swappiness "../APIReference/API_LinuxParameters.md#Batch-Type-LinuxParameters-swappiness").
-    6.  (Optional) For **Devices**, choose **Add device** to
-        add a device:
+    1. Turn on **Enable read only filesystem** to remove write access to the
+     volume.
+    2. (Optional) Turn on **Enable init process** to run an
+     `init` process inside the container. This process forwards signals and reaps
+     processes.
+    3. For **Shared memory size**, enter the size (in MiB) of the
+     `/dev/shm` volume.
+    4. For **Max swap size**, enter the total amount of swap memory (in MiB)
+     that the container can use.
+    5. For **Swappiness** enter a value between 0 and 100 to indicate the
+     swappiness behavior of the container. If you don't specify a value and swapping is enabled,
+     value defaults to 60. For more information, see [LinuxParameters:swappiness](../APIReference/API_LinuxParameters.md#Batch-Type-LinuxParameters-swappiness "../APIReference/API_LinuxParameters.md#Batch-Type-LinuxParameters-swappiness").
+    6. (Optional) For **Devices**, choose **Add device** to
+     add a device:
 
-        1. For **Container path**, specify the path of in the container instance
-           to expose the device mapped to the host instance. If you keep this blank, the host path is
-           used in the container.
-        2. For **Host path**, specify the path of a device in the host
-           instance.
-        3. For **Permissions**, choose one or more permissions to apply to the
-           device. The available permissions are **READ**,
-           **WRITE**, and **MKNOD**.
+
+    	1. For **Container path**, specify the path of in the container instance
+    	 to expose the device mapped to the host instance. If you keep this blank, the host path is
+    	 used in the container.
+    	2. For **Host path**, specify the path of a device in the host
+    	 instance.
+    	3. For **Permissions**, choose one or more permissions to apply to the
+    	 device. The available permissions are **READ**,
+    	 **WRITE**, and **MKNOD**.
 
 22. (Optional) For **Mount points**, choose **Add mount points
-    configuration** to add mount points for data volumes. You must specify the source
-    volume and container path. These mount points are passed to the Docker daemon on
-    a container instance. You can also choose to make the volume **Read
-    only**.
-23. (Optional) For **Ulimits configuration**, choose **Add
-    ulimit** to add a `ulimits` value for the container. Enter
-    **Name**, **Soft limit**, and **Hard
-    limit** values, and then choose **Add ulimit**.
-24. (Optional) For **Volumes configuration**, choose **Add
-    volume** to create a list of volumes to pass to the container. Enter
-    **Name** and **Source path** for the volume and then choose
-    **Add volume**. You can also choose to turn on **Enable
-    EFS**.
-25. (Optional) For **Tmpfs**, choose **Add tmpfs** to add a
-    `tmpfs` mount.
-26. In the **Task properties** section:
+configuration** to add mount points for data volumes. You must specify the source
+volume and container path. These mount points are passed to the Docker daemon on
+a container instance. You can also choose to make the volume **Read
+only**. 23. (Optional) For **Ulimits configuration**, choose **Add
+ulimit** to add a `ulimits` value for the container. Enter
+**Name**, **Soft limit**, and **Hard
+limit** values, and then choose **Add ulimit**. 24. (Optional) For **Volumes configuration**, choose **Add
+volume** to create a list of volumes to pass to the container. Enter
+**Name** and **Source path** for the volume and then choose
+**Add volume**. You can also choose to turn on **Enable
+EFS**. 25. (Optional) For **Tmpfs**, choose **Add tmpfs** to add a
+`tmpfs` mount. 26. In the **Task properties** section:
 
-    1.  For **Execution role - conditional**, choose a role to allow Amazon ECS
-        agents to make AWS API calls on your behalf. For more information on creating an
-        **Execution role**, see [Tutorial: Create the IAM execution role](create-execution-role.md "create-execution-role.md").
-    2.  ###### Important
+    1. For **Execution role - conditional**, choose a role to allow Amazon ECS
+     agents to make AWS API calls on your behalf. For more information on creating an
+     **Execution role**, see [Tutorial: Create the IAM execution role](create-execution-role.md "create-execution-role.md").
+    2. ###### Important
 
     To use **ECS execute command** your compute environment must meet the [compute environment considerations for multi node parallel
-    jobs](mnp-ce.md "mnp-ce.md").
+     jobs](mnp-ce.md "mnp-ce.md").
+
 
     Choose **Enable ECS execute command**, to enable access to the Amazon ECS
-    container shell directly and bypass the host OS. You must choose a **Task
-    role**.
+     container shell directly and bypass the host OS. You must choose a **Task
+     role**.
+
 
     ###### Important
 
-    The **ECS execute** command requires that file system be writable. 3. For **Task role**, choose an Amazon ECS Identity and Access Management (IAM)
-    role to allow the container to make AWS API calls on your behalf. For more information see,
-    [Amazon ECS
-    task IAM role](../../../AmazonECS/latest/developerguide/task-iam-roles.md "../../../AmazonECS/latest/developerguide/task-iam-roles.md") in the _Amazon Elastic Container Service Developer Guide_.
+    The **ECS execute** command requires that file system be writable.
+    3. For **Task role**, choose an Amazon ECS Identity and Access Management (IAM)
+     role to allow the container to make AWS API calls on your behalf. For more information see,
+     [Amazon ECS
+     task IAM role](../../../AmazonECS/latest/developerguide/task-iam-roles.md "../../../AmazonECS/latest/developerguide/task-iam-roles.md") in the *Amazon Elastic Container Service Developer Guide*.
 
 27. (Optional) In the **Logging configuration** section:
 
-    1.  For **Log driver**, choose the log driver to use. For more information
-        about the available log drivers, see [LogConfiguration:logDriver](../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-logDriver "../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-logDriver").
+    1. For **Log driver**, choose the log driver to use. For more information
+     about the available log drivers, see [LogConfiguration:logDriver](../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-logDriver "../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-logDriver").
+
 
     ###### Note
 
-    By default, the `awslogs` log driver is used. 2. For **Options**, choose **Add option** to add an
-    option. Enter a name-value pair, and then choose **Add option**. 3. For **Secrets**, choose **Add secret**. Enter a
-    name-value pair and then choose **Add secret** to add a secret.
+    By default, the `awslogs` log driver is used.
+    2. For **Options**, choose **Add option** to add an
+     option. Enter a name-value pair, and then choose **Add option**.
+    3. For **Secrets**, choose **Add secret**. Enter a
+     name-value pair and then choose **Add secret** to add a secret.
+
 
     ###### Tip
 
     For more information, see [LogConfiguration:secretOptions](../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-secretOptions "../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-secretOptions").
 
-28. Choose **Next page**.
-29. For **Job definition review**, review the configuration
-    steps. If you need to make changes, choose **Edit**. When you're
-    finished, choose **Create job definition**.
+28. Choose **Next page**. 29. For **Job definition review**, review the configuration
+steps. If you need to make changes, choose **Edit**. When you're
+finished, choose **Create job definition**.

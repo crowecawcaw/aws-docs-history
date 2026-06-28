@@ -20,10 +20,10 @@ The final job status (`SUCCEEDED` or `FAILED`) is determined by the
 final job status of the main node. To get the status of a multi-node parallel job, describe the
 job by using the job ID that was returned when you submitted the job. If you need the details for
 child nodes, describe each child node individually. You can address nodes using the
-`#`N``notation (starting with 0). For example, to access
- the details of the second node of a job, describe`aws_batch_job_id`#1
- using the AWS Batch [DescribeJobs](../APIReference/API_DescribeJobs.md "../APIReference/API_DescribeJobs.md") API operation. The
- `started`, `stoppedAt`, `statusReason`, and `exit`
+`#`N`` notation (starting with 0). For example, to access
+the details of the second node of a job, describe `aws_batch_job_id`#1
+using the AWS Batch [DescribeJobs](../APIReference/API_DescribeJobs.md "../APIReference/API_DescribeJobs.md") API operation. The
+`started`, `stoppedAt`, `statusReason`, and `exit`
 information for a multi-node parallel job is populated from the main node.
 
 If you specify job retries, a main node failure causes another attempt to occur. Child node

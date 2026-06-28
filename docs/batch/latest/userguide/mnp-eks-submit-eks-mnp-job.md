@@ -1,7 +1,7 @@
 # Submit an Amazon EKS MNP job
 
 To submit a job using the registered job definition, enter the following command. Replace
-the value of <EKS_JOB_QUEUE_NAME> with the name or ARN of a pre-existing job queue
+the value of <EKS\_JOB\_QUEUE\_NAME> with the name or ARN of a pre-existing job queue
 associated with an Amazon EKS compute environment.
 
 ```

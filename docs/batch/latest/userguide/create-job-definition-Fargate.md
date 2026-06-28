@@ -4,24 +4,24 @@ Complete the following steps to create a single-node job definition on AWS Farga
 
 ###### To create a new job definition on Fargate resources:
 
-1.  Open the AWS Batch console at [https://console.aws.amazon.com/batch/](https://console.aws.amazon.com/batch/ "https://console.aws.amazon.com/batch/").
-2.  From the top navigation bar, choose the AWS Region to use.
-3.  In the left navigation pane, choose **Job definitions**.
-4.  Choose **Create**.
-5.  For **Orchestration type**, choose **Fargate**. For
-    more information, see [Fargate compute environments](fargate.md "fargate.md").
-6.  For **Name**, enter a unique name for your job definition. The name can
-    be up to 128 characters in length. It can contain uppercase and lowercase letters, numbers,
-    hyphens (-), and underscores (\_).
-7.  (Optional) For **Execution timeout**, enter the timeout value (in
-    seconds). The execution timeout is the length of time before an unfinished job is
-    terminated. If an attempt exceeds the timeout duration, the attempt is stopped and moves to
-    a `FAILED` status. For more information, see [Job timeouts](job_timeouts.md "job_timeouts.md"). The minimum value is 60 seconds.
-8.  (Optional) Turn on **Scheduling priority**. Enter a scheduling priority
-    value between 0 and 100. Higher values are given higher priority over lower values.
-9.  (Optional) Expand **Tags**, and then choose **Add
-    tag** to add tags to the resource. Turn on **Propagate tags** to
-    propagate tags from the job and job definition.
+1. Open the AWS Batch console at [https://console.aws.amazon.com/batch/](https://console.aws.amazon.com/batch/ "https://console.aws.amazon.com/batch/").
+2. From the top navigation bar, choose the AWS Region to use.
+3. In the left navigation pane, choose **Job definitions**.
+4. Choose **Create**.
+5. For **Orchestration type**, choose **Fargate**. For
+   more information, see [Fargate compute environments](fargate.md "fargate.md").
+6. For **Name**, enter a unique name for your job definition. The name can
+   be up to 128 characters in length. It can contain uppercase and lowercase letters, numbers,
+   hyphens (-), and underscores (\_).
+7. (Optional) For **Execution timeout**, enter the timeout value (in
+   seconds). The execution timeout is the length of time before an unfinished job is
+   terminated. If an attempt exceeds the timeout duration, the attempt is stopped and moves to
+   a `FAILED` status. For more information, see [Job timeouts](job_timeouts.md "job_timeouts.md"). The minimum value is 60 seconds.
+8. (Optional) Turn on **Scheduling priority**. Enter a scheduling priority
+   value between 0 and 100. Higher values are given higher priority over lower values.
+9. (Optional) Expand **Tags**, and then choose **Add
+   tag** to add tags to the resource. Turn on **Propagate tags** to
+   propagate tags from the job and job definition.
 10. In the **Fargate platform configuration** section:
 
     1. For **Runtime platform**, choose the compute environment
@@ -98,8 +98,9 @@ Complete the following steps to create a single-node job definition on AWS Farga
          organization name (for example, `amazon/amazon-ecs-agent`).
         * Images in other online repositories are qualified further by a domain name (for
          example, `quay.io/assemblyline/ubuntu`).
+
     2. For **Command**, enter the commands into the field as their JSON
-       string array equivalent.
+    string array equivalent.
 
     This parameter maps to `Cmd` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate "https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate")
     section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/ "https://docs.docker.com/engine/api/v1.38/") and the `COMMAND` parameter to [**docker
@@ -120,50 +121,54 @@ Complete the following steps to create a single-node job definition on AWS Farga
 
         If you choose **Add parameter**, you must either configure at
          least one parameter or choose **Remove parameter**
+
     4. In the **Environment configuration** section:
 
-       1. For **Job role configuration**, choose an IAM role that has
-          permissions to the AWS APIs. This feature uses Amazon ECS IAM roles for task
-          functionality. For more information, see [IAM Roles for Tasks](../../../AmazonECS/latest/developerguide/task-iam-roles.md "../../../AmazonECS/latest/developerguide/task-iam-roles.md") in the
-          _Amazon Elastic Container Service Developer Guide_.
+        1. For **Job role configuration**, choose an IAM role that has
+         permissions to the AWS APIs. This feature uses Amazon ECS IAM roles for task
+         functionality. For more information, see [IAM Roles for Tasks](../../../AmazonECS/latest/developerguide/task-iam-roles.md "../../../AmazonECS/latest/developerguide/task-iam-roles.md") in the
+         *Amazon Elastic Container Service Developer Guide*.
 
-       ###### Note
 
-       Only roles that have the **Amazon Elastic Container Service Task Role** trust
-       relationship are shown here. For more information about how to create an IAM
-       role for your AWS Batch jobs, see [Creating
-       an IAM Role and Policy for your Tasks](../../../AmazonECS/latest/developerguide/task-iam-roles.md#create_task_iam_policy_and_role "../../../AmazonECS/latest/developerguide/task-iam-roles.md#create_task_iam_policy_and_role") in the
-       _Amazon Elastic Container Service Developer Guide_. 2. For **vCPUs**, enter the number of vCPUs to reserve for the
-       container. This parameter maps to `CpuShares` in the
-       [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate "https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate") section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/ "https://docs.docker.com/engine/api/v1.38/") and the
-       `--cpu-shares` option to [**docker
-       run**](https://docs.docker.com/engine/reference/commandline/run/ "https://docs.docker.com/engine/reference/commandline/run/"). Each vCPU is equivalent to 1,024 CPU shares. You must
-       specify at least one vCPU. 3. For **Memory**, enter the memory limit that's available to the
-       container. If your container attempts to exceed the memory specified here, the
-       container is stopped. This parameter maps to `Memory` in the
-       [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate "https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate") section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/ "https://docs.docker.com/engine/api/v1.38/") and the
-       `--memory` option to [**docker
-       run**](https://docs.docker.com/engine/reference/commandline/run/ "https://docs.docker.com/engine/reference/commandline/run/"). You must specify at least 4 MiB of memory for a
-       job.
+        ###### Note
 
-       If you use GuardDuty Runtime Monitoring, there is a slight memory overhead for the
-       GuardDuty security agent. Therefore the memory limit must include the size of the GuardDuty
-       security agent. For information about the GuardDuty security agent memory limits, see [CPU and memory limits](../../../guardduty/latest/ug/prereq-runtime-monitoring-ecs-support.md#ecs-runtime-agent-cpu-memory-limits "../../../guardduty/latest/ug/prereq-runtime-monitoring-ecs-support.md#ecs-runtime-agent-cpu-memory-limits") in the _GuardDuty User
-       Guide_. For information about the best practices, see [How do I remediate out of memory errors on my Fargate
-       tasks after enabling Runtime Monitoring](../../../AmazonECS/latest/developerguide/ecs-guard-duty-troubleshooting.md#memory-error "../../../AmazonECS/latest/developerguide/ecs-guard-duty-troubleshooting.md#memory-error") in the _Amazon ECS Developer Guide_.
+        Only roles that have the **Amazon Elastic Container Service Task Role** trust
+         relationship are shown here. For more information about how to create an IAM
+         role for your AWS Batch jobs, see [Creating
+         an IAM Role and Policy for your Tasks](../../../AmazonECS/latest/developerguide/task-iam-roles.md#create_task_iam_policy_and_role "../../../AmazonECS/latest/developerguide/task-iam-roles.md#create_task_iam_policy_and_role") in the
+         *Amazon Elastic Container Service Developer Guide*.
+        2. For **vCPUs**, enter the number of vCPUs to reserve for the
+         container. This parameter maps to `CpuShares` in the
+         [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate "https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate") section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/ "https://docs.docker.com/engine/api/v1.38/") and the
+         `--cpu-shares` option to [**docker
+         run**](https://docs.docker.com/engine/reference/commandline/run/ "https://docs.docker.com/engine/reference/commandline/run/"). Each vCPU is equivalent to 1,024 CPU shares. You must
+         specify at least one vCPU.
+        3. For **Memory**, enter the memory limit that's available to the
+         container. If your container attempts to exceed the memory specified here, the
+         container is stopped. This parameter maps to `Memory` in the
+         [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate "https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate") section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/ "https://docs.docker.com/engine/api/v1.38/") and the
+         `--memory` option to [**docker
+         run**](https://docs.docker.com/engine/reference/commandline/run/ "https://docs.docker.com/engine/reference/commandline/run/"). You must specify at least 4 MiB of memory for a
+         job.
 
-       ###### Note
 
-       To maximize your resource utilization, prioritize memory for jobs of a
-       specific instance type. For more information, see [Compute resource memory management](memory-management.md "memory-management.md").
+        If you use GuardDuty Runtime Monitoring, there is a slight memory overhead for the
+         GuardDuty security agent. Therefore the memory limit must include the size of the GuardDuty
+         security agent. For information about the GuardDuty security agent memory limits, see [CPU and memory limits](../../../guardduty/latest/ug/prereq-runtime-monitoring-ecs-support.md#ecs-runtime-agent-cpu-memory-limits "../../../guardduty/latest/ug/prereq-runtime-monitoring-ecs-support.md#ecs-runtime-agent-cpu-memory-limits") in the *GuardDuty User
+         Guide*. For information about the best practices, see [How do I remediate out of memory errors on my Fargate
+         tasks after enabling Runtime Monitoring](../../../AmazonECS/latest/developerguide/ecs-guard-duty-troubleshooting.md#memory-error "../../../AmazonECS/latest/developerguide/ecs-guard-duty-troubleshooting.md#memory-error") in the *Amazon ECS Developer Guide*.
+
+
+        ###### Note
+
+        To maximize your resource utilization, prioritize memory for jobs of a
+         specific instance type. For more information, see [Compute resource memory management](memory-management.md "memory-management.md").
 
     5. (Optional) For **Environment variables**, choose **Add
-       environment variable** to add environment variables as name-value pairs.
-       These variables are passed to the container.
-    6. (Optional) For **Secrets**, choose **Add secret**
-       to add secrets as a name-value pairs. These secrets are exposed in the container. For
-       more information, see [LogConfiguration:secretOptions](../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-secretOptions "../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-secretOptions").
-    7. Choose **Next page**.
+    environment variable** to add environment variables as name-value pairs.
+    These variables are passed to the container. 6. (Optional) For **Secrets**, choose **Add secret**
+    to add secrets as a name-value pairs. These secrets are exposed in the container. For
+    more information, see [LogConfiguration:secretOptions](../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-secretOptions "../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-secretOptions"). 7. Choose **Next page**.
 
 13. (Optional) In the **Linux configuration** section:
 

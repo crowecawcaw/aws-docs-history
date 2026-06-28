@@ -163,5 +163,4 @@ a Command (Console)](../../../systems-manager/latest/userguide/sysman-paramstore
     ```
 
 6. For **Value**, type a value. For example, `MyFirstParameter`. If you chose
-   **SecureString**, the value is masked exactly as you entered it.
-7. Choose **Create parameter**.
+**SecureString**, the value is masked exactly as you entered it. 7. Choose **Create parameter**.

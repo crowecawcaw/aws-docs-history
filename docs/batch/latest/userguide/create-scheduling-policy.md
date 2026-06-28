@@ -44,5 +44,4 @@ each share identifier to associate with the fair-share scheduling policy.
      same weight factor for the share identifier prefix.
 
 8. (Optional) In the **Tags** section, you can specify the key and value for each tag to
-   associate with the scheduling policy. For more information, see [Tag your AWS Batch resources](using-tags.md "using-tags.md").
-9. Choose **Submit** to finish and create your scheduling policy.
+associate with the scheduling policy. For more information, see [Tag your AWS Batch resources](using-tags.md "using-tags.md"). 9. Choose **Submit** to finish and create your scheduling policy.

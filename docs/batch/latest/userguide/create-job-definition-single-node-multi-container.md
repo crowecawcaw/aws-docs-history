@@ -4,32 +4,32 @@ Complete the following steps to create a single-node job definition with multipl
 
 ###### To create a new job definition on Amazon EC2 resources:
 
-1.  Open the AWS Batch console at [https://console.aws.amazon.com/batch/](https://console.aws.amazon.com/batch/ "https://console.aws.amazon.com/batch/").
-2.  From the navigation bar, choose the AWS Region to use.
-3.  In the left navigation pane, choose **Job definitions**.
-4.  Choose **Create**.
-5.  For **Orchestration type,** choose **Amazon Elastic Compute Cloud
-    (Amazon EC2)**.
-6.  For **Job definition structure**, turn off **Use legacy containerProperties structure** processing.
-7.  For **EC2 platform configuration**, turn off **Enable
-    multi-node parallel** processing.
-8.  Choose **Next**.
-9.  In **General configuration** section, enter the following:
+1. Open the AWS Batch console at [https://console.aws.amazon.com/batch/](https://console.aws.amazon.com/batch/ "https://console.aws.amazon.com/batch/").
+2. From the navigation bar, choose the AWS Region to use.
+3. In the left navigation pane, choose **Job definitions**.
+4. Choose **Create**.
+5. For **Orchestration type,** choose **Amazon Elastic Compute Cloud
+   (Amazon EC2)**.
+6. For **Job definition structure**, turn off **Use legacy containerProperties structure** processing.
+7. For **EC2 platform configuration**, turn off **Enable
+   multi-node parallel** processing.
+8. Choose **Next**.
+9. In **General configuration** section, enter the following:
 
-    1. For **Name**, enter a unique name for your job definition. The name can
-       be up to 128 characters in length. It can contain uppercase and lowercase letters, numbers,
-       hyphens (-), and underscores (\_).
-    2. For **Execution timeout - _optional_**, enter the timeout value (in
-       seconds). The execution timeout is the length of time before an unfinished job is
-       terminated. If an attempt exceeds the timeout duration, the attempt is stopped and moves to
-       a `FAILED` status. For more information, see [Job timeouts](job_timeouts.md "job_timeouts.md"). The minimum value is 60 seconds.
-    3. Turn on **Scheduling priority - _optional_**. Enter a scheduling priority
-       value between 0 and 100. Higher values are given higher priority.
-    4. Expand **Tags - _optional_** and then choose **Add tag**
-       to add tags to the resource. Enter a key and optional value, then choose **Add
-       tag**.
-    5. Turn on **Propagate tags** to propagate tags from the job
-       and job definition to the Amazon ECS task.
+   1. For **Name**, enter a unique name for your job definition. The name can
+      be up to 128 characters in length. It can contain uppercase and lowercase letters, numbers,
+      hyphens (-), and underscores (\_).
+   2. For **Execution timeout - _optional_**, enter the timeout value (in
+      seconds). The execution timeout is the length of time before an unfinished job is
+      terminated. If an attempt exceeds the timeout duration, the attempt is stopped and moves to
+      a `FAILED` status. For more information, see [Job timeouts](job_timeouts.md "job_timeouts.md"). The minimum value is 60 seconds.
+   3. Turn on **Scheduling priority - _optional_**. Enter a scheduling priority
+      value between 0 and 100. Higher values are given higher priority.
+   4. Expand **Tags - _optional_** and then choose **Add tag**
+      to add tags to the resource. Enter a key and optional value, then choose **Add
+      tag**.
+   5. Turn on **Propagate tags** to propagate tags from the job
+      and job definition to the Amazon ECS task.
 
 10. In **Retry strategy - _optional_** section, enter the following:
 
@@ -133,17 +133,15 @@ Complete the following steps to create a single-node job definition with multipl
          organization name (for example, `amazon/amazon-ecs-agent`).
         * Images in other online repositories are qualified further by a domain name (for
          example, `quay.io/assemblyline/ubuntu`).
+
     4. For **Resource requirements** configure each of the following:
 
-       1. For **vCPUs**, choose the number of CPUs for the container.
-       2. For **Memory**, choose the amount of memory for the container.
-       3. For **GPU - _optional_**, choose the number of GPUs for the container.
+        1. For **vCPUs**, choose the number of CPUs for the container.
+        2. For **Memory**, choose the amount of memory for the container.
+        3. For **GPU - *optional***, choose the number of GPUs for the container.
 
-    5. For **User**, enter the user name to use inside the container.
-    6. Turn on **Enable read only filesystem** to remove write access to the volume.
-    7. Turn on **Privileged** to give the job container elevated permissions on the host instance, similar
-       to the root user.
-    8. For **Command**, enter the commands into the field as their **JSON** string array equivalent.
+    5. For **User**, enter the user name to use inside the container. 6. Turn on **Enable read only filesystem** to remove write access to the volume. 7. Turn on **Privileged** to give the job container elevated permissions on the host instance, similar
+    to the root user. 8. For **Command**, enter the commands into the field as their **JSON** string array equivalent.
 
     This parameter maps to `Cmd` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate "https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate")
     section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/ "https://docs.docker.com/engine/api/v1.38/") and the `COMMAND` parameter to [**docker
@@ -180,6 +178,7 @@ Complete the following steps to create a single-node job definition with multipl
         	 **MKNOD**.
         6. For **Tmpfs**, choose **Add
          tmpfs** to add a `tmpfs` mount.
+
     12. ###### Note
 
     Firelens logging has to be done in a dedicated container. To configure
@@ -208,26 +207,30 @@ Complete the following steps to create a single-node job definition with multipl
         2. For **Options**, enter the name/value pair of the
          option. You can add more **Options** using
          **Added option**.
+
     13. In the **Logging configuration - _optional_** section:
 
         1. For **Log driver**, choose the log driver to use. For more
-           information about the available log drivers, see [LogConfiguration:logDriver](../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-logDriver "../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-logDriver").
+         information about the available log drivers, see [LogConfiguration:logDriver](../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-logDriver "../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-logDriver").
+
 
         ###### Note
 
-        By default, the `awslogs` log driver is used. 2. For **Options**, choose **Add option** to add an
-        option. Enter a name-value pair, and then choose **Add option**. 3. For **Secrets**, choose **Add secret**. Enter a
-        name-value pair and then choose **Add secret** to add a secret.
+        By default, the `awslogs` log driver is used.
+        2. For **Options**, choose **Add option** to add an
+         option. Enter a name-value pair, and then choose **Add option**.
+        3. For **Secrets**, choose **Add secret**. Enter a
+         name-value pair and then choose **Add secret** to add a secret.
+
 
         ###### Tip
 
         For more information, see [LogConfiguration:secretOptions](../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-secretOptions "../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-secretOptions").
 
     14. For **Mount points - _optional_**, choose **Add mount points** to add mount
-        points for data volumes. You must specify the source volume and container path.
-    15. For **Secrets - _optional_**, choose **Add
-        secret** to add a secret. Then, enter a name-value pair, and choose
-        **Add secret**.
+    points for data volumes. You must specify the source volume and container path. 15. For **Secrets - _optional_**, choose **Add
+    secret** to add a secret. Then, enter a name-value pair, and choose
+    **Add secret**.
 
     ###### Tip
 

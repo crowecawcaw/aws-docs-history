@@ -113,14 +113,14 @@ script to perform common configuration scenarios.
 A MIME multi-part file consists of the following components:
 
 - The content type and part boundary declaration: `Content-Type: multipart/mixed;
-boundary="==BOUNDARY=="`
+ boundary="==BOUNDARY=="`
 - The MIME version declaration: `MIME-Version: 1.0`
 - One or more user data blocks that contain the following components:
 
   - The opening boundary that signals the beginning of a user data block: `--==BOUNDARY==`. You must
     keep the line before this boundary blank.
   - The content type declaration for the block: `Content-Type:
-`text/cloud-config`; charset="us-ascii"`. For more information about content
+   `text/cloud-config`; charset="us-ascii"`. For more information about content
     types, see the [Cloud-Init
     documentation](https://cloudinit.readthedocs.io/en/latest/topics/format.html "https://cloudinit.readthedocs.io/en/latest/topics/format.html"). You must keep the line after the content type declaration blank.
   - The content of the user data, such as a list of shell commands or `cloud-init` directives.
