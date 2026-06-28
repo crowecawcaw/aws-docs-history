@@ -126,7 +126,7 @@ HealthOmics processes the Nextflow version information as follows:
 
 You can override the auto-selected Nextflow version by setting `engineSettings.engineVersion`
 in the **StartRun** request. This pins the run to a specific Nextflow version regardless of the
-version specified in the workflow's `nextflow.config` file. For more information, see [Specify engine settings](starting-a-run.md#start-run-api-engine-settings "starting-a-run.md#start-run-api-engine-settings").
+version specified in the workflow's `nextflow.config` file. For more information, see [Specify Nextflow engine settings](starting-a-run.md#start-run-api-engine-settings "starting-a-run.md#start-run-api-engine-settings").
 
 You can retrieve the following information about the Nextflow version that HealthOmics used for each run:
 

@@ -412,8 +412,8 @@ Ubuntu image.
 
 - Architecture
 
-HealthOmics supports x86_64 containers. If your local machine is ARM-based, such as Apple Mac, use a command such
-as the following to build an x86_64 container image:
+HealthOmics supports x86\_64 containers. If your local machine is ARM-based, such as Apple Mac, use a command such
+as the following to build an x86\_64 container image:
 
 ```
 docker build --platform amd64 -t my_tool:latest .
@@ -446,31 +446,31 @@ environment variable prefix. Don't use this prefix for your own variables in wor
 
 HealthOmics provides the following workflow environment variables:
 
-**AWS_REGION**
+**AWS\_REGION**
 
 This variable is the region where the container is running.
 
-**AWS_WORKFLOW_RUN**
+**AWS\_WORKFLOW\_RUN**
 
 This variable is the name of the current run.
 
-**AWS_WORKFLOW_RUN_ID**
+**AWS\_WORKFLOW\_RUN\_ID**
 
 This variable is the run identifier of the current run.
 
-**AWS_WORKFLOW_RUN_UUID**
+**AWS\_WORKFLOW\_RUN\_UUID**
 
 This variable is the run UUID of the current run.
 
-**AWS_WORKFLOW_TASK**
+**AWS\_WORKFLOW\_TASK**
 
 This variable is the name of the current task.
 
-**AWS_WORKFLOW_TASK_ID**
+**AWS\_WORKFLOW\_TASK\_ID**
 
 This variable is the task identifier of the current task.
 
-**AWS_WORKFLOW_TASK_UUID**
+**AWS\_WORKFLOW\_TASK\_UUID**
 
 This variable is the task UUID of the current task.
 

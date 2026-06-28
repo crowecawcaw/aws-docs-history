@@ -16,6 +16,7 @@ the workflow.
 - [Export workflow-level content](#exporting-workflow-content-nextflow "#exporting-workflow-content-nextflow")
 - [Export task content](#exporting-task-content-nextflow "#exporting-task-content-nextflow")
 - [Specify the Nextflow syntax version](#nextflow-syntax-version "#nextflow-syntax-version")
+- [Using scratch storage efficiently in Nextflow](#nextflow-scratch-storage "#nextflow-scratch-storage")
 - [Nextflow v26.04 release notes](#nextflow-v26-release-notes "#nextflow-v26-release-notes")
 
 ## Use nf-schema and nf-validation plugins
@@ -282,7 +283,7 @@ profiles {
 ```
 
 When you start a run, specify one or more profiles using the `engineSettings` parameter. HealthOmics passes
-the `-profile` flag to the Nextflow engine. For more information, see [Specify engine settings](starting-a-run.md#start-run-api-engine-settings "starting-a-run.md#start-run-api-engine-settings").
+the `-profile` flag to the Nextflow engine. For more information, see [Specify Nextflow engine settings](starting-a-run.md#start-run-api-engine-settings "starting-a-run.md#start-run-api-engine-settings").
 
 ```
 aws omics start-run \
@@ -460,6 +461,38 @@ to `v1` in the **StartRun** request:
 
 For Nextflow v25.10.0 and earlier, HealthOmics does not support the v2 parser.
 
+## Using scratch storage efficiently in Nextflow
+
+Nextflow's `scratch` directive controls where a process writes its temporary working files.
+When ephemeral storage is enabled (`scratchStorageMode: LOCAL`), use the `scratch`
+directive to direct scratch I/O to the fast local volume at `/tmp`.
+
+The following table describes the supported `scratch` directive values and their behavior in
+HealthOmics:
+
+| Value                  | Behavior in HealthOmics                                                                                                                                                                             | Recommendation                  |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `scratch true`         | Uses `$TMPDIR`. Scratch I/O is directed to the local ephemeral volume when<br>`scratchStorageMode` is `LOCAL`.                                                                                      | Recommended                     |
+| `scratch '/some/path'` | Uses the specified literal path as the scratch directory. To use ephemeral storage, set the path<br>to `/tmp` or a subdirectory of `/tmp`. The path must exist in the container and<br>be writable. | Works when path is under `/tmp` |
+| `scratch 'ram-disk'`   | Attempts to use `/dev/shm` (tmpfs in RAM). This is not recommended for local scratch<br>storage in HealthOmics.                                                                                     | Not recommended                 |
+
+The recommended approach is to set `scratch true` in your process definition, which
+automatically uses `$TMPDIR` and requires no path configuration:
+
+```
+process my_process {
+    scratch true
+    disk '200 GB'
+    script:
+    """
+    my-tool --input ${input} --output ${output}
+    """
+}
+```
+
+For more information about ephemeral storage and the `disk` directive, see
+[Ephemeral storage for HealthOmics workflow tasks](workflows-ephemeral-storage.md "workflows-ephemeral-storage.md").
+
 ## Nextflow v26.04 release notes
 
 The following tables summarize HealthOmics support for new features, enhancements, and deprecations
@@ -467,16 +500,16 @@ released in Nextflow version 26.04.
 
 ### New features and enhancements
 
-| Feature                                | From version | HealthOmics support | Notes                                                                                                                                                                                                                                                                                      |
-| -------------------------------------- | ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Strict syntax parser (default)         | 26.04        | Yes                 | Enabled by default from v26.04. Legacy parser available via<br>`syntaxVersion: "v1"` in engine settings.                                                                                                                                                                                   |
-| Record types                           | 26.04        | Yes                 | For more information, see [Records](https://docs.seqera.io/nextflow/script#records "https://docs.seqera.io/nextflow/script#records") in the<br>Seqera Nextflow documentation.                                                                                                              |
-| Workflow output summaries              | 26.04        | Yes                 | Prints a summary of workflow outputs on run completion. Output format configurable<br>via `outputFormat` in engine settings.<br>For more information, see<br>[Specify engine settings](starting-a-run.md#start-run-api-engine-settings "starting-a-run.md#start-run-api-engine-settings"). |
-| Agent logging mode                     | 26.04        | Yes                 | Configurable via `agentMode` in engine settings. For more information, see<br>[Specify engine settings](starting-a-run.md#start-run-api-engine-settings "starting-a-run.md#start-run-api-engine-settings").                                                                                |
-| Module system (Nextflow Registry)      | 26.04        | No                  | HealthOmics workflows run in an isolated network with no outbound internet access.<br>You can include modules directly in your workflow zip.                                                                                                                                               |
-| Static typing (preview)                | 26.04        | No                  | HealthOmics does not support preview features.                                                                                                                                                                                                                                             |
-| Auto-load collection params from files | 26.04        | No                  | Requires static typing (preview), which HealthOmics does not support.                                                                                                                                                                                                                      |
-| Multi-revision pipelines checkout      | 26.04        | N/A                 | Not applicable. HealthOmics does not use Git-based pipeline checkout.                                                                                                                                                                                                                      |
+| Feature                                | From version | HealthOmics support | Notes                                                                                                                                                                                                                                                                                               |
+| -------------------------------------- | ------------ | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Strict syntax parser (default)         | 26.04        | Yes                 | Enabled by default from v26.04. Legacy parser available via<br>`syntaxVersion: "v1"` in engine settings.                                                                                                                                                                                            |
+| Record types                           | 26.04        | Yes                 | For more information, see [Records](https://docs.seqera.io/nextflow/script#records "https://docs.seqera.io/nextflow/script#records") in the<br>Seqera Nextflow documentation.                                                                                                                       |
+| Workflow output summaries              | 26.04        | Yes                 | Prints a summary of workflow outputs on run completion. Output format configurable<br>via `outputFormat` in engine settings.<br>For more information, see<br>[Specify Nextflow engine settings](starting-a-run.md#start-run-api-engine-settings "starting-a-run.md#start-run-api-engine-settings"). |
+| Agent logging mode                     | 26.04        | Yes                 | Configurable via `agentMode` in engine settings. For more information, see<br>[Specify Nextflow engine settings](starting-a-run.md#start-run-api-engine-settings "starting-a-run.md#start-run-api-engine-settings").                                                                                |
+| Module system (Nextflow Registry)      | 26.04        | No                  | HealthOmics workflows run in an isolated network with no outbound internet access.<br>You can include modules directly in your workflow zip.                                                                                                                                                        |
+| Static typing (preview)                | 26.04        | No                  | HealthOmics does not support preview features.                                                                                                                                                                                                                                                      |
+| Auto-load collection params from files | 26.04        | No                  | Requires static typing (preview), which HealthOmics does not support.                                                                                                                                                                                                                               |
+| Multi-revision pipelines checkout      | 26.04        | N/A                 | Not applicable. HealthOmics does not use Git-based pipeline checkout.                                                                                                                                                                                                                               |
 
 ### Deprecations
 

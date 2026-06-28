@@ -76,7 +76,7 @@ and image URLs that link to a public repository. The following table shows each 
 support for rendering image and link URLs for private repositories.
 
 | Private repository support |
-| -------------------------- | ------------------------------ | --------- |
+| -------------------------- |
 | Source provider            | Page URL                       | Image URL |
 | GitHub                     | Only with access to repository | No        |
 | GitLab                     | Only with access to repository | No        |

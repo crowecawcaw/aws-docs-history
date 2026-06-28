@@ -75,7 +75,7 @@ You can use the following DDL example in Athena to create a table suitable for s
 a single table. This example isn't the exact equivalent of the variant store structure, but it works well for a
 generic use case.
 
-Create your own values for DATABASE_NAME and TABLE_NAME when you create the table.
+Create your own values for DATABASE\_NAME and TABLE\_NAME when you create the table.
 
 ```
  CREATE TABLE <DATABASE_NAME>. <TABLE_NAME> (

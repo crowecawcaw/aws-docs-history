@@ -140,13 +140,13 @@ specific task:
 ### Track call caching using CloudWatch Logs
 
 HealthOmics creates cache activity logs in the `/aws/omics/WorkflowLog` CloudWatch log group. There is a
-log stream for each run cache: **runCache/<cache_id>/<cache_uuid>**.
+log stream for each run cache: **runCache/<cache\_id>/<cache\_uuid>**.
 
 For runs that use call caching, HealthOmics generates CloudWatch Logs entries for these events:
 
-- creating a cache entry (CACHE_ENTRY_CREATED)
-- matching a cache entry (CACHE_HIT)
-- failing to match a cache entry (CACHE_MISS)
+- creating a cache entry (CACHE\_ENTRY\_CREATED)
+- matching a cache entry (CACHE\_HIT)
+- failing to match a cache entry (CACHE\_MISS)
 
 For more information about these logs, see [Logs in CloudWatch](monitoring-cloudwatch-logs.md#cloudwatch-logs "monitoring-cloudwatch-logs.md#cloudwatch-logs").
 

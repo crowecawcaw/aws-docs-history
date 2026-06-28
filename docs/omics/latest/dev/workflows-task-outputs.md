@@ -32,7 +32,7 @@ HealthOmics
 
 This example creates a task named `SayHello` that echoes the STDOUT content to the task output
 file. The WDL **stdout** function captures the STDOUT content (in this example, the input string
-**Hello World!**) in file **stdout_file**.
+**Hello World!**) in file **stdout\_file**.
 
 Because HealthOmics creates logs for all STDOUT content, the output also appears in CloudWatch Logs, along with other STDERR
 logging information for the task.
@@ -84,7 +84,7 @@ task SayHello {
 
 This example creates a task named `SayHello` that echoes the STDERR content to the task output
 file. The WDL **stderr** function captures the STDERR content (in this example, the input string
-**Hello World!**) in file **stderr_file**.
+**Hello World!**) in file **stderr\_file**.
 
 Because HealthOmics creates logs for all STDERR content, the output will appear in CloudWatch Logs, along with other STDERR
 logging information for the task.
@@ -135,7 +135,7 @@ task SayHello {
 ### Task output to a file
 
 In this example, the SayHello task creates two files (message.txt and info.txt) and explicitly declares
-these files as the named outputs (message_file and info_file).
+these files as the named outputs (message\_file and info\_file).
 
 ```
 version 1.0
@@ -285,7 +285,7 @@ file named **output.txt**. For example, if you provide the following input, the 
 }
 ```
 
-The `outputs` directive specifies that the output name is **example_out** and it’s
+The `outputs` directive specifies that the output name is **example\_out** and it’s
 type is `stdout`. For a downstream task to consume the output of this task, it would refer to the
 output as `example_out`.
 
@@ -320,7 +320,7 @@ This example creates a `CommandLineTool` task that echoes the STDERR content to 
 file named **stderr.txt**. The task modifies the `baseCommand` so that
 `echo` writes to STDERR (instead of STDOUT).
 
-The `outputs` directive specifies that the output name is **stderr_out** and it’s
+The `outputs` directive specifies that the output name is **stderr\_out** and it’s
 type is `stderr`.
 
 Because HealthOmics creates logs for all STDERR and STDOUT content, the output will appear in CloudWatch Logs, along with
@@ -353,7 +353,7 @@ requirements:
 ### Task output to a file
 
 This example creates a `CommandLineTool` task that creates a compressed tar archive from the
-input files. You provide the name of the archive as an input parameter (archive_name).
+input files. You provide the name of the archive as an input parameter (archive\_name).
 
 The **outputs** directive specifies that the `archive_file` output type is
 `File`, and it uses a reference to the input parameter `archive_name` to bind to the

@@ -1,44 +1,90 @@
 # Start a run in HealthOmics
 
-When you start a run, you specify the resources that HealthOmics allocates for use during the run.
+When you start a run, you specify the resources that HealthOmics allocates for the run. The following settings are
+available:
 
-Specify the run storage type and storage amount (for static storage). To ensure data isolation and security,
-HealthOmics provisions the storage at the start of each run, and deprovisions it at the end of the run. For additional
-information, see [Run storage types in HealthOmics workflows](workflows-run-types.md "workflows-run-types.md").
-
-Specify an Amazon S3 location for the output files. If you run a high volume of workflows concurrently, use separate
-Amazon S3 output URIs for each workflow to avoid bucket throttling. For more information, see [Organizing objects using prefixes](../../../AmazonS3/latest/userguide/using-prefixes.md "../../../AmazonS3/latest/userguide/using-prefixes.md") in the _Amazon S3 User Guide_ and [Scale Storage Connections Horizontally](../../../whitepapers/latest/s3-optimizing-performance-best-practices/scale-storage-connections-horizontally.md "../../../whitepapers/latest/s3-optimizing-performance-best-practices/scale-storage-connections-horizontally.md") in the _Optimizing Amazon S3 Performance_
-whitepaper.
-
-You can also specify the run priority. How priority impacts the run depends on whether the run
-is associated with a run group.
-For additional information, see [Run priority](creating-run-groups.md#run-priority "creating-run-groups.md#run-priority").
-
-If a workflow has one or more versions, you can specify a version when you start the run. If you don’t specify a
-version, HealthOmics starts the [default workflow version](workflows-default-version.md "workflows-default-version.md").
-
-When using the HealthOmics API, you can provide a unique request ID for each run. The request ID is an idempotency token that HealthOmics
-uses to identify duplicate requests. and starts the run only once.
-
-###### Note
-
-You specify an IAM service role when you start a run. Optionally, the console can create the service role for you.
-For more information, see [Service roles for AWS HealthOmics](permissions-service.md "permissions-service.md").
+1. **Output location** – Specify an Amazon S3 URI where the output files from
+   the run are stored. If you run a high volume of workflows concurrently, use separate Amazon S3 output URIs for each
+   workflow to avoid bucket throttling. For more information, see [Organizing objects using prefixes](../../../AmazonS3/latest/userguide/using-prefixes.md "../../../AmazonS3/latest/userguide/using-prefixes.md") in the
+   _Amazon S3 User Guide_ and [Scale Storage Connections Horizontally](../../../whitepapers/latest/s3-optimizing-performance-best-practices/scale-storage-connections-horizontally.md "../../../whitepapers/latest/s3-optimizing-performance-best-practices/scale-storage-connections-horizontally.md") in the _Optimizing Amazon S3
+   Performance_ whitepaper.
+2. **Service role** – Specify an IAM service role that grants HealthOmics
+   permissions to access the resources needed for the run. Optionally, the console can create the service role for
+   you. For more information, see [Service roles for AWS HealthOmics](permissions-service.md "permissions-service.md").
+3. **Run storage** (optional, defaults to Dynamic) – Specify the run storage
+   type and storage amount (for static storage). To ensure data isolation and security, HealthOmics provisions the storage
+   at the start of each run, and deprovisions it at the end of the run. For more information, see [Run storage types in HealthOmics workflows](workflows-run-types.md "workflows-run-types.md").
+4. **Run priority** (optional) – Assign a priority to the run. How priority
+   impacts the run depends on whether the run is associated with a run group. For more information, see [Run priority](creating-run-groups.md#run-priority "creating-run-groups.md#run-priority").
+5. **Workflow version** (optional) – Select a specific workflow version for
+   the run. If you don't specify a version, HealthOmics starts the [default
+   workflow version](workflows-default-version.md "workflows-default-version.md").
+6. **Nextflow engine settings** (optional, Nextflow only) – Specify engine
+   settings such as version and syntax parser for Nextflow workflows during runtime. For more information, see
+   [Specify Nextflow engine settings](#start-run-api-engine-settings "#start-run-api-engine-settings").
+7. **Input parameters** (optional) – Provide the workflow input parameters
+   as a JSON file or inline values. Required parameters are defined by the workflow's parameter template. For more
+   information, see [HealthOmics run inputs](workflows-run-inputs.md "workflows-run-inputs.md").
+8. **Request ID** (optional, API and CLI only) – Provide a unique request
+   ID for each run. The request ID is an idempotency token that HealthOmics uses to identify duplicate requests and start
+   the run only once.
 
 ###### Topics
 
-- [HealthOmics run parameters](#run-parameters "#run-parameters")
 - [Starting a run using the console](#starting-a-run-console "#starting-a-run-console")
 - [Starting a run using the API](#starting-a-run-api "#starting-a-run-api")
-- [Get information about a run](#getinfo-about-runs "#getinfo-about-runs")
-- [Specify engine settings](#start-run-api-engine-settings "#start-run-api-engine-settings")
+- [Specify Nextflow engine settings](#start-run-api-engine-settings "#start-run-api-engine-settings")
 - [VPC networking](#start-run-vpc-networking "#start-run-vpc-networking")
 
-## HealthOmics run parameters
+## Starting a run using the console
 
-When you start a run, you specify run inputs in the run parameters JSON file or you can enter the parameter
-values inline. For information about managing the
-size of the run parameters JSON file, see [Managing run parameters size](workflows-run-inputs.md#run-input-file-options "workflows-run-inputs.md#run-input-file-options").
+The Start run wizard has four steps:
+
+1. Specify run details
+2. Add parameter values
+3. Add run group, run cache, and tags
+4. Review and start run
+
+**To start a run**
+
+1. Open the [HealthOmics console](https://console.aws.amazon.com/omics/ "https://console.aws.amazon.com/omics/").
+2. If required, open the left navigation pane (≡). Choose **Runs**.
+3. Choose **Start run**.
+
+### Step 1: Specify run details
+
+Provide the following settings:
+
+| #   | Setting                              | Required                           | Description                                                                                                                                                                                                                                                                                        |
+| --- | ------------------------------------ | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | **Choose workflow source**           | Required                           | Choose *_Owned workflow_<br>• (private workflows you own) or *_Shared<br>workflow_<br>• (workflows shared with you).                                                                                                                                                                               |
+| 2   | **Workflow ID**                      | Required                           | Select the workflow ID for this run.                                                                                                                                                                                                                                                               |
+| 3   | **Run name**                         | Required (optional on API and CLI) | A descriptive name for this run. Maximum 127 characters. A run ID is generated automatically once<br>the workflow is run.                                                                                                                                                                          |
+| 4   | **Configuration**                    | Optional                           | Choose a configuration to specify VPC settings (subnets, security groups) for internet<br>connectivity and to include container registry mappings and Git repository connections. Cannot be<br>changed after the run starts.                                                                       |
+| 5   | **Run priority**                     | Optional                           | Sets the priority of a run in a run group. A higher number means a greater priority. Integers<br>only, in the range 0–1,000.                                                                                                                                                                       |
+| 6   | **Run storage type**                 | Optional                           | Choose *_Dynamic storage_<br>• (default, recommended) or **Static<br>storage**. Dynamic storage scales up and down per task. Static storage provisions a fixed<br>amount. For more information, see [Run storage types in HealthOmics workflows](workflows-run-types.md "workflows-run-types.md"). |
+| 7   | **Run storage capacity**             | Conditional                        | For static storage only. Specify the amount in GiB.                                                                                                                                                                                                                                                |
+| 8   | **Select S3 output destination**     | Required                           | The Amazon S3 location where run outputs are delivered. Format:<br>`s3://bucket/prefix/object`.                                                                                                                                                                                                    |
+| 9   | **Output bucket owner's account ID** | Optional                           | If your account doesn't own the output bucket, enter the bucket owner's AWS account ID.                                                                                                                                                                                                            |
+| 10  | **Run metadata retention mode**      | Optional                           | Choose *_Retain run metadata_<br>• (default) or **Remove oldest<br>automatically**. `RETAIN` is the default value; in this mode HealthOmics doesn't delete the<br>run metadata. For more information, see [Run retention mode for HealthOmics runs](run-retention.md "run-retention.md").          |
+| 11  | **Network access**                   | Optional                           | Choose *_Restricted_<br>• (default) or **Virtual Private Cloud<br>(VPC)**. For more information, see [VPC networking](#start-run-vpc-networking "#start-run-vpc-networking").                                                                                                                      |
+| 12  | **Service role**                     | Required                           | Choose an existing service role or create a new one. HealthOmics requires permissions for Amazon S3 and KMS.<br>For more information, see [Service roles for AWS HealthOmics](permissions-service.md "permissions-service.md").                                                                    |
+
+Choose **Next** to proceed to Step 2.
+
+### Step 2: Add parameter values
+
+On this page, enter the parameter values for the run, or select predefined values provided by the workflow
+author.
+
+When you select a Nextflow workflow to start the run, additional sections for **Nextflow
+engine settings** and **Nextflow profiles** appear at the top of this
+step. For complete details on these settings (supported values, behavior, and profile precedence), see [Specify Nextflow engine settings](#start-run-api-engine-settings "#start-run-api-engine-settings").
+
+**Run parameter values**
+
+Provide the run parameters. You can upload a JSON file or manually enter the values. The JSON file contains
+the exact name of each input parameter and a value for the parameter.
 
 HealthOmics supports the following JSON types for parameter values.
 
@@ -51,65 +97,43 @@ HealthOmics supports the following JSON types for parameter values.
 | array     | "a":[1,2,3]                 | Value is not in quotes. Array members must each have the type defined by the input parameter.                    |
 | object    | "o":{"left":"a", "right":1} | In WDL, object maps to WDL Pair, Map, or Struct                                                                  |
 
-## Starting a run using the console
+For more information, see [HealthOmics run inputs](workflows-run-inputs.md "workflows-run-inputs.md") and
+[Managing run parameters size](workflows-run-inputs.md#run-input-file-options "workflows-run-inputs.md#run-input-file-options").
 
-###### To start a run
+Choose **Next** to proceed to Step 3.
 
-1. Open the [HealthOmics console](https://console.aws.amazon.com/omics/ "https://console.aws.amazon.com/omics/").
-2. If required, open the left navigation pane (≡). Choose **Runs**.
-3. On the **Runs** page, choose **Start run**.
-4. In the **Run details** panel, provide the following information
+### Step 3: Add run group, run cache, and tags
 
-   - **Workflow source** - Choose **Owned workflow** or **Shared
-     workflow**.
-   - **Workflow ID** - The workflow ID associated
-     with this run.
-   - **Workflow version** (Optional) - Select a workflow version to use for this run. If
-     you don't select a version, the run uses the workflow default version.
-   - **Run name** - A distinctive name for this
-     run.
-   - **Run priority** (Optional) - The priority of this run. Higher numbers specify a
-     higher priority, and the highest priority tasks are run first.
-   - **Run storage type** - Specify the storage type here to override the default run
-     storage type specified for the workflow. Static storage allocates a fixed amount of storage for the run.
-     Dynamic storage scales up and down as required for each task in the run.
-   - **Run storage capacity** - For static run storage, specify the amount of storage
-     needed for the run. This entry overrides the default run storage amount specified for the workflow.
-   - **Select S3 output destination** - The S3
-     location where the run outputs will be saved.
-   - **Output bucket owner's account ID** (Optional) - If your account doesn't own the
-     output bucket, enter the bucket owner's AWS account ID. This information is required so that HealthOmics can
-     verify the bucket ownership.
-   - **Run metadata retention mode** - Choose whether to retain the metadata for all runs
-     or have the system remove the oldest run metadata when your account reaches the maximum number of runs.
-     For more information, see [Run retention mode for HealthOmics runs](run-retention.md "run-retention.md").
+All settings on this page are optional.
 
-5. Under **Service role**, you can use an existing service role or create
-   a new one.
-6. (Optional) For **Tags**, you can assign up to 50 tags to the run.
-7. Choose **Next**.
-8. On the **Add parameter values** page, provide the run parameters. You can either upload a
-   JSON file that specifies the parameters or manually enter the values.
-9. Choose **Next**.
-10. In the **Run group** panel, you can optionally specify a run group for this run. For more
-    information, see [Using HealthOmics run groups](creating-run-groups.md "creating-run-groups.md").
-11. In the **Run cache** panel, you can optionally specify a run cache for this run. For more
-    information, see [Configuring a run with run cache using the console](workflow-cache-startrun.md#workflow-cache-startrun-console "workflow-cache-startrun.md#workflow-cache-startrun-console").
-12. Choose **Review and start run**.
-13. After you review the run configuration, choose **Start run**.
+| #   | Setting       | Required | Description                                                                                                                                                                                                                                                                               |
+| --- | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | **Run group** | Optional | Select an existing run group or create a new one. Run groups bundle runs by category and priority<br>and set maximum vCPUs and run time. For more information, see [Using HealthOmics run groups](creating-run-groups.md "creating-run-groups.md").                                       |
+| 2   | **Run cache** | Optional | Use a run cache to reuse completed task results rather than recomputing them. For more<br>information, see [Configuring a run with run cache using the console](workflow-cache-startrun.md#workflow-cache-startrun-console "workflow-cache-startrun.md#workflow-cache-startrun-console"). |
+| 3   | **Tags**      | Optional | Add up to 50 key-value tags for search, filtering, and cost tracking.                                                                                                                                                                                                                     |
+
+Choose **Next** to proceed to Step 4.
+
+### Step 4: Review and start run
+
+Review the run configuration from all previous steps. To modify a setting, choose **Edit**
+next to the relevant step. When you're ready, choose **Start run**.
 
 ## Starting a run using the API
 
-Use the **start-run** API operation to create and start a run.
+Use the **StartRun** API operation to create and start a run.
 
-The following example specifies the workflow ID and service role. This example sets the retention mode to
-`REMOVE`. For more information about retention mode, see [Run retention mode for HealthOmics runs](run-retention.md "run-retention.md").
+### Start a basic run
+
+The following example specifies the workflow ID, service role, and output URI. This example sets the
+retention mode to `REMOVE`. For more information about retention mode, see [Run retention mode for HealthOmics runs](run-retention.md "run-retention.md").
 
 ```
-aws omics start-run
+aws omics start-run \
      --workflow-id ``workflow id`` \
-     --role-arn arn:aws:iam::1234567892012:role/service-role/OmicsWorkflow-20221004T164236 \
-     --name ``workflow name`` \
+     --role-arn arn:aws:iam::123456789012:role/OmicsRole \
+     --output-uri s3://amzn-s3-demo-bucket/output \
+     --name "my-workflow-run" \
      --retention-mode REMOVE
 ```
 
@@ -118,266 +142,205 @@ In response, you get the following output. The `uuid` is unique to the run, and 
 
 ```
 {
-    "arn": "arn:aws:omics:us-west-2:....:run/1234567",
+    "arn": "arn:aws:omics:us-west-2:123456789012:run/1234567",
     "id": "123456789",
-    "uuid":"96c57683-74bf-9d6d-ae7e-f09b097db14a",
-    "outputUri":"s3://bucket/folder/8405154/96c57683-74bf-9d6d-ae7e-f09b097db14a"
+    "uuid": "96c57683-74bf-9d6d-ae7e-f09b097db14a",
+    "outputUri": "s3://bucket/folder/8405154/96c57683-74bf-9d6d-ae7e-f09b097db14a",
     "status": "PENDING"
 }
 ```
 
-### Include a parameter file
+### Common API options
 
-If the parameter template for a workflow declares any required parameters, you can provide a local JSON file
-of the inputs when you start a workflow run. The JSON file contains the exact name of each input parameter and a
-value for the parameter.
+**Include a parameter file**
 
-Reference the input JSON file in the AWS CLI by adding `--parameters file://<input_file.json>` to
-your `start-run` request. For more information about run parameters, see [HealthOmics run inputs](workflows-run-inputs.md "workflows-run-inputs.md").
+If the parameter template for a workflow declares any required parameters, you can provide a local
+JSON file of the inputs when you start a workflow run. The JSON file contains the exact name of each input
+parameter and a value for the parameter.
 
-### Provide a request ID
+Reference the input JSON file in the AWS CLI by adding `--parameters
+ file://<input_file.json>` to your `start-run` request. For more information, see supported
+JSON types for parameter values in [Step 2: Add parameter values](#start-run-console-step2 "#start-run-console-step2") and [HealthOmics run inputs](workflows-run-inputs.md "workflows-run-inputs.md").
 
-You can provide a unique `requestId` for each run. The request ID is an idempotency token that
-HealthOmics uses to catch duplicate requests. It won't start a run if the request ID is a duplicate of a previous run.
+**Provide a request ID**
 
-If you use infrastructure (such as Lambda functions or step functions) for orchestrating run starts, best
-practice is to provide a unique request ID for each StartRun request. This ensures that if your infrastructure
-inadvertently starts a run that it already started, HealthOmics won't start the duplicate run. For example, if the
-infrastructure is attemping to recover from an upstream error, it may rerun a script that tries to start runs
-that are duplicate requests.
+You can provide a unique `requestId` for each run. The request ID is an idempotency token
+that HealthOmics uses to catch duplicate requests. It won't start a run if the request ID is a duplicate of a
+previous run.
 
-### Choose a workflow version
-
-You can specify a workflow version for the run. If you don't specify a version, HealthOmics starts the run with the
-default workflow version.
+If you use infrastructure (such as Lambda functions or step functions) for orchestrating run starts,
+best practice is to provide a unique request ID for each StartRun request. This ensures that if your
+infrastructure inadvertently starts a run that it already started, HealthOmics won't start the duplicate
+run.
 
 ```
-aws omics start-run
+aws omics start-run \
      --workflow-id ``workflow id`` \
-      ...
+     ... \
+     --request-id "unique-request-id-12345"
+```
+
+**Choose a workflow version**
+
+You can specify a workflow version for the run. If you don't specify a version, HealthOmics starts the run
+with the default workflow version.
+
+```
+aws omics start-run \
+     --workflow-id ``workflow id`` \
+     ... \
      --workflow-version-name '1.2.1'
 ```
 
-### Override the run storage type
+**Override the run storage type**
 
 You can override the default run storage type that was set in the workflow.
 
 ```
-aws omics start-run
-       --workflow-id ``workflow id`` \
-        ...
-       --storage-type STATIC
-       --storage-capacity 2400
+aws omics start-run \
+     --workflow-id ``workflow id`` \
+     ... \
+     --storage-type STATIC \
+     --storage-capacity 2400
 ```
 
-### Run a GPU workflow
+### Enabling ephemeral storage
 
-You can also specify a GPU workflow ID, as shown in the following example:
-
-```
-aws omics start-run
-       --workflow-id ``workflow id`` \
-       --role-arn arn:aws:iam::1234567892012:role/service-role/OmicsWorkflow-20221004T164236 \
-       --name GPUTestRunModel \
-       --output-uri s3://amzn-s3-demo-bucket1
-```
-
-## Get information about a run
-
-You can use the ID in the response with the **get-run** API
-to check the status of a run, as shown.
-
-```
-aws omics get-run --id ``run id``
-```
-
-The response from this API operation tells you the status of the workflow run.
-Possible statuses are `PENDING`, `STARTING`,
-`RUNNING`, and `COMPLETED`. When a run is
-`COMPLETED`, you can find an output file called
-`outfile.txt` in your output Amazon S3 bucket, in a folder named
-after the run ID.
-
-The **get-run** API operation also returns other details, such as
-whether the workflow is `Ready2Run` or `PRIVATE`, the workflow
-engine, and accelerator details. The following example shows the response for
-**get-run** for a run of a private workflow, described in WDL
-with a GPU accelerator and no tags assigned to the run.
-
-```
-{
-    "arn": "arn:aws:omics:us-west-2:123456789012:run/7830534",
-    "id": "7830534",
-    "uuid":"96c57683-74bf-9d6d-ae7e-f09b097db14a",
-    "outputUri":"s3://bucket/folder/8405154/96c57683-74bf-9d6d-ae7e-f09b097db14a"
-    "status": "COMPLETED",
-    "workflowId": "4074992",
-    "workflowType": "PRIVATE",
-    "workflowVersionName": "3.0.0",
-    "roleArn": "arn:aws:iam::123456789012:role/service-role/OmicsWorkflow-20221004T164236",
-    "name": "RunGroupMaxGpuTest",
-    "runGroupId": "9938959",
-    "digest": "sha256:a23a6fc54040d36784206234c02147302ab8658bed89860a86976048f6cad5ac",
-    "accelerators": "GPU",
-    "outputUri": "s3://amzn-s3-demo-bucket1",
-    "startedBy": "arn:aws:sts::123456789012:assumed-role/Admin/<role_name>",
-    "creationTime": "2023-04-07T16:44:22.262471+00:00",
-    "startTime": "2023-04-07T16:56:12.504000+00:00",
-    "stopTime": "2023-04-07T17:22:29.908813+00:00",
-    "tags": {}
-}
-```
-
-You can see the status of all runs with the **list-runs** API
-operation, as shown.
-
-```
- aws omics list-runs
-```
-
-To see all the tasks completed for a specific run, use the
-**list-run-tasks** API.
-
-```
- aws omics list-run-tasks --id ``task ID``
-```
-
-To get the details of any specific task, use the get-run-task API.
-
-```
- aws omics get-run-task --id <run_id> --task-id ``task ID``
-```
-
-After the run completes, the metadata is sent to CloudWatch under the stream
-`**manifest/run/<run ID>/<run
- UUID>**`.
-
-The following is an example of the manifest.
-
-```
-{
-    "arn": "arn:aws:omics:us-east-1:123456789012:run/1695324",
-    "creationTime": "2022-08-24T19:53:55.284Z",
-    "resourceDigests": {
-      "s3://omics-data/broad-references/hg38/v0/Homo_sapiens_assembly38.dict": "etag:3884c62eb0e53fa92459ed9bff133ae6",
-      "s3://omics-data/broad-references/hg38/v0/Homo_sapiens_assembly38.fasta": "etag:e307d81c605fb91b7720a08f00276842-388",
-      "s3://omics-data/broad-references/hg38/v0/Homo_sapiens_assembly38.fasta.fai": "etag:f76371b113734a56cde236bc0372de0a",
-      "s3://omics-data/intervals/hg38-mjs-whole-chr.500M.intervals": "etag:27fdd1341246896721ec49a46a575334",
-      "s3://omics-data/workflow-input-lists/dragen-gvcf-list.txt": "etag:e22f5aeed0b350a66696d8ffae453227"
-    },
-    "digest": "sha256:a5baaff84dd54085eb03f78766b0a367e93439486bc3f67de42bb38b93304964",
-    "engine": "WDL",
-    "main": "gatk4-basic-joint-genotyping-v2.wdl",
-    "name": "1044-gvcfs",
-    "outputUri": "s3://omics-data/workflow-output",
-    "parameters": {
-      "callset_name": "cohort",
-      "input_gvcf_uris": "s3://omics-data/workflow-input-lists/dragen-gvcf-list.txt",
-      "interval_list": "s3://omics-data/intervals/hg38-mjs-whole-chr.500M.intervals",
-      "ref_dict": "s3://omics-data/broad-references/hg38/v0/Homo_sapiens_assembly38.dict",
-      "ref_fasta": "s3://omics-data/broad-references/hg38/v0/Homo_sapiens_assembly38.fasta",
-      "ref_fasta_index": "s3://omics-data/broad-references/hg38/v0/Homo_sapiens_assembly38.fasta.fai"
-    },
-    "roleArn": "arn:aws:iam::123456789012:role/OmicsServiceRole",
-    "startedBy": "arn:aws:sts::123456789012:assumed-role/admin/ahenroid-Isengard",
-    "startTime": "2022-08-24T20:08:22.582Z",
-    "status": "COMPLETED",
-    "stopTime": "2022-08-24T20:08:22.582Z",
-    "storageCapacity": 9600,
-    "uuid": "a3b0ca7e-9597-4ecc-94a4-6ed45481aeab",
-    "workflow": "arn:aws:omics:us-east-1:123456789012:workflow/1558364",
-    "workflowType": "PRIVATE"
-  },
-  {
-    "arn": "arn:aws:omics:us-east-1:123456789012:task/1245938",
-    "cpus": 16,
-    "creationTime": "2022-08-24T20:06:32.971290",
-    "image": "123456789012.dkr.ecr.us-west-2.amazonaws.com/gatk",
-    "imageDigest": "sha256:8051adab0ff725e7e9c2af5997680346f3c3799b2df3785dd51d4abdd3da747b",
-    "memory": 32,
-    "name": "geno-123",
-    "run": "arn:aws:omics:us-east-1:123456789012:run/1695324",
-    "startTime": "2022-08-24T20:08:22.278Z",
-    "status": "SUCCESS",
-    "stopTime": "2022-08-24T20:08:22.278Z",
-    "uuid": "44c1a30a-4eee-426d-88ea-1af403858f76"
-  },
-  ...
-```
-
-Run metadata isn't deleted if it's not present in the CloudWatch logs.
-
-## Specify engine settings
-
-For Nextflow v26.04.0 (and selected keys on earlier versions), you can pass an
-`engineSettings` map in the **StartRun** request to control engine behavior
-without modifying your workflow.
-
-The following table describes the supported keys:
-
-| Key             | Values                                                          | Behavior                                                                                                                                                                                                         | Version support                                                                  |
-| --------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `engineVersion` | `"22.04.0"`, `"23.10.0"`, `"24.10.8"`, `"25.10.0"`, `"26.04.0"` | Pins the Nextflow version for the run. Overrides the version detected from `nextflow.config`.                                                                                                                    | All Nextflow versions                                                            |
-| `syntaxVersion` | `"v1"`, `"v2"`                                                  | Selects the syntax parser. For more information, see [Specify the Nextflow syntax version](workflow-definition-nextflow.md#nextflow-syntax-version "workflow-definition-nextflow.md#nextflow-syntax-version").   | Nextflow v26.04.0 and later. For v25.10.0 and earlier, only `"v1"` is supported. |
-| `outputFormat`  | `"json"`, `"text"`, `"none"`                                    | Sets the format of the engine's stdout/stderr summary.                                                                                                                                                           | Nextflow v26.04.0 and later (silently ignored on earlier versions)               |
-| `agentMode`     | `"true"`, `"false"` (case-insensitive), `"0"`, `"1"`, `0`, `1`  | Controls Nextflow agent mode.                                                                                                                                                                                    | Nextflow v26.04.0 and later (silently ignored on earlier versions)               |
-| `profile`       | Comma-separated profile names                                   | Activates one or more Nextflow configuration profiles. For more information, see [Use Nextflow profiles](workflow-definition-nextflow.md#nextflow-profiles "workflow-definition-nextflow.md#nextflow-profiles"). | All Nextflow versions                                                            |
-
-The following example uses `engineSettings` to pin the Nextflow version and select the
-legacy syntax parser:
-
-```
-{
-  "engineSettings": {
-    "engineVersion": "26.04.0",
-    "syntaxVersion": "v1",
-    "outputFormat": "json"
-  }
-}
-```
-
-The following example starts a run with a single Nextflow profile:
+To enable ephemeral storage for a run, set `--scratch-storage-mode` to `LOCAL` when
+you start the run. HealthOmics mounts a dedicated local storage volume at `/tmp` for each workflow task
+instance.
 
 ```
 aws omics start-run \
-  --workflow-id `workflow-id` \
-  --role-arn `role-arn` \
-  --output-uri s3://`bucket-name`/`prefix`/ \
-  --engine-settings '{"profile": "test"}'
+    --workflow-id `workflow-id` \
+    --role-arn `arn:aws:iam::123456789012:role/OmicsServiceRole` \
+    --output-uri s3://`amzn-s3-demo-bucket`/`output-folder`/ \
+    --parameters file://`/path/to/parameters.json` \
+    --scratch-storage-mode LOCAL
 ```
 
-To specify multiple profiles, provide a comma-separated list as shown in the example below. Nextflow applies
-profiles in the order they are specified in the command line. If multiple profiles define the same setting, later
-profiles override earlier ones. In the example below, `test` is applied first and then
-`docker`, so any conflicting settings in `docker` take precedence over
-`test`.
+To disable ephemeral storage for a specific run (for example, to isolate a failure), set
+`--scratch-storage-mode` to `SHARED`.
+
+For more information, see [Ephemeral storage for HealthOmics workflow tasks](workflows-ephemeral-storage.md "workflows-ephemeral-storage.md").
+
+For Nextflow engine settings (engine version, profiles, syntax parser), see [Specify Nextflow engine settings](#start-run-api-engine-settings "#start-run-api-engine-settings").
+
+## Specify Nextflow engine settings
+
+For Nextflow workflows, you can pass an `engineSettings` map in the **StartRun** API
+request to control engine behavior without modifying your workflow source code. On the console, these settings are
+available in **Step 2: Add parameter values** as a separate section that appears for
+Nextflow workflows.
+
+###### Note
+
+Engine settings apply only to Nextflow workflows. If you specify engine settings for WDL or CWL workflows in
+the API or CLI, they are silently ignored and are not available in **GetRun** responses.
+
+### Supported keys
+
+| #   | Key             | Valid values                                                                                                                                     | Behavior                                                                                                                                           | Version support                                         |
+| --- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| 1   | `engineVersion` | `"22.04.0"` (or `"22.04"`), `"23.10.0"` (or<br>`"23.10"`), `"24.10.8"` (or `"24.10"`), `"25.10.0"` (or<br>`"25.10"`), `"26.04.0"` (or `"26.04"`) | Pins the Nextflow version for the run. Overrides the version detected from<br>`nextflow.config`. Both full and short version formats are accepted. | All Nextflow versions                                   |
+| 2   | `syntaxVersion` | `"v1"` (Legacy parser), `"v2"` (Strict syntax parser)                                                                                            | Selects the syntax parser.                                                                                                                         | v26.04 and later. Earlier versions support only `"v1"`. |
+| 3   | `outputFormat`  | `"json"`, `"text"`, `"none"`                                                                                                                     | Sets the engine stdout/stderr summary format.                                                                                                      | v26.04 and later (ignored on earlier versions).         |
+| 4   | `agentMode`     | `"true"`, `"false"`                                                                                                                              | Controls Nextflow agent mode.                                                                                                                      | v26.04 and later (ignored on earlier versions).         |
+| 5   | `profile`       | Comma-separated profile names, for example `"test,docker"`                                                                                       | Activates Nextflow profiles. For more information, see [Nextflow profiles](#start-run-nextflow-profiles "#start-run-nextflow-profiles").           | All Nextflow versions                                   |
+
+### Nextflow engine version pinning
+
+You can select a specific Nextflow engine version to run your workflow, enabling controlled migration
+across engine versions. The run-time version override ensures that even when a workflow definition specifies a
+version through its config or profile, the engine version that you specify at run time takes precedence. This
+enables you to test the same workflow across multiple engine versions without modifying the workflow source
+code.
+
+Supported versions: 22.04.0 (or 22.04), 23.10.0 (or 23.10), 24.10.8 (or 24.10), 25.10.0 (or 25.10), and
+26.04.0 (or 26.04). Both full and short version formats are accepted.
+
+**API and CLI**
+
+Use the `engineVersion` key in `--engine-settings`:
 
 ```
 aws omics start-run \
-  --workflow-id `workflow-id` \
-  --role-arn `role-arn` \
-  --output-uri s3://`bucket-name`/`prefix`/ \
-  --engine-settings '{"profile": "test,docker"}'
+    --workflow-id ``workflow id`` \
+    --role-arn arn:aws:iam::123456789012:role/OmicsRole \
+    --output-uri s3://amzn-s3-demo-bucket/output \
+    --engine-settings '{"engineVersion":"26.04"}'
 ```
 
-The `engineSettings` field is returned in the **GetRun** response, showing which
-engine settings were applied to the run.
+**Console**
+
+In [Step 2: Add parameter values](#start-run-console-step2 "#start-run-console-step2"), select the version
+from the **Engine version** dropdown in the Nextflow engine settings section.
+
+### Nextflow profiles
+
+Nextflow profiles are named sets of execution settings defined in your workflow's
+`nextflow.config`. You can activate one or more profiles at run time to apply environment-specific
+settings (for example, development, test, or production) without modifying the workflow source code.
+
+**API and CLI**
+
+Use the `profile` key in `--engine-settings`. Specify multiple profiles as a
+comma-separated list:
+
+```
+aws omics start-run \
+    --workflow-id ``workflow id`` \
+    --role-arn arn:aws:iam::123456789012:role/OmicsRole \
+    --output-uri s3://amzn-s3-demo-bucket/output \
+    --engine-settings '{"profile":"test,docker"}'
+```
+
+**Console**
+
+In [Step 2: Add parameter values](#start-run-console-step2 "#start-run-console-step2"), the
+**Nextflow profiles** section appears below the engine settings. Select one or more profiles
+from the **Select profiles** dropdown. The console displays the profile application order. To
+remove a profile, choose the **×** next to its name.
+
+**Profile application order**
+
+When you specify multiple profiles, the application order depends on the Nextflow engine version and
+syntax parser:
+
+- **Nextflow v26.04 and later with the strict syntax parser (v2)** –
+  Profiles are applied in the order specified in the `profile` value (left to right), or in your
+  selection order on the console. Later profiles override earlier ones for conflicting settings.
+- **Nextflow versions earlier than v26.04, and v26.04 and later with the legacy
+  parser (v1)** – Profiles are applied in the order defined in the
+  `nextflow.config` file, regardless of the order specified in the API request or console
+  selection.
+
+**Configuration precedence**
+
+Nextflow resolves parameters in the following order, with later layers overriding earlier ones:
+
+1. `nextflow.config` defaults
+2. Selected Nextflow profiles
+3. Predefined values file
+4. Run-time parameter overrides
+
+###### Note
+
+**Recommendation** – To ensure consistent profile application
+behavior across runs, pin the Nextflow engine version using the `engineVersion` key in the API or
+**Engine version** on the console.
 
 ## VPC networking
 
-You can configure a run to use VPC networking, which allows runs to access resources over the public
-internet or private networks. Specify the networking mode and a configuration name when you start the
-run:
+You can run workflows in your Virtual Private Cloud (VPC), which enables access to the public internet,
+cross-Region traffic, and communication with resources in your VPC.
 
-```
-aws omics start-run \
-  --workflow-id `workflow-id` \
-  --role-arn `role-arn` \
-  --output-uri s3://`bucket-name`/`prefix`/ \
-  --networking-mode VPC \
-  --configuration-name `configuration-name` \
-  --region `region`
-```
+To enable VPC networking:
 
-For more information, see
-[Connecting HealthOmics workflows to a VPC](workflows-vpc-networking.md "workflows-vpc-networking.md").
+1. Create a configuration that specifies VPC subnets and security groups.
+2. When starting a run using the console, set **Network access** to **Virtual
+   Private Cloud (VPC)** and select your configuration in Step 1.
+3. When starting a run using the API, use `--networking-mode VPC` and reference your
+   configuration with `--configuration-name`.
+
+For more information, see [Connecting HealthOmics workflows to a VPC](workflows-vpc-networking.md "workflows-vpc-networking.md").

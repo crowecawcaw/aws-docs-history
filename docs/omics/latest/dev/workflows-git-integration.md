@@ -100,14 +100,14 @@ To set up a PAT in a GitLab self managed repository, see [Personal access tokens
 
 3. Create the connection
 
-   1. Choose **Create Connections** on the **Connections** tab.
-   2. For provider type, select **GitLab self-managed**.
-   3. Under **Connection Settings>Enter Connection Name**, enter the Host URL that you
-      previously created.
-   4. If your GitLab self-managed instance is only accessible via a VPC, configure the VPC details.
-   5. Choose **Update Pending Connection**. The modal window re-directs you to the GitLab login page.
-   6. Enter the username and password for the customer account and complete the authorization process.
-   7. For first time setup, choose **Authorize AWS Connector for Gitlab Self Managed**.
+    1. Choose **Create Connections** on the **Connections** tab.
+    2. For provider type, select **GitLab self-managed**.
+    3. Under **Connection Settings>Enter Connection Name**, enter the Host URL that you
+     previously created.
+    4. If your GitLab self-managed instance is only accessible via a VPC, configure the VPC details.
+    5. Choose **Update Pending Connection**. The modal window re-directs you to the GitLab login page.
+    6. Enter the username and password for the customer account and complete the authorization process.
+    7. For first time setup, choose **Authorize AWS Connector for Gitlab Self Managed**.
 
 ## Quotas related to external code repositories
 

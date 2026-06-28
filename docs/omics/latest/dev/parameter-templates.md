@@ -431,12 +431,12 @@ parameter template:
 
 The following table shows Nextflow interpolation examples for params in the main file.
 
-| Parameters                                         | Required |
-| -------------------------------------------------- | -------- |
-| params.input_file                                  | Yes      |
-| params.input_file = "s3://bucket/data.json"        | No       |
-| params.nested.input_file                           | N/A      |
-| params.nested.input_file = "s3://bucket/data.json" | N/A      |
+| Parameters                                          | Required |
+| --------------------------------------------------- | -------- |
+| params.input\_file                                  | Yes      |
+| params.input\_file = "s3://bucket/data.json"        | No       |
+| params.nested.input\_file                           | N/A      |
+| params.nested.input\_file = "s3://bucket/data.json" | N/A      |
 
 The following table shows Nextflow interpolation examples for params in the `nextflow.config`
 file.

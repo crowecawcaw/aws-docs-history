@@ -301,9 +301,10 @@ includes:
 
 - `defaultRunSetting` — Shared configuration for all runs in the
   batch. This includes fields such as `workflowId`, `roleArn`,
-  `outputUri`, `parameters`, and `engineSettings`. For Nextflow workflows,
+  `outputUri`, `parameters`, `scratchStorageMode`, and
+  `engineSettings`. For Nextflow workflows,
   use `engineSettings` to specify profiles that apply to all runs in the batch. For more information, see
-  [Specify engine settings](starting-a-run.md#start-run-api-engine-settings "starting-a-run.md#start-run-api-engine-settings").
+  [Specify Nextflow engine settings](starting-a-run.md#start-run-api-engine-settings "starting-a-run.md#start-run-api-engine-settings").
 - `batchRunSettings` — The individual run configurations, provided as one
   of:
 

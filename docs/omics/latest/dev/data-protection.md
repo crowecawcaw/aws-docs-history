@@ -55,7 +55,7 @@ Service](https://docs.AWS.amazon.com/kms/latest/developerguide/overview.html "ht
 All HealthOmics data stores (Storage and Analytics) support the use of customer managed keys.
 The encryption configuration cannot be changed after a data store has been
 created. If a data store is using an AWS owned key, it will be denoted as
-AWS_OWNED_KMS_KEY and you will not see the specific key used for encryption at
+AWS\_OWNED\_KMS\_KEY and you will not see the specific key used for encryption at
 rest.
 
 For HealthOmics Workflows, customer-managed keys aren't supported by the temporary file

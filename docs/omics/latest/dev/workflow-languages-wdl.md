@@ -28,7 +28,7 @@ WDL lenient supports type conversion for the following items in the list of WDL�
 - Array[Pair[W, X]] to Map[Y, Z], in the case where W is coercible to Y and X is coercible to Z (such as 1.0
   maps to 1).
 
-To use implicit type casting, specify the workflow engine as WDL_LENIENT when you create the workflow or
+To use implicit type casting, specify the workflow engine as WDL\_LENIENT when you create the workflow or
 workflow version.
 
 In the console, the workflow engine parameter is named **Language**.
@@ -64,14 +64,14 @@ You can use them as fully qualified variables in input.json:
 The following table shows how inputs in WDL map to the matching primitive types. HealthOmics provides limited support
 for type coercion, so we recommend that you set explicit types.
 
-| Primitive types | WDL type  | JSON type     | Example WDL                                     | Example JSON key and value                                                                                                                                                                                                                                                                                                                                                                   | Notes |
-| --------------- | --------- | ------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| `Boolean`       | `boolean` | `Boolean b`   | `"b": true`                                     | The value must be lower case and unquoted.                                                                                                                                                                                                                                                                                                                                                   |
-| `Int`           | `integer` | `Int i`       | `"i": 7`                                        | Must be unquoted.                                                                                                                                                                                                                                                                                                                                                                            |
-| `Float`         | `number`  | `Float f`     | `"f": 42.2`                                     | Must be unquoted.                                                                                                                                                                                                                                                                                                                                                                            |
-| `String`        | `string`  | `String s`    | `"s": "characters"`                             | JSON strings that are a URI must be mapped to a WDL file to be<br>imported.                                                                                                                                                                                                                                                                                                                  |
-| `File`          | `string`  | `File f`      | `"f": "s3://amzn-s3-demo-bucket1/path/to/file"` | Amazon S3 and HealthOmics storage URIs are imported as long as the IAM<br>role provided for the workflow has read access to these objects. No<br>other URI schemes are supported (such as `file://`,<br>`https://`, and `ftp://`). The URI must<br>specify an object. It cannot be a directory meaning it can not end with<br>a `/`.                                                         |
-| `Directory`     | `string`  | `Directory d` | `"d": "s3://bucket/path/"`                      | The `Directory` type isn't included in WDL 1.0 or 1.1, so<br>you will need to add `version development` to the header of<br>the WDL file. The URI must be a Amazon S3 URI and with a prefix that ends<br>with a '/'. All contents of the directory will be recursively copied to<br>the workflow as a single download. The `Directory` should<br>only contain files related to the workflow. |
+Primitive types| WDL type | JSON type | Example WDL | Example JSON key and value | Notes |
+| --- | --- | --- | --- | --- |
+| `Boolean` | `boolean` | `Boolean b` | `"b": true` | The value must be lower case and unquoted. |
+| `Int` | `integer` | `Int i` | `"i": 7` | Must be unquoted. |
+| `Float` | `number` | `Float f` | `"f": 42.2` | Must be unquoted. |
+| `String` | `string` | `String s` | `"s": "characters"` | JSON strings that are a URI must be mapped to a WDL file to be<br>imported. |
+| `File` | `string` | `File f` | `"f": "s3://amzn-s3-demo-bucket1/path/to/file"` | Amazon S3 and HealthOmics storage URIs are imported as long as the IAM<br>role provided for the workflow has read access to these objects. No<br>other URI schemes are supported (such as `file://`,<br>`https://`, and `ftp://`). The URI must<br>specify an object. It cannot be a directory meaning it can not end with<br>a `/`. |
+| `Directory` | `string` | `Directory d` | `"d": "s3://bucket/path/"` | The `Directory` type isn't included in WDL 1.0 or 1.1, so<br>you will need to add `version development` to the header of<br>the WDL file. The URI must be a Amazon S3 URI and with a prefix that ends<br>with a '/'. All contents of the directory will be recursively copied to<br>the workflow as a single download. The `Directory` should<br>only contain files related to the workflow. |
 
 ## Complex types in WDL
 
@@ -79,13 +79,13 @@ The following table show how inputs in WDL map to the matching complex JSON type
 Complex types in WDL are data structures comprised of primitive types. Data structures
 such as lists will be converted to arrays.
 
-| Complex types | WDL type | JSON type                                                                                                               | Example WDL                                                                                                                                                             | Example JSON key and value                                                                                                                                                                                                                                                                               | Notes |
-| ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| `Array`       | `array`  | `Array[Int] nums`                                                                                                       | `“nums": [1, 2, 3]`                                                                                                                                                     | The members of the array must follow the format of the WDL array<br>type.                                                                                                                                                                                                                                |
-| `Pair`        | `object` | `Pair[String, Int] str_to_i`                                                                                            | `“str_to_i": {"left": "0", "right": 1}`                                                                                                                                 | Each value of the pair must use the JSON format of its matching WDL<br>type. String key names in WDL Pair JSON representations are matched<br>case-insensitively. For example, {"left": "0", "right": 1} and {"LEFT": "0",<br>"Right": 1} are treated as equivalent when deserializing into a Pair type. |
-| `Map`         | `object` | `Map[Int, String] int_to_string`                                                                                        | `"int_to_string": { 2: "hello", 1: "goodbye" }`                                                                                                                         | Each entry in the map must use the JSON format of its matching WDL<br>type.                                                                                                                                                                                                                              |
-| `Struct`      | `object` | `<br>struct SampleBamAndIndex {<br>String sample_name<br>File bam<br>File bam_index<br>} SampleBamAndIndex b_and_i<br>` | `<br>"b_and_i": {<br>"sample_name": "NA12878",<br>"bam": "s3://amzn-s3-demo-bucket1/NA12878.bam",<br>"bam_index": "s3://amzn-s3-demo-bucket1/NA12878.bam.bai"<br>}<br>` | The names of the struct members must exactly match the names of the<br>JSON object keys. Each value must use the JSON format of the matching<br>WDL type.                                                                                                                                                |
-| `Object`      | N/A      | N/A                                                                                                                     | N/A                                                                                                                                                                     | The WDL `Object` type is outdated and should be replaced<br>by `Struct` in all cases.                                                                                                                                                                                                                    |
+Complex types| WDL type | JSON type | Example WDL | Example JSON key and value | Notes |
+| --- | --- | --- | --- | --- |
+| `Array` | `array` | `Array[Int] nums` | `“nums": [1, 2, 3]` | The members of the array must follow the format of the WDL array<br>type. |
+| `Pair` | `object` | `Pair[String, Int] str_to_i` | `“str_to_i": {"left": "0", "right": 1}` | Each value of the pair must use the JSON format of its matching WDL<br>type. String key names in WDL Pair JSON representations are matched<br>case-insensitively. For example, {"left": "0", "right": 1} and {"LEFT": "0",<br>"Right": 1} are treated as equivalent when deserializing into a Pair type. |
+| `Map` | `object` | `Map[Int, String] int_to_string` | `"int_to_string": { 2: "hello", 1: "goodbye" }` | Each entry in the map must use the JSON format of its matching WDL<br>type. |
+| `Struct` | `object` | `<br>struct SampleBamAndIndex {<br>String sample_name<br>File bam<br>File bam_index<br>} SampleBamAndIndex b_and_i<br>` | `<br>"b_and_i": {<br>"sample_name": "NA12878",<br>"bam": "s3://amzn-s3-demo-bucket1/NA12878.bam",<br>"bam_index": "s3://amzn-s3-demo-bucket1/NA12878.bam.bai"<br>}<br>` | The names of the struct members must exactly match the names of the<br>JSON object keys. Each value must use the JSON format of the matching<br>WDL type. |
+| `Object` | N/A | N/A | N/A | The WDL `Object` type is outdated and should be replaced<br>by `Struct` in all cases. |
 
 ## Directives in WDL
 
@@ -163,6 +163,25 @@ runtime {
 HealthOmics also supports an alias named **continueOnReturnCode**, which has
 the same capabilities as **returnCodes**. If you specify both attributes, HealthOmics uses the
 **returnCodes** value.
+
+### Supported WDL `disks` forms
+
+HealthOmics accepts all standard WDL 1.1 `disks` forms. The mount path and disk type specifier
+(`SSD`, `HDD`) are ignored — only the numeric size is extracted. If multiple entries are
+declared, the sizes are summed into a single `/tmp` allocation.
+
+| Accepted form                     | Example                                         | Resolved size                   |
+| --------------------------------- | ----------------------------------------------- | ------------------------------- |
+| Integer                           | `disks: 700`                                    | 700 GiB                         |
+| String                            | `disks: "700"`                                  | 700 GiB                         |
+| String with unit                  | `disks: "700 GiB"` or `"700 GB"`                | 700 GiB                         |
+| Cromwell-style with path and type | `disks: "local-disk 700 SSD"`                   | 700 GiB (path and type ignored) |
+| Comma-separated entries           | `disks: "local-disk 300 SSD, /scratch 200 SSD"` | 500 GiB (summed)                |
+| Array of strings                  | `disks: ["/tmp 300 GiB", "/scratch 200 GiB"]`   | 500 GiB (summed)                |
+
+HealthOmics mounts all ephemeral storage at `/tmp`. If your workflow definition declares multiple
+`disks` entries, the sizes are summed and the total is provisioned as a single `/tmp`
+volume. For more information on the WDL `disks` runtime attribute, see the [WDL 1.1 specification](https://github.com/openwdl/wdl/blob/wdl-1.1/SPEC.md#disks "https://github.com/openwdl/wdl/blob/wdl-1.1/SPEC.md#disks").
 
 ## Task metadata in WDL
 

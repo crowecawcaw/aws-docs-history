@@ -90,8 +90,8 @@ version account_id interface_id srcaddr dstaddr srcport dstport protocol packets
 
 2.
 
-- **account_id** — Your AWS account ID
-- **interface_id** — The ENI ID (for example,
+- **account\_id** — Your AWS account ID
+- **interface\_id** — The ENI ID (for example,
   eni-0e57c5476efeac402)
 - **srcaddr** — Source IP address
 - **dstaddr** — Destination IP address
@@ -104,7 +104,7 @@ version account_id interface_id srcaddr dstaddr srcport dstport protocol packets
 - **start** — Flow start time (Unix timestamp)
 - **end** — Flow end time (Unix timestamp)
 - **action** — ACCEPT or REJECT
-- **log_status** — OK, NODATA, or SKIPDATA
+- **log\_status** — OK, NODATA, or SKIPDATA
 
 **Example flow log entries:**
 

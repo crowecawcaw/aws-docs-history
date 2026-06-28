@@ -53,11 +53,9 @@ tags through the Amazon S3 getObjectTagging API operation.
     2. (Optional) Choose **Remove** to remove all the keys.
 
 6. Under **Data Encryption**, select whether you want
-   data encryption to be owned and managed by AWS or to use a customer managed CMK.
-7. (Optional) Under **S3 Data access**, select whether to create a new role and
-   policy to access the sequence store through Amazon S3.
-8. (Optional) For **S3 access logging**, select `Enabled` if you want Amazon S3
-   to collect access log records.
+data encryption to be owned and managed by AWS or to use a customer managed CMK. 7. (Optional) Under **S3 Data access**, select whether to create a new role and
+policy to access the sequence store through Amazon S3. 8. (Optional) For **S3 access logging**, select `Enabled` if you want Amazon S3
+to collect access log records.
 
 For **Access logging location in S3**, specify an Amazon S3 location to store the logs. This
 field is visible only if you enabled S3 access logging. 9. **Tags** (optional) - Provide up to 50 tags for this sequence store. These tags are

@@ -92,7 +92,7 @@ intended.
 4. Continue uploading the parts of your file, if necessary. To verify that your read sets have been
    uploaded, use the **list-read-set-upload-parts** API operation, as shown in the following. In the
    following example, replace `sequence store ID` , `upload
-ID`, and the `part source` with your own
+ ID`, and the `part source` with your own
    input.
 
 ```
@@ -195,7 +195,7 @@ are `ACTIVE`, or if the upload has failed, the upload will not be returned in th
 
 6. After you upload all parts of your file, use **complete-multipart-read-set-upload** to
    conclude the upload process, as shown in the following example. Replace `sequence store
-ID`, `upload ID`, and the parameter for parts
+ ID`, `upload ID`, and the parameter for parts
    with your own values.
 
 ```

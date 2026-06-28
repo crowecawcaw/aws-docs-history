@@ -63,17 +63,17 @@ The following topics can help you troubleshoot issues that you encounter with ca
 
 1. Verify that the run is configured to use a cache by checking the cacheId field in the GetRun API operation response.
    Using the CLI, run this command: `aws omics get-run —id <run_id>`.
-2. If the run was successful, verify the cache behavior returned in the GetRun response is CACHE_ALWAYS.
-   If the cache behavior is set to CACHE_ON_FAILURE, runs will only save to the cache when they fail.
+2. If the run was successful, verify the cache behavior returned in the GetRun response is CACHE\_ALWAYS.
+   If the cache behavior is set to CACHE\_ON\_FAILURE, runs will only save to the cache when they fail.
 
 ### Why isn’t a task using the cache entry?
 
 In the `/aws/omics/WorkflowLog` CloudWatch log group, open the log stream for the run cache:
-**runCache/<cache_id>/<cache_uuid>**.
+**runCache/<cache\_id>/<cache\_uuid>**.
 
 1. Verify that a previous run created a cache entry for the task that you expected to be cached. Runs
-   that have saved to the cache will be recorded with a log message of CACHE_ENTRY_CREATED.
-2. Locate the CACHE_MISS log for the task and run that completed. If there is no log entry, check that
+   that have saved to the cache will be recorded with a log message of CACHE\_ENTRY\_CREATED.
+2. Locate the CACHE\_MISS log for the task and run that completed. If there is no log entry, check that
    the run was configured to use the cache.
 3. If a cache entry was created, verify that the CPUs, memory, GPUs and container digest are identical
    for both tasks. The task ARN for the task that created the cache entry is in the log message.

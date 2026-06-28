@@ -130,3 +130,9 @@ For example:
 ```
 
 Therefore, 1200GiB (the minimum capacity for static run storage) is sufficient for this run.
+
+###### Note
+
+In addition to shared run storage, HealthOmics provides per-task ephemeral storage at `/tmp`. Redirecting
+scratch I/O to ephemeral storage can reduce demand on the shared run filesystem. For more information, see
+[Ephemeral storage for HealthOmics workflow tasks](workflows-ephemeral-storage.md "workflows-ephemeral-storage.md").

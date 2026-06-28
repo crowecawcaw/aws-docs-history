@@ -32,6 +32,7 @@ on GitHub.
 ###### Topics
 
 - [Run storage types in HealthOmics workflows](workflows-run-types.md "workflows-run-types.md")
+- [Ephemeral storage for HealthOmics workflow tasks](workflows-ephemeral-storage.md "workflows-ephemeral-storage.md")
 - [Run retention mode for HealthOmics runs](run-retention.md "run-retention.md")
 - [HealthOmics run inputs](workflows-run-inputs.md "workflows-run-inputs.md")
 - [Run lifecycle in a HealthOmics workflow](monitoring-runs.md "monitoring-runs.md")

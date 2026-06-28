@@ -37,12 +37,12 @@ MD5up by default, but it can be configured differently during sequence store cre
 calculated, the algorithm and the calculated hashes are added to the read set. The supported MD5 algorithms for
 file types are as follows.
 
-- _FASTQ_MD5up_ – Calculates the MD5
+- _FASTQ\_MD5up_ – Calculates the MD5
   hash of an uncompressed, complete FASTQ read set source.
-- _BAM_MD5up_ – Calculates the MD5 hash of the alignment
+- _BAM\_MD5up_ – Calculates the MD5 hash of the alignment
   section of an uncompressed BAM or uBAM read set source as represented in the SAM, based on the linked
   reference, if one is available.
-- _CRAM_MD5up_ – Calculates the MD5 hash of the alignment
+- _CRAM\_MD5up_ – Calculates the MD5 hash of the alignment
   section of the uncompressed CRAM read set source as represented in the SAM, based on the linked
   reference.
 
@@ -55,23 +55,23 @@ the known collision.
 The following algorithms are supported for the SHA256 family. The algorithms are calculated as
 follows:
 
-- _FASTQ_SHA256up_ – Calculates the SHA-256 hash of an
+- _FASTQ\_SHA256up_ – Calculates the SHA-256 hash of an
   uncompressed, complete FASTQ read set source.
-- _BAM_SHA256up_ – Calculates the SHA-256 hash of the
+- _BAM\_SHA256up_ – Calculates the SHA-256 hash of the
   alignment section of an uncompressed BAM or uBAM read set source as represented in the SAM, based on the
   linked reference, if one is available.
-- _CRAM_SHA256up_ – Calculates the SHA-256 hash of the
+- _CRAM\_SHA256up_ – Calculates the SHA-256 hash of the
   alignment section of an uncompressed CRAM read set source as represented in the SAM, based on the linked
   reference.
 
 The following algorithms are supported for the SHA512 family. The algorithms are calculated as
 follows:
 
-- _FASTQ_SHA512up_ – Calculates the SHA-512 hash of an
+- _FASTQ\_SHA512up_ – Calculates the SHA-512 hash of an
   uncompressed, complete FASTQ read set source.
-- _BAM_SHA512up_ – Calculates the SHA-512 hash of the
+- _BAM\_SHA512up_ – Calculates the SHA-512 hash of the
   alignment section of an uncompressed BAM or uBAM read set source as represented in the SAM, based on the
   linked reference, if one is available.
-- _CRAM_SHA512up_ – Calculates the SHA-512 hash of the
+- _CRAM\_SHA512up_ – Calculates the SHA-512 hash of the
   alignment section of an uncompressed CRAM read set source as represented in the SAM, based on the linked
   reference.

@@ -74,7 +74,7 @@ follow the following patterns:
   `read_set_name`\_`sourcex`.fastq.gz
 - For uBAM/BAM/CRAM—
   `read_set_name`.`file
-extension` with extensions of `.bam` or
+ extension` with extensions of `.bam` or
   `.cram`. An example is `NA193948.bam`.
 
 For read sets that are BAM or CRAM, index files are automatically generated during the ingestion

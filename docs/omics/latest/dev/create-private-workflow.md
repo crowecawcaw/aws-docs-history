@@ -23,17 +23,16 @@ container image. You have the following options for hosting the container image:
 - Synchronize the container image with the contents of a supported third-party registry.
   Prerequisites for this option:
 
-      + In the ECR private registry, configure a pull through cache rule for each upstream registry. For more
-       information, see [Image mappings](workflows-ecr.md#ecr-pull-through-mapping-format "workflows-ecr.md#ecr-pull-through-mapping-format").
-      + Configure the ECR resource policy as described in [Amazon ECR permissions](permissions-ecr.md "permissions-ecr.md").
-      + Create repository creation templates. The template defines settings for when Amazon ECR creates the private
-       repository for an upstream registry.
-      + Create prefix mappings to remap container image references in the workflow definition to ECR cache
-       namespaces.
-
-  When you create a workflow, you provide a workflow definition that contains information about the workflow,
-  runs, and tasks. HealthOmics can retrieve the workflow definition as a .zip archive stored locally or in an Amazon S3
-  bucket, or from a supported Git-based repository.
+  - In the ECR private registry, configure a pull through cache rule for each upstream registry. For more
+    information, see [Image mappings](workflows-ecr.md#ecr-pull-through-mapping-format "workflows-ecr.md#ecr-pull-through-mapping-format").
+  - Configure the ECR resource policy as described in [Amazon ECR permissions](permissions-ecr.md "permissions-ecr.md").
+  - Create repository creation templates. The template defines settings for when Amazon ECR creates the private
+    repository for an upstream registry.
+  - Create prefix mappings to remap container image references in the workflow definition to ECR cache
+    namespaces.
+    When you create a workflow, you provide a workflow definition that contains information about the workflow,
+    runs, and tasks. HealthOmics can retrieve the workflow definition as a .zip archive stored locally or in an Amazon S3
+    bucket, or from a supported Git-based repository.
 
 ###### Topics
 
@@ -45,91 +44,92 @@ container image. You have the following options for hosting the container image:
 
 ###### Steps to create a workflow
 
-1.  Open the [HealthOmics console](https://console.aws.amazon.com/omics/ "https://console.aws.amazon.com/omics/").
-2.  If required, open the left navigation pane (≡). Choose **Private workflows**.
-3.  On the **Private workflows** page, choose **Create
-    workflow**.
-4.  On the **Define workflow** page, provide the
-    following information:
+1. Open the [HealthOmics console](https://console.aws.amazon.com/omics/ "https://console.aws.amazon.com/omics/").
+2. If required, open the left navigation pane (≡). Choose **Private workflows**.
+3. On the **Private workflows** page, choose **Create
+   workflow**.
+4. On the **Define workflow** page, provide the
+   following information:
 
-    1. **Workflow name**: A distinctive name for this workflow. We recommend setting workflow
-       names to organize your runs in the AWS HealthOmics console and CloudWatch logs.
-    2. **Description** (optional): A description of this workflow.
+   1. **Workflow name**: A distinctive name for this workflow. We recommend setting workflow
+      names to organize your runs in the AWS HealthOmics console and CloudWatch logs.
+   2. **Description** (optional): A description of this workflow.
 
-5.  In the **Workflow definition** panel, provide the following information:
+5. In the **Workflow definition** panel, provide the following information:
 
-    1.  **Workflow language** (optional): Select the specification language of the
-        workflow. Otherwise, HealthOmics determines the language from the workflow definition.
-    2.  For **Workflow definition source**, choose to import the definition folder from a
-        Git-based repository, an Amazon S3 location, or from a local drive.
+   1. **Workflow language** (optional): Select the specification language of the
+      workflow. Otherwise, HealthOmics determines the language from the workflow definition.
+   2. For **Workflow definition source**, choose to import the definition folder from a
+      Git-based repository, an Amazon S3 location, or from a local drive.
 
-        1. For **Import from a repository service**:
+      1. For **Import from a repository service**:
 
-        ###### Note
+      ###### Note
 
-        HealthOmics supports public and private repositories for GitHub, GitLab,
-        Bitbucket, GitHub self-managed, GitLab self-managed.
+      HealthOmics supports public and private repositories for GitHub, GitLab,
+      Bitbucket, GitHub self-managed, GitLab self-managed.
 
-            1. Choose a **Connection** to connect your AWS resources to the external repository.
-             To create a connection, see [Connect with external code repositories](setting-up-new.md#setting-up-omics-repository "setting-up-new.md#setting-up-omics-repository").
-
-
-            ###### Note
-
-            Customers in the TLV region need to create a connection in the IAD
-             (us-east-1) region to create a workflow.
-            2. In **Full repository ID**, enter your repository ID as user-name/repo-name.
-             Verify you have access to the files in this repository.
-            3. In **Source reference** (optional), enter a repository source reference (branch,
-             tag, or commit ID). HealthOmics uses the default branch if no source reference is specified.
-            4. In **Exclude file patterns**, enter the file patterns to exclude specific folders,
-             files, or extensions. This helps manage data size when importing repository files. There is a max of 50
-             patterns, and the patters must follow the
-             [glob pattern syntax](https://fossil-scm.org/home/doc/tip/www/globs.md "https://fossil-scm.org/home/doc/tip/www/globs.md"). For example:
+           1. Choose a **Connection** to connect your AWS resources to the external repository.
+            To create a connection, see [Connect with external code repositories](setting-up-new.md#setting-up-omics-repository "setting-up-new.md#setting-up-omics-repository").
 
 
+           ###### Note
+
+           Customers in the TLV region need to create a connection in the IAD
+            (us-east-1) region to create a workflow.
+           2. In **Full repository ID**, enter your repository ID as user-name/repo-name.
+            Verify you have access to the files in this repository.
+           3. In **Source reference** (optional), enter a repository source reference (branch,
+            tag, or commit ID). HealthOmics uses the default branch if no source reference is specified.
+           4. In **Exclude file patterns**, enter the file patterns to exclude specific folders,
+            files, or extensions. This helps manage data size when importing repository files. There is a max of 50
+            patterns, and the patters must follow the
+            [glob pattern syntax](https://fossil-scm.org/home/doc/tip/www/globs.md "https://fossil-scm.org/home/doc/tip/www/globs.md"). For example:
 
 
-            	1. `tests/`
-            	2. `*.jpeg`
-            	3. `large_data.zip`
-        2. For **Select definition folder from S3**:
+
+
+           	1. `tests/`
+           	2. `*.jpeg`
+           	3. `large_data.zip`
+
+      2. For **Select definition folder from S3**:
 
            1. Enter the Amazon S3 location that contains the zipped workflow definition folder. The Amazon S3 bucket
-              must be in the same region as the workflow.
+            must be in the same region as the workflow.
            2. If your account doesn't own the Amazon S3 bucket, enter the bucket owner's AWS account ID in the **S3
-              bucket owner's account ID**. This information is required so that HealthOmics can verify the bucket ownership.
+            bucket owner's account ID**. This information is required so that HealthOmics can verify the bucket ownership.
 
-        3. For **Select definition folder from a local source**:
+      3. For **Select definition folder from a local source**:
 
            1. Enter the local drive location of the zipped workflow definition folder.
 
-    3.  **Main workflow definition file path** (optional): Enter the file path from the
-        zipped workflow definition folder or repository to the `main` file. This parameter is not
-        required if there is only one file in the workflow definition folder, or if the main file is named "main".
+   3. **Main workflow definition file path** (optional): Enter the file path from the
+      zipped workflow definition folder or repository to the `main` file. This parameter is not
+      required if there is only one file in the workflow definition folder, or if the main file is named "main".
 
-6.  In the **README file** (optional) panel,
-    select the **Source of the README file** and provide the following information:
+6. In the **README file** (optional) panel,
+   select the **Source of the README file** and provide the following information:
 
-    - For **Import from a repository service**, in **README file path**,
-      enter the path to the README file within the repository.
-    - For **Select file from S3**, in **README file in S3**, enter
-      the Amazon S3 URI for the README file.
-    - For **Select file from a local source**: in **README -
-      optional**, chose **Choose file** to select the markdown (.md) file to
-      upload.
+   - For **Import from a repository service**, in **README file path**,
+     enter the path to the README file within the repository.
+   - For **Select file from S3**, in **README file in S3**, enter
+     the Amazon S3 URI for the README file.
+   - For **Select file from a local source**: in **README -
+     optional**, chose **Choose file** to select the markdown (.md) file to
+     upload.
 
-7.  In the **Default run storage configuration** panel, provide the default run storage type
-    and capacity for runs that use this workflow:
+7. In the **Default run storage configuration** panel, provide the default run storage type
+   and capacity for runs that use this workflow:
 
-    1. **Run storage type**: Choose whether to use static or dynamic storage as
-       the default for the temporary run storage. The default is static storage.
-    2. **Run storage capacity** (optional): For static run storage type, you can enter the
-       default amount of run storage required for this workflow. The default value for this parameter is 1200 GiB.
-       You can override these default values when you start a run.
+   1. **Run storage type**: Choose whether to use static or dynamic storage as
+      the default for the temporary run storage. The default is static storage.
+   2. **Run storage capacity** (optional): For static run storage type, you can enter the
+      default amount of run storage required for this workflow. The default value for this parameter is 1200 GiB.
+      You can override these default values when you start a run.
 
-8.  **Tags** (optional): You can associate up to 50 tags with this workflow.
-9.  Choose **Next**.
+8. **Tags** (optional): You can associate up to 50 tags with this workflow.
+9. Choose **Next**.
 10. On the **Add workflow parameters** (optional) page, select the **Parameter source**:
 
     1. For **Parse from workflow definition file**, HealthOmics will automatically parse the
@@ -156,32 +156,39 @@ For **Source of mapping file**, select one of the following options:
      the **Mappings** panel.
 
 14. The console displays the **Mappings** panel. If you chose a mapping source file,
-    the console displays the values from the file.
+the console displays the values from the file.
 
-    1.  In **Registry mappings**, you can edit the mappings or add mappings (maximum of
-        20 registry mappings).
+    1. In **Registry mappings**, you can edit the mappings or add mappings (maximum of
+     20 registry mappings).
+
 
     Each registry mapping contains the following fields:
 
-        * **Upstream registry URL** – The URI of the upstream registry.
-        * **ECR repository prefix** –
-         The repository prefix to use in the Amazon ECR private repository.
-        * (Optional) **Upstream repository prefix** –
-         The prefix of the repository in the upstream registry.
-        * (Optional) **ECR account ID** –
-         Account ID of the account that owns the upstream container image.
-    2.  In **Image mappings**, you can edit the image mappings or add mappings (maximum of
-        100 image mappings).
+
+
+
+    	* **Upstream registry URL** – The URI of the upstream registry.
+    	* **ECR repository prefix** –
+    	 The repository prefix to use in the Amazon ECR private repository.
+    	* (Optional) **Upstream repository prefix** –
+    	 The prefix of the repository in the upstream registry.
+    	* (Optional) **ECR account ID** –
+    	 Account ID of the account that owns the upstream container image.
+    2. In **Image mappings**, you can edit the image mappings or add mappings (maximum of
+     100 image mappings).
+
 
     Each image mapping contains the following fields:
 
-        * **Source image** –
-         Specifies the URI of the source image in the upstream registry.
-        * **Destination image** –
-         Specifies the URI of the corresponding image in the private Amazon ECR registry.
 
-15. Choose **Next**.
-16. Review the workflow configuration, then choose **Create workflow**.
+
+
+    	* **Source image** –
+    	 Specifies the URI of the source image in the upstream registry.
+    	* **Destination image** –
+    	 Specifies the URI of the corresponding image in the private Amazon ECR registry.
+
+15. Choose **Next**. 16. Review the workflow configuration, then choose **Create workflow**.
 
 ## Creating a workflow using the CLI
 
