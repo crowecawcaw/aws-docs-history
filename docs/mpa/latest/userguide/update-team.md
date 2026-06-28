@@ -84,17 +84,17 @@ You can use one of the following operations:
    --approvers '[{"PrimaryIdentityId":"`544894e8-80c1-707f-60e3-3ba6510dfac1`","PrimaryIdentitySourceArn":"arn:aws:mpa:`region`:`123456789012`:identity-sources/IamIdentityCenter"}]'**
   ```
 
-      + **`arn`**: Amazon Resource Name (ARN) for the team.
-      + **`description`** (Optional): Description for the team.
-      + **`approval-strategy`** (Optional): Contains an `ApprovalStrategy` object. Currently, only `MofNApprovalStrategy` is supported. This object specifies the minimum number of approvals (M) required for a total number of approvers (N). The integer you specify is the approval threshold.
-       It is recommended to set an approval threshold below the total number of approvers.
-      + **`approvers`** (Optional): List of approvers. Each approver requires:
+        + **`arn`**: Amazon Resource Name (ARN) for the team.
+        + **`description`** (Optional): Description for the team.
+        + **`approval-strategy`** (Optional): Contains an `ApprovalStrategy` object. Currently, only `MofNApprovalStrategy` is supported. This object specifies the minimum number of approvals (M) required for a total number of approvers (N). The integer you specify is the approval threshold.
+         It is recommended to set an approval threshold below the total number of approvers.
+        + **`approvers`** (Optional): List of approvers. Each approver requires:
 
 
 
 
-      	- **`PrimaryIdentitySourceArn`**: Amazon Resource Name (ARN) for the Multi-party approval identity source.
-      	- **`PrimaryIdentityId`**: ID for the approver you want to assign to the team.
+        	- **`PrimaryIdentitySourceArn`**: Amazon Resource Name (ARN) for the Multi-party approval identity source.
+        	- **`PrimaryIdentityId`**: ID for the approver you want to assign to the team.
 
 - AWS SDKs: [ListInstances](../../../singlesignon/latest/APIReference/API_ListInstances.md "../../../singlesignon/latest/APIReference/API_ListInstances.md"), [ListUsers](../../../singlesignon/latest/IdentityStoreAPIReference/API_ListUsers.md "../../../singlesignon/latest/IdentityStoreAPIReference/API_ListUsers.md"), [ListApprovalTeams](../APIReference/API_ListApprovalTeams.md "../APIReference/API_ListApprovalTeams.md"), and [UpdateApprovalTeam](../APIReference/API_UpdateApprovalTeam.md "../APIReference/API_UpdateApprovalTeam.md")
 

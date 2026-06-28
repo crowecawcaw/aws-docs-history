@@ -82,20 +82,20 @@ You can use one of the following operations:
    --tags '{"`Key1`":"`Value1`","`Key2`":"`Value2`"}'**
   ```
 
-      + **`name`**: Name for the team.
-      + **`description`**: Description for the team.
-      + **`approval-strategy`**: Contains an `ApprovalStrategy` object. Currently, only `MofNApprovalStrategy` is supported. This object specifies the minimum number of approvals (M) required for a total number of approvers (N). The integer you specify is the approval threshold.
-       It is recommended to set an approval threshold below the total number of approvers. You must have an approval threshold of at least two.
-      + **`approvers`**: List of approvers. You must have at least three approvers per team. Each approver requires:
+        + **`name`**: Name for the team.
+        + **`description`**: Description for the team.
+        + **`approval-strategy`**: Contains an `ApprovalStrategy` object. Currently, only `MofNApprovalStrategy` is supported. This object specifies the minimum number of approvals (M) required for a total number of approvers (N). The integer you specify is the approval threshold.
+         It is recommended to set an approval threshold below the total number of approvers. You must have an approval threshold of at least two.
+        + **`approvers`**: List of approvers. You must have at least three approvers per team. Each approver requires:
 
 
 
 
-      	- **`PrimaryIdentitySourceArn`**: Amazon Resource Name (ARN) for Multi-party approval identity source.
-      	- **`PrimaryIdentityId`**: User ID from the IAM Identity Center identity store for the approver you want to assign to the team.
-      + **`policies`**: List of Amazon Resource Names (ARNs) for Multi-party approval resource policies that define permissions protecting the team.
-       For a list of available policies, use `mpa list-policies`.
-      + **`tags`**: (Optional) Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter teams.
+        	- **`PrimaryIdentitySourceArn`**: Amazon Resource Name (ARN) for Multi-party approval identity source.
+        	- **`PrimaryIdentityId`**: User ID from the IAM Identity Center identity store for the approver you want to assign to the team.
+        + **`policies`**: List of Amazon Resource Names (ARNs) for Multi-party approval resource policies that define permissions protecting the team.
+         For a list of available policies, use `mpa list-policies`.
+        + **`tags`**: (Optional) Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter teams.
 
 - AWS SDKs: [ListInstances](../../../singlesignon/latest/APIReference/API_ListInstances.md "../../../singlesignon/latest/APIReference/API_ListInstances.md"), [ListUsers](../../../singlesignon/latest/IdentityStoreAPIReference/API_ListUsers.md "../../../singlesignon/latest/IdentityStoreAPIReference/API_ListUsers.md"), and [CreateApprovalTeam](../APIReference/API_CreateApprovalTeam.md "../APIReference/API_CreateApprovalTeam.md")
 

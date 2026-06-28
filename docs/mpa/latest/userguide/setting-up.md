@@ -74,8 +74,8 @@ You can use one of the following operations:
    }'**
   ```
 
-      + **`InstanceArn`**: Amazon Resource Name (ARN) for the IAM Identity Center instance you want to connect with Multi-party approval.
-      + **`Region`**: AWS Region where the IAM Identity Center instance is located.
+        + **`InstanceArn`**: Amazon Resource Name (ARN) for the IAM Identity Center instance you want to connect with Multi-party approval.
+        + **`Region`**: AWS Region where the IAM Identity Center instance is located.
 
 - AWS SDKs: [ListInstances](../../../singlesignon/latest/APIReference/API_ListInstances.md "../../../singlesignon/latest/APIReference/API_ListInstances.md") and [CreateIdentitySource](../APIReference/API_CreateIdentitySource.md "../APIReference/API_CreateIdentitySource.md")
 

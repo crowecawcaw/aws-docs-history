@@ -54,7 +54,7 @@ An event represents a single request from any source and includes information ab
 
 The following tabbed list displays some examples for approval teams.
 
-ASYNC_DELETION_APPROVAL_FAILURE [DELETE]
+ASYNC\_DELETION\_APPROVAL\_FAILURE [DELETE]
 The following example shows a CloudTrail event for an asynchronous deletion approval failure:
 
 ```
@@ -92,7 +92,7 @@ The following example shows a CloudTrail event for an asynchronous deletion appr
 }
 ```
 
-ASYNC_DELETION_APPROVAL_SUCCESS [DELETE]
+ASYNC\_DELETION\_APPROVAL\_SUCCESS [DELETE]
 The following example shows a CloudTrail event for an asynchronous deletion approval success:
 
 ```
@@ -105,7 +105,7 @@ The following example shows a CloudTrail event for an asynchronous deletion appr
 }
 ```
 
-ASYNC_UPDATE_ACTIVATION_FAILURE [UPDATE]
+ASYNC\_UPDATE\_ACTIVATION\_FAILURE [UPDATE]
 The following example shows a CloudTrail event for an asynchronous update activation failure:
 
 ```
@@ -118,7 +118,7 @@ The following example shows a CloudTrail event for an asynchronous update activa
 }
 ```
 
-ASYNC_UPDATE_ACTIVATION_SUCCESS [UPDATE]
+ASYNC\_UPDATE\_ACTIVATION\_SUCCESS [UPDATE]
 The following example shows a CloudTrail event for an asynchronous update activation success:
 
 ```
@@ -130,7 +130,7 @@ The following example shows a CloudTrail event for an asynchronous update activa
 }
 ```
 
-ASYNC_UPDATE_APPROVAL_FAILURE [UPDATE]
+ASYNC\_UPDATE\_APPROVAL\_FAILURE [UPDATE]
 The following example shows a CloudTrail event for an asynchronous update approval failure:
 
 ```
@@ -144,7 +144,7 @@ The following example shows a CloudTrail event for an asynchronous update approv
 }
 ```
 
-ASYNC_UPDATE_APPROVAL_SUCCESS [UPDATE]
+ASYNC\_UPDATE\_APPROVAL\_SUCCESS [UPDATE]
 The following example shows a CloudTrail event for an asynchronous update approval success:
 
 ```
@@ -158,7 +158,7 @@ The following example shows a CloudTrail event for an asynchronous update approv
 }
 ```
 
-ASYNC_VALIDATION_FAILURE [UPDATE]
+ASYNC\_VALIDATION\_FAILURE [UPDATE]
 The following example shows a CloudTrail event for an asynchronous validation failure during an update:
 
 ```
@@ -171,7 +171,7 @@ The following example shows a CloudTrail event for an asynchronous validation fa
 }
 ```
 
-ASYNC_VALIDATION_SUCCESS [UPDATE]
+ASYNC\_VALIDATION\_SUCCESS [UPDATE]
 The following example shows a CloudTrail event for an asynchronous validation success during an update:
 
 ```
@@ -185,7 +185,7 @@ The following example shows a CloudTrail event for an asynchronous validation su
 }
 ```
 
-ASYNC_ACTIVATION_SUCCESS [CREATE]
+ASYNC\_ACTIVATION\_SUCCESS [CREATE]
 The following example shows a CloudTrail event for an asynchronous activation success during creation:
 
 ```
@@ -197,7 +197,7 @@ The following example shows a CloudTrail event for an asynchronous activation su
 }
 ```
 
-ASYNC_ACTIVATION_FAILURE [CREATE]
+ASYNC\_ACTIVATION\_FAILURE [CREATE]
 The following example shows a CloudTrail event for an asynchronous activation failure during creation:
 
 ```
@@ -210,7 +210,7 @@ The following example shows a CloudTrail event for an asynchronous activation fa
 }
 ```
 
-ASYNC_VALIDATION_FAILURE [CREATE]
+ASYNC\_VALIDATION\_FAILURE [CREATE]
 The following example shows a CloudTrail event for an asynchronous validation failure during creation:
 
 ```
@@ -223,7 +223,7 @@ The following example shows a CloudTrail event for an asynchronous validation fa
 }
 ```
 
-ASYNC_VALIDATION_SUCCESS [CREATE]
+ASYNC\_VALIDATION\_SUCCESS [CREATE]
 The following example shows a CloudTrail event for an asynchronous validation success during creation:
 
 ```
@@ -238,7 +238,7 @@ The following example shows a CloudTrail event for an asynchronous validation su
 
 The following tabbed list displays some examples for approval sessions.
 
-ASYNC_EXPIRED [EXPIRATION]
+ASYNC\_EXPIRED [EXPIRATION]
 The following example shows a CloudTrail event for an asynchronous session expiration:
 
 ```
@@ -278,7 +278,7 @@ The following example shows a CloudTrail event for an asynchronous session expir
 }
 ```
 
-ASYNC_CANCELLED_TEAM_CONFIGURATION_CHANGED [CANCELATION]
+ASYNC\_CANCELLED\_TEAM\_CONFIGURATION\_CHANGED [CANCELATION]
 The following example shows a CloudTrail event for a session cancellation due to team configuration changes:
 
 ```
@@ -294,7 +294,7 @@ The following example shows a CloudTrail event for a session cancellation due to
 }
 ```
 
-ASYNC_CANCELLED_TEAM_DELETED [CANCELATION]
+ASYNC\_CANCELLED\_TEAM\_DELETED [CANCELATION]
 The following example shows a CloudTrail event for a session cancellation due to team deletion:
 
 ```
@@ -310,7 +310,7 @@ The following example shows a CloudTrail event for a session cancellation due to
 }
 ```
 
-ASYNC_CANCELLED_BY_USER [CANCELATION]
+ASYNC\_CANCELLED\_BY\_USER [CANCELATION]
 The following example shows a CloudTrail event for a user-initiated session cancellation:
 
 ```
@@ -326,7 +326,7 @@ The following example shows a CloudTrail event for a user-initiated session canc
 }
 ```
 
-ASYNC_VALIDATION_SUCCESS [VALIDATION]
+ASYNC\_VALIDATION\_SUCCESS [VALIDATION]
 The following example shows a CloudTrail event for an asynchronous validation success:
 
 ```
@@ -338,7 +338,7 @@ The following example shows a CloudTrail event for an asynchronous validation su
 }
 ```
 
-ASYNC_SESSION_APPROVED [APPROVAL]
+ASYNC\_SESSION\_APPROVED [APPROVAL]
 The following example shows a CloudTrail event for an approved session:
 
 ```
@@ -353,7 +353,7 @@ The following example shows a CloudTrail event for an approved session:
 }
 ```
 
-ASYNC_SESSION_REJECTED [REJECTION]
+ASYNC\_SESSION\_REJECTED [REJECTION]
 The following example shows a CloudTrail event for a rejected session:
 
 ```

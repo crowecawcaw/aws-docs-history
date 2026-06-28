@@ -28,21 +28,20 @@ For information, see the **Learn More** column in [What operations are currently
 
 Step 2: Approval session**Approvers respond to the request in an approval session**
 
-1.  Approvers access the approval portal using the link in the email notification for the requested operation
-2.  Approvers view details for the request including the following non-exhaustive items:
+1. Approvers access the approval portal using the link in the email notification for the requested operation
+2. Approvers view details for the request including the following non-exhaustive items:
 
-    - Requester IAM principal
-    - Requested operation and timestamp
-    - Requester AWS account and AWS Region
-    - Requester comments
-    - Approval session status
+   - Requester IAM principal
+   - Requested operation and timestamp
+   - Requester AWS account and AWS Region
+   - Requester comments
+   - Approval session status
 
-3.  Approvers can choose to:
+3. Approvers can choose to:
 
-        * Approve the request
-        * Reject the request
-
-    Non-responses count as rejections.
+   - Approve the request
+   - Reject the request
+     Non-responses count as rejections.
 
 **Sessions and approval thresholds**
 

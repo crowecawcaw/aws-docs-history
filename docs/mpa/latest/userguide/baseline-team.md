@@ -73,9 +73,10 @@ You can use one of the following operations:
    --approver-ids `approver-id-1` `approver-id-2`**
   ```
 
-      + **`--arn`**: Amazon Resource Name (ARN) for the approval team.
-      + **`--approver-ids`** (Optional): One or more approver IDs to baseline. If not specified, all approvers in the team are baselined.
-  3.  (Optional) Run the following command to view the last activity information for each approver in the team:
+        + **`--arn`**: Amazon Resource Name (ARN) for the approval team.
+        + **`--approver-ids`** (Optional): One or more approver IDs to baseline. If not specified, all approvers in the team are baselined.
+
+  3. (Optional) Run the following command to view the last activity information for each approver in the team:
 
   ```
   `$` `C:\>` **aws mpa get-approval-team \
