@@ -138,9 +138,9 @@ by account or tag (Inherit rule)**. 8. For regular rule, choose if your costs me
      (Cost allocation tags key).
 
 10. For a regular rule type, choose **Operator** from the
-    dropdown list. Your options are **Is**,
-    **Contains**, **Starts with**, and
-    **Ends with**.
+dropdown list. Your options are **Is**,
+**Contains**, **Starts with**, and
+**Ends with**.
 
 ###### Note
 
@@ -177,12 +177,9 @@ charges**. For more information about split charge rules, see [Splitting charges
      amount to allocate each target cost category value.
     6. Repeat step 19 as needed.
 
-20. Choose **Next**.
-21. (Optional) To add a lookback period for your cost category rules, choose
-    the month from when you want to retroactively apply the rules.
-22. (Optional) To add a tag, choose **Add new resource tag** and
-    enter a key and value.
-23. Choose **Create cost category**.
+20. Choose **Next**. 21. (Optional) To add a lookback period for your cost category rules, choose
+the month from when you want to retroactively apply the rules. 22. (Optional) To add a tag, choose **Add new resource tag** and
+enter a key and value. 23. Choose **Create cost category**.
 
 ## Understanding the cost preview panel
 

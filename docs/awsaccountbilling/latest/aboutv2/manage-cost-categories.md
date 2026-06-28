@@ -18,11 +18,11 @@ costs, so that it's allocated between these teams.
 2. For this cost category, you defined a rule so that:
 
    - All costs for accounts 1-3 are categorized as `Team :
-Team1`.
+  Team1`.
    - All costs for accounts 4-5 are categorized as `Team :
-Team2`.
+  Team2`.
    - For all other accounts, all costs are categorized as `Team
-: Team3`.
+  : Team3`.
 
 3. Using this rule, every cost line item from account 6 will be categorized with
    a cost category value `Team3`. These categorizations
@@ -269,16 +269,16 @@ It's the `RECORD_TYPE` value in the Cost Explorer API. This dimension uses
 different terms, depending on whether you're using the console or the API/JSON editor.
 The following table compares the terminology used for both scenarios.
 
-| Term comparison         | Value in API or JSON editor | Name used in the console |
-| ----------------------- | --------------------------- | ------------------------ |
-| Credit                  | Credit                      |
-| DiscountedUsage         | Reservation applied usage   |
-| Fee                     | Fee                         |
-| Refund                  | Refund                      |
-| RIFee                   | Recurring reservation fee   |
-| SavingsPlanCoveredUsage | Savings Plan Covered Usage  |
-| SavingsPlanNegation     | Savings Plan Negation       |
-| SavingsPlanRecurringFee | Savings Plan Recurring Fee  |
-| SavingsPlanUpfrontFee   | Savings Plan Upfront Fee    |
-| Tax                     | Tax                         |
-| Usage                   | Usage                       |
+Term comparison| Value in API or JSON editor | Name used in the console |
+| --- | --- |
+| Credit | Credit |
+| DiscountedUsage | Reservation applied usage |
+| Fee | Fee |
+| Refund | Refund |
+| RIFee | Recurring reservation fee |
+| SavingsPlanCoveredUsage | Savings Plan Covered Usage |
+| SavingsPlanNegation | Savings Plan Negation |
+| SavingsPlanRecurringFee | Savings Plan Recurring Fee |
+| SavingsPlanUpfrontFee | Savings Plan Upfront Fee |
+| Tax | Tax |
+| Usage | Usage |

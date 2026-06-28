@@ -20,9 +20,7 @@ chosen.
     2. To use a different payment method, or if your current selection isn't eligible for partial payments, choose **Change**.
     3. To add a new payment method, see [Managing credit card and ACH direct debit](manage-cc.md "manage-cc.md").
 
-5. In the **Payments due** table, select the invoices to pay.
-6. Under the **Payment amount** column, enter the partial payment amount you're paying for each invoice.
-7. Choose **Verify and pay**.
+5. In the **Payments due** table, select the invoices to pay. 6. Under the **Payment amount** column, enter the partial payment amount you're paying for each invoice. 7. Choose **Verify and pay**.
 
 After your bank processes your payment, you're redirected to the
 **Payments** page.

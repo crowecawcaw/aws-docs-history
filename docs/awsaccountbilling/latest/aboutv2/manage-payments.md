@@ -20,6 +20,7 @@ For more information about payments or payment methods, see [Getting help with y
 - [View remaining invoices, unapplied funds, and payment history](view-payment-info.md "view-payment-info.md")
 - [Managing your payment verifications](manage-cc-verification.md "manage-cc-verification.md")
 - [Managing credit card and ACH direct debit](manage-cc.md "manage-cc.md")
+- [Paying an invoice with Guest Checkout](guest-checkout.md "guest-checkout.md")
 - [Using Advance Pay](manage-advancepay.md "manage-advancepay.md")
 - [Making payments in Chinese yuan](manage-payment-cny.md "manage-payment-cny.md")
 - [Making payments using PIX (Brazil)](manage-payment-brazil.md "manage-payment-brazil.md")

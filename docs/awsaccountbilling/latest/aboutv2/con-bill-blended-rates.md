@@ -95,9 +95,9 @@ The costs in the preceding table are calculated as follows:
    total member account usage of 45 TB.
 2. The total cost is calculated by adding the cost of the first TB (1,000 GB \*
    $0.10 = 1 TB \* $100.00 = $100.00) to the cost of the next 49 TB (49,000 GB \*
-   $0.08 = 49 TB \* $80.00 = $3920.00) and the cost of the remaining 45 TB (45,000
+ $0.08 = 49 TB \* $80.00 = $3920.00) and the cost of the remaining 45 TB (45,000
    GB \* $0.06 = 45 TB \* $60.00 = $2700.00), for a total of $6,720 ($100.00 +
-   $3920.00 + $2700.00 = $6720.00).
+ $3920.00 + $2700.00 = $6720.00).
 
 The preceding example shows how using consolidated billing in AWS Organizations helps lower the
 overall monthly cost of storage. If you calculate the cost for each member account
@@ -105,8 +105,8 @@ separately, the total cost is $7,660 rather than $6,720. By aggregating the usag
 three accounts, you reach the lower-priced tiers sooner. The most expensive storage, the
 first TB, is charged at the highest price just once, rather than three times. For
 example, three TB of storage at the most expensive rate of $100/TB would result in a
-charge of $300. Charging this storage as 1 TB ($100) and two additional TB at $80 ($160)
-results in a total charge of $260.
+ charge of $300. Charging this storage as 1 TB ($100) and two additional TB at $80 ($160)
+ results in a total charge of $260.
 
 ## Reserved Instances
 
@@ -233,14 +233,14 @@ accounts using the following logic:
 
 1. The blended rate in GB is calculated by dividing the total cost
    ($6,720) by the amount of storage (95,000 GB) to produce a blended rate
-   of $0.070737/GB. The blended rate in TB is calculated by dividing the
+ of $0.070737/GB. The blended rate in TB is calculated by dividing the
    total cost ($6,720) by the amount of storage (95 TB) to produce a
-   blended rate of $70.737/TB.
+ blended rate of $70.737/TB.
 2. The blended cost for each member account is allocated by multiplying
    the blended rate (for GB or TB) by the usage, resulting in the amounts
    listed in the Blended Cost column. For example, Member 1 uses 14,000 GB
    of storage priced at the blended rate of $0.070737 (or 14 TB priced at
-   $70.737) for a blended cost of $990.318.
+ $70.737) for a blended cost of $990.318.
 
 ### Calculating Blended Rates for Amazon EC2
 
@@ -277,7 +277,7 @@ The data in the preceding table shows the following information:
   a Partial Upfront rate (one EC2 instance).
 - Member account 1 completely uses the two Full Upfront Reserved Instances and the one Partial Upfront Reserved Instance for a total usage of 2,160 hours. Member account 2 uses 720 hours of an On-Demand Instance. Total usage for the organization is 2,880 hours (2160 + 720 = 2,880).
 - The unblended rate for the three Reserved Instances is $0.00. The
-  unblended cost of an RI is always $0.00 because RI charges are not
+ unblended cost of an RI is always $0.00 because RI charges are not
   included in blended rate calculations.
 - The unblended rate for the On-Demand Instance is $0.023. Unblended
   rates are associated with the current price of the product. They can't

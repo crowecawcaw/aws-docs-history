@@ -190,7 +190,7 @@ value assigned to the cost category or cost allocation tag keys that you've crea
 
 - Your month-to-date spend is $100, and you created a cost category (named
   _Teams_) to organize costs by individual teams.
-- You have $40 in the _Team A_ cost category value, $35
+- You have $40 in the *Team A* cost category value, $35
   in the _Team B_ cost category value, and $25 that are
   unallocated.
 - In this case, your cost allocation coverage is 25/100 = 25%.
@@ -241,7 +241,7 @@ opportunity.
   `InstanceB`.
 - If you purchased a Savings Plan, you could reduce the cost for
   `InstanceA` by $20 and the cost of
-  `InstanceB` by $10, for a total of $30 savings.
+ `InstanceB` by $10, for a total of $30 savings.
 - However, if `InstanceB` is idle, the widget might
   recommend that you terminate it instead of purchasing a Savings Plan. The
   savings opportunity would tell you how much you could save by terminating

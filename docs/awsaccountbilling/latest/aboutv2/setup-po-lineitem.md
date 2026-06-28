@@ -44,10 +44,10 @@ line item configurations.
 
 - `PO #Anniversary_Q4_2021` with the effective month set to
   Apr 2021, and expiration month Jun 2021, `Line item type = AWS
-monthly usage`.
+ monthly usage`.
 - `PO #Subscriptions_Q4_2021` with the effective month set to
   Apr 2021, and expiration month Jun 2021, `Line item type = AWS
-Subscription Purchase`.
+ Subscription Purchase`.
 - `PO #Marketplace_Q4_2021` with the effective month set to
   Apr 2021, and expiration month Jun 2021, `Line item type = AWS
  Marketplace Purchase`.

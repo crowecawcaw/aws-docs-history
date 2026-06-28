@@ -121,33 +121,33 @@ This section shows a full list of the CloudTrail events for the **Payments** fea
 This section shows a full list of the CloudTrail events for the **Tax settings** feature in the AWS Billing console. These CloudTrail events use `taxconsole.amazonaws.com` or `tax.amazonaws.com` instead of
 `billingconsole.amazonaws.com`.
 
-| CloudTrail events for Tax settings console | Event name                                                                                   | Definition              | Event source |
-| ------------------------------------------ | -------------------------------------------------------------------------------------------- | ----------------------- | ------------ |
-| `BatchGetTaxExemptions`                    | Logs the access to US tax exemptions of an account, and any linked accounts.                 | `taxconsole.amazon.com` |
-| `CreateCustomerCase`                       | Logs the creation of a customer support case to validate US tax exemption for<br>an account. | `taxconsole.amazon.com` |
-| `DownloadTaxInvoice`                       | Logs the download of a tax invoice.                                                          | `taxconsole.amazon.com` |
-| `GetTaxExemptionTypes`                     | Logs the access to all supported US exemption types by tax console.                          | `taxconsole.amazon.com` |
-| `GetTaxInheritance`                        | Logs the access to tax inheritance preference (turning on or off) of an<br>account.          | `taxconsole.amazon.com` |
-| `GetTaxInvoicesMetadata`                   | Logs the retrieval of tax invoices metadata.                                                 | `taxconsole.amazon.com` |
-| `GetTaxRegistration`                       | Logs the access to the tax registration number of an account.                                | `taxconsole.amazon.com` |
-| `PreviewTaxRegistrationChange`             | Logs the preview of tax registration changes before confirmation.                            | `taxconsole.amazon.com` |
-| `SetTaxInheritance`                        | Logs the preference (opt-in or opt-out) of tax inheritance.                                  | `taxconsole.amazon.com` |
+CloudTrail events for Tax settings console| Event name | Definition | Event source |
+| --- | --- | --- |
+| `BatchGetTaxExemptions` | Logs the access to US tax exemptions of an account, and any linked accounts. | `taxconsole.amazon.com` |
+| `CreateCustomerCase` | Logs the creation of a customer support case to validate US tax exemption for<br>an account. | `taxconsole.amazon.com` |
+| `DownloadTaxInvoice` | Logs the download of a tax invoice. | `taxconsole.amazon.com` |
+| `GetTaxExemptionTypes` | Logs the access to all supported US exemption types by tax console. | `taxconsole.amazon.com` |
+| `GetTaxInheritance` | Logs the access to tax inheritance preference (turning on or off) of an<br>account. | `taxconsole.amazon.com` |
+| `GetTaxInvoicesMetadata` | Logs the retrieval of tax invoices metadata. | `taxconsole.amazon.com` |
+| `GetTaxRegistration` | Logs the access to the tax registration number of an account. | `taxconsole.amazon.com` |
+| `PreviewTaxRegistrationChange` | Logs the preview of tax registration changes before confirmation. | `taxconsole.amazon.com` |
+| `SetTaxInheritance` | Logs the preference (opt-in or opt-out) of tax inheritance. | `taxconsole.amazon.com` |
 
-| CloudTrail events for Tax settings API | Event name                                                                                       | Definition          | Event source |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------- | ------------ |
-| `BatchDeleteTaxRegistration`           | Logs the batch deletion of the tax registration for multiple accounts.                           | `tax.amazonaws.com` |
-| `BatchGetTaxExemptions`                | Logs the access to tax exemptions of one or multiple accounts.                                   | `tax.amazonaws.com` |
-| `BatchPutTaxRegistration`              | Logs the settings of the tax registration of multiple accounts.                                  | `tax.amazonaws.com` |
-| `DeleteTaxRegistration`                | Logs the deletion of the tax registration number for an account.                                 | `tax.amazonaws.com` |
-| `GetTaxExemptionTypes`                 | Logs the access to all supported tax exemption types by the tax console.                         | `tax.amazonaws.com` |
-| `GetTaxInheritance`                    | Logs the access to tax inheritance preference (turning on or off) of an account.                 | `tax.amazonaws.com` |
-| `GetTaxRegistration`                   | Logs the access to the tax registration of an account.                                           | `tax.amazonaws.com` |
-| `GetTaxRegistrationDocument`           | Logs retrieving the tax registration document of an account.                                     | `tax.amazonaws.com` |
-| `ListTaxExemptions`                    | Logs the access to tax exemptions of the AWS organization accounts.                              | `tax.amazonaws.com` |
-| `ListTaxRegistrations`                 | Logs the access to tax registration details of all member accounts of the<br>management account. | `tax.amazonaws.com` |
-| `PutTaxExemption`                      | Logs setting tax exemption of one or multiple accounts.                                          | `tax.amazonaws.com` |
-| `PutTaxInheritance`                    | Logs setting the preference (opt in or opt out) of tax inheritance.                              | `tax.amazonaws.com` |
-| `PutTaxRegistration`                   | Logs the settings of the tax registration of an account.                                         | `tax.amazonaws.com` |
+CloudTrail events for Tax settings API| Event name | Definition | Event source |
+| --- | --- | --- |
+| `BatchDeleteTaxRegistration` | Logs the batch deletion of the tax registration for multiple accounts. | `tax.amazonaws.com` |
+| `BatchGetTaxExemptions` | Logs the access to tax exemptions of one or multiple accounts. | `tax.amazonaws.com` |
+| `BatchPutTaxRegistration` | Logs the settings of the tax registration of multiple accounts. | `tax.amazonaws.com` |
+| `DeleteTaxRegistration` | Logs the deletion of the tax registration number for an account. | `tax.amazonaws.com` |
+| `GetTaxExemptionTypes` | Logs the access to all supported tax exemption types by the tax console. | `tax.amazonaws.com` |
+| `GetTaxInheritance` | Logs the access to tax inheritance preference (turning on or off) of an account. | `tax.amazonaws.com` |
+| `GetTaxRegistration` | Logs the access to the tax registration of an account. | `tax.amazonaws.com` |
+| `GetTaxRegistrationDocument` | Logs retrieving the tax registration document of an account. | `tax.amazonaws.com` |
+| `ListTaxExemptions` | Logs the access to tax exemptions of the AWS organization accounts. | `tax.amazonaws.com` |
+| `ListTaxRegistrations` | Logs the access to tax registration details of all member accounts of the<br>management account. | `tax.amazonaws.com` |
+| `PutTaxExemption` | Logs setting tax exemption of one or multiple accounts. | `tax.amazonaws.com` |
+| `PutTaxInheritance` | Logs setting the preference (opt in or opt out) of tax inheritance. | `tax.amazonaws.com` |
+| `PutTaxRegistration` | Logs the settings of the tax registration of an account. | `tax.amazonaws.com` |
 
 ### Invoicing CloudTrail events
 

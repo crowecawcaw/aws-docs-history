@@ -82,17 +82,17 @@ Some Price List Query API and Price List Bulk API operations are throttled by us
 maintain service availability. These quotas are per AWS account on a per Region basis.
 The following table shows the quotas for each API operation.
 
-| Price List Query API | API operation | Token bucket size | Refill rate per second |
-| -------------------- | ------------- | ----------------- | ---------------------- |
-| `DescribeServices`   | 10            | 5                 |
-| `GetAttributeValues` | 10            | 5                 |
-| `GetProducts`        | 10            | 5                 |
+Price List Query API| API operation | Token bucket size | Refill rate per second |
+| --- | --- | --- |
+| `DescribeServices` | 10 | 5 |
+| `GetAttributeValues` | 10 | 5 |
+| `GetProducts` | 10 | 5 |
 
-| Price List Bulk API   | API operation | Token bucket size | Refill rate per second |
-| --------------------- | ------------- | ----------------- | ---------------------- |
-| `DescribeServices`    | 10            | 5                 |
-| `GetPriceListFileUrl` | 10            | 5                 |
-| `ListPriceLists`      | 10            | 5                 |
+Price List Bulk API| API operation | Token bucket size | Refill rate per second |
+| --- | --- | --- |
+| `DescribeServices` | 10 | 5 |
+| `GetPriceListFileUrl` | 10 | 5 |
+| `ListPriceLists` | 10 | 5 |
 
 ## Bulk policy migrator
 

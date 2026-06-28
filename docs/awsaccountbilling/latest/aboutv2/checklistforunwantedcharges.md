@@ -2,7 +2,7 @@
 
 |                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **_For questions about your AWS bills or to appeal your charges, contact Support to address your inquiries immediately. To get help, see [Getting help with your bills and payments](billing-get-answers.md "billing-get-answers.md"). To understand your bills page contents, see [Using the Bills page to understand your monthly charges and invoice](getting-viewing-bill.md#invoice "getting-viewing-bill.md#invoice")._** |
+| _**For questions about your AWS bills or to appeal your charges, contact Support to address your inquiries immediately. To get help, see [Getting help with your bills and payments](billing-get-answers.md "billing-get-answers.md"). To understand your bills page contents, see [Using the Bills page to understand your monthly charges and invoice](getting-viewing-bill.md#invoice "getting-viewing-bill.md#invoice").**_ |
 
 ###### Note
 
@@ -195,9 +195,9 @@ In this example, you will see two entries in your daily AWS Cost and Usage Repor
 captures the snapshot usage amount for a single day. In this example, the usage is
 0.33 GiB (10 GiB/ 30 days) for `snap-A`, and 0.1333 GiB (4
 GiB/ 30 days) for `snap-B`. Using the rate of $0.05 per GB
-month, `snap-A` costs you 0.33 GiB x $0.05 = $0.0165.
-`Snap-B` costs you 0.133 GiB x $0.05 = $0.0066, for a
-total of $0.0231 per day for both snapshots. For more information, see the [AWS Data Exports User
+ month, `snap-A` costs you 0.33 GiB x $0.05 = $0.0165.
+ `Snap-B` costs you 0.133 GiB x $0.05 = $0.0066, for a
+ total of $0.0231 per day for both snapshots. For more information, see the [AWS Data Exports User
 Guide](../../../cur/latest/userguide/what-is-cur.md "../../../cur/latest/userguide/what-is-cur.md").
 
 | lineItem/ Operation | lineItem/ ResourceId                      | lineItem/ UsageAmount | lineItem/ UnblendedCost | resourceTags/ user:usage |

@@ -61,9 +61,8 @@ console.
      automatically.
 
 9. In the **Accounts** section, select the accounts to add to
-   the invoice unit.
-10. Choose **Create invoice unit**.
-    The configuration is effective immediately once you create an invoice unit.
+the invoice unit. 10. Choose **Create invoice unit**.
+The configuration is effective immediately once you create an invoice unit.
 
 ###### To create invoice units across external management accounts (Billing Transfer)
 

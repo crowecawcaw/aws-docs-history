@@ -174,16 +174,12 @@ account number again. 11. For personal bank accounts:
      state.
 
 12. For business bank accounts, for **Tax ID**, enter the
-    Federal tax ID for the business.
-13. (Optional) For **Set as default payment method**, select
-    whether you want this direct debit account to be your default payment
-    method.
-14. For **Billing address**, enter the valid US billing
-    address of the primary account holder.
-15. (Optional) Enter the tag key and value. You can add up to 50 tags. For more information on tags, see [Managing Your Payments using tags](manage-payments-tags.md "manage-payments-tags.md").
-16. Choose **Add payment method** to agree to the
-    **Terms and Conditions** and add your direct debit
-    account.
+Federal tax ID for the business. 13. (Optional) For **Set as default payment method**, select
+whether you want this direct debit account to be your default payment
+method. 14. For **Billing address**, enter the valid US billing
+address of the primary account holder. 15. (Optional) Enter the tag key and value. You can add up to 50 tags. For more information on tags, see [Managing Your Payments using tags](manage-payments-tags.md "manage-payments-tags.md"). 16. Choose **Add payment method** to agree to the
+**Terms and Conditions** and add your direct debit
+account.
 
 ### Update direct debit account
 

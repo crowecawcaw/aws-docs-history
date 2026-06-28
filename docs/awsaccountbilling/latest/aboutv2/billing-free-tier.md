@@ -2,7 +2,7 @@
 
 ###### Note
 
-**_This section only applies to new AWS customers who created AWS accounts before July 15, 2025. If you created your account after July 15, 2025, see [Explore AWS services with AWS Free Tier](free-tier.md "free-tier.md")._**
+_**This section only applies to new AWS customers who created AWS accounts before July 15, 2025. If you created your account after July 15, 2025, see [Explore AWS services with AWS Free Tier](free-tier.md "free-tier.md").**_
 
 When you create an AWS account, you can try some AWS services free of charge within
 certain usage limits.

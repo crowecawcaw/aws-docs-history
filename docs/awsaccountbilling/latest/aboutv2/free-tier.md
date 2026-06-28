@@ -2,13 +2,13 @@
 
 ###### Note
 
-**_This section only applies to new AWS customers who created AWS accounts after July 15, 2025. If you created your account before July 15, 2025, see [Trying services using AWS Free Tier (before July 15, 2025)](billing-free-tier.md "billing-free-tier.md")._**
+_**This section only applies to new AWS customers who created AWS accounts after July 15, 2025. If you created your account before July 15, 2025, see [Trying services using AWS Free Tier (before July 15, 2025)](billing-free-tier.md "billing-free-tier.md").**_
 
 You can use AWS Free Tier to explore AWS services without cost commitments. When you sign
 up for your AWS account, you can choose between **Free account plan** or
 **Paid account plan**. If you are new to AWS, you receive USD $100 in
-credits after you create an account, regardless of your account plan. You can also earn up
-to an additional USD $100 in credits by completing activities. For more information about
+ credits after you create an account, regardless of your account plan. You can also earn up
+ to an additional USD $100 in credits by completing activities. For more information about
 earning additional credits, see [Earning additional credits](free-tier-plans-activities.md "free-tier-plans-activities.md"). In addition, you have access to over 30
 always free AWS services that offer monthly free usage limits.
 

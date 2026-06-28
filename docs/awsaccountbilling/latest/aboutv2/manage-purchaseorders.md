@@ -38,9 +38,9 @@ When an invoice is generated, all purchase orders that are added to your
 management account are considered for association. Then, expired or suspended purchase orders
 are filtered out, leaving only the active purchase orders. Your invoice’s billing entity is
 matched with the “Bill from” entity in your purchase order, filtering out those that don’t
-match. For example, if you have a purchase order added for the AWS Inc. entity (PO_1), and
-another one for the AWS EMEA SARL entity (PO_2). If you purchase a Reserved Instance from
-AWS Europe, only PO_2 will be considered for invoice association.
+match. For example, if you have a purchase order added for the AWS Inc. entity (PO\_1), and
+another one for the AWS EMEA SARL entity (PO\_2). If you purchase a Reserved Instance from
+AWS Europe, only PO\_2 will be considered for invoice association.
 
 Next, we evaluate line item configurations to determine the best fit for your invoice. To
 be matched with a line item, the invoice's billing period must be within the line item's

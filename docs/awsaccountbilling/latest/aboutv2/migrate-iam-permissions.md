@@ -328,7 +328,7 @@ This file contains the following sections:
 When you update the policies, this block is appended at the end of the
 policies.
 
-###### Example affected_policies_and_suggestions.json file
+###### Example affected\_policies\_and\_suggestions.json file
 
 This file groups together policies that are similar based on the following
 criteria:
@@ -350,7 +350,7 @@ criteria:
 
 For more information, see [IAM policy examples](#examples-of-similar-policies "#examples-of-similar-policies").
 
-###### Example affected_policies_and_suggestions.json
+###### Example affected\_policies\_and\_suggestions.json
 
 ```
 [{
@@ -460,7 +460,7 @@ You can search the file for the policy name (for example,
 `YourCustomerManagedReadOnlyAccessBillingUser`)
 and then review the affected policy definitions.
 
-###### Example: detailed_affected_policies.json
+###### Example: detailed\_affected\_policies.json
 
 ## Step 4: Review the suggested changes
 
@@ -533,12 +533,12 @@ python3 `update_affected_policies.py` --affected-policies-directory Affected_Pol
 The `update_affected_policies.py` script updates the affected policies within the `affected_policies_and_suggestions.json` file
 with the suggested new actions. The script adds a `Sid` block to the policies,
 identified as `BillingConsolePolicyMigrator`#``, where
- `#` corresponds to an incremental counter (for example, 1, 2, 3).
+`#` corresponds to an incremental counter (for example, 1, 2, 3).
 
 For example, if there are multiple `Sid` blocks in the affected policy that use
 old actions, the script adds multiple `Sid` blocks that appear as
-`BillingConsolePolicyMigrator`#``to correspond to
- each`Sid` block.
+`BillingConsolePolicyMigrator`#`` to correspond to
+each `Sid` block.
 
 ###### Important
 
@@ -549,7 +549,7 @@ old actions, the script adds multiple `Sid` blocks that appear as
   original policies aren't changed.
 - We recommend that you do not change the name of the
   `BillingConsolePolicyMigrator`#``
-`Sid` blocks in case you need to revert your changes.
+  `Sid` blocks in case you need to revert your changes.
 
 ###### Example: Policy with appended Sid blocks
 
@@ -617,7 +617,7 @@ script appended. These `Sid` blocks have the
   - The following example scans the policies in the specified AWS accounts, and
     removes any statements with the
     `BillingConsolePolicyMigrator`#``
-`Sid` block.
+    `Sid` block.
 
   ```
   python3 `rollback_affected_policies.py` –-accounts 111122223333, 555555555555, 666666666666
@@ -628,7 +628,7 @@ script appended. These `Sid` blocks have the
   - Includes all AWS account IDs in your organization.
   - The following example scans all policies in your organization, and removes any
     statements with the `BillingConsolePolicyMigratorRole`#``
-`Sid` block.
+    `Sid` block.
 
 ```
 python3 `rollback_affected_policies.py` –-all

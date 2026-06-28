@@ -2,7 +2,7 @@
 
 ###### Note
 
-**_This section only applies to new AWS customers who created AWS accounts before July 15, 2025. If you created your account after July 15, 2025, see [Explore AWS services with AWS Free Tier](free-tier.md "free-tier.md")._**
+_**This section only applies to new AWS customers who created AWS accounts before July 15, 2025. If you created your account after July 15, 2025, see [Explore AWS services with AWS Free Tier](free-tier.md "free-tier.md").**_
 
 Your eligibility for the 12 month free service offering AWS Free Tier expires 12 months
 after you first activate your AWS account. You can’t extend your Free Tier eligibility

@@ -39,15 +39,16 @@ charges for both himself and Susan.
 Bob transfers 8 TB of data during the month and Susan transfers 4 TB.
 
 For the purposes of this example, AWS charges $0.17 per GB for the first 10 TB
-of data transferred and $0.13 for the next 40 TB. This translates into $174.08 per
-TB (= .17\*1024) for the first 10 TB, and $133.12 per TB (= .13\*1024) for the next 40
+ of data transferred and $0.13 for the next 40 TB. This translates into $174.08 per
+ TB (= .17\*1024) for the first 10 TB, and $133.12 per TB (= .13\*1024) for the next 40
 TB. Remember that 1 TB = 1024 GB.
 
-For the 12 TB that Bob and Susan used, Bob's management account is charged ($174.08 \* 10 TB) + ($133.12 \* 2 TB) = $1740.80 + $266.24 = $2,007.04.
+For the 12 TB that Bob and Susan used, Bob's management account is charged ($174.08
+ \* 10 TB) + ($133.12 \* 2 TB) = $1740.80 + $266.24 = $2,007.04.
 
 Without the benefit of tiering across the consolidated bill, AWS would have
 charged Bob and Susan each $174.08 per TB for their usage, for a total of
-$2,088.96.
+ $2,088.96.
 
 To learn more about pricing, see [AWS
 Pricing](https://aws.amazon.com/pricing/ "https://aws.amazon.com/pricing/").

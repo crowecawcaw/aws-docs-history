@@ -93,10 +93,10 @@ credit card).
    **Visit payment profiles**.
 4. Choose **Create payment profiles**.
 5. For **Service provider**, choose `AWS
-Inc`.
+ Inc`.
 6. For **Currency**, choose `USD - US dollar`.
 7. (Optional) Enter a name for your payment profiles (for example, `My
-AWS Inc. payment profile`).
+ AWS Inc. payment profile`).
 8. Under the **Payment method** section, choose the
    payment method to pay your specified service provider and currency
    with.
@@ -129,10 +129,10 @@ card).
    **Visit payment profiles**.
 4. Choose **Create payment profiles**.
 5. For **Service provider**, choose `AWS EMEA
-SARL`.
+ SARL`.
 6. For **Currency**, choose `EUR - Euro`.
 7. (Optional) Enter a name for your payment profiles (for example, `My
-AWS Europe payment profile`).
+ AWS Europe payment profile`).
 8. Under the **Payment method** section, choose the
    payment method to pay your specified service provider and currency
    with.
@@ -163,11 +163,11 @@ Brazil.
    **Visit payment profiles**.
 4. Choose **Create payment profiles**.
 5. For **Service provider**, choose `Amazon Web Services"/>
-Serviços Brasil Ltda`.
+ Serviços Brasil Ltda`.
 6. For **Currency**, choose `BRL - Brazilian
-real`.
+ real`.
 7. (Optional) Enter a name for your payment profiles (for example, `My
-AWS Brazil payment profile`).
+ AWS Brazil payment profile`).
 8. Under the **Payment method** section, choose the
    payment method to pay your specified service provider and currency
    with.
