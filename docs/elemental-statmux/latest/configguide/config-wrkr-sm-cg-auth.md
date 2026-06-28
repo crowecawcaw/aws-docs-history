@@ -10,12 +10,11 @@ You can require users to provide valid credentials when they access AWS Elementa
 - For the web interface, users must complete the fields on the login screen.
 - For the REST API, users must include these additional HTTP headers in commands that they send:
 
-      + `X-Auth-User`
-      + `X-Auth-Expires`
-      + `X-Auth-Key`
-
-  For more information about using the API with authentication enabled, see the
-  AWS Elemental Statmux REST API documentation.
+  - `X-Auth-User`
+  - `X-Auth-Expires`
+  - `X-Auth-Key`
+    For more information about using the API with authentication enabled, see the
+    AWS Elemental Statmux REST API documentation.
 
 ###### To enable user authentication
 

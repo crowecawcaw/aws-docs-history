@@ -25,10 +25,10 @@ AWS Elemental Statmux generates traps for the events described in the following 
 2. On the **SNMP** page, complete the fields, using the instructions in the following
    table as a guide. Choose **Save**:
 
-| Field                              | Instructions                                                                                                                       |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| **Allow external SNMP access**     | Choose **Yes\*<br>• to open the SNMP port on the firewall.<br>The port must be open if you will send an **snmpwalk\*<br>• command. |
-| **Generate SNMP Traps for Alerts** | Choose \*_Yes_<br>• to generate traps.                                                                                             |
-| **SNMP Management Host**           | Enter the IP address of the trap destination.                                                                                      |
-| **SNMP Management Trap Port**      | Enter `162`.                                                                                                                       |
-| **SNMP Management Community**      | Enter `Public`.                                                                                                                    |
+| Field                              | Instructions                                                                                                                     |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **Allow external SNMP access**     | Choose *_Yes_<br>• to open the SNMP port on the firewall.<br>The port must be open if you will send an *_snmpwalk_<br>• command. |
+| **Generate SNMP Traps for Alerts** | Choose *_Yes_<br>• to generate traps.                                                                                            |
+| **SNMP Management Host**           | Enter the IP address of the trap destination.                                                                                    |
+| **SNMP Management Trap Port**      | Enter `162`.                                                                                                                     |
+| **SNMP Management Community**      | Enter `Public`.                                                                                                                  |
