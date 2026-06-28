@@ -1,12 +1,12 @@
 # rds-logging-enabled
 
-Checks if respective logs of Amazon Relational Database Service (Amazon RDS) are enabled. The rule is NON_COMPLIANT if any log types are not enabled.
+Checks if respective logs of Amazon Relational Database Service (Amazon RDS) are enabled. The rule is NON\_COMPLIANT if any log types are not enabled.
 
 ###### Note
 
 DB Instances that are not in 'available', 'backing-up', 'storage-optimization', or 'storage-full' status evaluate as `NOT_APPLICABLE`.
 
-**Identifier:** RDS_LOGGING_ENABLED
+**Identifier:** RDS\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::RDS::DBInstance
 

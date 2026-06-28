@@ -1,8 +1,8 @@
 # waf-global-rule-not-empty
 
-Checks if an AWS WAF global rule contains any conditions. The rule is NON_COMPLIANT if no conditions are present within the WAF global rule.
+Checks if an AWS WAF global rule contains any conditions. The rule is NON\_COMPLIANT if no conditions are present within the WAF global rule.
 
-**Identifier:** WAF_GLOBAL_RULE_NOT_EMPTY
+**Identifier:** WAF\_GLOBAL\_RULE\_NOT\_EMPTY
 
 **Resource Types:** AWS::WAF::Rule
 

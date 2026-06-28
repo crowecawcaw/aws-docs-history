@@ -1,8 +1,8 @@
 # fsx-windows-deployment-type-check
 
-Checks if the Amazon FSx for WINDOWS file systems are configured with certain deployment types. The rule is NON_COMPLIANT if FSx for WINDOWS file systems are not configured with the deployment types you specify.
+Checks if the Amazon FSx for WINDOWS file systems are configured with certain deployment types. The rule is NON\_COMPLIANT if FSx for WINDOWS file systems are not configured with the deployment types you specify.
 
-**Identifier:** FSX_WINDOWS_DEPLOYMENT_TYPE_CHECK
+**Identifier:** FSX\_WINDOWS\_DEPLOYMENT\_TYPE\_CHECK
 
 **Resource Types:** AWS::FSx::FileSystem
 

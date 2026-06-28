@@ -65,8 +65,8 @@ following:
      complete importing the project.
 
 4. Open the `mycustomnamespace-testing-wordpress.json` file that
-   contains the schema for your resource. Copy and paste the following schema
-   into `mycustomnamespace-testing-wordpress.json`.
+contains the schema for your resource. Copy and paste the following schema
+into `mycustomnamespace-testing-wordpress.json`.
 
 ```
 {

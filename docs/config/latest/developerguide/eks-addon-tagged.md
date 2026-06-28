@@ -1,8 +1,8 @@
 # eks-addon-tagged
 
-Checks if Amazon EKS add-ons have tags. Optionally, you can specify tag keys. The rule is NON_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'.
+Checks if Amazon EKS add-ons have tags. Optionally, you can specify tag keys. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'.
 
-**Identifier:** EKS_ADDON_TAGGED
+**Identifier:** EKS\_ADDON\_TAGGED
 
 **Resource Types:** AWS::EKS::Addon
 
@@ -15,7 +15,7 @@ Checks if Amazon EKS add-ons have tags. Optionally, you can specify tag keys. Th
 requiredKeyTags (Optional)
 Type: CSV
 
-Comma-separated list of tag keys for the rule to check. If provided, the rule is NON_COMPLIANT if the evaluated resource does not contain these keys. Tag keys are case-sensitive. Tag keys starting with 'aws:' are not allowed.
+Comma-separated list of tag keys for the rule to check. If provided, the rule is NON\_COMPLIANT if the evaluated resource does not contain these keys. Tag keys are case-sensitive. Tag keys starting with 'aws:' are not allowed.
 
 ## AWS CloudFormation template
 

@@ -1,8 +1,8 @@
 # rds-cluster-deletion-protection-enabled
 
-Checks if an Amazon Relational Database Service (Amazon RDS) cluster has deletion protection enabled. This rule is NON_COMPLIANT if an RDS cluster does not have deletion protection enabled.
+Checks if an Amazon Relational Database Service (Amazon RDS) cluster has deletion protection enabled. This rule is NON\_COMPLIANT if an RDS cluster does not have deletion protection enabled.
 
-**Identifier:** RDS_CLUSTER_DELETION_PROTECTION_ENABLED
+**Identifier:** RDS\_CLUSTER\_DELETION\_PROTECTION\_ENABLED
 
 **Resource Types:** AWS::RDS::DBCluster
 

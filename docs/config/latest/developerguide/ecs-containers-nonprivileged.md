@@ -1,12 +1,12 @@
 # ecs-containers-nonprivileged
 
-Checks if the privileged parameter in the container definition of ECSTaskDefinitions is set to ‘true’. The rule is NON_COMPLIANT if the privileged parameter is ‘true’.
+Checks if the privileged parameter in the container definition of ECSTaskDefinitions is set to ‘true’. The rule is NON\_COMPLIANT if the privileged parameter is ‘true’.
 
 ###### Note
 
 This rule only evaluates the latest active revision of an Amazon ECS task definition.
 
-**Identifier:** ECS_CONTAINERS_NONPRIVILEGED
+**Identifier:** ECS\_CONTAINERS\_NONPRIVILEGED
 
 **Resource Types:** AWS::ECS::TaskDefinition
 

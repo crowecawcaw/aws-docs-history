@@ -1,8 +1,8 @@
 # sagemaker-featuregroup-online-store-encryption
 
-Checks if SageMaker feature groups have KMS encryption for OnlineStore with standard storage. The rule is NON_COMPLIANT if KMS key encryption is not configured.
+Checks if SageMaker feature groups have KMS encryption for OnlineStore with standard storage. The rule is NON\_COMPLIANT if KMS key encryption is not configured.
 
-**Identifier:** SAGEMAKER_FEATUREGROUP_ONLINE_STORE_ENCRYPTION
+**Identifier:** SAGEMAKER\_FEATUREGROUP\_ONLINE\_STORE\_ENCRYPTION
 
 **Resource Types:** AWS::SageMaker::FeatureGroup
 

@@ -1,12 +1,12 @@
 # rds-instance-deletion-protection-enabled
 
-Checks if an Amazon Relational Database Service (Amazon RDS) instance has deletion protection enabled. The rule is NON_COMPLIANT if an Amazon RDS instance does not have deletion protection enabled; for example, deletionProtection is set to false.
+Checks if an Amazon Relational Database Service (Amazon RDS) instance has deletion protection enabled. The rule is NON\_COMPLIANT if an Amazon RDS instance does not have deletion protection enabled; for example, deletionProtection is set to false.
 
 ###### Warning
 
 Some RDS DB instances within a Cluster (Aurora/DocumentDB) will show as not applicable because deletion protection is set at the cluster level.
 
-**Identifier:** RDS_INSTANCE_DELETION_PROTECTION_ENABLED
+**Identifier:** RDS\_INSTANCE\_DELETION\_PROTECTION\_ENABLED
 
 **Resource Types:** AWS::RDS::DBInstance
 

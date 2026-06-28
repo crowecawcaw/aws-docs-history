@@ -1,8 +1,8 @@
 # msk-in-cluster-node-require-tls
 
-Checks if an Amazon MSK cluster enforces encryption in transit using HTTPS (TLS) with the broker nodes of the cluster. The rule is NON_COMPLIANT if plain text communication is enabled for in-cluster broker node connections.
+Checks if an Amazon MSK cluster enforces encryption in transit using HTTPS (TLS) with the broker nodes of the cluster. The rule is NON\_COMPLIANT if plain text communication is enabled for in-cluster broker node connections.
 
-**Identifier:** MSK_IN_CLUSTER_NODE_REQUIRE_TLS
+**Identifier:** MSK\_IN\_CLUSTER\_NODE\_REQUIRE\_TLS
 
 **Resource Types:** AWS::MSK::Cluster
 

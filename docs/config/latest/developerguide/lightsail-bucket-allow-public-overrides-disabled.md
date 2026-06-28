@@ -1,8 +1,8 @@
 # lightsail-bucket-allow-public-overrides-disabled
 
-Checks if Amazon Lightsail buckets have allow public overrides disabled. The rule is NON_COMPLIANT if AllowPublicOverrides is true. Note: AllowPublicOverrides has no effect if GetObject is public, see lightsail-bucket-get-object-private.
+Checks if Amazon Lightsail buckets have allow public overrides disabled. The rule is NON\_COMPLIANT if AllowPublicOverrides is true. Note: AllowPublicOverrides has no effect if GetObject is public, see lightsail-bucket-get-object-private.
 
-**Identifier:** LIGHTSAIL_BUCKET_ALLOW_PUBLIC_OVERRIDES_DISABLED
+**Identifier:** LIGHTSAIL\_BUCKET\_ALLOW\_PUBLIC\_OVERRIDES\_DISABLED
 
 **Resource Types:** AWS::Lightsail::Bucket
 

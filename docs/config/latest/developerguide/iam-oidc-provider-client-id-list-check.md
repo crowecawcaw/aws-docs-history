@@ -1,8 +1,8 @@
 # iam-oidc-provider-client-id-list-check
 
-Checks if AWS IAM OIDC providers are configured with approved client IDs. The rule is NON_COMPLIANT if configuration.ClientIdList contains IDs not specified in the required rule parameter.
+Checks if AWS IAM OIDC providers are configured with approved client IDs. The rule is NON\_COMPLIANT if configuration.ClientIdList contains IDs not specified in the required rule parameter.
 
-**Identifier:** IAM_OIDC_PROVIDER_CLIENT_ID_LIST_CHECK
+**Identifier:** IAM\_OIDC\_PROVIDER\_CLIENT\_ID\_LIST\_CHECK
 
 **Resource Types:** AWS::IAM::OIDCProvider
 
@@ -15,7 +15,7 @@ Checks if AWS IAM OIDC providers are configured with approved client IDs. The ru
 allowedClientIds
 Type: CSV
 
-Comma-separated list of client IDs for the rule to check. The rule is NON_COMPLIANT if configuration.ClientIdList contains values not specified in this parameter.
+Comma-separated list of client IDs for the rule to check. The rule is NON\_COMPLIANT if configuration.ClientIdList contains values not specified in this parameter.
 
 ## AWS CloudFormation template
 

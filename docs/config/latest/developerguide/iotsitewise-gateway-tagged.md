@@ -1,8 +1,8 @@
 # iotsitewise-gateway-tagged
 
-Checks if AWS IoT SiteWise gateways have tags. Optionally, you can specify tag keys for the rule. The rule is NON_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'.
+Checks if AWS IoT SiteWise gateways have tags. Optionally, you can specify tag keys for the rule. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'.
 
-**Identifier:** IOTSITEWISE_GATEWAY_TAGGED
+**Identifier:** IOTSITEWISE\_GATEWAY\_TAGGED
 
 **Resource Types:** AWS::IoTSiteWise::Gateway
 
@@ -15,7 +15,7 @@ Checks if AWS IoT SiteWise gateways have tags. Optionally, you can specify tag k
 requiredKeyTags (Optional)
 Type: CSV
 
-Comma-separated list of tag keys for the rule to check. If provided, the rule is NON_COMPLIANT if the evaluated resource does not contain these keys. Tag keys are case-sensitive. Tag keys starting with 'aws:' are not allowed.
+Comma-separated list of tag keys for the rule to check. If provided, the rule is NON\_COMPLIANT if the evaluated resource does not contain these keys. Tag keys are case-sensitive. Tag keys starting with 'aws:' are not allowed.
 
 ## AWS CloudFormation template
 

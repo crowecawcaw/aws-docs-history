@@ -1,8 +1,8 @@
 # s3-resources-protected-by-backup-plan
 
-Checks if Amazon Simple Storage Service (Amazon S3) buckets are protected by a backup plan. The rule is NON_COMPLIANT if the Amazon S3 bucket is not covered by a backup plan.
+Checks if Amazon Simple Storage Service (Amazon S3) buckets are protected by a backup plan. The rule is NON\_COMPLIANT if the Amazon S3 bucket is not covered by a backup plan.
 
-**Identifier:** S3_RESOURCES_PROTECTED_BY_BACKUP_PLAN
+**Identifier:** S3\_RESOURCES\_PROTECTED\_BY\_BACKUP\_PLAN
 
 **Resource Types:** AWS::S3::Bucket
 

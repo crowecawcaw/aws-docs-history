@@ -109,11 +109,11 @@ account IDs** to select source accounts.
     	 role.
 
 6. For **Regions**, choose the regions for which you
-   want to aggregate data.
+want to aggregate data.
 
-   - Select one region or multiple regions or all the
+    * Select one region or multiple regions or all the
      AWS Regions.
-   - Select **Include future AWS Regions** to
+    * Select **Include future AWS Regions** to
      aggregate data from all future AWS Regions where multi-account
      multi-region data aggregation is enabled.
 

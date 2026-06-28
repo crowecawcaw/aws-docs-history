@@ -1,8 +1,8 @@
 # s3-bucket-level-public-access-prohibited
 
-Checks if S3 buckets are publicly accessible. The rule is NON_COMPLIANT if an S3 bucket is not listed in the `excludedPublicBuckets` parameter and bucket level settings are public.
+Checks if S3 buckets are publicly accessible. The rule is NON\_COMPLIANT if an S3 bucket is not listed in the `excludedPublicBuckets` parameter and bucket level settings are public.
 
-**Identifier:** S3_BUCKET_LEVEL_PUBLIC_ACCESS_PROHIBITED
+**Identifier:** S3\_BUCKET\_LEVEL\_PUBLIC\_ACCESS\_PROHIBITED
 
 **Resource Types:** AWS::S3::Bucket
 

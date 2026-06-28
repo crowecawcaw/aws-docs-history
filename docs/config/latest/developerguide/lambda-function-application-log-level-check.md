@@ -1,8 +1,8 @@
 # lambda-function-application-log-level-check
 
-Checks if AWS Lambda functions with JSON structured logs are configured with a specified application log level. The rule is NON_COMPLIANT if configuration.loggingConfig.applicationLogLevel is not a value specified in the required rule parameter.
+Checks if AWS Lambda functions with JSON structured logs are configured with a specified application log level. The rule is NON\_COMPLIANT if configuration.loggingConfig.applicationLogLevel is not a value specified in the required rule parameter.
 
-**Identifier:** LAMBDA_FUNCTION_APPLICATION_LOG_LEVEL_CHECK
+**Identifier:** LAMBDA\_FUNCTION\_APPLICATION\_LOG\_LEVEL\_CHECK
 
 **Resource Types:** AWS::Lambda::Function
 
@@ -15,7 +15,7 @@ Checks if AWS Lambda functions with JSON structured logs are configured with a s
 logLevel
 Type: String
 
-The minimum application log level for the rule to check. The rule is NON_COMPLIANT if configuration.loggingConfig.applicationLogLevel is configured with a value not specified in this parameter. Valid values include: 'TRACE', 'DEBUG', 'INFO', 'WARN', 'ERROR', and 'FATAL'.
+The minimum application log level for the rule to check. The rule is NON\_COMPLIANT if configuration.loggingConfig.applicationLogLevel is configured with a value not specified in this parameter. Valid values include: 'TRACE', 'DEBUG', 'INFO', 'WARN', 'ERROR', and 'FATAL'.
 
 ## AWS CloudFormation template
 

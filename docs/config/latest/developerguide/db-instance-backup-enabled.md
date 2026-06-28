@@ -2,7 +2,7 @@
 
 Checks if RDS DB instances have backups enabled. Optionally, the rule checks the backup retention period and the backup window.
 
-**Identifier:** DB_INSTANCE_BACKUP_ENABLED
+**Identifier:** DB\_INSTANCE\_BACKUP\_ENABLED
 
 **Resource Types:** AWS::RDS::DBInstance
 

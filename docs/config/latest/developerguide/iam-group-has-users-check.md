@@ -2,7 +2,7 @@
 
 Checks whether IAM groups have at least one IAM user.
 
-**Identifier:** IAM_GROUP_HAS_USERS_CHECK
+**Identifier:** IAM\_GROUP\_HAS\_USERS\_CHECK
 
 **Resource Types:** AWS::IAM::Group
 

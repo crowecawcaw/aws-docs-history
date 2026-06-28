@@ -1,8 +1,8 @@
 # custom-eventbus-policy-attached
 
-Checks if Amazon EventBridge custom event buses have a resource-based policy attached. The rule is NON_COMPLIANT if a custom event bus policy does not have an attached resource-based policy.
+Checks if Amazon EventBridge custom event buses have a resource-based policy attached. The rule is NON\_COMPLIANT if a custom event bus policy does not have an attached resource-based policy.
 
-**Identifier:** CUSTOM_EVENTBUS_POLICY_ATTACHED
+**Identifier:** CUSTOM\_EVENTBUS\_POLICY\_ATTACHED
 
 **Resource Types:** AWS::Events::EventBus
 

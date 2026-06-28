@@ -1,8 +1,8 @@
 # lambda-concurrency-check
 
-Checks if the Lambda function is configured with a function-level concurrent execution limit. The rule is NON_COMPLIANT if the Lambda function is not configured with a function-level concurrent execution limit.
+Checks if the Lambda function is configured with a function-level concurrent execution limit. The rule is NON\_COMPLIANT if the Lambda function is not configured with a function-level concurrent execution limit.
 
-**Identifier:** LAMBDA_CONCURRENCY_CHECK
+**Identifier:** LAMBDA\_CONCURRENCY\_CHECK
 
 **Resource Types:** AWS::Lambda::Function
 

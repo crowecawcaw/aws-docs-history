@@ -26,7 +26,7 @@ To avoid unnecessary evaluations, you should only deploy periodic rules that rep
 For a list of which managed rules are supported in which Regions,
 see [List of AWS Config Managed Rules by Region Availability](managing-rules-by-region-availability.md "managing-rules-by-region-availability.md").
 
-**Identifier:** MFA_ENABLED_FOR_IAM_CONSOLE_ACCESS
+**Identifier:** MFA\_ENABLED\_FOR\_IAM\_CONSOLE\_ACCESS
 
 **Resource Types:** AWS::IAM::User
 

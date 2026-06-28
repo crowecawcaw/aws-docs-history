@@ -1,8 +1,8 @@
 # ivs-channel-playback-authorization-enabled
 
-Checks if Amazon IVS channels have playback authorization enabled. The rule is NON_COMPLIANT if configuration.Authorized is false.
+Checks if Amazon IVS channels have playback authorization enabled. The rule is NON\_COMPLIANT if configuration.Authorized is false.
 
-**Identifier:** IVS_CHANNEL_PLAYBACK_AUTHORIZATION_ENABLED
+**Identifier:** IVS\_CHANNEL\_PLAYBACK\_AUTHORIZATION\_ENABLED
 
 **Resource Types:** AWS::IVS::Channel
 

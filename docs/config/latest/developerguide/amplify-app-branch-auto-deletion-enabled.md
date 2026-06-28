@@ -1,8 +1,8 @@
 # amplify-app-branch-auto-deletion-enabled
 
-Checks if AWS Amplify apps automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository. The rule is NON_COMPLIANT if configuration.EnableBranchAutoDeletion is false.
+Checks if AWS Amplify apps automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository. The rule is NON\_COMPLIANT if configuration.EnableBranchAutoDeletion is false.
 
-**Identifier:** AMPLIFY_APP_BRANCH_AUTO_DELETION_ENABLED
+**Identifier:** AMPLIFY\_APP\_BRANCH\_AUTO\_DELETION\_ENABLED
 
 **Resource Types:** AWS::Amplify::App
 

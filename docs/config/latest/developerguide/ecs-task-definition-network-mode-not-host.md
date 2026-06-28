@@ -1,8 +1,8 @@
 # ecs-task-definition-network-mode-not-host
 
-Checks if the latest active revision of Amazon ECS task definitions use host network mode. The rule is NON_COMPLIANT if the latest active revision of the ECS task definition uses host network mode.
+Checks if the latest active revision of Amazon ECS task definitions use host network mode. The rule is NON\_COMPLIANT if the latest active revision of the ECS task definition uses host network mode.
 
-**Identifier:** ECS_TASK_DEFINITION_NETWORK_MODE_NOT_HOST
+**Identifier:** ECS\_TASK\_DEFINITION\_NETWORK\_MODE\_NOT\_HOST
 
 **Resource Types:** AWS::ECS::TaskDefinition
 

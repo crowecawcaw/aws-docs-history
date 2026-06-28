@@ -2,9 +2,9 @@
 
 Checks if managed platform updates in an AWS Elastic Beanstalk environment is enabled.
 The rule is COMPLIANT if the value for `ManagedActionsEnabled` is set to true.
-The rule is NON_COMPLIANT if the value for `ManagedActionsEnabled` is set to false, or if a parameter is provided and its value does not match the existing configurations.
+The rule is NON\_COMPLIANT if the value for `ManagedActionsEnabled` is set to false, or if a parameter is provided and its value does not match the existing configurations.
 
-**Identifier:** ELASTIC_BEANSTALK_MANAGED_UPDATES_ENABLED
+**Identifier:** ELASTIC\_BEANSTALK\_MANAGED\_UPDATES\_ENABLED
 
 **Resource Types:** AWS::ElasticBeanstalk::Environment
 

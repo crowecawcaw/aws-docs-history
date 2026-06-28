@@ -1,8 +1,8 @@
 # s3-bucket-cross-region-replication-enabled
 
-Checks if you have enabled S3 Cross-Region Replication for your Amazon S3 buckets. The rule is NON_COMPLIANT if there are no replication rules enabled for Cross-Region Replication.
+Checks if you have enabled S3 Cross-Region Replication for your Amazon S3 buckets. The rule is NON\_COMPLIANT if there are no replication rules enabled for Cross-Region Replication.
 
-**Identifier:** S3_BUCKET_CROSS_REGION_REPLICATION_ENABLED
+**Identifier:** S3\_BUCKET\_CROSS\_REGION\_REPLICATION\_ENABLED
 
 **Resource Types:** AWS::S3::Bucket
 

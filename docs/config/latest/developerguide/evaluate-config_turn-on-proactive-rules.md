@@ -27,7 +27,7 @@ resource type, AWS Config can't evaluate whether the trails in your account are 
 noncompliant. For more information, see [Recording AWS Resources with AWS Config](select-resources.md "select-resources.md").
 
 You can use _proactive evaluation_ to evaluate resources before they have been deployed. This allows you to evaluate whether a set of resource properties, if used to define an AWS resource,
-would be COMPLIANT or NON_COMPLIANT given the set of proactive rules that you have in your account in your Region.
+would be COMPLIANT or NON\_COMPLIANT given the set of proactive rules that you have in your account in your Region.
 
 The [Resource type schema](../../../cloudformation-cli/latest/userguide/resource-type-schema.md "../../../cloudformation-cli/latest/userguide/resource-type-schema.md") states the properties of a resource. You can find the resource type schema in "_AWS public extensions_" within the AWS CloudFormation registry or with the following CLI commmand:
 
@@ -40,7 +40,7 @@ and [AWS resource and property types reference](../../../AWSCloudFormation/lates
 
 ###### Note
 
-Proactive rules do not remediate resources that are flagged as NON_COMPLIANT or prevent them from being deployed.
+Proactive rules do not remediate resources that are flagged as NON\_COMPLIANT or prevent them from being deployed.
 
 ###### To turn on proactive evalution
 
@@ -57,7 +57,7 @@ Proactive rules do not remediate resources that are flagged as NON_COMPLIANT or 
 5. For **Evaluation mode**, choose **Turn on proactive evaluation** to allow you to run evaluations on the configuration settings of your resources before they are deployed.
 6. Choose **Save**.
    After you have turned on proactive evaluation,
-   you can use the [StartResourceEvaluation](../APIReference/API_StartResourceEvaluation.md "../APIReference/API_StartResourceEvaluation.md") API and [GetResourceEvaluationSummary](../APIReference/API_GetResourceEvaluationSummary.md "../APIReference/API_GetResourceEvaluationSummary.md") API to check if the resources you specify in these commands would be flagged as NON_COMPLIANT by the proactive rules in your account in your Region.
+   you can use the [StartResourceEvaluation](../APIReference/API_StartResourceEvaluation.md "../APIReference/API_StartResourceEvaluation.md") API and [GetResourceEvaluationSummary](../APIReference/API_GetResourceEvaluationSummary.md "../APIReference/API_GetResourceEvaluationSummary.md") API to check if the resources you specify in these commands would be flagged as NON\_COMPLIANT by the proactive rules in your account in your Region.
 
 For example, start with the StartResourceEvaluation API:
 
@@ -104,13 +104,13 @@ You should receive output similiar to the following:
 }
 ```
 
-To see additional information about the evaluation result, such as which rule flagged a resource as NON_COMPLIANT,
+To see additional information about the evaluation result, such as which rule flagged a resource as NON\_COMPLIANT,
 use the [GetComplianceDetailsByResource](../APIReference/API_GetComplianceDetailsByResource.md "../APIReference/API_GetComplianceDetailsByResource.md") API.
 
 ## Turning on Proactive Evaluation (AWS SDKs)
 
 You can use _proactive evaluation_ to evaluate resources before they have been deployed. This allows you to evaluate whether a set of resource properties, if used to define an AWS resource,
-would be COMPLIANT or NON_COMPLIANT given the set of proactive rules that you have in your account in your Region.
+would be COMPLIANT or NON\_COMPLIANT given the set of proactive rules that you have in your account in your Region.
 
 The [Resource type schema](../../../cloudformation-cli/latest/userguide/resource-type-schema.md "../../../cloudformation-cli/latest/userguide/resource-type-schema.md") states the properties of a resource. You can find the resource type schema in "_AWS public extensions_" within the AWS CloudFormation registry or with the following CLI commmand:
 
@@ -123,14 +123,14 @@ and [AWS resource and property types reference](../../../AWSCloudFormation/lates
 
 ###### Note
 
-Proactive rules do not remediate resources that are flagged as NON_COMPLIANT or prevent them from being deployed.
+Proactive rules do not remediate resources that are flagged as NON\_COMPLIANT or prevent them from being deployed.
 
 **To turn on proactive evaluation**
 
 Use the [`put-config-rule`](../../../cli/latest/reference/configservice/put-config-rule.md "../../../cli/latest/reference/configservice/put-config-rule.md") command and enable `PROACTIVE` for `EvaluationModes`.
 
 After you have turned on proactive evaluation,
-you can use the [start-resource-evaluation](../../../cli/latest/reference/configservice/start-resource-evaluation.md "../../../cli/latest/reference/configservice/start-resource-evaluation.md") CLI command and [get-resource-evaluation-summary](../../../cli/latest/reference/configservice/get-resource-evaluation-summary.md "../../../cli/latest/reference/configservice/get-resource-evaluation-summary.md") CLI command to check if the resources you specify in these commands would be flagged as NON_COMPLIANT by the proactive rules in your account in your Region.
+you can use the [start-resource-evaluation](../../../cli/latest/reference/configservice/start-resource-evaluation.md "../../../cli/latest/reference/configservice/start-resource-evaluation.md") CLI command and [get-resource-evaluation-summary](../../../cli/latest/reference/configservice/get-resource-evaluation-summary.md "../../../cli/latest/reference/configservice/get-resource-evaluation-summary.md") CLI command to check if the resources you specify in these commands would be flagged as NON\_COMPLIANT by the proactive rules in your account in your Region.
 
 For example, start with the **start-resource-evaluation** command:
 
@@ -177,7 +177,7 @@ You should receive output similiar to the following:
 }
 ```
 
-To see additional information about the evaluation result, such as which rule flagged a resource as NON_COMPLIANT,
+To see additional information about the evaluation result, such as which rule flagged a resource as NON\_COMPLIANT,
 use the [get-compliance-details-by-resource](../../../cli/latest/reference/configservice/get-compliance-details-by-resource.md "../../../cli/latest/reference/configservice/get-compliance-details-by-resource.md") CLI command.
 
 ###### Note
@@ -185,7 +185,7 @@ use the [get-compliance-details-by-resource](../../../cli/latest/reference/confi
 For a list of managed rules that support proactive evaluation, see [List of AWS Config Managed Rules by Evaluation Mode](managed-rules-by-evaluation-mode.md "managed-rules-by-evaluation-mode.md").
 
 You can use _proactive evaluation_ to evaluate resources before they have been deployed. This allows you to evaluate whether a set of resource properties, if used to define an AWS resource,
-would be COMPLIANT or NON_COMPLIANT given the set of proactive rules that you have in your account in your Region.
+would be COMPLIANT or NON\_COMPLIANT given the set of proactive rules that you have in your account in your Region.
 
 The [Resource type schema](../../../cloudformation-cli/latest/userguide/resource-type-schema.md "../../../cloudformation-cli/latest/userguide/resource-type-schema.md") states the properties of a resource. You can find the resource type schema in "_AWS public extensions_" within the AWS CloudFormation registry or with the following CLI commmand:
 
@@ -198,14 +198,14 @@ and [AWS resource and property types reference](../../../AWSCloudFormation/lates
 
 ###### Note
 
-Proactive rules do not remediate resources that are flagged as NON_COMPLIANT or prevent them from being deployed.
+Proactive rules do not remediate resources that are flagged as NON\_COMPLIANT or prevent them from being deployed.
 
 **To turn on proactive evaluation for a rule**
 
 Use the [PutConfigRule](../APIReference/API_PutConfigRule.md "../APIReference/API_PutConfigRule.md") action and enable `PROACTIVE` for `EvaluationModes`.
 
 After you have turned on proactive evaluation,
-you can use the [StartResourceEvaluation](../APIReference/API_StartResourceEvaluation.md "../APIReference/API_StartResourceEvaluation.md") API and [GetResourceEvaluationSummary](../APIReference/API_GetResourceEvaluationSummary.md "../APIReference/API_GetResourceEvaluationSummary.md") API to check if the resources you specify in these commands would be flagged as NON_COMPLIANT by the proactive rules in your account in your Region.
+you can use the [StartResourceEvaluation](../APIReference/API_StartResourceEvaluation.md "../APIReference/API_StartResourceEvaluation.md") API and [GetResourceEvaluationSummary](../APIReference/API_GetResourceEvaluationSummary.md "../APIReference/API_GetResourceEvaluationSummary.md") API to check if the resources you specify in these commands would be flagged as NON\_COMPLIANT by the proactive rules in your account in your Region.
 
 For example, start with the StartResourceEvaluation API:
 
@@ -252,7 +252,7 @@ You should receive output similiar to the following:
 }
 ```
 
-To see additional information about the evaluation result, such as which rule flagged a resource as NON_COMPLIANT,
+To see additional information about the evaluation result, such as which rule flagged a resource as NON\_COMPLIANT,
 use the [GetComplianceDetailsByResource](../APIReference/API_GetComplianceDetailsByResource.md "../APIReference/API_GetComplianceDetailsByResource.md") API.
 
 ###### Note

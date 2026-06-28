@@ -1,6 +1,6 @@
 # root-account-mfa-enabled
 
-Checks if the root user of your AWS account requires multi-factor authentication for console sign-in. The rule is NON_COMPLIANT if the AWS Identity and Access Management (IAM) root account user does not have multi-factor authentication (MFA) enabled.
+Checks if the root user of your AWS account requires multi-factor authentication for console sign-in. The rule is NON\_COMPLIANT if the AWS Identity and Access Management (IAM) root account user does not have multi-factor authentication (MFA) enabled.
 
 ###### Note
 
@@ -26,7 +26,7 @@ To avoid unnecessary evaluations, you should only deploy periodic rules that rep
 For a list of which managed rules are supported in which Regions,
 see [List of AWS Config Managed Rules by Region Availability](managing-rules-by-region-availability.md "managing-rules-by-region-availability.md").
 
-**Identifier:** ROOT_ACCOUNT_MFA_ENABLED
+**Identifier:** ROOT\_ACCOUNT\_MFA\_ENABLED
 
 **Trigger type:** Periodic
 

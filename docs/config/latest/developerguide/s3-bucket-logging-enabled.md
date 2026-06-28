@@ -1,8 +1,8 @@
 # s3-bucket-logging-enabled
 
-Checks if logging is enabled for your S3 buckets. The rule is NON_COMPLIANT if logging is not enabled.
+Checks if logging is enabled for your S3 buckets. The rule is NON\_COMPLIANT if logging is not enabled.
 
-**Identifier:** S3_BUCKET_LOGGING_ENABLED
+**Identifier:** S3\_BUCKET\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::S3::Bucket
 

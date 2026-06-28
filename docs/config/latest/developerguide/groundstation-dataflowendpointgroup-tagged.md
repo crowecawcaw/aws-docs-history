@@ -1,8 +1,8 @@
 # groundstation-dataflowendpointgroup-tagged
 
-Checks if AWS GroundStation dataflow endpoint group resources have tags. Optionally, you can specify tag keys. The rule is NON_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule doesn't check tags starting with 'aws:'.
+Checks if AWS GroundStation dataflow endpoint group resources have tags. Optionally, you can specify tag keys. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule doesn't check tags starting with 'aws:'.
 
-**Identifier:** GROUNDSTATION_DATAFLOWENDPOINTGROUP_TAGGED
+**Identifier:** GROUNDSTATION\_DATAFLOWENDPOINTGROUP\_TAGGED
 
 **Resource Types:** AWS::GroundStation::DataflowEndpointGroup
 
@@ -15,7 +15,7 @@ Checks if AWS GroundStation dataflow endpoint group resources have tags. Optiona
 requiredKeyTags (Optional)
 Type: CSV
 
-Comma-separated list of tag keys for the rule to check. If provided, the rule is NON_COMPLIANT if the evaluated resource does not contain these keys. Tag keys are case-sensitive. Tag keys starting with 'aws:' are not allowed.
+Comma-separated list of tag keys for the rule to check. If provided, the rule is NON\_COMPLIANT if the evaluated resource does not contain these keys. Tag keys are case-sensitive. Tag keys starting with 'aws:' are not allowed.
 
 ## AWS CloudFormation template
 

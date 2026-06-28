@@ -1,8 +1,8 @@
 # rds-cluster-auto-minor-version-upgrade-enable
 
-Checks if automatic minor version upgrades are enabled for Amazon RDS Multi-AZ cluster deployments. The rule is NON_COMPLIANT if autoMinorVersionUpgrade is set to false.
+Checks if automatic minor version upgrades are enabled for Amazon RDS Multi-AZ cluster deployments. The rule is NON\_COMPLIANT if autoMinorVersionUpgrade is set to false.
 
-**Identifier:** RDS_CLUSTER_AUTO_MINOR_VERSION_UPGRADE_ENABLE
+**Identifier:** RDS\_CLUSTER\_AUTO\_MINOR\_VERSION\_UPGRADE\_ENABLE
 
 **Resource Types:** AWS::RDS::DBCluster
 

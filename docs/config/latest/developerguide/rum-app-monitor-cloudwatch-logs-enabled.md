@@ -1,8 +1,8 @@
 # rum-app-monitor-cloudwatch-logs-enabled
 
-Checks if Amazon CloudWatch RUM app monitors have CloudWatch logs enabled. The rule is NON_COMPLIANT if configuration.CwLogEnabled is false.
+Checks if Amazon CloudWatch RUM app monitors have CloudWatch logs enabled. The rule is NON\_COMPLIANT if configuration.CwLogEnabled is false.
 
-**Identifier:** RUM_APP_MONITOR_CLOUDWATCH_LOGS_ENABLED
+**Identifier:** RUM\_APP\_MONITOR\_CLOUDWATCH\_LOGS\_ENABLED
 
 **Resource Types:** AWS::RUM::AppMonitor
 

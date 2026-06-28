@@ -18,9 +18,9 @@ additional charge. For more information, see [Recording AWS Resources](select-re
 
 A conformance pack is compliant if all of the rules in a conformance packs are compliant.
 It is noncompliant if any of the rules are not compliant. The compliance status of a
-conformance pack is INSUFFICIENT_DATA only if all rules within a conformance pack cannot be
+conformance pack is INSUFFICIENT\_DATA only if all rules within a conformance pack cannot be
 evaluated due to insufficient data. If some of the rules in a conformance pack are compliant
-but the compliance status of other rules in that same conformance pack is INSUFFICIENT_DATA,
+but the compliance status of other rules in that same conformance pack is INSUFFICIENT\_DATA,
 the conformance pack shows compliant. Compliance for a conformance pack is not evaluated all
 at one time. Some rules may take a longer time to evaluate than others. Compliance is evaluated
 for groups of rules at a time, continuing in stages until all the rules in a conformance

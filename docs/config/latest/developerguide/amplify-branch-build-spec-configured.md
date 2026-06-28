@@ -1,8 +1,8 @@
 # amplify-branch-build-spec-configured
 
-Checks if AWS Amplify branches have a build specification configured. The rule is NON_COMPLIANT if configuration.BuildSpec does not exist.
+Checks if AWS Amplify branches have a build specification configured. The rule is NON\_COMPLIANT if configuration.BuildSpec does not exist.
 
-**Identifier:** AMPLIFY_BRANCH_BUILD_SPEC_CONFIGURED
+**Identifier:** AMPLIFY\_BRANCH\_BUILD\_SPEC\_CONFIGURED
 
 **Resource Types:** AWS::Amplify::Branch
 

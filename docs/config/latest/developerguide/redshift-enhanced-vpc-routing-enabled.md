@@ -1,8 +1,8 @@
 # redshift-enhanced-vpc-routing-enabled
 
-Checks if Amazon Redshift cluster has 'enhancedVpcRouting' enabled. The rule is NON_COMPLIANT if 'enhancedVpcRouting' is not enabled or if the configuration.enhancedVpcRouting field is 'false'.
+Checks if Amazon Redshift cluster has 'enhancedVpcRouting' enabled. The rule is NON\_COMPLIANT if 'enhancedVpcRouting' is not enabled or if the configuration.enhancedVpcRouting field is 'false'.
 
-**Identifier:** REDSHIFT_ENHANCED_VPC_ROUTING_ENABLED
+**Identifier:** REDSHIFT\_ENHANCED\_VPC\_ROUTING\_ENABLED
 
 **Resource Types:** AWS::Redshift::Cluster
 

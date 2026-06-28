@@ -1,8 +1,8 @@
 # bedrockagentcore-runtime-private-network-required
 
-Checks if an Amazon Bedrock AgentCore runtime is configured with public network access. The rule is NON_COMPLIANT if the runtime has NetworkMode set to PUBLIC.
+Checks if an Amazon Bedrock AgentCore runtime is configured with public network access. The rule is NON\_COMPLIANT if the runtime has NetworkMode set to PUBLIC.
 
-**Identifier:** BEDROCKAGENTCORE_RUNTIME_PRIVATE_NETWORK_REQUIRED
+**Identifier:** BEDROCKAGENTCORE\_RUNTIME\_PRIVATE\_NETWORK\_REQUIRED
 
 **Resource Types:** AWS::BedrockAgentCore::Runtime
 

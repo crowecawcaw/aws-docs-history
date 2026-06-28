@@ -1,12 +1,12 @@
 # elb-logging-enabled
 
-Checks if the Application Load Balancer and the Classic Load Balancer have logging enabled. The rule is NON_COMPLIANT if the `access_logs.s3.enabled` is false or `access_logs.S3.bucket` is not equal to the s3BucketName that you provided.
+Checks if the Application Load Balancer and the Classic Load Balancer have logging enabled. The rule is NON\_COMPLIANT if the `access_logs.s3.enabled` is false or `access_logs.S3.bucket` is not equal to the s3BucketName that you provided.
 
 ###### Note
 
 The rule does not apply to Network Load Balancers or Gateway Load Balancers.
 
-**Identifier:** ELB_LOGGING_ENABLED
+**Identifier:** ELB\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer
 

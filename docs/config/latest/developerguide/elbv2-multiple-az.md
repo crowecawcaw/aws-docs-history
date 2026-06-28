@@ -1,10 +1,10 @@
 # elbv2-multiple-az
 
 Checks if an Elastic Load Balancer V2 (Application, Network, or Gateway Load Balancer) is mapped to multiple Availability Zones (AZs).
-The rule is NON_COMPLIANT if an Elastic Load Balancer V2 is mapped to less than 2 AZs.
+The rule is NON\_COMPLIANT if an Elastic Load Balancer V2 is mapped to less than 2 AZs.
 For more information, see [Availability Zones for your Application Load Balancer](../../../elasticloadbalancing/latest/application/load-balancer-subnets.md "../../../elasticloadbalancing/latest/application/load-balancer-subnets.md").
 
-**Identifier:** ELBV2_MULTIPLE_AZ
+**Identifier:** ELBV2\_MULTIPLE\_AZ
 
 **Resource Types:** AWS::ElasticLoadBalancingV2::LoadBalancer
 

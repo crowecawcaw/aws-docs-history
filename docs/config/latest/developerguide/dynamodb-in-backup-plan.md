@@ -1,8 +1,8 @@
 # dynamodb-in-backup-plan
 
-Checks if an Amazon DynamoDB table is present in AWS Backup plans. The rule is NON_COMPLIANT if DynamoDB tables are not present in any AWS Backup plan.
+Checks if an Amazon DynamoDB table is present in AWS Backup plans. The rule is NON\_COMPLIANT if DynamoDB tables are not present in any AWS Backup plan.
 
-**Identifier:** DYNAMODB_IN_BACKUP_PLAN
+**Identifier:** DYNAMODB\_IN\_BACKUP\_PLAN
 
 **Resource Types:** AWS::DynamoDB::Table
 

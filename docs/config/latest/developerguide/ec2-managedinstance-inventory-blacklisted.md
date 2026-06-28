@@ -2,7 +2,7 @@
 
 Checks whether instances managed by Amazon EC2 Systems Manager are configured to collect blacklisted inventory types.
 
-**Identifier:** EC2_MANAGEDINSTANCE_INVENTORY_BLACKLISTED
+**Identifier:** EC2\_MANAGEDINSTANCE\_INVENTORY\_BLACKLISTED
 
 **Resource Types:** AWS::SSM::ManagedInstanceInventory
 

@@ -1,8 +1,8 @@
 # dms-replication-instance-multi-az-enabled
 
-Checks if AWS Database Migration Service (DMS) replication instances are configured with multiple Availability Zones. The rule is NON_COMPLIANT if a DMS replication instance is not configured to use multiple Availability Zones.
+Checks if AWS Database Migration Service (DMS) replication instances are configured with multiple Availability Zones. The rule is NON\_COMPLIANT if a DMS replication instance is not configured to use multiple Availability Zones.
 
-**Identifier:** DMS_REPLICATION_INSTANCE_MULTI_AZ_ENABLED
+**Identifier:** DMS\_REPLICATION\_INSTANCE\_MULTI\_AZ\_ENABLED
 
 **Resource Types:** AWS::DMS::ReplicationInstance
 

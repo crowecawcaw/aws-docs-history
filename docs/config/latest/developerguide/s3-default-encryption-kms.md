@@ -1,8 +1,8 @@
 # s3-default-encryption-kms
 
-Checks if the S3 buckets are encrypted with AWS Key Management Service (AWS KMS). The rule is NON_COMPLIANT if the S3 bucket is not encrypted with an AWS KMS key.
+Checks if the S3 buckets are encrypted with AWS Key Management Service (AWS KMS). The rule is NON\_COMPLIANT if the S3 bucket is not encrypted with an AWS KMS key.
 
-**Identifier:** S3_DEFAULT_ENCRYPTION_KMS
+**Identifier:** S3\_DEFAULT\_ENCRYPTION\_KMS
 
 **Resource Types:** AWS::S3::Bucket, AWS::KMS::Key
 

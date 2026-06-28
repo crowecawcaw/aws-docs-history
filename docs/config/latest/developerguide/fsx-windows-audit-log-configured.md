@@ -1,8 +1,8 @@
 # fsx-windows-audit-log-configured
 
-Checks if the Amazon FSx for Windows File Server file systems have file access auditing enabled. The rule is NON_COMPLIANT if the FSx for Windows File Server file systems do not have file access auditing enabled.
+Checks if the Amazon FSx for Windows File Server file systems have file access auditing enabled. The rule is NON\_COMPLIANT if the FSx for Windows File Server file systems do not have file access auditing enabled.
 
-**Identifier:** FSX_WINDOWS_AUDIT_LOG_CONFIGURED
+**Identifier:** FSX\_WINDOWS\_AUDIT\_LOG\_CONFIGURED
 
 **Resource Types:** AWS::FSx::FileSystem
 

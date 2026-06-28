@@ -1,8 +1,8 @@
 # waf-regional-rulegroup-not-empty
 
-Checks if WAF Regional rule groups contain any rules. The rule is NON_COMPLIANT if there are no rules present within a WAF Regional rule group.
+Checks if WAF Regional rule groups contain any rules. The rule is NON\_COMPLIANT if there are no rules present within a WAF Regional rule group.
 
-**Identifier:** WAF_REGIONAL_RULEGROUP_NOT_EMPTY
+**Identifier:** WAF\_REGIONAL\_RULEGROUP\_NOT\_EMPTY
 
 **Resource Types:** AWS::WAFRegional::RuleGroup
 

@@ -1,8 +1,8 @@
 # mariadb-publish-logs-to-cloudwatch-logs
 
-Checks if Amazon MariaDB database instances are configured to publish logs to Amazon CloudWatch Logs. The rule is NON_COMPLIANT if a database instance is not configured to publish logs to CloudWatch Logs.
+Checks if Amazon MariaDB database instances are configured to publish logs to Amazon CloudWatch Logs. The rule is NON\_COMPLIANT if a database instance is not configured to publish logs to CloudWatch Logs.
 
-**Identifier:** MARIADB_PUBLISH_LOGS_TO_CLOUDWATCH_LOGS
+**Identifier:** MARIADB\_PUBLISH\_LOGS\_TO\_CLOUDWATCH\_LOGS
 
 **Resource Types:** AWS::RDS::DBInstance
 

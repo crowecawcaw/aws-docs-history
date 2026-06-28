@@ -1,8 +1,8 @@
 # kinesisvideo-signalingchannel-tagged
 
-Checks if AWS KinesisVideo signaling channel resources have tags. Optionally, required tag keys can be specified. The rule is NON_COMPLIANT if there are no tags or if the specified tag keys are not present. It does not check for tags starting with 'aws:'.
+Checks if AWS KinesisVideo signaling channel resources have tags. Optionally, required tag keys can be specified. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. It does not check for tags starting with 'aws:'.
 
-**Identifier:** KINESISVIDEO_SIGNALINGCHANNEL_TAGGED
+**Identifier:** KINESISVIDEO\_SIGNALINGCHANNEL\_TAGGED
 
 **Resource Types:** AWS::KinesisVideo::SignalingChannel
 
@@ -15,7 +15,7 @@ Checks if AWS KinesisVideo signaling channel resources have tags. Optionally, re
 requiredKeyTags (Optional)
 Type: CSV
 
-Comma-separated list of tag keys for the rule to check. If provided, the rule is NON_COMPLIANT if the evaluated resource does not contain these keys. Tag keys are case-sensitive. Tag keys starting with 'aws:' are not allowed.
+Comma-separated list of tag keys for the rule to check. If provided, the rule is NON\_COMPLIANT if the evaluated resource does not contain these keys. Tag keys are case-sensitive. Tag keys starting with 'aws:' are not allowed.
 
 ## AWS CloudFormation template
 

@@ -142,76 +142,75 @@ triggers the rule:
      Status** to get configuration history delivery status
      notifications.
 
-8. For **Creation method**, choose **Use pattern form**.
-9. For **Event source**, choose **AWS services**.
-10. For **AWS service**, choose
-    **Config**.
-11. For **Event type**, choose the event type that triggers the
-    rule:
+8. For **Creation method**, choose **Use pattern form**. 9. For **Event source**, choose **AWS services**. 10. For **AWS service**, choose
+**Config**. 11. For **Event type**, choose the event type that triggers the
+rule:
 
-    - Choose **All Events** to make a rule that applies to
-      all AWS services. If you choose this option, you cannot choose
-      specific message types, rule names, resource types, or resource
-      IDs.
-    - Choose **AWS API Call from CloudTrail** to base
-      rules on API calls made to this service. For more information about
-      creating this type of rule, see [Tutorial: Create an
-      Amazon EventBridge rule for AWS CloudTrail API calls](../../../eventbridge/latest/userguide/eb-ct-api-tutorial.md "../../../eventbridge/latest/userguide/eb-ct-api-tutorial.md").
-    - Choose **Config Configuration Item Change** to get
-      notifications when a resource in your account changes.
+    * Choose **All Events** to make a rule that applies to
+     all AWS services. If you choose this option, you cannot choose
+     specific message types, rule names, resource types, or resource
+     IDs.
+    * Choose **AWS API Call from CloudTrail** to base
+     rules on API calls made to this service. For more information about
+     creating this type of rule, see [Tutorial: Create an
+     Amazon EventBridge rule for AWS CloudTrail API calls](../../../eventbridge/latest/userguide/eb-ct-api-tutorial.md "../../../eventbridge/latest/userguide/eb-ct-api-tutorial.md").
+    * Choose **Config Configuration Item Change** to get
+     notifications when a resource in your account changes.
+
 
     As described in these support articles, you can use EventBridge to receive
-    custom email notifications when a resource is created or deleted, [How can I receive custom email notifications when a resource is
-    created in my AWS account using AWS Config service?](https://aws.amazon.com/premiumsupport/knowledge-center/config-email-resource-created/ "https://aws.amazon.com/premiumsupport/knowledge-center/config-email-resource-created/") and [How can I receive custom email notifications when a resource is
-    deleted in my AWS account using AWS Config service?](https://aws.amazon.com/premiumsupport/knowledge-center/config-email-resource-deleted/ "https://aws.amazon.com/premiumsupport/knowledge-center/config-email-resource-deleted/").
-    - Choose **Config Rules Compliance Change** to get
-      notifications when a compliance check to your rules fails.
+     custom email notifications when a resource is created or deleted, [How can I receive custom email notifications when a resource is
+     created in my AWS account using AWS Config service?](https://aws.amazon.com/premiumsupport/knowledge-center/config-email-resource-created/ "https://aws.amazon.com/premiumsupport/knowledge-center/config-email-resource-created/") and [How can I receive custom email notifications when a resource is
+     deleted in my AWS account using AWS Config service?](https://aws.amazon.com/premiumsupport/knowledge-center/config-email-resource-deleted/ "https://aws.amazon.com/premiumsupport/knowledge-center/config-email-resource-deleted/").
+    * Choose **Config Rules Compliance Change** to get
+     notifications when a compliance check to your rules fails.
+
 
     As described in this support article, you can use EventBridge to receive
-    custom email notifications when a resource is noncompliant, [How can I be notified when an AWS resource is noncompliant using
-    AWS Config?](https://repost.aws/knowledge-center/config-resource-non-compliant "https://repost.aws/knowledge-center/config-resource-non-compliant").
-    - Choose **Config Rules Re-evaluation Status** to get
-      reevaluation status notifications.
-    - Choose **Config Configuration Snapshot Delivery
-      Status** to get configuration snapshot delivery status
-      notifications.
-    - Choose **Config Configuration History Delivery
-      Status** to get configuration history delivery status
-      notifications.
+     custom email notifications when a resource is noncompliant, [How can I be notified when an AWS resource is noncompliant using
+     AWS Config?](https://repost.aws/knowledge-center/config-resource-non-compliant "https://repost.aws/knowledge-center/config-resource-non-compliant").
+    * Choose **Config Rules Re-evaluation Status** to get
+     reevaluation status notifications.
+    * Choose **Config Configuration Snapshot Delivery
+     Status** to get configuration snapshot delivery status
+     notifications.
+    * Choose **Config Configuration History Delivery
+     Status** to get configuration history delivery status
+     notifications.
 
 12. Choose **Any message type** to receive notifications of any
-    type. Choose **Specific message type(s)** to receive the
-    following types of notifications:
+type. Choose **Specific message type(s)** to receive the
+following types of notifications:
 
-    - If you choose
-      **ConfigurationItemChangeNotification**, you receive
-      messages when the configuration of a resource that AWS Config evaluates has changed.
-    - If you choose **ComplianceChangeNotification**, you
-      receive messages when the compliance type of a resource that AWS Config
-      evaluates has changed.
-    - If you choose **ConfigRulesEvaluationStarted**, you
-      receive messages when AWS Config starts evaluating your rule against the
-      specified resources.
-    - If you choose
-      **ConfigurationSnapshotDeliveryCompleted**, you
-      receive messages when AWS Config successfully delivers the configuration
-      snapshot to your Amazon S3 bucket.
-    - If you choose
-      **ConfigurationSnapshotDeliveryFailed**, you receive
-      messages when AWS Config fails to deliver the configuration snapshot to your
-      Amazon S3 bucket.
-    - If you choose
-      **ConfigurationSnapshotDeliveryStarted**, you
-      receive messages when AWS Config starts delivering the configuration snapshot
-      to your Amazon S3 bucket.
-    - If you choose
-      **ConfigurationHistoryDeliveryCompleted**, you
-      receive messages when AWS Config successfully delivers the configuration
-      history to your Amazon S3 bucket.
+    * If you choose
+     **ConfigurationItemChangeNotification**, you receive
+     messages when the configuration of a resource that AWS Config evaluates has changed.
+    * If you choose **ComplianceChangeNotification**, you
+     receive messages when the compliance type of a resource that AWS Config
+     evaluates has changed.
+    * If you choose **ConfigRulesEvaluationStarted**, you
+     receive messages when AWS Config starts evaluating your rule against the
+     specified resources.
+    * If you choose
+     **ConfigurationSnapshotDeliveryCompleted**, you
+     receive messages when AWS Config successfully delivers the configuration
+     snapshot to your Amazon S3 bucket.
+    * If you choose
+     **ConfigurationSnapshotDeliveryFailed**, you receive
+     messages when AWS Config fails to deliver the configuration snapshot to your
+     Amazon S3 bucket.
+    * If you choose
+     **ConfigurationSnapshotDeliveryStarted**, you
+     receive messages when AWS Config starts delivering the configuration snapshot
+     to your Amazon S3 bucket.
+    * If you choose
+     **ConfigurationHistoryDeliveryCompleted**, you
+     receive messages when AWS Config successfully delivers the configuration
+     history to your Amazon S3 bucket.
 
 13. If you chose a specific event type from the **Event Type**
-    dropdown list, choose **Any resource type** to make a rule that
-    applies to all AWS Config supported resource types.
+dropdown list, choose **Any resource type** to make a rule that
+applies to all AWS Config supported resource types.
 
 Or choose **Specific resource type(s)**, and then type the
 AWS Config supported resource type (for example,
@@ -237,9 +236,6 @@ these cases, EventBridge can create the IAM role needed for your rule to run.
      existing role**.
 
 19. (Optional) Choose **Add target** to add another target for
-    this rule.
-20. (Optional) Enter one or more tags for the rule. For more information, see
-    [Amazon EventBridge tags](../../../eventbridge/latest/userguide/eb-tagging.md "../../../eventbridge/latest/userguide/eb-tagging.md").
-21. Review your rule setup to make sure it meets your event-monitoring
-    requirements.
-22. Choose **Create** to confirm your selection.
+this rule. 20. (Optional) Enter one or more tags for the rule. For more information, see
+[Amazon EventBridge tags](../../../eventbridge/latest/userguide/eb-tagging.md "../../../eventbridge/latest/userguide/eb-tagging.md"). 21. Review your rule setup to make sure it meets your event-monitoring
+requirements. 22. Choose **Create** to confirm your selection.

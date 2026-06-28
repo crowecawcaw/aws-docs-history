@@ -1,8 +1,8 @@
 # ec2-vpn-connection-logging-enabled
 
-Checks if AWS Site-to-Site VPN connections have Amazon CloudWatch logging enabled for both tunnels. The rule is NON_COMPLIANT if a Site-to-Site VPN connection does not have CloudWatch logging enabled for either or both tunnels.
+Checks if AWS Site-to-Site VPN connections have Amazon CloudWatch logging enabled for both tunnels. The rule is NON\_COMPLIANT if a Site-to-Site VPN connection does not have CloudWatch logging enabled for either or both tunnels.
 
-**Identifier:** EC2_VPN_CONNECTION_LOGGING_ENABLED
+**Identifier:** EC2\_VPN\_CONNECTION\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::EC2::VPNConnection
 

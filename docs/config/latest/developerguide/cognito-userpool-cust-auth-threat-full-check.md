@@ -1,8 +1,8 @@
 # cognito-userpool-cust-auth-threat-full-check
 
-Checks if Amazon Cognito user pools have threat protection enabled with full-function enforcement mode for custom authentication. This rule is NON_COMPLIANT if threat protection for custom authentication is not set to full-function enforcement mode.
+Checks if Amazon Cognito user pools have threat protection enabled with full-function enforcement mode for custom authentication. This rule is NON\_COMPLIANT if threat protection for custom authentication is not set to full-function enforcement mode.
 
-**Identifier:** COGNITO_USERPOOL_CUST_AUTH_THREAT_FULL_CHECK
+**Identifier:** COGNITO\_USERPOOL\_CUST\_AUTH\_THREAT\_FULL\_CHECK
 
 **Resource Types:** AWS::Cognito::UserPool
 

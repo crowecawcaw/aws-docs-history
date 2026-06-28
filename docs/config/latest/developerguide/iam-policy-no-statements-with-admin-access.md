@@ -1,12 +1,12 @@
 # iam-policy-no-statements-with-admin-access
 
-Checks if AWS Identity and Access Management (IAM) policies that you create have Allow statements that grant permissions to all actions on all resources. The rule is NON_COMPLIANT if any customer managed IAM policy statement includes "Effect": "Allow" with "Action": "\*" over "Resource": "\*".
+Checks if AWS Identity and Access Management (IAM) policies that you create have Allow statements that grant permissions to all actions on all resources. The rule is NON\_COMPLIANT if any customer managed IAM policy statement includes "Effect": "Allow" with "Action": "\*" over "Resource": "\*".
 
 ###### Note
 
 This rule only evaluates customer managed policies. This rule does NOT evaluate inline policies or AWS managed policies. For more information on the difference, see [Managed policies and inline policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md") in the _IAM User Guide_.
 
-The following policy is NON_COMPLIANT:
+The following policy is NON\_COMPLIANT:
 
 ```
 "Statement": [
@@ -30,7 +30,7 @@ The following policy is COMPLIANT:
 }
 ```
 
-**Identifier:** IAM_POLICY_NO_STATEMENTS_WITH_ADMIN_ACCESS
+**Identifier:** IAM\_POLICY\_NO\_STATEMENTS\_WITH\_ADMIN\_ACCESS
 
 **Resource Types:** AWS::IAM::Policy
 

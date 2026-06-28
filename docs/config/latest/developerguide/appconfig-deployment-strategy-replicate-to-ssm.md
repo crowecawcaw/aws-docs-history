@@ -1,8 +1,8 @@
 # appconfig-deployment-strategy-replicate-to-ssm
 
-Checks if AWS AppConfig deployment strategies save the deployment strategy to an AWS Systems Manager (SSM) document. The rule is NON_COMPLIANT if configuration.ReplicateTo is not 'SSM_DOCUMENT'.
+Checks if AWS AppConfig deployment strategies save the deployment strategy to an AWS Systems Manager (SSM) document. The rule is NON\_COMPLIANT if configuration.ReplicateTo is not 'SSM\_DOCUMENT'.
 
-**Identifier:** APPCONFIG_DEPLOYMENT_STRATEGY_REPLICATE_TO_SSM
+**Identifier:** APPCONFIG\_DEPLOYMENT\_STRATEGY\_REPLICATE\_TO\_SSM
 
 **Resource Types:** AWS::AppConfig::DeploymentStrategy
 

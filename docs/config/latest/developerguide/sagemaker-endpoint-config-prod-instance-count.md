@@ -1,8 +1,8 @@
 # sagemaker-endpoint-config-prod-instance-count
 
-Checks if Amazon SageMaker endpoint configurations have production variants `InitialInstanceCount` set to a value greater than 1. The rule is NON_COMPLIANT if production variants `InitialInstanceCount` is equal to 1.
+Checks if Amazon SageMaker endpoint configurations have production variants `InitialInstanceCount` set to a value greater than 1. The rule is NON\_COMPLIANT if production variants `InitialInstanceCount` is equal to 1.
 
-**Identifier:** SAGEMAKER_ENDPOINT_CONFIG_PROD_INSTANCE_COUNT
+**Identifier:** SAGEMAKER\_ENDPOINT\_CONFIG\_PROD\_INSTANCE\_COUNT
 
 **Resource Types:** AWS::SageMaker::EndpointConfig
 

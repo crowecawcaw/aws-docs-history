@@ -1,8 +1,8 @@
 # ec2-instance-profile-attached
 
-Checks if an EC2 instance has an AWS Identity and Access Management (IAM) profile attached to it. The rule is NON_COMPLIANT if no IAM profile is attached to the EC2 instance.
+Checks if an EC2 instance has an AWS Identity and Access Management (IAM) profile attached to it. The rule is NON\_COMPLIANT if no IAM profile is attached to the EC2 instance.
 
-**Identifier:** EC2_INSTANCE_PROFILE_ATTACHED
+**Identifier:** EC2\_INSTANCE\_PROFILE\_ATTACHED
 
 **Resource Types:** AWS::EC2::Instance
 

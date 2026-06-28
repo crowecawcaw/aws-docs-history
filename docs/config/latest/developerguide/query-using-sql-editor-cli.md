@@ -17,7 +17,7 @@ _AWS Command Line Interface User Guide_.
 **Prerequisites**
 
 If you are using the one of the following AWS managed policies, you will have
-the necessary permissions to run and save a query: [AWSServiceRoleForConfig](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSServiceRoleForConfig "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSServiceRoleForConfig") (service-linked role) or [AWS_ConfigRole](security-iam-awsmanpol.md#security-iam-awsmanpol-AWS_ConfigRole "security-iam-awsmanpol.md#security-iam-awsmanpol-AWS_ConfigRole").
+the necessary permissions to run and save a query: [AWSServiceRoleForConfig](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSServiceRoleForConfig "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSServiceRoleForConfig") (service-linked role) or [AWS\_ConfigRole](security-iam-awsmanpol.md#security-iam-awsmanpol-AWS_ConfigRole "security-iam-awsmanpol.md#security-iam-awsmanpol-AWS_ConfigRole").
 
 Otherwise, you must have the permissions included in the [AWSConfigUserAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSConfigUserAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSConfigUserAccess") AWS managed policy.
 

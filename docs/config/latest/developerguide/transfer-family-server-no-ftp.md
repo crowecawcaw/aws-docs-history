@@ -1,8 +1,8 @@
 # transfer-family-server-no-ftp
 
-Checks if a server created with AWS Transfer Family uses FTP for endpoint connection. The rule is NON_COMPLIANT if the server protocol for endpoint connection is FTP-enabled.
+Checks if a server created with AWS Transfer Family uses FTP for endpoint connection. The rule is NON\_COMPLIANT if the server protocol for endpoint connection is FTP-enabled.
 
-**Identifier:** TRANSFER_FAMILY_SERVER_NO_FTP
+**Identifier:** TRANSFER\_FAMILY\_SERVER\_NO\_FTP
 
 **Resource Types:** AWS::Transfer::Server
 

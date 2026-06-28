@@ -1,12 +1,12 @@
 # ebs-optimized-instance
 
-Checks if Amazon EBS optimization is enabled for your Amazon Elastic Compute Cloud (Amazon EC2) instances that can be Amazon EBS-optimized. The rule is NON_COMPLIANT if EBS optimization is not enabled for an Amazon EC2 instance that can be EBS-optimized.
+Checks if Amazon EBS optimization is enabled for your Amazon Elastic Compute Cloud (Amazon EC2) instances that can be Amazon EBS-optimized. The rule is NON\_COMPLIANT if EBS optimization is not enabled for an Amazon EC2 instance that can be EBS-optimized.
 
 ###### Note
 
 EC2 instances which are EBS-optimized by default always result in rule evaluations returning `COMPLIANT`.
 
-**Identifier:** EBS_OPTIMIZED_INSTANCE
+**Identifier:** EBS\_OPTIMIZED\_INSTANCE
 
 **Resource Types:** AWS::EC2::Instance
 

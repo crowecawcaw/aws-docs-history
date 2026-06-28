@@ -1,8 +1,8 @@
 # iam-no-inline-policy-check
 
-Checks if the inline policy feature is not in use. The rule is NON_COMPLIANT if an AWS Identity and Access Management (IAM) user, IAM role or IAM group has any inline policy.
+Checks if the inline policy feature is not in use. The rule is NON\_COMPLIANT if an AWS Identity and Access Management (IAM) user, IAM role or IAM group has any inline policy.
 
-**Identifier:** IAM_NO_INLINE_POLICY_CHECK
+**Identifier:** IAM\_NO\_INLINE\_POLICY\_CHECK
 
 **Resource Types:** AWS::IAM::Group, AWS::IAM::Role, AWS::IAM::User
 

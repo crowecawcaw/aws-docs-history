@@ -1,8 +1,8 @@
 # appconfig-hosted-configuration-version-description
 
-Checks if AWS AppConfig hosted configuration versions have a description. The rule is NON_COMPLIANT if configuration.Description does not exist or is an empty string.
+Checks if AWS AppConfig hosted configuration versions have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string.
 
-**Identifier:** APPCONFIG_HOSTED_CONFIGURATION_VERSION_DESCRIPTION
+**Identifier:** APPCONFIG\_HOSTED\_CONFIGURATION\_VERSION\_DESCRIPTION
 
 **Resource Types:** AWS::AppConfig::HostedConfigurationVersion
 

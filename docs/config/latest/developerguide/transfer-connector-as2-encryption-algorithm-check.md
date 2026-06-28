@@ -1,8 +1,8 @@
 # transfer-connector-as2-encryption-algorithm-check
 
-Checks that AWS Transfer Family AS2 connectors are not configured with a weak encryption algorithm. The rule is NON_COMPLIANT if configuration.As2Config.EncryptionAlgorithm is 'DES_EDE3_CBC'.
+Checks that AWS Transfer Family AS2 connectors are not configured with a weak encryption algorithm. The rule is NON\_COMPLIANT if configuration.As2Config.EncryptionAlgorithm is 'DES\_EDE3\_CBC'.
 
-**Identifier:** TRANSFER_CONNECTOR_AS2_ENCRYPTION_ALGORITHM_CHECK
+**Identifier:** TRANSFER\_CONNECTOR\_AS2\_ENCRYPTION\_ALGORITHM\_CHECK
 
 **Resource Types:** AWS::Transfer::Connector
 
@@ -15,7 +15,7 @@ Checks that AWS Transfer Family AS2 connectors are not configured with a weak en
 approvedEncryptionAlgorithms (Optional)
 Type: CSV
 
-Comma-separated list of approved encryption algorithms for the rule to check. If provided, the rule is NON_COMPLIANT if configuration.As2Config.EncryptionAlgorithm is configured with a value not specified in this parameter. Valid values include: 'AES128_CBC', 'AES192_CBC', 'AES256_CBC', 'NONE', and 'DES_EDE3_CBC'.
+Comma-separated list of approved encryption algorithms for the rule to check. If provided, the rule is NON\_COMPLIANT if configuration.As2Config.EncryptionAlgorithm is configured with a value not specified in this parameter. Valid values include: 'AES128\_CBC', 'AES192\_CBC', 'AES256\_CBC', 'NONE', and 'DES\_EDE3\_CBC'.
 
 ## AWS CloudFormation template
 

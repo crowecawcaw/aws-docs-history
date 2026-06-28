@@ -1,8 +1,8 @@
 # alb-desync-mode-check
 
-Checks if an Application Load Balancer (ALB) is configured with a user defined desync mitigation mode. The rule is NON_COMPLIANT if ALB desync mitigation mode does not match with the user defined desync mitigation mode.
+Checks if an Application Load Balancer (ALB) is configured with a user defined desync mitigation mode. The rule is NON\_COMPLIANT if ALB desync mitigation mode does not match with the user defined desync mitigation mode.
 
-**Identifier:** ALB_DESYNC_MODE_CHECK
+**Identifier:** ALB\_DESYNC\_MODE\_CHECK
 
 **Resource Types:** AWS::ElasticLoadBalancingV2::LoadBalancer
 

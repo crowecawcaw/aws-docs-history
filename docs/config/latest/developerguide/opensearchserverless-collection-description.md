@@ -1,8 +1,8 @@
 # opensearchserverless-collection-description
 
-Checks if Amazon OpenSearch Serverless collections have a description. The rule is NON_COMPLIANT if configuration.Description does not exist.
+Checks if Amazon OpenSearch Serverless collections have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist.
 
-**Identifier:** OPENSEARCHSERVERLESS_COLLECTION_DESCRIPTION
+**Identifier:** OPENSEARCHSERVERLESS\_COLLECTION\_DESCRIPTION
 
 **Resource Types:** AWS::OpenSearchServerless::Collection
 

@@ -1,8 +1,8 @@
 # dynamodb-resources-protected-by-backup-plan
 
-Checks if Amazon DynamoDB tables are protected by a backup plan. The rule is NON_COMPLIANT if the DynamoDB Table is not covered by a backup plan.
+Checks if Amazon DynamoDB tables are protected by a backup plan. The rule is NON\_COMPLIANT if the DynamoDB Table is not covered by a backup plan.
 
-**Identifier:** DYNAMODB_RESOURCES_PROTECTED_BY_BACKUP_PLAN
+**Identifier:** DYNAMODB\_RESOURCES\_PROTECTED\_BY\_BACKUP\_PLAN
 
 **Resource Types:** AWS::DynamoDB::Table
 

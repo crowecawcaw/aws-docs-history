@@ -1,8 +1,8 @@
 # workspaces-root-volume-encryption-enabled
 
-Checks if an Amazon WorkSpace volume has the root volume encryption settings set to enabled. This rule is NON_COMPLIANT if the encryption setting is not enabled for the root volume.
+Checks if an Amazon WorkSpace volume has the root volume encryption settings set to enabled. This rule is NON\_COMPLIANT if the encryption setting is not enabled for the root volume.
 
-**Identifier:** WORKSPACES_ROOT_VOLUME_ENCRYPTION_ENABLED
+**Identifier:** WORKSPACES\_ROOT\_VOLUME\_ENCRYPTION\_ENABLED
 
 **Resource Types:** AWS::WorkSpaces::Workspace
 

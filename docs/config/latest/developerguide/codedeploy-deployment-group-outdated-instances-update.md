@@ -1,8 +1,8 @@
 # codedeploy-deployment-group-outdated-instances-update
 
-Checks if AWS CodeDeploy deployment groups automatically update outdated instances. The rule is NON_COMPLIANT if configuration.outdatedInstancesStrategy is 'IGNORE'.
+Checks if AWS CodeDeploy deployment groups automatically update outdated instances. The rule is NON\_COMPLIANT if configuration.outdatedInstancesStrategy is 'IGNORE'.
 
-**Identifier:** CODEDEPLOY_DEPLOYMENT_GROUP_OUTDATED_INSTANCES_UPDATE
+**Identifier:** CODEDEPLOY\_DEPLOYMENT\_GROUP\_OUTDATED\_INSTANCES\_UPDATE
 
 **Resource Types:** AWS::CodeDeploy::DeploymentGroup
 

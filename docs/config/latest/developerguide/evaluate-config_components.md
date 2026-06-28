@@ -49,14 +49,14 @@ types.
 
 There are two evaluation modes for AWS Config rules.
 
-| **Evaluation mode** | **Description**                                                                                                                                                                                                                                                                                           |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Proactive           | Use proactive evaluation to evaluate resources before they have been deployed. This allows you to evaluate whether a set of resource properties, if used to define an AWS resource,<br>would be COMPLIANT or NON_COMPLIANT given the set of proactive rules that you have in your account in your Region. |
-| Detective           | Use detective evaluation to evaluate resources that have already been<br>deployed. This allows you to evaluate the configuration settings of your<br>existing resources.                                                                                                                                  |
+| **Evaluation mode** | **Description**                                                                                                                                                                                                                                                                                            |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Proactive           | Use proactive evaluation to evaluate resources before they have been deployed. This allows you to evaluate whether a set of resource properties, if used to define an AWS resource,<br>would be COMPLIANT or NON\_COMPLIANT given the set of proactive rules that you have in your account in your Region. |
+| Detective           | Use detective evaluation to evaluate resources that have already been<br>deployed. This allows you to evaluate the configuration settings of your<br>existing resources.                                                                                                                                   |
 
 ###### Note
 
-Proactive rules do not remediate resources that are flagged as NON_COMPLIANT or prevent them from being deployed.
+Proactive rules do not remediate resources that are flagged as NON\_COMPLIANT or prevent them from being deployed.
 
 For more information, see [Turning on Proactive Evaluation for AWS Config Rules](evaluate-config_turn-on-proactive-rules.md "evaluate-config_turn-on-proactive-rules.md").
 
@@ -85,7 +85,7 @@ default.
 The rule description provides context for what the rule evaluates. The
 AWS Config Console has a limit of 256 characters. As a best practice, the rule
 description should begin with “Checks if” and include a description of the
-NON_COMPLIANT scenario. Service Names should be written in full beginning
+NON\_COMPLIANT scenario. Service Names should be written in full beginning
 with AWS or Amazon when first mentioned in the rule description. For
 example, AWS CloudTrail or Amazon CloudWatch instead of CloudTrail or CloudWatch for first use.
 Services names can be abbreviated after subsequent reference.
@@ -126,7 +126,7 @@ existing resources. `PROACTIVE` is used to evaluate resources
 before they have been deployed.
 
 This allows you to evaluate whether a set of resource properties, if used
-to define an AWS resource, would be COMPLIANT or NON_COMPLIANT given the set
+to define an AWS resource, would be COMPLIANT or NON\_COMPLIANT given the set
 of proactive rules that you have in your account in your Region.
 
 You can specify the supportedEvaluationModes to `DETECTIVE`,
@@ -136,4 +136,4 @@ field cannot remain empty.
 
 ###### Note
 
-Proactive rules do not remediate resources that are flagged as NON_COMPLIANT or prevent them from being deployed.
+Proactive rules do not remediate resources that are flagged as NON\_COMPLIANT or prevent them from being deployed.

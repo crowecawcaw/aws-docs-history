@@ -1,8 +1,8 @@
 # cloudtrail-s3-dataevents-enabled
 
-Checks if at least one AWS CloudTrail trail is logging Amazon Simple Storage Service (Amazon S3) data events for all S3 buckets. The rule is NON_COMPLIANT if there are trails or if no trails record S3 data events.
+Checks if at least one AWS CloudTrail trail is logging Amazon Simple Storage Service (Amazon S3) data events for all S3 buckets. The rule is NON\_COMPLIANT if there are trails or if no trails record S3 data events.
 
-**Identifier:** CLOUDTRAIL_S3_DATAEVENTS_ENABLED
+**Identifier:** CLOUDTRAIL\_S3\_DATAEVENTS\_ENABLED
 
 **Trigger type:** Periodic
 

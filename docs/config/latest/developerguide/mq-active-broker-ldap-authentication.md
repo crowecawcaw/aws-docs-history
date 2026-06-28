@@ -1,8 +1,8 @@
 # mq-active-broker-ldap-authentication
 
-Checks if Amazon MQ ActiveMQ brokers use the LDAP authentication strategy to secure the broker. The rule is NON_COMPLIANT if configuration.AuthenticationStrategy is not 'ldap'.
+Checks if Amazon MQ ActiveMQ brokers use the LDAP authentication strategy to secure the broker. The rule is NON\_COMPLIANT if configuration.AuthenticationStrategy is not 'ldap'.
 
-**Identifier:** MQ_ACTIVE_BROKER_LDAP_AUTHENTICATION
+**Identifier:** MQ\_ACTIVE\_BROKER\_LDAP\_AUTHENTICATION
 
 **Resource Types:** AWS::AmazonMQ::Broker
 

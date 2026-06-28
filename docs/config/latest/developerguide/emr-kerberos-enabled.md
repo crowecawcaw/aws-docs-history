@@ -1,8 +1,8 @@
 # emr-kerberos-enabled
 
-Checks if Amazon EMR clusters have Kerberos enabled. The rule is NON_COMPLIANT if a security configuration is not attached to the cluster or the security configuration does not satisfy the specified rule parameters.
+Checks if Amazon EMR clusters have Kerberos enabled. The rule is NON\_COMPLIANT if a security configuration is not attached to the cluster or the security configuration does not satisfy the specified rule parameters.
 
-**Identifier:** EMR_KERBEROS_ENABLED
+**Identifier:** EMR\_KERBEROS\_ENABLED
 
 **Resource Types:** AWS::EMR::Cluster
 

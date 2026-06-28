@@ -1,6 +1,6 @@
 # iam-policy-no-statements-with-full-access
 
-Checks if AWS Identity and Access Management (IAM) policies that you create grant permissions to all actions on individual AWS resources. The rule is NON_COMPLIANT if any customer managed IAM policy allows full access to at least 1 AWS service.
+Checks if AWS Identity and Access Management (IAM) policies that you create grant permissions to all actions on individual AWS resources. The rule is NON\_COMPLIANT if any customer managed IAM policy allows full access to at least 1 AWS service.
 
 **Context**: Following the principle of least privilege, it is recommended
 to limit the permitted actions in your IAM policies when granting permissions to AWS
@@ -15,13 +15,13 @@ common prefix (for example, `ec2:Describe*`). Grouping related actions can help 
 size limits](../../../IAM/latest/UserGuide/reference_iam-limits.md "../../../IAM/latest/UserGuide/reference_iam-limits.md").
 
 This rule will return COMPLIANT if you use prefixed actions with a suffixed wildcard (for example, `ec2:Describe*`).
-This rule will only return NON_COMPLIANT if you use unrestricted wildcards (for example, `ec2:*`).
+This rule will only return NON\_COMPLIANT if you use unrestricted wildcards (for example, `ec2:*`).
 
 ###### Note
 
 This rule only evaluates customer managed policies. This rule does NOT evaluate inline policies or AWS managed policies. For more information on the difference, see [Managed policies and inline policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md") in the _IAM User Guide_.
 
-**Identifier:** IAM_POLICY_NO_STATEMENTS_WITH_FULL_ACCESS
+**Identifier:** IAM\_POLICY\_NO\_STATEMENTS\_WITH\_FULL\_ACCESS
 
 **Resource Types:** AWS::IAM::Policy
 

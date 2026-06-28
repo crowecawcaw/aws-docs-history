@@ -121,7 +121,7 @@ call other AWS services.
 The option to **Choose a bucket from your account** is selected for you in this section. This selection will default to the
 bucket in your account that is named in the format
 `config-bucket-`accountid``. For
- example, `config-bucket-012345678901`. If you don't have a bucket created
+example, `config-bucket-012345678901`. If you don't have a bucket created
 in that format, one will be created for you. If you want to create your own bucket,
 see [Creating a bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md") in
 the _Amazon Simple Storage Service User Guide_.

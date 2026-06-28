@@ -1,8 +1,8 @@
 # redshift-serverless-namespace-cmk-encryption
 
-Checks if Amazon Redshift Serverless namespaces are encrypted by customer managed AWS KMS keys. The rule is NON_COMPLIANT if a namespace is not encrypted by a customer managed key. Optionally, you can specify a list of KMS keys for rule to check.
+Checks if Amazon Redshift Serverless namespaces are encrypted by customer managed AWS KMS keys. The rule is NON\_COMPLIANT if a namespace is not encrypted by a customer managed key. Optionally, you can specify a list of KMS keys for rule to check.
 
-**Identifier:** REDSHIFT_SERVERLESS_NAMESPACE_CMK_ENCRYPTION
+**Identifier:** REDSHIFT\_SERVERLESS\_NAMESPACE\_CMK\_ENCRYPTION
 
 **Resource Types:** AWS::RedshiftServerless::Namespace
 
@@ -15,7 +15,7 @@ Checks if Amazon Redshift Serverless namespaces are encrypted by customer manage
 kmsKeyArns (Optional)
 Type: CSV
 
-Comma-separated list of Amazon Resource Names (ARNs) of customer managed keys for the rule to check. If provided, the rule is NON_COMPLIANT if an Amazon Redshift Serverless namespace is not encrypted with one of these KMS keys.
+Comma-separated list of Amazon Resource Names (ARNs) of customer managed keys for the rule to check. If provided, the rule is NON\_COMPLIANT if an Amazon Redshift Serverless namespace is not encrypted with one of these KMS keys.
 
 ## AWS CloudFormation template
 

@@ -1,8 +1,8 @@
 # storagegateway-resources-protected-by-backup-plan
 
-Checks if AWS Storage Gateway volumes are protected by a backup plan. The rule is NON_COMPLIANT if the Storage Gateway volume is not covered by a backup plan.
+Checks if AWS Storage Gateway volumes are protected by a backup plan. The rule is NON\_COMPLIANT if the Storage Gateway volume is not covered by a backup plan.
 
-**Identifier:** STORAGEGATEWAY_RESOURCES_PROTECTED_BY_BACKUP_PLAN
+**Identifier:** STORAGEGATEWAY\_RESOURCES\_PROTECTED\_BY\_BACKUP\_PLAN
 
 **Resource Types:** AWS::StorageGateway::Volume
 

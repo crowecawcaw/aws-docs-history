@@ -1,8 +1,8 @@
 # waf-regional-rule-not-empty
 
-Checks whether WAF regional rule contains conditions. This rule is COMPLIANT if the regional rule contains at least one condition and NON_COMPLIANT otherwise.
+Checks whether WAF regional rule contains conditions. This rule is COMPLIANT if the regional rule contains at least one condition and NON\_COMPLIANT otherwise.
 
-**Identifier:** WAF_REGIONAL_RULE_NOT_EMPTY
+**Identifier:** WAF\_REGIONAL\_RULE\_NOT\_EMPTY
 
 **Resource Types:** AWS::WAFRegional::Rule
 

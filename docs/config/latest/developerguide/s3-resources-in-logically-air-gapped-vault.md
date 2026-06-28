@@ -1,8 +1,8 @@
 # s3-resources-in-logically-air-gapped-vault
 
-Checks if Amazon Simple Storage Service (Amazon S3) buckets are in a logically air-gapped vault. The rule is NON_COMPLIANT if an Amazon S3 bucket is not in a logically air-gapped vault within the specified time period.
+Checks if Amazon Simple Storage Service (Amazon S3) buckets are in a logically air-gapped vault. The rule is NON\_COMPLIANT if an Amazon S3 bucket is not in a logically air-gapped vault within the specified time period.
 
-**Identifier:** S3_RESOURCES_IN_LOGICALLY_AIR_GAPPED_VAULT
+**Identifier:** S3\_RESOURCES\_IN\_LOGICALLY\_AIR\_GAPPED\_VAULT
 
 **Resource Types:** AWS::S3::Bucket
 

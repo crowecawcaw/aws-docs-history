@@ -1,8 +1,8 @@
 # appmesh-virtual-node-cloud-map-ip-pref-check
 
-Checks if an AWS App Mesh virtual node is configured with the specified IP preference for AWS Cloud Map service discovery. The rule is NON_COMPLIANT if the virtual node is not configured with the IP preference specified in the required rule parameter.
+Checks if an AWS App Mesh virtual node is configured with the specified IP preference for AWS Cloud Map service discovery. The rule is NON\_COMPLIANT if the virtual node is not configured with the IP preference specified in the required rule parameter.
 
-**Identifier:** APPMESH_VIRTUAL_NODE_CLOUD_MAP_IP_PREF_CHECK
+**Identifier:** APPMESH\_VIRTUAL\_NODE\_CLOUD\_MAP\_IP\_PREF\_CHECK
 
 **Resource Types:** AWS::AppMesh::VirtualNode
 
@@ -15,7 +15,7 @@ Checks if an AWS App Mesh virtual node is configured with the specified IP prefe
 ipPreference
 Type: String
 
-The IP preference value for AWS Cloud Map service discovery. The rule is NON_COMPLIANT if a virtual node is configured with a value that does not match this value. Valid values include: 'IPv6_PREFERRED', 'IPv4_PREFERRED', 'IPv4_ONLY', and 'IPv6_ONLY'.
+The IP preference value for AWS Cloud Map service discovery. The rule is NON\_COMPLIANT if a virtual node is configured with a value that does not match this value. Valid values include: 'IPv6\_PREFERRED', 'IPv4\_PREFERRED', 'IPv4\_ONLY', and 'IPv6\_ONLY'.
 
 ## AWS CloudFormation template
 

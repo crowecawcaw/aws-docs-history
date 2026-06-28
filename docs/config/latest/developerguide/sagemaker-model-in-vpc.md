@@ -1,8 +1,8 @@
 # sagemaker-model-in-vpc
 
-Checks if an Amazon SageMaker model uses an Amazon Virtual Private Cloud (Amazon VPC) for container traffic. The rule is NON_COMPLIANT if configuration.VpcConfig does not exist.
+Checks if an Amazon SageMaker model uses an Amazon Virtual Private Cloud (Amazon VPC) for container traffic. The rule is NON\_COMPLIANT if configuration.VpcConfig does not exist.
 
-**Identifier:** SAGEMAKER_MODEL_IN_VPC
+**Identifier:** SAGEMAKER\_MODEL\_IN\_VPC
 
 **Resource Types:** AWS::SageMaker::Model
 

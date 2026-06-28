@@ -2,7 +2,7 @@
 
 Checks if Amazon GuardDuty is enabled in your AWS account and AWS Region. If you provide an AWS account for centralization, the rule evaluates the GuardDuty results in the centralized account. The rule is COMPLIANT when GuardDuty is enabled.
 
-**Identifier:** GUARDDUTY_ENABLED_CENTRALIZED
+**Identifier:** GUARDDUTY\_ENABLED\_CENTRALIZED
 
 **Trigger type:** Periodic
 

@@ -2,9 +2,9 @@
 
 Checks if an AWS Elastic Beanstalk environment is configured for enhanced health reporting.
 The rule is COMPLIANT if the environment is configured for enhanced health reporting.
-The rule is NON_COMPLIANT if the environment is configured for basic health reporting.
+The rule is NON\_COMPLIANT if the environment is configured for basic health reporting.
 
-**Identifier:** BEANSTALK_ENHANCED_HEALTH_REPORTING_ENABLED
+**Identifier:** BEANSTALK\_ENHANCED\_HEALTH\_REPORTING\_ENABLED
 
 **Resource Types:** AWS::ElasticBeanstalk::Environment
 

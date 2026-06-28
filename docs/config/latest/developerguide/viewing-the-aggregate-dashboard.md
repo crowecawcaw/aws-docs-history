@@ -168,7 +168,7 @@ The insights in the compliance dashboard are provided by the Advanced Queries fe
 This means that the compliance dashboard displays the overall compliance of a resource and not the compliance status for each specific rule which reports on a resource.
 
 For example, if you check the configuration item (CI) for the resource type `AWS::Config::ResourceCompliance`, the dashboard will display the compliance results for all the rules that report on that resource.
-If there are 10 rules that report on the resource, 9 of them are COMPLIANT, and only 1 is NON_COMPLIANT, the overall compliance of that resource will be NON_COMPLIANT.
+If there are 10 rules that report on the resource, 9 of them are COMPLIANT, and only 1 is NON\_COMPLIANT, the overall compliance of that resource will be NON\_COMPLIANT.
 
 **Compliance Summary By Resources**
 

@@ -1,8 +1,8 @@
 # s3-event-notifications-enabled
 
-Checks if Amazon S3 Events Notifications are enabled on an S3 bucket. The rule is NON_COMPLIANT if S3 Events Notifications are not set on a bucket, or if the event type or destination do not match the `eventTypes` and destinationArn parameters.
+Checks if Amazon S3 Events Notifications are enabled on an S3 bucket. The rule is NON\_COMPLIANT if S3 Events Notifications are not set on a bucket, or if the event type or destination do not match the `eventTypes` and destinationArn parameters.
 
-**Identifier:** S3_EVENT_NOTIFICATIONS_ENABLED
+**Identifier:** S3\_EVENT\_NOTIFICATIONS\_ENABLED
 
 **Resource Types:** AWS::S3::Bucket
 

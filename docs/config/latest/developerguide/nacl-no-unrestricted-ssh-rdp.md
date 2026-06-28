@@ -1,8 +1,8 @@
 # nacl-no-unrestricted-ssh-rdp
 
-Checks if default ports for SSH/RDP ingress traffic for network access control lists (NACLs) is unrestricted. The rule is NON_COMPLIANT if a NACL inbound entry allows a source TCP or UDP CIDR block for ports 22 or 3389.
+Checks if default ports for SSH/RDP ingress traffic for network access control lists (NACLs) is unrestricted. The rule is NON\_COMPLIANT if a NACL inbound entry allows a source TCP or UDP CIDR block for ports 22 or 3389.
 
-**Identifier:** NACL_NO_UNRESTRICTED_SSH_RDP
+**Identifier:** NACL\_NO\_UNRESTRICTED\_SSH\_RDP
 
 **Resource Types:** AWS::EC2::NetworkAcl
 

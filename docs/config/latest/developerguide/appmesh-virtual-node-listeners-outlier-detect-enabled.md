@@ -1,8 +1,8 @@
 # appmesh-virtual-node-listeners-outlier-detect-enabled
 
-Checks if listeners for AWS App Mesh virtual nodes have outlier detection enabled. The rule is NON_COMPLIANT if configuration.Spec.Listeners[].OutlierDetection does not exist in one or more listeners.
+Checks if listeners for AWS App Mesh virtual nodes have outlier detection enabled. The rule is NON\_COMPLIANT if configuration.Spec.Listeners[].OutlierDetection does not exist in one or more listeners.
 
-**Identifier:** APPMESH_VIRTUAL_NODE_LISTENERS_OUTLIER_DETECT_ENABLED
+**Identifier:** APPMESH\_VIRTUAL\_NODE\_LISTENERS\_OUTLIER\_DETECT\_ENABLED
 
 **Resource Types:** AWS::AppMesh::VirtualNode
 

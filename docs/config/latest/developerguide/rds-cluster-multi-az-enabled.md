@@ -1,8 +1,8 @@
 # rds-cluster-multi-az-enabled
 
-Checks if Multi-Availability Zone (Multi-AZ) replication is enabled on Amazon Aurora and Multi-AZ DB clusters managed by Amazon Relational Database Service (Amazon RDS). The rule is NON_COMPLIANT if an Amazon RDS instance is not configured with Multi-AZ.
+Checks if Multi-Availability Zone (Multi-AZ) replication is enabled on Amazon Aurora and Multi-AZ DB clusters managed by Amazon Relational Database Service (Amazon RDS). The rule is NON\_COMPLIANT if an Amazon RDS instance is not configured with Multi-AZ.
 
-**Identifier:** RDS_CLUSTER_MULTI_AZ_ENABLED
+**Identifier:** RDS\_CLUSTER\_MULTI\_AZ\_ENABLED
 
 **Resource Types:** AWS::RDS::DBCluster
 

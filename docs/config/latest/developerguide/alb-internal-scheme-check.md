@@ -1,8 +1,8 @@
 # alb-internal-scheme-check
 
-Checks if an Application Load Balancer scheme is internal. The rule is NON_COMPLIANT if configuration.scheme is not set to internal.
+Checks if an Application Load Balancer scheme is internal. The rule is NON\_COMPLIANT if configuration.scheme is not set to internal.
 
-**Identifier:** ALB_INTERNAL_SCHEME_CHECK
+**Identifier:** ALB\_INTERNAL\_SCHEME\_CHECK
 
 **Resource Types:** AWS::ElasticLoadBalancingV2::LoadBalancer
 

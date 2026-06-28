@@ -2,7 +2,7 @@
 
 Checks if provisioned DynamoDB throughput is approaching the maximum limit for your account. By default, the rule checks if provisioned throughput exceeds a threshold of 80 percent of your account limits.
 
-**Identifier:** DYNAMODB_THROUGHPUT_LIMIT_CHECK
+**Identifier:** DYNAMODB\_THROUGHPUT\_LIMIT\_CHECK
 
 **Trigger type:** Periodic
 

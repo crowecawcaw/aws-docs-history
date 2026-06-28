@@ -1,8 +1,8 @@
 # s3-account-level-public-access-blocks-periodic
 
-Checks if the required public access block settings are configured at the account level. The rule is NON_COMPLIANT if the configuration item does not match one or more settings from parameters (or default).
+Checks if the required public access block settings are configured at the account level. The rule is NON\_COMPLIANT if the configuration item does not match one or more settings from parameters (or default).
 
-**Identifier:** S3_ACCOUNT_LEVEL_PUBLIC_ACCESS_BLOCKS_PERIODIC
+**Identifier:** S3\_ACCOUNT\_LEVEL\_PUBLIC\_ACCESS\_BLOCKS\_PERIODIC
 
 **Resource Types:** AWS::::Account
 

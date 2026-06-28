@@ -1,8 +1,8 @@
 # redshift-serverless-default-admin-check
 
-Checks if an Amazon Redshift Serverless Namespace has changed the admin username from its default value. The rule is NON_COMPLIANT if the admin username for a Redshift Serverless Namespace is set to “admin”.
+Checks if an Amazon Redshift Serverless Namespace has changed the admin username from its default value. The rule is NON\_COMPLIANT if the admin username for a Redshift Serverless Namespace is set to “admin”.
 
-**Identifier:** REDSHIFT_SERVERLESS_DEFAULT_ADMIN_CHECK
+**Identifier:** REDSHIFT\_SERVERLESS\_DEFAULT\_ADMIN\_CHECK
 
 **Resource Types:** AWS::RedshiftServerless::Namespace
 

@@ -1,8 +1,8 @@
 # nlb-cross-zone-load-balancing-enabled
 
-Checks if cross-zone load balancing is enabled on Network Load Balancers (NLBs). The rule is NON_COMPLIANT if cross-zone load balancing is not enabled for an NLB.
+Checks if cross-zone load balancing is enabled on Network Load Balancers (NLBs). The rule is NON\_COMPLIANT if cross-zone load balancing is not enabled for an NLB.
 
-**Identifier:** NLB_CROSS_ZONE_LOAD_BALANCING_ENABLED
+**Identifier:** NLB\_CROSS\_ZONE\_LOAD\_BALANCING\_ENABLED
 
 **Resource Types:** AWS::ElasticLoadBalancingV2::LoadBalancer
 

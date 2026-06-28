@@ -1,8 +1,8 @@
 # ebs-meets-restore-time-target
 
-Checks if the restore time of Amazon Elastic Block Store (Amazon EBS) volumes meets the specified duration. The rule is NON_COMPLIANT if LatestRestoreExecutionTimeMinutes of an Amazon EBS volume is greater than maxRestoreTime minutes.
+Checks if the restore time of Amazon Elastic Block Store (Amazon EBS) volumes meets the specified duration. The rule is NON\_COMPLIANT if LatestRestoreExecutionTimeMinutes of an Amazon EBS volume is greater than maxRestoreTime minutes.
 
-**Identifier:** EBS_MEETS_RESTORE_TIME_TARGET
+**Identifier:** EBS\_MEETS\_RESTORE\_TIME\_TARGET
 
 **Resource Types:** AWS::EC2::Volume
 

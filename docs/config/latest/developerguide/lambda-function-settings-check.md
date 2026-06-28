@@ -2,9 +2,9 @@
 
 Checks if the AWS Lambda function settings for runtime, role, timeout, and memory size match the expected values. The rule ignores functions with the 'Image' package type
 and functions with runtime set to 'OS-only Runtime'.
-The rule is NON_COMPLIANT if the Lambda function settings do not match the expected values.
+The rule is NON\_COMPLIANT if the Lambda function settings do not match the expected values.
 
-**Identifier:** LAMBDA_FUNCTION_SETTINGS_CHECK
+**Identifier:** LAMBDA\_FUNCTION\_SETTINGS\_CHECK
 
 **Resource Types:** AWS::Lambda::Function
 

@@ -1,6 +1,6 @@
 # account-part-of-organizations
 
-Checks if an AWS account is part of AWS Organizations. The rule is NON_COMPLIANT if an AWS account is not part of AWS Organizations or AWS Organizations master account ID does not match rule parameter `MasterAccountId`.
+Checks if an AWS account is part of AWS Organizations. The rule is NON\_COMPLIANT if an AWS account is not part of AWS Organizations or AWS Organizations master account ID does not match rule parameter `MasterAccountId`.
 
 ###### Note
 
@@ -22,7 +22,7 @@ To avoid unnecessary evaluations, you should only deploy periodic rules that rep
 For a list of which managed rules are supported in which Regions,
 see [List of AWS Config Managed Rules by Region Availability](managing-rules-by-region-availability.md "managing-rules-by-region-availability.md").
 
-**Identifier:** ACCOUNT_PART_OF_ORGANIZATIONS
+**Identifier:** ACCOUNT\_PART\_OF\_ORGANIZATIONS
 
 **Trigger type:** Periodic
 

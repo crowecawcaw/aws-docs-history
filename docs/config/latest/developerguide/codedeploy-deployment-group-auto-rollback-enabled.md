@@ -1,8 +1,8 @@
 # codedeploy-deployment-group-auto-rollback-enabled
 
-Checks if AWS CodeDeploy deployment groups have auto rollback configuration enabled. The rule is NON_COMPLIANT if configuration.autoRollbackConfiguration.enabled is false or does not exist.
+Checks if AWS CodeDeploy deployment groups have auto rollback configuration enabled. The rule is NON\_COMPLIANT if configuration.autoRollbackConfiguration.enabled is false or does not exist.
 
-**Identifier:** CODEDEPLOY_DEPLOYMENT_GROUP_AUTO_ROLLBACK_ENABLED
+**Identifier:** CODEDEPLOY\_DEPLOYMENT\_GROUP\_AUTO\_ROLLBACK\_ENABLED
 
 **Resource Types:** AWS::CodeDeploy::DeploymentGroup
 

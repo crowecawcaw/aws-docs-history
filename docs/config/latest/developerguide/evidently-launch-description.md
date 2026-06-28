@@ -1,8 +1,8 @@
 # evidently-launch-description
 
-Checks if Amazon CloudWatch Evidently launches have a description. The rule is NON_COMPLIANT if configuration.Description does not exist or is an empty string.
+Checks if Amazon CloudWatch Evidently launches have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string.
 
-**Identifier:** EVIDENTLY_LAUNCH_DESCRIPTION
+**Identifier:** EVIDENTLY\_LAUNCH\_DESCRIPTION
 
 **Resource Types:** AWS::Evidently::Launch
 

@@ -1,8 +1,8 @@
 # mq-no-public-access
 
-Checks if Amazon MQ brokers are not publicly accessible. The rule is NON_COMPLIANT if the 'PubliclyAccessible' field is set to true for an Amazon MQ broker.
+Checks if Amazon MQ brokers are not publicly accessible. The rule is NON\_COMPLIANT if the 'PubliclyAccessible' field is set to true for an Amazon MQ broker.
 
-**Identifier:** MQ_NO_PUBLIC_ACCESS
+**Identifier:** MQ\_NO\_PUBLIC\_ACCESS
 
 **Resource Types:** AWS::AmazonMQ::Broker
 

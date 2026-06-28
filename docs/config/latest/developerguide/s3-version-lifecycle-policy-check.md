@@ -1,8 +1,8 @@
 # s3-version-lifecycle-policy-check
 
-Checks if Amazon Simple Storage Service (Amazon S3) version enabled buckets have lifecycle policy configured. The rule is NON_COMPLIANT if Amazon S3 lifecycle policy is not enabled.
+Checks if Amazon Simple Storage Service (Amazon S3) version enabled buckets have lifecycle policy configured. The rule is NON\_COMPLIANT if Amazon S3 lifecycle policy is not enabled.
 
-**Identifier:** S3_VERSION_LIFECYCLE_POLICY_CHECK
+**Identifier:** S3\_VERSION\_LIFECYCLE\_POLICY\_CHECK
 
 **Resource Types:** AWS::S3::Bucket
 

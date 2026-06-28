@@ -1,8 +1,8 @@
 # glue-ml-transform-encrypted-at-rest
 
-Checks if an AWS Glue ML Transform has encryption at rest enabled. The rule is NON_COMPLIANT if `MLUserDataEncryptionMode` is set to `DISABLED`.
+Checks if an AWS Glue ML Transform has encryption at rest enabled. The rule is NON\_COMPLIANT if `MLUserDataEncryptionMode` is set to `DISABLED`.
 
-**Identifier:** GLUE_ML_TRANSFORM_ENCRYPTED_AT_REST
+**Identifier:** GLUE\_ML\_TRANSFORM\_ENCRYPTED\_AT\_REST
 
 **Resource Types:** AWS::Glue::MLTransform
 

@@ -1,8 +1,8 @@
 # cloud-trail-log-file-validation-enabled
 
-Checks if AWS CloudTrail creates a signed digest file with logs. AWS recommends that the file validation must be enabled on all trails. The rule is NON_COMPLIANT if the validation is not enabled.
+Checks if AWS CloudTrail creates a signed digest file with logs. AWS recommends that the file validation must be enabled on all trails. The rule is NON\_COMPLIANT if the validation is not enabled.
 
-**Identifier:** CLOUD_TRAIL_LOG_FILE_VALIDATION_ENABLED
+**Identifier:** CLOUD\_TRAIL\_LOG\_FILE\_VALIDATION\_ENABLED
 
 **Resource Types:** AWS::CloudTrail::Trail
 

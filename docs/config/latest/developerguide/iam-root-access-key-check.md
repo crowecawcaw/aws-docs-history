@@ -1,6 +1,6 @@
 # iam-root-access-key-check
 
-Checks if the root user access key is available. The rule is COMPLIANT if the user access key does not exist. Otherwise, NON_COMPLIANT.
+Checks if the root user access key is available. The rule is COMPLIANT if the user access key does not exist. Otherwise, NON\_COMPLIANT.
 
 ###### Note
 
@@ -22,7 +22,7 @@ To avoid unnecessary evaluations, you should only deploy periodic rules that rep
 For a list of which managed rules are supported in which Regions,
 see [List of AWS Config Managed Rules by Region Availability](managing-rules-by-region-availability.md "managing-rules-by-region-availability.md").
 
-**Identifier:** IAM_ROOT_ACCESS_KEY_CHECK
+**Identifier:** IAM\_ROOT\_ACCESS\_KEY\_CHECK
 
 **Trigger type:** Periodic
 

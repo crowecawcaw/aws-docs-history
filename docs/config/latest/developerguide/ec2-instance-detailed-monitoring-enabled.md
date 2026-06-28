@@ -1,8 +1,8 @@
 # ec2-instance-detailed-monitoring-enabled
 
-Checks if detailed monitoring is enabled for EC2 instances. The rule is NON_COMPLIANT if detailed monitoring is not enabled.
+Checks if detailed monitoring is enabled for EC2 instances. The rule is NON\_COMPLIANT if detailed monitoring is not enabled.
 
-**Identifier:** EC2_INSTANCE_DETAILED_MONITORING_ENABLED
+**Identifier:** EC2\_INSTANCE\_DETAILED\_MONITORING\_ENABLED
 
 **Resource Types:** AWS::EC2::Instance
 

@@ -1,8 +1,8 @@
 # redshift-default-db-name-check
 
-Checks if a Redshift cluster has changed its database name from the default value. The rule is NON_COMPLIANT if the database name for a Redshift cluster is set to “dev”, or if the optional parameter is provided and the database name does not match.
+Checks if a Redshift cluster has changed its database name from the default value. The rule is NON\_COMPLIANT if the database name for a Redshift cluster is set to “dev”, or if the optional parameter is provided and the database name does not match.
 
-**Identifier:** REDSHIFT_DEFAULT_DB_NAME_CHECK
+**Identifier:** REDSHIFT\_DEFAULT\_DB\_NAME\_CHECK
 
 **Resource Types:** AWS::Redshift::Cluster
 

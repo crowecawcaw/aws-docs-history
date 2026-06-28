@@ -1,8 +1,8 @@
 # sagemaker-data-quality-job-encrypt-in-transit
 
-Checks if Amazon SageMaker data quality job definitions have inter-container traffic encryption enabled when the instance count is 2 or greater. The rule is NON_COMPLIANT if configuration.NetworkConfig.EnableInterContainerTrafficEncryption is false.
+Checks if Amazon SageMaker data quality job definitions have inter-container traffic encryption enabled when the instance count is 2 or greater. The rule is NON\_COMPLIANT if configuration.NetworkConfig.EnableInterContainerTrafficEncryption is false.
 
-**Identifier:** SAGEMAKER_DATA_QUALITY_JOB_ENCRYPT_IN_TRANSIT
+**Identifier:** SAGEMAKER\_DATA\_QUALITY\_JOB\_ENCRYPT\_IN\_TRANSIT
 
 **Resource Types:** AWS::SageMaker::DataQualityJobDefinition
 

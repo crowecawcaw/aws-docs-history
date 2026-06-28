@@ -1,8 +1,8 @@
 # fsx-lustre-copy-tags-to-backups
 
-Checks if the Amazon FSx for Lustre file systems are configured to copy tags to backups. The rule is NON_COMPLIANT if Lustre file systems are not configured to copy tags to backups.
+Checks if the Amazon FSx for Lustre file systems are configured to copy tags to backups. The rule is NON\_COMPLIANT if Lustre file systems are not configured to copy tags to backups.
 
-**Identifier:** FSX_LUSTRE_COPY_TAGS_TO_BACKUPS
+**Identifier:** FSX\_LUSTRE\_COPY\_TAGS\_TO\_BACKUPS
 
 **Resource Types:** AWS::FSx::FileSystem
 

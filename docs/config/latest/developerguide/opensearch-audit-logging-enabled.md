@@ -1,8 +1,8 @@
 # opensearch-audit-logging-enabled
 
-Checks if Amazon OpenSearch Service domains have audit logging enabled. The rule is NON_COMPLIANT if an OpenSearch Service domain does not have audit logging enabled.
+Checks if Amazon OpenSearch Service domains have audit logging enabled. The rule is NON\_COMPLIANT if an OpenSearch Service domain does not have audit logging enabled.
 
-**Identifier:** OPENSEARCH_AUDIT_LOGGING_ENABLED
+**Identifier:** OPENSEARCH\_AUDIT\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::OpenSearch::Domain
 

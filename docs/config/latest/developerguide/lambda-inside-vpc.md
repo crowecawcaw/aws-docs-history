@@ -1,8 +1,8 @@
 # lambda-inside-vpc
 
-Checks if a Lambda function is allowed access to a virtual private cloud (VPC). The rule is NON_COMPLIANT if the Lambda function is not VPC enabled.
+Checks if a Lambda function is allowed access to a virtual private cloud (VPC). The rule is NON\_COMPLIANT if the Lambda function is not VPC enabled.
 
-**Identifier:** LAMBDA_INSIDE_VPC
+**Identifier:** LAMBDA\_INSIDE\_VPC
 
 **Resource Types:** AWS::Lambda::Function
 

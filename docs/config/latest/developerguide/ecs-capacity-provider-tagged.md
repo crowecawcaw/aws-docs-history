@@ -1,8 +1,8 @@
 # ecs-capacity-provider-tagged
 
-Checks if Amazon ECS capacity providers have tags. Optionally, you can specify tag keys. The rule is NON_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'.
+Checks if Amazon ECS capacity providers have tags. Optionally, you can specify tag keys. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'.
 
-**Identifier:** ECS_CAPACITY_PROVIDER_TAGGED
+**Identifier:** ECS\_CAPACITY\_PROVIDER\_TAGGED
 
 **Resource Types:** AWS::ECS::CapacityProvider
 
@@ -15,7 +15,7 @@ Checks if Amazon ECS capacity providers have tags. Optionally, you can specify t
 requiredKeyTags (Optional)
 Type: CSV
 
-Comma-separated list of tag keys for the rule to check. If provided, the rule is NON_COMPLIANT if the evaluated resource does not contain these keys. Tag keys are case-sensitive. Tag keys starting with 'aws:' are not allowed.
+Comma-separated list of tag keys for the rule to check. If provided, the rule is NON\_COMPLIANT if the evaluated resource does not contain these keys. Tag keys are case-sensitive. Tag keys starting with 'aws:' are not allowed.
 
 ## AWS CloudFormation template
 

@@ -1,8 +1,8 @@
 # fsx-ontap-deployment-type-check
 
-Checks if Amazon FSx for NetApp ONTAP file systems are configured with certain deployment types. The rule is NON_COMPLIANT if the Amazon FSx for NetApp ONTAP file systems are not configured with the deployment types you specify.
+Checks if Amazon FSx for NetApp ONTAP file systems are configured with certain deployment types. The rule is NON\_COMPLIANT if the Amazon FSx for NetApp ONTAP file systems are not configured with the deployment types you specify.
 
-**Identifier:** FSX_ONTAP_DEPLOYMENT_TYPE_CHECK
+**Identifier:** FSX\_ONTAP\_DEPLOYMENT\_TYPE\_CHECK
 
 **Resource Types:** AWS::FSx::FileSystem
 

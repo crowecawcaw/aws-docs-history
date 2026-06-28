@@ -87,8 +87,8 @@ following topics in the _AWS Systems Manager User Guide_:
      Linux](../../../systems-manager/latest/userguide/sysman-install-ssm-agent.md "../../../systems-manager/latest/userguide/sysman-install-ssm-agent.md")
 
 3. Initiate inventory collection as described in [Configuring Inventory
-   Collection](../../../systems-manager/latest/userguide/sysman-inventory-configuring.md "../../../systems-manager/latest/userguide/sysman-inventory-configuring.md") in the _AWS Systems Manager User Guide_. The
-   procedures are the same for Linux and Windows instances.
+Collection](../../../systems-manager/latest/userguide/sysman-inventory-configuring.md "../../../systems-manager/latest/userguide/sysman-inventory-configuring.md") in the _AWS Systems Manager User Guide_. The
+procedures are the same for Linux and Windows instances.
 
 AWS Config can record configuration changes for the following inventory
 types:

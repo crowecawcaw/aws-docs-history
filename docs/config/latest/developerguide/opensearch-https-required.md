@@ -1,8 +1,8 @@
 # opensearch-https-required
 
-Checks whether connections to OpenSearch domains are using HTTPS. The rule is NON_COMPLIANT if the Amazon OpenSearch domain 'EnforceHTTPS' is not 'true' or is 'true' and 'TLSSecurityPolicy' is not in '`tlsPolicies`'.
+Checks whether connections to OpenSearch domains are using HTTPS. The rule is NON\_COMPLIANT if the Amazon OpenSearch domain 'EnforceHTTPS' is not 'true' or is 'true' and 'TLSSecurityPolicy' is not in '`tlsPolicies`'.
 
-**Identifier:** OPENSEARCH_HTTPS_REQUIRED
+**Identifier:** OPENSEARCH\_HTTPS\_REQUIRED
 
 **Resource Types:** AWS::OpenSearch::Domain
 

@@ -1,8 +1,8 @@
 # elastic-beanstalk-logs-to-cloudwatch
 
-Checks if AWS Elastic Beanstalk environments are configured to send logs to Amazon CloudWatch Logs. The rule is NON_COMPLIANT if the value of `StreamLogs` is false.
+Checks if AWS Elastic Beanstalk environments are configured to send logs to Amazon CloudWatch Logs. The rule is NON\_COMPLIANT if the value of `StreamLogs` is false.
 
-**Identifier:** ELASTIC_BEANSTALK_LOGS_TO_CLOUDWATCH
+**Identifier:** ELASTIC\_BEANSTALK\_LOGS\_TO\_CLOUDWATCH
 
 **Resource Types:** AWS::ElasticBeanstalk::Environment
 
@@ -15,12 +15,12 @@ Checks if AWS Elastic Beanstalk environments are configured to send logs to Amaz
 RetentionInDays (Optional)
 Type: String
 
-Checks the number of days to keep log events before they expire. Valid values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 3653. The rule is NON_COMPLIANT if the value of `logs.RetentionInDays` does not match this parameter.
+Checks the number of days to keep log events before they expire. Valid values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 3653. The rule is NON\_COMPLIANT if the value of `logs.RetentionInDays` does not match this parameter.
 
 DeleteOnTerminate (Optional)
 Type: String
 
-Checks if logs are configured to be deleted upon termination of the environment. Valid values are `true` or `false`. The rule is NON_COMPLIANT if the value of `logs.DeleteOnTerminate` does not match this parameter.
+Checks if logs are configured to be deleted upon termination of the environment. Valid values are `true` or `false`. The rule is NON\_COMPLIANT if the value of `logs.DeleteOnTerminate` does not match this parameter.
 
 ## AWS CloudFormation template
 

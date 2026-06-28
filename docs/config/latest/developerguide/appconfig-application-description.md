@@ -1,8 +1,8 @@
 # appconfig-application-description
 
-Checks if AWS AppConfig applications have a description. The rule is NON_COMPLIANT if configuration.Description does not exist or is an empty string.
+Checks if AWS AppConfig applications have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string.
 
-**Identifier:** APPCONFIG_APPLICATION_DESCRIPTION
+**Identifier:** APPCONFIG\_APPLICATION\_DESCRIPTION
 
 **Resource Types:** AWS::AppConfig::Application
 

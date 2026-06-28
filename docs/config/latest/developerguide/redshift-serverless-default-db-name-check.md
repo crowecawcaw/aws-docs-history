@@ -1,8 +1,8 @@
 # redshift-serverless-default-db-name-check
 
-Checks if an Amazon Redshift Serverless namespace has changed its database name from the default value. The rule is NON_COMPLIANT if the database name for an Amazon Redshift Serverless namespace is set to `dev`.
+Checks if an Amazon Redshift Serverless namespace has changed its database name from the default value. The rule is NON\_COMPLIANT if the database name for an Amazon Redshift Serverless namespace is set to `dev`.
 
-**Identifier:** REDSHIFT_SERVERLESS_DEFAULT_DB_NAME_CHECK
+**Identifier:** REDSHIFT\_SERVERLESS\_DEFAULT\_DB\_NAME\_CHECK
 
 **Resource Types:** AWS::RedshiftServerless::Namespace
 

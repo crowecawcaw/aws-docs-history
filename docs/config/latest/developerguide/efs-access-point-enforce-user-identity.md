@@ -1,8 +1,8 @@
 # efs-access-point-enforce-user-identity
 
-Checks if Amazon Elastic File System (Amazon EFS) access points are configured to enforce a user identity. The rule is NON_COMPLIANT if 'PosixUser' is not defined or if parameters are provided and there is no match in the corresponding parameter.
+Checks if Amazon Elastic File System (Amazon EFS) access points are configured to enforce a user identity. The rule is NON\_COMPLIANT if 'PosixUser' is not defined or if parameters are provided and there is no match in the corresponding parameter.
 
-**Identifier:** EFS_ACCESS_POINT_ENFORCE_USER_IDENTITY
+**Identifier:** EFS\_ACCESS\_POINT\_ENFORCE\_USER\_IDENTITY
 
 **Resource Types:** AWS::EFS::AccessPoint
 

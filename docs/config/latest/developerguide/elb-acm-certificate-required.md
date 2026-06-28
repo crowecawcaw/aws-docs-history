@@ -4,7 +4,7 @@ Checks if the Classic Load Balancers use SSL certificates provided by AWS Certif
 To use this rule, use an SSL or HTTPS listener with your Classic Load Balancer.
 This rule is only applicable to Classic Load Balancers. This rule does not check Application Load Balancers and Network Load Balancers.
 
-**Identifier:** ELB_ACM_CERTIFICATE_REQUIRED
+**Identifier:** ELB\_ACM\_CERTIFICATE\_REQUIRED
 
 **Resource Types:** AWS::ElasticLoadBalancing::LoadBalancer
 

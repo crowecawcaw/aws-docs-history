@@ -1,8 +1,8 @@
 # mq-broker-general-logging-enabled
 
-Checks if Amazon MQ brokers have general logging enabled. The rule is NON_COMPLIANT if configuration.Logs.General is false.
+Checks if Amazon MQ brokers have general logging enabled. The rule is NON\_COMPLIANT if configuration.Logs.General is false.
 
-**Identifier:** MQ_BROKER_GENERAL_LOGGING_ENABLED
+**Identifier:** MQ\_BROKER\_GENERAL\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::AmazonMQ::Broker
 

@@ -1,8 +1,8 @@
 # acm-certificate-transparent-logging-enabled
 
-Checks if AWS Certificate Manager certificates have certificate transparency logging enabled. The rule is NON_COMPLIANT if CertificateTransparencyLoggingPreference is explicitly set DISABLED.
+Checks if AWS Certificate Manager certificates have certificate transparency logging enabled. The rule is NON\_COMPLIANT if CertificateTransparencyLoggingPreference is explicitly set DISABLED.
 
-**Identifier:** ACM_CERTIFICATE_TRANSPARENT_LOGGING_ENABLED
+**Identifier:** ACM\_CERTIFICATE\_TRANSPARENT\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::ACM::Certificate
 

@@ -1,8 +1,8 @@
 # redshift-cluster-configuration-check
 
-Checks if Amazon Redshift clusters have the specified settings. The rule is NON_COMPLIANT if the Amazon Redshift cluster is not encrypted or encrypted with another key, or if a cluster does not have audit logging enabled.
+Checks if Amazon Redshift clusters have the specified settings. The rule is NON\_COMPLIANT if the Amazon Redshift cluster is not encrypted or encrypted with another key, or if a cluster does not have audit logging enabled.
 
-**Identifier:** REDSHIFT_CLUSTER_CONFIGURATION_CHECK
+**Identifier:** REDSHIFT\_CLUSTER\_CONFIGURATION\_CHECK
 
 **Resource Types:** AWS::Redshift::Cluster
 

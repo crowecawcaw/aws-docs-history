@@ -1,8 +1,8 @@
 # appstream-fleet-in-vpc
 
-Checks if Amazon AppStream 2.0 fleets use an Amazon Virtual Private Cloud (Amazon VPC). The rule is NON_COMPLIANT if configuration.VpcConfig does not exist. The rule does not check Elastic fleets.
+Checks if Amazon AppStream 2.0 fleets use an Amazon Virtual Private Cloud (Amazon VPC). The rule is NON\_COMPLIANT if configuration.VpcConfig does not exist. The rule does not check Elastic fleets.
 
-**Identifier:** APPSTREAM_FLEET_IN_VPC
+**Identifier:** APPSTREAM\_FLEET\_IN\_VPC
 
 **Resource Types:** AWS::AppStream::Fleet
 

@@ -1,8 +1,8 @@
 # appsync-cache-ct-encryption-in-transit
 
-Checks if an AWS AppSync API cache has encryption in transit enabled. The rule is NON_COMPLIANT if 'TransitEncryptionEnabled' is false.
+Checks if an AWS AppSync API cache has encryption in transit enabled. The rule is NON\_COMPLIANT if 'TransitEncryptionEnabled' is false.
 
-**Identifier:** APPSYNC_CACHE_CT_ENCRYPTION_IN_TRANSIT
+**Identifier:** APPSYNC\_CACHE\_CT\_ENCRYPTION\_IN\_TRANSIT
 
 **Resource Types:** AWS::AppSync::ApiCache
 

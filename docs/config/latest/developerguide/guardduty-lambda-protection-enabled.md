@@ -1,8 +1,8 @@
 # guardduty-lambda-protection-enabled
 
-Checks if Lambda Protection is enabled for an Amazon GuardDuty detector in your account. The rule is NON_COMPLIANT if the Lambda Protection feature in Amazon GuardDuty is not enabled for your account.
+Checks if Lambda Protection is enabled for an Amazon GuardDuty detector in your account. The rule is NON\_COMPLIANT if the Lambda Protection feature in Amazon GuardDuty is not enabled for your account.
 
-**Identifier:** GUARDDUTY_LAMBDA_PROTECTION_ENABLED
+**Identifier:** GUARDDUTY\_LAMBDA\_PROTECTION\_ENABLED
 
 **Resource Types:** AWS::GuardDuty::Detector
 

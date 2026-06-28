@@ -1,8 +1,8 @@
 # autoscaling-launch-config-public-ip-disabled
 
-Checks if Amazon EC2 Auto Scaling groups have public IP addresses enabled through Launch Configurations. The rule is NON_COMPLIANT if the Launch Configuration for an Amazon EC2 Auto Scaling group has AssociatePublicIpAddress set to 'true'.
+Checks if Amazon EC2 Auto Scaling groups have public IP addresses enabled through Launch Configurations. The rule is NON\_COMPLIANT if the Launch Configuration for an Amazon EC2 Auto Scaling group has AssociatePublicIpAddress set to 'true'.
 
-**Identifier:** AUTOSCALING_LAUNCH_CONFIG_PUBLIC_IP_DISABLED
+**Identifier:** AUTOSCALING\_LAUNCH\_CONFIG\_PUBLIC\_IP\_DISABLED
 
 **Resource Types:** AWS::AutoScaling::LaunchConfiguration
 

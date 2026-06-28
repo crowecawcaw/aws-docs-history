@@ -1,8 +1,8 @@
 # redshift-cluster-public-access-check
 
-Checks whether Amazon Redshift clusters are not publicly accessible. The rule is NON_COMPLIANT if the publiclyAccessible field is true in the cluster configuration item.
+Checks whether Amazon Redshift clusters are not publicly accessible. The rule is NON\_COMPLIANT if the publiclyAccessible field is true in the cluster configuration item.
 
-**Identifier:** REDSHIFT_CLUSTER_PUBLIC_ACCESS_CHECK
+**Identifier:** REDSHIFT\_CLUSTER\_PUBLIC\_ACCESS\_CHECK
 
 **Resource Types:** AWS::Redshift::Cluster
 

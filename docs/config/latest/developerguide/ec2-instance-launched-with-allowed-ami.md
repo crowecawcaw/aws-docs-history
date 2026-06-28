@@ -1,8 +1,8 @@
 # ec2-instance-launched-with-allowed-ami
 
-Checks if running or stopped EC2 instances were launched with Amazon Machine Images (AMIs) that meet your Allowed AMIs criteria. The rule is NON_COMPLIANT if an AMI doesn't meet the Allowed AMIs criteria and the Allowed AMIs settings isn't disabled.
+Checks if running or stopped EC2 instances were launched with Amazon Machine Images (AMIs) that meet your Allowed AMIs criteria. The rule is NON\_COMPLIANT if an AMI doesn't meet the Allowed AMIs criteria and the Allowed AMIs settings isn't disabled.
 
-**Identifier:** EC2_INSTANCE_LAUNCHED_WITH_ALLOWED_AMI
+**Identifier:** EC2\_INSTANCE\_LAUNCHED\_WITH\_ALLOWED\_AMI
 
 **Resource Types:** AWS::EC2::Instance
 

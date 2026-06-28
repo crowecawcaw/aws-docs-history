@@ -1,8 +1,8 @@
 # iam-policy-description
 
-Checks if AWS Identity and Access Management (IAM) Policy description field exists. The rule is NON_COMPLIANT if the description field does not exist or is an empty string.
+Checks if AWS Identity and Access Management (IAM) Policy description field exists. The rule is NON\_COMPLIANT if the description field does not exist or is an empty string.
 
-**Identifier:** IAM_POLICY_DESCRIPTION
+**Identifier:** IAM\_POLICY\_DESCRIPTION
 
 **Resource Types:** AWS::IAM::Policy
 

@@ -1,8 +1,8 @@
 # sagemaker-monitoring-schedule-isolation
 
-Checks if Amazon SageMaker monitoring schedules have network isolation enabled. The rule is NON_COMPLIANT if configuration.MonitoringScheduleConfig.MonitoringJobDefinition.NetworkConfig.EnableNetworkIsolation is false.
+Checks if Amazon SageMaker monitoring schedules have network isolation enabled. The rule is NON\_COMPLIANT if configuration.MonitoringScheduleConfig.MonitoringJobDefinition.NetworkConfig.EnableNetworkIsolation is false.
 
-**Identifier:** SAGEMAKER_MONITORING_SCHEDULE_ISOLATION
+**Identifier:** SAGEMAKER\_MONITORING\_SCHEDULE\_ISOLATION
 
 **Resource Types:** AWS::SageMaker::MonitoringSchedule
 

@@ -6,7 +6,7 @@ Checks if your Amazon Simple Storage Service bucket policies do not allow other 
 
 If you provide an invalid parameter value, you will see the following error: Value for controlPolicy parameter must be an Amazon S3 bucket policy.
 
-**Identifier:** S3_BUCKET_POLICY_NOT_MORE_PERMISSIVE
+**Identifier:** S3\_BUCKET\_POLICY\_NOT\_MORE\_PERMISSIVE
 
 **Resource Types:** AWS::S3::Bucket
 

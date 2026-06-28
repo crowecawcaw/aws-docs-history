@@ -1,8 +1,8 @@
 # dax-tls-endpoint-encryption
 
-Checks if your Amazon DynamoDB Accelerator (DAX) cluster has ClusterEndpointEncryptionType set to TLS. The rule is NON_COMPLIANT if a DAX cluster is not encrypted by transport layer security (TLS).
+Checks if your Amazon DynamoDB Accelerator (DAX) cluster has ClusterEndpointEncryptionType set to TLS. The rule is NON\_COMPLIANT if a DAX cluster is not encrypted by transport layer security (TLS).
 
-**Identifier:** DAX_TLS_ENDPOINT_ENCRYPTION
+**Identifier:** DAX\_TLS\_ENDPOINT\_ENCRYPTION
 
 **Resource Types:** AWS::DAX::Cluster
 

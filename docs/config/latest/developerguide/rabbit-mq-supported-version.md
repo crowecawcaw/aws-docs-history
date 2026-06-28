@@ -1,8 +1,8 @@
 # rabbit-mq-supported-version
 
-Checks if an Amazon MQ RabbitMQ broker is running on a specified minimum supported engine version. The rule is NON_COMPLIANT if the RabbitMQ broker is not running on the minimum supported engine version that you specify.
+Checks if an Amazon MQ RabbitMQ broker is running on a specified minimum supported engine version. The rule is NON\_COMPLIANT if the RabbitMQ broker is not running on the minimum supported engine version that you specify.
 
-**Identifier:** RABBIT_MQ_SUPPORTED_VERSION
+**Identifier:** RABBIT\_MQ\_SUPPORTED\_VERSION
 
 **Resource Types:** AWS::AmazonMQ::Broker
 

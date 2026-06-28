@@ -1,8 +1,8 @@
 # cloud-trail-cloud-watch-logs-enabled
 
-Checks if AWS CloudTrail trails are configured to send logs to CloudWatch logs. The trail is NON_COMPLIANT if the CloudWatchLogsLogGroupArn property of the trail is empty.
+Checks if AWS CloudTrail trails are configured to send logs to CloudWatch logs. The trail is NON\_COMPLIANT if the CloudWatchLogsLogGroupArn property of the trail is empty.
 
-**Identifier:** CLOUD_TRAIL_CLOUD_WATCH_LOGS_ENABLED
+**Identifier:** CLOUD\_TRAIL\_CLOUD\_WATCH\_LOGS\_ENABLED
 
 **Resource Types:** AWS::CloudTrail::Trail
 

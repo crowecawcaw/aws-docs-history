@@ -1,8 +1,8 @@
 # appconfig-deployment-strategy-description
 
-Checks if AWS AppConfig deployment strategies have a description. The rule is NON_COMPLIANT if configuration.Description does not exist or is an empty string.
+Checks if AWS AppConfig deployment strategies have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string.
 
-**Identifier:** APPCONFIG_DEPLOYMENT_STRATEGY_DESCRIPTION
+**Identifier:** APPCONFIG\_DEPLOYMENT\_STRATEGY\_DESCRIPTION
 
 **Resource Types:** AWS::AppConfig::DeploymentStrategy
 

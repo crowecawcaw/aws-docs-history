@@ -1,8 +1,8 @@
 # emr-security-configuration-encryption-transit
 
-Checks if an Amazon EMR security configuration has encryption in transit enabled. The rule is NON_COMPLIANT if configuration.SecurityConfiguration.EncryptionConfiguration.EnableInTransitEncryption is false.
+Checks if an Amazon EMR security configuration has encryption in transit enabled. The rule is NON\_COMPLIANT if configuration.SecurityConfiguration.EncryptionConfiguration.EnableInTransitEncryption is false.
 
-**Identifier:** EMR_SECURITY_CONFIGURATION_ENCRYPTION_TRANSIT
+**Identifier:** EMR\_SECURITY\_CONFIGURATION\_ENCRYPTION\_TRANSIT
 
 **Resource Types:** AWS::EMR::SecurityConfiguration
 

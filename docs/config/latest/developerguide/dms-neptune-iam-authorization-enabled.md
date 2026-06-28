@@ -1,8 +1,8 @@
 # dms-neptune-iam-authorization-enabled
 
-Checks if an AWS Database Migration Service (AWS DMS) endpoint for Amazon Neptune databases is configured with IAM authorization. The rule is NON_COMPLIANT if an AWS DMS endpoint where Neptune is the target has IamAuthEnabled set to false.
+Checks if an AWS Database Migration Service (AWS DMS) endpoint for Amazon Neptune databases is configured with IAM authorization. The rule is NON\_COMPLIANT if an AWS DMS endpoint where Neptune is the target has IamAuthEnabled set to false.
 
-**Identifier:** DMS_NEPTUNE_IAM_AUTHORIZATION_ENABLED
+**Identifier:** DMS\_NEPTUNE\_IAM\_AUTHORIZATION\_ENABLED
 
 **Resource Types:** AWS::DMS::Endpoint
 

@@ -1,9 +1,9 @@
 # elbv2-acm-certificate-required
 
 Checks if Application Load Balancers and Network Load Balancers have listeners that are configured to use certificates from AWS Certificate Manager (ACM).
-This rule is NON_COMPLIANT if at least 1 load balancer has at least 1 listener that is configured without a certificate from ACM or is configured with a certificate different from an ACM certificate.
+This rule is NON\_COMPLIANT if at least 1 load balancer has at least 1 listener that is configured without a certificate from ACM or is configured with a certificate different from an ACM certificate.
 
-**Identifier:** ELBV2_ACM_CERTIFICATE_REQUIRED
+**Identifier:** ELBV2\_ACM\_CERTIFICATE\_REQUIRED
 
 **Resource Types:** AWS::ElasticLoadBalancingV2::LoadBalancer
 

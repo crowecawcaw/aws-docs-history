@@ -1,9 +1,9 @@
 # rds-db-security-group-not-allowed
 
 Checks if there are any Amazon Relational Database Service (Amazon RDS)
-DB security groups that are not the default DB security group. The rule is NON_COMPLIANT if there are any DB security groups that are not the default DB security group.
+DB security groups that are not the default DB security group. The rule is NON\_COMPLIANT if there are any DB security groups that are not the default DB security group.
 
-**Identifier:** RDS_DB_SECURITY_GROUP_NOT_ALLOWED
+**Identifier:** RDS\_DB\_SECURITY\_GROUP\_NOT\_ALLOWED
 
 **Resource Types:** AWS::RDS::DBSecurityGroup
 

@@ -1,8 +1,8 @@
 # cloudfront-accesslogs-enabled
 
-Checks if Amazon CloudFront distributions are configured to deliver access logs to an Amazon S3 bucket using standard logging (legacy). The rule is NON_COMPLIANT if a CloudFront distribution does not have legacy logging configured.
+Checks if Amazon CloudFront distributions are configured to deliver access logs to an Amazon S3 bucket using standard logging (legacy). The rule is NON\_COMPLIANT if a CloudFront distribution does not have legacy logging configured.
 
-**Identifier:** CLOUDFRONT_ACCESSLOGS_ENABLED
+**Identifier:** CLOUDFRONT\_ACCESSLOGS\_ENABLED
 
 **Resource Types:** AWS::CloudFront::Distribution
 

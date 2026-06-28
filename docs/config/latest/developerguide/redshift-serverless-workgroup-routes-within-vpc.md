@@ -1,8 +1,8 @@
 # redshift-serverless-workgroup-routes-within-vpc
 
-Checks if Amazon Redshift Serverless workgroups route the network traffic through a VPC. The rule is NON_COMPLIANT if workgroups have 'Turn on Enhanced VPC routing' disabled.
+Checks if Amazon Redshift Serverless workgroups route the network traffic through a VPC. The rule is NON\_COMPLIANT if workgroups have 'Turn on Enhanced VPC routing' disabled.
 
-**Identifier:** REDSHIFT_SERVERLESS_WORKGROUP_ROUTES_WITHIN_VPC
+**Identifier:** REDSHIFT\_SERVERLESS\_WORKGROUP\_ROUTES\_WITHIN\_VPC
 
 **Resource Types:** AWS::RedshiftServerless::Workgroup
 

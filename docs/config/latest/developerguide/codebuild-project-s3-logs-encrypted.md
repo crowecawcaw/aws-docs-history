@@ -1,8 +1,8 @@
 # codebuild-project-s3-logs-encrypted
 
-Checks if a AWS CodeBuild project configured with Amazon S3 Logs has encryption enabled for its logs. The rule is NON_COMPLIANT if ‘encryptionDisabled’ is set to ‘true’ in a S3LogsConfig of a CodeBuild project.
+Checks if a AWS CodeBuild project configured with Amazon S3 Logs has encryption enabled for its logs. The rule is NON\_COMPLIANT if ‘encryptionDisabled’ is set to ‘true’ in a S3LogsConfig of a CodeBuild project.
 
-**Identifier:** CODEBUILD_PROJECT_S3_LOGS_ENCRYPTED
+**Identifier:** CODEBUILD\_PROJECT\_S3\_LOGS\_ENCRYPTED
 
 **Resource Types:** AWS::CodeBuild::Project
 

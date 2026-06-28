@@ -1,8 +1,8 @@
 # codedeploy-auto-rollback-monitor-enabled
 
-Checks if the deployment group is configured with automatic deployment rollback and deployment monitoring with alarms attached. The rule is NON_COMPLIANT if AutoRollbackConfiguration or AlarmConfiguration has not been configured or is not enabled.
+Checks if the deployment group is configured with automatic deployment rollback and deployment monitoring with alarms attached. The rule is NON\_COMPLIANT if AutoRollbackConfiguration or AlarmConfiguration has not been configured or is not enabled.
 
-**Identifier:** CODEDEPLOY_AUTO_ROLLBACK_MONITOR_ENABLED
+**Identifier:** CODEDEPLOY\_AUTO\_ROLLBACK\_MONITOR\_ENABLED
 
 **Resource Types:** AWS::CodeDeploy::DeploymentGroup
 

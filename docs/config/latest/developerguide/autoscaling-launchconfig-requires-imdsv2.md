@@ -1,8 +1,8 @@
 # autoscaling-launchconfig-requires-imdsv2
 
-Checks whether only IMDSv2 is enabled. This rule is NON_COMPLIANT if the Metadata version is not included in the launch configuration or if both Metadata V1 and V2 are enabled.
+Checks whether only IMDSv2 is enabled. This rule is NON\_COMPLIANT if the Metadata version is not included in the launch configuration or if both Metadata V1 and V2 are enabled.
 
-**Identifier:** AUTOSCALING_LAUNCHCONFIG_REQUIRES_IMDSV2
+**Identifier:** AUTOSCALING\_LAUNCHCONFIG\_REQUIRES\_IMDSV2
 
 **Resource Types:** AWS::AutoScaling::LaunchConfiguration
 

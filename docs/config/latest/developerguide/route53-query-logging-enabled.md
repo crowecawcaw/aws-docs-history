@@ -1,8 +1,8 @@
 # route53-query-logging-enabled
 
-Checks if DNS query logging is enabled for your Amazon Route 53 public hosted zones. The rule is NON_COMPLIANT if DNS query logging is not enabled for your Amazon Route 53 public hosted zones.
+Checks if DNS query logging is enabled for your Amazon Route 53 public hosted zones. The rule is NON\_COMPLIANT if DNS query logging is not enabled for your Amazon Route 53 public hosted zones.
 
-**Identifier:** ROUTE53_QUERY_LOGGING_ENABLED
+**Identifier:** ROUTE53\_QUERY\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::Route53::HostedZone
 

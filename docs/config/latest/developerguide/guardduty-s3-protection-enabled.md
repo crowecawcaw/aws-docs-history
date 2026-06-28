@@ -1,8 +1,8 @@
 # guardduty-s3-protection-enabled
 
-Checks if S3 Protection is enabled for an Amazon GuardDuty Detector in your account. The rule is NON_COMPLIANT if the S3 Protection feature in Amazon GuardDuty is not enabled for your account.
+Checks if S3 Protection is enabled for an Amazon GuardDuty Detector in your account. The rule is NON\_COMPLIANT if the S3 Protection feature in Amazon GuardDuty is not enabled for your account.
 
-**Identifier:** GUARDDUTY_S3_PROTECTION_ENABLED
+**Identifier:** GUARDDUTY\_S3\_PROTECTION\_ENABLED
 
 **Resource Types:** AWS::GuardDuty::Detector
 

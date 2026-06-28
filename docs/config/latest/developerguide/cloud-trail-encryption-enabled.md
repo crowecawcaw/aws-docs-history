@@ -2,7 +2,7 @@
 
 Checks if AWS CloudTrail is configured to use the server side encryption (SSE) AWS Key Management Service (AWS KMS) encryption. The rule is COMPLIANT if the KmsKeyId is defined.
 
-**Identifier:** CLOUD_TRAIL_ENCRYPTION_ENABLED
+**Identifier:** CLOUD\_TRAIL\_ENCRYPTION\_ENABLED
 
 **Resource Types:** AWS::CloudTrail::Trail
 

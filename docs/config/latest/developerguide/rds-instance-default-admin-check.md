@@ -1,8 +1,8 @@
 # rds-instance-default-admin-check
 
-Checks if an Amazon Relational Database Service (Amazon RDS) database has changed the admin username from its default value. This rule will only run on RDS database instances. The rule is NON_COMPLIANT if the admin username is set to the default value.
+Checks if an Amazon Relational Database Service (Amazon RDS) database has changed the admin username from its default value. This rule will only run on RDS database instances. The rule is NON\_COMPLIANT if the admin username is set to the default value.
 
-**Identifier:** RDS_INSTANCE_DEFAULT_ADMIN_CHECK
+**Identifier:** RDS\_INSTANCE\_DEFAULT\_ADMIN\_CHECK
 
 **Resource Types:** AWS::RDS::DBInstance
 

@@ -1,8 +1,8 @@
 # redshift-default-admin-check
 
-Checks if an Amazon Redshift cluster has changed the admin username from its default value. The rule is NON_COMPLIANT if the admin username for a Redshift cluster is set to “awsuser” or if the username does not match what is listed in parameter.
+Checks if an Amazon Redshift cluster has changed the admin username from its default value. The rule is NON\_COMPLIANT if the admin username for a Redshift cluster is set to “awsuser” or if the username does not match what is listed in parameter.
 
-**Identifier:** REDSHIFT_DEFAULT_ADMIN_CHECK
+**Identifier:** REDSHIFT\_DEFAULT\_ADMIN\_CHECK
 
 **Resource Types:** AWS::Redshift::Cluster
 

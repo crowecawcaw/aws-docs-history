@@ -5,13 +5,13 @@ Checks that the access granted by the Amazon S3 bucket is restricted by any of t
 For example, if the input parameter to the rule is the list of two principals: `111122223333` and `444455556666` and the bucket policy specifies that only `111122223333` can access the bucket, then the rule is COMPLIANT.
 With the same input parameters: If the bucket policy specifies that `111122223333` and `444455556666` can access the bucket, it is also COMPLIANT.
 
-However, if the bucket policy specifies that `999900009999` can access the bucket, the rule is NON_COMPLIANT.
+However, if the bucket policy specifies that `999900009999` can access the bucket, the rule is NON\_COMPLIANT.
 
 ###### Note
 
 If a bucket policy contains more than one statement, each statement in the bucket policy is evaluated against this rule.
 
-**Identifier:** S3_BUCKET_POLICY_GRANTEE_CHECK
+**Identifier:** S3\_BUCKET\_POLICY\_GRANTEE\_CHECK
 
 **Resource Types:** AWS::S3::Bucket
 
@@ -25,7 +25,7 @@ awsPrincipals (Optional)
 Type: CSV
 
 Comma-separated list of principals such as IAM User ARNs, IAM Role ARNs, and AWS accounts. You must provide the full ARN or use partial matching. For example, "arn:aws:iam::`AccountID`:role/`role_name`" or "arn:aws:iam::`AccountID`:role/\*".
-If the provided value is not an exact match with the principal ARN specified in the bucket policy, the rule is NON_COMPLIANT.
+If the provided value is not an exact match with the principal ARN specified in the bucket policy, the rule is NON\_COMPLIANT.
 
 servicePrincipals (Optional)
 Type: CSV

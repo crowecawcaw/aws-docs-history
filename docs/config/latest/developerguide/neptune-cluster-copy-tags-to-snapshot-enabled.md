@@ -1,8 +1,8 @@
 # neptune-cluster-copy-tags-to-snapshot-enabled
 
-Checks if an Amazon Neptune cluster is configured to copy all tags to snapshots when the snapshots are created. The rule is NON_COMPLIANT if 'copyTagsToSnapshot' is set to false.
+Checks if an Amazon Neptune cluster is configured to copy all tags to snapshots when the snapshots are created. The rule is NON\_COMPLIANT if 'copyTagsToSnapshot' is set to false.
 
-**Identifier:** NEPTUNE_CLUSTER_COPY_TAGS_TO_SNAPSHOT_ENABLED
+**Identifier:** NEPTUNE\_CLUSTER\_COPY\_TAGS\_TO\_SNAPSHOT\_ENABLED
 
 **Resource Types:** AWS::RDS::DBCluster
 

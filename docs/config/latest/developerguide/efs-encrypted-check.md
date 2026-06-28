@@ -1,8 +1,8 @@
 # efs-encrypted-check
 
-Checks if Amazon Elastic File System (Amazon EFS) is configured to encrypt the file data using AWS Key Management Service (AWS KMS). The rule is NON_COMPLIANT if the encrypted key is set to false on `DescribeFileSystems` or if the `KmsKeyId` key on `DescribeFileSystems` does not match the `KmsKeyId` parameter.
+Checks if Amazon Elastic File System (Amazon EFS) is configured to encrypt the file data using AWS Key Management Service (AWS KMS). The rule is NON\_COMPLIANT if the encrypted key is set to false on `DescribeFileSystems` or if the `KmsKeyId` key on `DescribeFileSystems` does not match the `KmsKeyId` parameter.
 
-**Identifier:** EFS_ENCRYPTED_CHECK
+**Identifier:** EFS\_ENCRYPTED\_CHECK
 
 **Resource Types:** AWS::EFS::FileSystem
 

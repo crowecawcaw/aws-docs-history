@@ -1,8 +1,8 @@
 # ec2-managedinstance-patch-compliance-status-check
 
-Checks if the compliance status of the AWS Systems Manager patch compliance is COMPLIANT or NON_COMPLIANT after the patch installation on the instance. The rule is compliant if the field status is COMPLIANT.
+Checks if the compliance status of the AWS Systems Manager patch compliance is COMPLIANT or NON\_COMPLIANT after the patch installation on the instance. The rule is compliant if the field status is COMPLIANT.
 
-**Identifier:** EC2_MANAGEDINSTANCE_PATCH_COMPLIANCE_STATUS_CHECK
+**Identifier:** EC2\_MANAGEDINSTANCE\_PATCH\_COMPLIANCE\_STATUS\_CHECK
 
 **Resource Types:** AWS::SSM::PatchCompliance
 

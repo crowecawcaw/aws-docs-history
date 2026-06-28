@@ -1,8 +1,8 @@
 # elasticache-repl-grp-auto-failover-enabled
 
-Checks if Amazon ElastiCache Redis replication groups have automatic failover enabled. The rule is NON_COMPLIANT for an ElastiCache replication group if ‘AutomaticFailover’ is not set to ‘enabled’.
+Checks if Amazon ElastiCache Redis replication groups have automatic failover enabled. The rule is NON\_COMPLIANT for an ElastiCache replication group if ‘AutomaticFailover’ is not set to ‘enabled’.
 
-**Identifier:** ELASTICACHE_REPL_GRP_AUTO_FAILOVER_ENABLED
+**Identifier:** ELASTICACHE\_REPL\_GRP\_AUTO\_FAILOVER\_ENABLED
 
 **Resource Types:** AWS::ElastiCache::ReplicationGroup
 

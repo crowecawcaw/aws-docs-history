@@ -1,8 +1,8 @@
 # elasticache-repl-grp-encrypted-in-transit
 
-Checks if Amazon ElastiCache replication groups have encryption-in-transit enabled. The rule is NON_COMPLIANT for an ElastiCache replication group if ‘TransitEncryptionEnabled’ is set to ‘false’.
+Checks if Amazon ElastiCache replication groups have encryption-in-transit enabled. The rule is NON\_COMPLIANT for an ElastiCache replication group if ‘TransitEncryptionEnabled’ is set to ‘false’.
 
-**Identifier:** ELASTICACHE_REPL_GRP_ENCRYPTED_IN_TRANSIT
+**Identifier:** ELASTICACHE\_REPL\_GRP\_ENCRYPTED\_IN\_TRANSIT
 
 **Resource Types:** AWS::ElastiCache::ReplicationGroup
 

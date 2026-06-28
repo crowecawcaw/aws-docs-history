@@ -1,8 +1,8 @@
 # rds-cluster-encrypted-at-rest
 
-Checks if an Amazon Relational Database Service (Amazon RDS) cluster is encrypted at rest. The rule is NON_COMPLIANT if an Amazon RDS cluster is not encrypted at rest.
+Checks if an Amazon Relational Database Service (Amazon RDS) cluster is encrypted at rest. The rule is NON\_COMPLIANT if an Amazon RDS cluster is not encrypted at rest.
 
-**Identifier:** RDS_CLUSTER_ENCRYPTED_AT_REST
+**Identifier:** RDS\_CLUSTER\_ENCRYPTED\_AT\_REST
 
 **Resource Types:** AWS::RDS::DBCluster
 

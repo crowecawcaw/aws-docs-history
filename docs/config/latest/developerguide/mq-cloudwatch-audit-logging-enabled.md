@@ -1,8 +1,8 @@
 # mq-cloudwatch-audit-logging-enabled
 
-Checks if Amazon MQ brokers have Amazon CloudWatch audit logging enabled. The rule is NON_COMPLIANT if a broker does not have audit logging enabled.
+Checks if Amazon MQ brokers have Amazon CloudWatch audit logging enabled. The rule is NON\_COMPLIANT if a broker does not have audit logging enabled.
 
-**Identifier:** MQ_CLOUDWATCH_AUDIT_LOGGING_ENABLED
+**Identifier:** MQ\_CLOUDWATCH\_AUDIT\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::AmazonMQ::Broker
 

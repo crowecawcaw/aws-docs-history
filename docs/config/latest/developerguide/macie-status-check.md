@@ -1,8 +1,8 @@
 # macie-status-check
 
-Checks if Amazon Macie is enabled in your account per region. The rule is NON_COMPLIANT if the 'status' attribute is not set to 'ENABLED'.
+Checks if Amazon Macie is enabled in your account per region. The rule is NON\_COMPLIANT if the 'status' attribute is not set to 'ENABLED'.
 
-**Identifier:** MACIE_STATUS_CHECK
+**Identifier:** MACIE\_STATUS\_CHECK
 
 **Resource Types:** AWS::::Account
 

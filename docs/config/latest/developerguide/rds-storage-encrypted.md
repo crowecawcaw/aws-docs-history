@@ -1,8 +1,8 @@
 # rds-storage-encrypted
 
-Checks if storage encryption is enabled for your Amazon Relational Database Service (Amazon RDS) DB instances. The rule is NON_COMPLIANT if storage encryption is not enabled.
+Checks if storage encryption is enabled for your Amazon Relational Database Service (Amazon RDS) DB instances. The rule is NON\_COMPLIANT if storage encryption is not enabled.
 
-**Identifier:** RDS_STORAGE_ENCRYPTED
+**Identifier:** RDS\_STORAGE\_ENCRYPTED
 
 **Resource Types:** AWS::RDS::DBInstance
 

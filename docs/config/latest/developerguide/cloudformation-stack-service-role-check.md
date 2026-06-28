@@ -1,8 +1,8 @@
 # cloudformation-stack-service-role-check
 
-Checks if AWS CloudFormation stacks are using service roles. The rule is NON_COMPLIANT if a CloudFormation stack does not have service role associated with it.
+Checks if AWS CloudFormation stacks are using service roles. The rule is NON\_COMPLIANT if a CloudFormation stack does not have service role associated with it.
 
-**Identifier:** CLOUDFORMATION_STACK_SERVICE_ROLE_CHECK
+**Identifier:** CLOUDFORMATION\_STACK\_SERVICE\_ROLE\_CHECK
 
 **Resource Types:** AWS::CloudFormation::Stack
 

@@ -1,8 +1,8 @@
 # efs-last-backup-recovery-point-created
 
-Checks if a recovery point was created for Amazon Elastic File System (Amazon EFS) File Systems. The rule is NON_COMPLIANT if the Amazon EFS File System does not have a corresponding Recovery Point created within the specified time period.
+Checks if a recovery point was created for Amazon Elastic File System (Amazon EFS) File Systems. The rule is NON\_COMPLIANT if the Amazon EFS File System does not have a corresponding Recovery Point created within the specified time period.
 
-**Identifier:** EFS_LAST_BACKUP_RECOVERY_POINT_CREATED
+**Identifier:** EFS\_LAST\_BACKUP\_RECOVERY\_POINT\_CREATED
 
 **Resource Types:** AWS::EFS::FileSystem
 

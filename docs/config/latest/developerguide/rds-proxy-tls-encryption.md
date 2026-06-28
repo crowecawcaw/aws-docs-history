@@ -1,8 +1,8 @@
 # rds-proxy-tls-encryption
 
-Checks if Amazon RDS proxies enforce TLS for all connections. The rule is NON_COMPLIANT if an Amazon RDS proxy does not have TLS enforced for all connections.
+Checks if Amazon RDS proxies enforce TLS for all connections. The rule is NON\_COMPLIANT if an Amazon RDS proxy does not have TLS enforced for all connections.
 
-**Identifier:** RDS_PROXY_TLS_ENCRYPTION
+**Identifier:** RDS\_PROXY\_TLS\_ENCRYPTION
 
 **Resource Types:** AWS::RDS::DBProxy
 

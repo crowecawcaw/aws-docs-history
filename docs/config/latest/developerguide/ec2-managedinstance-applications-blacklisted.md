@@ -2,7 +2,7 @@
 
 Checks if none of the specified applications are installed on the instance. Optionally, specify the version. Newer versions will not be denylisted. Optionally, specify the platform to apply the rule only to instances running that platform.
 
-**Identifier:** EC2_MANAGEDINSTANCE_APPLICATIONS_BLACKLISTED
+**Identifier:** EC2\_MANAGEDINSTANCE\_APPLICATIONS\_BLACKLISTED
 
 **Resource Types:** AWS::SSM::ManagedInstanceInventory
 

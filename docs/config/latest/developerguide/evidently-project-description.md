@@ -1,8 +1,8 @@
 # evidently-project-description
 
-Checks if Amazon CloudWatch Evidently projects have a description. The rule is NON_COMPLIANT if configuration.Description does not exist or is an empty string.
+Checks if Amazon CloudWatch Evidently projects have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string.
 
-**Identifier:** EVIDENTLY_PROJECT_DESCRIPTION
+**Identifier:** EVIDENTLY\_PROJECT\_DESCRIPTION
 
 **Resource Types:** AWS::Evidently::Project
 

@@ -1,8 +1,8 @@
 # sagemaker-model-explainability-job-encrypt-in-transit
 
-Checks if Amazon SageMaker model explainability job definitions have inter-container traffic encryption enabled when instance count is 2 or greater. The rule is NON_COMPLIANT if configuration.NetworkConfig.EnableInterContainerTrafficEncryption is false.
+Checks if Amazon SageMaker model explainability job definitions have inter-container traffic encryption enabled when instance count is 2 or greater. The rule is NON\_COMPLIANT if configuration.NetworkConfig.EnableInterContainerTrafficEncryption is false.
 
-**Identifier:** SAGEMAKER_MODEL_EXPLAINABILITY_JOB_ENCRYPT_IN_TRANSIT
+**Identifier:** SAGEMAKER\_MODEL\_EXPLAINABILITY\_JOB\_ENCRYPT\_IN\_TRANSIT
 
 **Resource Types:** AWS::SageMaker::ModelExplainabilityJobDefinition
 

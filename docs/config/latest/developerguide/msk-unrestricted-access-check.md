@@ -1,8 +1,8 @@
 # msk-unrestricted-access-check
 
-Checks if an Amazon MSK Cluster has unauthenticated access disabled. The rule is NON_COMPLIANT if Amazon MSK Cluster has unauthenticated access enabled.
+Checks if an Amazon MSK Cluster has unauthenticated access disabled. The rule is NON\_COMPLIANT if Amazon MSK Cluster has unauthenticated access enabled.
 
-**Identifier:** MSK_UNRESTRICTED_ACCESS_CHECK
+**Identifier:** MSK\_UNRESTRICTED\_ACCESS\_CHECK
 
 **Resource Types:** AWS::MSK::Cluster
 

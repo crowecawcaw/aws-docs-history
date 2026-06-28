@@ -1,8 +1,8 @@
 # global-endpoint-event-replication-enabled
 
-Checks if event replication is enabled for Amazon EventBridge global endpoints. The rule is NON_COMPLIANT if event replication is not enabled.
+Checks if event replication is enabled for Amazon EventBridge global endpoints. The rule is NON\_COMPLIANT if event replication is not enabled.
 
-**Identifier:** GLOBAL_ENDPOINT_EVENT_REPLICATION_ENABLED
+**Identifier:** GLOBAL\_ENDPOINT\_EVENT\_REPLICATION\_ENABLED
 
 **Resource Types:** AWS::Events::Endpoint
 

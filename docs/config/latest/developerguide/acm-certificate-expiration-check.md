@@ -2,9 +2,9 @@
 
 Checks if AWS Certificate Manager Certificates in your account are marked for expiration within the specified number of days.
 Certificates provided by ACM are automatically renewed. ACM does not automatically renew certificates that you import.
-The rule is NON_COMPLIANT if your certificates are about to expire.
+The rule is NON\_COMPLIANT if your certificates are about to expire.
 
-**Identifier:** ACM_CERTIFICATE_EXPIRATION_CHECK
+**Identifier:** ACM\_CERTIFICATE\_EXPIRATION\_CHECK
 
 **Resource Types:** AWS::ACM::Certificate
 

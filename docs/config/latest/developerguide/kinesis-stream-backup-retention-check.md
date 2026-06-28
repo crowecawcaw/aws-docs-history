@@ -1,8 +1,8 @@
 # kinesis-stream-backup-retention-check
 
-Checks if an Amazon Kinesis Data Stream has its data record retention period set to a specific number of hours. The rule is NON_COMPLIANT if the property `RetentionPeriodHours` is set to a value less than the value specified by the parameter.
+Checks if an Amazon Kinesis Data Stream has its data record retention period set to a specific number of hours. The rule is NON\_COMPLIANT if the property `RetentionPeriodHours` is set to a value less than the value specified by the parameter.
 
-**Identifier:** KINESIS_STREAM_BACKUP_RETENTION_CHECK
+**Identifier:** KINESIS\_STREAM\_BACKUP\_RETENTION\_CHECK
 
 **Resource Types:** AWS::Kinesis::Stream
 

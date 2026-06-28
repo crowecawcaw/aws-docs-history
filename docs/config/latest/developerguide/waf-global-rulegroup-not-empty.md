@@ -1,8 +1,8 @@
 # waf-global-rulegroup-not-empty
 
-Checks if an AWS WAF Classic rule group contains any rules. The rule is NON_COMPLIANT if there are no rules present within a rule group.
+Checks if an AWS WAF Classic rule group contains any rules. The rule is NON\_COMPLIANT if there are no rules present within a rule group.
 
-**Identifier:** WAF_GLOBAL_RULEGROUP_NOT_EMPTY
+**Identifier:** WAF\_GLOBAL\_RULEGROUP\_NOT\_EMPTY
 
 **Resource Types:** AWS::WAF::RuleGroup
 

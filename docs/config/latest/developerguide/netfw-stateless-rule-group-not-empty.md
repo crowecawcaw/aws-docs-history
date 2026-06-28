@@ -1,8 +1,8 @@
 # netfw-stateless-rule-group-not-empty
 
-Checks if a Stateless Network Firewall Rule Group contains rules. The rule is NON_COMPLIANT if there are no rules in a Stateless Network Firewall Rule Group.
+Checks if a Stateless Network Firewall Rule Group contains rules. The rule is NON\_COMPLIANT if there are no rules in a Stateless Network Firewall Rule Group.
 
-**Identifier:** NETFW_STATELESS_RULE_GROUP_NOT_EMPTY
+**Identifier:** NETFW\_STATELESS\_RULE\_GROUP\_NOT\_EMPTY
 
 **Resource Types:** AWS::NetworkFirewall::RuleGroup
 

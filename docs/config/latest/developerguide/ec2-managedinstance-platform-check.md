@@ -2,7 +2,7 @@
 
 Checks whether EC2 managed instances have the desired configurations.
 
-**Identifier:** EC2_MANAGEDINSTANCE_PLATFORM_CHECK
+**Identifier:** EC2\_MANAGEDINSTANCE\_PLATFORM\_CHECK
 
 **Resource Types:** AWS::SSM::ManagedInstanceInventory
 

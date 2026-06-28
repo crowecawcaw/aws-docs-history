@@ -1,8 +1,8 @@
 # sagemaker-featuregroup-encryption-at-rest
 
-Checks if SageMaker feature groups have KMS encryption for OfflineStore. The rule is NON_COMPLIANT if offline store S3 storage does not have KMS key encryption.
+Checks if SageMaker feature groups have KMS encryption for OfflineStore. The rule is NON\_COMPLIANT if offline store S3 storage does not have KMS key encryption.
 
-**Identifier:** SAGEMAKER_FEATUREGROUP_ENCRYPTION_AT_REST
+**Identifier:** SAGEMAKER\_FEATUREGROUP\_ENCRYPTION\_AT\_REST
 
 **Resource Types:** AWS::SageMaker::FeatureGroup
 

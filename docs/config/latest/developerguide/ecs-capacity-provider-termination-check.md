@@ -1,8 +1,8 @@
 # ecs-capacity-provider-termination-check
 
-Checks if an Amazon ECS Capacity provider containing Auto Scaling groups has managed termination protection enabled. This rule is NON_COMPLIANT if managed termination protection is disabled on the ECS Capacity Provider.
+Checks if an Amazon ECS Capacity provider containing Auto Scaling groups has managed termination protection enabled. This rule is NON\_COMPLIANT if managed termination protection is disabled on the ECS Capacity Provider.
 
-**Identifier:** ECS_CAPACITY_PROVIDER_TERMINATION_CHECK
+**Identifier:** ECS\_CAPACITY\_PROVIDER\_TERMINATION\_CHECK
 
 **Resource Types:** AWS::ECS::CapacityProvider
 

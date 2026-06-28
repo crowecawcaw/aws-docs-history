@@ -1,8 +1,8 @@
 # apigateway-stage-access-logs-enabled
 
-Checks if Amazon API Gateway stages have access logging enabled. The rule is NON_COMPLIANT if 'accessLogSettings' is not present in Stage configuration.
+Checks if Amazon API Gateway stages have access logging enabled. The rule is NON\_COMPLIANT if 'accessLogSettings' is not present in Stage configuration.
 
-**Identifier:** APIGATEWAY_STAGE_ACCESS_LOGS_ENABLED
+**Identifier:** APIGATEWAY\_STAGE\_ACCESS\_LOGS\_ENABLED
 
 **Resource Types:** AWS::ApiGateway::Stage
 

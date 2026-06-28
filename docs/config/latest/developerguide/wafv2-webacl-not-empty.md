@@ -1,8 +1,8 @@
 # wafv2-webacl-not-empty
 
-Checks if a WAFv2 Web ACL contains any WAF rules or WAF rule groups. This rule is NON_COMPLIANT if a Web ACL does not contain any WAF rules or WAF rule groups.
+Checks if a WAFv2 Web ACL contains any WAF rules or WAF rule groups. This rule is NON\_COMPLIANT if a Web ACL does not contain any WAF rules or WAF rule groups.
 
-**Identifier:** WAFV2_WEBACL_NOT_EMPTY
+**Identifier:** WAFV2\_WEBACL\_NOT\_EMPTY
 
 **Resource Types:** AWS::WAFv2::WebACL
 

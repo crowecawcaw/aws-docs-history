@@ -1,8 +1,8 @@
 # amplify-branch-description
 
-Checks if AWS Amplify branches have a description. The rule is NON_COMPLIANT if configuration.Description does not exist or is an empty string.
+Checks if AWS Amplify branches have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string.
 
-**Identifier:** AMPLIFY_BRANCH_DESCRIPTION
+**Identifier:** AMPLIFY\_BRANCH\_DESCRIPTION
 
 **Resource Types:** AWS::Amplify::Branch
 

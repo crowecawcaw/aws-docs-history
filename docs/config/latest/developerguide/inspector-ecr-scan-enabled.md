@@ -1,8 +1,8 @@
 # inspector-ecr-scan-enabled
 
-Checks if Amazon Inspector V2 ECR scanning is activated for your single or multi-account environment to detect potential software vulnerabilities in your container images. The rule is NON_COMPLIANT if ECR scanning is not activated.
+Checks if Amazon Inspector V2 ECR scanning is activated for your single or multi-account environment to detect potential software vulnerabilities in your container images. The rule is NON\_COMPLIANT if ECR scanning is not activated.
 
-**Identifier:** INSPECTOR_ECR_SCAN_ENABLED
+**Identifier:** INSPECTOR\_ECR\_SCAN\_ENABLED
 
 **Resource Types:** AWS::::Account
 

@@ -1,8 +1,8 @@
 # guardduty-rds-protection-enabled
 
-Checks if Amazon Relational Database Service (Amazon RDS) protection is enabled for an Amazon GuardDuty detector in your account. The rule is NON_COMPLIANT if the Amazon RDS protection feature in Amazon GuardDuty is not enabled for you account.
+Checks if Amazon Relational Database Service (Amazon RDS) protection is enabled for an Amazon GuardDuty detector in your account. The rule is NON\_COMPLIANT if the Amazon RDS protection feature in Amazon GuardDuty is not enabled for you account.
 
-**Identifier:** GUARDDUTY_RDS_PROTECTION_ENABLED
+**Identifier:** GUARDDUTY\_RDS\_PROTECTION\_ENABLED
 
 **Resource Types:** AWS::GuardDuty::Detector
 

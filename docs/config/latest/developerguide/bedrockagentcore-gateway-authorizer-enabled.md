@@ -1,8 +1,8 @@
 # bedrockagentcore-gateway-authorizer-enabled
 
-Checks whether an Amazon Bedrock AgentCore Gateway requires authentication for inbound requests. The rule is NON_COMPLIANT if the gateway has AuthorizerType set to NONE.
+Checks whether an Amazon Bedrock AgentCore Gateway requires authentication for inbound requests. The rule is NON\_COMPLIANT if the gateway has AuthorizerType set to NONE.
 
-**Identifier:** BEDROCKAGENTCORE_GATEWAY_AUTHORIZER_ENABLED
+**Identifier:** BEDROCKAGENTCORE\_GATEWAY\_AUTHORIZER\_ENABLED
 
 **Resource Types:** AWS::BedrockAgentCore::Gateway
 

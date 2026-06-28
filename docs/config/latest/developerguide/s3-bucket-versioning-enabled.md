@@ -2,7 +2,7 @@
 
 Checks if versioning is enabled for your S3 buckets. Optionally, the rule checks if MFA delete is enabled for your S3 buckets.
 
-**Identifier:** S3_BUCKET_VERSIONING_ENABLED
+**Identifier:** S3\_BUCKET\_VERSIONING\_ENABLED
 
 **Resource Types:** AWS::S3::Bucket
 

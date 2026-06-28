@@ -1,15 +1,15 @@
 # backup-recovery-point-manual-deletion-disabled
 
-Checks if a backup vault has an attached resource-based policy which prevents deletion of recovery points. The rule is NON_COMPLIANT if the Backup Vault does not have resource-based policies or has policies without a suitable 'Deny' statement (statement with backup:DeleteRecoveryPoint, backup:UpdateRecoveryPointLifecycle, and backup:PutBackupVaultAccessPolicy permissions).
+Checks if a backup vault has an attached resource-based policy which prevents deletion of recovery points. The rule is NON\_COMPLIANT if the Backup Vault does not have resource-based policies or has policies without a suitable 'Deny' statement (statement with backup:DeleteRecoveryPoint, backup:UpdateRecoveryPointLifecycle, and backup:PutBackupVaultAccessPolicy permissions).
 
 ###### Note
 
 **Wildcard required for `"Resource"` and `"Principal"` of the Deny statement**
 
 The rule requires that the `"Resource"` and `"Principal"`
-of the Deny statement must have a wildcard in the [vault access policy](../../../aws-backup/latest/devguide/create-a-vault-access-policy.md "../../../aws-backup/latest/devguide/create-a-vault-access-policy.md"). Otherwise, the rule returns NON_COMPLIANT.
+of the Deny statement must have a wildcard in the [vault access policy](../../../aws-backup/latest/devguide/create-a-vault-access-policy.md "../../../aws-backup/latest/devguide/create-a-vault-access-policy.md"). Otherwise, the rule returns NON\_COMPLIANT.
 
-**Identifier:** BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED
+**Identifier:** BACKUP\_RECOVERY\_POINT\_MANUAL\_DELETION\_DISABLED
 
 **Resource Types:** AWS::Backup::BackupVault
 

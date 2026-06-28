@@ -1,8 +1,8 @@
 # ssm-automation-block-public-sharing
 
-Checks if AWS Systems Manager Documents has block public sharing enabled. The rule is NON_COMPLIANT if Systems Manager Documents has block public sharing disabled.
+Checks if AWS Systems Manager Documents has block public sharing enabled. The rule is NON\_COMPLIANT if Systems Manager Documents has block public sharing disabled.
 
-**Identifier:** SSM_AUTOMATION_BLOCK_PUBLIC_SHARING
+**Identifier:** SSM\_AUTOMATION\_BLOCK\_PUBLIC\_SHARING
 
 **Resource Types:** AWS::::Account
 

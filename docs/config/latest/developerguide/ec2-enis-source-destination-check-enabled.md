@@ -1,8 +1,8 @@
 # ec2-enis-source-destination-check-enabled
 
-Checks if EC2 ENIs managed by users have source/destination check enabled. The rule is NON_COMPLIANT if source/destination check is disabled on these ENIs for 'lambda', 'aws_codestar_connections_managed', 'branch', 'efa', 'interface', and 'quicksight'.
+Checks if EC2 ENIs managed by users have source/destination check enabled. The rule is NON\_COMPLIANT if source/destination check is disabled on these ENIs for 'lambda', 'aws\_codestar\_connections\_managed', 'branch', 'efa', 'interface', and 'quicksight'.
 
-**Identifier:** EC2_ENIS_SOURCE_DESTINATION_CHECK_ENABLED
+**Identifier:** EC2\_ENIS\_SOURCE\_DESTINATION\_CHECK\_ENABLED
 
 **Resource Types:** AWS::EC2::NetworkInterface
 

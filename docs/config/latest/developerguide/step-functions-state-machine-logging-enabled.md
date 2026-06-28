@@ -1,8 +1,8 @@
 # step-functions-state-machine-logging-enabled
 
-Checks if AWS Step Functions machine has logging enabled. The rule is NON_COMPLIANT if a state machine does not have logging enabled or the logging configuration is not at the minimum level provided.
+Checks if AWS Step Functions machine has logging enabled. The rule is NON\_COMPLIANT if a state machine does not have logging enabled or the logging configuration is not at the minimum level provided.
 
-**Identifier:** STEP_FUNCTIONS_STATE_MACHINE_LOGGING_ENABLED
+**Identifier:** STEP\_FUNCTIONS\_STATE\_MACHINE\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::StepFunctions::StateMachine
 

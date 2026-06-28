@@ -54,7 +54,7 @@ PowerShell
 
 **Tools for PowerShell V4**
 
-**Example 1: This example retrieves compliances details for the rule ebs-optimized-instance, for which there is no current evaluation results for the rule, hence it returns INSUFFICIENT_DATA**
+**Example 1: This example retrieves compliances details for the rule ebs-optimized-instance, for which there is no current evaluation results for the rule, hence it returns INSUFFICIENT\_DATA**
 
 ```
 (Get-CFGComplianceByConfigRule -ConfigRuleName ebs-optimized-instance).Compliance
@@ -69,7 +69,7 @@ ComplianceContributorCount ComplianceType
                            INSUFFICIENT_DATA
 ```
 
-**Example 2: This example returns the number of non-compliant resources for the rule ALB_HTTP_TO_HTTPS_REDIRECTION_CHECK.**
+**Example 2: This example returns the number of non-compliant resources for the rule ALB\_HTTP\_TO\_HTTPS\_REDIRECTION\_CHECK.**
 
 ```
 (Get-CFGComplianceByConfigRule -ConfigRuleName ALB_HTTP_TO_HTTPS_REDIRECTION_CHECK -ComplianceType NON_COMPLIANT).Compliance.ComplianceContributorCount
@@ -90,7 +90,7 @@ False       2
 
 **Tools for PowerShell V5**
 
-**Example 1: This example retrieves compliances details for the rule ebs-optimized-instance, for which there is no current evaluation results for the rule, hence it returns INSUFFICIENT_DATA**
+**Example 1: This example retrieves compliances details for the rule ebs-optimized-instance, for which there is no current evaluation results for the rule, hence it returns INSUFFICIENT\_DATA**
 
 ```
 (Get-CFGComplianceByConfigRule -ConfigRuleName ebs-optimized-instance).Compliance
@@ -105,7 +105,7 @@ ComplianceContributorCount ComplianceType
                            INSUFFICIENT_DATA
 ```
 
-**Example 2: This example returns the number of non-compliant resources for the rule ALB_HTTP_TO_HTTPS_REDIRECTION_CHECK.**
+**Example 2: This example returns the number of non-compliant resources for the rule ALB\_HTTP\_TO\_HTTPS\_REDIRECTION\_CHECK.**
 
 ```
 (Get-CFGComplianceByConfigRule -ConfigRuleName ALB_HTTP_TO_HTTPS_REDIRECTION_CHECK -ComplianceType NON_COMPLIANT).Compliance.ComplianceContributorCount

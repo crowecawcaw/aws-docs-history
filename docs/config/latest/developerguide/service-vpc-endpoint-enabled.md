@@ -1,8 +1,8 @@
 # service-vpc-endpoint-enabled
 
-Checks if Service Endpoint for the service provided in rule parameter is created for each Amazon Virtual Private Cloud (Amazon VPC). The rule is NON_COMPLIANT if an Amazon VPC doesn't have an Amazon VPC endpoint created for the service.
+Checks if Service Endpoint for the service provided in rule parameter is created for each Amazon Virtual Private Cloud (Amazon VPC). The rule is NON\_COMPLIANT if an Amazon VPC doesn't have an Amazon VPC endpoint created for the service.
 
-**Identifier:** SERVICE_VPC_ENDPOINT_ENABLED
+**Identifier:** SERVICE\_VPC\_ENDPOINT\_ENABLED
 
 **Resource Types:** AWS::EC2::VPC
 

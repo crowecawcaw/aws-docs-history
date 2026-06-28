@@ -1,8 +1,8 @@
 # aurora-mysql-backtracking-enabled
 
-Checks if an Amazon Aurora MySQL cluster has backtracking enabled. The rule is NON_COMPLIANT if the Aurora cluster uses MySQL and it does not have backtracking enabled.
+Checks if an Amazon Aurora MySQL cluster has backtracking enabled. The rule is NON\_COMPLIANT if the Aurora cluster uses MySQL and it does not have backtracking enabled.
 
-**Identifier:** AURORA_MYSQL_BACKTRACKING_ENABLED
+**Identifier:** AURORA\_MYSQL\_BACKTRACKING\_ENABLED
 
 **Resource Types:** AWS::RDS::DBCluster
 

@@ -1,8 +1,8 @@
 # lambda-vpc-multi-az-check
 
-Checks if Lambda has more than 1 availability zone associated. The rule is NON_COMPLIANT if only 1 availability zone is associated with the Lambda or the number of availability zones associated is less than number specified in the optional parameter.
+Checks if Lambda has more than 1 availability zone associated. The rule is NON\_COMPLIANT if only 1 availability zone is associated with the Lambda or the number of availability zones associated is less than number specified in the optional parameter.
 
-**Identifier:** LAMBDA_VPC_MULTI_AZ_CHECK
+**Identifier:** LAMBDA\_VPC\_MULTI\_AZ\_CHECK
 
 **Resource Types:** AWS::Lambda::Function
 

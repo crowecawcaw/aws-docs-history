@@ -1,8 +1,8 @@
 # cloudformation-stack-notification-check
 
-Checks if your CloudFormation stacks send event notifications to an Amazon SNS topic. Optionally checks if specified Amazon SNS topics are used. The rule is NON_COMPLIANT if CloudFormation stacks do not send notifications.
+Checks if your CloudFormation stacks send event notifications to an Amazon SNS topic. Optionally checks if specified Amazon SNS topics are used. The rule is NON\_COMPLIANT if CloudFormation stacks do not send notifications.
 
-**Identifier:** CLOUDFORMATION_STACK_NOTIFICATION_CHECK
+**Identifier:** CLOUDFORMATION\_STACK\_NOTIFICATION\_CHECK
 
 **Resource Types:** AWS::CloudFormation::Stack
 

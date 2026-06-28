@@ -2,16 +2,16 @@
 
 ###### Important
 
-For this rule, the rule identifier (RESTRICTED_INCOMING_TRAFFIC) and rule name (restricted-common-ports) are different.
+For this rule, the rule identifier (RESTRICTED\_INCOMING\_TRAFFIC) and rule name (restricted-common-ports) are different.
 
 Checks if the security groups in use do not allow unrestricted incoming Transmission Control Protocol (TCP) traffic to specified ports. The rule is COMPLIANT if:
 
 - Port access is blocked to all TCP traffic.
 - Port access is open to TCP traffic through Inbound rules, where the source is either a single IPv4 address or a range of IPv4 addresses in CIDR notation which does not cover all IPv4 addresses ("0.0.0.0/0").
 - Port access is open to TCP traffic through Inbound rules, where the source is either a single IPv6 address or a range of IPv6 addresses in CIDR notation which does not cover all IPv6 addresses ("::/0)").
-  The rule is NON_COMPLIANT if IP addresses for inbound TCP connections are not restricted to specified ports.
+  The rule is NON\_COMPLIANT if IP addresses for inbound TCP connections are not restricted to specified ports.
 
-**Identifier:** RESTRICTED_INCOMING_TRAFFIC
+**Identifier:** RESTRICTED\_INCOMING\_TRAFFIC
 
 **Resource Types:** AWS::EC2::SecurityGroup
 

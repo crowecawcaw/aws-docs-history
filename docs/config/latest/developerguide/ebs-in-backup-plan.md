@@ -1,8 +1,8 @@
 # ebs-in-backup-plan
 
-Check if Amazon Elastic Block Store (Amazon EBS) volumes are added in backup plans of AWS Backup. The rule is NON_COMPLIANT if Amazon EBS volumes are not included in backup plans.
+Check if Amazon Elastic Block Store (Amazon EBS) volumes are added in backup plans of AWS Backup. The rule is NON\_COMPLIANT if Amazon EBS volumes are not included in backup plans.
 
-**Identifier:** EBS_IN_BACKUP_PLAN
+**Identifier:** EBS\_IN\_BACKUP\_PLAN
 
 **Resource Types:** AWS::EC2::Volume
 

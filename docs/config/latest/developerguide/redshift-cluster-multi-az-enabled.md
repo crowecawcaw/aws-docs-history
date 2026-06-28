@@ -1,8 +1,8 @@
 # redshift-cluster-multi-az-enabled
 
-Checks if an Amazon Redshift cluster has multiple Availability Zones deployments enabled. This rule is NON_COMPLIANT if Amazon Redshift cluster does not have multiple Availability Zones deployments enabled.
+Checks if an Amazon Redshift cluster has multiple Availability Zones deployments enabled. This rule is NON\_COMPLIANT if Amazon Redshift cluster does not have multiple Availability Zones deployments enabled.
 
-**Identifier:** REDSHIFT_CLUSTER_MULTI_AZ_ENABLED
+**Identifier:** REDSHIFT\_CLUSTER\_MULTI\_AZ\_ENABLED
 
 **Resource Types:** AWS::Redshift::Cluster
 

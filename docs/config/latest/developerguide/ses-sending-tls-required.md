@@ -1,8 +1,8 @@
 # ses-sending-tls-required
 
-Checks if Amazon Simple Email Service (SES) Configuration Set has TLS encryption enforced for email delivery. The rule is NON_COMPLIANT if the TLS Policy is not set to 'REQUIRE' in the Configuration Set.
+Checks if Amazon Simple Email Service (SES) Configuration Set has TLS encryption enforced for email delivery. The rule is NON\_COMPLIANT if the TLS Policy is not set to 'REQUIRE' in the Configuration Set.
 
-**Identifier:** SES_SENDING_TLS_REQUIRED
+**Identifier:** SES\_SENDING\_TLS\_REQUIRED
 
 **Resource Types:** AWS::SES::ConfigurationSet
 

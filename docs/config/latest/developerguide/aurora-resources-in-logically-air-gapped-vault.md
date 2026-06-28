@@ -1,8 +1,8 @@
 # aurora-resources-in-logically-air-gapped-vault
 
-Checks if Amazon Aurora DB clusters are in a logically air-gapped vault. The rule is NON_COMPLIANT if an Amazon Aurora DB cluster is not in a logically air-gapped vault within the specified time period.
+Checks if Amazon Aurora DB clusters are in a logically air-gapped vault. The rule is NON\_COMPLIANT if an Amazon Aurora DB cluster is not in a logically air-gapped vault within the specified time period.
 
-**Identifier:** AURORA_RESOURCES_IN_LOGICALLY_AIR_GAPPED_VAULT
+**Identifier:** AURORA\_RESOURCES\_IN\_LOGICALLY\_AIR\_GAPPED\_VAULT
 
 **Resource Types:** AWS::RDS::DBCluster
 

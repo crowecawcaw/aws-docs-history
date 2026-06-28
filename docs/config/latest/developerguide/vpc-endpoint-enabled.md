@@ -1,8 +1,8 @@
 # vpc-endpoint-enabled
 
-Checks if each service specified in the parameter has an Amazon VPC endpoint. The rule is NON_COMPLIANT if Amazon VPC does not have a VPC endpoint created for each specified service. Optionally, you can specify certain VPCs for the rule to check.
+Checks if each service specified in the parameter has an Amazon VPC endpoint. The rule is NON\_COMPLIANT if Amazon VPC does not have a VPC endpoint created for each specified service. Optionally, you can specify certain VPCs for the rule to check.
 
-**Identifier:** VPC_ENDPOINT_ENABLED
+**Identifier:** VPC\_ENDPOINT\_ENABLED
 
 **Resource Types:** AWS::EC2::VPC
 
@@ -20,7 +20,7 @@ Comma-separated list of service names or endpoints. Example: "ec2, ecr.api" or "
 vpcIds (Optional)
 Type: CSV
 
-Comma-separated list of Amazon VPC IDs for VPC endpoints. If provided, the rule is NON_COMPLIANT if the services specified in the serviceName parameter do not have one of these VPC endpoints.
+Comma-separated list of Amazon VPC IDs for VPC endpoints. If provided, the rule is NON\_COMPLIANT if the services specified in the serviceName parameter do not have one of these VPC endpoints.
 
 scopeConfigResourceTypes (Optional)
 Type: CSV

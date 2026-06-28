@@ -1,13 +1,13 @@
 # vpc-sg-open-only-to-authorized-ports
 
-Checks if security groups allowing unrestricted incoming traffic ('0.0.0.0/0' or '::/0') only allow inbound TCP or UDP connections on authorized ports. The rule is NON_COMPLIANT if such security groups do not have ports specified in the rule parameters.
+Checks if security groups allowing unrestricted incoming traffic ('0.0.0.0/0' or '::/0') only allow inbound TCP or UDP connections on authorized ports. The rule is NON\_COMPLIANT if such security groups do not have ports specified in the rule parameters.
 
 ###### Note
 
 This rule evaluates Amazon EC2 security groups with ingress rule set to IPv4='0.0.0.0/0' or IPv6='::/'.
 If the security group does not have one of those destinations, this rule returns `NOT_APPLICABLE`.
 
-**Identifier:** VPC_SG_OPEN_ONLY_TO_AUTHORIZED_PORTS
+**Identifier:** VPC\_SG\_OPEN\_ONLY\_TO\_AUTHORIZED\_PORTS
 
 **Resource Types:** AWS::EC2::SecurityGroup
 

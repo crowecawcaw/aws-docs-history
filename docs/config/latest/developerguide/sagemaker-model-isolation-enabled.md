@@ -1,8 +1,8 @@
 # sagemaker-model-isolation-enabled
 
-Checks if an Amazon SageMaker model has network isolation enabled. The rule is NON_COMPLIANT if configuration.EnableNetworkIsolation is false.
+Checks if an Amazon SageMaker model has network isolation enabled. The rule is NON\_COMPLIANT if configuration.EnableNetworkIsolation is false.
 
-**Identifier:** SAGEMAKER_MODEL_ISOLATION_ENABLED
+**Identifier:** SAGEMAKER\_MODEL\_ISOLATION\_ENABLED
 
 **Resource Types:** AWS::SageMaker::Model
 

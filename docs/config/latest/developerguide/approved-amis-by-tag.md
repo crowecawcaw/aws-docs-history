@@ -1,8 +1,8 @@
 # approved-amis-by-tag
 
-Checks if EC2 instances are using specified Amazon Machine Images (AMIs). Specify the tags that identify the AMIs. Running instances with AMIs that don't have at least one of the specified tags are NON_COMPLIANT.
+Checks if EC2 instances are using specified Amazon Machine Images (AMIs). Specify the tags that identify the AMIs. Running instances with AMIs that don't have at least one of the specified tags are NON\_COMPLIANT.
 
-**Identifier:** APPROVED_AMIS_BY_TAG
+**Identifier:** APPROVED\_AMIS\_BY\_TAG
 
 **Resource Types:** AWS::EC2::Instance
 

@@ -8,7 +8,7 @@ custom queries.
 **Prerequisites**
 
 If you are using the one of the following AWS managed policies, you will have
-the necessary permissions to run and save a query: [AWSServiceRoleForConfig](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSServiceRoleForConfig "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSServiceRoleForConfig") (service-linked role) or [AWS_ConfigRole](security-iam-awsmanpol.md#security-iam-awsmanpol-AWS_ConfigRole "security-iam-awsmanpol.md#security-iam-awsmanpol-AWS_ConfigRole").
+the necessary permissions to run and save a query: [AWSServiceRoleForConfig](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSServiceRoleForConfig "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSServiceRoleForConfig") (service-linked role) or [AWS\_ConfigRole](security-iam-awsmanpol.md#security-iam-awsmanpol-AWS_ConfigRole "security-iam-awsmanpol.md#security-iam-awsmanpol-AWS_ConfigRole").
 
 Otherwise, you must have the permissions included in the [AWSConfigUserAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSConfigUserAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSConfigUserAccess") AWS managed policy.
 
@@ -82,6 +82,5 @@ Query** to save this query.
     * Choose **Save**.
 
 6. Choose **Run**. The query results are displayed in the
-   table below the query editor.
-7. Choose **Export as** to export the query results in CSV
-   or JSON format.
+table below the query editor. 7. Choose **Export as** to export the query results in CSV
+or JSON format.

@@ -1,8 +1,8 @@
 # sagemaker-featuregroup-description
 
-Checks if Amazon SageMaker FeatureGroup resources contain a description. The rule is NON_COMPLIANT if the FeatureGroup does not contain a description field or the description is empty.
+Checks if Amazon SageMaker FeatureGroup resources contain a description. The rule is NON\_COMPLIANT if the FeatureGroup does not contain a description field or the description is empty.
 
-**Identifier:** SAGEMAKER_FEATUREGROUP_DESCRIPTION
+**Identifier:** SAGEMAKER\_FEATUREGROUP\_DESCRIPTION
 
 **Resource Types:** AWS::SageMaker::FeatureGroup
 

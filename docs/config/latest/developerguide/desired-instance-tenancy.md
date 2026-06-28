@@ -2,7 +2,7 @@
 
 Checks EC2 instances for a 'tenancy' value. Also checks if AMI IDs are specified to be launched from those AMIs or if Host IDs are launched on those Dedicated Hosts. The rule is COMPLIANT if the instance matches a host and an AMI, if specified, in a list.
 
-**Identifier:** DESIRED_INSTANCE_TENANCY
+**Identifier:** DESIRED\_INSTANCE\_TENANCY
 
 **Resource Types:** AWS::EC2::Instance
 

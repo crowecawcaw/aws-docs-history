@@ -1,8 +1,8 @@
 # guardduty-ecs-protection-runtime-enabled
 
-Checks if ECS Runtime Monitoring with automated agent management is enabled for Amazon GuardDuty detector. The rule is NON_COMPLIANT if the feature is not enabled for your account or at least one member account in your organization.
+Checks if ECS Runtime Monitoring with automated agent management is enabled for Amazon GuardDuty detector. The rule is NON\_COMPLIANT if the feature is not enabled for your account or at least one member account in your organization.
 
-**Identifier:** GUARDDUTY_ECS_PROTECTION_RUNTIME_ENABLED
+**Identifier:** GUARDDUTY\_ECS\_PROTECTION\_RUNTIME\_ENABLED
 
 **Resource Types:** AWS::GuardDuty::Detector
 

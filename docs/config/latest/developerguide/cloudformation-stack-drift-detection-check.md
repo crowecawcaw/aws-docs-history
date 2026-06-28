@@ -2,7 +2,7 @@
 
 Checks if the actual configuration of a AWS CloudFormation (CloudFormation) stack differs, or has drifted, from the expected configuration.
 A stack is considered to have drifted if one or more of its resources differ from their expected configuration.
-The rule and the stack are COMPLIANT when the stack drift status is IN_SYNC. The rule is NON_COMPLIANT if the stack drift status is DRIFTED.
+The rule and the stack are COMPLIANT when the stack drift status is IN\_SYNC. The rule is NON\_COMPLIANT if the stack drift status is DRIFTED.
 
 ###### Note
 
@@ -19,7 +19,7 @@ You can do the following:
 2. Apply the same tag to all the stacks in that group.
 3. Have multiple instances of this rule in your account, each scoped by a different tag.
    This allows each instance of the rule to only process the stacks which have the corresponding tag mentioned in its scope.
-   **Identifier:** CLOUDFORMATION_STACK_DRIFT_DETECTION_CHECK
+   **Identifier:** CLOUDFORMATION\_STACK\_DRIFT\_DETECTION\_CHECK
 
 **Resource Types:** AWS::CloudFormation::Stack
 

@@ -1,8 +1,8 @@
 # clb-multiple-az
 
-Checks if a Classic Load Balancer spans multiple Availability Zones (AZs). The rule is NON_COMPLIANT if a Classic Load Balancer spans less than 2 AZs or does not span number of AZs mentioned in the `minAvailabilityZones` parameter (if provided).
+Checks if a Classic Load Balancer spans multiple Availability Zones (AZs). The rule is NON\_COMPLIANT if a Classic Load Balancer spans less than 2 AZs or does not span number of AZs mentioned in the `minAvailabilityZones` parameter (if provided).
 
-**Identifier:** CLB_MULTIPLE_AZ
+**Identifier:** CLB\_MULTIPLE\_AZ
 
 **Resource Types:** AWS::ElasticLoadBalancing::LoadBalancer
 

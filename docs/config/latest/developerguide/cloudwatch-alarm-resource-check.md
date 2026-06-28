@@ -2,7 +2,7 @@
 
 Checks if a resource type has a CloudWatch alarm for the named metric. For resource type, you can specify EBS volumes, EC2 instances, Amazon RDS clusters, or S3 buckets. The rule is COMPLIANT if the named metric has a resource ID and CloudWatch alarm.
 
-**Identifier:** CLOUDWATCH_ALARM_RESOURCE_CHECK
+**Identifier:** CLOUDWATCH\_ALARM\_RESOURCE\_CHECK
 
 **Resource Types:** AWS::EC2::Instance, AWS::RDS::DBCluster, AWS::S3::Bucket, AWS::EC2::Volume
 

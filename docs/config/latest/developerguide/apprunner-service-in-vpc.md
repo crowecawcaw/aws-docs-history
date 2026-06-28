@@ -1,8 +1,8 @@
 # apprunner-service-in-vpc
 
-Checks if AWS App Runner services route egress traffic through custom VPC. The rule is NON_COMPLIANT if configuration.NetworkConfiguration.EgressConfiguration.EgressType is equal to DEFAULT.
+Checks if AWS App Runner services route egress traffic through custom VPC. The rule is NON\_COMPLIANT if configuration.NetworkConfiguration.EgressConfiguration.EgressType is equal to DEFAULT.
 
-**Identifier:** APPRUNNER_SERVICE_IN_VPC
+**Identifier:** APPRUNNER\_SERVICE\_IN\_VPC
 
 **Resource Types:** AWS::AppRunner::Service
 

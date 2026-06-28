@@ -2,13 +2,13 @@
 
 Checks if Amazon Virtual Private Cloud (Amazon VPC) subnets are configured to automatically assign public IP addresses to instances launched within them.
 This rule is COMPLIANT if subnets do not auto-assign public IPv4 or IPv6 addresses.
-This rule is NON_COMPLIANT if subnets auto-assign public IPv4 or IPv6 addresses.
+This rule is NON\_COMPLIANT if subnets auto-assign public IPv4 or IPv6 addresses.
 
 ###### Warning
 
 This rule does not distinguish between private and public Global Unicast Address (GUA) IPv6 ranges and will treat all GUA ranges as violations when auto-assignment is enabled.
 
-**Identifier:** SUBNET_AUTO_ASSIGN_PUBLIC_IP_DISABLED
+**Identifier:** SUBNET\_AUTO\_ASSIGN\_PUBLIC\_IP\_DISABLED
 
 **Resource Types:** AWS::EC2::Subnet
 

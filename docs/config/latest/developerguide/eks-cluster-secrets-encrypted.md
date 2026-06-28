@@ -1,8 +1,8 @@
 # eks-cluster-secrets-encrypted
 
-Checks if Amazon EKS clusters are configured to have Kubernetes secrets encrypted using AWS KMS. The rule is NON_COMPLIANT if an EKS cluster does not have an encryptionConfig resource or if encryptionConfig does not name secrets as a resource.
+Checks if Amazon EKS clusters are configured to have Kubernetes secrets encrypted using AWS KMS. The rule is NON\_COMPLIANT if an EKS cluster does not have an encryptionConfig resource or if encryptionConfig does not name secrets as a resource.
 
-**Identifier:** EKS_CLUSTER_SECRETS_ENCRYPTED
+**Identifier:** EKS\_CLUSTER\_SECRETS\_ENCRYPTED
 
 **Resource Types:** AWS::EKS::Cluster
 

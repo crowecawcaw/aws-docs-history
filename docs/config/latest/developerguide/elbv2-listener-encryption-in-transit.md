@@ -1,8 +1,8 @@
 # elbv2-listener-encryption-in-transit
 
-Checks if listeners for the load balancers are configured with HTTPS or TLS termination. The rule is NON_COMPLIANT if listeners are not configured with HTTPS or TLS termination.
+Checks if listeners for the load balancers are configured with HTTPS or TLS termination. The rule is NON\_COMPLIANT if listeners are not configured with HTTPS or TLS termination.
 
-**Identifier:** ELBV2_LISTENER_ENCRYPTION_IN_TRANSIT
+**Identifier:** ELBV2\_LISTENER\_ENCRYPTION\_IN\_TRANSIT
 
 **Resource Types:** AWS::ElasticLoadBalancingV2::Listener
 

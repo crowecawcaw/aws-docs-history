@@ -1,8 +1,8 @@
 # elasticache-repl-grp-redis-auth-enabled
 
-Checks if Amazon ElastiCache replication groups have Redis AUTH enabled. The rule is NON_COMPLIANT for an ElastiCache replication group if the Redis version of its nodes is below 6 (Version 6+ use Redis ACLs) and ‘AuthToken’ is missing or is empty/null.
+Checks if Amazon ElastiCache replication groups have Redis AUTH enabled. The rule is NON\_COMPLIANT for an ElastiCache replication group if the Redis version of its nodes is below 6 (Version 6+ use Redis ACLs) and ‘AuthToken’ is missing or is empty/null.
 
-**Identifier:** ELASTICACHE_REPL_GRP_REDIS_AUTH_ENABLED
+**Identifier:** ELASTICACHE\_REPL\_GRP\_REDIS\_AUTH\_ENABLED
 
 **Resource Types:** AWS::ElastiCache::ReplicationGroup
 

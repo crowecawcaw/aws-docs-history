@@ -1,8 +1,8 @@
 # rds-instance-subnet-igw-check
 
-Checks if RDS DB instances are deployed in a public subnet with a route to the internet gateway. The rule is NON_COMPLIANT if RDS DB instances is deployed in a public subnet
+Checks if RDS DB instances are deployed in a public subnet with a route to the internet gateway. The rule is NON\_COMPLIANT if RDS DB instances is deployed in a public subnet
 
-**Identifier:** RDS_INSTANCE_SUBNET_IGW_CHECK
+**Identifier:** RDS\_INSTANCE\_SUBNET\_IGW\_CHECK
 
 **Resource Types:** AWS::RDS::DBInstance
 

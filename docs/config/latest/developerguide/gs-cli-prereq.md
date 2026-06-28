@@ -1142,53 +1142,53 @@ go to [Step 3: Creating an IAM Role](#gs-cli-create-iamrole "#gs-cli-create-iamr
 
 ###### To create an Amazon SNS topic
 
-1.  Open the Amazon SNS console at
-    [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
-2.  Do one of the following:
+1. Open the Amazon SNS console at
+   [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
+2. Do one of the following:
 
-    - If no topics have ever been created under your AWS account before, read the
-      description of Amazon SNS on the home page.
+   - If no topics have ever been created under your AWS account before, read the
+     description of Amazon SNS on the home page.
 
-    - If topics have been created under your AWS account before, on the navigation
-      panel, choose **Topics**.
+   - If topics have been created under your AWS account before, on the navigation
+     panel, choose **Topics**.
 
-3.  On the **Topics** page, choose **Create
-    topic**.
-4.  On the **Create topic** page, in the **Details**
-    section, do the following:
+3. On the **Topics** page, choose **Create
+   topic**.
+4. On the **Create topic** page, in the **Details**
+   section, do the following:
 
-    1. For **Type**, choose a topic type
-       (**Standard** or **FIFO**).
-    2. Enter a **Name** for the topic. For a [FIFO topic](../../../sns/latest/dg/sns-fifo-topics.md "../../../sns/latest/dg/sns-fifo-topics.md"), add
-       **.fifo** to the end of the name.
-    3. (Optional) Enter a **Display name** for the topic.
-    4. (Optional) For a FIFO topic, you can choose **content-based message
-       deduplication** to enable default message deduplication. For more
-       information, see [Message
-       deduplication for FIFO topics](../../../sns/latest/dg/fifo-message-dedup.md "../../../sns/latest/dg/fifo-message-dedup.md").
+   1. For **Type**, choose a topic type
+      (**Standard** or **FIFO**).
+   2. Enter a **Name** for the topic. For a [FIFO topic](../../../sns/latest/dg/sns-fifo-topics.md "../../../sns/latest/dg/sns-fifo-topics.md"), add
+      **.fifo** to the end of the name.
+   3. (Optional) Enter a **Display name** for the topic.
+   4. (Optional) For a FIFO topic, you can choose **content-based message
+      deduplication** to enable default message deduplication. For more
+      information, see [Message
+      deduplication for FIFO topics](../../../sns/latest/dg/fifo-message-dedup.md "../../../sns/latest/dg/fifo-message-dedup.md").
 
-5.  (Optional) Expand the **Encryption** section and do the
-    following. For more information, see [Encryption at rest](../../../sns/latest/dg/sns-server-side-encryption.md "../../../sns/latest/dg/sns-server-side-encryption.md").
+5. (Optional) Expand the **Encryption** section and do the
+   following. For more information, see [Encryption at rest](../../../sns/latest/dg/sns-server-side-encryption.md "../../../sns/latest/dg/sns-server-side-encryption.md").
 
-    1. Choose **Enable encryption**.
-    2. Specify the customer master key (CMK). For more information, see [Key
-       terms](../../../sns/latest/dg/sns-server-side-encryption.md#sse-key-terms "../../../sns/latest/dg/sns-server-side-encryption.md#sse-key-terms").
+   1. Choose **Enable encryption**.
+   2. Specify the customer master key (CMK). For more information, see [Key
+      terms](../../../sns/latest/dg/sns-server-side-encryption.md#sse-key-terms "../../../sns/latest/dg/sns-server-side-encryption.md#sse-key-terms").
 
-    For each CMK type, the **Description**,
-    **Account**, and **CMK ARN** are
-    displayed.
+   For each CMK type, the **Description**,
+   **Account**, and **CMK ARN** are
+   displayed.
 
-    ###### Important
+   ###### Important
 
-    If you aren't the owner of the CMK, or if you log in with an account
-    that doesn't have the `kms:ListAliases` and
-    `kms:DescribeKey` permissions, you won't be able to view
-    information about the CMK on the Amazon SNS console.
+   If you aren't the owner of the CMK, or if you log in with an account
+   that doesn't have the `kms:ListAliases` and
+   `kms:DescribeKey` permissions, you won't be able to view
+   information about the CMK on the Amazon SNS console.
 
-    Ask the owner of the CMK to grant you these permissions. For more
-    information, see the [AWS KMS API Permissions:
-    Actions and Resources Reference](../../../kms/latest/developerguide/kms-api-permissions-reference.md "../../../kms/latest/developerguide/kms-api-permissions-reference.md") in the
-    _AWS Key Management Service Developer Guide_.
+   Ask the owner of the CMK to grant you these permissions. For more
+   information, see the [AWS KMS API Permissions:
+   Actions and Resources Reference](../../../kms/latest/developerguide/kms-api-permissions-reference.md "../../../kms/latest/developerguide/kms-api-permissions-reference.md") in the
+   _AWS Key Management Service Developer Guide_.
 
         * The AWS managed CMK for Amazon SNS **(Default)
          alias/aws/sns** is selected by default.
@@ -1219,11 +1219,11 @@ go to [Step 3: Creating an IAM Role](#gs-cli-create-iamrole "#gs-cli-create-iamr
          account, enter it into the **Customer master key (CMK)**
          field.
 
-6.  (Optional) By default, only the topic owner can publish or subscribe to the topic.
-    To configure additional access permissions, expand the **Access
-    policy** section. For more information, see [Identity and access
-    management in Amazon SNS](../../../sns/latest/dg/sns-authentication-and-access-control.md "../../../sns/latest/dg/sns-authentication-and-access-control.md") and [Example cases for Amazon SNS access
-    control](../../../sns/latest/dg/sns-access-policy-use-cases.md "../../../sns/latest/dg/sns-access-policy-use-cases.md").
+6. (Optional) By default, only the topic owner can publish or subscribe to the topic.
+   To configure additional access permissions, expand the **Access
+   policy** section. For more information, see [Identity and access
+   management in Amazon SNS](../../../sns/latest/dg/sns-authentication-and-access-control.md "../../../sns/latest/dg/sns-authentication-and-access-control.md") and [Example cases for Amazon SNS access
+   control](../../../sns/latest/dg/sns-access-policy-use-cases.md "../../../sns/latest/dg/sns-access-policy-use-cases.md").
 
 ###### Note
 
@@ -1252,59 +1252,54 @@ arn:aws:sns:us-east-2:123456789012:MyTopic
 
 ###### To subscribe an email address to the Amazon SNS topic
 
-1.  Open the Amazon SNS console at
-    [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
-2.  In the left navigation pane, choose **Subscriptions**.
-3.  On the **Subscriptions** page, choose **Create
-    subscription**.
-4.  On the **Create subscription** page, in the
-    **Details** section, do the following:
+1. Open the Amazon SNS console at
+   [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
+2. In the left navigation pane, choose **Subscriptions**.
+3. On the **Subscriptions** page, choose **Create
+   subscription**.
+4. On the **Create subscription** page, in the
+   **Details** section, do the following:
 
-        1. For **Topic ARN**, choose the Amazon Resource Name (ARN) of a
-         topic.
-        2. For **Protocol**, choose an endpoint type.  The available endpoint types are:
+   1. For **Topic ARN**, choose the Amazon Resource Name (ARN) of a
+      topic.
+   2. For **Protocol**, choose an endpoint type. The available endpoint types are:
 
+      - [HTTP/HTTPS](../../../sns/latest/dg/sns-http-https-endpoint-as-subscriber.md "../../../sns/latest/dg/sns-http-https-endpoint-as-subscriber.md")
+      - [Email/Email-JSON](../../../sns/latest/dg/sns-email-notifications.md "../../../sns/latest/dg/sns-email-notifications.md")
+      - [Amazon Data Firehose](../../../sns/latest/dg/sns-firehose-as-subscriber.md "../../../sns/latest/dg/sns-firehose-as-subscriber.md")
+      - [Amazon SQS](../../../sns/latest/dg/sns-sqs-as-subscriber.md "../../../sns/latest/dg/sns-sqs-as-subscriber.md")
 
+      ###### Note
 
+      To subscribe to an [SNS
+      FIFO topic](../../../sns/latest/dg/sns-fifo-topics.md "../../../sns/latest/dg/sns-fifo-topics.md"), choose this option.
+      - [AWS Lambda](../../../sns/latest/dg/sns-lambda-as-subscriber.md "../../../sns/latest/dg/sns-lambda-as-subscriber.md")
+      - [Platform application endpoint](../../../sns/latest/dg/sns-mobile-application-as-subscriber.md "../../../sns/latest/dg/sns-mobile-application-as-subscriber.md")
+      - [SMS](../../../sns/latest/dg/sns-mobile-phone-number-as-subscriber.md "../../../sns/latest/dg/sns-mobile-phone-number-as-subscriber.md")
 
-        	* [HTTP/HTTPS](../../../sns/latest/dg/sns-http-https-endpoint-as-subscriber.md "../../../sns/latest/dg/sns-http-https-endpoint-as-subscriber.md")
-        	* [Email/Email-JSON](../../../sns/latest/dg/sns-email-notifications.md "../../../sns/latest/dg/sns-email-notifications.md")
-        	* [Amazon Data Firehose](../../../sns/latest/dg/sns-firehose-as-subscriber.md "../../../sns/latest/dg/sns-firehose-as-subscriber.md")
-        	* [Amazon SQS](../../../sns/latest/dg/sns-sqs-as-subscriber.md "../../../sns/latest/dg/sns-sqs-as-subscriber.md")
+   3. For **Endpoint**, enter the endpoint value, such as an email
+      address or the ARN of an Amazon SQS queue.
+   4. Firehose endpoints only: For **Subscription role ARN**, specify
+      the ARN of the IAM role that you created for writing to Firehose delivery streams.
+      For more information, see [Prerequisites for
+      subscribing Firehose delivery streams to Amazon SNS topics](../../../sns/latest/dg/prereqs-kinesis-data-firehose.md "../../../sns/latest/dg/prereqs-kinesis-data-firehose.md").
+   5. (Optional) For Firehose, Amazon SQS, HTTP/S endpoints, you can also enable raw message
+      delivery. For more information, see [Amazon SNS raw message
+      delivery](../../../sns/latest/dg/sns-large-payload-raw-message-delivery.md "../../../sns/latest/dg/sns-large-payload-raw-message-delivery.md").
+   6. (Optional) To configure a filter policy, expand the **Subscription
+      filter policy** section. For more information, see [Amazon SNS subscription
+      filter policies](../../../sns/latest/dg/sns-subscription-filter-policies.md "../../../sns/latest/dg/sns-subscription-filter-policies.md").
+   7. (Optional) To configure a dead-letter queue for the subscription, expand the
+      **Redrive policy (dead-letter queue)** section. For more
+      information, see [Amazon SNS
+      dead-letter queues (DLQs)](../../../sns/latest/dg/sns-dead-letter-queues.md "../../../sns/latest/dg/sns-dead-letter-queues.md").
+   8. Choose **Create subscription**.
 
-
-        	###### Note
-
-        	To subscribe to an [SNS
-        	 FIFO topic](../../../sns/latest/dg/sns-fifo-topics.md "../../../sns/latest/dg/sns-fifo-topics.md"), choose this option.
-        	* [AWS Lambda](../../../sns/latest/dg/sns-lambda-as-subscriber.md "../../../sns/latest/dg/sns-lambda-as-subscriber.md")
-        	* [Platform application endpoint](../../../sns/latest/dg/sns-mobile-application-as-subscriber.md "../../../sns/latest/dg/sns-mobile-application-as-subscriber.md")
-        	* [SMS](../../../sns/latest/dg/sns-mobile-phone-number-as-subscriber.md "../../../sns/latest/dg/sns-mobile-phone-number-as-subscriber.md")
-        3. For **Endpoint**, enter the endpoint value, such as an email
-         address or the ARN of an Amazon SQS queue.
-        4. Firehose endpoints only: For **Subscription role ARN**, specify
-         the ARN of the IAM role that you created for writing to Firehose delivery streams.
-         For more information, see [Prerequisites for
-         subscribing Firehose delivery streams to Amazon SNS topics](../../../sns/latest/dg/prereqs-kinesis-data-firehose.md "../../../sns/latest/dg/prereqs-kinesis-data-firehose.md").
-        5. (Optional) For Firehose, Amazon SQS, HTTP/S endpoints, you can also enable raw message
-         delivery. For more information, see [Amazon SNS raw message
-         delivery](../../../sns/latest/dg/sns-large-payload-raw-message-delivery.md "../../../sns/latest/dg/sns-large-payload-raw-message-delivery.md").
-        6. (Optional) To configure a filter policy, expand the **Subscription
-         filter policy** section. For more information, see [Amazon SNS subscription
-         filter policies](../../../sns/latest/dg/sns-subscription-filter-policies.md "../../../sns/latest/dg/sns-subscription-filter-policies.md").
-        7. (Optional) To configure a dead-letter queue for the subscription, expand the
-         **Redrive policy (dead-letter queue)** section. For more
-         information, see [Amazon SNS
-         dead-letter queues (DLQs)](../../../sns/latest/dg/sns-dead-letter-queues.md "../../../sns/latest/dg/sns-dead-letter-queues.md").
-        8. Choose **Create subscription**.
-
-
-        The console creates the subscription and opens the subscription's
-         **Details** page.
-
-    To use an AWS SDK, you must configure it with your credentials. For more
-    information, see [The shared config and credentials
-    files](../../../sdkref/latest/guide/creds-config-files.md "../../../sdkref/latest/guide/creds-config-files.md") in the _AWS SDKs and Tools Reference Guide_.
+   The console creates the subscription and opens the subscription's
+   **Details** page.
+   To use an AWS SDK, you must configure it with your credentials. For more
+   information, see [The shared config and credentials
+   files](../../../sdkref/latest/guide/creds-config-files.md "../../../sdkref/latest/guide/creds-config-files.md") in the _AWS SDKs and Tools Reference Guide_.
 
 The following code examples show how to use `CreateTopic`.
 

@@ -1,8 +1,8 @@
 # iot-provisioning-template-description
 
-Checks if AWS IoT provisioning templates have a description. The rule is NON_COMPLIANT if configuration.Description does not exist or is an empty string.
+Checks if AWS IoT provisioning templates have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string.
 
-**Identifier:** IOT_PROVISIONING_TEMPLATE_DESCRIPTION
+**Identifier:** IOT\_PROVISIONING\_TEMPLATE\_DESCRIPTION
 
 **Resource Types:** AWS::IoT::ProvisioningTemplate
 

@@ -1,9 +1,9 @@
 # rds-aurora-mysql-audit-logging-enabled
 
 Checks if Amazon Aurora MySQL-Compatible Edition clusters are configured to publish audit logs to Amazon CloudWatch Logs.
-The rule is NON_COMPLIANT if Aurora MySQL-Compatible Edition clusters do not have audit log publishing configured.
+The rule is NON\_COMPLIANT if Aurora MySQL-Compatible Edition clusters do not have audit log publishing configured.
 
-**Identifier:** RDS_AURORA_MYSQL_AUDIT_LOGGING_ENABLED
+**Identifier:** RDS\_AURORA\_MYSQL\_AUDIT\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::RDS::DBCluster
 

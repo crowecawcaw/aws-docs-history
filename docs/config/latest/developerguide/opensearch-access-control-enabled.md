@@ -1,8 +1,8 @@
 # opensearch-access-control-enabled
 
-Checks if Amazon OpenSearch Service domains have fine-grained access control enabled. The rule is NON_COMPLIANT if AdvancedSecurityOptions is not enabled for the OpenSearch Service domain.
+Checks if Amazon OpenSearch Service domains have fine-grained access control enabled. The rule is NON\_COMPLIANT if AdvancedSecurityOptions is not enabled for the OpenSearch Service domain.
 
-**Identifier:** OPENSEARCH_ACCESS_CONTROL_ENABLED
+**Identifier:** OPENSEARCH\_ACCESS\_CONTROL\_ENABLED
 
 **Resource Types:** AWS::OpenSearch::Domain
 

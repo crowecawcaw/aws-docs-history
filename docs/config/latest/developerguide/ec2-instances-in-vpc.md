@@ -2,11 +2,11 @@
 
 ###### Important
 
-For this rule, the rule identifier (INSTANCES_IN_VPC) and rule name (ec2-instances-in-vpc) are different.
+For this rule, the rule identifier (INSTANCES\_IN\_VPC) and rule name (ec2-instances-in-vpc) are different.
 
 Checks if your EC2 instances belong to a virtual private cloud (VPC). Optionally, you can specify the VPC ID to associate with your instances.
 
-**Identifier:** INSTANCES_IN_VPC
+**Identifier:** INSTANCES\_IN\_VPC
 
 **Resource Types:** AWS::EC2::Instance
 

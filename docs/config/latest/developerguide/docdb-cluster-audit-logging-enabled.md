@@ -1,8 +1,8 @@
 # docdb-cluster-audit-logging-enabled
 
-Checks if an Amazon DocumentDB (with MongoDB compatibility) instance cluster has CloudWatch log export enabled for audit logs. The rule is NON_COMPLIANT if an Amazon DocumentDB instance cluster does not have CloudWatch log export enabled for audit logs.
+Checks if an Amazon DocumentDB (with MongoDB compatibility) instance cluster has CloudWatch log export enabled for audit logs. The rule is NON\_COMPLIANT if an Amazon DocumentDB instance cluster does not have CloudWatch log export enabled for audit logs.
 
-**Identifier:** DOCDB_CLUSTER_AUDIT_LOGGING_ENABLED
+**Identifier:** DOCDB\_CLUSTER\_AUDIT\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::RDS::DBCluster
 

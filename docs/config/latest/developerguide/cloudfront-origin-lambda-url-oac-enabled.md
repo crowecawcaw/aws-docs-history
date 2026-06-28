@@ -1,8 +1,8 @@
 # cloudfront-origin-lambda-url-oac-enabled
 
-Checks if Amazon CloudFront distributions with Amazon Lambda Function URL origins have origin access control (OAC) enabled. The rule is NON_COMPLIANT if any Lambda Function URL origin in a CloudFront distribution does not have OAC enabled.
+Checks if Amazon CloudFront distributions with Amazon Lambda Function URL origins have origin access control (OAC) enabled. The rule is NON\_COMPLIANT if any Lambda Function URL origin in a CloudFront distribution does not have OAC enabled.
 
-**Identifier:** CLOUDFRONT_ORIGIN_LAMBDA_URL_OAC_ENABLED
+**Identifier:** CLOUDFRONT\_ORIGIN\_LAMBDA\_URL\_OAC\_ENABLED
 
 **Resource Types:** AWS::CloudFront::Distribution
 

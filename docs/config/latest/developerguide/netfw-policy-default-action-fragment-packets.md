@@ -1,8 +1,8 @@
 # netfw-policy-default-action-fragment-packets
 
-Checks if an AWS Network Firewall policy is configured with a user defined stateless default action for fragmented packets. The rule is NON_COMPLIANT if stateless default action for fragmented packets does not match with user defined default action.
+Checks if an AWS Network Firewall policy is configured with a user defined stateless default action for fragmented packets. The rule is NON\_COMPLIANT if stateless default action for fragmented packets does not match with user defined default action.
 
-**Identifier:** NETFW_POLICY_DEFAULT_ACTION_FRAGMENT_PACKETS
+**Identifier:** NETFW\_POLICY\_DEFAULT\_ACTION\_FRAGMENT\_PACKETS
 
 **Resource Types:** AWS::NetworkFirewall::FirewallPolicy
 
@@ -15,7 +15,7 @@ Checks if an AWS Network Firewall policy is configured with a user defined state
 statelessFragmentDefaultActions
 Type: CSV
 
-Comma-separated list of values. You can select a max of two. Valid values include 'aws:pass', 'aws:drop', and 'aws:forward_to_sfe'.
+Comma-separated list of values. You can select a max of two. Valid values include 'aws:pass', 'aws:drop', and 'aws:forward\_to\_sfe'.
 
 ## AWS CloudFormation template
 

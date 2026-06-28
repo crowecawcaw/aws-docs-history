@@ -1,8 +1,8 @@
 # cloudfront-traffic-to-origin-encrypted
 
-Checks if Amazon CloudFront distributions are encrypting traffic to custom origins. The rule is NON_COMPLIANT if ‘OriginProtocolPolicy’ is ‘http-only’ or if ‘OriginProtocolPolicy’ is ‘match-viewer’ and ‘ViewerProtocolPolicy’ is ‘allow-all’.
+Checks if Amazon CloudFront distributions are encrypting traffic to custom origins. The rule is NON\_COMPLIANT if ‘OriginProtocolPolicy’ is ‘http-only’ or if ‘OriginProtocolPolicy’ is ‘match-viewer’ and ‘ViewerProtocolPolicy’ is ‘allow-all’.
 
-**Identifier:** CLOUDFRONT_TRAFFIC_TO_ORIGIN_ENCRYPTED
+**Identifier:** CLOUDFRONT\_TRAFFIC\_TO\_ORIGIN\_ENCRYPTED
 
 **Resource Types:** AWS::CloudFront::Distribution
 

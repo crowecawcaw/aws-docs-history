@@ -1,8 +1,8 @@
 # api-gwv2-stage-default-route-detailed-metrics-enabled
 
-Checks if the default route settings for Amazon API Gateway V2 stages have detailed metrics enabled. The rule is NON_COMPLIANT if configuration.defaultRouteSettings.detailedMetricsEnabled is false.
+Checks if the default route settings for Amazon API Gateway V2 stages have detailed metrics enabled. The rule is NON\_COMPLIANT if configuration.defaultRouteSettings.detailedMetricsEnabled is false.
 
-**Identifier:** API_GWV2_STAGE_DEFAULT_ROUTE_DETAILED_METRICS_ENABLED
+**Identifier:** API\_GWV2\_STAGE\_DEFAULT\_ROUTE\_DETAILED\_METRICS\_ENABLED
 
 **Resource Types:** AWS::ApiGatewayV2::Stage
 

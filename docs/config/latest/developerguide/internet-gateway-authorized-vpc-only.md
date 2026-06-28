@@ -1,8 +1,8 @@
 # internet-gateway-authorized-vpc-only
 
-Checks if internet gateways are attached to an authorized virtual private cloud (Amazon VPC). The rule is NON_COMPLIANT if internet gateways are attached to an unauthorized VPC.
+Checks if internet gateways are attached to an authorized virtual private cloud (Amazon VPC). The rule is NON\_COMPLIANT if internet gateways are attached to an unauthorized VPC.
 
-**Identifier:** INTERNET_GATEWAY_AUTHORIZED_VPC_ONLY
+**Identifier:** INTERNET\_GATEWAY\_AUTHORIZED\_VPC\_ONLY
 
 **Resource Types:** AWS::EC2::InternetGateway
 
@@ -15,7 +15,7 @@ Checks if internet gateways are attached to an authorized virtual private cloud 
 AuthorizedVpcIds (Optional)
 Type: CSV
 
-Comma-separated list of the authorized VPC IDs with attached IGWs. If parameter is not provided all attached IGWs will be NON_COMPLIANT.
+Comma-separated list of the authorized VPC IDs with attached IGWs. If parameter is not provided all attached IGWs will be NON\_COMPLIANT.
 
 ## AWS CloudFormation template
 

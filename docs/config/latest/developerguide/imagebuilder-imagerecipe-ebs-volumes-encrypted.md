@@ -1,8 +1,8 @@
 # imagebuilder-imagerecipe-ebs-volumes-encrypted
 
-Checks that all Amazon EBS volumes in EC2 Image Builder image recipe block device mappings have encryption enabled. The rule is NON_COMPLIANT if not all EBS volumes have encryption enabled, or if there are no block device mappings defined.
+Checks that all Amazon EBS volumes in EC2 Image Builder image recipe block device mappings have encryption enabled. The rule is NON\_COMPLIANT if not all EBS volumes have encryption enabled, or if there are no block device mappings defined.
 
-**Identifier:** IMAGEBUILDER_IMAGERECIPE_EBS_VOLUMES_ENCRYPTED
+**Identifier:** IMAGEBUILDER\_IMAGERECIPE\_EBS\_VOLUMES\_ENCRYPTED
 
 **Resource Types:** AWS::ImageBuilder::ImageRecipe
 

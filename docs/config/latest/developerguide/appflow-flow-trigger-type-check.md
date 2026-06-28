@@ -1,8 +1,8 @@
 # appflow-flow-trigger-type-check
 
-Checks if an Amazon AppFlow flow runs using the specified trigger type. The rule is NON_COMPLAINT if the flow does not run using the flow type specified in the required rule parameter.
+Checks if an Amazon AppFlow flow runs using the specified trigger type. The rule is NON\_COMPLAINT if the flow does not run using the flow type specified in the required rule parameter.
 
-**Identifier:** APPFLOW_FLOW_TRIGGER_TYPE_CHECK
+**Identifier:** APPFLOW\_FLOW\_TRIGGER\_TYPE\_CHECK
 
 **Resource Types:** AWS::AppFlow::Flow
 

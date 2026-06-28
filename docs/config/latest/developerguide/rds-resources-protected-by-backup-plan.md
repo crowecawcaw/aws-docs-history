@@ -1,8 +1,8 @@
 # rds-resources-protected-by-backup-plan
 
-Checks if Amazon Relational Database Service (Amazon RDS) instances are protected by a backup plan. The rule is NON_COMPLIANT if the Amazon RDS Database instance is not covered by a backup plan.
+Checks if Amazon Relational Database Service (Amazon RDS) instances are protected by a backup plan. The rule is NON\_COMPLIANT if the Amazon RDS Database instance is not covered by a backup plan.
 
-**Identifier:** RDS_RESOURCES_PROTECTED_BY_BACKUP_PLAN
+**Identifier:** RDS\_RESOURCES\_PROTECTED\_BY\_BACKUP\_PLAN
 
 **Resource Types:** AWS::RDS::DBInstance
 

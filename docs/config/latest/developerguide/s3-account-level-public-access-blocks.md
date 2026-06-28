@@ -1,13 +1,13 @@
 # s3-account-level-public-access-blocks
 
-Checks if the required public access block settings are configured from account level. The rule is only NON_COMPLIANT when the fields set below do not match the corresponding fields in the configuration item.
+Checks if the required public access block settings are configured from account level. The rule is only NON\_COMPLIANT when the fields set below do not match the corresponding fields in the configuration item.
 
 ###### Note
 
-If you are using this rule, ensure that S3 Block Public Access is enabled. The rule is change-triggered, so it will not be invoked unless S3 Block Public Access is enabled. If S3 Block Public Access is not enabled the rule returns INSUFFICIENT_DATA. This means that you still might have some public buckets.
+If you are using this rule, ensure that S3 Block Public Access is enabled. The rule is change-triggered, so it will not be invoked unless S3 Block Public Access is enabled. If S3 Block Public Access is not enabled the rule returns INSUFFICIENT\_DATA. This means that you still might have some public buckets.
 For more information about setting up S3 Block Public Access, see [Blocking public access to your Amazon S3 storage](../../../AmazonS3/latest/userguide/access-control-block-public-access.md "../../../AmazonS3/latest/userguide/access-control-block-public-access.md").
 
-**Identifier:** S3_ACCOUNT_LEVEL_PUBLIC_ACCESS_BLOCKS
+**Identifier:** S3\_ACCOUNT\_LEVEL\_PUBLIC\_ACCESS\_BLOCKS
 
 **Resource Types:** AWS::S3::AccountPublicAccessBlock
 
@@ -18,7 +18,7 @@ For more information about setting up S3 Block Public Access, see [Blocking publ
 This rule is only triggered by configuration changes for the specific region where the S3 endpoint is located.
 In all other regions, the rule is checked periodically.
 If a change was made in another region,
-there could be a delay before the rule returns NON_COMPLIANT.
+there could be a delay before the rule returns NON\_COMPLIANT.
 
 **AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Asia Pacific (Thailand), Asia Pacific (Malaysia), Mexico (Central), Asia Pacific (Taipei), Canada West (Calgary) Region
 

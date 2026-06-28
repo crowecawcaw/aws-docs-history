@@ -1,8 +1,8 @@
 # opensearch-update-check
 
-Checks if Amazon OpenSearch Service version updates are available but not installed. The rule is NON_COMPLIANT for an OpenSearch domain if the latest software updates are not installed.
+Checks if Amazon OpenSearch Service version updates are available but not installed. The rule is NON\_COMPLIANT for an OpenSearch domain if the latest software updates are not installed.
 
-**Identifier:** OPENSEARCH_UPDATE_CHECK
+**Identifier:** OPENSEARCH\_UPDATE\_CHECK
 
 **Resource Types:** AWS::OpenSearch::Domain
 

@@ -1,8 +1,8 @@
 # neptune-cluster-snapshot-iam-database-auth-enabled
 
-Checks if Amazon Neptune cluster snapshots have IAM database authentication enabled. The rule is NON_COMPLIANT if configuration.iamdatabaseAuthenticationEnabled is false.
+Checks if Amazon Neptune cluster snapshots have IAM database authentication enabled. The rule is NON\_COMPLIANT if configuration.iamdatabaseAuthenticationEnabled is false.
 
-**Identifier:** NEPTUNE_CLUSTER_SNAPSHOT_IAM_DATABASE_AUTH_ENABLED
+**Identifier:** NEPTUNE\_CLUSTER\_SNAPSHOT\_IAM\_DATABASE\_AUTH\_ENABLED
 
 **Resource Types:** AWS::RDS::DBClusterSnapshot
 

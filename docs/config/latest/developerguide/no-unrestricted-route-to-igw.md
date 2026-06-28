@@ -1,8 +1,8 @@
 # no-unrestricted-route-to-igw
 
-Checks if there are public routes in the route table to an Internet gateway (IGW). The rule is NON_COMPLIANT if a route to an IGW has a destination CIDR block of '0.0.0.0/0' or '::/0' or if a destination CIDR block does not match the rule parameter.
+Checks if there are public routes in the route table to an Internet gateway (IGW). The rule is NON\_COMPLIANT if a route to an IGW has a destination CIDR block of '0.0.0.0/0' or '::/0' or if a destination CIDR block does not match the rule parameter.
 
-**Identifier:** NO_UNRESTRICTED_ROUTE_TO_IGW
+**Identifier:** NO\_UNRESTRICTED\_ROUTE\_TO\_IGW
 
 **Resource Types:** AWS::EC2::RouteTable
 

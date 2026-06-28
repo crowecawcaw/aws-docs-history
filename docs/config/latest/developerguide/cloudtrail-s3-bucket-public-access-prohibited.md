@@ -1,8 +1,8 @@
 # cloudtrail-s3-bucket-public-access-prohibited
 
-Checks if the S3 bucket configurations for your AWS CloudTrail logs block public access. The rule is NON_COMPLIANT if at least one S3 bucket for a CloudTrail trail is publicly accessible.
+Checks if the S3 bucket configurations for your AWS CloudTrail logs block public access. The rule is NON\_COMPLIANT if at least one S3 bucket for a CloudTrail trail is publicly accessible.
 
-**Identifier:** CLOUDTRAIL_S3_BUCKET_PUBLIC_ACCESS_PROHIBITED
+**Identifier:** CLOUDTRAIL\_S3\_BUCKET\_PUBLIC\_ACCESS\_PROHIBITED
 
 **Resource Types:** AWS::CloudTrail::Trail
 

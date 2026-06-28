@@ -1,8 +1,8 @@
 # batch-compute-environment-managed
 
-Checks if AWS Batch compute environments are managed. The rule is NON_COMPLIANT if configuration.Type is 'UNMANAGED'.
+Checks if AWS Batch compute environments are managed. The rule is NON\_COMPLIANT if configuration.Type is 'UNMANAGED'.
 
-**Identifier:** BATCH_COMPUTE_ENVIRONMENT_MANAGED
+**Identifier:** BATCH\_COMPUTE\_ENVIRONMENT\_MANAGED
 
 **Resource Types:** AWS::Batch::ComputeEnvironment
 

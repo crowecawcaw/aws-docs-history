@@ -59,9 +59,8 @@ completing the following steps:
      provided keys if your rule includes parameters. A parameter is an attribute that your resources must adhere to
      before they are considered compliant with the rule.
 
-7. On the **Review and create** page, review all your selections before adding the rule to your AWS account.
-8. When you finish reviewing your rules, choose **Add
-   rule**.
+7. On the **Review and create** page, review all your selections before adding the rule to your AWS account. 8. When you finish reviewing your rules, choose **Add
+rule**.
 
 Using the AWS CLIUse the [`put-config-rule`](../../../cli/latest/reference/configservice/put-config-rule.md "../../../cli/latest/reference/configservice/put-config-rule.md") command.
 

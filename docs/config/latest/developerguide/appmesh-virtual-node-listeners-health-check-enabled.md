@@ -1,8 +1,8 @@
 # appmesh-virtual-node-listeners-health-check-enabled
 
-Checks if listeners for AWS App Mesh virtual nodes have health check enabled. The rule is NON_COMPLIANT if configuration.Spec.Listeners[].HealthCheck does not exist in one or more listeners.
+Checks if listeners for AWS App Mesh virtual nodes have health check enabled. The rule is NON\_COMPLIANT if configuration.Spec.Listeners[].HealthCheck does not exist in one or more listeners.
 
-**Identifier:** APPMESH_VIRTUAL_NODE_LISTENERS_HEALTH_CHECK_ENABLED
+**Identifier:** APPMESH\_VIRTUAL\_NODE\_LISTENERS\_HEALTH\_CHECK\_ENABLED
 
 **Resource Types:** AWS::AppMesh::VirtualNode
 

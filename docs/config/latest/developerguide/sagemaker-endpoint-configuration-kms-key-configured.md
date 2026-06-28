@@ -1,8 +1,8 @@
 # sagemaker-endpoint-configuration-kms-key-configured
 
-Checks if AWS Key Management Service (AWS KMS) key is configured for an Amazon SageMaker endpoint configuration. The rule is NON_COMPLIANT if 'KmsKeyId' is not specified for the Amazon SageMaker endpoint configuration.
+Checks if AWS Key Management Service (AWS KMS) key is configured for an Amazon SageMaker endpoint configuration. The rule is NON\_COMPLIANT if 'KmsKeyId' is not specified for the Amazon SageMaker endpoint configuration.
 
-**Identifier:** SAGEMAKER_ENDPOINT_CONFIGURATION_KMS_KEY_CONFIGURED
+**Identifier:** SAGEMAKER\_ENDPOINT\_CONFIGURATION\_KMS\_KEY\_CONFIGURED
 
 **Resource Types:** AWS::SageMaker::EndpointConfig
 

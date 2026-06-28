@@ -1,8 +1,8 @@
 # cloudfront-no-deprecated-ssl-protocols
 
-Checks if CloudFront distributions are using deprecated SSL protocols for HTTPS communication between CloudFront edge locations and custom origins. This rule is NON_COMPLIANT for a CloudFront distribution if any ‘OriginSslProtocols’ includes ‘SSLv3’.
+Checks if CloudFront distributions are using deprecated SSL protocols for HTTPS communication between CloudFront edge locations and custom origins. This rule is NON\_COMPLIANT for a CloudFront distribution if any ‘OriginSslProtocols’ includes ‘SSLv3’.
 
-**Identifier:** CLOUDFRONT_NO_DEPRECATED_SSL_PROTOCOLS
+**Identifier:** CLOUDFRONT\_NO\_DEPRECATED\_SSL\_PROTOCOLS
 
 **Resource Types:** AWS::CloudFront::Distribution
 

@@ -1,8 +1,8 @@
 # elb-internal-scheme-check
 
-Checks if a Classic Load Balancer scheme is internal. The rule is NON_COMPLIANT if configuration.scheme is not set to internal.
+Checks if a Classic Load Balancer scheme is internal. The rule is NON\_COMPLIANT if configuration.scheme is not set to internal.
 
-**Identifier:** ELB_INTERNAL_SCHEME_CHECK
+**Identifier:** ELB\_INTERNAL\_SCHEME\_CHECK
 
 **Resource Types:** AWS::ElasticLoadBalancing::LoadBalancer
 

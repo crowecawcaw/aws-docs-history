@@ -4,9 +4,9 @@ Checks if Amazon Elastic Kubernetes Service clusters are configured to have Kube
 
 - This rule is COMPLIANT if an EKS cluster has an encryptionConfig with secrets as one of the resources.
 - This rule is also COMPLIANT if the key used to encrypt EKS secrets matches with the parameter.
-- This rule is NON_COMPLIANT if an EKS cluster does not have an encryptionConfig or if the encryptionConfig resources do not include secrets.
-- This rule is also NON_COMPLIANT if the key used to encrypt EKS secrets does not match with the parameter.
-  **Identifier:** EKS_SECRETS_ENCRYPTED
+- This rule is NON\_COMPLIANT if an EKS cluster does not have an encryptionConfig or if the encryptionConfig resources do not include secrets.
+- This rule is also NON\_COMPLIANT if the key used to encrypt EKS secrets does not match with the parameter.
+  **Identifier:** EKS\_SECRETS\_ENCRYPTED
 
 **Resource Types:** AWS::EKS::Cluster
 

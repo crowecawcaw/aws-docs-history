@@ -1,8 +1,8 @@
 # batch-managed-spot-compute-environment-max-bid
 
-Checks if an AWS Batch managed Spot compute environment is configured to have a bid percentage less than or equal to the specified value. The rule is NON_COMPLIANT if the bid percentage is greater than the value specified in the required rule parameter.
+Checks if an AWS Batch managed Spot compute environment is configured to have a bid percentage less than or equal to the specified value. The rule is NON\_COMPLIANT if the bid percentage is greater than the value specified in the required rule parameter.
 
-**Identifier:** BATCH_MANAGED_SPOT_COMPUTE_ENVIRONMENT_MAX_BID
+**Identifier:** BATCH\_MANAGED\_SPOT\_COMPUTE\_ENVIRONMENT\_MAX\_BID
 
 **Resource Types:** AWS::Batch::ComputeEnvironment
 
@@ -15,7 +15,7 @@ Checks if an AWS Batch managed Spot compute environment is configured to have a 
 maxBidPercentage
 Type: int
 
-The maximum bid percentage value for the rule to check. The rule is NON_COMPLIANT if an AWS Batch managed Spot compute environment is configured with a bid percentage greater than this value. Valid values are 1 to 100.
+The maximum bid percentage value for the rule to check. The rule is NON\_COMPLIANT if an AWS Batch managed Spot compute environment is configured with a bid percentage greater than this value. Valid values are 1 to 100.
 
 ## AWS CloudFormation template
 

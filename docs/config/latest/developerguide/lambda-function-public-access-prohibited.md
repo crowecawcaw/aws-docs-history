@@ -1,6 +1,6 @@
 # lambda-function-public-access-prohibited
 
-Checks if the AWS Lambda function policy attached to the Lambda resource prohibits public access. If the Lambda function policy allows public access it is NON_COMPLIANT.
+Checks if the AWS Lambda function policy attached to the Lambda resource prohibits public access. If the Lambda function policy allows public access it is NON\_COMPLIANT.
 
 **Context**: A lambda function policy is considered to allow
 public access if the principal element is empty or contains a wildcard. For example, if the
@@ -20,7 +20,7 @@ include a condition to limit public access, such as `AWS:SourceAccount`. We reco
 
 To be considered non-public, a Lambda resource-based policy must grant access only to fixed values. This means values that don't contain a wildcard or the following IAM policy element: [Variables](../../../IAM/latest/UserGuide/reference_policies_variables.md#policy-vars-using-variables "../../../IAM/latest/UserGuide/reference_policies_variables.md#policy-vars-using-variables").
 
-**Identifier:** LAMBDA_FUNCTION_PUBLIC_ACCESS_PROHIBITED
+**Identifier:** LAMBDA\_FUNCTION\_PUBLIC\_ACCESS\_PROHIBITED
 
 **Resource Types:** AWS::Lambda::Function
 

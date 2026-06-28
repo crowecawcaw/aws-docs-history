@@ -1,12 +1,12 @@
 # opensearch-encrypted-at-rest
 
-Checks if Amazon OpenSearch Service domains have encryption at rest configuration enabled. The rule is NON_COMPLIANT if the `EncryptionAtRestOptions` field is not enabled.
+Checks if Amazon OpenSearch Service domains have encryption at rest configuration enabled. The rule is NON\_COMPLIANT if the `EncryptionAtRestOptions` field is not enabled.
 
 ###### Note
 
 The rule does not evaluate Elasticsearch domains.
 
-**Identifier:** OPENSEARCH_ENCRYPTED_AT_REST
+**Identifier:** OPENSEARCH\_ENCRYPTED\_AT\_REST
 
 **Resource Types:** AWS::OpenSearch::Domain
 

@@ -1,8 +1,8 @@
 # iam-external-access-analyzer-enabled
 
-Checks if an IAM Access Analyzer for external access is activated in your account per region. The rule is NON_COMPLIANT if there are no analyzers for external access in the region or if the 'status' attribute is not set to 'ACTIVE'.
+Checks if an IAM Access Analyzer for external access is activated in your account per region. The rule is NON\_COMPLIANT if there are no analyzers for external access in the region or if the 'status' attribute is not set to 'ACTIVE'.
 
-**Identifier:** IAM_EXTERNAL_ACCESS_ANALYZER_ENABLED
+**Identifier:** IAM\_EXTERNAL\_ACCESS\_ANALYZER\_ENABLED
 
 **Resource Types:** AWS::::Account
 

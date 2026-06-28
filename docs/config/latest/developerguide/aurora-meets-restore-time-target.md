@@ -1,8 +1,8 @@
 # aurora-meets-restore-time-target
 
-Checks if the restore time of Amazon Aurora DB clusters meets the specified duration. The rule is NON_COMPLIANT if LatestRestoreExecutionTimeMinutes of an Aurora DB Cluster is greater than maxRestoreTime minutes.
+Checks if the restore time of Amazon Aurora DB clusters meets the specified duration. The rule is NON\_COMPLIANT if LatestRestoreExecutionTimeMinutes of an Aurora DB Cluster is greater than maxRestoreTime minutes.
 
-**Identifier:** AURORA_MEETS_RESTORE_TIME_TARGET
+**Identifier:** AURORA\_MEETS\_RESTORE\_TIME\_TARGET
 
 **Resource Types:** AWS::RDS::DBCluster
 

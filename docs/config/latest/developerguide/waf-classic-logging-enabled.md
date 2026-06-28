@@ -1,8 +1,8 @@
 # waf-classic-logging-enabled
 
-Checks if logging is enabled on AWS WAF classic global web access control lists (web ACLs). The rule is NON_COMPLIANT for a global web ACL, if it does not have logging enabled.
+Checks if logging is enabled on AWS WAF classic global web access control lists (web ACLs). The rule is NON\_COMPLIANT for a global web ACL, if it does not have logging enabled.
 
-**Identifier:** WAF_CLASSIC_LOGGING_ENABLED
+**Identifier:** WAF\_CLASSIC\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::WAF::WebACL
 

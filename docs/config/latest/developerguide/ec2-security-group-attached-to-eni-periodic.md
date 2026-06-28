@@ -1,13 +1,13 @@
 # ec2-security-group-attached-to-eni-periodic
 
-Checks if non-default security groups are attached to Elastic network interfaces (ENIs). The rule is NON_COMPLIANT if the security group is not associated with an ENI. Security groups not owned by the calling account evaluate as NOT_APPLICABLE.
+Checks if non-default security groups are attached to Elastic network interfaces (ENIs). The rule is NON\_COMPLIANT if the security group is not associated with an ENI. Security groups not owned by the calling account evaluate as NOT\_APPLICABLE.
 
 ###### Note
 
 This rule reports on the `AWS::EC2::SecurityGroup` resource type.
 However, in order for the rule to run effectively, you must enable the recording of the `AWS::EC2::NetworkInterface` resource type.
 
-**Identifier:** EC2_SECURITY_GROUP_ATTACHED_TO_ENI_PERIODIC
+**Identifier:** EC2\_SECURITY\_GROUP\_ATTACHED\_TO\_ENI\_PERIODIC
 
 **Resource Types:** AWS::EC2::SecurityGroup
 

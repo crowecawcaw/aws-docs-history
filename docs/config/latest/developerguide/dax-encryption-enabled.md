@@ -1,8 +1,8 @@
 # dax-encryption-enabled
 
-Checks if Amazon DynamoDB Accelerator (DAX) clusters are encrypted. The rule is NON_COMPLIANT if a DAX cluster is not encrypted.
+Checks if Amazon DynamoDB Accelerator (DAX) clusters are encrypted. The rule is NON\_COMPLIANT if a DAX cluster is not encrypted.
 
-**Identifier:** DAX_ENCRYPTION_ENABLED
+**Identifier:** DAX\_ENCRYPTION\_ENABLED
 
 **Resource Types:** AWS::DAX::Cluster
 

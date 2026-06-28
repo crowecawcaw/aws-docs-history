@@ -1,8 +1,8 @@
 # sagemaker-notebook-instance-platform-version
 
-Checks if a Sagemaker Notebook Instance is configured to use a supported platform identifier version. The rule is NON_COMPLIANT if a Notebook Instance is not using the specified supported platform identifier version as specified in the parameter.
+Checks if a Sagemaker Notebook Instance is configured to use a supported platform identifier version. The rule is NON\_COMPLIANT if a Notebook Instance is not using the specified supported platform identifier version as specified in the parameter.
 
-**Identifier:** SAGEMAKER_NOTEBOOK_INSTANCE_PLATFORM_VERSION
+**Identifier:** SAGEMAKER\_NOTEBOOK\_INSTANCE\_PLATFORM\_VERSION
 
 **Resource Types:** AWS::SageMaker::NotebookInstance
 

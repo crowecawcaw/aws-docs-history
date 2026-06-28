@@ -1,8 +1,8 @@
 # neptune-cluster-snapshot-public-prohibited
 
-Checks if an Amazon Neptune manual DB cluster snapshot is public. The rule is NON_COMPLIANT if any existing and new Neptune cluster snapshot is public.
+Checks if an Amazon Neptune manual DB cluster snapshot is public. The rule is NON\_COMPLIANT if any existing and new Neptune cluster snapshot is public.
 
-**Identifier:** NEPTUNE_CLUSTER_SNAPSHOT_PUBLIC_PROHIBITED
+**Identifier:** NEPTUNE\_CLUSTER\_SNAPSHOT\_PUBLIC\_PROHIBITED
 
 **Resource Types:** AWS::RDS::DBClusterSnapshot
 

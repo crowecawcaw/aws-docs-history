@@ -1,8 +1,8 @@
 # codebuild-project-envvar-awscred-check
 
-Checks if the project contains environment variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY. The rule is NON_COMPLIANT when the project environment variables contains plaintext credentials.
+Checks if the project contains environment variables AWS\_ACCESS\_KEY\_ID and AWS\_SECRET\_ACCESS\_KEY. The rule is NON\_COMPLIANT when the project environment variables contains plaintext credentials.
 
-**Identifier:** CODEBUILD_PROJECT_ENVVAR_AWSCRED_CHECK
+**Identifier:** CODEBUILD\_PROJECT\_ENVVAR\_AWSCRED\_CHECK
 
 **Resource Types:** AWS::CodeBuild::Project
 

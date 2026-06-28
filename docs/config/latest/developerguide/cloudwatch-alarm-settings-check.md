@@ -2,7 +2,7 @@
 
 Checks whether CloudWatch alarms with the given metric name have the specified settings.
 
-**Identifier:** CLOUDWATCH_ALARM_SETTINGS_CHECK
+**Identifier:** CLOUDWATCH\_ALARM\_SETTINGS\_CHECK
 
 **Resource Types:** AWS::CloudWatch::Alarm
 

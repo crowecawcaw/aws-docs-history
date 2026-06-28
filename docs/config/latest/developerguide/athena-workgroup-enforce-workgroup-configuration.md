@@ -1,8 +1,8 @@
 # athena-workgroup-enforce-workgroup-configuration
 
-Checks if Amazon Athena workgroups using Athena engine enforce workgroup configuration to override client-side settings. The rule is NON_COMPLIANT if configuration.WorkGroupConfiguration.EnforceWorkGroupConfiguration is false.
+Checks if Amazon Athena workgroups using Athena engine enforce workgroup configuration to override client-side settings. The rule is NON\_COMPLIANT if configuration.WorkGroupConfiguration.EnforceWorkGroupConfiguration is false.
 
-**Identifier:** ATHENA_WORKGROUP_ENFORCE_WORKGROUP_CONFIGURATION
+**Identifier:** ATHENA\_WORKGROUP\_ENFORCE\_WORKGROUP\_CONFIGURATION
 
 **Resource Types:** AWS::Athena::WorkGroup
 

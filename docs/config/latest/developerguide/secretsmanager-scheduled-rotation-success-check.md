@@ -1,6 +1,6 @@
 # secretsmanager-scheduled-rotation-success-check
 
-Checks if AWS Secrets Manager secrets rotated successfully according to the rotation schedule. Secrets Manager calculates the date the rotation should happen. The rule is NON_COMPLIANT if the date passes and the secret isn't rotated.
+Checks if AWS Secrets Manager secrets rotated successfully according to the rotation schedule. Secrets Manager calculates the date the rotation should happen. The rule is NON\_COMPLIANT if the date passes and the secret isn't rotated.
 
 ###### Note
 
@@ -14,7 +14,7 @@ AWS Secrets Manager with Amazon CloudWatch](../../../secretsmanager/latest/userg
 
 The rule returns `NOT_APPLICABLE` for secrets that aren't configured for rotation.
 
-**Identifier:** SECRETSMANAGER_SCHEDULED_ROTATION_SUCCESS_CHECK
+**Identifier:** SECRETSMANAGER\_SCHEDULED\_ROTATION\_SUCCESS\_CHECK
 
 **Resource Types:** AWS::SecretsManager::Secret
 

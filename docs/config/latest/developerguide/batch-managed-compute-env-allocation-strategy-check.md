@@ -1,8 +1,8 @@
 # batch-managed-compute-env-allocation-strategy-check
 
-Checks if an AWS Batch managed compute environment is configured with a specified allocation strategy. The rule is NON_COMPLIANT if the compute environment is not configured with an allocation strategy specified in the required rule parameter.
+Checks if an AWS Batch managed compute environment is configured with a specified allocation strategy. The rule is NON\_COMPLIANT if the compute environment is not configured with an allocation strategy specified in the required rule parameter.
 
-**Identifier:** BATCH_MANAGED_COMPUTE_ENV_ALLOCATION_STRATEGY_CHECK
+**Identifier:** BATCH\_MANAGED\_COMPUTE\_ENV\_ALLOCATION\_STRATEGY\_CHECK
 
 **Resource Types:** AWS::Batch::ComputeEnvironment
 
@@ -15,7 +15,7 @@ Checks if an AWS Batch managed compute environment is configured with a specifie
 allocationStrategy
 Type: CSV
 
-Comma-separated list of allocation strategies for the rule to check. Valid values include: 'BEST_FIT', 'BEST_FIT_PROGRESSIVE', 'SPOT_CAPACITY_OPTIMIZED', and 'SPOT_PRICE_CAPACITY_OPTIMIZED'.
+Comma-separated list of allocation strategies for the rule to check. Valid values include: 'BEST\_FIT', 'BEST\_FIT\_PROGRESSIVE', 'SPOT\_CAPACITY\_OPTIMIZED', and 'SPOT\_PRICE\_CAPACITY\_OPTIMIZED'.
 
 ## AWS CloudFormation template
 

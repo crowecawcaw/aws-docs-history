@@ -1,8 +1,8 @@
 # redshift-cluster-maintenancesettings-check
 
-Checks if Amazon Redshift clusters have the specified maintenance settings. The rule is NON_COMPLIANT if the automatic upgrades to major version is disabled.
+Checks if Amazon Redshift clusters have the specified maintenance settings. The rule is NON\_COMPLIANT if the automatic upgrades to major version is disabled.
 
-**Identifier:** REDSHIFT_CLUSTER_MAINTENANCESETTINGS_CHECK
+**Identifier:** REDSHIFT\_CLUSTER\_MAINTENANCESETTINGS\_CHECK
 
 **Resource Types:** AWS::Redshift::Cluster
 

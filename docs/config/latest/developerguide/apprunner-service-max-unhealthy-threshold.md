@@ -1,8 +1,8 @@
 # apprunner-service-max-unhealthy-threshold
 
-Checks if an AWS App Runner service is configured to have an unhealthy threshold less than or equal to the specified value. The rule is NON_COMPLIANT if the unhealthy threshold is greater than the value specified in the required rule parameter.
+Checks if an AWS App Runner service is configured to have an unhealthy threshold less than or equal to the specified value. The rule is NON\_COMPLIANT if the unhealthy threshold is greater than the value specified in the required rule parameter.
 
-**Identifier:** APPRUNNER_SERVICE_MAX_UNHEALTHY_THRESHOLD
+**Identifier:** APPRUNNER\_SERVICE\_MAX\_UNHEALTHY\_THRESHOLD
 
 **Resource Types:** AWS::AppRunner::Service
 
@@ -15,7 +15,7 @@ Checks if an AWS App Runner service is configured to have an unhealthy threshold
 maxUnhealthyThreshold
 Type: int
 
-The maximum unhealthy threshold value for the rule to check. The rule is NON_COMPLIANT if an AWS App Runner service is configured with an unhealthy threshold greater than this value. Valid values are 1 to 20
+The maximum unhealthy threshold value for the rule to check. The rule is NON\_COMPLIANT if an AWS App Runner service is configured with an unhealthy threshold greater than this value. Valid values are 1 to 20
 
 ## AWS CloudFormation template
 

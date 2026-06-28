@@ -1,8 +1,8 @@
 # ecr-private-tag-immutability-enabled
 
-Checks if a private Amazon Elastic Container Registry (ECR) repository has tag immutability enabled. This rule is NON_COMPLIANT if tag immutability is not enabled for the private ECR repository.
+Checks if a private Amazon Elastic Container Registry (ECR) repository has tag immutability enabled. This rule is NON\_COMPLIANT if tag immutability is not enabled for the private ECR repository.
 
-**Identifier:** ECR_PRIVATE_TAG_IMMUTABILITY_ENABLED
+**Identifier:** ECR\_PRIVATE\_TAG\_IMMUTABILITY\_ENABLED
 
 **Resource Types:** AWS::ECR::Repository
 

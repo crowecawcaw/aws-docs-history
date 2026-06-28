@@ -1,8 +1,8 @@
 # ebs-resources-in-logically-air-gapped-vault
 
-Checks if Amazon Elastic Block Store (Amazon EBS) volumes are in a logically air-gapped vault. The rule is NON_COMPLIANT if an Amazon EBS volume is not in a logically air-gapped vault within the specified time period.
+Checks if Amazon Elastic Block Store (Amazon EBS) volumes are in a logically air-gapped vault. The rule is NON\_COMPLIANT if an Amazon EBS volume is not in a logically air-gapped vault within the specified time period.
 
-**Identifier:** EBS_RESOURCES_IN_LOGICALLY_AIR_GAPPED_VAULT
+**Identifier:** EBS\_RESOURCES\_IN\_LOGICALLY\_AIR\_GAPPED\_VAULT
 
 **Resource Types:** AWS::EC2::Volume
 

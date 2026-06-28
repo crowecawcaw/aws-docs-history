@@ -1,8 +1,8 @@
 # ec2-client-vpn-not-authorize-all
 
-Checks if the AWS Client VPN authorization rules authorizes connection access for all clients. The rule is NON_COMPLIANT if 'AccessAll' is present and set to true.
+Checks if the AWS Client VPN authorization rules authorizes connection access for all clients. The rule is NON\_COMPLIANT if 'AccessAll' is present and set to true.
 
-**Identifier:** EC2_CLIENT_VPN_NOT_AUTHORIZE_ALL
+**Identifier:** EC2\_CLIENT\_VPN\_NOT\_AUTHORIZE\_ALL
 
 **Resource Types:** AWS::EC2::ClientVpnEndpoint
 

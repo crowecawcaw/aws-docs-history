@@ -1,8 +1,8 @@
 # ebs-snapshot-block-public-access
 
-Checks if block public access is enabled for Amazon EBS snapshots in an AWS Region. The rule is NON_COMPLIANT if block public access is not enabled for all public sharing of EBS snapshots in an AWS Region.
+Checks if block public access is enabled for Amazon EBS snapshots in an AWS Region. The rule is NON\_COMPLIANT if block public access is not enabled for all public sharing of EBS snapshots in an AWS Region.
 
-**Identifier:** EBS_SNAPSHOT_BLOCK_PUBLIC_ACCESS
+**Identifier:** EBS\_SNAPSHOT\_BLOCK\_PUBLIC\_ACCESS
 
 **Resource Types:** AWS::EC2::SnapshotBlockPublicAccess
 

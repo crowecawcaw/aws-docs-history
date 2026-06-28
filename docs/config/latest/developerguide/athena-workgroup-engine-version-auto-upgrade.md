@@ -1,8 +1,8 @@
 # athena-workgroup-engine-version-auto-upgrade
 
-Checks if Amazon Athena workgroups using Athena engine are configured to auto upgrade. The rule is NON_COMPLIANT if configuration.WorkGroupConfiguration.EngineVersion.SelectedEngineVersion is not 'AUTO'.
+Checks if Amazon Athena workgroups using Athena engine are configured to auto upgrade. The rule is NON\_COMPLIANT if configuration.WorkGroupConfiguration.EngineVersion.SelectedEngineVersion is not 'AUTO'.
 
-**Identifier:** ATHENA_WORKGROUP_ENGINE_VERSION_AUTO_UPGRADE
+**Identifier:** ATHENA\_WORKGROUP\_ENGINE\_VERSION\_AUTO\_UPGRADE
 
 **Resource Types:** AWS::Athena::WorkGroup
 

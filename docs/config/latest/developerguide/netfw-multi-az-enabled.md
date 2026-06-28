@@ -1,8 +1,8 @@
 # netfw-multi-az-enabled
 
-Checks if AWS Network Firewall firewalls are deployed across multiple Availability Zones. The rule is NON_COMPLIANT if firewalls are deployed in only one Availability Zone or in fewer zones than the number listed in the optional parameter.
+Checks if AWS Network Firewall firewalls are deployed across multiple Availability Zones. The rule is NON\_COMPLIANT if firewalls are deployed in only one Availability Zone or in fewer zones than the number listed in the optional parameter.
 
-**Identifier:** NETFW_MULTI_AZ_ENABLED
+**Identifier:** NETFW\_MULTI\_AZ\_ENABLED
 
 **Resource Types:** AWS::NetworkFirewall::Firewall
 

@@ -1,8 +1,8 @@
 # cloudfront-ssl-policy-check
 
-Checks if Amazon CloudFront distributions are configured with the specified security policies.The rule is NON_COMPLIANT if a CloudFront Distribution is not configured with security policies that you specify.
+Checks if Amazon CloudFront distributions are configured with the specified security policies.The rule is NON\_COMPLIANT if a CloudFront Distribution is not configured with security policies that you specify.
 
-**Identifier:** CLOUDFRONT_SSL_POLICY_CHECK
+**Identifier:** CLOUDFRONT\_SSL\_POLICY\_CHECK
 
 **Resource Types:** AWS::CloudFront::Distribution
 
@@ -15,7 +15,7 @@ Checks if Amazon CloudFront distributions are configured with the specified secu
 securityPolicies
 Type: CSV
 
-Comma-separated list of CloudFront distribution security policies for the rule to check. For example: "TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021". For a list of valid value, see the Amazon CloudFront Developer Guide.
+Comma-separated list of CloudFront distribution security policies for the rule to check. For example: "TLSv1.2\_2018, TLSv1.2\_2019, TLSv1.2\_2021". For a list of valid value, see the Amazon CloudFront Developer Guide.
 
 ## AWS CloudFormation template
 

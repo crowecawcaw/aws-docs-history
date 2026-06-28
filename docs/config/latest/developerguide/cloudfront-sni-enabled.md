@@ -1,8 +1,8 @@
 # cloudfront-sni-enabled
 
-Checks if Amazon CloudFront distributions are using a custom SSL certificate and are configured to use SNI to serve HTTPS requests. The rule is NON_COMPLIANT if a custom SSL certificate is associated but the SSL support method is a dedicated IP address.
+Checks if Amazon CloudFront distributions are using a custom SSL certificate and are configured to use SNI to serve HTTPS requests. The rule is NON\_COMPLIANT if a custom SSL certificate is associated but the SSL support method is a dedicated IP address.
 
-**Identifier:** CLOUDFRONT_SNI_ENABLED
+**Identifier:** CLOUDFRONT\_SNI\_ENABLED
 
 **Resource Types:** AWS::CloudFront::Distribution
 

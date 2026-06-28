@@ -1,8 +1,8 @@
 # autoscaling-capacity-rebalancing
 
-Checks if Capacity Rebalancing is enabled for Amazon EC2 Auto Scaling groups that use multiple instance types. The rule is NON_COMPLIANT if capacity Rebalancing is not enabled.
+Checks if Capacity Rebalancing is enabled for Amazon EC2 Auto Scaling groups that use multiple instance types. The rule is NON\_COMPLIANT if capacity Rebalancing is not enabled.
 
-**Identifier:** AUTOSCALING_CAPACITY_REBALANCING
+**Identifier:** AUTOSCALING\_CAPACITY\_REBALANCING
 
 **Resource Types:** AWS::AutoScaling::AutoScalingGroup
 

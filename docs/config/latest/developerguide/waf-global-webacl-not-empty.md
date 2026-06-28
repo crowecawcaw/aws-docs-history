@@ -1,8 +1,8 @@
 # waf-global-webacl-not-empty
 
-Checks whether a WAF Global Web ACL contains any WAF rules or rule groups. This rule is NON_COMPLIANT if a Web ACL does not contain any WAF rule or rule group.
+Checks whether a WAF Global Web ACL contains any WAF rules or rule groups. This rule is NON\_COMPLIANT if a Web ACL does not contain any WAF rule or rule group.
 
-**Identifier:** WAF_GLOBAL_WEBACL_NOT_EMPTY
+**Identifier:** WAF\_GLOBAL\_WEBACL\_NOT\_EMPTY
 
 **Resource Types:** AWS::WAF::WebACL
 

@@ -1,8 +1,8 @@
 # ec2-traffic-mirror-session-description
 
-Checks if Amazon EC2 traffic mirror sessions have a description. The rule is NON_COMPLIANT if configuration.Description does not exist.
+Checks if Amazon EC2 traffic mirror sessions have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist.
 
-**Identifier:** EC2_TRAFFIC_MIRROR_SESSION_DESCRIPTION
+**Identifier:** EC2\_TRAFFIC\_MIRROR\_SESSION\_DESCRIPTION
 
 **Resource Types:** AWS::EC2::TrafficMirrorSession
 

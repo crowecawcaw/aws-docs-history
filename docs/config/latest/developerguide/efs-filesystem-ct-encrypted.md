@@ -1,8 +1,8 @@
 # efs-filesystem-ct-encrypted
 
-Checks if Amazon Elastic File System (Amazon EFS) encrypts data with AWS Key Management Service (AWS KMS). The rule is NON_COMPLIANT if a file system is not encrypted. Optionally, you can check if a file system is not encrypted with specified KMS keys.
+Checks if Amazon Elastic File System (Amazon EFS) encrypts data with AWS Key Management Service (AWS KMS). The rule is NON\_COMPLIANT if a file system is not encrypted. Optionally, you can check if a file system is not encrypted with specified KMS keys.
 
-**Identifier:** EFS_FILESYSTEM_CT_ENCRYPTED
+**Identifier:** EFS\_FILESYSTEM\_CT\_ENCRYPTED
 
 **Resource Types:** AWS::EFS::FileSystem
 

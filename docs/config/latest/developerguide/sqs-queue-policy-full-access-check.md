@@ -1,8 +1,8 @@
 # sqs-queue-policy-full-access-check
 
-Checks if the SQS queue access policy allows full access. The rule is NON_COMPLIANT if the SQS policy contains `SQS:\*` within `Action` and `Effect` is `Allow`.
+Checks if the SQS queue access policy allows full access. The rule is NON\_COMPLIANT if the SQS policy contains `SQS:\*` within `Action` and `Effect` is `Allow`.
 
-**Identifier:** SQS_QUEUE_POLICY_FULL_ACCESS_CHECK
+**Identifier:** SQS\_QUEUE\_POLICY\_FULL\_ACCESS\_CHECK
 
 **Resource Types:** AWS::SQS::Queue
 

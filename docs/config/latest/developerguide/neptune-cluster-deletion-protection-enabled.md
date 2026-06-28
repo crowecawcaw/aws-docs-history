@@ -1,8 +1,8 @@
 # neptune-cluster-deletion-protection-enabled
 
-Checks if an Amazon Neptune DB cluster has deletion protection enabled. The rule is NON_COMPLIANT if an Amazon Neptune cluster has the deletionProtection field set to false.
+Checks if an Amazon Neptune DB cluster has deletion protection enabled. The rule is NON\_COMPLIANT if an Amazon Neptune cluster has the deletionProtection field set to false.
 
-**Identifier:** NEPTUNE_CLUSTER_DELETION_PROTECTION_ENABLED
+**Identifier:** NEPTUNE\_CLUSTER\_DELETION\_PROTECTION\_ENABLED
 
 **Resource Types:** AWS::RDS::DBCluster
 

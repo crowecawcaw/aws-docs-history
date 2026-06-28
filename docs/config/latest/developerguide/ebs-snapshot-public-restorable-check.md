@@ -1,8 +1,8 @@
 # ebs-snapshot-public-restorable-check
 
-Checks if Amazon Elastic Block Store (Amazon EBS) snapshots are not publicly restorable. The rule is NON_COMPLIANT if one or more individual snapshots with RestorableByUserIds field are set to all.
+Checks if Amazon Elastic Block Store (Amazon EBS) snapshots are not publicly restorable. The rule is NON\_COMPLIANT if one or more individual snapshots with RestorableByUserIds field are set to all.
 
-**Identifier:** EBS_SNAPSHOT_PUBLIC_RESTORABLE_CHECK
+**Identifier:** EBS\_SNAPSHOT\_PUBLIC\_RESTORABLE\_CHECK
 
 **Trigger type:** Periodic
 

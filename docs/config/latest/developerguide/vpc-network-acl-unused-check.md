@@ -1,8 +1,8 @@
 # vpc-network-acl-unused-check
 
-Checks if there are unused network access control lists (network ACLs). The rule is COMPLIANT if each network ACL is associated with a subnet. The rule is NON_COMPLIANT if a network ACL is not associated with a subnet.
+Checks if there are unused network access control lists (network ACLs). The rule is COMPLIANT if each network ACL is associated with a subnet. The rule is NON\_COMPLIANT if a network ACL is not associated with a subnet.
 
-**Identifier:** VPC_NETWORK_ACL_UNUSED_CHECK
+**Identifier:** VPC\_NETWORK\_ACL\_UNUSED\_CHECK
 
 **Resource Types:** AWS::EC2::NetworkAcl
 

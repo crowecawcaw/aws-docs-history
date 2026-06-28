@@ -1,8 +1,8 @@
 # neptune-cluster-multi-az-enabled
 
-Checks if an Amazon Neptune cluster is configured with Amazon RDS Multi-AZ replication. The rule is NON_COMPLIANT if Multi-AZ replication is not enabled.
+Checks if an Amazon Neptune cluster is configured with Amazon RDS Multi-AZ replication. The rule is NON\_COMPLIANT if Multi-AZ replication is not enabled.
 
-**Identifier:** NEPTUNE_CLUSTER_MULTI_AZ_ENABLED
+**Identifier:** NEPTUNE\_CLUSTER\_MULTI\_AZ\_ENABLED
 
 **Resource Types:** AWS::RDS::DBCluster
 

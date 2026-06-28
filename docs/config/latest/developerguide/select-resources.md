@@ -85,7 +85,7 @@ arn:aws:ec2:us-east-1:123456789012:instance/i-0a6f30921424d3eee
 **Global resources**
 
 Some AWS services resources are _global
-resources_, meaning that you can use the resource from **_anywhere_**. You don't specify an
+resources_, meaning that you can use the resource from _**anywhere**_. You don't specify an
 AWS Region in a global service's console. To access a global resource, you don't
 specify a `--region` parameter when using the service's AWS CLI and AWS SDK
 operations.
@@ -149,16 +149,16 @@ type can be used in multiple AWS Regions, but the configuration items (CIs) are
 only recorded in the home Region for the commercial partition or
 AWS GovCloud (US-West) for the AWS GovCloud (US) partition.
 
-| Home Regions for Global Resource Types   | AWS Service                        | Resource Type Value          | Home Region |
-| ---------------------------------------- | ---------------------------------- | ---------------------------- | ----------- |
-| Amazon Elastic Container Registry Public | `AWS::ECR::PublicRepository`       | US East (N. Virginia) Region |
-| AWS Global Accelerator                   | `AWS::GlobalAccelerator::Listener` | US West (Oregon) Region      |
-| `AWS::GlobalAccelerator::EndpointGroup`  | US West (Oregon) Region            |
-| `AWS::GlobalAccelerator::Accelerator`    | US West (Oregon) Region            |
-| Amazon Route 53                          | `AWS::Route53::HostedZone`         | US East (N. Virginia) Region |
-| `AWS::Route53::HealthCheck`              | US East (N. Virginia) Region       |
-| Amazon CloudFront                        | `AWS::CloudFront::Distribution`    | US East (N. Virginia) Region |
-| AWS WAF                                  | `AWS::WAFv2::WebACL`               | US East (N. Virginia) Region |
+Home Regions for Global Resource Types| AWS Service | Resource Type Value | Home Region |
+| --- | --- | --- |
+| Amazon Elastic Container Registry Public | `AWS::ECR::PublicRepository` | US East (N. Virginia) Region |
+| AWS Global Accelerator | `AWS::GlobalAccelerator::Listener` | US West (Oregon) Region |
+| `AWS::GlobalAccelerator::EndpointGroup` | US West (Oregon) Region |
+| `AWS::GlobalAccelerator::Accelerator` | US West (Oregon) Region |
+| Amazon Route 53 | `AWS::Route53::HostedZone` | US East (N. Virginia) Region |
+| `AWS::Route53::HealthCheck` | US East (N. Virginia) Region |
+| Amazon CloudFront | `AWS::CloudFront::Distribution` | US East (N. Virginia) Region |
+| AWS WAF | `AWS::WAFv2::WebACL` | US East (N. Virginia) Region |
 
 **Global resource types | Aurora global clusters**
 

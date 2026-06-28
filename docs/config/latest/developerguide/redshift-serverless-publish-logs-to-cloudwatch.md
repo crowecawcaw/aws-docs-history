@@ -1,8 +1,8 @@
 # redshift-serverless-publish-logs-to-cloudwatch
 
-Checks if Amazon Redshift Serverless Namespace is configured to publish the following logs to Amazon CloudWatch Logs. This rule is NON_COMPLIANT if the Namespace is not configured to publish the following logs to Amazon CloudWatch Logs.
+Checks if Amazon Redshift Serverless Namespace is configured to publish the following logs to Amazon CloudWatch Logs. This rule is NON\_COMPLIANT if the Namespace is not configured to publish the following logs to Amazon CloudWatch Logs.
 
-**Identifier:** REDSHIFT_SERVERLESS_PUBLISH_LOGS_TO_CLOUDWATCH
+**Identifier:** REDSHIFT\_SERVERLESS\_PUBLISH\_LOGS\_TO\_CLOUDWATCH
 
 **Resource Types:** AWS::RedshiftServerless::Namespace
 

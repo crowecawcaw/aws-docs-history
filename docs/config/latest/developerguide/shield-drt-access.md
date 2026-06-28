@@ -1,8 +1,8 @@
 # shield-drt-access
 
-Checks if the Shield Response Team (SRT) can access your AWS account. The rule is NON_COMPLIANT if AWS Shield Advanced is enabled but the role for SRT access is not configured.
+Checks if the Shield Response Team (SRT) can access your AWS account. The rule is NON\_COMPLIANT if AWS Shield Advanced is enabled but the role for SRT access is not configured.
 
-**Identifier:** SHIELD_DRT_ACCESS
+**Identifier:** SHIELD\_DRT\_ACCESS
 
 **Trigger type:** Periodic
 

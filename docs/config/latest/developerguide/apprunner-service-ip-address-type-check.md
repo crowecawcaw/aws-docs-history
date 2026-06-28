@@ -1,8 +1,8 @@
 # apprunner-service-ip-address-type-check
 
-Checks if an AWS App Runner service is configured with the specified IP address type for incoming public network configuration. The rule is NON_COMPLIANT if the service is not configured with the IP address type specified in the required rule parameter.
+Checks if an AWS App Runner service is configured with the specified IP address type for incoming public network configuration. The rule is NON\_COMPLIANT if the service is not configured with the IP address type specified in the required rule parameter.
 
-**Identifier:** APPRUNNER_SERVICE_IP_ADDRESS_TYPE_CHECK
+**Identifier:** APPRUNNER\_SERVICE\_IP\_ADDRESS\_TYPE\_CHECK
 
 **Resource Types:** AWS::AppRunner::Service
 
@@ -15,7 +15,7 @@ Checks if an AWS App Runner service is configured with the specified IP address 
 ipAddressType
 Type: String
 
-The IP address type value for the rule to check. The rule is NON_COMPLIANT if an AWS App Runner service is configured with a value that does not match this value. Valid values include: 'IPV4', 'DUAL_STACK'.
+The IP address type value for the rule to check. The rule is NON\_COMPLIANT if an AWS App Runner service is configured with a value that does not match this value. Valid values include: 'IPV4', 'DUAL\_STACK'.
 
 ## AWS CloudFormation template
 

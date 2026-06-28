@@ -1,8 +1,8 @@
 # event-data-store-cmk-encryption-enabled
 
-Checks if AWS Cloud Trail event data stores have customer managed AWS KMS keys enabled. The rule is NON_COMPLIANT if an event data store has disabled customer managed KMS keys. Optionally, you can specify a list of KMS keys for the rule to check.
+Checks if AWS Cloud Trail event data stores have customer managed AWS KMS keys enabled. The rule is NON\_COMPLIANT if an event data store has disabled customer managed KMS keys. Optionally, you can specify a list of KMS keys for the rule to check.
 
-**Identifier:** EVENT_DATA_STORE_CMK_ENCRYPTION_ENABLED
+**Identifier:** EVENT\_DATA\_STORE\_CMK\_ENCRYPTION\_ENABLED
 
 **Resource Types:** AWS::CloudTrail::EventDataStore
 
@@ -15,7 +15,7 @@ Checks if AWS Cloud Trail event data stores have customer managed AWS KMS keys e
 kmsKeyArns (Optional)
 Type: CSV
 
-Comma-separated list of Amazon Resource Names (ARNs) of AWS KMS keys for the rule to check. If provided, the rule is NON_COMPLIANT if an AWS Cloud Trail event data store is not encrypted with one of these KMS keys.
+Comma-separated list of Amazon Resource Names (ARNs) of AWS KMS keys for the rule to check. If provided, the rule is NON\_COMPLIANT if an AWS Cloud Trail event data store is not encrypted with one of these KMS keys.
 
 ## AWS CloudFormation template
 

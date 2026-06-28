@@ -1,6 +1,6 @@
 # iam-password-policy
 
-Checks if the account password policy for AWS Identity and Access Management (IAM) users meets the specified requirements indicated in the parameters. The rule is NON_COMPLIANT if the account password policy does not meet the specified requirements.
+Checks if the account password policy for AWS Identity and Access Management (IAM) users meets the specified requirements indicated in the parameters. The rule is NON\_COMPLIANT if the account password policy does not meet the specified requirements.
 
 ###### Important
 
@@ -11,7 +11,7 @@ If `true` is not provided in lowercase, it will be treated as `false.`
 
 **Evaluation Result for the Default IAM Password Policy**
 
-This rule is marked as NON_COMPLIANT when the default IAM password policy is used.
+This rule is marked as NON\_COMPLIANT when the default IAM password policy is used.
 
 **Managed Rules and Global IAM Resource Types**
 
@@ -31,7 +31,7 @@ To avoid unnecessary evaluations, you should only deploy periodic rules that rep
 For a list of which managed rules are supported in which Regions,
 see [List of AWS Config Managed Rules by Region Availability](managing-rules-by-region-availability.md "managing-rules-by-region-availability.md").
 
-**Identifier:** IAM_PASSWORD_POLICY
+**Identifier:** IAM\_PASSWORD\_POLICY
 
 **Trigger type:** Periodic
 

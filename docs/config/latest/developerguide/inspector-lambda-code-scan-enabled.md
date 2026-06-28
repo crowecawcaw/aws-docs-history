@@ -1,8 +1,8 @@
 # inspector-lambda-code-scan-enabled
 
-Checks if Amazon Inspector V2 Lambda code scanning is activated for your single or multi-account environment to detect potential code vulnerabilities. The rule is NON_COMPLIANT if Lambda code scanning is not activated.
+Checks if Amazon Inspector V2 Lambda code scanning is activated for your single or multi-account environment to detect potential code vulnerabilities. The rule is NON\_COMPLIANT if Lambda code scanning is not activated.
 
-**Identifier:** INSPECTOR_LAMBDA_CODE_SCAN_ENABLED
+**Identifier:** INSPECTOR\_LAMBDA\_CODE\_SCAN\_ENABLED
 
 **Resource Types:** AWS::::Account
 

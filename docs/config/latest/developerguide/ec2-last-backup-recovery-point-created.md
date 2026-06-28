@@ -1,8 +1,8 @@
 # ec2-last-backup-recovery-point-created
 
-Checks if a recovery point was created for Amazon Elastic Compute Cloud (Amazon EC2) instances. The rule is NON_COMPLIANT if the Amazon EC2 instance does not have a corresponding recovery point created within the specified time period.
+Checks if a recovery point was created for Amazon Elastic Compute Cloud (Amazon EC2) instances. The rule is NON\_COMPLIANT if the Amazon EC2 instance does not have a corresponding recovery point created within the specified time period.
 
-**Identifier:** EC2_LAST_BACKUP_RECOVERY_POINT_CREATED
+**Identifier:** EC2\_LAST\_BACKUP\_RECOVERY\_POINT\_CREATED
 
 **Resource Types:** AWS::EC2::Instance
 

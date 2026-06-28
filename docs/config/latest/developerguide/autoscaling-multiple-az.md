@@ -1,8 +1,8 @@
 # autoscaling-multiple-az
 
-Checks if the Auto Scaling group spans multiple Availability Zones. The rule is NON_COMPLIANT if the Auto Scaling group does not span multiple Availability Zones.
+Checks if the Auto Scaling group spans multiple Availability Zones. The rule is NON\_COMPLIANT if the Auto Scaling group does not span multiple Availability Zones.
 
-**Identifier:** AUTOSCALING_MULTIPLE_AZ
+**Identifier:** AUTOSCALING\_MULTIPLE\_AZ
 
 **Resource Types:** AWS::AutoScaling::AutoScalingGroup
 

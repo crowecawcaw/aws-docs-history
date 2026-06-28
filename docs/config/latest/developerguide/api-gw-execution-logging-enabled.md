@@ -1,8 +1,8 @@
 # api-gw-execution-logging-enabled
 
-Checks if all methods in Amazon API Gateway stages have logging enabled. The rule is NON_COMPLIANT if logging is not enabled, or if `loggingLevel` is neither ERROR nor INFO.
+Checks if all methods in Amazon API Gateway stages have logging enabled. The rule is NON\_COMPLIANT if logging is not enabled, or if `loggingLevel` is neither ERROR nor INFO.
 
-**Identifier:** API_GW_EXECUTION_LOGGING_ENABLED
+**Identifier:** API\_GW\_EXECUTION\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage
 

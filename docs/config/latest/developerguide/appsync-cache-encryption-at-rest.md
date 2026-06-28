@@ -1,8 +1,8 @@
 # appsync-cache-encryption-at-rest
 
-Checks if an AWS AppSync API cache has encryption at rest enabled. This rule is NON_COMPLIANT if 'AtRestEncryptionEnabled' is false.
+Checks if an AWS AppSync API cache has encryption at rest enabled. This rule is NON\_COMPLIANT if 'AtRestEncryptionEnabled' is false.
 
-**Identifier:** APPSYNC_CACHE_ENCRYPTION_AT_REST
+**Identifier:** APPSYNC\_CACHE\_ENCRYPTION\_AT\_REST
 
 **Resource Types:** AWS::AppSync::GraphQLApi
 

@@ -1,8 +1,8 @@
 # customerprofiles-object-type-allow-profile-creation
 
-Checks if Amazon Connect Customer Profiles object types allow the creation of a new standard profile if one does not exist. The rule is NON_COMPLIANT if configuration.AllowProfileCreation is false.
+Checks if Amazon Connect Customer Profiles object types allow the creation of a new standard profile if one does not exist. The rule is NON\_COMPLIANT if configuration.AllowProfileCreation is false.
 
-**Identifier:** CUSTOMERPROFILES_OBJECT_TYPE_ALLOW_PROFILE_CREATION
+**Identifier:** CUSTOMERPROFILES\_OBJECT\_TYPE\_ALLOW\_PROFILE\_CREATION
 
 **Resource Types:** AWS::CustomerProfiles::ObjectType
 

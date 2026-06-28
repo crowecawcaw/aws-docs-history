@@ -1,8 +1,8 @@
 # rds-cluster-default-admin-check
 
-Checks if an Amazon Relational Database Service (Amazon RDS) database cluster has changed the admin username from its default value. The rule is NON_COMPLIANT if the admin username is set to the default value.
+Checks if an Amazon Relational Database Service (Amazon RDS) database cluster has changed the admin username from its default value. The rule is NON\_COMPLIANT if the admin username is set to the default value.
 
-**Identifier:** RDS_CLUSTER_DEFAULT_ADMIN_CHECK
+**Identifier:** RDS\_CLUSTER\_DEFAULT\_ADMIN\_CHECK
 
 **Resource Types:** AWS::RDS::DBCluster
 

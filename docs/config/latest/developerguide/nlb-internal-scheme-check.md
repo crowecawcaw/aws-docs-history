@@ -1,8 +1,8 @@
 # nlb-internal-scheme-check
 
-Checks if a Network Load Balancer scheme is internal. The rule is NON_COMPLIANT if configuration.scheme is not set to internal.
+Checks if a Network Load Balancer scheme is internal. The rule is NON\_COMPLIANT if configuration.scheme is not set to internal.
 
-**Identifier:** NLB_INTERNAL_SCHEME_CHECK
+**Identifier:** NLB\_INTERNAL\_SCHEME\_CHECK
 
 **Resource Types:** AWS::ElasticLoadBalancingV2::LoadBalancer
 

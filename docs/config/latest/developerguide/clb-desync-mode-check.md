@@ -1,8 +1,8 @@
 # clb-desync-mode-check
 
-Checks if Classic Load Balancers (CLB) are configured with a user defined Desync mitigation mode. The rule is NON_COMPLIANT if CLB Desync mitigation mode does not match with user defined Desync mitigation mode.
+Checks if Classic Load Balancers (CLB) are configured with a user defined Desync mitigation mode. The rule is NON\_COMPLIANT if CLB Desync mitigation mode does not match with user defined Desync mitigation mode.
 
-**Identifier:** CLB_DESYNC_MODE_CHECK
+**Identifier:** CLB\_DESYNC\_MODE\_CHECK
 
 **Resource Types:** AWS::ElasticLoadBalancing::LoadBalancer
 

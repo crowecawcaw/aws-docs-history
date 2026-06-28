@@ -1,8 +1,8 @@
 # cloudwatch-alarm-action-check
 
-Checks if CloudWatch alarms have an action configured for the ALARM, INSUFFICIENT_DATA, or OK state. Optionally checks if any actions match a named ARN. The rule is NON_COMPLIANT if there is no action specified for the alarm or optional parameter.
+Checks if CloudWatch alarms have an action configured for the ALARM, INSUFFICIENT\_DATA, or OK state. Optionally checks if any actions match a named ARN. The rule is NON\_COMPLIANT if there is no action specified for the alarm or optional parameter.
 
-**Identifier:** CLOUDWATCH_ALARM_ACTION_CHECK
+**Identifier:** CLOUDWATCH\_ALARM\_ACTION\_CHECK
 
 **Resource Types:** AWS::CloudWatch::Alarm
 
@@ -22,7 +22,7 @@ insufficientDataActionRequired
 Type: String
 Default: true
 
-Alarms have at least one action when the alarm transitions to the INSUFFICIENT_DATA state from any other state.
+Alarms have at least one action when the alarm transitions to the INSUFFICIENT\_DATA state from any other state.
 
 alarmActionRequired
 Type: String

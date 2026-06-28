@@ -1,8 +1,8 @@
 # netfw-deletion-protection-enabled
 
-Checks if AWS Network Firewall has deletion protection enabled. The rule is NON_COMPLIANT if Network Firewall does not have deletion protection enabled.
+Checks if AWS Network Firewall has deletion protection enabled. The rule is NON\_COMPLIANT if Network Firewall does not have deletion protection enabled.
 
-**Identifier:** NETFW_DELETION_PROTECTION_ENABLED
+**Identifier:** NETFW\_DELETION\_PROTECTION\_ENABLED
 
 **Resource Types:** AWS::NetworkFirewall::Firewall
 

@@ -1,8 +1,8 @@
 # athena-prepared-statement-description
 
-Checks if Amazon Athena prepared statements have a description. The rule is NON_COMPLIANT if configuration.Description does not exist.
+Checks if Amazon Athena prepared statements have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist.
 
-**Identifier:** ATHENA_PREPARED_STATEMENT_DESCRIPTION
+**Identifier:** ATHENA\_PREPARED\_STATEMENT\_DESCRIPTION
 
 **Resource Types:** AWS::Athena::PreparedStatement
 

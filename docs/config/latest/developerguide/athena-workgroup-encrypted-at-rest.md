@@ -1,8 +1,8 @@
 # athena-workgroup-encrypted-at-rest
 
-Checks if an Amazon Athena workgroup is encrypted at rest. The rule is NON_COMPLIANT if encryption of data at rest is not enabled for an Athena workgroup.
+Checks if an Amazon Athena workgroup is encrypted at rest. The rule is NON\_COMPLIANT if encryption of data at rest is not enabled for an Athena workgroup.
 
-**Identifier:** ATHENA_WORKGROUP_ENCRYPTED_AT_REST
+**Identifier:** ATHENA\_WORKGROUP\_ENCRYPTED\_AT\_REST
 
 **Resource Types:** AWS::Athena::WorkGroup
 

@@ -1,8 +1,8 @@
 # dms-replication-not-public
 
-Checks if AWS Database Migration Service (AWS DMS) replication instances are public. The rule is NON_COMPLIANT if PubliclyAccessible field is set to true.
+Checks if AWS Database Migration Service (AWS DMS) replication instances are public. The rule is NON\_COMPLIANT if PubliclyAccessible field is set to true.
 
-**Identifier:** DMS_REPLICATION_NOT_PUBLIC
+**Identifier:** DMS\_REPLICATION\_NOT\_PUBLIC
 
 **Resource Types:** AWS::DMS::ReplicationInstance
 

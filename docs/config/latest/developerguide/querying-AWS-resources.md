@@ -94,9 +94,9 @@ limitations:
     supported but `...WHERE 'someKey%' LIKE 'someValue%'` is not
     supported).
   - Support for only suffix wildcards (for example, `...LIKE
-'AWS::EC2::%'` and `...LIKE 'AWS::EC2::_'` is
+   'AWS::EC2::%'` and `...LIKE 'AWS::EC2::_'` is
     supported but `...LIKE '%::EC2::Instance'` and `...LIKE
-'_::EC2::Instance'`is not supported).
+   '_::EC2::Instance'`is not supported).
   - Wildcard matches must be at least three characters long (for example,
     `...LIKE 'ab%'` and `...LIKE 'ab_'` is not
     allowed but `...LIKE 'abc%'` and `...LIKE 'abc_'`
@@ -199,7 +199,7 @@ AND configuration.configRuleList.configRuleName = 'A'
 
 The first condition `configuration.configRuleList.complianceType =
  'non_compliant'` is applied to ALL elements in R.configRuleList,
-because R has a rule (rule B) with complianceType = 'non_compliant', the
+because R has a rule (rule B) with complianceType = 'non\_compliant', the
 condition is evaluated as true.
 
 The second condition

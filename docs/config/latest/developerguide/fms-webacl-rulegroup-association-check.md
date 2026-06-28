@@ -9,7 +9,7 @@ The correct priority is decided by the rank of the rule groups in the ruleGroups
 When AWS Firewall Manager creates this rule, it assigns the highest priority 0 followed by 1, 2, and so on.
 The FMS policy owner specifies the `ruleGroups` rank in the FMS policy and can optionally enable remediation.
 
-**Identifier:** FMS_WEBACL_RULEGROUP_ASSOCIATION_CHECK
+**Identifier:** FMS\_WEBACL\_RULEGROUP\_ASSOCIATION\_CHECK
 
 **Resource Types:** AWS::WAF::WebACL, AWS::WAFRegional::WebACL
 

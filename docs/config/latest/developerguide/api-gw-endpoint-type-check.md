@@ -1,8 +1,8 @@
 # api-gw-endpoint-type-check
 
-Checks if Amazon API Gateway APIs are of the type specified in the rule parameter `endpointConfigurationType`. The rule returns NON_COMPLIANT if the REST API does not match the endpoint type configured in the rule parameter.
+Checks if Amazon API Gateway APIs are of the type specified in the rule parameter `endpointConfigurationType`. The rule returns NON\_COMPLIANT if the REST API does not match the endpoint type configured in the rule parameter.
 
-**Identifier:** API_GW_ENDPOINT_TYPE_CHECK
+**Identifier:** API\_GW\_ENDPOINT\_TYPE\_CHECK
 
 **Resource Types:** AWS::ApiGateway::RestApi
 

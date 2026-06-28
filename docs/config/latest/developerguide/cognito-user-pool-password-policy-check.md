@@ -1,8 +1,8 @@
 # cognito-user-pool-password-policy-check
 
-Checks if the password policy for Amazon cognito user pool meets the specified requirements indicated in the parameters. The rule is NON_COMPLIANT if the user pool password policy does not meet the specified requirements.
+Checks if the password policy for Amazon cognito user pool meets the specified requirements indicated in the parameters. The rule is NON\_COMPLIANT if the user pool password policy does not meet the specified requirements.
 
-**Identifier:** COGNITO_USER_POOL_PASSWORD_POLICY_CHECK
+**Identifier:** COGNITO\_USER\_POOL\_PASSWORD\_POLICY\_CHECK
 
 **Resource Types:** AWS::Cognito::UserPool
 

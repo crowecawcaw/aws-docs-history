@@ -1,8 +1,8 @@
 # emr-block-public-access
 
-Checks if an account with Amazon EMR has block public access settings enabled. The rule is NON_COMPLIANT if BlockPublicSecurityGroupRules is false, or if true, ports other than Port 22 are listed in PermittedPublicSecurityGroupRuleRanges.
+Checks if an account with Amazon EMR has block public access settings enabled. The rule is NON\_COMPLIANT if BlockPublicSecurityGroupRules is false, or if true, ports other than Port 22 are listed in PermittedPublicSecurityGroupRuleRanges.
 
-**Identifier:** EMR_BLOCK_PUBLIC_ACCESS
+**Identifier:** EMR\_BLOCK\_PUBLIC\_ACCESS
 
 **Resource Types:** AWS::::Account
 

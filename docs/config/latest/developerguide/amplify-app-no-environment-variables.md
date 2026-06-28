@@ -1,8 +1,8 @@
 # amplify-app-no-environment-variables
 
-Checks that AWS Amplify apps do not contain environment variables. The rule is NON_COMPLIANT if configuration.EnvironmentVariables is not an empty list.
+Checks that AWS Amplify apps do not contain environment variables. The rule is NON\_COMPLIANT if configuration.EnvironmentVariables is not an empty list.
 
-**Identifier:** AMPLIFY_APP_NO_ENVIRONMENT_VARIABLES
+**Identifier:** AMPLIFY\_APP\_NO\_ENVIRONMENT\_VARIABLES
 
 **Resource Types:** AWS::Amplify::App
 

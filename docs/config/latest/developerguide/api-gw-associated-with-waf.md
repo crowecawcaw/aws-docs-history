@@ -1,8 +1,8 @@
 # api-gw-associated-with-waf
 
-Checks if an Amazon API Gateway API stage is using an AWS WAF web access control list (web ACL). The rule is NON_COMPLIANT if an AWS WAF Web ACL is not used or if a used AWS Web ACL does not match what is listed in the rule parameter.
+Checks if an Amazon API Gateway API stage is using an AWS WAF web access control list (web ACL). The rule is NON\_COMPLIANT if an AWS WAF Web ACL is not used or if a used AWS Web ACL does not match what is listed in the rule parameter.
 
-**Identifier:** API_GW_ASSOCIATED_WITH_WAF
+**Identifier:** API\_GW\_ASSOCIATED\_WITH\_WAF
 
 **Resource Types:** AWS::ApiGateway::Stage
 

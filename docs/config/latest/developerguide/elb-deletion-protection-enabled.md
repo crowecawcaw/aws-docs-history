@@ -1,8 +1,8 @@
 # elb-deletion-protection-enabled
 
-Checks whether an Elastic Load Balancer has deletion protection enabled. The rule is NON_COMPLIANT if deletion_protection.enabled is false.
+Checks whether an Elastic Load Balancer has deletion protection enabled. The rule is NON\_COMPLIANT if deletion\_protection.enabled is false.
 
-**Identifier:** ELB_DELETION_PROTECTION_ENABLED
+**Identifier:** ELB\_DELETION\_PROTECTION\_ENABLED
 
 **Resource Types:** AWS::ElasticLoadBalancingV2::LoadBalancer
 

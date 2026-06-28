@@ -1,8 +1,8 @@
 # elasticbeanstalk-application-version-description
 
-Checks if AWS Elastic Beanstalk application versions have a description. The rule is NON_COMPLIANT if configuration.description does not exist or is an empty string.
+Checks if AWS Elastic Beanstalk application versions have a description. The rule is NON\_COMPLIANT if configuration.description does not exist or is an empty string.
 
-**Identifier:** ELASTICBEANSTALK_APPLICATION_VERSION_DESCRIPTION
+**Identifier:** ELASTICBEANSTALK\_APPLICATION\_VERSION\_DESCRIPTION
 
 **Resource Types:** AWS::ElasticBeanstalk::ApplicationVersion
 

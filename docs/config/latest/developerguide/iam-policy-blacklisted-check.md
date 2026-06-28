@@ -1,8 +1,8 @@
 # iam-policy-blacklisted-check
 
-Checks in each AWS Identity and Access Management (IAM) resource, if a policy Amazon Resource Name (ARN) in the input parameter is attached to the IAM resource. The rule is NON_COMPLIANT if the policy ARN is attached to the IAM resource.
+Checks in each AWS Identity and Access Management (IAM) resource, if a policy Amazon Resource Name (ARN) in the input parameter is attached to the IAM resource. The rule is NON\_COMPLIANT if the policy ARN is attached to the IAM resource.
 
-**Identifier:** IAM_POLICY_BLACKLISTED_CHECK
+**Identifier:** IAM\_POLICY\_BLACKLISTED\_CHECK
 
 **Resource Types:** AWS::IAM::User, AWS::IAM::Group, AWS::IAM::Role
 

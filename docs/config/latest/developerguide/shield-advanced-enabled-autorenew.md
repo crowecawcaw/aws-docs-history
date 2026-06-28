@@ -6,7 +6,7 @@ Checks if AWS Shield Advanced is enabled in your AWS account and this subscripti
 
 The API endpoint of AWS Shield Advanced is only available in US East (N. Virginia) Region. This rule should only be scheduled to run in the US East (N. Virginia) Region.
 
-**Identifier:** SHIELD_ADVANCED_ENABLED_AUTORENEW
+**Identifier:** SHIELD\_ADVANCED\_ENABLED\_AUTORENEW
 
 **Trigger type:** Periodic
 

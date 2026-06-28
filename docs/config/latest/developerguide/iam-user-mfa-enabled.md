@@ -1,6 +1,6 @@
 # iam-user-mfa-enabled
 
-Checks if the AWS Identity and Access Management (IAM) users have multi-factor authentication (MFA) enabled. The rule is NON_COMPLIANT if MFA is not enabled for at least one IAM user.
+Checks if the AWS Identity and Access Management (IAM) users have multi-factor authentication (MFA) enabled. The rule is NON\_COMPLIANT if MFA is not enabled for at least one IAM user.
 
 ###### Note
 
@@ -22,7 +22,7 @@ To avoid unnecessary evaluations, you should only deploy periodic rules that rep
 For a list of which managed rules are supported in which Regions,
 see [List of AWS Config Managed Rules by Region Availability](managing-rules-by-region-availability.md "managing-rules-by-region-availability.md").
 
-**Identifier:** IAM_USER_MFA_ENABLED
+**Identifier:** IAM\_USER\_MFA\_ENABLED
 
 **Resource Types:** AWS::IAM::User
 

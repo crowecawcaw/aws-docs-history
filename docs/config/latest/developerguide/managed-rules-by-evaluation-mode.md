@@ -5,11 +5,11 @@ AWS Config currently supports the following managed rules. Before using these ru
 ## Proactive Evaluation
 
 _Proactive rules_ are rules that support the proactive evaluation mode for resources that have not been deployed. This allows you to evaluate whether a set of resource properties, if used to define an AWS resource,
-would be COMPLIANT or NON_COMPLIANT given the set of proactive rules that you have in your account in your Region. For more information, see [Evaluation modes](evaluate-config_components.md#evaluate-config_use-managed-rules-proactive-detective "evaluate-config_components.md#evaluate-config_use-managed-rules-proactive-detective").
+would be COMPLIANT or NON\_COMPLIANT given the set of proactive rules that you have in your account in your Region. For more information, see [Evaluation modes](evaluate-config_components.md#evaluate-config_use-managed-rules-proactive-detective "evaluate-config_components.md#evaluate-config_use-managed-rules-proactive-detective").
 
 ###### Note
 
-Proactive rules do not remediate resources that are flagged as NON_COMPLIANT or prevent them from being deployed.
+Proactive rules do not remediate resources that are flagged as NON\_COMPLIANT or prevent them from being deployed.
 
 - [eip-attached](eip-attached.md "eip-attached.md")
 - [subnet-auto-assign-public-ip-disabled](subnet-auto-assign-public-ip-disabled.md "subnet-auto-assign-public-ip-disabled.md")

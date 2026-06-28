@@ -2,12 +2,12 @@
 
 ###### Important
 
-For this rule, the rule identifier (MULTI_REGION_CLOUD_TRAIL_ENABLED) and rule name (multi-region-cloudtrail-enabled) are different.
+For this rule, the rule identifier (MULTI\_REGION\_CLOUD\_TRAIL\_ENABLED) and rule name (multi-region-cloudtrail-enabled) are different.
 
-Checks if there is at least one multi-region AWS CloudTrail. The rule is NON_COMPLIANT if the trails do not match input parameters.
-The rule is NON_COMPLIANT if the `ExcludeManagementEventSources` field is not empty or if AWS CloudTrail is configured to exclude management events such as AWS KMS events or Amazon RDS Data API events.
+Checks if there is at least one multi-region AWS CloudTrail. The rule is NON\_COMPLIANT if the trails do not match input parameters.
+The rule is NON\_COMPLIANT if the `ExcludeManagementEventSources` field is not empty or if AWS CloudTrail is configured to exclude management events such as AWS KMS events or Amazon RDS Data API events.
 
-**Identifier:** MULTI_REGION_CLOUD_TRAIL_ENABLED
+**Identifier:** MULTI\_REGION\_CLOUD\_TRAIL\_ENABLED
 
 **Trigger type:** Periodic
 

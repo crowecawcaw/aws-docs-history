@@ -1,8 +1,8 @@
 # vpc-sg-port-restriction-check
 
-Checks if security groups restrict incoming traffic to restricted ports explicitly from 0.0.0.0/0 or ::/0. The rule is NON_COMPLIANT if security groups allow incoming traffic from 0.0.0.0/0 or ::/0 over TCP/UDP ports 22/3389 or as specified in parameters.
+Checks if security groups restrict incoming traffic to restricted ports explicitly from 0.0.0.0/0 or ::/0. The rule is NON\_COMPLIANT if security groups allow incoming traffic from 0.0.0.0/0 or ::/0 over TCP/UDP ports 22/3389 or as specified in parameters.
 
-**Identifier:** VPC_SG_PORT_RESTRICTION_CHECK
+**Identifier:** VPC\_SG\_PORT\_RESTRICTION\_CHECK
 
 **Resource Types:** AWS::EC2::SecurityGroup
 

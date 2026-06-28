@@ -1,8 +1,8 @@
 # wafv2-rulegroup-not-empty
 
-Checks if WAFv2 Rule Groups contain rules. The rule is NON_COMPLIANT if there are no rules in a WAFv2 Rule Group.
+Checks if WAFv2 Rule Groups contain rules. The rule is NON\_COMPLIANT if there are no rules in a WAFv2 Rule Group.
 
-**Identifier:** WAFV2_RULEGROUP_NOT_EMPTY
+**Identifier:** WAFV2\_RULEGROUP\_NOT\_EMPTY
 
 **Resource Types:** AWS::WAFv2::RuleGroup
 

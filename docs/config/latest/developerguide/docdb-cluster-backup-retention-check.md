@@ -1,8 +1,8 @@
 # docdb-cluster-backup-retention-check
 
-Checks if an Amazon Document DB cluster retention period is set to specific number of days. The rule is NON_COMPLIANT if the retention period is less than the value specified by the parameter.
+Checks if an Amazon Document DB cluster retention period is set to specific number of days. The rule is NON\_COMPLIANT if the retention period is less than the value specified by the parameter.
 
-**Identifier:** DOCDB_CLUSTER_BACKUP_RETENTION_CHECK
+**Identifier:** DOCDB\_CLUSTER\_BACKUP\_RETENTION\_CHECK
 
 **Resource Types:** AWS::RDS::DBCluster
 
@@ -15,7 +15,7 @@ Checks if an Amazon Document DB cluster retention period is set to specific numb
 minimumBackupRetentionPeriod (Optional)
 Type: int
 
-Minimum days backups should be kept. Valid values 1 to 35, default value is 7. This rule is NON_COMPLIANT if value is greater than 'backupRetentionPeriod'.
+Minimum days backups should be kept. Valid values 1 to 35, default value is 7. This rule is NON\_COMPLIANT if value is greater than 'backupRetentionPeriod'.
 
 ## AWS CloudFormation template
 

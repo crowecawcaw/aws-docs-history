@@ -1,8 +1,8 @@
 # cognito-user-pool-mfa-enabled
 
-Checks if Amazon Cognito user pools configured with a PASSWORD-only sign-in policy have Multi-Factor Authentication (MFA) enabled. This rule is NON_COMPLIANT if the Cognito user pool configured with PASSWORD only sign in policy does not have MFA enabled.
+Checks if Amazon Cognito user pools configured with a PASSWORD-only sign-in policy have Multi-Factor Authentication (MFA) enabled. This rule is NON\_COMPLIANT if the Cognito user pool configured with PASSWORD only sign in policy does not have MFA enabled.
 
-**Identifier:** COGNITO_USER_POOL_MFA_ENABLED
+**Identifier:** COGNITO\_USER\_POOL\_MFA\_ENABLED
 
 **Resource Types:** AWS::Cognito::UserPool
 

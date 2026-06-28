@@ -1,8 +1,8 @@
 # api-gw-xray-enabled
 
-Checks if AWS X-Ray tracing is enabled on Amazon API Gateway REST APIs. The rule is COMPLIANT if X-Ray tracing is enabled and NON_COMPLIANT otherwise.
+Checks if AWS X-Ray tracing is enabled on Amazon API Gateway REST APIs. The rule is COMPLIANT if X-Ray tracing is enabled and NON\_COMPLIANT otherwise.
 
-**Identifier:** API_GW_XRAY_ENABLED
+**Identifier:** API\_GW\_XRAY\_ENABLED
 
 **Resource Types:** AWS::ApiGateway::Stage
 

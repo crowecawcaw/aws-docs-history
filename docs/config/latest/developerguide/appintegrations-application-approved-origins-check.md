@@ -1,8 +1,8 @@
 # appintegrations-application-approved-origins-check
 
-Checks that Amazon AppIntegrations applications do not contain approved origins. The rule is NON_COMPLIANT if configuration.ApplicationSourceConfig.ExternalUrlConfig.ApprovedOrigins is not an empty list.
+Checks that Amazon AppIntegrations applications do not contain approved origins. The rule is NON\_COMPLIANT if configuration.ApplicationSourceConfig.ExternalUrlConfig.ApprovedOrigins is not an empty list.
 
-**Identifier:** APPINTEGRATIONS_APPLICATION_APPROVED_ORIGINS_CHECK
+**Identifier:** APPINTEGRATIONS\_APPLICATION\_APPROVED\_ORIGINS\_CHECK
 
 **Resource Types:** AWS::AppIntegrations::Application
 
@@ -15,7 +15,7 @@ Checks that Amazon AppIntegrations applications do not contain approved origins.
 allowedApprovedOrigins (Optional)
 Type: CSV
 
-Comma-separated list of approved origins that are allowed to access the application. If provided, the rule is NON_COMPLIANT if configuration.ApplicationSourceConfig.ExternalUrlConfig.ApprovedOrigins contains origins not specified in this parameter.
+Comma-separated list of approved origins that are allowed to access the application. If provided, the rule is NON\_COMPLIANT if configuration.ApplicationSourceConfig.ExternalUrlConfig.ApprovedOrigins contains origins not specified in this parameter.
 
 ## AWS CloudFormation template
 

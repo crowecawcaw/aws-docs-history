@@ -1,8 +1,8 @@
 # secretsmanager-secret-periodic-rotation
 
-Checks if AWS Secrets Manager secrets have been rotated in the past specified number of days. The rule is NON_COMPLIANT if a secret has not been rotated for more than maxDaysSinceRotation number of days. The default value is 90 days.
+Checks if AWS Secrets Manager secrets have been rotated in the past specified number of days. The rule is NON\_COMPLIANT if a secret has not been rotated for more than maxDaysSinceRotation number of days. The default value is 90 days.
 
-**Identifier:** SECRETSMANAGER_SECRET_PERIODIC_ROTATION
+**Identifier:** SECRETSMANAGER\_SECRET\_PERIODIC\_ROTATION
 
 **Resource Types:** AWS::SecretsManager::Secret
 

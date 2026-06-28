@@ -1,8 +1,8 @@
 # s3-bucket-default-lock-enabled
 
-Checks if the S3 bucket has lock enabled, by default. The rule is NON_COMPLIANT if the lock is not enabled.
+Checks if the S3 bucket has lock enabled, by default. The rule is NON\_COMPLIANT if the lock is not enabled.
 
-**Identifier:** S3_BUCKET_DEFAULT_LOCK_ENABLED
+**Identifier:** S3\_BUCKET\_DEFAULT\_LOCK\_ENABLED
 
 **Resource Types:** AWS::S3::Bucket
 

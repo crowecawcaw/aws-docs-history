@@ -63,7 +63,7 @@ If the AWS Config service is using the role when you try to delete the resources
 then the deletion might fail. If that happens, wait for a few minutes and try the operation
 again.
 
-**To delete AWS Config resources used by the **AwsServiceRoleForConfig\*\*\*\*
+**To delete AWS Config resources used by the **AwsServiceRoleForConfig****
 
 Ensure that you do not have `ConfigurationRecorders` using the service-linked
 role. You can use the AWS Config console to stop the configuration recorder. To stop recording,

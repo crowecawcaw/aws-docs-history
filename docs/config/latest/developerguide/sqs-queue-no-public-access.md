@@ -1,12 +1,12 @@
 # sqs-queue-no-public-access
 
-Checks if the SQS queue access policy allows public access. The rule is NON_COMPLIANT if the SQS queue access policy allows public access.
+Checks if the SQS queue access policy allows public access. The rule is NON\_COMPLIANT if the SQS queue access policy allows public access.
 
 ###### Note
 
 To be considered non-public, an SQS policy must grant access only to fixed values. This means values that don't contain a wildcard or the following IAM policy element: [Variables](../../../IAM/latest/UserGuide/reference_policies_variables.md#policy-vars-using-variables "../../../IAM/latest/UserGuide/reference_policies_variables.md#policy-vars-using-variables").
 
-**Identifier:** SQS_QUEUE_NO_PUBLIC_ACCESS
+**Identifier:** SQS\_QUEUE\_NO\_PUBLIC\_ACCESS
 
 **Resource Types:** AWS::SQS::Queue
 

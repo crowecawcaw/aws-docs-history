@@ -1,8 +1,8 @@
 # msk-cluster-public-access-disabled
 
-Checks if public access is disabled on Amazon MSK clusters. The rule is NON_COMPLIANT if public access on an Amazon MSK cluster is not disabled.
+Checks if public access is disabled on Amazon MSK clusters. The rule is NON\_COMPLIANT if public access on an Amazon MSK cluster is not disabled.
 
-**Identifier:** MSK_CLUSTER_PUBLIC_ACCESS_DISABLED
+**Identifier:** MSK\_CLUSTER\_PUBLIC\_ACCESS\_DISABLED
 
 **Resource Types:** AWS::MSK::Cluster
 

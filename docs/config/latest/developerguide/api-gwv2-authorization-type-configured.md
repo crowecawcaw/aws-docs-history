@@ -1,8 +1,8 @@
 # api-gwv2-authorization-type-configured
 
-Checks if Amazon API Gatewayv2 API routes have an authorization type set. This rule is NON_COMPLIANT if the authorization type is NONE.
+Checks if Amazon API Gatewayv2 API routes have an authorization type set. This rule is NON\_COMPLIANT if the authorization type is NONE.
 
-**Identifier:** API_GWV2_AUTHORIZATION_TYPE_CONFIGURED
+**Identifier:** API\_GWV2\_AUTHORIZATION\_TYPE\_CONFIGURED
 
 **Resource Types:** AWS::ApiGatewayV2::Route
 
@@ -15,7 +15,7 @@ Checks if Amazon API Gatewayv2 API routes have an authorization type set. This r
 authorizationType (Optional)
 Type: String
 
-Parameter to check API routes' authorization types against. String parameters matching CUSTOM, AWS_IAM, JWT are valid.
+Parameter to check API routes' authorization types against. String parameters matching CUSTOM, AWS\_IAM, JWT are valid.
 
 ## AWS CloudFormation template
 

@@ -1,8 +1,8 @@
 # ecr-repository-tagged
 
-Checks if Amazon ECR repositories have tags. Optionally, you can specify tag keys. The rule is NON_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'.
+Checks if Amazon ECR repositories have tags. Optionally, you can specify tag keys. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'.
 
-**Identifier:** ECR_REPOSITORY_TAGGED
+**Identifier:** ECR\_REPOSITORY\_TAGGED
 
 **Resource Types:** AWS::ECR::Repository
 
@@ -15,7 +15,7 @@ Checks if Amazon ECR repositories have tags. Optionally, you can specify tag key
 requiredKeyTags (Optional)
 Type: CSV
 
-Comma-separated list of tag keys for the rule to check. If provided, the rule is NON_COMPLIANT if the evaluated resource does not contain these keys. Tag keys are case-sensitive. Tag keys starting with 'aws:' are not allowed.
+Comma-separated list of tag keys for the rule to check. If provided, the rule is NON\_COMPLIANT if the evaluated resource does not contain these keys. Tag keys are case-sensitive. Tag keys starting with 'aws:' are not allowed.
 
 ## AWS CloudFormation template
 

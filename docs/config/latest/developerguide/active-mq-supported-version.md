@@ -1,8 +1,8 @@
 # active-mq-supported-version
 
-Checks if an Amazon MQ ActiveMQ broker is running on a specified minimum supported engine version. The rule is NON_COMPLIANT if the ActiveMQ broker is not running on the minimum supported engine version that you specify.
+Checks if an Amazon MQ ActiveMQ broker is running on a specified minimum supported engine version. The rule is NON\_COMPLIANT if the ActiveMQ broker is not running on the minimum supported engine version that you specify.
 
-**Identifier:** ACTIVE_MQ_SUPPORTED_VERSION
+**Identifier:** ACTIVE\_MQ\_SUPPORTED\_VERSION
 
 **Resource Types:** AWS::AmazonMQ::Broker
 

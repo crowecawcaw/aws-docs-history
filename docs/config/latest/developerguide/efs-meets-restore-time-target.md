@@ -1,8 +1,8 @@
 # efs-meets-restore-time-target
 
-Checks if the restore time of Amazon Elastic File System (Amazon EFS) File Systems meets the specified duration. The rule is NON_COMPLIANT if LatestRestoreExecutionTimeMinutes of an Amazon EFS File System is greater than maxRestoreTime minutes.
+Checks if the restore time of Amazon Elastic File System (Amazon EFS) File Systems meets the specified duration. The rule is NON\_COMPLIANT if LatestRestoreExecutionTimeMinutes of an Amazon EFS File System is greater than maxRestoreTime minutes.
 
-**Identifier:** EFS_MEETS_RESTORE_TIME_TARGET
+**Identifier:** EFS\_MEETS\_RESTORE\_TIME\_TARGET
 
 **Resource Types:** AWS::EFS::FileSystem
 

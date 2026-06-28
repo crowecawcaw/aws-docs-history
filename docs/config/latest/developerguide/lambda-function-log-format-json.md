@@ -1,8 +1,8 @@
 # lambda-function-log-format-json
 
-Checks if AWS Lambda functions have the log format set to JSON for more control and better readability. The rule is NON_COMPLIANT if configuration.loggingConfig.logFormat is not 'JSON'.
+Checks if AWS Lambda functions have the log format set to JSON for more control and better readability. The rule is NON\_COMPLIANT if configuration.loggingConfig.logFormat is not 'JSON'.
 
-**Identifier:** LAMBDA_FUNCTION_LOG_FORMAT_JSON
+**Identifier:** LAMBDA\_FUNCTION\_LOG\_FORMAT\_JSON
 
 **Resource Types:** AWS::Lambda::Function
 

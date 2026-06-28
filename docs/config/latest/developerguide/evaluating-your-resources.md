@@ -12,10 +12,10 @@ logic of your AWS Lambda function.
    access keys.
 2. AWS Config evaluates your resources against your custom rule.
 3. An IAM user who doesn't have an active access key exists in your account. Your
-   rule doesn't correctly flag this resource as NON_COMPLIANT.
+   rule doesn't correctly flag this resource as NON\_COMPLIANT.
 4. You fix the rule and start the evaluation again.
 5. Because you fixed your rule, the rule correctly evaluates your resources, and
-   flags the IAM user resource as NON_COMPLIANT.
+   flags the IAM user resource as NON\_COMPLIANT.
    When you add a rule to your account, you can specify when in the resource creation and
    management process that you want AWS Config to evaluate your resources. The resource creation and management process is known as resource provisioning. You choose the
    _evaluation mode_ to specify when in this process you want AWS Config to evaluate your resources.
@@ -26,7 +26,7 @@ resource before it has been deployed is **proactive evaluation**. Evaluating a
 resource after it has been deployed is **detective evaluation**.
 
 Use proactive evaluation to evaluate resources before they have been deployed. This allows you to evaluate whether a set of resource properties, if used to define an AWS resource,
-would be COMPLIANT or NON_COMPLIANT given the set of proactive rules that you have in your account in your Region.
+would be COMPLIANT or NON\_COMPLIANT given the set of proactive rules that you have in your account in your Region.
 
 The [Resource type schema](../../../cloudformation-cli/latest/userguide/resource-type-schema.md "../../../cloudformation-cli/latest/userguide/resource-type-schema.md") states the properties of a resource. You can find the resource type schema in "_AWS public extensions_" within the AWS CloudFormation registry or with the following CLI commmand:
 
@@ -39,7 +39,7 @@ and [AWS resource and property types reference](../../../AWSCloudFormation/lates
 
 ###### Note
 
-Proactive rules do not remediate resources that are flagged as NON_COMPLIANT or prevent them from being deployed.
+Proactive rules do not remediate resources that are flagged as NON\_COMPLIANT or prevent them from being deployed.
 
 ### Evaluating your Resources
 
@@ -64,7 +64,7 @@ You can also turn on proactive evaluation using the [`put-config-rule`](../../..
 and enabling `PROACTIVE` for `EvaluationModes` or using the [PutConfigRule](../APIReference/API_PutConfigRule.md "../APIReference/API_PutConfigRule.md") action and enabling `PROACTIVE` for `EvaluationModes`.
 
 After you have turned on proactive evaluation,
-you can use the [StartResourceEvaluation](../APIReference/API_StartResourceEvaluation.md "../APIReference/API_StartResourceEvaluation.md") API and [GetResourceEvaluationSummary](../APIReference/API_GetResourceEvaluationSummary.md "../APIReference/API_GetResourceEvaluationSummary.md") API to check if the resources you specify in these commands would be flagged as NON_COMPLIANT by the proactive rules in your account in your Region.
+you can use the [StartResourceEvaluation](../APIReference/API_StartResourceEvaluation.md "../APIReference/API_StartResourceEvaluation.md") API and [GetResourceEvaluationSummary](../APIReference/API_GetResourceEvaluationSummary.md "../APIReference/API_GetResourceEvaluationSummary.md") API to check if the resources you specify in these commands would be flagged as NON\_COMPLIANT by the proactive rules in your account in your Region.
 
 For example, start with the StartResourceEvaluation API:
 
@@ -111,7 +111,7 @@ You should receive output similiar to the following:
 }
 ```
 
-To see additional information about the evaluation result, such as which rule flagged a resource as NON_COMPLIANT,
+To see additional information about the evaluation result, such as which rule flagged a resource as NON\_COMPLIANT,
 use the [GetComplianceDetailsByResource](../APIReference/API_GetComplianceDetailsByResource.md "../APIReference/API_GetComplianceDetailsByResource.md") API.
 
 Use detective evaluation to evaluate resources that have already been

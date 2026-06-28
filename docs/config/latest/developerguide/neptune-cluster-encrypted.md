@@ -1,8 +1,8 @@
 # neptune-cluster-encrypted
 
-Checks if storage encryption is enabled for your Amazon Neptune DB clusters. The rule is NON_COMPLIANT if storage encryption is not enabled.
+Checks if storage encryption is enabled for your Amazon Neptune DB clusters. The rule is NON\_COMPLIANT if storage encryption is not enabled.
 
-**Identifier:** NEPTUNE_CLUSTER_ENCRYPTED
+**Identifier:** NEPTUNE\_CLUSTER\_ENCRYPTED
 
 **Resource Types:** AWS::RDS::DBCluster
 

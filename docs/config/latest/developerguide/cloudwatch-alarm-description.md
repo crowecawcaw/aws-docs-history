@@ -1,8 +1,8 @@
 # cloudwatch-alarm-description
 
-Checks if AWS CloudWatch Alarm resources contain an alarm description. The rule is NON_COMPLIANT if the CloudWatch Alarm resource does not contain an AlarmDescription field or the AlarmDescription is empty.
+Checks if AWS CloudWatch Alarm resources contain an alarm description. The rule is NON\_COMPLIANT if the CloudWatch Alarm resource does not contain an AlarmDescription field or the AlarmDescription is empty.
 
-**Identifier:** CLOUDWATCH_ALARM_DESCRIPTION
+**Identifier:** CLOUDWATCH\_ALARM\_DESCRIPTION
 
 **Resource Types:** AWS::CloudWatch::Alarm
 

@@ -1,8 +1,8 @@
 # cloudtrail-s3-bucket-access-logging
 
-Checks if the S3 bucket configurations for your AWS CloudTrail logs have Amazon S3 server access logging enabled. The rule is NON_COMPLIANT if at least one S3 bucket for a CloudTrail trail does not have S3 server access logging enabled.
+Checks if the S3 bucket configurations for your AWS CloudTrail logs have Amazon S3 server access logging enabled. The rule is NON\_COMPLIANT if at least one S3 bucket for a CloudTrail trail does not have S3 server access logging enabled.
 
-**Identifier:** CLOUDTRAIL_S3_BUCKET_ACCESS_LOGGING
+**Identifier:** CLOUDTRAIL\_S3\_BUCKET\_ACCESS\_LOGGING
 
 **Resource Types:** AWS::CloudTrail::Trail
 

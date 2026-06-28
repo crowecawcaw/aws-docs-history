@@ -1,8 +1,8 @@
 # cognito-user-pool-deletion-protection-enabled
 
-Checks whether Amazon Cognito user pools has deletion protection enabled. This rule is NON_COMPLIANT if a user pool has deletion protection disabled.
+Checks whether Amazon Cognito user pools has deletion protection enabled. This rule is NON\_COMPLIANT if a user pool has deletion protection disabled.
 
-**Identifier:** COGNITO_USER_POOL_DELETION_PROTECTION_ENABLED
+**Identifier:** COGNITO\_USER\_POOL\_DELETION\_PROTECTION\_ENABLED
 
 **Resource Types:** AWS::Cognito::UserPool
 

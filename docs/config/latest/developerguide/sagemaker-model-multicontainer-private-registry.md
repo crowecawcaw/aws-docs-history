@@ -1,8 +1,8 @@
 # sagemaker-model-multicontainer-private-registry
 
-This rule checks if SageMaker models with multi-container inference pipelines pull images from VPC-based private registry. The rule is NON_COMPLIANT if any container configuration does not have ImageConfig or has RepositoryAccessMode set to Platform.
+This rule checks if SageMaker models with multi-container inference pipelines pull images from VPC-based private registry. The rule is NON\_COMPLIANT if any container configuration does not have ImageConfig or has RepositoryAccessMode set to Platform.
 
-**Identifier:** SAGEMAKER_MODEL_MULTICONTAINER_PRIVATE_REGISTRY
+**Identifier:** SAGEMAKER\_MODEL\_MULTICONTAINER\_PRIVATE\_REGISTRY
 
 **Resource Types:** AWS::SageMaker::Model
 

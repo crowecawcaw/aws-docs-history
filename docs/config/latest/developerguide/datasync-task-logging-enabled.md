@@ -1,8 +1,8 @@
 # datasync-task-logging-enabled
 
-Checks if an AWS DataSync task has Amazon CloudWatch logging enabled. The rule is NON_COMPLIANT if an AWS DataSync task does not have Amazon CloudWatch logging enabled or if the logging level is not equivalent to the logging level that you specify.
+Checks if an AWS DataSync task has Amazon CloudWatch logging enabled. The rule is NON\_COMPLIANT if an AWS DataSync task does not have Amazon CloudWatch logging enabled or if the logging level is not equivalent to the logging level that you specify.
 
-**Identifier:** DATASYNC_TASK_LOGGING_ENABLED
+**Identifier:** DATASYNC\_TASK\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::DataSync::Task
 

@@ -35,13 +35,13 @@ _AWS CloudFormation User Guide_.
 
 ###### Note
 
-The rule identifier should be written in ALL_CAPS_WITH_UNDERSCORES. For
-example, CLOUDWATCH_LOG_GROUP_ENCRYPTED instead of
+The rule identifier should be written in ALL\_CAPS\_WITH\_UNDERSCORES. For
+example, CLOUDWATCH\_LOG\_GROUP\_ENCRYPTED instead of
 cloudwatch-log-group-encrypted.
 
 For some rules, the rule identifier is different from the rule name. Make sure
 to use the rule identifier. For example, the rule identifier for restricted-ssh
-is INCOMING_SSH_DISABLED. 3. Choose **Next**. 4. For **Specify stack details**, type a stack name and enter
+is INCOMING\_SSH\_DISABLED. 3. Choose **Next**. 4. For **Specify stack details**, type a stack name and enter
 parameter values for the AWS Config rule. For example, if you are using the
 `DESIRED_INSTANCE_TYPE` managed rule template, you can specify the
 instance type such as "m4.large". 5. Choose **Next**. 6. For **Options**, you can create tags or configure other advanced

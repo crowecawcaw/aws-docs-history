@@ -2,9 +2,9 @@
 
 Checks if your Amazon S3 bucket either has the Amazon S3 default encryption enabled
 or that the Amazon S3 bucket policy explicitly denies `put-object` requests without server side encryption that uses AES-256 or AWS Key Management Service.
-The rule is NON_COMPLIANT if your Amazon S3 bucket is not encrypted by default.
+The rule is NON\_COMPLIANT if your Amazon S3 bucket is not encrypted by default.
 
-**Identifier:** S3_BUCKET_SERVER_SIDE_ENCRYPTION_ENABLED
+**Identifier:** S3\_BUCKET\_SERVER\_SIDE\_ENCRYPTION\_ENABLED
 
 **Resource Types:** AWS::S3::Bucket
 

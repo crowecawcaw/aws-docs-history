@@ -1,8 +1,8 @@
 # desired-instance-type
 
-Checks if your EC2 instances are of a specific instance type. The rule is NON_COMPLIANT if an EC2 instance is not specified in the parameter list. For a list of supported EC2 instance types, see Instance types in the EC2 User Guide for Linux Instances.
+Checks if your EC2 instances are of a specific instance type. The rule is NON\_COMPLIANT if an EC2 instance is not specified in the parameter list. For a list of supported EC2 instance types, see Instance types in the EC2 User Guide for Linux Instances.
 
-**Identifier:** DESIRED_INSTANCE_TYPE
+**Identifier:** DESIRED\_INSTANCE\_TYPE
 
 **Resource Types:** AWS::EC2::Instance
 

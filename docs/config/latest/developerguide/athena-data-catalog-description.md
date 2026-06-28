@@ -1,8 +1,8 @@
 # athena-data-catalog-description
 
-Checks if Amazon Athena data catalogs have a description. The rule is NON_COMPLIANT if configuration.Description does not exist.
+Checks if Amazon Athena data catalogs have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist.
 
-**Identifier:** ATHENA_DATA_CATALOG_DESCRIPTION
+**Identifier:** ATHENA\_DATA\_CATALOG\_DESCRIPTION
 
 **Resource Types:** AWS::Athena::DataCatalog
 

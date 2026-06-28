@@ -1,8 +1,8 @@
 # backup-recovery-point-minimum-retention-check
 
-Checks if a recovery point expires no earlier than after the specified period. The rule is NON_COMPLIANT if the recovery point has a retention point that is less than the required retention period.
+Checks if a recovery point expires no earlier than after the specified period. The rule is NON\_COMPLIANT if the recovery point has a retention point that is less than the required retention period.
 
-**Identifier:** BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK
+**Identifier:** BACKUP\_RECOVERY\_POINT\_MINIMUM\_RETENTION\_CHECK
 
 **Resource Types:** AWS::Backup::RecoveryPoint
 

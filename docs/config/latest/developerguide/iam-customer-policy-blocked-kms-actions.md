@@ -1,12 +1,12 @@
 # iam-customer-policy-blocked-kms-actions
 
-Checks if the managed AWS Identity and Access Management (IAM) policies that you create do not allow blocked KMS actions on all AWS KMS key resources. The rule is NON_COMPLIANT if any blocked action is allowed on all AWS KMS keys by the managed IAM policy.
+Checks if the managed AWS Identity and Access Management (IAM) policies that you create do not allow blocked KMS actions on all AWS KMS key resources. The rule is NON\_COMPLIANT if any blocked action is allowed on all AWS KMS keys by the managed IAM policy.
 
 ###### Note
 
 To be considered non-public, an IAM policy must grant access only to fixed values. This means values that don't contain a wildcard or the following IAM policy element: [Variables](../../../IAM/latest/UserGuide/reference_policies_variables.md#policy-vars-using-variables "../../../IAM/latest/UserGuide/reference_policies_variables.md#policy-vars-using-variables").
 
-**Identifier:** IAM_CUSTOMER_POLICY_BLOCKED_KMS_ACTIONS
+**Identifier:** IAM\_CUSTOMER\_POLICY\_BLOCKED\_KMS\_ACTIONS
 
 **Resource Types:** AWS::IAM::Policy
 
@@ -19,7 +19,7 @@ To be considered non-public, an IAM policy must grant access only to fixed value
 blockedActionsPatterns
 Type: CSV
 
-Comma-separated list of blocked KMS action patterns for the rule to check. The rule is NON_COMPLIANT if IAM customer managed policies allow wildcard access to all resources for the actions you specify.
+Comma-separated list of blocked KMS action patterns for the rule to check. The rule is NON\_COMPLIANT if IAM customer managed policies allow wildcard access to all resources for the actions you specify.
 
 excludePermissionBoundaryPolicy (Optional)
 Type: boolean

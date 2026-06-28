@@ -1,12 +1,12 @@
 # opensearch-node-to-node-encryption-check
 
-Check if Amazon OpenSearch Service nodes are encrypted end to end. The rule is NON_COMPLIANT if the node-to-node encryption is not enabled on the domain
+Check if Amazon OpenSearch Service nodes are encrypted end to end. The rule is NON\_COMPLIANT if the node-to-node encryption is not enabled on the domain
 
 ###### Note
 
 The rule does not evaluate Elasticsearch domains.
 
-**Identifier:** OPENSEARCH_NODE_TO_NODE_ENCRYPTION_CHECK
+**Identifier:** OPENSEARCH\_NODE\_TO\_NODE\_ENCRYPTION\_CHECK
 
 **Resource Types:** AWS::OpenSearch::Domain
 

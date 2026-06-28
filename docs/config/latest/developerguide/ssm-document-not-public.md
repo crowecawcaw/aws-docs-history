@@ -1,8 +1,8 @@
 # ssm-document-not-public
 
-Checks if AWS Systems Manager documents owned by the account are public. The rule is NON_COMPLIANT if Systems Manager documents with the owner 'Self' are public.
+Checks if AWS Systems Manager documents owned by the account are public. The rule is NON\_COMPLIANT if Systems Manager documents with the owner 'Self' are public.
 
-**Identifier:** SSM_DOCUMENT_NOT_PUBLIC
+**Identifier:** SSM\_DOCUMENT\_NOT\_PUBLIC
 
 **Resource Types:** AWS::SSM::Document
 

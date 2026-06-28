@@ -1,8 +1,8 @@
 # guardduty-eks-protection-audit-enabled
 
-Checks if Audit Log Monitoring for Amazon Elastic Kubernetes Service (Amazon EKS) is enabled for an Amazon GuardDuty detector in your account. The rule is NON_COMPLIANT if the EKS Audit Log Monitoring feature is not enabled for your account.
+Checks if Audit Log Monitoring for Amazon Elastic Kubernetes Service (Amazon EKS) is enabled for an Amazon GuardDuty detector in your account. The rule is NON\_COMPLIANT if the EKS Audit Log Monitoring feature is not enabled for your account.
 
-**Identifier:** GUARDDUTY_EKS_PROTECTION_AUDIT_ENABLED
+**Identifier:** GUARDDUTY\_EKS\_PROTECTION\_AUDIT\_ENABLED
 
 **Resource Types:** AWS::GuardDuty::Detector
 

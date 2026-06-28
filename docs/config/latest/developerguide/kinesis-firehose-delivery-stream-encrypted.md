@@ -1,8 +1,8 @@
 # kinesis-firehose-delivery-stream-encrypted
 
-Checks if Amazon Kinesis Data Firehose delivery streams are encrypted at rest with server-side encryption. The rule is NON_COMPLIANT if a Kinesis Data Firehose delivery stream is not encrypted at rest with server-side encryption.
+Checks if Amazon Kinesis Data Firehose delivery streams are encrypted at rest with server-side encryption. The rule is NON\_COMPLIANT if a Kinesis Data Firehose delivery stream is not encrypted at rest with server-side encryption.
 
-**Identifier:** KINESIS_FIREHOSE_DELIVERY_STREAM_ENCRYPTED
+**Identifier:** KINESIS\_FIREHOSE\_DELIVERY\_STREAM\_ENCRYPTED
 
 **Resource Types:** AWS::KinesisFirehose::DeliveryStream
 

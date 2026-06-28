@@ -1,8 +1,8 @@
 # appsync-authorization-check
 
-Checks if an AWS AppSync API is using allowed authorization mechanisms. The rule is NON_COMPLIANT if an unapproved authorization mechanism is being used.
+Checks if an AWS AppSync API is using allowed authorization mechanisms. The rule is NON\_COMPLIANT if an unapproved authorization mechanism is being used.
 
-**Identifier:** APPSYNC_AUTHORIZATION_CHECK
+**Identifier:** APPSYNC\_AUTHORIZATION\_CHECK
 
 **Resource Types:** AWS::AppSync::GraphQLApi
 
@@ -15,7 +15,7 @@ Checks if an AWS AppSync API is using allowed authorization mechanisms. The rule
 AllowedAuthorizationTypes
 Type: CSV
 
-Comma-separated list of allowed AWS AppSync authorization mechanisms. Allowed values are: 'API_KEY', 'AWS_LAMBDA', 'AWS_IAM', 'OPENID_CONNECT', 'AMAZON_COGNITO_USER_POOLS'.
+Comma-separated list of allowed AWS AppSync authorization mechanisms. Allowed values are: 'API\_KEY', 'AWS\_LAMBDA', 'AWS\_IAM', 'OPENID\_CONNECT', 'AMAZON\_COGNITO\_USER\_POOLS'.
 
 ## AWS CloudFormation template
 

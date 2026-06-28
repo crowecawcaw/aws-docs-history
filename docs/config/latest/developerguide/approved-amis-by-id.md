@@ -1,8 +1,8 @@
 # approved-amis-by-id
 
-Checks if EC2 instances are using specified Amazon Machine Images (AMIs). Specify a list of approved AMI IDs. Running instances with AMIs that are not on this list are NON_COMPLIANT.
+Checks if EC2 instances are using specified Amazon Machine Images (AMIs). Specify a list of approved AMI IDs. Running instances with AMIs that are not on this list are NON\_COMPLIANT.
 
-**Identifier:** APPROVED_AMIS_BY_ID
+**Identifier:** APPROVED\_AMIS\_BY\_ID
 
 **Resource Types:** AWS::EC2::Instance
 

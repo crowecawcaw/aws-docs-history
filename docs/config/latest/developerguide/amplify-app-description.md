@@ -1,8 +1,8 @@
 # amplify-app-description
 
-Checks if AWS Amplify apps have a description. The rule is NON_COMPLIANT if configuration.Description does not exist or is an empty string.
+Checks if AWS Amplify apps have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string.
 
-**Identifier:** AMPLIFY_APP_DESCRIPTION
+**Identifier:** AMPLIFY\_APP\_DESCRIPTION
 
 **Resource Types:** AWS::Amplify::App
 

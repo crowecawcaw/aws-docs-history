@@ -2,13 +2,13 @@
 
 Checks if all secrets in AWS Secrets Manager are encrypted using the AWS managed key (`aws/secretsmanager`)
 or a customer managed key that was created in AWS Key Management Service (AWS KMS). The rule is COMPLIANT if a secret is encrypted using a customer managed key.
-This rule is NON_COMPLIANT if a secret is encrypted using `aws/secretsmanager`.
+This rule is NON\_COMPLIANT if a secret is encrypted using `aws/secretsmanager`.
 
 ###### Note
 
-This rule does not have access to cross-account customer managed keys and evaluates secrets as NON_COMPLIANT when a cross-account key is used.
+This rule does not have access to cross-account customer managed keys and evaluates secrets as NON\_COMPLIANT when a cross-account key is used.
 
-**Identifier:** SECRETSMANAGER_USING_CMK
+**Identifier:** SECRETSMANAGER\_USING\_CMK
 
 **Resource Types:** AWS::SecretsManager::Secret
 

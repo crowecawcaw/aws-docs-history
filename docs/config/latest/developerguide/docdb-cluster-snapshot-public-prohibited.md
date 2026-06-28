@@ -1,8 +1,8 @@
 # docdb-cluster-snapshot-public-prohibited
 
-Checks if Amazon DocumentDB manual cluster snapshots are public. The rule is NON_COMPLIANT if any Amazon DocumentDB manual cluster snapshots are public.
+Checks if Amazon DocumentDB manual cluster snapshots are public. The rule is NON\_COMPLIANT if any Amazon DocumentDB manual cluster snapshots are public.
 
-**Identifier:** DOCDB_CLUSTER_SNAPSHOT_PUBLIC_PROHIBITED
+**Identifier:** DOCDB\_CLUSTER\_SNAPSHOT\_PUBLIC\_PROHIBITED
 
 **Resource Types:** AWS::RDS::DBClusterSnapshot
 

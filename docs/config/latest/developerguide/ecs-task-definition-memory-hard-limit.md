@@ -1,12 +1,12 @@
 # ecs-task-definition-memory-hard-limit
 
-Checks if Amazon Elastic Container Service (ECS) task definitions have a set memory limit for its container definitions. The rule is NON_COMPLIANT for a task definition if the ‘memory’ parameter is absent for one container definition.
+Checks if Amazon Elastic Container Service (ECS) task definitions have a set memory limit for its container definitions. The rule is NON\_COMPLIANT for a task definition if the ‘memory’ parameter is absent for one container definition.
 
 ###### Warning
 
 As of April 3, 2026, AWS Config has discontinued support for this managed rule. Evaluation results will no longer be generated.
 
-**Identifier:** ECS_TASK_DEFINITION_MEMORY_HARD_LIMIT
+**Identifier:** ECS\_TASK\_DEFINITION\_MEMORY\_HARD\_LIMIT
 
 **Resource Types:** AWS::ECS::TaskDefinition
 

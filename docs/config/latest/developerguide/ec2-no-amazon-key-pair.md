@@ -1,8 +1,8 @@
 # ec2-no-amazon-key-pair
 
-Checks if running Amazon Elastic Compute Cloud (EC2) instances are launched using amazon key pairs. The rule is NON_COMPLIANT if a running EC2 instance is launched with a key pair.
+Checks if running Amazon EC2 instances were launched without key pairs. The rule is NON\_COMPLIANT if an instance was launched with a key pair. Evaluation is based on launch-time configuration only.
 
-**Identifier:** EC2_NO_AMAZON_KEY_PAIR
+**Identifier:** EC2\_NO\_AMAZON\_KEY\_PAIR
 
 **Resource Types:** AWS::EC2::Instance
 

@@ -2,7 +2,7 @@
 
 Checks if the Amazon DynamoDB tables are encrypted and checks their status. The rule is COMPLIANT if the status is enabled or enabling.
 
-**Identifier:** DYNAMODB_TABLE_ENCRYPTION_ENABLED
+**Identifier:** DYNAMODB\_TABLE\_ENCRYPTION\_ENABLED
 
 **Resource Types:** AWS::DynamoDB::Table
 

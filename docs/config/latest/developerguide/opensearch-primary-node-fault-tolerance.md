@@ -1,8 +1,8 @@
 # opensearch-primary-node-fault-tolerance
 
-Checks if Amazon OpenSearch Service domains are configured with at least three dedicated primary nodes. The rule is NON_COMPLIANT for an OpenSearch Service domain if 'DedicatedMasterEnabled' is set to 'false', or 'DedicatedMasterCount' is less than 3.
+Checks if Amazon OpenSearch Service domains are configured with at least three dedicated primary nodes. The rule is NON\_COMPLIANT for an OpenSearch Service domain if 'DedicatedMasterEnabled' is set to 'false', or 'DedicatedMasterCount' is less than 3.
 
-**Identifier:** OPENSEARCH_PRIMARY_NODE_FAULT_TOLERANCE
+**Identifier:** OPENSEARCH\_PRIMARY\_NODE\_FAULT\_TOLERANCE
 
 **Resource Types:** AWS::OpenSearch::Domain
 

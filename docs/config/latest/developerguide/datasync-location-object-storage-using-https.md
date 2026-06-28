@@ -1,8 +1,8 @@
 # datasync-location-object-storage-using-https
 
-Checks if AWS DataSync location object storage servers use the HTTPS protocol to communicate. The rule is NON_COMPLIANT if configuration.ServerProtocol is not 'HTTPS'.
+Checks if AWS DataSync location object storage servers use the HTTPS protocol to communicate. The rule is NON\_COMPLIANT if configuration.ServerProtocol is not 'HTTPS'.
 
-**Identifier:** DATASYNC_LOCATION_OBJECT_STORAGE_USING_HTTPS
+**Identifier:** DATASYNC\_LOCATION\_OBJECT\_STORAGE\_USING\_HTTPS
 
 **Resource Types:** AWS::DataSync::LocationObjectStorage
 

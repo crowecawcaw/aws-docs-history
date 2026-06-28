@@ -1,7 +1,7 @@
 # iam-user-unused-credentials-check
 
 Checks if your AWS Identity and Access Management (IAM) users have passwords or active access keys that have not been used within the specified number of days you provided.
-The rule is NON_COMPLIANT if there are inactive accounts not recently used.
+The rule is NON\_COMPLIANT if there are inactive accounts not recently used.
 
 ###### Note
 
@@ -27,7 +27,7 @@ To avoid unnecessary evaluations, you should only deploy periodic rules that rep
 For a list of which managed rules are supported in which Regions,
 see [List of AWS Config Managed Rules by Region Availability](managing-rules-by-region-availability.md "managing-rules-by-region-availability.md").
 
-**Identifier:** IAM_USER_UNUSED_CREDENTIALS_CHECK
+**Identifier:** IAM\_USER\_UNUSED\_CREDENTIALS\_CHECK
 
 **Resource Types:** AWS::IAM::User
 

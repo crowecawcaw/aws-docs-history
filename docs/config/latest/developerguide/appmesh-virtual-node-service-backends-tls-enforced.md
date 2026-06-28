@@ -1,8 +1,8 @@
 # appmesh-virtual-node-service-backends-tls-enforced
 
-Checks if service backends for AWS App Mesh virtual nodes require the virtual nodes to communicate with all ports using TLS. The rule is NON_COMPLIANT if any configuration.Spec.Backends[].ClientPolicy.Tls.Enforce is false.
+Checks if service backends for AWS App Mesh virtual nodes require the virtual nodes to communicate with all ports using TLS. The rule is NON\_COMPLIANT if any configuration.Spec.Backends[].ClientPolicy.Tls.Enforce is false.
 
-**Identifier:** APPMESH_VIRTUAL_NODE_SERVICE_BACKENDS_TLS_ENFORCED
+**Identifier:** APPMESH\_VIRTUAL\_NODE\_SERVICE\_BACKENDS\_TLS\_ENFORCED
 
 **Resource Types:** AWS::AppMesh::VirtualNode
 

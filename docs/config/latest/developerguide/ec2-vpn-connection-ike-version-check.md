@@ -1,8 +1,8 @@
 # ec2-vpn-connection-ike-version-check
 
-Checks if an Amazon EC2 VPN connection is configured to use only IKEv2 protocol. The rule is NON_COMPLIANT if the VPN connection's tunnel allows IKE versions other than IKEv2.
+Checks if an Amazon EC2 VPN connection is configured to use only IKEv2 protocol. The rule is NON\_COMPLIANT if the VPN connection's tunnel allows IKE versions other than IKEv2.
 
-**Identifier:** EC2_VPN_CONNECTION_IKE_VERSION_CHECK
+**Identifier:** EC2\_VPN\_CONNECTION\_IKE\_VERSION\_CHECK
 
 **Resource Types:** AWS::EC2::VPNConnection
 

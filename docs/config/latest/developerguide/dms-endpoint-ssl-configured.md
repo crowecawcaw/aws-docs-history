@@ -1,6 +1,6 @@
 # dms-endpoint-ssl-configured
 
-Checks if AWS Database Migration Service (AWS DMS) endpoints are configured with an SSL connection. The rule is NON_COMPLIANT if AWS DMS does not have an SSL connection configured.
+Checks if AWS Database Migration Service (AWS DMS) endpoints are configured with an SSL connection. The rule is NON\_COMPLIANT if AWS DMS does not have an SSL connection configured.
 
 **Context**:
 SSL/TLS connections provide one layer of security by encrypting data that moves between your client and a DB instance.
@@ -11,7 +11,7 @@ By enabling SSL connection on AWS DMS, you protect the confidentiality of the da
 To configure SSL connection for AWS DMS, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md") in the
 _Amazon Relational Database Service User Guide_.
 
-**Identifier:** DMS_ENDPOINT_SSL_CONFIGURED
+**Identifier:** DMS\_ENDPOINT\_SSL\_CONFIGURED
 
 **Resource Types:** AWS::DMS::Endpoint
 

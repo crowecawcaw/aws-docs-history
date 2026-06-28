@@ -1,8 +1,8 @@
 # ecs-task-definition-efs-encryption-enabled
 
-Checks if Amazon ECS Task Definitions with EFS volumes have in-transit encryption enabled. The rule is NON_COMPLIANT if an ECS Task Definition contains an EFS volume without transit encryption enabled.
+Checks if Amazon ECS Task Definitions with EFS volumes have in-transit encryption enabled. The rule is NON\_COMPLIANT if an ECS Task Definition contains an EFS volume without transit encryption enabled.
 
-**Identifier:** ECS_TASK_DEFINITION_EFS_ENCRYPTION_ENABLED
+**Identifier:** ECS\_TASK\_DEFINITION\_EFS\_ENCRYPTION\_ENABLED
 
 **Resource Types:** AWS::ECS::TaskDefinition
 

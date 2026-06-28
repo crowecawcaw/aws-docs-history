@@ -10,9 +10,9 @@ This rule is COMPLIANT if there is at least one trail that meets all of the foll
 - records events for reads and writes
 - records management events
 - does not exclude any management events
-  This rule is NON_COMPLIANT if no trails meet all of the criteria mentioned above.
+  This rule is NON\_COMPLIANT if no trails meet all of the criteria mentioned above.
 
-**Identifier:** CLOUDTRAIL_SECURITY_TRAIL_ENABLED
+**Identifier:** CLOUDTRAIL\_SECURITY\_TRAIL\_ENABLED
 
 **Trigger type:** Periodic
 

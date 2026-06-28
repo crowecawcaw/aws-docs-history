@@ -1,8 +1,8 @@
 # batch-compute-environment-enabled
 
-Checks if AWS Batch compute environments are enabled. The rule is NON_COMPLIANT if configuration.State is 'DISABLED'.
+Checks if AWS Batch compute environments are enabled. The rule is NON\_COMPLIANT if configuration.State is 'DISABLED'.
 
-**Identifier:** BATCH_COMPUTE_ENVIRONMENT_ENABLED
+**Identifier:** BATCH\_COMPUTE\_ENVIRONMENT\_ENABLED
 
 **Resource Types:** AWS::Batch::ComputeEnvironment
 

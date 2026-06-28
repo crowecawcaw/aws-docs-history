@@ -1,12 +1,12 @@
 # ecs-awsvpc-networking-enabled
 
-Checks if the networking mode for active ECSTaskDefinitions is set to ‘awsvpc’. This rule is NON_COMPLIANT if active ECSTaskDefinitions is not set to ‘awsvpc’.
+Checks if the networking mode for active ECSTaskDefinitions is set to ‘awsvpc’. This rule is NON\_COMPLIANT if active ECSTaskDefinitions is not set to ‘awsvpc’.
 
 ###### Note
 
 This rule only evaluates the latest active revision of an Amazon ECS task definition.
 
-**Identifier:** ECS_AWSVPC_NETWORKING_ENABLED
+**Identifier:** ECS\_AWSVPC\_NETWORKING\_ENABLED
 
 **Resource Types:** AWS::ECS::TaskDefinition
 

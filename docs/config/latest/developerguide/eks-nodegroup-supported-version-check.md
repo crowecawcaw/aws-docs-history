@@ -2,7 +2,7 @@
 
 Checks if an Amazon Elastic Kubernetes Service (EKS) nodegroup is running the oldest supported version.
 
-**Identifier:** EKS_NODEGROUP_SUPPORTED_VERSION_CHECK
+**Identifier:** EKS\_NODEGROUP\_SUPPORTED\_VERSION\_CHECK
 
 **Resource Types:** AWS::EKS::Nodegroup
 

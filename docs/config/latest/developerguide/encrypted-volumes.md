@@ -1,8 +1,8 @@
 # encrypted-volumes
 
-Checks if attached Amazon EBS volumes are encrypted and optionally are encrypted with a specified KMS key. The rule is NON_COMPLIANT if attached EBS volumes are unencrypted or are encrypted with a KMS key not in the supplied parameters.
+Checks if attached Amazon EBS volumes are encrypted and optionally are encrypted with a specified KMS key. The rule is NON\_COMPLIANT if attached EBS volumes are unencrypted or are encrypted with a KMS key not in the supplied parameters.
 
-**Identifier:** ENCRYPTED_VOLUMES
+**Identifier:** ENCRYPTED\_VOLUMES
 
 **Resource Types:** AWS::EC2::Volume
 

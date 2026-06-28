@@ -1,8 +1,8 @@
 # sns-encrypted-kms
 
-Checks if SNS topics are encrypted with AWS Key Management Service (AWS KMS). The rule is NON_COMPLIANT if an SNS topic is not encrypted with AWS KMS. Optionally, specify the key ARNs, the alias ARNs, the alias name, or the key IDs for the rule to check.
+Checks if SNS topics are encrypted with AWS Key Management Service (AWS KMS). The rule is NON\_COMPLIANT if an SNS topic is not encrypted with AWS KMS. Optionally, specify the key ARNs, the alias ARNs, the alias name, or the key IDs for the rule to check.
 
-**Identifier:** SNS_ENCRYPTED_KMS
+**Identifier:** SNS\_ENCRYPTED\_KMS
 
 **Resource Types:** AWS::SNS::Topic
 

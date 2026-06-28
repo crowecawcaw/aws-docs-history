@@ -1,8 +1,8 @@
 # fsx-resources-protected-by-backup-plan
 
-Checks if Amazon FSx File Systems are protected by a backup plan. The rule is NON_COMPLIANT if the Amazon FSx File System is not covered by a backup plan.
+Checks if Amazon FSx File Systems are protected by a backup plan. The rule is NON\_COMPLIANT if the Amazon FSx File System is not covered by a backup plan.
 
-**Identifier:** FSX_RESOURCES_PROTECTED_BY_BACKUP_PLAN
+**Identifier:** FSX\_RESOURCES\_PROTECTED\_BY\_BACKUP\_PLAN
 
 **Resource Types:** AWS::FSx::FileSystem
 

@@ -7,7 +7,7 @@ Checks if all of the specified applications are installed on the instance. Optio
 Ensure that SSM agent is running on the EC2 instance and an association to gather application software inventory is created.
 The rule returns `NOT_APPLICABLE` if SSM agent is not installed or an association is not yet created or running.
 
-**Identifier:** EC2_MANAGEDINSTANCE_APPLICATIONS_REQUIRED
+**Identifier:** EC2\_MANAGEDINSTANCE\_APPLICATIONS\_REQUIRED
 
 **Resource Types:** AWS::SSM::ManagedInstanceInventory
 

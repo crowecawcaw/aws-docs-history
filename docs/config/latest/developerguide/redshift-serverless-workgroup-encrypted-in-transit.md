@@ -1,8 +1,8 @@
 # redshift-serverless-workgroup-encrypted-in-transit
 
-Checks if AWS Redshift Serverless workgroups have the require_ssl config parameter set to true. The rule is NON_COMPLIANT if require_ssl is set to false.
+Checks if AWS Redshift Serverless workgroups have the require\_ssl config parameter set to true. The rule is NON\_COMPLIANT if require\_ssl is set to false.
 
-**Identifier:** REDSHIFT_SERVERLESS_WORKGROUP_ENCRYPTED_IN_TRANSIT
+**Identifier:** REDSHIFT\_SERVERLESS\_WORKGROUP\_ENCRYPTED\_IN\_TRANSIT
 
 **Resource Types:** AWS::RedshiftServerless::Workgroup
 

@@ -1,8 +1,8 @@
 # vpc-flow-logs-enabled
 
-Checks if Amazon Virtual Private Cloud (Amazon VPC) flow logs are found and enabled for all Amazon VPCs. The rule is NON_COMPLIANT if flow logs are not enabled for at least one Amazon VPC.
+Checks if Amazon Virtual Private Cloud (Amazon VPC) flow logs are found and enabled for all Amazon VPCs. The rule is NON\_COMPLIANT if flow logs are not enabled for at least one Amazon VPC.
 
-**Identifier:** VPC_FLOW_LOGS_ENABLED
+**Identifier:** VPC\_FLOW\_LOGS\_ENABLED
 
 **Resource Types:** AWS::EC2::VPC
 

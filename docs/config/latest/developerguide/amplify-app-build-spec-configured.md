@@ -1,8 +1,8 @@
 # amplify-app-build-spec-configured
 
-Checks if AWS Amplify apps have a build specification configured. The rule is NON_COMPLIANT if configuration.BuildSpec does not exist.
+Checks if AWS Amplify apps have a build specification configured. The rule is NON\_COMPLIANT if configuration.BuildSpec does not exist.
 
-**Identifier:** AMPLIFY_APP_BUILD_SPEC_CONFIGURED
+**Identifier:** AMPLIFY\_APP\_BUILD\_SPEC\_CONFIGURED
 
 **Resource Types:** AWS::Amplify::App
 

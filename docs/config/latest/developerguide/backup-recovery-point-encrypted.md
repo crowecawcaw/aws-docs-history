@@ -1,8 +1,8 @@
 # backup-recovery-point-encrypted
 
-Checks if a recovery point is encrypted. The rule is NON_COMPLIANT if the recovery point is not encrypted.
+Checks if a recovery point is encrypted. The rule is NON\_COMPLIANT if the recovery point is not encrypted.
 
-**Identifier:** BACKUP_RECOVERY_POINT_ENCRYPTED
+**Identifier:** BACKUP\_RECOVERY\_POINT\_ENCRYPTED
 
 **Resource Types:** AWS::Backup::RecoveryPoint
 

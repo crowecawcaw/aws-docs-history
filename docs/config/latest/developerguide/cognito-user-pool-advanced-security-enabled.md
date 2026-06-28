@@ -1,8 +1,8 @@
 # cognito-user-pool-advanced-security-enabled
 
-Checks if an Amazon Cognito user pool has advanced security enabled for standard authentication. The rule is NON_COMPLIANT if advanced security is not enabled. Optionally, you can specify an advanced security mode for the rule to check.
+Checks if an Amazon Cognito user pool has advanced security enabled for standard authentication. The rule is NON\_COMPLIANT if advanced security is not enabled. Optionally, you can specify an advanced security mode for the rule to check.
 
-**Identifier:** COGNITO_USER_POOL_ADVANCED_SECURITY_ENABLED
+**Identifier:** COGNITO\_USER\_POOL\_ADVANCED\_SECURITY\_ENABLED
 
 **Resource Types:** AWS::Cognito::UserPool
 
@@ -15,7 +15,7 @@ Checks if an Amazon Cognito user pool has advanced security enabled for standard
 SecurityMode (Optional)
 Type: String
 
-String value of the advanced security mode for the rule to check. If provided, the rule is NON_COMPLIANT if the advanced security mode for user pools does not match this parameter value. Valid values are AUDIT and ENFORCED
+String value of the advanced security mode for the rule to check. If provided, the rule is NON\_COMPLIANT if the advanced security mode for user pools does not match this parameter value. Valid values are AUDIT and ENFORCED
 
 ## AWS CloudFormation template
 

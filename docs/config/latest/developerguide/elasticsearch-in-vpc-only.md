@@ -1,8 +1,8 @@
 # elasticsearch-in-vpc-only
 
-Checks if Amazon OpenSearch Service (previously called Elasticsearch) domains are in Amazon Virtual Private Cloud (Amazon VPC). The rule is NON_COMPLIANT if an OpenSearch Service domain endpoint is public.
+Checks if Amazon OpenSearch Service (previously called Elasticsearch) domains are in Amazon Virtual Private Cloud (Amazon VPC). The rule is NON\_COMPLIANT if an OpenSearch Service domain endpoint is public.
 
-**Identifier:** ELASTICSEARCH_IN_VPC_ONLY
+**Identifier:** ELASTICSEARCH\_IN\_VPC\_ONLY
 
 **Resource Types:** AWS::Elasticsearch::Domain
 

@@ -1,8 +1,8 @@
 # mq-automatic-minor-version-upgrade-enabled
 
-Checks if automatic minor version upgrades are enabled for Amazon MQ brokers. The rule is NON_COMPLIANT if the 'AutoMinorVersionUpgrade' field is not enabled for an Amazon MQ broker.
+Checks if automatic minor version upgrades are enabled for Amazon MQ brokers. The rule is NON\_COMPLIANT if the 'AutoMinorVersionUpgrade' field is not enabled for an Amazon MQ broker.
 
-**Identifier:** MQ_AUTOMATIC_MINOR_VERSION_UPGRADE_ENABLED
+**Identifier:** MQ\_AUTOMATIC\_MINOR\_VERSION\_UPGRADE\_ENABLED
 
 **Resource Types:** AWS::AmazonMQ::Broker
 

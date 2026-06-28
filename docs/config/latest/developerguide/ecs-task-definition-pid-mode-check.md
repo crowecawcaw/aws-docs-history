@@ -1,12 +1,12 @@
 # ecs-task-definition-pid-mode-check
 
-Checks if ECSTaskDefinitions are configured to share a host’s process namespace with its Amazon Elastic Container Service (Amazon ECS) containers. The rule is NON_COMPLIANT if the pidMode parameter is set to ‘host’.
+Checks if ECSTaskDefinitions are configured to share a host’s process namespace with its Amazon Elastic Container Service (Amazon ECS) containers. The rule is NON\_COMPLIANT if the pidMode parameter is set to ‘host’.
 
 ###### Note
 
 This rule only evaluates the latest active revision of an Amazon ECS task definition.
 
-**Identifier:** ECS_TASK_DEFINITION_PID_MODE_CHECK
+**Identifier:** ECS\_TASK\_DEFINITION\_PID\_MODE\_CHECK
 
 **Resource Types:** AWS::ECS::TaskDefinition
 

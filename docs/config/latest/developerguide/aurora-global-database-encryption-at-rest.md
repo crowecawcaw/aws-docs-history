@@ -1,8 +1,8 @@
 # aurora-global-database-encryption-at-rest
 
-Checks if Amazon Aurora Global Databases have storage encryption enabled. This rule is NON_COMPLIANT if an Amazon Aurora Global Database does not have storage encryption enabled.
+Checks if Amazon Aurora Global Databases have storage encryption enabled. This rule is NON\_COMPLIANT if an Amazon Aurora Global Database does not have storage encryption enabled.
 
-**Identifier:** AURORA_GLOBAL_DATABASE_ENCRYPTION_AT_REST
+**Identifier:** AURORA\_GLOBAL\_DATABASE\_ENCRYPTION\_AT\_REST
 
 **Resource Types:** AWS::RDS::GlobalCluster
 

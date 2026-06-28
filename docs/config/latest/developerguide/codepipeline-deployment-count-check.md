@@ -2,7 +2,7 @@
 
 Checks if the first deployment stage of AWS CodePipeline performs more than one deployment. Optionally checks if each of the subsequent remaining stages deploy to more than the specified number of deployments (`deploymentLimit`).
 
-**Identifier:** CODEPIPELINE_DEPLOYMENT_COUNT_CHECK
+**Identifier:** CODEPIPELINE\_DEPLOYMENT\_COUNT\_CHECK
 
 **Resource Types:** AWS::CodePipeline::Pipeline
 

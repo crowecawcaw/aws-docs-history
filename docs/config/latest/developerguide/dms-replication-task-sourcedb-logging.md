@@ -1,8 +1,8 @@
 # dms-replication-task-sourcedb-logging
 
-Checks if logging is enabled with a valid severity level for AWS DMS replication tasks of a source database. The rule is NON_COMPLIANT if logging is not enabled or logs for DMS replication tasks of a source database have a severity level that is not valid.
+Checks if logging is enabled with a valid severity level for AWS DMS replication tasks of a source database. The rule is NON\_COMPLIANT if logging is not enabled or logs for DMS replication tasks of a source database have a severity level that is not valid.
 
-**Identifier:** DMS_REPLICATION_TASK_SOURCEDB_LOGGING
+**Identifier:** DMS\_REPLICATION\_TASK\_SOURCEDB\_LOGGING
 
 **Resource Types:** AWS::DMS::ReplicationTask
 

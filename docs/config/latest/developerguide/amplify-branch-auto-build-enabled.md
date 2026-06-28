@@ -1,8 +1,8 @@
 # amplify-branch-auto-build-enabled
 
-Checks if AWS Amplify branches have auto build enabled. The rule is NON_COMPLIANT if configuration.EnableAutoBuild is false.
+Checks if AWS Amplify branches have auto build enabled. The rule is NON\_COMPLIANT if configuration.EnableAutoBuild is false.
 
-**Identifier:** AMPLIFY_BRANCH_AUTO_BUILD_ENABLED
+**Identifier:** AMPLIFY\_BRANCH\_AUTO\_BUILD\_ENABLED
 
 **Resource Types:** AWS::Amplify::Branch
 

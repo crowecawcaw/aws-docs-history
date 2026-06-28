@@ -1,8 +1,8 @@
 # codedeploy-ec2-minimum-healthy-hosts-configured
 
-Checks if the deployment group for EC2/On-Premises Compute Platform is configured with a minimum healthy hosts fleet percentage or host count greater than or equal to the input threshold. The rule is NON_COMPLIANT if either is below the threshold.
+Checks if the deployment group for EC2/On-Premises Compute Platform is configured with a minimum healthy hosts fleet percentage or host count greater than or equal to the input threshold. The rule is NON\_COMPLIANT if either is below the threshold.
 
-**Identifier:** CODEDEPLOY_EC2_MINIMUM_HEALTHY_HOSTS_CONFIGURED
+**Identifier:** CODEDEPLOY\_EC2\_MINIMUM\_HEALTHY\_HOSTS\_CONFIGURED
 
 **Resource Types:** AWS::CodeDeploy::DeploymentGroup
 

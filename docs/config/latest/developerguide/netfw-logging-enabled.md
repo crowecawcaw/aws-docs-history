@@ -1,8 +1,8 @@
 # netfw-logging-enabled
 
-Checks if AWS Network Firewall firewalls have logging enabled. The rule is NON_COMPLIANT if a logging type is not configured. You can specify which logging type you want the rule to check.
+Checks if AWS Network Firewall firewalls have logging enabled. The rule is NON\_COMPLIANT if a logging type is not configured. You can specify which logging type you want the rule to check.
 
-**Identifier:** NETFW_LOGGING_ENABLED
+**Identifier:** NETFW\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::NetworkFirewall::LoggingConfiguration
 

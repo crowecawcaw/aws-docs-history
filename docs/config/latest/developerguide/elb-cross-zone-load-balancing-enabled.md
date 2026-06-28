@@ -1,8 +1,8 @@
 # elb-cross-zone-load-balancing-enabled
 
-Checks if cross-zone load balancing is enabled for Classic Load Balancers. The rule is NON_COMPLIANT if cross-zone load balancing is not enabled for Classic Load Balancers.
+Checks if cross-zone load balancing is enabled for Classic Load Balancers. The rule is NON\_COMPLIANT if cross-zone load balancing is not enabled for Classic Load Balancers.
 
-**Identifier:** ELB_CROSS_ZONE_LOAD_BALANCING_ENABLED
+**Identifier:** ELB\_CROSS\_ZONE\_LOAD\_BALANCING\_ENABLED
 
 **Resource Types:** AWS::ElasticLoadBalancing::LoadBalancer
 

@@ -1,8 +1,8 @@
 # appmesh-virtual-gateway-backend-defaults-tls
 
-Checks if backend defaults for AWS App Mesh virtual gateways require the virtual gateways to communicate with all ports using TLS. The rule is NON_COMPLIANT if configuration.Spec.BackendDefaults.ClientPolicy.Tls.Enforce is false.
+Checks if backend defaults for AWS App Mesh virtual gateways require the virtual gateways to communicate with all ports using TLS. The rule is NON\_COMPLIANT if configuration.Spec.BackendDefaults.ClientPolicy.Tls.Enforce is false.
 
-**Identifier:** APPMESH_VIRTUAL_GATEWAY_BACKEND_DEFAULTS_TLS
+**Identifier:** APPMESH\_VIRTUAL\_GATEWAY\_BACKEND\_DEFAULTS\_TLS
 
 **Resource Types:** AWS::AppMesh::VirtualGateway
 

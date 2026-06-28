@@ -1,8 +1,8 @@
 # evidently-segment-description
 
-Checks if Amazon CloudWatch Evidently segments have a description. The rule is NON_COMPLIANT if configuration.Description does not exist or is an empty string.
+Checks if Amazon CloudWatch Evidently segments have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string.
 
-**Identifier:** EVIDENTLY_SEGMENT_DESCRIPTION
+**Identifier:** EVIDENTLY\_SEGMENT\_DESCRIPTION
 
 **Resource Types:** AWS::Evidently::Segment
 

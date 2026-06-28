@@ -1,8 +1,8 @@
 # transfer-certificate-description
 
-Checks if AWS Transfer Family certificates have a description. The rule is NON_COMPLIANT if configuration.Description does not exist.
+Checks if AWS Transfer Family certificates have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist.
 
-**Identifier:** TRANSFER_CERTIFICATE_DESCRIPTION
+**Identifier:** TRANSFER\_CERTIFICATE\_DESCRIPTION
 
 **Resource Types:** AWS::Transfer::Certificate
 

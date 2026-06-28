@@ -1,8 +1,8 @@
 # rds-sqlserver-encrypted-in-transit
 
-Checks if connections to Amazon RDS SQL server database instances are configured to use encryption in transit. The rule is NON_COMPLIANT if the DB parameter force_ssl for the parameter group is not set to 1 or the ApplyStatus parameter is not 'in-sync'.
+Checks if connections to Amazon RDS SQL server database instances are configured to use encryption in transit. The rule is NON\_COMPLIANT if the DB parameter force\_ssl for the parameter group is not set to 1 or the ApplyStatus parameter is not 'in-sync'.
 
-**Identifier:** RDS_SQLSERVER_ENCRYPTED_IN_TRANSIT
+**Identifier:** RDS\_SQLSERVER\_ENCRYPTED\_IN\_TRANSIT
 
 **Resource Types:** AWS::RDS::DBInstance
 

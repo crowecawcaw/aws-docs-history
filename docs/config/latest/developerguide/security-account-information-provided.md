@@ -1,8 +1,8 @@
 # security-account-information-provided
 
-Checks if you have provided security contact information for your AWS account contacts. The rule is NON_COMPLIANT if security contact information within the account is not provided.
+Checks if you have provided security contact information for your AWS account contacts. The rule is NON\_COMPLIANT if security contact information within the account is not provided.
 
-**Identifier:** SECURITY_ACCOUNT_INFORMATION_PROVIDED
+**Identifier:** SECURITY\_ACCOUNT\_INFORMATION\_PROVIDED
 
 **Resource Types:** AWS::::Account
 

@@ -1,8 +1,8 @@
 # apigatewayv2-integration-private-https-enabled
 
-Checks if Amazon API Gateway V2 private integration traffic for HTTP APIs uses the HTTPS protocol. The rule is NON_COMPLIANT if configuration.TlsConfig does not exist.
+Checks if Amazon API Gateway V2 private integration traffic for HTTP APIs uses the HTTPS protocol. The rule is NON\_COMPLIANT if configuration.TlsConfig does not exist.
 
-**Identifier:** APIGATEWAYV2_INTEGRATION_PRIVATE_HTTPS_ENABLED
+**Identifier:** APIGATEWAYV2\_INTEGRATION\_PRIVATE\_HTTPS\_ENABLED
 
 **Resource Types:** AWS::ApiGatewayV2::Integration
 

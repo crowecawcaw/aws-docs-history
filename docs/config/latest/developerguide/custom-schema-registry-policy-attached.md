@@ -1,8 +1,8 @@
 # custom-schema-registry-policy-attached
 
-Checks if custom Amazon EventBridge schema registries have a resource policy attached. The rule is NON_COMPLIANT for custom schema registries without a resource policy attached.
+Checks if custom Amazon EventBridge schema registries have a resource policy attached. The rule is NON\_COMPLIANT for custom schema registries without a resource policy attached.
 
-**Identifier:** CUSTOM_SCHEMA_REGISTRY_POLICY_ATTACHED
+**Identifier:** CUSTOM\_SCHEMA\_REGISTRY\_POLICY\_ATTACHED
 
 **Resource Types:** AWS::EventSchemas::Registry
 

@@ -1,8 +1,8 @@
 # ecs-fargate-latest-platform-version
 
-Checks if ECS Fargate services is set to the latest platform version. The rule is NON_COMPLIANT if PlatformVersion for the Fargate launch type is not set to LATEST, or if neither latestLinuxVersion nor `latestWindowsVersion` are provided as parameters.
+Checks if ECS Fargate services is set to the latest platform version. The rule is NON\_COMPLIANT if PlatformVersion for the Fargate launch type is not set to LATEST, or if neither latestLinuxVersion nor `latestWindowsVersion` are provided as parameters.
 
-**Identifier:** ECS_FARGATE_LATEST_PLATFORM_VERSION
+**Identifier:** ECS\_FARGATE\_LATEST\_PLATFORM\_VERSION
 
 **Resource Types:** AWS::ECS::Service
 

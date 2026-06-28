@@ -1,6 +1,6 @@
 # wafv2-logging-enabled
 
-Checks if logging is enabled on AWS WAFv2 regional and global web access control lists (web ACLs). The rule is NON_COMPLIANT if the logging is enabled but the logging destination does not match the value of the parameter.
+Checks if logging is enabled on AWS WAFv2 regional and global web access control lists (web ACLs). The rule is NON\_COMPLIANT if the logging is enabled but the logging destination does not match the value of the parameter.
 
 ###### Note
 
@@ -8,7 +8,7 @@ Checks if logging is enabled on AWS WAFv2 regional and global web access control
 
 This rule does not check logging done with Security Lake for AWS WAFV2 web ACLs.
 
-**Identifier:** WAFV2_LOGGING_ENABLED
+**Identifier:** WAFV2\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::WAFv2::WebACL
 

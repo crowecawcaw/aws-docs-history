@@ -1,8 +1,8 @@
 # route53-resolver-firewall-rule-group-association-tagged
 
-Checks if Amazon Route 53 Resolver firewall rule group associations have tags. The rule is NON_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'.
+Checks if Amazon Route 53 Resolver firewall rule group associations have tags. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'.
 
-**Identifier:** ROUTE53_RESOLVER_FIREWALL_RULE_GROUP_ASSOCIATION_TAGGED
+**Identifier:** ROUTE53\_RESOLVER\_FIREWALL\_RULE\_GROUP\_ASSOCIATION\_TAGGED
 
 **Resource Types:** AWS::Route53Resolver::FirewallRuleGroupAssociation
 
@@ -15,7 +15,7 @@ Checks if Amazon Route 53 Resolver firewall rule group associations have tags. T
 requiredKeyTags (Optional)
 Type: CSV
 
-Comma-separated list of tag keys for the rule to check. If provided, the rule is NON_COMPLIANT if the evaluated resource does not contain these keys. Tag keys are case-sensitive. Tag keys starting with 'aws:' are not allowed.
+Comma-separated list of tag keys for the rule to check. If provided, the rule is NON\_COMPLIANT if the evaluated resource does not contain these keys. Tag keys are case-sensitive. Tag keys starting with 'aws:' are not allowed.
 
 ## AWS CloudFormation template
 

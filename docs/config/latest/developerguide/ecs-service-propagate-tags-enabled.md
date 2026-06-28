@@ -1,8 +1,8 @@
 # ecs-service-propagate-tags-enabled
 
-Checks if AWS ECS Service has property PropagateTags with value of either SERVICE or TASK_DEFINITION. The rule is NON_COMPLIANT if the property does not exist or is NONE.
+Checks if AWS ECS Service has property PropagateTags with value of either SERVICE or TASK\_DEFINITION. The rule is NON\_COMPLIANT if the property does not exist or is NONE.
 
-**Identifier:** ECS_SERVICE_PROPAGATE_TAGS_ENABLED
+**Identifier:** ECS\_SERVICE\_PROPAGATE\_TAGS\_ENABLED
 
 **Resource Types:** AWS::ECS::Service
 

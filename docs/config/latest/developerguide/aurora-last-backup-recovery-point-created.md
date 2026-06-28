@@ -1,8 +1,8 @@
 # aurora-last-backup-recovery-point-created
 
-Checks if a recovery point was created for Amazon Aurora DB clusters. The rule is NON_COMPLIANT if the Amazon Relational Database Service (Amazon RDS) DB Cluster does not have a corresponding recovery point created within the specified time period.
+Checks if a recovery point was created for Amazon Aurora DB clusters. The rule is NON\_COMPLIANT if the Amazon Relational Database Service (Amazon RDS) DB Cluster does not have a corresponding recovery point created within the specified time period.
 
-**Identifier:** AURORA_LAST_BACKUP_RECOVERY_POINT_CREATED
+**Identifier:** AURORA\_LAST\_BACKUP\_RECOVERY\_POINT\_CREATED
 
 **Resource Types:** AWS::RDS::DBCluster
 

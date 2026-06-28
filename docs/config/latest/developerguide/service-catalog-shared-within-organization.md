@@ -1,8 +1,8 @@
 # service-catalog-shared-within-organization
 
-Checks if AWS Service Catalog shares portfolios to an organization (a collection of AWS accounts treated as a single unit) when integration is enabled with AWS Organizations. The rule is NON_COMPLIANT if the `Type` value of a share is `ACCOUNT`.
+Checks if AWS Service Catalog shares portfolios to an organization (a collection of AWS accounts treated as a single unit) when integration is enabled with AWS Organizations. The rule is NON\_COMPLIANT if the `Type` value of a share is `ACCOUNT`.
 
-**Identifier:** SERVICE_CATALOG_SHARED_WITHIN_ORGANIZATION
+**Identifier:** SERVICE\_CATALOG\_SHARED\_WITHIN\_ORGANIZATION
 
 **Resource Types:** AWS::ServiceCatalog::Portfolio
 

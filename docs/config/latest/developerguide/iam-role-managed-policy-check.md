@@ -1,8 +1,8 @@
 # iam-role-managed-policy-check
 
-Checks if all managed policies specified in the list of managed policies are attached to the AWS Identity and Access Management (IAM) role. The rule is NON_COMPLIANT if a managed policy is not attached to the IAM role.
+Checks if all managed policies specified in the list of managed policies are attached to the AWS Identity and Access Management (IAM) role. The rule is NON\_COMPLIANT if a managed policy is not attached to the IAM role.
 
-**Identifier:** IAM_ROLE_MANAGED_POLICY_CHECK
+**Identifier:** IAM\_ROLE\_MANAGED\_POLICY\_CHECK
 
 **Resource Types:** AWS::IAM::Role
 

@@ -1,8 +1,8 @@
 # mq-active-deployment-mode
 
-Checks the deployment mode configured for Amazon MQ ActiveMQ broker engine. The rule is NON_COMPLIANT if the default single-instance broker mode is being used.
+Checks the deployment mode configured for Amazon MQ ActiveMQ broker engine. The rule is NON\_COMPLIANT if the default single-instance broker mode is being used.
 
-**Identifier:** MQ_ACTIVE_DEPLOYMENT_MODE
+**Identifier:** MQ\_ACTIVE\_DEPLOYMENT\_MODE
 
 **Resource Types:** AWS::AmazonMQ::Broker
 

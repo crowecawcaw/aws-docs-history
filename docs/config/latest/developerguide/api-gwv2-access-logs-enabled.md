@@ -1,8 +1,8 @@
 # api-gwv2-access-logs-enabled
 
-Checks if Amazon API Gateway V2 stages have access logging enabled. The rule is NON_COMPLIANT if 'accessLogSettings' is not present in Stage configuration.
+Checks if Amazon API Gateway V2 stages have access logging enabled. The rule is NON\_COMPLIANT if 'accessLogSettings' is not present in Stage configuration.
 
-**Identifier:** API_GWV2_ACCESS_LOGS_ENABLED
+**Identifier:** API\_GWV2\_ACCESS\_LOGS\_ENABLED
 
 **Resource Types:** AWS::ApiGatewayV2::Stage
 

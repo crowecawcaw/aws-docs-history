@@ -1,8 +1,8 @@
 # mq-active-single-instance-broker-storage-type-efs
 
-Checks if an Amazon MQ for ActiveMQ single-instance broker using the mq.m5 instance type family is configured with Amazon Elastic File System (EFS) for broker storage. The rule is NON_COMPLIANT if configuration.StorageType is not 'efs'.
+Checks if an Amazon MQ for ActiveMQ single-instance broker using the mq.m5 instance type family is configured with Amazon Elastic File System (EFS) for broker storage. The rule is NON\_COMPLIANT if configuration.StorageType is not 'efs'.
 
-**Identifier:** MQ_ACTIVE_SINGLE_INSTANCE_BROKER_STORAGE_TYPE_EFS
+**Identifier:** MQ\_ACTIVE\_SINGLE\_INSTANCE\_BROKER\_STORAGE\_TYPE\_EFS
 
 **Resource Types:** AWS::AmazonMQ::Broker
 

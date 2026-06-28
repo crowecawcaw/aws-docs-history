@@ -1,8 +1,8 @@
 # efs-automatic-backups-enabled
 
-Checks if an Amazon Elastic File System (Amazon EFS) file system has automatic backups enabled. The rule is NON_COMPLIANT if `BackupPolicy.Status` is set to DISABLED.
+Checks if an Amazon Elastic File System (Amazon EFS) file system has automatic backups enabled. The rule is NON\_COMPLIANT if `BackupPolicy.Status` is set to DISABLED.
 
-**Identifier:** EFS_AUTOMATIC_BACKUPS_ENABLED
+**Identifier:** EFS\_AUTOMATIC\_BACKUPS\_ENABLED
 
 **Resource Types:** AWS::EFS::FileSystem
 

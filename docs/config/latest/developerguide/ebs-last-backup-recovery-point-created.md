@@ -1,8 +1,8 @@
 # ebs-last-backup-recovery-point-created
 
-Checks if a recovery point was created for Amazon Elastic Block Store (Amazon EBS). The rule is NON_COMPLIANT if the Amazon EBS volume does not have a corresponding recovery point created within the specified time period.
+Checks if a recovery point was created for Amazon Elastic Block Store (Amazon EBS). The rule is NON\_COMPLIANT if the Amazon EBS volume does not have a corresponding recovery point created within the specified time period.
 
-**Identifier:** EBS_LAST_BACKUP_RECOVERY_POINT_CREATED
+**Identifier:** EBS\_LAST\_BACKUP\_RECOVERY\_POINT\_CREATED
 
 **Resource Types:** AWS::EC2::Volume
 

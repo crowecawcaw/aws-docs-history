@@ -1,8 +1,8 @@
 # codebuild-project-artifact-encryption
 
-Checks if an AWS CodeBuild project has encryption enabled for all of its artifacts. The rule is NON_COMPLIANT if 'encryptionDisabled' is set to 'true' for any primary or secondary (if present) artifact configurations.
+Checks if an AWS CodeBuild project has encryption enabled for all of its artifacts. The rule is NON\_COMPLIANT if 'encryptionDisabled' is set to 'true' for any primary or secondary (if present) artifact configurations.
 
-**Identifier:** CODEBUILD_PROJECT_ARTIFACT_ENCRYPTION
+**Identifier:** CODEBUILD\_PROJECT\_ARTIFACT\_ENCRYPTION
 
 **Resource Types:** AWS::CodeBuild::Project
 

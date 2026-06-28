@@ -1,8 +1,8 @@
 # sagemaker-data-quality-job-isolation
 
-Checks if Amazon SageMaker data quality job definitions have network isolation enabled. The rule is NON_COMPLIANT if configuration.NetworkConfig.EnableNetworkIsolation is false.
+Checks if Amazon SageMaker data quality job definitions have network isolation enabled. The rule is NON\_COMPLIANT if configuration.NetworkConfig.EnableNetworkIsolation is false.
 
-**Identifier:** SAGEMAKER_DATA_QUALITY_JOB_ISOLATION
+**Identifier:** SAGEMAKER\_DATA\_QUALITY\_JOB\_ISOLATION
 
 **Resource Types:** AWS::SageMaker::DataQualityJobDefinition
 

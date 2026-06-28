@@ -2,14 +2,14 @@
 
 Checks if AWS Secrets Manager secret has rotation enabled. The rule also checks an optional `maximumAllowedRotationFrequency` parameter.
 If the parameter is specified, the rotation frequency of the secret is compared with the maximum allowed frequency.
-The rule is NON_COMPLIANT if the secret is not scheduled for rotation.
-The rule is also NON_COMPLIANT if the rotation frequency is higher than the number specified in the maximumAllowedRotationFrequency parameter.
+The rule is NON\_COMPLIANT if the secret is not scheduled for rotation.
+The rule is also NON\_COMPLIANT if the rotation frequency is higher than the number specified in the maximumAllowedRotationFrequency parameter.
 
 ###### Note
 
 Re-evaluating this rule within 4 hours of the first evaluation will have no effect on the results.
 
-**Identifier:** SECRETSMANAGER_ROTATION_ENABLED_CHECK
+**Identifier:** SECRETSMANAGER\_ROTATION\_ENABLED\_CHECK
 
 **Resource Types:** AWS::SecretsManager::Secret
 

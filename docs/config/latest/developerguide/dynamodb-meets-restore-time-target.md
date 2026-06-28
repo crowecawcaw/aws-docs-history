@@ -1,8 +1,8 @@
 # dynamodb-meets-restore-time-target
 
-Checks if the restore time of Amazon DynamoDB Tables meets the specified duration. The rule is NON_COMPLIANT if LatestRestoreExecutionTimeMinutes of a DynamoDB Table is greater than maxRestoreTime minutes.
+Checks if the restore time of Amazon DynamoDB Tables meets the specified duration. The rule is NON\_COMPLIANT if LatestRestoreExecutionTimeMinutes of a DynamoDB Table is greater than maxRestoreTime minutes.
 
-**Identifier:** DYNAMODB_MEETS_RESTORE_TIME_TARGET
+**Identifier:** DYNAMODB\_MEETS\_RESTORE\_TIME\_TARGET
 
 **Resource Types:** AWS::DynamoDB::Table
 

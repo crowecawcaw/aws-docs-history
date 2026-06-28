@@ -1,12 +1,12 @@
 # rds-snapshots-public-prohibited
 
-Checks if Amazon Relational Database Service (Amazon RDS) snapshots are public. The rule is NON_COMPLIANT if any existing and new Amazon RDS snapshots are public.
+Checks if Amazon Relational Database Service (Amazon RDS) snapshots are public. The rule is NON\_COMPLIANT if any existing and new Amazon RDS snapshots are public.
 
 ###### Note
 
 It can take up to 12 hours for compliance results to be captured.
 
-**Identifier:** RDS_SNAPSHOTS_PUBLIC_PROHIBITED
+**Identifier:** RDS\_SNAPSHOTS\_PUBLIC\_PROHIBITED
 
 **Resource Types:** AWS::RDS::DBClusterSnapshot, AWS::RDS::DBSnapshot
 

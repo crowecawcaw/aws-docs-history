@@ -1,8 +1,8 @@
 # datasync-task-data-verification-enabled
 
-Checks if AWS DataSync tasks have data verification enabled to perform additional verification at the end of your transfer. The rule is NON_COMPLIANT if configuration.Options.VerifyMode is 'NONE'.
+Checks if AWS DataSync tasks have data verification enabled to perform additional verification at the end of your transfer. The rule is NON\_COMPLIANT if configuration.Options.VerifyMode is 'NONE'.
 
-**Identifier:** DATASYNC_TASK_DATA_VERIFICATION_ENABLED
+**Identifier:** DATASYNC\_TASK\_DATA\_VERIFICATION\_ENABLED
 
 **Resource Types:** AWS::DataSync::Task
 

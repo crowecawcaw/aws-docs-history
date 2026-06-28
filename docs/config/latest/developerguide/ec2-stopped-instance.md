@@ -1,8 +1,8 @@
 # ec2-stopped-instance
 
-Checks if there are Amazon Elastic Compute Cloud (Amazon EC2) instances stopped for more than the allowed number of days. The rule is NON_COMPLIANT if the state of an Amazon EC2 instance has been stopped for longer than the allowed number of days, or if the amount of time cannot be determined.
+Checks if there are Amazon Elastic Compute Cloud (Amazon EC2) instances stopped for more than the allowed number of days. The rule is NON\_COMPLIANT if the state of an Amazon EC2 instance has been stopped for longer than the allowed number of days, or if the amount of time cannot be determined.
 
-**Identifier:** EC2_STOPPED_INSTANCE
+**Identifier:** EC2\_STOPPED\_INSTANCE
 
 **Resource Types:** AWS::EC2::Instance
 
@@ -16,7 +16,7 @@ AllowedDays (Optional)
 Type: int
 Default: 30
 
-The number of days an Amazon EC2 instance can be stopped before the rule is NON_COMPLIANT. The default number of days is 30.
+The number of days an Amazon EC2 instance can be stopped before the rule is NON\_COMPLIANT. The default number of days is 30.
 
 ###### Note
 

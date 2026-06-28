@@ -1,8 +1,8 @@
 # redshift-serverless-workgroup-no-public-access
 
-Checks if Amazon Redshift Serverless workgroups do not allow public access. The rule is NON_COMPLIANT if a workgroup has 'Turn on Public Accessible' enabled.
+Checks if Amazon Redshift Serverless workgroups do not allow public access. The rule is NON\_COMPLIANT if a workgroup has 'Turn on Public Accessible' enabled.
 
-**Identifier:** REDSHIFT_SERVERLESS_WORKGROUP_NO_PUBLIC_ACCESS
+**Identifier:** REDSHIFT\_SERVERLESS\_WORKGROUP\_NO\_PUBLIC\_ACCESS
 
 **Resource Types:** AWS::RedshiftServerless::Workgroup
 

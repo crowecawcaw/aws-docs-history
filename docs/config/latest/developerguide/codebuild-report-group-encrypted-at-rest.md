@@ -1,8 +1,8 @@
 # codebuild-report-group-encrypted-at-rest
 
-Checks if an AWS CodeBuild report group has encryption at rest setting enabled. The rule is NON_COMPLIANT if 'EncryptionDisabled' is 'true'.
+Checks if an AWS CodeBuild report group has encryption at rest setting enabled. The rule is NON\_COMPLIANT if 'EncryptionDisabled' is 'true'.
 
-**Identifier:** CODEBUILD_REPORT_GROUP_ENCRYPTED_AT_REST
+**Identifier:** CODEBUILD\_REPORT\_GROUP\_ENCRYPTED\_AT\_REST
 
 **Resource Types:** AWS::CodeBuild::ReportGroup
 

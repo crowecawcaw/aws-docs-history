@@ -1,8 +1,8 @@
 # guardduty-runtime-monitoring-enabled
 
-Checks if Runtime Monitoring is enabled for Amazon GuardDuty detector in your account or organization. The rule is NON_COMPLIANT if Runtime Monitoring in GuardDuty is not enabled for your account or at least one member account in your organization.
+Checks if Runtime Monitoring is enabled for Amazon GuardDuty detector in your account or organization. The rule is NON\_COMPLIANT if Runtime Monitoring in GuardDuty is not enabled for your account or at least one member account in your organization.
 
-**Identifier:** GUARDDUTY_RUNTIME_MONITORING_ENABLED
+**Identifier:** GUARDDUTY\_RUNTIME\_MONITORING\_ENABLED
 
 **Resource Types:** AWS::GuardDuty::Detector
 

@@ -22,7 +22,7 @@ To avoid unnecessary evaluations, you should only deploy periodic rules that rep
 For a list of which managed rules are supported in which Regions,
 see [List of AWS Config Managed Rules by Region Availability](managing-rules-by-region-availability.md "managing-rules-by-region-availability.md").
 
-**Identifier:** IAM_POLICY_IN_USE
+**Identifier:** IAM\_POLICY\_IN\_USE
 
 **Resource Types:** AWS::::Account
 
@@ -40,7 +40,7 @@ An IAM policy ARN to be checked.
 policyUsageType (Optional)
 Type: String
 
-Specify whether you expect the policy to be attached to an IAM user, group or role. Valid values are IAM_USER, IAM_GROUP, IAM_ROLE, or ANY. Default value is ANY.
+Specify whether you expect the policy to be attached to an IAM user, group or role. Valid values are IAM\_USER, IAM\_GROUP, IAM\_ROLE, or ANY. Default value is ANY.
 
 ## AWS CloudFormation template
 

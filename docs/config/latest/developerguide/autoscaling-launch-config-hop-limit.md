@@ -1,8 +1,8 @@
 # autoscaling-launch-config-hop-limit
 
-Checks the number of network hops that the metadata token can travel. This rule is NON_COMPLIANT if the Metadata response hop limit is greater than 1.
+Checks the number of network hops that the metadata token can travel. This rule is NON\_COMPLIANT if the Metadata response hop limit is greater than 1.
 
-**Identifier:** AUTOSCALING_LAUNCH_CONFIG_HOP_LIMIT
+**Identifier:** AUTOSCALING\_LAUNCH\_CONFIG\_HOP\_LIMIT
 
 **Resource Types:** AWS::AutoScaling::LaunchConfiguration
 

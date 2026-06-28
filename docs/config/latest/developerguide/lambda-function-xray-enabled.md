@@ -1,8 +1,8 @@
 # lambda-function-xray-enabled
 
-Checks if AWS X-Ray is enabled on AWS Lambda functions.The rule is NON_COMPLIANT if X-Ray tracing is disabled for a Lambda function.
+Checks if AWS X-Ray is enabled on AWS Lambda functions.The rule is NON\_COMPLIANT if X-Ray tracing is disabled for a Lambda function.
 
-**Identifier:** LAMBDA_FUNCTION_XRAY_ENABLED
+**Identifier:** LAMBDA\_FUNCTION\_XRAY\_ENABLED
 
 **Resource Types:** AWS::Lambda::Function
 

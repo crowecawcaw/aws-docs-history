@@ -1,8 +1,8 @@
 # dms-auto-minor-version-upgrade-check
 
-Checks if an AWS Database Migration Service (AWS DMS) replication instance has automatic minor version upgrades enabled. The rule is NON_COMPLIANT if an AWS DMS replication instance is not configured with automatic minor version upgrades.
+Checks if an AWS Database Migration Service (AWS DMS) replication instance has automatic minor version upgrades enabled. The rule is NON\_COMPLIANT if an AWS DMS replication instance is not configured with automatic minor version upgrades.
 
-**Identifier:** DMS_AUTO_MINOR_VERSION_UPGRADE_CHECK
+**Identifier:** DMS\_AUTO\_MINOR\_VERSION\_UPGRADE\_CHECK
 
 **Resource Types:** AWS::DMS::ReplicationInstance
 

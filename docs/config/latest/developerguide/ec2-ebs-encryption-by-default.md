@@ -1,8 +1,8 @@
 # ec2-ebs-encryption-by-default
 
-Checks if Amazon Elastic Block Store (EBS) encryption is enabled by default. The rule is NON_COMPLIANT if the encryption is not enabled.
+Checks if Amazon Elastic Block Store (EBS) encryption is enabled by default. The rule is NON\_COMPLIANT if the encryption is not enabled.
 
-**Identifier:** EC2_EBS_ENCRYPTION_BY_DEFAULT
+**Identifier:** EC2\_EBS\_ENCRYPTION\_BY\_DEFAULT
 
 **Trigger type:** Periodic
 

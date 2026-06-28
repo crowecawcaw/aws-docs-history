@@ -1,8 +1,8 @@
 # iam-inline-policy-blocked-kms-actions
 
-Checks if the inline policies attached to your IAM users, roles, and groups do not allow blocked actions on all AWS KMS keys. The rule is NON_COMPLIANT if any blocked action is allowed on all AWS KMS keys in an inline policy.
+Checks if the inline policies attached to your IAM users, roles, and groups do not allow blocked actions on all AWS KMS keys. The rule is NON\_COMPLIANT if any blocked action is allowed on all AWS KMS keys in an inline policy.
 
-**Identifier:** IAM_INLINE_POLICY_BLOCKED_KMS_ACTIONS
+**Identifier:** IAM\_INLINE\_POLICY\_BLOCKED\_KMS\_ACTIONS
 
 **Resource Types:** AWS::IAM::Group, AWS::IAM::Role, AWS::IAM::User
 

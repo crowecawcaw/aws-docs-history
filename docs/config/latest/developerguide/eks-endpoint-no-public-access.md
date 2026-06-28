@@ -1,8 +1,8 @@
 # eks-endpoint-no-public-access
 
-Checks if the Amazon Elastic Kubernetes Service (Amazon EKS) endpoint is not publicly accessible. The rule is NON_COMPLIANT if the endpoint is publicly accessible.
+Checks if the Amazon Elastic Kubernetes Service (Amazon EKS) endpoint is not publicly accessible. The rule is NON\_COMPLIANT if the endpoint is publicly accessible.
 
-**Identifier:** EKS_ENDPOINT_NO_PUBLIC_ACCESS
+**Identifier:** EKS\_ENDPOINT\_NO\_PUBLIC\_ACCESS
 
 **Resource Types:** AWS::EKS::Cluster
 

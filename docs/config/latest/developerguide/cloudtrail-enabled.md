@@ -2,13 +2,13 @@
 
 ###### Important
 
-For this rule, the rule identifier (CLOUD_TRAIL_ENABLED) and rule name (cloudtrail-enabled) are different.
+For this rule, the rule identifier (CLOUD\_TRAIL\_ENABLED) and rule name (cloudtrail-enabled) are different.
 
 Checks if an AWS CloudTrail trail is enabled in your AWS account.
-The rule is NON_COMPLIANT if a trail is not enabled.
+The rule is NON\_COMPLIANT if a trail is not enabled.
 Optionally, the rule checks a specific S3 bucket, Amazon Simple Notification Service (Amazon SNS) topic, and CloudWatch log group.
 
-**Identifier:** CLOUD_TRAIL_ENABLED
+**Identifier:** CLOUD\_TRAIL\_ENABLED
 
 **Trigger type:** Periodic
 

@@ -1,8 +1,8 @@
 # ec2-traffic-mirror-filter-description
 
-Checks if Amazon EC2 traffic mirror filters have a description. The rule is NON_COMPLIANT if configuration.Description does not exist.
+Checks if Amazon EC2 traffic mirror filters have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist.
 
-**Identifier:** EC2_TRAFFIC_MIRROR_FILTER_DESCRIPTION
+**Identifier:** EC2\_TRAFFIC\_MIRROR\_FILTER\_DESCRIPTION
 
 **Resource Types:** AWS::EC2::TrafficMirrorFilter
 

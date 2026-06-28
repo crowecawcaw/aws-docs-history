@@ -1,8 +1,8 @@
 # s3-access-point-in-vpc-only
 
-Checks if an Amazon S3 access point does not allow access from the internet (NetworkOrigin is VPC). The rule is NON_COMPLIANT if NetworkOrigin is Internet.
+Checks if an Amazon S3 access point does not allow access from the internet (NetworkOrigin is VPC). The rule is NON\_COMPLIANT if NetworkOrigin is Internet.
 
-**Identifier:** S3_ACCESS_POINT_IN_VPC_ONLY
+**Identifier:** S3\_ACCESS\_POINT\_IN\_VPC\_ONLY
 
 **Resource Types:** AWS::S3::AccessPoint
 

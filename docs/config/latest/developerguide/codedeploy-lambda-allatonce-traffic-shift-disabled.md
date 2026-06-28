@@ -1,8 +1,8 @@
 # codedeploy-lambda-allatonce-traffic-shift-disabled
 
-Checks if the deployment group for Lambda Compute Platform is not using the default deployment configuration. The rule is NON_COMPLIANT if the deployment group is using the deployment configuration 'CodeDeployDefault.LambdaAllAtOnce'.
+Checks if the deployment group for Lambda Compute Platform is not using the default deployment configuration. The rule is NON\_COMPLIANT if the deployment group is using the deployment configuration 'CodeDeployDefault.LambdaAllAtOnce'.
 
-**Identifier:** CODEDEPLOY_LAMBDA_ALLATONCE_TRAFFIC_SHIFT_DISABLED
+**Identifier:** CODEDEPLOY\_LAMBDA\_ALLATONCE\_TRAFFIC\_SHIFT\_DISABLED
 
 **Resource Types:** AWS::CodeDeploy::DeploymentGroup
 

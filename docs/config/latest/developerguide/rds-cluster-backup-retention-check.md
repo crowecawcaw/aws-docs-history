@@ -1,8 +1,8 @@
 # rds-cluster-backup-retention-check
 
-Checks if an Amazon RDS cluster automated backup retention period is set to a specific number of days. The rule is NON_COMPLIANT if the retention period is less than the value specified by the parameter. The default value is 7 days.
+Checks if an Amazon RDS cluster automated backup retention period is set to a specific number of days. The rule is NON\_COMPLIANT if the retention period is less than the value specified by the parameter. The default value is 7 days.
 
-**Identifier:** RDS_CLUSTER_BACKUP_RETENTION_CHECK
+**Identifier:** RDS\_CLUSTER\_BACKUP\_RETENTION\_CHECK
 
 **Resource Types:** AWS::RDS::DBCluster
 
@@ -16,7 +16,7 @@ minimumBackupRetentionPeriod (Optional)
 Type: int
 Default: 7
 
-The minimum backup retention period in days for the rule to check. The rule is NON_COMPLIANT if the backup retention period is less than the value specified in this parameter. Valid values are 1 to 35. The default value is 7.
+The minimum backup retention period in days for the rule to check. The rule is NON\_COMPLIANT if the backup retention period is less than the value specified in this parameter. Valid values are 1 to 35. The default value is 7.
 
 ## AWS CloudFormation template
 

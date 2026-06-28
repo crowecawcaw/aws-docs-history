@@ -7,7 +7,7 @@ This rule is currently in the deprecation process. We do not recommend that you 
 Checks if the web ACL is associated with an Application Load Balancer, API Gateway stage, or Amazon CloudFront distributions.
 When AWS Firewall Manager creates this rule, the FMS policy owner specifies the `WebACLId` in the FMS policy and can optionally enable remediation.
 
-**Identifier:** FMS_WEBACL_RESOURCE_POLICY_CHECK
+**Identifier:** FMS\_WEBACL\_RESOURCE\_POLICY\_CHECK
 
 **Resource Types:** AWS::CloudFront::Distribution, AWS::ApiGateway::Stage, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::WAFRegional::WebACL
 

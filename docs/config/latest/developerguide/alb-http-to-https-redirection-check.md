@@ -1,9 +1,9 @@
 # alb-http-to-https-redirection-check
 
 Checks if HTTP to HTTPS redirection is configured on all HTTP listeners of Application Load Balancers.
-The rule is NON_COMPLIANT if one or more HTTP listeners of Application Load Balancer do not have HTTP to HTTPS redirection configured. The rule is also NON_COMPLIANT if one of more HTTP listeners have forwarding to an HTTP listener instead of redirection.
+The rule is NON\_COMPLIANT if one or more HTTP listeners of Application Load Balancer do not have HTTP to HTTPS redirection configured. The rule is also NON\_COMPLIANT if one of more HTTP listeners have forwarding to an HTTP listener instead of redirection.
 
-**Identifier:** ALB_HTTP_TO_HTTPS_REDIRECTION_CHECK
+**Identifier:** ALB\_HTTP\_TO\_HTTPS\_REDIRECTION\_CHECK
 
 **Resource Types:** AWS::ElasticLoadBalancingV2::LoadBalancer
 

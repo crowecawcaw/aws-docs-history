@@ -2,11 +2,11 @@
 
 ###### Important
 
-For this rule, the rule identifier (INCOMING_SSH_DISABLED) and rule name (restricted-ssh) are different.
+For this rule, the rule identifier (INCOMING\_SSH\_DISABLED) and rule name (restricted-ssh) are different.
 
-Checks if the incoming SSH traffic for the security groups is accessible. The rule is COMPLIANT if the IP addresses of the incoming SSH traffic in the security groups are restricted (CIDR other than 0.0.0.0/0 or ::/0). Otherwise, NON_COMPLIANT.
+Checks if the incoming SSH traffic for the security groups is accessible. The rule is COMPLIANT if the IP addresses of the incoming SSH traffic in the security groups are restricted (CIDR other than 0.0.0.0/0 or ::/0). Otherwise, NON\_COMPLIANT.
 
-**Identifier:** INCOMING_SSH_DISABLED
+**Identifier:** INCOMING\_SSH\_DISABLED
 
 **Resource Types:** AWS::EC2::SecurityGroup
 

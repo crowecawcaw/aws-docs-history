@@ -1,8 +1,8 @@
 # elasticache-subnet-group-check
 
-Checks if Amazon ElastiCache clusters are configured with a custom subnet group. The rule is NON_COMPLIANT for an ElastiCache cluster if it is using a default subnet group.
+Checks if Amazon ElastiCache clusters are configured with a custom subnet group. The rule is NON\_COMPLIANT for an ElastiCache cluster if it is using a default subnet group.
 
-**Identifier:** ELASTICACHE_SUBNET_GROUP_CHECK
+**Identifier:** ELASTICACHE\_SUBNET\_GROUP\_CHECK
 
 **Resource Types:** AWS::ElastiCache::CacheCluster
 

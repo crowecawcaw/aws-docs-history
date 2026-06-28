@@ -1,8 +1,8 @@
 # cognito-identity-pool-unauthenticated-logins
 
-Checks if Amazon Cognito identity pools disallow unauthenticated logins. The rule is NON_COMPLIANT if configuration.AllowUnauthenticatedIdentities is true.
+Checks if Amazon Cognito identity pools disallow unauthenticated logins. The rule is NON\_COMPLIANT if configuration.AllowUnauthenticatedIdentities is true.
 
-**Identifier:** COGNITO_IDENTITY_POOL_UNAUTHENTICATED_LOGINS
+**Identifier:** COGNITO\_IDENTITY\_POOL\_UNAUTHENTICATED\_LOGINS
 
 **Resource Types:** AWS::Cognito::IdentityPool
 

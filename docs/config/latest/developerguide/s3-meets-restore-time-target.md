@@ -1,8 +1,8 @@
 # s3-meets-restore-time-target
 
-Checks if the restore time of Amazon Simple Storage Service (Amazon S3) buckets meets the specified duration. The rule is NON_COMPLIANT if LatestRestoreExecutionTimeMinutes of an Amazon S3 bucket is greater than maxRestoreTime minutes.
+Checks if the restore time of Amazon Simple Storage Service (Amazon S3) buckets meets the specified duration. The rule is NON\_COMPLIANT if LatestRestoreExecutionTimeMinutes of an Amazon S3 bucket is greater than maxRestoreTime minutes.
 
-**Identifier:** S3_MEETS_RESTORE_TIME_TARGET
+**Identifier:** S3\_MEETS\_RESTORE\_TIME\_TARGET
 
 **Resource Types:** AWS::S3::Bucket
 

@@ -1,8 +1,8 @@
 # api-gw-cache-enabled-and-encrypted
 
-Checks if all methods in Amazon API Gateway stages have cache enabled and cache encrypted. The rule is NON_COMPLIANT if any method in an Amazon API Gateway stage is not configured to cache or the cache is not encrypted.
+Checks if all methods in Amazon API Gateway stages have cache enabled and cache encrypted. The rule is NON\_COMPLIANT if any method in an Amazon API Gateway stage is not configured to cache or the cache is not encrypted.
 
-**Identifier:** API_GW_CACHE_ENABLED_AND_ENCRYPTED
+**Identifier:** API\_GW\_CACHE\_ENABLED\_AND\_ENCRYPTED
 
 **Resource Types:** AWS::ApiGateway::Stage
 

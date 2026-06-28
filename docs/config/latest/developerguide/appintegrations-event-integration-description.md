@@ -1,8 +1,8 @@
 # appintegrations-event-integration-description
 
-Checks if Amazon AppIntegrations event integrations have a description. The rule is NON_COMPLIANT if configuration.Description does not exist.
+Checks if Amazon AppIntegrations event integrations have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist.
 
-**Identifier:** APPINTEGRATIONS_EVENT_INTEGRATION_DESCRIPTION
+**Identifier:** APPINTEGRATIONS\_EVENT\_INTEGRATION\_DESCRIPTION
 
 **Resource Types:** AWS::AppIntegrations::EventIntegration
 

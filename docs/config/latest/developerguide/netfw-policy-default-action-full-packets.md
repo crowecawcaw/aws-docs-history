@@ -1,8 +1,8 @@
 # netfw-policy-default-action-full-packets
 
-Checks if an AWS Network Firewall policy is configured with a user defined default stateless action for full packets. This rule is NON_COMPLIANT if default stateless action for full packets does not match with user defined default stateless action.
+Checks if an AWS Network Firewall policy is configured with a user defined default stateless action for full packets. This rule is NON\_COMPLIANT if default stateless action for full packets does not match with user defined default stateless action.
 
-**Identifier:** NETFW_POLICY_DEFAULT_ACTION_FULL_PACKETS
+**Identifier:** NETFW\_POLICY\_DEFAULT\_ACTION\_FULL\_PACKETS
 
 **Resource Types:** AWS::NetworkFirewall::FirewallPolicy
 
@@ -15,7 +15,7 @@ Checks if an AWS Network Firewall policy is configured with a user defined defau
 statelessDefaultActions
 Type: CSV
 
-Comma-separated list of values. You can select a max of two. Valid values include 'aws:pass', 'aws:drop', and 'aws:forward_to_sfe'.
+Comma-separated list of values. You can select a max of two. Valid values include 'aws:pass', 'aws:drop', and 'aws:forward\_to\_sfe'.
 
 ## AWS CloudFormation template
 

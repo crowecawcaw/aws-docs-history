@@ -1,8 +1,8 @@
 # s3-last-backup-recovery-point-created
 
-Checks if a recovery point was created for Amazon Simple Storage Service (Amazon S3). The rule is NON_COMPLIANT if the Amazon S3 bucket does not have a corresponding recovery point created within the specified time period.
+Checks if a recovery point was created for Amazon Simple Storage Service (Amazon S3). The rule is NON\_COMPLIANT if the Amazon S3 bucket does not have a corresponding recovery point created within the specified time period.
 
-**Identifier:** S3_LAST_BACKUP_RECOVERY_POINT_CREATED
+**Identifier:** S3\_LAST\_BACKUP\_RECOVERY\_POINT\_CREATED
 
 **Resource Types:** AWS::S3::Bucket
 

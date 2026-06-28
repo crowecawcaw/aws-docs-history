@@ -1,8 +1,8 @@
 # appmesh-virtual-node-logging-file-path-exists
 
-Checks if AWS App Mesh virtual nodes have a file path to write access logs to. The rule is NON_COMPLIANT if configuration.Spec.Logging.AccessLog.File.Path does not exist.
+Checks if AWS App Mesh virtual nodes have a file path to write access logs to. The rule is NON\_COMPLIANT if configuration.Spec.Logging.AccessLog.File.Path does not exist.
 
-**Identifier:** APPMESH_VIRTUAL_NODE_LOGGING_FILE_PATH_EXISTS
+**Identifier:** APPMESH\_VIRTUAL\_NODE\_LOGGING\_FILE\_PATH\_EXISTS
 
 **Resource Types:** AWS::AppMesh::VirtualNode
 

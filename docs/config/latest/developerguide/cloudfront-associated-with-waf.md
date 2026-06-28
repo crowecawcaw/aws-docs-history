@@ -1,8 +1,8 @@
 # cloudfront-associated-with-waf
 
-Checks if Amazon CloudFront distributions are associated with either web application firewall (WAF) or WAFv2 web access control lists (ACLs). The rule is NON_COMPLIANT if a CloudFront distribution is not associated with a WAF web ACL.
+Checks if Amazon CloudFront distributions are associated with either web application firewall (WAF) or WAFv2 web access control lists (ACLs). The rule is NON\_COMPLIANT if a CloudFront distribution is not associated with a WAF web ACL.
 
-**Identifier:** CLOUDFRONT_ASSOCIATED_WITH_WAF
+**Identifier:** CLOUDFRONT\_ASSOCIATED\_WITH\_WAF
 
 **Resource Types:** AWS::CloudFront::Distribution
 

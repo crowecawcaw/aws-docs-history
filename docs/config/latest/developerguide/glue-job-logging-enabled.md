@@ -1,8 +1,8 @@
 # glue-job-logging-enabled
 
-Checks if an AWS Glue job has logging enabled. The rule is NON_COMPLIANT if an AWS Glue job does not have Amazon CloudWatch logs enabled.
+Checks if an AWS Glue job has logging enabled. The rule is NON\_COMPLIANT if an AWS Glue job does not have Amazon CloudWatch logs enabled.
 
-**Identifier:** GLUE_JOB_LOGGING_ENABLED
+**Identifier:** GLUE\_JOB\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::Glue::Job
 

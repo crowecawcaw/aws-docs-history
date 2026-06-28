@@ -1,8 +1,8 @@
 # fsx-last-backup-recovery-point-created
 
-Checks if a recovery point was created for Amazon FSx File Systems. The rule is NON_COMPLIANT if the Amazon FSx File System does not have a corresponding recovery point created within the specified time period.
+Checks if a recovery point was created for Amazon FSx File Systems. The rule is NON\_COMPLIANT if the Amazon FSx File System does not have a corresponding recovery point created within the specified time period.
 
-**Identifier:** FSX_LAST_BACKUP_RECOVERY_POINT_CREATED
+**Identifier:** FSX\_LAST\_BACKUP\_RECOVERY\_POINT\_CREATED
 
 **Resource Types:** AWS::FSx::FileSystem
 

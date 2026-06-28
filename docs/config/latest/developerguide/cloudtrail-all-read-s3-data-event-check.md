@@ -1,8 +1,8 @@
 # cloudtrail-all-read-s3-data-event-check
 
-Checks if an AWS CloudTrail multi-Region trail is enabled and logs all read S3 data events for your buckets. The rule is NON_COMPLIANT if no multi-Region trail logs all read S3 data event types for all current and future S3 buckets.
+Checks if an AWS CloudTrail multi-Region trail is enabled and logs all read S3 data events for your buckets. The rule is NON\_COMPLIANT if no multi-Region trail logs all read S3 data event types for all current and future S3 buckets.
 
-**Identifier:** CLOUDTRAIL_ALL_READ_S3_DATA_EVENT_CHECK
+**Identifier:** CLOUDTRAIL\_ALL\_READ\_S3\_DATA\_EVENT\_CHECK
 
 **Resource Types:** AWS::::Account
 

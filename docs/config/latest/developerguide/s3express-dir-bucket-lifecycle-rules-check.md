@@ -1,8 +1,8 @@
 # s3express-dir-bucket-lifecycle-rules-check
 
-Checks if lifecycle rules are configured for an Amazon S3 Express directory bucket. The rule is NON_COMPLIANT if there is no active lifecycle configuration rules or the configuration does not match with the parameter values.
+Checks if lifecycle rules are configured for an Amazon S3 Express directory bucket. The rule is NON\_COMPLIANT if there is no active lifecycle configuration rules or the configuration does not match with the parameter values.
 
-**Identifier:** S3EXPRESS_DIR_BUCKET_LIFECYCLE_RULES_CHECK
+**Identifier:** S3EXPRESS\_DIR\_BUCKET\_LIFECYCLE\_RULES\_CHECK
 
 **Resource Types:** AWS::S3Express::DirectoryBucket
 

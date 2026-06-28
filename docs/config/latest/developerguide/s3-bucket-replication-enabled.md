@@ -1,8 +1,8 @@
 # s3-bucket-replication-enabled
 
-Checks if S3 buckets have replication rules enabled. The rule is NON_COMPLIANT if an S3 bucket does not have a replication rule or has a replication rule that is not enabled.
+Checks if S3 buckets have replication rules enabled. The rule is NON\_COMPLIANT if an S3 bucket does not have a replication rule or has a replication rule that is not enabled.
 
-**Identifier:** S3_BUCKET_REPLICATION_ENABLED
+**Identifier:** S3\_BUCKET\_REPLICATION\_ENABLED
 
 **Resource Types:** AWS::S3::Bucket
 

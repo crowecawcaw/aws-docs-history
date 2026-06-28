@@ -1,8 +1,8 @@
 # vpc-peering-dns-resolution-check
 
-Checks if DNS resolution from accepter/requester VPC to private IP is enabled. The rule is NON_COMPLIANT if DNS resolution from accepter/requester VPC to private IP is not enabled.
+Checks if DNS resolution from accepter/requester VPC to private IP is enabled. The rule is NON\_COMPLIANT if DNS resolution from accepter/requester VPC to private IP is not enabled.
 
-**Identifier:** VPC_PEERING_DNS_RESOLUTION_CHECK
+**Identifier:** VPC\_PEERING\_DNS\_RESOLUTION\_CHECK
 
 **Resource Types:** AWS::EC2::VPCPeeringConnection
 

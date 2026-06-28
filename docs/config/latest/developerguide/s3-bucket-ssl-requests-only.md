@@ -1,8 +1,8 @@
 # s3-bucket-ssl-requests-only
 
-Checks if S3 buckets have policies that require requests to use SSL/TLS. The rule is NON_COMPLIANT if any S3 bucket has policies allowing HTTP requests.
+Checks if S3 buckets have policies that require requests to use SSL/TLS. The rule is NON\_COMPLIANT if any S3 bucket has policies allowing HTTP requests.
 
-**Identifier:** S3_BUCKET_SSL_REQUESTS_ONLY
+**Identifier:** S3\_BUCKET\_SSL\_REQUESTS\_ONLY
 
 **Resource Types:** AWS::S3::Bucket
 

@@ -1,8 +1,8 @@
 # batch-job-queue-enabled
 
-Checks if AWS Batch job queues are enabled. The rule is NON_COMPLIANT if configuration.State is 'DISABLED'.
+Checks if AWS Batch job queues are enabled. The rule is NON\_COMPLIANT if configuration.State is 'DISABLED'.
 
-**Identifier:** BATCH_JOB_QUEUE_ENABLED
+**Identifier:** BATCH\_JOB\_QUEUE\_ENABLED
 
 **Resource Types:** AWS::Batch::JobQueue
 

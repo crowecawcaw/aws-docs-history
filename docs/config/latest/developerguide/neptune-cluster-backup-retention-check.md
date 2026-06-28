@@ -1,8 +1,8 @@
 # neptune-cluster-backup-retention-check
 
-Checks if an Amazon Neptune DB cluster retention period is set to specific number of days. The rule is NON_COMPLIANT if the retention period is less than the value specified by the parameter.
+Checks if an Amazon Neptune DB cluster retention period is set to specific number of days. The rule is NON\_COMPLIANT if the retention period is less than the value specified by the parameter.
 
-**Identifier:** NEPTUNE_CLUSTER_BACKUP_RETENTION_CHECK
+**Identifier:** NEPTUNE\_CLUSTER\_BACKUP\_RETENTION\_CHECK
 
 **Resource Types:** AWS::RDS::DBCluster
 
@@ -15,7 +15,7 @@ Checks if an Amazon Neptune DB cluster retention period is set to specific numbe
 minimumBackupRetentionPeriod (Optional)
 Type: int
 
-Minimum days backups should be kept. Valid values 1 to 35, default value is 7. The rule is NON_COMPLIANT if value is greater than 'backupRetentionPeriod'. The rule is COMPLIANT if value is less than or equal to 'backupRetentionPeriod'.
+Minimum days backups should be kept. Valid values 1 to 35, default value is 7. The rule is NON\_COMPLIANT if value is greater than 'backupRetentionPeriod'. The rule is COMPLIANT if value is less than or equal to 'backupRetentionPeriod'.
 
 ## AWS CloudFormation template
 

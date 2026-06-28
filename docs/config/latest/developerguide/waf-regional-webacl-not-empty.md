@@ -1,8 +1,8 @@
 # waf-regional-webacl-not-empty
 
-Checks if a WAF regional Web ACL contains any WAF rules or rule groups. The rule is NON_COMPLIANT if there are no WAF rules or rule groups present within a Web ACL.
+Checks if a WAF regional Web ACL contains any WAF rules or rule groups. The rule is NON\_COMPLIANT if there are no WAF rules or rule groups present within a Web ACL.
 
-**Identifier:** WAF_REGIONAL_WEBACL_NOT_EMPTY
+**Identifier:** WAF\_REGIONAL\_WEBACL\_NOT\_EMPTY
 
 **Resource Types:** AWS::WAFRegional::WebACL
 

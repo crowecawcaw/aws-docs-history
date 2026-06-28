@@ -1,8 +1,8 @@
 # ebs-resources-protected-by-backup-plan
 
-Checks if Amazon Elastic Block Store (Amazon EBS) volumes are protected by a backup plan. The rule is NON_COMPLIANT if the Amazon EBS volume is not covered by a backup plan.
+Checks if Amazon Elastic Block Store (Amazon EBS) volumes are protected by a backup plan. The rule is NON\_COMPLIANT if the Amazon EBS volume is not covered by a backup plan.
 
-**Identifier:** EBS_RESOURCES_PROTECTED_BY_BACKUP_PLAN
+**Identifier:** EBS\_RESOURCES\_PROTECTED\_BY\_BACKUP\_PLAN
 
 **Resource Types:** AWS::EC2::Volume
 

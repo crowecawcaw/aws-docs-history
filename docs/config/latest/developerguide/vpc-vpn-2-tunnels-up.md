@@ -1,8 +1,8 @@
 # vpc-vpn-2-tunnels-up
 
-Checks if both virtual private network (VPN) tunnels provided by AWS Site-to-Site VPN are in UP status. The rule is NON_COMPLIANT if one or both tunnels are in DOWN status.
+Checks if both virtual private network (VPN) tunnels provided by AWS Site-to-Site VPN are in UP status. The rule is NON\_COMPLIANT if one or both tunnels are in DOWN status.
 
-**Identifier:** VPC_VPN_2_TUNNELS_UP
+**Identifier:** VPC\_VPN\_2\_TUNNELS\_UP
 
 **Resource Types:** AWS::EC2::VPNConnection
 

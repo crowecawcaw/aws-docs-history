@@ -1,8 +1,8 @@
 # transfer-agreement-description
 
-Checks if AWS Transfer Family agreements have a description. The rule is NON_COMPLIANT if configuration.Description does not exist.
+Checks if AWS Transfer Family agreements have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist.
 
-**Identifier:** TRANSFER_AGREEMENT_DESCRIPTION
+**Identifier:** TRANSFER\_AGREEMENT\_DESCRIPTION
 
 **Resource Types:** AWS::Transfer::Agreement
 

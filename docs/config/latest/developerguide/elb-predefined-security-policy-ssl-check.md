@@ -1,8 +1,8 @@
 # elb-predefined-security-policy-ssl-check
 
-Checks if your Classic Load Balancer SSL listeners use a predefined policy. The rule is NON_COMPLIANT if the Classic Load Balancer HTTPS/SSL listener's policy does not equal the value of the parameter '`predefinedPolicyName`'.
+Checks if your Classic Load Balancer SSL listeners use a predefined policy. The rule is NON\_COMPLIANT if the Classic Load Balancer HTTPS/SSL listener's policy does not equal the value of the parameter '`predefinedPolicyName`'.
 
-**Identifier:** ELB_PREDEFINED_SECURITY_POLICY_SSL_CHECK
+**Identifier:** ELB\_PREDEFINED\_SECURITY\_POLICY\_SSL\_CHECK
 
 **Resource Types:** AWS::ElasticLoadBalancing::LoadBalancer
 

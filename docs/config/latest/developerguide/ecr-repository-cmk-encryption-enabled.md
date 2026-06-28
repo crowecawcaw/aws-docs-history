@@ -1,8 +1,8 @@
 # ecr-repository-cmk-encryption-enabled
 
-Checks if ECR repository is encrypted at rest using customer-managed KMS key. This rule is NON_COMPLIANT if the repository is encrypted using AES256 or the default KMS key ('aws/ecr').
+Checks if ECR repository is encrypted at rest using customer-managed KMS key. This rule is NON\_COMPLIANT if the repository is encrypted using AES256 or the default KMS key ('aws/ecr').
 
-**Identifier:** ECR_REPOSITORY_CMK_ENCRYPTION_ENABLED
+**Identifier:** ECR\_REPOSITORY\_CMK\_ENCRYPTION\_ENABLED
 
 **Resource Types:** AWS::ECR::Repository
 

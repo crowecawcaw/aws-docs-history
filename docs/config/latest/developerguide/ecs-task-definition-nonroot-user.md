@@ -1,12 +1,12 @@
 # ecs-task-definition-nonroot-user
 
-Checks if ECSTaskDefinitions specify a user for Amazon Elastic Container Service (Amazon ECS) EC2 launch type containers to run on. The rule is NON_COMPLIANT if the ‘user’ parameter is not present or set to ‘root’.
+Checks if ECSTaskDefinitions specify a user for Amazon Elastic Container Service (Amazon ECS) EC2 launch type containers to run on. The rule is NON\_COMPLIANT if the ‘user’ parameter is not present or set to ‘root’.
 
 ###### Note
 
 This rule only evaluates the latest active revision of an Amazon ECS task definition.
 
-**Identifier:** ECS_TASK_DEFINITION_NONROOT_USER
+**Identifier:** ECS\_TASK\_DEFINITION\_NONROOT\_USER
 
 **Resource Types:** AWS::ECS::TaskDefinition
 

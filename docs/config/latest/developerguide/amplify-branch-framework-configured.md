@@ -1,8 +1,8 @@
 # amplify-branch-framework-configured
 
-Checks if AWS Amplify branches have a framework configured. The rule is NON_COMPLIANT if configuration.Framework does not exist.
+Checks if AWS Amplify branches have a framework configured. The rule is NON\_COMPLIANT if configuration.Framework does not exist.
 
-**Identifier:** AMPLIFY_BRANCH_FRAMEWORK_CONFIGURED
+**Identifier:** AMPLIFY\_BRANCH\_FRAMEWORK\_CONFIGURED
 
 **Resource Types:** AWS::Amplify::Branch
 
@@ -15,7 +15,7 @@ Checks if AWS Amplify branches have a framework configured. The rule is NON_COMP
 approvedFrameworks (Optional)
 Type: CSV
 
-Comma-separated list of approved frameworks for the rule to check. If provided, the rule is NON_COMPLIANT if configuration.Framework is a value not specified in this parameter.
+Comma-separated list of approved frameworks for the rule to check. If provided, the rule is NON\_COMPLIANT if configuration.Framework is a value not specified in this parameter.
 
 ## AWS CloudFormation template
 

@@ -1,8 +1,8 @@
 # elasticbeanstalk-environment-description
 
-Checks if AWS Elastic Beanstalk environments have a description. The rule is NON_COMPLIANT if configuration.description does not exist or is an empty string.
+Checks if AWS Elastic Beanstalk environments have a description. The rule is NON\_COMPLIANT if configuration.description does not exist or is an empty string.
 
-**Identifier:** ELASTICBEANSTALK_ENVIRONMENT_DESCRIPTION
+**Identifier:** ELASTICBEANSTALK\_ENVIRONMENT\_DESCRIPTION
 
 **Resource Types:** AWS::ElasticBeanstalk::Environment
 

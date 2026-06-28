@@ -1,8 +1,8 @@
 # amplify-app-platform-check
 
-Checks if AWS Amplify apps are configured with the specified platform. The rule is NON_COMPLIANT if configuration.Platform is a value not specified in the required rule parameter.
+Checks if AWS Amplify apps are configured with the specified platform. The rule is NON\_COMPLIANT if configuration.Platform is a value not specified in the required rule parameter.
 
-**Identifier:** AMPLIFY_APP_PLATFORM_CHECK
+**Identifier:** AMPLIFY\_APP\_PLATFORM\_CHECK
 
 **Resource Types:** AWS::Amplify::App
 
@@ -15,7 +15,7 @@ Checks if AWS Amplify apps are configured with the specified platform. The rule 
 approvedPlatform
 Type: String
 
-The approved platform for the rule to check. The rule is NON_COMPLIANT if configuration.Platform is a value not specified in this parameter. Valid values include: 'WEB', 'WEB_DYNAMIC', and 'WEB_COMPUTE'.
+The approved platform for the rule to check. The rule is NON\_COMPLIANT if configuration.Platform is a value not specified in this parameter. Valid values include: 'WEB', 'WEB\_DYNAMIC', and 'WEB\_COMPUTE'.
 
 ## AWS CloudFormation template
 

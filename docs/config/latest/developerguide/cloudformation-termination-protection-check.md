@@ -1,8 +1,8 @@
 # cloudformation-termination-protection-check
 
-Checks if an AWS CloudFormation stack has termination protection enabled. This rule is NON_COMPLIANT if termination protection is not enabled on a CloudFormation stack.
+Checks if an AWS CloudFormation stack has termination protection enabled. This rule is NON\_COMPLIANT if termination protection is not enabled on a CloudFormation stack.
 
-**Identifier:** CLOUDFORMATION_TERMINATION_PROTECTION_CHECK
+**Identifier:** CLOUDFORMATION\_TERMINATION\_PROTECTION\_CHECK
 
 **Resource Types:** AWS::CloudFormation::Stack
 

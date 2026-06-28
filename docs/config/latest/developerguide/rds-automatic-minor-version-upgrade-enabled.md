@@ -1,8 +1,8 @@
 # rds-automatic-minor-version-upgrade-enabled
 
-Checks if Amazon Relational Database Service (RDS) database instances are configured for automatic minor version upgrades. The rule is NON_COMPLIANT if the value of 'autoMinorVersionUpgrade' is false.
+Checks if Amazon Relational Database Service (RDS) database instances are configured for automatic minor version upgrades. The rule is NON\_COMPLIANT if the value of 'autoMinorVersionUpgrade' is false.
 
-**Identifier:** RDS_AUTOMATIC_MINOR_VERSION_UPGRADE_ENABLED
+**Identifier:** RDS\_AUTOMATIC\_MINOR\_VERSION\_UPGRADE\_ENABLED
 
 **Resource Types:** AWS::RDS::DBInstance
 

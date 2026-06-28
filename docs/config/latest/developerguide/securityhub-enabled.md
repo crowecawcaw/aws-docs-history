@@ -1,8 +1,8 @@
 # securityhub-enabled
 
-Checks if AWS Security Hub is enabled for an AWS Account. The rule is NON_COMPLIANT if AWS Security Hub is not enabled.
+Checks if AWS Security Hub is enabled for an AWS Account. The rule is NON\_COMPLIANT if AWS Security Hub is not enabled.
 
-**Identifier:** SECURITYHUB_ENABLED
+**Identifier:** SECURITYHUB\_ENABLED
 
 **Trigger type:** Periodic
 

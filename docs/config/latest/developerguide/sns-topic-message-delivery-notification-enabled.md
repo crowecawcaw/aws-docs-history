@@ -1,8 +1,8 @@
 # sns-topic-message-delivery-notification-enabled
 
-Checks if Amazon Simple Notification Service (SNS) logging is enabled for the delivery status of notification messages sent to a topic for the endpoints. The rule is NON_COMPLIANT if the delivery status notification for messages is not enabled.
+Checks if Amazon Simple Notification Service (SNS) logging is enabled for the delivery status of notification messages sent to a topic for the endpoints. The rule is NON\_COMPLIANT if the delivery status notification for messages is not enabled.
 
-**Identifier:** SNS_TOPIC_MESSAGE_DELIVERY_NOTIFICATION_ENABLED
+**Identifier:** SNS\_TOPIC\_MESSAGE\_DELIVERY\_NOTIFICATION\_ENABLED
 
 **Resource Types:** AWS::SNS::Topic
 

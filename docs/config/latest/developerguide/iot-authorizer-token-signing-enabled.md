@@ -1,8 +1,8 @@
 # iot-authorizer-token-signing-enabled
 
-Checks if an AWS IoT Core authorizer has not disabled the signing requirements for validating the token signature in an authorization request. The rule is NON_COMPLIANT if the authorizer has configuration.SigningDisabled set to True.
+Checks if an AWS IoT Core authorizer has not disabled the signing requirements for validating the token signature in an authorization request. The rule is NON\_COMPLIANT if the authorizer has configuration.SigningDisabled set to True.
 
-**Identifier:** IOT_AUTHORIZER_TOKEN_SIGNING_ENABLED
+**Identifier:** IOT\_AUTHORIZER\_TOKEN\_SIGNING\_ENABLED
 
 **Resource Types:** AWS::IoT::Authorizer
 

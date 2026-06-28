@@ -1,8 +1,8 @@
 # elbv2-predefined-security-policy-ssl-check
 
-Checks if listeners for Application Load Balancers (ALBs) or Network Load Balancers (NLBs) use certain security policies. The rule is NON_COMPLIANT if an HTTPS listener for an ALB or a TLS listener for a NLB does not use the security policies you specify.
+Checks if listeners for Application Load Balancers (ALBs) or Network Load Balancers (NLBs) use certain security policies. The rule is NON\_COMPLIANT if an HTTPS listener for an ALB or a TLS listener for a NLB does not use the security policies you specify.
 
-**Identifier:** ELBV2_PREDEFINED_SECURITY_POLICY_SSL_CHECK
+**Identifier:** ELBV2\_PREDEFINED\_SECURITY\_POLICY\_SSL\_CHECK
 
 **Resource Types:** AWS::ElasticLoadBalancingV2::Listener
 

@@ -1,8 +1,8 @@
 # appconfig-deployment-strategy-minimum-final-bake-time
 
-Checks if an AWS AppConfig deployment strategy requires the specified minimum bake time. The rule is NON_COMPLIANT if the deployment strategy has a final bake time less than value specified in the rule parameter. The default value is 30 minutes.
+Checks if an AWS AppConfig deployment strategy requires the specified minimum bake time. The rule is NON\_COMPLIANT if the deployment strategy has a final bake time less than value specified in the rule parameter. The default value is 30 minutes.
 
-**Identifier:** APPCONFIG_DEPLOYMENT_STRATEGY_MINIMUM_FINAL_BAKE_TIME
+**Identifier:** APPCONFIG\_DEPLOYMENT\_STRATEGY\_MINIMUM\_FINAL\_BAKE\_TIME
 
 **Resource Types:** AWS::AppConfig::DeploymentStrategy
 
@@ -16,7 +16,7 @@ minBakeTime (Optional)
 Type: int
 Default: 30
 
-The minimum bake time in minutes of the AWS AppConfig deployment strategy for the rule to check. The rule is NON_COMPLIANT if the bake time is less than the value specified in this parameter. Valid values are 0 to 1440. The default value is 30.
+The minimum bake time in minutes of the AWS AppConfig deployment strategy for the rule to check. The rule is NON\_COMPLIANT if the bake time is less than the value specified in this parameter. Valid values are 0 to 1440. The default value is 30.
 
 ## AWS CloudFormation template
 

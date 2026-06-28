@@ -1,8 +1,8 @@
 # backup-plan-min-frequency-and-min-retention-check
 
-Checks if a backup plan has a backup rule that satisfies the required frequency and retention period. The rule is NON_COMPLIANT if recovery points are not created at least as often as the specified frequency or expire before the specified period.
+Checks if a backup plan has a backup rule that satisfies the required frequency and retention period. The rule is NON\_COMPLIANT if recovery points are not created at least as often as the specified frequency or expire before the specified period.
 
-**Identifier:** BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK
+**Identifier:** BACKUP\_PLAN\_MIN\_FREQUENCY\_AND\_MIN\_RETENTION\_CHECK
 
 **Resource Types:** AWS::Backup::BackupPlan
 

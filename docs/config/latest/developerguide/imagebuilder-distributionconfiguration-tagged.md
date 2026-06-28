@@ -1,8 +1,8 @@
 # imagebuilder-distributionconfiguration-tagged
 
-Checks if ImageBuilder DistributionConfiguration resources have tags. Optionally, required tag keys can be specified. The rule is NON_COMPLIANT if there are no tags or the specified tag keys are not present. It does not consider tags starting with 'aws:'.
+Checks if ImageBuilder DistributionConfiguration resources have tags. Optionally, required tag keys can be specified. The rule is NON\_COMPLIANT if there are no tags or the specified tag keys are not present. It does not consider tags starting with 'aws:'.
 
-**Identifier:** IMAGEBUILDER_DISTRIBUTIONCONFIGURATION_TAGGED
+**Identifier:** IMAGEBUILDER\_DISTRIBUTIONCONFIGURATION\_TAGGED
 
 **Resource Types:** AWS::ImageBuilder::DistributionConfiguration
 
@@ -15,7 +15,7 @@ Checks if ImageBuilder DistributionConfiguration resources have tags. Optionally
 requiredKeyTags (Optional)
 Type: CSV
 
-Comma-separated list of tag keys for the rule to check. If provided, the rule is NON_COMPLIANT if the evaluated resource does not contain these keys. Tag keys are case-sensitive. Tag keys starting with 'aws:' are not allowed.
+Comma-separated list of tag keys for the rule to check. If provided, the rule is NON\_COMPLIANT if the evaluated resource does not contain these keys. Tag keys are case-sensitive. Tag keys starting with 'aws:' are not allowed.
 
 ## AWS CloudFormation template
 

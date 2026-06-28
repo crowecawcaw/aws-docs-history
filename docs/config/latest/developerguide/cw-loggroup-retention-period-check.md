@@ -1,12 +1,12 @@
 # cw-loggroup-retention-period-check
 
-Checks if an Amazon CloudWatch LogGroup retention period is set to greater than 365 days or else a specified retention period. The rule is NON_COMPLIANT if the retention period is less than `MinRetentionTime`, if specified, or else 365 days.
+Checks if an Amazon CloudWatch LogGroup retention period is set to greater than 365 days or else a specified retention period. The rule is NON\_COMPLIANT if the retention period is less than `MinRetentionTime`, if specified, or else 365 days.
 
 ###### Note
 
 If the retention setting is "Never expire" for a log group, the rule is marked as COMPLIANT.
 
-**Identifier:** CW_LOGGROUP_RETENTION_PERIOD_CHECK
+**Identifier:** CW\_LOGGROUP\_RETENTION\_PERIOD\_CHECK
 
 **Resource Types:** AWS::Logs::LogGroup
 

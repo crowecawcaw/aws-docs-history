@@ -1,12 +1,12 @@
 # rds-mysql-instance-encrypted-in-transit
 
-Checks if connections to Amazon RDS for MySQL database instances are configured to use encryption in transit. The rule is NON_COMPLIANT if the associated database parameter group is not in-sync or if the require_secure_transport parameter is not set to 1.
+Checks if connections to Amazon RDS for MySQL database instances are configured to use encryption in transit. The rule is NON\_COMPLIANT if the associated database parameter group is not in-sync or if the require\_secure\_transport parameter is not set to 1.
 
 ###### Note
 
 The rule returns `NOT_APPLICABLE` if the Amazon RDS instance is part of an RDS cluster.
 
-**Identifier:** RDS_MYSQL_INSTANCE_ENCRYPTED_IN_TRANSIT
+**Identifier:** RDS\_MYSQL\_INSTANCE\_ENCRYPTED\_IN\_TRANSIT
 
 **Resource Types:** AWS::RDS::DBInstance
 

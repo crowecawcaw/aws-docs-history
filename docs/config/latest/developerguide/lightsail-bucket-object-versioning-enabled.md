@@ -1,8 +1,8 @@
 # lightsail-bucket-object-versioning-enabled
 
-Checks if Amazon Lightsail Bucket resources have object versioning enabled to protect against unintended deletions and modifications. The rule is NON_COMPLIANT if the bucket does not have object versioning enabled.
+Checks if Amazon Lightsail Bucket resources have object versioning enabled to protect against unintended deletions and modifications. The rule is NON\_COMPLIANT if the bucket does not have object versioning enabled.
 
-**Identifier:** LIGHTSAIL_BUCKET_OBJECT_VERSIONING_ENABLED
+**Identifier:** LIGHTSAIL\_BUCKET\_OBJECT\_VERSIONING\_ENABLED
 
 **Resource Types:** AWS::Lightsail::Bucket
 

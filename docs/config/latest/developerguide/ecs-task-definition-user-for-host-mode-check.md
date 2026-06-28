@@ -1,6 +1,6 @@
 # ecs-task-definition-user-for-host-mode-check
 
-Checks if Amazon ECS task definitions with host network mode have privileged OR nonroot in the container definition. The rule is NON_COMPLIANT if the latest active revision of a task definition has privileged=false (or is null) AND user=root (or is null).
+Checks if Amazon ECS task definitions with host network mode have privileged OR nonroot in the container definition. The rule is NON\_COMPLIANT if the latest active revision of a task definition has privileged=false (or is null) AND user=root (or is null).
 
 ###### Important
 
@@ -15,7 +15,7 @@ The rule is COMPLIANT in any of following scenarios:
   To check specifically if a task definition has privileged=true, see [ecs-containers-nonprivileged](ecs-containers-nonprivileged.md "ecs-containers-nonprivileged.md").
   To check specifically if a task definition has a user that is not the root, see [ecs-task-definition-nonroot-user](ecs-task-definition-nonroot-user.md "ecs-task-definition-nonroot-user.md").
 
-**Identifier:** ECS_TASK_DEFINITION_USER_FOR_HOST_MODE_CHECK
+**Identifier:** ECS\_TASK\_DEFINITION\_USER\_FOR\_HOST\_MODE\_CHECK
 
 **Resource Types:** AWS::ECS::TaskDefinition
 

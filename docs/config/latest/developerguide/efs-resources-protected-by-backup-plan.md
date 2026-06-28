@@ -1,8 +1,8 @@
 # efs-resources-protected-by-backup-plan
 
-Checks if Amazon Elastic File System (Amazon EFS) File Systems are protected by a backup plan. The rule is NON_COMPLIANT if the EFS File System is not covered by a backup plan.
+Checks if Amazon Elastic File System (Amazon EFS) File Systems are protected by a backup plan. The rule is NON\_COMPLIANT if the EFS File System is not covered by a backup plan.
 
-**Identifier:** EFS_RESOURCES_PROTECTED_BY_BACKUP_PLAN
+**Identifier:** EFS\_RESOURCES\_PROTECTED\_BY\_BACKUP\_PLAN
 
 **Resource Types:** AWS::EFS::FileSystem
 

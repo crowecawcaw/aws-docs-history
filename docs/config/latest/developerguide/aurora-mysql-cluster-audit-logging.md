@@ -1,8 +1,8 @@
 # aurora-mysql-cluster-audit-logging
 
-Checks if Amazon Aurora MySQL DB clusters have audit logging enabled. The rule is NON_COMPLIANT if a DB cluster does not have audit logging enabled.
+Checks if Amazon Aurora MySQL DB clusters have audit logging enabled. The rule is NON\_COMPLIANT if a DB cluster does not have audit logging enabled.
 
-**Identifier:** AURORA_MYSQL_CLUSTER_AUDIT_LOGGING
+**Identifier:** AURORA\_MYSQL\_CLUSTER\_AUDIT\_LOGGING
 
 **Resource Types:** AWS::RDS::DBCluster
 

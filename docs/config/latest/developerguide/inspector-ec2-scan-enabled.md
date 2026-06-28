@@ -1,8 +1,8 @@
 # inspector-ec2-scan-enabled
 
-Checks if Amazon Inspector V2 EC2 scanning is activated for your single or multi-account environment to detect potential vulnerabilities and network reachability issues on your EC2 instances. The rule is NON_COMPLIANT if EC2 scanning is not activated.
+Checks if Amazon Inspector V2 EC2 scanning is activated for your single or multi-account environment to detect potential vulnerabilities and network reachability issues on your EC2 instances. The rule is NON\_COMPLIANT if EC2 scanning is not activated.
 
-**Identifier:** INSPECTOR_EC2_SCAN_ENABLED
+**Identifier:** INSPECTOR\_EC2\_SCAN\_ENABLED
 
 **Resource Types:** AWS::::Account
 

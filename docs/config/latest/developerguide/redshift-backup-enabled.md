@@ -1,10 +1,10 @@
 # redshift-backup-enabled
 
 Checks that Amazon Redshift automated snapshots are enabled for clusters.
-The rule is NON_COMPLIANT if the value for `automatedSnapshotRetentionPeriod` is greater than `MaxRetentionPeriod` or
+The rule is NON\_COMPLIANT if the value for `automatedSnapshotRetentionPeriod` is greater than `MaxRetentionPeriod` or
 less than `MinRetentionPeriod` or the value is 0.
 
-**Identifier:** REDSHIFT_BACKUP_ENABLED
+**Identifier:** REDSHIFT\_BACKUP\_ENABLED
 
 **Resource Types:** AWS::Redshift::Cluster
 

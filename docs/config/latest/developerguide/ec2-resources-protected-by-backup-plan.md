@@ -1,12 +1,12 @@
 # ec2-resources-protected-by-backup-plan
 
-Checks if Amazon Elastic Compute Cloud (Amazon EC2) instances are protected by a backup plan. The rule is NON_COMPLIANT if the Amazon EC2 instance is not covered by a backup plan.
+Checks if Amazon Elastic Compute Cloud (Amazon EC2) instances are protected by a backup plan. The rule is NON\_COMPLIANT if the Amazon EC2 instance is not covered by a backup plan.
 
 ###### Note
 
 This rule is only applicable to running Amazon EC2 instances and not to instances that are powered down.
 
-**Identifier:** EC2_RESOURCES_PROTECTED_BY_BACKUP_PLAN
+**Identifier:** EC2\_RESOURCES\_PROTECTED\_BY\_BACKUP\_PLAN
 
 **Resource Types:** AWS::EC2::Instance
 

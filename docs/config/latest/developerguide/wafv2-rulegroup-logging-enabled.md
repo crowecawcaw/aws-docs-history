@@ -1,6 +1,6 @@
 # wafv2-rulegroup-logging-enabled
 
-Checks if Amazon CloudWatch security metrics collection on AWS WAFv2 rule groups is enabled. The rule is NON_COMPLIANT if the 'VisibilityConfig.CloudWatchMetricsEnabled' field is set to false.
+Checks if Amazon CloudWatch security metrics collection on AWS WAFv2 rule groups is enabled. The rule is NON\_COMPLIANT if the 'VisibilityConfig.CloudWatchMetricsEnabled' field is set to false.
 
 **Context**: AWS WAFV2 (Web Application Firewall version 2)
 allows you to create AWS WAF rules to protect your web applications from common web exploits and vulnerabilities. An AWS WAF rule group is a collection of AWS WAF rules that you can associate with a web ACL (Access Control List) to define the desired behavior for your web application traffic. For more information, see
@@ -13,7 +13,7 @@ SQL injection, and Cross-site scripting (XSS) attacks. The security metrics coll
 
 If there are no AWS WAF rules in the AWS WAFV2 rule group for the AWS Config managed rule to check, the AWS Config managed rule returns `NOT_APPLICABLE`.
 
-**Identifier:** WAFV2_RULEGROUP_LOGGING_ENABLED
+**Identifier:** WAFV2\_RULEGROUP\_LOGGING\_ENABLED
 
 **Resource Types:** AWS::WAFv2::RuleGroup
 

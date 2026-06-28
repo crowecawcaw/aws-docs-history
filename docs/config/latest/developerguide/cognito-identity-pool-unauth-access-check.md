@@ -1,8 +1,8 @@
 # cognito-identity-pool-unauth-access-check
 
-Checks if Amazon Cognito Identity Pool allows unauthenticated identities. The rule is NON_COMPLIANT if the Identity Pool is configured to allow unauthenticated identities.
+Checks if Amazon Cognito Identity Pool allows unauthenticated identities. The rule is NON\_COMPLIANT if the Identity Pool is configured to allow unauthenticated identities.
 
-**Identifier:** COGNITO_IDENTITY_POOL_UNAUTH_ACCESS_CHECK
+**Identifier:** COGNITO\_IDENTITY\_POOL\_UNAUTH\_ACCESS\_CHECK
 
 **Resource Types:** AWS::Cognito::IdentityPool
 

@@ -10,7 +10,7 @@ _Amazon RDS User Guide_.
 
 This rule does not evaluate Amazon Aurora DB, Amazon DocumentDB, and Amazon Neptune DB instances.
 
-**Identifier:** RDS_MULTI_AZ_SUPPORT
+**Identifier:** RDS\_MULTI\_AZ\_SUPPORT
 
 **Resource Types:** AWS::RDS::DBInstance
 

@@ -1,6 +1,6 @@
 # access-keys-rotated
 
-Checks if active IAM access keys are rotated (changed) within the number of days specified in `maxAccessKeyAge`. The rule is NON_COMPLIANT if access keys are not rotated within the specified time period. The default value is 90 days.
+Checks if active IAM access keys are rotated (changed) within the number of days specified in `maxAccessKeyAge`. The rule is NON\_COMPLIANT if access keys are not rotated within the specified time period. The default value is 90 days.
 
 ###### Warning
 
@@ -34,7 +34,7 @@ see [List of AWS Config Managed Rules by Region Availability](managing-rules-by-
 
 This rule does not apply to AWS account root user access keys. To delete or rotate your root user access keys, use your root user credentials to sign in to the My Security Credentials page in the AWS Management Console at [https://aws.amazon.com/console/](https://aws.amazon.com/console/ "https://aws.amazon.com/console/").
 
-**Identifier:** ACCESS_KEYS_ROTATED
+**Identifier:** ACCESS\_KEYS\_ROTATED
 
 **Resource Types:** AWS::IAM::User
 

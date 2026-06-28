@@ -1,12 +1,12 @@
 # rds-in-backup-plan
 
-Checks if Amazon Relational Database Service (Amazon RDS) databases are present in AWS Backup plans. The rule is NON_COMPLIANT if Amazon RDS databases are not included in any AWS Backup plan.
+Checks if Amazon Relational Database Service (Amazon RDS) databases are present in AWS Backup plans. The rule is NON\_COMPLIANT if Amazon RDS databases are not included in any AWS Backup plan.
 
 ###### Note
 
 The rule only applies to Amazon Aurora DB instances. DB clusters are not supported.
 
-**Identifier:** RDS_IN_BACKUP_PLAN
+**Identifier:** RDS\_IN\_BACKUP\_PLAN
 
 **Resource Types:** AWS::RDS::DBInstance
 

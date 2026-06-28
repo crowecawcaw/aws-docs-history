@@ -1,8 +1,8 @@
 # neptune-cluster-snapshot-encrypted
 
-Checks if an Amazon Neptune DB cluster has snapshots encrypted. The rule is NON_COMPLIANT if a Neptune cluster does not have snapshots encrypted.
+Checks if an Amazon Neptune DB cluster has snapshots encrypted. The rule is NON\_COMPLIANT if a Neptune cluster does not have snapshots encrypted.
 
-**Identifier:** NEPTUNE_CLUSTER_SNAPSHOT_ENCRYPTED
+**Identifier:** NEPTUNE\_CLUSTER\_SNAPSHOT\_ENCRYPTED
 
 **Resource Types:** AWS::RDS::DBClusterSnapshot
 

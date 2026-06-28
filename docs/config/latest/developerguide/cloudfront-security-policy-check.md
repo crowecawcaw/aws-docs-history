@@ -1,8 +1,8 @@
 # cloudfront-security-policy-check
 
-Checks if Amazon CloudFront distributions are using a minimum security policy and cipher suite of TLSv1.2 or greater for viewer connections. This rule is NON_COMPLIANT for a CloudFront distribution if the minimumProtocolVersion is below TLSv1.2_2018.
+Checks if Amazon CloudFront distributions are using a minimum security policy and cipher suite of TLSv1.2 or greater for viewer connections. This rule is NON\_COMPLIANT for a CloudFront distribution if the minimumProtocolVersion is below TLSv1.2\_2018.
 
-**Identifier:** CLOUDFRONT_SECURITY_POLICY_CHECK
+**Identifier:** CLOUDFRONT\_SECURITY\_POLICY\_CHECK
 
 **Resource Types:** AWS::CloudFront::Distribution
 
