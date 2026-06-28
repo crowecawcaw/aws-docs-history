@@ -57,7 +57,8 @@ When repackaging an application for conda, there are two goals:
 
 1. Write conda build recipes that install the application into a subdirectory like
    `$CONDA_PREFIX/opt/`<application-name>``.
-This separates it from the standard prefix directories like `bin`and`lib`.
+   This separates it from the standard prefix directories like `bin` and
+   `lib`.
 2. Add symlinks or launch scripts to `$CONDA_PREFIX/bin` to run the
    application binaries.
 

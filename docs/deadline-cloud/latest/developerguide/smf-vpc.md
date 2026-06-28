@@ -9,7 +9,7 @@ leverage Deadline Cloud's fully managed platform while integrating with your exi
 ###### Tip
 
 For a reference CloudFormation template that sets up an Amazon FSx cluster and connects it to a service-managed fleet,
-see [smf_vpc_fsx](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/smf_vpc_fsx "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/smf_vpc_fsx") in the Deadline Cloud samples repository on GitHub.
+see [smf\_vpc\_fsx](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/smf_vpc_fsx "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/smf_vpc_fsx") in the Deadline Cloud samples repository on GitHub.
 
 ## How VPC resource endpoints work
 

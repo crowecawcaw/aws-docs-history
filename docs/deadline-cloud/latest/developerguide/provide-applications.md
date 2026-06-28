@@ -38,7 +38,7 @@ The first script runs when the `onEnter` action is called. It calls the other tw
 to set up environment variables. When the script finishes running, the conda environment is
 available with all of the specified environment variables set.
 
-For the latest version of the example, see [conda_queue_env_console_equivalent.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_console_equivalent.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_console_equivalent.yaml") in the [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline") repository on GitHub.
+For the latest version of the example, see [conda\_queue\_env\_console\_equivalent.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_console_equivalent.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_console_equivalent.yaml") in the [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline") repository on GitHub.
 
 If the you want to use an application that is not available in the conda channel, you
 can create a conda channel in Amazon S3 and then build your own packages for that application. See
@@ -65,8 +65,8 @@ The section of the job template that sets the parameters is:
   default: conda-forge
 ```
 
-For the latest version of the complete example job template, see [stage_1_self_contained_template/template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/job_bundles/job_dev_progression/stage_1_self_contained_template/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/job_bundles/job_dev_progression/stage_1_self_contained_template/template.yaml"). For the latest version of the
-queue environment that loads the conda packages, see [conda_queue_env_console_equivalent.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_console_equivalent.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_console_equivalent.yaml") in the [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline") repository on GitHub.
+For the latest version of the complete example job template, see [stage\_1\_self\_contained\_template/template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/job_bundles/job_dev_progression/stage_1_self_contained_template/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/job_bundles/job_dev_progression/stage_1_self_contained_template/template.yaml"). For the latest version of the
+queue environment that loads the conda packages, see [conda\_queue\_env\_console\_equivalent.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_console_equivalent.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_console_equivalent.yaml") in the [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline") repository on GitHub.
 
 ### Get Blender from the deadline-cloud channel
 
@@ -96,8 +96,8 @@ The section of the job template that sets the parameter is:
     Tells the queue environment to install Blender from the deadline-cloud conda channel.
 ```
 
-For the latest version of the complete example job template, see [blender_render/template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/job_bundles/blender_render/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/job_bundles/blender_render/template.yaml"). For the latest version of the queue environment
-that loads the conda packages, see [conda_queue_env_console_equivalent.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_console_equivalent.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_console_equivalent.yaml") in the [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline") repository on GitHub.
+For the latest version of the complete example job template, see [blender\_render/template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/job_bundles/blender_render/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/job_bundles/blender_render/template.yaml"). For the latest version of the queue environment
+that loads the conda packages, see [conda\_queue\_env\_console\_equivalent.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_console_equivalent.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_console_equivalent.yaml") in the [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline") repository on GitHub.
 
 ## Use a different package manager
 
@@ -116,4 +116,4 @@ available with all of the specified environment variables set.
 The example assumes that you have a customer-managed fleet that uses a shared file
 system for the Rez packages.
 
-For the latest version of the example, see [rez_queue_env.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/rez_queue_env.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/rez_queue_env.yaml") in the [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline") repository on GitHub.
+For the latest version of the example, see [rez\_queue\_env.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/rez_queue_env.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/rez_queue_env.yaml") in the [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline") repository on GitHub.

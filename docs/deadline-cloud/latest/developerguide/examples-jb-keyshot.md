@@ -1,7 +1,7 @@
 # Render KeyShot scenes on Deadline Cloud
 
 The
-[keyshot_standalone](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/keyshot_standalone "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/keyshot_standalone")
+[keyshot\_standalone](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/keyshot_standalone "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/keyshot_standalone")
 job bundle is a Windows KeyShot job bundle that renders a scene with each
 frame as a separate task. The bundle accepts the following job
 parameters:

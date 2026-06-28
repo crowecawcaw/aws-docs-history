@@ -1,7 +1,7 @@
 # Encode video with FFmpeg on Deadline Cloud
 
 The
-[ffmpeg_encode_video](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ffmpeg_encode_video "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ffmpeg_encode_video")
+[ffmpeg\_encode\_video](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ffmpeg_encode_video "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ffmpeg_encode_video")
 job bundle takes a directory of sequentially numbered image files and
 encodes them into an MP4 video using FFmpeg. The bundle is useful as a
 standalone utility for converting render output to video, or as a reference

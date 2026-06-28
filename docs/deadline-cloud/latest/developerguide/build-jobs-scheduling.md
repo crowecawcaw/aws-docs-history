@@ -168,6 +168,15 @@ Capabilities for a fleet are set at the fleet level. Even if a worker in a fleet
 the job's requirements, it won't be assigned tasks from the job if its fleet doesn't meet
 the job's requirements.
 
+###### Important
+
+The fleet-level `workerCapabilities` declaration is the scheduling
+contract. The scheduler evaluates step compatibility exclusively against the fleet-level
+capabilities – it does not inspect individual workers. If a step's
+`hostRequirements` exceed the minimum values declared in the fleet's
+`workerCapabilities`, the fleet is evaluated as not compatible, even
+if some individual workers in the fleet would satisfy the requirements.
+
 The following job template has a step that specifies host requirements for the
 step:
 
@@ -233,6 +242,91 @@ This job can't be scheduled to a fleet with any of the following capabilities:
 }
     The osFamily doesn't match.
 ```
+
+### Fleet design best practices
+
+Because the scheduler evaluates compatibility at the fleet level, design your
+customer-managed fleets so that the declared `workerCapabilities` represent
+the guaranteed minimum hardware characteristics of every worker in the fleet:
+
+- Split workers into multiple fleets based on guaranteed minimum hardware
+  characteristics (for example, GPU count, VRAM, or CPU count) rather than using one
+  heterogeneous fleet with broad ranges.
+- Ensure that each worker in a fleet meets or exceeds the declared minimums, even
+  if the workers don't have identical hardware.
+- Associate multiple fleets with a single queue so that the scheduler selects a
+  compatible fleet based on each step's `hostRequirements`.
+
+For example, if you have workers with 1 GPU (24 GiB VRAM) and workers
+with 4 GPUs (96 GiB VRAM), create two separate fleets: one declaring a
+minimum of 1 GPU and 24 GiB GPU memory, and another declaring a minimum of
+4 GPUs and 96 GiB GPU memory. Then associate both fleets with the same queue.
+Steps that require 4 GPUs are automatically routed to the high-GPU fleet.
+
+For more information about creating a customer-managed fleet, see
+[Create a customer-managed fleet](create-a-cmf.md "create-a-cmf.md").
+
+### Custom capabilities
+
+In addition to the built-in worker capabilities (vCPU, memory, GPU, operating system,
+and CPU architecture), you can define custom amounts and custom attributes on a fleet to
+express additional scheduling constraints:
+
+- **Custom amounts** – Numeric values such as
+  available disk space or specialized hardware counters.
+- **Custom attributes** – String values such as
+  installed software, solver versions, or site labels. For example, you can define
+  `attr.sw.solvers` with values like `["vray-6", "arnold-7"]`
+  to route jobs that require specific software.
+
+At the fleet level, declare software or hardware combinations in custom capabilities
+only if they are guaranteed to exist on all workers in that fleet.
+
+Fleet-level custom capabilities have the following limits:
+
+- Maximum of 15 custom amounts per fleet
+- Maximum of 15 custom attributes per fleet
+
+Names in the form `amount.worker.*` and `attr.worker.*` are
+reserved by the service for built-in capabilities. Use other prefixes for your custom
+capabilities.
+
+For more information about configuring custom capabilities when creating a fleet, see
+[Create a customer-managed fleet](create-a-cmf.md "create-a-cmf.md").
+
+### GPU memory reporting
+
+When you configure fleets for GPU-intensive workloads that require a specific per-GPU
+VRAM threshold, understand how the worker agent reports GPU memory.
+
+The Deadline Cloud worker agent reports the _minimum_ GPU memory across all
+GPUs on the worker into `amount.worker.gpu.memory`, not the total sum. This
+behavior ensures that jobs requiring a specific per-GPU VRAM amount are routed to workers
+where every GPU meets that requirement.
+
+For example, if a worker has two GPUs with 24 GiB and 48 GiB of VRAM
+respectively, the worker agent reports 24 GiB as the GPU memory value.
+
+At the fleet level, set the `acceleratorTotalMemoryMiB` minimum to the
+lowest per-GPU VRAM that any worker in the fleet is guaranteed to have.
+
+### Per-worker capabilities
+
+When you need to track operational state for individual workers without affecting
+scheduling decisions, use per-worker capabilities. For example, you might flag workers
+for maintenance, track software rollout state, or record health check indicators.
+
+You can set capabilities on individual workers using the
+`UpdateWorker` API operation. Per-worker capabilities are
+_not_ used as the scheduling contract. The scheduler evaluates
+compatibility exclusively against the fleet-level `workerCapabilities`
+declaration.
+
+The `GetWorker` and `ListWorkers` operations don't return
+worker capabilities that are set through `UpdateWorker`.
+
+For more information, see [UpdateWorker](../APIReference/API_UpdateWorker.md "../APIReference/API_UpdateWorker.md") in
+the _Deadline Cloud API Reference_.
 
 ## Fleet scaling
 

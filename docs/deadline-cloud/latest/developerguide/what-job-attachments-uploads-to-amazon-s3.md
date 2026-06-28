@@ -117,7 +117,7 @@ Two objects were uploaded to S3:
   `script.sh` is located.
   The manifest object contains the information for the input files on a specific root
   path uploaded to S3 as part of the job’s submission. Download this manifest file (`aws
-s3 cp s3://$Q1_S3_BUCKET/<objectname>`). Its contents are similar to:
+ s3 cp s3://$Q1_S3_BUCKET/<objectname>`). Its contents are similar to:
 
 ```
 {

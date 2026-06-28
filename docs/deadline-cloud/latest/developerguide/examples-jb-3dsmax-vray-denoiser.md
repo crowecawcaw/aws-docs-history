@@ -1,7 +1,7 @@
 # Render Autodesk 3ds Max scenes with V-Ray on Deadline Cloud
 
 The
-[3dsmax_vray_denoiser](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/3dsmax_vray_denoiser "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/3dsmax_vray_denoiser")
+[3dsmax\_vray\_denoiser](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/3dsmax_vray_denoiser "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/3dsmax_vray_denoiser")
 job bundle renders 3ds Max scenes with V-Ray and converts the output from
 V-Ray's native VRIMG format to EXR while preserving denoising data. The
 bundle includes the following features:

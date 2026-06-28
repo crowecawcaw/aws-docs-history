@@ -1,9 +1,9 @@
 # Job attachment tutorial bundles for Deadline Cloud
 
 The
-[job_attachments_devguide](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_attachments_devguide "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_attachments_devguide")
+[job\_attachments\_devguide](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_attachments_devguide "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_attachments_devguide")
 and
-[job_attachments_devguide_output](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_attachments_devguide_output "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_attachments_devguide_output")
+[job\_attachments\_devguide\_output](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_attachments_devguide_output "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_attachments_devguide_output")
 job bundles supplement the
 [Use job attachments to share files](build-job-attachments.md "build-job-attachments.md") section in the developer guide. The
 bundles demonstrate how data flow metadata on path job parameters and the

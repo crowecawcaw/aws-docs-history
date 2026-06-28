@@ -1,7 +1,7 @@
 # Render Arnold .ass files on Deadline Cloud
 
 The
-[arnold_standalone_render](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/arnold_standalone_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/arnold_standalone_render")
+[arnold\_standalone\_render](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/arnold_standalone_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/arnold_standalone_render")
 job bundle renders Arnold `.ass` (Arnold Scene Source) files using
 the `kick` command-line renderer that ships with MtoA (Arnold for
 Maya). Point it at a directory of `.ass` files with a naming
@@ -15,7 +15,7 @@ scenes from the
 [Autodesk
 Arnold learning scenes page](https://help.autodesk.com/view/MAYAUL/2024/ENU/?guid=arnold_for_maya_tutorials_am_Learning_Scenes_html "https://help.autodesk.com/view/MAYAUL/2024/ENU/?guid=arnold_for_maya_tutorials_am_Learning_Scenes_html"), or export `.ass` files from
 Maya. To automate the export step, use the
-[maya_arnold_ass_export_render](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/maya_arnold_ass_export_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/maya_arnold_ass_export_render")
+[maya\_arnold\_ass\_export\_render](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/maya_arnold_ass_export_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/maya_arnold_ass_export_render")
 bundle.
 
 To run this bundle, you need:

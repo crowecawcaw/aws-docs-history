@@ -141,7 +141,7 @@ bucket.
 - Authorized calls to the `AssumeQueueRoleForRead`,
   `AssumeQueueRoleForUser`, and `AssumeQueueRoleForWorker` API
   operations return a set of temporary security credentials for the `Queue
-Role`.
+ Role`.
 
 If you create a queue and reuse an Amazon S3 bucket and root prefix, there is a risk of
 information being disclosed to unauthorized parties. For example, QueueA and QueueB share
@@ -368,8 +368,9 @@ steps.
 1. In the following command, replace
    `file` with the file that you want
    to verify. For example, ``C:\PATH\TO\MY\`DeadlineCloudSubmitter-windows-x64-installer.exe` . Also, replace
-``signtool-sdk-version``with the
-version of the SignTool SDK installed. For example,`10.0.22000.0`.
+ ``signtool-sdk-version`` with the
+   version of the SignTool SDK installed. For example,
+   `10.0.22000.0`.
 
 `"C:\Program Files (x86)\Windows
  Kits\10\bin\`signtool-sdk-version`\x86\signtool.exe"
@@ -593,7 +594,7 @@ To verify packages that use a Linux .AppImage binary, first complete steps
 1-3 in the Linux tab, then complete the following steps.
 
 1. From the AppImageUpdate [page](https://github.com/AppImageCommunity/AppImageUpdate/releases/tag/continuous "https://github.com/AppImageCommunity/AppImageUpdate/releases/tag/continuous") in GitHub, download the
-   **validate-x86_64.AppImage** file.
+   **validate-x86\_64.AppImage** file.
 2. After downloading the file, to add execute permissions, run the following
    command.
 

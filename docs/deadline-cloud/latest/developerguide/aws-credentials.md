@@ -117,12 +117,11 @@ JSONJSON
 - Store the user access keys in the agent user's AWS credentials file
   on the worker host system:
 
-      + On Linux, the file is located at
-       `~/.aws/credentials`
-      + On Windows, the file is located at
-       `%USERPROFILE\.aws\credentials`
-
-  Replace the following keys:
+  - On Linux, the file is located at
+    `~/.aws/credentials`
+  - On Windows, the file is located at
+    `%USERPROFILE\.aws\credentials`
+    Replace the following keys:
 
 ```
 [default]

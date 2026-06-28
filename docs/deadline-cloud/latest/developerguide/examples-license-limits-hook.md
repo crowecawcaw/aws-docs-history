@@ -1,7 +1,7 @@
 # Enforce fixed license limits with a Deadline Cloud submission hook
 
 The
-[license_limits](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/submission_hooks/license_limits "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/submission_hooks/license_limits")
+[license\_limits](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/submission_hooks/license_limits "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/submission_hooks/license_limits")
 sample shows how to combine the Deadline Cloud
 [Limits](../userguide/deadline-cloud-limits.md "../userguide/deadline-cloud-limits.md")
 feature with a

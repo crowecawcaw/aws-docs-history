@@ -4,7 +4,7 @@ The samples repository includes the following inline conda queue
 environments that run conda directly instead of using the
 `conda-queue-env-enter` command:
 
-[conda_queue_env_inline.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_inline.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_inline.yaml")
+[conda\_queue\_env\_inline.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_inline.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_inline.yaml")
 
 Has nearly the same behavior as the console conda queue
 environment but runs conda directly. The behavior is to create a
@@ -18,7 +18,7 @@ Unlike the console queue environment, which uses
 `strict` channel priority, this inline queue environment
 uses `flexible` channel priority.
 
-[conda_queue_env_inline_improved_caching.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_inline_improved_caching.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_inline_improved_caching.yaml")
+[conda\_queue\_env\_inline\_improved\_caching.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_inline_improved_caching.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_inline_improved_caching.yaml")
 
 Extends the inline conda queue environment with a mechanism to
 reuse conda virtual environments across multiple jobs. The default

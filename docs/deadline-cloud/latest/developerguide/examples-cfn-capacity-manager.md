@@ -1,7 +1,7 @@
 # Manage hybrid Wait and Save plus Spot fleet capacity with CloudFormation
 
 The
-[smf_capacity_manager](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/smf_capacity_manager "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/smf_capacity_manager")
+[smf\_capacity\_manager](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/smf_capacity_manager "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/smf_capacity_manager")
 CloudFormation template implements automated capacity management for hybrid fleet
 setups that combine Wait and Save and Spot fleets. The template uses
 Lambda and EventBridge Scheduler to dynamically balance fleet sizes while
@@ -18,8 +18,10 @@ For example, with a target maximum worker count of 20 workers:
 
 - Wait and Save scales up to 18 — Spot fleet maximum decreases to
 
-2.  Workers are only terminated when their tasks complete, so fleets
-    rebalance for cost-effectiveness without losing work in progress.
+2.
+
+Workers are only terminated when their tasks complete, so fleets
+rebalance for cost-effectiveness without losing work in progress.
 
 To deploy the template, you need an existing Deadline Cloud farm with two
 service-managed fleets (Wait and Save and Spot) that have the same worker

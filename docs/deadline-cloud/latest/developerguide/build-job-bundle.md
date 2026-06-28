@@ -61,17 +61,17 @@ deadline config get settings.job_history_dir
 When your job is running on a Deadline Cloud worker, it has access to environment variables that
 provide it with information about the job. The environment variables are:
 
-| Variable name             | Available    |
-| ------------------------- | ------------ |
-| DEADLINE_FARM_ID          | All actions  |
-| DEADLINE_FLEET_ID         | All actions  |
-| DEADLINE_WORKER_ID        | All actions  |
-| DEADLINE_QUEUE_ID         | All actions  |
-| DEADLINE_JOB_ID           | All actions  |
-| DEADLINE_STEP_ID          | Task actions |
-| DEADLINE_SESSION_ID       | All actions  |
-| DEADLINE_TASK_ID          | Task actions |
-| DEADLINE_SESSIONACTION_ID | All actions  |
+| Variable name               | Available    |
+| --------------------------- | ------------ |
+| DEADLINE\_FARM\_ID          | All actions  |
+| DEADLINE\_FLEET\_ID         | All actions  |
+| DEADLINE\_WORKER\_ID        | All actions  |
+| DEADLINE\_QUEUE\_ID         | All actions  |
+| DEADLINE\_JOB\_ID           | All actions  |
+| DEADLINE\_STEP\_ID          | Task actions |
+| DEADLINE\_SESSION\_ID       | All actions  |
+| DEADLINE\_TASK\_ID          | Task actions |
+| DEADLINE\_SESSIONACTION\_ID | All actions  |
 
 ###### Topics
 

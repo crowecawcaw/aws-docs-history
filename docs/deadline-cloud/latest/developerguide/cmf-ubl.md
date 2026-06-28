@@ -5,9 +5,10 @@ products. With usage-based licenses, you can pay as you go. You are only charged
 you use. Usage-based licensing provides licenses for your Deadline Cloud workers to render, it doesn't
 provide licenses for your DCC applications.
 
-The Deadline Cloud usage-based license server can be used with any fleet type as long as the Deadline Cloud
-workers can communicate with the license server. The license server is automatically set up in service-managed
-fleets. The following setup is only needed for customer-managed fleets.
+Some usage-based license products are available on both service-managed and customer-managed
+fleets, while others are only available on service-managed fleets. The license server is
+automatically set up in service-managed fleets. The following setup is only needed for
+customer-managed fleets and covers only the products supported on that fleet type.
 
 To create the license server, you need a security group for your farm's VPC that allows
 traffic for third-party licenses.
@@ -16,15 +17,20 @@ traffic for third-party licenses.
 
 - [Step 1: Create a security group](#cmf-ubl-step-1 "#cmf-ubl-step-1")
 - [Step 2: Set up the license endpoint](#cmf-ubl-step-2 "#cmf-ubl-step-2")
-- [Step 3: Connect a rendering application to an endpoint](#w2aac31c19c15 "#w2aac31c19c15")
-- [Step 4: Delete a license endpoint](#w2aac31c19c17 "#w2aac31c19c17")
+- [Step 3: Connect a rendering application to an endpoint](#w2aac34c19c15 "#w2aac34c19c15")
+- [Step 4: Delete a license endpoint](#w2aac34c19c17 "#w2aac34c19c17")
 
 ## Step 1: Create a security group
 
 Use the [Amazon VPC Console](https://console.aws.amazon.com/vpc "https://console.aws.amazon.com/vpc") to create a security group
 for your farm's VPC. Configure the security group to allow the following inbound rules:
 
-- Autodesk Maya and Arnold – 2701 - 2702, TCP, IPv4, IPv6
+###### Note
+
+The following applications are the only applications supported with usage-based licensing
+on customer-managed fleets.
+
+- Arnold – 2701, TCP, IPv4, IPv6
 - Cinema 4D – 7057, TCP, IPv4, IPv6
 - Foundry Nuke – 6101, TCP, IPv4, IPv6
 - Red Giant – 7055, TCP, IPV4
@@ -80,34 +86,13 @@ choose the copy icon in the DNS Name section.
 
 ### Configuration examples
 
-###### Example– Autodesk Maya and Arnold
+###### Example– Arnold
 
-###### Note
-
-You can use Autodesk Maya and Arnold together or separately. Use port 2702 for Autodesk Maya and port 2701 for Arnold.
-
-For Autodesk Maya, set the environment variable `ADSKFLEX_LICENSE_FILE` to:
-
-```
-2702@`VPC_Endpoint_DNS_Name`
-```
-
-For Arnold, set the environment variable `ADSKFLEX_LICENSE_FILE` to:
+Set the environment variable `ADSKFLEX_LICENSE_FILE` to:
 
 ```
 2701@`VPC_Endpoint_DNS_Name`
 ```
-
-For Autodesk Maya and Arnold, set the environment variable `ADSKFLEX_LICENSE_FILE` to:
-
-```
-2702@`VPC_Endpoint_DNS_Name`:2701@`VPC_Endpoint_DNS_Name`
-```
-
-###### Note
-
-For Windows workers, use a semi-colon (;) instead of a colon (:) to separate
-endpoints.
 
 ###### Example– Cinema 4D
 

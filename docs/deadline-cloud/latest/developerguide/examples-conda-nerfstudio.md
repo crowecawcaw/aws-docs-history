@@ -29,7 +29,7 @@ following:
 ```
 
 To reuse conda environments between jobs, attach the
-[conda_queue_env_improved_caching.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_improved_caching.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_improved_caching.yaml")
+[conda\_queue\_env\_improved\_caching.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_improved_caching.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_improved_caching.yaml")
 queue environment to your queue. Because the dependency closure of NeRF
 Studio contains many gigabytes of packages, caching saves significant time
 and bandwidth.

@@ -1,7 +1,7 @@
 # py-rattler conda queue environment for Deadline Cloud
 
 The
-[conda_queue_env_pyrattler.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_pyrattler.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_pyrattler.yaml")
+[conda\_queue\_env\_pyrattler.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_pyrattler.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_pyrattler.yaml")
 queue environment provides the same functionality as the inline conda
 queue environments but uses the
 [py-rattler](https://conda.github.io/rattler/py-rattler/ "https://conda.github.io/rattler/py-rattler/")

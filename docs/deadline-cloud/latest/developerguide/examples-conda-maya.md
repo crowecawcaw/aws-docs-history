@@ -18,9 +18,15 @@ provides the `kick` standalone renderer, which the
 [Render Arnold .ass files on Deadline Cloud](examples-jb-arnold-render.md "examples-jb-arnold-render.md") bundle uses.
 
 [maya-vray-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-vray-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-vray-2025"),
-[maya-vray-2026](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-vray-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-vray-2026")
+[maya-vray-2026](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-vray-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-vray-2026"),
+[maya-vray-7.2-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-vray-7.2-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-vray-7.2-2025"),
+[maya-vray-7.2-2026](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-vray-7.2-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-vray-7.2-2026")
 
-V-Ray for Maya renderer plugin.
+V-Ray for Maya renderer plugin. The `maya-vray-7.2`
+recipes package V-Ray 7.20.02 (Update 2 DR2) and require the V-Ray
+for Maya archive from
+[Chaos](https://www.chaos.com/vray/maya "https://www.chaos.com/vray/maya")
+(account required).
 
 [maya-redshift-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-redshift-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-redshift-2025"),
 [maya-redshift-2026](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-redshift-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-redshift-2026")

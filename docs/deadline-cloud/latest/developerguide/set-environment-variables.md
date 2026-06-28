@@ -45,8 +45,9 @@ environment:
 
 For dynamic values, such as modifying `PATH` or activating virtual
 environments, use a script that prints lines in the format
-`openjd_env: `VAR`=`value`` to stdout. The`openjd_env:`prefix is required. Using`echo`,
- `export`, or other shell mechanisms without the prefix does not propagate
+`openjd_env: `VAR`=`value``
+to stdout. The `openjd_env:` prefix is required. Using `echo`,
+`export`, or other shell mechanisms without the prefix does not propagate
 variables to jobs and tasks.
 
 The following queue environment template sets the `QT_QPA_PLATFORM`
@@ -188,7 +189,7 @@ deadline bundle submit job_env_vars
 
 ### Comparing session actions with their definitions
 
-The log view shows three session actions. Open the file [job_env_vars/template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml") in a text editor to compare each action with its
+The log view shows three session actions. Open the file [job\_env\_vars/template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_vars/template.yaml") in a text editor to compare each action with its
 definition in the job template.
 
 1. Select the **Launch JobEnv** session action. The log output

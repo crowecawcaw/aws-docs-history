@@ -398,7 +398,7 @@ Follow these guidelines when modifying your monitor role:
 
 ### How Deadline Cloud monitor uses monitor role credentials
 
-Deadline Cloud monitor automatically obtains monitor role credentials when you authenticate. This capability enables the desktop application to provide enhanced monitoring capabilities beyond what's available in a standard web browser.
+Deadline Cloud monitor automatically obtains monitor role credentials when you authenticate. These temporary credentials last for 15 minutes and automatically refresh as long as you are signed in to IAM Identity Center. This capability enables the desktop application to provide enhanced monitoring capabilities beyond what's available in a standard web browser.
 
 When you log in with Deadline Cloud monitor, it automatically creates a profile that you can use with the AWS CLI or any other AWS tool. This profile uses the monitor role credentials, giving you programmatic access to AWS services based on the permissions in your monitor role.
 

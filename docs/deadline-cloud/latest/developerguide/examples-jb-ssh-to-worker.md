@@ -1,9 +1,9 @@
 # SSH or RDP to a Deadline Cloud worker through Session Manager
 
 The
-[ssh_to_smf](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ssh_to_smf "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ssh_to_smf")
+[ssh\_to\_smf](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ssh_to_smf "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ssh_to_smf")
 (Linux) and
-[ssh_to_smf_windows](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ssh_to_smf_windows "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ssh_to_smf_windows")
+[ssh\_to\_smf\_windows](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ssh_to_smf_windows "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ssh_to_smf_windows")
 (Windows) job bundles register a Deadline Cloud worker as an SSM hybrid managed
 node, enabling SSH, RDP, or PowerShell access through Session Manager for
 the duration of the job. Use these bundles to debug a job interactively or
@@ -37,7 +37,7 @@ aws ssm update-service-setting \
 ```
 
 3. The Linux variant requires the
-   [sudo_for_job_user](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/sudo_for_job_user "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/sudo_for_job_user")
+   [sudo\_for\_job\_user](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/sudo_for_job_user "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/sudo_for_job_user")
    host configuration script. The Windows variant requires the bundle's
    `setup/host_config.ps1` as the fleet host configuration
    script.

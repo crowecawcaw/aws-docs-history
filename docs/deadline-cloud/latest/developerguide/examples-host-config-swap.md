@@ -1,7 +1,7 @@
 # Enable swap on Deadline Cloud Linux workers
 
 The
-[swap_for_smf](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/swap_for_smf "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/swap_for_smf")
+[swap\_for\_smf](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/swap_for_smf "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/swap_for_smf")
 host configuration script creates and enables a swap file on Deadline Cloud Linux
 service-managed fleet workers. Use this script for memory-intensive
 workloads that temporarily exceed physical RAM, such as ComfyUI.
@@ -24,5 +24,5 @@ The script does the following:
 
 For an alternative that changes the kernel's overcommit behavior
 instead of adding swap, see the
-[overcommit_override_for_smf](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/overcommit_override_for_smf "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/overcommit_override_for_smf")
+[overcommit\_override\_for\_smf](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/overcommit_override_for_smf "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/overcommit_override_for_smf")
 script in the samples repository.

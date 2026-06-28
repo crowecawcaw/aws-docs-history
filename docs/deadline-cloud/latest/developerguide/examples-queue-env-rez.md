@@ -1,7 +1,7 @@
 # Rez queue environment for Deadline Cloud customer-managed fleets
 
 The
-[rez_queue_env.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/rez_queue_env.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/rez_queue_env.yaml")
+[rez\_queue\_env.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/rez_queue_env.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/rez_queue_env.yaml")
 queue environment provides the same functionality as the conda queue
 environments but for the
 [Rez](https://rez.readthedocs.io/ "https://rez.readthedocs.io/") package manager. The

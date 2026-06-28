@@ -1,7 +1,7 @@
 # Render Adobe After Effects projects on Deadline Cloud
 
 The
-[afterfx_render_one_task](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/afterfx_render_one_task "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/afterfx_render_one_task")
+[afterfx\_render\_one\_task](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/afterfx_render_one_task "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/afterfx_render_one_task")
 job bundle uses `aerender` to render an After Effects frame
 range as a single task. The entire workload runs on one worker as one
 command. The bundle accepts the following job parameters:

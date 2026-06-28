@@ -1,7 +1,7 @@
 # Queue environment examples for Deadline Cloud
 
 The
-[queue_environments](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments")
+[queue\_environments](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments")
 directory in the deadline-cloud-samples repository includes queue
 environments that you can attach to a Deadline Cloud queue. Conda and Rez queue
 environments provide software to jobs so that each job only needs a

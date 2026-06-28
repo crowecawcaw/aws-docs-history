@@ -1,7 +1,7 @@
 # Train 3D Gaussian Splatting from video on Deadline Cloud
 
 The
-[gsplat_pipeline](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/gsplat_pipeline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/gsplat_pipeline")
+[gsplat\_pipeline](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/gsplat_pipeline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/gsplat_pipeline")
 job bundle runs a
 [3D
 Gaussian Splatting pipeline](https://aws.amazon.com/blogs/spatial/3d-gaussian-splatting-performant-3d-scene-reconstruction-at-scale/ "https://aws.amazon.com/blogs/spatial/3d-gaussian-splatting-performant-3d-scene-reconstruction-at-scale/"). The bundle takes a video file as input
@@ -22,7 +22,7 @@ The pipeline runs a single task that:
    Studio splatfacto](https://docs.nerf.studio/nerfology/methods/splat.html "https://docs.nerf.studio/nerfology/methods/splat.html"),
    [Splatfacto
    in the Wild](https://docs.nerf.studio/nerfology/methods/splatw.html "https://docs.nerf.studio/nerfology/methods/splatw.html"), or the
-   [simple_trainer.py
+   [simple\_trainer.py
    gsplat library example](https://docs.gsplat.studio/main/examples/colmap.html "https://docs.gsplat.studio/main/examples/colmap.html"). Output is saved to the
    `.ply` file you specify.
    To run this bundle, deploy the

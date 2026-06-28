@@ -118,10 +118,9 @@ When you run the host configuration script:
 - On success: The worker runs the job
 - On failure (non-zero exit code or crash):
 
-      + The worker shuts down
-
-  The fleet automatically launches a new worker using the latest host configuration
-  script
+  - The worker shuts down
+    The fleet automatically launches a new worker using the latest host configuration
+    script
 
 To monitor the script:
 

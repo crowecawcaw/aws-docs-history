@@ -1,7 +1,7 @@
 # Grant passwordless sudo to job-user on Deadline Cloud Linux workers
 
 The
-[sudo_for_job_user](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/sudo_for_job_user "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/sudo_for_job_user")
+[sudo\_for\_job\_user](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/sudo_for_job_user "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/sudo_for_job_user")
 host configuration script grants the Deadline Cloud `job-user` account
 passwordless sudo access on Linux service-managed fleet workers. Some
 workloads require root privileges, for example to install packages, mount

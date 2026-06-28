@@ -228,6 +228,18 @@ automatically. You need to configure the fleet mode as well as deploy the requir
 infrastructure in your account to make your fleet auto scale. The infrastructure you deployed
 will work for all fleets, so you only need to set it up once.
 
+Customer-managed fleets support two scaling modes:
+
+- **`NO_SCALING`** – The fleet is treated
+  as a static worker pool. Deadline Cloud does not emit scaling recommendations or fleet size
+  events for the fleet. Use this mode for on-premises fleets or fleets that you
+  scale manually.
+- **`EVENT_BASED_AUTO_SCALING`** –
+  Deadline Cloud emits Amazon EventBridge (EventBridge) events with fleet size recommendations whenever the
+  recommended fleet size changes. The service does not directly start or stop workers.
+  You must deploy infrastructure (such as an AWS Lambda (Lambda) function) to consume these events
+  and adjust your Auto Scaling group capacity accordingly.
+
 The basic workflow is: you configure your fleet mode to auto scale, and then Deadline Cloud will
 send out an EventBridge event for that fleet whenever recommended fleet size changes (one event
 contains fleet id, recommended fleet size, and other metadata). You will have an EventBridge rule to

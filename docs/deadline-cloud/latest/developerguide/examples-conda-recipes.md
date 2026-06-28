@@ -1,7 +1,7 @@
 # Conda recipe examples for Deadline Cloud
 
 The
-[conda_recipes](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes")
+[conda\_recipes](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes")
 directory in the deadline-cloud-samples repository contains sample tools
 for creating an Amazon S3 conda channel and building packages into it. The
 recipes use
@@ -45,7 +45,7 @@ To submit a build for every platform listed in
 ```
 
 The
-[conda_build_linux_package](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/conda_build_linux_package "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/conda_build_linux_package")
+[conda\_build\_linux\_package](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/conda_build_linux_package "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/conda_build_linux_package")
 job bundle in the directory is the Open Job Description template that
 `submit-package-job` submits. It runs `conda-build`
 or `rattler-build` on a worker, takes a recipe directory and
@@ -53,7 +53,7 @@ optional source archives as input, and writes the built package to your
 queue's conda channel.
 
 Source archives that recipes pull in by URL go in the
-[archive_files](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/archive_files "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/archive_files")
+[archive\_files](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/archive_files "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/archive_files")
 directory. Recipes that require an installer or redistributable archive
 you have to download manually (such as Maya, Cinema 4D, or Nuke) read
 from this directory at build time.
@@ -86,3 +86,6 @@ queue:
 - [Build an Epic Unreal Engine conda package for Deadline Cloud](examples-conda-unreal-engine.md "examples-conda-unreal-engine.md")
 - [Build a V-Ray Standalone conda package for Deadline Cloud](examples-conda-vray.md "examples-conda-vray.md")
 - [Build a NeRF Studio conda package for Deadline Cloud](examples-conda-nerfstudio.md "examples-conda-nerfstudio.md")
+- [Build an Infinigen conda package for Deadline Cloud](examples-conda-infinigen.md "examples-conda-infinigen.md")
+- [Build an AutoDock Vina conda package for Deadline Cloud](examples-conda-autodock-vina.md "examples-conda-autodock-vina.md")
+- [Build an AYON Launcher conda package for Deadline Cloud](examples-conda-ayon.md "examples-conda-ayon.md")

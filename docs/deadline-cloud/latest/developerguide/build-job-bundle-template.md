@@ -47,7 +47,7 @@ In this example, the UI widget for inputting a value for the `BlenderSceneFile`
 parameter is a file-selection dialog that shows only `.blend` files.
 
 ![A user-interface widget for entering the scene file parameter for an OpenJD job template.](images/blender_submit_scene_file_widget.png)
-For more examples of using the `userInteface` element, see the [gui_control_showcase](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/gui_control_showcase "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/gui_control_showcase") sample in the [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline") repository on GitHub.
+For more examples of using the `userInteface` element, see the [gui\_control\_showcase](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/gui_control_showcase "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/gui_control_showcase") sample in the [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline") repository on GitHub.
 
 The `objectType` and `dataFlow` properties control the behavior of
 job attachments when you submit a job from a job bundle. In this case, `objectType:
@@ -125,4 +125,4 @@ run a task:
    jobs are run](https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run "https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run") in the [Open
    Job Description specification](https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run "https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run").
 
-There are more examples of job templates in the [deadline-cloud-samples/job_bundles](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles") repository, as well as the [template samples](https://github.com/OpenJobDescription/openjd-specifications/tree/mainline/samples "https://github.com/OpenJobDescription/openjd-specifications/tree/mainline/samples") provided with the Open Job Descriptions specification.
+There are more examples of job templates in the [deadline-cloud-samples/job\_bundles](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles") repository, as well as the [template samples](https://github.com/OpenJobDescription/openjd-specifications/tree/mainline/samples "https://github.com/OpenJobDescription/openjd-specifications/tree/mainline/samples") provided with the Open Job Descriptions specification.

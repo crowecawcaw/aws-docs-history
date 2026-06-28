@@ -1,13 +1,13 @@
 # Build a custom submitter for Deadline Cloud
 
 The
-[custom_submitters](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/custom_submitters "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/custom_submitters")
+[custom\_submitters](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/custom_submitters "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/custom_submitters")
 directory holds reference submitters that go beyond what bundle
 editing and the integrated submitters support. Use these as starting
 points when your team needs UI controls, custom handlers, or fleet
 attributes that the integrated submitter doesn't expose:
 
-- [fuzzypixel_maya](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/custom_submitters/fuzzypixel_maya "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/custom_submitters/fuzzypixel_maya")
+- [fuzzypixel\_maya](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/custom_submitters/fuzzypixel_maya "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/custom_submitters/fuzzypixel_maya")
   — The Maya custom submitter the AWS FuzzyPixel team developed
   for production. The submitter consolidates render settings into a
   single tab, exposes a QTree widget for activating individual render

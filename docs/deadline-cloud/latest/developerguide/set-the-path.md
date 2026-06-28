@@ -54,7 +54,7 @@ center of the window corresponds to the selected session action on the right.
 In this section you use the Deadline Cloud monitor to compare the session actions with where they
 are defined in the job template. It continues from the previous section.
 
-Open the file [job_env_with_new_command/template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_with_new_command/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_with_new_command/template.yaml") in a text editor. Compare the session
+Open the file [job\_env\_with\_new\_command/template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_with_new_command/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_env_with_new_command/template.yaml") in a text editor. Compare the session
 actions to where they are defined in the job template.
 
 1. Select the **Launch RandomSleepCommand** session action in the

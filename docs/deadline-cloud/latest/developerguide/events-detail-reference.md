@@ -369,9 +369,9 @@ describe the status of the most recent user initiated action.
 
 A step lifecycle status change event is sent when:
 
-- A step update starts (UPDATE_IN_PROGRESS).
-- A step update completed successfully (UPDATE_SUCCEEDED).
-- A step update failed (UPDATE_FAILED).
+- A step update starts (UPDATE\_IN\_PROGRESS).
+- A step update completed successfully (UPDATE\_SUCCEEDED).
+- A step update failed (UPDATE\_FAILED).
 
 An event is not sent when the step is first created. To monitor step creation,
 monitor Job Lifecycle Status Change events for changes.

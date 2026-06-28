@@ -1,7 +1,7 @@
 # Render Blender scenes on Deadline Cloud
 
 The
-[blender_render](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/blender_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/blender_render")
+[blender\_render](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/blender_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/blender_render")
 job bundle shows how to support a CLI application in about 100 lines of YAML.
 Most of the template is parameter metadata that defines parameter names,
 types, defaults, and user interface controls. The step definition includes a

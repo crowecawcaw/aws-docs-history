@@ -1,7 +1,7 @@
 # Render USD scenes with Houdini Husk on Deadline Cloud
 
 The
-[houdini_husk_usd_render](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/houdini_husk_usd_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/houdini_husk_usd_render")
+[houdini\_husk\_usd\_render](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/houdini_husk_usd_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/houdini_husk_usd_render")
 job bundle renders a USD scene using the Houdini
 [husk](https://www.sidefx.com/docs/houdini/ref/utils/husk.html "https://www.sidefx.com/docs/houdini/ref/utils/husk.html")
 CLI. By default, Husk renders with the Houdini Karma renderer, but Husk

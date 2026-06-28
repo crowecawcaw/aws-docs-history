@@ -1,7 +1,7 @@
 # Render V-Ray standalone scenes on Deadline Cloud
 
 The
-[vray_render](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vray_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vray_render")
+[vray\_render](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vray_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vray_render")
 job bundle creates a V-Ray rendering job for Deadline Cloud.
 
 To run this bundle, you need:

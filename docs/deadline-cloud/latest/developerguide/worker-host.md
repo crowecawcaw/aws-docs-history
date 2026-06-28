@@ -94,7 +94,7 @@ characters), you must enable long path names as follows:
    information, see [Windows SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/ "https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/") in the Windows Dev Center.
 3. Open the Python installation location in your environment where
    the worker agent is installed. The default is `C:\Program
-Files\Python311`. There is an executable file named
+ Files\Python311`. There is an executable file named
    `pythonservice.exe`.
 4. Create a new file called `pythonservice.exe.manifest`
    in the same location. Add the following:

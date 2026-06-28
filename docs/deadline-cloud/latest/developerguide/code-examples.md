@@ -74,6 +74,9 @@ The repository also includes the following examples:
 - [Build a worker-equivalent Amazon Linux 2023 Docker image for Deadline Cloud](examples-container-al2023.md "examples-container-al2023.md") — A Dockerfile that
   replicates the package set of the Deadline Cloud service-managed fleet (SMF) worker
   AMI on Amazon Linux 2023.
+- [Build a Blender Docker image for GPU rendering on Deadline Cloud](examples-container-blender.md "examples-container-blender.md") — A Dockerfile that
+  packages Blender with the OpenJD adaptor and GPU support for Cycles
+  rendering in a container.
 - [Upload files to Deadline Cloud job attachments](examples-upload-to-job-attachments.md "examples-upload-to-job-attachments.md") — A script
   that uploads files and directories from your workstation or server to
   Deadline Cloud job attachments storage.
@@ -109,6 +112,7 @@ Deadline Cloud.
 - [Host configuration script examples for Deadline Cloud](examples-host-config.md "examples-host-config.md")
 - [Queue environment examples for Deadline Cloud](examples-queue-environments.md "examples-queue-environments.md")
 - [Build a worker-equivalent Amazon Linux 2023 Docker image for Deadline Cloud](examples-container-al2023.md "examples-container-al2023.md")
+- [Build a Blender Docker image for GPU rendering on Deadline Cloud](examples-container-blender.md "examples-container-blender.md")
 - [Upload files to Deadline Cloud job attachments](examples-upload-to-job-attachments.md "examples-upload-to-job-attachments.md")
 - [Enforce fixed license limits with a Deadline Cloud submission hook](examples-license-limits-hook.md "examples-license-limits-hook.md")
 - [AI agent skills for Deadline Cloud](examples-skills.md "examples-skills.md")

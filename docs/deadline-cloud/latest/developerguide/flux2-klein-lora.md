@@ -17,10 +17,10 @@ The following video demonstrates the FLUX.2 Klein LoRA workflow on Deadline Clou
 
 The example consists of two job bundles:
 
-1. **lora_training** – Fine-tunes [FLUX.2
+1. **lora\_training** – Fine-tunes [FLUX.2
    Klein](https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B "https://huggingface.co/black-forest-labs/FLUX.2-klein-base-4B") on your image dataset using [LoRA](https://huggingface.co/docs/peft/conceptual_guides/adapter#low-rank-adaptation-lora "https://huggingface.co/docs/peft/conceptual_guides/adapter#low-rank-adaptation-lora"),
    producing a `.safetensors` adapter file.
-2. **image_generation** – Loads the base model
+2. **image\_generation** – Loads the base model
    with your trained adapter and generates images from text prompts. When generating
    multiple images, work is parallelized across workers.
 
@@ -116,16 +116,16 @@ deadline bundle submit ./lora_training \
 
 ### Training parameters
 
-| Training parameters | Parameter                                   | Description            | Default |
-| ------------------- | ------------------------------------------- | ---------------------- | ------- |
-| Model Version       | `flux.2-klein-base-4b` or `flux.2-klein-4b` | `flux.2-klein-base-4b` |
-| Dataset Path        | Directory containing training images        | —                      |
-| Instance Prompt     | Text describing your subject                | —                      |
-| Resolution          | Training image resolution in pixels         | 512                    |
-| Network Dim         | LoRA rank (higher = more capacity)          | 16                     |
-| Network Alpha       | LoRA alpha scaling factor                   | 16                     |
-| Max Training Steps  | Number of training iterations               | 1500                   |
-| Output Directory    | Where to save trained weights               | —                      |
+Training parameters| Parameter | Description | Default |
+| --- | --- | --- |
+| Model Version | `flux.2-klein-base-4b` or `flux.2-klein-4b` | `flux.2-klein-base-4b` |
+| Dataset Path | Directory containing training images | — |
+| Instance Prompt | Text describing your subject | — |
+| Resolution | Training image resolution in pixels | 512 |
+| Network Dim | LoRA rank (higher = more capacity) | 16 |
+| Network Alpha | LoRA alpha scaling factor | 16 |
+| Max Training Steps | Number of training iterations | 1500 |
+| Output Directory | Where to save trained weights | — |
 
 ### Training output
 
@@ -175,15 +175,15 @@ multiple workers for faster generation.
 
 ### Generation parameters
 
-| Generation parameters | Parameter                                    | Description | Default |
-| --------------------- | -------------------------------------------- | ----------- | ------- |
-| LoRA Path             | Path to trained `.safetensors` file          | —           |
-| Prompt                | Text description (include your trigger word) | —           |
-| Number of Images      | Total images to generate                     | 1           |
-| Width                 | Output width in pixels                       | 1024        |
-| Height                | Output height in pixels                      | 1024        |
-| Inference Steps       | Number of denoising steps                    | 50          |
-| Guidance Scale        | Classifier-free guidance scale               | 4.0         |
+Generation parameters| Parameter | Description | Default |
+| --- | --- | --- |
+| LoRA Path | Path to trained `.safetensors` file | — |
+| Prompt | Text description (include your trigger word) | — |
+| Number of Images | Total images to generate | 1 |
+| Width | Output width in pixels | 1024 |
+| Height | Output height in pixels | 1024 |
+| Inference Steps | Number of denoising steps | 50 |
+| Guidance Scale | Classifier-free guidance scale | 4.0 |
 
 ### Generation output
 
@@ -198,10 +198,10 @@ deadline job download-output \
 
 ## Model variants
 
-| FLUX.2 Klein model variants | Model | Parameters                         | Best for |
-| --------------------------- | ----- | ---------------------------------- | -------- |
-| `flux.2-klein-base-4b`      | 4B    | Fine-tuning, commercial use        |
-| `flux.2-klein-4b`           | 4B    | Fast inference (4 denoising steps) |
+FLUX.2 Klein model variants| Model | Parameters | Best for |
+| --- | --- | --- |
+| `flux.2-klein-base-4b` | 4B | Fine-tuning, commercial use |
+| `flux.2-klein-4b` | 4B | Fast inference (4 denoising steps) |
 
 ## Training recommendations
 

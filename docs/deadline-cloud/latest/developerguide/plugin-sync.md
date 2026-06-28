@@ -63,7 +63,8 @@ s3://`<job-attachments-bucket>`/`<root-prefix>`/plugins/linux/maya/2025/
 1. Open the Deadline Cloud console and navigate to your queue details page.
 2. Choose the job attachments bucket link to open the bucket in the Amazon S3 console.
 3. Navigate to the root prefix folder for your queue.
-4. Create the folder path `plugins/`<os>`/`<dcc-name>`/`<dcc-version>``(for example,`plugins/linux/maya/2025`).
+4. Create the folder path `plugins/`<os>`/`<dcc-name>`/`<dcc-version>``
+   (for example, `plugins/linux/maya/2025`).
 5. Upload your plugin files into the version folder.
 
 ## Supported DCC applications

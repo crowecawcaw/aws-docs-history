@@ -61,7 +61,7 @@ Before you add an SMF, you must set up a Deadline Cloud farm, queue, and fleet. 
 
 ```
 
-3. Submit simple_file_job to the queue. When prompted to confirm the
+3. Submit simple\_file\_job to the queue. When prompted to confirm the
    upload, enter `y`.
 
 ```

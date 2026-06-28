@@ -3,7 +3,7 @@
 Host configuration scripts run with elevated privileges on
 service-managed fleet workers, which lets you install software, configure
 runtimes, and perform other administrative tasks. The
-[host_configuration_scripts](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts")
+[host\_configuration\_scripts](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts")
 directory in the deadline-cloud-samples repository includes sample scripts
 for common configuration tasks.
 
@@ -14,8 +14,8 @@ To attach a script to a fleet, use the Deadline Cloud console or the
 Fleet host configuration logs stream to the fleet's CloudWatch log
 group (for example,
 `/aws/deadline/farm-`FARM_ID`/fleet-`FLEET_ID``).
- Each worker has a dedicated log stream that includes the
- `Running Host Configuration Script`and
+Each worker has a dedicated log stream that includes the
+`Running Host Configuration Script` and
 `Finished running Host Configuration Script, exit code:`
 banners.
 

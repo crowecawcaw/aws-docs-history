@@ -61,7 +61,7 @@ file:
 - **about** – Metadata about the application
   for browsing or processing the contents of a conda channel.
 
-The build scripts ([build.sh](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/build.sh "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/build.sh") for Linux, [build_win.sh](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/build_win.sh "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/build_win.sh") for Windows) include comments explaining each step. The
+The build scripts ([build.sh](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/build.sh "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/build.sh") for Linux, [build\_win.sh](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/build_win.sh "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/build_win.sh") for Windows) include comments explaining each step. The
 scripts perform the following key tasks:
 
 - **Extract the installer** – Extracts the

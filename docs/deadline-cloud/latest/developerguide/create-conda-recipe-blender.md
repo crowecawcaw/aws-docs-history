@@ -21,7 +21,7 @@ adjustment because the application archives are built with relocatability in min
 [Create a conda recipe for Maya](create-conda-recipe-maya.md "create-conda-recipe-maya.md") for an
 example of adding relocatability.
 
-During the package build, the [build.sh](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/blender-4.5/recipe/build.sh "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/blender-4.5/recipe/build.sh") or [build_win.sh](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/blender-4.5/recipe/build_win.sh "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/blender-4.5/recipe/build_win.sh") script runs to install files into the environment. These scripts
+During the package build, the [build.sh](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/blender-4.5/recipe/build.sh "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/blender-4.5/recipe/build.sh") or [build\_win.sh](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/blender-4.5/recipe/build_win.sh "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/blender-4.5/recipe/build_win.sh") script runs to install files into the environment. These scripts
 copy the installation files into `$PREFIX/opt/blender`, create symlinks from
 `$PREFIX/bin` (on Linux), and set up activation scripts that configure
 environment variables such as `BLENDER_LOCATION`. On Windows, the activation

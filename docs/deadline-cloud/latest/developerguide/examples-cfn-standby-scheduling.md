@@ -1,7 +1,7 @@
 # Schedule standby workers for a Deadline Cloud fleet with CloudFormation
 
 The
-[fleet_standby_scheduling](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/fleet_standby_scheduling "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/fleet_standby_scheduling")
+[fleet\_standby\_scheduling](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/fleet_standby_scheduling "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/fleet_standby_scheduling")
 CloudFormation template schedules
 [standby
 worker count](../userguide/auto-scaling-configuration.md "../userguide/auto-scaling-configuration.md") changes on a Deadline Cloud fleet based on a time schedule.

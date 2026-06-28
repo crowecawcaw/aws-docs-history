@@ -1,7 +1,7 @@
 # Classify satellite imagery in parallel on Deadline Cloud
 
 The
-[satellite_classification](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/satellite_classification "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/satellite_classification")
+[satellite\_classification](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/satellite_classification "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/satellite_classification")
 job bundle classifies satellite image tiles into land-cover categories
 (water, vegetation, bare soil, rock, cloud) and merges the results into
 a single map. The classifier reads color ratios between the four

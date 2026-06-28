@@ -31,7 +31,7 @@ problems with these applications. To opt out from the collection of this operati
 information, use any of the following methods:
 
 - In the terminal, enter `deadline config set telemetry.opt_out
-true`.
+ true`.
 
 This will opt out the CLI, submitters, and worker agent when running as the current
 user.
@@ -39,7 +39,7 @@ user.
 - When installing the Deadline Cloud worker agent, add the
   `--telemetry-opt-out` command line argument. For example,
   `./install.sh --farm-id $FARM_ID --fleet-id $FLEET_ID
---telemetry-opt-out`.
+ --telemetry-opt-out`.
 - Before running the worker agent, CLI, or submitter, set an environment variable:
   `DEADLINE_CLOUD_TELEMETRY_OPT_OUT=true`
 

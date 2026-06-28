@@ -1,7 +1,7 @@
 # Predict protein structures with ESMFold on Deadline Cloud
 
 The
-[esmfold_predict](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/esmfold_predict "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/esmfold_predict")
+[esmfold\_predict](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/esmfold_predict "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/esmfold_predict")
 job bundle runs protein structure prediction with ESMFold (Meta's
 `facebook/esmfold_v1`, MIT license). The bundle takes a FASTA
 file as input and produces a `.pdb` file per sequence as
@@ -25,7 +25,7 @@ The job runs four steps:
    queue with a conda queue environment that consumes the
    `CondaPackages` and `CondaChannels` job
    parameters. The fastest setup is the
-   [cuda_farm](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cuda_farm "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cuda_farm")
+   [cuda\_farm](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cuda_farm "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cuda_farm")
    AWS CloudFormation (CloudFormation) template. Amazon Elastic Compute Cloud (Amazon EC2) GPU instances are gated
    by per-region vCPU quotas; if your fleet doesn't scale up, request an
    increase for

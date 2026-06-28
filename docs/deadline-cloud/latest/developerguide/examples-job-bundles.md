@@ -2,7 +2,7 @@
 
 A job bundle groups an Open Job Description template with the files and
 metadata that AWS Deadline Cloud needs to run a job. The
-[job_bundles](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles")
+[job\_bundles](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles")
 directory in the deadline-cloud-samples repository provides ready-to-submit
 bundles that you can use as starting points for your own work.
 
@@ -43,6 +43,12 @@ deadline bundle gui-submit `bundle-directory`
 - [Benchmark LLMs with vLLM and lm-evaluation-harness on Deadline Cloud](examples-jb-vllm-leaderboard.md "examples-jb-vllm-leaderboard.md")
 - [Predict protein structures with ESMFold on Deadline Cloud](examples-jb-esmfold.md "examples-jb-esmfold.md")
 - [Classify satellite imagery in parallel on Deadline Cloud](examples-jb-satellite-classification.md "examples-jb-satellite-classification.md")
+- [Run GROMACS molecular dynamics simulations on Deadline Cloud](examples-jb-gromacs.md "examples-jb-gromacs.md")
+- [Run virtual screening with AutoDock Vina on Deadline Cloud](examples-jb-virtual-screening.md "examples-jb-virtual-screening.md")
+- [Generate procedural 3D scenes with Infinigen on Deadline Cloud](examples-jb-infinigen.md "examples-jb-infinigen.md")
+- [Train a robot manipulation policy with MuJoCo on Deadline Cloud](examples-jb-mujoco.md "examples-jb-mujoco.md")
+- [Run autonomous driving simulations with CARLA on Deadline Cloud](examples-jb-carla.md "examples-jb-carla.md")
+- [Publish renders to Autodesk Flow Production Tracking from Deadline Cloud](examples-jb-blender-turntable-flow.md "examples-jb-blender-turntable-flow.md")
 - [Run VTK visualization scripts on Deadline Cloud](examples-jb-vtk.md "examples-jb-vtk.md")
 - [Encode a movie from another Deadline Cloud job's output with FFmpeg](examples-jb-ffmpeg-from-job.md "examples-jb-ffmpeg-from-job.md")
 - [Run a bash script on Deadline Cloud](examples-jb-cli-job.md "examples-jb-cli-job.md")

@@ -31,7 +31,7 @@ pixi global install rattler-build
   separate bucket.
 - **AWS credentials** – Configure credentials
   on your workstation using the `aws configure` command or the `aws
-login` command. For more information, see [Setting up the
+ login` command. For more information, see [Setting up the
   AWS CLI](../../../cli/latest/userguide/getting-started-quickstart.md "../../../cli/latest/userguide/getting-started-quickstart.md") in the _AWS Command Line Interface User Guide_.
 - **IAM permissions** – (Optional) To
   reduce the scope of permissions your credentials have, you can use an AWS Identity and Access Management

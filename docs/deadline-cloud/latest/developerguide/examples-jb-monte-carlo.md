@@ -1,7 +1,7 @@
 # Run a Monte Carlo simulation on Deadline Cloud
 
 The
-[monte_carlo_simulation](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/monte_carlo_simulation "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/monte_carlo_simulation")
+[monte\_carlo\_simulation](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/monte_carlo_simulation "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/monte_carlo_simulation")
 job bundle prices a portfolio of autocallable structured notes using Monte
 Carlo simulation with QuantLib's Heston stochastic volatility model. The
 job is a Deadline Cloud port of the
@@ -16,7 +16,7 @@ The bundle defines a two-step pipeline:
 2. `AggregateResults` — Collects per-position results into
    a portfolio summary.
    The bundle uses the Open Job Description
-   [TASK_CHUNKING](https://github.com/OpenJobDescription/openjd-specifications/blob/mainline/rfcs/0001-task-chunking.md "https://github.com/OpenJobDescription/openjd-specifications/blob/mainline/rfcs/0001-task-chunking.md")
+   [TASK\_CHUNKING](https://github.com/OpenJobDescription/openjd-specifications/blob/mainline/rfcs/0001-task-chunking.md "https://github.com/OpenJobDescription/openjd-specifications/blob/mainline/rfcs/0001-task-chunking.md")
    extension for load balancing. The scheduler starts by dispatching individual
    positions, observes how long they take, and then automatically grows the
    chunk size to match a target runtime. Fast positions are grouped into

@@ -1,7 +1,7 @@
 # Encode a movie from another Deadline Cloud job's output with FFmpeg
 
 The
-[ffmpeg_movie_from_job_output](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ffmpeg_movie_from_job_output "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ffmpeg_movie_from_job_output")
+[ffmpeg\_movie\_from\_job\_output](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ffmpeg_movie_from_job_output "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ffmpeg_movie_from_job_output")
 job bundle downloads the rendered output of another completed job in
 the same queue and encodes the image sequence into an MP4 video using
 FFmpeg. Use it as a post-processing utility — for example, to

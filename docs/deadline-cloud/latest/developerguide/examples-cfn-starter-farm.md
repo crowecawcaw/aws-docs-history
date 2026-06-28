@@ -1,7 +1,7 @@
 # Deploy a starter Deadline Cloud farm with CloudFormation
 
 The
-[starter_farm](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm")
+[starter\_farm](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm")
 CloudFormation template deploys a Deadline Cloud farm that you can use to run jobs that
 render images, reconstruct 3D scenes, or transform data. The deployed farm
 includes:

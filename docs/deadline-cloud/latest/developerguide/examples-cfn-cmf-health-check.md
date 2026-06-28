@@ -1,7 +1,7 @@
 # Monitor a Deadline Cloud customer-managed fleet health check with CloudFormation
 
 The
-[cmf_templates](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cmf_templates "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cmf_templates")
+[cmf\_templates](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cmf_templates "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cmf_templates")
 directory in the samples repository includes a
 `deadline-fleet-health-check.yaml` CloudFormation template that sets up
 continuous health check monitoring for a single Deadline Cloud customer-managed

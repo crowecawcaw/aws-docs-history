@@ -16,17 +16,17 @@ following:
 
 ###### Topics
 
-- [Submit the simple_job sample](#submit-a-simplejob-sample "#submit-a-simplejob-sample")
-- [Submit a simple_job with a parameter](#submit-with-parameter "#submit-with-parameter")
-- [Create a simple_file_job job bundle with file I/O](#create-job-bundle-with-file-io "#create-job-bundle-with-file-io")
+- [Submit the simple\_job sample](#submit-a-simplejob-sample "#submit-a-simplejob-sample")
+- [Submit a simple\_job with a parameter](#submit-with-parameter "#submit-with-parameter")
+- [Create a simple\_file\_job job bundle with file I/O](#create-job-bundle-with-file-io "#create-job-bundle-with-file-io")
 - [Next steps](#submit-a-job-next "#submit-a-job-next")
 
-## Submit the simple_job sample
+## Submit the simple\_job sample
 
 After you create a farm and run the worker agent, you can submit the
-simple_job sample to Deadline Cloud.
+simple\_job sample to Deadline Cloud.
 
-###### To submit the simple_job sample to Deadline Cloud
+###### To submit the simple\_job sample to Deadline Cloud
 
 1. Choose your first CloudShell tab.
 2. Download the sample from GitHub.
@@ -43,7 +43,7 @@ git clone https://github.com/aws-deadline/deadline-cloud-samples.git`
 
 ```
 
-4. Submit the simple_job sample.
+4. Submit the simple\_job sample.
 
 ```
 `deadline bundle submit simple_job`
@@ -161,13 +161,13 @@ writes.
 When you submit the job, the system saves it as the default so you don't have
 to enter the job ID.
 
-## Submit a simple_job with a parameter
+## Submit a simple\_job with a parameter
 
 You can submit jobs with parameters. In the following procedure, you edit the
-simple_job template to include a custom message, submit the
-simple_job, then print the session log file to view the message.
+simple\_job template to include a custom message, submit the
+simple\_job, then print the session log file to view the message.
 
-###### To submit the simple_job sample with a parameter
+###### To submit the simple\_job sample with a parameter
 
 1. Select your first CloudShell tab, then navigate to the job bundle samples
    directory.
@@ -177,7 +177,7 @@ simple_job, then print the session log file to view the message.
 
 ```
 
-2. Print the contents of the simple_job template.
+2. Print the contents of the simple\_job template.
 
 ```
 `cat simple_job/template.yaml`
@@ -195,7 +195,7 @@ parameterDefinitions:
 
 ```
 
-3. Submit the simple_job sample with a parameter value, then wait
+3. Submit the simple\_job sample with a parameter value, then wait
    for the job to finish running.
 
 ```
@@ -210,13 +210,13 @@ parameterDefinitions:
 cat $DEV_QUEUE_ID/$(ls -t $DEV_QUEUE_ID | head -1)`
 ```
 
-## Create a simple_file_job job bundle with file I/O
+## Create a simple\_file\_job job bundle with file I/O
 
 A render job needs to read the scene definition, render an image from it, and then
 save that image to an output file. You can simulate this action by making the job
 compute the hash of the input instead of rendering an image.
 
-###### To create a simple_file_job job bundle with file I/O
+###### To create a simple\_file\_job job bundle with file I/O
 
 1. Select your first CloudShell tab, then navigate to the job bundle samples
    directory.
@@ -319,7 +319,7 @@ prefer to use Vim, you must set its paste mode using
     4. Save the file, and exit the text editor.
 
 4. Provide parameter values for the input and output files to submit the
-   simple_file_job.
+simple\_file\_job.
 
 ```
 `deadline bundle submit simple_file_job \

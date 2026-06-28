@@ -32,7 +32,7 @@ following:
 ###### Topics
 
 - [Add a job attachments configuration to your queue](#job-attachments-config "#job-attachments-config")
-- [Submit simple_file_job with job attachments](#submit-job-attachments "#submit-job-attachments")
+- [Submit simple\_file\_job with job attachments](#submit-job-attachments "#submit-job-attachments")
 - [Understanding how job attachments are stored in Amazon S3](#job-attachments-in-depth "#job-attachments-in-depth")
 - [Next steps](#run-jobs-job-attachments-next "#run-jobs-job-attachments-next")
 
@@ -160,25 +160,27 @@ roleArn: arn:aws:iam::ACCOUNT_NUMBER:role/DeveloperFarmQueueRole
 ...
 ```
 
-## Submit simple_file_job with job attachments
+## Submit simple\_file\_job with job attachments
 
 When you use job attachments, job bundles must give Deadline Cloud enough information to
 determine the job's data flow, such as using `PATH` parameters. In the case
-of the simple_file_job, you edited the `template.yaml` file to
+of the simple\_file\_job, you edited the `template.yaml` file to
 tell Deadline Cloud that the data flow is in the input file and output file.
 
 After you've added the job attachments configuration to your queue, you can submit the
-simple_file_job sample with job attachments. After you do this, you can view the logging
-and job output to confirm that the simple_file_job with job attachments
+simple\_file\_job sample with job attachments. After you do this, you can view the logging
+and job output to confirm that the simple\_file\_job with job attachments
 is working.
 
-###### To submit the simple_file_job job bundle with job attachments
+###### To submit the simple\_file\_job job bundle with job attachments
 
 1. Choose your first CloudShell tab, then open the
    `JobBundle-Samples` directory.
 2. ```
-   `cd ~/deadline-cloud-samples/job_bundles/`
+
    ```
+
+`cd ~/deadline-cloud-samples/job_bundles/`
 
 ```
 3. Submit simple\_file\_job to the queue. When prompted to confirm the upload,

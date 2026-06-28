@@ -1,7 +1,7 @@
 # Deploy a Deadline Cloud CUDA farm with CloudFormation
 
 The
-[cuda_farm](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cuda_farm "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cuda_farm")
+[cuda\_farm](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cuda_farm "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cuda_farm")
 CloudFormation template deploys a Deadline Cloud farm that you can use to run CUDA jobs.
 The default configuration includes a queue for CUDA jobs, a second queue
 for building conda packages, and a CUDA-capable fleet.
