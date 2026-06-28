@@ -16,12 +16,12 @@ You can use [Amazon Q Developer](../../../amazonq/latest/qdeveloper-ug/what-is.m
 1. Open the console at [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2 "https://console.aws.amazon.com/ecs/v2").
 2. Determine the resource that you want to troubleshoot.
 
-| Resource                 | Steps                                                                                                                                                                                                        |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Tasks                    | 1. On the **Clusters\*<br>• page, choose the cluster.<br>2. Choose the **Tasks\*<br>• tab.<br>3. Choose the task that you want to investigate.                                                               |
-| Containers               | 1. On the **Clusters\*<br>• page, choose the cluster.<br>2. Choose the **Tasks*<br>• tab, and then choose the task.<br>3. In the \*\*Containers*<br>• section, choose the container you want to investigate. |
-| Services and deployments | 1. On the **Clusters\*<br>• page, choose the cluster.<br>2. Choose the **Services*<br>• tab.<br>3. Choose the service, and then review the \*\*Deployments*<br>• section.                                    |
-| Task definitions         | 1. In the navigation pane, choose **Task definitions**.<br>2. Choose the task definition family, and then choose the revision that you want to investigate.                                                  |
+| Resource                 | Steps                                                                                                                                                                                                     |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tasks                    | 1. On the *_Clusters_<br>• page, choose the cluster.<br>2. Choose the *_Tasks_<br>• tab.<br>3. Choose the task that you want to investigate.                                                              |
+| Containers               | 1. On the *_Clusters_<br>• page, choose the cluster.<br>2. Choose the *_Tasks_<br>• tab, and then choose the task.<br>3. In the *_Containers_<br>• section, choose the container you want to investigate. |
+| Services and deployments | 1. On the *_Clusters_<br>• page, choose the cluster.<br>2. Choose the *_Services_<br>• tab.<br>3. Choose the service, and then review the *_Deployments_<br>• section.                                    |
+| Task definitions         | 1. In the navigation pane, choose **Task definitions**.<br>2. Choose the task definition family, and then choose the revision that you want to investigate.                                               |
 
 3. On the resource details page, locate the status or health reason that describes the issue.
 4. Click the status reason to open the popover.

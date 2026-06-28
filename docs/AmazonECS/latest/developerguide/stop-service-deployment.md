@@ -11,14 +11,14 @@ the rollback option.
 You can stop a deployment that is in any of the following states. For more information
 about service deployment states, see [View service history using Amazon ECS service deployments](service-deployment.md "service-deployment.md").
 
-- PENDING - The service deployment moves to the ROLLBACK_REQUESTED state, and then
+- PENDING - The service deployment moves to the ROLLBACK\_REQUESTED state, and then
   the rollback operation starts.
-- IN_PROGRESS - The service deployment moves to the ROLLBACK_REQUESTED state, and
+- IN\_PROGRESS - The service deployment moves to the ROLLBACK\_REQUESTED state, and
   then the rollback operation starts.
-- STOP_REQUESTED - The service deployment continues to stop.
-- ROLLBACK_REQUESTED - The service deployment continues the rollback
+- STOP\_REQUESTED - The service deployment continues to stop.
+- ROLLBACK\_REQUESTED - The service deployment continues the rollback
   operation.
-- ROLLBACK_IN_PROGRESS - The service deployment continues the rollback
+- ROLLBACK\_IN\_PROGRESS - The service deployment continues the rollback
   operation.
 
 ## Procedure

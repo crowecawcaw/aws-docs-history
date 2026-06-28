@@ -72,14 +72,14 @@ The operating system version for the instance.
 
 For Linux instances, the valid value is `LINUX`. For
 Windows instances, ECS sets the value in the
-`WINDOWS_SERVER_<`OS*Release`>*<`FULL
- or CORE`>`format. The valid values are
+`WINDOWS_SERVER_<`OS_Release`>_<`FULL
+or CORE`>` format. The valid values are
 `WINDOWS_SERVER_2022_FULL`,
- `WINDOWS_SERVER_2022_CORE`,
- `WINDOWS_SERVER_20H2_CORE`,
- `WINDOWS_SERVER_2019_FULL`,
- `WINDOWS_SERVER_2019_CORE`, and
- `WINDOWS_SERVER_2016_FULL`.
+`WINDOWS_SERVER_2022_CORE`,
+`WINDOWS_SERVER_20H2_CORE`,
+`WINDOWS_SERVER_2019_FULL`,
+`WINDOWS_SERVER_2019_CORE`, and
+`WINDOWS_SERVER_2016_FULL`.
 
 This is important for Windows containers and Windows containers on AWS Fargate because
 the OS version of every Windows container must match that of the host.

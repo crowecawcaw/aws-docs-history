@@ -123,19 +123,16 @@ you have configured settings, select **Next**.
      encryption of your Amazon EFS file system at rest.
 
 5. On the **Network access** page, under **Mount
-   targets**, replace the existing security group configuration for
-   every availability zone with the security group you created for the file system
-   in [Step 2: Create a security group for Amazon EC2 instances and the Amazon EFS file system](#efs-security-group "#efs-security-group") and
-   then choose **Next**.
-6. You do not need to configure **File system policy** for this
-   tutorial, so you can skip the section by choosing
-   **Next**.
-7. Review your file system options and choose **Create** to
-   complete the process.
-8. From the **File systems** screen, record the **File
-   system ID**.
-   In the
-   next step, you will reference this value in your Amazon ECS task definition.
+targets**, replace the existing security group configuration for
+every availability zone with the security group you created for the file system
+in [Step 2: Create a security group for Amazon EC2 instances and the Amazon EFS file system](#efs-security-group "#efs-security-group") and
+then choose **Next**. 6. You do not need to configure **File system policy** for this
+tutorial, so you can skip the section by choosing
+**Next**. 7. Review your file system options and choose **Create** to
+complete the process. 8. From the **File systems** screen, record the **File
+system ID**.
+In the
+next step, you will reference this value in your Amazon ECS task definition.
 
 ## Step 4: Add content to the Amazon EFS file system
 
@@ -202,7 +199,7 @@ tmpfs          tmpfs              100700       0           100700   0% /run/user
 ```
 
 3. Navigate to the directory that the Amazon EFS file system is mounted at. In the
-   example above, that is `/mnt/efs/fs1`.
+   preceding example, that is `/mnt/efs/fs1`.
 4. Create a file named `index.html` with the following content:
 
 ```
@@ -297,10 +294,10 @@ The task runs in the subnet that you defined for the cluster.
 
 Determine the resource from where you launch the service.
 
-| To start a service from | Steps                                                                                                                                                                      |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Clusters                | 1. On the **Clusters\*<br>• page, select<br>the cluster to create the service in.<br>2. From the **Tasks\*<br>• tab, choose<br>**Run new task**.                           |
-| Launch type             | 1. On the **Task\*<br>• page, choose the<br>task definition.<br>2. If there is more than one revision, select the<br>revision.<br>3. Choose **Create**, **Run<br>task\*\*. |
+| To start a service from | Steps                                                                                                                                                                   |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Clusters                | 1. On the *_Clusters_<br>• page, select<br>the cluster to create the service in.<br>2. From the *_Tasks_<br>• tab, choose<br>**Run new task**.                          |
+| Launch type             | 1. On the *_Task_<br>• page, choose the<br>task definition.<br>2. If there is more than one revision, select the<br>revision.<br>3. Choose **Create**, **Run<br>task**. |
 
 3. (Optional) Choose how your scheduled task is distributed across your cluster
    infrastructure. Expand **Compute configuration**, and then do

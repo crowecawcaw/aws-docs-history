@@ -137,11 +137,10 @@ instance in your default cluster.
   images, you must set the `NVIDIA_DRIVER_CAPABILITIES` container
   runtime variable to one of the following values:
 
-      + `utility,compute`
-      + `all`
-
-  For information about how to set the variable, see [Controlling the NVIDIA Container Runtime](https://sarus.readthedocs.io/en/stable/user/custom-cuda-images.html#controlling-the-nvidia-container-runtime "https://sarus.readthedocs.io/en/stable/user/custom-cuda-images.html#controlling-the-nvidia-container-runtime") on the NVIDIA
-  website.
+  - `utility,compute`
+  - `all`
+    For information about how to set the variable, see [Controlling the NVIDIA Container Runtime](https://sarus.readthedocs.io/en/stable/user/custom-cuda-images.html#controlling-the-nvidia-container-runtime "https://sarus.readthedocs.io/en/stable/user/custom-cuda-images.html#controlling-the-nvidia-container-runtime") on the NVIDIA
+    website.
 
 - GPUs are not supported on Windows containers.
 
@@ -233,7 +232,7 @@ You can create your own custom Amazon ECS GPU-optimized AMI that is compatible w
 instances, and then launch P2 instances using the AMI.
 
 1. Run the following command to clone the `amazon-ecs-ami
-repo`.
+ repo`.
 
 ```
 git clone https://github.com/aws/amazon-ecs-ami

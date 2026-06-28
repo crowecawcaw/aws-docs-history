@@ -62,7 +62,7 @@ The following defaults are set by Express Mode but can be updated in the Task De
 
 - networkMode: "awsvpc" - Uses `awsvpc` networking mode
 - operatingSystemFamily: "LINUX" - Runs on Linux operating system
-- cpuArchitecture: "X86_64" - Uses x86_64 processor architecture
+- cpuArchitecture: "X86\_64" - Uses x86\_64 processor architecture
 - requiresCompatibilities: ["FARGATE"] - Compatible with Fargate launch type
 - platformVersion: "LATEST" - Uses the latest Fargate platform version
 
@@ -211,7 +211,7 @@ The following IAM roles are configured by Express Mode automatically.
 
 - ecsServiceRoleForECS: Allows Amazon ECS to manage your cluster
 - AWSServiceRoleForElasticLoadBalancing: Calls other AWS services for you on your behalf - created automatically by Elastic Load Balancing
-- AWSServiceRoleForApplicationAutoScaling_ECSService: Calls other AWS services on your behalf - created automatically by Application Auto Scaling
+- AWSServiceRoleForApplicationAutoScaling\_ECSService: Calls other AWS services on your behalf - created automatically by Application Auto Scaling
 
 ## Application Auto Scaling defaults
 

@@ -22,35 +22,32 @@ KMS key aliases are not supported for Fargate ephemeral storage.
 To create a customer managed key (CMK) to encrypt ephemeral storage for Fargate in AWS KMS, follow these
 steps.
 
-1.  Navigate to the [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
-2.  Follow the instructions for [Creating Keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the [AWS Key Management Service Developer
-    Guide](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
-3.  When creating your AWS KMS key, make sure to provide Fargate service relevant AWS KMS operation
-    permissions in the key policies. The following API operations must be permitted in the policy to
-    use your customer managed key with your Amazon ECS cluster resources.
+1. Navigate to the [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
+2. Follow the instructions for [Creating Keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the [AWS Key Management Service Developer
+   Guide](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
+3. When creating your AWS KMS key, make sure to provide Fargate service relevant AWS KMS operation
+   permissions in the key policies. The following API operations must be permitted in the policy to
+   use your customer managed key with your Amazon ECS cluster resources.
 
-        * `kms:GenerateDataKeyWithoutPlainText` ‐ Call
-         `GenerateDataKeyWithoutPlainText` to generate an encrypted data key from the
-         provided AWS KMS key.
-        * `kms:CreateGrant` ‐ Adds a grant to a customer managed key. Grants
-         control access to a specified AWS KMS key, which allows access to grant operations that Amazon ECS
-         Fargate requires. For more information about [Using Grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md"), see the [AWS Key Management Service Developer
-         Guide](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md"). This allows Amazon ECS Fargate to do the following:
+   - `kms:GenerateDataKeyWithoutPlainText` ‐ Call
+     `GenerateDataKeyWithoutPlainText` to generate an encrypted data key from the
+     provided AWS KMS key.
+   - `kms:CreateGrant` ‐ Adds a grant to a customer managed key. Grants
+     control access to a specified AWS KMS key, which allows access to grant operations that Amazon ECS
+     Fargate requires. For more information about [Using Grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md"), see the [AWS Key Management Service Developer
+     Guide](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md"). This allows Amazon ECS Fargate to do the following:
 
+     - Call `Decrypt` to AWS KMS to get the encryption key to decrypt the
+       ephemeral storage data.
+     - Set up a retiring principal to allow the service to
+       `RetireGrant`.
 
-
-
-        	+ Call `Decrypt` to AWS KMS to get the encryption key to decrypt the
-        	 ephemeral storage data.
-        	+ Set up a retiring principal to allow the service to
-        	 `RetireGrant`.
-        * `kms:DescribeKey` ‐ Provides the customer managed key details to allow
-         Amazon ECS to validate the key if it's symmetric and enabled.
-
-    The following example shows a AWS KMS key policy that you would apply to the target key for
-    encryption. To use the example policy statements, replace the `user input
+   - `kms:DescribeKey` ‐ Provides the customer managed key details to allow
+     Amazon ECS to validate the key if it's symmetric and enabled.
+     The following example shows a AWS KMS key policy that you would apply to the target key for
+     encryption. To use the example policy statements, replace the `user input
  placeholders` with your own information. As always, only configure the permissions
-    that you need, but you'll need to provide AWS KMS with permissions to at least one user to avoid errors.
+     that you need, but you'll need to provide AWS KMS with permissions to at least one user to avoid errors.
 
 ```
 {
@@ -186,10 +183,9 @@ AWS Management Console
 
 1. Open the console at
    [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2 "https://console.aws.amazon.com/ecs/v2").
-2. Choose **Clusters** in the left navigation and either
-   **Create cluster** in the top right, or choose an existing
-   cluster. For an existing cluster, choose **Update cluster** in the top
-   right.
+2. Choose **Clusters** in the navigation pane and either
+   **Create cluster**, or choose an existing
+   cluster. For an existing cluster, choose **Update cluster**.
 3. Under the **Encryption** section of the workflow, you'll have the
    option to select your AWS KMS key under **Managed storage** and
    **Fargate ephemeral storage**. You can also choose to

@@ -66,9 +66,9 @@ Output:
 
 ###### Important
 
-Newer versions of Docker create a configuration file as shown above with an outer
+Newer versions of Docker create a configuration file as shown in the preceding example with an outer
 `auths` object. The Amazon ECS agent only supports `dockercfg`
-authentication data that is in the below format, without the `auths`
+authentication data that is in the following format, without the `auths`
 object. If you have the **jq** utility installed, you can extract
 this data with the following command: **cat ~/.docker/config.json | jq
 .auths**
@@ -88,7 +88,7 @@ Output:
 }
 ```
 
-In the above example, the following environment variables should be added to the
+In the preceding example, the following environment variables should be added to the
 environment variable file (`/etc/ecs/ecs.config` for the
 Amazon ECS-optimized AMI) that the Amazon ECS container agent loads at runtime. If you are not using
 an Amazon ECS-optimized AMI and you are starting the agent manually with **docker

@@ -23,5 +23,5 @@ providers.
    **Infrastructure**, the Amazon ECS Managed Instances capacity provider, and then choose
    **Delete**.
 5. In the confirmation box, enter **delete `Amazon ECS Managed Instances capacity provider
-name`**
+ name`**
 6. Choose **Delete**.

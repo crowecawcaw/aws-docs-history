@@ -32,7 +32,7 @@ Use capacity providers to configure compute capacity
 
 When you launch tasks or services, configure a capacity provider
 strategy. Amazon ECS supports following capacity providers: Fargate and
-FARGATE_SPOT, Auto Scaling groups for self-managed EC2 instances, and Amazon ECS Managed Instances.
+FARGATE\_SPOT, Auto Scaling groups for self-managed EC2 instances, and Amazon ECS Managed Instances.
 Note that Spot Fleet is only available as a capacity provider and not as a
 launch type. You can create one or more Amazon ECS Managed Instances or Auto Scaling groups capacity
 providers in a cluster. Fargate and Fargate Spot capacity providers are created and managed

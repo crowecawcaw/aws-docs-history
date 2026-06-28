@@ -12,6 +12,9 @@ Amazon ECS generates and sends the following types of events to EventBridge:
 - Deployment state change
 - Hook state change
 - Service action
+- Container instance health change
+- Daemon deployment state change
+- Daemon service action
 
 ###### Note
 

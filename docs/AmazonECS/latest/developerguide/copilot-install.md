@@ -338,24 +338,20 @@ Using Powershell, run the following command.
 `Invoke-WebRequest -OutFile 'C:\copilot\copilot.asc' https://github.com/aws/copilot-cli/releases/latest/download/copilot-windows.exe.asc`
 ```
 
-7.  Verify the signature with the following command.
+7. Verify the signature with the following command.
 
-        * For macOS and Linux systems:
+   - For macOS and Linux systems:
 
+   ```
+   `gpg --verify copilot.asc /usr/local/bin/copilot`
+   ```
+   - For Windows systems:
 
+   ```
+   `gpg --verify 'C:\copilot\copilot.asc' 'C:\copilot\copilot.exe'`
+   ```
 
-        ```
-        `gpg --verify copilot.asc /usr/local/bin/copilot`
-        ```
-        * For Windows systems:
-
-
-
-        ```
-        `gpg --verify 'C:\copilot\copilot.asc' 'C:\copilot\copilot.exe'`
-        ```
-
-    Expected output:
+Expected output:
 
 ```
 gpg: Signature made Tue Apr  3 13:29:30 2018 PDT

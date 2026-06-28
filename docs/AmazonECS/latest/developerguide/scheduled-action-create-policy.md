@@ -60,15 +60,15 @@ options.
 
 11. Under **Task adjustments**, do the following:
 
-    - For **Minimum**, enter the minumum number of
-      tasks the service should run.
-    - For **Maximum**, enter the maximum number of
-      tasks the service should run.
+    * For **Minimum**, enter the minumum number of
+     tasks the service should run.
+    * For **Maximum**, enter the maximum number of
+     tasks the service should run.
 
 12. Choose **Create scheduled action**.
-    Use the AWS CLI as follows to configure scheduled scaling policies for your service.
-    Replace each `user input placeholder` with your own
-    information.
+Use the AWS CLI as follows to configure scheduled scaling policies for your service.
+Replace each `user input placeholder` with your own
+information.
 
 ###### Example: To scale one time only
 

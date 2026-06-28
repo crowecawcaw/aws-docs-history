@@ -73,10 +73,10 @@ any Linux container image on any Operating System.
 - Windows Server 2022 Full
 - Windows Server 2022 Core
 
-When you run Windows containers on AWS Fargate, you must have the X86_64
+When you run Windows containers on AWS Fargate, you must have the X86\_64
 CPU architecture.
 
-When you run Linux containers on AWS Fargate, you can use the X86_64 CPU
+When you run Linux containers on AWS Fargate, you can use the X86\_64 CPU
 architecture, or the ARM64 architecture for your ARM-based applications. For more
 information, see [Amazon ECS task definitions for 64-bit ARM workloads](ecs-arm64.md "ecs-arm64.md").
 
@@ -84,7 +84,7 @@ information, see [Amazon ECS task definitions for 64-bit ARM workloads](ecs-arm6
 
 Amazon ECS task definitions for AWS Fargate require that you specify CPU and
 memory at the task level. Most use cases are satisfied by only specifying these
-resources at the task level. The table below shows the valid combinations of task-level
+resources at the task level. The following table shows the valid combinations of task-level
 CPU and memory. You can specify memory values in the task definition as a string in MiB
 or GB. For example, you can specify a memory value either as `3072` in MiB or
 `3 GB` in GB. You can specify CPU values in the JSON file as a string in
@@ -264,7 +264,7 @@ task, consider the following:
 
 - Only tasks that run on Linux platform version `1.4.0` can use SOCI
   indexes. Tasks that run Windows containers on Fargate aren't supported.
-- Tasks that run on X86_64 or ARM64 CPU architecture are supported.
+- Tasks that run on X86\_64 or ARM64 CPU architecture are supported.
 - Container images in the task definition must be stored in a
   compatible image registry. The following lists the compatible registries:
 

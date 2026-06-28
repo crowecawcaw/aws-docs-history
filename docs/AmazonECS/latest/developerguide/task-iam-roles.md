@@ -74,7 +74,7 @@ After the IAM policy is created, you can create an IAM role which includes that
 policy which you reference in your Amazon ECS task definition. You can create the role using
 the **Elastic Container Service Task** use case in the IAM console.
 Then, you can attach your specific IAM policy to the role that gives the containers in
-your task the permissions you desire. The procedures below describe how to do
+your task the permissions you desire. The following procedures describe how to do
 this.
 
 If you have multiple task definitions or services that require IAM permissions, you
@@ -210,7 +210,7 @@ JSONJSON
 
 2. Use the following command to create the IAM policy using the
    JSON policy document file. Replace all `user
-input` with your own values.
+ input` with your own values.
 
 ```
 `aws iam create-policy \
@@ -439,8 +439,10 @@ affect containers in tasks that use the `host` or `awsvpc` network
 modes. For more information, see [Network mode](task_definition_parameters.md#network_mode "task_definition_parameters.md#network_mode").
 
 - ```
-  `sudo yum install -y iptables-services; sudo iptables --insert DOCKER-USER 1 --in-interface docker+ --destination 169.254.169.254/32 --jump DROP`
+
   ```
+
+`sudo yum install -y iptables-services; sudo iptables --insert DOCKER-USER 1 --in-interface docker+ --destination 169.254.169.254/32 --jump DROP`
 
 ```
 

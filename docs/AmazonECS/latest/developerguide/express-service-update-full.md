@@ -54,35 +54,36 @@ name. 6. Under **Configuration**:
 
 7. Under **Additional configurations**, customize your service.
 
-   1. Under **Container**:
+    1. Under **Container**:
 
-      1. For **Container port**, update the port your application listens on (default is 80).
-      2. For **Health check path**, update the path for health checks (for example, `/health`).
 
-   2. Under **Environment variables**, add key-value pairs for environment variables your application needs:
+    	1. For **Container port**, update the port your application listens on (default is 80).
+    	2. For **Health check path**, update the path for health checks (for example, `/health`).
+    2. Under **Environment variables**, add key-value pairs for environment variables your application needs:
 
-      1. For **Key**, enter the environment variable name.
-      2. For **Value type**, choose **Environment variable** or **Secret**.
-      3. For **Value or value from**, enter the value or reference.
-      4. Choose **Add environment variable** to add more variables as needed.
 
-   3. For **Command**, optionally enter a custom command to override the Docker CMD instruction.
-   4. For **Task role**, add an IAM role that grants permissions to your application running in your containers. This allows your application to make API calls to AWS services.
-   5. Under **Compute**:
+    	1. For **Key**, enter the environment variable name.
+    	2. For **Value type**, choose **Environment variable** or **Secret**.
+    	3. For **Value or value from**, enter the value or reference.
+    	4. Choose **Add environment variable** to add more variables as needed.
+    3. For **Command**, optionally enter a custom command to override the Docker CMD instruction.
+    4. For **Task role**, add an IAM role that grants permissions to your application running in your containers. This allows your application to make API calls to AWS services.
+    5. Under **Compute**:
 
-      1. For **CPU**, update the vCPU allocation for your tasks (for example, 1 vCPU).
-      2. For **Memory**, update the memory allocation for your tasks (for example, 2 GB).
 
-   6. Under **Auto Scaling**:
+    	1. For **CPU**, update the vCPU allocation for your tasks (for example, 1 vCPU).
+    	2. For **Memory**, update the memory allocation for your tasks (for example, 2 GB).
+    6. Under **Auto Scaling**:
 
-      1. For **ECS service metric**, choose the metric to scale on (for example, **ECS Service
-         Average Memory Utilization** or **Request count per target**).
-      2. For **Target value**, enter the target for scaling (for example, **60** or **1000**).
-      3. For **Minimum number of tasks** and **Maximum number of tasks**, update the scaling limits.
 
-   7. Under **Logs**:
+    	1. For **ECS service metric**, choose the metric to scale on (for example, **ECS Service
+    	 Average Memory Utilization** or **Request count per target**).
+    	2. For **Target value**, enter the target for scaling (for example, **60** or **1000**).
+    	3. For **Minimum number of tasks** and **Maximum number of tasks**, update the scaling limits.
+    7. Under **Logs**:
 
-      1. For **Amazon CloudWatch log group**, update the log group name for your application logs. Note this will not move existing logs, but begin writing logs from the new service revision.
-      2. For **Amazon CloudWatch log stream prefix**, enter a new prefix for log streams.
+
+    	1. For **Amazon CloudWatch log group**, update the log group name for your application logs. Note this will not move existing logs, but begin writing logs from the new service revision.
+    	2. For **Amazon CloudWatch log stream prefix**, enter a new prefix for log streams.
 
 8. Choose **Update** to update your Express Mode service.

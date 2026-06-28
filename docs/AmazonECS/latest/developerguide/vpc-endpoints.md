@@ -71,16 +71,16 @@ considerations:
 
   ###### Important
 
-      - If you configure Amazon ECR to use an interface VPC
-       endpoint, you can create a task execution role that
-       includes condition keys to restrict access to a specific
-       VPC or VPC endpoint. For more information, see [Fargate tasks pulling Amazon ECR images over interface endpoints permissions](task_execution_IAM_role.md#task-execution-ecr-conditionkeys "task_execution_IAM_role.md#task-execution-ecr-conditionkeys").
-      - If your tasks are in an IPv6-only configuration and
-       use an Amazon ECR dualstack image URI, note that Amazon ECR
-       doesn't support dualstack interface VPC endpoints. For
-       more information, see [Getting started with making requests over
-       IPv6](../../../AmazonECR/latest/userguide/ecr-requests.md#ipv6-access-getting-started "../../../AmazonECR/latest/userguide/ecr-requests.md#ipv6-access-getting-started") in the
-       *Amazon Elastic Container Registry User Guide*.
+        - If you configure Amazon ECR to use an interface VPC
+         endpoint, you can create a task execution role that
+         includes condition keys to restrict access to a specific
+         VPC or VPC endpoint. For more information, see [Fargate tasks pulling Amazon ECR images over interface endpoints permissions](task_execution_IAM_role.md#task-execution-ecr-conditionkeys "task_execution_IAM_role.md#task-execution-ecr-conditionkeys").
+        - If your tasks are in an IPv6-only configuration and
+         use an Amazon ECR dualstack image URI, note that Amazon ECR
+         doesn't support dualstack interface VPC endpoints. For
+         more information, see [Getting started with making requests over
+         IPv6](../../../AmazonECR/latest/userguide/ecr-requests.md#ipv6-access-getting-started "../../../AmazonECR/latest/userguide/ecr-requests.md#ipv6-access-getting-started") in the
+         *Amazon Elastic Container Registry User Guide*.
   - To allow your tasks to pull sensitive data from Secrets Manager, you must
     create the interface VPC endpoints for Secrets Manager. For more information,
     see [Using Secrets Manager with VPC Endpoints](../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md "../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md") in the

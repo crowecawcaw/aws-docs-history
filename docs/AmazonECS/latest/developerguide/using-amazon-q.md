@@ -67,7 +67,7 @@ If you dismiss the pop-up, you can enable Amazon Q under the gear
 icon. 5. In the JSON editor box, edit the JSON document.
 
 To have Amazon Q create and populate the parameters, enter a comment with what
-you want to add. In the example below, the comment causes Amazon Q to generate the
+you want to add. In the following example, the comment causes Amazon Q to generate the
 lines in bold.
 
 ```

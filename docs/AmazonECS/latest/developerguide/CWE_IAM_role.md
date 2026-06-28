@@ -4,7 +4,7 @@ Before you can use Amazon ECS scheduled tasks with EventBridge rules and targets
 needs permissions to run Amazon ECS tasks on your behalf. These permissions are provided by the
 EventBridge IAM role (`ecsEventsRole`).
 
-The `AmazonEC2ContainerServiceEventsRole` policy is shown below.
+The `AmazonEC2ContainerServiceEventsRole` policy is the following.
 
 JSON
 

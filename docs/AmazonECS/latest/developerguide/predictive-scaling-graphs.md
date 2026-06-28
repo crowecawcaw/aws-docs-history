@@ -100,7 +100,7 @@ actual number of tasks launched. The vertical line separates historical
 values from future forecasts. These graphs become available shortly after
 the policy is created. 7. (Optional) To change the amount of historical data shown in the chart,
 choose your preferred value from the **Evaluation period**
-dropdown at the top of the page. The evaluation period does not transform
+dropdown. The evaluation period does not transform
 the data on this page in any way. It only changes the amount of historical
 data shown.
 

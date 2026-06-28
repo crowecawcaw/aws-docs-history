@@ -6,32 +6,30 @@ Create a predictive scaling policy to have Amazon ECS increase or decrease the n
 
 A new service needs to provide at least 24 hours of data before a forecast can be generated.
 
-1.  In addition to the standard IAM permissions for creating and updating services, you
-    need additional permissions. For more information, see [IAM permissions required for Amazon ECS service auto scaling](auto-scaling-IAM.md "auto-scaling-IAM.md").
-2.  Determine the metrics to use for the policy. The following metrics are available:
+1. In addition to the standard IAM permissions for creating and updating services, you
+   need additional permissions. For more information, see [IAM permissions required for Amazon ECS service auto scaling](auto-scaling-IAM.md "auto-scaling-IAM.md").
+2. Determine the metrics to use for the policy. The following metrics are available:
 
-        * **ECSServiceAverageCPUUtilization** – The average CPU
-         utilization the service should use.
-        * **ECSServiceAverageMemoryUtilization** – Average memory
-         utilization the service should use.
-        * **ALBRequestCountPerTarget** – The average number of
-         requests per minute that task should ideally receive.
+   - **ECSServiceAverageCPUUtilization** – The average CPU
+     utilization the service should use.
+   - **ECSServiceAverageMemoryUtilization** – Average memory
+     utilization the service should use.
+   - **ALBRequestCountPerTarget** – The average number of
+     requests per minute that task should ideally receive.
+     You can alternatively use a custom metric. You need to define the following
+     values:
 
-    You can alternatively use a custom metric. You need to define the following
-    values:
+   - Load - a metric that accurately represents the full load on your application and
+     is the aspect of your application that's most important to scale on.
 
-        * Load - a metric that accurately represents the full load on your application and
-         is the aspect of your application that's most important to scale on.
+   - Scaling metric - the best predictor for how much utilization is ideal for your
+     application.
 
-
-        * Scaling metric - the best predictor for how much utilization is ideal for your
-         application.
-
-3.  Open the console at
-    [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2 "https://console.aws.amazon.com/ecs/v2").
-4.  On the **Clusters** page, choose the cluster.
-5.  On the cluster details page, in the **Services** section,
-    choose the service.
+3. Open the console at
+   [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2 "https://console.aws.amazon.com/ecs/v2").
+4. On the **Clusters** page, choose the cluster.
+5. On the cluster details page, in the **Services** section,
+   choose the service.
 
 The service details page appears. 6. Choose **Service auto scaling** and then choose **Set the number of tasks**. 7. Under **Amazon ECS service task count**, choose **Use auto
 scaling**.

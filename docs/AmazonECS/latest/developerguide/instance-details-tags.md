@@ -13,7 +13,7 @@ methods:
 ###### Important
 
 If you launch your container instances using an Amazon EC2 Auto Scaling group,
-then you should use the ECS_CONTAINER_INSTANCE_TAGS agent configuration
+then you should use the ECS\_CONTAINER\_INSTANCE\_TAGS agent configuration
 parameter to add tags. This is due to the way in which tags are added to
 Amazon EC2 instances that are launched using Auto Scaling groups.
 

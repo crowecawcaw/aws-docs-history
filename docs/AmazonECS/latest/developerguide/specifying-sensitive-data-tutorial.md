@@ -54,40 +54,42 @@ permissions.
    and the task execution role you updated in step 2. Choose
    **Save**.
 5. ```
-   {
-       "executionRoleArn": "`arn:aws:iam::`aws_account_id`:role/ecsTaskExecutionRole`",
-       "containerDefinitions": [
-           {
-               "entryPoint": [
-                   "sh",
-                   "-c"
-               ],
-               "portMappings": [
-                   {
-                       "hostPort": 80,
-                       "protocol": "tcp",
-                       "containerPort": 80
-                   }
-               ],
-               "command": [
-                   "/bin/sh -c \"echo '<html> <head> <title>Amazon ECS Sample App</title> <style>body {margin-top: 40px; background-color: #333;} </style> </head><body> <div style=color:white;text-align:center> <h1>Amazon ECS Sample App</h1> <h2>Congratulations!</h2> <p>Your application is now running on a container in Amazon ECS.</p> </div></body></html>' >  /usr/local/apache2/htdocs/index.html && httpd-foreground\""
-               ],
-               "cpu": 10,
-               "secrets": [
-                   {
-                       "valueFrom": "`arn:aws:secretsmanager:`region`:`aws_account_id`:secret:username_value`",
-                       "name": "username_value"
-                   }
-               ],
-               "memory": 300,
-               "image": "public.ecr.aws/docker/library/httpd:2.4",
-               "essential": true,
-               "name": "ecs-secrets-container"
-           }
-       ],
-       "family": "ecs-secrets-tutorial"
-   }
+
    ```
+
+{
+"executionRoleArn": "`arn:aws:iam::`aws_account_id`:role/ecsTaskExecutionRole`",
+"containerDefinitions": [
+{
+"entryPoint": [
+"sh",
+"-c"
+],
+"portMappings": [
+{
+"hostPort": 80,
+"protocol": "tcp",
+"containerPort": 80
+}
+],
+"command": [
+"/bin/sh -c \"echo '<html> <head> <title>Amazon ECS Sample App</title> <style>body {margin-top: 40px; background-color: #333;} </style> </head><body> <div style=color:white;text-align:center> <h1>Amazon ECS Sample App</h1> <h2>Congratulations!</h2> <p>Your application is now running on a container in Amazon ECS.</p> </div></body></html>' > /usr/local/apache2/htdocs/index.html && httpd-foreground\""
+],
+"cpu": 10,
+"secrets": [
+{
+"valueFrom": "`arn:aws:secretsmanager:`region`:`aws_account_id`:secret:username_value`",
+"name": "username_value"
+}
+],
+"memory": 300,
+"image": "public.ecr.aws/docker/library/httpd:2.4",
+"essential": true,
+"name": "ecs-secrets-container"
+}
+],
+"family": "ecs-secrets-tutorial"
+}
 
 ```
 6. Choose **Create**.

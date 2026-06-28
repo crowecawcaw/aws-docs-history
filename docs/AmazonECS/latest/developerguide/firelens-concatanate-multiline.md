@@ -66,7 +66,7 @@ use the multiline log setting, In this example, the context is "com.myproject.mo
 ```
 
 After you use the multiline log setting, the output will look similar to the
-example below.
+example.
 
 ```
 2022-09-20T15:47:56:595-05-00                           {"container_id": "82ba37cada1d44d389b03e78caf74faa-EXAMPLE", "container_name": "example-app", "stdout",...
@@ -174,21 +174,23 @@ _Amazon Elastic Container Service Developer Guide_
     2. Save the file as `extra.conf`.
 
 4. Within the `FluentBitDockerImage` folder, create the
-   Dockerfile with the Fluent Bit image and the parser and configuration
-   files that you created.
+Dockerfile with the Fluent Bit image and the parser and configuration
+files that you created.
 
-   1. Paste the following contents in the file:
+    1. Paste the following contents in the file:
 
-   ```
-   FROM public.ecr.aws/aws-observability/aws-for-fluent-bit:latest
 
-   ADD parsers_multiline.conf /parsers_multiline.conf
-   ADD extra.conf /extra.conf
-   ```
-   2. Save the file as `Dockerfile`.
+
+    ```
+    FROM public.ecr.aws/aws-observability/aws-for-fluent-bit:latest
+
+    ADD parsers_multiline.conf /parsers_multiline.conf
+    ADD extra.conf /extra.conf
+    ```
+    2. Save the file as `Dockerfile`.
 
 5. Using the Dockerfile, build a custom Fluent Bit image with the parser
-   and custom configuration files included.
+and custom configuration files included.
 
 ###### Note
 
@@ -212,44 +214,58 @@ as this file path is used by FireLens.
 
 6. Upload the custom Fluent Bit image to Amazon Elastic Container Registry.
 
-   1. Create an Amazon ECR repository to store the image: `aws ecr
-create-repository --repository-name
-fluent-bit-multiline-repo --region us-east-1`
+    1. Create an Amazon ECR repository to store the image: `aws ecr
+     create-repository --repository-name
+     fluent-bit-multiline-repo --region us-east-1`
 
-   Where: `fluent-bit-multiline-repo` is the name for
-   the repository and `us-east-1` is the region in this
-   example.
 
-   The output gives you the details of the new repository. 2. Tag your image with the `repositoryUri` value from
-   the previous output: `docker tag
- `fluent-bit-multiline-image`
-`repositoryUri``
+    Where: `fluent-bit-multiline-repo` is the name for
+     the repository and `us-east-1` is the region in this
+     example.
 
-   Example: `docker tag fluent-bit-multiline-image
- xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/fluent-bit-multiline-repo` 3. Run the docker image to verify it ran correctly: `docker
- images —filter
- reference=`repositoryUri``
 
-   In the output, the repository name changes from
-   fluent-bit-multiline-repo to the
-   `repositoryUri`. 4. Authenticate to Amazon ECR by running the `aws ecr
- get-login-password` command and specifying the
-   registry ID you want to authenticate to: `aws ecr
- get-login-password | docker login --username AWS
- --password-stdin `registry
-   ID`.dkr.ecr.`region`.amazonaws.com`
+    The output gives you the details of the new repository.
+    2. Tag your image with the `repositoryUri` value from
+     the previous output: `docker tag
+     `fluent-bit-multiline-image`
+    `repositoryUri``
 
-   Example: `ecr get-login-password | docker login
- --username AWS --password-stdin
- xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com`
 
-   A successful login message appears. 5. Push the image to Amazon ECR: `docker push
- `registry
-   ID`.dkr.ecr.`region`.amazonaws.com/`repository
-   name``
 
-   Example: `docker push
- xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/fluent-bit-multiline-repo`
+    Example: `docker tag fluent-bit-multiline-image
+     xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/fluent-bit-multiline-repo`
+    3. Run the docker image to verify it ran correctly: `docker
+     images —filter
+     reference=`repositoryUri``
+
+
+    In the output, the repository name changes from
+     fluent-bit-multiline-repo to the
+     `repositoryUri`.
+    4. Authenticate to Amazon ECR by running the `aws ecr
+     get-login-password` command and specifying the
+     registry ID you want to authenticate to: `aws ecr
+     get-login-password | docker login --username AWS
+     --password-stdin `registry
+     ID`.dkr.ecr.`region`.amazonaws.com`
+
+
+
+    Example: `ecr get-login-password | docker login
+     --username AWS --password-stdin
+     xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com`
+
+
+    A successful login message appears.
+    5. Push the image to Amazon ECR: `docker push
+     `registry
+     ID`.dkr.ecr.`region`.amazonaws.com/`repository
+     name``
+
+
+
+    Example: `docker push
+     xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/fluent-bit-multiline-repo`
 
 ###### Build and upload the image for a demo multiline application
 
@@ -260,7 +276,7 @@ When you run the task, the application simulates runs, then fails and
 creates a stack trace.
 
 1. Create a folder named `multiline-app`: `mkdir
-multiline-app`
+ multiline-app`
 2. Create a Python script file.
 
    1. Within the `multiline-app` folder, create a file
@@ -333,7 +349,7 @@ multiline-app`
 
    Where: `multiline-app-image` is the name for the
    image in this example. 2. Verify that the image was created correctly: `docker
- images —filter reference=multiline-app-image`
+  images —filter reference=multiline-app-image`
 
    If successful, the output shows the image and the
    `latest` tag.
@@ -341,8 +357,8 @@ multiline-app`
 6. Upload the image to Amazon Elastic Container Registry.
 
    1. Create an Amazon ECR repository to store the image: `aws ecr
-create-repository --repository-name multiline-app-repo
---region us-east-1`
+  create-repository --repository-name multiline-app-repo
+  --region us-east-1`
 
    Where: `multiline-app-repo` is the name for the
    repository and `us-east-1` is the region in this
@@ -352,22 +368,22 @@ create-repository --repository-name multiline-app-repo
    the `repositoryUri` value as you will need it in the
    next steps. 2. Tag your image with the `repositoryUri` value from
    the previous output: `docker tag
- `multiline-app-image`
-`repositoryUri``
+  `multiline-app-image`
+ `repositoryUri``
 
    Example: `docker tag multiline-app-image
- xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/multiline-app-repo` 3. Run the docker image to verify it ran correctly: `docker
- images —filter
- reference=`repositoryUri``
+  xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/multiline-app-repo` 3. Run the docker image to verify it ran correctly: `docker
+  images —filter
+  reference=`repositoryUri``
 
    In the output, the repository name changes from
    `multiline-app-repo` to the
    `repositoryUri` value. 4. Push the image to Amazon ECR: `docker push
- `aws_account_id`.dkr.ecr.`region`.amazonaws.com/`repository
+  `aws_account_id`.dkr.ecr.`region`.amazonaws.com/`repository
    name``
 
    Example: `docker push
- `xxxxxxxxxxxx`.dkr.ecr.`us-east-1`.amazonaws.com/multiline-app-repo`
+  `xxxxxxxxxxxx`.dkr.ecr.`us-east-1`.amazonaws.com/multiline-app-repo`
 
 ###### Create the task definition and run the task
 
@@ -443,7 +459,7 @@ Replace the following in the
 
 
     To find your `aws_account_id`, log into the
-     AWS Management Console. Choose your user name on the top right and copy your
+     AWS Management Console. Choose your user name and copy your
      Account ID.
     4. ``us-east-1``
 
@@ -451,22 +467,16 @@ Replace the following in the
     Replace the region if necessary.
 
 3. Register the task definition file: `aws ecs
-register-task-definition --cli-input-json
-file://multiline-task-definition.json --region
-`region``
-4. Open the console at
-   [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2 "https://console.aws.amazon.com/ecs/v2").
-5. In the navigation pane, choose **Task Definitions**
-   and then choose the `firelens-example-multiline` family
-   because we registered the task definition to this family in the first
-   line of the task definition above.
-6. Choose the latest version.
-7. Choose the **Deploy**, **Run task**.
-8. On the **Run Task** page, For
-   **Cluster**, choose the cluster, and then under
-   **Networking**, for **Subnets**,
-   choose the available subnets for your task.
-9. Choose **Create**.
+ register-task-definition --cli-input-json
+ file://multiline-task-definition.json --region
+ `region`` 4. Open the console at
+[https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2 "https://console.aws.amazon.com/ecs/v2"). 5. In the navigation pane, choose **Task Definitions**
+and then choose the `firelens-example-multiline` family
+because we registered the task definition to this family in the first
+line of the preceding task definition. 6. Choose the latest version. 7. Choose the **Deploy**, **Run task**. 8. On the **Run Task** page, For
+**Cluster**, choose the cluster, and then under
+**Networking**, for **Subnets**,
+choose the available subnets for your task. 9. Choose **Create**.
 
 ###### Verify that multiline log messages in Amazon CloudWatch appear concatenated
 
@@ -547,19 +557,21 @@ _Amazon Elastic Container Service Developer Guide_
     2. Save the file as `extra.conf`.
 
 3. Within the `FluentBitDockerImage` folder, create the
-   Dockerfile with the Fluent Bit image and the parser and configuration
-   files that you created.
+Dockerfile with the Fluent Bit image and the parser and configuration
+files that you created.
 
-   1. Paste the following contents in the file:
+    1. Paste the following contents in the file:
 
-   ```
-   FROM public.ecr.aws/aws-observability/aws-for-fluent-bit:latest
-   ADD extra.conf /extra.conf
-   ```
-   2. Save the file as `Dockerfile`.
+
+
+    ```
+    FROM public.ecr.aws/aws-observability/aws-for-fluent-bit:latest
+    ADD extra.conf /extra.conf
+    ```
+    2. Save the file as `Dockerfile`.
 
 4. Using the Dockerfile, build a custom Fluent Bit image with the custom
-   configuration file included.
+configuration file included.
 
 ###### Note
 
@@ -583,44 +595,58 @@ path is used by FireLens.
 
 5. Upload the custom Fluent Bit image to Amazon Elastic Container Registry.
 
-   1. Create an Amazon ECR repository to store the image: `aws ecr
-create-repository --repository-name
-fluent-bit-multiline-repo --region us-east-1`
+    1. Create an Amazon ECR repository to store the image: `aws ecr
+     create-repository --repository-name
+     fluent-bit-multiline-repo --region us-east-1`
 
-   Where: `fluent-bit-multiline-repo` is the name for
-   the repository and `us-east-1` is the region in this
-   example.
 
-   The output gives you the details of the new repository. 2. Tag your image with the `repositoryUri` value from
-   the previous output: `docker tag
- `fluent-bit-multiline-image`
-`repositoryUri``
+    Where: `fluent-bit-multiline-repo` is the name for
+     the repository and `us-east-1` is the region in this
+     example.
 
-   Example: `docker tag fluent-bit-multiline-image
- xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/fluent-bit-multiline-repo` 3. Run the docker image to verify it ran correctly: `docker
- images —filter
- reference=`repositoryUri``
 
-   In the output, the repository name changes from
-   fluent-bit-multiline-repo to the
-   `repositoryUri`. 4. Authenticate to Amazon ECR by running the `aws ecr
- get-login-password` command and specifying the
-   registry ID you want to authenticate to: `aws ecr
- get-login-password | docker login --username AWS
- --password-stdin `registry
-   ID`.dkr.ecr.`region`.amazonaws.com`
+    The output gives you the details of the new repository.
+    2. Tag your image with the `repositoryUri` value from
+     the previous output: `docker tag
+     `fluent-bit-multiline-image`
+    `repositoryUri``
 
-   Example: `ecr get-login-password | docker login
- --username AWS --password-stdin
- xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com`
 
-   A successful login message appears. 5. Push the image to Amazon ECR: `docker push
- `registry
-   ID`.dkr.ecr.`region`.amazonaws.com/`repository
-   name``
 
-   Example: `docker push
- xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/fluent-bit-multiline-repo`
+    Example: `docker tag fluent-bit-multiline-image
+     xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/fluent-bit-multiline-repo`
+    3. Run the docker image to verify it ran correctly: `docker
+     images —filter
+     reference=`repositoryUri``
+
+
+    In the output, the repository name changes from
+     fluent-bit-multiline-repo to the
+     `repositoryUri`.
+    4. Authenticate to Amazon ECR by running the `aws ecr
+     get-login-password` command and specifying the
+     registry ID you want to authenticate to: `aws ecr
+     get-login-password | docker login --username AWS
+     --password-stdin `registry
+     ID`.dkr.ecr.`region`.amazonaws.com`
+
+
+
+    Example: `ecr get-login-password | docker login
+     --username AWS --password-stdin
+     xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com`
+
+
+    A successful login message appears.
+    5. Push the image to Amazon ECR: `docker push
+     `registry
+     ID`.dkr.ecr.`region`.amazonaws.com/`repository
+     name``
+
+
+
+    Example: `docker push
+     xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/fluent-bit-multiline-repo`
 
 ###### Build and upload the image for a demo multiline application
 
@@ -628,7 +654,7 @@ This image will include a Python script file that runs the application and
 a sample log file.
 
 1. Create a folder named `multiline-app`: `mkdir
-multiline-app`
+ multiline-app`
 2. Create a Python script file.
 
    1. Within the `multiline-app` folder, create a file
@@ -744,7 +770,7 @@ multiline-app`
 
    Where: `multiline-app-image` is the name for the
    image in this example. 2. Verify that the image was created correctly: `docker
- images —filter reference=multiline-app-image`
+  images —filter reference=multiline-app-image`
 
    If successful, the output shows the image and the
    `latest` tag.
@@ -752,8 +778,8 @@ multiline-app`
 6. Upload the image to Amazon Elastic Container Registry.
 
    1. Create an Amazon ECR repository to store the image: `aws ecr
-create-repository --repository-name multiline-app-repo
---region us-east-1`
+  create-repository --repository-name multiline-app-repo
+  --region us-east-1`
 
    Where: `multiline-app-repo` is the name for the
    repository and `us-east-1` is the region in this
@@ -763,22 +789,22 @@ create-repository --repository-name multiline-app-repo
    the `repositoryUri` value as you will need it in the
    next steps. 2. Tag your image with the `repositoryUri` value from
    the previous output: `docker tag
- `multiline-app-image`
-`repositoryUri``
+  `multiline-app-image`
+ `repositoryUri``
 
    Example: `docker tag multiline-app-image
- xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/multiline-app-repo` 3. Run the docker image to verify it ran correctly: `docker
- images —filter
- reference=`repositoryUri``
+  xxxxxxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/multiline-app-repo` 3. Run the docker image to verify it ran correctly: `docker
+  images —filter
+  reference=`repositoryUri``
 
    In the output, the repository name changes from
    `multiline-app-repo` to the
    `repositoryUri` value. 4. Push the image to Amazon ECR: `docker push
- `aws_account_id`.dkr.ecr.`region`.amazonaws.com/`repository
+  `aws_account_id`.dkr.ecr.`region`.amazonaws.com/`repository
    name``
 
    Example: `docker push
- `xxxxxxxxxxxx`.dkr.ecr.`us-east-1`.amazonaws.com/multiline-app-repo`
+  `xxxxxxxxxxxx`.dkr.ecr.`us-east-1`.amazonaws.com/multiline-app-repo`
 
 ###### Create the task definition and run the task
 
@@ -854,7 +880,7 @@ Replace the following in the
 
 
     To find your `aws_account_id`, log into the
-     AWS Management Console. Choose your user name on the top right and copy your
+     AWS Management Console. Choose your user name and copy your
      Account ID.
     4. ``us-east-1``
 
@@ -862,21 +888,15 @@ Replace the following in the
     Replace the region if necessary.
 
 3. Register the task definition file: `aws ecs
-register-task-definition --cli-input-json
-file://multiline-task-definition.json --region us-east-1`
-4. Open the console at
-   [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2 "https://console.aws.amazon.com/ecs/v2").
-5. In the navigation pane, choose **Task Definitions**
-   and then choose the `firelens-example-multiline` family
-   because we registered the task definition to this family in the first
-   line of the task definition above.
-6. Choose the latest version.
-7. Choose the **Deploy**, **Run task**.
-8. On the **Run Task** page, For
-   **Cluster**, choose the cluster, and then under
-   **Networking**, for **Subnets**,
-   choose the available subnets for your task.
-9. Choose **Create**.
+ register-task-definition --cli-input-json
+ file://multiline-task-definition.json --region us-east-1` 4. Open the console at
+[https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2 "https://console.aws.amazon.com/ecs/v2"). 5. In the navigation pane, choose **Task Definitions**
+and then choose the `firelens-example-multiline` family
+because we registered the task definition to this family in the first
+line of the preceding task definition. 6. Choose the latest version. 7. Choose the **Deploy**, **Run task**. 8. On the **Run Task** page, For
+**Cluster**, choose the cluster, and then under
+**Networking**, for **Subnets**,
+choose the available subnets for your task. 9. Choose **Create**.
 
 ###### Verify that multiline log messages in Amazon CloudWatch appear concatenated
 

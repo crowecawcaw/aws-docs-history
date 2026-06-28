@@ -71,9 +71,9 @@ Guide_. 4. If you have tools that use the short ARN format, update it to the lon
 Replace each `user input placeholder` with your own
 information.
 
-`arn:aws:ecs:`region`:`aws_account_id`:service/`cluster-name`/`service-name``5. Enable the service long ARN format. Run
-`put-account-setting`with the
-`serviceLongArnFormat`option set to
+`arn:aws:ecs:`region`:`aws_account_id`:service/`cluster-name`/`service-name`` 5. Enable the service long ARN format. Run
+`put-account-setting` with the
+`serviceLongArnFormat` option set to
 `enabled`. For more information, see, [put-account-setting](../../../cli/latest/reference/ecs/put-account-setting.md "../../../cli/latest/reference/ecs/put-account-setting.md") in the _Amazon Elastic Container Service API Reference_.
 
 Run the command as the root user when your service has an unknown
@@ -161,7 +161,7 @@ aws ecs tag-resource \
 
 After you complete the prerequisites, you can tag your service. Create an
 `aws_ecs_service` resource and set the `tags`
-reference. For more information, see [Resource: aws_ecs_service](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_service "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_service") in the Terraform documentation.
+reference. For more information, see [Resource: aws\_ecs\_service](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_service "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_service") in the Terraform documentation.
 
 ```
 resource "aws_ecs_service" "MyService" {

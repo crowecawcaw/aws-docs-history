@@ -126,11 +126,11 @@ container instance:
     `ubuntu:~$` `sudo mkdir -p /var/log/ecs /var/lib/ecs/data`
     ```
     * Add the `--privileged` option to the **docker
-     run** command below.
+     run** command that follows.
     * Append the `:Z` option to the `/log`
      and `/data` container volume mounts (for example,
      `--volume=/var/log/ecs/:/log:Z`) to the
-     **docker run** command below.
+     **docker run** command that follows.
 
 ```
 `ubuntu:~$` `sudo docker run --name ecs-agent \

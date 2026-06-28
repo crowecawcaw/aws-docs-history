@@ -36,7 +36,7 @@ The task execution role is supported by Amazon ECS container agent version 1.16.
 later.
 
 Amazon ECS provides the managed policy named `AmazonECSTaskExecutionRolePolicy`
-which contains the permissions the common use cases described above require. For more
+which contains the permissions the common use cases previously described require. For more
 information, see [AmazonECSTaskExecutionRolePolicy](../../../aws-managed-policy/latest/reference/AmazonECSTaskExecutionRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonECSTaskExecutionRolePolicy.md") in the _AWS Managed
 Policy Reference Guide_. It might be necessary to add inline policies to your
 task execution role for special use cases

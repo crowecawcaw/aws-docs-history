@@ -106,36 +106,36 @@ this configuration.
 Decide how the initial credentials are provided and configure the EC2 user data in a
 reusable EC2 launch template to install the `credentials-fetcher` daemon.
 
-1.  ###### Decide if you want to join the instances to the domain, or use domainless gMSA.
-    - ###### Join EC2 instances to the Active Directory domain
-      - ###### Join the instances by user data
+1. ###### Decide if you want to join the instances to the domain, or use domainless gMSA.
+   - ###### Join EC2 instances to the Active Directory domain
+     - ###### Join the instances by user data
 
-      Add the steps to join the Active Directory domain to your EC2
-      user data in an EC2 launch template. Multiple Amazon EC2 Auto Scaling groups
-      can use the same launch template.
+     Add the steps to join the Active Directory domain to your EC2
+     user data in an EC2 launch template. Multiple Amazon EC2 Auto Scaling groups
+     can use the same launch template.
 
-      You can use these steps [Joining an Active Directory or FreeIPA
-      domain](https://docs.fedoraproject.org/en-US/quick-docs/join-active-directory-freeipa/ "https://docs.fedoraproject.org/en-US/quick-docs/join-active-directory-freeipa/") in the Fedora Docs.
+     You can use these steps [Joining an Active Directory or FreeIPA
+     domain](https://docs.fedoraproject.org/en-US/quick-docs/join-active-directory-freeipa/ "https://docs.fedoraproject.org/en-US/quick-docs/join-active-directory-freeipa/") in the Fedora Docs.
 
-    - ###### Make an Active Directory user for domainless gMSA
+   - ###### Make an Active Directory user for domainless gMSA
 
-    The `credentials-fetcher` daemon has a feature that's called _domainless
-    gMSA_. This feature requires a domain, but the EC2
-    instance doesn't need to be joined to the domain.
-    By using domainless gMSA,
-    the container instance isn't joined to the domain, other applications on the instance can't use
-    the credentials to access the domain, and tasks that join different domains can run on the same
-    instance. Instead, you provide the name of a secret in
-    AWS Secrets Manager in the CredSpec file. The secret must contain a username,
-    password, and the domain to log in to.
+   The `credentials-fetcher` daemon has a feature that's called _domainless
+   gMSA_. This feature requires a domain, but the EC2
+   instance doesn't need to be joined to the domain.
+   By using domainless gMSA,
+   the container instance isn't joined to the domain, other applications on the instance can't use
+   the credentials to access the domain, and tasks that join different domains can run on the same
+   instance. Instead, you provide the name of a secret in
+   AWS Secrets Manager in the CredSpec file. The secret must contain a username,
+   password, and the domain to log in to.
 
-    This feature is supported and can be used with Linux and Windows
-    containers.
+   This feature is supported and can be used with Linux and Windows
+   containers.
 
-    This feature is similar to the _gMSA support for
-    non-domain-joined container hosts_ feature.
-    For more information about the Windows feature, see [gMSA architecture and improvements](https://learn.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/manage-serviceaccounts#gmsa-architecture-and-improvements "https://learn.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/manage-serviceaccounts#gmsa-architecture-and-improvements") on the Microsoft Learn
-    website.
+   This feature is similar to the _gMSA support for
+   non-domain-joined container hosts_ feature.
+   For more information about the Windows feature, see [gMSA architecture and improvements](https://learn.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/manage-serviceaccounts#gmsa-architecture-and-improvements "https://learn.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/manage-serviceaccounts#gmsa-architecture-and-improvements") on the Microsoft Learn
+   website.
 
         1. Make a user in your Active Directory domain. The user in
          Active Directory must have permission to access the gMSA
@@ -179,7 +179,7 @@ reusable EC2 launch template to install the `credentials-fetcher` daemon.
          additional permissions in the task execution role. Follow the
          step [(Optional) domainless gMSA secret](#linux-gmsa-domainless-secret "#linux-gmsa-domainless-secret").
 
-2.  ###### Configure instances and install `credentials-fetcher` daemon
+2. ###### Configure instances and install `credentials-fetcher` daemon
 
 You can install the `credentials-fetcher` daemon with a user data script in your EC2 Launch
 Template. The following examples demonstrate two types of user data,

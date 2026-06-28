@@ -34,10 +34,10 @@ The following permissions are required for the console IAM user to start and sto
    [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2 "https://console.aws.amazon.com/ecs/v2").
 2. Determine the resource you want to view
 
-| Resource | Steps                                                                                                                                                                                                      |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Tasks    | 1. On the **Clusters\*<br>• page, choose<br>the cluster.<br>The cluster details page displays.<br>2. Choose the **Tasks*<br>• tab.<br>The task details page displays.<br>3. Choose the \*\*Logs*<br>• tab. |
-| Services | 1. On the **Clusters\*<br>• page, choose<br>the cluster.<br>The cluster details page displays.<br>2. Choose the service.<br>The service details page displays.<br>3. Choose the **Logs\*<br>• tab.         |
+| Resource | Steps                                                                                                                                                                                                   |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tasks    | 1. On the *_Clusters_<br>• page, choose<br>the cluster.<br>The cluster details page displays.<br>2. Choose the *_Tasks_<br>• tab.<br>The task details page displays.<br>3. Choose the *_Logs_<br>• tab. |
+| Services | 1. On the *_Clusters_<br>• page, choose<br>the cluster.<br>The cluster details page displays.<br>2. Choose the service.<br>The service details page displays.<br>3. Choose the *_Logs_<br>• tab.        |
 
 3. Choose **CloudWatch Logs Live Tail**, and then choose
    **Start**.

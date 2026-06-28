@@ -33,33 +33,31 @@ tutorial or complete the tutorial over a few sessions.
 
 ###### Create a cluster with the AWS Management Console.
 
-1.  See [Amazon ECS container instance IAM role](instance_IAM_role.md "instance_IAM_role.md") to
-    check whether you have an ecsInstanceRole and to see how you can create one if
-    you don't have one.
-2.  We recommend that role policies are customized for minimum permissions in an
-    actual production environment. For the purpose of working through this tutorial,
-    verify that the following AWS managed policy is attached to your
-    ecsInstanceRole. Attach the policy if it is not already attached.
+1. See [Amazon ECS container instance IAM role](instance_IAM_role.md "instance_IAM_role.md") to
+   check whether you have an ecsInstanceRole and to see how you can create one if
+   you don't have one.
+2. We recommend that role policies are customized for minimum permissions in an
+   actual production environment. For the purpose of working through this tutorial,
+   verify that the following AWS managed policy is attached to your
+   ecsInstanceRole. Attach the policy if it is not already attached.
 
-        * AmazonEC2ContainerServiceforEC2Role
-        * AmazonSSMManagedInstanceCore
-        * AmazonSSMDirectoryServiceAccess
+   - AmazonEC2ContainerServiceforEC2Role
+   - AmazonSSMManagedInstanceCore
+   - AmazonSSMDirectoryServiceAccess
+     To attach AWS managed policies.
+   1. Open the [IAM
+      console](https://console.aws.amazon.com//iam/ "https://console.aws.amazon.com//iam/").
+   2. In the navigation pane, choose **Roles.**
+   3. Choose an **AWS managed role**.
+   4. Choose **Permissions, Attach policies**.
+   5. To narrow the available policies to attach, use
+      **Filter**.
+   6. Select the appropriate policy and choose **Attach
+      policy**.
 
-    To attach AWS managed policies.
-
-        1. Open the [IAM
-         console](https://console.aws.amazon.com//iam/ "https://console.aws.amazon.com//iam/").
-        2. In the navigation pane, choose **Roles.**
-        3. Choose an **AWS managed role**.
-        4. Choose **Permissions, Attach policies**.
-        5. To narrow the available policies to attach, use
-         **Filter**.
-        6. Select the appropriate policy and choose **Attach
-         policy**.
-
-3.  See [Amazon ECS task execution IAM role](task_execution_IAM_role.md "task_execution_IAM_role.md") to check whether you have an
-    ecsTaskExecutionRole and to see how you can create one if you don't have
-    one.
+3. See [Amazon ECS task execution IAM role](task_execution_IAM_role.md "task_execution_IAM_role.md") to check whether you have an
+   ecsTaskExecutionRole and to see how you can create one if you don't have
+   one.
 
 We recommend that role policies are customized for minimum permissions in an
 actual production environment. For the purpose of working through this tutorial,

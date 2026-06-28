@@ -29,17 +29,16 @@ This tutorial assumes that the following prerequisites have been completed.
   information about installing or upgrading your AWS CLI, see [Installing or updating to the
   latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 - The steps in [Set up to use Amazon ECS](get-set-up-for-amazon-ecs.md "get-set-up-for-amazon-ecs.md") have been completed.
-- Your IAM user has the required permissions specified in the [AmazonECS_FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess")
+- Your IAM user has the required permissions specified in the [AmazonECS\_FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess")
   IAM policy example.
 - You have a VPC and security group created to use. This tutorial uses a
   container image hosted on Docker Hub so your task must have internet access. To
   give your task a route to the internet, use one of the following options.
 
-      + Use a private subnet with a NAT gateway that has an elastic IP
-       address.
-      + Use a public subnet and assign a public IP address to the task.
-
-  For more information, see [Create a virtual private cloud](get-set-up-for-amazon-ecs.md#create-a-vpc "get-set-up-for-amazon-ecs.md#create-a-vpc").
+  - Use a private subnet with a NAT gateway that has an elastic IP
+    address.
+  - Use a public subnet and assign a public IP address to the task.
+    For more information, see [Create a virtual private cloud](get-set-up-for-amazon-ecs.md#create-a-vpc "get-set-up-for-amazon-ecs.md#create-a-vpc").
 
 For information about security groups and rules, see, [Default security groups for your VPCs](../../../vpc/latest/userguide/VPC_SecurityGroups.md#DefaultSecurityGroup "../../../vpc/latest/userguide/VPC_SecurityGroups.md#DefaultSecurityGroup") and [Example rules](../../../vpc/latest/userguide/VPC_SecurityGroups.md#security-group-rule-examples "../../../vpc/latest/userguide/VPC_SecurityGroups.md#security-group-rule-examples") in the _Amazon Virtual Private Cloud User
 Guide_.
@@ -124,7 +123,7 @@ the available task definition parameters, see [Amazon ECS task definitions](task
 }
 ```
 
-The above example JSON can be passed to the AWS CLI in two ways: You can save the task
+The preceding example JSON can be passed to the AWS CLI in two ways: You can save the task
 definition JSON as a file and pass it with the ``--cli-input-json`
  file://`path_to_file.json`` option.
 
@@ -166,7 +165,7 @@ instance of the `sample-fargate:1` task definition running in your cluster.
 The task requires a route to the internet, so there are two ways you can achieve this.
 One way is to use a private subnet configured with a NAT gateway with an elastic IP
 address in a public subnet. Another way is to use a public subnet and assign a public IP
-address to your task. We provide both examples below.
+address to your task. We provide both examples in the following sections.
 
 Example using a private subnet.
 

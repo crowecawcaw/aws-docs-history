@@ -73,7 +73,7 @@ update is possible. If an update is not available, for example, if the agent is
 already running the most recent version, then a
 `NoUpdateAvailableException` is returned.
 
-The stages in the update process shown above are as follows:
+The stages in the update process are as follows:
 
 `PENDING`
 

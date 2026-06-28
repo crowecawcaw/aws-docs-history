@@ -95,11 +95,10 @@ Consider the following:
 - To configure the FireLens container to run as a non-root user, you
   must specify the user in one of the following formats:
 
-      + `uid`
-      + `uid:gid`
-      + `uid:group`
-
-  For more information about specifying a user in a container definition, see [ContainerDefinition](../APIReference/API_ContainerDefinition.md "../APIReference/API_ContainerDefinition.md") in the _Amazon Elastic Container Service API Reference_.
+  - `uid`
+  - `uid:gid`
+  - `uid:group`
+    For more information about specifying a user in a container definition, see [ContainerDefinition](../APIReference/API_ContainerDefinition.md "../APIReference/API_ContainerDefinition.md") in the _Amazon Elastic Container Service API Reference_.
 
 The FireLens container receives application logs over a
 UNIX socket. The Amazon ECS agent uses the `uid` to assign

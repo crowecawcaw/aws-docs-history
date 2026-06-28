@@ -29,16 +29,15 @@ in EC2 Image Builder:
 
 - Windows
 
-      + Amazon ECS-optimized Windows 2022 Full x86
-      + Amazon ECS-optimized Windows 2022 Core x86
-      + Amazon ECS-optimized Windows 2019 Full x86
-      + Amazon ECS-optimized Windows 2019 Core x86
-      + Amazon ECS-optimized Windows 2016 Full x86
-
-  We also recommend that you select "Use latest available OS version". The pipeline will use
-  semantic versioning for the parent image, which helps detect the dependency updates in
-  automatically scheduled jobs. For more information, see [Semantic
-  versioning](../../../imagebuilder/latest/userguide/ibhow-semantic-versioning.md "../../../imagebuilder/latest/userguide/ibhow-semantic-versioning.md") in the _EC2 Image Builder User Guide_.
+  - Amazon ECS-optimized Windows 2022 Full x86
+  - Amazon ECS-optimized Windows 2022 Core x86
+  - Amazon ECS-optimized Windows 2019 Full x86
+  - Amazon ECS-optimized Windows 2019 Core x86
+  - Amazon ECS-optimized Windows 2016 Full x86
+    We also recommend that you select "Use latest available OS version". The pipeline will use
+    semantic versioning for the parent image, which helps detect the dependency updates in
+    automatically scheduled jobs. For more information, see [Semantic
+    versioning](../../../imagebuilder/latest/userguide/ibhow-semantic-versioning.md "../../../imagebuilder/latest/userguide/ibhow-semantic-versioning.md") in the _EC2 Image Builder User Guide_.
 
 AWS regularly updates Amazon ECS-optimized AMI images with security patches and the new
 container agent version. When you use an AMI ID as your parent image in your image recipe,
@@ -237,7 +236,7 @@ build at 10:00AM Coordinated Universal Time (UTC) every day. Set the following
   use the wildcard ‘x’ in their semantic versions, are updated. This ensures the
   build incorporates the latest updates of those resources.
 - Set ScheduleExpression to the cron expression `(0 10 * * ?
-*)`.
+ *)`.
 
 ```
 ECSPipeline:

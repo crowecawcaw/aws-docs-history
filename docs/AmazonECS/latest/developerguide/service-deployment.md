@@ -16,11 +16,11 @@ Service deployments are read-only and each have a unique ID.
 
 There are three service deployment stages:
 
-| Stage     | Definition                                                            | Associated states                                                                   |
-| --------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| Pending   | A service deployment has been created, but has not started            | PENDING                                                                             |
-| Ongoing   | A service deployment is in-progress                                   | • IN_PROGRESS<br>• STOP_REQUESTED<br>• ROLLBACK_REQUESTED<br>• ROLLBACK_IN_PROGRESS |
-| Completed | A service deployment has finished (successfully or<br>unsuccessfully) | • SUCCESSFUL<br>• STOPPED<br>• ROLLBACK_SUCCESSFUL<br>• ROLLBACK_FAILED             |
+| Stage     | Definition                                                            | Associated states                                                                        |
+| --------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Pending   | A service deployment has been created, but has not started            | PENDING                                                                                  |
+| Ongoing   | A service deployment is in-progress                                   | • IN\_PROGRESS<br>• STOP\_REQUESTED<br>• ROLLBACK\_REQUESTED<br>• ROLLBACK\_IN\_PROGRESS |
+| Completed | A service deployment has finished (successfully or<br>unsuccessfully) | • SUCCESSFUL<br>• STOPPED<br>• ROLLBACK\_SUCCESSFUL<br>• ROLLBACK\_FAILED                |
 
 You use service deployments to understand the lifecycle of your service and to determine if
 there are any actions you need to take. For example, if a rollback happened, you might need
@@ -102,12 +102,11 @@ The state can move to `SUCCESSFUL`, `STOP_REQUESTED`,
 - `STOP_REQUESTED` - The service deployment state moves to
   `STOP_REQUESTED` when any of the following happen:
 
-      + A user starts a new service deployment.
-      + The rollback option is not in use for the failure detection mechanism (the
-       circuit breaker or alarm-based) and the service does not reach the
-       `SUCCESSFUL` state.
-
-  The state moves to `STOPPED`.
+  - A user starts a new service deployment.
+  - The rollback option is not in use for the failure detection mechanism (the
+    circuit breaker or alarm-based) and the service does not reach the
+    `SUCCESSFUL` state.
+    The state moves to `STOPPED`.
 
 - `ROLLBACK_REQUESTED` - The service deployment state moves to
   `ROLLBACK_REQUESTED` when a user request a rollback through the

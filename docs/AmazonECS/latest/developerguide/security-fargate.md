@@ -35,7 +35,7 @@ aws ecs run-task --cluster clustername \
 
 ```
 
-## SYS_PTRACE capability for kernel syscall tracing with Fargate
+## SYS\_PTRACE capability for kernel syscall tracing with Fargate
 
 The default configuration of Linux capabilities that are added or removed from
 your container are provided by Docker.

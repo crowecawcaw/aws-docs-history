@@ -44,7 +44,7 @@ following:
     * For **Value**, enter the key value.
 
 6. Choose **Save**.
-   You can add or overwrite one or more tags by using the AWS CLI or an API.
+You can add or overwrite one or more tags by using the AWS CLI or an API.
 
 ###### Note
 

@@ -5,8 +5,8 @@ To use a Network Load Balancer with Amazon ECS blue/green deployments, you need 
 When your configuration includes a Network Load Balancer, Amazon ECS adds a 10 minute delay to the following
 lifecycle stages:
 
-- TEST_TRAFFIC_SHIFT
-- PRODUCTION_TRAFFIC_SHIFT
+- TEST\_TRAFFIC\_SHIFT
+- PRODUCTION\_TRAFFIC\_SHIFT
   This delay accounts for Network Load Balancer timing issues that can cause a
   mismatch between the configured traffic weights and the actual traffic routing
   in the data plane.

@@ -11,7 +11,7 @@ You can create a daemon task definition by using the AWS Management Console or t
 
 ### Using the AWS Management Console
 
-1. Open the Amazon ECS console. In the left navigation, choose **Daemon
+1. Open the Amazon ECS console. In the navigation pane, choose **Daemon
    task definitions**.
 2. Choose **Create new daemon task definition**.
 3. For **Daemon task definition family**, enter a unique

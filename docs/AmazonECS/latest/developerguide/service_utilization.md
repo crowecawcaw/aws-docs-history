@@ -13,7 +13,7 @@ to the CPU and memory that is specified in the service's task definition.
 
 When viewing these metrics in CloudWatch, you can choose different statistics:
 
-- **Average**: The average utilization across all tasks in the service. This is calculated using the formula below.
+- **Average**: The average utilization across all tasks in the service. This is calculated using the following formula.
 - **Minimum**: The utilization of the task with the lowest resource usage in the service. This represents the percentage of CPU or memory used by the least resource-intensive task compared to what was specified in the task definition.
 - **Maximum**: The utilization of the task with the highest resource usage in the service. This represents the percentage of CPU or memory used by the most resource-intensive task compared to what was specified in the task definition.
 
@@ -33,7 +33,7 @@ Service memory utilization =  --------------------------------------------------
 
 ###### Note
 
-The formulas above apply only to the Average statistic. The Minimum and Maximum statistics represent the individual task with the lowest and highest resource utilization, respectively, rather than an aggregate calculation across all tasks.
+The preceding formulas apply only to the Average statistic. The Minimum and Maximum statistics represent the individual task with the lowest and highest resource utilization, respectively, rather than an aggregate calculation across all tasks.
 
 Amazon ECS collects metrics every 20 seconds. Each minute, the Amazon ECS container agent
 calculates the number of CPU units and MiB of memory that are currently being used

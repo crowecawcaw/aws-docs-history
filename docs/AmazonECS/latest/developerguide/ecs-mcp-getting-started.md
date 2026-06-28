@@ -44,7 +44,7 @@ You will need [IAM](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/
 **Option 1: Combined managed and custom policy**
 
 1. Attach the AWS managed policy **ReadOnlyAccess** for read-only access to all AWS services
-2. Create and attach an additional custom policy for MCP permissions (see MCP permissions JSON below)
+2. Create and attach an additional custom policy for MCP permissions (see the following MCP permissions JSON)
 
 ```
 {

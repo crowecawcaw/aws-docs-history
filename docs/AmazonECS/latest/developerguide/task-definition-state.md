@@ -21,7 +21,7 @@ retrieve an `INACTIVE` task definition by calling
 services with a task definition in the `INACTIVE` state. There is no
 impact on existing services or tasks.
 
-DELETE_IN_PROGRESS
+DELETE\_IN\_PROGRESS
 
 A task definition transitions from the `INACTIVE` state to the
 `DELETE_IN_PROGRESS` state after you submitted the task

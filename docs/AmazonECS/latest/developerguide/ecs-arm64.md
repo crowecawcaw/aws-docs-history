@@ -26,18 +26,17 @@ consider the following:
 - For the EC2, see the following to verify that the Region that
   you're in supports the instance type you want to use:
 
-      + [Amazon EC2 M6g Instances](https://aws.amazon.com/ec2/instance-types/m6 "https://aws.amazon.com/ec2/instance-types/m6")
-      + [Amazon EC2 T4g
-       Instances](https://aws.amazon.com/ec2/instance-types/t4/ "https://aws.amazon.com/ec2/instance-types/t4/")
-      + [Amazon EC2 C6g
-       Instances](https://aws.amazon.com/ec2/instance-types/c6g/ "https://aws.amazon.com/ec2/instance-types/c6g/")
-      + [Amazon EC2 R6gd
-       Instances](https://aws.amazon.com/ec2/instance-types/r6/ "https://aws.amazon.com/ec2/instance-types/r6/")
-      + [Amazon EC2 X2gd
-       Instances](https://aws.amazon.com/ec2/instance-types/x2/ "https://aws.amazon.com/ec2/instance-types/x2/")
-
-  You can also use the Amazon EC2 `describe-instance-type-offerings`
-  command with a filter to view the instance offering for your Region.
+  - [Amazon EC2 M6g Instances](https://aws.amazon.com/ec2/instance-types/m6 "https://aws.amazon.com/ec2/instance-types/m6")
+  - [Amazon EC2 T4g
+    Instances](https://aws.amazon.com/ec2/instance-types/t4/ "https://aws.amazon.com/ec2/instance-types/t4/")
+  - [Amazon EC2 C6g
+    Instances](https://aws.amazon.com/ec2/instance-types/c6g/ "https://aws.amazon.com/ec2/instance-types/c6g/")
+  - [Amazon EC2 R6gd
+    Instances](https://aws.amazon.com/ec2/instance-types/r6/ "https://aws.amazon.com/ec2/instance-types/r6/")
+  - [Amazon EC2 X2gd
+    Instances](https://aws.amazon.com/ec2/instance-types/x2/ "https://aws.amazon.com/ec2/instance-types/x2/")
+    You can also use the Amazon EC2 `describe-instance-type-offerings`
+    command with a filter to view the instance offering for your Region.
 
 ```
 `aws ec2 describe-instance-type-offerings --filters Name=instance-type,Values=`instance-type` --region `region``

@@ -158,7 +158,7 @@ SDKs.
 In addition to the standard IAM permissions for creating and updating
 services, Amazon ECS requires the following permissions. These permissions have been
 added to the `AmazonECS_FullAccess` IAM policy. For more
-information, see [AmazonECS_FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess").
+information, see [AmazonECS\_FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess").
 
 - `codedeploy:CreateApplication`
 - `codedeploy:CreateDeployment`

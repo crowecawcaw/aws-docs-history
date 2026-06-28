@@ -20,7 +20,7 @@ This tutorial uses the following approach:
   in the cluster.
 
   - Listens on port 24224 using the forward input plug-in.
-  - Expose port 24224 to the host so that the docker runtime can send logs to
+  - Expose port 24224 to the host so that the Docker runtime can send logs to
     Fluent Bit using this exposed port.
   - Has a configuration which allows Fluent Bit to send the logs records to
     specified destinations.
@@ -62,7 +62,7 @@ This tutorial uses the following approach:
   following:
 
 - Creates a new log group for each cluster and task definition family.
-- Creates a new log stream for each task container in above generated log group
+- Creates a new log stream for each task container in the previously generated log group
   whenever a new task is launched. Each stream will be marked with the task id to
   which the container belongs.
 - Adds additional metadata including the cluster name, task ARN, task container
@@ -164,7 +164,7 @@ JSON
 
 3. Attach the policy to the role.
 
-   1. Save the above content in a file named
+   1. Save the preceding content in a file named
       `fluent-bit-policy.json`.
    2. Run the following command to attach the inline policy to
       `fluentTaskRole` IAM role.
@@ -234,7 +234,7 @@ Alternatively, you can use other default configurations provided by AWS. For mor
 information, see [Overriding the entrypoint for the Windows image](https://github.com/aws/aws-for-fluent-bit/tree/mainline/ecs_windows_forward_daemon#overriding-the-entrypoint-for-the-windows-image "https://github.com/aws/aws-for-fluent-bit/tree/mainline/ecs_windows_forward_daemon#overriding-the-entrypoint-for-the-windows-image") on the
 `aws-for-fluent-bit` the Github website.
 
-The default Amazon CloudWatch Fluent Bit configuration is shown below.
+The default Amazon CloudWatch Fluent Bit configuration is the following.
 
 Replace the following variables:
 
@@ -287,7 +287,7 @@ generated when you do not supply one. The tags can be used to route different lo
 different destinations. For additional information, see [Tag](https://docs.fluentbit.io/manual/concepts/key-concepts#tag "https://docs.fluentbit.io/manual/concepts/key-concepts#tag") in the
 _Fluent Bit Official Manual_.
 
-The Fluent Bit configuration described above has the following properties:
+The preceding Fluent Bit configuration has the following properties:
 
 - The forward input plug-in listens for incoming traffic on TCP port 24224.
 - Each log entry received on that port has a tag which the forward input plug-in
@@ -295,10 +295,10 @@ The Fluent Bit configuration described above has the following properties:
 - The Fluent Bit internal pipeline routes the log entry to modify the filter
   using the Match regex. This filter replaces the keys in the log record JSON to
   the format which Fluent Bit can consume.
-- The modified log entry is then consumed by the rewrite_tag filter. This filter
+- The modified log entry is then consumed by the rewrite\_tag filter. This filter
   changes the tag of the log record to the format
   out.`TASK_ID`.`CONTAINER_NAME`.
-- The new tag will be routed to output cloudwatch_logs plug-in which creates the
+- The new tag will be routed to output cloudwatch\_logs plug-in which creates the
   log groups and streams as described earlier by using the
   `log_group_template` and `log_stream_prefix` options
   of the CloudWatch output plug-in. For additional information, see [Configuration parameters](https://docs.fluentbit.io/manual/v/1.9-pre/pipeline/outputs/cloudwatch#configuration-parameters "https://docs.fluentbit.io/manual/v/1.9-pre/pipeline/outputs/cloudwatch#configuration-parameters") in the _Fluent Bit

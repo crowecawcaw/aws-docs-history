@@ -52,5 +52,6 @@ until it reaches the maximum number of tasks you specified. 13. Under **Addition
     3. To create only a scale-out policy, select **Disable scale-in**.
 
 14. Choose **Create scaling policy**.
+
 1. Register your Amazon ECS service as a scalable target using the [register-scalable-target](../../../cli/latest/reference/application-autoscaling/register-scalable-target.md "../../../cli/latest/reference/application-autoscaling/register-scalable-target.md") command.
-1. Create a scaling policy using the [put-scaling-policy](../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md "../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md") command.
+2. Create a scaling policy using the [put-scaling-policy](../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md "../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md") command.

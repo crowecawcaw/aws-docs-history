@@ -53,13 +53,12 @@ indicates the VPC endpoint issue, check the following configuration:
   Also, it must have HTTPS access on port 443. For more information, see [Coonfigure security group rules](../../../AWSEC2/latest/UserGuide/changing-security-group.md#add-remove-security-group-rules "../../../AWSEC2/latest/UserGuide/changing-security-group.md#add-remove-security-group-rules") in the _Amazon Elastic Compute Cloud User Guide_.
 - If the subnet has a network ACL, the following ACL rules are required:
 
-      + An outbound rule that allows traffic that allows traffic on ports
-       1024-65535.
-      + An inbound rule that allows TCP traffic on port 443.
-
-  For information about how to configure rules, see [Control traffic to subnets
-  using network ACLs](../../../vpc/latest/userguide/vpc-network-acls.md "../../../vpc/latest/userguide/vpc-network-acls.md") in the _Amazon Virtual Private Cloud User
-  Guide_.
+  - An outbound rule that allows traffic that allows traffic on ports
+    1024-65535.
+  - An inbound rule that allows TCP traffic on port 443.
+    For information about how to configure rules, see [Control traffic to subnets
+    using network ACLs](../../../vpc/latest/userguide/vpc-network-acls.md "../../../vpc/latest/userguide/vpc-network-acls.md") in the _Amazon Virtual Private Cloud User
+    Guide_.
 
 ## Fixing network issues
 
@@ -85,16 +84,16 @@ remove routes from a route table](../../../vpc/latest/userguide/WorkWithRouteTab
 - If the task subnet has a network ACL, the following ACL rules
   are required:
 
-      + An outbound rule that allows traffic on ports
-       1024-65535.
-      + An inbound rule that allows TCP traffic on port
-       443.
+  - An outbound rule that allows traffic on ports
+    1024-65535.
+  - An inbound rule that allows TCP traffic on port
+  443.
 
-  For information about how to configure rules, see [Control
-  traffic to subnets using network ACLs](../../../vpc/latest/userguide/vpc-network-acls.md "../../../vpc/latest/userguide/vpc-network-acls.md") in the
-  _Amazon Virtual Private Cloud User
-  Guide_.
-  Perform the following configuration based on the runbook:
+For information about how to configure rules, see [Control
+traffic to subnets using network ACLs](../../../vpc/latest/userguide/vpc-network-acls.md "../../../vpc/latest/userguide/vpc-network-acls.md") in the
+_Amazon Virtual Private Cloud User
+Guide_.
+Perform the following configuration based on the runbook:
 
 - Choose **DISABLED** for **Auto-assign public
   IP** when launching the task.
@@ -113,16 +112,16 @@ For more information, see [Add and remove routes from a route table](../../../vp
 - If the task subnet has a network ACL, the following ACL rules are
   required:
 
-      + An outbound rule that allows traffic on ports
-       1024-65535.
-      + An inbound rule that allows TCP traffic on port
-       443.
+  - An outbound rule that allows traffic on ports
+    1024-65535.
+  - An inbound rule that allows TCP traffic on port
+  443.
 
-  For information about how to configure rules, see [Control
-  traffic to subnets using network ACLs](../../../vpc/latest/userguide/vpc-network-acls.md "../../../vpc/latest/userguide/vpc-network-acls.md") in the
-  _Amazon Virtual Private Cloud User
-  Guide_.
-  Perform the following configuration based on the runbook:
+For information about how to configure rules, see [Control
+traffic to subnets using network ACLs](../../../vpc/latest/userguide/vpc-network-acls.md "../../../vpc/latest/userguide/vpc-network-acls.md") in the
+_Amazon Virtual Private Cloud User
+Guide_.
+Perform the following configuration based on the runbook:
 
 - Choose **Turn on** for **Auto assign
   IP** under **Networking for Amazon EC2
@@ -145,16 +144,16 @@ remove routes from a route table](../../../vpc/latest/userguide/WorkWithRouteTab
 - If the instance subnet has a network ACL, the following ACL rules are
   required:
 
-      + An outbound rule that allows traffic on ports
-       1024-65535.
-      + An inbound rule that allows TCP traffic on port
-       443.
+  - An outbound rule that allows traffic on ports
+    1024-65535.
+  - An inbound rule that allows TCP traffic on port
+  443.
 
-  For information about how to configure rules, see [Control
-  traffic to subnets using network ACLs](../../../vpc/latest/userguide/vpc-network-acls.md "../../../vpc/latest/userguide/vpc-network-acls.md") in the
-  _Amazon Virtual Private Cloud User
-  Guide_.
-  Perform the following configuration based on the runbook:
+For information about how to configure rules, see [Control
+traffic to subnets using network ACLs](../../../vpc/latest/userguide/vpc-network-acls.md "../../../vpc/latest/userguide/vpc-network-acls.md") in the
+_Amazon Virtual Private Cloud User
+Guide_.
+Perform the following configuration based on the runbook:
 
 - Choose **Turn off** for **Auto assign
   IP** under **Networking for Amazon EC2
@@ -174,12 +173,12 @@ For more information, see [Add and remove routes from a route table](../../../vp
 - If the task subnet has a network ACL, the following ACL rules are
   required:
 
-      + An outbound rule that allows traffic on ports
-       1024-65535.
-      + An inbound rule that allows TCP traffic on port
-       443.
+  - An outbound rule that allows traffic on ports
+    1024-65535.
+  - An inbound rule that allows TCP traffic on port
+  443.
 
-  For information about how to configure rules, see [Control
-  traffic to subnets using network ACLs](../../../vpc/latest/userguide/vpc-network-acls.md "../../../vpc/latest/userguide/vpc-network-acls.md") in the
-  _Amazon Virtual Private Cloud User
-  Guide_.
+For information about how to configure rules, see [Control
+traffic to subnets using network ACLs](../../../vpc/latest/userguide/vpc-network-acls.md "../../../vpc/latest/userguide/vpc-network-acls.md") in the
+_Amazon Virtual Private Cloud User
+Guide_.

@@ -51,10 +51,9 @@ Complete the following before you start the tutorial:
 
 - You have a VPC and security group created to use. This tutorial uses a container image hosted on Amazon ECR Public so your instances must have internet access. To give your instances a route to the internet, use one of the following options:
 
-      + Use a private subnet with a NAT gateway that has an elastic IP address.
-      + Use a public subnet and assign a public IP address to the instances.
-
-  For more information, see [Create a virtual private cloud](get-set-up-for-amazon-ecs.md#create-a-vpc "get-set-up-for-amazon-ecs.md#create-a-vpc").
+  - Use a private subnet with a NAT gateway that has an elastic IP address.
+  - Use a public subnet and assign a public IP address to the instances.
+    For more information, see [Create a virtual private cloud](get-set-up-for-amazon-ecs.md#create-a-vpc "get-set-up-for-amazon-ecs.md#create-a-vpc").
 
 For information about security groups and rules, see [Default security groups for your VPCs](../../../vpc/latest/userguide/VPC_SecurityGroups.md#DefaultSecurityGroup "../../../vpc/latest/userguide/VPC_SecurityGroups.md#DefaultSecurityGroup") and [Example rules](../../../vpc/latest/userguide/VPC_SecurityGroups.md#security-group-rule-examples "../../../vpc/latest/userguide/VPC_SecurityGroups.md#security-group-rule-examples") in the _Amazon Virtual Private Cloud User Guide_.
 
@@ -418,7 +417,7 @@ Enter the public IP address in your web browser and you should see a webpage tha
 
 ### Testing task deployed using private subnet
 
-For tasks deployed in private subnets, you can use Amazon ECS Exec to connect to the container and test the deployment from within the instance. Follow the same steps as above to get the task ARN, then use ECS Exec:
+For tasks deployed in private subnets, you can use Amazon ECS Exec to connect to the container and test the deployment from within the instance. Follow the same preceding steps to get the task ARN, then use ECS Exec:
 
 ```
 aws ecs execute-command --cluster managed-instances-cluster \

@@ -55,11 +55,11 @@ published by AWS.
    **Search** bar and press
    **Enter**.
 
-   - Windows_Server-2022-English-Full-ECS_Optimized
-   - Windows_Server-2022-English-Core-ECS_Optimized
-   - Windows_Server-2019-English-Full-ECS_Optimized
-   - Windows_Server-2019-English-Core-ECS_Optimized
-   - Windows_Server-2016-English-Full-ECS_Optimized
+   - Windows\_Server-2022-English-Full-ECS\_Optimized
+   - Windows\_Server-2022-English-Core-ECS\_Optimized
+   - Windows\_Server-2019-English-Full-ECS\_Optimized
+   - Windows\_Server-2019-English-Core-ECS\_Optimized
+   - Windows\_Server-2016-English-Full-ECS\_Optimized
 
 2. On the **Choose an Amazon Machine Image (AMI)** page,
    select the **Community AMIs** tab.
@@ -207,19 +207,19 @@ information, see [Amazon ECS container instance IAM role](instance_IAM_role.md "
   In addition, the following options are available when you use the
   `awsvpc` network mode.
 
-      - `EnableTaskENI`: This flag turns on task
-       networking and is required when you use the
-       `awsvpc` network mode.
-      - `AwsvpcBlockIMDS`: This optional flag blocks
-       IMDS access for the task containers running in the
-       `awsvpc` network mode.
-      - `AwsvpcAdditionalLocalRoutes`: This optional
-       flag allows you to have additional routes in the task
-       namespace.
+        - `EnableTaskENI`: This flag turns on task
+         networking and is required when you use the
+         `awsvpc` network mode.
+        - `AwsvpcBlockIMDS`: This optional flag blocks
+         IMDS access for the task containers running in the
+         `awsvpc` network mode.
+        - `AwsvpcAdditionalLocalRoutes`: This optional
+         flag allows you to have additional routes in the task
+         namespace.
 
 
-      Replace `ip-address` with the IP Address for
-       the additional routes, for example 172.31.42.23/32.
+        Replace `ip-address` with the IP Address for
+         the additional routes, for example 172.31.42.23/32.
 
   ```
   <powershell>

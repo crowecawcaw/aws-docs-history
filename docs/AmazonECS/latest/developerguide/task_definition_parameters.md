@@ -121,7 +121,7 @@ Type: String
 
 Required: Conditional
 
-Default: X86_64
+Default: X86\_64
 
 If the parameter is left as `null`, the default value is
 automatically assigned upon the initiation of a task hosted on
@@ -168,7 +168,7 @@ converted to an integer indicating the CPU units.
 
 This field is required and you must use one of the following values, which
 determines your range of supported values for the `memory`
-parameter. The table below shows the valid combinations of task-level CPU
+parameter. The following table shows the valid combinations of task-level CPU
 and memory.
 
 | CPU value                                                                       | Memory value                                | Operating systems supported for<br>AWS Fargate |
@@ -271,7 +271,7 @@ or
 ``repository-url`/`image`@`digest``.
 Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to `Image` in the
 docker create-container command and the `IMAGE` parameter of
-the docker run command.
+the Docker run command.
 
 - When a new task starts, the Amazon ECS container agent pulls the
   latest version of the specified image and tag for the container
@@ -288,8 +288,8 @@ the docker run command.
   `registry/repository@digest` naming convention
   (for example,
   ``aws_account_id`.dkr.ecr.`region`.amazonaws.com``/`my-web-app`:`latest``
-or
-``aws_account_id`.dkr.ecr.`region`.amazonaws.com``/`my-web-app`@`sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE``).
+ or
+ ``aws_account_id`.dkr.ecr.`region`.amazonaws.com``/`my-web-app`@`sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE``).
 - Images in official repositories on Docker Hub
   use a single name (for example, `ubuntu` or
   `mongo`).
@@ -522,7 +522,7 @@ The following rules apply when you specify a
 - The first port in the range must be less than last
   port in the range.
 - Docker recommends that you turn off
-  the docker-proxy in the Docker daemon
+  the Docker-proxy in the Docker daemon
   config file when you have a large number of
   ports.
 
@@ -705,7 +705,7 @@ the required parameters:
 ### Advanced container definition parameters
 
 The following advanced container definition parameters provide extended capabilities
-to the docker run command that's used to launch containers on your Amazon ECS container
+to the Docker run command that's used to launch containers on your Amazon ECS container
 instances.
 
 ###### Topics
@@ -1001,7 +1001,7 @@ Required: No
 
 A list of files containing the environment variables to pass to a
 container. This parameter maps to the `--env-file` option to
-the docker run command.
+the Docker run command.
 
 You can specify up to 10 environment files. The file must have a
 `.env` file extension. Each line in an environment file
@@ -2064,7 +2064,7 @@ run.
 Any host devices to expose to the container. This
 parameter maps to `Devices` in the docker
 create-container command and the `--device`
-option to docker run.
+option to Docker run.
 
 ###### Note
 

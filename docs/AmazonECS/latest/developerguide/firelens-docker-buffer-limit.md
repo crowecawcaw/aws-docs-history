@@ -159,7 +159,7 @@ performance.
 
 The maximum disk space for buffered data for a specific OUTPUT plugin.
 When this limit is reached, the oldest records for that output are
-dropped. For more information about sizing, see [Understanding storage.total_limit_size](#firelens-storage-sizing "#firelens-storage-sizing").
+dropped. For more information about sizing, see [Understanding storage.total\_limit\_size](#firelens-storage-sizing "#firelens-storage-sizing").
 
 `threaded true`
 

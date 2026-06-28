@@ -22,7 +22,7 @@ Before you delete a cluster, you must perform the following operations:
 2. From the navigation bar, select the Region to use.
 3. In the navigation pane, choose **Clusters**.
 4. On the **Clusters** page, select the cluster to delete.
-5. In the upper-right of the page, choose **Delete Cluster**.
+5. Choose **Delete Cluster**.
 
 A message is displayed when you did not delete all the resources associated with
 the cluster. 6. In the confirmation box, enter **delete `cluster

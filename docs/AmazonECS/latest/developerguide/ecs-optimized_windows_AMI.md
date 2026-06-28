@@ -98,5 +98,5 @@ Amazon ECS.
   can ensure that a task is placed on an EC2 instance running on the same
   version by using the placement constraint:
   `memberOf(attribute:ecs.os-family ==
-WINDOWS_SERVER_<OS_Release>_<FULL or CORE>)`. For more
+ WINDOWS_SERVER_<OS_Release>_<FULL or CORE>)`. For more
   information, see [Retrieving Amazon ECS-optimized Windows AMI metadata](retrieve-ecs-optimized_windows_AMI.md "retrieve-ecs-optimized_windows_AMI.md").

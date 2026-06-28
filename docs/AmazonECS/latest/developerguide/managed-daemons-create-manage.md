@@ -17,7 +17,7 @@ Before you create a daemon, verify that you have the following:
 
 ### AWS Management Console
 
-1. Open the Amazon ECS console. In the left navigation, choose
+1. Open the Amazon ECS console. In the navigation pane, choose
    **Clusters**, then select your cluster.
 2. Choose the **Daemons** tab, then choose
    **Create**.
@@ -102,7 +102,7 @@ AWS CLI.
 
 ### AWS Management Console
 
-1. Open the Amazon ECS console. In the left navigation, choose
+1. Open the Amazon ECS console. In the navigation pane, choose
    **Clusters**, then select your cluster.
 2. Choose the **Daemons** tab.
 3. Verify that your daemon shows **Active**
@@ -132,7 +132,7 @@ instances.
 
 ### AWS Management Console
 
-1. Open the Amazon ECS console. In the left navigation, choose
+1. Open the Amazon ECS console. In the navigation pane, choose
    **Clusters**, then select your cluster.
 2. Choose the **Daemons** tab, then select the daemon
    you want to update.
@@ -172,7 +172,7 @@ stop before you delete the capacity provider or cluster.
 
 ### AWS Management Console
 
-1. Open the Amazon ECS console. In the left navigation, choose
+1. Open the Amazon ECS console. In the navigation pane, choose
    **Clusters**, then select your cluster.
 2. Choose the **Daemons** tab, then select the daemon
    you want to delete.

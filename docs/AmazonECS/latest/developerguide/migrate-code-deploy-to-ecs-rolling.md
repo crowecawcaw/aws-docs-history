@@ -51,14 +51,17 @@ following parameters.
      nearest integer).
 
 6. Expand **Load Balancing**, and then configure the
-   following:
+following:
 
-   1. For **Role**, choose the role that you created in the
-      prerequisites with the blue/green permissions.
+    1. For **Role**, choose the role that you created in the
+     prerequisites with the blue/green permissions.
 
-   For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](blue-green-permissions.md "blue-green-permissions.md"). 2. For **Listener**, choose the production listener from
-   your CodeDeploy blue/green deployment. 3. For **Target group**, choose the production target
-   group from your CodeDeploy blue/green deployment.
+
+    For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](blue-green-permissions.md "blue-green-permissions.md").
+    2. For **Listener**, choose the production listener from
+     your CodeDeploy blue/green deployment.
+    3. For **Target group**, choose the production target
+     group from your CodeDeploy blue/green deployment.
 
 7. Choose **Update**.
 

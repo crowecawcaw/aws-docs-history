@@ -16,7 +16,7 @@ met:
 You can use dual-stack service endpoints to interact with Amazon ECS from the AWS CLI, SDKs, and the Amazon ECS API over both IPv4 and IPv6. For more information, see [Using Amazon ECS dual-stack endpoints](dual-stack-endpoint.md "dual-stack-endpoint.md").
 
 - The steps described in [Set up to use Amazon ECS](get-set-up-for-amazon-ecs.md "get-set-up-for-amazon-ecs.md") are complete.
-- Your IAM user has the required permissions specified in the [AmazonECS_FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess") IAM policy
+- Your IAM user has the required permissions specified in the [AmazonECS\_FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess") IAM policy
   example.
 
 ## Create a service that uses VPC Lattice with the AWS Management Console
@@ -61,8 +61,8 @@ target group, choose **Remove**.
      groups with an IP address type of `IPv6`.
 
 9. At this point, you navigate to the VPC Lattice console to continue setting up.
-   This is where you include your new target groups in the listener default action
-   or in the rules of an existing VPC Lattice service.
+This is where you include your new target groups in the listener default action
+or in the rules of an existing VPC Lattice service.
 
 For more information, see [Listener rules for your VPC
 Lattice service](../../../vpc-lattice/latest/ug/listener-rules.md "../../../vpc-lattice/latest/ug/listener-rules.md").
@@ -141,7 +141,7 @@ Example output:
 3. The following JSON file named
    `ecs-service-vpc-lattice.json` is an example used
    to attach an Amazon ECS service to a VPC Lattice target group. The `portName`
-   in the example below is the same one you defined in your task definition's
+   in the following example is the same one you defined in your task definition's
    `portMappings` property's `name` field.
 
 ```
@@ -161,7 +161,7 @@ Example output:
 ```
 
 Use the following command to create an Amazon ECS service and attach it to the
-VPC Lattice target group using the json example above.
+VPC Lattice target group using the preceding JSON example.
 
 ```
 aws ecs create-service \

@@ -59,28 +59,29 @@ tasks** do the following:
     Choose **Add step** to add additional actions.
 
 12. Configure the scaling-in properties. Under **Steps to remove
-    tasks**, do the following:
+tasks**, do the following:
 
-    1.  For **Policy name**, enter the name of the
-        policy.
-    2.  For **CloudWatch alarm name**, choose the CloudWatch
-        alarm.
-    3.  For **Metric aggregation type**, choose how to
-        compare the selected metric to the defined threshold.
-    4.  For **Adjustment types**, choose whether the
-        adjustment is based on a change in the number of tasks, or a change in
-        the percentage of tasks.
-    5.  For **Actions to take**, enter the values for what
-        action to take.
+    1. For **Policy name**, enter the name of the
+     policy.
+    2. For **CloudWatch alarm name**, choose the CloudWatch
+     alarm.
+    3. For **Metric aggregation type**, choose how to
+     compare the selected metric to the defined threshold.
+    4. For **Adjustment types**, choose whether the
+     adjustment is based on a change in the number of tasks, or a change in
+     the percentage of tasks.
+    5. For **Actions to take**, enter the values for what
+     action to take.
+
 
     Choose **Add step** to add additional actions.
 
 13. For **Cooldown period**, enter the amount of time, in
-    seconds, to wait for a previous scaling activity to take effect. For an add
-    policy, this is the time after a scale-out activity that the scaling policy
-    blocks scale-in activities and limits how many tasks can be scale out at a time.
-    For a remove policy, this is the time after a scale-in activity that must pass
-    before another scale-in activity can start.
-14. Choose **Create scaling policy**.
-15. Register your Amazon ECS service as a scalable target using the [register-scalable-target](../../../cli/latest/reference/application-autoscaling/register-scalable-target.md "../../../cli/latest/reference/application-autoscaling/register-scalable-target.md") command.
-16. Create a scaling policy using the [put-scaling-policy](../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md "../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md") command.
+seconds, to wait for a previous scaling activity to take effect. For an add
+policy, this is the time after a scale-out activity that the scaling policy
+blocks scale-in activities and limits how many tasks can be scale out at a time.
+For a remove policy, this is the time after a scale-in activity that must pass
+before another scale-in activity can start. 14. Choose **Create scaling policy**.
+
+1. Register your Amazon ECS service as a scalable target using the [register-scalable-target](../../../cli/latest/reference/application-autoscaling/register-scalable-target.md "../../../cli/latest/reference/application-autoscaling/register-scalable-target.md") command.
+2. Create a scaling policy using the [put-scaling-policy](../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md "../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md") command.

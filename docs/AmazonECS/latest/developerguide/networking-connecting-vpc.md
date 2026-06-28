@@ -23,16 +23,15 @@ The following are the disadvantages to using this approach:
   NAT gateway for any of the following operations, you're charged for every GB of
   bandwidth:
 
-      + Downloading large files from Amazon S3
-      + Doing a high volume of database queries to DynamoDB
-      + Pulling images from Amazon ECR
-
-  Additionally, NAT gateways support 5 Gbps of bandwidth and
-  automatically scale up to 45 Gbps. If you route through a single NAT
-  gateway, applications that require very high bandwidth connections might
-  encounter networking constraints. As a workaround, you can divide your
-  workload across multiple subnets and give each subnet its own NAT
-  gateway.
+  - Downloading large files from Amazon S3
+  - Doing a high volume of database queries to DynamoDB
+  - Pulling images from Amazon ECR
+    Additionally, NAT gateways support 5 Gbps of bandwidth and
+    automatically scale up to 45 Gbps. If you route through a single NAT
+    gateway, applications that require very high bandwidth connections might
+    encounter networking constraints. As a workaround, you can divide your
+    workload across multiple subnets and give each subnet its own NAT
+    gateway.
 
 ## AWS PrivateLink
 

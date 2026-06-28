@@ -27,8 +27,8 @@ architect workloads that run on Fargate:
   affect uses cases such as running Docker in Docker.
 - Limited access to Linux capabilities - The environment in which
   containers run on Fargate is locked down. Additional Linux capabilities,
-  such as CAP_SYS_ADMIN and CAP_NET_ADMIN, are restricted to prevent a
-  privilege escalation. Fargate supports adding the [CAP_SYS_PTRACE](task_definition_parameters.md#other_task_definition_params "task_definition_parameters.md#other_task_definition_params") Linux capability to tasks to allow observability
+  such as CAP\_SYS\_ADMIN and CAP\_NET\_ADMIN, are restricted to prevent a
+  privilege escalation. Fargate supports adding the [CAP\_SYS\_PTRACE](task_definition_parameters.md#other_task_definition_params "task_definition_parameters.md#other_task_definition_params") Linux capability to tasks to allow observability
   and security tools deployed within the task to monitor the containerized
   application.
 - No access to the underlying host - Neither customers nor AWS operators

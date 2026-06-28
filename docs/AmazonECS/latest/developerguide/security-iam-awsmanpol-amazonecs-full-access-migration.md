@@ -21,7 +21,7 @@ currently using the `AmazonEC2ContainerServiceFullAccess` managed IAM
 policy. Then, update them to detach the earlier policy and attach the
 `AmazonECS_FullAccess` policy.
 
-###### To update a group, user, or role to use the AmazonECS_FullAccess policy (AWS Management Console)
+###### To update a group, user, or role to use the AmazonECS\_FullAccess policy (AWS Management Console)
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -40,7 +40,7 @@ policy. Then, update them to detach the earlier policy and attach the
       policy.
    2. Choose **Add permissions**.
    3. Choose **Attach existing policies directly**, search
-      for and select the **AmazonECS_FullAccess** policy, and
+      for and select the **AmazonECS\_FullAccess** policy, and
       then choose **Next: Review**.
    4. Review the changes and then choose **Add
       permissions**.

@@ -26,8 +26,8 @@ Select container instances by their Amazon ECS container agent connection
 status. You can use this filter to search for instances with container
 agents that are disconnected.
 
-Valid operators: equals (==), not_equals (!=), in, not_in (!in), matches
-(=~), not_matches (!~)
+Valid operators: equals (==), not\_equals (!=), in, not\_in (!in), matches
+(=~~), not\_matches (!~~)
 
 `agentVersion`
 
@@ -35,8 +35,8 @@ Select container instances by their Amazon ECS container agent version. You can
 use this filter to find instances that are running outdated versions of the
 Amazon ECS container agent.
 
-Valid operators: equals (==), not_equals (!=), greater_than (>),
-greater_than_equal (>=), less_than (<), less_than_equal (<=)
+Valid operators: equals (==), not\_equals (!=), greater\_than (>),
+greater\_than\_equal (>=), less\_than (<), less\_than\_equal (<=)
 
 `attribute:`attribute-name``
 
@@ -46,8 +46,8 @@ Select container instances by attribute. For more information, see [Amazon ECS c
 
 Select container instances by their Amazon EC2 instance ID.
 
-Valid operators: equals (==), not_equals (!=), in, not_in (!in), matches
-(=~), not_matches (!~)
+Valid operators: equals (==), not\_equals (!=), in, not\_in (!in), matches
+(=~~), not\_matches (!~~)
 
 `registeredAt`
 
@@ -55,8 +55,8 @@ Select container instances by their container instance registration date.
 You can use this filter to find newly registered instances or instances that
 are very old.
 
-Valid operators: equals (==), not_equals (!=), greater_than (>),
-greater_than_equal (>=), less_than (<), less_than_equal (<=)
+Valid operators: equals (==), not\_equals (!=), greater\_than (>),
+greater\_than\_equal (>=), less\_than (<), less\_than\_equal (<=)
 
 Valid date formats: 2018-06-18T22:28:28+00:00, 2018-06-18T22:28:28Z,
 2018-06-18T22:28:28, 2018-06-18
@@ -67,8 +67,8 @@ Select container instances by number of running tasks. You can use this
 filter to find instances that are empty or near empty (few tasks running on
 them).
 
-Valid operators: equals (==), not_equals (!=), greater_than (>),
-greater_than_equal (>=), less_than (<), less_than_equal (<=)
+Valid operators: equals (==), not\_equals (!=), greater\_than (>),
+greater\_than\_equal (>=), less\_than (<), less\_than\_equal (<=)
 
 `task:group`
 
@@ -78,20 +78,20 @@ Select container instances by task group. For more information, see [Group relat
 
 The comparison operator. The following operators are supported.
 
-| Operator               | Description                |
-| ---------------------- | -------------------------- |
-| ==, equals             | String equality            |
-| !=, not_equals         | String inequality          |
-| >, greater_than        | Greater than               |
-| >=, greater_than_equal | Greater than or equal to   |
-| <, less_than           | Less than                  |
-| <=, less_than_equal    | Less than or equal to      |
-| exists                 | Subject exists             |
-| !exists, not_exists    | Subject doesn't exist      |
-| in                     | Value in argument list     |
-| !in, not_in            | Value not in argument list |
-| =~, matches            | Pattern match              |
-| !~, not_matches        | Pattern mismatch           |
+| Operator                 | Description                |
+| ------------------------ | -------------------------- |
+| ==, equals               | String equality            |
+| !=, not\_equals          | String inequality          |
+| >, greater\_than         | Greater than               |
+| >=, greater\_than\_equal | Greater than or equal to   |
+| <, less\_than            | Less than                  |
+| <=, less\_than\_equal    | Less than or equal to      |
+| exists                   | Subject exists             |
+| !exists, not\_exists     | Subject doesn't exist      |
+| in                       | Value in argument list     |
+| !in, not\_in             | Value not in argument list |
+| =~, matches              | Pattern match              |
+| !~, not\_matches         | Pattern mismatch           |
 
 ###### Note
 
@@ -109,7 +109,7 @@ argument. You specify an argument list as follows:
 [*argument1*, *argument2*, ..., *argumentN*]
 ```
 
-The matches and not_matches operators expect an argument that conforms to the Java
+The matches and not\_matches operators expect an argument that conforms to the Java
 regular expression syntax. For more information, see [java.util.regex.Pattern](http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html "http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html").
 
 ###### Compound expressions

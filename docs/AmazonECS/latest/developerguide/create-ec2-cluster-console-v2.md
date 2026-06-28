@@ -7,7 +7,7 @@ assign the appropriate IAM permission. For more information, see [Amazon ECS clu
 resources that are needed by an Amazon ECS cluster by creating a CloudFormation stack.
 
 To make the cluster creation process as easy as possible, the console has default
-selections for many choices which we describe below. There are also help panels available
+selections for many choices which we describe in the following sections. There are also help panels available
 for most of the sections in the console which provide further context.
 
 You can register Amazon EC2 instances when you create the cluster or register additional
@@ -169,43 +169,49 @@ Next, configure the Auto Scaling group which acts as the capacity provider:
     	 volume size**, enter the value in GiB.
 
 7. (Optional) To change the VPC and subnets, under **Networking for Amazon EC2
-   instances**, perform any of the following operations:
+instances**, perform any of the following operations:
 
-   - To remove a subnet, under **Subnets**, choose
+    * To remove a subnet, under **Subnets**, choose
      **X** for each subnet that you want to remove.
-   - To change to a VPC other than the **default** VPC, under
+    * To change to a VPC other than the **default** VPC, under
      **VPC**, choose an existing **VPC**,
      and then under **Subnets**, choose the subnets. For an
      IPv6-only configuration, choose a VPC that has an IPv6 CIDR block and
      subnets that have only an IPv6 CIDR block.
-   - Choose the security groups. Under **Security group**,
+    * Choose the security groups. Under **Security group**,
      choose one of the following options:
 
-     - To use an existing security group, choose **Use an
-       existing security group**, and then choose the security
-       group.
-     - To create a security group, choose **Create a new security
-       group**. Then, choose **Add rule** for
-       each inbound rule.
 
-     For information about inbound rules, see [Networking options](#networking-options "#networking-options").
 
-   - To automatically assign public IP addresses to your Amazon EC2 container
+
+    	+ To use an existing security group, choose **Use an
+    	 existing security group**, and then choose the security
+    	 group.
+    	+ To create a security group, choose **Create a new security
+    	 group**. Then, choose **Add rule** for
+    	 each inbound rule.
+
+
+    	For information about inbound rules, see [Networking options](#networking-options "#networking-options").
+    * To automatically assign public IP addresses to your Amazon EC2 container
      instances, for **Auto-assign public IP**, choose one of the
      following options:
 
-     - **Use subnet setting** – Assign a public IP
-       address to the instances when the subnet that the instances launch
-       in are a public subnet.
-     - **Turn on** – Assign a public IP address to
-       the instances.
+
+
+
+    	+ **Use subnet setting** – Assign a public IP
+    	 address to the instances when the subnet that the instances launch
+    	 in are a public subnet.
+    	+ **Turn on** – Assign a public IP address to
+    	 the instances.
 
 8. (Optional) Use Container Insights, expand **Monitoring**, and then choose one
-   of the following options:
+of the following options:
 
-   - To use the recommended Container Insights with enhanced observability, choose
+    * To use the recommended Container Insights with enhanced observability, choose
      **Container Insights with enhanced observability**.
-   - To use Container Insights, choose **Container Insights**.
+    * To use Container Insights, choose **Container Insights**.
 
 9. (Optional) To enable task events, expand **Task events**, and then turn on **Enable task events**.
 
@@ -231,11 +237,10 @@ monitored by GuardDuty, choose **Add tag** and do the following:
     * For **Value**, enter `true`.
 
 12. (Optional) Encrypt the data on managed storage. Under
-    **Encryption**, for **Managed storage**, enter
-    the ARN of the AWS KMS key you want to use to encrypt the managed storage
-    data.
-13. (Optional) To manage the cluster tags, expand **Tags**, and then
-    perform one of the following operations:
+**Encryption**, for **Managed storage**, enter
+the ARN of the AWS KMS key you want to use to encrypt the managed storage
+data. 13. (Optional) To manage the cluster tags, expand **Tags**, and then
+perform one of the following operations:
 
 [Add a tag] Choose **Add tag** and do the following:
 

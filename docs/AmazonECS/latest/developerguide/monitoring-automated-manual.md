@@ -82,17 +82,16 @@ tasks.
 
 - CloudWatch home page:
 
-      + Current alarms and status
-      + Graphs of alarms and resources
-      + Service health status
+  - Current alarms and status
+  - Graphs of alarms and resources
+  - Service health status
+    In addition, you can use CloudWatch to do the following:
 
-  In addition, you can use CloudWatch to do the following:
-
-      + Create [customized
-       dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") to monitor the services you care about.
-      + Graph metric data to troubleshoot issues and discover trends.
-      + Search and browse all your AWS resource metrics.
-      + Create and edit alarms to be notified of problems.
+  - Create [customized
+    dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") to monitor the services you care about.
+  - Graph metric data to troubleshoot issues and discover trends.
+  - Search and browse all your AWS resource metrics.
+  - Create and edit alarms to be notified of problems.
 
 - Container health check - These are commands that run locally on a container
   and validate application health and availability. You configure these per

@@ -18,10 +18,10 @@ maximum values for the previous 24-hour period, with data points available in
 2. Select the cluster that you want to view metrics for.
 3. Determine the metrics to view.
 
-| To view metrics from | Steps                                                                                                                                                                                                             |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Clusters             | On the cluster details page, choose the<br>\*_Metrics_<br>• tab. There is also a<br>link provided to the CloudWatch console to view your CloudWatch<br>Container Insights metrics if you have those turned<br>on. |
-| Services             | On the cluster details page, on the<br>**Services\*<br>• tab, select the<br>service. The metrics are then available on the<br>**Health and metrics\*\*<br>tab.                                                    |
+| To view metrics from | Steps                                                                                                                                                                                                            |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Clusters             | On the cluster details page, choose the<br>*_Metrics_<br>• tab. There is also a<br>link provided to the CloudWatch console to view your CloudWatch<br>Container Insights metrics if you have those turned<br>on. |
+| Services             | On the cluster details page, on the<br>*_Services_<br>• tab, select the<br>service. The metrics are then available on the<br>**Health and metrics**<br>tab.                                                      |
 
 ## CloudWatch console
 

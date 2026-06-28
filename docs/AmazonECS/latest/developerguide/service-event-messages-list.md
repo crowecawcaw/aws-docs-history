@@ -46,8 +46,7 @@ Port already in-use
 
 The task definition of this task uses the same port in its port mapping as a task
 already running on the container instance that was chosen. The service event
-message would have the chosen container instance ID as part of the message
-below.
+message would have the chosen container instance ID as part of the following message.
 
 ```
 The closest matching container-instance is already using a port required by your task.
@@ -300,8 +299,7 @@ Port already in-use
 
 The task definition of this task uses the same port in its port mapping as a task
 already running on the container instance that was chosen. The service event
-message would have the chosen container instance ID as part of the message
-below.
+message would have the chosen container instance ID as part of the following message.
 
 ```
 The closest matching container-instance is already using a port required by your task.

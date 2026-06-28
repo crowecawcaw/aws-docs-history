@@ -38,9 +38,9 @@ uname -m
 
 | Operating systems (architecture)                                                                                                                                                    | ecs-init package                     |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| CentOS 7 (x86_64)<br>CentOS 8 (x86_64)<br>CentOS Stream 9 (x86_64)<br>SUSE Enterprise Server 15 (x86_64)<br>RHEL 7 (x86_64)<br>RHEL 8 (x86_64)                                      | `amazon-ecs-init-latest.x86_64.rpm`  |
+| CentOS 7 (x86\_64)<br>CentOS 8 (x86\_64)<br>CentOS Stream 9 (x86\_64)<br>SUSE Enterprise Server 15 (x86\_64)<br>RHEL 7 (x86\_64)<br>RHEL 8 (x86\_64)                                | `amazon-ecs-init-latest.x86_64.rpm`  |
 | CentOS 7 (aarch64)<br>CentOS 8 (aarch64)<br>CentOS Stream 9 (aarch64)<br>RHEL 7 (aarch64)                                                                                           | `amazon-ecs-init-latest.aarch64.rpm` |
-| Debian 9 (x86_64)<br>Debian 10 (x86_64)<br>Debian 11 (x86_64)<br>Debian 12 (x86_64)<br>Ubuntu 18 (x86_64)<br>Ubuntu 20 (x86_64)<br>Ubuntu 22 (x86_64)<br>Ubuntu 24 (x86_64)         | `amazon-ecs-init-latest.amd64.deb`   |
+| Debian 9 (x86\_64)<br>Debian 10 (x86\_64)<br>Debian 11 (x86\_64)<br>Debian 12 (x86\_64)<br>Ubuntu 18 (x86\_64)<br>Ubuntu 20 (x86\_64)<br>Ubuntu 22 (x86\_64)<br>Ubuntu 24 (x86\_64) | `amazon-ecs-init-latest.amd64.deb`   |
 | Debian 9 (aarch64)<br>Debian 10 (aarch64)<br>Debian 11 (aarch64)<br>Debian 12 (aarch64)<br>Ubuntu 18 (aarch64)<br>Ubuntu 20 (aarch64)<br>Ubuntu 22 (aarch64)<br>Ubuntu 24 (aarch64) | `amazon-ecs-init-latest.arm64.deb`   |
 
 Follow these steps to update the Amazon ECS agent.
@@ -60,7 +60,7 @@ Follow these steps to update the Amazon ECS agent.
    Region name (for example, `us-west-2`) that you're geographically
    closest to.
 
-**amazon-ecs-init-latest.x86_64.rpm**
+**amazon-ecs-init-latest.x86\_64.rpm**
 
 ```
 `curl -o amazon-ecs-init.rpm https://s3.`<region>`.amazonaws.com/amazon-ecs-agent-`<region>`/amazon-ecs-init-latest.x86_64.rpm`
@@ -104,7 +104,7 @@ Follow these steps to update the Amazon ECS agent.
       with the Region name (for example, `us-west-2`) that you're
       geographically closest to.
 
-   **amazon-ecs-init-latest.x86_64.rpm**
+   **amazon-ecs-init-latest.x86\_64.rpm**
 
    ```
    `curl -o amazon-ecs-init.rpm.asc https://s3.`<region>`.amazonaws.com/amazon-ecs-agent-`<region>`/amazon-ecs-init-latest.x86_64.rpm.asc`

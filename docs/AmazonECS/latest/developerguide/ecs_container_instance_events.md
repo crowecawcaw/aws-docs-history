@@ -69,7 +69,7 @@ changes and generates an event.
 ###### Example Container instance state change event
 
 Container instance state change events are delivered in the following format.
-The `detail` section below resembles the [ContainerInstance](../APIReference/API_ContainerInstance.md "../APIReference/API_ContainerInstance.md")
+The `detail` section resembles the [ContainerInstance](../APIReference/API_ContainerInstance.md "../APIReference/API_ContainerInstance.md")
 object that is returned from a [DescribeContainerInstances](../APIReference/API_DescribeContainerInstances.md "../APIReference/API_DescribeContainerInstances.md") API operation in the
 _Amazon Elastic Container Service API Reference_. For more information about EventBridge
 parameters, see [AWS service event metadata](../../../eventbridge/latest/userguide/eb-events-structure.md "../../../eventbridge/latest/userguide/eb-events-structure.md") in the

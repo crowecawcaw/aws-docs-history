@@ -171,11 +171,8 @@ Configure the appropriate resources.
     * Application Load Balancer - For more information, see [Application Load Balancer resources for blue/green, linear, and canary deployments](alb-resources-for-blue-green.md "alb-resources-for-blue-green.md").
     * Network Load Balancer - For more information, see [Network Load Balancer resources for Amazon ECS blue/green, linear and canary deployments](nlb-resources-for-blue-green.md "nlb-resources-for-blue-green.md").
 
-3. Create a new service with `ECS` as deployment controller and `BLUE_GREEN` as deployment strategy, pointing to the new load balancer resources.
-4. Verify the new setup by testing it through the new load balancer.
-5. Update the reverse proxy configuration to route traffic to the new load balancer.
-6. Observe the new service revision, and if everything continues to work as
-   expected, delete the CodeDeploy setup.
+3. Create a new service with `ECS` as deployment controller and `BLUE_GREEN` as deployment strategy, pointing to the new load balancer resources. 4. Verify the new setup by testing it through the new load balancer. 5. Update the reverse proxy configuration to route traffic to the new load balancer. 6. Observe the new service revision, and if everything continues to work as
+expected, delete the CodeDeploy setup.
 
 ## Next steps
 

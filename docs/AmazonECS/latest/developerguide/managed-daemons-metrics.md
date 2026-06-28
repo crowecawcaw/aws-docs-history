@@ -66,7 +66,7 @@ You can view daemon metrics by using the AWS Management Console or the AWS CLI.
 ### AWS Management Console
 
 1. Open the CloudWatch console.
-2. In the left navigation, choose **Metrics**, then choose
+2. In the navigation pane, choose **Metrics**, then choose
    **All metrics**.
 3. Choose the **AWS/ECS** namespace.
 4. Choose the **ClusterName, ServiceName**

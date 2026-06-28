@@ -56,7 +56,7 @@ Service discovery consists of the following components:
   logical group of service discovery services that share the same domain name,
   such as `example.com`, which is where you want to route traffic. You
   can create a namespace with a call to the `aws servicediscovery
-create-private-dns-namespace` command or in the Amazon ECS console. You can
+ create-private-dns-namespace` command or in the Amazon ECS console. You can
   use the `aws servicediscovery list-namespaces` command to view the
   summary information about the namespaces that were created by the current
   account. For more information about the service discovery commands, see

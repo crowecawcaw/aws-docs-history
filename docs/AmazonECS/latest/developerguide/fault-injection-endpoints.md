@@ -55,7 +55,7 @@ with two modes:
 - **host** ‐ the changes are applied to the default
   network namespace container instance
 
-### {ECS_AGENT_URI}/fault/v1/network-blackhole-port/start
+### {ECS\_AGENT\_URI}/fault/v1/network-blackhole-port/start
 
 This endpoint starts the network blackhole port fault injections and has the following
 parameters:
@@ -113,7 +113,7 @@ Request payload:
 }
 ```
 
-### {ECS_AGENT_URI}/fault/v1/network-blackhole-port/stop
+### {ECS\_AGENT\_URI}/fault/v1/network-blackhole-port/stop
 
 This endpoint stops the fault specified in the request. This endpoint has the following
 parameters:
@@ -162,7 +162,7 @@ Request payload:
 }
 ```
 
-### {ECS_AGENT_URI}/fault/v1/network-blackhole-port/status
+### {ECS\_AGENT\_URI}/fault/v1/network-blackhole-port/status
 
 This endpoint is used to check the status of the fault injection. This endpoint has the
 following parameters:
@@ -222,7 +222,7 @@ modes:
 - **host** ‐ the changes are applied to the default
   network interface
 
-### {ECS_AGENT_URI}/fault/v1/network-latency/start
+### {ECS\_AGENT\_URI}/fault/v1/network-latency/start
 
 This `/start` endpoint begins the network latency fault injection and has the
 following parameters:
@@ -280,7 +280,7 @@ Request payload:
 }
 ```
 
-### {ECS_AGENT_URI}/fault/v1/network-latency/stop and /status
+### {ECS\_AGENT\_URI}/fault/v1/network-latency/stop and /status
 
 The `{ECS_AGENT_URI}/fault/v1/network-latency/stop` endpoint stops the fault, and
 the `{ECS_AGENT_URI}/fault/v1/network-latency/status` checks the fault's
@@ -307,7 +307,7 @@ given network interface. This endpoint is compatible with two modes:
 - **host** ‐ the changes are applied to the default
   network interface
 
-### {ECS_AGENT_URI}/fault/v1/network-packet-loss/start
+### {ECS\_AGENT\_URI}/fault/v1/network-packet-loss/start
 
 This `/start` endpoint begins the network packet loss fault injection and has the
 following parameters:
@@ -353,7 +353,7 @@ Http method: POST
 }
 ```
 
-### {ECS_AGENT_URI}/fault/v1/network-packet-loss/stop and /status
+### {ECS\_AGENT\_URI}/fault/v1/network-packet-loss/stop and /status
 
 The `{ECS_AGENT_URI}/fault/v1/network-packet-loss/stop` endpoint stops the fault,
 and the `{ECS_AGENT_URI}/fault/v1/network-packet-loss/status` checks the fault's

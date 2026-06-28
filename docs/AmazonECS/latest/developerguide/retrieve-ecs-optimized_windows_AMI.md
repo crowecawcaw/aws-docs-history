@@ -98,7 +98,7 @@ value.
 }
 ```
 
-Each of the fields in the output above are available to be queried as
+Each of the fields in the preceding output are available to be queried as
 sub-parameters. Construct the parameter path for a sub-parameter by appending the
 sub-parameter name to the path for the selected AMI. The following sub-parameters
 are available:

@@ -229,7 +229,7 @@ _Error message_: `The CODE_DEPLOY deployment controller type
  is not supported for services using the DAEMON scheduling strategy.`
 
 _Solution_: This error occurs when attempting to use the
-CODE_DEPLOY deployment controller with a service that uses the `DAEMON`
+CODE\_DEPLOY deployment controller with a service that uses the `DAEMON`
 scheduling strategy. The `CODE_DEPLOY` controller is only compatible with the
 `REPLICA` scheduling strategy.
 

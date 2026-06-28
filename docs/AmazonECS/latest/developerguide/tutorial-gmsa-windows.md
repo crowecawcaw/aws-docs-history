@@ -30,7 +30,7 @@ instance.
 This tutorial assumes that the following prerequisites have been completed:
 
 - The steps in [Set up to use Amazon ECS](get-set-up-for-amazon-ecs.md "get-set-up-for-amazon-ecs.md") have been completed.
-- Your IAM user has the required permissions specified in the [AmazonECS_FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess") IAM policy
+- Your IAM user has the required permissions specified in the [AmazonECS\_FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess") IAM policy
   example.
 - The latest version of the AWS CLI is installed and configured. For more information
   about installing or upgrading your AWS CLI, see [Installing the
@@ -141,7 +141,7 @@ use `contoso`).
     ```
     4. Create a user with a permanent password that doesn't expire. These credentials are
      stored in AWS Secrets Manager and used by each task to join the domain. This is a separate user account
-     from the gMSA account created above. Replace `ExampleServiceUser` with the name
+     from the gMSA account created previously. Replace `ExampleServiceUser` with the name
      you want for this service user account.
 
 
@@ -170,8 +170,8 @@ use `contoso`).
     ```
 
 3. Copy the JSON output from the previous command into a file called
-   `gmsa-cred-spec.json`. This is the CredSpec file. It is used in
-   Step 3, [Step 3: Modify your CredSpec JSON to include domainless gMSA information](#tutorial-gmsa-windows-step3 "#tutorial-gmsa-windows-step3").
+`gmsa-cred-spec.json`. This is the CredSpec file. It is used in
+Step 3, [Step 3: Modify your CredSpec JSON to include domainless gMSA information](#tutorial-gmsa-windows-step3 "#tutorial-gmsa-windows-step3").
 
 ## Step 2: Upload Credentials to Secrets Manager
 

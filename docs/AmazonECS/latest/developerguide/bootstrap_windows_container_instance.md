@@ -16,7 +16,7 @@ You can pass this user data when using the Amazon EC2 launch wizard. For more in
 ## Default Windows user data
 
 This example user data script shows the default user data that your Windows container
-instances receive if you use the console. The script below does the following:
+instances receive if you use the console. The following script does the following:
 
 - Sets the cluster name to the name you entered.
 - Sets the IAM roles for tasks.
@@ -66,7 +66,7 @@ Initialize-ECSAgent -Cluster `cluster-name` -EnableTaskIAMRole -LoggingDrivers '
 ## Windows agent installation user data
 
 This example user data script installs the Amazon ECS container agent on an instance
-launched with a **Windows_Server-2016-English-Full-Containers** AMI. It
+launched with a **Windows\_Server-2016-English-Full-Containers** AMI. It
 has been adapted from the agent installation instructions on the [Amazon ECS Container Agent GitHub
 repository](https://github.com/aws/amazon-ecs-agent "https://github.com/aws/amazon-ecs-agent") README page.
 
@@ -81,7 +81,7 @@ see [Issue
 
 You can use this script for your own container instances (provided that they are
 launched with a version of the
-**Windows_Server-2016-English-Full-Containers** AMI). Be sure to
+**Windows\_Server-2016-English-Full-Containers** AMI). Be sure to
 replace the `windows` line to specify your own
 cluster name (if you are not using a cluster called `windows`).
 

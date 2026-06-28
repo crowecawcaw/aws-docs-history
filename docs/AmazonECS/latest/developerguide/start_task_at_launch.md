@@ -31,7 +31,7 @@ For more information, see [Launching an Amazon ECS Linux container instance](lau
 
 ###### Note
 
-The MIME multi-part content below uses a shell script to set configuration
+The following MIME multi-part content uses a shell script to set configuration
 values and install packages. It also uses a systemd job to start the task after
 the **ecs** service is running and the introspection API is
 available.

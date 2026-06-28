@@ -10,7 +10,7 @@ or dynamic.
 
 ![Diagram showing architecture of a network using bridge network mode with static port mapping.](images/networkmode-bridge.png)
 With a static port mapping, you can explicitly define which host port you want to map
-to a container port. Using the example above, port `80` on the host is being
+to a container port. Using the preceding example, port `80` on the host is being
 mapped to port `3000` on the container. To communicate to the containerized
 application, you send traffic to port `80` to the Amazon EC2 instance's IP
 address. From the containerized application’s perspective it sees that inbound traffic

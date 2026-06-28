@@ -378,7 +378,7 @@ Update and add the following:
 
 - Change the `DeploymentController` property from
   `EXTERNAL` to `ECS`.
-- Add the `Strategy` property and set it to BLUE_GREEN.
+- Add the `Strategy` property and set it to BLUE\_GREEN.
 - Add the `BakeTimeInMinutes` property.
 
 ```

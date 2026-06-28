@@ -18,7 +18,7 @@ Amazon ECS sends daemon service action events with the detail type `ECS Daemon
  Service Action`. These events notify you when Amazon ECS encounters issues
 starting daemon tasks on your container instances.
 
-### DAEMON_TASK_START_IMPAIRED
+### DAEMON\_TASK\_START\_IMPAIRED
 
 Amazon ECS sends the `DAEMON_TASK_START_IMPAIRED` event when it is unable
 to successfully start a daemon task on a container instance. The event includes a
@@ -33,7 +33,7 @@ to successfully start a daemon task on a container instance. The event includes 
   other resources on the instance. The `taskArn` field is not
   present in the event because no task was created.
 
-### Example: TASK_FAILED_TO_RUN event
+### Example: TASK\_FAILED\_TO\_RUN event
 
 The following event shows a daemon task that was created but failed to reach
 `RUNNING` status due to a container image pull failure.
@@ -67,7 +67,7 @@ The following event shows a daemon task that was created but failed to reach
 }
 ```
 
-### Example: TASK_CREATION_FAILED event
+### Example: TASK\_CREATION\_FAILED event
 
 The following event shows a daemon task that could not be created on the container
 instance due to insufficient CPU resources. The `taskArn` field is not

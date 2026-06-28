@@ -153,7 +153,7 @@ instruction starts the web server. 3. Build the Docker image from your Dockerfil
 ###### Note
 
 Some versions of Docker may require the full path to your Dockerfile in
-the following command, instead of the relative path shown below.
+the following command, instead of the relative path shown in the following example.
 
 If you run the command an ARM based system, such as [Apple Silicon](https://support.apple.com/en-gb/116943 "https://support.apple.com/en-gb/116943"), use
 the --platform option "--platform linux/amd64".

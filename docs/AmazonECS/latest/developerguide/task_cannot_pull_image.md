@@ -135,7 +135,7 @@ the container is using the default `json-file` log driver without a
 `max-size` limit, it may be that the log file is responsible for
 most of that space used. You can use the `docker ps` command to
 verify which container is using the space by mapping the directory name from the
-output above to the container ID. For example:
+output to the container ID. For example:
 
 ```
 CONTAINER ID   IMAGE                            COMMAND             CREATED             STATUS              PORTS                            NAMES

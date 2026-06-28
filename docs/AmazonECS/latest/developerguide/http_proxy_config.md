@@ -96,7 +96,7 @@ gateway, or instance.
 Set this value to `169.254.169.254,169.254.170.2` to filter EC2
 instance metadata from the proxy.
 
-Setting these environment variables in the above files only affects the Amazon ECS container
+Setting these environment variables in the preceding files only affects the Amazon ECS container
 agent, `ecs-init`, and the Docker daemon. They do not configure any other
 services (such as **yum**) to use the proxy.
 

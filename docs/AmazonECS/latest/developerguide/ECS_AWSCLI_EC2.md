@@ -32,7 +32,7 @@ This tutorial assumes that the following prerequisites have been completed:
 - The latest version of the AWS CLI is installed and configured. For more
   information about installing or upgrading your AWS CLI, see [Installing or updating to the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 - The steps in [Set up to use Amazon ECS](get-set-up-for-amazon-ecs.md "get-set-up-for-amazon-ecs.md") have been completed.
-- Your IAM user has the required permissions specified in the [AmazonECS_FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess") IAM policy
+- Your IAM user has the required permissions specified in the [AmazonECS\_FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess") IAM policy
   example.
 - You have a container instance IAM role created to use. For more informaton, see [Amazon ECS container instance IAM role](instance_IAM_role.md "instance_IAM_role.md").
 - You have a VPC created to use. For more information, see
@@ -361,7 +361,7 @@ the available task definition parameters, see [Amazon ECS task definitions](task
 }
 ```
 
-The above example JSON can be passed to the AWS CLI in two ways: You can save the task
+The preceding example JSON can be passed to the AWS CLI in two ways: You can save the task
 definition JSON as a file and pass it with the ``--cli-input-json`
  file://`path_to_file.json`` option. Or, you
 can escape the quotation marks in the JSON and pass the JSON container definitions on

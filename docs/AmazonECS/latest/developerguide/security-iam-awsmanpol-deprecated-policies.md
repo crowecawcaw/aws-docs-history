@@ -16,7 +16,7 @@ phased out, you can't attach the policy to any new users or roles. Any users or
 roles that already have the policy attached can continue using it. However, we
 recommend that you update your users or roles to use the
 `AmazonECS_FullAccess` managed policy instead. For more
-information, see [Migrating to the AmazonECS_FullAccess managed policy](security-iam-awsmanpol-amazonecs-full-access-migration.md "security-iam-awsmanpol-amazonecs-full-access-migration.md").
+information, see [Migrating to the AmazonECS\_FullAccess managed policy](security-iam-awsmanpol-amazonecs-full-access-migration.md "security-iam-awsmanpol-amazonecs-full-access-migration.md").
 
 ## AmazonEC2ContainerServiceRole
 

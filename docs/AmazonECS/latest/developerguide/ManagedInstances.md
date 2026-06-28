@@ -55,7 +55,7 @@ following list:
 
 - Amazon ECS Managed Instances
 - Auto Scaling group
-- Fargate/Fargate_SPOT
+- Fargate/Fargate\_SPOT
 
 ## Instance selection and optimization
 
@@ -112,9 +112,9 @@ The following operating systems are supported:
 - Bottlerocket
 
 There are 2 architectures available for the Amazon ECS task definition, ARM and
-X86_64.
+X86\_64.
 
-When you run Linux containers on Amazon ECS Managed Instances, you can use the X86_64 CPU
+When you run Linux containers on Amazon ECS Managed Instances, you can use the X86\_64 CPU
 architecture, or the ARM64 architecture for your ARM-based applications.
 
 ## Key features
@@ -131,8 +131,8 @@ The following are key features of Amazon ECS Managed Instances:
   initiates instance draining after 14 days and automatically replaces service-based
   tasks to new instances.
 - Enable advanced networking and system administration functions within
-  containers using privileged Linux capabilities, including CAP_NET_ADMIN,
-  CAP_SYS_ADMIN, CAP_BPF, and CAP_PERFMON.
+  containers using privileged Linux capabilities, including CAP\_NET\_ADMIN,
+  CAP\_SYS\_ADMIN, CAP\_BPF, and CAP\_PERFMON.
 
 ## IAM roles
 

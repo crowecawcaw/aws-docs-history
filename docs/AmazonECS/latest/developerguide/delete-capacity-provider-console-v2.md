@@ -23,5 +23,5 @@ providers.
    **Infrastructure**, the Auto Scaling group, and then choose
    **Delete**.
 5. In the confirmation box, enter **delete `Auto Scaling group
-name`**
+ name`**
 6. Choose **Delete**.

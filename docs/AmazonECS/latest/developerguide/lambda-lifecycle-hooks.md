@@ -45,7 +45,7 @@ lifecycle hook function. There are two ways to populate `hookDetails`:
   definition. Amazon ECS passes this data to your function on every invocation. Use this to
   make your hooks reusable across multiple services by passing in service-specific
   configuration.
-- **At runtime via IN_PROGRESS responses** - Return
+- **At runtime via IN\_PROGRESS responses** - Return
   `hookDetails` alongside the `IN_PROGRESS` hook status. Amazon ECS
   passes this data back to your function on the next invocation. Use this to maintain
   state between invocations without external storage.
@@ -202,7 +202,7 @@ the green service revision (`9313423515462893900`) is the new revision being
 deployed, and the blue service revision (`1920498462936580504`) is the existing
 production revision.
 
-#### PRE_SCALE_UP
+#### PRE\_SCALE\_UP
 
 This stage occurs before Amazon ECS launches the green service revision tasks. The green
 service revision has not started, and no traffic is being routed to it.
@@ -223,7 +223,7 @@ service revision has not started, and no traffic is being routed to it.
 
 ```
 
-#### POST_SCALE_UP
+#### POST\_SCALE\_UP
 
 This stage occurs after Amazon ECS has launched the green service revision tasks and they
 are healthy. The green tasks are running but not yet receiving any traffic.
@@ -244,7 +244,7 @@ are healthy. The green tasks are running but not yet receiving any traffic.
 
 ```
 
-#### TEST_TRAFFIC_SHIFT
+#### TEST\_TRAFFIC\_SHIFT
 
 This stage occurs when Amazon ECS shifts test traffic to the green service revision. The
 `testTrafficWeights` show the green revision receiving 100% of test traffic
@@ -270,7 +270,7 @@ revision.
 
 ```
 
-#### POST_TEST_TRAFFIC_SHIFT
+#### POST\_TEST\_TRAFFIC\_SHIFT
 
 This stage occurs after Amazon ECS has completed the test traffic shift. The green service
 revision is handling 100% of test traffic.
@@ -291,7 +291,7 @@ revision is handling 100% of test traffic.
 
 ```
 
-#### PRE_PRODUCTION_TRAFFIC_SHIFT
+#### PRE\_PRODUCTION\_TRAFFIC\_SHIFT
 
 This stage occurs before Amazon ECS shifts production traffic to the green service
 revision. For linear and canary deployments, this stage is invoked before each traffic
@@ -316,7 +316,7 @@ shift step.
 
 ```
 
-#### PRODUCTION_TRAFFIC_SHIFT
+#### PRODUCTION\_TRAFFIC\_SHIFT
 
 This stage occurs when Amazon ECS shifts production traffic to the green service revision.
 The `productionTrafficWeights` show the green revision receiving 100% of
@@ -341,7 +341,7 @@ production traffic while the blue revision receives 0%.
 
 ```
 
-#### POST_PRODUCTION_TRAFFIC_SHIFT
+#### POST\_PRODUCTION\_TRAFFIC\_SHIFT
 
 This stage occurs after Amazon ECS has completed the production traffic shift. The green
 service revision is now handling all production traffic.

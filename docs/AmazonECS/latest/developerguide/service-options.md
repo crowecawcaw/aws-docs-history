@@ -51,7 +51,7 @@ There are now two existing tasks and four new ones. 6. The scheduler starts two 
 There are now two existing tasks and six new tasks 7. The scheduler shuts down the last two existing tasks.
 
 There are now six new tasks.
-In the above example, if you use the default values for the options, there is a 2.5
+In the preceding example, if you use the default values for the options, there is a 2.5
 minute wait for each new task that starts. Additionally, the load balancer might have to
 wait 5 minutes for the old task to stop.
 

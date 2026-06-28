@@ -10,7 +10,7 @@ CloudFormation console to create Amazon ECS resources using a template.
 This tutorial assumes that the following prerequisites have ben completed.
 
 - The steps in [Set up to use Amazon ECS](get-set-up-for-amazon-ecs.md "get-set-up-for-amazon-ecs.md") have been completed.
-- Your IAM user has the required permissions specified in the [AmazonECS_FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess") IAM
+- Your IAM user has the required permissions specified in the [AmazonECS\_FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess") IAM
   policy example.
 
 ## Step 1: Create a stack template
@@ -558,14 +558,14 @@ For information about how to create a stack using the CloudFormation console, se
 a stack on the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in the _AWS CloudFormation User Guide_ and use the following table to determine what
 options to specify.
 
-| Option                             | Value                                                                                                                                 |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| Prerequisite<br>• Prepare template | Choose an existing template                                                                                                           |
-| Specify template                   | Upload a template file                                                                                                                |
-| Choose file                        | ecs-tutorial-template.yaml                                                                                                            |
-| Stack name                         | ecs-tutorial-stack                                                                                                                    |
-| Parameters                         | Leave all parameter values as defaults.                                                                                               |
-| Capabilities                       | Choose \*_I acknowledge that this template may create<br>IAM resources_<br>• to acknowledge CloudFormation creating<br>IAM resources. |
+| Option                             | Value                                                                                                                                |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Prerequisite<br>• Prepare template | Choose an existing template                                                                                                          |
+| Specify template                   | Upload a template file                                                                                                               |
+| Choose file                        | ecs-tutorial-template.yaml                                                                                                           |
+| Stack name                         | ecs-tutorial-stack                                                                                                                   |
+| Parameters                         | Leave all parameter values as defaults.                                                                                              |
+| Capabilities                       | Choose *_I acknowledge that this template may create<br>IAM resources_<br>• to acknowledge CloudFormation creating<br>IAM resources. |
 
 ## Step 3: Verify
 

@@ -8,13 +8,13 @@ The Amazon ECS MCP server is in preview release and is subject to change.
 
 ## Environment variables
 
-**AWS_PROFILE** (optional)
+**AWS\_PROFILE** (optional)
 
 AWS credentials profile name to use; can be overridden by the `--profile` command-line argument.
 
 Example: `export AWS_PROFILE=dev`
 
-**AWS_REGION** (optional)
+**AWS\_REGION** (optional)
 
 AWS region for SigV4 signing; defaults to `us-west-2` if not set.
 
@@ -60,7 +60,7 @@ The Amazon ECS MCP server exposes the following [MCP tools](https://modelcontext
 
 ### Read only tools
 
-**get_deployment_status**
+**get\_deployment\_status**
 
 The tool checks your Amazon ECS deployment status for a particular Amazon ECS cluster and service.
 
@@ -77,7 +77,7 @@ The tool checks your Amazon ECS deployment status for a particular Amazon ECS cl
 
 - Response: The tool returns deployment status and details associated with the deployment.
 
-**fetch_service_events**
+**fetch\_service\_events**
 
 This tool retrieves Amazon ECS service events for diagnostics with customizable time windows.
 
@@ -98,7 +98,7 @@ This tool retrieves Amazon ECS service events for diagnostics with customizable 
 
 - Response: The tool returns list of events for the service with summary.
 
-**fetch_task_failures**
+**fetch\_task\_failures**
 
 This tool helps you retrieve and analyze Amazon ECS task failures with summaries. Using this tool, you can identify any patterns in task failures.
 
@@ -120,7 +120,7 @@ This tool helps you retrieve and analyze Amazon ECS task failures with summaries
 
 - Response: The tool returns TaskFailureResult with failed tasks and summary
 
-**fetch_task_logs**
+**fetch\_task\_logs**
 
 This tool retrieves CloudWatch logs for Amazon ECS tasks with flexible time range options. You use this tool to troubleshoot runtime issues.
 
@@ -144,7 +144,7 @@ This tool retrieves CloudWatch logs for Amazon ECS tasks with flexible time rang
 
 - Response: The tool returns TaskLogsResult with log entries
 
-**get_task_definition_deletion_blockers**
+**get\_task\_definition\_deletion\_blockers**
 
 This tool identifies dependencies that can prevent task definition deletion. The tool is appropriate when you are running cleanup operations and understand what is preventing Amazon ECS resource deletion.
 
@@ -162,7 +162,7 @@ This tool identifies dependencies that can prevent task definition deletion. The
 
 - Response: The tool returns the blockers and deletion status
 
-**detect_image_pull_failures**
+**detect\_image\_pull\_failures**
 
 This tool helps you to detect and categorize container image pull failures.
 
@@ -184,7 +184,7 @@ This tool helps you to detect and categorize container image pull failures.
 
 - Response: The tool returns the failures and summary
 
-**fetch_network_configuration**
+**fetch\_network\_configuration**
 
 This tool retrieves Amazon ECS service network configuration details. You can use this tool to understand the Amazon VPC, subnet, security group configuration of your Amazon ECS setup.
 
@@ -201,7 +201,7 @@ This tool retrieves Amazon ECS service network configuration details. You can us
 
 - Response: The tool returns a list of NetworkConfigurationResult with network details
 
-**get_security_recommendations**
+**get\_security\_recommendations**
 
 This tool collects Amazon ECS cluster security configuration data for AI-powered security analysis. It gathers IAM roles and policies, network settings (security groups, subnets, public IP), task definition container settings, and cluster-level configuration. Your AI assistant compares this data against AWS security best practices and generates a prioritized findings report with remediation steps.
 
@@ -235,7 +235,7 @@ This tool collects Amazon ECS cluster security configuration data for AI-powered
 
 These tools provide access to up-to-date AWS documentation. They are powered by the AWS Knowledge MCP Server and do not require any IAM permissions from the caller — the Amazon ECS MCP service connects to the knowledge endpoint on your behalf.
 
-**aws_knowledge_aws\_\_\_search_documentation**
+**aws\_knowledge\_aws\_\_\_search\_documentation**
 
 This tool searches AWS documentation for relevant pages matching a query.
 
@@ -251,7 +251,7 @@ This tool searches AWS documentation for relevant pages matching a query.
 
 - Response: The tool returns matching documentation pages with titles, URLs, and context snippets.
 
-**aws_knowledge_aws\_\_\_read_documentation**
+**aws\_knowledge\_aws\_\_\_read\_documentation**
 
 This tool reads the content of AWS documentation pages and returns them in markdown format.
 
@@ -266,7 +266,7 @@ This tool reads the content of AWS documentation pages and returns them in markd
 
 - Response: The tool returns the documentation page content in markdown format. Long pages are returned in chunks with navigation support.
 
-**aws_knowledge_aws\_\_\_recommend**
+**aws\_knowledge\_aws\_\_\_recommend**
 
 This tool returns related documentation pages for a given AWS documentation URL.
 

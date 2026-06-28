@@ -68,34 +68,37 @@ operations:
      and then under **Subnets**, select each subnet.
 
 7. To add Amazon EC2 instances to your cluster, expand
-   **Infrastructure**, and then select **Amazon EC2
-   instances**. Next, configure the Auto Scaling group which acts as the capacity
-   provider:
+**Infrastructure**, and then select **Amazon EC2
+instances**. Next, configure the Auto Scaling group which acts as the capacity
+provider:
 
-   1. To using an existing Auto Scaling group, from **Auto Scaling group
-      (ASG)**, select the group.
-   2. To create a Auto Scaling group, from **Auto Scaling group
-      (ASG)**, select **Create new group**, and then
-      provide the following details about the group:
+    1. To using an existing Auto Scaling group, from **Auto Scaling group
+     (ASG)**, select the group.
+    2. To create a Auto Scaling group, from **Auto Scaling group
+     (ASG)**, select **Create new group**, and then
+     provide the following details about the group:
 
-      - For **Operating system/Architecture**, choose the
-        Amazon ECS-optimized AMI for the Auto Scaling group instances.
-      - For **EC2 instance type**, choose the instance
-        type for your workloads. For more information about
-        the different instance types, see [Amazon EC2 Instances](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
 
-      Managed scaling works best if your Auto Scaling group uses the same or
-      similar instance types.
-      - For **SSH key pair**, choose the pair that proves
-        your identity when you connect to the instance.
-      - For **Capacity**, enter the minimum number and
-        the maximum number of instances to launch in the Auto Scaling group. Amazon EC2 instances incur costs while they exist
-        in your AWS resources. For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/").
+
+
+    	* For **Operating system/Architecture**, choose the
+    	 Amazon ECS-optimized AMI for the Auto Scaling group instances.
+    	* For **EC2 instance type**, choose the instance
+    	 type for your workloads. For more information about
+    	 the different instance types, see [Amazon EC2 Instances](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
+
+
+    	 Managed scaling works best if your Auto Scaling group uses the same or
+    	 similar instance types.
+    	* For **SSH key pair**, choose the pair that proves
+    	 your identity when you connect to the instance.
+    	* For **Capacity**, enter the minimum number and
+    	 the maximum number of instances to launch in the Auto Scaling group. Amazon EC2 instances incur costs while they exist
+    	 in your AWS resources. For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/").
 
 8. (Optional) To turn on Container Insights, expand **Monitoring**, and then
-   turn on **Use Container Insights**.
-9. (Optional) To manage the cluster tags, expand **Tags**, and
-   then perform one of the following operations:
+turn on **Use Container Insights**. 9. (Optional) To manage the cluster tags, expand **Tags**, and
+then perform one of the following operations:
 
 [Add a tag] Choose **Add tag** and do the
 following:

@@ -71,15 +71,15 @@ When you enable task events, Amazon ECS sends task state change events to EventB
 
 9. (Optional), Under **Encryption**, you can configure the following:
 
-   - Encrypt your data on Fargate ephemeral storage. Under **Encryption**, for
+    * Encrypt your data on Fargate ephemeral storage. Under **Encryption**, for
      **Fargate ephemeral storage**, enter the ARN of the AWS KMS key you
      want to use to encrypt the Fargate ephemeral storage data.
-   - Encrypt the data on managed storage. Under **Encryption**, for **Managed
+    * Encrypt the data on managed storage. Under **Encryption**, for **Managed
      storage**, enter the ARN of the AWS KMS key you want to use to encrypt
      the managed storage data.
 
 10. (Optional) To help identify your cluster, expand **Tags**, and
-    then configure your tags.
+then configure your tags.
 
 [Add a tag] Choose **Add tag** and do the following:
 

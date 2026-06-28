@@ -66,7 +66,7 @@ daemon documentation](https://docs.docker.com/reference/cli/dockerd/ "https://do
 
 AWS doesn't support custom Docker configurations, because they can sometimes conflict with future Amazon ECS changes or features without warning.
 
-In the example below, the custom options are added to the Docker daemon configuration
+In the following example, the custom options are added to the Docker daemon configuration
 file, `/etc/docker/daemon.json` which is then specified in the user
 data when the instance is launched.
 
@@ -78,9 +78,9 @@ EOF
 systemctl restart docker --no-block
 ```
 
-In the example below, the custom options are added to the Docker daemon configuration
+In the following example, the custom options are added to the Docker daemon configuration
 file, `/etc/docker/daemon.json` which is then specified in the user
-data when the instance is launched. This example shows how to disable the docker-proxy
+data when the instance is launched. This example shows how to disable the Docker-proxy
 in the Docker daemon config file.
 
 ```

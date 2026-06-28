@@ -24,9 +24,9 @@ Before migrating your service from rolling to blue/green deployments, ensure you
     `advancedConfiguration` and start a rolling deployment.
   - If your service uses Service Connect, update your service and start a rolling
     deployment.
-  - If your service uses both Elastic Load Balancing and Service Connect, perform both steps above
+  - If your service uses both Elastic Load Balancing and Service Connect, perform both preceding steps
     (you can use a single UpdateService request).
-  - If your service uses none of the above, then no additional operation is
+  - If your service uses none of these, then no additional operation is
     needed.
 
 - Amazon ECS blue/green deployments require that your service uses one of the
@@ -94,21 +94,21 @@ following: 7. For **Deployment strategy**, choose
 
 9. Configure the load balancer settings:
 
-   1. Under **Load balancing**, verify that your service is
-      configured to use a load balancer.
-   2. For **Target group**, choose the primary target group
-      for your production (blue) environment.
-   3. For **Alternate target group**, choose the target
-      group for your test (green) environment.
-   4. For **Production listener rule**, choose the listener
-      rule for routing production traffic.
-   5. Optional: For **Test listener rule**, choose a
-      listener rule for routing test traffic to your green environment.
-   6. For **Role**, choose the IAM role that allows Amazon ECS
-      to manage your load balancer.
+    1. Under **Load balancing**, verify that your service is
+     configured to use a load balancer.
+    2. For **Target group**, choose the primary target group
+     for your production (blue) environment.
+    3. For **Alternate target group**, choose the target
+     group for your test (green) environment.
+    4. For **Production listener rule**, choose the listener
+     rule for routing production traffic.
+    5. Optional: For **Test listener rule**, choose a
+     listener rule for routing test traffic to your green environment.
+    6. For **Role**, choose the IAM role that allows Amazon ECS
+     to manage your load balancer.
 
 10. Review your configuration changes, and then choose
-    **Update**.
+**Update**.
 
 ## Next steps
 

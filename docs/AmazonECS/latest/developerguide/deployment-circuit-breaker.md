@@ -40,13 +40,12 @@ launch in two stages.
   the current deployment being evaluated. The validated health checks are
   Elastic Load Balancing, AWS Cloud Map service health checks, and container health checks.
 
-      + Success - There is at least one task in the running state with health
-       checks that have passed.
-      + Failure - The tasks that are replaced because of health check failures
-       have reached the failure threshold.
-
-  Consider the following when you use the deployment circuit breaker method on a
-  service. EventBridge generates the rule.
+  - Success - There is at least one task in the running state with health
+    checks that have passed.
+  - Failure - The tasks that are replaced because of health check failures
+    have reached the failure threshold.
+    Consider the following when you use the deployment circuit breaker method on a
+    service. EventBridge generates the rule.
 
 - The `DescribeServices` response provides insight into the state of
   a deployment, the `rolloutState` and `rolloutStateReason`.
@@ -119,26 +118,25 @@ You cannot change either of the threshold values.
 
 There are two stages for the deployment status check.
 
-1.  The deployment circuit breaker monitors tasks that are part of the
-    deployment and checks for tasks that are in the `RUNNING` state.
-    The scheduler ignores the failure criteria when a task in the current
-    deployment is in the `RUNNING` state and proceeds to the next
-    stage. When tasks fail to reach in the `RUNNING` state, the
-    deployment circuit breaker increases the failure count by one. When the
-    failure count equals the threshold, the deployment is marked as
-    `FAILED`.
-2.  This stage is entered when there are one or more tasks in the
-    `RUNNING` state. The deployment circuit breaker performs
-    health checks on the following resources for the tasks in the current
-    deployment:
+1. The deployment circuit breaker monitors tasks that are part of the
+   deployment and checks for tasks that are in the `RUNNING` state.
+   The scheduler ignores the failure criteria when a task in the current
+   deployment is in the `RUNNING` state and proceeds to the next
+   stage. When tasks fail to reach in the `RUNNING` state, the
+   deployment circuit breaker increases the failure count by one. When the
+   failure count equals the threshold, the deployment is marked as
+   `FAILED`.
+2. This stage is entered when there are one or more tasks in the
+   `RUNNING` state. The deployment circuit breaker performs
+   health checks on the following resources for the tasks in the current
+   deployment:
 
-        * Elastic Load Balancing load balancers
-        * AWS Cloud Map service
-        * Amazon ECS container health checks
-
-    When a health check fails for the task, the deployment circuit breaker
-    increases the failure count by one. When the failure count equals the
-    threshold, the deployment is marked as `FAILED`.
+   - Elastic Load Balancing load balancers
+   - AWS Cloud Map service
+   - Amazon ECS container health checks
+     When a health check fails for the task, the deployment circuit breaker
+     increases the failure count by one. When the failure count equals the
+     threshold, the deployment is marked as `FAILED`.
 
 The following table provides some examples.
 

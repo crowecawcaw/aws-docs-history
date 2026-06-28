@@ -89,7 +89,7 @@ failover events.
   domain with correctly configured Active Directory security groups can access the
   FSx for Windows File Server file-share. If the security groups are misconfigured, Amazon ECS fails to
   launch the task with the following error message: `unable to mount file
-system `fs-id``.”
+ system `fs-id``.”
 - FSx for Windows File Server is integrated with AWS Identity and Access Management (IAM) to control the
   actions that your IAM users and groups can take on specific FSx for Windows File Server
   resources. With client authorization, customers can define IAM roles that allow

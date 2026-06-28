@@ -77,7 +77,7 @@ published by AWS.
 5. Choose **Select** on the row of the AMI that you want to
    use.
 
-Alternatively, choose **Cancel** (at top right) to return to
+Alternatively, choose **Cancel** to return to
 the launch instance wizard without choosing an AMI. A default AMI will be
 selected. Ensure that the AMI meets the requirements outlined in [Amazon ECS-optimized
 Linux AMIs](ecs-optimized_AMI.md "ecs-optimized_AMI.md").
@@ -229,95 +229,82 @@ information, see [Amazon ECS container instance IAM role](instance_IAM_role.md "
   data scripts are executed only one time, when the instance is first launched.
   The following are common examples of what user data is used for:
 
-      + By default, your container instance launches into your default
-       cluster. To launch into a non-default cluster, choose the
-       **Advanced Details** list. Then, paste the
-       following script into the **User data** field,
-       replacing `your_cluster_name` with the name of
-       your cluster.
+  - By default, your container instance launches into your default
+    cluster. To launch into a non-default cluster, choose the
+    **Advanced Details** list. Then, paste the
+    following script into the **User data** field,
+    replacing `your_cluster_name` with the name of
+    your cluster.
 
+  ```
+  #!/bin/bash
+  echo ECS_CLUSTER=`your_cluster_name` >> /etc/ecs/ecs.config
+  ```
+  - If you have an `ecs.config` file in Amazon S3 and have
+    enabled Amazon S3 read-only access to your container instance role, choose
+    the **Advanced Details** list. Then, paste the
+    following script into the **User data** field,
+    replacing `your_bucket_name` with the name of
+    your bucket to install the AWS CLI and write your configuration file at
+    launch time.
 
+  ###### Note
 
-      ```
-      #!/bin/bash
-      echo ECS_CLUSTER=`your_cluster_name` >> /etc/ecs/ecs.config
-      ```
-      + If you have an `ecs.config` file in Amazon S3 and have
-       enabled Amazon S3 read-only access to your container instance role, choose
-       the **Advanced Details** list. Then, paste the
-       following script into the **User data** field,
-       replacing `your_bucket_name` with the name of
-       your bucket to install the AWS CLI and write your configuration file at
-       launch time.
+  For more information about this configuration, see [Storing Amazon ECS container instance configuration in Amazon S3](ecs-config-s3.md "ecs-config-s3.md").
 
+  ```
+  #!/bin/bash
+  yum install -y aws-cli
+  aws s3 cp s3://`your_bucket_name`/ecs.config /etc/ecs/ecs.config
+  ```
+  - Specify tags for your container instance using the
+    `ECS_CONTAINER_INSTANCE_TAGS` configuration parameter.
+    This creates tags that are associated with Amazon ECS only, they cannot be
+    listed using the Amazon EC2 API.
 
-      ###### Note
+  ###### Important
 
-      For more information about this configuration, see [Storing Amazon ECS container instance configuration in Amazon S3](ecs-config-s3.md "ecs-config-s3.md").
+  If you launch your container instances using an Amazon EC2 Auto Scaling
+  group, then you should use the ECS\_CONTAINER\_INSTANCE\_TAGS agent
+  configuration parameter to add tags. This is due to the way in which
+  tags are added to Amazon EC2 instances that are launched using Auto
+  Scaling groups.
 
+  ```
+  #!/bin/bash
+  cat <<'EOF' >> /etc/ecs/ecs.config
+  ECS_CLUSTER=`your_cluster_name`
+  ECS_CONTAINER_INSTANCE_TAGS={"`tag_key`": "`tag_value`"}
+  EOF
+  ```
+  - Specify tags for your container instance and then use the
+    `ECS_CONTAINER_INSTANCE_PROPAGATE_TAGS_FROM`
+    configuration parameter to propagate them from Amazon EC2 to Amazon ECS
 
+  The following is an example of a user data script that would propagate
+  the tags associated with a container instance, as well as register the
+  container instance with a cluster named
+  `your_cluster_name`:
 
-      ```
-      #!/bin/bash
-      yum install -y aws-cli
-      aws s3 cp s3://`your_bucket_name`/ecs.config /etc/ecs/ecs.config
-      ```
-      + Specify tags for your container instance using the
-       `ECS_CONTAINER_INSTANCE_TAGS` configuration parameter.
-       This creates tags that are associated with Amazon ECS only, they cannot be
-       listed using the Amazon EC2 API.
+  ```
+  #!/bin/bash
+  cat <<'EOF' >> /etc/ecs/ecs.config
+  ECS_CLUSTER=`your_cluster_name`
+  ECS_CONTAINER_INSTANCE_PROPAGATE_TAGS_FROM=ec2_instance
+  EOF
+  ```
+  - By default, the Amazon ECS container agent will try to detect the container
+    instance's compatibility for an IPv6-only configuration by looking at the
+    instance's default IPv4 and IPv6 routes. To override this behavior, you can set
+    the `ECS_INSTANCE_IP_COMPATIBILITY` parameter to `ipv4`
+    or `ipv6` in the instance's `/etc/ecs/ecs.config` file.
 
+  ```
+  #!/bin/bash
+  cat <<'EOF' >> /etc/ecs/ecs.config
+  ECS_CLUSTER=`your_cluster_name`
+  ECS_INSTANCE_IP_COMPATIBILITY=ipv6
+  EOF
+  ```
 
-      ###### Important
-
-      If you launch your container instances using an Amazon EC2 Auto Scaling
-       group, then you should use the ECS\_CONTAINER\_INSTANCE\_TAGS agent
-       configuration parameter to add tags. This is due to the way in which
-       tags are added to Amazon EC2 instances that are launched using Auto
-       Scaling groups.
-
-
-
-      ```
-      #!/bin/bash
-      cat <<'EOF' >> /etc/ecs/ecs.config
-      ECS_CLUSTER=`your_cluster_name`
-      ECS_CONTAINER_INSTANCE_TAGS={"`tag_key`": "`tag_value`"}
-      EOF
-      ```
-      + Specify tags for your container instance and then use the
-       `ECS_CONTAINER_INSTANCE_PROPAGATE_TAGS_FROM`
-       configuration parameter to propagate them from Amazon EC2 to Amazon ECS
-
-
-      The following is an example of a user data script that would propagate
-       the tags associated with a container instance, as well as register the
-       container instance with a cluster named
-       `your_cluster_name`:
-
-
-
-      ```
-      #!/bin/bash
-      cat <<'EOF' >> /etc/ecs/ecs.config
-      ECS_CLUSTER=`your_cluster_name`
-      ECS_CONTAINER_INSTANCE_PROPAGATE_TAGS_FROM=ec2_instance
-      EOF
-      ```
-      + By default, the Amazon ECS container agent will try to detect the container
-       instance's compatibility for an IPv6-only configuration by looking at the
-       instance's default IPv4 and IPv6 routes. To override this behavior, you can set
-       the  `ECS_INSTANCE_IP_COMPATIBILITY` parameter to `ipv4`
-       or `ipv6` in the instance's `/etc/ecs/ecs.config` file.
-
-
-
-      ```
-      #!/bin/bash
-      cat <<'EOF' >> /etc/ecs/ecs.config
-      ECS_CLUSTER=`your_cluster_name`
-      ECS_INSTANCE_IP_COMPATIBILITY=ipv6
-      EOF
-      ```
-
-  For more information, see [Bootstrapping Amazon ECS Linux container instances to pass data](bootstrap_container_instance.md "bootstrap_container_instance.md").
+For more information, see [Bootstrapping Amazon ECS Linux container instances to pass data](bootstrap_container_instance.md "bootstrap_container_instance.md").

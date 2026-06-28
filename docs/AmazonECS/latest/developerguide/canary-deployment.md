@@ -63,26 +63,26 @@ The canary traffic shift phase follows these steps:
 
 The canary deployment process progresses through distinct lifecycle stages, each with specific responsibilities and validation checkpoints. Understanding these stages helps you monitor deployment progress and troubleshoot issues effectively.
 
-Each lifecycle stage can last up to 24 hours and in addition each traffic shift step in PRODUCTION_TRAFFIC_SHIFT can last upto 24 hours. We recommend that the value remains below the 24-hour mark. This is because asynchronous processes need time to trigger the hooks. The system times out, fails the deployment, and then initiates a rollback after a stage reaches 24 hours.
+Each lifecycle stage can last up to 24 hours and in addition each traffic shift step in PRODUCTION\_TRAFFIC\_SHIFT can last upto 24 hours. We recommend that the value remains below the 24-hour mark. This is because asynchronous processes need time to trigger the hooks. The system times out, fails the deployment, and then initiates a rollback after a stage reaches 24 hours.
 
 CloudFormation deployments have additional timeout restrictions. While the 24-hour stage limit remains in effect, CloudFormation enforces a 36-hour limit on the entire deployment. CloudFormation fails the deployment, and then initiates a rollback if the process doesn't complete within 36 hours.
 
 For pause hooks, the timeout can be configured up to 20,160 minutes (14 days). The
 overall deployment timeout is 30 days.
 
-| Lifecycle stages              | Lifecycle stages                                                                                                                                                                             | Description       | Lifecycle hook support |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ---------------------- |
-| RECONCILE_SERVICE             | This stage only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.                                                                        | Yes               |
-| PRE_SCALE_UP                  | The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.                                                  | Yes               |
-| SCALE_UP                      | The time when the green service revision scales up to 100% and launches new tasks. The green service revision is not serving any traffic at this point.                                      | No                |
-| POST_SCALE_UP                 | The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.                                                      | Yes               |
-| TEST_TRAFFIC_SHIFT            | The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic. | Yes (Lambda only) |
-| POST_TEST_TRAFFIC_SHIFT       | The test traffic shift is complete. The green service revision handles 100% of the test traffic.                                                                                             | Yes               |
-| PRE_PRODUCTION_TRAFFIC_SHIFT  | Occurs before each production traffic shift step. For canary, this<br>occurs before the canary traffic shift and before the remaining<br>traffic shift.                                      | Yes               |
-| PRODUCTION_TRAFFIC_SHIFT      | Canary production traffic is routed to green revision and lifecycle hook is invoked with 24 hours timeout. The second step shifts remaining production traffic to green revision.            | Yes (Lambda only) |
-| POST_PRODUCTION_TRAFFIC_SHIFT | The production traffic shift is complete.                                                                                                                                                    | Yes               |
-| BAKE_TIME                     | The duration when both blue and green service revisions are running simultaneously.                                                                                                          | No                |
-| CLEAN_UP                      | The blue service revision has completely scaled down to 0 running tasks. The green service revision is now the production service revision after this stage.                                 | No                |
+Lifecycle stages| Lifecycle stages | Description | Lifecycle hook support |
+| --- | --- | --- |
+| RECONCILE\_SERVICE | This stage only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state. | Yes |
+| PRE\_SCALE\_UP | The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic. | Yes |
+| SCALE\_UP | The time when the green service revision scales up to 100% and launches new tasks. The green service revision is not serving any traffic at this point. | No |
+| POST\_SCALE\_UP | The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic. | Yes |
+| TEST\_TRAFFIC\_SHIFT | The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic. | Yes (Lambda only) |
+| POST\_TEST\_TRAFFIC\_SHIFT | The test traffic shift is complete. The green service revision handles 100% of the test traffic. | Yes |
+| PRE\_PRODUCTION\_TRAFFIC\_SHIFT | Occurs before each production traffic shift step. For canary, this<br>occurs before the canary traffic shift and before the remaining<br>traffic shift. | Yes |
+| PRODUCTION\_TRAFFIC\_SHIFT | Canary production traffic is routed to green revision and lifecycle hook is invoked with 24 hours timeout. The second step shifts remaining production traffic to green revision. | Yes (Lambda only) |
+| POST\_PRODUCTION\_TRAFFIC\_SHIFT | The production traffic shift is complete. | Yes |
+| BAKE\_TIME | The duration when both blue and green service revisions are running simultaneously. | No |
+| CLEAN\_UP | The blue service revision has completely scaled down to 0 running tasks. The green service revision is now the production service revision after this stage. | No |
 
 ### Configuration parameters
 

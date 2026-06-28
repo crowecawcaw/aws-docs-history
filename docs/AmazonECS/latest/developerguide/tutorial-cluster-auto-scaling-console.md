@@ -19,7 +19,7 @@ to locate.
 This tutorial assumes that the following prerequisites have been completed:
 
 - The steps in [Set up to use Amazon ECS](get-set-up-for-amazon-ecs.md "get-set-up-for-amazon-ecs.md") have been completed.
-- Your IAM user has the required permissions specified in the [AmazonECS_FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess")
+- Your IAM user has the required permissions specified in the [AmazonECS\_FullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECS_FullAccess")
   IAM policy example.
 - The Amazon ECS container instance IAM role is created. For more information, see
   [Amazon ECS container instance IAM role](instance_IAM_role.md "instance_IAM_role.md").
@@ -213,9 +213,9 @@ resources.
 5. In the navigation pane, choose **Clusters**.
 6. On the **Clusters** page, choose
    **ConsoleTutorial-cluster**.
-7. In the upper-right of the page, choose **Delete cluster**.
+7. Choose **Delete cluster**.
 8. In the confirmation box, enter **delete
-   **ConsoleTutorial-cluster\***\* and choose **Delete\*\*.
+   **ConsoleTutorial-cluster**** and choose **Delete**.
 9. Delete the Auto Scaling groups using the following steps.
 
    1. Open the Amazon EC2 console at

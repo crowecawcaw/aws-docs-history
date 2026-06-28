@@ -308,7 +308,7 @@ To resolve agent disconnect issues, follow these steps:
 - Check security group rules allow outbound HTTPS traffic to ECS endpoints
 - Ensure network connectivity to AWS services
 - Restart the ECS agent service if necessary: `nsenter -t 1 -m -p systemctl restart ecs`
-- Verify the ECS_CLUSTER configuration in /etc/ecs/ecs.config matches your cluster name
+- Verify the ECS\_CLUSTER configuration in /etc/ecs/ecs.config matches your cluster name
 
 ## Log Analysis in Amazon ECS Managed Instances
 

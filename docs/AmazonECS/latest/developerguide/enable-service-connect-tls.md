@@ -15,7 +15,7 @@ service.
    for.
 5. Choose the **Service** you'd like to enable traffic
    encryption for.
-6. Choose **Update Service** in the top right corner and
+6. Choose **Update Service** and
    scroll down to the Service Connect section.
 7. Choose **Turn on traffic encryption** under your service
    information to enable TLS.

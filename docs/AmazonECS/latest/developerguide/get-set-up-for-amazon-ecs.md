@@ -38,7 +38,7 @@ If you have a default VPC, you can skip this section and move to the
 next task, [Create a security group](#create-a-base-security-group "#create-a-base-security-group"). To determine whether you have a
 default VPC, see [Work with your default VPC and default subnets](../../../vpc/latest/userguide/work-with-default-vpc.md#view-default-vpc "../../../vpc/latest/userguide/work-with-default-vpc.md#view-default-vpc") in the
 _Amazon VPC User Guide_. Otherwise, you can create a nondefault VPC in
-your account using the steps below.
+your account using the following steps.
 
 For information about how to create a VPC, see [Create a VPC](../../../vpc/latest/userguide/create-vpc.md "../../../vpc/latest/userguide/create-vpc.md") in the
 _Amazon VPC User Guide_, and use the following table to
@@ -162,7 +162,7 @@ Guide](../../../powershell/latest/userguide.md "../../../powershell/latest/userg
 
 ## Next steps for using Amazon ECS
 
-After installing the AWS CLI, there are many different tools you can utilize as you continue to
+After installing the AWS CLI, there are many different tools you can use as you continue to
 use Amazon ECS. The following links explain what some of those tools are and give examples of how to
 use them with Amazon ECS.
 

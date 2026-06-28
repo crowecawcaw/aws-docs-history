@@ -3,7 +3,7 @@
 Following the best practice of granting least privilege, you can use the
 `AmazonECS_FullAccess` managed policy as a template for creating you own
 custom policy. That way, you can take away or add permissions to and from the managed policy
-based on your specific requirements. For more information, see [AmazonECS_FullAccess](../../../aws-managed-policy/latest/reference/AmazonECS_FullAccess.md "../../../aws-managed-policy/latest/reference/AmazonECS_FullAccess.md") in the _AWS Managed Policy Reference_.
+based on your specific requirements. For more information, see [AmazonECS\_FullAccess](../../../aws-managed-policy/latest/reference/AmazonECS_FullAccess.md "../../../aws-managed-policy/latest/reference/AmazonECS_FullAccess.md") in the _AWS Managed Policy Reference_.
 
 ## Permissions for creating IAM roles
 
