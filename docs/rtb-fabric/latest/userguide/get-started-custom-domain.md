@@ -130,6 +130,10 @@ RTB Fabric handles the private key decryption, certificate chain loading, and SN
 
 Certificates associated through the AssociateCertificate API are treated as customer certificates and are never used as a fallback for unrecognized hostnames. See Customer vs. service certificates for details on certificate isolation.
 
+###### Note
+
+Certificate association and disassociation can each take up to 50 minutes to complete. Wait for the gateway to return to **Active** status before creating links or routing rules.
+
 ## Step 4: Create an external inbound link
 
 Create an external inbound link on your responder gateway using the CreateInboundExternalLink API. This link represents the connection from your external partner to your gateway and is the target for routing rules.

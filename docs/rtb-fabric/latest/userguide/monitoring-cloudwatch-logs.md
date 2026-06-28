@@ -23,7 +23,7 @@ The following topics describe how to set up vended-log delivery, grant the requi
 
 ## Configure log delivery for RTB Fabric
 
-To enable logging for RTB Fabric, you need to create a log delivery source, destination, and delivery configuration. Only links can be registered as log sources, and only APPLICATION_LOGS log type is supported.
+To enable logging for RTB Fabric, you need to create a log delivery source, destination, and delivery configuration. Only links can be registered as log sources, and only APPLICATION\_LOGS log type is supported.
 
 ###### To set up log delivery for RTB Fabric
 

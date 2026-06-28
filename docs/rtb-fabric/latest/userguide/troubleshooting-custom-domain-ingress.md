@@ -96,7 +96,7 @@ Use this section to diagnose common issues with inbound external links with cust
 
 **Cause:** The routing rules may not have reached ACTIVE status, or the rules are on a different link than expected.
 
-**Resolution:** Use the ListLinkRoutingRules API to verify that rules exist on the intended link and are in ACTIVE status. If a rule is in PENDING_CREATION or FAILED status, wait for provisioning or investigate the failure. See Step 5: Configure routing rules for the correct setup.
+**Resolution:** Use the ListLinkRoutingRules API to verify that rules exist on the intended link and are in ACTIVE status. If a rule is in PENDING\_CREATION or FAILED status, wait for provisioning or investigate the failure. See Step 5: Configure routing rules for the correct setup.
 
 ## Multiple certificates for the same hostname
 

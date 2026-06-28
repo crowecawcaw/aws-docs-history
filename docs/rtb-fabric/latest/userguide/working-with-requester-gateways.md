@@ -30,7 +30,7 @@ You are responsible for the data you send through RTB Fabric, including ensuring
    3. For **Security group ID**, enter the IDs of 1-5 security groups, separated by commas. We recommend you create new security groups for your gateway for security.
 
 6. Choose **Create gateway**.
-7. Your new requester gateway appears in the gateways list with an **Activating** status. The gateway status will remain **Activating** for 2-5 minutes until creation is complete.
+7. Your new requester gateway appears in the gateways list with an **Activating** status. The gateway status will remain **Activating** for 20-40 minutes until creation is complete.
 
 Use the following command to create a requester gateway using the AWS Command Line Interface (AWS CLI).
 

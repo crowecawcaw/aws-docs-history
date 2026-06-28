@@ -66,7 +66,7 @@ You are responsible for the data you process through RTB Fabric, including ensur
      7. (Optional) To enable health checks, configure the **Health check configuration** section. For details, see [Health checks for Managed Endpoints](health-checks-for-managed-endpoints.md "health-checks-for-managed-endpoints.md").
 
 7. Choose **Create Gateway**.
-8. Your new responder gateway appears in the gateways list with an **Activating** status. The gateway status will remain **Activating** for 2-5 minutes until creation is complete.
+8. Your new responder gateway appears in the gateways list with an **Activating** status. The gateway status will remain **Activating** for 20-40 minutes until creation is complete.
 
 After creating your gateway, you can view its details, monitor performance metrics, and make configuration changes as needed.
 

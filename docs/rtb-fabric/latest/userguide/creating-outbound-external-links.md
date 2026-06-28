@@ -35,7 +35,7 @@ Note the following about outbound external links:
        3. AWS does not access or read your log data.
 
 11. Choose **Create link** to send the link request.
-12. The link starts in **Pending Creation** status and becomes **Active** within 3 minutes.
+12. The link starts in **Pending Creation** status. The first outbound external link on a gateway can take up to 45 minutes to become **Active**. Subsequent outbound external links on the same gateway typically become **Active** in 2-4 minutes.
     Once the link status changes to **Active**, it begins facilitating communication between your gateway and the external target endpoint. You can monitor link performance and make configuration changes as needed.
 
 Use the following command to create an outbound external link using the AWS Command Line Interface (AWS CLI).
