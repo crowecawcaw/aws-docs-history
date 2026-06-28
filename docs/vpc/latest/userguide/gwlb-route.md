@@ -43,7 +43,7 @@ There is an edge association with the gateway.
 When you use the middlebox routing wizard, it associates the following tags with the route table:
 
 - The key is "Origin" and the value is "Middlebox wizard"
-- The key is "date_created" and the value is the creation time (for example,
+- The key is "date\_created" and the value is the creation time (for example,
   "2021-02-18T22:25:49.137Z")
 
 ## Application subnet route table
@@ -58,7 +58,7 @@ The route table for the application subnet has the following routes.
 When you use the middlebox routing wizard, it associates the following tags with the route table:
 
 - The key is "Origin" and the value is "Middlebox wizard"
-- The key is "date_created" and the value is the creation time (for example,
+- The key is "date\_created" and the value is the creation time (for example,
   "2021-02-18T22:25:49.137Z")
 
 ## Provider subnet route table
@@ -73,5 +73,5 @@ The route table for the provider subnet has the following routes.
 When you use the middlebox routing wizard, it associates the following tags with the route table:
 
 - The key is "Origin" and the value is "Middlebox wizard"
-- The key is "date_created" and the value is the creation time (for example,
+- The key is "date\_created" and the value is the creation time (for example,
   "2021-02-18T22:25:49.137Z")

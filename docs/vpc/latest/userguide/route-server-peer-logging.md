@@ -83,7 +83,7 @@ To create route server peer logs:
    - Amazon CloudWatch Logs
 
      - **Log type**: Types of logs to deliver. The only supported log
-       type is EVENT_LOGS.
+       type is EVENT\_LOGS.
      - **Destination log group**: The CloudWatch log group where logs will be sent. You can pick an existing log group or create a new one (example: /aws/vpc/route-server-peers).
      - **Field selection**: Data fields to include in your
        logs.
@@ -100,7 +100,7 @@ To create route server peer logs:
      - Cross account - Sending logs to different AWS accounts
 
        - **Log type**: Types of logs to deliver. The only supported log
-         type is EVENT_LOGS.
+         type is EVENT\_LOGS.
        - **Delivery destination ARN**: The Amazon Resource Name of the S3 bucket in another AWS account where logs will be sent.
        - **Field selection**: Data fields to include in your
          logs.
@@ -111,7 +111,7 @@ To create route server peer logs:
      - In current account
 
        - **Log type**: Types of logs to deliver. The only supported log
-         type is EVENT_LOGS.
+         type is EVENT\_LOGS.
        - **Destination S3 bucket**: The S3 bucket in your account where logs will be sent. You can specify a subfolder path.
        - **Field selection**: Data fields to include in your
          logs.
@@ -124,7 +124,7 @@ To create route server peer logs:
      - Cross account
 
        - **Log type**: Types of logs to deliver. The only supported log
-         type is EVENT_LOGS.
+         type is EVENT\_LOGS.
        - **Delivery destination ARN**: The Amazon Resource Name of the Firehose delivery stream in another AWS account.
        - **Field selection**: Data fields to include in your
          logs.
@@ -133,7 +133,7 @@ To create route server peer logs:
      - In current account
 
        - **Log type**: Types of logs to deliver. The only supported log
-         type is EVENT_LOGS.
+         type is EVENT\_LOGS.
        - **Delivery destination stream**: The Firehose delivery stream in your account where logs will be sent. The stream must use the "Direct Put" source type.
        - **Field selection**: Data fields to include in your
          logs.

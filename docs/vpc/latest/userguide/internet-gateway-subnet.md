@@ -53,7 +53,7 @@ There is an edge association between the internet gateway and the VPC.
 When you use the middlebox routing wizard, it associates the following tags with the route table:
 
 - The key is "Origin" and the value is "Middlebox wizard"
-- The key is "date_created" and the value is the creation time (for example,
+- The key is "date\_created" and the value is the creation time (for example,
   "2021-02-18T22:25:49.137Z")
 
 ## Destination subnet route table
@@ -73,7 +73,7 @@ There is a subnet association with the middlebox subnet.
 When you use the middlebox routing wizard, it associates the following tags with the route table:
 
 - The key is "Origin" and the value is "Middlebox wizard"
-- The key is "date_created" and the value is the creation time (for example,
+- The key is "date\_created" and the value is the creation time (for example,
   "2021-02-18T22:25:49.137Z")
 
 ## Middlebox subnet route table
@@ -94,5 +94,5 @@ When you use the middlebox routing wizard, it associates the following tags with
 table:
 
 - The key is "Origin" and the value is "Middlebox wizard"
-- The key is "date_created" and the value is the creation time (for example,
+- The key is "date\_created" and the value is the creation time (for example,
   "2021-02-18T22:25:49.137Z")

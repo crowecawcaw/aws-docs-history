@@ -50,10 +50,9 @@ Accounts B and C have running in the shared VPC subnet.
 - Amazon SageMaker AI
 - Elastic Load Balancing
 
-      + Application Load Balancer
-      + Network Load Balancer
-
-  **How this feature affects existing quotas**
+  - Application Load Balancer
+  - Network Load Balancer
+    **How this feature affects existing quotas**
 
 [Security group quotas](amazon-vpc-limits.md#vpc-limits-security-groups "amazon-vpc-limits.md#vpc-limits-security-groups") apply. For the
 'Security groups per network interface' quota, however, if a participant uses both owned

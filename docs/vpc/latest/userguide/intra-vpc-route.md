@@ -42,7 +42,7 @@ The route table for subnet A has the following routes.
 When you use the middlebox routing wizard, it associates the following tags with the route table:
 
 - The key is "Origin" and the value is "Middlebox wizard"
-- The key is "date_created" and the value is the creation time (for example,
+- The key is "date\_created" and the value is the creation time (for example,
   "2021-02-18T22:25:49.137Z")
 
 ## Custom route table for subnet B
@@ -57,7 +57,7 @@ The route table for subnet B has the following routes.
 When you use the middlebox routing wizard, it associates the following tags with the route table:
 
 - The key is "Origin" and the value is "Middlebox wizard"
-- The key is "date_created" and the value is the creation time (for example,
+- The key is "date\_created" and the value is the creation time (for example,
   "2021-02-18T22:25:49.137Z")
 
 ## Main route table
@@ -71,5 +71,5 @@ Subnet C uses the main route table. The main route table has the following route
 When you use the middlebox routing wizard, it associates the following tags with the route table:
 
 - The key is "Origin" and the value is "Middlebox wizard"
-- The key is "date_created" and the value is the creation time (for example,
+- The key is "date\_created" and the value is the creation time (for example,
   "2021-02-18T22:25:49.137Z")

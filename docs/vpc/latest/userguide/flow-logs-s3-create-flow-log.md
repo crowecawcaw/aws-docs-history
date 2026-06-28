@@ -77,25 +77,21 @@ flow log record.
      For **Log format**, choose the fields to include in
      the flow log record.
 
-8. For **Additional metadata**, select if you want to include metadata from Amazon ECS in the log format.
-9. For **Log file format**, specify the format for the
-   log file.
+8. For **Additional metadata**, select if you want to include metadata from Amazon ECS in the log format. 9. For **Log file format**, specify the format for the
+log file.
 
-   - **Text** – Plain text. This is the default
+    * **Text** – Plain text. This is the default
      format.
-   - **Parquet** – Apache Parquet is a columnar
+    * **Parquet** – Apache Parquet is a columnar
      data format. Queries on data in Parquet format are 10 to 100 times
      faster compared to queries on data in plain text. Data in Parquet
      format with Gzip compression takes 20 percent less storage space than
      plain text with Gzip compression.
 
 10. (Optional) To use Hive-compatible S3 prefixes, choose **Hive-compatible
-    S3 prefix**, **Enable**.
-11. (Optional) To partition your flow logs per hour, choose **Every 1 hour
-    (60 mins)**.
-12. (Optional) To add a tag to the flow log, choose **Add new tag**
-    and specify the tag key and value.
-13. Choose **Create flow log**.
+S3 prefix**, **Enable**. 11. (Optional) To partition your flow logs per hour, choose **Every 1 hour
+(60 mins)**. 12. (Optional) To add a tag to the flow log, choose **Add new tag**
+and specify the tag key and value. 13. Choose **Create flow log**.
 
 ###### To create a flow log that publishes to Amazon S3 using the command line
 

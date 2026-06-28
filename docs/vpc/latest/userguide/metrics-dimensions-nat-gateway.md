@@ -23,8 +23,9 @@ and [statistics](../../../AmazonCloudWatch/latest/monitoring/Statistics-definiti
 | `PeakBytesPerSecond`         | This metric reports the highest 10-second bytes per second average in a given minute.<br>Units: Count<br>Statistics: The most useful statistic is `Maximum`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `PeakPacketsPerSecond`       | This metric calculates the average packet rate (packets processed per second) every 10 seconds for 60 seconds and then reports the maximum of the six rates (the highest average packet rate).<br>Units: Count<br>Statistics: The most useful statistic is `Maximum`.                                                                                                                                                                                                                                                                                                                                                                    |
 
-To filter the metric data, use the following dimension.
+To filter the metric data, use the following dimensions.
 
-| Dimension      | Description                                   |
-| -------------- | --------------------------------------------- |
-| `NatGatewayId` | Filter the metric data by the NAT gateway ID. |
+| Dimension          | Description                                                                                                                                                          |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `NatGatewayId`     | Filter the metric data by the NAT gateway ID. Zonal NAT gateways use only this dimension. Regional NAT gateways use this dimension together with `AvailabilityZone`. |
+| `AvailabilityZone` | Filter the metric data by Availability Zone. Regional NAT gateways use this dimension together with `NatGatewayId`. Zonal NAT gateways do not use this dimension.    |

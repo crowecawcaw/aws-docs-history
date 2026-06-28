@@ -99,11 +99,9 @@ If you chose **Custom**, do the following:
      private IPv4 addresses.
 
 11. (Optional) To add a tag to the NAT gateway, choose **Add new
-    tag** and enter the key name and value. You can add up to 50 tags.
-12. Choose **Create a NAT gateway**.
-13. The initial status of the NAT gateway is `Pending`. After the status
-    changes to `Available`, the NAT gateway is ready for you to use. Be sure to
-    update your route tables as needed. For examples, see [NAT gateway use cases](nat-gateway-scenarios.md "nat-gateway-scenarios.md").
+tag** and enter the key name and value. You can add up to 50 tags. 12. Choose **Create a NAT gateway**. 13. The initial status of the NAT gateway is `Pending`. After the status
+changes to `Available`, the NAT gateway is ready for you to use. Be sure to
+update your route tables as needed. For examples, see [NAT gateway use cases](nat-gateway-scenarios.md "nat-gateway-scenarios.md").
 
 If the status of the NAT gateway changes to `Failed`, there was an error
 during creation. For more information, see [NAT gateway creation fails](nat-gateway-troubleshooting.md#nat-gateway-troubleshooting-failed "nat-gateway-troubleshooting.md#nat-gateway-troubleshooting-failed").
@@ -138,65 +136,61 @@ to your NAT gateway.
 
 ###### To edit secondary IPv4 address associations
 
-1.  Open the Amazon VPC console at
-    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2.  In the navigation pane, choose **NAT gateways**.
-3.  Select the NAT gateway whose secondary IPv4 address associations you want to
-    edit.
-4.  Choose **Actions**, and then choose **Edit secondary IP address associations**.
-5.  If you are editing the secondary IPv4 address associations of a private NAT gateway,
-    under **Action**, choose **Assign new
-    IPv4 addresses** or **Unassign existing IPv4
-    addresses**. If you are editing the secondary IPv4 address associations of a
-    public NAT gateway, under **Action**, choose **Associate new IPv4 addresses** or **Disassociate existing IPv4 addresses**.
-6.  Do one of the following:
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the navigation pane, choose **NAT gateways**.
+3. Select the NAT gateway whose secondary IPv4 address associations you want to
+   edit.
+4. Choose **Actions**, and then choose **Edit secondary IP address associations**.
+5. If you are editing the secondary IPv4 address associations of a private NAT gateway,
+   under **Action**, choose **Assign new
+   IPv4 addresses** or **Unassign existing IPv4
+   addresses**. If you are editing the secondary IPv4 address associations of a
+   public NAT gateway, under **Action**, choose **Associate new IPv4 addresses** or **Disassociate existing IPv4 addresses**.
+6. Do one of the following:
 
-    - If you chose to assign or associate new IPv4 addresses, do the following:
+   - If you chose to assign or associate new IPv4 addresses, do the following:
 
-          1. This step is required. You must select a private IPv4 address. Choose the
-           **Private IPv4 address assigning method**:
+     1. This step is required. You must select a private IPv4 address. Choose the
+        **Private IPv4 address assigning method**:
 
+        - **Auto-assign**: AWS automatically
+          chooses a primary private IPv4 address and you choose if you want AWS to
+          assign up to 7 secondary private IPv4 addresses to assign to the NAT
+          gateway. AWS automatically chooses and assigns them for you at random from
+          the subnet that your NAT gateway is in.
+        - **Custom**: Choose the primary private IPv4
+          address and up to 7 secondary private IPv4 addresses to assign to the NAT
+          gateway.
 
+     2. Under **Elastic IP allocation ID**, choose an
+        Elastic IP address to add with a secondary IPv4 address. This step is required.
+        You must select an Elastic IP address along with a private IPv4 address. If you
+        chose **Custom** for the **Private IP address assigning method**, you also must enter a private
+        IPv4 address for each Elastic IP address that you add.
 
+     ###### Important
 
-          	+ **Auto-assign**: AWS automatically
-          	 chooses a primary private IPv4 address and you choose if you want AWS to
-          	 assign up to 7 secondary private IPv4 addresses to assign to the NAT
-          	 gateway. AWS automatically chooses and assigns them for you at random from
-          	 the subnet that your NAT gateway is in.
-          	+ **Custom**: Choose the primary private IPv4
-          	 address and up to 7 secondary private IPv4 addresses to assign to the NAT
-          	 gateway.
-          2. Under **Elastic IP allocation ID**, choose an
-           Elastic IP address to add with a secondary IPv4 address. This step is required.
-           You must select an Elastic IP address along with a private IPv4 address. If you
-           chose **Custom** for the **Private IP address assigning method**, you also must enter a private
-           IPv4 address for each Elastic IP address that you add.
+     When you assign a secondary EIP to a public NAT gateway, the network border group of the EIP
+     must match the network border group of the Availability Zone (AZ) that the
+     public NAT gateway is in. If it's not the same, the EIP will fail to assign.
+     You can see the network border group for the subnet's AZ by viewing the
+     details of the subnet. Similarly, you can view the network border group of an
+     EIP by viewing the details of the EIP address. For more information, see [1. Allocate an Elastic IP address](WorkWithEIPs.md#allocate-eip "WorkWithEIPs.md#allocate-eip").
+     Your NAT gateway can have up to 8 IP addresses associated with it. If this is a
+     public NAT gateway, there is a default quota limit for Elastic IP addresses per
+     Region. For more information, see [Elastic IP addresses](amazon-vpc-limits.md#vpc-limits-eips "amazon-vpc-limits.md#vpc-limits-eips").
 
+   - If you chose to unassign or disassociate new IPv4 addresses, complete the following:
 
-          ###### Important
+     1. Under **Existing secondary IP address to unassign**, select the
+        secondary IP addresses that you want to unassign.
+     2. (optional) Under **Connection drain duration**, enter the maximum
+        amount of time to wait (in seconds) before forcibly releasing the IP addresses
+        if connections are still in progress. If you don't enter a value, the default
+        value is 350 seconds.
 
-          When you assign a secondary EIP to a public NAT gateway, the network border group of the EIP
-           must match the network border group of the Availability Zone (AZ) that the
-           public NAT gateway is in. If it's not the same, the EIP will fail to assign.
-           You can see the network border group for the subnet's AZ by viewing the
-           details of the subnet. Similarly, you can view the network border group of an
-           EIP by viewing the details of the EIP address. For more information, see [1. Allocate an Elastic IP address](WorkWithEIPs.md#allocate-eip "WorkWithEIPs.md#allocate-eip").
-
-      Your NAT gateway can have up to 8 IP addresses associated with it. If this is a
-      public NAT gateway, there is a default quota limit for Elastic IP addresses per
-      Region. For more information, see [Elastic IP addresses](amazon-vpc-limits.md#vpc-limits-eips "amazon-vpc-limits.md#vpc-limits-eips").
-
-    - If you chose to unassign or disassociate new IPv4 addresses, complete the following:
-
-      1. Under **Existing secondary IP address to unassign**, select the
-         secondary IP addresses that you want to unassign.
-      2. (optional) Under **Connection drain duration**, enter the maximum
-         amount of time to wait (in seconds) before forcibly releasing the IP addresses
-         if connections are still in progress. If you don't enter a value, the default
-         value is 350 seconds.
-
-7.  Choose **Save changes**.
+7. Choose **Save changes**.
 
 If the status of the NAT gateway changes to `Failed`, there was an error
 during creation. For more information, see [NAT gateway creation fails](nat-gateway-troubleshooting.md#nat-gateway-troubleshooting-failed "nat-gateway-troubleshooting.md#nat-gateway-troubleshooting-failed").

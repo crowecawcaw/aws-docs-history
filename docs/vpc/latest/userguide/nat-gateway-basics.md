@@ -74,6 +74,6 @@ Client → NAT → Peering → Destination
     exceed 1500 bytes. For more information about checking and setting the MTU on an
     instance, see [Network MTU for your
     EC2 instance](../../../AWSEC2/latest/UserGuide/network_mtu.md#set_mtu "../../../AWSEC2/latest/UserGuide/network_mtu.md#set_mtu") in the _Amazon EC2 User Guide_.
-  - NAT gateways support Path MTU Discovery (PMTUD) via FRAG_NEEDED ICMPv4 packets and Packet Too Big (PTB) ICMPv6 packets.
+  - NAT gateways support Path MTU Discovery (PMTUD) via FRAG\_NEEDED ICMPv4 packets and Packet Too Big (PTB) ICMPv6 packets.
   - NAT gateways enforce Maximum Segment Size (MSS) clamping for all packets. For more
     information, see [RFC879](https://datatracker.ietf.org/doc/html/rfc879 "https://datatracker.ietf.org/doc/html/rfc879").

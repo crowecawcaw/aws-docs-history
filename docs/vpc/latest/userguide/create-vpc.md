@@ -77,43 +77,43 @@ using the Amazon VPC console.
 
 ###### To create a VPC with no additional VPC resources using the console
 
-1.  Open the Amazon VPC console at
-    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2.  On the VPC dashboard, choose **Create VPC**.
-3.  For **Resources to create**, choose **VPC only**.
-4.  (Optional) For **Name tag**, enter a name for your
-    VPC. Doing so creates a tag with a key of `Name` and the
-    value that you specify.
-5.  For **IPv4 CIDR block**, do one of the following:
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. On the VPC dashboard, choose **Create VPC**.
+3. For **Resources to create**, choose **VPC only**.
+4. (Optional) For **Name tag**, enter a name for your
+   VPC. Doing so creates a tag with a key of `Name` and the
+   value that you specify.
+5. For **IPv4 CIDR block**, do one of the following:
 
-    - Choose **IPv4 CIDR manual input** and enter
-      an IPv4 address range for your VPC.
-    - Choose **IPAM-allocated IPv4 CIDR block**, select your Amazon VPC IP
-      Address Manager (IPAM) IPv4 address pool and a netmask. The size of the
-      CIDR block is limited by the allocation rules on the IPAM pool. IPAM is
-      a VPC feature that makes it easier for you to plan, track, and monitor
-      IP addresses for your AWS workloads. For more information, see the [Amazon VPC IPAM User Guide](../ipam/what-it-is-ipam.md "../ipam/what-it-is-ipam.md").
+   - Choose **IPv4 CIDR manual input** and enter
+     an IPv4 address range for your VPC.
+   - Choose **IPAM-allocated IPv4 CIDR block**, select your Amazon VPC IP
+     Address Manager (IPAM) IPv4 address pool and a netmask. The size of the
+     CIDR block is limited by the allocation rules on the IPAM pool. IPAM is
+     a VPC feature that makes it easier for you to plan, track, and monitor
+     IP addresses for your AWS workloads. For more information, see the [Amazon VPC IPAM User Guide](../ipam/what-it-is-ipam.md "../ipam/what-it-is-ipam.md").
 
-    If you are using IPAM to manage your IP addresses, we recommend that you choose this
-    option. Otherwise, the CIDR block that you specify for your VPC might
-    overlap with an IPAM CIDR allocation.
+   If you are using IPAM to manage your IP addresses, we recommend that you choose this
+   option. Otherwise, the CIDR block that you specify for your VPC might
+   overlap with an IPAM CIDR allocation.
 
-6.  (Optional) To create a dual stack VPC, specify an IPv6 address range
-    for your VPC. For **IPv6 CIDR block**, do one of the
-    following:
+6. (Optional) To create a dual stack VPC, specify an IPv6 address range
+   for your VPC. For **IPv6 CIDR block**, do one of the
+   following:
 
-    - Choose **IPAM-allocated IPv6 CIDR block** if you are using Amazon VPC IP Address Manager and
-      you want to provision a IPv6 CIDR from an IPAM pool. If you use the
-      IPAM-allocated IPv6 CIDR block to provision IPv6 CIDRs to VPCs, you get
-      the benefit of contiguous IPv6 CIDRs for VPC creation.
-      Contiguously-allocated CIDRs are CIDRs that are allocated sequentially.
-      They enable you to simplify your security and networking rules; the IPv6
-      CIDRs can be aggregated in a single entry across networking and security
-      constructs like access control lists, route tables, security groups, and
-      firewalls.
+   - Choose **IPAM-allocated IPv6 CIDR block** if you are using Amazon VPC IP Address Manager and
+     you want to provision a IPv6 CIDR from an IPAM pool. If you use the
+     IPAM-allocated IPv6 CIDR block to provision IPv6 CIDRs to VPCs, you get
+     the benefit of contiguous IPv6 CIDRs for VPC creation.
+     Contiguously-allocated CIDRs are CIDRs that are allocated sequentially.
+     They enable you to simplify your security and networking rules; the IPv6
+     CIDRs can be aggregated in a single entry across networking and security
+     constructs like access control lists, route tables, security groups, and
+     firewalls.
 
-    You have two options for provisioning an IP address range to the VPC
-    under **CIDR block**:
+   You have two options for provisioning an IP address range to the VPC
+   under **CIDR block**:
 
         + **Netmask length**: Choose this option to select a netmask length for
          the CIDR. Do one of the following:
@@ -144,44 +144,44 @@ using the Amazon VPC console.
          VPC. Possible IPv6 netmask lengths are between
          **/44** and **/60** in
          increments of /4.
-    - Choose **Amazon-provided IPv6 CIDR block** to
-      request an IPv6 CIDR block from an Amazon pool of IPv6 addresses.
-      For **Network Border Group**, select the group
-      from which AWS advertises IP addresses. Amazon provides a fixed
-      IPv6 CIDR block size of **/56**.
-    - Choose **IPv6 CIDR owned by me** to provision an IPv6 CIDR that you have
-      already brought to AWS. For more information about bringing your own
-      IP address ranges to AWS, see [Bring your own IP addresses
-      (BYOIP)](../../../AWSEC2/latest/UserGuide/ec2-byoip.md "../../../AWSEC2/latest/UserGuide/ec2-byoip.md") in the _Amazon EC2 User Guide_. You can
-      provision an IP address range for the VPC using the following options
-      for **CIDR block**:
+   - Choose **Amazon-provided IPv6 CIDR block** to
+     request an IPv6 CIDR block from an Amazon pool of IPv6 addresses.
+     For **Network Border Group**, select the group
+     from which AWS advertises IP addresses. Amazon provides a fixed
+     IPv6 CIDR block size of **/56**.
+   - Choose **IPv6 CIDR owned by me** to provision an IPv6 CIDR that you have
+     already brought to AWS. For more information about bringing your own
+     IP address ranges to AWS, see [Bring your own IP addresses
+     (BYOIP)](../../../AWSEC2/latest/UserGuide/ec2-byoip.md "../../../AWSEC2/latest/UserGuide/ec2-byoip.md") in the _Amazon EC2 User Guide_. You can
+     provision an IP address range for the VPC using the following options
+     for **CIDR block**:
 
-      - **No preference**: Choose this option to use netmask length of
-        **/56**.
-      - **Select a CIDR**: Choose this option to manually enter an IPv6
-        address and choose a netmask length that's more specific than
-        the size of BYOIP CIDR. For example, if the BYOIP pool CIDR is
-        /50, you can choose a netmask length between
-        **/52** to **/60** for the
-        VPC. Possible IPv6 netmask lengths are between
-        **/44** and **/60** in
-        increments of /4.
+     - **No preference**: Choose this option to use netmask length of
+       **/56**.
+     - **Select a CIDR**: Choose this option to manually enter an IPv6
+       address and choose a netmask length that's more specific than
+       the size of BYOIP CIDR. For example, if the BYOIP pool CIDR is
+       /50, you can choose a netmask length between
+       **/52** to **/60** for the
+       VPC. Possible IPv6 netmask lengths are between
+       **/44** and **/60** in
+       increments of /4.
 
-7.  (Optional) Choose a **Tenancy** option. This option defines if EC2 instances that
-    you launch into the VPC will run on hardware that's shared with other
-    AWS accounts or on hardware that's dedicated for your use only. If you choose
-    the tenancy of the VPC to be `Default`, EC2 instances launched
-    into this VPC will use the tenancy attribute specified when you launch the
-    instance -- For more information, see [Launch an
-    instance using defined parameters](../../../AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.md "../../../AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.md") in the
-    _Amazon EC2 User Guide_. If you choose the tenancy of the VPC
-    to be `Dedicated`, the instances will always run as [Dedicated Instances](../../../AWSEC2/latest/UserGuide/dedicated-instance.md "../../../AWSEC2/latest/UserGuide/dedicated-instance.md") on
-    hardware that's dedicated for your use. If you're using AWS Outposts, your
-    Outpost requires private connectivity; you must use `Default`
-    tenancy.
-8.  (Optional) To add a tag to your VPC, choose **Add new tag**
-    and enter a tag key and a tag value.
-9.  Choose **Create VPC**.
+7. (Optional) Choose a **Tenancy** option. This option defines if EC2 instances that
+   you launch into the VPC will run on hardware that's shared with other
+   AWS accounts or on hardware that's dedicated for your use only. If you choose
+   the tenancy of the VPC to be `Default`, EC2 instances launched
+   into this VPC will use the tenancy attribute specified when you launch the
+   instance -- For more information, see [Launch an
+   instance using defined parameters](../../../AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.md "../../../AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.md") in the
+   _Amazon EC2 User Guide_. If you choose the tenancy of the VPC
+   to be `Dedicated`, the instances will always run as [Dedicated Instances](../../../AWSEC2/latest/UserGuide/dedicated-instance.md "../../../AWSEC2/latest/UserGuide/dedicated-instance.md") on
+   hardware that's dedicated for your use. If you're using AWS Outposts, your
+   Outpost requires private connectivity; you must use `Default`
+   tenancy.
+8. (Optional) To add a tag to your VPC, choose **Add new tag**
+   and enter a tag key and a tag value.
+9. Choose **Create VPC**.
 10. After you create a VPC, you can add subnets. For more information, see
     [Create a subnet](create-subnets.md "create-subnets.md").
 
@@ -273,6 +273,8 @@ The following is example output.
    ````
    aws ec2 create-subnet --vpc-id vpc-`1a2b3c4d5e6f1a2b3` --ipv6-native --ipv6-cidr-block `2600:1f13:cfe:3600::/64` --availability-zone `us-east-2a` --query Subnet.SubnetId --output text
    ```These commands return the ID of the new subnet. The following is an example.
+
+
    ````
 
 ```

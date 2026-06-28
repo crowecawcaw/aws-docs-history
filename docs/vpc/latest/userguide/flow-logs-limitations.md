@@ -99,16 +99,13 @@ To use flow logs, you need to be aware of the following limitations:
 - The encryption status may be '-'(not available) in some flows, due to limitation of some network appliance to report the encryption status. Users can ignore these flows in the analysis.
 - Showing as encrypted in monitor mode does not mean the flow will be allowed in enforce mode. Vice versa.
 
-      + If a flow is encrypted in monitor mode, it may not be compliant in enforce mode:
+  - If a flow is encrypted in monitor mode, it may not be compliant in enforce mode:
 
+    - If the flow involves an ENI created by an AWS service, then the service needs to support Encryption Controls.
+    - If the flow goes through VPC peering, the peered VPC may not force Encryption Controls.
 
-
-
-      	- If the flow involves an ENI created by an AWS service, then the service needs to support Encryption Controls.
-      	- If the flow goes through VPC peering, the peered VPC may not force Encryption Controls.
-      + If a flow is not encrypted in monitor mode, it may still be compliant in enforce mode, given the service related to the flow is added as an exclusion.
-
-  Limitations specific to Flow Logs Amazon EC2 Tags fields available in version 11:
+  - If a flow is not encrypted in monitor mode, it may still be compliant in enforce mode, given the service related to the flow is added as an exclusion.
+    Limitations specific to Flow Logs Amazon EC2 Tags fields available in version 11:
 
 - Tag fields are not computed if the tags on a resource are not owned by the owner of the flow
   log subscription. For example, if you share a subnet (`SubnetA`) with

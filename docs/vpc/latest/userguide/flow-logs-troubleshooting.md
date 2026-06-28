@@ -46,14 +46,13 @@ The following are possible error values for the status:
 - `Access error`: This error can occur for one of the following
   reasons:
 
-      + The IAM role for your flow log does not have sufficient
-       permissions to publish flow log records to the CloudWatch log group
-      + The IAM role does not have a trust relationship with the flow
-       logs service
-      + The trust relationship does not specify the flow logs service as
-       the principal
-
-  For more information, see [IAM role for publishing flow logs to CloudWatch Logs](flow-logs-iam-role.md "flow-logs-iam-role.md").
+  - The IAM role for your flow log does not have sufficient
+    permissions to publish flow log records to the CloudWatch log group
+  - The IAM role does not have a trust relationship with the flow
+    logs service
+  - The trust relationship does not specify the flow logs service as
+    the principal
+    For more information, see [IAM role for publishing flow logs to CloudWatch Logs](flow-logs-iam-role.md "flow-logs-iam-role.md").
 
 - `Unknown error`: An internal error has occurred in the flow
   logs service.

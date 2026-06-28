@@ -48,13 +48,13 @@ The IP prefixes for the IPv4 address ranges.
 
 Type: Array
 
-**ipv6_prefixes**
+**ipv6\_prefixes**
 
 The IP prefixes for the IPv6 address ranges.
 
 Type: Array
 
-**ip_prefix**
+**ip\_prefix**
 
 The public IPv4 address range, in CIDR notation. Note that AWS may
 advertise a prefix in more specific ranges. For example, prefix
@@ -65,7 +65,7 @@ Type: String
 
 Example: `"ip_prefix": "198.51.100.2/24"`
 
-**ipv6_prefix**
+**ipv6\_prefix**
 
 The public IPv6 address range, in CIDR notation. Note that AWS may
 advertise a prefix in more specific ranges.
@@ -74,7 +74,7 @@ Type: String
 
 Example: `"ipv6_prefix": "2001:db8:1234::/64"`
 
-**network_border_group**
+**network\_border\_group**
 
 The name of the network border group, which is a unique set of Availability Zones or Local Zones from which AWS advertises IP addresses, or `GLOBAL`. Traffic for `GLOBAL` services can be attracted to or originate from multiple (up to all) Availability Zones or Local Zones from which AWS advertises IP addresses.
 

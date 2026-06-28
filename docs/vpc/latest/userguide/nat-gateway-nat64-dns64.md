@@ -81,18 +81,17 @@ the subnet containing the NAT gateway should have a `0.0.0.0/0` route pointing t
 
 Complete these steps to enable these IPv6-only services to connect with IPv4-only services on the internet:
 
-1.  Add the following three routes to the route table of the subnet containing the IPv6-only
-    workloads:
+1. Add the following three routes to the route table of the subnet containing the IPv6-only
+   workloads:
 
-        * IPv4 route (if any) pointing to the NAT gateway.
-        * `64:ff9b::/96` route pointing to the NAT gateway. This will allow
-         traffic from your IPv6-only workloads destined for IPv4-only services to be
-         routed through the NAT gateway.
-        * IPv6 `::/0` route pointing to the egress-only internet gateway (or the internet
-         gateway).
-
-    Note that pointing `::/0` to the internet gateway will allow external IPv6 hosts (outside
-    the VPC) to initiate connection over IPv6.
+   - IPv4 route (if any) pointing to the NAT gateway.
+   - `64:ff9b::/96` route pointing to the NAT gateway. This will allow
+     traffic from your IPv6-only workloads destined for IPv4-only services to be
+     routed through the NAT gateway.
+   - IPv6 `::/0` route pointing to the egress-only internet gateway (or the internet
+     gateway).
+     Note that pointing `::/0` to the internet gateway will allow external IPv6 hosts (outside
+     the VPC) to initiate connection over IPv6.
 
 ```
 aws ec2 create-route --route-table-id `rtb-34056078` --destination-cidr-block

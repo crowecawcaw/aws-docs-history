@@ -46,7 +46,7 @@ You can attach the `AWSServiceRoleForNATGateway` policy to your IAM identities.
 This policy grants permissions that allow the identity to work on your behalf to automatically scale regional NAT Gateways.
 
 To view the permissions for this policy, see [AWSServiceRoleForNATGateway](../../../aws-managed-policy/latest/reference/AWSServiceRoleForNATGateway.md "../../../aws-managed-policy/latest/reference/AWSServiceRoleForNATGateway.md")  
- in the _AWS Managed Policy Reference_.
+in the _AWS Managed Policy Reference_.
 
 ## Amazon VPC updates to AWS managed policies
 
