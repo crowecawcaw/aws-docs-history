@@ -69,7 +69,7 @@ deployment mode. These values are listed in the [Recommended default values](#ra
 Single-instance, cluster
 
 - `max-length:
-`number-of-messages``
+ `number-of-messages``
   (policy) – Sets a limit for the number of messages in a queue. In cluster deployments, the limit
   prevents paused queue synchronization in cases such as broker reboots, or
   following a maintenance window.
@@ -94,8 +94,9 @@ Cluster
 **Settings specific to RabbitMQ 3**
 
 - `max-queues:
-`number-of-queues-per-vhost``(vhost limit) – Sets the limit for the number of queues in a
-broker. Similar to the`max-length` policy definition, limiting the number of queues
+ `number-of-queues-per-vhost``
+  (vhost limit) – Sets the limit for the number of queues in a
+  broker. Similar to the `max-length` policy definition, limiting the number of queues
   in cluster deployments prevents paused queue synchronization following broker reboots or maintenance windows.
   Limiting queues also prevents excessive amounts of CPU usage for maintaining queues.
 
@@ -104,7 +105,7 @@ broker. Similar to the`max-length` policy definition, limiting the number of que
 Single-instance, cluster
 
 - `max-connections:
-`number-of-connections-per-vhost``
+ `number-of-connections-per-vhost``
   (vhost limit) – Sets the limit for the number of client connections
   _per vhost_. Limiting the number of connections according to the recommended values
   prevents excessive broker memory usage, which could result in the broker raising a high memory

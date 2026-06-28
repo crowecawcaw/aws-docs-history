@@ -142,7 +142,7 @@ the following:
     6. Choose **Add / update policy**.
 
 10. Confirm that the new policy appears in the list of **User
-    policies**.
+policies**.
 
 ###### To apply an `ha-sync-batch-size` policy using the RabbitMQ management API
 

@@ -119,21 +119,21 @@ the OpenWire endpoint.
 After you allow traffic between your brokers, you must configure network
 connectors for one of them.
 
-1.  Edit the configuration revision for broker `MyBroker1`.
+1. Edit the configuration revision for broker `MyBroker1`.
 
-    1. On the **MyBroker1** page, choose
-       **Edit**.
-    2. On the **Edit MyBroker1** page, in the
-       **Configuration** section, choose
-       **View**.
+   1. On the **MyBroker1** page, choose
+      **Edit**.
+   2. On the **Edit MyBroker1** page, in the
+      **Configuration** section, choose
+      **View**.
 
-    The broker engine type and version that the configuration uses
-    (for example, **Apache ActiveMQ 5.15.0**) are
-    displayed. 3. On the **Configuration details** tab, the
-    configuration revision number, description, and broker configuration
-    in XML format are displayed. 4. Choose **Edit configuration**. 5. At the bottom of the configuration file, uncomment the
-    `<networkConnectors>` section and include the
-    following information:
+   The broker engine type and version that the configuration uses
+   (for example, **Apache ActiveMQ 5.15.0**) are
+   displayed. 3. On the **Configuration details** tab, the
+   configuration revision number, description, and broker configuration
+   in XML format are displayed. 4. Choose **Edit configuration**. 5. At the bottom of the configuration file, uncomment the
+   `<networkConnectors>` section and include the
+   following information:
 
         * The `name` for the network connector.
         * [The ActiveMQ Web Console username](#creating-configuring-network-of-brokers-create-brokers "#creating-configuring-network-of-brokers-create-brokers")
@@ -177,28 +177,27 @@ connectors for one of them.
 
         Don't include the sign-in credentials for the ActiveMQ
          user.
-    6. Choose **Save**.
-    7. In the **Save revision** dialog box, type
-       `Add network of brokers connector for
-MyBroker2`.
-    8. Choose **Save** to save the new revision of the
-       configuration.
 
-2.  Edit `MyBroker1` to set the latest configuration revision to
-    apply immediately.
+   6. Choose **Save**. 7. In the **Save revision** dialog box, type
+   `Add network of brokers connector for
+  MyBroker2`. 8. Choose **Save** to save the new revision of the
+   configuration.
 
-    1. On the **MyBroker1** page, choose
-       **Edit**.
-    2. On the **Edit MyBroker1** page, in the
-       **Configuration** section, choose
-       **Schedule Modifications**.
-    3. In the **Schedule broker modifications** section,
-       choose to apply modifications
-       **Immediately**.
-    4. Choose **Apply**.
+2. Edit `MyBroker1` to set the latest configuration revision to
+   apply immediately.
 
-    `MyBroker1` is rebooted and your configuration revision
-    is applied.The network of brokers is created.
+   1. On the **MyBroker1** page, choose
+      **Edit**.
+   2. On the **Edit MyBroker1** page, in the
+      **Configuration** section, choose
+      **Schedule Modifications**.
+   3. In the **Schedule broker modifications** section,
+      choose to apply modifications
+      **Immediately**.
+   4. Choose **Apply**.
+
+   `MyBroker1` is rebooted and your configuration revision
+   is applied.The network of brokers is created.
 
 ## Next Steps
 

@@ -1,12 +1,12 @@
 # RabbitMQ on Amazon MQ: Invalid IAM Assume Role
 
-RabbitMQ on Amazon MQ will raise an INVALID_ASSUMEROLE critical action required code when the IAM role ARN specified in `aws.arns.assume_role_arn` is invalid or cannot be assumed by Amazon MQ. This can occur when the role does not exist, is in a different AWS account than the broker, or lacks the necessary trust relationship with mq.amazonaws.com.
+RabbitMQ on Amazon MQ will raise an INVALID\_ASSUMEROLE critical action required code when the IAM role ARN specified in `aws.arns.assume_role_arn` is invalid or cannot be assumed by Amazon MQ. This can occur when the role does not exist, is in a different AWS account than the broker, or lacks the necessary trust relationship with mq.amazonaws.com.
 
-A broker in RABBITMQ_INVALID_ASSUMEROLE quarantine cannot retrieve credentials or certificates required for LDAP authentication, rendering LDAP authentication unavailable. If LDAP is the only configured authentication method, users will be unable to connect to the broker. The IAM role is required by Amazon MQ to access AWS resources referenced by ARNs in the broker configuration, such as AWS Secrets Manager secrets or Amazon S3 objects used for LDAP authentication.
+A broker in RABBITMQ\_INVALID\_ASSUMEROLE quarantine cannot retrieve credentials or certificates required for LDAP authentication, rendering LDAP authentication unavailable. If LDAP is the only configured authentication method, users will be unable to connect to the broker. The IAM role is required by Amazon MQ to access AWS resources referenced by ARNs in the broker configuration, such as AWS Secrets Manager secrets or Amazon S3 objects used for LDAP authentication.
 
-## Diagnosing and addressing RABBITMQ_INVALID_ASSUMEROLE
+## Diagnosing and addressing RABBITMQ\_INVALID\_ASSUMEROLE
 
-To diagnose and address the RABBITMQ_INVALID_ASSUMEROLE action required code, you must use Amazon CloudWatch Logs and the AWS Identity and Access Management console.
+To diagnose and address the RABBITMQ\_INVALID\_ASSUMEROLE action required code, you must use Amazon CloudWatch Logs and the AWS Identity and Access Management console.
 
 ###### To resolve the invalid assume role issue
 

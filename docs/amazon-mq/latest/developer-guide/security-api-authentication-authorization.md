@@ -83,27 +83,27 @@ For more information, see [Setting Up Amazon MQ](amazon-mq-setting-up.md "amazon
 The following table lists Amazon MQ REST APIs and the corresponding IAM
 permissions.
 
-| Amazon MQ REST APIs and Required Permissions                                                                                                                                                                                          | Amazon MQ REST APIs                | Required Permissions |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | -------------------- |
-| [`CreateBroker`](../api-reference/rest-api-brokers.md#CreateBroker "../api-reference/rest-api-brokers.md#CreateBroker")                                                                                                               | `mq:CreateBroker`                  |
-| [`CreateConfiguration`](../api-reference/rest-api-configurations.md#CreateConfiguration "../api-reference/rest-api-configurations.md#CreateConfiguration")                                                                            | `mq:CreateConfiguration`           |
-| [`CreateTags`](../api-reference/tags-resource-arn.md#CreateTags "../api-reference/tags-resource-arn.md#CreateTags")                                                                                                                   | `mq:CreateTags`                    |
-| [`CreateUser`](../api-reference/rest-api-user.md#CreateUser "../api-reference/rest-api-user.md#CreateUser")                                                                                                                           | `mq:CreateUser`                    |
-| [`DeleteBroker`](../api-reference/rest-api-broker.md#DeleteBroker "../api-reference/rest-api-broker.md#DeleteBroker")                                                                                                                 | `mq:DeleteBroker`                  |
-| [`DeleteUser`](../api-reference/rest-api-user.md#DeleteUser "../api-reference/rest-api-user.md#DeleteUser")                                                                                                                           | `mq:DeleteUser`                    |
-| [`DescribeBroker`](../api-reference/rest-api-broker.md#DescribeBroker "../api-reference/rest-api-broker.md#DescribeBroker")                                                                                                           | `mq:DescribeBroker`                |
-| [`DescribeConfiguration`](../api-reference/rest-api-configuration.md#DescribeConfiguration "../api-reference/rest-api-configuration.md#DescribeConfiguration")                                                                        | `mq:DescribeConfiguration`         |
-| [`DescribeConfigurationRevision`](../api-reference/rest-api-configuration-revision.md#DescribeConfigurationRevision "../api-reference/rest-api-configuration-revision.md#DescribeConfigurationRevision")                              | `mq:DescribeConfigurationRevision` |
-| [`DescribeUser`](../api-reference/brokers-broker-id-users-username.md#DescribeUser "../api-reference/brokers-broker-id-users-username.md#DescribeUser")                                                                               | `mq:DescribeUser`                  |
-| [`ListBrokers`](../api-reference/rest-api-brokers.md#ListBrokers "../api-reference/rest-api-brokers.md#ListBrokers")                                                                                                                  | `mq:ListBrokers`                   |
-| [`ListConfigurationRevisions`](../api-reference/rest-api-configuration-revisions.md#rest-api-configuration-revisions-methods-get "../api-reference/rest-api-configuration-revisions.md#rest-api-configuration-revisions-methods-get") | `mq:ListConfigurationRevisions`    |
-| [`ListConfigurations`](../api-reference/rest-api-configurations.md#ListConfigurations "../api-reference/rest-api-configurations.md#ListConfigurations")                                                                               | `mq:ListConfigurations`            |
-| [`ListTags`](../api-reference/tags-resource-arn.md#ListTags "../api-reference/tags-resource-arn.md#ListTags")                                                                                                                         | `mq:ListTags`                      |
-| [`ListUsers`](../api-reference/rest-api-users.md#ListUsers "../api-reference/rest-api-users.md#ListUsers")                                                                                                                            | `mq:ListUsers`                     |
-| [`RebootBroker`](../api-reference/rest-api-broker-reboot.md#RebootBroker "../api-reference/rest-api-broker-reboot.md#RebootBroker")                                                                                                   | `mq:RebootBroker`                  |
-| [`UpdateBroker`](../api-reference/rest-api-broker.md#UpdateBroker "../api-reference/rest-api-broker.md#UpdateBroker")                                                                                                                 | `mq:UpdateBroker`                  |
-| [`UpdateConfiguration`](../api-reference/rest-api-configuration.md#UpdateConfiguration "../api-reference/rest-api-configuration.md#UpdateConfiguration")                                                                              | `mq:UpdateConfiguration`           |
-| [`UpdateUser`](../api-reference/rest-api-user.md#UpdateUser "../api-reference/rest-api-user.md#UpdateUser")                                                                                                                           | `mq:UpdateUser`                    |
+Amazon MQ REST APIs and Required Permissions| Amazon MQ REST APIs | Required Permissions |
+| --- | --- |
+| [`CreateBroker`](../api-reference/rest-api-brokers.md#CreateBroker "../api-reference/rest-api-brokers.md#CreateBroker") | `mq:CreateBroker` |
+| [`CreateConfiguration`](../api-reference/rest-api-configurations.md#CreateConfiguration "../api-reference/rest-api-configurations.md#CreateConfiguration") | `mq:CreateConfiguration` |
+| [`CreateTags`](../api-reference/tags-resource-arn.md#CreateTags "../api-reference/tags-resource-arn.md#CreateTags") | `mq:CreateTags` |
+| [`CreateUser`](../api-reference/rest-api-user.md#CreateUser "../api-reference/rest-api-user.md#CreateUser") | `mq:CreateUser` |
+| [`DeleteBroker`](../api-reference/rest-api-broker.md#DeleteBroker "../api-reference/rest-api-broker.md#DeleteBroker") | `mq:DeleteBroker` |
+| [`DeleteUser`](../api-reference/rest-api-user.md#DeleteUser "../api-reference/rest-api-user.md#DeleteUser") | `mq:DeleteUser` |
+| [`DescribeBroker`](../api-reference/rest-api-broker.md#DescribeBroker "../api-reference/rest-api-broker.md#DescribeBroker") | `mq:DescribeBroker` |
+| [`DescribeConfiguration`](../api-reference/rest-api-configuration.md#DescribeConfiguration "../api-reference/rest-api-configuration.md#DescribeConfiguration") | `mq:DescribeConfiguration` |
+| [`DescribeConfigurationRevision`](../api-reference/rest-api-configuration-revision.md#DescribeConfigurationRevision "../api-reference/rest-api-configuration-revision.md#DescribeConfigurationRevision") | `mq:DescribeConfigurationRevision` |
+| [`DescribeUser`](../api-reference/brokers-broker-id-users-username.md#DescribeUser "../api-reference/brokers-broker-id-users-username.md#DescribeUser") | `mq:DescribeUser` |
+| [`ListBrokers`](../api-reference/rest-api-brokers.md#ListBrokers "../api-reference/rest-api-brokers.md#ListBrokers") | `mq:ListBrokers` |
+| [`ListConfigurationRevisions`](../api-reference/rest-api-configuration-revisions.md#rest-api-configuration-revisions-methods-get "../api-reference/rest-api-configuration-revisions.md#rest-api-configuration-revisions-methods-get") | `mq:ListConfigurationRevisions` |
+| [`ListConfigurations`](../api-reference/rest-api-configurations.md#ListConfigurations "../api-reference/rest-api-configurations.md#ListConfigurations") | `mq:ListConfigurations` |
+| [`ListTags`](../api-reference/tags-resource-arn.md#ListTags "../api-reference/tags-resource-arn.md#ListTags") | `mq:ListTags` |
+| [`ListUsers`](../api-reference/rest-api-users.md#ListUsers "../api-reference/rest-api-users.md#ListUsers") | `mq:ListUsers` |
+| [`RebootBroker`](../api-reference/rest-api-broker-reboot.md#RebootBroker "../api-reference/rest-api-broker-reboot.md#RebootBroker") | `mq:RebootBroker` |
+| [`UpdateBroker`](../api-reference/rest-api-broker.md#UpdateBroker "../api-reference/rest-api-broker.md#UpdateBroker") | `mq:UpdateBroker` |
+| [`UpdateConfiguration`](../api-reference/rest-api-configuration.md#UpdateConfiguration "../api-reference/rest-api-configuration.md#UpdateConfiguration") | `mq:UpdateConfiguration` |
+| [`UpdateUser`](../api-reference/rest-api-user.md#UpdateUser "../api-reference/rest-api-user.md#UpdateUser") | `mq:UpdateUser` |
 
 ## Amazon MQ additional permissions reference
 

@@ -35,7 +35,7 @@ To diagnose the disk limit alarm, use the Amazon MQ Management Console to:
 
 ###### Note
 
-It may take up to several hours for the RABBITMQ_DISK_ALARM status to clear after you take the required actions.
+It may take up to several hours for the RABBITMQ\_DISK\_ALARM status to clear after you take the required actions.
 
 To prevent the disk limit alarm from reoccurring, you can upgrade your host [instance type](rmq-broker-instance-types.md "rmq-broker-instance-types.md") to an instance with additional resources.
 For information on how to update your broker's instance type see `UpdateBrokerInput`

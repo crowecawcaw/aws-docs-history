@@ -35,7 +35,7 @@ since classic queues are not guaranteed to be durable in all cases.
 - **Default queue type:** The default queue type on a RabbitMQ 4 broker is set to quorum.
   If no queue type argument is specified during queue creation, a quorum queue will be created.
 - **Default redelivery limit on quorum queues is set to 20:** Messages that are redelivered 20 times or more will be dead-lettered or dropped (removed). If 20 deliveries per message is a common scenario for a queue, a dead-lettering target or a higher limit must be configured for such queues to avoid data loss. The recommended way of doing that is via a policy.
-- **amqplib:** Node JS client **amqplib versions older than 0.10.7** or any AMQP client library using **frame_max < 8192** will not be able to connect to RabbitMQ
+- **amqplib:** Node JS client **amqplib versions older than 0.10.7** or any AMQP client library using **frame\_max < 8192** will not be able to connect to RabbitMQ
 - [Default resource limits:](rabbitmq-resource-limits-configuration.md "rabbitmq-resource-limits-configuration.md") Amazon MQ for RabbitMQ has introduced default resource usage limits for connections, channels, consumers per channel, queues, vhosts, shovels, exchanges, and maximum message size. These serve as guardrails to protect broker availability and can be customized using configurations to match your specific requirements.
 
 ## The following features are not supported on RabbitMQ 4 on Amazon MQ

@@ -25,7 +25,7 @@ using the AWS Management Console.
 
 On the **`MyBroker`** page, in the **Users** section, all the users for this broker are listed.
 
-![Table showing two users with their console access and group information.](/images/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-list-users.png) 3. Choose **Create user**. 4. In the **Create user** dialog box, type a
+![Table showing two users with their console access and group information.](images/amazon-mq-tutorials-list-users.png) 3. Choose **Create user**. 4. In the **Create user** dialog box, type a
 **Username** and **Password**. 5. (Optional) Type the names of groups to which the user belongs, separated
 by commas (for example: `Devs, Admins`). 6. (Optional) To enable the user to access the [ActiveMQ Web
 Console](https://activemq.apache.org/web-console.html "https://activemq.apache.org/web-console.html"), choose **ActiveMQ Web

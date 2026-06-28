@@ -10,7 +10,7 @@ This page applies to ActiveMQ brokers only. For information about RabbitMQ plugi
 [Plugins](rabbitmq-basic-elements-plugins.md "rabbitmq-basic-elements-plugins.md").
 
 | Element                                                                                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `abortSlowAckConsumerStrategy` [(attributes)](permitted-attributes.md#abortSlowAckConsumerStrategy.attributes "permitted-attributes.md#abortSlowAckConsumerStrategy.attributes")                                                           |
 | `abortSlowConsumerStrategy` [(attributes)](permitted-attributes.md#abortSlowConsumerStrategy.attributes "permitted-attributes.md#abortSlowConsumerStrategy.attributes")                                                                    |
 | `authorizationEntry` [(attributes)](permitted-attributes.md#authorizationEntry.attributes "permitted-attributes.md#authorizationEntry.attributes")                                                                                         |

@@ -16,7 +16,7 @@ Amazon MQ does not currently support configuring client certificates for AMQP cl
 
 ###### Important
 
-On Amazon MQ for RabbitMQ 3 SSL properties of AMQP clients is configured with RabbitMQ defaults*(verify_none)*.
+On Amazon MQ for RabbitMQ 3 SSL properties of AMQP clients is configured with RabbitMQ defaults*(verify\_none)*.
 Amazon MQ for RabbitMQ 3 does not support overriding these defaults.
 
 ###### Note

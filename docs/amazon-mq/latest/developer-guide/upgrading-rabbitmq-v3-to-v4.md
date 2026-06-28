@@ -16,7 +16,7 @@ to ensure smooth post-upgrade operation.
 
 The following table compares the two upgrade approaches.
 
-| Comparison of upgrade approaches | Consideration                                                                                                                                                    | In-place upgrade (Recommended)                                                                    | Blue-green deployment |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | --------------------- |
-| Downtime                         | Yes, Amazon MQ blocks all connections to the broker during the upgrade. The downtime depends on queue depth. Keeping your queues short will reduce the downtime. | No, you can migrate producers and consumers to the new broker without downtime.                   |
-| Application code changes         | No changes required. The broker endpoint remains the same after the upgrade.                                                                                     | Yes, you must update your application code to redirect producers and consumers to the new broker. |
+Comparison of upgrade approaches| Consideration | In-place upgrade (Recommended) | Blue-green deployment |
+| --- | --- | --- |
+| Downtime | Yes, Amazon MQ blocks all connections to the broker during the upgrade. The downtime depends on queue depth. Keeping your queues short will reduce the downtime. | No, you can migrate producers and consumers to the new broker without downtime. |
+| Application code changes | No changes required. The broker endpoint remains the same after the upgrade. | Yes, you must update your application code to redirect producers and consumers to the new broker. |

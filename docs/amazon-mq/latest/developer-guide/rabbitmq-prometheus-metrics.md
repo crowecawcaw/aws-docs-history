@@ -67,7 +67,7 @@ The Prometheus endpoint is returned in the response under
 
 Amazon MQ for RabbitMQ Prometheus support uses the same authentication scheme as the
 broker. For more information about the supported authentication methods, see [Amazon MQ for RabbitMQ Authentication and Authorization](rabbitmq-authentication.md "rabbitmq-authentication.md"). To learn how to configure
-authentication in Prometheus, see [http_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#http_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#http_config") in the Prometheus documentation.
+authentication in Prometheus, see [http\_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#http_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#http_config") in the Prometheus documentation.
 
 ## Prometheus configuration best practices
 

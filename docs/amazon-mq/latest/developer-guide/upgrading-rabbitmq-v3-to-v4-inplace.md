@@ -85,7 +85,7 @@ identifies classic queues or if Khepri is enabled, Amazon MQ puts the broker in
 `RABBITMQ_BROKER_NOT_UPGRADEABLE_TO_V4`. Amazon MQ will not apply the major version upgrade and will make the broker available for publishing and consuming.
 
 To continue the upgrade, resolve the underlying issue. For more information, see
-[RABBITMQ_BROKER_NOT_UPGRADEABLE_TO_V4](troubleshooting-action-required-codes-rabbitmq-not-upgradeable-to-v4.md "troubleshooting-action-required-codes-rabbitmq-not-upgradeable-to-v4.md").
+[RABBITMQ\_BROKER\_NOT\_UPGRADEABLE\_TO\_V4](troubleshooting-action-required-codes-rabbitmq-not-upgradeable-to-v4.md "troubleshooting-action-required-codes-rabbitmq-not-upgradeable-to-v4.md").
 
 ## Updating resource limit configuration after upgrade
 

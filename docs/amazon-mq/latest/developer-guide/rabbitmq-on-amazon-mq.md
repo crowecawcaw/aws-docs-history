@@ -225,9 +225,8 @@ Without the necessary IAM permissions, your function will not be able to success
      in the *AWS Lambda Developer Guide*.
 
 3. [Configure your broker as an event source](../../../lambda/latest/dg/with-mq.md#services-mq-eventsourcemapping "../../../lambda/latest/dg/with-mq.md#services-mq-eventsourcemapping") for a Lambda function using the AWS Management Console. You can also use the
-   [`create-event-source-mapping`](../../../cli/latest/reference/lambda/create-event-source-mapping.md "../../../cli/latest/reference/lambda/create-event-source-mapping.md") AWS Command Line Interface command.
-4. Write some code for your Lambda function to process the messages from your consumed from your broker. The Lambda payload that
-   retrieved by your event source mapping depends on the engine type of the broker. The following is an example of a Lambda payload for an Amazon MQ for RabbitMQ queue.
+[`create-event-source-mapping`](../../../cli/latest/reference/lambda/create-event-source-mapping.md "../../../cli/latest/reference/lambda/create-event-source-mapping.md") AWS Command Line Interface command. 4. Write some code for your Lambda function to process the messages from your consumed from your broker. The Lambda payload that
+retrieved by your event source mapping depends on the engine type of the broker. The following is an example of a Lambda payload for an Amazon MQ for RabbitMQ queue.
 
 ###### Note
 

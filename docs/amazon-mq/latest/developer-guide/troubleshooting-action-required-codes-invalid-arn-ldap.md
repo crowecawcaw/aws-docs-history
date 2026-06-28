@@ -1,12 +1,12 @@
 # RabbitMQ on Amazon MQ: Invalid LDAP ARN
 
-RabbitMQ on Amazon MQ will raise an INVALID_ARN_LDAP critical action required code when the ARN configured for the LDAP service account password is invalid or inaccessible. This applies to ARNs specified in `aws.arns.auth_ldap.dn_lookup_bind.password` or `aws.arns.auth_ldap.other_bind.password`, which must reference AWS Secrets Manager secrets containing plaintext passwords.
+RabbitMQ on Amazon MQ will raise an INVALID\_ARN\_LDAP critical action required code when the ARN configured for the LDAP service account password is invalid or inaccessible. This applies to ARNs specified in `aws.arns.auth_ldap.dn_lookup_bind.password` or `aws.arns.auth_ldap.other_bind.password`, which must reference AWS Secrets Manager secrets containing plaintext passwords.
 
-A broker in RABBITMQ_INVALID_ARN_LDAP quarantine cannot authenticate with the LDAP service account, making LDAP authentication unavailable. If LDAP is the only configured authentication method, users will be unable to connect to the broker. Invalid ARNs can be caused by malformed ARN syntax, references to non-existent secrets, secrets located in a different AWS region than the broker, or insufficient secretsmanager:GetSecretValue permissions in the IAM role.
+A broker in RABBITMQ\_INVALID\_ARN\_LDAP quarantine cannot authenticate with the LDAP service account, making LDAP authentication unavailable. If LDAP is the only configured authentication method, users will be unable to connect to the broker. Invalid ARNs can be caused by malformed ARN syntax, references to non-existent secrets, secrets located in a different AWS region than the broker, or insufficient secretsmanager:GetSecretValue permissions in the IAM role.
 
-## Diagnosing and addressing RABBITMQ_INVALID_ARN_LDAP
+## Diagnosing and addressing RABBITMQ\_INVALID\_ARN\_LDAP
 
-To diagnose and address the RABBITMQ_INVALID_ARN_LDAP action required code, you must use Amazon CloudWatch Logs and the console.
+To diagnose and address the RABBITMQ\_INVALID\_ARN\_LDAP action required code, you must use Amazon CloudWatch Logs and the console.
 
 ###### To resolve the invalid LDAP ARN issue
 

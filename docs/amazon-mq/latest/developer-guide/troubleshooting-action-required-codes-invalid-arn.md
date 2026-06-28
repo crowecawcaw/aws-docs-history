@@ -1,12 +1,12 @@
 # RabbitMQ on Amazon MQ: Invalid ARN
 
-RabbitMQ on Amazon MQ will raise an INVALID_ARN critical action required code when one or more ARNs configured in the broker are invalid or inaccessible. This applies to ARNs used for SSL certificates, AWS Secrets Manager secrets, Amazon S3 objects, or other AWS resource references not covered by more specific quarantine codes such as RABBITMQ_INVALID_ARN_LDAP or RABBITMQ_INVALID_ASSUMEROLE.
+RabbitMQ on Amazon MQ will raise an INVALID\_ARN critical action required code when one or more ARNs configured in the broker are invalid or inaccessible. This applies to ARNs used for SSL certificates, AWS Secrets Manager secrets, Amazon S3 objects, or other AWS resource references not covered by more specific quarantine codes such as RABBITMQ\_INVALID\_ARN\_LDAP or RABBITMQ\_INVALID\_ASSUMEROLE.
 
-A broker in RABBITMQ_INVALID_ARN quarantine may experience degraded functionality depending on which ARNs are invalid. Features that depend on the inaccessible resources will be unavailable, and the broker will log errors indicating which ARN failed to resolve. The impact on broker availability depends on whether the invalid ARN is required for critical broker operations.
+A broker in RABBITMQ\_INVALID\_ARN quarantine may experience degraded functionality depending on which ARNs are invalid. Features that depend on the inaccessible resources will be unavailable, and the broker will log errors indicating which ARN failed to resolve. The impact on broker availability depends on whether the invalid ARN is required for critical broker operations.
 
-## Diagnosing and addressing RABBITMQ_INVALID_ARN
+## Diagnosing and addressing RABBITMQ\_INVALID\_ARN
 
-To diagnose and address the RABBITMQ_INVALID_ARN action required code, you must use Amazon CloudWatch Logs and the appropriate AWS service console for the affected resource.
+To diagnose and address the RABBITMQ\_INVALID\_ARN action required code, you must use Amazon CloudWatch Logs and the appropriate AWS service console for the affected resource.
 
 ###### To resolve the invalid ARN issue
 

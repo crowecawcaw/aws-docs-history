@@ -19,23 +19,22 @@ AWS Management Console.If you're already signed into the Amazon MQ console, on t
 **Details** page, choose **Actions**,
 **View CloudWatch metrics**.
 
-1.  Sign in to the [CloudWatch
-    console](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2.  On the navigation panel, choose **Metrics**.
-3.  Select the **AmazonMQ** metric namespace.
-4.  Select one of the following metric dimensions:
+1. Sign in to the [CloudWatch
+   console](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. On the navigation panel, choose **Metrics**.
+3. Select the **AmazonMQ** metric namespace.
+4. Select one of the following metric dimensions:
 
-        * **Broker Metrics**
-        * **Queue Metrics by Broker**
-        * **Topic Metrics by Broker**
+   - **Broker Metrics**
+   - **Queue Metrics by Broker**
+   - **Topic Metrics by Broker**
+     In this example, **Broker Metrics** is selected.
 
-    In this example, **Broker Metrics** is selected.
+5. You can now examine your Amazon MQ metrics:
 
-5.  You can now examine your Amazon MQ metrics:
+   - To sort the metrics, use the column heading.
 
-    - To sort the metrics, use the column heading.
-
-    - To graph the metric, select the check box next to the
-      metric.
-    - To filter by metric, choose the metric name and then choose
-      **Add to search**.
+   - To graph the metric, select the check box next to the
+     metric.
+   - To filter by metric, choose the metric name and then choose
+     **Add to search**.

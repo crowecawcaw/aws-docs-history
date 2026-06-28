@@ -58,9 +58,7 @@ In the **Additional settings** section, you can also configure the following:
     * Private access
     * [Broker maintenance window](maintaining-brokers.md "maintaining-brokers.md")
 
-6. Choose **Next**.
-7. On the **Review and create** page, you can review your selections and edit them as needed.
-8. Choose **Create broker**.
+6. Choose **Next**. 7. On the **Review and create** page, you can review your selections and edit them as needed. 8. Choose **Create broker**.
 
 While Amazon MQ creates your broker, it displays the **Creation in progress** status.
 

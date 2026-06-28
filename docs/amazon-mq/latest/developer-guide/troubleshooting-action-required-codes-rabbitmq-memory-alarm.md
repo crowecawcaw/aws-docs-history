@@ -55,7 +55,7 @@ high memory alarm.
 
 ###### Note
 
-It may take up to several hours for the RABBITMQ_MEMORY_ALARM status to clear after you take the required actions.
+It may take up to several hours for the RABBITMQ\_MEMORY\_ALARM status to clear after you take the required actions.
 
 Follow all [best practices](best-practices-rabbitmq.md "best-practices-rabbitmq.md") for RabbitMQ as a general method of prevention.
 For each specific contributor that you identify, we recommend the following set of actions to

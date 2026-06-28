@@ -1,10 +1,10 @@
 # RabbitMQ on Amazon MQ: Invalid AWS Key Management Service Key
 
-RabbitMQ on Amazon MQ will raise an INVALID_KMS_KEY critical action required code when a broker created
+RabbitMQ on Amazon MQ will raise an INVALID\_KMS\_KEY critical action required code when a broker created
 with a customer managed AWS KMS key(CMK) detects that the AWS Key Management Service (KMS) key is disabled.
 A RabbitMQ broker with a CMK periodically verifies that the KMS key is enabled and the broker has
 all necessary grants. If RabbitMQ cannot verify that the key is enabled,
-the broker is quarantined and RabbitMQ will return INVALID_KMS_KEY.
+the broker is quarantined and RabbitMQ will return INVALID\_KMS\_KEY.
 
 Without an active KMS key, the broker does not have basic permissions for customer managed KMS keys.
 The broker cannot perform cryptographic operations using your key until you re-enable your key
@@ -13,9 +13,9 @@ After RabbitMQ determines the KMS key is active again, your broker is removed fr
 Amazon MQ does not restart a broker with a disabled KMS key and returns an exception for `RebootBroker`
 API operations as long as the broker continues to have an invalid KMS key.
 
-## Diagnosing and addressing INVALID_KMS_KEY
+## Diagnosing and addressing INVALID\_KMS\_KEY
 
-To diagnose and address the INVALID_KMS_KEY action required code,
+To diagnose and address the INVALID\_KMS\_KEY action required code,
 you must use the AWS Command Line Interface (CLI) and the AWS Key Management Service console.
 
 ###### To re-enable your KMS key
@@ -35,5 +35,5 @@ call the `ListGrant`ListGrant method to verify that `mq_rabbit_grant` and `mq_gr
 If the KMS grant or key has been deleted, you must delete the broker and create a new one with all necessary grants.
 For steps on deleting a broker, see [Deleting a broker](amazon-mq-deleting-broker.md "amazon-mq-deleting-broker.md").
 
-To prevent the INVALID_KMS_KEY critical action required code, do not manually delete or disable a KMS key or CMK grant.
+To prevent the INVALID\_KMS\_KEY critical action required code, do not manually delete or disable a KMS key or CMK grant.
 If you wish to delete the key, delete the broker first.

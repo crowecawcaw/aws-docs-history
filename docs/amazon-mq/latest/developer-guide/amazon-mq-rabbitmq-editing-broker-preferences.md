@@ -19,7 +19,7 @@ You can edit your broker preferences, such as enabling or disabling CloudWatch l
     * Amazon MQ does not support audit logging for RabbitMQ brokers.
 
 5. In the **Maintenance** section, configure your
-   broker's maintenance schedule:
+broker's maintenance schedule:
 
 To upgrade the broker to new versions as AWS releases them, choose
 **Enable automatic minor version upgrades**.

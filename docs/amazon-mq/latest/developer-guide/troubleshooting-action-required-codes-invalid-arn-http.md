@@ -1,12 +1,12 @@
 # RabbitMQ on Amazon MQ: Invalid HTTP ARN
 
-RabbitMQ on Amazon MQ will raise an INVALID_ARN_HTTP critical action required code when one or more ARNs of SSL certificates or key file for HTTP auth_backend are invalid or inaccessible. This applies to ARNS specified in `aws.arns.auth_http.ssl_options.cacertfile`, `aws.arns.auth_http.ssl_options.certfile` or `aws.arns.auth_http.ssl_options.keyfile`, which must reference Amazon S3 objects and AWS Secrets Manager secrets containing certificates and private key.
+RabbitMQ on Amazon MQ will raise an INVALID\_ARN\_HTTP critical action required code when one or more ARNs of SSL certificates or key file for HTTP auth\_backend are invalid or inaccessible. This applies to ARNS specified in `aws.arns.auth_http.ssl_options.cacertfile`, `aws.arns.auth_http.ssl_options.certfile` or `aws.arns.auth_http.ssl_options.keyfile`, which must reference Amazon S3 objects and AWS Secrets Manager secrets containing certificates and private key.
 
-A broker in RABBITMQ_INVALID_ARN_HTTP quarantine cannot authenticate via the HTTP server. If HTTP is the only configured authentication method, users will be unable to connect to the broker. Invalid ARNs can be caused by malformed ARN syntax, references to non-existent secrets, secrets located in a different AWS region than the broker, or insufficient s3:GetObject/secretsmanager:GetSecretValue permissions in the IAM role.
+A broker in RABBITMQ\_INVALID\_ARN\_HTTP quarantine cannot authenticate via the HTTP server. If HTTP is the only configured authentication method, users will be unable to connect to the broker. Invalid ARNs can be caused by malformed ARN syntax, references to non-existent secrets, secrets located in a different AWS region than the broker, or insufficient s3:GetObject/secretsmanager:GetSecretValue permissions in the IAM role.
 
-## Diagnosing and addressing RABBITMQ_INVALID_ARN_HTTP
+## Diagnosing and addressing RABBITMQ\_INVALID\_ARN\_HTTP
 
-To diagnose and address the RABBITMQ_INVALID_ARN_HTTP action required code, you must use Amazon CloudWatch Logs and the console.
+To diagnose and address the RABBITMQ\_INVALID\_ARN\_HTTP action required code, you must use Amazon CloudWatch Logs and the console.
 
 ###### To resolve the invalid HTTP ARN issue
 

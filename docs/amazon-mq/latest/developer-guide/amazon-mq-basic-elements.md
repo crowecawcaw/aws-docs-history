@@ -58,18 +58,16 @@ messages to, or receive messages from, the Amazon MQ broker.
 
 - Wire-level protocol endpoints:
 
-      + `amqp+ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:5671`
-      + `mqtt+ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:8883`
-      + `ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:61617`
+  - `amqp+ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:5671`
+  - `mqtt+ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:8883`
+  - `ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:61617`
 
+  ###### Note
 
-      ###### Note
-
-      This is an OpenWire endpoint.
-      + `stomp+ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:61614`
-      + `wss://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:61619`
-
-  For more information, see [Configuring Transports](https://activemq.apache.org/configuring-transports.html "https://activemq.apache.org/configuring-transports.html") in the Apache ActiveMQ documentation.
+  This is an OpenWire endpoint.
+  - `stomp+ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:61614`
+  - `wss://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:61619`
+    For more information, see [Configuring Transports](https://activemq.apache.org/configuring-transports.html "https://activemq.apache.org/configuring-transports.html") in the Apache ActiveMQ documentation.
 
 ###### Note
 

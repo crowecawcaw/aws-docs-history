@@ -43,39 +43,39 @@ see [Amazon MQ for RabbitMQ broker users](rabbitmq-simple-auth-broker-users.md#r
 
 ###### To apply default policies and virtual host limits using the RabbitMQ web console
 
-1.  Sign in to the [Amazon MQ console](https://console.aws.amazon.com/amazon-mq/ "https://console.aws.amazon.com/amazon-mq/").
-2.  In the left navigation pane, choose **Brokers**.
-3.  From the list of brokers, choose the name of the broker to which you want to apply the new policy.
-4.  On the broker details page, in the **Connections** section, choose the
-    **RabbitMQ web console** URL. The RabbitMQ web console opens in a new
-    browser tab or window.
-5.  Log in to the RabbitMQ web console with your broker administrator user name and
-    password.
-6.  In the RabbitMQ web console, at the top of the page, choose
-    **Admin**.
-7.  On the **Admin** page, in the right navigation pane, choose
-    **Policies**.
-8.  On the **Policies** page, you can see a list of the broker's current
-    **User policies**. Below **User policies**, expand
-    **Add / update a policy**.
-9.  To create a new broker policy, under **Add / update a policy**, do
-    the following:
+1. Sign in to the [Amazon MQ console](https://console.aws.amazon.com/amazon-mq/ "https://console.aws.amazon.com/amazon-mq/").
+2. In the left navigation pane, choose **Brokers**.
+3. From the list of brokers, choose the name of the broker to which you want to apply the new policy.
+4. On the broker details page, in the **Connections** section, choose the
+   **RabbitMQ web console** URL. The RabbitMQ web console opens in a new
+   browser tab or window.
+5. Log in to the RabbitMQ web console with your broker administrator user name and
+   password.
+6. In the RabbitMQ web console, at the top of the page, choose
+   **Admin**.
+7. On the **Admin** page, in the right navigation pane, choose
+   **Policies**.
+8. On the **Policies** page, you can see a list of the broker's current
+   **User policies**. Below **User policies**, expand
+   **Add / update a policy**.
+9. To create a new broker policy, under **Add / update a policy**, do
+   the following:
 
-    1. For **Virtual host**, choose the name of the vhost to which you want to attach the policies
-       from the dropdown list. To choose the default vhost, choose **/**.
+   1. For **Virtual host**, choose the name of the vhost to which you want to attach the policies
+      from the dropdown list. To choose the default vhost, choose **/**.
 
-    ###### Note
+   ###### Note
 
-    If you have not created additional vhosts, the **Virtual host** option is not shown in the RabbitMQ console, and the
-    policies are applied only to the default vhost. 2. For **Name**, enter a name for your policy, for example,
-    `policy-defaults`. 3. For **Pattern**, enter the regexp pattern
-    `.*` so that the policy matches all queues on the
-    broker. 4. For **Apply to**, choose **Exchanges and
-    queues** from the dropdown list. 5. For **Priority**, enter an integer greater than all other policies applied to the vhost.
-    You can apply exactly one set of policy definitions to RabbitMQ queues and exchanges at any given time.
-    RabbitMQ chooses the matching policy with the highest priority value.
-    For more information about policy priorities and how to combine
-    policies, see [Policies](https://www.rabbitmq.com/parameters.html#policies "https://www.rabbitmq.com/parameters.html#policies") in the RabbitMQ Server Documentation. 6. For **Definition**, add the following key-value pairs:
+   If you have not created additional vhosts, the **Virtual host** option is not shown in the RabbitMQ console, and the
+   policies are applied only to the default vhost. 2. For **Name**, enter a name for your policy, for example,
+   `policy-defaults`. 3. For **Pattern**, enter the regexp pattern
+   `.*` so that the policy matches all queues on the
+   broker. 4. For **Apply to**, choose **Exchanges and
+   queues** from the dropdown list. 5. For **Priority**, enter an integer greater than all other policies applied to the vhost.
+   You can apply exactly one set of policy definitions to RabbitMQ queues and exchanges at any given time.
+   RabbitMQ chooses the matching policy with the highest priority value.
+   For more information about policy priorities and how to combine
+   policies, see [Policies](https://www.rabbitmq.com/parameters.html#policies "https://www.rabbitmq.com/parameters.html#policies") in the RabbitMQ Server Documentation. 6. For **Definition**, add the following key-value pairs:
 
         * `queue-mode`=`lazy`.
          Choose **String** from the dropdown list.
@@ -96,7 +96,8 @@ see [Amazon MQ for RabbitMQ broker users](rabbitmq-simple-auth-broker-users.md#r
         ###### Note
 
         Does not apply to single-instance brokers.
-    7. Choose **Add / update policy**.
+
+   7. Choose **Add / update policy**.
 
 10. Confirm that the new policy appears in the list of **User
     policies**.
@@ -121,7 +122,7 @@ the following:
      the dropdown options.
 
 14. Confirm that the new limits appear in the list of **Virtual
-    host limits**.
+host limits**.
 
 ###### To apply default policies and virtual host limits using the RabbitMQ management API
 

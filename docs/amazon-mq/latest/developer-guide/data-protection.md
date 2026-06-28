@@ -106,7 +106,7 @@ selecting one of the following.
 When creating a [single instance broker](rabbitmq-broker-architecture.md "rabbitmq-broker-architecture.md") with a KMS key for RabbitMQ, you will see two `CreateGrant` events logged in AWS CloudTrail.
 The first event is Amazon MQ creating a grant for the KMS key. The second event is EBS creating a grant for EBS to use.
 
-mq_grant
+mq\_grant
 
 ```
 
@@ -233,7 +233,7 @@ You will see one event for EBS grant creation.
 When creating a [cluster deployment](rabbitmq-broker-architecture.md "rabbitmq-broker-architecture.md") with a KMS key for RabbitMQ, you will see five `CreateGrant` events logged in AWS CloudTrail.
 The first two events are grant creations for Amazon MQ. The next three events are grants created by EBS for EBS to use.
 
-mq_grant
+mq\_grant
 
 ```
 
@@ -305,7 +305,7 @@ mq_grant
 
 ```
 
-mq_rabbit_grant
+mq\_rabbit\_grant
 
 ```
 
@@ -452,24 +452,24 @@ You can access your ActiveMQ brokers using the following protocols with TLS enab
 
 ActiveMQ on Amazon MQ supports the following cipher suites:
 
-- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
-- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
-- TLS_DHE_RSA_WITH_AES_256_CBC_SHA256
-- TLS_DHE_RSA_WITH_AES_256_CBC_SHA
-- TLS_RSA_WITH_AES_256_GCM_SHA384
-- TLS_RSA_WITH_AES_256_CBC_SHA256
-- TLS_RSA_WITH_AES_256_CBC_SHA
-- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
-- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
-- TLS_DHE_RSA_WITH_AES_128_CBC_SHA256
-- TLS_DHE_RSA_WITH_AES_128_CBC_SHA
-- TLS_RSA_WITH_AES_128_GCM_SHA256
-- TLS_RSA_WITH_AES_128_CBC_SHA256
-- TLS_RSA_WITH_AES_128_CBC_SHA
+- TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384
+- TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384
+- TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA
+- TLS\_DHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384
+- TLS\_DHE\_RSA\_WITH\_AES\_256\_CBC\_SHA256
+- TLS\_DHE\_RSA\_WITH\_AES\_256\_CBC\_SHA
+- TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384
+- TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA256
+- TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA
+- TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256
+- TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256
+- TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA
+- TLS\_DHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256
+- TLS\_DHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256
+- TLS\_DHE\_RSA\_WITH\_AES\_128\_CBC\_SHA
+- TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256
+- TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256
+- TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA
 
 ### Amazon MQ for RabbitMQ protocols
 
@@ -479,5 +479,5 @@ You can access your RabbitMQ brokers using the following protocols with TLS enab
 
 RabbitMQ on Amazon MQ supports the following cipher suites:
 
-- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384
+- TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256

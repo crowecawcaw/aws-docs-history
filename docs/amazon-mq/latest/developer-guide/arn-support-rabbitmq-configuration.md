@@ -61,9 +61,9 @@ See [Using LDAP authentication and authorization](rabbitmq-ldap-tutorial.md "rab
 
 For information about broker quarantine states related to ARN support issues, see:
 
-- [RABBITMQ_INVALID_ASSUMEROLE](troubleshooting-action-required-codes-invalid-assumerole.md "troubleshooting-action-required-codes-invalid-assumerole.md")
-- [RABBITMQ_INVALID_ARN_LDAP](troubleshooting-action-required-codes-invalid-arn-ldap.md "troubleshooting-action-required-codes-invalid-arn-ldap.md")
-- [RABBITMQ_INVALID_ARN](troubleshooting-action-required-codes-invalid-arn.md "troubleshooting-action-required-codes-invalid-arn.md")
+- [RABBITMQ\_INVALID\_ASSUMEROLE](troubleshooting-action-required-codes-invalid-assumerole.md "troubleshooting-action-required-codes-invalid-assumerole.md")
+- [RABBITMQ\_INVALID\_ARN\_LDAP](troubleshooting-action-required-codes-invalid-arn-ldap.md "troubleshooting-action-required-codes-invalid-arn-ldap.md")
+- [RABBITMQ\_INVALID\_ARN](troubleshooting-action-required-codes-invalid-arn.md "troubleshooting-action-required-codes-invalid-arn.md")
 
 ## Example scenario
 
@@ -74,7 +74,7 @@ For information about broker quarantine states related to ARN support issues, se
 [error] <0.254.0> aws_arn_config: {handle_assume_role,{error,{assume_role_failed,"AWS service is unavailable"}}}
 ```
 
-Additionally, the broker will enter the `INVALID_ASSUMEROLE` quarantine state. For more information, see [INVALID_ASSUMEROLE](troubleshooting-action-required-codes-invalid-assumerole.md "troubleshooting-action-required-codes-invalid-assumerole.md").
+Additionally, the broker will enter the `INVALID_ASSUMEROLE` quarantine state. For more information, see [INVALID\_ASSUMEROLE](troubleshooting-action-required-codes-invalid-assumerole.md "troubleshooting-action-required-codes-invalid-assumerole.md").
 
 - LDAP authentication attempts will fail with the following error:
 
