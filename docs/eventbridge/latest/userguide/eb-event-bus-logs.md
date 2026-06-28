@@ -56,11 +56,10 @@ way:
   sends logs to the selected destinations. For more information, see [Specifying event bus log level](#eb-event-bus-logs-level "#eb-event-bus-logs-level").
 - You can specify whether EventBridge includes more granular information when relevant, including:
 
-      + Event details
-      + Target input information
-      + Target request information
-
-  For more information, see [Including detail data in event bus logs](#eb-event-logs-data "#eb-event-logs-data").
+  - Event details
+  - Target input information
+  - Target request information
+    For more information, see [Including detail data in event bus logs](#eb-event-logs-data "#eb-event-logs-data").
 
 ### Log delivery considerations
 

@@ -25,29 +25,29 @@ For more information, see [Logging event buses](eb-event-bus-logs.md "eb-event-b
 }
 ```
 
-**resource_arn**
+**resource\_arn**
 
 The Amazon Resource Name (ARN) for the event bus.
 
-**request_id**
+**request\_id**
 
 The ID of the request.
 
-**event_id**
+**event\_id**
 
 The ID of the event being processed.
 
-**invocation_id**
+**invocation\_id**
 
 The ID of the invocation for the event.
 
-**message_timestamp_ms**
+**message\_timestamp\_ms**
 
 The date and time the log event was emitted.
 
 Unit: millisecond
 
-**message_type**
+**message\_type**
 
 The event processing step for which the log record was generated.
 
@@ -72,7 +72,7 @@ _Valid values:_
 - `RULE_MATCH`
 - `RULE_MATCH_START`
 
-**log_level**
+**log\_level**
 
 The level of detail specified for the event bus log.
 
@@ -181,7 +181,7 @@ The fields listed below are returned for the following message types:
 }
 ```
 
-**dropped_fields**
+**dropped\_fields**
 
 A list of any data fields EventBridge has truncated to keep the record below the 1 MB size limitation.
 
@@ -204,15 +204,15 @@ And the following fields if available:
 
 If no error was generated during this step, EventBridge does not include this field in the log record.
 
-**http_status_code**
+**http\_status\_code**
 
 The HTTP status code returned by the called service.
 
-**error_message**
+**error\_message**
 The error message returned by the called service.
 
-**aws_service**
+**aws\_service**
 The name of the service called.
 
-**request_id**
+**request\_id**
 The request ID for this request from the called service.

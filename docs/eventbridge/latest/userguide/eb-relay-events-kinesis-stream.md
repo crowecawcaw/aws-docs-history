@@ -54,18 +54,18 @@ Create a rule to send events to your stream when you stop an Amazon EC2 instance
 
 ###### To create a rule
 
-1.  Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2.  In the navigation pane, choose **Rules**.
-3.  Choose **Create rule**.
-4.  Enter a name and description for the rule. For example, name the rule `TestRule`
-5.  For **Event bus**, select **default**.
-6.  For **Rule type**, choose **Rule with an event
-    pattern**.
-7.  Choose **Next**.
-8.  For **Event source**, choose
-    **AWS events or EventBridge partner events**.
-9.  For **Creation method**, choose
-    **Use schema**.
+1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
+2. In the navigation pane, choose **Rules**.
+3. Choose **Create rule**.
+4. Enter a name and description for the rule. For example, name the rule `TestRule`
+5. For **Event bus**, select **default**.
+6. For **Rule type**, choose **Rule with an event
+   pattern**.
+7. Choose **Next**.
+8. For **Event source**, choose
+   **AWS events or EventBridge partner events**.
+9. For **Creation method**, choose
+   **Use schema**.
 10. For **Event pattern**, do the following:
 
     1. For **Schema type**, choose **Select schema from Schema registry**.
@@ -88,6 +88,7 @@ Create a rule to send events to your stream when you stop an Amazon EC2 instance
 
 
         Leave **Relationship** empty. For **Value**, enter `EC2 Instance State-change Notification`. Choose **Set**.
+
     5. To view the event pattern you've constructed, choose **Generate event pattern in JSON**
 
     EventBridge displays the event pattern in JSON:

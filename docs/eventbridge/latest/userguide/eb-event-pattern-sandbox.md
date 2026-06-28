@@ -56,8 +56,8 @@ The following sample event types are available:
     	6. Edit the event JSON to create your own sample event.
 
 5. Choose a **Creation method**. You can create an event pattern
-   from an EventBridge schema or template, or you can create a custom event
-   pattern.
+from an EventBridge schema or template, or you can create a custom event
+pattern.
 
 Existing schema
 To use an existing EventBridge schema to create the event pattern, do

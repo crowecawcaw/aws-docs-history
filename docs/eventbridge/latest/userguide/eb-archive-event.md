@@ -41,7 +41,7 @@ You cannot change the source event bus once you have created the archive. 6. For
     * For a set retention period, enter the number of days after which EventBridge should delete the events from the archive.
 
 7. For **Encryption**, choose the KMS key for EventBridge to use when
-   encrypting the events stored in the archive.
+encrypting the events stored in the archive.
 
 ###### Important
 
@@ -124,8 +124,8 @@ The following sample event types are available:
     	6. Edit the event JSON to create your own sample event.
 
 3. Choose a **Creation method**. You can create an event pattern
-   from an EventBridge schema or template, or you can create a custom event
-   pattern.
+from an EventBridge schema or template, or you can create a custom event
+pattern.
 
 Existing schema
 To use an existing EventBridge schema to create the event pattern, do

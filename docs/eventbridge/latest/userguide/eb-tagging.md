@@ -19,7 +19,7 @@ A tag has two parts:
   - The maximum tag key length is 128 Unicode characters in UTF-8.
   - For each resource, each tag key must be unique.
   - Allowed characters are letters, numbers, spaces representable in UTF-8,
-    and the following characters: **_. : + = @ \_ / - (hyphen)_**.
+    and the following characters: _**. : + = @ \_ / - (hyphen)**_.
   - The `aws:` prefix is prohibited for tags because it's reserved
     for AWS use. You can't edit or delete tag keys or values with this prefix.
     Tags with this prefix don't count against your tags per resource
@@ -34,7 +34,7 @@ A tag has two parts:
   - The maximum tag value length is 256 Unicode characters in UTF-8.
 
   - Allowed characters are letters, numbers, spaces representable in UTF-8,
-    and the following characters: **_. : + = @ \_ / - (hyphen)_**.
+    and the following characters: _**. : + = @ \_ / - (hyphen)**_.
 
 ###### Tip
 

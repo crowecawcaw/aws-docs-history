@@ -35,7 +35,7 @@ API.
    connection**.
 4. Enter a name and description for the connection. For example, enter
    `Zendesk` for the name, and `Connection to Zendesk
-API` for the description.
+ API` for the description.
 5. For **Authorization type**, choose **Basic (Username/Password)**.
 6. For **Username**, enter your Zendesk username.
 7. For **Password**, enter your Zendesk password.
@@ -53,7 +53,7 @@ the [target](eb-targets.md "eb-targets.md") of the rule.
 3. Choose **Create API destination**.
 4. Enter a name and description for the API destination. For example, enter
    `ZendeskAD` for the name, and `Zendesk API
-destination` for the description.
+ destination` for the description.
 5. For **API destination endpoint**, enter
    `https://`your-subdomain`.zendesk.com/api/v2/tickets.json`,
    where `your-subdomain` is the subdomain associated with your
@@ -77,7 +77,7 @@ Next, create a rule to send events to Zendesk when an Amazon S3 object is create
 3. Choose **Create rule**.
 4. Enter a name and description for the rule. For example, enter
    `ZendeskRule` for the name, and `Rule to send events to
-Zendesk when S3 objects are created` for the description.
+ Zendesk when S3 objects are created` for the description.
 5. For **Event bus**, choose **default**.
 6. For **Rule type**, choose **Rule with an event
    pattern**.

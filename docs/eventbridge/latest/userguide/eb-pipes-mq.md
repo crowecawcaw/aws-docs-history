@@ -47,18 +47,17 @@ The Amazon MQ source has the following configuration restrictions:
 - Protocols – Supported protocols depend on the
   Amazon MQ integration that you use.
 
-      + For ActiveMQ integrations, EventBridge uses the OpenWire/Java Message Service (JMS)
-       protocol to consume messages. Message consumption isn’t supported on any other protocol.
-       EventBridge only supports the `TextMessage` and `BytesMessage` operations within the JMS protocol. For more information about
-       the OpenWire protocol, see [OpenWire](https://activemq.apache.org/openwire.html "https://activemq.apache.org/openwire.html") on the Apache ActiveMQ website.
-      + For RabbitMQ integrations, EventBridge uses the AMQP 0-9-1 protocol to consume messages. No
-       other protocols are supported for consuming messages. For more information about
-       RabbitMQ's implementation of the AMQP 0-9-1 protocol, see [AMQP 0-9-1 Complete Reference
-       Guide](https://www.rabbitmq.com/amqp-0-9-1-reference.html "https://www.rabbitmq.com/amqp-0-9-1-reference.html") on the RabbitMQ website.
-
-  EventBridge automatically supports the latest versions of ActiveMQ and RabbitMQ that Amazon MQ
-  supports. For the latest supported versions, see [Amazon MQ release notes](../../../amazon-mq/latest/developer-guide/amazon-mq-release-notes.md "../../../amazon-mq/latest/developer-guide/amazon-mq-release-notes.md") in the
-  Amazon MQ Developer Guide.
+  - For ActiveMQ integrations, EventBridge uses the OpenWire/Java Message Service (JMS)
+    protocol to consume messages. Message consumption isn’t supported on any other protocol.
+    EventBridge only supports the `TextMessage` and `BytesMessage` operations within the JMS protocol. For more information about
+    the OpenWire protocol, see [OpenWire](https://activemq.apache.org/openwire.html "https://activemq.apache.org/openwire.html") on the Apache ActiveMQ website.
+  - For RabbitMQ integrations, EventBridge uses the AMQP 0-9-1 protocol to consume messages. No
+    other protocols are supported for consuming messages. For more information about
+    RabbitMQ's implementation of the AMQP 0-9-1 protocol, see [AMQP 0-9-1 Complete Reference
+    Guide](https://www.rabbitmq.com/amqp-0-9-1-reference.html "https://www.rabbitmq.com/amqp-0-9-1-reference.html") on the RabbitMQ website.
+    EventBridge automatically supports the latest versions of ActiveMQ and RabbitMQ that Amazon MQ
+    supports. For the latest supported versions, see [Amazon MQ release notes](../../../amazon-mq/latest/developer-guide/amazon-mq-release-notes.md "../../../amazon-mq/latest/developer-guide/amazon-mq-release-notes.md") in the
+    Amazon MQ Developer Guide.
 
 ###### Note
 

@@ -38,29 +38,29 @@ key.
 
 ###### To update the KMS key used for encryption on an event bus (console)
 
-1.  Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2.  In the navigation pane, choose **Event buses**.
-3.  Choose the event bus you want to update.
-4.  On the events bus details page, choose the **Encryption**
-    tab.
-5.  Choose the KMS key for EventBridge to use when
-    encrypting the event data stored on the event bus:
+1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
+2. In the navigation pane, choose **Event buses**.
+3. Choose the event bus you want to update.
+4. On the events bus details page, choose the **Encryption**
+   tab.
+5. Choose the KMS key for EventBridge to use when
+   encrypting the event data stored on the event bus:
 
-    - Choose **Use AWS owned key** for
-      EventBridge to encrypt the data using an AWS owned key.
+   - Choose **Use AWS owned key** for
+     EventBridge to encrypt the data using an AWS owned key.
 
-    This AWS owned key is a KMS key that
-    EventBridge owns and manages for use in multiple AWS accounts. In general, unless you are required to
-    audit or control the encryption key that protects your resources, an
-    AWS owned key is a good choice.
+   This AWS owned key is a KMS key that
+   EventBridge owns and manages for use in multiple AWS accounts. In general, unless you are required to
+   audit or control the encryption key that protects your resources, an
+   AWS owned key is a good choice.
 
-    This is the default.
-    - Choose **Use customer managed key** for
-      EventBridge to encrypt the data using the customer managed key that you specify or create.
+   This is the default.
+   - Choose **Use customer managed key** for
+     EventBridge to encrypt the data using the customer managed key that you specify or create.
 
-    Customer managed keys are KMS keys in your
-    AWS account that you create, own, and manage. You
-    have full control over these KMS keys.
+   Customer managed keys are KMS keys in your
+   AWS account that you create, own, and manage. You
+   have full control over these KMS keys.
 
         1. Specify an existing customer managed key, or choose
          **Create a new KMS key**.

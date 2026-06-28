@@ -118,7 +118,7 @@ To set up the example application, you'll use the AWS CLI and Git to create the 
    Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "https://git-scm.com/book/en/v2/Getting-Started-Installing-Git") and [install the AWS Serverless Application Model CLI](../../../serverless-application-model/latest/developerguide/serverless-sam-cli-install.md "../../../serverless-application-model/latest/developerguide/serverless-sam-cli-install.md") on your local machine.
 3. Create a new directory, and then navigate to that directory in a terminal.
 4. At the command line, enter `git clone
-https://github.com/aws-samples/amazon-eventbridge-producer-consumer-example`.
+ https://github.com/aws-samples/amazon-eventbridge-producer-consumer-example`.
 5. At the command line run the following command:
 
 ```

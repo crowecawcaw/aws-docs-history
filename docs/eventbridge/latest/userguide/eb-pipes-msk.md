@@ -177,7 +177,7 @@ _Amazon Managed Streaming for Apache Kafka Developer Guide_.
 
 ### Configuring the mTLS secret
 
-The CLIENT_CERTIFICATE_TLS_AUTH secret requires a certificate field and a private key
+The CLIENT\_CERTIFICATE\_TLS\_AUTH secret requires a certificate field and a private key
 field. For an encrypted private key, the secret requires a private key password. Both the
 certificate and private key must be in PEM format.
 

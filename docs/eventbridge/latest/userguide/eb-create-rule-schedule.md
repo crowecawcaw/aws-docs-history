@@ -237,8 +237,8 @@ then do the following:
      [Event bus targets available in the EventBridge console](eb-targets.md#eb-console-targets "eb-targets.md#eb-console-targets").
 
 2. For many target types,
-   EventBridge needs permissions to send events to the target.
-   In these cases, EventBridge can create the IAM role needed for your rule to run.
+EventBridge needs permissions to send events to the target.
+In these cases, EventBridge can create the IAM role needed for your rule to run.
 
 For **Execution role**, do one of the following:
 
@@ -425,8 +425,7 @@ Note that EventBridge may not display all of the following fields for a given AW
     	For more information, see [Granting permissions to the dead-letter queue](eb-rule-dlq.md#eb-dlq-perms "eb-rule-dlq.md#eb-dlq-perms").
 
 4. (Optional) Choose **Add another target** to add another target for
-   this rule.
-5. Choose **Next**.
+this rule. 5. Choose **Next**.
 
 ### Configure tags and review rule
 

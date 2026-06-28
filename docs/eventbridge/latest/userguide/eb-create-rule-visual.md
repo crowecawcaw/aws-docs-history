@@ -86,29 +86,29 @@ After you construct an event pattern that matches all the event attributes you w
 
 #### Test the event pattern (optional)
 
-1.  Choose a sample event for testing, or use your own.
+1. Choose a sample event for testing, or use your own.
 
-    - **Use sample events provided**
+   - **Use sample events provided**
 
-      1. Choose **Use sample events provided**.
-      2. Under **Sample triggering event**, select the event to use for testing from the drop-down list.
+     1. Choose **Use sample events provided**.
+     2. Under **Sample triggering event**, select the event to use for testing from the drop-down list.
 
-    - **Use your own event**
+   - **Use your own event**
 
-      1. Choose **Use your own event**.
+     1. Choose **Use your own event**.
 
-      EventBridge displays a generic event with an empty `details` element. 2. Edit the event JSON to create the event against which you want to test your event pattern.
+     EventBridge displays a generic event with an empty `details` element. 2. Edit the event JSON to create the event against which you want to test your event pattern.
 
-      ###### Tip
+     ###### Tip
 
-      You can use the sample events provided as starting points for creating your own custom events to use in your testing:
+     You can use the sample events provided as starting points for creating your own custom events to use in your testing:
 
-          1. Choose **Use sample events provided**, choose an event from the **Sample triggering event**, and then choose **Copy**.
-          2. Choose **Use your own event**.
-          3. Select the entire event in the window, and paste the sample event over it.
-          4. Edit the event as desired.
+           1. Choose **Use sample events provided**, choose an event from the **Sample triggering event**, and then choose **Copy**.
+           2. Choose **Use your own event**.
+           3. Select the entire event in the window, and paste the sample event over it.
+           4. Edit the event as desired.
 
-2.  Choose **Run Test**.
+2. Choose **Run Test**.
 
 EventBridge displays a message stating whether the test event matches the event pattern.
 

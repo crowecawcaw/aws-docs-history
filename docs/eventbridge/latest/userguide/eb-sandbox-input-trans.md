@@ -58,15 +58,13 @@ Enter your own event in JSON text.
     	 JSON text easier to read by adding line breaks,
     	 tabs, and spaces.
 
-4.  (Optional) Expand the **Example input paths, Templates and Outputs** section to see examples of:
+4. (Optional) Expand the **Example input paths, Templates and Outputs** section to see examples of:
 
-        * How JSON paths are used to define variables that represent event data
-        * How those variables can be used in an input transformer template
-        * The resulting output that EventBridge sends to the target
+    * How JSON paths are used to define variables that represent event data
+    * How those variables can be used in an input transformer template
+    * The resulting output that EventBridge sends to the target
 
-    For more detailed examples of input transformations, see [Input transform examples](eb-transform-target-input.md#eb-transform-input-examples "eb-transform-target-input.md#eb-transform-input-examples").
-
-5.  In the **Target input transformer** section, define any variables you want to use in the input template.
+For more detailed examples of input transformations, see [Input transform examples](eb-transform-target-input.md#eb-transform-input-examples "eb-transform-target-input.md#eb-transform-input-examples"). 5. In the **Target input transformer** section, define any variables you want to use in the input template.
 
 Variables use JSON path to reference values in the original event source.
 You can then reference those variables in the input template in order to include data from the original source event in the transformed event

@@ -148,9 +148,9 @@ specified time. To create a rule that runs every four hours on the 0th minute, y
 one of the following:
 
 - In the EventBridge console, you use the cron expression `0 0/4 * * ?
-*`.
+ *`.
 - Using the AWS CLI, you use the expression `cron(0 0/4 * * ?
-*)`.
+ *)`.
 
 For example, to create a rule named `TestRule` that runs every 4 hours by
 using the AWS CLI, you use the following command.

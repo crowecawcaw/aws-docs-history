@@ -24,29 +24,29 @@ architecture](../../../appsync/latest/devguide/graphql-overview.md "../../../app
 
 ###### To specify an AWS AppSync target for an EventBridge rule using the console
 
-1.  [Create or edit the rule.](eb-create-rule-visual.md "eb-create-rule-visual.md")
-2.  Under **Target**, [specify the target](eb-create-rule-wizard.md#eb-create-rule-target "eb-create-rule-wizard.md#eb-create-rule-target") by choosing **AWS service** and then **AWS AppSync**.
-3.  Specify the mutation operation to be parsed and executed, along with the selection set.
+1. [Create or edit the rule.](eb-create-rule-visual.md "eb-create-rule-visual.md")
+2. Under **Target**, [specify the target](eb-create-rule-wizard.md#eb-create-rule-target "eb-create-rule-wizard.md#eb-create-rule-target") by choosing **AWS service** and then **AWS AppSync**.
+3. Specify the mutation operation to be parsed and executed, along with the selection set.
 
-    - Choose the AWS AppSync API, and then the GraphQL API mutation to invoke.
-    - Under **Configure parameters and selection set**, choose to create a selection set using key-value mapping or an input transformer.
+   - Choose the AWS AppSync API, and then the GraphQL API mutation to invoke.
+   - Under **Configure parameters and selection set**, choose to create a selection set using key-value mapping or an input transformer.
 
-    Key-value mapping
-    To use key-value mapping to create your selection set:
+   Key-value mapping
+   To use key-value mapping to create your selection set:
 
         + Specify variables for the API parameters. Each variables can be either a static values or a dynamic JSON path expression to the event payload.
         + Under **Selection set**, choose the variables you want included in the response.
 
-    Input transformer
-    To use an input transformer to create your selection set:
+   Input transformer
+   To use an input transformer to create your selection set:
 
         + Specify an input path that defines the variables to use.
         + Specify an input template to define and format the information you want passed to the target.
 
-    For more information, see [Configuring an input transformer when creating a rule in EventBridge](eb-transform-input-rule.md "eb-transform-input-rule.md").
+   For more information, see [Configuring an input transformer when creating a rule in EventBridge](eb-transform-input-rule.md "eb-transform-input-rule.md").
 
-4.  For **Execution role**, choose whether to create a new role or use an existing role.
-5.  Complete creating or editing the rule.
+4. For **Execution role**, choose whether to create a new role or use an existing role.
+5. Complete creating or editing the rule.
 
 ## Example: AWS AppSync targets for Amazon EventBridge
 

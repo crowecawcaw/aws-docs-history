@@ -40,14 +40,14 @@ API.
    connection**.
 4. Enter a name and description for the connection. For example, enter
    `Salesforce` as a name, and `Salesforce API
-Connection` as a description.
+ Connection` as a description.
 5. For **Destination type**, choose **Partners** and for **Partner Destinations**, select Salesforce from the drop-down list.
 6. For **Authorization endpoint**, enter one of these:
 
    - If you're using a production org, enter `https://`MyDomainName`.my.salesforce.com./services/oauth2/token`
    - If you're using a sandbox without enhanced domains, enter `https://`MyDomainName`--`SandboxName`.my.
-salesforce.com/services
-/oauth2/token`
+  salesforce.com/services
+  /oauth2/token`
    - If you're using a sandbox with enhanced domains, enter `https://`MyDomainName`--`SandboxName`.sandbox.my.salesforce.com/services/oauth2/token`
 
 7. For **HTTP method**, choose **POST** from the drop-down list.
@@ -56,9 +56,9 @@ salesforce.com/services
 10. For **OAuth Http Parameters**, enter the following key/value
     pair:
 
-| **Key**    | **Value**          |
-| ---------- | ------------------ |
-| grant_type | client_credentials |
+| **Key**     | **Value**           |
+| ----------- | ------------------- |
+| grant\_type | client\_credentials |
 
 11. Choose **Create**.
 
@@ -74,9 +74,9 @@ the [target](eb-targets.md "eb-targets.md") of the rule.
 3. Choose **Create API destination**.
 4. Enter a name and description for the API destination. For example, enter
    `SalesforceAD` for the name, and `Salesforce API
-Destination` for the description..
+ Destination` for the description..
 5. For **API destination endpoint**, enter
-   `https://`MyDomainName`.my.salesforce.com/services/data/v54.0/sobjects/`MyEvent\_\_e`` where **Myevent\_\_e** is
+   `https://`MyDomainName`.my.salesforce.com/services/data/v54.0/sobjects/`MyEvent__e`` where **Myevent\_\_e** is
    the platform event where you want to send information.
 6. For **HTTP method**, choose **POST** from the drop-down list.
 7. For **Invocation rate limit**, enter
@@ -98,7 +98,7 @@ created.
 3. Choose **Create rule**.
 4. Enter a name and description for the rule. For example, enter
    `SalesforceRule` for the name, and `Rule to send events to
-Salesforce for S3 object creation` for the description.
+ Salesforce for S3 object creation` for the description.
 5. For **Event bus**, choose **default**.
 6. For **Rule type**, choose **Rule with an event
    pattern**.

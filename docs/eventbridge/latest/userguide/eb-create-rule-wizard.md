@@ -78,8 +78,8 @@ The following sample event types are available:
     	6. Edit the event JSON to create your own sample event.
 
 3. Choose a **Creation method**. You can create an event pattern
-   from an EventBridge schema or template, or you can create a custom event
-   pattern.
+from an EventBridge schema or template, or you can create a custom event
+pattern.
 
 Existing schema
 To use an existing EventBridge schema to create the event pattern, do
@@ -640,8 +640,7 @@ AWS service
     		For more information, see [Granting permissions to the dead-letter queue](eb-rule-dlq.md#eb-dlq-perms "eb-rule-dlq.md#eb-dlq-perms").
 
 2. (Optional) Choose **Add another target** to add another target for
-   this rule.
-3. Choose **Next**.
+this rule. 3. Choose **Next**.
 
 ## Configure tags and review rule
 

@@ -4,24 +4,23 @@ To relay events to targets, EventBridge needs an IAM role.
 
 ###### To create an IAM role for sending events to EventBridge
 
-1.  Open the IAM console at
-    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2.  To create an IAM role, follow the steps in [Creating a Role to Delegate
-    Permissions to an AWS Service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_ .
-    As you follow the steps, do the following:
+1. Open the IAM console at
+   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. To create an IAM role, follow the steps in [Creating a Role to Delegate
+   Permissions to an AWS Service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_ .
+   As you follow the steps, do the following:
 
-        * In **Role Name**, use a name that is unique within your account.
-        * In **Select Role Type**, choose **AWS Service Roles**, and
-         then choose **Amazon EventBridge**. This grants EventBridge permissions to assume the role.
-        * In **Attach Policy**, choose
-         **AmazonEventBridgeFullAccess**.
-
-    You can also create your own custom IAM policies to allow permissions for EventBridge actions and resources.
-    You can attach these custom policies to the IAM users or groups that require those permissions. For more
-    information about IAM policies, see [Overview of IAM
-    Policies](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the _IAM User Guide_. For more information about managing and
-    creating custom IAM policies, see [Managing IAM
-    Policies](../../../IAM/latest/UserGuide/ManagingPolicies.md "../../../IAM/latest/UserGuide/ManagingPolicies.md") in the _IAM User Guide_.
+   - In **Role Name**, use a name that is unique within your account.
+   - In **Select Role Type**, choose **AWS Service Roles**, and
+     then choose **Amazon EventBridge**. This grants EventBridge permissions to assume the role.
+   - In **Attach Policy**, choose
+     **AmazonEventBridgeFullAccess**.
+     You can also create your own custom IAM policies to allow permissions for EventBridge actions and resources.
+     You can attach these custom policies to the IAM users or groups that require those permissions. For more
+     information about IAM policies, see [Overview of IAM
+     Policies](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the _IAM User Guide_. For more information about managing and
+     creating custom IAM policies, see [Managing IAM
+     Policies](../../../IAM/latest/UserGuide/ManagingPolicies.md "../../../IAM/latest/UserGuide/ManagingPolicies.md") in the _IAM User Guide_.
 
 ## Permissions required for EventBridge to access targets using IAM roles
 
@@ -56,7 +55,7 @@ values for the command, the role that you specify must include a policy with the
 - **Effect**: `Allow`
 - **Action**: `ssm:SendCommand`
 - **Resources**: `arn:aws:ec2:`us-east-1`:`accountId`:instance/`instanceIds``, 
-`arn:aws:ssm:`us-east-1`:*:document/`documentName``
+ `arn:aws:ssm:`us-east-1`:*:document/`documentName``
 
 If the target is Systems Manager run command, and you specify one or more tags for the command,
 the role that you specify must include a policy with the following two actions:

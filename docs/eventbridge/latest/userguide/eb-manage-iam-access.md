@@ -118,20 +118,19 @@ following:
   cross-account permissions to another account B or an AWS service as
   follows:
 
-      1. Account A administrator creates an IAM role and attaches a
-       permissions policy to the role that grants permission on resources
-       in account A.
-      2. Account A administrator attaches a trust policy to the role
-       identifying account B as the principal who can assume the
-       role.
-      3. Account B administrator can then delegate permissions to assume
-       the role to any users in account B. Doing this allows users in
-       account B to create or access resources in account A. The principal
-       in the trust policy can also be an AWS service principal to grant
-       to an AWS service the permission needed to assume the role.
-
-  For more information about using IAM to delegate permissions, see [Access Management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the
-  _IAM User Guide_.
+  1.  Account A administrator creates an IAM role and attaches a
+      permissions policy to the role that grants permission on resources
+      in account A.
+  2.  Account A administrator attaches a trust policy to the role
+      identifying account B as the principal who can assume the
+      role.
+  3.  Account B administrator can then delegate permissions to assume
+      the role to any users in account B. Doing this allows users in
+      account B to create or access resources in account A. The principal
+      in the trust policy can also be an AWS service principal to grant
+      to an AWS service the permission needed to assume the role.
+      For more information about using IAM to delegate permissions, see [Access Management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the
+      _IAM User Guide_.
 
 You can create specific IAM policies to restrict the calls and resources that
 users in your account have access to and then attach those policies to users.

@@ -1,10 +1,10 @@
 # Using roles to create secrets for API destinations in EventBridge
 
-The following topic details usage of the \***\*AWSServiceRoleForAmazonEventBridgeApiDestinations\*\*** service-linked role.
+The following topic details usage of the ****AWSServiceRoleForAmazonEventBridgeApiDestinations**** service-linked role.
 
 ## Service-linked role permissions for EventBridge
 
-EventBridge uses the service-linked role named \***\*AWSServiceRoleForAmazonEventBridgeApiDestinations\*\***
+EventBridge uses the service-linked role named ****AWSServiceRoleForAmazonEventBridgeApiDestinations****
 – Enables access to the Secrets Manager Secrets created by EventBridge.
 
 The **AWSServiceRoleForAmazonEventBridgeApiDestinations** service-linked role trusts the following services to assume the

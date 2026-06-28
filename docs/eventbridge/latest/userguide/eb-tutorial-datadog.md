@@ -37,7 +37,7 @@ API.
    connection**.
 4. Enter a name and description for the connection. For example, enter
    `Datadog` as a name, and `Datadog API
-Connection` as a description.
+ Connection` as a description.
 5. For **Authorization type**, choose **API key**.
 6. For **API key name**, enter `DD-API-KEY`.
 7. For **Value**, paste your Datadog secret API key.
@@ -55,7 +55,7 @@ the [target](eb-targets.md "eb-targets.md") of the rule.
 3. Choose **Create API destination**.
 4. Enter a name and description for the API destination. For example, enter
    `DatadogAD` for the name, and `Datadog API
-Destination` for the description..
+ Destination` for the description..
 5. For **API destination endpoint**, enter the Datadog Logs endpoint:
    `https://http-intake.logs.datadoghq.com/api/v2/logs`.
 
@@ -63,10 +63,7 @@ Destination` for the description..
 
 This tutorial delivers events to Datadog Logs. You can also deliver events to Datadog using the events endpoint: `https://api.datadoghq.com/api/v1/events`. 6. For **HTTP method**, choose **POST**. 7. For **Invocation rate limit**, enter
 `300`. 8. For **Connection**, choose **Use an existing
-connection** and choose the `Datadog` connection you created in step
-
-1.
-2. Choose **Create**.
+connection** and choose the `Datadog` connection you created in step 1. 9. Choose **Create**.
 
 ## Step 3: Create rule
 
@@ -80,7 +77,7 @@ created.
 3. Choose **Create rule**.
 4. Enter a name and description for the rule. For example, enter
    `DatadogRule` for the name, and `Rule to send events to
-Datadog for S3 object creation` for the description.
+ Datadog for S3 object creation` for the description.
 5. For **Event bus**, choose **default**.
 6. For **Rule type**, choose **Rule with an event
    pattern**.

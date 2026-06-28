@@ -30,7 +30,7 @@ The following OAuth key/value pair parameters:
 
 | Type       | Key          | Value                                               |
 | ---------- | ------------ | --------------------------------------------------- |
-| Body Field | grant_type   | client_credentials                                  |
+| Body Field | grant\_type  | client\_credentials                                 |
 | Header     | Content-Type | application/x-www-form-urlencoded;<br>charset=utf-8 |
 
 **Cisco AppDynamics documentation:**
@@ -499,9 +499,9 @@ One of the following authorization endpoints:
 
 The following key/value pair:
 
-| **Key**    | **Value**          |
-| ---------- | ------------------ |
-| grant_type | client_credentials |
+| **Key**     | **Value**           |
+| ----------- | ------------------- |
+| grant\_type | client\_credentials |
 
 **Salesforce
 documentation**
@@ -610,11 +610,11 @@ authorization overview](https://shopify.dev/apps/auth "https://shopify.dev/apps/
 
 POST - /admin/api/2022-01/products.json
 
-GET - admin/api/2022-01/products/{product_id}.json
+GET - admin/api/2022-01/products/{product\_id}.json
 
-PUT - admin/api/2022-01/products/{product_id}.json
+PUT - admin/api/2022-01/products/{product\_id}.json
 
-DELETE - admin/api/2022-01/products/{product_id}.json
+DELETE - admin/api/2022-01/products/{product\_id}.json
 
 **Additional information**
 

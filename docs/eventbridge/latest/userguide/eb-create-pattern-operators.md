@@ -380,12 +380,11 @@ Considerations when using wildcards in your event patterns:
 - You can specify any number of wildcard characters in a given string value;
   however, consecutive wildcard characters are not supported.
 - EventBridge supports using the backslash character (\) to specify the literal \* and \
-   characters in wildcard filters:
+  characters in wildcard filters:
 
-      + The string `\*` represents the literal \* character
-      + The string `\\` represents the literal \ character
-
-  Using the backslash to escape other characters is not supported.
+  - The string `\*` represents the literal \* character
+  - The string `\\` represents the literal \ character
+    Using the backslash to escape other characters is not supported.
 
 ### Wildcards and event pattern complexity
 

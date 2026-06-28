@@ -140,20 +140,20 @@ The following table list AWS services and the management events they generate th
 | Amazon Cognito user pools                      | AdminListDevices                                             | API call       |
 | Amazon Cognito user pools                      | AdminListGroupsForUser                                       | API call       |
 | Amazon Cognito user pools                      | AdminListUserAuthEvents                                      | API call       |
-| Amazon Cognito user pools                      | Beta_Authorize_GET                                           | Service event  |
-| Amazon Cognito user pools                      | Confirm_GET                                                  | Service event  |
-| Amazon Cognito user pools                      | ConfirmForgotPassword_GET                                    | Service event  |
-| Amazon Cognito user pools                      | Error_GET                                                    | Service event  |
-| Amazon Cognito user pools                      | ForgotPassword_GET                                           | Service event  |
+| Amazon Cognito user pools                      | Beta\_Authorize\_GET                                         | Service event  |
+| Amazon Cognito user pools                      | Confirm\_GET                                                 | Service event  |
+| Amazon Cognito user pools                      | ConfirmForgotPassword\_GET                                   | Service event  |
+| Amazon Cognito user pools                      | Error\_GET                                                   | Service event  |
+| Amazon Cognito user pools                      | ForgotPassword\_GET                                          | Service event  |
 | Amazon Cognito user pools                      | IntrospectToken                                              | API call       |
-| Amazon Cognito user pools                      | Login_Error_POST                                             | Service event  |
-| Amazon Cognito user pools                      | Login_GET                                                    | Service event  |
-| Amazon Cognito user pools                      | Mfa_GET                                                      | Service event  |
-| Amazon Cognito user pools                      | MfaOption_GET                                                | Service event  |
-| Amazon Cognito user pools                      | ResetPassword_GET                                            | Service event  |
-| Amazon Cognito user pools                      | Signup_GET                                                   | Service event  |
-| Amazon Cognito user pools                      | UserInfo_GET                                                 | Service event  |
-| Amazon Cognito user pools                      | UserInfo_POST                                                | Service event  |
+| Amazon Cognito user pools                      | Login\_Error\_POST                                           | Service event  |
+| Amazon Cognito user pools                      | Login\_GET                                                   | Service event  |
+| Amazon Cognito user pools                      | Mfa\_GET                                                     | Service event  |
+| Amazon Cognito user pools                      | MfaOption\_GET                                               | Service event  |
+| Amazon Cognito user pools                      | ResetPassword\_GET                                           | Service event  |
+| Amazon Cognito user pools                      | Signup\_GET                                                  | Service event  |
+| Amazon Cognito user pools                      | UserInfo\_GET                                                | Service event  |
+| Amazon Cognito user pools                      | UserInfo\_POST                                               | Service event  |
 | Amazon Cognito Sync                            | BulkPublish                                                  | API call       |
 | Amazon Comprehend                              | BatchContainsPiiEntities                                     | API call       |
 | Amazon Comprehend                              | BatchDetectDominantLanguage                                  | API call       |

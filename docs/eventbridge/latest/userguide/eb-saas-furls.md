@@ -119,7 +119,7 @@ documentation.
     - **I acknowledge that CloudFormation might create IAM resources
       with custom names.**
     - **I acknowledge that CloudFormation might require the following
-      capability: CAPABILITY_AUTO_EXPAND**
+      capability: CAPABILITY\_AUTO\_EXPAND**
 
 11. Choose **Create stack**.
 

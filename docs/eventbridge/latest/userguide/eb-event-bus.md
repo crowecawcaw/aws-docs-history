@@ -47,7 +47,7 @@ Consider an example using the EventBridge default event bus, which automatically
 events from AWS services:
 
 1. You create a rule on the default event bus for the `EC2 Instance
-State-change Notification` event:
+ State-change Notification` event:
 
    - You specify that the rule matches events where an Amazon EC2 instance has
      changed its `state` to `running`.

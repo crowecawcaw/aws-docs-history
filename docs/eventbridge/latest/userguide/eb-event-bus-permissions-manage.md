@@ -20,9 +20,9 @@ following:
      you authorize the principal in the policy to use.
 
 5. Choose **Update**.
-   The template provides example policy statements that you can customize for your account
-   and environment. The template isn't a valid policy. You can modify the template for your use
-   case, or you can copy one of the example policies and customize it.
+The template provides example policy statements that you can customize for your account
+and environment. The template isn't a valid policy. You can modify the template for your use
+case, or you can copy one of the example policies and customize it.
 
 The template loads policies that include an example of how to grant permissions to an
 account to use the `PutEvents` action, how to grant permissions to an organization,

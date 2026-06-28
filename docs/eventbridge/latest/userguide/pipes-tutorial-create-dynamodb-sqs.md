@@ -159,15 +159,15 @@ DynamoDB displays the **Create item** page. 4. Under **Attributes**, create a ne
 
 5. Update the table item:
 
-   1. Under **Items returned**, choose **Album A**.
-   2. Select **Add new attribute**, then select **String**.
-   3. Enter a new value of `Song`, with a value of `Song A`.
-   4. Choose **Save changes**.
+    1. Under **Items returned**, choose **Album A**.
+    2. Select **Add new attribute**, then select **String**.
+    3. Enter a new value of `Song`, with a value of `Song A`.
+    4. Choose **Save changes**.
 
 6. Delete the table item:
 
-   1. Under **Items returned**, check **Album A**.
-   2. From the **Actions** menu, select **Delete items**.
+    1. Under **Items returned**, check **Album A**.
+    2. From the **Actions** menu, select **Delete items**.
 
 You have made three updates to the table item; this generates three events for the
 DynamoDB data stream:

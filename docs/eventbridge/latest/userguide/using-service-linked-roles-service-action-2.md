@@ -1,10 +1,10 @@
 # Using roles for schema discovery in Amazon EventBridge
 
-The following topic details usage of the \***\*AWSServiceRoleForSchemas\*\*** service-linked role.
+The following topic details usage of the ****AWSServiceRoleForSchemas**** service-linked role.
 
 ## Service-linked role permissions for EventBridge
 
-EventBridge uses the service-linked role named \***\*AWSServiceRoleForSchemas\*\***
+EventBridge uses the service-linked role named ****AWSServiceRoleForSchemas****
 – Grants permissions to Managed Rules created by Amazon EventBridge schemas..
 
 The **AWSServiceRoleForSchemas** service-linked role trusts the following services to assume the
@@ -12,7 +12,7 @@ role:
 
 - `schemas.amazonaws.com`
 
-The role permissions policy named \***\*AmazonEventBridgeSchemasServiceRolePolicy\*\*** allows EventBridge to complete
+The role permissions policy named ****AmazonEventBridgeSchemasServiceRolePolicy**** allows EventBridge to complete
 the following actions on the specified resources:
 
 - Action: `put, enable, disable, and delete rules; put and remove targets; list targets per rule` on

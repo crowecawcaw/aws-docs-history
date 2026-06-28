@@ -483,7 +483,7 @@ Under **Retry policy**, do the following:
      newly created pipes don't use a DLQ.
 
 5. Choose the KMS key for EventBridge to use when encrypting
-   pipe data.
+pipe data.
 
 For more information on how EventBridge uses KMS keys, see [Encryption at
 rest](eb-data-protection.md#eb-encryption-at-rest "eb-data-protection.md#eb-encryption-at-rest").
@@ -514,8 +514,8 @@ rest](eb-data-protection.md#eb-encryption-at-rest "eb-data-protection.md#eb-encr
     	 have been associated with the specified customer managed key.
 
 6. (Optional) Under **Logs - optional**, you can set up how
-   EventBridge Pipes sends logging information to supported services,
-   including how to configure those logs.
+EventBridge Pipes sends logging information to supported services,
+including how to configure those logs.
 
 For more information about logging pipe records, see [Logging Amazon EventBridge Pipes performance](eb-pipes-logs.md "eb-pipes-logs.md").
 
@@ -591,9 +591,8 @@ destinations, do the following:
     		 logging file format](https://www.w3.org/TR/WD-logfile "https://www.w3.org/TR/WD-logfile")
 
 7. (Optional) Under **Tags - optional**, choose **Add
-   new tag** and enter one or more tags for the rule. For more
-   information, see [Tagging resources in Amazon EventBridge](eb-tagging.md "eb-tagging.md").
-8. Choose **Create pipe**.
+new tag** and enter one or more tags for the rule. For more
+information, see [Tagging resources in Amazon EventBridge](eb-tagging.md "eb-tagging.md"). 8. Choose **Create pipe**.
 
 ## Validating configuration parameters
 

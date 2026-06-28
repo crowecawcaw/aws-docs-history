@@ -81,57 +81,70 @@ destinations, do the following:
      logs](eb-event-bus-logs.md#eb-event-logs-data "eb-event-bus-logs.md#eb-event-logs-data").
     4. Configure each log destination you selected.
 
-7.  Configure optional event bus features:
+7. Configure optional event bus features:
 
-    - Specify a resource-based policy by doing one of the following:
+    * Specify a resource-based policy by doing one of the following:
 
-          + Enter the policy that includes the permissions to grant for the event bus.
-           You can paste in a policy from another source or enter the JSON for the
-           policy. You can use one of the [example policies](eb-event-bus-perms.md "eb-event-bus-perms.md") and modify it for your
-           environment.
-          + To use a template for the policy, choose **Load template**. Modify the policy as
-           appropriate for your environment, including adding additional actions that you authorize the principal in
-           the policy to use.
 
-      For more information about granting permissions to an event bus through resource-based policies, see [Permissions for event buses in Amazon EventBridge](eb-event-bus-perms.md "eb-event-bus-perms.md").
 
-    - Enable an archive (optional)
+
+    	+ Enter the policy that includes the permissions to grant for the event bus.
+    	 You can paste in a policy from another source or enter the JSON for the
+    	 policy. You can use one of the [example policies](eb-event-bus-perms.md "eb-event-bus-perms.md") and modify it for your
+    	 environment.
+    	+ To use a template for the policy, choose **Load template**. Modify the policy as
+    	 appropriate for your environment, including adding additional actions that you authorize the principal in
+    	 the policy to use.
+    For more information about granting permissions to an event bus through resource-based policies, see [Permissions for event buses in Amazon EventBridge](eb-event-bus-perms.md "eb-event-bus-perms.md").
+    * Enable an archive (optional)
+
 
     You can create an archive of events so that you can easily replay them at
-    a later time. For example, you might want to replay events to recover from
-    errors or to validate new functionality in your application. For more
-    information, see [Archiving and replaying events in Amazon EventBridge](eb-archive.md "eb-archive.md")
-
-        1. Under **Archives**, choose
-         **Enabled**.
-        2. Specify a name and description for the archive.
+     a later time. For example, you might want to replay events to recover from
+     errors or to validate new functionality in your application. For more
+     information, see [Archiving and replaying events in Amazon EventBridge](eb-archive.md "eb-archive.md")
 
 
-        You can't change the archive name once it has been created.
 
 
-        When creating an archive as part of creating a new event bus, you can't set the event retention period or an event pattern for the archive.
-         You can specify these for the archive once it has been created. For more information, see [Updating
-         archives](event-bus-update-archive.md "event-bus-update-archive.md").
-    - Enable schema discovery (optional)
+    	1. Under **Archives**, choose
+    	 **Enabled**.
+    	2. Specify a name and description for the archive.
+
+
+    	You can't change the archive name once it has been created.
+
+
+    	When creating an archive as part of creating a new event bus, you can't set the event retention period or an event pattern for the archive.
+    	 You can specify these for the archive once it has been created. For more information, see [Updating
+    	 archives](event-bus-update-archive.md "event-bus-update-archive.md").
+    * Enable schema discovery (optional)
+
 
     Enable schema discovery to have EventBridge
-    automatically infer schemas directly from events running on this event bus. For more information, see [Amazon EventBridge schemas](eb-schema.md "eb-schema.md")
+     automatically infer schemas directly from events running on this event bus. For more information, see [Amazon EventBridge schemas](eb-schema.md "eb-schema.md")
 
-        1. Under **Schema discovery**, choose
-         **Enabled**.
 
+
+
+    	1. Under **Schema discovery**, choose
+    	 **Enabled**.
     ###### Note
 
     Schema discovery is not supported for event buses encrypted
-    using a customer managed key. To enable schema discovery on an
-    event bus, choose to use an AWS owned key. For more information, see [KMS key options](eb-encryption-at-rest-key-options.md "eb-encryption-at-rest-key-options.md").
-    - Specify tags (optional)
+     using a customer managed key. To enable schema discovery on an
+     event bus, choose to use an AWS owned key. For more information, see [KMS key options](eb-encryption-at-rest-key-options.md "eb-encryption-at-rest-key-options.md").
+    * Specify tags (optional)
+
 
     A tag is a custom attribute label that you assign to an AWS resource. Use tags to identify and organize your AWS resources.
-    Many AWS services support tagging, so you can assign the same tag to resources from different services to indicate that the resources are related. For more information, see [Tagging resources in Amazon EventBridge](eb-tagging.md "eb-tagging.md")
+     Many AWS services support tagging, so you can assign the same tag to resources from different services to indicate that the resources are related. For more information, see [Tagging resources in Amazon EventBridge](eb-tagging.md "eb-tagging.md")
 
-        1. Under **Tags**, choose **Add new tag**.
-        2. Specify a key and, optionally, a value for the new tag.
 
-8.  Choose **Create**.
+
+
+
+    	1. Under **Tags**, choose **Add new tag**.
+    	2. Specify a key and, optionally, a value for the new tag.
+
+8. Choose **Create**.

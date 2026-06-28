@@ -16,10 +16,9 @@ The deployed resources consist of:
 - An execution role that grants EventBridge the necessary permissions to publish to the Amazon SNS topic.
 - The rule itself, which:
 
-      + Defines an event pattern that matches only `Object Created` events from the specific Amazon S3 bucket.
-      + Specifies the Amazon SNS topic as a target to which EventBridge delivers matching events.
-
-  For specific technical details of the template, see [Template details](#event-bus-rule-get-started-template-details "#event-bus-rule-get-started-template-details").
+  - Defines an event pattern that matches only `Object Created` events from the specific Amazon S3 bucket.
+  - Specifies the Amazon SNS topic as a target to which EventBridge delivers matching events.
+    For specific technical details of the template, see [Template details](#event-bus-rule-get-started-template-details "#event-bus-rule-get-started-template-details").
 
 ![Amazon S3 events are matched to the rule's event pattern, and sent to an SNS topic if they match.](images/rule-get-started_eventbridge_architectural.svg)
 
@@ -82,40 +81,36 @@ You can also use the AWS CLI to create the stack.
 
 - Use the [`create-stack`](../../../cli/latest/reference/cloudformation/create-stack.md "../../../cli/latest/reference/cloudformation/create-stack.md") command.
 
-      + Accept the default template parameter values, specifying the stack name, email address, and bucket name.
-       Use the `template-body` parameter to pass the template contents, or
-       `template-url` to specify a URL location.
+  - Accept the default template parameter values, specifying the stack name, email address, and bucket name.
+    Use the `template-body` parameter to pass the template contents, or
+    `template-url` to specify a URL location.
 
+  ```
+  aws cloudformation create-stack \
+    --stack-name `eventbridge-rule-tutorial` \
+    --template-body `template-contents` \
+    --parameters \
+      ParameterKey=EmailAddress,ParameterValue=`your.email@example.com` \
+      ParameterKey=BucketName,ParameterValue=`my-unique-bucket-name` \
+    --capabilities CAPABILITY_IAM
+  ```
+  - Override the default value(s) of one or more
+    template parameters. For example:
 
+  ```
+  aws cloudformation create-stack \
+    --stack-name `eventbridge-rule-tutorial` \
+    ----template-body `template-contents` \
+    --parameters \
+      ParameterKey=EmailAddress,ParameterValue=`your.email@example.com` \
+      ParameterKey=BucketName,ParameterValue=`my-custom-bucket-name` \
+      ParameterKey=RuleName,ParameterValue=`my-custom-rule-name` \
+    --capabilities CAPABILITY_IAM
+  ```
 
-      ```
-      aws cloudformation create-stack \
-        --stack-name `eventbridge-rule-tutorial` \
-        --template-body `template-contents` \
-        --parameters \
-          ParameterKey=EmailAddress,ParameterValue=`your.email@example.com` \
-          ParameterKey=BucketName,ParameterValue=`my-unique-bucket-name` \
-        --capabilities CAPABILITY_IAM
-      ```
-      + Override the default value(s) of one or more
-       template parameters. For example:
-
-
-
-      ```
-      aws cloudformation create-stack \
-        --stack-name `eventbridge-rule-tutorial` \
-        ----template-body `template-contents` \
-        --parameters \
-          ParameterKey=EmailAddress,ParameterValue=`your.email@example.com` \
-          ParameterKey=BucketName,ParameterValue=`my-custom-bucket-name` \
-          ParameterKey=RuleName,ParameterValue=`my-custom-rule-name` \
-        --capabilities CAPABILITY_IAM
-      ```
-
-  CloudFormation creates the stack. Once the stack creation is complete, the stack resources
-  are ready to use. You can use the **Resources** tab on the stack
-  detail page to view the resources that were provisioned in your account.
+CloudFormation creates the stack. Once the stack creation is complete, the stack resources
+are ready to use. You can use the **Resources** tab on the stack
+detail page to view the resources that were provisioned in your account.
 
 After the stack is created, you will receive a subscription confirmation email at the address you provided. You must confirm this subscription to receive notifications.
 

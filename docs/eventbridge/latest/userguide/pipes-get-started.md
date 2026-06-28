@@ -72,37 +72,33 @@ You can also use the AWS CLI to create the stack.
 
 - Use the [`create-stack`](../../../cli/latest/reference/cloudformation/create-stack.md "../../../cli/latest/reference/cloudformation/create-stack.md") command.
 
-      + Accept the default
-       template parameter values, specifying the stack name. Use the `template-body` parameter to pass the template contents, or
-       `template-url` to specify a URL location.
+  - Accept the default
+    template parameter values, specifying the stack name. Use the `template-body` parameter to pass the template contents, or
+    `template-url` to specify a URL location.
 
+  ```
+  aws cloudformation create-stack \
+    --stack-name `eventbridge-rule-tutorial` \
+    --template-body `template-contents` \
+    --capabilities CAPABILITY_IAM
+  ```
+  - Override the default value(s) of one or more
+    template parameters. For example:
 
+  ```
+  aws cloudformation create-stack \
+    --stack-name `eventbridge-rule-tutorial` \
+    --template-body `template-contents` \
+    --parameters \
+      ParameterKey=SourceTableName,ParameterValue=`pipe-example-source` \
+      ParameterKey=TargetQueueName,ParameterValue=`pipe-example-target` \
+      ParameterKey=PipeName,ParameterValue=`pipe-with-filtering-example` \
+    --capabilities CAPABILITY_IAM
+  ```
 
-      ```
-      aws cloudformation create-stack \
-        --stack-name `eventbridge-rule-tutorial` \
-        --template-body `template-contents` \
-        --capabilities CAPABILITY_IAM
-      ```
-      + Override the default value(s) of one or more
-       template parameters. For example:
-
-
-
-      ```
-      aws cloudformation create-stack \
-        --stack-name `eventbridge-rule-tutorial` \
-        --template-body `template-contents` \
-        --parameters \
-          ParameterKey=SourceTableName,ParameterValue=`pipe-example-source` \
-          ParameterKey=TargetQueueName,ParameterValue=`pipe-example-target` \
-          ParameterKey=PipeName,ParameterValue=`pipe-with-filtering-example` \
-        --capabilities CAPABILITY_IAM
-      ```
-
-  CloudFormation creates the stack. Once the stack creation is complete, the stack resources
-  are ready to use. You can use the **Resources** tab on the stack
-  detail page to view the resources that where provisioned in your account.
+CloudFormation creates the stack. Once the stack creation is complete, the stack resources
+are ready to use. You can use the **Resources** tab on the stack
+detail page to view the resources that where provisioned in your account.
 
 ## Exploring pipe capabilities
 
@@ -151,17 +147,18 @@ This opens the DynamoDB console in a separate window, with the source table deta
 
 5. Generate a `DELETE` and an `INSERT` event by editing the item:
 
-   1. Choose the item from the list, and from the **Actions** menu, choose **Edit item**.
-   2. Enter a new value for the **Album** or **Artist** attribute.
-   3. Tick the box that confirms you are changing the value of the item keys, and then choose **Recreate item**.
+    1. Choose the item from the list, and from the **Actions** menu, choose **Edit item**.
+    2. Enter a new value for the **Album** or **Artist** attribute.
+    3. Tick the box that confirms you are changing the value of the item keys, and then choose **Recreate item**.
 
-   This results in the item being deleted and then recreated, generating a `DELETE` event, and then a new `INSERT` event.
+
+    This results in the item being deleted and then recreated, generating a `DELETE` event, and then a new `INSERT` event.
 
 6. Generate a `MODIFY` event by adding an attribute to the item:
 
-   1. Choose the item from the list, and from the **Actions** menu, choose **Edit item**.
-   2. From the **Add new attribute** menu, choose **Number**.
-   3. For the attribute name, enter **Year**, and then enter a value for the attribute. Choose **Save and close**.
+    1. Choose the item from the list, and from the **Actions** menu, choose **Edit item**.
+    2. From the **Add new attribute** menu, choose **Number**.
+    3. For the attribute name, enter **Year**, and then enter a value for the attribute. Choose **Save and close**.
 
 ### Confirming event delivery through the pipe
 

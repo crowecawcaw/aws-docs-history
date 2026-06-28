@@ -41,61 +41,62 @@ Lastly, specify the authorization settings to use to access the endpoint.
 
 EventBridge supports basic, OAuth client credentials, and API key authentication methods.
 
-1.  Under **Configure authorization**, choose **Custom
-    configuration**.
-2.  For **Authorization type**, select the authorization method for the
-    connection to use.
-3.  Specify the authorization configuration details for the authorization method you chose:
+1. Under **Configure authorization**, choose **Custom
+   configuration**.
+2. For **Authorization type**, select the authorization method for the
+   connection to use.
+3. Specify the authorization configuration details for the authorization method you chose:
 
-    - **Basic**
+   - **Basic**
 
-    Enter the **Username**
-    and **Password** to use to
-    authorize with the HTTPS endpoint.
-    - **OAuth Client Credentials**
+   Enter the **Username**
+   and **Password** to use to
+   authorize with the HTTPS endpoint.
+   - **OAuth Client Credentials**
 
-      1. For **OAuth authorization endpoint**,
-         choose whether the endpoint to use for connection authorization is
-         a public or private (VPC) endpoint.
+     1. For **OAuth authorization endpoint**,
+        choose whether the endpoint to use for connection authorization is
+        a public or private (VPC) endpoint.
 
-      If you choose **Private**,
-      specify the **Private OAuth endpoint resource
-      configuration**:
+     If you choose **Private**,
+     specify the **Private OAuth endpoint resource
+     configuration**:
 
-          + To use an existing VPC Lattice resource configuration, choose a resource configuration from the drop-down menu.
-          + To create a new VPC Lattice resource configuration, choose **New resource
-           configuration**.
+           + To use an existing VPC Lattice resource configuration, choose a resource configuration from the drop-down menu.
+           + To create a new VPC Lattice resource configuration, choose **New resource
+            configuration**.
 
 
-          You are taken to the Amazon VPC Lattice service console, where you can create a new configuration. for more information, see
-           [Create a resource configuration](../../../vpc-lattice/latest/ug/create-resource-configuration.md "../../../vpc-lattice/latest/ug/create-resource-configuration.md") in the *Amazon VPC Lattice User Guide*.
-      2. Specify the following authorization information:
+           You are taken to the Amazon VPC Lattice service console, where you can create a new configuration. for more information, see
+            [Create a resource configuration](../../../vpc-lattice/latest/ug/create-resource-configuration.md "../../../vpc-lattice/latest/ug/create-resource-configuration.md") in the *Amazon VPC Lattice User Guide*.
 
-         - Authorization endpoint
-         - HTTPS method
-         - Client ID
-         - Client secret
+     2. Specify the following authorization information:
 
-      3. Under **OAuth HTTP parameters**, add any additional
-         parameters to include for authorization with the authorization endpoint.
+           + Authorization endpoint
+           + HTTPS method
+           + Client ID
+           + Client secret
 
-      To do so:
+     3. Under **OAuth HTTP parameters**, add any additional
+     parameters to include for authorization with the authorization endpoint.
 
-          + Select a **Parameter** from the drop-down list.
-          + Enter
-           a **Key** and **Value**.
+     To do so:
 
-      To include an
-      additional parameter, choose **Add parameter**.
+           + Select a **Parameter** from the drop-down list.
+           + Enter
+            a **Key** and **Value**.
 
-    - **API Key**
+     To include an
+     additional parameter, choose **Add parameter**.
 
-    Enter the **API key
-    name** and associated **Value** to use for API
-    Key authorization.
+   - **API Key**
 
-4.  Under **Invocation Http Parameters**, add any additional
-    parameters to include in the authorization request.
+   Enter the **API key
+   name** and associated **Value** to use for API
+   Key authorization.
+
+4. Under **Invocation Http Parameters**, add any additional
+   parameters to include in the authorization request.
 
 To add a parameter:
 

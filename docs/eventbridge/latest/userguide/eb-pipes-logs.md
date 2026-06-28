@@ -52,11 +52,10 @@ You can customize the records EventBridge sends to the selected log destinations
 - You can specify whether EventBridge Pipes includes execution data in records for execution steps
   where it is relevant. This data includes:
 
-      + The payload of the event batch
-      + The request sent to the AWS enrichment or target service
-      + The response returned by the AWS enrichment or target service
-
-  For more information, see [Including execution data in EventBridge Pipes logs](#eb-pipes-logs-execution-data "#eb-pipes-logs-execution-data").
+  - The payload of the event batch
+  - The request sent to the AWS enrichment or target service
+  - The response returned by the AWS enrichment or target service
+    For more information, see [Including execution data in EventBridge Pipes logs](#eb-pipes-logs-execution-data "#eb-pipes-logs-execution-data").
 
 ## Specifying EventBridge Pipes log level
 

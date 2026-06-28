@@ -193,7 +193,7 @@ available partner endpoints, see [API destination partners](eb-api-destination-p
     	 Key authorization.
 
 2. Under **Invocation Http Parameters**, add any additional
-   parameters to include in the authorization request.
+parameters to include in the authorization request.
 
 To add a parameter:
 
@@ -211,22 +211,22 @@ By default, EventBridge uses an AWS owned key.
 For more information, see [Encrypting
 connections](encryption-connections.md "encryption-connections.md").
 
-1.  Choose the KMS key for EventBridge to use when encrypting
-    the connection secret.
+1. Choose the KMS key for EventBridge to use when encrypting
+   the connection secret.
 
-    - Choose **Use AWS owned key** for EventBridge to encrypt the secret using an AWS owned key.
+   - Choose **Use AWS owned key** for EventBridge to encrypt the secret using an AWS owned key.
 
-    This AWS owned key is a KMS key that EventBridge owns and manages for use in multiple AWS
-    accounts. In general, unless you are required to audit or control the
-    encryption key that protects your resources, an AWS owned key
-    is a good choice.
+   This AWS owned key is a KMS key that EventBridge owns and manages for use in multiple AWS
+   accounts. In general, unless you are required to audit or control the
+   encryption key that protects your resources, an AWS owned key
+   is a good choice.
 
-    This is the default.
-    - Choose **Use customer managed key** for EventBridge to encrypt the secret using the customer managed key that you
-      specify or create.
+   This is the default.
+   - Choose **Use customer managed key** for EventBridge to encrypt the secret using the customer managed key that you
+     specify or create.
 
-    Customer managed keys are KMS keys in your AWS account that you create, own, and manage. You have full
-    control over these KMS keys.
+   Customer managed keys are KMS keys in your AWS account that you create, own, and manage. You have full
+   control over these KMS keys.
 
         1. Specify an existing customer managed key, or choose
          **Create a new KMS key**.
@@ -235,7 +235,7 @@ connections](encryption-connections.md "encryption-connections.md").
         EventBridge displays the key status and any key aliases that
          have been associated with the specified customer managed key.
 
-2.  Choose **Create Connection**.
+2. Choose **Create Connection**.
 
 ###### Note
 
