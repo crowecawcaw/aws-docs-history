@@ -352,7 +352,7 @@ For more information, see [Update the IP address types for your Application Load
 
 ## Application Load Balancer IP Address Management
 
-Application Load Balancers use Public Elastic IPv4 addresses from [EC2's public IPv4 address pool.](../../../awsec2/latest/userguide/using-instance-addresing.md "../../../awsec2/latest/userguide/using-instance-addresing.md") These IP addresses are visible in your AWS account when using the [describe-addresses](../../../cli/latest/reference/ec2/describe-addresses.md "../../../cli/latest/reference/ec2/describe-addresses.md") CLI, API or viewing the Elastic IPs (EIP) section in the AWS Console. Each ALB-associated IP address is marked with a service_managed attribute set to "ALB".
+Application Load Balancers use Public Elastic IPv4 addresses from [EC2's public IPv4 address pool.](../../../awsec2/latest/userguide/using-instance-addresing.md "../../../awsec2/latest/userguide/using-instance-addresing.md") These IP addresses are visible in your AWS account when using the [describe-addresses](../../../cli/latest/reference/ec2/describe-addresses.md "../../../cli/latest/reference/ec2/describe-addresses.md") CLI, API or viewing the Elastic IPs (EIP) section in the AWS Console. Each ALB-associated IP address is marked with a service\_managed attribute set to "ALB".
 
 While these IPs are visible in your account, they remain fully managed by the Application Load Balancer service and cannot be modified or released. Application Load Balancer releases IPs back into the public IPv4 address pool when no longer in use.
 

@@ -67,33 +67,33 @@ that you install on targets. For more information, see
     2. Choose **Add tag**.
     3. Enter the tag key and the tag value.
 
-14. Choose **Next**.
-15. (Optional) Add one or more targets as follows:
+14. Choose **Next**. 15. (Optional) Add one or more targets as follows:
 
-    - If the target type is **Instances**,
-      select one or more instances, enter one or more ports, and
-      then choose **Include as pending
-      below**.
+    * If the target type is **Instances**,
+     select one or more instances, enter one or more ports, and
+     then choose **Include as pending
+     below**.
+
 
     **Note:** The instances must have an assigned
-    primary IPv6 address to be registered with a IPv6 target group.
-    - If the target type is **IP addresses**,
-      do the following:
+     primary IPv6 address to be registered with a IPv6 target group.
+    * If the target type is **IP addresses**,
+     do the following:
 
-      1. Select a network **VPC** from the
-         list, or choose **Other private IP
-         addresses**.
-      2. Enter the IP address manually, or find the IP
-         address using instance details. You can enter up to
-         five IP addresses at a time.
-      3. Enter the ports for routing traffic to the
-         specified IP addresses.
-      4. Choose **Include as pending
-         below**.
 
-    - If the target type is a **Lambda
-      function**, specify a single Lambda function or
-      omit this step and specify a Lambda function later.
+    	1. Select a network **VPC** from the
+    	 list, or choose **Other private IP
+    	 addresses**.
+    	2. Enter the IP address manually, or find the IP
+    	 address using instance details. You can enter up to
+    	 five IP addresses at a time.
+    	3. Enter the ports for routing traffic to the
+    	 specified IP addresses.
+    	4. Choose **Include as pending
+    	 below**.
+    * If the target type is a **Lambda
+     function**, specify a single Lambda function or
+     omit this step and specify a Lambda function later.
 
 16. Choose **Create target group**.
 

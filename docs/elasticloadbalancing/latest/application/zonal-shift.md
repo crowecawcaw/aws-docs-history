@@ -73,10 +73,10 @@ The possible `AdministrativeOverride` states are:
 
 State cannot be propagated due to an internal error
 
-**no_override**
+**no\_override**
 
 No override is currently active on target
 
-**zonal_shift_active**
+**zonal\_shift\_active**
 
 Zonal shift is active in target Availability Zone

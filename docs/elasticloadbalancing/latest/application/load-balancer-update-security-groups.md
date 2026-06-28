@@ -33,7 +33,7 @@ The following rules are recommended for an internet-facing load balancer
 with instances as targets.
 
 | **Inbound**               |
-| ------------------------- | ------------------- | -------------------------------------------------------------------- |
+| ------------------------- |
 | **Source**                | **Port Range**      | **Comment**                                                          |
 | 0.0.0.0/0                 | `listener`          | Allow all inbound traffic on the load balancer listener<br>port      |
 | **Outbound**              |
@@ -45,7 +45,7 @@ The following rules are recommended for an internal load balancer with instances
 as targets.
 
 | **Inbound**               |
-| ------------------------- | ------------------- | ----------------------------------------------------------------------------- |
+| ------------------------- |
 | **Source**                | **Port Range**      | **Comment**                                                                   |
 | `VPC CIDR`                | `listener`          | Allow inbound traffic from the VPC CIDR on the load balancer<br>listener port |
 | **Outbound**              |
@@ -57,7 +57,7 @@ The following rules are recommended for an Application Load Balancer with instan
 itself is a target of a Network Load Balancer.
 
 | **Inbound**                |
-| -------------------------- | ------------------- | -------------------------------------------------------------------------------------- |
+| -------------------------- |
 | **Source**                 | **Port Range**      | **Comment**                                                                            |
 | `client IP addresses/CIDR` | ``alb` listener`    | Allow inbound client traffic on the load balancer listener<br>port                     |
 | `VPC CIDR`                 | ``alb` listener`    | Allow inbound client traffic via AWS PrivateLink on the load<br>balancer listener port |

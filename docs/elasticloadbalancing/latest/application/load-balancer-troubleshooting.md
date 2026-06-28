@@ -7,7 +7,7 @@ The following information can help you troubleshoot issues with your Application
 - [A registered target is not in service](#target-not-inservice "#target-not-inservice")
 - [Clients cannot connect to an internet-facing load balancer](#client-cannot-connect "#client-cannot-connect")
 - [Requests sent to a custom domain aren't received by the load balancer](#custom-domain-request "#custom-domain-request")
-- [HTTPS requests sent to the load balancer return "NET::ERR_CERT_COMMON_NAME_INVALID"](#https-cert-invalid "#https-cert-invalid")
+- [HTTPS requests sent to the load balancer return "NET::ERR\_CERT\_COMMON\_NAME\_INVALID"](#https-cert-invalid "#https-cert-invalid")
 - [Load balancer shows elevated processing times](#elevated-processing-time "#elevated-processing-time")
 - [The load balancer sends a response code of 000](#response-code-000 "#response-code-000")
 - [The load balancer generates an HTTP error](#load-balancer-http-error-codes "#load-balancer-http-error-codes")
@@ -117,7 +117,7 @@ If the load balancer is not receiving requests sent to a custom domain, check fo
 If using Route 53 to host your custom domain, see [My domain
 is unavailable on the internet](../../../Route53/latest/DeveloperGuide/troubleshooting-domain-unavailable.md "../../../Route53/latest/DeveloperGuide/troubleshooting-domain-unavailable.md") in the _Amazon Route 53 Developer Guide_.
 
-## HTTPS requests sent to the load balancer return "NET::ERR_CERT_COMMON_NAME_INVALID"
+## HTTPS requests sent to the load balancer return "NET::ERR\_CERT\_COMMON\_NAME\_INVALID"
 
 If HTTPS requests are receiving `NET::ERR_CERT_COMMON_NAME_INVALID` from the load balancer, check the following possible causes:
 
@@ -479,11 +479,11 @@ reason code check for the following issues:
   The security policy used for back-end connections is automatically selected
   based on the front-end security policy in use. If any of your listeners have:
 
-      - **FIPS post-quantum TLS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-FIPS-PQ-2025-09`
-      - **FIPS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-FIPS-2023-04`
-      - **Post-quantum TLS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-PQ-2025-09`
-      - **TLS 1.3 policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-2021-06`
-      - All other TLS policies backend connections use `ELBSecurityPolicy-2016-08`For more information, see
+        - **FIPS post-quantum TLS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-FIPS-PQ-2025-09`
+        - **FIPS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-FIPS-2023-04`
+        - **Post-quantum TLS policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-PQ-2025-09`
+        - **TLS 1.3 policy** - Backend connections use `ELBSecurityPolicy-TLS13-1-0-2021-06`
+        - All other TLS policies backend connections use `ELBSecurityPolicy-2016-08`For more information, see
 
   [Security policies](describe-ssl-policies.md "describe-ssl-policies.md").
   - Verify the target is providing a server certificate and key in the correct format
@@ -507,7 +507,7 @@ To fix these issues, please ensure that:
 
 - The security groups on the targets are configured correctly.
 - The agent is running with the expected configuration.
-- The target application is running and listening on the TARGET_CONTROL_DESTINATION_ADDRESS configured in the agent.
+- The target application is running and listening on the TARGET\_CONTROL\_DESTINATION\_ADDRESS configured in the agent.
 
 ###### Service Unavailable Errors (`HTTPCode_ELB_503_Count`)
 
@@ -516,10 +516,10 @@ TargetControlRequestRejectCount metric is representative of these rejected reque
 will fall to near zero values. To fix this issue, consider:
 
 - Increasing the number of targets
-- Setting the TARGET_CONTROL_MAX_CONCURRENCY variable on the agent to a larger value.
+- Setting the TARGET\_CONTROL\_MAX\_CONCURRENCY variable on the agent to a larger value.
 
 ###### Health-check errors
 
-- If the health check port is the same as TARGET_CONTROL_DATA_ADDRESS, then health check requests from the ALB
+- If the health check port is the same as TARGET\_CONTROL\_DATA\_ADDRESS, then health check requests from the ALB
   are sent to the target application through the agent. If health checks are failing (due to HTTP 502 or Timeouts)
   refer to the Configuration Errors section.

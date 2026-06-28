@@ -123,8 +123,7 @@ The default mode is **passthrough**. If you select
      information.
 
 11. (Optional) To add tags, expand **Listener tags**. Choose
-    **Add new tag** and enter the tag key and tag value.
-12. Choose **Add listener**.
+**Add new tag** and enter the tag key and tag value. 12. Choose **Add listener**.
 
 AWS CLI
 

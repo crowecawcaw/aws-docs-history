@@ -249,7 +249,7 @@ mode, which provides durable mitigation against HTTP desync while maintaining th
 availability of your application. You can switch to strictest mode to ensure that your
 application receives only requests that comply with [RFC 7230](https://tools.ietf.org/html/rfc7230 "https://tools.ietf.org/html/rfc7230").
 
-The http_desync_guardian library analyzes HTTP requests to prevent HTTP desync
+The http\_desync\_guardian library analyzes HTTP requests to prevent HTTP desync
 attacks. For more information, see [HTTP Desync Guardian](https://github.com/aws/http-desync-guardian "https://github.com/aws/http-desync-guardian") on
 GitHub.
 
@@ -380,7 +380,7 @@ request based on listener port.
 | ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------- | -------------------------- | ------------------------------------------------------- | ----------------------------------- |
 | Request is sent on default HTTP/HTTPS listener.                                                  | `GET /index.html HTTP/1.1 Host: example.com`                    | example.com                | example.com                                             | example.com                         |
 | Request is sent on default HTTP listener and host header has a port<br>(for example, 80 or 443). | `GET /index.html HTTP/1.1 Host: example.com:80`                 | example.com:80             | example.com                                             | example.com:80                      |
-| Request has an absolute path.                                                                    | `GET https://dns_name/index.html HTTP/1.1 Host:<br>example.com` | example.com                | dns_name                                                | example.com                         |
+| Request has an absolute path.                                                                    | `GET https://dns_name/index.html HTTP/1.1 Host:<br>example.com` | example.com                | dns\_name                                               | example.com                         |
 | Request is sent on a non-default listener port (for example, 8080)                               | `GET /index.html HTTP/1.1 Host: example.com`                    | example.com                | example.com:8080                                        | example.com                         |
 | Request is sent on a non-default listener port and host header has<br>port (for example, 8080).  | `GET /index.html HTTP/1.1 Host: example.com:8080`               | example.com:8080           | example.com:8080                                        | example.com:8080                    |
 

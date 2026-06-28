@@ -395,7 +395,7 @@ You can configure healthy thresholds for the following actions:
 ### Requirements and considerations
 
 - If you enable target optimizer on the target group, we recommend you set the
-  health check port of the target group to be the same as the port in TARGET_CONTROL_DATA_ADDRESS.
+  health check port of the target group to be the same as the port in TARGET\_CONTROL\_DATA\_ADDRESS.
   This ensures that the target will fail health checks if the agent is unhealthy.
   For more information, see [Target Optimizer](target-group-register-targets.md#register-targets-target-optimizer "target-group-register-targets.md#register-targets-target-optimizer").
 - You can't use this feature with target groups where the target is a
