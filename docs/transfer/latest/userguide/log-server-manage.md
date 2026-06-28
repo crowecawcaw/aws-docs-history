@@ -47,7 +47,7 @@ role:
 - If you create a server using the Transfer Family console and you attach a workflow, logs
   are sent to a log group that contains the server ID in the name. The format is
   `/aws/transfer/`server-id``, for
- example, `/aws/transfer/s-1111aaaa2222bbbb3`. The server logs can be
+  example, `/aws/transfer/s-1111aaaa2222bbbb3`. The server logs can be
   sent to this same log group or a different one.
   Logging considerations for creating and editing servers in the
   console

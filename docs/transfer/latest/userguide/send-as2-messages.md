@@ -8,10 +8,10 @@ when you can use them.
 
 | Encryption algorithm | HTTP | HTTPS | Notes                                                                                                                                          |
 | -------------------- | ---- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| AES128_CBC           | Yes  | Yes   |                                                                                                                                                |
-| AES192_CBC           | Yes  | Yes   |                                                                                                                                                |
-| AES256_CBC           | Yes  | Yes   |                                                                                                                                                |
-| DES_EDE3_CBC         | Yes  | Yes   | Only use this algorithm if you must support a legacy client that requires<br>it, as it is a weak encryption algorithm.                         |
+| AES128\_CBC          | Yes  | Yes   |                                                                                                                                                |
+| AES192\_CBC          | Yes  | Yes   |                                                                                                                                                |
+| AES256\_CBC          | Yes  | Yes   |                                                                                                                                                |
+| DES\_EDE3\_CBC       | Yes  | Yes   | Only use this algorithm if you must support a legacy client that requires<br>it, as it is a weak encryption algorithm.                         |
 | NONE                 | No   | Yes   | If you are sending messages to a Transfer Family server, you can only select<br>`NONE` if you are using an Application Load Balancer<br>(ALB). |
 
 ###### Topics
@@ -121,58 +121,57 @@ Load Balancer (NLB) in your VPC.
 
 ###### To create a Network Load Balancer and define the VPC endpoint of the server as the load balancer's target
 
-1.  Open the Amazon Elastic Compute Cloud console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2.  From the navigation pane, choose **Load
-    Balancers**, and then choose **Create
-    load balancer**.
-3.  Under **Network Load Balancer**, choose
-    **Create**.
-4.  In the **Basic configuration** section,
-    enter the following information:
+1. Open the Amazon Elastic Compute Cloud console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. From the navigation pane, choose **Load
+   Balancers**, and then choose **Create
+   load balancer**.
+3. Under **Network Load Balancer**, choose
+   **Create**.
+4. In the **Basic configuration** section,
+   enter the following information:
 
-    - For **Name**, enter a descriptive
-      name for the load balancer.
-    - For **Scheme**, choose
-      **Internet-facing**.
-    - For **IP address type**, choose
-      **IPv4**.
+   - For **Name**, enter a descriptive
+     name for the load balancer.
+   - For **Scheme**, choose
+     **Internet-facing**.
+   - For **IP address type**, choose
+     **IPv4**.
 
-5.  In the **Network mapping** section, enter
-    the following information:
+5. In the **Network mapping** section, enter
+   the following information:
 
-    - For **VPC**, choose the virtual
-      private cloud (VPC) that you created.
-    - Under **Mappings**, choose the
-      Availability Zones associated with the public
-      subnets that are available in the same VPC that you
-      use with your server endpoints.
-    - For the **IPv4 address** of each
-      subnet, choose one of the Elastic IP addresses that
-      you allocated.
+   - For **VPC**, choose the virtual
+     private cloud (VPC) that you created.
+   - Under **Mappings**, choose the
+     Availability Zones associated with the public
+     subnets that are available in the same VPC that you
+     use with your server endpoints.
+   - For the **IPv4 address** of each
+     subnet, choose one of the Elastic IP addresses that
+     you allocated.
 
-6.  In the **Listeners and routing** section,
-    enter the following information:
+6. In the **Listeners and routing** section,
+   enter the following information:
 
-        * For **Protocol**, choose
-         **TLS**.
-        * For **Port**, enter
-         `5080`.
-        * For **Default action**, choose
-         **Create target group**. For the
-         details of creating a new target group, see [To create a target group](#create-target-group "#create-target-group").
+   - For **Protocol**, choose
+     **TLS**.
+   - For **Port**, enter
+     `5080`.
+   - For **Default action**, choose
+     **Create target group**. For the
+     details of creating a new target group, see [To create a target group](#create-target-group "#create-target-group").
+     After you create a target group, enter its name in the
+     **Default action** field.
 
-    After you create a target group, enter its name in the
-    **Default action** field.
-
-7.  In the **Secure listener settings**
-    section, choose your certificate in the **Default
-    SSL/TLS certificate** area.
-8.  Choose **Create load balancer** to create
-    your NLB.
-9.  (Optional, but recommended) Turn on access logs for the
-    Network Load Balancer to maintain a full audit trail, as
-    described in [Access logs for your Network Load
-    Balancer](../../../elasticloadbalancing/latest/network/load-balancer-access-logs.md "../../../elasticloadbalancing/latest/network/load-balancer-access-logs.md").
+7. In the **Secure listener settings**
+   section, choose your certificate in the **Default
+   SSL/TLS certificate** area.
+8. Choose **Create load balancer** to create
+   your NLB.
+9. (Optional, but recommended) Turn on access logs for the
+   Network Load Balancer to maintain a full audit trail, as
+   described in [Access logs for your Network Load
+   Balancer](../../../elasticloadbalancing/latest/network/load-balancer-access-logs.md "../../../elasticloadbalancing/latest/network/load-balancer-access-logs.md").
 
 We recommend this step because the TLS connection is
 terminated at the NLB. Therefore, the source IP address
@@ -419,13 +418,13 @@ The JSON file contains the following fields:
   file, before its original extension.
 - A JSON file is created and saved as
   ``original_filename`.`messageId`.`original_extension`.json`.
-In addition to the message ID being added, the string
-`.json` is appended to the transferred file's
+  In addition to the message ID being added, the string
+  `.json` is appended to the transferred file's
   name.
 - A Message Disposition Notice (MDN) file is created and saved as
   ``original_filename`.`messageId`.`original_extension`.mdn`.
-In addition to the message ID being added, the string
-`.mdn` is appended to the transferred file's
+  In addition to the message ID being added, the string
+  `.mdn` is appended to the transferred file's
   name.
 - If there is an inbound file named
   `ExampleFileInS3Payload.dat`, the following files are
@@ -487,13 +486,13 @@ apply to different message types and are intended for monitoring only. The COMPL
 and FAILED states represent the final step in processing, and are visible in JSON
 files.
 
-| Code         | Description                                                                                                                                                       | Processing completed? |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| PROCESSING   | The message is in the process of being converted to its final format. For example, decompression and decryption steps both have this status.                      | No                    |
-| MDN_TRANSMIT | Message processing is sending an MDN response.                                                                                                                    | No                    |
-| MDN_RECEIVE  | Message processing is receiving an MDN response.                                                                                                                  | No                    |
-| COMPLETED    | Message processing has completed successfully. This state<br>includes when an MDN is sent for an inbound message or for MDN<br>verification of outbound messages. | Yes                   |
-| FAILED       | The message processing has failed. For a list of error codes, see [AS2 error codes](as2-monitoring.md#as2-error-codes "as2-monitoring.md#as2-error-codes").       | Yes                   |
+| Code          | Description                                                                                                                                                       | Processing completed? |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| PROCESSING    | The message is in the process of being converted to its final format. For example, decompression and decryption steps both have this status.                      | No                    |
+| MDN\_TRANSMIT | Message processing is sending an MDN response.                                                                                                                    | No                    |
+| MDN\_RECEIVE  | Message processing is receiving an MDN response.                                                                                                                  | No                    |
+| COMPLETED     | Message processing has completed successfully. This state<br>includes when an MDN is sent for an inbound message or for MDN<br>verification of outbound messages. | Yes                   |
+| FAILED        | The message processing has failed. For a list of error codes, see [AS2 error codes](as2-monitoring.md#as2-error-codes "as2-monitoring.md#as2-error-codes").       | Yes                   |
 
 ## Sample JSON files
 

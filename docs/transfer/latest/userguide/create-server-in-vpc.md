@@ -12,7 +12,7 @@ already done so before May 19, 2021. If you have already created servers with
 `EndpointType=VPC_ENDPOINT` in your AWS account on or before February
 21, 2021, you will not be affected. After this date, use
 `EndpointType`=`VPC`. For more information, see
-[Discontinuing the use of VPC_ENDPOINT](#deprecate-vpc-endpoint "#deprecate-vpc-endpoint").
+[Discontinuing the use of VPC\_ENDPOINT](#deprecate-vpc-endpoint "#deprecate-vpc-endpoint").
 
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can establish a private
 connection between your VPC and a server. You can then use this server to transfer data over
@@ -54,10 +54,10 @@ For information about dual-stack (IPv4 and IPv6) server endpoints, see [IPv6 sup
 - [Create a server endpoint that can be accessed only within your VPC](#create-server-endpoint-in-vpc "#create-server-endpoint-in-vpc")
 - [Create an internet-facing endpoint for your server](#create-internet-facing-endpoint "#create-internet-facing-endpoint")
 - [Change the endpoint type for your server](#change-server-endpoint-type "#change-server-endpoint-type")
-- [Discontinuing the use of VPC_ENDPOINT](#deprecate-vpc-endpoint "#deprecate-vpc-endpoint")
+- [Discontinuing the use of VPC\_ENDPOINT](#deprecate-vpc-endpoint "#deprecate-vpc-endpoint")
 - [Limiting VPC endpoint access for Transfer Family servers](#limit-vpc-endpoint-access "#limit-vpc-endpoint-access")
 - [Additional networking features](#additional-networking-features "#additional-networking-features")
-- [Updating the AWS Transfer Family server endpoint type from VPC_ENDPOINT to VPC](update-endpoint-type-vpc.md "update-endpoint-type-vpc.md")
+- [Updating the AWS Transfer Family server endpoint type from VPC\_ENDPOINT to VPC](update-endpoint-type-vpc.md "update-endpoint-type-vpc.md")
 
 ## Create a server endpoint that can be accessed only within your VPC
 
@@ -157,59 +157,70 @@ about working with custom identity providers, see [Working with custom identity 
      (FIPS) 140-2](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/") .
     7. Choose **Next**.
 
-6.  In **Configure additional details**, do the following:
+6. In **Configure additional details**, do the following:
 
     1. For **CloudWatch logging**, choose one of the following to
-       enable Amazon CloudWatch logging of your user activity:
+     enable Amazon CloudWatch logging of your user activity:
 
-       - **Create a new role** to allow Transfer Family to
-         automatically create the IAM role, as long as you have the
-         right permissions to create a new role. The IAM role that is
-         created is called `AWSTransferLoggingAccess`.
-       - **Choose an existing role** to choose an
-         existing IAM role from your account. Under **Logging
-         role**, choose the role. This IAM role should
-         include a trust policy with **Service** set to
-         `transfer.amazonaws.com`.
 
-       For more information about CloudWatch logging, see [Configure CloudWatch logging role](configure-cw-logging-role.md "configure-cw-logging-role.md").
 
+
+    	* **Create a new role** to allow Transfer Family to
+    	 automatically create the IAM role, as long as you have the
+    	 right permissions to create a new role. The IAM role that is
+    	 created is called `AWSTransferLoggingAccess`.
+    	* **Choose an existing role** to choose an
+    	 existing IAM role from your account. Under **Logging
+    	 role**, choose the role. This IAM role should
+    	 include a trust policy with **Service** set to
+    	 `transfer.amazonaws.com`.
+
+
+    	For more information about CloudWatch logging, see [Configure CloudWatch logging role](configure-cw-logging-role.md "configure-cw-logging-role.md").
     ###### Note
 
-        * You can't view end-user activity in CloudWatch if you
-         don't specify a logging role.
-        * If you don't want to set up a CloudWatch logging role,
-         select **Choose an existing role**, but
-         don't select a logging role.
+
+
+    	* You can't view end-user activity in CloudWatch if you
+    	 don't specify a logging role.
+    	* If you don't want to set up a CloudWatch logging role,
+    	 select **Choose an existing role**, but
+    	 don't select a logging role.
     2. For **Cryptographic algorithm options**, choose a
-       security policy that contains the cryptographic algorithms enabled for
-       use by your server.
+     security policy that contains the cryptographic algorithms enabled for
+     use by your server.
+
 
     ###### Note
 
     By default, the `TransferSecurityPolicy-2024-01`
-    security policy is attached to your server unless you choose a
-    different one.
+     security policy is attached to your server unless you choose a
+     different one.
 
-    For more information about security policies, see [Security policies for AWS Transfer Family servers](security-policies.md "security-policies.md"). 3. (Optional: this section is only for migrating users from an existing
-    SFTP-enabled server.) For **Server Host Key**, enter an
-    RSA, ED25519, or ECDSA private key that will be used to identify your
-    server when clients connect to it over SFTP. 4. (Optional) For **Tags**, for **Key**
-    and **Value**, enter one or more tags as key-value
-    pairs, and then choose **Add tag**. 5. Choose **Next**.
 
-7.  In **Review and create**, review your choices. If you:
+    For more information about security policies, see [Security policies for AWS Transfer Family servers](security-policies.md "security-policies.md").
+    3. (Optional: this section is only for migrating users from an existing
+     SFTP-enabled server.) For **Server Host Key**, enter an
+     RSA, ED25519, or ECDSA private key that will be used to identify your
+     server when clients connect to it over SFTP.
+    4. (Optional) For **Tags**, for **Key**
+     and **Value**, enter one or more tags as key-value
+     pairs, and then choose **Add tag**.
+    5. Choose **Next**.
 
-    - Want to edit any of them, choose **Edit** next to the
-      step.
+7. In **Review and create**, review your choices. If you:
+
+    * Want to edit any of them, choose **Edit** next to the
+     step.
+
 
     ###### Note
 
     You will need to review each step after the step that you chose to
-    edit.
-    - Have no changes, choose **Create server** to create
-      your server. You are taken to the **Servers** page,
-      shown following, where your new server is listed.
+     edit.
+    * Have no changes, choose **Create server** to create
+     your server. You are taken to the **Servers** page,
+     shown following, where your new server is listed.
 
 It can take a couple of minutes before the status for your new server changes to
 **Online**. At that point, your server can perform file operations,
@@ -367,63 +378,77 @@ about working with custom identity providers, see [Working with custom identity 
      (FIPS) 140-2](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/") .
     8. Choose **Next**.
 
-6.  In **Configure additional details**, do the following:
+6. In **Configure additional details**, do the following:
 
     1. For **CloudWatch logging**, choose one of the following to
-       enable Amazon CloudWatch logging of your user activity:
+     enable Amazon CloudWatch logging of your user activity:
 
-       - **Create a new role** to allow Transfer Family to
-         automatically create the IAM role, as long as you have the
-         right permissions to create a new role. The IAM role that is
-         created is called `AWSTransferLoggingAccess`.
-       - **Choose an existing role** to choose an
-         existing IAM role from your account. Under **Logging
-         role**, choose the role. This IAM role should
-         include a trust policy with **Service** set to
-         `transfer.amazonaws.com`.
 
-       For more information about CloudWatch logging, see [Configure CloudWatch logging role](configure-cw-logging-role.md "configure-cw-logging-role.md").
 
+
+    	* **Create a new role** to allow Transfer Family to
+    	 automatically create the IAM role, as long as you have the
+    	 right permissions to create a new role. The IAM role that is
+    	 created is called `AWSTransferLoggingAccess`.
+    	* **Choose an existing role** to choose an
+    	 existing IAM role from your account. Under **Logging
+    	 role**, choose the role. This IAM role should
+    	 include a trust policy with **Service** set to
+    	 `transfer.amazonaws.com`.
+
+
+    	For more information about CloudWatch logging, see [Configure CloudWatch logging role](configure-cw-logging-role.md "configure-cw-logging-role.md").
     ###### Note
 
-        * You can't view end-user activity in CloudWatch if you
-         don't specify a logging role.
-        * If you don't want to set up a CloudWatch logging role,
-         select **Choose an existing role**, but
-         don't select a logging role.
+
+
+    	* You can't view end-user activity in CloudWatch if you
+    	 don't specify a logging role.
+    	* If you don't want to set up a CloudWatch logging role,
+    	 select **Choose an existing role**, but
+    	 don't select a logging role.
     2. For **Cryptographic algorithm options**, choose a
-       security policy that contains the cryptographic algorithms enabled for
-       use by your server.
+     security policy that contains the cryptographic algorithms enabled for
+     use by your server.
+
 
     ###### Note
 
     By default, the `TransferSecurityPolicy-2024-01`
-    security policy is attached to your server unless you choose a
-    different one.
+     security policy is attached to your server unless you choose a
+     different one.
 
-    For more information about security policies, see [Security policies for AWS Transfer Family servers](security-policies.md "security-policies.md"). 3. (Optional: this section is only for migrating users from an existing
-    SFTP-enabled server.) For **Server Host Key**, enter an
-    RSA, ED25519, or ECDSA private key that will be used to identify your
-    server when clients connect to it over SFTP. 4. (Optional) For **Tags**, for **Key**
-    and **Value**, enter one or more tags as key-value
-    pairs, and then choose **Add tag**. 5. Choose **Next**. 6. (Optional) For **Managed workflows**, choose workflow IDs (and a corresponding role) that
-    Transfer Family should assume when executing the workflow. You can choose one workflow to execute upon a complete upload, and another to execute upon a partial upload. To learn more about processing your files by using managed workflows, see
-    [AWS Transfer Family managed workflows](transfer-workflows.md "transfer-workflows.md").
+
+    For more information about security policies, see [Security policies for AWS Transfer Family servers](security-policies.md "security-policies.md").
+    3. (Optional: this section is only for migrating users from an existing
+     SFTP-enabled server.) For **Server Host Key**, enter an
+     RSA, ED25519, or ECDSA private key that will be used to identify your
+     server when clients connect to it over SFTP.
+    4. (Optional) For **Tags**, for **Key**
+     and **Value**, enter one or more tags as key-value
+     pairs, and then choose **Add tag**.
+    5. Choose **Next**.
+    6. (Optional) For **Managed workflows**, choose workflow IDs (and a corresponding role) that
+     Transfer Family should assume when executing the workflow. You can choose one workflow to execute upon a complete upload, and another to execute upon a partial upload. To learn more about processing your files by using managed workflows, see
+     [AWS Transfer Family managed workflows](transfer-workflows.md "transfer-workflows.md").
+
+
 
     ![The Managed workflows console section.](images/workflows-addtoserver.png)
 
-7.  In **Review and create**, review your choices. If you:
+7. In **Review and create**, review your choices. If you:
 
-    - Want to edit any of them, choose **Edit** next to the
-      step.
+    * Want to edit any of them, choose **Edit** next to the
+     step.
+
 
     ###### Note
 
     You will need to review each step after the step that you chose to
-    edit.
-    - Have no changes, choose **Create server** to create
-      your server. You are taken to the **Servers** page,
-      shown following, where your new server is listed.
+     edit.
+    * Have no changes, choose **Create server** to create
+     your server. You are taken to the **Servers** page,
+     shown following, where your new server is listed.
 
 You can choose the server ID to see the detailed settings of the server that you just
 created. After the column **Public IPv4 address** has been populated,
@@ -540,8 +565,8 @@ You won't be able to make any edits until the server is
     6. Choose **Save**.
 
 8. For **Actions**, choose **Start** and wait
-   for the status of the server to change to **Online**; this can
-   take a couple of minutes.
+for the status of the server to change to **Online**; this can
+take a couple of minutes.
 
 ###### Note
 
@@ -553,7 +578,7 @@ The default security group is attached to the endpoint. To change or add additio
 security groups, see [Creating
 Security Groups](../../../vpc/latest/userguide/VPC_SecurityGroups.md#CreatingSecurityGroups "../../../vpc/latest/userguide/VPC_SecurityGroups.md#CreatingSecurityGroups").
 
-## Discontinuing the use of VPC_ENDPOINT
+## Discontinuing the use of VPC\_ENDPOINT
 
 AWS Transfer Family has discontinued the ability to create servers with
 `EndpointType=VPC_ENDPOINT` for new AWS accounts. As of May 19, 2021,
@@ -561,7 +586,7 @@ AWS accounts that don't own AWS Transfer Family servers with an endpoint type of
 `VPC_ENDPOINT` will not be able to create new servers with
 `EndpointType=VPC_ENDPOINT`. If you already own servers that use the
 `VPC_ENDPOINT` endpoint type, we recommend that you start using
-`EndpointType=VPC` as soon as possible. For details, see [Update your AWS Transfer Family server endpoint type from VPC_ENDPOINT to VPC](https://aws.amazon.com/blogs/storage/update-your-aws-transfer-family-server-endpoint-type-from-vpc_endpoint-to-vpc/ "https://aws.amazon.com/blogs/storage/update-your-aws-transfer-family-server-endpoint-type-from-vpc_endpoint-to-vpc/").
+`EndpointType=VPC` as soon as possible. For details, see [Update your AWS Transfer Family server endpoint type from VPC\_ENDPOINT to VPC](https://aws.amazon.com/blogs/storage/update-your-aws-transfer-family-server-endpoint-type-from-vpc_endpoint-to-vpc/ "https://aws.amazon.com/blogs/storage/update-your-aws-transfer-family-server-endpoint-type-from-vpc_endpoint-to-vpc/").
 
 We launched the new `VPC` endpoint type earlier in 2020. For more
 information, see [AWS Transfer Family for SFTP supports VPC Security Groups and Elastic IP
@@ -584,14 +609,14 @@ an option from the AWS Transfer Family console.
 
 You can change the endpoint type for your server
 using the Transfer Family console, AWS CLI, API, SDKs, or CloudFormation. To change your server’s endpoint
-type, see [Updating the AWS Transfer Family server endpoint type from VPC_ENDPOINT to VPC](update-endpoint-type-vpc.md "update-endpoint-type-vpc.md").
+type, see [Updating the AWS Transfer Family server endpoint type from VPC\_ENDPOINT to VPC](update-endpoint-type-vpc.md "update-endpoint-type-vpc.md").
 
 If you have any questions, contact AWS Support or your AWS account team.
 
 ###### Note
 
 We do not plan to add these features and FTPS or FTP support to
-EndpointType=VPC_ENDPOINT. We are no longer offering it as an option on the AWS Transfer Family
+EndpointType=VPC\_ENDPOINT. We are no longer offering it as an option on the AWS Transfer Family
 Console.
 
 If you have additional questions, you can contact us through AWS Support or your account

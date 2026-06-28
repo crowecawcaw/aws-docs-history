@@ -135,14 +135,14 @@ To optimize SFTP connector performance:
 
 ## Troubleshoot VPC connectivity issues
 
-This section describes solutions for common issues with VPC_LATTICE-enabled SFTP
+This section describes solutions for common issues with VPC\_LATTICE-enabled SFTP
 connectors.
 
 ### Connector stuck in PENDING status
 
 Description
 
-Your VPC_LATTICE-enabled SFTP connector remains in `PENDING` status for an
+Your VPC\_LATTICE-enabled SFTP connector remains in `PENDING` status for an
 extended period (more than 10 minutes).
 
 Cause
@@ -178,7 +178,7 @@ aws vpc-lattice get-resource-configuration --resource-configuration-identifier `
 
 Description
 
-Your VPC_LATTICE-enabled SFTP connector shows `ERRORED` status with error
+Your VPC\_LATTICE-enabled SFTP connector shows `ERRORED` status with error
 details.
 
 Cause
@@ -247,7 +247,7 @@ Solution
    only.
 3. Ensure you have at least two subnets in different supported AZs.
 
-### Connection timeouts with VPC_LATTICE connectors
+### Connection timeouts with VPC\_LATTICE connectors
 
 Description
 

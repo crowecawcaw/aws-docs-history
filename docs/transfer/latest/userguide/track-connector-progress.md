@@ -46,11 +46,11 @@ considerations beyond standard service managed connectors:
 
 ### Connector status monitoring
 
-VPC_LATTICE connectors include additional information to help you monitor the
+VPC\_LATTICE connectors include additional information to help you monitor the
 provisioning and operational state:
 
 - **EgressType field**: Shows `VPC`
-  for VPC_LATTICE egress type connectors
+  for VPC\_LATTICE egress type connectors
 - **EgressConfig field**: Contains the Resource
   Configuration ARN and port information
 

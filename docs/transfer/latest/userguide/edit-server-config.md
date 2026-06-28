@@ -178,40 +178,38 @@ information.
 
 ###### To edit the server endpoint details
 
-1.  On the **Server details** page, choose
-    **Edit** next to **Endpoint
-    details**.
-2.  Before you can edit the **Endpoint type**, you must first
-    stop the server. Then, on the **Edit endpoint
-    configuration** page, for **Endpoint type**,
-    you can choose either of the following values:
+1. On the **Server details** page, choose
+   **Edit** next to **Endpoint
+   details**.
+2. Before you can edit the **Endpoint type**, you must first
+   stop the server. Then, on the **Edit endpoint
+   configuration** page, for **Endpoint type**,
+   you can choose either of the following values:
 
-    - **Public** – This option makes your server
-      accessible over the internet.
-    - **VPC** – This option makes your server
-      accessible in your virtual private cloud (VPC). For information
-      about VPC, see [Create a server in a virtual private cloud](create-server-in-vpc.md "create-server-in-vpc.md").
+   - **Public** – This option makes your server
+     accessible over the internet.
+   - **VPC** – This option makes your server
+     accessible in your virtual private cloud (VPC). For information
+     about VPC, see [Create a server in a virtual private cloud](create-server-in-vpc.md "create-server-in-vpc.md").
 
-3.  For **Custom hostname**, choose one of the
-    following:
+3. For **Custom hostname**, choose one of the
+   following:
 
-        * **None** – If you don't want to use a
-         custom domain, choose **None**.
+   - **None** – If you don't want to use a
+     custom domain, choose **None**.
 
-
-        You get a server hostname provided by AWS Transfer Family. The server
-         hostname takes the form
-         ``serverId`.server.transfer.`regionId`.amazonaws.com`.
-        * **Amazon Route 53 DNS alias** – To use a DNS
-         alias automatically created for you in Route 53, choose this
-         option.
-        * **Other DNS** – To use a hostname that you
-         already own in an external DNS service choose **Other
-         DNS**.
-
-    Choosing **Amazon Route 53 DNS alias** or **Other
-    DNS** specifies the name resolution method to associate with
-    your server's endpoint.
+   You get a server hostname provided by AWS Transfer Family. The server
+   hostname takes the form
+   ``serverId`.server.transfer.`regionId`.amazonaws.com`.
+   - **Amazon Route 53 DNS alias** – To use a DNS
+     alias automatically created for you in Route 53, choose this
+     option.
+   - **Other DNS** – To use a hostname that you
+     already own in an external DNS service choose **Other
+     DNS**.
+     Choosing **Amazon Route 53 DNS alias** or **Other
+     DNS** specifies the name resolution method to associate with
+     your server's endpoint.
 
 For example, your custom domain might be
 `sftp.inbox.example.com`. A custom hostname uses a DNS name

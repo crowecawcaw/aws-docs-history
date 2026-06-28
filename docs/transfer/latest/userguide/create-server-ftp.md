@@ -18,37 +18,37 @@ For important considerations about Network Load Balancers, see [Avoid placing NL
 
 ###### To create an FTP-enabled server
 
-1.  Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/") and select
-    **Servers** from the navigation pane, then choose
-    **Create server**.
-2.  In **Choose protocols**, select **FTP**,
-    and then choose **Next**.
-3.  In **Choose an identity provider**, choose the identity
-    provider that you want to use to manage user access. You have the following
-    options:
+1. Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/") and select
+   **Servers** from the navigation pane, then choose
+   **Create server**.
+2. In **Choose protocols**, select **FTP**,
+   and then choose **Next**.
+3. In **Choose an identity provider**, choose the identity
+   provider that you want to use to manage user access. You have the following
+   options:
 
-    - **AWS Directory Service for Microsoft Active Directory** – You
-      provide an Directory Service directory to access the endpoint. By doing so, you can
-      use credentials stored in your Active Directory to authenticate your
-      users. To learn more about working with AWS Managed Microsoft AD identity providers,
-      see [Using AWS Directory Service for Microsoft Active Directory](directory-services-users.md "directory-services-users.md").
+   - **AWS Directory Service for Microsoft Active Directory** – You
+     provide an Directory Service directory to access the endpoint. By doing so, you can
+     use credentials stored in your Active Directory to authenticate your
+     users. To learn more about working with AWS Managed Microsoft AD identity providers,
+     see [Using AWS Directory Service for Microsoft Active Directory](directory-services-users.md "directory-services-users.md").
 
-    ###### Note
+   ###### Note
 
         + Cross-Account and Shared directories are not supported for AWS Managed Microsoft AD.
         + To set up a server with Directory Service as your identity provider, you need to add some Directory Service permissions.
          For details, see [Before you start using AWS Directory Service for Microsoft Active Directory](directory-services-users.md#managed-ad-prereq "directory-services-users.md#managed-ad-prereq").
-    - **Custom identity provider** – Choose either of the following options:
+   - **Custom identity provider** – Choose either of the following options:
 
-      - **Use AWS Lambda to connect your identity provider** – You can use an existing identity provider, backed by a Lambda function. You provide
-        the name of the Lambda function. For more information, see [Using AWS Lambda to integrate your identity provider](custom-lambda-idp.md "custom-lambda-idp.md").
-      - **Use Amazon API Gateway to connect your identity provider** – You can create an API Gateway method backed by a Lambda function for use as an identity provider.
-        You provide an Amazon API Gateway URL and an invocation role. For more information, see [Using Amazon API Gateway to integrate your identity provider](authentication-api-gateway.md "authentication-api-gateway.md").
+     - **Use AWS Lambda to connect your identity provider** – You can use an existing identity provider, backed by a Lambda function. You provide
+       the name of the Lambda function. For more information, see [Using AWS Lambda to integrate your identity provider](custom-lambda-idp.md "custom-lambda-idp.md").
+     - **Use Amazon API Gateway to connect your identity provider** – You can create an API Gateway method backed by a Lambda function for use as an identity provider.
+       You provide an Amazon API Gateway URL and an invocation role. For more information, see [Using Amazon API Gateway to integrate your identity provider](authentication-api-gateway.md "authentication-api-gateway.md").
 
-    ![The Choose an identity provider console section with Custom identity provider selected.](images/custom-lambda-console-no-sftp.png)
+   ![The Choose an identity provider console section with Custom identity provider selected.](images/custom-lambda-console-no-sftp.png)
 
-4.  Choose **Next**.
-5.  In **Choose an endpoint**, do the following:
+4. Choose **Next**.
+5. In **Choose an endpoint**, do the following:
 
 ###### Note
 
@@ -161,24 +161,24 @@ following:
 
     ![The Additional configuration screen showing the SetStat, TLS session resumption, and Passive IP parameters.](images/create-server-configure-additional-items-all.png)
 
-8.  In **Review and create**, review your choices.
+8. In **Review and create**, review your choices.
 
-        * If you want to edit any of them, choose **Edit**
-         next to the step.
+    * If you want to edit any of them, choose **Edit**
+     next to the step.
 
 
-        ###### Note
+    ###### Note
 
-        You must review each step after the step that you chose to
-         edit.
-        * If you have no changes, choose **Create server**
-         to create your server. You are taken to the
-         **Servers** page, shown following, where your
-         new server is listed.
+    You must review each step after the step that you chose to
+     edit.
+    * If you have no changes, choose **Create server**
+     to create your server. You are taken to the
+     **Servers** page, shown following, where your
+     new server is listed.
 
-    It can take a couple of minutes before the status for your new server changes to
-    **Online**. At that point, your server can perform file
-    operations for your users.
+It can take a couple of minutes before the status for your new server changes to
+**Online**. At that point, your server can perform file
+operations for your users.
 
 **Next steps** – For the next step, continue
 on to [Working with custom identity providers](custom-idp-intro.md "custom-idp-intro.md") to set up

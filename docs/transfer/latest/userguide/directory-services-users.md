@@ -139,14 +139,14 @@ that you have configured. Choose a directory from the list, and choose
     * To set up a server with Directory Service as your identity provider, you need to add some Directory Service permissions.
      For details, see [Before you start using AWS Directory Service for Microsoft Active Directory](#managed-ad-prereq "#managed-ad-prereq").
 
-6.  To finish creating the server, use one of the following procedures:
+6. To finish creating the server, use one of the following procedures:
 
-        * [Create an SFTP-enabled server](create-server-sftp.md "create-server-sftp.md")
-        * [Create an FTPS-enabled server](create-server-ftps.md "create-server-ftps.md")
-        * [Create an FTP-enabled server](create-server-ftp.md "create-server-ftp.md")
+    * [Create an SFTP-enabled server](create-server-sftp.md "create-server-sftp.md")
+    * [Create an FTPS-enabled server](create-server-ftps.md "create-server-ftps.md")
+    * [Create an FTP-enabled server](create-server-ftp.md "create-server-ftp.md")
 
-    In those procedures, continue with the step that follows choosing an identity
-    provider.
+In those procedures, continue with the step that follows choosing an identity
+provider.
 
 ###### Important
 

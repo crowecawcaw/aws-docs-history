@@ -255,7 +255,7 @@ them. The following procedure describes the steps you must take.
 ###### To edit your PGP keys
 
 1. Identify the key that you must edit by running `gpg
-‐‐list-keys`
+ ‐‐list-keys`
 
 This returns a list of keys. Each key has details similar to the
 following:

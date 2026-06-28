@@ -42,14 +42,14 @@ can exist in the `known_hosts` file for the same Transfer Family server.
 As an example, assume that you have added the following set of server host keys to
 your Transfer Family server.
 
-| Server host keys | Host key type    | Date added to the server |
-| ---------------- | ---------------- | ------------------------ |
-| RSA              | April 1, 2020    |
-| ECDSA            | February 1, 2020 |
-| ED25519          | December 1, 2019 |
-| RSA              | October 1, 2019  |
-| ECDSA            | June 1, 2019     |
-| ED25519          | March 1, 2019    |
+Server host keys| Host key type | Date added to the server |
+| --- | --- |
+| RSA | April 1, 2020 |
+| ECDSA | February 1, 2020 |
+| ED25519 | December 1, 2019 |
+| RSA | October 1, 2019 |
+| ECDSA | June 1, 2019 |
+| ED25519 | March 1, 2019 |
 
 ###### To rotate the server host key
 

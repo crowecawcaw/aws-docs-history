@@ -1,7 +1,7 @@
 # Create an SFTP connector with VPC-based egress
 
 This topic provides step-by-step instructions for creating SFTP connectors with VPC
-connectivity. VPC_LATTICE-enabled connectors use Amazon VPC Lattice to route traffic through your Virtual
+connectivity. VPC\_LATTICE-enabled connectors use Amazon VPC Lattice to route traffic through your Virtual
 Private Cloud, enabling secure connections to private endpoints or using your own NAT
 gateways for internet access.
 
@@ -21,9 +21,9 @@ Use VPC connectivity for SFTP connectors in these scenarios:
 
 ![Architecture diagram showing VPC-based egress for SFTP connectors, illustrating how Cross-VPC Resource Access enables secure connections through your Virtual Private Cloud.](images/vpc-egress-diagram.png)
 
-## Prerequisites for VPC_LATTICE-enabled SFTP connectors
+## Prerequisites for VPC\_LATTICE-enabled SFTP connectors
 
-Before creating a VPC_LATTICE-enabled SFTP connector, you must complete the following
+Before creating a VPC\_LATTICE-enabled SFTP connector, you must complete the following
 prerequisites:
 
 **How VPC-based connectivity works**
@@ -38,7 +38,7 @@ components are:
 - **Resource Configuration**: Contains the private
   IP address or public DNS name of the SFTP server you want to connect to.
 
-When you create a VPC_LATTICE-enabled connector, AWS Transfer Family uses Forward Access Session (FAS) to
+When you create a VPC\_LATTICE-enabled connector, AWS Transfer Family uses Forward Access Session (FAS) to
 temporarily obtain your credentials and associate your Resource Configuration with our
 service network.
 
@@ -80,14 +80,14 @@ Amazon VPC Lattice resources are available. For more information, see [VPC Latti
 Availability Zone support varies by region, and Resource Gateways require a minimum
 of two Availability Zones.
 
-## Create a VPC_LATTICE-enabled SFTP connector
+## Create a VPC\_LATTICE-enabled SFTP connector
 
 After completing the prerequisites, you can create an SFTP connector with VPC
 connectivity using the AWS CLI, AWS Management Console, or AWS SDKs.
 
 Console
 
-###### To create a VPC_LATTICE-enabled SFTP connector
+###### To create a VPC\_LATTICE-enabled SFTP connector
 
 1. Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/").
 2. In the left navigation pane, choose **SFTP
@@ -235,30 +235,29 @@ User Guide. 4. Complete the connector configuration:
     ```
 
 5. In the **SFTP Configuration** section, provide
-   the following information:
+the following information:
 
-   - For **Connector credentials**, choose the
+    * For **Connector credentials**, choose the
      name of a secret in AWS Secrets Manager that contains the SFTP user's
      private key or password.
-   - For **Trusted host keys**, paste in the
+    * For **Trusted host keys**, paste in the
      public portion of the host key that is used to identify the
      external server, or leave empty to configure later using the
      `TestConnection` command.
 
-   Since this host key is for a VPC_LATTICE connector, remove
-   the host name in the key
-   - (Optional) For **Maximum concurrent
+
+    Since this host key is for a VPC\_LATTICE connector, remove
+     the host name in the key
+    * (Optional) For **Maximum concurrent
      connections**, choose the number of concurrent
      connections that your connector creates to the remote server
      (default is 5).
 
 6. In the **Cryptographic algorithm options**
-   section, choose a **Security policy** from the
-   dropdown list.
-7. (Optional) In the **Tags** section, add tags as
-   key-value pairs.
-8. Choose **Create SFTP connector** to create the
-   VPC_LATTICE-enabled SFTP connector.
+section, choose a **Security policy** from the
+dropdown list. 7. (Optional) In the **Tags** section, add tags as
+key-value pairs. 8. Choose **Create SFTP connector** to create the
+VPC\_LATTICE-enabled SFTP connector.
 
 The connector will be created with a status of `PENDING` while
 the resource association is being provisioned, which typically takes several
@@ -266,7 +265,7 @@ minutes. Once the status changes to `ACTIVE`, the connector is
 ready for use.
 
 CLI
-Use the following command to create a VPC_LATTICE-enabled SFTP connector:
+Use the following command to create a VPC\_LATTICE-enabled SFTP connector:
 
 ```
 aws transfer create-connector \
@@ -283,7 +282,7 @@ target.
 
 ## Monitoring VPC connector status
 
-VPC_LATTICE-enabled connectors have an asynchronous setup process. After creation, monitor the
+VPC\_LATTICE-enabled connectors have an asynchronous setup process. After creation, monitor the
 connector status:
 
 - **PENDING**: The connector is being provisioned.
@@ -359,7 +358,7 @@ aws vpc-lattice create-resource-configuration \
     --port-ranges 22
 ```
 
-###### Create the VPC_LATTICE-enabled connector
+###### Create the VPC\_LATTICE-enabled connector
 
 1. Create the SFTP connector with VPC connectivity:
 
@@ -469,7 +468,7 @@ the shared Resource Configuration.
 
 ### Common troubleshooting scenarios
 
-Here are solutions for common issues when creating VPC_LATTICE-enabled connectors:
+Here are solutions for common issues when creating VPC\_LATTICE-enabled connectors:
 
 - **Connector stuck in PENDING status**: Check that
   your Resource Gateway is ACTIVE and has subnets in supported Availability Zones.

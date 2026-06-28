@@ -139,8 +139,8 @@ _API Gateway Developer Guide_. 2. Check the API Gateway method configuration for
     ![API configuration details, showing the method configuration parameters for the Request Paths and the for the URL Query String.](images/apig-config-method-fields.png)At this point, your API gateway is ready to be deployed.
 
 3. For **Actions**, choose **Deploy API**.
-   For **Deployment stage**, choose **prod**,
-   and then choose **Deploy**.
+For **Deployment stage**, choose **prod**,
+and then choose **Deploy**.
 
 After the API Gateway method is successfully deployed, view its performance in
 **Stages** > **Stage details**, as

@@ -178,13 +178,13 @@ role that you are using for your API.
    - If you are using a password, enter this command:
 
    `sftp -o PubkeyAuthentication=no
- `myuser`@`server-ID`.server.transfer.`region-code`.amazonaws.com`
+  `myuser`@`server-ID`.server.transfer.`region-code`.amazonaws.com`
 
    When prompted, enter your password.
    - If you are using a key pair, enter this command:
 
    `sftp -i `private-key-file`
-`myuser`@`server-ID`.server.transfer.`region-code`.amazonaws.com`
+ `myuser`@`server-ID`.server.transfer.`region-code`.amazonaws.com`
 
 ###### Note
 

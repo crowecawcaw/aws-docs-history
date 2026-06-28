@@ -85,51 +85,49 @@ Now you need to create a workflow that contains a decrypt step.
 
 ###### To create a workflow that contains a decrypt step
 
-1.  Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/").
-2.  In the left navigation pane, choose **Workflows**, and then
-    choose **Create workflow**.
-3.  Enter the following details:
+1. Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/").
+2. In the left navigation pane, choose **Workflows**, and then
+   choose **Create workflow**.
+3. Enter the following details:
 
-    - Enter a description, for example `Decrypt workflow
-example`.
-    - In the **Nominal steps** section, choose
-      **Add step**.
+   - Enter a description, for example `Decrypt workflow
+  example`.
+   - In the **Nominal steps** section, choose
+     **Add step**.
 
-4.  For **Choose step type**, choose **Decrypt
-    file**, and then choose **Next**.
-5.  In the **Configure parameters** dialog box, specify the
-    following:
+4. For **Choose step type**, choose **Decrypt
+   file**, and then choose **Next**.
+5. In the **Configure parameters** dialog box, specify the
+   following:
 
-        * Enter a descriptive step name, for example,
-         `decrypt-step`. Spaces are not allowed in step
-         names.
-        * For the **Destination for decrypted files**, choose
-         Amazon S3.
-        * For the **Destination bucket name**, choose the same
-         Amazon S3 bucket that you specified as the `amzn-s3-demo-bucket`
-         in the IAM policy that you created in Step 1.
-        * For the **Destination key prefix**, enter the name of
-         the prefix (folder) where you want to store your decrypted files in your
-         destination bucket, for example,
-         `decrypted-files/`.
+   - Enter a descriptive step name, for example,
+     `decrypt-step`. Spaces are not allowed in step
+     names.
+   - For the **Destination for decrypted files**, choose
+     Amazon S3.
+   - For the **Destination bucket name**, choose the same
+     Amazon S3 bucket that you specified as the `amzn-s3-demo-bucket`
+     in the IAM policy that you created in Step 1.
+   - For the **Destination key prefix**, enter the name of
+     the prefix (folder) where you want to store your decrypted files in your
+     destination bucket, for example,
+     `decrypted-files/`.
 
+   ###### Note
 
-        ###### Note
+   Make sure to add a trailing slash (`/`) to
+   your prefix.
+   - For this tutorial, leave **Overwrite existing**
+     cleared. When this setting is cleared, if you try to decrypt a file with
+     the identical name of an existing file, the workflow processing stops,
+     and the new file is not processed.
+     Choose **Next** to move to the review screen.
 
-        Make sure to add a trailing slash (`/`) to
-         your prefix.
-        * For this tutorial, leave **Overwrite existing**
-         cleared. When this setting is cleared, if you try to decrypt a file with
-         the identical name of an existing file, the workflow processing stops,
-         and the new file is not processed.
-
-    Choose **Next** to move to the review screen.
-
-6.  Review the details for the step. If everything is correct, choose
-    **Create step**.
-7.  Your workflow needs only the single decrypt step, so there are no additional
-    steps to configure. Choose **Create workflow** to create the
-    new workflow.
+6. Review the details for the step. If everything is correct, choose
+   **Create step**.
+7. Your workflow needs only the single decrypt step, so there are no additional
+   steps to configure. Choose **Create workflow** to create the
+   new workflow.
 
 Note the workflow ID for your new workflow. You will need this ID for the next step.
 This tutorial uses `w-1234abcd5678efghi` as the

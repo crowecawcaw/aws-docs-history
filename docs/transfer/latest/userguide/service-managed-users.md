@@ -125,88 +125,86 @@ to represent file ownership.
 
 ###### To add an Amazon EFS service-managed user to your server
 
-1.  Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/"), then select
-    **Servers** from the navigation pane.
-2.  On the **Servers** page, select the Amazon EFS server that you
-    want to add a user to.
-3.  Choose **Add user** to display the **Add
-    user** page.
-4.  In the **User configuration** section, use the following
-    settings.
+1. Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/"), then select
+   **Servers** from the navigation pane.
+2. On the **Servers** page, select the Amazon EFS server that you
+   want to add a user to.
+3. Choose **Add user** to display the **Add
+   user** page.
+4. In the **User configuration** section, use the following
+   settings.
 
-    1.  The **Username**, must be a minimum of 3 and a
-        maximum of 100 characters. You can use the following characters in
-        the username: a–z, A-Z, 0–9, underscore '\_', hyphen
-        '-', period '.', and at sign "@". The username can't start with
-        a hyphen '-', period '.', or at sign "@".
-    2.  For **User ID** and **Group
-        ID**, note the following:
+   1. The **Username**, must be a minimum of 3 and a
+      maximum of 100 characters. You can use the following characters in
+      the username: a–z, A-Z, 0–9, underscore '\_', hyphen
+      '-', period '.', and at sign "@". The username can't start with
+      a hyphen '-', period '.', or at sign "@".
+   2. For **User ID** and **Group
+      ID**, note the following:
 
-        - For the first user that you create, we recommend that you
-          enter a value of `0` for both
-          **Group ID** and **User
-          ID**. This grants the user administrator
-          privileges for Amazon EFS.
-        - For additional users, enter the user's POSIX user ID and
-          group ID. These IDs are used for all Amazon Elastic File System operations
-          performed by the user.
-        - For **User ID** and **Group
-          ID**, do not use any leading zeroes. For
-          example, `12345` is acceptable,
-          `012345` is not.
+      - For the first user that you create, we recommend that you
+        enter a value of `0` for both
+        **Group ID** and **User
+        ID**. This grants the user administrator
+        privileges for Amazon EFS.
+      - For additional users, enter the user's POSIX user ID and
+        group ID. These IDs are used for all Amazon Elastic File System operations
+        performed by the user.
+      - For **User ID** and **Group
+        ID**, do not use any leading zeroes. For
+        example, `12345` is acceptable,
+        `012345` is not.
 
-    3.  (Optional) For **Secondary Group IDs**, enter one
-        or more additional POSIX group IDs for each user, separated by
-        commas.
-    4.  For **Access**, choose the IAM role
-        that:
+   3. (Optional) For **Secondary Group IDs**, enter one
+      or more additional POSIX group IDs for each user, separated by
+      commas.
+   4. For **Access**, choose the IAM role
+      that:
 
-            * Gives the user access to only the Amazon EFS resources (file
-             systems) that you want them to access.
-            * Defines which file system operations that the user can and
-             cannot perform.
-
+      - Gives the user access to only the Amazon EFS resources (file
+        systems) that you want them to access.
+      - Defines which file system operations that the user can and
+        cannot perform.
         We recommend that you use the IAM role for Amazon EFS file system
         selection with mount access and read/write permissions. For example,
         the combination of the following two AWS managed policies, while
         quite permissive, grants the necessary permissions for your user:
 
-            * AmazonElasticFileSystemClientFullAccess
-            * AWSTransferConsoleFullAccess
-
+      - AmazonElasticFileSystemClientFullAccess
+      - AWSTransferConsoleFullAccess
         For more information, see the blog post [AWS Transfer Family support for Amazon Elastic File System](https://aws.amazon.com/blogs/aws/new-aws-transfer-family-support-for-amazon-elastic-file-system/ "https://aws.amazon.com/blogs/aws/new-aws-transfer-family-support-for-amazon-elastic-file-system/").
 
-    5.  For **Home directory**, do the following:
+   5. For **Home directory**, do the following:
 
-        - Choose the Amazon EFS file system that you want to use for
-          storing the data to transfer using AWS Transfer Family.
-        - Decide whether to set the home directory to
-          **Restricted**. Setting the home
-          directory to **Restricted** has the
-          following effects:
+      - Choose the Amazon EFS file system that you want to use for
+        storing the data to transfer using AWS Transfer Family.
+      - Decide whether to set the home directory to
+        **Restricted**. Setting the home
+        directory to **Restricted** has the
+        following effects:
 
-          - Amazon EFS users can't access any files or directories
-            outside of that folder.
-          - Amazon EFS users can't see the Amazon EFS file system name
-            (**fs-xxxxxxx**).
+        - Amazon EFS users can't access any files or directories
+          outside of that folder.
+        - Amazon EFS users can't see the Amazon EFS file system name
+          (**fs-xxxxxxx**).
 
-          ###### Note
+        ###### Note
 
-          When you select the
-          **Restricted** option, symlinks
-          don't resolve for Amazon EFS users.
+        When you select the
+        **Restricted** option, symlinks
+        don't resolve for Amazon EFS users.
 
-        - (Optional) Enter the path to the home directory that you
-          want users to be in when they log in using their
-          client.
+      - (Optional) Enter the path to the home directory that you
+        want users to be in when they log in using their
+        client.
 
-        If you don't specify a home directory, the root directory
-        of your Amazon EFS file system is used. In this case, make sure
-        that your IAM role provides access to this root
-        directory.
+      If you don't specify a home directory, the root directory
+      of your Amazon EFS file system is used. In this case, make sure
+      that your IAM role provides access to this root
+      directory.
 
-5.  For **SSH public key**, enter the public SSH key portion
-    of the SSH key pair.
+5. For **SSH public key**, enter the public SSH key portion
+   of the SSH key pair.
 
 Your key is validated by the service before you can add your new
 user.

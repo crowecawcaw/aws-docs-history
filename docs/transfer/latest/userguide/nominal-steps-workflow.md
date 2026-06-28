@@ -459,7 +459,7 @@ CLI
 1. Save the following code into a file; for example,
    `tagAndMoveWorkflow.json`. Replace each
    `user input
-placeholder` with your own information.
+ placeholder` with your own information.
 
 ```
 [

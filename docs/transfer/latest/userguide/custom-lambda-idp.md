@@ -367,7 +367,7 @@ CLI
 
 1. Run the [test-identity-provider](../../../cli/latest/reference/transfer/test-identity-provider.md "../../../cli/latest/reference/transfer/test-identity-provider.md") command. Replace each
    `user input
-placeholder` with your own
+ placeholder` with your own
    information, as described in the subsequent steps.
 
 ```
@@ -417,45 +417,42 @@ are described in [Security policies for AWS Transfer Family servers](security-po
 
 ###### To create an CloudFormation stack to use for authentication
 
-1.  Open the CloudFormation console at
-    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2.  Follow the instructions for deploying an CloudFormation stack from an existing
-    template in [Selecting a stack template](../../../AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-template.md "../../../AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-template.md") in the
-    _AWS CloudFormation User Guide_.
-3.  Use one of the following templates to create a Lambda function to use
-    for authentication in Transfer Family.
+1. Open the CloudFormation console at
+   [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+2. Follow the instructions for deploying an CloudFormation stack from an existing
+   template in [Selecting a stack template](../../../AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-template.md "../../../AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-template.md") in the
+   _AWS CloudFormation User Guide_.
+3. Use one of the following templates to create a Lambda function to use
+   for authentication in Transfer Family.
 
-        * [Classic (Amazon Cognito) stack template](https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-basic-lambda-cognito-s3.template.yml "https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-basic-lambda-cognito-s3.template.yml")
+   - [Classic (Amazon Cognito) stack template](https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-basic-lambda-cognito-s3.template.yml "https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-basic-lambda-cognito-s3.template.yml")
 
+   A basic template for creating a AWS Lambda for use as a custom
+   identity provider in AWS Transfer Family. It authenticates against Amazon Cognito
+   for password-based authentication and public keys are returned
+   from an Amazon S3 bucket if public key based authentication is used.
+   After deployment, you can modify the Lambda function code to do
+   something different.
+   - [AWS Secrets Manager stack template](https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-secrets-manager-lambda.template.yml "https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-secrets-manager-lambda.template.yml")
 
-        A basic template for creating a AWS Lambda for use as a custom
-         identity provider in AWS Transfer Family. It authenticates against Amazon Cognito
-         for password-based authentication and public keys are returned
-         from an Amazon S3 bucket if public key based authentication is used.
-         After deployment, you can modify the Lambda function code to do
-         something different.
-        * [AWS Secrets Manager stack template](https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-secrets-manager-lambda.template.yml "https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-secrets-manager-lambda.template.yml")
-
-
-        A basic template that uses AWS Lambda with an AWS Transfer Family server
-         to integrate Secrets Manager as an identity provider. It
-         authenticates against an entry in AWS Secrets Manager of the format
-         `aws/transfer/`server-id`/`username``.
-         Additionally, the secret must hold the key-value pairs for all
-         user properties returned to Transfer Family. After deployment, you can
-         modify the Lambda function code to do something different.
-        * [Okta stack template](https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-okta-lambda.template.yml "https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-okta-lambda.template.yml"): A basic template that uses
-         AWS Lambda with an AWS Transfer Family server to integrate Okta as a custom
-         identity provider.
-        * [Okta-mfa stack template](https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-okta-mfa-lambda.template.yml "https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-okta-mfa-lambda.template.yml"): A basic template that uses
-         AWS Lambda with an AWS Transfer Family server to integrate Okta, with Multi
-         Factor Authentication, as a custom identity provider.
-        * [Azure Active Directory template](https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-basic-lambda-azure-ad.template.yml "https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-basic-lambda-azure-ad.template.yml"): details for this
-         stack are described in the blog post  [Authenticating to AWS Transfer Family with Azure Active Directory and
-         AWS Lambda](https://aws.amazon.com/blogs/storage/authenticating-to-aws-transfer-family-with-azure-active-directory-and-aws-lambda/ "https://aws.amazon.com/blogs/storage/authenticating-to-aws-transfer-family-with-azure-active-directory-and-aws-lambda/").
-
-    After the stack has been deployed, you can view details about it on
-    the **Outputs** tab in the CloudFormation console.
+   A basic template that uses AWS Lambda with an AWS Transfer Family server
+   to integrate Secrets Manager as an identity provider. It
+   authenticates against an entry in AWS Secrets Manager of the format
+   `aws/transfer/`server-id`/`username``.
+   Additionally, the secret must hold the key-value pairs for all
+   user properties returned to Transfer Family. After deployment, you can
+   modify the Lambda function code to do something different.
+   - [Okta stack template](https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-okta-lambda.template.yml "https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-okta-lambda.template.yml"): A basic template that uses
+     AWS Lambda with an AWS Transfer Family server to integrate Okta as a custom
+     identity provider.
+   - [Okta-mfa stack template](https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-okta-mfa-lambda.template.yml "https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-okta-mfa-lambda.template.yml"): A basic template that uses
+     AWS Lambda with an AWS Transfer Family server to integrate Okta, with Multi
+     Factor Authentication, as a custom identity provider.
+   - [Azure Active Directory template](https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-basic-lambda-azure-ad.template.yml "https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-basic-lambda-azure-ad.template.yml"): details for this
+     stack are described in the blog post [Authenticating to AWS Transfer Family with Azure Active Directory and
+     AWS Lambda](https://aws.amazon.com/blogs/storage/authenticating-to-aws-transfer-family-with-azure-active-directory-and-aws-lambda/ "https://aws.amazon.com/blogs/storage/authenticating-to-aws-transfer-family-with-azure-active-directory-and-aws-lambda/").
+     After the stack has been deployed, you can view details about it on
+     the **Outputs** tab in the CloudFormation console.
 
 Deploying one of these stacks is the easiest way to integrate a custom
 identity provider into the Transfer Family workflow.

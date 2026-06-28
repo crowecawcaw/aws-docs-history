@@ -87,7 +87,7 @@ appropriate details.
      key.
 
 7. Choose **Import certificate** to complete the process and
-   save the details for the imported certificate.
+save the details for the imported certificate.
 
 ###### Note
 
@@ -155,15 +155,15 @@ certificates within the range of `Not Before` and `Not
 The following table describes one possible way to configure two certificates
 for a single profile.
 
-| Two certificates in rotation | Name       | NOT BEFORE (controlled by certificate<br>authority) | ACTIVE DATE (set by Transfer Family) | INACTIVE DATE (set by Transfer Family) | NOT AFTER (set by certificate<br>authority) |
-| ---------------------------- | ---------- | --------------------------------------------------- | ------------------------------------ | -------------------------------------- | ------------------------------------------- |
-| Cert1 (older certificate)    | 2019-11-01 | 2020-01-01                                          | 2020-12-31                           | 2024-01-01                             |
-| Cert2 (newer certificate)    | 2020-11-01 | 2020-06-01                                          | 2021-06-01                           | 2025-01-01                             |
+Two certificates in rotation| Name | NOT BEFORE (controlled by certificate<br>authority) | ACTIVE DATE (set by Transfer Family) | INACTIVE DATE (set by Transfer Family) | NOT AFTER (set by certificate<br>authority) |
+| --- | --- | --- | --- | --- |
+| Cert1 (older certificate) | 2019-11-01 | 2020-01-01 | 2020-12-31 | 2024-01-01 |
+| Cert2 (newer certificate) | 2020-11-01 | 2020-06-01 | 2021-06-01 | 2025-01-01 |
 
 Note the following:
 
 - When you specify an `Active Date` and `Inactive
-Date` for a certificate, the range must be inside the range
+ Date` for a certificate, the range must be inside the range
   between `Not Before` and `Not After`.
 - We recommend that you configure several certificates for each profile,
   making sure that the active date range for all the certificates combined

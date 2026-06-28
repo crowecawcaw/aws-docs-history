@@ -43,7 +43,7 @@ aws transfer update-connector \
    --egress-config ResourceConfigurationArn=`resource-configuration-arn`
 ```
 
-To update the Resource Configuration ARN for a VPC_LATTICE-enabled connector:
+To update the Resource Configuration ARN for a VPC\_LATTICE-enabled connector:
 
 ```
 aws transfer update-connector \
@@ -72,7 +72,7 @@ You can change the properties for the SFTP connector by choosing
 
 ### Monitoring VPC connector status
 
-VPC_LATTICE-enabled connectors include additional status information to help you monitor the provisioning process:
+VPC\_LATTICE-enabled connectors include additional status information to help you monitor the provisioning process:
 
 - **Status**: Shows `PENDING`, `ACTIVE`, or `ERRORED`
 - **EgressType**: Shows `VPC` or `SERVICE_MANAGED`

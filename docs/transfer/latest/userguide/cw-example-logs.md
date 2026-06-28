@@ -83,9 +83,9 @@ The available activity types are as follows:
 This section contains example logs for both a successful and an unsuccessful transfer.
 Logs are generated to a log group named
 `/aws/transfer/`connector-id``,
- where `connector-id`is the identifier for your SFTP connector.
- Log entries for SFTP connectors are generated when you run either a
-`StartFileTransfer`or`StartDirectoryListing` command.
+where `connector-id` is the identifier for your SFTP connector.
+Log entries for SFTP connectors are generated when you run either a
+`StartFileTransfer` or `StartDirectoryListing` command.
 
 This log entry is for a transfer that completed successfully.
 

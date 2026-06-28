@@ -51,7 +51,7 @@ File Transfer Protocol (SFTP).
   The following is a list of available commands for FTP and FTPS:
 
 | Available commands |
-| ------------------ | ---- | ---- | ---- | ---- | ---- |
+| ------------------ |
 | ABOR               | FEAT | MLST | PASS | RETR | STOR |
 | AUTH               | LANG | MKD  | PASV | RMD  | STOU |
 | CDUP               | LIST | MODE | PBSZ | RNFR | STRU |
@@ -67,8 +67,8 @@ For SFTP, the following operations are currently not supported for users that ar
 the logical home directory on servers that are using Amazon Elastic File System (Amazon EFS).
 
 | Unsupported SFTP<br>commands |
-| ---------------------------- | --------------- | ------------------------------------------------- | --------------------------------------------------------------------------- |
-| SSH_FXP_READLINK             | SSH_FXP_SYMLINK | SSH_FXP_STAT when the requested file is a symlink | SSH_FXP_REALPATH when the requested path contains any symlink<br>components |
+| ---------------------------- |
+| SSH\_FXP\_READLINK           | SSH\_FXP\_SYMLINK | SSH\_FXP\_STAT when the requested file is a symlink | SSH\_FXP\_REALPATH when the requested path contains any symlink<br>components |
 
 ###### Generate public-private key pair
 
@@ -102,23 +102,23 @@ you can use prefixes in object key names to imply a hierarchy and organize your 
 in a way similar to folders. This behavior is described in [Working
 with object metadata](../../../AmazonS3/latest/userguide/UsingMetadata.md "../../../AmazonS3/latest/userguide/UsingMetadata.md") in the _Amazon Simple Storage Service User Guide_.
 
-| SFTP/FTPS/FTP Commands | Command                                                                                          | Amazon S3                                                                                      | Amazon EFS |
-| ---------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- | ---------- |
-| `cd`                   | Supported                                                                                        | Supported                                                                                      |
-| `chgrp`                | Not supported                                                                                    | Supported (`root` or `owner` only)                                                             |
-| `chmod`                | Not supported                                                                                    | Supported (`root` only)                                                                        |
-| `chmtime`              | Not supported                                                                                    | Supported                                                                                      |
-| `chown`                | Not supported                                                                                    | Supported (`root` only)                                                                        |
-| `get`                  | Supported                                                                                        | Supported (including resolving symbolic links)                                                 |
-| `ln -s`                | Not supported                                                                                    | Supported                                                                                      |
-| `ls/dir`               | Supported                                                                                        | Supported                                                                                      |
-| `mkdir`                | Supported                                                                                        | Supported                                                                                      |
-| `put`                  | Supported                                                                                        | Supported                                                                                      |
-| `pwd`                  | Supported                                                                                        | Supported                                                                                      |
-| `rename`               | Supported for files only NoteRenaming that would overwrite an existing file is not<br>supported. | Supported NoteRenaming that would overwrite an existing file or directory is<br>not supported. |
-| `rm`                   | Supported                                                                                        | Supported                                                                                      |
-| `rmdir`                | Supported (empty directories only)                                                               | Supported                                                                                      |
-| `version`              | Supported                                                                                        | Supported                                                                                      |
+SFTP/FTPS/FTP Commands| Command | Amazon S3 | Amazon EFS |
+| --- | --- | --- |
+| `cd` | Supported | Supported |
+| `chgrp` | Not supported | Supported (`root` or `owner` only) |
+| `chmod` | Not supported | Supported (`root` only) |
+| `chmtime` | Not supported | Supported |
+| `chown` | Not supported | Supported (`root` only) |
+| `get` | Supported | Supported (including resolving symbolic links) |
+| `ln -s` | Not supported | Supported |
+| `ls/dir` | Supported | Supported |
+| `mkdir` | Supported | Supported |
+| `put` | Supported | Supported |
+| `pwd` | Supported | Supported |
+| `rename` | Supported for files only NoteRenaming that would overwrite an existing file is not<br>supported. | Supported NoteRenaming that would overwrite an existing file or directory is<br>not supported. |
+| `rm` | Supported | Supported |
+| `rmdir` | Supported (empty directories only) | Supported |
+| `version` | Supported | Supported |
 
 ## Find your Amazon VPC endpoint
 
@@ -271,8 +271,8 @@ following:
     * **TLS/SSL Explicit encryption** for FTPS
 
 3. For **Host name**, enter your server endpoint. The server
-   endpoint is located on the **Server details** page. For more
-   information, see [View SFTP, FTPS, and FTP server details](configuring-servers-view-info.md "configuring-servers-view-info.md").
+endpoint is located on the **Server details** page. For more
+information, see [View SFTP, FTPS, and FTP server details](configuring-servers-view-info.md "configuring-servers-view-info.md").
 
 If your server uses a VPC endpoint, see [Find your Amazon VPC endpoint](#find-vpc-endpoint "#find-vpc-endpoint"). 4. For **Port number**, enter the following:
 
@@ -280,7 +280,7 @@ If your server uses a VPC endpoint, see [Find your Amazon VPC endpoint](#find-vp
     * `21` for FTP/FTPS
 
 5. For **User name**, enter the name for the user that you
-   created for your specific identity provider.
+created for your specific identity provider.
 
 **Tip:** The username should be one of the users
 you created or configured for your identity provider. AWS Transfer Family provides the
@@ -291,10 +291,9 @@ following identity providers:
     * [Working with custom identity providers](custom-idp-intro.md "custom-idp-intro.md")
 
 6. Choose **Advanced** to open the **Advanced Site
-   Settings** dialog box. In the **SSH** section,
-   choose **Authentication**.
-7. For **Private key file**, browse for and choose the SSH
-   private key file from your file system.
+Settings** dialog box. In the **SSH** section,
+choose **Authentication**. 7. For **Private key file**, browse for and choose the SSH
+private key file from your file system.
 
 If WinSCP offers to convert your SSH private key to the PPK format, choose
 **OK**. 8. Choose **OK** to return to the **Login**
@@ -360,11 +359,8 @@ If your server uses a VPC endpoint, see [Find your Amazon VPC endpoint](#find-vp
     * `21` for FTP/FTPS
 
 6. For **Username**, enter the name for the user that you
-   created in [Managing users for server endpoints](create-user.md "create-user.md").
-7. If SFTP is selected, for **SSH Private Key**, choose or enter
-   the SSH private key.
-8. Choose **Connect**.
-9. Perform your file transfer.
+created in [Managing users for server endpoints](create-user.md "create-user.md"). 7. If SFTP is selected, for **SSH Private Key**, choose or enter
+the SSH private key. 8. Choose **Connect**. 9. Perform your file transfer.
 
 Depending on where your files are, do one of the following:
 
@@ -397,17 +393,17 @@ following:
     * **Use explicit FTP over TLS if available** –
      for FTPS
 
-5.  For **Host name**, enter the protocol that you are using,
-    followed by your server endpoint. The server endpoint is located on the
-    **Server details** page. For more information, see [View SFTP, FTPS, and FTP server details](configuring-servers-view-info.md "configuring-servers-view-info.md").
+5. For **Host name**, enter the protocol that you are using,
+followed by your server endpoint. The server endpoint is located on the
+**Server details** page. For more information, see [View SFTP, FTPS, and FTP server details](configuring-servers-view-info.md "configuring-servers-view-info.md").
 
-        * If you are using SFTP, enter:
-         `sftp://`hostname``
-        * If you are using FTPS, enter:
-         `ftps://`hostname``
+    * If you are using SFTP, enter:
+     `sftp://`hostname``
+    * If you are using FTPS, enter:
+     `ftps://`hostname``
 
-    Make sure to replace `hostname` with your actual
-    server endpoint.
+Make sure to replace `hostname` with your actual
+server endpoint.
 
 If your server uses a VPC endpoint, see [Find your Amazon VPC endpoint](#find-vpc-endpoint "#find-vpc-endpoint"). 6. For **Port number**, enter the following:
 
@@ -415,7 +411,7 @@ If your server uses a VPC endpoint, see [Find your Amazon VPC endpoint](#find-vp
     * `21` for FTP/FTPS
 
 7. If SFTP is selected, for **Logon Type**, choose **Key
-   file**.
+file**.
 
 For **Key file**, choose or enter the SSH private key. 8. For **User**, enter the name for the user that you created in
 [Managing users for server endpoints](create-user.md "create-user.md"). 9. Choose **Connect**. 10. Perform your file transfer.
@@ -498,19 +494,19 @@ check your SFTP client logs. You can use that information to troubleshoot any er
 forward that information to your network team for their help in identifying the
 issue.
 
-| SFTP client-side messages | Activity                                                                                                                                                                                                                                                                                                                                                                                                                                          | Description |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| AUTH_FAILURE              | The user failed authentication. This can be any kind of failure from<br>a custom identity provider or service managed user. The details in the<br>event help clarify the root cause of the failure.                                                                                                                                                                                                                                               |
-| CLOSE                     | Indicates that an opened file or directory is closed<br>successfully.                                                                                                                                                                                                                                                                                                                                                                             |
-| CONNECTED/DISCONNECTED    | Indicates normal connection success and disconnections.                                                                                                                                                                                                                                                                                                                                                                                           |
-| CREATE_SYMLINK            | A symbolic link was created (successfully or unsuccessfully).                                                                                                                                                                                                                                                                                                                                                                                     |
-| DELETE                    | A file was deleted (successfully or unsuccessfully).                                                                                                                                                                                                                                                                                                                                                                                              |
-| ERROR                     | A general, unexpected error. The associated description contains<br>information that can help you or your network administrators to identify<br>the specific issue.                                                                                                                                                                                                                                                                               |
-| EXIT_REASON               | Emitted when an unexpected error caused termination of your SFTP<br>session. The message associated with the event describes the<br>cause.                                                                                                                                                                                                                                                                                                        |
-| MKDIR                     | A directory was created (successfully or unsuccessfully).                                                                                                                                                                                                                                                                                                                                                                                         |
-| OPEN                      | A file was opened for read or write (successfully or<br>unsuccessfully)                                                                                                                                                                                                                                                                                                                                                                           |
-| PARTIAL_CLOSE             | The client disconnected from the server while a file was still open<br>with no CLOSE message received. Transfer Family stores the received portion of the<br>file (which could in fact be the complete file) and emits the<br>PARTIAL_CLOSE event to alert the customer about the issue. Workflows<br>integration also receives an `onPartialClose` event to handle<br>the file appropriately.                                                    |
-| RENAME                    | A file was renamed (successfully or unsuccessfully)                                                                                                                                                                                                                                                                                                                                                                                               |
-| RMDIR                     | A directory was deleted (successfully or unsuccessfully)                                                                                                                                                                                                                                                                                                                                                                                          |
-| SETSTAT                   | The attributes of a file are changed (successfully or<br>unsuccessfully).<br>NoteTransfer Family doesn't support SETSTAT if you are using Amazon S3 for<br>storage. The [Avoid setstat errors](#avoid-set-stat "#avoid-set-stat") section provides details on<br>how to avoid `SetStat` errors, by turning off the<br>setting. This avoids you receiving a `fail unsupported<br>error`: instead, you receive `success but do<br>nothing` message. |
-| TLS_RESUME_FAILURE        | The server is configured to enforce TLS Session Resumption and the<br>client does not support it.                                                                                                                                                                                                                                                                                                                                                 |
+SFTP client-side messages| Activity | Description |
+| --- | --- |
+| AUTH\_FAILURE | The user failed authentication. This can be any kind of failure from<br>a custom identity provider or service managed user. The details in the<br>event help clarify the root cause of the failure. |
+| CLOSE | Indicates that an opened file or directory is closed<br>successfully. |
+| CONNECTED/DISCONNECTED | Indicates normal connection success and disconnections. |
+| CREATE\_SYMLINK | A symbolic link was created (successfully or unsuccessfully). |
+| DELETE | A file was deleted (successfully or unsuccessfully). |
+| ERROR | A general, unexpected error. The associated description contains<br>information that can help you or your network administrators to identify<br>the specific issue. |
+| EXIT\_REASON | Emitted when an unexpected error caused termination of your SFTP<br>session. The message associated with the event describes the<br>cause. |
+| MKDIR | A directory was created (successfully or unsuccessfully). |
+| OPEN | A file was opened for read or write (successfully or<br>unsuccessfully) |
+| PARTIAL\_CLOSE | The client disconnected from the server while a file was still open<br>with no CLOSE message received. Transfer Family stores the received portion of the<br>file (which could in fact be the complete file) and emits the<br>PARTIAL\_CLOSE event to alert the customer about the issue. Workflows<br>integration also receives an `onPartialClose` event to handle<br>the file appropriately. |
+| RENAME | A file was renamed (successfully or unsuccessfully) |
+| RMDIR | A directory was deleted (successfully or unsuccessfully) |
+| SETSTAT | The attributes of a file are changed (successfully or<br>unsuccessfully).<br>NoteTransfer Family doesn't support SETSTAT if you are using Amazon S3 for<br>storage. The [Avoid setstat errors](#avoid-set-stat "#avoid-set-stat") section provides details on<br>how to avoid `SetStat` errors, by turning off the<br>setting. This avoids you receiving a `fail unsupported<br>error`: instead, you receive `success but do<br>nothing` message. |
+| TLS\_RESUME\_FAILURE | The server is configured to enforce TLS Session Resumption and the<br>client does not support it. |

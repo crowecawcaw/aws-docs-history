@@ -21,7 +21,7 @@ If your Amazon S3 files have tags, you need to add one or two permissions to you
    creating a new IAM role, see [Create an IAM role and policy](requirements-roles.md "requirements-roles.md").
 2. Create another policy with the following permissions, and attach it to your
    role. Replace each `user input
-placeholder` with your own information.
+ placeholder` with your own information.
 
 ```
 `{

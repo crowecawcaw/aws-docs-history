@@ -140,9 +140,9 @@ connector added to the list. To view the details for your connectors, see [View 
 When you create an AS2 connector, the following security algorithms are attached to the
 connector.
 
-| Type       | Algorithm                                                                                                                                                                                                                                                                                                                                    |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TLS Cipher | TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 |
+| Type       | Algorithm                                                                                                                                                                                                                                                                                                                                                                                            |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TLS Cipher | TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256<br>TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256<br>TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_CBC\_SHA256<br>TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256<br>TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384<br>TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384<br>TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA384<br>TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384 |
 
 ## Basic authentication for AS2 connectors
 
@@ -201,7 +201,7 @@ connects to the partner's endpoint.
 When you create a new secret in the console, the name of the secret
 follows this naming convention:
 `/aws/transfer/`connector-id``,
- where `connector-id` is the ID of the connector
+where `connector-id` is the ID of the connector
 that you're creating. Consider this when you are trying to locate the
 secret in AWS Secrets Manager.
 
@@ -255,25 +255,22 @@ tab.
      user.
 
 7. If you want to provide a private key, choose **Add row**, and
-   in the **Key/value pairs** section, choose the
-   **Key/value** tab.
+in the **Key/value pairs** section, choose the
+**Key/value** tab.
 
-   - **Key** – Enter
+    * **Key** – Enter
      `PrivateKey`.
-   - **value** – Enter a private key for the user.
+    * **value** – Enter a private key for the user.
      This value must be stored in OpenSSH format, and must correspond to the
      public key that is stored for this user in the remote server.
 
-8. Choose **Next**.
-9. On the **Configure secret** page, enter a name and
-   description for your secret. We recommend that you use a prefix of
-   `aws/transfer/` for the name. For example, you could
-   name your secret `aws/transfer/connector-1`.
-10. Choose **Next**, and then accept the defaults on the
-    **Configure rotation** page. Then choose
-    **Next**.
-11. On the **Review** page, choose **Store** to
-    create and store the secret.
+8. Choose **Next**. 9. On the **Configure secret** page, enter a name and
+description for your secret. We recommend that you use a prefix of
+`aws/transfer/` for the name. For example, you could
+name your secret `aws/transfer/connector-1`. 10. Choose **Next**, and then accept the defaults on the
+**Configure rotation** page. Then choose
+**Next**. 11. On the **Review** page, choose **Store** to
+create and store the secret.
 
 After you create the secret, you can choose it when you are creating a
 connector (see [Configure AS2 connectors](configure-as2-connector.md "configure-as2-connector.md")). In the step where you enable

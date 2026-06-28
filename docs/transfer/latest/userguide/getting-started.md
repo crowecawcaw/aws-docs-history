@@ -211,7 +211,7 @@ This client works only with an SFTP-enabled server.
 
 1. On Linux or Macintosh, open a command terminal.
 2. At the prompt, enter the following command: `% sftp -i
-transfer-key sftp_user@service_endpoint`
+ transfer-key sftp_user@service_endpoint`
 
 In the preceding command, `sftp_user` is the username and
 `transfer-key` is the SSH private key. Here,

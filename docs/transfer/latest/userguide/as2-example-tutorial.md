@@ -115,7 +115,7 @@ The `-subj` argument consists of the following values.
 |      | Name                                              | Description                                                                                                                                                          |
 | ---- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `C`  | Country code                                      | A two-letter code for the country in which your<br>organization is located.                                                                                          |
-| `ST` | State, region, or province                        | The state, region, or province in which your organization<br>is located. (In this case, \*region<br>• does not refer to your<br>AWS Region.)                         |
+| `ST` | State, region, or province                        | The state, region, or province in which your organization<br>is located. (In this case, *region<br>• does not refer to your<br>AWS Region.)                          |
 | `L`  | Locality name                                     | The city in which your organization is located.                                                                                                                      |
 | `O`  | Organization name                                 | The full legal name of your organization, including<br>suffixes, such as LLC, Corp, and so on.                                                                       |
 | `OU` | Organizational unit name                          | The division in your organization that deals with this<br>certificate.                                                                                               |
@@ -331,7 +331,7 @@ To use these instructions, you need the following:
 ###### To create an AS2-enabled server
 
 1. Run the following command. Replace each `user input
-placeholder` with your own information.
+ placeholder` with your own information.
 
 ```
 aws transfer create-server --endpoint-type VPC \
@@ -427,9 +427,9 @@ because you aren't sending a valid AS2 message.
     ```
 
 4. (Optional) Configure a logging role. Transfer Family logs the status of messages sent
-   and received in a structured JSON format to Amazon CloudWatch logs. To provide Transfer Family
-   with access to the CloudWatch logs in your account, you must configure a logging
-   role on your server.
+and received in a structured JSON format to Amazon CloudWatch logs. To provide Transfer Family
+with access to the CloudWatch logs in your account, you must configure a logging
+role on your server.
 
 Create an AWS Identity and Access Management (IAM) role that trusts
 `transfer.amazonaws.com`, and attach the
@@ -629,9 +629,10 @@ specified in the `base-directory` parameter that you specified in
 files named `myfile1.txt` and
 `myfile2.txt`, the files are stored as
 `/`path-defined-in-the-agreement`/processed/`original_filename.messageId.original_extension``.
- Here, the files are stored as
- `/amzn-s3-demo-destination-bucket/AS2-inbox/processed/myfile1.`messageId`.txt`  and
- `/amzn-s3-demo-destination-bucket/AS2-inbox/processed/myfile2.`messageId`.txt`.
+Here, the files are stored as
+`/amzn-s3-demo-destination-bucket/AS2-inbox/processed/myfile1.`messageId`.txt`
+and
+`/amzn-s3-demo-destination-bucket/AS2-inbox/processed/myfile2.`messageId`.txt`.
 
 If you configured a logging role when you created your Transfer Family server, you can
 also check your CloudWatch logs for the status of AS2 messages.

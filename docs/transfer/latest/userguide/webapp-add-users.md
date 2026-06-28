@@ -50,15 +50,18 @@ users, skip ahead to step 4.
      **Assign**.
 
 4. To create a new user, select **Add and assign new
-   users**.
+users**.
 
-   1. An information screen appears. Choose **Get
-      started** to continue.
-   2. Choose **Add new users**.
-   3. Enter the following user details into the dialog box: username,
-      first and last name, and an email address.
+    1. An information screen appears. Choose **Get
+     started** to continue.
+    2. Choose **Add new users**.
+    3. Enter the following user details into the dialog box: username,
+     first and last name, and an email address.
 
-   ![Screen showing the Add new users dialog.](images/webapp-transfer-add-user-new.png) 4. Choose **Next**, then choose
-   **Add** to add the user and close the dialog
-   box, or **Add new user** to create another
-   user.
+
+
+    ![Screen showing the Add new users dialog.](images/webapp-transfer-add-user-new.png)
+    4. Choose **Next**, then choose
+     **Add** to add the user and close the dialog
+     box, or **Add new user** to create another
+     user.

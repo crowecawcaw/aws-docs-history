@@ -43,7 +43,7 @@ AWS Transfer Family provides the following solutions:
 ## VPC reference architectures
 
 The following reference architectures show common patterns for deploying
-VPC_LATTICE-enabled SFTP connectors. These examples help you understand where VPC Lattice
+VPC\_LATTICE-enabled SFTP connectors. These examples help you understand where VPC Lattice
 resources need to be created in your overall AWS architecture.
 
 ### Single account with shared egress infrastructure

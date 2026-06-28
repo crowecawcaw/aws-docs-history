@@ -88,8 +88,8 @@ access through virtual private cloud (VPC) security groups. 5. On the **Choose a
     5. Choose **Next**.
 
 6. On the **Choose a domain** page, choose
-   **Amazon S3** to store and access your files as objects by using
-   the selected protocol.
+**Amazon S3** to store and access your files as objects by using
+the selected protocol.
 
 Choose **Next**. 7. On the **Configure additional details** page, choose the
 settings that you need.
@@ -249,8 +249,8 @@ bucket:
   they are being processed, but after a transfer is completed, this folder should
   be empty.
 - ``server-id`/` – This folder is
-named based on your Transfer Family server ID. It contains
-`from-`partner`` (this folder is
+ named based on your Transfer Family server ID. It contains
+ `from-`partner`` (this folder is
   dynamically named, based on the partner's AS2 ID), which itself contains
   `failed/`, `processed/`, and `processing/`
   folders. The

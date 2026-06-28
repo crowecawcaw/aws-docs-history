@@ -54,17 +54,16 @@ directories.
   users, and 2,000 entries for service-managed users. You can calculate your
   mappings size as follows:
 
-      1. Write out a typical mapping in the format
-       `{"Entry":"/`entry-path`","Target":"/`target-path`"}`,
-       where ``entry-path`` and
-       ``target-path`` are the
-       actual values that you will use.
-      2. Count the characters in that string, then add one (1).
-      3. Multiply that number by the approximate number of mappings that
-       you have for your server.
-
-  If the number that you estimated in step 3 is less than 2.1 MB, then your
-  mappings are within the acceptable limit.
+  1.  Write out a typical mapping in the format
+      `{"Entry":"/`entry-path`","Target":"/`target-path`"}`,
+      where `entry-path` and
+      `target-path` are the
+      actual values that you will use.
+  2.  Count the characters in that string, then add one (1).
+  3.  Multiply that number by the approximate number of mappings that
+      you have for your server.
+      If the number that you estimated in step 3 is less than 2.1 MB, then your
+      mappings are within the acceptable limit.
 
 ### Target path requirements
 

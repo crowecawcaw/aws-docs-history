@@ -145,7 +145,9 @@ JSON
      with the ARN for an actual workflow execution role. For example,
      `arn:aws:transfer:us-east-2:111122223333:workflow/w-1234567890abcdef0`
    - Replace
-     `arn:aws:lambda:`region`:`account-id`:function:`function-name``with the ARN for your Lambda function. For example,`arn:aws:lambda:us-east-2:123456789012:function:example-lambda-idp`.
+     `arn:aws:lambda:`region`:`account-id`:function:`function-name``
+     with the ARN for your Lambda function. For example,
+     `arn:aws:lambda:us-east-2:123456789012:function:example-lambda-idp`.
 
 4. Follow the instructions for deploying an CloudFormation stack from an existing template
    in [Selecting a stack template](../../../AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-template.md "../../../AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-template.md") in the

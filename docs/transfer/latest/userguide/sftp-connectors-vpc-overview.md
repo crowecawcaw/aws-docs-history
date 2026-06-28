@@ -12,7 +12,7 @@ SFTP connectors can use one of two egress types:
 - **Service Managed** (default): The connector uses NAT
   gateways and IP addresses owned by AWS Transfer Family to route connections over the public
   internet.
-- **VPC_LATTICE**: The connector routes traffic through
+- **VPC\_LATTICE**: The connector routes traffic through
   your VPC environment using Cross-VPC Resource Access.
   **When to use VPC connectivity**
 
@@ -29,9 +29,9 @@ Use VPC connectivity for SFTP connectors in these scenarios:
   transfers through your organization's central ingress/egress controls.
   **Requirements**
 
-Before creating a VPC_LATTICE-enabled SFTP connector, you need:
+Before creating a VPC\_LATTICE-enabled SFTP connector, you need:
 
 - VPC and related infrastructure (subnets, route tables, security groups)
 - Resource Gateway in your VPC (minimum two Availability Zones)
 - Resource Configuration specifying the target SFTP server
-  For detailed setup instructions, see [Create a VPC_LATTICE-enabled SFTP connector](create-vpc-sftp-connector-procedure.md#create-vpc-connector-procedure "create-vpc-sftp-connector-procedure.md#create-vpc-connector-procedure"). And, for examples, see [VPC connectivity examples for SFTP connectors](create-vpc-sftp-connector-procedure.md#sftp-connectors-vpc-examples "create-vpc-sftp-connector-procedure.md#sftp-connectors-vpc-examples").
+  For detailed setup instructions, see [Create a VPC\_LATTICE-enabled SFTP connector](create-vpc-sftp-connector-procedure.md#create-vpc-connector-procedure "create-vpc-sftp-connector-procedure.md#create-vpc-connector-procedure"). And, for examples, see [VPC connectivity examples for SFTP connectors](create-vpc-sftp-connector-procedure.md#sftp-connectors-vpc-examples "create-vpc-sftp-connector-procedure.md#sftp-connectors-vpc-examples").

@@ -20,11 +20,11 @@ AWS Transfer Family supports different types of algorithms for different purpose
 which algorithms to use for your specific use case helps ensure secure and compatible
 file transfers.
 
-| Algorithm Quick Reference | Use Case                                  | Recommended Algorithm             | FIPS Compliant                              | Notes |
-| ------------------------- | ----------------------------------------- | --------------------------------- | ------------------------------------------- | ----- |
-| SSH/SFTP Authentication   | RSA (rsa-sha2-256/512), ECDSA, or ED25519 | RSA: Yes, ECDSA: Yes, ED25519: No | Compatible with all SSH clients and servers |
-| PGP Key Generation        | RSA or ECC (NIST)                         | Yes                               | For workflow decryption                     |
-| PGP File Encryption       | AES-256                                   | Yes                               | Determined by PGP software                  |
+Algorithm Quick Reference| Use Case | Recommended Algorithm | FIPS Compliant | Notes |
+| --- | --- | --- | --- |
+| SSH/SFTP Authentication | RSA (rsa-sha2-256/512), ECDSA, or ED25519 | RSA: Yes, ECDSA: Yes, ED25519: No | Compatible with all SSH clients and servers |
+| PGP Key Generation | RSA or ECC (NIST) | Yes | For workflow decryption |
+| PGP File Encryption | AES-256 | Yes | Determined by PGP software |
 
 ## SSH authentication algorithms
 

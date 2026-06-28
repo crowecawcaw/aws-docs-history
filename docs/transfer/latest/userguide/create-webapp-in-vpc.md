@@ -28,20 +28,20 @@ infrastructure.
 
 ###### To create a Transfer Family web app
 
-1.  Sign in to the AWS Management Console and open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/").
-2.  In the left navigation pane, choose **Web apps**.
-3.  Choose **Create web app**. For authentication access, the pane is populated as follows.
+1. Sign in to the AWS Management Console and open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/").
+2. In the left navigation pane, choose **Web apps**.
+3. Choose **Create web app**. For authentication access, the pane is populated as follows.
 
-    - If you have already created either an organization or account instance in AWS IAM Identity Center, then you see this message: **Your AWS Transfer Family application connected to an account instance of IAM Identity Center**.
-    - If you already have an account instance and are a member of an organization instance, you have the option to choose which instance to connect.
-    - If you don't already have an account instance, or are a member in an organization instance, you're presented with the options to create an account instance.
+   - If you have already created either an organization or account instance in AWS IAM Identity Center, then you see this message: **Your AWS Transfer Family application connected to an account instance of IAM Identity Center**.
+   - If you already have an account instance and are a member of an organization instance, you have the option to choose which instance to connect.
+   - If you don't already have an account instance, or are a member in an organization instance, you're presented with the options to create an account instance.
 
-4.  In the **Endpoint configuration** section, choose how your users will access your web app:
+4. In the **Endpoint configuration** section, choose how your users will access your web app:
 
-    - **Publicly accessible**: Your web app endpoint is accessible over the public via HTTPS. This option does not require any VPC configuration, making it straightforward to set up and suitable for applications intended for wide public use.
-    - **VPC hosted**: Your web app endpoint is hosted within your Virtual Private Cloud (VPC), providing private network access through your VPC network, AWS Direct Connect, or VPN connections. This option offers enhanced security through network isolation and is recommended for internal applications.
+   - **Publicly accessible**: Your web app endpoint is accessible over the public via HTTPS. This option does not require any VPC configuration, making it straightforward to set up and suitable for applications intended for wide public use.
+   - **VPC hosted**: Your web app endpoint is hosted within your Virtual Private Cloud (VPC), providing private network access through your VPC network, AWS Direct Connect, or VPN connections. This option offers enhanced security through network isolation and is recommended for internal applications.
 
-    When configuring a VPC hosted endpoint, you'll need to specify:
+   When configuring a VPC hosted endpoint, you'll need to specify:
 
         + **VPC**: Select an existing VPC or create a new one. A **Create a VPC** button is available.
         + **IP address type**: Choose the IP
@@ -60,9 +60,9 @@ infrastructure.
          is required for IAM Identity Center authentication and web app static
          content loading.
 
-    ###### Note
+   ###### Note
 
-    The access endpoint cannot be customized for VPC endpoints. To add a custom URL, use the public endpoint.
+   The access endpoint cannot be customized for VPC endpoints. To add a custom URL, use the public endpoint.
 
 ## Post-creation steps
 

@@ -123,33 +123,39 @@ Console
 
 5. Complete the connector configuration:
 
-   - (Optional) For the **Logging role**, choose
+    * (Optional) For the **Logging role**, choose
      the IAM role for the connector to use to push events to your
      CloudWatch logs. The following example policy lists the necessary
      permissions to log events for SFTP connectors.
 
-   ```
-   `{
-    "Version":"2012-10-17",
-    "Statement": [
-    {
-    "Sid": "VisualEditor0",
-    "Effect": "Allow",
-    "Action": [
-    "logs:CreateLogStream",
-    "logs:DescribeLogStreams",
-    "logs:CreateLogGroup",
-    "logs:PutLogEvents"
-    ],
-    "Resource": "arn:aws:logs:*:*:log-group:/aws/transfer/*"
-    }
-    ]
-   }`
 
-   ```
+
+
+
+
+
+    ```
+    `{
+     "Version":"2012-10-17",
+     "Statement": [
+     {
+     "Sid": "VisualEditor0",
+     "Effect": "Allow",
+     "Action": [
+     "logs:CreateLogStream",
+     "logs:DescribeLogStreams",
+     "logs:CreateLogGroup",
+     "logs:PutLogEvents"
+     ],
+     "Resource": "arn:aws:logs:*:*:log-group:/aws/transfer/*"
+     }
+     ]
+    }`
+
+    ```
 
 6. In the **SFTP Configuration** section, provide the
-   following information:
+following information:
 
 ![The Transfer Family SFTP connector console, showing the SFTP configuration settings.](images/create-connector-example-sftp-config.png)
 
@@ -221,20 +227,18 @@ Console
      performance by enabling parallel operations.
 
 7. In the **Cryptographic algorithm options** section,
-   choose a **Security policy** from the dropdown list in
-   the **Security Policy** field. The security policy
-   enables you to select the cryptographic algorithms that your connector
-   supports. For details on the available security policies and algorithms,
-   see [Security policies for AWS Transfer Family SFTP connectors](security-policies-connectors.md "security-policies-connectors.md").
-8. (Optional) In the **Tags** section, for
-   **Key** and **Value**, enter one
-   or more tags as key-value pairs.
-9. After you have confirmed all of your settings, choose **Create
-   SFTP connector** to create the SFTP connector. If the
-   connector is created successfully, a screen appears with a list of the
-   assigned static IP addresses and a **Test connection**
-   button. Use the button to test the configuration for your new
-   connector.
+choose a **Security policy** from the dropdown list in
+the **Security Policy** field. The security policy
+enables you to select the cryptographic algorithms that your connector
+supports. For details on the available security policies and algorithms,
+see [Security policies for AWS Transfer Family SFTP connectors](security-policies-connectors.md "security-policies-connectors.md"). 8. (Optional) In the **Tags** section, for
+**Key** and **Value**, enter one
+or more tags as key-value pairs. 9. After you have confirmed all of your settings, choose **Create
+SFTP connector** to create the SFTP connector. If the
+connector is created successfully, a screen appears with a list of the
+assigned static IP addresses and a **Test connection**
+button. Use the button to test the configuration for your new
+connector.
 
 ![The connector creation screen that appears when an SFTP connector has been successfully created. It contains a button for testing the connection and a list of the service-managed static IP addresses of this connector.](images/connector-success-ip.png)
 
@@ -247,7 +251,7 @@ To use this command to create an SFTP connector, you must provide the following
 information.
 
 - The URL for a remote SFTP server. This URL must be formatted as `sftp://`partner-SFTP-server-url``,
-for example `sftp://AnyCompany.com`.
+  for example `sftp://AnyCompany.com`.
 - The access role. Choose the Amazon Resource Name (ARN) of the
   AWS Identity and Access Management (IAM) role to use.
 
@@ -351,15 +355,14 @@ different account](../../../secretsmanager/latest/userguide/auth-and-access_exam
 
 - Provide the following SFTP configuration information.
 
-      + The ARN of a secret in AWS Secrets Manager that contains the SFTP user's
-       private key or password.
-      + The public portion of the host key that is used to identify
-       the external server. You can provide multiple trusted host keys
-       if you like.
-
-  The easiest way to provide the SFTP information is to save it to a
-  file. For example, copy the following example text to a file named
-  `testSFTPConfig.json`.
+  - The ARN of a secret in AWS Secrets Manager that contains the SFTP user's
+    private key or password.
+  - The public portion of the host key that is used to identify
+    the external server. You can provide multiple trusted host keys
+    if you like.
+    The easiest way to provide the SFTP information is to save it to a
+    file. For example, copy the following example text to a file named
+    `testSFTPConfig.json`.
 
 ```
 // Listing for testSFTPConfig.json

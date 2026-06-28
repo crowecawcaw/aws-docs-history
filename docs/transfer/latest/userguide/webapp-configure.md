@@ -37,34 +37,29 @@ For authentication access, the pane is populated as follows.
      an organization instance, you're presented with the options to
      create an account instance.
 
-4. For **Endpoint type**, choose the **Publicly accessible** endpoint type. For a **VPC hosted** endpoint, see [Create a Transfer Family web app in a VPC](create-webapp-in-vpc.md "create-webapp-in-vpc.md").
-5. In the **Permission type** pane, you can use a previously
-   created role, or have the service create one for you.
+4. For **Endpoint type**, choose the **Publicly accessible** endpoint type. For a **VPC hosted** endpoint, see [Create a Transfer Family web app in a VPC](create-webapp-in-vpc.md "create-webapp-in-vpc.md"). 5. In the **Permission type** pane, you can use a previously
+created role, or have the service create one for you.
 
-   - If you have already created an identity bearer role, choose
+    * If you have already created an identity bearer role, choose
      **Use an existing role** and choose your role
      from the **Select an existing role** menu.
-   - To have the service create a role for you, choose **Create
+    * To have the service create a role for you, choose **Create
      and use a new service role**.
 
 6. In the **Web app units** pane, choose a value. One web
-   app unit allows web app activity from up to 250 unique sessions. When
-   creating a web app, you provision how many units you need based on your
-   expected peak workload volumes. Changing your web app units has an impact on
-   your billing. For information about pricing, see [AWS Transfer Family Pricing](https://aws.amazon.com/aws-transfer-family/pricing "https://aws.amazon.com/aws-transfer-family/pricing").
-7. If you are using Transfer Family in an AWS GovCloud (US) Region, you can select the
-   **FIPS Enabled endpoint** checkbox in the
-   **FIPS Enabled** pane. For all other AWS Regions,
-   this option is unavailable.
-8. (Optional) Add a tag to help you organize your web apps. We suggest that
-   you add a tag with **Name** as the key and a descriptive
-   name as the value.
-9. Choose **Next**. On this screen, you can optionally
-   provide a title for your web app. If you don't provide a title, the default
-   title of **Transfer Web App** is supplied. You can also
-   upload image files for your logo and favicon.
-10. Choose **Next**, then choose **Create web
-    app**.
+app unit allows web app activity from up to 250 unique sessions. When
+creating a web app, you provision how many units you need based on your
+expected peak workload volumes. Changing your web app units has an impact on
+your billing. For information about pricing, see [AWS Transfer Family Pricing](https://aws.amazon.com/aws-transfer-family/pricing "https://aws.amazon.com/aws-transfer-family/pricing"). 7. If you are using Transfer Family in an AWS GovCloud (US) Region, you can select the
+**FIPS Enabled endpoint** checkbox in the
+**FIPS Enabled** pane. For all other AWS Regions,
+this option is unavailable. 8. (Optional) Add a tag to help you organize your web apps. We suggest that
+you add a tag with **Name** as the key and a descriptive
+name as the value. 9. Choose **Next**. On this screen, you can optionally
+provide a title for your web app. If you don't provide a title, the default
+title of **Transfer Web App** is supplied. You can also
+upload image files for your logo and favicon. 10. Choose **Next**, then choose **Create web
+app**.
 
 ![Screen that shows the Web apps dashboard as well as the menu item for selecting it from the left navigation panel.](images/webapp-transfer-dashboard.png)
 

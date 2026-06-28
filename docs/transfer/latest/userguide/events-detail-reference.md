@@ -565,14 +565,14 @@ Type of egress configuration for the connector. Values:
 
 `vpc-lattice-resource-configuration-arn`
 
-ARN of the VPC_LATTICE Resource Configuration that defines
+ARN of the VPC\_LATTICE Resource Configuration that defines
 the target SFTP server location. This field is null for
 service-managed connectors.
 
 `vpc-lattice-port-number`
 
 Port number for connecting to the SFTP server through
-VPC_LATTICE.
+VPC\_LATTICE.
 
 `local-file-location`
 

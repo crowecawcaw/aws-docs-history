@@ -84,15 +84,12 @@ See the following documentation for more details:
      problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md")
 
 3. In the **Attach permissions policies** section, locate and
-   choose the CloudWatch Logs policy that you just created, and choose **Next:
-   Tags**.
-4. (Optional) Enter a key and value for a tag, and choose **Next:
-   Review**.
-5. On the **Review** page, enter a name and description for your
-   new role, and then choose **Create role**.
-6. To view the logs, choose the **Server ID** to open the server
-   configuration page, and choose **View logs**. You are
-   redirected to the CloudWatch console where you can see your log streams.
-   On the CloudWatch page for your server, you can see records of user authentication (success
-   and failure), data uploads (`PUT` operations), and data downloads
-   (`GET` operations).
+choose the CloudWatch Logs policy that you just created, and choose **Next:
+Tags**. 4. (Optional) Enter a key and value for a tag, and choose **Next:
+Review**. 5. On the **Review** page, enter a name and description for your
+new role, and then choose **Create role**. 6. To view the logs, choose the **Server ID** to open the server
+configuration page, and choose **View logs**. You are
+redirected to the CloudWatch console where you can see your log streams.
+On the CloudWatch page for your server, you can see records of user authentication (success
+and failure), data uploads (`PUT` operations), and data downloads
+(`GET` operations).

@@ -57,9 +57,9 @@ Ciphers
 
 The following ciphers are supported for both inbound and outbound transfers:
 
-- AES128_CBC
-- AES192_CBC
-- AES256_CBC
+- AES128\_CBC
+- AES192\_CBC
+- AES256\_CBC
 - 3DES (for backward compatibility only)
 
 Digests
@@ -111,12 +111,12 @@ The following quotas are in place for AS2 file transfers. To request an increase
 quota that's adjustable, see [AWS service quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md") in the
 _AWS General Reference_.
 
-| AS2 quotas                                                                                               | Name             | Default | Adjustable |
-| -------------------------------------------------------------------------------------------------------- | ---------------- | ------- | ---------- |
-| Maximum number of files per outbound request                                                             | 10               | No      |
-| Maximum number of outbound requests per second                                                           | 100              | No      |
-| Maximum number of inbound requests per second                                                            | 100              | No      |
-| Maximum outbound bandwidth per account (outbound SFTP and AS2<br>requests both contribute to this value) | 50 MB per second | No      |
+AS2 quotas| Name | Default | Adjustable |
+| --- | --- | --- |
+| Maximum number of files per outbound request | 10 | No |
+| Maximum number of outbound requests per second | 100 | No |
+| Maximum number of inbound requests per second | 100 | No |
+| Maximum outbound bandwidth per account (outbound SFTP and AS2<br>requests both contribute to this value) | 50 MB per second | No |
 
 ### Quotas for handling secrets
 
@@ -133,18 +133,18 @@ For Secrets Manager `GetSecretValue`, the quota that applies is
 requests**, as described in [AWS Secrets Manager
 quotas](../../../secretsmanager/latest/userguide/reference_limits.md#quotas "../../../secretsmanager/latest/userguide/reference_limits.md#quotas").
 
-| Secrets Manager `GetSecretValue`                                   | Name                                     | Value                                                                                                     | Description |
-| ------------------------------------------------------------------ | ---------------------------------------- | --------------------------------------------------------------------------------------------------------- | ----------- |
+Secrets Manager `GetSecretValue`| Name | Value | Description |
+| --- | --- | --- |
 | Combined rate of DescribeSecret and GetSecretValue API<br>requests | Each supported Region: 10,000 per second | The maximum transactions per second for `DescribeSecret`<br>and `GetSecretValue` API operations combined. |
 
 For AWS KMS, the following quotas apply for `Decrypt`. For details, see
 [Request quotas
 for each AWS KMS API operation](../../../kms/latest/developerguide/requests-per-second.md#rps-table "../../../kms/latest/developerguide/requests-per-second.md#rps-table")
 
-| AWS KMS `Decrypt`                                                                                         | Quota name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Default value (requests per second) |
-| --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| Cryptographic operations (symmetric) request rate                                                         | These shared quotas vary with the AWS Region and the type of<br>AWS KMS key used in the request. Each quota is calculated<br>separately.<br>• 5,500 (shared)<br>• 10,000 (shared) in the following Regions:<br>+ US East (Ohio), us-east-2<br>+ Asia Pacific (Singapore), ap-southeast-1<br>+ Asia Pacific (Sydney), ap-southeast-2<br>+ Asia Pacific (Tokyo), ap-northeast-1<br>+ Europe (Frankfurt), eu-central-1<br>+ Europe (London), eu-west-2<br>• 50,000 (shared) in the following Regions:<br>+ US East (N. Virginia), us-east-1<br>+ US West (Oregon), us-west-2<br>+ Europe (Ireland), eu-west-1 |
-| Custom key store request quotas<br>NoteThis quota only applies if you are using an external key<br>store. | Custom key store request quotas are calculated separately for each<br>custom key store.<br>• 1,800 (shared) for each AWS CloudHSM key store<br>• 1,800 (shared) for each external key store                                                                                                                                                                                                                                                                                                                                                                                                                |
+AWS KMS `Decrypt`| Quota name | Default value (requests per second) |
+| --- | --- |
+| Cryptographic operations (symmetric) request rate | These shared quotas vary with the AWS Region and the type of<br>AWS KMS key used in the request. Each quota is calculated<br>separately.<br>• 5,500 (shared)<br>• 10,000 (shared) in the following Regions:<br>+ US East (Ohio), us-east-2<br>+ Asia Pacific (Singapore), ap-southeast-1<br>+ Asia Pacific (Sydney), ap-southeast-2<br>+ Asia Pacific (Tokyo), ap-northeast-1<br>+ Europe (Frankfurt), eu-central-1<br>+ Europe (London), eu-west-2<br>• 50,000 (shared) in the following Regions:<br>+ US East (N. Virginia), us-east-1<br>+ US West (Oregon), us-west-2<br>+ Europe (Ireland), eu-west-1 |
+| Custom key store request quotas<br>NoteThis quota only applies if you are using an external key<br>store. | Custom key store request quotas are calculated separately for each<br>custom key store.<br>• 1,800 (shared) for each AWS CloudHSM key store<br>• 1,800 (shared) for each external key store |
 
 ### Known limitations
 
@@ -157,7 +157,7 @@ for each AWS KMS API operation](../../../kms/latest/developerguide/requests-per-
   message signatures, as defined in [RFC 6211](https://datatracker.ietf.org/doc/html/rfc6211 "https://datatracker.ietf.org/doc/html/rfc6211"). This
   attribute is not supported in some older IBM Sterling products.
 - Duplicate message IDs result in a **`processed/Warning:
-duplicate-document`** message.
+ duplicate-document`** message.
 - The key length for AS2 certificates must be at least 2048 bits, and at
   most 4096.
 - When sending AS2 messages or asynchronous MDNs to a trading partner's HTTPS

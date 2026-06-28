@@ -75,8 +75,7 @@ options:
 
     ![The Choose an identity provider console section with Custom identity provider selected.](images/custom-lambda-console-no-sftp.png)
 
-4. Choose **Next**.
-5. In **Choose an endpoint**, do the following:
+4. Choose **Next**. 5. In **Choose an endpoint**, do the following:
 
 ###### Note
 
@@ -187,24 +186,24 @@ following:
 
     ![The Additional configuration screen showing the SetStat, TLS session resumption, and Passive IP parameters.](images/create-server-configure-additional-items-all.png)
 
-8.  In **Review and create**, review your choices.
+8. In **Review and create**, review your choices.
 
-        * If you want to edit any of them, choose **Edit**
-         next to the step.
+    * If you want to edit any of them, choose **Edit**
+     next to the step.
 
 
-        ###### Note
+    ###### Note
 
-        You must review each step after the step that you chose to
-         edit.
-        * If you have no changes, choose **Create server**
-         to create your server. You are taken to the
-         **Servers** page, shown following, where your
-         new server is listed.
+    You must review each step after the step that you chose to
+     edit.
+    * If you have no changes, choose **Create server**
+     to create your server. You are taken to the
+     **Servers** page, shown following, where your
+     new server is listed.
 
-    It can take a couple of minutes before the status for your new server changes to
-    **Online**. At that point, your server can perform file
-    operations for your users.
+It can take a couple of minutes before the status for your new server changes to
+**Online**. At that point, your server can perform file
+operations for your users.
 
 Next steps: For the next step, continue on to [Working with custom identity providers](custom-idp-intro.md "custom-idp-intro.md") to set up
 users.

@@ -87,7 +87,7 @@ are not triggering when expected.
 - Verify that the alarm is configured with the `Maximum`
   statistic and a period of 1 day.
 - Check that the threshold comparison is set to `Less than or equal
-to` the desired number of days.
+ to` the desired number of days.
 - Ensure that `Treat missing data as good (not breaching)` is
   selected in the alarm configuration.
 - Verify that the alarm dimensions match your certificate's CertificateId

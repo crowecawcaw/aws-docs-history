@@ -87,7 +87,7 @@ files for your logo and favicon.
      favicon is 20 KB.
 
 8. Choose **Next**, then choose **Create web
-   app**.
+app**.
 
 To provide a branded experience, you can provide a custom URL for your users to access
 your Transfer Family web app. For details, see [Update your access endpoint with a custom URL](webapp-customize.md "webapp-customize.md").
@@ -101,24 +101,23 @@ more information about CORS, see [Configuring cross-origin resource sharing (COR
 
 ###### To set up Cross-origin resource sharing (CORS) for your Amazon S3 bucket
 
-1.  Sign in to the AWS Management Console and open the Amazon S3 console at
-    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2.  Choose **Buckets** from the left navigation panel and search
-    for your bucket in the search dialog, then choose the
-    **Permissions** tab.
-3.  In **Cross-origin resource sharing (CORS)**, choose
-    **Edit** and paste in the following code. Replace
-    `AccessEndpoint` with the actual access endpoint
-    for your web app. Make sure not to enter trailing slashes, because doing so
-    causes errors when users attempt to log on to your web app.
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. Choose **Buckets** from the left navigation panel and search
+   for your bucket in the search dialog, then choose the
+   **Permissions** tab.
+3. In **Cross-origin resource sharing (CORS)**, choose
+   **Edit** and paste in the following code. Replace
+   `AccessEndpoint` with the actual access endpoint
+   for your web app. Make sure not to enter trailing slashes, because doing so
+   causes errors when users attempt to log on to your web app.
 
-        * Incorrect example:
-         `https://webapp-c7bf3423.transfer-webapp.us-east-2.on.aws`/``
-        * Correct example:
-         `https://webapp-c7bf3423.transfer-webapp.us-east-2.on.aws`
-
-    If you are reusing a bucket for multiple web apps, append their web app access
-    endpoints to the `AllowedOrigins` list.
+   - Incorrect example:
+     `https://webapp-c7bf3423.transfer-webapp.us-east-2.on.aws`/``
+   - Correct example:
+     `https://webapp-c7bf3423.transfer-webapp.us-east-2.on.aws`
+     If you are reusing a bucket for multiple web apps, append their web app access
+     endpoints to the `AllowedOrigins` list.
 
 ```
 [

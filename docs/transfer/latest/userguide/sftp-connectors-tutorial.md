@@ -6,7 +6,7 @@ destination. You can also use an SFTP connector to retrieve files from a partner
 server.
 
 This tutorial illustrates how to set up an SFTP connector with both service managed and
-VPC_LATTICE egress types, and then transfer files between Amazon S3 storage and an SFTP
+VPC\_LATTICE egress types, and then transfer files between Amazon S3 storage and an SFTP
 server.
 
 An SFTP connector retrieves SFTP credentials from AWS Secrets Manager to authenticate into a remote
@@ -26,7 +26,7 @@ file transfers with AWS Transfer Family SFTP connectors and PGP encryption.](htt
 SFTP connectors support two egress types that determine how your connector routes
 traffic to remote SFTP servers:
 
-- **SERVICE_MANAGED** (default): Uses AWS
+- **SERVICE\_MANAGED** (default): Uses AWS
   Transfer Family managed infrastructure with static IP addresses for outbound
   connections.
 - **VPC**: Routes traffic through your VPC using

@@ -109,28 +109,27 @@ Console
 
 ###### To remove a workflow from a Transfer Family server
 
-1.  Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/").
-2.  In the left navigation pane, choose **Servers**.
-3.  Choose the identifier for the server in the **Server ID** column.
-4.  On the details page for the server, scroll down to the
-    **Additional details** section, and then choose
-    **Edit**.
-5.  On the **Edit additional details**
-    page, in the **Managed workflows** section, clear
-    the information for all settings:
+1. Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/").
+2. In the left navigation pane, choose **Servers**.
+3. Choose the identifier for the server in the **Server ID** column.
+4. On the details page for the server, scroll down to the
+   **Additional details** section, and then choose
+   **Edit**.
+5. On the **Edit additional details**
+   page, in the **Managed workflows** section, clear
+   the information for all settings:
 
-        * Select the dash (-) from the list of workflows for the
-         **Workflow for complete file
-         uploads**.
-        * If not already cleared, select the dash (-) from the list
-         of workflows for the **Workflow for
-         partial file uploads**.
-        * Select the dash (-) from the list of roles for the
-         **Managed workflows execution
-         role**.
-
-    If you don't see the dash, scroll up until you see it, as it is
-    the first value in each menu.
+   - Select the dash (-) from the list of workflows for the
+     **Workflow for complete file
+     uploads**.
+   - If not already cleared, select the dash (-) from the list
+     of workflows for the **Workflow for
+     partial file uploads**.
+   - Select the dash (-) from the list of roles for the
+     **Managed workflows execution
+     role**.
+     If you don't see the dash, scroll up until you see it, as it is
+     the first value in each menu.
 
 The screen should look like the following.
 

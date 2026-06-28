@@ -67,105 +67,91 @@ email address that you used when you generated the key pair.
 gpg --output `private.pgp` --armor --export-secret-key `marymajor@example.com`
 ```
 
-3.  Use AWS Secrets Manager to store your PGP key.
+3. Use AWS Secrets Manager to store your PGP key.
 
-        1. Sign in to the AWS Management Console and open the AWS Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
-        2. In the left navigation pane, choose **Secrets**.
-        3. On the **Secrets** page, choose **Store a new
-         secret**.
-        4. On the **Choose secret type** page, for
-         **Secret type**, select **Other type of
-         secret**.
-        5. In the **Key/value pairs** section, choose the
-         **Key/value** tab.
+   1. Sign in to the AWS Management Console and open the AWS Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
+   2. In the left navigation pane, choose **Secrets**.
+   3. On the **Secrets** page, choose **Store a new
+      secret**.
+   4. On the **Choose secret type** page, for
+      **Secret type**, select **Other type of
+      secret**.
+   5. In the **Key/value pairs** section, choose the
+      **Key/value** tab.
 
+      - **Key** – Enter
+        `PGPPrivateKey`.
 
+      ###### Note
 
+      You must enter the `PGPPrivateKey`
+      string exactly: do not add any spaces before or between
+      characters.
+      - **value** – Paste the text of your
+        private key into the value field. You can find the text of your
+        private key in the file (for example,
+        `private.pgp`) that you specified when
+        you exported your key earlier in this procedure. The key begins
+        with `-----BEGIN PGP PRIVATE KEY BLOCK-----` and ends
+        with `-----END PGP PRIVATE KEY BLOCK-----`.
 
-        	* **Key** – Enter
-        	 `PGPPrivateKey`.
+      ###### Note
 
+      Make sure that the text block contains only the private
+      key and does not contain the public key as well.
 
-        	###### Note
+   6. Select **Add row** and in the **Key/value
+      pairs** section, choose the **Key/value**
+      tab.
 
-        	You must enter the `PGPPrivateKey`
-        	 string exactly: do not add any spaces before or between
-        	 characters.
-        	* **value** – Paste the text of your
-        	 private key into the value field. You can find the text of your
-        	 private key in the file (for example,
-        	 `private.pgp`) that you specified when
-        	 you exported your key earlier in this procedure. The key begins
-        	 with `-----BEGIN PGP PRIVATE KEY BLOCK-----` and ends
-        	 with `-----END PGP PRIVATE KEY BLOCK-----`.
+      - **Key** – Enter
+        `PGPPassphrase`.
 
+      ###### Note
 
-        	###### Note
+      You must enter the `PGPPassphrase`
+      string exactly: do not add any spaces before or between
+      characters.
+      - **value** – Enter the passphrase you
+        used when you generated your PGP key pair.
 
-        	Make sure that the text block contains only the private
-        	 key and does not contain the public key as well.
-        6. Select **Add row** and in the **Key/value
-         pairs** section, choose the **Key/value**
-         tab.
+   ![The AWS Secrets Manager console, showing the keys and values that you enter to manage your PGP keys.](images/pgp-secrets-01.png)
 
+   ###### Note
 
+   You can add up to 3 sets of keys and passphrases. To add a second
+   set, add two new rows, and enter
+   `PGPPrivateKey2` and
+   `PGPPassphrase2` for the keys, and paste in
+   another private key and passphrase. To add a third set, key values
+   must be `PGPPrivateKey3` and
+   `PGPPassphrase3`. 7. Choose **Next**. 8. On the **Configure secret** page, enter a name and
+   description for your secret.
 
+        * If you're creating a default key, that is, a key that can be
+         used by any Transfer Family user, enter
+         `aws/transfer/`server-id`/@pgp-default`.
+         Replace ``server-id`` with
+         the ID of the server that contains the workflow that has a
+         decrypt step.
+        * If you're creating a key to be used by a specific Transfer Family user,
+         enter
+         `aws/transfer/`server-id`/`user-name``.
+         Replace ``server-id`` with
+         the ID of the server that contains the workflow that has a
+         decrypt step, and replace
+         ``user-name`` with
+         the name of the user that's running the workflow. The
+         ``user-name`` is
+         stored in the identity provider that the Transfer Family server is
+         using.
 
-        	* **Key** – Enter
-        	 `PGPPassphrase`.
-
-
-        	###### Note
-
-        	You must enter the `PGPPassphrase`
-        	 string exactly: do not add any spaces before or between
-        	 characters.
-        	* **value** – Enter the passphrase you
-        	 used when you generated your PGP key pair.
-
-        ![The AWS Secrets Manager console, showing the keys and values that you enter to manage your PGP keys.](images/pgp-secrets-01.png)
-
-        ###### Note
-
-        You can add up to 3 sets of keys and passphrases. To add a second
-         set, add two new rows, and enter
-         `PGPPrivateKey2` and
-         `PGPPassphrase2` for the keys, and paste in
-         another private key and passphrase. To add a third set, key values
-         must be `PGPPrivateKey3` and
-         `PGPPassphrase3`.
-        7. Choose **Next**.
-        8. On the **Configure secret** page, enter a name and
-         description for your secret.
-
-
-
-
-        	* If you're creating a default key, that is, a key that can be
-        	 used by any Transfer Family user, enter
-        	 `aws/transfer/`server-id`/@pgp-default`.
-        	 Replace ``server-id`` with
-        	 the ID of the server that contains the workflow that has a
-        	 decrypt step.
-        	* If you're creating a key to be used by a specific Transfer Family user,
-        	 enter
-        	 `aws/transfer/`server-id`/`user-name``.
-        	 Replace ``server-id`` with
-        	 the ID of the server that contains the workflow that has a
-        	 decrypt step, and replace
-        	 ``user-name`` with
-        	 the name of the user that's running the workflow. The
-        	 ``user-name`` is
-        	 stored in the identity provider that the Transfer Family server is
-        	 using.
-        9. Choose **Next** and accept the defaults on the
-         **Configure rotation** page. Then choose
-         **Next**.
-        10. On the **Review** page, choose
-         **Store** to create and store the secret.
-
-    The following screenshot shows the details for the user
-    `marymajor` for a specific Transfer Family server. This example shows
-    three keys and their corresponding passphrases.
+   9. Choose **Next** and accept the defaults on the
+   **Configure rotation** page. Then choose
+   **Next**. 10. On the **Review** page, choose
+   **Store** to create and store the secret.
+   The following screenshot shows the details for the user
+   `marymajor` for a specific Transfer Family server. This example shows
+   three keys and their corresponding passphrases.
 
 ![The AWS Secrets Manager console, showing the secret details page with three keys and passphrases for a Transfer Family server and user.](images/pgp-secrets-02.png)

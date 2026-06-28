@@ -45,14 +45,14 @@ managed" and "VPC Lattice".
 The following matrix helps you choose the right connector type for your
 use-cases.
 
-| SFTP Connector Egress Type matrix                                                     | Capability                                                                       | Egress Type = Service managed                                                          | Egress Type = VPC Lattice |
-| ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ------------------------- |
-| Connectivity to Publicly hosted (internet-accessible) SFTP<br>servers                 | Supported                                                                        | Supported1                                                                             |
-| Connectivity to Privately hosted (on-premises) SFTP<br>servers                        | Not supported                                                                    | Supported2                                                                             |
-| Connectivity to Privately hosted (in-VPC) SFTP servers                                | Not supported                                                                    | Supported                                                                              |
-| Static IP addresses presented to remote SFTP server                                   | Supported via service supplied static IP addresses                               | Supported via customer owned static IP addresses                                       |
-| Bandwidth available                                                                   | 50 MBPS per account                                                              | Higher bandwidth, as available from customer owned Resource<br>Gateway and NAT Gateway |
-| Traffic routing to internet over customer-owned NAT Gateways and<br>Network Firewalls | Not supported. NAT Gateways are owned and managed by Transfer Family<br>service. | Supported                                                                              |
+SFTP Connector Egress Type matrix| Capability | Egress Type = Service managed | Egress Type = VPC Lattice |
+| --- | --- | --- |
+| Connectivity to Publicly hosted (internet-accessible) SFTP<br>servers | Supported | Supported1 |
+| Connectivity to Privately hosted (on-premises) SFTP<br>servers | Not supported | Supported2 |
+| Connectivity to Privately hosted (in-VPC) SFTP servers | Not supported | Supported |
+| Static IP addresses presented to remote SFTP server | Supported via service supplied static IP addresses | Supported via customer owned static IP addresses |
+| Bandwidth available | 50 MBPS per account | Higher bandwidth, as available from customer owned Resource<br>Gateway and NAT Gateway |
+| Traffic routing to internet over customer-owned NAT Gateways and<br>Network Firewalls | Not supported. NAT Gateways are owned and managed by Transfer Family<br>service. | Supported |
 
 1
 _With Egress Type = VPC Lattice, connectivity to publicly hosted servers is

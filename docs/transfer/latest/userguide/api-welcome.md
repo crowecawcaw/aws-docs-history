@@ -29,7 +29,7 @@ An example of a server ARN is:
 `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef`.
 
 - For users, ARNs take the form
-  `arn:aws:transfer:*`region`*:*`account-id`*:user/*`server-id`\*/``username```.
+  `arn:aws:transfer:*`region`*:*`account-id`*:user/*`server-id`*/``username```.
 
 An example is
 `arn:aws:transfer:us-east-1:123456789012:user/s-01234567890abcdef/user1`.
@@ -340,7 +340,7 @@ Example:
 User ARNs
 
 For users, ARNs take the form
-`arn:aws:transfer:*`region`*:*`account-id`*:user/*`server-id`\*/``username```.
+`arn:aws:transfer:*`region`*:*`account-id`*:user/*`server-id`*/``username```.
 
 Example:
 `arn:aws:transfer:us-east-1:123456789012:user/s-01234567890abcdef/user1`.

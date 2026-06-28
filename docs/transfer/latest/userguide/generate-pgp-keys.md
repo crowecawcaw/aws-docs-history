@@ -47,5 +47,6 @@ The following are some useful subcommands for `gpg`:
 - `gpg --fingerprint` – This command lists the details for all
   your key pairs, including each key's fingerprint.
 - `gpg --export -a `user-name`–
-This command exports the public key portion of the key for the`user-name`` that was used when the
+ This command exports the public key portion of the key for the
+`user-name`` that was used when the
   key was generated.

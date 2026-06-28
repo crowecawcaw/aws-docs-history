@@ -57,7 +57,7 @@ files for your logo and favicon.
      favicon is 20 KB.
 
 8. Choose **Next**, then choose **Create web
-   app**.
+app**.
 
 ## Step 2: Configure IAM roles for S3 access
 

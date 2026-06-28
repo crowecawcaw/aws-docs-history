@@ -23,7 +23,7 @@ AWS Transfer Family supports the following condition keys for use in IAM policie
 `transfer:RequestServerEndpointType`
 
 Restricts server creation and updates based on endpoint type (PUBLIC, VPC,
-VPC_ENDPOINT). Commonly used to prevent public-facing endpoints.
+VPC\_ENDPOINT). Commonly used to prevent public-facing endpoints.
 
 `transfer:RequestServerProtocols`
 

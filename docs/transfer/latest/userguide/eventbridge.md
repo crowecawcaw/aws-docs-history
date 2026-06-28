@@ -143,59 +143,57 @@ your desired Transfer Family events.
 
 ###### To capture AWS Transfer Family events in Amazon EventBridge
 
-1.  Sign in to the AWS Management Console and open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2.  In the navigation pane, choose **Rules**, then choose
-    **Create rule**.
-3.  Enter a descriptive name for the rule, and optionally enter a
-    description.
-4.  For **Rule type**, select **Rule with an event
-    pattern** then choose **Next**.
-5.  In the **Event source** section, select **AWS
-    events or EventBridge partner events**.
-6.  In the **Creation method** section, choose **Use
-    pattern form**.
-7.  In the **Event pattern** section, provide the following
-    information.
+1. Sign in to the AWS Management Console and open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
+2. In the navigation pane, choose **Rules**, then choose
+   **Create rule**.
+3. Enter a descriptive name for the rule, and optionally enter a
+   description.
+4. For **Rule type**, select **Rule with an event
+   pattern** then choose **Next**.
+5. In the **Event source** section, select **AWS
+   events or EventBridge partner events**.
+6. In the **Creation method** section, choose **Use
+   pattern form**.
+7. In the **Event pattern** section, provide the following
+   information.
 
-    1. For **Event source**, choose **AWS
-       services**.
-    2. For **AWS service**, choose
-       **Transfer**.
-    3. For **Event type**, choose the Transfer Family event type that
-       you want to trigger your rule.
+   1. For **Event source**, choose **AWS
+      services**.
+   2. For **AWS service**, choose
+      **Transfer**.
+   3. For **Event type**, choose the Transfer Family event type that
+      you want to trigger your rule.
 
-    Depending upon your **Event type** selection, you may
-    be presented with an **Event Type Specification 1**
-    section. 4. If you see the **Event Type Specification 1**
-    section, select the specific events you want to capture (or select
-    **Any event** to capture all events for your
-    selected event type). 5. (Optional) Use the **Event pattern** editor to
-    specify filters for event details. 6. Choose **Next**.
+   Depending upon your **Event type** selection, you may
+   be presented with an **Event Type Specification 1**
+   section. 4. If you see the **Event Type Specification 1**
+   section, select the specific events you want to capture (or select
+   **Any event** to capture all events for your
+   selected event type). 5. (Optional) Use the **Event pattern** editor to
+   specify filters for event details. 6. Choose **Next**.
 
-8.  Choose a target from the choices available in **Select
-    targets**. Choose from the following available targets.
+8. Choose a target from the choices available in **Select
+   targets**. Choose from the following available targets.
 
-        * **AWS service**. Popular options are Lambda
-         functions for serverless compute, Amazon SQS queues for message processing,
-         Amazon SNS topics for notifications, and AWS Step Functions for orchestrating
-         workflows.
-        * **EventBridge API Destination**. If you want to send events
-         to an HTTP endpoint outside of AWS, you can use an API Destination as
-         your target.
-        * **EventBridge event bus**. You can send events to another
-         event bus, either in the same account and region or in a different
-         account or region.
+   - **AWS service**. Popular options are Lambda
+     functions for serverless compute, Amazon SQS queues for message processing,
+     Amazon SNS topics for notifications, and AWS Step Functions for orchestrating
+     workflows.
+   - **EventBridge API Destination**. If you want to send events
+     to an HTTP endpoint outside of AWS, you can use an API Destination as
+     your target.
+   - **EventBridge event bus**. You can send events to another
+     event bus, either in the same account and region or in a different
+     account or region.
 
+   For comprehensive instructions on creating event bus rules, see [Creating
+   rules that react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the _Amazon EventBridge User
+   Guide_.
+   For help in selecting a target, see [Select targets](../../../eventbridge/latest/userguide/eb-create-rule.md#eb-create-rule-target "../../../eventbridge/latest/userguide/eb-create-rule.md#eb-create-rule-target") in the _Amazon EventBridge User
+   Guide_.
 
-        For comprehensive instructions on creating event bus rules, see [Creating
-         rules that react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the *Amazon EventBridge User
-         Guide*.
-
-    For help in selecting a target, see [Select targets](../../../eventbridge/latest/userguide/eb-create-rule.md#eb-create-rule-target "../../../eventbridge/latest/userguide/eb-create-rule.md#eb-create-rule-target") in the _Amazon EventBridge User
-    Guide_.
-
-9.  Configure any additional options for your target then choose
-    **Next**.
+9. Configure any additional options for your target then choose
+   **Next**.
 10. (Optional) Add tags to your rule and choose **Next**.
 11. In the **Review and create** screen, if everything looks
     good, choose **Create rule**.

@@ -1,4 +1,4 @@
-# Updating the AWS Transfer Family server endpoint type from VPC_ENDPOINT to VPC
+# Updating the AWS Transfer Family server endpoint type from VPC\_ENDPOINT to VPC
 
 You can use the AWS Management Console, CloudFormation, or the Transfer Family API to update a server's
 `EndpointType` from `VPC_ENDPOINT` to `VPC`.
@@ -10,7 +10,7 @@ the following section, with modifications, to identify servers using the
 
 ###### Topics
 
-- [Identifying servers using the VPC_ENDPOINT endpoint type](#id-servers "#id-servers")
+- [Identifying servers using the VPC\_ENDPOINT endpoint type](#id-servers "#id-servers")
 - [Updating the server endpoint type using the AWS Management Console](#update-endpoint-console "#update-endpoint-console")
 - [Updating the server endpoint type using CloudFormation](#update-endpoint-cloudformation "#update-endpoint-cloudformation")
 - [Updating the server EndpointType using the API](#update-endpoint-cli "#update-endpoint-cli")
@@ -231,7 +231,7 @@ Resources:
 You can use the [describe-server](../../../cli/latest/reference/transfer/update-server.md "../../../cli/latest/reference/transfer/update-server.md")
 AWS CLI command, or the [UpdateServer](../APIReference/API_UpdateServer.md "../APIReference/API_UpdateServer.md")
 API command. The following example script stops the Transfer Family server, updates the
-EndpointType, removes the VPC_ENDPOINT, and starts the server.
+EndpointType, removes the VPC\_ENDPOINT, and starts the server.
 
 ```
 import boto3

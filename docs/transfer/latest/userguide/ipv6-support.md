@@ -21,7 +21,7 @@ AWS Transfer Family supports dual-stack (IPv4 and IPv6) endpoints for the follow
 The following Transfer Family resources do not currently support IPv6:
 
 - VPC-Internet endpoints
-- VPC_ENDPOINT endpoint type (deprecated)
+- VPC\_ENDPOINT endpoint type (deprecated)
 
 The FTPS protocol supports the PASV and EPSV commands for requesting an open data port
 for file listing, getting, and putting operations. However, PASV doesn't work with IPv6
@@ -114,26 +114,30 @@ For details on how to create a Transfer Family server that uses the AS2 protocol
 
 7. Create an Application Load Balancer:
 
-   - Enter a name
-   - For _Scheme_, choose
-     _Internet-facing_
-   - For _IP address type_, choose
-     _Dualstack_
-   - For _Network mapping_:
+    * Enter a name
+    * For *Scheme*, choose
+     *Internet-facing*
+    * For *IP address type*, choose
+     *Dualstack*
+    * For *Network mapping*:
 
-     - Select the VPC you created
-     - Select the Availability Zones where you created subnets
 
-   - For _Security groups_, select a security group that
+
+
+    	+ Select the VPC you created
+    	+ Select the Availability Zones where you created subnets
+    * For *Security groups*, select a security group that
      allows inbound IPv4 and IPv6 traffic from any IP address on port
      80
-   - For _Listeners and routing_:
+    * For *Listeners and routing*:
 
-     - Protocol: HTTP
-     - Port: 80
-     - Default action: Forward to the target group you created
 
-   - Choose _Create load balancer_
+
+
+    	+ Protocol: HTTP
+    	+ Port: 80
+    	+ Default action: Forward to the target group you created
+    * Choose *Create load balancer*
 
 After you create the Application Load Balancer, trading partners can use its DNS name
 to send traffic to your AS2 server. This configuration enables your AS2 server to accept
