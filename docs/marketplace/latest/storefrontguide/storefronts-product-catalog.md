@@ -17,18 +17,17 @@ your own seller account listings, or by creating custom entries.
 
 ### To import products from the public marketplace
 
-1.  Open the storefront and choose the **Selection** tab.
-2.  Choose the **AWS marketplace** card from the marketplace cards row on the Selection tab.
-3.  Browse or search for products. Use the search bar and the left-rail filter sections to narrow results. The following filter sections are available:
+1. Open the storefront and choose the **Selection** tab.
+2. Choose the **AWS marketplace** card from the marketplace cards row on the Selection tab.
+3. Browse or search for products. Use the search bar and the left-rail filter sections to narrow results. The following filter sections are available:
 
-        * **TAGS FILTERS**
-        * **AWS FILTERS**
-        * **MY LISTINGS FILTERS**
+   - **TAGS FILTERS**
+   - **AWS FILTERS**
+   - **MY LISTINGS FILTERS**
+     Use the **Show selected only** checkbox to display only products you have already chosen.
 
-    Use the **Show selected only** checkbox to display only products you have already chosen.
-
-4.  For each product you want to add, choose **Use this product** on the product card.
-5.  Selected products appear in your storefront catalog automatically.
+4. For each product you want to add, choose **Use this product** on the product card.
+5. Selected products appear in your storefront catalog automatically.
 
 ### To import from your seller account
 

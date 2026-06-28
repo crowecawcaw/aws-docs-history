@@ -16,20 +16,19 @@ configuration.
 
 ### To create a SaaS listing
 
-1.  In your connected account, choose **Products**.
-2.  Choose **Add listing**.
-3.  Choose one of the following product types:
+1. In your connected account, choose **Products**.
+2. Choose **Add listing**.
+3. Choose one of the following product types:
 
-        * SaaS Contract
-        * SaaS Subscription
-        * AMI (hourly or hourly-annual)
-        * Clone Existing Listing
+   - SaaS Contract
+   - SaaS Subscription
+   - AMI (hourly or hourly-annual)
+   - Clone Existing Listing
+     Container and Professional Services are visible but disabled.
 
-    Container and Professional Services are visible but disabled.
-
-4.  Complete each section of the listing wizard:
-5.  Review the listing summary.
-6.  Choose **Submit for Review**.
+4. Complete each section of the listing wizard:
+5. Review the listing summary.
+6. Choose **Submit for Review**.
 
 The listing enters a pending state while AWS Marketplace reviews it. You receive a
 notification when it is approved or if changes are required.
