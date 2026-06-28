@@ -96,32 +96,32 @@ logs are stored in your Amazon CloudWatch Logs account.
 
 ###### To edit collaboration logs settings
 
-1.  Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you
-    haven't yet done so).
-2.  In the left navigation pane, choose
-    **Collaborations**.
-3.  Choose the collaboration that you created.
-4.  On the collaboration detail page, do one of the following:
+1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you
+   haven't yet done so).
+2. In the left navigation pane, choose
+   **Collaborations**.
+3. Choose the collaboration that you created.
+4. On the collaboration detail page, do one of the following:
 
-    - Choose **Actions**, and then choose **Edit
-      logs settings**.
-    - On the **Logs** tab, choose **Edit logs
-      settings**.
+   - Choose **Actions**, and then choose **Edit
+     logs settings**.
+   - On the **Logs** tab, choose **Edit logs
+     settings**.
 
-5.  On the **Edit logs settings modal**, for **Log
-    storage in Amazon CloudWatch Logs**:
+5. On the **Edit logs settings modal**, for **Log
+   storage in Amazon CloudWatch Logs**:
 
-    - If you don't want logs relevant to you to be stored in your Amazon CloudWatch Logs
-      account, choose **Turn oﬀ**.
-    - If you do want logs relevant to you to be stored in your Amazon CloudWatch Logs
-      account, choose **Turn on**.
+   - If you don't want logs relevant to you to be stored in your Amazon CloudWatch Logs
+     account, choose **Turn oﬀ**.
+   - If you do want logs relevant to you to be stored in your Amazon CloudWatch Logs
+     account, choose **Turn on**.
 
-    You can only receive logs for queries that you initiated or that
-    contain you data.
+   You can only receive logs for queries that you initiated or that
+   contain you data.
 
-    The member who can receive results also receives logs for all queries
-    run in a collaboration, even if their data isn't accessed in a
-    query.
+   The member who can receive results also receives logs for all queries
+   run in a collaboration, even if their data isn't accessed in a
+   query.
 
         1. Under **Supported log types**, choose from
          the log types the collaboration creator has chosen to
@@ -137,7 +137,7 @@ logs are stored in your Amazon CloudWatch Logs account.
         	 PySpark, choose the **Logs from jobs**
         	 checkbox.
 
-6.  Choose **Save changes**.
+6. Choose **Save changes**.
 
 ###### Note
 
@@ -161,7 +161,7 @@ tags on the collaboration resource.
 
 | If you are...                                                      | Then ...                                         |
 | ------------------------------------------------------------------ | ------------------------------------------------ |
-| The collaboration creator and a member of the<br>collaboration     | Choose the \*_Details_<br>• tab.                 |
+| The collaboration creator and a member of the<br>collaboration     | Choose the *_Details_<br>• tab.                  |
 | The collaboration creator but not a member of the<br>collaboration | Scroll down the page to the **Tags**<br>section. |
 
 5. For **Collaboration details**, choose **Manage

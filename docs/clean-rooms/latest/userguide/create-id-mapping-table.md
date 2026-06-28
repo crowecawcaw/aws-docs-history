@@ -99,26 +99,28 @@ mapping workflow on the ID mapping table. 8. Under **Rule parameters**, configur
 
 9. For **ID mapping details**, configure the following:
 
-   1. Enter an **ID mapping table name** or keep the
-      default name.
-   2. (Optional) Enter a **Description** of the ID mapping
-      table.
+    1. Enter an **ID mapping table name** or keep the
+     default name.
+    2. (Optional) Enter a **Description** of the ID mapping
+     table.
 
-   The description helps with writing queries.
+
+    The description helps with writing queries.
 
 10. For **AWS Clean Rooms access**, choose one:
 
-    - **Allow AWS Clean Rooms to add and manage permission policy**
-      – Creates a service role automatically.
-    - **Add and manage permissions manually** –
-      Either review and modify the resource policy or choose **Add
-      policy statement**.
+    * **Allow AWS Clean Rooms to add and manage permission policy**
+     – Creates a service role automatically.
+    * **Add and manage permissions manually** –
+     Either review and modify the resource policy or choose **Add
+     policy statement**.
+
 
     ###### Note
 
     If you can’t modify the role policy, you receive an error message
-    stating that AWS Clean Rooms couldn't find the policy for the service
-    role.
+     stating that AWS Clean Rooms couldn't find the policy for the service
+     role.
 
 11. For **AWS Entity Resolution access**, choose one:
 
@@ -168,44 +170,50 @@ This section is only visible if you're creating a new ID mapping table.
 
 12. (Optional) Under **Additional settings**, configure:
 
-    1.  **ID mapping table settings**
+    1. **ID mapping table settings**
 
-        - To enable custom encryption, choose **Customize
-          encryption settings** and enter an AWS KMS
-          key.
 
-        ###### Note
 
-        This KMS key needs to grant the required permissions to
-        use within AWS Entity Resolution to `cleanrooms.amazonaws.com`
-        using a KMS key policy. For more details about the
-        required permissions for working with encryptions with an ID
-        mapping workflow, see [Create a workflow job role for AWS Entity Resolution](../../../entityresolution/latest/userguide/create-workflow-job-role.md "../../../entityresolution/latest/userguide/create-workflow-job-role.md") in the
-        _AWS Entity Resolution User
-        Guide_.
-        - To add tags, choose **Add new tag** and enter
-          key-value pairs
 
-    2.  **ID mapping workflow settings** (new workflows
-        only):
+    	* To enable custom encryption, choose **Customize
+    	 encryption settings** and enter an AWS KMS
+    	 key.
 
-        - To use different names, clear **Keep the same ID
-          mapping table name and description** and enter new
-          values.
-        - To add tags, choose **Add new tag** and enter
-          key-value pairs
+
+    	###### Note
+
+    	 This KMS key needs to grant the required permissions to
+    	 use within AWS Entity Resolution to `cleanrooms.amazonaws.com`
+    	 using a KMS key policy. For more details about the
+    	 required permissions for working with encryptions with an ID
+    	 mapping workflow, see [Create a workflow job role for AWS Entity Resolution](../../../entityresolution/latest/userguide/create-workflow-job-role.md "../../../entityresolution/latest/userguide/create-workflow-job-role.md") in the
+    	 *AWS Entity Resolution User
+    	 Guide*.
+    	* To add tags, choose **Add new tag** and enter
+    	 key-value pairs
+    2. **ID mapping workflow settings** (new workflows
+     only):
+
+
+
+
+    	* To use different names, clear **Keep the same ID
+    	 mapping table name and description**  and enter new
+    	 values.
+    	* To add tags, choose **Add new tag** and enter
+    	 key-value pairs
 
 13. Choose one of the following:
 
-        * **Create ID mapping table** – Creates an empty
-         table you can populate later ([Populating an existing ID mapping table](populate-id-mapping-table.md "populate-id-mapping-table.md"))
-        * **Create and populate ID mapping table** –
-         Creates and immediately populates the table (may take several
-         hours)
+    * **Create ID mapping table** – Creates an empty
+     table you can populate later ([Populating an existing ID mapping table](populate-id-mapping-table.md "populate-id-mapping-table.md"))
+    * **Create and populate ID mapping table** –
+     Creates and immediately populates the table (may take several
+     hours)
 
-    The ID mapping workflow process begins. During this process, the ID mapping
-    table is populated with translated IDs. The ID mapping workflow might take a few
-    hours to process.
+The ID mapping workflow process begins. During this process, the ID mapping
+table is populated with translated IDs. The ID mapping workflow might take a few
+hours to process.
 
 After the ID mapping table is successfully populated, you can [query the ID mapping table](query-id-mapping-tables.md "query-id-mapping-tables.md") to join the `sourceId` with
 the `targetId` and analyze the data.
@@ -319,44 +327,50 @@ This section is only visible if you're creating a new ID mapping table.
 
 12. (Optional) Under **Additional settings** configure:
 
-    1.  **ID mapping table settings**
+    1. **ID mapping table settings**
 
-        - To enable custom encryption, choose **Customize
-          encryption settings** and enter an AWS KMS
-          key.
 
-        ###### Note
 
-        This KMS key needs to grant the required permissions to
-        use within AWS Entity Resolution to `cleanrooms.amazonaws.com`
-        using a KMS key policy. For more details about the
-        required permissions for working with encryptions with an ID
-        mapping workflow, see [Create a workflow job role for AWS Entity Resolution](../../../entityresolution/latest/userguide/create-workflow-job-role.md "../../../entityresolution/latest/userguide/create-workflow-job-role.md") in the
-        _AWS Entity Resolution User
-        Guide_.
-        - To add tags, choose **Add new tag** and enter
-          key-value pairs.
 
-    2.  **ID mapping workflow settings** (new workflows
-        only):
+    	* To enable custom encryption, choose **Customize
+    	 encryption settings** and enter an AWS KMS
+    	 key.
 
-        - To use different names, clear **Keep the same ID
-          mapping table name and description** and enter new
-          values.
-        - To add tags, choose **Add new tag** and enter
-          key-value pairs.
+
+    	###### Note
+
+    	 This KMS key needs to grant the required permissions to
+    	 use within AWS Entity Resolution to `cleanrooms.amazonaws.com`
+    	 using a KMS key policy. For more details about the
+    	 required permissions for working with encryptions with an ID
+    	 mapping workflow, see [Create a workflow job role for AWS Entity Resolution](../../../entityresolution/latest/userguide/create-workflow-job-role.md "../../../entityresolution/latest/userguide/create-workflow-job-role.md") in the
+    	 *AWS Entity Resolution User
+    	 Guide*.
+    	* To add tags, choose **Add new tag** and enter
+    	 key-value pairs.
+    2. **ID mapping workflow settings** (new workflows
+     only):
+
+
+
+
+    	* To use different names, clear **Keep the same ID
+    	 mapping table name and description**  and enter new
+    	 values.
+    	* To add tags, choose **Add new tag** and enter
+    	 key-value pairs.
 
 13. Choose one of the following:
 
-        * **Create ID mapping table** – Creates an empty
-         table you can populate later ([Populating an existing ID mapping table](populate-id-mapping-table.md "populate-id-mapping-table.md"))
-        * **Create and populate ID mapping table** –
-         Creates and immediately populates the table (may take several
-         hours)
+    * **Create ID mapping table** – Creates an empty
+     table you can populate later ([Populating an existing ID mapping table](populate-id-mapping-table.md "populate-id-mapping-table.md"))
+    * **Create and populate ID mapping table** –
+     Creates and immediately populates the table (may take several
+     hours)
 
-    The ID mapping workflow process begins. During this process, the ID mapping
-    table is populated with translated IDs. The ID mapping workflow might take a few
-    hours to process.
+The ID mapping workflow process begins. During this process, the ID mapping
+table is populated with translated IDs. The ID mapping workflow might take a few
+hours to process.
 
 After the ID mapping table is successfully populated, you can [query the ID mapping table](query-id-mapping-tables.md "query-id-mapping-tables.md") to join the `sourceId` with
 the `targetId` and analyze the data.

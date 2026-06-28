@@ -1237,11 +1237,9 @@ information:
     * `AWS Glue table name` – The name
      of the AWS Glue table that contains your data.
 
-6. Choose **Next**.
-7. For **Review and create**, enter a **Policy
-   name** and **Description**, and review the
-   **Summary**.
-8. Choose **Create policy**.
+6. Choose **Next**. 7. For **Review and create**, enter a **Policy
+name** and **Description**, and review the
+**Summary**. 8. Choose **Create policy**.
 
 You have created a policy for AWS Clean Rooms. 9. Under **Access management**, choose
 **Roles**.

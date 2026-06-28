@@ -30,9 +30,9 @@ If you don’t see the ID mapping tables that you expect in the list, it might b
 because the ID mapping tables haven't been successfully populated. For more
 information, see [Populating an existing ID mapping table](populate-id-mapping-table.md "populate-id-mapping-table.md"). 6. Build the query by typing the query into the SQL code editor.
 
-| (Optional) If you want to use an example query                                                                                                                                                                                                                                                                       | (Optional) If you want to insert a table name                                                                                                                   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1. Select the three vertical dots next to the table.<br>2. Under **Insert in editor**, choose **Example<br>JOIN statement**.<br>NoteInserting an \*_Example JOIN statements_<br>• appends<br>the query already in the editor.<br>The example JOIN statement appears.<br>3. Edit the placeholder values in the query. | 1. Select the three vertical dots next to a column.<br>2. Under **Insert in editor**, choose **Table<br>name**.<br>3. Edit the placeholder values in the query. |
+| (Optional) If you want to use an example query                                                                                                                                                                                                                                                                      | (Optional) If you want to insert a table name                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Select the three vertical dots next to the table.<br>2. Under **Insert in editor**, choose **Example<br>JOIN statement**.<br>NoteInserting an *_Example JOIN statements_<br>• appends<br>the query already in the editor.<br>The example JOIN statement appears.<br>3. Edit the placeholder values in the query. | 1. Select the three vertical dots next to a column.<br>2. Under **Insert in editor**, choose **Table<br>name**.<br>3. Edit the placeholder values in the query. |
 
 7. Specify the supported **Worker type**
    and the **Number of workers**.
@@ -40,12 +40,12 @@ information, see [Populating an existing ID mapping table](populate-id-mapping-t
 Use the following table to determine the type and number or workers you need for
 your use case.
 
-| Worker type              | vCPU | Memory (GB) | Storage (GB) | Number of workers | Total Clean Rooms Processing Units (CRPU) |
-| ------------------------ | ---- | ----------- | ------------ | ----------------- | ----------------------------------------- |
-| \*_CR.1X_<br>• (default) | 4    | 30          | 100          | 4                 | 8                                         |
-| 128                      | 256  |
-| **CR.4X**                | 16   | 120         | 400          | 4                 | 32                                        |
-| 32                       | 256  |
+| Worker type             | vCPU | Memory (GB) | Storage (GB) | Number of workers | Total Clean Rooms Processing Units (CRPU) |
+| ----------------------- | ---- | ----------- | ------------ | ----------------- | ----------------------------------------- |
+| *_CR.1X_<br>• (default) | 4    | 30          | 100          | 4                 | 8                                         |
+| 128                     | 256  |
+| **CR.4X**               | 16   | 120         | 400          | 4                 | 32                                        |
+| 32                      | 256  |
 
 ###### Note
 

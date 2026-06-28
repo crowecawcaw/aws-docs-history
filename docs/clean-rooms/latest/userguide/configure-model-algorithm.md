@@ -68,26 +68,25 @@ Console
 API
 To configure a custom ML model algorithm (API)
 
-1.  Create a SageMaker AI compatible docker image. Clean Rooms ML only supports SageMaker AI
-    compatible docker images.
-2.  After you have created a SageMaker AI compatible docker image, use Amazon ECR
-    to create a training image. Follow the directions in [Amazon Elastic Container Registry User Guide](../../../AmazonECR/latest/userguide.md "../../../AmazonECR/latest/userguide.md")
-    to create a container training image.
-3.  Configure the model algorithm for use in Clean Rooms ML. You must give
-    the following information:
+1. Create a SageMaker AI compatible docker image. Clean Rooms ML only supports SageMaker AI
+   compatible docker images.
+2. After you have created a SageMaker AI compatible docker image, use Amazon ECR
+   to create a training image. Follow the directions in [Amazon Elastic Container Registry User Guide](../../../AmazonECR/latest/userguide.md "../../../AmazonECR/latest/userguide.md")
+   to create a container training image.
+3. Configure the model algorithm for use in Clean Rooms ML. You must give
+   the following information:
 
-        * The Amazon ECR repository link and additional arguments to
-         train the model and run inference. Clean Rooms ML supports running
-         batch transform jobs on an inference container.
-        * A service access role that allows Clean Rooms ML to access the
-         repository.
-        * (Optional) An inference container. Although you can
-         provide this in a separate configured model algorithm, we
-         recommend that you provide it in this step so that both the
-         training and inference container are managed as part of the
-         same resource.
-
-    Run the following code with your specific parameters.
+   - The Amazon ECR repository link and additional arguments to
+     train the model and run inference. Clean Rooms ML supports running
+     batch transform jobs on an inference container.
+   - A service access role that allows Clean Rooms ML to access the
+     repository.
+   - (Optional) An inference container. Although you can
+     provide this in a separate configured model algorithm, we
+     recommend that you provide it in this step so that both the
+     training and inference container are managed as part of the
+     same resource.
+     Run the following code with your specific parameters.
 
 ```
 `import boto3

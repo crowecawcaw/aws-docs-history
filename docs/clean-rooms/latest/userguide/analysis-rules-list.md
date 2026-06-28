@@ -82,7 +82,7 @@ The following sections explain each control.
 ### Join controls
 
 With _Join controls_, you can control how your table
-can be joined to other tables in the **table_expression**.
+can be joined to other tables in the **table\_expression**.
 AWS Clean Rooms only supports INNER JOIN. In the list analysis rule, at least one
 INNER JOIN is required and the member who can query is required to include
 a table they own in the INNER JOIN. This means they must join your table with

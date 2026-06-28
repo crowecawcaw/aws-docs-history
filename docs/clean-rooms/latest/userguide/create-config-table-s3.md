@@ -113,10 +113,9 @@ columns**, **Direct query**, and
      with similar names.
 
 8. If you want to enable **Tags** for the configured table
-   resource, choose **Add new tag** and then enter the
-   **Key** and **Value** pair.
-9. Choose **Configure new table**.
-   Now that you have created a configured table, you are ready to:
+resource, choose **Add new tag** and then enter the
+**Key** and **Value** pair. 9. Choose **Configure new table**.
+Now that you have created a configured table, you are ready to:
 
 - [Add an analysis rule to the configured
   table](add-analysis-rule.md "add-analysis-rule.md")

@@ -53,7 +53,7 @@ Enter the following information:
      container image.
 
 7. (Optional) For **Model inference payer**, select the
-   collaboration member who pays for model inference costs.
+collaboration member who pays for model inference costs.
 
 ###### Note
 

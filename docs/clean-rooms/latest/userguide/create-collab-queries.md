@@ -31,19 +31,19 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
 
 ###### To create a collaboration for queries
 
-1.  Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with the AWS account that will function as the
-    collaboration creator.
-2.  In the left navigation pane, choose **Collaborations**.
-3.  In the upper right corner, choose **Create collaboration**.
-4.  For **Step 1: Define collaboration**, do the following:
+1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with the AWS account that will function as the
+   collaboration creator.
+2. In the left navigation pane, choose **Collaborations**.
+3. In the upper right corner, choose **Create collaboration**.
+4. For **Step 1: Define collaboration**, do the following:
 
-    1. For **Details**, enter the **Name** and
-       **Description** of the collaboration.
+   1. For **Details**, enter the **Name** and
+      **Description** of the collaboration.
 
-    This information will be visible to collaboration members who are invited to
-    participate in the collaboration. The **Name** and
-    **Description** helps them understand what the collaboration is in
-    reference to. 2. For **Members**:
+   This information will be visible to collaboration members who are invited to
+   participate in the collaboration. The **Name** and
+   **Description** helps them understand what the collaboration is in
+   reference to. 2. For **Members**:
 
         1. For **Member 1: You**, enter your **Member display
          name** as you want it to appear for the collaboration.
@@ -73,40 +73,42 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
          member**. Then enter the **Member display name** and
          **Member AWS account ID** for each member who can contribute
          data that you want to invite to the collaboration.
-    3. If you want to enable **Analysis logging**, select the
-       **Enable analysis logging** checkbox.
 
-       1. Choose the **Logs from queries** checkbox under the
-          **Supported log types**.
+   3. If you want to enable **Analysis logging**, select the
+   **Enable analysis logging** checkbox.
 
-       You will receive logs generated from SQL queries in your Amazon CloudWatch Logs
-       account.
+        1. Choose the **Logs from queries** checkbox under the
+         **Supported log types**.
 
-    4. If you want to enable **Detailed monitoring**, select the
-       **Enable detailed monitoring** checkbox.
 
-    The analysis runner and configured payor can choose to enable detailed metrics
-    when they create their membership. When enabled, detailed monitoring metrics will be
-    published to CloudWatch for operational monitoring of collaborations, including query
-    performance and resource utilization. These metrics will be available to the analysis
-    runner and configured payor in their respective AWS accounts.
+        You will receive logs generated from SQL queries in your Amazon CloudWatch Logs
+         account.
 
-    For more information about CloudWatch pricing, see [CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/"). 5. Under **Allowed query results regions**, select one or more
-    AWS Regions where you want to send query results.
+   4. If you want to enable **Detailed monitoring**, select the
+   **Enable detailed monitoring** checkbox.
 
-    By default, only the current Region (such as N. Virginia us-east-1) is
-    selected.
+   The analysis runner and configured payor can choose to enable detailed metrics
+   when they create their membership. When enabled, detailed monitoring metrics will be
+   published to CloudWatch for operational monitoring of collaborations, including query
+   performance and resource utilization. These metrics will be available to the analysis
+   runner and configured payor in their respective AWS accounts.
 
-    ###### Important
+   For more information about CloudWatch pricing, see [CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/"). 5. Under **Allowed query results regions**, select one or more
+   AWS Regions where you want to send query results.
 
-    When you enable cross-Region query results delivery, your results may be
-    processed and stored outside the source Region.
+   By default, only the current Region (such as N. Virginia us-east-1) is
+   selected.
 
-    For more information about Regions, see [Regions
-    and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md") in the _AWS General Reference_. 6. (Optional) Manage access to your data with **Automatic change request
-    approval** by configuring which settings can be changed automatically without
-    manual approvals for a change request. By default, some settings can only be changed by submitting
-    a change request which must be approved by all members before it can take effect.
+   ###### Important
+
+   When you enable cross-Region query results delivery, your results may be
+   processed and stored outside the source Region.
+
+   For more information about Regions, see [Regions
+   and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md") in the _AWS General Reference_. 6. (Optional) Manage access to your data with **Automatic change request
+   approval** by configuring which settings can be changed automatically without
+   manual approvals for a change request. By default, some settings can only be changed by submitting
+   a change request which must be approved by all members before it can take effect.
 
         * **Grant member abilities** – Choose the abilities that can
          be granted to collaboration members without manual approval. Members can always
@@ -141,11 +143,11 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
         		- Contribute data *(always enabled)*
         		- Receive results
 
-    If you choose this option, you can track all collaboration configuration
-    modifications through the **Change requests history**, located on the
-    **Details** tab of the collaboration details page. 7. (Optional) If you want to enable the **Cryptographic computing**
-    capability, select the **Enable cryptographic computing**
-    checkbox.
+   If you choose this option, you can track all collaboration configuration
+   modifications through the **Change requests history**, located on the
+   **Details** tab of the collaboration details page. 7. (Optional) If you want to enable the **Cryptographic computing**
+   capability, select the **Enable cryptographic computing**
+   checkbox.
 
         1. Choose the following **Cryptographic coverage
          parameters**:
@@ -202,30 +204,30 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
         	Choose **Yes** if you want to join
         	 fingerprint columns with different names.For more information about **Cryptographic computing
 
-    parameters\*\*, see [Cryptographic computing parameters](crypto-computing-parameters.md "crypto-computing-parameters.md").
+   parameters**, see [Cryptographic computing parameters](crypto-computing-parameters.md "crypto-computing-parameters.md").
 
-    For more information about how to encrypt your data for use in AWS Clean Rooms, see
-    [Preparing encrypted data tables with Cryptographic Computing for Clean Rooms](prepare-encrypted-data.md "prepare-encrypted-data.md").
+   For more information about how to encrypt your data for use in AWS Clean Rooms, see
+   [Preparing encrypted data tables with Cryptographic Computing for Clean Rooms](prepare-encrypted-data.md "prepare-encrypted-data.md").
 
-    ###### Note
+   ###### Note
 
-    Verify these configurations carefully before completing the next step. After you
-    create the collaboration, you can only edit the collaboration name, description, and
-    whether the logs are stored in Amazon CloudWatch Logs. 8. If you want to enable **Tags** for the collaboration resource,
-    choose **Add new tag** and then enter the **Key**
-    and **Value** pair. 9. Choose **Next**.
+   Verify these configurations carefully before completing the next step. After you
+   create the collaboration, you can only edit the collaboration name, description, and
+   whether the logs are stored in Amazon CloudWatch Logs. 8. If you want to enable **Tags** for the collaboration resource,
+   choose **Add new tag** and then enter the **Key**
+   and **Value** pair. 9. Choose **Next**.
 
-5.  For **Step 2: Specify member abilities**, for **Analysis
-    using queries and jobs**, under the **Supported analysis
-    types** leave the **Queries** checkbox selected and take the
-    recommended action, based on your goal.
+5. For **Step 2: Specify member abilities**, for **Analysis
+   using queries and jobs**, under the **Supported analysis
+   types** leave the **Queries** checkbox selected and take the
+   recommended action, based on your goal.
 
-| Your goal                                                                                                                             | Recommended action                                                                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Query the data in the collaboration and receive the results                                                                           | 1. Choose yourself as the member who can **Run<br>queries**.<br>2. Choose yourself as member who can \*_Receive results from<br>analyses_<br>• from the dropdown list.                 |
-| Query the data in the collaboration and assign a different member to receive<br>results                                               | 1. Choose yourself as the member who can **Run<br>queries**.<br>2. Select the member who can \*_Receive results from<br>analyses_<br>• from the dropdown list.                         |
-| Receive the results of the query in the collaboration and assign a different<br>member to query the data                              | 1. Select the member who can **Run queries\*<br>• from the<br>dropdown list.<br>2. Choose yourself as member who can **Receive results from<br>analyses\*<br>• from the dropdown list. |
-| Create and manage the collaboration, assign a different member to query the<br>data, and assign a different member to receive results | 1. Select the member who can **Run queries\*<br>• from the<br>dropdown list.<br>2. Select the member who can **Receive results from<br>analyses\*<br>• from the dropdown list.         |
+| Your goal                                                                                                                             | Recommended action                                                                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Query the data in the collaboration and receive the results                                                                           | 1. Choose yourself as the member who can **Run<br>queries**.<br>2. Choose yourself as member who can *_Receive results from<br>analyses_<br>• from the dropdown list.                |
+| Query the data in the collaboration and assign a different member to receive<br>results                                               | 1. Choose yourself as the member who can **Run<br>queries**.<br>2. Select the member who can *_Receive results from<br>analyses_<br>• from the dropdown list.                        |
+| Receive the results of the query in the collaboration and assign a different<br>member to query the data                              | 1. Select the member who can *_Run queries_<br>• from the<br>dropdown list.<br>2. Choose yourself as member who can *_Receive results from<br>analyses_<br>• from the dropdown list. |
+| Create and manage the collaboration, assign a different member to query the<br>data, and assign a different member to receive results | 1. Select the member who can *_Run queries_<br>• from the<br>dropdown list.<br>2. Select the member who can *_Receive results from<br>analyses_<br>• from the dropdown list.         |
 
     1. If you are using Clean Rooms ML, for **ML modeling using purpose-built
      workflows**,
@@ -240,12 +242,12 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
     3. Choose **Next**.
 
 6. For **Step 3: Configure payment**, for **Analysis using
-   queries**, take one of the following actions based on your goal.
+queries**, take one of the following actions based on your goal.
 
-| Your goal                                                                                               | Recommended action                                                                                                                                                          |
-| ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Assign the member who can \*_Run queries_<br>• to be the member<br>who pays for the query compute costs | 1. For **Analysis using queries**, choose the member who<br>will **Pay for queries\*<br>• to be the same as the member who<br>can **Run queries**.<br>2. Choose **Next\*\*. |
-| Assign a diﬀerent member to pay for the query compute costs                                             | 1. For **Analysis using queries**, choose yourself as the<br>member who will **Pay for queries**.<br>2. Choose **Next**.                                                    |
+| Your goal                                                                                              | Recommended action                                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Assign the member who can *_Run queries_<br>• to be the member<br>who pays for the query compute costs | 1. For **Analysis using queries**, choose the member who<br>will *_Pay for queries_<br>• to be the same as the member who<br>can **Run queries**.<br>2. Choose **Next**. |
+| Assign a diﬀerent member to pay for the query compute costs                                            | 1. For **Analysis using queries**, choose yourself as the<br>member who will **Pay for queries**.<br>2. Choose **Next**.                                                 |
 
 For **ML modeling using purpose-built workflows**, the
 **Creator of the configured lookalike model** is the member who will
@@ -392,21 +394,21 @@ No, I will create a membership later
 
     Your status in the collaboration is inactive.
 
-8.  For **Step 5: Review and create**, do the following:
+8. For **Step 5: Review and create**, do the following:
 
-        1. Review the selections that you made for the previous steps and edit if necessary.
-        2. Choose one of the options.
-
-
+    1. Review the selections that you made for the previous steps and edit if necessary.
+    2. Choose one of the options.
 
 
-        | If you have chosen to ... | Then choose ... |
-        | --- | --- |
-        | Create a membership with the collaboration (**Yes, join by<br>creating membership now**) | **Create collaboration and membership** |
-        | Create the collaboration, and not to create a membership at this time<br>(**No, I will create a membership later**) | **Create collaboration** |
 
-    After your collaboration has been created successfully, you can see the collaboration
-    details page under **Collaborations**.
+
+    | If you have chosen to ... | Then choose ... |
+    | --- | --- |
+    | Create a membership with the collaboration (**Yes, join by<br>creating membership now**) | **Create collaboration and membership** |
+    | Create the collaboration, and not to create a membership at this time<br>(**No, I will create a membership later**) | **Create collaboration** |
+
+After your collaboration has been created successfully, you can see the collaboration
+details page under **Collaborations**.
 
 You are now ready to:
 

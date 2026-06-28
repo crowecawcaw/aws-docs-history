@@ -32,16 +32,15 @@ This section describes some common issues that might arise when using AWS Clean 
 
 - Ensure that your dataset is in one of the supported file formats:
 
-      + Parquet
-      + RCFile
-      + TextFile
-      + SequenceFile
-      + RegexSerde
-      + OpenCSV
-      + AVRO
-      + JSON
-
-  For more information, see [Data formats for AWS Clean Rooms](data-formats.md "data-formats.md").
+  - Parquet
+  - RCFile
+  - TextFile
+  - SequenceFile
+  - RegexSerde
+  - OpenCSV
+  - AVRO
+  - JSON
+    For more information, see [Data formats for AWS Clean Rooms](data-formats.md "data-formats.md").
 
 ### Query results are not as expected when using Cryptographic Computing for Clean Rooms.
 

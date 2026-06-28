@@ -47,28 +47,28 @@ service role for your membership.
 
 ###### To update default result settings
 
-1.  Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your member
-    AWS account.
-2.  In the left navigation pane, choose
-    **Memberships**.
-3.  Choose the membership name.
-4.  On the membership detail page, choose the **Results
-    settings** tab.
-5.  Choose **Edit result settings**.
-6.  Update the result settings as needed:
+1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your member
+   AWS account.
+2. In the left navigation pane, choose
+   **Memberships**.
+3. Choose the membership name.
+4. On the membership detail page, choose the **Results
+   settings** tab.
+5. Choose **Edit result settings**.
+6. Update the result settings as needed:
 
-    1. For **Results destination in Amazon S3**, enter the S3
-       destination or choose **Browse S3** to select from a
-       list of available S3 buckets.
+   1. For **Results destination in Amazon S3**, enter the S3
+      destination or choose **Browse S3** to select from a
+      list of available S3 buckets.
 
-    ###### Example
+   ###### Example
 
-    For example: `s3://bucket/prefix` 2. For **Result format**, choose either
-    **CSV** or **PARQUET**. 3. For **Service access**, choose either
-    **Create and use a new service role** or
-    **Use an existing service role**.
+   For example: `s3://bucket/prefix` 2. For **Result format**, choose either
+   **CSV** or **PARQUET**. 3. For **Service access**, choose either
+   **Create and use a new service role** or
+   **Use an existing service role**.
 
-    Create and use a new service role
+   Create and use a new service role
 
         * AWS Clean Rooms creates a service role with the
          required policy.
@@ -78,7 +78,7 @@ service role for your membership.
         * You must have permissions to create roles
          and attach policies.
 
-    Use an existing service role
+   Use an existing service role
 
         1. Choose an **Existing service role
          name** from the dropdown list.
@@ -88,12 +88,12 @@ service role for your membership.
          you can enter the Amazon Resource Name (ARN) of
          the role that you want to use.
 
-    ###### Note
+   ###### Note
 
-    For more information about the required service role permissions,
-    see [Create a service role to receive results](setting-up-roles.md#create-role-write-results "setting-up-roles.md#create-role-write-results").
+   For more information about the required service role permissions,
+   see [Create a service role to receive results](setting-up-roles.md#create-role-write-results "setting-up-roles.md#create-role-write-results").
 
-7.  Choose **Save changes**.
+7. Choose **Save changes**.
 
 ## Update payment configuration
 

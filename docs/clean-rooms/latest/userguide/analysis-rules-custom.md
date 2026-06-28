@@ -55,7 +55,7 @@ your query, convert the cached table to a common table expression (CTE).
 
 The following example includes a predefined structure that shows you how to complete a
 custom analysis rule with differential privacy turned on. The `userIdentifier`
-value is the column that uniquely identifies your users, such as _user_id_.
+value is the column that uniquely identifies your users, such as _user\_id_.
 When you have two or more tables with differential privacy turned on in a collaboration, AWS Clean Rooms
 requires you to configure the same column as the user identifier column in both of the
 analysis rules to maintain a consistent definition of the users across tables.
@@ -281,7 +281,7 @@ For differential privacy query structure and syntax, be aware of the following:
 - Common Table Expressions (CTEs) should emit the user identifier column if a table
   or CTE involve data protected by differential privacy. Filters, groupings, and
   aggregations should be done at the user level.
-- Final_select allows COUNT DISTINCT, COUNT, SUM, AVG, and STDDEV aggregate
+- Final\_select allows COUNT DISTINCT, COUNT, SUM, AVG, and STDDEV aggregate
   functions.
 
 For

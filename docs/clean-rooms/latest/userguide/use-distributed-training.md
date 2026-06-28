@@ -19,56 +19,56 @@ Console
 
 ###### To run a distributed training job (console)
 
-1.  Sign in to the AWS Management Console and open the AWS Clean Rooms console at [https://console.aws.amazon.com/cleanrooms](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home").
-2.  In the left navigation pane, choose
-    **Collaborations**.
-3.  On the **Collaborations** page, choose the
-    collaboration where you want to create a trained model.
-4.  After the collaboration opens, choose the **ML
-    models** tab.
-5.  Under **Custom ML models**, in the
-    **Trained models** section, choose
-    **Create trained model**.
-6.  On the **Create trained model** page, for
-    **Associated model algorithm**, specify the
-    algorithm
-7.  For **Trained model details**, enter the
-    following:
+1. Sign in to the AWS Management Console and open the AWS Clean Rooms console at [https://console.aws.amazon.com/cleanrooms](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home").
+2. In the left navigation pane, choose
+   **Collaborations**.
+3. On the **Collaborations** page, choose the
+   collaboration where you want to create a trained model.
+4. After the collaboration opens, choose the **ML
+   models** tab.
+5. Under **Custom ML models**, in the
+   **Trained models** section, choose
+   **Create trained model**.
+6. On the **Create trained model** page, for
+   **Associated model algorithm**, specify the
+   algorithm
+7. For **Trained model details**, enter the
+   following:
 
-    1. For **Name**, enter a unique name for
-       the model in the collaboration.
-    2. (Optional) For **Description**, enter
-       a description of the trained model.
-    3. For **Training data input mode**,
-       choose one of the following:
+   1. For **Name**, enter a unique name for
+      the model in the collaboration.
+   2. (Optional) For **Description**, enter
+      a description of the trained model.
+   3. For **Training data input mode**,
+      choose one of the following:
 
-       - Select **File** if you have a
-         smaller dataset that can fit on the ML storage
-         volume and you prefer traditional file system
-         access for your training script.
-       - Select **Pipe** for large
-         datasets to stream data directly from S3, avoiding
-         the need to download everything to disk, which can
-         improve training speed and reduce storage
-         requirements.
-       - Select **FastFile** if you
-         want to combine the benefits of streaming from S3
-         with file system access, especially for
-         sequentially read data or when dealing with fewer
-         files for faster startup times.
+      - Select **File** if you have a
+        smaller dataset that can fit on the ML storage
+        volume and you prefer traditional file system
+        access for your training script.
+      - Select **Pipe** for large
+        datasets to stream data directly from S3, avoiding
+        the need to download everything to disk, which can
+        improve training speed and reduce storage
+        requirements.
+      - Select **FastFile** if you
+        want to combine the benefits of streaming from S3
+        with file system access, especially for
+        sequentially read data or when dealing with fewer
+        files for faster startup times.
 
-8.  For **ML input channel details**, do the
-    following:
+8. For **ML input channel details**, do the
+   following:
 
-    1. For **ML input channel**, specify the
-       ML input channel that provides data to the model
-       algorithm.
+   1. For **ML input channel**, specify the
+      ML input channel that provides data to the model
+      algorithm.
 
-    To add another channel, choose **Add another
-    ML input channel**. You can add up to 19
-    additional ML input channels. 2. For **Channel name**, enter the name
-    of the ML input channel. 3. For **Amazon S3 data distribution type**,
-    choose one of the following:
+   To add another channel, choose **Add another
+   ML input channel**. You can add up to 19
+   additional ML input channels. 2. For **Channel name**, enter the name
+   of the ML input channel. 3. For **Amazon S3 data distribution type**,
+   choose one of the following:
 
         * Select **Fully replicated**
          to give each training instance with a complete
@@ -82,17 +82,17 @@ Console
          of instances. This works best for large datasets
          that you want to process in parallel.
 
-    ###### Note
+   ###### Note
 
-    Consider your dataset size and training
-    requirements when selecting a distribution type.
-    **Fully replicated** provides
-    complete data access but requires more storage,
-    while **Sharded by S3 key** enables
-    distributed processing of large datasets.
+   Consider your dataset size and training
+   requirements when selecting a distribution type.
+   **Fully replicated** provides
+   complete data access but requires more storage,
+   while **Sharded by S3 key** enables
+   distributed processing of large datasets.
 
-9.  For **Maximum training duration**, choose the
-    maximum amount of time you want to train your model.
+9. For **Maximum training duration**, choose the
+   maximum amount of time you want to train your model.
 10. For **Hyperparameters**, specify any
     algorithm-specific parameters and their intended values.
     Hyperparameters are specific to the model being trained and are
@@ -117,10 +117,10 @@ Console
         * ml.m5.2xlarge
         * ml.g5.12xlarge
         * ml.g5.24xlarge
+
     2. For **Instance count**, enter the
-       number of instances.
-    3. For **Volume size in GB**, enter the
-       ML storage volume size.
+    number of instances. 3. For **Volume size in GB**, enter the
+    ML storage volume size.
 
 14. Choose **Create trained model**.
 

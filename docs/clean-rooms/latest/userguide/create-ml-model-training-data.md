@@ -36,10 +36,10 @@ following:
      schema.
 
 6. For **Training details**, choose the **User
-   identifier column**, **Item identifier column**,
-   and **Timestamp column** from the dropdown lists. The training
-   data must contain these three columns. You can also select any other columns
-   that you want to include in the training data.
+identifier column**, **Item identifier column**,
+and **Timestamp column** from the dropdown lists. The training
+data must contain these three columns. You can also select any other columns
+that you want to include in the training data.
 
 The data in the **Timestamp column** must be in the Unix
 epoch time in seconds format. 7. (Optional) If you have any **Additional columns to train**,

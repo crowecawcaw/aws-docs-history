@@ -113,10 +113,10 @@ If you are associating a configured table backed by Amazon Athena, choose an
 **Existing service role name** from the dropdown list. Ensure the
 service role has IAM and, if needed, Lake Formation permissions to the dataset.
 
-| If you choose...                      | Then ...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Create and use a new service role** | • AWS Clean Rooms creates a service role with the required policy for this<br>table.<br>• The default **Service role name** is<br>`cleanrooms-<timestamp>`<br>• You must have permissions to create roles and attach policies.<br>• If your input data is encrypted, you can select **This data is<br>encrypted with a KMS key** and then enter an AWS KMS key<br>that will be used to decrypt your data input.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| **Use an existing service role**      | 1. Choose an **Existing service role name\*<br>• from the<br>dropdown list.<br>The list of roles are displayed if you have permissions to list<br>roles.<br>If you don't have permissions to list roles, you can enter the Amazon<br>Resource Name (ARN) of the role that you want to use.<br>2. View the service role by choosing the **View in<br>IAM*<br>• external link.<br>If there are no existing service roles, the option to \*\*Use an<br>existing service role*<br>• is unavailable.<br>By default, AWS Clean Rooms doesn't attempt to update the existing role policy<br>to add necessary permissions.<br>3. (Optional) Select the \*_Add a pre-configured policy with<br>necessary permissions to this role_<br>• check box to add attach<br>necessary permissions to the role. You must have permissions to modify<br>roles and create policies. |
+| If you choose...                      | Then ...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Create and use a new service role** | • AWS Clean Rooms creates a service role with the required policy for this<br>table.<br>• The default **Service role name** is<br>`cleanrooms-<timestamp>`<br>• You must have permissions to create roles and attach policies.<br>• If your input data is encrypted, you can select **This data is<br>encrypted with a KMS key** and then enter an AWS KMS key<br>that will be used to decrypt your data input.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Use an existing service role**      | 1. Choose an *_Existing service role name_<br>• from the<br>dropdown list.<br>The list of roles are displayed if you have permissions to list<br>roles.<br>If you don't have permissions to list roles, you can enter the Amazon<br>Resource Name (ARN) of the role that you want to use.<br>2. View the service role by choosing the *_View in<br>IAM_<br>• external link.<br>If there are no existing service roles, the option to *_Use an<br>existing service role_<br>• is unavailable.<br>By default, AWS Clean Rooms doesn't attempt to update the existing role policy<br>to add necessary permissions.<br>3. (Optional) Select the *_Add a pre-configured policy with<br>necessary permissions to this role_<br>• check box to add attach<br>necessary permissions to the role. You must have permissions to modify<br>roles and create policies. |
 
 ###### Note
 
@@ -129,42 +129,39 @@ service role has IAM and, if needed, Lake Formation permissions to the dataset.
      AWS Clean Rooms couldn't find the policy for the service role.
 
 6. If you want to enable **Configured table association tags** for the
-   configured table association resource, choose **Add new tag** and then
-   enter the **Key** and **Value** pair.
-7. Choose **Next**.
-8. On the **Configure collaboration analysis rule** page, choose one
-   of the following:
+configured table association resource, choose **Add new tag** and then
+enter the **Key** and **Value** pair. 7. Choose **Next**. 8. On the **Configure collaboration analysis rule** page, choose one
+of the following:
 
-   - **Yes, create a collaboration analysis rule now** –
+    * **Yes, create a collaboration analysis rule now** –
      Associates your table with this collaboration and creates a collaboration analysis
      rule
-   - **No, I will create a collaboration analysis rule later**
+    * **No, I will create a collaboration analysis rule later**
      – Associates your table with this collaboration only. You can create a
      collaboration analysis rule later.
 
 9. If you choose **Yes, create a collaboration analysis rule now**,
-   for **Results delivery**, choose the **Members allowed to
-   receive results for query output** from the dropdown list.
-10. Choose **Next**.
-11. On the **Add data access budget** page, for **Data access
-    budget configuration**, choose one of the following:
+for **Results delivery**, choose the **Members allowed to
+receive results for query output** from the dropdown list. 10. Choose **Next**. 11. On the **Add data access budget** page, for **Data access
+budget configuration**, choose one of the following:
 
-    - **Yes, add a data access budget now** – Associates your
-      table with this collaboration and adds a data access budget. You can select either a
-      period budget, a lifetime budget, or both.
-    - **No, I will add a data access budget later** –
-      Associates your table with this collaboration only. You can add a data access budget
-      later.
+    * **Yes, add a data access budget now** – Associates your
+     table with this collaboration and adds a data access budget. You can select either a
+     period budget, a lifetime budget, or both.
+    * **No, I will add a data access budget later** –
+     Associates your table with this collaboration only. You can add a data access budget
+     later.
+
 
     If you select **No, I will add a data access budget later**,
-    skip to step 15.
+     skip to step 15.
 
 12. If you choose **Yes, add a data access budget now**, choose one of
-    the following budget configurations:
+the following budget configurations:
 
-| Per period budget only                                                                                                                                                                                                                                                                                                                           | Lifetime budget only                                                                                                                                | Both per period and lifetime budgets                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1. Leave **Add per period budget**<br>selected.<br>2. Enter a **Per period budget amount\*<br>• between 1 and<br>1,000,000.<br>3. For **Period**, choose **Daily**,<br>**Weekly**, or **Monthly**.<br>4. (Optional) Leave **Automatically refresh budget<br>weekly\*<br>• selected to renew the allocation.<br>5. Clear **Add lifetime budget**. | 1. Clear **Add per period budget**.<br>2. Select **Add lifetime budget**.<br>3. Enter a \*_Lifetime budget amount_<br>• between 1 and<br>1,000,000. | 1. Leave **Add per period budget\*<br>• selected.<br>2. Enter a **Per period budget amount*<br>• between 1 and<br>1,000,000.<br>3. For **Period**, choose **Daily**,<br>**Weekly**, or **Monthly**.<br>4. Leave **Automatically refresh budget weekly**<br>selected.<br>5. Select **Add lifetime budget**.<br>6. Enter a \*\*Lifetime budget amount*<br>• between 1 and<br>1,000,000. |
+| Per period budget only                                                                                                                                                                                                                                                                                                                         | Lifetime budget only                                                                                                                               | Both per period and lifetime budgets                                                                                                                                                                                                                                                                                                                                               |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Leave **Add per period budget**<br>selected.<br>2. Enter a *_Per period budget amount_<br>• between 1 and<br>1,000,000.<br>3. For **Period**, choose **Daily**,<br>**Weekly**, or **Monthly**.<br>4. (Optional) Leave *_Automatically refresh budget<br>weekly_<br>• selected to renew the allocation.<br>5. Clear **Add lifetime budget**. | 1. Clear **Add per period budget**.<br>2. Select **Add lifetime budget**.<br>3. Enter a *_Lifetime budget amount_<br>• between 1 and<br>1,000,000. | 1. Leave *_Add per period budget_<br>• selected.<br>2. Enter a *_Per period budget amount_<br>• between 1 and<br>1,000,000.<br>3. For **Period**, choose **Daily**,<br>**Weekly**, or **Monthly**.<br>4. Leave **Automatically refresh budget weekly**<br>selected.<br>5. Select **Add lifetime budget**.<br>6. Enter a *_Lifetime budget amount_<br>• between 1 and<br>1,000,000. |
 
 13. Review your selections under **Data access budget summary**.
 

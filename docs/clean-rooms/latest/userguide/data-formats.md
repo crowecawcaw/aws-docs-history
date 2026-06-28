@@ -61,8 +61,8 @@ AWS Clean Rooms supports the following data types.
 - SMALLINT
 - STRUCT
 - TIME
-- TIMESTAMP_LTZ
-- TIMESTAMP_NTZ
+- TIMESTAMP\_LTZ
+- TIMESTAMP\_NTZ
 - TINYINT
 - VARCHAR
 

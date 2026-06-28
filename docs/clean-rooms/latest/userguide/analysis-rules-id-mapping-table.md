@@ -85,23 +85,23 @@ JOIN consumer ON consumer.id = idmt.targetId
 ### Collaboration tables
 
 The following tables represent configured tables that exist in an AWS Clean Rooms collaboration.
-The **id** column in both the **cr_drivers_license** and **cr_insurance** tables
+The **id** column in both the **cr\_drivers\_license** and **cr\_insurance** tables
 represents a column to match with the ID mapping table.
 
-**cr_drivers_license**
+**cr\_drivers\_license**
 
-|     |             |                       |
-| --- | ----------- | --------------------- |
-| id  | driver_name | state_of_registration |
-| 1   | Eduard      | TX                    |
-| 2   | Dana        | MA                    |
-| 3   | Gweneth     | IL                    |
+|     |              |                         |
+| --- | ------------ | ----------------------- |
+| id  | driver\_name | state\_of\_registration |
+| 1   | Eduard       | TX                      |
+| 2   | Dana         | MA                      |
+| 3   | Gweneth      | IL                      |
 
-**cr_insurance**
+**cr\_insurance**
 
 |     |                              |                                      |
 | --- | ---------------------------- | ------------------------------------ |
-| id  | policyholder_email           | policy_number                        |
+| id  | policyholder\_email          | policy\_number                       |
 | a   | eduardo@internal.company.com | 17f9d04e-f5be-4426-bdc4-250ed59c6529 |
 | b   | gwen@internal.company.com    | 3f0092db-2316-48a8-8d44-09cf8f6e6c64 |
 | c   | rosa@internal.company.com    | d7692e84-3d3c-47b8-b46d-a0d5345f0601 |
@@ -109,25 +109,25 @@ represents a column to match with the ID mapping table.
 ### ID mapping table
 
 The following table represents an existing ID mapping table that matches on the
-**cr_drivers_license** and **cr_insurance** tables. Not all entries will have IDs for both collaboration
+**cr\_drivers\_license** and **cr\_insurance** tables. Not all entries will have IDs for both collaboration
 tables.
 
-|                       |                 |
-| --------------------- | --------------- |
-| cr_drivers_license_id | cr_insurance_id |
-| 1                     | a               |
-| 2                     | null            |
-| 3                     | b               |
-| null                  | c               |
+|                          |                   |
+| ------------------------ | ----------------- |
+| cr\_drivers\_license\_id | cr\_insurance\_id |
+| 1                        | a                 |
+| 2                        | null              |
+| 3                        | b                 |
+| null                     | c                 |
 
 The ID mapping table analysis rule only allows for queries to run on the set of
 overlapping data, which would look as follows:
 
-|                       |                 |             |                       |                              |                                      |
-| --------------------- | --------------- | ----------- | --------------------- | ---------------------------- | ------------------------------------ |
-| cr_drivers_license_id | cr_insurance_id | driver_name | state_of_registration | policyholder_email           | policy_number                        |
-| 1                     | a               | Eduard      | TX                    | eduardo@internal.company.com | 17f9d04e-f5be-4426-bdc4-250ed59c6529 |
-| 3                     | b               | Gweneth     | IL                    | gwen@internal.company.com    | 3f0092db-2316-48a8-8d44-09cf8f6e6c64 |
+|                          |                   |              |                         |                              |                                      |
+| ------------------------ | ----------------- | ------------ | ----------------------- | ---------------------------- | ------------------------------------ |
+| cr\_drivers\_license\_id | cr\_insurance\_id | driver\_name | state\_of\_registration | policyholder\_email          | policy\_number                       |
+| 1                        | a                 | Eduard       | TX                      | eduardo@internal.company.com | 17f9d04e-f5be-4426-bdc4-250ed59c6529 |
+| 3                        | b                 | Gweneth      | IL                      | gwen@internal.company.com    | 3f0092db-2316-48a8-8d44-09cf8f6e6c64 |
 
 ### Example queries
 

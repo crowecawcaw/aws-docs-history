@@ -10,26 +10,25 @@ This is a one-time step for all tables with differential privacy protection.
 
 ###### To configure differential privacy settings (guided flow)
 
-1.  Sign in to the AWS Management Console and open the AWS Clean Rooms console at [https://console.aws.amazon.com/cleanrooms](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home").
-2.  In the left navigation pane, choose **Collaborations**.
-3.  Choose the collaboration.
-4.  On the **Tables** tab of the collaboration page, choose
-    **Configure differential privacy policy**.
-5.  On the **Configure differential privacy policy** page, choose values
-    for the following properties:
+1. Sign in to the AWS Management Console and open the AWS Clean Rooms console at [https://console.aws.amazon.com/cleanrooms](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home").
+2. In the left navigation pane, choose **Collaborations**.
+3. Choose the collaboration.
+4. On the **Tables** tab of the collaboration page, choose
+   **Configure differential privacy policy**.
+5. On the **Configure differential privacy policy** page, choose values
+   for the following properties:
 
-        * **Privacy budget**
-        * **Refresh privacy budget monthly**
-        * **Noise added per query**
+   - **Privacy budget**
+   - **Refresh privacy budget monthly**
+   - **Noise added per query**
+     You can use the default values or enter custom values that support your specific use
+     case. After choosing values for **Privacy budget** and **Noise
+     added per query**, you can preview the resulting utility in terms of the number
+     of aggregations that are possible across all queries on your data.
 
-    You can use the default values or enter custom values that support your specific use
-    case. After choosing values for **Privacy budget** and **Noise
-    added per query**, you can preview the resulting utility in terms of the number
-    of aggregations that are possible across all queries on your data.
-
-6.  Choose **Configure**.
-    You’ll see a confirmation message that you’ve successfully configured the differential
-    privacy policy for the collaboration.
+6. Choose **Configure**.
+   You’ll see a confirmation message that you’ve successfully configured the differential
+   privacy policy for the collaboration.
 
 Now that you configured differential privacy, you are ready to:
 

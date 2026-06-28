@@ -69,7 +69,7 @@ the client version that produced it. The final result is 52 bytes. This result i
 multiplied by the row count to get the total base overhead (use the number of total
 non-`null` values if `preserveNulls` is set to true).
 
-The following image shows how _`BASE_OVERHEAD =`**`C3R_DESIGNATION +`**`(MAC _ 1.33)`\*
+The following image shows how _`BASE_OVERHEAD =`**`C3R_DESIGNATION +`**`(MAC * 1.33)`_
 
 ![The 52 byte base overhead for a fingerprint column.](images/base-overhead-fingerprint.PNG)
 
@@ -220,9 +220,9 @@ used to produce it. The result is a final base overhead of 91 bytes. This result
 be multiplied by the row count to get the total base overhead (use the number of total
 non-null values if `preserveNulls` is set to true).
 
-The following image shows how \*`BASE_OVERHEAD = C3R_DESIGNATION + ((NONCE + IV + DATA_TYPE + PAD_SIZE + AUTH_TAG)
+The following image shows how *`BASE_OVERHEAD = C3R_DESIGNATION + ((NONCE + IV + DATA_TYPE + PAD_SIZE + AUTH_TAG)
 
-- 1.33)`\*
+- 1.33)`*
 
 ![The 91 byte base overhead for a sealed column.](images/base-overhead-sealed.PNG)
 

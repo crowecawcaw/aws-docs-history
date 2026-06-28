@@ -48,12 +48,12 @@ bits.
 
 The following is a decision table for creating the schema.
 
-| Schema decision table                                 | Decision | Number of target columns from source column <‘name-of-column’> ?                | Target column type: [c] cleartext, [f] fingerprint,<br>or [s] sealed<br>? | Target column headername <default 'name-of-column'>           | Add suffix <suffix> to header to indicate how it was encrypted, [y] yes or [n]<br>no <default 'yes'>                                                            | <‘name-of-column_sealed’> padding type: [n] one, [f] fixed, or [m] max<br><default ’max’> |
-| ----------------------------------------------------- | -------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| Leave the column unencrypted.                         | 1        | **c**                                                                           | Not applicable                                                            | Not applicable                                                | Not<br>applicable                                                                                                                                               |
-| Encrypt the column as a fingerprint column.           | 1        | **f**                                                                           | Choose default or enter a new header name.                                | Enter `y` to choose default (`_fingerprint`) or enter<br>`n`. | Not applicable                                                                                                                                                  |
-| Encrypt the column as a sealed column.                | 1        | **s**                                                                           | Choose default or enter a new header name.                                | Enter `y` to choose default (`_sealed`) or enter<br>`n`.      | Choose padding type .<br>For more information, see [(Optional) Create a schema (advanced users)](create-schema.md "create-schema.md").                          |
-| Encrypt the column as both fingerprint and<br>sealed. | 2        | Enter first target column: **f\*<br>• .<br>Enter second target column: **s\*\*. | Choose the target headers for each target column.                         | Enter `y` to choose default or enter `n.`                     | Choose padding type (for sealed columns only).<br>For more information, see [(Optional) Create a schema (advanced users)](create-schema.md "create-schema.md"). |
+Schema decision table| Decision | Number of target columns from source column <‘name-of-column’> ? | Target column type: [c] cleartext, [f] fingerprint,<br>or [s] sealed<br>? | Target column headername <default 'name-of-column'> | Add suffix <suffix> to header to indicate how it was encrypted, [y] yes or [n]<br>no <default 'yes'> | <‘name-of-column\_sealed’> padding type: [n] one, [f] fixed, or [m] max<br><default ’max’> |
+| --- | --- | --- | --- | --- | --- |
+| Leave the column unencrypted. | 1 | **c** | Not applicable | Not applicable | Not<br>applicable |
+| Encrypt the column as a fingerprint column. | 1 | **f** | Choose default or enter a new header name. | Enter `y` to choose default (`_fingerprint`) or enter<br>`n`. | Not applicable |
+| Encrypt the column as a sealed column. | 1 | **s** | Choose default or enter a new header name. | Enter `y` to choose default (`_sealed`) or enter<br>`n`. | Choose padding type .<br>For more information, see [(Optional) Create a schema (advanced users)](create-schema.md "create-schema.md"). |
+| Encrypt the column as both fingerprint and<br>sealed. | 2 | Enter first target column: *_f_<br>• .<br>Enter second target column: **s**. | Choose the target headers for each target column. | Enter `y` to choose default or enter `n.` | Choose padding type (for sealed columns only).<br>For more information, see [(Optional) Create a schema (advanced users)](create-schema.md "create-schema.md"). |
 
 The following are two examples of how to create encryption schemas. The exact content of
 your interaction depends on the input file and the responses that you provide.
@@ -109,11 +109,9 @@ following:
      `<input>.json`).
 
 3. For `Number of target columns from source column ‘username’?`, enter
-   `1` and then press **Enter**.
-4. For `Target column type: [c]leartext, [f]ingerprint, or [s]ealed?`, enter
-   `f` and then press **Enter**.
-5. For `Target column headername <default 'username'>`, press
-   **Enter**.
+`1` and then press **Enter**. 4. For `Target column type: [c]leartext, [f]ingerprint, or [s]ealed?`, enter
+`f` and then press **Enter**. 5. For `Target column headername <default 'username'>`, press
+**Enter**.
 
 The default name ‘`username`’ is used. 6. For `Add suffix '_fingerprint' to header to indicate how it was encrypted,
  [y]es or [n]o <default 'yes'>`, enter `y` and then press
@@ -187,11 +185,9 @@ columns, we want the following:
      `<input>.json`).
 
 3. For `Number of target columns from source column ‘username’?`, enter
-   `1` and then press **Enter**.
-4. For `Target column type: [c]leartext, [f]ingerprint, or [s]ealed?`, enter
-   `f` and then press **Enter**.
-5. For `Target column headername <default 'username'>`, press
-   **Enter**.
+`1` and then press **Enter**. 4. For `Target column type: [c]leartext, [f]ingerprint, or [s]ealed?`, enter
+`f` and then press **Enter**. 5. For `Target column headername <default 'username'>`, press
+**Enter**.
 
 The default name ‘`username`’ is used. 6. For `Add suffix '_fingerprint' to header to indicate how it was encrypted,
  [y]es or [n]o <default 'yes'>`, enter `y` and then press

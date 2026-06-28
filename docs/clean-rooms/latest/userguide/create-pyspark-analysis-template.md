@@ -98,14 +98,14 @@ You can define up to 50 parameters per PySpark analysis template. Each parameter
     	+ Choose **List another table** to list another table.
 
 10. For **Error message configuration**, choose one of the
-    following:
+following:
 
-    - **Basic error messages** – returns basic error messages
-      without exposing underlying data. Recommended for production workloads.
-    - **Detailed error messages** – returns detailed error
-      messages for faster troubleshooting. Recommended in development and testing
-      environments. May expose sensitive data, including personally identifiable
-      information (PII).
+    * **Basic error messages** – returns basic error messages
+     without exposing underlying data. Recommended for production workloads.
+    * **Detailed error messages** – returns detailed error
+     messages for faster troubleshooting. Recommended in development and testing
+     environments. May expose sensitive data, including personally identifiable
+     information (PII).
 
 ###### Note
 
@@ -140,11 +140,9 @@ must approve this setting for the template. 11. Specify the **Service access** p
      AWS Clean Rooms couldn't find the policy for the service role.
 
 12. If you want to enable **Tags** for the configured table resource,
-    choose **Add new tag** and then enter the **Key** and
-    **Value** pair.
-13. Choose **Create**.
-14. You are now ready to inform your collaboration member that they can [Review an analysis template](review-analysis-template.md "review-analysis-template.md"). (Optional if
-    you want to query your own data.)
+choose **Add new tag** and then enter the **Key** and
+**Value** pair. 13. Choose **Create**. 14. You are now ready to inform your collaboration member that they can [Review an analysis template](review-analysis-template.md "review-analysis-template.md"). (Optional if
+you want to query your own data.)
 
 ###### Important
 

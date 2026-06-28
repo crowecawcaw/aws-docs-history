@@ -74,7 +74,7 @@ Store a new secret for this table
      your credentials later.
 
 6. For **Snowflake table and schema details**, enter the details
-   manually or automatically import the details.
+manually or automatically import the details.
 
 Enter the details manually
 
@@ -193,10 +193,10 @@ Only S3 tables cataloged in AWS Glue can be used to retrieve the
 table schema automatically. 7. For **Columns allowed in collaborations**, choose an option
 based on your goal.
 
-| Your goal                                                                            | Recommended option |
-| ------------------------------------------------------------------------------------ | ------------------ |
-| Allow all columns for use in AWS Clean Rooms (subject to analysis<br>rules)          | **All columns**    |
-| Allow one or more columns from the \*_Specify allowed<br>columns_<br>• dropdown list | **Custom list**    |
+| Your goal                                                                           | Recommended option |
+| ----------------------------------------------------------------------------------- | ------------------ |
+| Allow all columns for use in AWS Clean Rooms (subject to analysis<br>rules)         | **All columns**    |
+| Allow one or more columns from the *_Specify allowed<br>columns_<br>• dropdown list | **Custom list**    |
 
 8. For **Configured table details**,
 

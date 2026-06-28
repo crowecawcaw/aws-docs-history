@@ -85,62 +85,63 @@ following:
      channel name** without a version ID, the
      system uses the base model for incremental training.
 
-9.  For **ML input channel details**, do the
-    following:
+9. For **ML input channel details**, do the
+following:
 
     1. For **ML input channel**, specify the
-       ML input channel that provides data to the model
-       algorithm.
+     ML input channel that provides data to the model
+     algorithm.
+
 
     To add another channel, choose **Add another
-    ML input channel**. You can add up to 19
-    additional ML input channels. 2. For **Channel name**, enter the name
-    of the ML input channel. 3. For **Amazon S3 data distribution type**,
-    choose one of the following:
+     ML input channel**. You can add up to 19
+     additional ML input channels.
+    2. For **Channel name**, enter the name
+     of the ML input channel.
+    3. For **Amazon S3 data distribution type**,
+     choose one of the following:
 
-        * Select **Fully replicated**
-         to give each training instance with a complete
-         copy of your dataset. This works best when your
-         dataset is small enough to fit in memory or when
-         each instance needs access to all data.
-        * Select **Sharded by S3 key**
-         to divide your dataset across training instances
-         based on S3 keys. Each instance receives about 1/n
-         of the total S3 objects, where 'n' is the number
-         of instances. This works best for large datasets
-         that you want to process in parallel.
 
+
+
+    	* Select **Fully replicated**
+    	 to give each training instance with a complete
+    	 copy of your dataset. This works best when your
+    	 dataset is small enough to fit in memory or when
+    	 each instance needs access to all data.
+    	* Select **Sharded by S3 key**
+    	 to divide your dataset across training instances
+    	 based on S3 keys. Each instance receives about 1/n
+    	 of the total S3 objects, where 'n' is the number
+    	 of instances. This works best for large datasets
+    	 that you want to process in parallel.
     ###### Note
 
     Consider your dataset size and training
-    requirements when selecting a distribution type.
-    **Fully replicated** provides
-    complete data access but requires more storage,
-    while **Sharded by S3 key** enables
-    distributed processing of large datasets.
+     requirements when selecting a distribution type.
+     **Fully replicated** provides
+     complete data access but requires more storage,
+     while **Sharded by S3 key** enables
+     distributed processing of large datasets.
 
 10. For **Maximum training duration**, choose the
-    maximum amount of time you want to train your model.
-11. For **Hyperparameters**, specify any
-    algorithm-specific parameters and their intended values.
-    Hyperparameters are specific to the model being trained and are
-    used to fine-tune model training.
-12. For **Environment variables**, specify any
-    algorithm-specific variables and their intended values.
-    Environment variables are set in the Docker container.
-13. For **Encryption**, to use a custom
-    AWS KMS key, select the **Encrypt secret with a
-    custom KMS key** checkbox.
-14. For **EC2 Resource configuration**, specify
-    information about the compute resources that are used for model
-    training.
+maximum amount of time you want to train your model. 11. For **Hyperparameters**, specify any
+algorithm-specific parameters and their intended values.
+Hyperparameters are specific to the model being trained and are
+used to fine-tune model training. 12. For **Environment variables**, specify any
+algorithm-specific variables and their intended values.
+Environment variables are set in the Docker container. 13. For **Encryption**, to use a custom
+AWS KMS key, select the **Encrypt secret with a
+custom KMS key** checkbox. 14. For **EC2 Resource configuration**, specify
+information about the compute resources that are used for model
+training.
 
     1. For **Instance type**, choose the
-       type of instance you want to run.
+     type of instance you want to run.
     2. For **Instance count**, enter the
-       number of instances.
+     number of instances.
     3. For **Volume size in GB**, enter the
-       ML storage volume size.
+     ML storage volume size.
 
 15. Choose **Create trained model from version**.
 

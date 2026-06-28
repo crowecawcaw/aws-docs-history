@@ -53,10 +53,10 @@ member who will **Pay for queries**. 7. If the collaboration creator has chosen 
 logging**, choose one of the following options for **Log
 storage in Amazon CloudWatch Logs**:
 
-| If you choose... | Then ...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Turn on**      | The logs relevant to you are stored in Amazon CloudWatch Logs.Each<br>member can receive only logs for queries that they initiated<br>or that contain their data.The member who can<br>receive results also receives logs for all analyses run in a<br>collaboration, even if their data isn't accessed in an<br>analysis.Under **Supported log<br>types**, choose from the log types the<br>collaboration creator has chosen to support:<br>1. If you want to receive logs generated from SQL<br>queries, choose the **Logs from<br>queries\*<br>• checkbox.<br>2. If you want to receive logs generated from jobs<br>using PySpark, choose the **Logs from<br>jobs\*<br>• checkbox. |
-| **Turn off**     | The query logs relevant to you aren't stored in your<br>Amazon CloudWatch Logs account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| If you choose... | Then ...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Turn on**      | The logs relevant to you are stored in Amazon CloudWatch Logs.Each<br>member can receive only logs for queries that they initiated<br>or that contain their data.The member who can<br>receive results also receives logs for all analyses run in a<br>collaboration, even if their data isn't accessed in an<br>analysis.Under **Supported log<br>types**, choose from the log types the<br>collaboration creator has chosen to support:<br>1. If you want to receive logs generated from SQL<br>queries, choose the *_Logs from<br>queries_<br>• checkbox.<br>2. If you want to receive logs generated from jobs<br>using PySpark, choose the *_Logs from<br>jobs_<br>• checkbox. |
+| **Turn off**     | The query logs relevant to you aren't stored in your<br>Amazon CloudWatch Logs account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
 ###### Note
 
@@ -69,10 +69,10 @@ metrics in your CloudWatch account.
 
 For **Detailed monitoring**:
 
-| Detailed monitoring options | Option                                                                                                                                                                                                                                                                                                                                                                                                              | Description |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| **Turn on**                 | AWS Clean Rooms will publish detailed monitoring metrics to CloudWatch<br>for this collaboration in your account. You can use these<br>metrics for operational monitoring, including query<br>performance and resource utilization.Additional CloudWatch<br>charges apply. For more information, see [CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/"). |
-| **Turn off**                | No detailed metrics will be exported to your CloudWatch account.<br>Other members can still view detailed monitoring metrics in their<br>own accounts if they have enabled this option.                                                                                                                                                                                                                             |
+Detailed monitoring options| Option | Description |
+| --- | --- |
+| **Turn on** | AWS Clean Rooms will publish detailed monitoring metrics to CloudWatch<br>for this collaboration in your account. You can use these<br>metrics for operational monitoring, including query<br>performance and resource utilization.Additional CloudWatch<br>charges apply. For more information, see [CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/"). |
+| **Turn off** | No detailed metrics will be exported to your CloudWatch account.<br>Other members can still view detailed monitoring metrics in their<br>own accounts if they have enabled this option. |
 
 ###### Note
 
@@ -198,13 +198,12 @@ defaults**:
     	 the dropdown list.
 
 10. If you want to enable **Tags** for the membership resource,
-    choose **Add new tag** and then enter the
-    **Key** and **Value** pair.
-11. If the collaboration creator has designated you as the member who will
-    **Pay for queries** or **Pay for queries and
-    jobs**, indicate your acceptance by selecting the **I agree
-    to pay for the compute costs in this collaboration**
-    checkbox.
+choose **Add new tag** and then enter the
+**Key** and **Value** pair. 11. If the collaboration creator has designated you as the member who will
+**Pay for queries** or **Pay for queries and
+jobs**, indicate your acceptance by selecting the **I agree
+to pay for the compute costs in this collaboration**
+checkbox.
 
 ###### Note
 

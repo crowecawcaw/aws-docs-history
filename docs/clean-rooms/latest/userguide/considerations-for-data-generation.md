@@ -57,12 +57,11 @@ dataset and train a custom machine learning model:
 | SHORT          |
 | SMALLINT       |
 | TIME           |
-| TIMESTAMP_LTZ  |
-| TIMESTAMP_NTZ  |
+| TIMESTAMP\_LTZ |
+| TIMESTAMP\_NTZ |
 | TINYINT        |
 | VARCHAR        |
-
-Limitations:
+| Limitations:   |
 
 - For synthetic data generation, the maximum number of predictive columns
   is one.

@@ -128,7 +128,7 @@ The following Parquet data types are supported:
 - `Double` primitive data type with no logical annotation (`DOUBLE`
   data type)
 - `Fixed_Len_Binary_Array` primitive type with the `Decimal(scale,
-precision)` logical annotation (`DECIMAL` data type)
+ precision)` logical annotation (`DECIMAL` data type)
 - `Float` primitive data type with no logical annotation (`FLOAT`
   data type)
 - `Int32` primitive type with the following logical annotations:

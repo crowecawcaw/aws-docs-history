@@ -37,7 +37,7 @@ The following examples display how the disallowed output columns control is appl
   _name_ are disallowed output columns.
 - Member B defines a table _pets_ with a similar set of columns
   _age_, _gender_, and
-  _owner_name_. However, they don't set any constraints on the output
+  _owner\_name_. However, they don't set any constraints on the output
   columns, meaning that all columns in the table can be projected freely in the
   query.
   If Member B runs the following query, it's blocked because disallowed output columns can't

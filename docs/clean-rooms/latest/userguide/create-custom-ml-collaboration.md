@@ -84,35 +84,34 @@ set up the ML configuration.
 API
 To create a collaboration for machine learning (API)
 
-1.  [Create a collaboration
-    and invite one or more members to join the
-    collaboration](create-collaboration.md "create-collaboration.md")
-2.  Assign the following roles to collaboration members:
+1. [Create a collaboration
+   and invite one or more members to join the
+   collaboration](create-collaboration.md "create-collaboration.md")
+2. Assign the following roles to collaboration members:
 
-        * `CAN_QUERY` - assigned to the member who
-         will start model training and inference.
-        * `CAN_RECEIVE_MODEL_OUTPUT` - assigned to
-         the members who will receive trained model
-         results.
-        * `CAN_RECEIVE_INFERENCE_OUTPUT` - assigned
-         to the members who will receive model inference
-         results.
+   - `CAN_QUERY` - assigned to the member who
+     will start model training and inference.
+   - `CAN_RECEIVE_MODEL_OUTPUT` - assigned to
+     the members who will receive trained model
+     results.
+   - `CAN_RECEIVE_INFERENCE_OUTPUT` - assigned
+     to the members who will receive model inference
+     results.
+     If the collaboration creator is also the results receiver,
+     they must also specify the query results destination and format
+     during collaboration creation. They also give a service role
+     Amazon Resource Name (ARN) to write the results to the query
+     results destination.
 
-    If the collaboration creator is also the results receiver,
-    they must also specify the query results destination and format
-    during collaboration creation. They also give a service role
-    Amazon Resource Name (ARN) to write the results to the query
-    results destination.
-
-3.  Specify the members who will pay for query compute, model
-    training, and model inference costs. Each of these costs can be
-    assigned to the same or different members. If an invited member
-    is the member who is responsible to pay for payment costs, they
-    must accept their payment responsibilities before joining the
-    collaboration.
-4.  The following code creates a collaboration, invites a member
-    that can run queries and receive results, and specifies the
-    collaboration creator as the model artifacts receiver.
+3. Specify the members who will pay for query compute, model
+   training, and model inference costs. Each of these costs can be
+   assigned to the same or different members. If an invited member
+   is the member who is responsible to pay for payment costs, they
+   must accept their payment responsibilities before joining the
+   collaboration.
+4. The following code creates a collaboration, invites a member
+   that can run queries and receive results, and specifies the
+   collaboration creator as the model artifacts receiver.
 
 ```
 `import boto3

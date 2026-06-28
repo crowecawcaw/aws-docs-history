@@ -25,22 +25,18 @@ When you bring your analysis code into a collaboration, be aware of the followin
   you bring into the environment.
 - In the shared security model:
 
-      + You (the customer) are responsible for the security of the code running in the
-       environment.
-      + You (the customer) are responsible for setting the appropriate error message
-       configuration for the environment.
-      + AWS Clean Rooms is responsible for the security of the environment, ensuring that
+  - You (the customer) are responsible for the security of the code running in the
+    environment.
+  - You (the customer) are responsible for setting the appropriate error message
+    configuration for the environment.
+  - AWS Clean Rooms is responsible for the security of the environment, ensuring that
 
-
-
-
-      	- only the approved code runs
-      	- only specified configured tables are accessible
-      	- the only output destination is the result receiver's S3 bucket.
-
-  AWS Clean Rooms generates SHA-256 hashes of the user script and virtual environment for your
-  review. However, the actual user script and libraries aren't directly accessible within
-  AWS Clean Rooms.
+    - only the approved code runs
+    - only specified configured tables are accessible
+    - the only output destination is the result receiver's S3 bucket.
+      AWS Clean Rooms generates SHA-256 hashes of the user script and virtual environment for your
+      review. However, the actual user script and libraries aren't directly accessible within
+      AWS Clean Rooms.
 
 To validate that the user script and libraries shared are the same as those referenced
 in the analysis template, you can create a SHA-256 hash of the files shared and compare it
@@ -104,7 +100,7 @@ in the analysis template.
      logs.
 
 9. Review the configured tables listed under **Tables referenced in
-   definition**.
+definition**.
 
 The **Status** next to each table will read **Template not
 allowed**. 10. Choose a table.

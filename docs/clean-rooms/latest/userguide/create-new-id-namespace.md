@@ -30,20 +30,21 @@ console.
      method you've chosen.
     4. Choose **Create ID namespace**.
 
-7. Go back to the AWS Clean Rooms console.
-8. On the **Associate ID namespace** page, for **Entity
-   resolution data**, choose the **AWS Entity Resolution ID namespace** source or
-   target that you want to associate with the collaboration from the dropdown list.
-9. For **Association details**, take the following steps.
+7. Go back to the AWS Clean Rooms console. 8. On the **Associate ID namespace** page, for **Entity
+resolution data**, choose the **AWS Entity Resolution ID namespace** source or
+target that you want to associate with the collaboration from the dropdown list. 9. For **Association details**, take the following steps.
 
-   1. Enter a **Name** for the associated ID namespace.
+    1. Enter a **Name** for the associated ID namespace.
 
-   You can use the default name or rename this ID namespace. 2. (Optional) Enter a **Description** of the ID namespace.
 
-   The description helps with writing queries.
+    You can use the default name or rename this ID namespace.
+    2. (Optional) Enter a **Description** of the ID namespace.
+
+
+    The description helps with writing queries.
 
 10. Specify the **AWS Clean Rooms access** permissions by selecting an option and
-    then taking the recommended action.
+then taking the recommended action.
 
 | Option                                                        | Recommended action                                                                                                                                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

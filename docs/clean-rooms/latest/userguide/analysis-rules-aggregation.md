@@ -193,7 +193,7 @@ The following scalar functions are supported:
 - Data
   type formatting functions –
   CAST,
-  CONVERT, TO_CHAR, TO_DATE, TO_NUMBER, TO_TIMESTAMP
+  CONVERT, TO\_CHAR, TO\_DATE, TO\_NUMBER, TO\_TIMESTAMP
 - String functions – LOWER, UPPER,
   TRIM,
   RTRIM,
@@ -202,7 +202,7 @@ The following scalar functions are supported:
   - For RTRIM, custom character sets to trim aren't allowed.
 
 - Conditional expressions – COALESCE
-- Date functions – EXTRACT, GETDATE, CURRENT_DATE, DATEADD
+- Date functions – EXTRACT, GETDATE, CURRENT\_DATE, DATEADD
 - Other functions – TRUNC
 
 For more details, see the [AWS Clean Rooms SQL Reference](../sql-reference/sql-reference.md "../sql-reference/sql-reference.md").

@@ -27,8 +27,10 @@ docker pull $ecr_registry_endpoint/$base_image`
     train your ML model in its own execution environment with the data
     from all parties.
   - Clean Rooms ML makes your training input channels available via the
-    `/opt/ml/input/data/`channel-name``directories in the docker container. Each ML input channel is mapped
-based on its corresponding`channel_name`provided in the`CreateTrainedModel` request.
+    `/opt/ml/input/data/`channel-name``
+    directories in the docker container. Each ML input channel is mapped
+    based on its corresponding `channel_name` provided in the
+    `CreateTrainedModel` request.
 
   ```
   `parser = argparse.ArgumentParser()# Data, model, and output directories
