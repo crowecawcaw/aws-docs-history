@@ -83,7 +83,7 @@ You create a product in `Draft` state by calling the
 type.
 
 If your request is processed successfully, then AWS Marketplace Catalog API generates a product in
-`Draft` state for you. This is an incomplete product and isn’t visible to
+`Draft` state for you. This is an incomplete product and isn't visible to
 buyers in AWS Marketplace.
 
 You then use `Update` change types to complete the create product process:
@@ -183,7 +183,7 @@ new `ProductId` is generated.
 
 The following schema validations are specific to `CreateProduct` actions in
 the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following requirements, it
+`StartChangeSet`. If the request doesn't meet the following requirements, it
 will fail with an HTTP response.
 
 | Input field           | Validation rule | HTTP code |
@@ -197,9 +197,9 @@ AWS Marketplace Catalog API. These errors are returned when you call `DescribeCh
 after a change set is processing. For more details about using
 `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code    | Error message                                                                                                                               |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| INVALID_INPUT | **`Inappropriate content '{InappropriateContent}' found in<br>ProductTitle field. Provide ProductTitle with no inappropriate<br>content.`** |
+| Error code     | Error message                                                                                                                               |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| INVALID\_INPUT | **`Inappropriate content '{InappropriateContent}' found in<br>ProductTitle field. Provide ProductTitle with no inappropriate<br>content.`** |
 
 ## Update product details
 
@@ -337,7 +337,7 @@ type:
   - `SearchKeywords` (array of strings) – The list of
     keywords for your product to enhance the search experience. Seller name,
     product name, and product categories are automatically included in
-    search keywords and don’t need to be repeated here.
+    search keywords and don't need to be repeated here.
 
 ###### Note
 
@@ -376,7 +376,7 @@ To check request status, use the AWS Marketplace Management Portal or call the `
 
 The following schema validations are specific to `UpdateInformation`
 actions in the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following requirements,
+`StartChangeSet`. If the request doesn't meet the following requirements,
 it will fail with an HTTP response.
 
 | Input field                               | Validation rule                                                                                                        | HTTP code |
@@ -401,42 +401,42 @@ AWS Marketplace Catalog API. These errors are returned when you call `DescribeCh
 a change set is processing. For more information about using
 `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                   | Error message                                                                                                                                           |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | ---------- |
-| MISSING_DATA                 | **`No data provided to perform an update. Provide data for at<br>least 1 field of the product.`**                                                       |
-| INVALID_INPUT                | **`Provide LogoUrl.`**                                                                                                                                  |
-| INVALID_INPUT                | **`Provide ProductTitle.`**                                                                                                                             |
-| INVALID_INPUT                | **`Provide ShortDescription.`**                                                                                                                         |
-| INVALID_INPUT                | **`Provide LongDescription.`**                                                                                                                          |
-| INVALID_INPUT                | **`Provide SupportDescription.`**                                                                                                                       |
-| INVALID_INPUT                | **`Provide at least one search keyword.`**                                                                                                              |
-| INVALID_INPUT                | **`Provide at least one highlight.`**                                                                                                                   |
-| INVALID_INPUT                | **`Provide between 1 and 3 product<br>categories.`**                                                                                                    |
-| INVALID_INPUT                | **`Inappropriate content '{InappropriateContent}' found in<br>ProductTitle field. Provide ProductTitle with no inappropriate<br>content.`**             |
-| INVALID_INPUT                | **`Inappropriate content '{InappropriateContent}' found in<br>ShortDescription field. Provide ShortDescription with no<br>inappropriate content.`**     |
-| INVALID_INPUT                | **`Inappropriate content '{InappropriateContent}' found in<br>LongDescription field. Provide LongDescription with no inappropriate<br>content.`**       |
-| INVALID_INPUT                | **`Inappropriate content '{InappropriateContent}' found in<br>SupportDescription field. Provide SupportDescription with no<br>inappropriate content.`** |
-| INVALID_INPUT                | **`Invalid ProductTitle field. Remove spaces before trademark<br>symbol.`**                                                                             |
-| INVALID_INPUT                | **`Invalid ShortDescription field. Remove spaces before<br>trademark symbol.`**                                                                         |
-| INVALID_INPUT                | **`Invalid LongDescription field. Remove spaces before<br>trademark symbol.`**                                                                          |
-| INVALID_INPUT                | **`Invalid SupportDescription field. Remove spaces before<br>trademark symbol.`**                                                                       |
-| INVALID_INPUT                | **`Invalid ProductTitle field. Remove unsupported characters<br>[UnsupportedCharacters].`**                                                             |
-| INVALID_INPUT                | **`Invalid ShortDescription field. Remove unsupported<br>characters [UnsupportedCharacters].`**                                                         |
-| INVALID_INPUT                | **`Invalid LongDescription field. Remove unsupported<br>characters [UnsupportedCharacters].`**                                                          |
-| INVALID_INPUT                | **`Invalid SupportDescription field. Remove unsupported<br>characters [UnsupportedCharacters].`**                                                       |
-| INVALID_INPUT                | **`Search keywords must be no more than 250 combined<br>characters.`**                                                                                  |
-| INVALID_INPUT                | **`The input for this change type could not be read. Submit a<br>properly formatted input.`**                                                           |
-| INVALID_ADDITIONAL_RESOURCES | **`Invalid URLs in AdditionalResources:<br>[InvalidAdditionalResourcesUrls] Provide valid<br>URLs.`**                                                   |
-| INVALID_CATEGORY_NAMES       | **`Provide valid category names supported by<br>AWS Marketplace.`**                                                                                     |
-| InvalidImageProperties       | \*\*`Validation errors found: The file is not image type.<br>Supported image types: [png                                                                | jpg | gif].`\*\* |
-| EXPLICIT_CONTENT             | **`Explicit content: '{ExplicitContent}' detected. Provide<br>media with no explicit content.`**                                                        |
-| INVALID_MEDIA                | **`Invalid URL: {MediaUrl} Provide a new URL for media stored<br>in S3.`**                                                                              |
-| INVALID_MEDIA                | **`Invalid URL: {MediaUrl} Provide a valid URL that does not<br>exceed 2048 characters.`**                                                              |
-| INVALID_MEDIA                | **`Location provided not accessible: {MediaUrl} Provide an<br>accessible URL for media stored in S3.`**                                                 |
-| INVALID_MEDIA                | **`There was an issue copying the media from S3. Image size<br>exceeds 5 MB. Provide an image that is under 5<br>MB.`**                                 |
-| INVALID_MEDIA                | **`Malware detected in media. Please resubmit media without<br>malware.`**                                                                              |
-| TOO_MANY_MEDIA               | **`Provide no more than 15 media items.`**                                                                                                              |
-| DUPLICATE_MEDIA              | **`Duplicate media is not allowed for a product. Please<br>provide media with no duplicates.`**                                                         |
+| Error code                     | Error message                                                                                                                                           |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MISSING\_DATA                  | **`No data provided to perform an update. Provide data for at<br>least 1 field of the product.`**                                                       |
+| INVALID\_INPUT                 | **`Provide LogoUrl.`**                                                                                                                                  |
+| INVALID\_INPUT                 | **`Provide ProductTitle.`**                                                                                                                             |
+| INVALID\_INPUT                 | **`Provide ShortDescription.`**                                                                                                                         |
+| INVALID\_INPUT                 | **`Provide LongDescription.`**                                                                                                                          |
+| INVALID\_INPUT                 | **`Provide SupportDescription.`**                                                                                                                       |
+| INVALID\_INPUT                 | **`Provide at least one search keyword.`**                                                                                                              |
+| INVALID\_INPUT                 | **`Provide at least one highlight.`**                                                                                                                   |
+| INVALID\_INPUT                 | **`Provide between 1 and 3 product<br>categories.`**                                                                                                    |
+| INVALID\_INPUT                 | **`Inappropriate content '{InappropriateContent}' found in<br>ProductTitle field. Provide ProductTitle with no inappropriate<br>content.`**             |
+| INVALID\_INPUT                 | **`Inappropriate content '{InappropriateContent}' found in<br>ShortDescription field. Provide ShortDescription with no<br>inappropriate content.`**     |
+| INVALID\_INPUT                 | **`Inappropriate content '{InappropriateContent}' found in<br>LongDescription field. Provide LongDescription with no inappropriate<br>content.`**       |
+| INVALID\_INPUT                 | **`Inappropriate content '{InappropriateContent}' found in<br>SupportDescription field. Provide SupportDescription with no<br>inappropriate content.`** |
+| INVALID\_INPUT                 | **`Invalid ProductTitle field. Remove spaces before trademark<br>symbol.`**                                                                             |
+| INVALID\_INPUT                 | **`Invalid ShortDescription field. Remove spaces before<br>trademark symbol.`**                                                                         |
+| INVALID\_INPUT                 | **`Invalid LongDescription field. Remove spaces before<br>trademark symbol.`**                                                                          |
+| INVALID\_INPUT                 | **`Invalid SupportDescription field. Remove spaces before<br>trademark symbol.`**                                                                       |
+| INVALID\_INPUT                 | **`Invalid ProductTitle field. Remove unsupported characters<br>[UnsupportedCharacters].`**                                                             |
+| INVALID\_INPUT                 | **`Invalid ShortDescription field. Remove unsupported<br>characters [UnsupportedCharacters].`**                                                         |
+| INVALID\_INPUT                 | **`Invalid LongDescription field. Remove unsupported<br>characters [UnsupportedCharacters].`**                                                          |
+| INVALID\_INPUT                 | **`Invalid SupportDescription field. Remove unsupported<br>characters [UnsupportedCharacters].`**                                                       |
+| INVALID\_INPUT                 | **`Search keywords must be no more than 250 combined<br>characters.`**                                                                                  |
+| INVALID\_INPUT                 | **`The input for this change type could not be read. Submit a<br>properly formatted input.`**                                                           |
+| INVALID\_ADDITIONAL\_RESOURCES | **`Invalid URLs in AdditionalResources:<br>[InvalidAdditionalResourcesUrls] Provide valid<br>URLs.`**                                                   |
+| INVALID\_CATEGORY\_NAMES       | **`Provide valid category names supported by<br>AWS Marketplace.`**                                                                                     |
+| InvalidImageProperties         | **`Validation errors found: The file is not image type.<br>Supported image types: [png                                                                  | jpg | gif].`** |
+| EXPLICIT\_CONTENT              | **`Explicit content: '{ExplicitContent}' detected. Provide<br>media with no explicit content.`**                                                        |
+| INVALID\_MEDIA                 | **`Invalid URL: {MediaUrl} Provide a new URL for media stored<br>in S3.`**                                                                              |
+| INVALID\_MEDIA                 | **`Invalid URL: {MediaUrl} Provide a valid URL that does not<br>exceed 2048 characters.`**                                                              |
+| INVALID\_MEDIA                 | **`Location provided not accessible: {MediaUrl} Provide an<br>accessible URL for media stored in S3.`**                                                 |
+| INVALID\_MEDIA                 | **`There was an issue copying the media from S3. Image size<br>exceeds 5 MB. Provide an image that is under 5<br>MB.`**                                 |
+| INVALID\_MEDIA                 | **`Malware detected in media. Please resubmit media without<br>malware.`**                                                                              |
+| TOO\_MANY\_MEDIA               | **`Provide no more than 15 media items.`**                                                                                                              |
+| DUPLICATE\_MEDIA               | **`Duplicate media is not allowed for a product. Please<br>provide media with no duplicates.`**                                                         |
 
 ## Add pricing dimensions
 
@@ -544,12 +544,12 @@ Provide the following fields for the `AddDimensions` change type.
   the request.
 
   - `Description` (string) (required) – Full details of
-    the dimension that will be the long description on the buyer’s viewing
+    the dimension that will be the long description on the buyer's viewing
     page.
   - `Key` (string) (required) – Enter in the facet that
     will be used for defining the rates in the offer. Also, enter the
-    dimensions published to the AWS Marketplace Metering Service (MMS) if the dimension can’t be
-    metered externally. After the dimension is created, this can’t be
+    dimensions published to the AWS Marketplace Metering Service (MMS) if the dimension can't be
+    metered externally. After the dimension is created, this can't be
     changed.
   - `Units` (string) (required) – The unit type for the
     dimension. Possible units are Users, Hosts, GB, MB, TB, Gbps, Mbps,
@@ -566,23 +566,23 @@ Provide the following fields for the `AddDimensions` change type.
     - - `Metered` – Indicates that Commerce
         Platform usage types should be created to allow metering
         to occur for this dimension.
-      - `ExternallyMetered` – Indicates that
-        AWS Marketplace Metering Service (MMS) dimensions should be
-        created during publishing to allow sellers to meter
-        through the AWS SDK.
-      - `Entitled` – Indicates that
-        entitlements can be granted for the dimension during the
-        product or offer publishing.
+        - `ExternallyMetered` – Indicates that
+          AWS Marketplace Metering Service (MMS) dimensions should be
+          created during publishing to allow sellers to meter
+          through the AWS SDK.
+        - `Entitled` – Indicates that
+          entitlements can be granted for the dimension during the
+          product or offer publishing.
 
-      The following table lists the supported combinations
-      of pricing dimensions and products.
+        The following table lists the supported combinations
+        of pricing dimensions and products.
 
-      | Pricing dimension type                      | Product types                                                                                                                                                                                                                                                                                                                                                   |
-      | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-      | [`Metered`]                                 | AMI                                                                                                                                                                                                                                                                                                                                                             |
-      | [`Metered, ExternallyMetered`]              | SaaS, AMI/Flexible Consumption Pricing<br>(FCP)When `ExternallyMetered`<br>appears, `Metered` is<br>masked/inferred.                                                                                                                                                                                                                                            |
-      | [`Entitled`]                                | SaaS Contracts, ProServ Products The<br>`Entitled` tag grants rights to use a<br>software/service start and end dates for the<br>usage. Also, to grant rights to have usage<br>discount for AMI annual products. Each entitlement<br>is identified by a `Dimension Key` in<br>AWS Marketplace Entitlement Service for creating or updating the<br>entitlements. |
-      | [`Metered, ExternallyMetered,<br>Entitled`] | Contracts with consumption pricing, where<br>dimensions can be prepaid or metered, are a<br>combination of both<br>[`ExternallyMetered`] and<br>[`Entitled`].                                                                                                                                                                                                   |
+        | Pricing dimension type                      | Product types                                                                                                                                                                                                                                                                                                                                                   |
+        | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+        | [`Metered`]                                 | AMI                                                                                                                                                                                                                                                                                                                                                             |
+        | [`Metered, ExternallyMetered`]              | SaaS, AMI/Flexible Consumption Pricing<br>(FCP)When `ExternallyMetered`<br>appears, `Metered` is<br>masked/inferred.                                                                                                                                                                                                                                            |
+        | [`Entitled`]                                | SaaS Contracts, ProServ Products The<br>`Entitled` tag grants rights to use a<br>software/service start and end dates for the<br>usage. Also, to grant rights to have usage<br>discount for AMI annual products. Each entitlement<br>is identified by a `Dimension Key` in<br>AWS Marketplace Entitlement Service for creating or updating the<br>entitlements. |
+        | [`Metered, ExternallyMetered,<br>Entitled`] | Contracts with consumption pricing, where<br>dimensions can be prepaid or metered, are a<br>combination of both<br>[`ExternallyMetered`] and<br>[`Entitled`].                                                                                                                                                                                                   |
 
 - `Entity` (object) (required) – The named type of entity
   being created.
@@ -617,7 +617,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following schema validations are specific to `AddDimensions` actions in
 the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following requirements, it
+`StartChangeSet`. If the request doesn't meet the following requirements, it
 will fail with an HTTP response.
 
 | Input field     | Validation rule                                                                        | HTTP code |
@@ -635,23 +635,23 @@ AWS Marketplace Catalog API. These errors are returned when you call `DescribeCh
 a change set is processing. For more information about using
 `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code        | Error message                                                                                                                                                                                                                                                            |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| MISSING_DATA      | **`No data provided to perform an update. Provide data for at<br>least 1 dimension.`**                                                                                                                                                                                   |
-| INVALID_DIMENSION | **`Provide no more than 200 dimensions.`**                                                                                                                                                                                                                               |
-| INVALID_DIMENSION | **`Can't add duplicate dimensions.`**                                                                                                                                                                                                                                    |
-| INVALID_DIMENSION | **`Dimension can't be added in current state '%s'. States<br>that support dimension updates are %s.`**                                                                                                                                                                   |
-| INVALID_DIMENSION | **`Can't add dimension. The field '%s' has duplicate values<br>'%s' in other dimensions.`**                                                                                                                                                                              |
-| INVALID_DIMENSION | **`Provide non-empty fields (Key, Unit, Name, Types) for each<br>dimension.`**                                                                                                                                                                                           |
-| IINVALID_TYPE     | **`Remove invalid type '%s'. Valid types are ["Metered",<br>"Entitled", "ExternallyMetered"].`**                                                                                                                                                                         |
-| INVALID_UNIT      | **`Remove invalid Unit '%s'. Valid units are ["GB", "Gbps",<br>"HostHrs", "Hosts", "MB", "Mbps", "Requests", "TaskHrs", "TB",<br>"TierHrs", "UnitHrs", "Units", "UserHrs",<br>"Users"].`**                                                                               |
-| INVALID_INPUT     | **`Inappropriate content '%s' found in %s field. Provide %s<br>with no inappropriate content.`**                                                                                                                                                                         |
-| INVALID_INPUT     | **`Invalid '%s' field. Remove spaces before trademark<br>symbol.`**                                                                                                                                                                                                      |
-| INVALID_INPUT     | **`Invalid '%s' field. Remove unsupported characters<br>%s.`**                                                                                                                                                                                                           |
-| INVALID_DIMENSION | **`Remove invalid dimension type combination %s. Allowed<br>values are %s.`**                                                                                                                                                                                            |
-| INVALID_DIMENSION | **`Remove invalid dimension key '%s' for Metered<br>dimension.`**                                                                                                                                                                                                        |
-| INVALID_DIMENSION | **`Dimension named '%s' for productCode '%s' did not pass<br>AWS Marketplace Metering Service validation %s.`**                                                                                                                                                          |
-| INVALID_DIMENSION | **`Dimension named '%s' for productCode '%s' has no metering<br>record present in Metering Service. The product has either never<br>been launched for testing or is misconfigured and does not make the<br>appropriate calls to the AWS Marketplace Metering Service.`** |
+| Error code         | Error message                                                                                                                                                                                                                                                            |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| MISSING\_DATA      | **`No data provided to perform an update. Provide data for at<br>least 1 dimension.`**                                                                                                                                                                                   |
+| INVALID\_DIMENSION | **`Provide no more than 200 dimensions.`**                                                                                                                                                                                                                               |
+| INVALID\_DIMENSION | **`Can't add duplicate dimensions.`**                                                                                                                                                                                                                                    |
+| INVALID\_DIMENSION | **`Dimension can't be added in current state '%s'. States<br>that support dimension updates are %s.`**                                                                                                                                                                   |
+| INVALID\_DIMENSION | **`Can't add dimension. The field '%s' has duplicate values<br>'%s' in other dimensions.`**                                                                                                                                                                              |
+| INVALID\_DIMENSION | **`Provide non-empty fields (Key, Unit, Name, Types) for each<br>dimension.`**                                                                                                                                                                                           |
+| IINVALID\_TYPE     | **`Remove invalid type '%s'. Valid types are ["Metered",<br>"Entitled", "ExternallyMetered"].`**                                                                                                                                                                         |
+| INVALID\_UNIT      | **`Remove invalid Unit '%s'. Valid units are ["GB", "Gbps",<br>"HostHrs", "Hosts", "MB", "Mbps", "Requests", "TaskHrs", "TB",<br>"TierHrs", "UnitHrs", "Units", "UserHrs",<br>"Users"].`**                                                                               |
+| INVALID\_INPUT     | **`Inappropriate content '%s' found in %s field. Provide %s<br>with no inappropriate content.`**                                                                                                                                                                         |
+| INVALID\_INPUT     | **`Invalid '%s' field. Remove spaces before trademark<br>symbol.`**                                                                                                                                                                                                      |
+| INVALID\_INPUT     | **`Invalid '%s' field. Remove unsupported characters<br>%s.`**                                                                                                                                                                                                           |
+| INVALID\_DIMENSION | **`Remove invalid dimension type combination %s. Allowed<br>values are %s.`**                                                                                                                                                                                            |
+| INVALID\_DIMENSION | **`Remove invalid dimension key '%s' for Metered<br>dimension.`**                                                                                                                                                                                                        |
+| INVALID\_DIMENSION | **`Dimension named '%s' for productCode '%s' did not pass<br>AWS Marketplace Metering Service validation %s.`**                                                                                                                                                          |
+| INVALID\_DIMENSION | **`Dimension named '%s' for productCode '%s' has no metering<br>record present in Metering Service. The product has either never<br>been launched for testing or is misconfigured and does not make the<br>appropriate calls to the AWS Marketplace Metering Service.`** |
 
 ## Update pricing dimensions
 
@@ -659,7 +659,7 @@ You can use the Catalog API to update existing pricing dimensions of an AMI,
 container, or SaaS product in AWS Marketplace.
 
 Each dimension is uniquely identified by the dimension key and dimension types to
-perform the update. Updating a dimension doesn’t affect any active offer or customers
+perform the update. Updating a dimension doesn't affect any active offer or customers
 that the original dimension had created.
 
 ###### Note
@@ -735,12 +735,12 @@ Use the following fields with the `UpdateDimensions` change type:
       be granted for the dimension during product/offer
       publishing.
 
-    | Valid Pricing Dimension Types Combinations | Pricing Dimension Type                                                                                                                                                                                                                                                                                                                                                      | Product |
-    | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-    | [`Metered`]                                | AMI                                                                                                                                                                                                                                                                                                                                                                         |
-    | [`ExternallyMetered`]                      | SaaS, AMI/Flexible Consumption Pricing<br>(FCP)When `ExternallyMetered`<br>appears, **Metered**<br>is masked/inferred.                                                                                                                                                                                                                                                      |
-    | [`Entitled`]                               | SaaS Contracts, ProServe Products The<br>`Entitled` tag grants rights to use a<br>software/service set start and end dates for the<br>usage. Also, to grant rights to have usage<br>discount for AMI annual products. Each entitlement<br>is identified by a \*_Dimension<br>Key_<br>• in AWS Marketplace Entitlement Service for creating or<br>updating the entitlements. |
-    | [`ExternallyMetered, Entitled`]            | Contracts with Consumption Pricing, where<br>dimensions can be prepaid or metered are a<br>combination of both<br>[`ExternallyMetered`] and<br>[`Entitled`].                                                                                                                                                                                                                |
+    Valid Pricing Dimension Types Combinations| Pricing Dimension Type | Product |
+    | --- | --- |
+    | [`Metered`] | AMI |
+    | [`ExternallyMetered`] | SaaS, AMI/Flexible Consumption Pricing<br>(FCP)When `ExternallyMetered`<br>appears, **Metered**<br>is masked/inferred. |
+    | [`Entitled`] | SaaS Contracts, ProServe Products The<br>`Entitled` tag grants rights to use a<br>software/service set start and end dates for the<br>usage. Also, to grant rights to have usage<br>discount for AMI annual products. Each entitlement<br>is identified by a *_Dimension<br>Key_<br>• in AWS Marketplace Entitlement Service for creating or<br>updating the entitlements. |
+    | [`ExternallyMetered, Entitled`] | Contracts with Consumption Pricing, where<br>dimensions can be prepaid or metered are a<br>combination of both<br>[`ExternallyMetered`] and<br>[`Entitled`]. |
 
   - `Description` (string) (optional – Full description
     of the dimension that will be the long description on the buyer's
@@ -781,7 +781,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following schema validations are specific to `UpdateDimensions` actions
 in the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following requirements,
+`StartChangeSet`. If the request doesn't meet the following requirements,
 it will fail with an HTTP response.
 
 | Input field | Validation rule                                                                                 | HTTP code |
@@ -798,16 +798,16 @@ AWS Marketplace Catalog API. These errors are returned when you call `DescribeCh
 a change set is processing. For more information about using
 `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code        | Error message                                                                                             |
-| ----------------- | --------------------------------------------------------------------------------------------------------- |
-| INVALID_INPUT     | **`Invalid '%s' field. Remove spaces before trademark<br>symbol.`**                                       |
-| INVALID_INPUT     | **`Invalid '%s' field. Remove unsupported characters<br>%s.`**                                            |
-| INVALID_DIMENSION | **`Provide non-empty fields (`Key`,<br>`Types`, `Name` and/or<br>`Description`) for each<br>dimension.`** |
-| INVALID_DIMENSION | **`Cannot update dimension. The field `Name` has<br>duplicate values '%s' in other dimensions.`**         |
-| INVALID_DIMENSION | **`Cannot update same dimension with key '%s' and types '%s'<br>multiple times in the same request.`**    |
-| INVALID_DIMENSION | **`Cannot restrict dimension. The dimension key '%s' with<br>types '%s' does not exist.`**                |
-| INVALID_DIMENSION | **`Cannot update dimension. The dimension key '%s' is<br>`Metered`.`**                                    |
-| INVALID_DIMENSION | **`Dimension cannot be updated for an already restricted<br>dimension.`**                                 |
+| Error code         | Error message                                                                                             |
+| ------------------ | --------------------------------------------------------------------------------------------------------- |
+| INVALID\_INPUT     | **`Invalid '%s' field. Remove spaces before trademark<br>symbol.`**                                       |
+| INVALID\_INPUT     | **`Invalid '%s' field. Remove unsupported characters<br>%s.`**                                            |
+| INVALID\_DIMENSION | **`Provide non-empty fields (`Key`,<br>`Types`, `Name` and/or<br>`Description`) for each<br>dimension.`** |
+| INVALID\_DIMENSION | **`Cannot update dimension. The field `Name` has<br>duplicate values '%s' in other dimensions.`**         |
+| INVALID\_DIMENSION | **`Cannot update same dimension with key '%s' and types '%s'<br>multiple times in the same request.`**    |
+| INVALID\_DIMENSION | **`Cannot restrict dimension. The dimension key '%s' with<br>types '%s' does not exist.`**                |
+| INVALID\_DIMENSION | **`Cannot update dimension. The dimension key '%s' is<br>`Metered`.`**                                    |
+| INVALID\_DIMENSION | **`Dimension cannot be updated for an already restricted<br>dimension.`**                                 |
 
 ## Restrict pricing dimensions
 
@@ -815,7 +815,7 @@ You can use the Catalog API to restrict existing pricing dimensions of an AMI or
 product in AWS Marketplace.
 
 Each dimension is uniquely identified by the dimension key and dimension types to
-perform the update. Restricting a dimension doesn’t affect any active offer or customers
+perform the update. Restricting a dimension doesn't affect any active offer or customers
 that the original dimension had created.
 
 To restrict pricing dimensions, call the `StartChangeSet` API with the
@@ -929,7 +929,7 @@ You can check the status of the request through the AWS Marketplace Management P
 
 The following schema validations are specific to `RestrictDimensions`
 actions in the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following requirements,
+`StartChangeSet`. If the request doesn't meet the following requirements,
 it will fail with an HTTP response.
 
 | Input field | Validation rule                                                                                 | HTTP code |
@@ -946,20 +946,20 @@ AWS Marketplace Catalog API. These errors are returned when you call `DescribeCh
 a change set is processing. For more information about using
 `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code        | Error message                                                                                                                                                                                        |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INVALID_INPUT     | **`Invalid '%s' field. Remove spaces before trademark<br>symbol.`**                                                                                                                                  |
-| INVALID_INPUT     | **`Invalid '%s' field. Remove unsupported characters<br>%s.`**                                                                                                                                       |
-| INVALID_DIMENSION | **`The dimension key '%s' with types '%s' was already<br>restricted`**                                                                                                                               |
-| INVALID_DIMENSION | **`Cannot restrict dimension. The dimension key '%s' with<br>types '%s' does not exist`**                                                                                                            |
-| INVALID_DIMENSION | **`Cannot restrict duplicate dimensions.`**                                                                                                                                                          |
-| INVALID_DIMENSION | **`All Entitled dimensions cannot be restricted. There must<br>be at least one active Entitled dimension.`**                                                                                         |
-| INVALID_DIMENSION | **`The dimension key '%s' with types '%s' is associated with<br>another dimension of different types '%s'. Both dimensions of the<br>same key must be restricted at the same time to be<br>valid.`** |
+| Error code         | Error message                                                                                                                                                                                        |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| INVALID\_INPUT     | **`Invalid '%s' field. Remove spaces before trademark<br>symbol.`**                                                                                                                                  |
+| INVALID\_INPUT     | **`Invalid '%s' field. Remove unsupported characters<br>%s.`**                                                                                                                                       |
+| INVALID\_DIMENSION | **`The dimension key '%s' with types '%s' was already<br>restricted`**                                                                                                                               |
+| INVALID\_DIMENSION | **`Cannot restrict dimension. The dimension key '%s' with<br>types '%s' does not exist`**                                                                                                            |
+| INVALID\_DIMENSION | **`Cannot restrict duplicate dimensions.`**                                                                                                                                                          |
+| INVALID\_DIMENSION | **`All Entitled dimensions cannot be restricted. There must<br>be at least one active Entitled dimension.`**                                                                                         |
+| INVALID\_DIMENSION | **`The dimension key '%s' with types '%s' is associated with<br>another dimension of different types '%s'. Both dimensions of the<br>same key must be restricted at the same time to be<br>valid.`** |
 
 ## Update targeting configuration
 
 You can use the Catalog API to add AWS account IDs that are allowed to view the AMI,
-container, ML, or SaaS product in AWS Marketplace before it’s moved to a `Public` state
+container, ML, or SaaS product in AWS Marketplace before it's moved to a `Public` state
 by calling the `UpdateTargeting` change type.
 
 Managed Catalog Operations (MCO) accounts are automatically added to the allowed
@@ -1069,7 +1069,7 @@ new `ProductId` is generated.
 
 The following schema validations are specific to `UpdateTargeting` actions
 in the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following requirements,
+`StartChangeSet`. If the request doesn't meet the following requirements,
 it will fail with an HTTP response.
 
 | Type of targeting | Valid current visibility states | BuyerAccounts (input)                                                        | Check                                                                                                           |
@@ -1083,11 +1083,11 @@ AWS Marketplace Catalog API. These errors are returned when you call `DescribeCh
 a change set is processing. For more information about using
 `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                 | Error message                                                                                                                                                                                             |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INVALID_PRODUCT_VISIBILITY | **`Use an existing Public, `Limited` or<br>`Draft` product.`**                                                                                                                                            |
-| INVALID_AWS_ACCOUNT_IDS    | **`Provide valid AWS account IDs. AWS accounts not found:<br>[x, y, z].`**                                                                                                                                |
-| ValidationException        | **`Professional services products do not have allowlists. Unlike other product types, professional services products in the limited state can be extended to any buyer without requiring an allowlist.`** |
+| Error code                   | Error message                                                                                                                                                                                             |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| INVALID\_PRODUCT\_VISIBILITY | **`Use an existing Public, `Limited` or<br>`Draft` product.`**                                                                                                                                            |
+| INVALID\_AWS\_ACCOUNT\_IDS   | **`Provide valid AWS account IDs. AWS accounts not found:<br>[x, y, z].`**                                                                                                                                |
+| ValidationException          | **`Professional services products do not have allowlists. Unlike other product types, professional services products in the limited state can be extended to any buyer without requiring an allowlist.`** |
 
 ## Update product visibility
 
@@ -1123,7 +1123,7 @@ product.
 
 `Restricted`
 
-The product is no longer visible to the public and doesn’t accept new
+The product is no longer visible to the public and doesn't accept new
 subscribers. Existing subscribers can continue using this product until
 their subscription expires.
 
@@ -1214,21 +1214,21 @@ type.
   - - `TargetVisibility` – The intended new
       visibility of the product.
 
-    Possible values: `Public`, `Limited`,
-    and `Restricted`
-    - `ReplacementProductId` (string) (optional) –
-      Replacement product ID for the product to be
-      `Restricted`. Used to notify current subscribers
-      about the product restriction.
+      Possible values: `Public`, `Limited`,
+      and `Restricted`
+      - `ReplacementProductId` (string) (optional) –
+        Replacement product ID for the product to be
+        `Restricted`. Used to notify current subscribers
+        about the product restriction.
 
-    Only accepts `Restricted` for
-    `TargetVisibility`.
+      Only accepts `Restricted` for
+      `TargetVisibility`.
 
 **Synchronous Validations**
 
 The following schema validations are specific to `UpdateVisibility` actions
 in the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following requirements,
+`StartChangeSet`. If the request doesn't meet the following requirements,
 it will fail with an HTTP response.
 
 | Type of targeting | Valid current states       | ReplacementProductId (input) | Validation checks                                                               |
@@ -1273,15 +1273,15 @@ AWS Marketplace Catalog API. These errors are returned when you call `DescribeCh
 a change set is processing. For more information about using
 `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                         | Error message                                                                                          |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| INVALID_PRODUCT_STATE              | **`Use an existing `Public`, `Limited`,<br>or `Restricted` product.`**                                 |
-| INVALID_TARGET_VISIBILITY          | **`Provide a valid target visibility state:<br>`Public`, `Limited`, or<br>`Restricted`.`**             |
-| EMPTY_TARGET_VISIBILITY            | **`Provide a valid target visibility state:<br>`Public`, `Limited`, or<br>`Restricted`.`**             |
-| INVALID_REPLACEMENT_PRODUCT_ID     | **`Use an existing `Public` or<br>`Limited` product as replacement.`**                                 |
-| INVALID_REPLACEMENT_PRODUCT_ID     | **`Replacement product ID is only valid when restricting a<br>product.`**                              |
-| AUDIT_ERROR                        | **`Varies based on MCO manual review.`**                                                               |
-| MISSING_SELLER_PROFILE_INFORMATION | Before you can update your product to Public, you must add a public<br>profile to your seller account. |
+| Error code                            | Error message                                                                                          |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| INVALID\_PRODUCT\_STATE               | **`Use an existing `Public`, `Limited`,<br>or `Restricted` product.`**                                 |
+| INVALID\_TARGET\_VISIBILITY           | **`Provide a valid target visibility state:<br>`Public`, `Limited`, or<br>`Restricted`.`**             |
+| EMPTY\_TARGET\_VISIBILITY             | **`Provide a valid target visibility state:<br>`Public`, `Limited`, or<br>`Restricted`.`**             |
+| INVALID\_REPLACEMENT\_PRODUCT\_ID     | **`Use an existing `Public` or<br>`Limited` product as replacement.`**                                 |
+| INVALID\_REPLACEMENT\_PRODUCT\_ID     | **`Replacement product ID is only valid when restricting a<br>product.`**                              |
+| AUDIT\_ERROR                          | **`Varies based on MCO manual review.`**                                                               |
+| MISSING\_SELLER\_PROFILE\_INFORMATION | Before you can update your product to Public, you must add a public<br>profile to your seller account. |
 
 ## Publish a product
 
@@ -1369,12 +1369,12 @@ AWS Marketplace Catalog API. These errors are returned when you call `DescribeCh
 a change set is processing. For more information about using
 `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code        | Error message                          |
-| ----------------- | -------------------------------------- | -------------------- | --------------------------------------- |
-| VALIDATION_FAILED | **`Provide Description information.`** |
-| VALIDATION_FAILED | **`Provide Versions information.`**    |
-| VALIDATION_FAILED | **`Provide Dimensions information.`**  |
-| VALIDATION_FAILED | \*\*`Provide<br>Description            | PromotionalResources | SupportInformation<br>information.`\*\* |
+| Error code         | Error message                          |
+| ------------------ | -------------------------------------- |
+| VALIDATION\_FAILED | **`Provide Description information.`** |
+| VALIDATION\_FAILED | **`Provide Versions information.`**    |
+| VALIDATION\_FAILED | **`Provide Dimensions information.`**  |
+| VALIDATION\_FAILED | **`Provide<br>Description              | PromotionalResources | SupportInformation<br>information.`** |
 
 ## Find your product ID
 

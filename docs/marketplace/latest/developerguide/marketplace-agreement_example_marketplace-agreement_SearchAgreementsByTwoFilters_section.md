@@ -15,9 +15,7 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 repository.
 
 ```
-// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-// SPDX-License-Identifier: Apache-2.0
-package com.example.awsmarketplace.agreementapi;
+package com.example.awsmarketplace.agreementapi.seller;
 
 import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
@@ -37,29 +35,8 @@ import static com.example.awsmarketplace.utils.ReferenceCodesConstants.*;
 import com.example.awsmarketplace.utils.ReferenceCodesUtils;
 
 /**
- * Party Type = Proposer AND Acceptor:
- * 	AfterEndTime
- * 	BeforeEndTime
- * 	ResourceIdentifier + BeforeEndTime
- * 	ResourceIdentifier + AfterEndTime
- * 	ResourceType + BeforeEndTime
- * 	ResourceType + AfterEndTime
- *
- * Party Type = Proposer
- * 	ResourceIdentifier
- * 	OfferId
- * 	AcceptorAccountId
- * 	Status (ACTIVE)
- * 	Status (ACTIVE) + ResourceIdentifier
- * 	Status (ACTIVE) + AcceptorAccountId
- * 	Status (ACTIVE) + OfferId
- * 	Status (ACTIVE) + ResourceType
- * 	AcceptorAccountId + BeforeEndTime
- * 	AcceptorAccountId + AfterEndTime
- * 	AcceptorAccountId + AfterEndTime
- * 	OfferId + BeforeEndTime
- *
- * Status values can be: ACTIVE, CANCELLED, EXPIRED, RENEWED, REPLACED, ROLLED_BACK, SUPERSEDED, TERMINATED
+ * All filter combinations we support for Proposer and Acceptor:
+ * https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-agreements_SearchAgreements.html
  */
 
 public class SearchAgreementsByTwoFilters {
@@ -90,6 +67,8 @@ public class SearchAgreementsByTwoFilters {
 				.credentialsProvider(ProfileCredentialsProvider.create())
 				.build();
 
+		// Set PartyType filter to PARTY_TYPE_FILTER_VALUE_PROPOSER to return agreements where you are the proposer.
+		// Change to PARTY_TYPE_FILTER_VALUE_ACCEPTOR to return agreements where you are the acceptor.
 		Filter partyTypeFilter = Filter.builder().name(PARTY_TYPE_FILTER_NAME)
 				.values(PARTY_TYPE_FILTER_VALUE_PROPOSER).build();
 

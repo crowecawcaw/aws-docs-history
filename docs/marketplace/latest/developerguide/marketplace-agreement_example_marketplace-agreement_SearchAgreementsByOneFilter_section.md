@@ -15,9 +15,7 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 repository.
 
 ```
-// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-// SPDX-License-Identifier: Apache-2.0
-package com.example.awsmarketplace.agreementapi;
+package com.example.awsmarketplace.agreementapi.seller;
 
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.http.apache.ApacheHttpClient;
@@ -36,13 +34,8 @@ import java.util.List;
 import com.example.awsmarketplace.utils.ReferenceCodesUtils;
 
 /**
- * To search by
- * offer id: OfferId;
- * product id: ResourceIdentifier;
- * customer AWS account id: AcceptorAccountId
- * product type: ResourceType (i.e. SaasProduct)
- * status: Status. status values can be: ACTIVE, CANCELED,
- * 		EXPIRED, RENEWED, REPLACED, ROLLED_BACK, SUPERSEDED, TERMINATED
+ * All filter combinations we support for Proposer and Acceptor:
+ * https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-agreements_SearchAgreements.html
  */
 
 public class SearchAgreementsByOneFilter {
@@ -68,6 +61,8 @@ public class SearchAgreementsByOneFilter {
 				.credentialsProvider(ProfileCredentialsProvider.create())
 				.build();
 
+		// Set PartyType filter to PARTY_TYPE_FILTER_VALUE_PROPOSER to return agreements where you are the proposer.
+		// Change to PARTY_TYPE_FILTER_VALUE_ACCEPTOR to return agreements where you are the acceptor.
 		Filter partyTypeFilter = Filter.builder().name(PARTY_TYPE_FILTER_NAME)
 				.values(PARTY_TYPE_FILTER_VALUE_PROPOSER).build();
 

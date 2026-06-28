@@ -15,9 +15,7 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 repository.
 
 ```
-// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-// SPDX-License-Identifier: Apache-2.0
-package com.example.awsmarketplace.agreementapi;
+package com.example.awsmarketplace.agreementapi.seller;
 
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.http.apache.ApacheHttpClient;
@@ -38,7 +36,7 @@ import com.example.awsmarketplace.utils.ReferenceCodesUtils;
 public class GetAllAgreements {
 
 	/*
-	 * Get all purchase agreements with party type = proposer;
+	 * Get all purchase agreements for your PartyType (Proposer, or Acceptor)
 	 * Depend on the number of agreements in your account, this code may take some time to finish.
 	 */
 	public static void main(String[] args) {
@@ -55,10 +53,10 @@ public class GetAllAgreements {
 				.credentialsProvider(ProfileCredentialsProvider.create())
 				.build();
 
-		// get all filters
-
+        // Set PartyType filter to PARTY_TYPE_FILTER_VALUE_ACCEPTOR to return agreements where you are the acceptor.
+        // Change to PARTY_TYPE_FILTER_VALUE_PROPOSER to return agreements where you are the proposer.
 		Filter partyType = Filter.builder().name(PARTY_TYPE_FILTER_NAME)
-				.values(PARTY_TYPE_FILTER_VALUE_PROPOSER).build();
+				.values(PARTY_TYPE_FILTER_VALUE_ACCEPTOR).build();
 
 		Filter agreementType = Filter.builder().name(AGREEMENT_TYPE_FILTER_NAME)
 				.values(AGREEMENT_TYPE_FILTER_VALUE_PURCHASEAGREEMENT).build();
@@ -124,6 +122,11 @@ AG-01
 import logging
 
 import boto3
+import sys
+import os
+
+sys.path.append(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+
 import utils.helpers as helper
 from botocore.exceptions import ClientError
 
@@ -133,7 +136,7 @@ logger = logging.getLogger(__name__)
 
 MAX_PAGE_RESULTS = 10
 
-party_type_list = ["Proposer"]
+party_type_list = ["Acceptor"]
 agreement_type_list = ["PurchaseAgreement"]
 
 filter_list = [

@@ -204,8 +204,8 @@ change type:
               utilizing the protocol with the endpoint. Maximum
               30,000 characters.
 
-\***\*Response
-Syntax\*\***
+****Response
+Syntax****
 
 A change set is created for your request. The response to this request gives you
 the ID for the change set and looks like the following.
@@ -223,15 +223,15 @@ the ID for the change set and looks like the following.
 
 | Error condition                | Message                                                                                                                              | HTTP code |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| Invalid API Type               | You provided an invalid API type. Valid values are:<br>MCP_SERVER, KNOWLEDGE_BASE, AGENT, GUARDRAIL, OTHER.                          | 422       |
+| Invalid API Type               | You provided an invalid API type. Valid values are:<br>MCP\_SERVER, KNOWLEDGE\_BASE, AGENT, GUARDRAIL, OTHER.                        | 422       |
 | Invalid Fulfillment Url        | Provide a valid fulfillment URL beginning with<br>"https://".                                                                        | 422       |
 | Missing Required Fields        | Required parameter is missing. You must provide ApiType,<br>QuickLaunchEnabled, FulfillmentUrl, UsageInstructions, and<br>Endpoints. | 422       |
 | Invalid Endpoint URL           | Provide a valid endpoint URL beginning with "https://".                                                                              | 422       |
-| Missing Authorization Types    | You must provide at least one authorization type. Valid values<br>are: API_KEY, OAUTH2.                                              | 422       |
-| Invalid Authorization Types    | You provided invalid authorization types. Valid values are:<br>API_KEY, OAUTH2.                                                      | 422       |
+| Missing Authorization Types    | You must provide at least one authorization type. Valid values<br>are: API\_KEY, OAUTH2.                                             | 422       |
+| Invalid Authorization Types    | You provided invalid authorization types. Valid values are:<br>API\_KEY, OAUTH2.                                                     | 422       |
 | Too Many Endpoints             | You cannot provide more than 1 endpoint for API delivery<br>options.                                                                 | 422       |
 | Invalid Compatible Services    | You provided invalid compatible services. Valid values are:<br>Bedrock-AgentCore.                                                    | 422       |
-| Invalid Schema Type            | You provided an invalid schema type. Valid value is:<br>OPEN_API.                                                                    | 422       |
+| Invalid Schema Type            | You provided an invalid schema type. Valid value is:<br>OPEN\_API.                                                                   | 422       |
 | Invalid Schema URL             | Provide a valid schema URL that points to a Marketplace owned<br>S3 bucket.                                                          | 422       |
 | Invalid Integration Protocol   | You provided an invalid integration protocol type. Valid<br>values are: MCP, A2A.                                                    | 422       |
 | Too Many Integration Protocols | You cannot provide more than 2 integration protocols.                                                                                | 422       |
@@ -239,12 +239,12 @@ the ID for the change set and looks like the following.
 
 **Asynchronous Errors**
 
-| Error code                 | Error message                                                                                                                                                                                                            |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| DUPLICATE_DELIVERY_OPTIONS | You provided one or more delivery option types that already<br>exist for this product. Provide a unique delivery option type or<br>use `UpdateDeliveryOptions` if you intended to change<br>an existing delivery option. |
-| INVALID_FULFILLMENT_URL    | The URL you provided returned HTTP status code [x]. Provide a<br>fulfillment URL that renders with a 200.                                                                                                                |
-| INVALID_ENDPOINT_URL       | The URL you provided returned HTTP status code [x]. Provide an<br>endpoint URL that renders with a 200.                                                                                                                  |
-| INVALID_SCHEMA_URL         | The schema URL you provided is invalid or inaccessible.<br>Provide a valid schema URL that points to an Amazon S3 bucket owned<br>by AWS Marketplace.                                                                    |
+| Error code                   | Error message                                                                                                                                                                                                            |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| DUPLICATE\_DELIVERY\_OPTIONS | You provided one or more delivery option types that already<br>exist for this product. Provide a unique delivery option type or<br>use `UpdateDeliveryOptions` if you intended to change<br>an existing delivery option. |
+| INVALID\_FULFILLMENT\_URL    | The URL you provided returned HTTP status code [x]. Provide a<br>fulfillment URL that renders with a 200.                                                                                                                |
+| INVALID\_ENDPOINT\_URL       | The URL you provided returned HTTP status code [x]. Provide an<br>endpoint URL that renders with a 200.                                                                                                                  |
+| INVALID\_SCHEMA\_URL         | The schema URL you provided is invalid or inaccessible.<br>Provide a valid schema URL that points to an Amazon S3 bucket owned<br>by AWS Marketplace.                                                                    |
 
 ### Update delivery options
 
@@ -445,13 +445,13 @@ action.
 
 **Asynchronous Errors**
 
-| Error code                  | Error message                                                                                                                                                         |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INVALID_DELIVERY_OPTION_IDS | **`Provide delivery option IDs that can be found in the<br>product. IDs not found: [x]`**                                                                             |
-| AUDIT_ERROR                 | **`AWS MP Catalog Audits List<br>• CQ<br>team`**                                                                                                                      |
-| INVALID_FULFILLMENT_URL     | **`The URL you provided returned HTTP status code [x].<br>Provide a fulfillment URL that renders with a<br>200.`**                                                    |
-| INVALID_LAUNCH_URL          | **`The URL you provided returned HTTP status code [x].<br>Provide a launch URL that renders with a<br>200.`**                                                         |
-| INVALID_TEMPLATE_URL        | **`Quick Start URL is invalid. Provide deployment<br>template URL that is published through AWS QuickStarts to<br>Amazon S3. Invalid deployment templates URL: [x]`** |
+| Error code                     | Error message                                                                                                                                                         |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| INVALID\_DELIVERY\_OPTION\_IDS | **`Provide delivery option IDs that can be found in the<br>product. IDs not found: [x]`**                                                                             |
+| AUDIT\_ERROR                   | **`AWS MP Catalog Audits List<br>• CQ<br>team`**                                                                                                                      |
+| INVALID\_FULFILLMENT\_URL      | **`The URL you provided returned HTTP status code [x].<br>Provide a fulfillment URL that renders with a<br>200.`**                                                    |
+| INVALID\_LAUNCH\_URL           | **`The URL you provided returned HTTP status code [x].<br>Provide a launch URL that renders with a<br>200.`**                                                         |
+| INVALID\_TEMPLATE\_URL         | **`Quick Start URL is invalid. Provide deployment<br>template URL that is published through AWS QuickStarts to<br>Amazon S3. Invalid deployment templates URL: [x]`** |
 
 ### Update delivery option visibility
 
@@ -589,12 +589,12 @@ request through the AWS Marketplace Management Portal, or in the Catalog API wit
 
 **Asynchronous Errors**
 
-| Error code                  | Error message                                                                                                                              |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| INVALID_DELIVERY_OPTION_IDS | **`You provided invalid delivery option details. Provide<br>delivery option IDs that can be found in the product. IDs not<br>found: [x]`** |
-| INVALID_VISIBILITY          | **`You provided more than one delivery option for the<br>public state. Provide only one public delivery<br>option.`**                      |
-| INVALID_VISIBILITY          | **`You didn't provide a public delivery option. Provide<br>one public delivery option.`**                                                  |
-| AUDIT_ERROR                 | **`Varies based on MCO manual review.`**                                                                                                   |
+| Error code                     | Error message                                                                                                                              |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| INVALID\_DELIVERY\_OPTION\_IDS | **`You provided invalid delivery option details. Provide<br>delivery option IDs that can be found in the product. IDs not<br>found: [x]`** |
+| INVALID\_VISIBILITY            | **`You provided more than one delivery option for the<br>public state. Provide only one public delivery<br>option.`**                      |
+| INVALID\_VISIBILITY            | **`You didn't provide a public delivery option. Provide<br>one public delivery option.`**                                                  |
+| AUDIT\_ERROR                   | **`Varies based on MCO manual review.`**                                                                                                   |
 
 ## SaaSUrlDeliveryOption
 
@@ -677,13 +677,13 @@ change type:
           – The URL to be updated for the SaaS
           product.
         - `LaunchUrl` (string) – The URL to
-          your SaaS product’s landing page. This is required
+          your SaaS product's landing page. This is required
           if `QuickLaunchEnabled` is set to
           `True`.
         - `UsageInstructions` (string) –
           Instructions for using this delivery option.
           Include documentation for manual steps for
-          customers who won’t use
+          customers who won't use
           `DeploymentTemplates`.
         - `DeploymentTemplates` (array) –
           Deployment templates that customers can use to set
@@ -750,13 +750,13 @@ action.
 
 **Asynchronous Errors**
 
-| Error code                  | Error message                                                                                                                                                         |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INVALID_DELIVERY_OPTION_IDS | **`Provide delivery option IDs that can be found in the<br>product. IDs not found: [x]`**                                                                             |
-| AUDIT_ERROR                 | **`AWS MP Catalog Audits List<br>• CQ<br>team`**                                                                                                                      |
-| INVALID_FULFILLMENT_URL     | **`The URL you provided returned HTTP status code [x].<br>Provide a fulfillment URL that renders with a<br>200.`**                                                    |
-| INVALID_LAUNCH_URL          | **`The URL you provided returned HTTP status code [x].<br>Provide a launch URL that renders with a<br>200.`**                                                         |
-| INVALID_TEMPLATE_URL        | **`Quick Start URL is invalid. Provide deployment<br>template URL that is published through AWS QuickStarts to<br>Amazon S3. Invalid deployment templates URL: [x]`** |
+| Error code                     | Error message                                                                                                                                                         |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| INVALID\_DELIVERY\_OPTION\_IDS | **`Provide delivery option IDs that can be found in the<br>product. IDs not found: [x]`**                                                                             |
+| AUDIT\_ERROR                   | **`AWS MP Catalog Audits List<br>• CQ<br>team`**                                                                                                                      |
+| INVALID\_FULFILLMENT\_URL      | **`The URL you provided returned HTTP status code [x].<br>Provide a fulfillment URL that renders with a<br>200.`**                                                    |
+| INVALID\_LAUNCH\_URL           | **`The URL you provided returned HTTP status code [x].<br>Provide a launch URL that renders with a<br>200.`**                                                         |
+| INVALID\_TEMPLATE\_URL         | **`Quick Start URL is invalid. Provide deployment<br>template URL that is published through AWS QuickStarts to<br>Amazon S3. Invalid deployment templates URL: [x]`** |
 
 ### Update delivery option visibility
 
@@ -895,9 +895,9 @@ request through the AWS Marketplace Management Portal, or in the Catalog API wit
 
 **Asynchronous Errors**
 
-| Error code                  | Error message                                                                                                                              |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| INVALID_DELIVERY_OPTION_IDS | **`You provided invalid delivery option details. Provide<br>delivery option IDs that can be found in the product. IDs not<br>found: [x]`** |
-| INVALID_VISIBILITY          | **`You provided more than one delivery option for the<br>public state. Provide only one public delivery<br>option.`**                      |
-| INVALID_VISIBILITY          | **`You didn't provide a public delivery option. Provide<br>one public delivery option.`**                                                  |
-| AUDIT_ERROR                 | **`Varies based on MCO manual review.`**                                                                                                   |
+| Error code                     | Error message                                                                                                                              |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| INVALID\_DELIVERY\_OPTION\_IDS | **`You provided invalid delivery option details. Provide<br>delivery option IDs that can be found in the product. IDs not<br>found: [x]`** |
+| INVALID\_VISIBILITY            | **`You provided more than one delivery option for the<br>public state. Provide only one public delivery<br>option.`**                      |
+| INVALID\_VISIBILITY            | **`You didn't provide a public delivery option. Provide<br>one public delivery option.`**                                                  |
+| AUDIT\_ERROR                   | **`Varies based on MCO manual review.`**                                                                                                   |

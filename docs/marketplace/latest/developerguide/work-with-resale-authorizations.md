@@ -52,7 +52,7 @@ There are two types of rules in a Resale Authorization:
 
 To use Resale Authorization, both independent software vendors (ISVs) and AWS Marketplace
 Channel Partners must create a service-linked role that provides resource-sharing
-permissions to AWS. If both groups don’t perform this prerequisite, AWS can’t
+permissions to AWS. If both groups don't perform this prerequisite, AWS can't
 share the authorization resource from the ISV to the AWS Marketplace Channel Partner. For more
 information, see [Using roles for Resale Authorization for AWS Marketplace](../userguide/using-roles-for-resale-authorization.md "../userguide/using-roles-for-resale-authorization.md") in the _AWS Marketplace
 Seller Guide_.
@@ -62,7 +62,7 @@ Seller Guide_.
 You can use the Catalog API to create a new Resale Authorization in AWS Marketplace.
 
 If your request is processed successfully, AWS Marketplace Catalog API generates a Resale
-Authorization in `Draft` state for you. It’s an incomplete Resale
+Authorization in `Draft` state for you. It's an incomplete Resale
 Authorization and not visible to channel partners in AWS Marketplace.
 
 Use the `Update` change types to complete the Resale Authorization.
@@ -130,7 +130,7 @@ Provide information for the input fields to add the
     – A free-form text field available to add details about the
     ResaleAuthorization.
   - **ResellerAccountId** (string)
-    (required) – Add targeted channel partner’s AWS account who
+    (required) – Add targeted channel partner's AWS account who
     can describe and use this `ResaleAuthorization` to create
     a private offer.
 
@@ -197,7 +197,7 @@ The following shows the response from the [DescribeChangeSet](../../../marketpla
 
 The schema validations are specific to `CreateResaleAuthorization`
 actions in the AWS Marketplace Catalog API. The validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following
+`StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field         | Validation rule                                                                                                       | HTTP code |
@@ -219,9 +219,9 @@ actions in the AWS Marketplace Catalog API. These errors are returned when you c
 information about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code               | Error message                           |
-| ------------------------ | --------------------------------------- |
-| INVALID_RESELLER_ACCOUNT | **`Provide a valid reseller account.`** |
+| Error code                 | Error message                           |
+| -------------------------- | --------------------------------------- |
+| INVALID\_RESELLER\_ACCOUNT | **`Provide a valid reseller account.`** |
 
 ## Update buyer targeting
 
@@ -306,14 +306,14 @@ Provide information for the fields to add the
         updated.
       - **PositiveTargeting**
         (object) (required) – Defines the criteria
-        that any buyer’s profile should fulfill to be
+        that any buyer's profile should fulfill to be
         allowed access to the
         `ResaleAuthorization`.
 
         - **BuyerAccounts** (array of strings)
           (optional) – List as optional. You can add
-          the targeted buyer’s AWS accounts. If the
-          intention isn’t to target
+          the targeted buyer's AWS accounts. If the
+          intention isn't to target
           `ResaleAuthorization` to specific
           buyers, then this field should be omitted. By
           default, all buyers are targeted. Targeted channel
@@ -345,7 +345,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The schema validations are specific to `UpdateBuyerTargetingTerms`
 actions in the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following
+`StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field                                        | Validation rule                                                                                                                                                                     |
@@ -363,9 +363,9 @@ actions in the AWS Marketplace Catalog API. These errors are returned when you c
 information about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                   | Error message                                                                                                  |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| INCOMPATIBLE_BUYER_TARGETING | **`At least one Buyer account must be present for<br>ResaleAuthorization with<br>PreExistingBuyerAgreement.`** |
+| Error code                     | Error message                                                                                                  |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| INCOMPATIBLE\_BUYER\_TARGETING | **`At least one Buyer account must be present for<br>ResaleAuthorization with<br>PreExistingBuyerAgreement.`** |
 
 ## Update availability
 
@@ -427,10 +427,10 @@ change type:
     leverage the `ResaleAuthorization` to create an offer.
     Channel Partners can use this `ResaleAuthorization`
     multiple times until the specified end date. Dates are represented
-    in ISO_8601 format.
+    in ISO\_8601 format.
   - **OffersMaxQuantity** (integer)
     (optional) – Define the maximum number of private offers that
-    can be created using the ResaleAuthorization. This doesn’t define
+    can be created using the ResaleAuthorization. This doesn't define
     the number of subscriptions.
 
 **Response Syntax**
@@ -458,13 +458,13 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The schema validations are specific to `UpdateAvailability` actions in
 the AWS Marketplace Catalog API. The validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following
+`StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response
 
 | Input field         | Validation rule                                                                                                            |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | OffersMaxQuantity   | Optional<br>Must be non-negative integer<br>Allowed value only "1" (Currently no use case to support<br>multiple quantity) |
-| AvailabilityEndDate | Optional<br>Must be ISO_8601 formatted<br>Must be date in the future                                                       |
+| AvailabilityEndDate | Optional<br>Must be ISO\_8601 formatted<br>Must be date in the future                                                      |
 | Availability        | Provide either OffersMaxQuantity or AvailabilityEndDate.                                                                   |
 | An unknown property | No additional properties are allowed                                                                                       |
 
@@ -476,10 +476,10 @@ the AWS Marketplace Catalog API. These errors are returned when you call
 information about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                    | Error message                                                                                            |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------- |
-| INVALID_AVAILABILITY_END_DATE | **`Provide an AvailabilityEndDate that is before all the<br>ChargeDate in ResalePaymentScheduleTerms.`** |
-| INVALID_AVAILABILITY_END_DATE | **`Provide a future<br>AvailabilityEndDate.`**                                                           |
+| Error code                       | Error message                                                                                            |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| INVALID\_AVAILABILITY\_END\_DATE | **`Provide an AvailabilityEndDate that is before all the<br>ChargeDate in ResalePaymentScheduleTerms.`** |
+| INVALID\_AVAILABILITY\_END\_DATE | **`Provide a future<br>AvailabilityEndDate.`**                                                           |
 
 ## Update the validity of a future dated agreement
 
@@ -557,9 +557,9 @@ Provide information for the input fields to add the
         – Category of term being updated.
       - **MaximumAgreementStartDate** (string)
         (required) – Define the agreement start date
-        for the product offered. Future dated offers can’t
+        for the product offered. Future dated offers can't
         exceed this service start date. Dates are
-        represented in ISO_8601 format.
+        represented in ISO\_8601 format.
 
 **Response Syntax**
 
@@ -586,13 +586,13 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The schema validations are specific to `UpdateBuyerValidityTerms`
 actions in the AWS Marketplace Catalog API. The validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following
+`StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field               | Validation rule                                                                                                                                                                                  |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Terms                     | Required<br>Must not be null or empty<br>Only "BuyerValidityTerm" is allowed in the list<br>List size must be 1 (there’s no use case today that requires<br>multiple service availability terms) |
-| MaximumAgreementStartDate | Required<br>Must not be null or empty<br>Must be future date and shouldn't exceed more than 3 years<br>from now<br>Must be ISO_8601 formatted                                                    |
+| Terms                     | Required<br>Must not be null or empty<br>Only "BuyerValidityTerm" is allowed in the list<br>List size must be 1 (there's no use case today that requires<br>multiple service availability terms) |
+| MaximumAgreementStartDate | Required<br>Must not be null or empty<br>Must be future date and shouldn't exceed more than 3 years<br>from now<br>Must be ISO\_8601 formatted                                                   |
 | An unknown property       | No additional properties are allowed                                                                                                                                                             |
 
 **Asynchronous Errors**
@@ -603,10 +603,10 @@ actions in the AWS Marketplace Catalog API. These errors are returned when you c
 information about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                           | Error message                                                              |
-| ------------------------------------ | -------------------------------------------------------------------------- |
-| INCOMPATIBLE_PRODUCT                 | **`BuyerValidityTerm isn't supported for the<br>product.`**                |
-| INVALID_MAXIMUM_AGREEMENT_START_DATE | **`Provide a future MaximumAgreementStartDate with in<br>allowed limit.`** |
+| Error code                               | Error message                                                              |
+| ---------------------------------------- | -------------------------------------------------------------------------- |
+| INCOMPATIBLE\_PRODUCT                    | **`BuyerValidityTerm isn't supported for the<br>product.`**                |
+| INVALID\_MAXIMUM\_AGREEMENT\_START\_DATE | **`Provide a future MaximumAgreementStartDate with in<br>allowed limit.`** |
 
 ## Update legal resources
 
@@ -711,13 +711,13 @@ type:
         - **StandardEula** – Standard
           Contract for AWS Marketplace. For more information, see
           [SCMP](../userguide/standardized-license-terms.md#standard-contracts "../userguide/standardized-license-terms.md#standard-contracts") in the _AWS Marketplace
-          Seller Guide_. You don’t need to provide
-          a URL for this type because it’s managed by
+          Seller Guide_. You don't need to provide
+          a URL for this type because it's managed by
           AWS Marketplace.
         - **EnterpriseEula** – Enterprise
           Contract for AWS Marketplace. For more information, see DSA
-          in the AWS Marketplace Seller Guide. You don’t need to
-          provide a URL for this type because it’s managed
+          in the AWS Marketplace Seller Guide. You don't need to
+          provide a URL for this type because it's managed
           by AWS Marketplace.
         - **CustomEula**
           – Custom EULA provided by you as a
@@ -732,7 +732,7 @@ type:
 
     - **ResaleLegalTerm** (object)
       (optional) – Defines the list of text agreements to
-      propose only to channel partners. This term won’t be
+      propose only to channel partners. This term won't be
       available to buyers.
 
       - **Type** (string)
@@ -758,7 +758,7 @@ type:
         - **Url**
           (string) (conditionally required) – URL to
           the reseller contract document for channel
-          partners to read. It’s required when the Type is
+          partners to read. It's required when the Type is
           CustomResellerContract.
 
 **Response Syntax**
@@ -785,7 +785,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The schema validations are specific to `UpdateLegalTerms` actions in
 the AWS Marketplace Catalog API. The validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following
+`StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field                              | Validation rule                                                                                                                                   | HTTP code |
@@ -808,11 +808,11 @@ AWS Marketplace Catalog API. These errors are returned when you call `DescribeCh
 after a change set is processing. For more information about using
 `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                     | Error message                                                                     |
-| ------------------------------ | --------------------------------------------------------------------------------- |
-| INVALID_BUYER_LEGAL_DOCUMENTS  | **`Provide URLs for buyer legal documents stored in<br>accessible S3 buckets.`**  |
-| INVALID_RESALE_LEGAL_DOCUMENTS | **`Provide URLs for resale legal documents stored in<br>accessible S3 buckets.`** |
-| MISSING_MANDATORY_TERMS        | **`Provide a BuyerLegalTerm.`**                                                   |
+| Error code                        | Error message                                                                     |
+| --------------------------------- | --------------------------------------------------------------------------------- |
+| INVALID\_BUYER\_LEGAL\_DOCUMENTS  | **`Provide URLs for buyer legal documents stored in<br>accessible S3 buckets.`**  |
+| INVALID\_RESALE\_LEGAL\_DOCUMENTS | **`Provide URLs for resale legal documents stored in<br>accessible S3 buckets.`** |
+| MISSING\_MANDATORY\_TERMS         | **`Provide a BuyerLegalTerm.`**                                                   |
 
 ## Update pricing
 
@@ -1059,7 +1059,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following schema validations are specific to `UpdatePricingTerms`
 actions in the AWS Marketplace Catalog API. The validations are performed when you
-call `StartChangeSet`. If the request doesn’t meet the following
+call `StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field                                                                    | Validation rule                                                                                                                                                                                                        |
@@ -1091,35 +1091,35 @@ the AWS Marketplace Catalog API. These errors are returned when you call
 information about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                         | Error message                                                                                                                                                           |
-| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INVALID_CURRENCY_CODE              | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                                                                                            |
-| INCOMPATIBLE_PRODUCT               | **`Use existing, available dimensions in the product in<br>[x].`**                                                                                                      |
-| DUPLICATE_DIMENSION_KEYS           | **`Provide rate card with a unique list of dimension keys<br>in [x]`**                                                                                                  |
-| INVALID_RATE_CARD                  | **`Provide dimensions that have the same unit in<br>[x]`**                                                                                                              |
-| INVALID_RATE_CARD                  | **`Provide a rate card for only metered dimensions in<br>ResaleUsageBasedPricingTerm.`**                                                                                |
-| INVALID_RATE_CARD                  | **`Provide usage based rates for all available metered<br>dimensions in ResaleUsageBasedPricingTerm.`**                                                                 |
-| TOO_MANY_RATES                     | **`Provide RateCards within the allowed limits in<br>ResaleUsageBasedPricingTerm.`**                                                                                    |
-| DUPLICATE_SELECTORS                | **`Provide a unique list of Selectors in<br>ResaleConfigurableUpfrontPricingTerm.`**                                                                                    |
-| INVALID_RATE_CARD                  | **`ConfigurableUpfrontPricingTerm is missing one or more<br>dimension keys for duration [x]. Provide prices for the same set<br>of dimension keys for all durations.`** |
-| INVALID_RATE_CARD                  | **`Provide either all metered or all entitled dimensions<br>in [x].`**                                                                                                  |
-| INCOMPATIBLE_RATE_CARD_CONSTRAINTS | **`Set MultipleDimensionSelection and<br>QuantityConfiguration to Disallowed in<br>ResaleConfigurableUpfrontPricingTerm for the<br>PricingModel.`**                     |
-| TOO_MANY_RATE_CARDS                | **`Only one rate card in ConfigurableUpfrontPricingTerm<br>is allowed for the product.`**                                                                               |
-| INCOMPATIBLE_TERMS                 | **`The following terms aren't compatible with the<br>PricingModel: [x,y,z].`**                                                                                          |
-| TOO_MANY_RATES                     | **`Provide RateCards within the allowed limits in [x<br>term].`**                                                                                                       |
-| TOO_MANY_GRANTS                    | **`Provide up to [N] grants in [x<br>term].`**                                                                                                                          |
-| INVALID_SELECTOR_DURATION_VALUE    | **`Provide duration between [x] and [y] months in<br>ResaleConfigurableUpfront`**                                                                                       |
-| TOO_MANY_GRANTS                    | **`Provide duration between [x] and [y]<br>months.`**                                                                                                                   |
-| INVALID_SELECTOR_DURATION_VALUE    | **`Ensure duration granularity is at the day level for<br>metered dimensions in<br>ResaleConfigurableUpfront`**                                                         |
-| INVALID_DURATION                   | **`Ensure duration granularity is at the day level for<br>metered dimensions in FixedUpfront.`**                                                                        |
-| INVALID_RATE_CARD                  | **`Provide only entitled dimensions in<br>[x].`**                                                                                                                       |
-| MISSING_DURATION                   | **`Provide a Duration in [x].`**                                                                                                                                        |
-| DUPLICATE_DIMENSION_KEYS           | **`Provide Grants with a unique list of dimension keys in<br>[x].`**                                                                                                    |
-| INCOMPATIBLE_PAYMENT_SETTINGS      | **`Update your payment settings to be compatible with the<br>CurrencyCode.`**                                                                                           |
-| INCOMPATIBLE_SELLER_VERIFICATION   | **`Complete all required seller verification<br>processes.`**                                                                                                           |
-| INVALID_CURRENCY_CODE              | **`Provide a supported CurrencyCode.`**                                                                                                                                 |
-| INVALID_CURRENCY_CODE              | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                                                                                            |
-| INCOMPATIBLE_CURRENCY_CODE         | **`CurrencyCode can't be changed after the offer is<br>released.`**                                                                                                     |
+| Error code                            | Error message                                                                                                                                                           |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| INVALID\_CURRENCY\_CODE               | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                                                                                            |
+| INCOMPATIBLE\_PRODUCT                 | **`Use existing, available dimensions in the product in<br>[x].`**                                                                                                      |
+| DUPLICATE\_DIMENSION\_KEYS            | **`Provide rate card with a unique list of dimension keys<br>in [x]`**                                                                                                  |
+| INVALID\_RATE\_CARD                   | **`Provide dimensions that have the same unit in<br>[x]`**                                                                                                              |
+| INVALID\_RATE\_CARD                   | **`Provide a rate card for only metered dimensions in<br>ResaleUsageBasedPricingTerm.`**                                                                                |
+| INVALID\_RATE\_CARD                   | **`Provide usage based rates for all available metered<br>dimensions in ResaleUsageBasedPricingTerm.`**                                                                 |
+| TOO\_MANY\_RATES                      | **`Provide RateCards within the allowed limits in<br>ResaleUsageBasedPricingTerm.`**                                                                                    |
+| DUPLICATE\_SELECTORS                  | **`Provide a unique list of Selectors in<br>ResaleConfigurableUpfrontPricingTerm.`**                                                                                    |
+| INVALID\_RATE\_CARD                   | **`ConfigurableUpfrontPricingTerm is missing one or more<br>dimension keys for duration [x]. Provide prices for the same set<br>of dimension keys for all durations.`** |
+| INVALID\_RATE\_CARD                   | **`Provide either all metered or all entitled dimensions<br>in [x].`**                                                                                                  |
+| INCOMPATIBLE\_RATE\_CARD\_CONSTRAINTS | **`Set MultipleDimensionSelection and<br>QuantityConfiguration to Disallowed in<br>ResaleConfigurableUpfrontPricingTerm for the<br>PricingModel.`**                     |
+| TOO\_MANY\_RATE\_CARDS                | **`Only one rate card in ConfigurableUpfrontPricingTerm<br>is allowed for the product.`**                                                                               |
+| INCOMPATIBLE\_TERMS                   | **`The following terms aren't compatible with the<br>PricingModel: [x,y,z].`**                                                                                          |
+| TOO\_MANY\_RATES                      | **`Provide RateCards within the allowed limits in [x<br>term].`**                                                                                                       |
+| TOO\_MANY\_GRANTS                     | **`Provide up to [N] grants in [x<br>term].`**                                                                                                                          |
+| INVALID\_SELECTOR\_DURATION\_VALUE    | **`Provide duration between [x] and [y] months in<br>ResaleConfigurableUpfront`**                                                                                       |
+| TOO\_MANY\_GRANTS                     | **`Provide duration between [x] and [y]<br>months.`**                                                                                                                   |
+| INVALID\_SELECTOR\_DURATION\_VALUE    | **`Ensure duration granularity is at the day level for<br>metered dimensions in<br>ResaleConfigurableUpfront`**                                                         |
+| INVALID\_DURATION                     | **`Ensure duration granularity is at the day level for<br>metered dimensions in FixedUpfront.`**                                                                        |
+| INVALID\_RATE\_CARD                   | **`Provide only entitled dimensions in<br>[x].`**                                                                                                                       |
+| MISSING\_DURATION                     | **`Provide a Duration in [x].`**                                                                                                                                        |
+| DUPLICATE\_DIMENSION\_KEYS            | **`Provide Grants with a unique list of dimension keys in<br>[x].`**                                                                                                    |
+| INCOMPATIBLE\_PAYMENT\_SETTINGS       | **`Update your payment settings to be compatible with the<br>CurrencyCode.`**                                                                                           |
+| INCOMPATIBLE\_SELLER\_VERIFICATION    | **`Complete all required seller verification<br>processes.`**                                                                                                           |
+| INVALID\_CURRENCY\_CODE               | **`Provide a supported CurrencyCode.`**                                                                                                                                 |
+| INVALID\_CURRENCY\_CODE               | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                                                                                            |
+| INCOMPATIBLE\_CURRENCY\_CODE          | **`CurrencyCode can't be changed after the offer is<br>released.`**                                                                                                     |
 
 ## Update payment schedule
 
@@ -1245,7 +1245,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The schema validations are specific to `UpdatePaymentScheduleTerms`
 actions in the AWS Marketplace Catalog API. The validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following
+`StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field                                            | Validation rule                                                                       | HTTP |
@@ -1265,20 +1265,20 @@ actions in the AWS Marketplace Catalog API. These errors are returned when you c
 information about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                       | Error message                                                                                      |
-| -------------------------------- | -------------------------------------------------------------------------------------------------- |
-| INCOMPATIBLE_TERMS               | **`OffersMaxQuantity and AvailabilityEndDate must be<br>present with ResalePaymentScheduleTerm.`** |
-| TOO_MANY_SCHEDULED_PAYMENTS      | **`Provide up to 60 scheduled payments in<br>ResalePaymentScheduleTerm.`**                         |
-| DUPLICATE_CHARGE_DATES           | **`Provide unique charge dates in<br>ResalePaymentScheduleTerm.`**                                 |
-| INVALID_CHARGE_DATES             | **`Provide a future ChargeDate.`**                                                                 |
-| INVALID_CHARGE_DATES             | **`Provide a last charge date that is before<br>[x].`**                                            |
-| MISSING_MANDATORY_TERMS          | **`Provide a ResaleFixedUpfrontPricingTerm and<br>ResalePaymentScheduleTerm together.`**           |
-| INVALID_CURRENCY_CODE            | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                       |
-| INCOMPATIBLE_PAYMENT_SETTINGS    | **`Update your payment settings to be compatible with the<br>CurrencyCode.`**                      |
-| INCOMPATIBLE_SELLER_VERIFICATION | **`Complete all required seller verification<br>processes.`**                                      |
-| INVALID_CURRENCY_CODE            | **`Provide a supported CurrencyCode.`**                                                            |
-| INVALID_CURRENCY_CODE            | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                       |
-| INCOMPATIBLE_CURRENCY_CODE       | **`CurrencyCode can't be changed after the offer is<br>released.`**                                |
+| Error code                         | Error message                                                                                      |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------- |
+| INCOMPATIBLE\_TERMS                | **`OffersMaxQuantity and AvailabilityEndDate must be<br>present with ResalePaymentScheduleTerm.`** |
+| TOO\_MANY\_SCHEDULED\_PAYMENTS     | **`Provide up to 60 scheduled payments in<br>ResalePaymentScheduleTerm.`**                         |
+| DUPLICATE\_CHARGE\_DATES           | **`Provide unique charge dates in<br>ResalePaymentScheduleTerm.`**                                 |
+| INVALID\_CHARGE\_DATES             | **`Provide a future ChargeDate.`**                                                                 |
+| INVALID\_CHARGE\_DATES             | **`Provide a last charge date that is before<br>[x].`**                                            |
+| MISSING\_MANDATORY\_TERMS          | **`Provide a ResaleFixedUpfrontPricingTerm and<br>ResalePaymentScheduleTerm together.`**           |
+| INVALID\_CURRENCY\_CODE            | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                       |
+| INCOMPATIBLE\_PAYMENT\_SETTINGS    | **`Update your payment settings to be compatible with the<br>CurrencyCode.`**                      |
+| INCOMPATIBLE\_SELLER\_VERIFICATION | **`Complete all required seller verification<br>processes.`**                                      |
+| INVALID\_CURRENCY\_CODE            | **`Provide a supported CurrencyCode.`**                                                            |
+| INVALID\_CURRENCY\_CODE            | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                       |
+| INCOMPATIBLE\_CURRENCY\_CODE       | **`CurrencyCode can't be changed after the offer is<br>released.`**                                |
 
 ## Update Resale Authorization details
 
@@ -1411,9 +1411,9 @@ AWS Marketplace Catalog API. These errors are returned when you call `DescribeCh
 after a change set is processing. or more information about using
 `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                   | Error message                                                                                                  |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| INCOMPATIBLE_BUYER_TARGETING | **`At least one Buyer account must be present for<br>ResaleAuthorization with<br>PreExistingBuyerAgreement.`** |
+| Error code                     | Error message                                                                                                  |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| INCOMPATIBLE\_BUYER\_TARGETING | **`At least one Buyer account must be present for<br>ResaleAuthorization with<br>PreExistingBuyerAgreement.`** |
 
 ## Restrict a Resale Authorization
 
@@ -1421,7 +1421,7 @@ You can use the Catalog API to set restrict rules to a Resale Authorization in
 AWS Marketplace.
 
 A restricted Resale Authorization can no longer be used by a channel partner to
-create a private offer. An existing private offer won’t be impacted.
+create a private offer. An existing private offer won't be impacted.
 
 To restrict your Resale Authorization, call the `StartChangeSet` API
 operation with the `RestrictResaleAuthorization` change type, as shown in
@@ -1430,7 +1430,7 @@ the following example.
 ###### Important
 
 This is a non-reversible operation. After the Resale Authorization is marked
-as `Restricted`, it can’t be in an `Active` state
+as `Restricted`, it can't be in an `Active` state
 again.
 
 **Request Syntax**
@@ -1495,7 +1495,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The schema validations are specific to `RestrictResaleAuthorization`
 actions in the AWS Marketplace Catalog API. These validations are performed when you
-call `StartChangeSet`. If the request doesn’t meet the following
+call `StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field                   | Validation rule                                                | HTTP code |
@@ -1512,9 +1512,9 @@ actions in the AWS Marketplace Catalog API. These errors are returned when you c
 information about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code          | Error message                                                       |
-| ------------------- | ------------------------------------------------------------------- |
-| INCOMPATIBLE_STATUS | **`Expired ResaleAuthorization can't be marked as<br>restricted.`** |
+| Error code           | Error message                                                       |
+| -------------------- | ------------------------------------------------------------------- |
+| INCOMPATIBLE\_STATUS | **`Expired ResaleAuthorization can't be marked as<br>restricted.`** |
 
 ## Release a Resale Authorization and make it visible to a Channel Partner
 
@@ -1593,7 +1593,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The schema validations are specific to `ReleaseResaleAuthorization`
 actions in the AWS Marketplace Catalog API. The validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following
+`StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field         | Validation rule                      | HTTP code |
@@ -1608,15 +1608,15 @@ actions in the AWS Marketplace Catalog API. These errors are returned when you c
 details about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                   | Error message                                                                                                  |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| MISSING_MANDATORY_TERMS      | **`Provide a BuyerLegalTerm.`**                                                                                |
-| MISSING_MANDATORY_TERMS      | **`Provide a PricingTerm.`**                                                                                   |
-| INCOMPATIBLE_PRODUCT         | **`Use an active product in limited or public<br>state.`**                                                     |
-| INCOMPATIBLE_PRICING_TERM    | **`PaymentScheduleTerm and FixedUpfrontPricingTerm must<br>be present together.`**                             |
-| INCOMPATIBLE_BUYER_TARGETING | **`At least one Buyer account must be present for<br>ResaleAuthorization with<br>PreExistingBuyerAgreement.`** |
-| MISSING_MANDATORY_TERMS      | **`Provide at least one of [x,y,z].`**                                                                         |
-| INCOMPATIBLE_STATUS          | **`[x] request can't be performed after the resale<br>authorization is released.`**                            |
+| Error code                     | Error message                                                                                                  |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| MISSING\_MANDATORY\_TERMS      | **`Provide a BuyerLegalTerm.`**                                                                                |
+| MISSING\_MANDATORY\_TERMS      | **`Provide a PricingTerm.`**                                                                                   |
+| INCOMPATIBLE\_PRODUCT          | **`Use an active product in limited or public<br>state.`**                                                     |
+| INCOMPATIBLE\_PRICING\_TERM    | **`PaymentScheduleTerm and FixedUpfrontPricingTerm must<br>be present together.`**                             |
+| INCOMPATIBLE\_BUYER\_TARGETING | **`At least one Buyer account must be present for<br>ResaleAuthorization with<br>PreExistingBuyerAgreement.`** |
+| MISSING\_MANDATORY\_TERMS      | **`Provide at least one of [x,y,z].`**                                                                         |
+| INCOMPATIBLE\_STATUS           | **`[x] request can't be performed after the resale<br>authorization is released.`**                            |
 
 ## Describe an existing Resale Authorization
 
@@ -1831,7 +1831,7 @@ The following is information about the fields you see in the
 
   - **Name** (string) – Name
     associated with the ResaleAuthorization for better readability to
-    you and your Channel Partners. It’s displayed as part of the
+    you and your Channel Partners. It's displayed as part of the
     Agreement information.
   - **Description** (string) –
     Description is a free-form text which is meant to be used only by

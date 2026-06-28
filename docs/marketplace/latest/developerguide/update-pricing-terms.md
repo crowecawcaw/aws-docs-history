@@ -196,6 +196,6 @@ operation after the change set begins processing. For error details and
 troubleshooting, see
 [Change set status and errors](../APIReference/catalog-apis.md#working-with-change-sets "../APIReference/catalog-apis.md#working-with-change-sets").
 
-| Error code                  | Error message                              |
-| --------------------------- | ------------------------------------------ |
-| INCOMPATIBLE_PRODUCT_STATUS | Use an existing limited or public product. |
+| Error code                    | Error message                              |
+| ----------------------------- | ------------------------------------------ |
+| INCOMPATIBLE\_PRODUCT\_STATUS | Use an existing limited or public product. |

@@ -11,7 +11,7 @@ There are four types of renewals in AWS Marketplace:
 - **Agreement based offers**: Sellers can replace
   an existing agreement to adjust pricing, duration, terms, and renew an existing
   contract before it ends. An agreement based offer can be extended to the
-  customer beyond the current agreement’s end date, granting new entitlements,
+  customer beyond the current agreement's end date, granting new entitlements,
   discounts, or payment schedules based on the customers needs.
 
 This support applies to software as a service (SaaS) products, including those

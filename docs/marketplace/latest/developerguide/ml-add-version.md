@@ -297,15 +297,15 @@ These errors appear when you call `DescribeChangeSet` while a change set is bein
 For more information about using `DescribeChangeSet` to check the status of a change request,
 see [Working with change sets](../../../marketplace-catalog/latest/api-reference/welcome.md#working-with-change-sets "../../../marketplace-catalog/latest/api-reference/welcome.md#working-with-change-sets").
 
-| Error code                        | Error message                                                                                                                               |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| INCOMPATIBLE_PRODUCT_STATUS       | We couldn't locate the provided product. Provide a valid product.                                                                           |
-| DUPLICATE_VERSION_TITLE           | The provided version title is already in use. Create a unique version<br>title.                                                             |
-| INVALID_RECOMMENDED_INSTANCE_TYPE | You didn't provide a valid instance type for [x]. Enter a valid instance<br>type and try again. Valid types are: [valids]                   |
-| INCOMPATIBLE_DELIVERY_OPTIONS     | The delivery option you provided doesn't match your previous selection:<br>[previous selection]. Update your delivery option and try again. |
-| INVALID_ASSET_ARN                 | You didn't provide a valid ARN for SageMakerAlgorithmDeliveryOption.<br>Enter a valid ARN and try again.                                    |
-| DUPLICATE_ASSET                   | You didn't provide a unique ARN for this product. Enter a unique ARN and<br>try again.                                                      |
-| ASSET_NOT_FOUND                   | We couldn't locate the ARN you provided. Verify that the ARN is correct<br>and has the required permissions.                                |
-| ASSET_VALIDATION_EXCEPTION        | Unable to ingest SagemakerModelArn/SagemakerAlgorithmArn [x] into AWS<br>Sagemaker account                                                  |
-| INVALID_ACCESS_ROLE               | We couldn't locate the IAM role ARN you provided. Verify that the ARN is<br>correct and try again.                                          |
-| UPDATE_PRICING_REQUIRED           | UpdatePricingTerms is required.                                                                                                             |
+| Error code                           | Error message                                                                                                                               |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| INCOMPATIBLE\_PRODUCT\_STATUS        | We couldn't locate the provided product. Provide a valid product.                                                                           |
+| DUPLICATE\_VERSION\_TITLE            | The provided version title is already in use. Create a unique version<br>title.                                                             |
+| INVALID\_RECOMMENDED\_INSTANCE\_TYPE | You didn't provide a valid instance type for [x]. Enter a valid instance<br>type and try again. Valid types are: [valids]                   |
+| INCOMPATIBLE\_DELIVERY\_OPTIONS      | The delivery option you provided doesn't match your previous selection:<br>[previous selection]. Update your delivery option and try again. |
+| INVALID\_ASSET\_ARN                  | You didn't provide a valid ARN for SageMakerAlgorithmDeliveryOption.<br>Enter a valid ARN and try again.                                    |
+| DUPLICATE\_ASSET                     | You didn't provide a unique ARN for this product. Enter a unique ARN and<br>try again.                                                      |
+| ASSET\_NOT\_FOUND                    | We couldn't locate the ARN you provided. Verify that the ARN is correct<br>and has the required permissions.                                |
+| ASSET\_VALIDATION\_EXCEPTION         | Unable to ingest SagemakerModelArn/SagemakerAlgorithmArn [x] into AWS<br>Sagemaker account                                                  |
+| INVALID\_ACCESS\_ROLE                | We couldn't locate the IAM role ARN you provided. Verify that the ARN is<br>correct and try again.                                          |
+| UPDATE\_PRICING\_REQUIRED            | UpdatePricingTerms is required.                                                                                                             |

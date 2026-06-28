@@ -100,10 +100,10 @@ A successful request returns:
 
 The following errors may occur during change set processing and can be retrieved using the `DescribeChangeSet` operation:
 
-| Error code                      | Error message                                                                                        |
-| ------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| INCOMPATIBLE_PRODUCT_STATUS     | Use an existing public or limited product                                                            |
-| MISSING_DELIVERY_OPTION_IDS     | Provide delivery option from existing list of IDs.                                                   |
-| INVALID_DELIVERY_OPTION_IDS     | Provide delivery option IDs that can be found in the product. IDs not<br>found: [x]                  |
-| INVALID_DELIVERY_OPTION_STATUS  | The delivery option IDs [invalid\_ids] are invalid. Provide delivery<br>options in the public state. |
-| ALL_DELIVERY_OPTIONS_RESTRICTED | Provide fewer delivery options to restrict as at least one must remain<br>in public state.           |
+| Error code                         | Error message                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| INCOMPATIBLE\_PRODUCT\_STATUS      | Use an existing public or limited product                                                            |
+| MISSING\_DELIVERY\_OPTION\_IDS     | Provide delivery option from existing list of IDs.                                                   |
+| INVALID\_DELIVERY\_OPTION\_IDS     | Provide delivery option IDs that can be found in the product. IDs not<br>found: [x]                  |
+| INVALID\_DELIVERY\_OPTION\_STATUS  | The delivery option IDs [invalid\_ids] are invalid. Provide delivery<br>options in the public state. |
+| ALL\_DELIVERY\_OPTIONS\_RESTRICTED | Provide fewer delivery options to restrict as at least one must remain<br>in public state.           |

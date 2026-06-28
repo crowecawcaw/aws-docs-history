@@ -15,9 +15,7 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 repository.
 
 ```
-// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-// SPDX-License-Identifier: Apache-2.0
-package com.example.awsmarketplace.agreementapi;
+package com.example.awsmarketplace.agreementapi.seller;
 
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.http.apache.ApacheHttpClient;
@@ -137,12 +135,8 @@ def usage_demo():
     agreement = get_agreement_information(mp_client, AGREEMENT_ID)
 
     if agreement is not None:
-        productHash = {}
-        for resource in agreement["resourceSummaries"]:
-            productHash[resource["resourceId"]] = resource["resourceType"]
-
-        for key, value in productHash.items():
-            print(f"Product ID: {key}  |  Product Type: {value}")
+        for resource in agreement["proposalSummary"]["resources"]:
+            print(f"Product ID: {resource['id']}  |  Product Type: {resource['type']}")
     else:
         print("Agreement with ID " + AGREEMENT_ID + " is not found")
 

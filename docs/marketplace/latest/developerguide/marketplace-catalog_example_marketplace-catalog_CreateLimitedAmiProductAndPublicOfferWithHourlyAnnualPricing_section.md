@@ -323,10 +323,9 @@ repository.
                     "Operating Systems"
                 ],
                 "LogoUrl": "https://s3.amazonaws.com/logos/sample.png",
-                "VideoUrls": [
-                    "https://sample.amazonaws.com/awsmp-video-1"
-                ],
-                "AdditionalResources": []
+                "VideoUrls": [],
+                "AdditionalResources": [],
+                "SupportDescription": "For support, contact support@example.com"
             }
         },
         {

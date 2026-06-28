@@ -58,12 +58,12 @@ For more information, see [CloudTrail userIdentity element](../../../awscloudtra
 ## Understanding Agreements API actions
 
 The Agreements API is used to purchase software as a service (SaaS), server
-(including container), and professional services products on AWS Marketplace. It’s also used
+(including container), and professional services products on AWS Marketplace. It's also used
 to manage resulting agreements or subscriptions on AWS Marketplace.
 
 ###### Note
 
-Purchases of AWS Data Exchange products won’t be logged by
+Purchases of AWS Data Exchange products won't be logged by
 CloudTrail.
 
 The `AcceptAgreementRequest` action is used when an AWS Identity and Access Management (IAM)

@@ -306,7 +306,7 @@ For example, the following IAM policy allows the `StartChangeSet`
 action on any entity resource (`"*"`) that has a tag key of
 `product-team` and tag value of `team-xyz`. In addition,
 the `TagResource` action is required so that when the change set is
-created, it’s tagged with the same tag key and value.
+created, it's tagged with the same tag key and value.
 
 ###### Note
 

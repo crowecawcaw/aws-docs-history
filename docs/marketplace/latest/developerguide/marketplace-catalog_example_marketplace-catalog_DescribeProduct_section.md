@@ -15,8 +15,6 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 repository.
 
 ```
-﻿// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-// SPDX-License-Identifier: Apache-2.0
 package com.example.awsmarketplace.catalogapi;
 
 import static com.example.awsmarketplace.utils.ReferenceCodesConstants.*;

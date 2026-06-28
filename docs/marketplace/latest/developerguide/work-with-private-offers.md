@@ -162,7 +162,7 @@ The response looks like the following.
 
 The following schema validations are specific to `CreateOffer` actions
 in the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following
+`StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field | Validation rule                                                                                          | HTTP code |
@@ -179,13 +179,13 @@ AWS Marketplace Catalog API. These errors are returned when you call `DescribeCh
 after a change set is processing. For more information about using
 `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code           | Error message                                                                                                                                    |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| INCOMPATIBLE_PRODUCT | **`Use an active product in `Limited` or<br>`Public` state.`**                                                                                   |
-| INCOMPATIBLE_PRODUCT | **`Managing offers for your chosen product type isn't<br>currently supported in the AWS Marketplace Catalog API.`**                              |
-| INCOMPATIBLE_PRODUCT | **`Managing offers for the product isn't currently<br>supported in the AWS Marketplace Catalog API.`**                                           |
-| INCOMPATIBLE_PRODUCT | **`OfferSetId isn't supported in offers for the product.`**                                                                                      |
-| INCOMPATIBLE_PRODUCT | **`CreateOffer change type can't be invoked to create an<br>offer for the product. Use<br>CreateOfferUsingResaleAuthorization change<br>type.`** |
+| Error code            | Error message                                                                                                                                    |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| INCOMPATIBLE\_PRODUCT | **`Use an active product in `Limited` or<br>`Public` state.`**                                                                                   |
+| INCOMPATIBLE\_PRODUCT | **`Managing offers for your chosen product type isn't<br>currently supported in the AWS Marketplace Catalog API.`**                              |
+| INCOMPATIBLE\_PRODUCT | **`Managing offers for the product isn't currently<br>supported in the AWS Marketplace Catalog API.`**                                           |
+| INCOMPATIBLE\_PRODUCT | **`OfferSetId isn't supported in offers for the product.`**                                                                                      |
+| INCOMPATIBLE\_PRODUCT | **`CreateOffer change type can't be invoked to create an<br>offer for the product. Use<br>CreateOfferUsingResaleAuthorization change<br>type.`** |
 
 ## Create a replacement offer
 
@@ -270,7 +270,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following schema validations are specific to
 `CreateReplacementOffer` actions in the AWS Marketplace Catalog API. These validations
-are performed when you call `StartChangeSet`. If the request doesn’t meet
+are performed when you call `StartChangeSet`. If the request doesn't meet
 the following requirements, it will fail with an HTTP response.
 
 | Input field | Validation rule                                                                                        | HTTP Code |
@@ -287,10 +287,10 @@ in the AWS Marketplace Catalog API. These errors are returned when you call
 information about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code             | Error message                                                                                                                                                                       |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INCOMPATIBLE_PRODUCT   | **`Replacement offers aren't supported for the<br>product.`**                                                                                                                       |
-| INCOMPATIBLE_AGREEMENT | **`CreateReplacementOffer change type can't be invoked to<br>create a replacement offer for the agreement. Use<br>CreateReplacementOfferUsingResaleAuthorization change<br>type.`** |
+| Error code              | Error message                                                                                                                                                                       |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| INCOMPATIBLE\_PRODUCT   | **`Replacement offers aren't supported for the<br>product.`**                                                                                                                       |
+| INCOMPATIBLE\_AGREEMENT | **`CreateReplacementOffer change type can't be invoked to<br>create a replacement offer for the agreement. Use<br>CreateReplacementOfferUsingResaleAuthorization change<br>type.`** |
 
 ## Update offer information
 
@@ -394,7 +394,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following schema validations are specific to `UpdateInformation`
 actions in the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following
+`StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field                             | Validation rule                                                                                          | HTTP code |
@@ -413,9 +413,9 @@ AWS Marketplace Catalog API. These errors are returned when you call `DescribeCh
 after a change set is processing. For more information about using
 `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                          | Error message                                                               |
-| ----------------------------------- | --------------------------------------------------------------------------- |
-| INCOMPATIBLE_PRE_EXISTING_AGREEMENT | **`PreExistingAgreement can't be changed after the offer<br>is released.`** |
+| Error code                             | Error message                                                               |
+| -------------------------------------- | --------------------------------------------------------------------------- |
+| INCOMPATIBLE\_PRE\_EXISTING\_AGREEMENT | **`PreExistingAgreement can't be changed after the offer<br>is released.`** |
 
 ## Update targeting configuration
 
@@ -501,9 +501,9 @@ type:
 
     - **CountryCodes** (array of
       strings) (optional) – List as option for allowing
-      targeting based on country. If the intention isn’t to target
+      targeting based on country. If the intention isn't to target
       the offer to a country, this field should be omitted. If
-      it’s present, the list must contain at least one country
+      it's present, the list must contain at least one country
       code. Each element in this list should be a valid 2-letter
       country code, using this format: ISO 3166-1 alpha-2.
     - **BuyerAccounts** (array of
@@ -520,9 +520,9 @@ type:
 
     - **CountryCodes** (array of
       strings) (required) – List as option for allowing
-      targeting based on country. If the intention isn’t to target
+      targeting based on country. If the intention isn't to target
       the offer to a specific country, then this field should be
-      omitted. If it’s present, the list must contain at least one
+      omitted. If it's present, the list must contain at least one
       country code. Each element in this list should be a valid
       2-letter country code using this format: ISO 3166-1
       alpha-2.
@@ -551,7 +551,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following schema validations are specific to `UpdateTargeting`
 actions in the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following
+`StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field                     | Validation rule                                                                                                | HTTP code |
@@ -569,28 +569,28 @@ AWS Marketplace Catalog API. These errors are returned when you call `DescribeCh
 after a change set is processing. For more information about using
 `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                        | Error message                                                                                                                                                                                                         |
-| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INVALID_BUYER_ACCOUNTS            | **`Provide valid buyer accounts. Invalid accounts:<br>[x].`**                                                                                                                                                         |
-| INVALID_COUNTRY_CODES             | **`Provide supported country codes.`**                                                                                                                                                                                |
-| INVALID_TARGETING                 | **`Use either negative or positive targeting on the same<br>attribute.`**                                                                                                                                             |
-| INCOMPATIBLE_PRODUCT              | **`Country-based targeting isn't supported for the<br>product.`**                                                                                                                                                     |
-| INCOMPATIBLE_RESALE_AUTHORIZATION | **`Provide BuyerAccounts that are compatible with the<br>ResaleAuthorization.`**                                                                                                                                      |
-| INCOMPATIBLE_TARGETING            | **`The requested change can't be performed after the<br>offer is released.`**                                                                                                                                         |
-| INCOMPATIBLE_TARGETING            | **`The requested change can't be performed after the<br>offer is expired.`**                                                                                                                                          |
-| INCOMPATIBLE_TARGETING            | **`Targeting can't be updated on a replacement offer. If<br>the buyer isn't associated with the provided AgreementId, then<br>create a new private offer by providing an AgreementId<br>associated with the buyer.`** |
-| TOO_MANY_BUYER_ACCOUNTS           | **`Provide BuyerAccounts within the allowed<br>limits.`**                                                                                                                                                             |
-| INCOMPATIBLE_TARGETING            | **`BuyerAccounts can't be removed after the offer is<br>released.`**                                                                                                                                                  |
-| INCOMPATIBLE_TARGETING            | **`BuyerAccounts can't be added after the offer is<br>released.`**                                                                                                                                                    |
-| MISSING_COUNTRY_CODES             | **`Provide PositiveTargeting with CountryCodes:<br>[x].`**                                                                                                                                                            |
-| INCOMPATIBLE_COUNTRY_CODES        | **`Provide CountryCodes that are<br>compatible.`**                                                                                                                                                                    |
-| INCOMPATIBLE_BUYER_ACCOUNTS       | **`Provide BuyerAccounts that are compatible with the<br>agreement.`**                                                                                                                                                |
+| Error code                          | Error message                                                                                                                                                                                                         |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| INVALID\_BUYER\_ACCOUNTS            | **`Provide valid buyer accounts. Invalid accounts:<br>[x].`**                                                                                                                                                         |
+| INVALID\_COUNTRY\_CODES             | **`Provide supported country codes.`**                                                                                                                                                                                |
+| INVALID\_TARGETING                  | **`Use either negative or positive targeting on the same<br>attribute.`**                                                                                                                                             |
+| INCOMPATIBLE\_PRODUCT               | **`Country-based targeting isn't supported for the<br>product.`**                                                                                                                                                     |
+| INCOMPATIBLE\_RESALE\_AUTHORIZATION | **`Provide BuyerAccounts that are compatible with the<br>ResaleAuthorization.`**                                                                                                                                      |
+| INCOMPATIBLE\_TARGETING             | **`The requested change can't be performed after the<br>offer is released.`**                                                                                                                                         |
+| INCOMPATIBLE\_TARGETING             | **`The requested change can't be performed after the<br>offer is expired.`**                                                                                                                                          |
+| INCOMPATIBLE\_TARGETING             | **`Targeting can't be updated on a replacement offer. If<br>the buyer isn't associated with the provided AgreementId, then<br>create a new private offer by providing an AgreementId<br>associated with the buyer.`** |
+| TOO\_MANY\_BUYER\_ACCOUNTS          | **`Provide BuyerAccounts within the allowed<br>limits.`**                                                                                                                                                             |
+| INCOMPATIBLE\_TARGETING             | **`BuyerAccounts can't be removed after the offer is<br>released.`**                                                                                                                                                  |
+| INCOMPATIBLE\_TARGETING             | **`BuyerAccounts can't be added after the offer is<br>released.`**                                                                                                                                                    |
+| MISSING\_COUNTRY\_CODES             | **`Provide PositiveTargeting with CountryCodes:<br>[x].`**                                                                                                                                                            |
+| INCOMPATIBLE\_COUNTRY\_CODES        | **`Provide CountryCodes that are<br>compatible.`**                                                                                                                                                                    |
+| INCOMPATIBLE\_BUYER\_ACCOUNTS       | **`Provide BuyerAccounts that are compatible with the<br>agreement.`**                                                                                                                                                |
 
 ## Update refund policy
 
 You can use the Catalog API to update the refund policy of your offer in AWS Marketplace.
 
-This change doesn’t affect existing agreements. The support terms that aren't
+This change doesn't affect existing agreements. The support terms that aren't
 included in the latest request will be removed from the offer.
 
 To update the refund policy, call the `StartChangeSet` API operation
@@ -680,7 +680,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following schema validations are specific to `UpdateSupportTerms`
 actions in the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following
+`StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field          | Validation rule                                                                | HTTP code |
@@ -697,12 +697,12 @@ the AWS Marketplace Catalog API. These errors are returned when you call
 information about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code           | Error message                                                                 |
-| -------------------- | ----------------------------------------------------------------------------- |
-| INCOMPATIBLE_PRODUCT | **`SupportTerm isn't supported in private offers for the<br>product.`**       |
-| INCOMPATIBLE_TERMS   | **`SupportTerm isn't supported for free trial<br>offers.`**                   |
-| INCOMPATIBLE_TERMS   | **`The requested change can't be performed after the<br>offer is released.`** |
-| INCOMPATIBLE_TERMS   | **`The requested change can't be performed after the<br>offer is expired.`**  |
+| Error code            | Error message                                                                 |
+| --------------------- | ----------------------------------------------------------------------------- |
+| INCOMPATIBLE\_PRODUCT | **`SupportTerm isn't supported in private offers for the<br>product.`**       |
+| INCOMPATIBLE\_TERMS   | **`SupportTerm isn't supported for free trial<br>offers.`**                   |
+| INCOMPATIBLE\_TERMS   | **`The requested change can't be performed after the<br>offer is released.`** |
+| INCOMPATIBLE\_TERMS   | **`The requested change can't be performed after the<br>offer is expired.`**  |
 
 ## Update legal resources
 
@@ -786,7 +786,7 @@ type:
           required for this document type.
         - **StandardEula** – Standard
           Contract For AWS Marketplace (SCMP). For more information
-          about SCMP, see the AWS Marketplace Seller Guide. You don’t
+          about SCMP, see the AWS Marketplace Seller Guide. You don't
           provide a URL for this type because it is managed
           by AWS Marketplace.
 
@@ -829,7 +829,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following schema validations are specific to `UpdateLegalTerms`
 actions in the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following
+`StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field                           | Validation rule                                                                                                                     | HTTP code |
@@ -848,17 +848,17 @@ AWS Marketplace Catalog API. These errors are returned when you call `DescribeCh
 after a change set is processing. For more information about using
 `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                         | Error message                                                                                             |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| INCOMPATIBLE_TERMS                 | **`The requested change can't be performed after the<br>offer is released.`**                             |
-| INCOMPATIBLE_TERMS                 | **`The requested change can't be performed after the<br>offer is expired.`**                              |
-| INVALID_LEGAL_DOCUMENTS            | **`Provide URLs for legal documents stored in accessible<br>S3 buckets.`**                                |
-| INVALID_LEGAL_DOCUMENTS            | **`Only the most recent version of StandardEula is<br>supported for new offers.`**                        |
-| INVALID_LEGAL_DOCUMENTS            | **`Provide legal documents in the supported file<br>formats.`**                                           |
-| INVALID_LEGAL_DOCUMENTS            | **`Provide legal documents using the supported document<br>types.`**                                      |
-| LIMIT_EXCEEDED_LEGAL_DOCUMENT_SIZE | **`Provide legal documents within the allowed size<br>limits.`**                                          |
-| INVALID_LEGAL_DOCUMENTS            | **`LegalTerm contains password-protected document(s).<br>Provide accessible documents in<br>LegalTerm.`** |
-| INVALID_LEGAL_DOCUMENTS            | **`LegalTerm contains invalid PDF document(s). Provide<br>accessible documents in LegalTerm.`**           |
+| Error code                             | Error message                                                                                             |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| INCOMPATIBLE\_TERMS                    | **`The requested change can't be performed after the<br>offer is released.`**                             |
+| INCOMPATIBLE\_TERMS                    | **`The requested change can't be performed after the<br>offer is expired.`**                              |
+| INVALID\_LEGAL\_DOCUMENTS              | **`Provide URLs for legal documents stored in accessible<br>S3 buckets.`**                                |
+| INVALID\_LEGAL\_DOCUMENTS              | **`Only the most recent version of StandardEula is<br>supported for new offers.`**                        |
+| INVALID\_LEGAL\_DOCUMENTS              | **`Provide legal documents in the supported file<br>formats.`**                                           |
+| INVALID\_LEGAL\_DOCUMENTS              | **`Provide legal documents using the supported document<br>types.`**                                      |
+| LIMIT\_EXCEEDED\_LEGAL\_DOCUMENT\_SIZE | **`Provide legal documents within the allowed size<br>limits.`**                                          |
+| INVALID\_LEGAL\_DOCUMENTS              | **`LegalTerm contains password-protected document(s).<br>Provide accessible documents in<br>LegalTerm.`** |
+| INVALID\_LEGAL\_DOCUMENTS              | **`LegalTerm contains invalid PDF document(s). Provide<br>accessible documents in LegalTerm.`**           |
 
 ## Update pricing
 
@@ -1145,17 +1145,17 @@ change type:
         **QuantityConfiguration** values need to
         be same.
 
-            - **MultipleDimensionSelection** (string)
-             (required) – Determines if buyers are
-             allowed to select multiple dimensions in the rate
-             card. Possible values are `Allowed` and
-             `Disallowed`.
-            - **QuantityConfiguration** (string)
-             (required) – Determines if acceptors are
-             allowed to configure quantity for each dimension
-             in rate card. Possible values are
-             `Allowed` and
-             `Disallowed`.
+              - **MultipleDimensionSelection** (string)
+               (required) – Determines if buyers are
+               allowed to select multiple dimensions in the rate
+               card. Possible values are `Allowed` and
+               `Disallowed`.
+              - **QuantityConfiguration** (string)
+               (required) – Determines if acceptors are
+               allowed to configure quantity for each dimension
+               in rate card. Possible values are
+               `Allowed` and
+               `Disallowed`.
 
     - **ByolPricingTerm** (object)
       – Enables you and your customers to move your
@@ -1252,7 +1252,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following schema validations are specific to `UpdatePricingTerms`
 actions in the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following
+`StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field                                                                              | Validation rule                                                                                                                                                                           | HTTP |
@@ -1309,102 +1309,102 @@ the AWS Marketplace Catalog API. These errors are returned when you call
 information about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                         | Error message                                                                                                                                                                                                                                        |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DUPLICATE_DIMENSION_KEYS           | **`Provide Grants with a unique list of dimension keys in<br>[x].`**                                                                                                                                                                                 |
-| DUPLICATE_DIMENSION_KEYS           | **`Provide RateCard with a unique list of dimension keys<br>in [x].`**                                                                                                                                                                               |
-| DUPLICATE_SELECTORS                | **`Provide a unique list of Selectors in<br>ConfigurableUpfrontPricingTerm.`**                                                                                                                                                                       |
-| DUPLICATE_TERM_TYPES               | **`Provide a unique list of term<br>types.`**                                                                                                                                                                                                        |
-| INCOMPATIBLE_AGREEMENT             | **`The following terms can't be removed from the<br>replacement offer: [x, y, z].`**                                                                                                                                                                 |
-| INCOMPATIBLE_AGREEMENT             | **`The following terms can't be added to the replacement<br>offer: [x, y, z].`**                                                                                                                                                                     |
-| INCOMPATIBLE_CURRENCY_CODE         | **`CurrencyCode can't be changed after the offer is<br>released.`**                                                                                                                                                                                  |
-| INCOMPATIBLE_PAYMENT_SETTINGS      | **`Update your payment settings to be compatible with the<br>CurrencyCode.`**                                                                                                                                                                        |
-| INCOMPATIBLE_PRODUCT               | **`Usage pricing model isn't supported for the<br>product.`**                                                                                                                                                                                        |
-| INCOMPATIBLE_PRODUCT               | **`Contract pricing model isn't supported for the<br>product.`**                                                                                                                                                                                     |
-| INCOMPATIBLE_PRODUCT               | **`Byol pricing model isn't supported for the<br>product.`**                                                                                                                                                                                         |
-| INCOMPATIBLE_PRODUCT               | **`Free pricing model isn't supported for the<br>product.`**                                                                                                                                                                                         |
-| INCOMPATIBLE_PRODUCT               | **`[x] isn't supported in an offer for the<br>product.`**                                                                                                                                                                                            |
-| INCOMPATIBLE_PRODUCT               | **`Provided payment and pricing terms are<br>incompatible.`**                                                                                                                                                                                        |
-| INCOMPATIBLE_PRODUCT               | **`Use existing, available dimensions in the product in<br>[x].`**                                                                                                                                                                                   |
-| INCOMPATIBLE_PRODUCT               | **`FreeTrialPricingTerm as the offer's only pricing term<br>isn't supported for the product.`**                                                                                                                                                      |
-| INCOMPATIBLE_PRODUCT               | **`The following terms aren't supported for the product:<br>[x,y,z].`**                                                                                                                                                                              |
-| INCOMPATIBLE_PRODUCT               | **`Replacement offers are only supported for contract<br>pricing model.`**                                                                                                                                                                           |
-| INCOMPATIBLE_PRODUCT               | **`Provide pricing term(s) that are compatible with the<br>product dimensions. Incompatible pricing terms:<br>[x,y,z].`**                                                                                                                            |
-| INCOMPATIBLE_RATE_CARD_CONSTRAINTS | **`Set MultipleDimensionSelection and<br>QuantityConfiguration to Allowed in<br>ConfigurableUpfrontPricingTerm for usage pricing<br>model.`**                                                                                                        |
-| INCOMPATIBLE_RATE_CARD_CONSTRAINTS | **`Set MultipleDimensionSelection and<br>QuantityConfiguration to Disallowed in<br>ConfigurableUpfrontPricingTerm for usage pricing<br>model.`**                                                                                                     |
-| INCOMPATIBLE_RATE_CARD_CONSTRAINTS | **`QuantityConfiguration in<br>ConfigurableUpfrontPricingTerm can't be changed after the offer<br>is released.`**                                                                                                                                    |
-| INCOMPATIBLE_RATE_CARD_CONSTRAINTS | **`MultipleDimensionSelection in<br>ConfigurableUpfrontPricingTerm can't be changed after the offer<br>is released.`**                                                                                                                               |
-| INCOMPATIBLE_RATES                 | **`Set all charge amounts and prices to zero (0) when<br>using Free pricing model.`**                                                                                                                                                                |
-| INCOMPATIBLE_RATES                 | **`Only zero (0) prices are allowed in<br>UsageBasedPricingTerm for a free trial offer for the<br>product.`**                                                                                                                                        |
-| INCOMPATIBLE_RESALE_AUTHORIZATION  | **`Provide the same CurrencyCode that is specified in the<br>ResaleAuthorization.`**                                                                                                                                                                 |
-| INCOMPATIBLE_RESALE_AUTHORIZATION  | **`Ensure Duration in FixedUpfrontPricingTerm matches<br>duration specified in the<br>ResaleAuthorization.`**                                                                                                                                        |
-| INCOMPATIBLE_RESALE_AUTHORIZATION  | **`Provide term(s) that are compatible with the<br>ResaleAuthorization. Incompatible terms: [x, y,<br>z].`**                                                                                                                                         |
-| INCOMPATIBLE_SELECTOR_DURATION     | **`Durations aren't allowed to be removed from rate cards<br>in ConfigurableUpfrontPricingTerm after the offer<br>released.`**                                                                                                                       |
-| INCOMPATIBLE_SELLER_VERIFICATION   | **`Complete all required seller verification<br>processes.`**                                                                                                                                                                                        |
-| INCOMPATIBLE_TERMS                 | **`[x] isn't supported together with the following terms:<br>[y,z].`**                                                                                                                                                                               |
-| INCOMPATIBLE_TERMS                 | **`The following terms can't be added after the offer is<br>released: [x,y,z].`**                                                                                                                                                                    |
-| INCOMPATIBLE_TERMS                 | **`The following terms can't be removed after the offer<br>is released: [x,y,z].`**                                                                                                                                                                  |
-| INCOMPATIBLE_TERMS                 | **`[x] isn't supported for private<br>offers.`**                                                                                                                                                                                                     |
-| INCOMPATIBLE_TERMS                 | **`The following terms aren't supported with<br>FreeTrialPricingTerm that grants unlimited usage:<br>[x,y,z].`**                                                                                                                                     |
-| INCOMPATIBLE_TERMS                 | **`The following terms aren't supported with<br>FreeTrialPricingTerm for the product:<br>[x,y,z].`**                                                                                                                                                 |
-| INCOMPATIBLE_TERMS                 | **`Provide zero (0) price for FixedUpfrontPricingTerm<br>when the offer contains a<br>PaymentScheduleTerm.`**                                                                                                                                        |
-| INCOMPATIBLE_TERMS                 | **`The following terms aren't compatible with the<br>PricingModel: [x,y,z].`**                                                                                                                                                                       |
-| INCOMPATIBLE_TERMS                 | **`FixedUpfrontPricingTerm isn't supported when<br>MarkupPercentage is greater than zero (0).`**                                                                                                                                                     |
-| INCOMPATIBLE_TERMS                 | **`The requested change can't be performed after the<br>offer is released.`**                                                                                                                                                                        |
-| INCOMPATIBLE_TERMS                 | **`The requested change can't be performed after the<br>offer is expired.`**                                                                                                                                                                         |
-| INVALID_AGREEMENT_DURATION         | **`Provide duration between [x] and [y]<br>months.`**                                                                                                                                                                                                |
-| INVALID_AGREEMENT_DURATION         | **`Ensure duration granularity is at the day level for<br>metered dimensions.`**                                                                                                                                                                     |
-| INVALID_CURRENCY_CODE              | **`Provide a supported CurrencyCode.`**                                                                                                                                                                                                              |
-| INVALID_CURRENCY_CODE              | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                                                                                                                                                                         |
-| INVALID_CURRENCY_CODE              | **`Provide a supported CurrencyCode.`**                                                                                                                                                                                                              |
-| INVALID_CURRENCY_CODE              | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                                                                                                                                                                         |
-| INVALID_DURATION                   | **`Ensure Duration in FreeTrialPricingTerm is within the<br>allowed range.`**                                                                                                                                                                        |
-| INVALID_DURATION                   | **`Provide Duration in FixedUpfrontPricingTerm that<br>matches the duration between AgreementStartDate and<br>AgreementEndDate.`**                                                                                                                   |
-| INVALID_DURATION                   | **`Provide duration between [x] and [y]<br>months.`**                                                                                                                                                                                                |
-| INVALID_DURATION                   | **`Ensure duration granularity is at the day level for<br>metered dimensions.`**                                                                                                                                                                     |
-| INVALID_GRANTS                     | **`Provide the same MaxQuantity for all Grants in<br>FreeTrialPricingTerm.`**                                                                                                                                                                        |
-| INVALID_GRANTS                     | **`Provide Grants for all available metered dimensions in<br>FreeTrialPricingTerm.`**                                                                                                                                                                |
-| INVALID_GRANTS                     | `The combination of Dimensions in grants is invalid in<br>FixedUpfrontPricingTerm for the product.`                                                                                                                                                  |
-| INVALID_GRANTS                     | `The combination of Dimensions in grants is invalid in<br>FreeTrialPricingTerm for the product.`                                                                                                                                                     |
-| INVALID_GRANTS                     | `FixedUpfrontPricingTerm with MaxQuantity is not supported<br>for this product.`                                                                                                                                                                     |
-| INVALID_PRICE_CHANGE               | **`[x] can't be updated until [y] because you have<br>requested a price increase in the past 120 days. To cancel your<br>previous price increase request or for more information, contact<br>the AWS Marketplace Managed Catalog Operations Team.`** |
-| INVALID_PRICE_CHANGE               | **`Price increase and dimension addition in [x] isn't<br>supported in the same request. Add dimensions<br>first.`**                                                                                                                                  |
-| INVALID_PRICE_CHANGE               | **`Price increase and decrease in UsageBasedPricingTerm<br>isn't supported in the same request. Decrease prices<br>first.`**                                                                                                                         |
-| INVALID_PRICE_CHANGE               | **`Price increase in RecurringPaymentTerm and price<br>decrease in UsageBasedPricingTerm isn't supported in the same<br>request. Decrease prices first.`**                                                                                           |
-| INVALID_PRICE_CHANGE               | **`Price decrease in RecurringPaymentTerm and price<br>increase in UsageBasedPricingTerm isn't supported in the same<br>request. Decrease prices first.`**                                                                                           |
-| INVALID_RATE_CARD                  | **`ConfigurableUpfrontPricingTerm is missing one or<br>more-dimension keys for duration [x]. Provide prices for the<br>same set of dimension keys for all<br>durations.`**                                                                           |
-| INVALID_RATE_CARD                  | **`Provide a rate card for only metered dimensions in<br>UsageBasedPricingTerm.`**                                                                                                                                                                   |
-| INVALID_RATE_CARD                  | **`Rates can't be removed from [x]. Provide prices for<br>all dimensions in the existing rate card.`**                                                                                                                                               |
-| INVALID_RATE_CARD                  | **`Provide dimensions that have the same unit in<br>[x].`**                                                                                                                                                                                          |
-| INVALID_RATE_CARD                  | **`Provide either all metered or all entitled dimensions<br>in [x].`**                                                                                                                                                                               |
-| INVALID_RATE_CARD                  | **`Provide only entitled dimensions in<br>[x].`**                                                                                                                                                                                                    |
-| INVALID_RATE_CARD                  | **`Provide usage based rates for all available metered<br>dimensions in UsageBasedPricingTerm.`**                                                                                                                                                    |
-| INVALID_RATE_CARD                  | **`Provide usage based rates for all free trial<br>dimensions.`**                                                                                                                                                                                    |
-| INVALID_RATE_CARD                  | **`Provide prices with up to 8 decimal places in<br>UsageBasedPricingTerm.`**                                                                                                                                                                        |
-| INVALID_RATE_CARD                  | `The combination of Dimensions in rate card is invalid in<br>UsageBasedPricingTerm for the product.`                                                                                                                                                 |
-| INVALID_SELECTOR_DURATION_VALUE    | **`Provide duration between [x] and [y]<br>months.`**                                                                                                                                                                                                |
-| INVALID_SELECTOR_DURATION_VALUE    | **`Ensure duration granularity is at the day level for<br>metered dimensions.`**                                                                                                                                                                     |
-| INVALID_SELECTOR_DURATION_VALUE    | **`Ensure Duration in ConfigurableUpfrontPricingTerm is<br>within the allowed range.`**                                                                                                                                                              |
-| INVALID_SELECTOR_DURATION_VALUE    | **`Provide one or more supported contract<br>durations.`**                                                                                                                                                                                           |
-| INVALID_SELECTOR_DURATION_VALUE    | **`Provide one or more supported contract durations or a<br>single custom duration.`**                                                                                                                                                               |
-| INVALID_SELECTOR_DURATION_VALUE    | **`Provide Duration in ConfigurableUpfrontPricingTerm<br>that matches the duration between AgreementStartDate and<br>AgreementEndDate.`**                                                                                                            |
-| MISSING_DURATION                   | **`Provide Duration in<br>FixedUpfrontPricingTerm.`**                                                                                                                                                                                                |
-| MISSING_MANDATORY_TERMS            | **`FixedUpfrontPricingTerm is only supported when paired<br>with ByolPricingTerm or PaymentScheduleTerm.`**                                                                                                                                          |
-| MISSING_MANDATORY_TERMS            | **`Provide at least one of [x,y,z].`**                                                                                                                                                                                                               |
-| MISSING_MANDATORY_TERMS            | **`Provide a ByolPricingTerm when using Byol pricing<br>model.`**                                                                                                                                                                                    |
-| TOO_MANY_GRANTS                    | **`Provide up to [x] grants in [y].`**                                                                                                                                                                                                               |
-| TOO_MANY_RATE_CARDS                | **`Only one rate card in ConfigurableUpfrontPricingTerm<br>is allowed for the product.`**                                                                                                                                                            |
-| TOO_MANY_RATE_CARDS                | **`Up to [x] rate cards are allowed in<br>ConfigurableUpfrontPricingTerm for the<br>product.`**                                                                                                                                                      |
-| TOO_MANY_RATES                     | **`Provide RateCards within the allowed limits in<br>ConfigurableUpfrontPricingTerm.`**                                                                                                                                                              |
-| TOO_MANY_RATES                     | **`Provide RateCards within the allowed limits in<br>UsageBasedPricingTerm.`**                                                                                                                                                                       |
-| INCOMPATIBLE_RATE_CARD_CONSTRAINTS | **`Set both MultipleDimensionSelection and<br>QuantityConfiguration to the same value (Allowed or Disallowed)<br>in ConfigurableUpfrontPricingTerm.`**                                                                                               |
-| INCOMPATIBLE_RATE_CARD_CONSTRAINTS | **`Provide the same constraints for all rate cards in<br>ConfigurableUpfrontPricingTerm.`**                                                                                                                                                          |
-| INVALID_UPDATE_REQUEST             | **`[x] can't be updated. To request pricing change or for<br>more information, contact the AWS Marketplace Managed Catalog Operations<br>Team.`**                                                                                                    |
-| INCOMPATIBLE_PRICING_MODEL         | **`PricingModel can't change from [x] to<br>[y].`**                                                                                                                                                                                                  |
-| INVALID_GRANTS                     | **`MaxQuantity for the FreeTrialPricingTerm is limited for<br>the product. Provide a MaxQuantity less than or equal to [x].<br>For more information, contact the AWS Marketplace Managed Catalog<br>Operations Team.`**                              |
-| INVALID_GRANTS                     | **`Provide MaxQuantity for all Grants in<br>FixedUpfrontPricingTerm.`**                                                                                                                                                                              |
-| INVALID_GRANTS                     | **`MaxQuantity isn't supported in<br>FixedUpfrontPricingTerm for the product.`**                                                                                                                                                                     |
-| INCOMPATIBLE_RESALE_AUTHORIZATION  | **`Ensure Grants in FixedUpfrontPricingTerm matches<br>RateCards specified in the<br>ResaleAuthorization.`**                                                                                                                                         |
+| Error code                            | Error message                                                                                                                                                                                                                                        |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DUPLICATE\_DIMENSION\_KEYS            | **`Provide Grants with a unique list of dimension keys in<br>[x].`**                                                                                                                                                                                 |
+| DUPLICATE\_DIMENSION\_KEYS            | **`Provide RateCard with a unique list of dimension keys<br>in [x].`**                                                                                                                                                                               |
+| DUPLICATE\_SELECTORS                  | **`Provide a unique list of Selectors in<br>ConfigurableUpfrontPricingTerm.`**                                                                                                                                                                       |
+| DUPLICATE\_TERM\_TYPES                | **`Provide a unique list of term<br>types.`**                                                                                                                                                                                                        |
+| INCOMPATIBLE\_AGREEMENT               | **`The following terms can't be removed from the<br>replacement offer: [x, y, z].`**                                                                                                                                                                 |
+| INCOMPATIBLE\_AGREEMENT               | **`The following terms can't be added to the replacement<br>offer: [x, y, z].`**                                                                                                                                                                     |
+| INCOMPATIBLE\_CURRENCY\_CODE          | **`CurrencyCode can't be changed after the offer is<br>released.`**                                                                                                                                                                                  |
+| INCOMPATIBLE\_PAYMENT\_SETTINGS       | **`Update your payment settings to be compatible with the<br>CurrencyCode.`**                                                                                                                                                                        |
+| INCOMPATIBLE\_PRODUCT                 | **`Usage pricing model isn't supported for the<br>product.`**                                                                                                                                                                                        |
+| INCOMPATIBLE\_PRODUCT                 | **`Contract pricing model isn't supported for the<br>product.`**                                                                                                                                                                                     |
+| INCOMPATIBLE\_PRODUCT                 | **`Byol pricing model isn't supported for the<br>product.`**                                                                                                                                                                                         |
+| INCOMPATIBLE\_PRODUCT                 | **`Free pricing model isn't supported for the<br>product.`**                                                                                                                                                                                         |
+| INCOMPATIBLE\_PRODUCT                 | **`[x] isn't supported in an offer for the<br>product.`**                                                                                                                                                                                            |
+| INCOMPATIBLE\_PRODUCT                 | **`Provided payment and pricing terms are<br>incompatible.`**                                                                                                                                                                                        |
+| INCOMPATIBLE\_PRODUCT                 | **`Use existing, available dimensions in the product in<br>[x].`**                                                                                                                                                                                   |
+| INCOMPATIBLE\_PRODUCT                 | **`FreeTrialPricingTerm as the offer's only pricing term<br>isn't supported for the product.`**                                                                                                                                                      |
+| INCOMPATIBLE\_PRODUCT                 | **`The following terms aren't supported for the product:<br>[x,y,z].`**                                                                                                                                                                              |
+| INCOMPATIBLE\_PRODUCT                 | **`Replacement offers are only supported for contract<br>pricing model.`**                                                                                                                                                                           |
+| INCOMPATIBLE\_PRODUCT                 | **`Provide pricing term(s) that are compatible with the<br>product dimensions. Incompatible pricing terms:<br>[x,y,z].`**                                                                                                                            |
+| INCOMPATIBLE\_RATE\_CARD\_CONSTRAINTS | **`Set MultipleDimensionSelection and<br>QuantityConfiguration to Allowed in<br>ConfigurableUpfrontPricingTerm for usage pricing<br>model.`**                                                                                                        |
+| INCOMPATIBLE\_RATE\_CARD\_CONSTRAINTS | **`Set MultipleDimensionSelection and<br>QuantityConfiguration to Disallowed in<br>ConfigurableUpfrontPricingTerm for usage pricing<br>model.`**                                                                                                     |
+| INCOMPATIBLE\_RATE\_CARD\_CONSTRAINTS | **`QuantityConfiguration in<br>ConfigurableUpfrontPricingTerm can't be changed after the offer<br>is released.`**                                                                                                                                    |
+| INCOMPATIBLE\_RATE\_CARD\_CONSTRAINTS | **`MultipleDimensionSelection in<br>ConfigurableUpfrontPricingTerm can't be changed after the offer<br>is released.`**                                                                                                                               |
+| INCOMPATIBLE\_RATES                   | **`Set all charge amounts and prices to zero (0) when<br>using Free pricing model.`**                                                                                                                                                                |
+| INCOMPATIBLE\_RATES                   | **`Only zero (0) prices are allowed in<br>UsageBasedPricingTerm for a free trial offer for the<br>product.`**                                                                                                                                        |
+| INCOMPATIBLE\_RESALE\_AUTHORIZATION   | **`Provide the same CurrencyCode that is specified in the<br>ResaleAuthorization.`**                                                                                                                                                                 |
+| INCOMPATIBLE\_RESALE\_AUTHORIZATION   | **`Ensure Duration in FixedUpfrontPricingTerm matches<br>duration specified in the<br>ResaleAuthorization.`**                                                                                                                                        |
+| INCOMPATIBLE\_RESALE\_AUTHORIZATION   | **`Provide term(s) that are compatible with the<br>ResaleAuthorization. Incompatible terms: [x, y,<br>z].`**                                                                                                                                         |
+| INCOMPATIBLE\_SELECTOR\_DURATION      | **`Durations aren't allowed to be removed from rate cards<br>in ConfigurableUpfrontPricingTerm after the offer<br>released.`**                                                                                                                       |
+| INCOMPATIBLE\_SELLER\_VERIFICATION    | **`Complete all required seller verification<br>processes.`**                                                                                                                                                                                        |
+| INCOMPATIBLE\_TERMS                   | **`[x] isn't supported together with the following terms:<br>[y,z].`**                                                                                                                                                                               |
+| INCOMPATIBLE\_TERMS                   | **`The following terms can't be added after the offer is<br>released: [x,y,z].`**                                                                                                                                                                    |
+| INCOMPATIBLE\_TERMS                   | **`The following terms can't be removed after the offer<br>is released: [x,y,z].`**                                                                                                                                                                  |
+| INCOMPATIBLE\_TERMS                   | **`[x] isn't supported for private<br>offers.`**                                                                                                                                                                                                     |
+| INCOMPATIBLE\_TERMS                   | **`The following terms aren't supported with<br>FreeTrialPricingTerm that grants unlimited usage:<br>[x,y,z].`**                                                                                                                                     |
+| INCOMPATIBLE\_TERMS                   | **`The following terms aren't supported with<br>FreeTrialPricingTerm for the product:<br>[x,y,z].`**                                                                                                                                                 |
+| INCOMPATIBLE\_TERMS                   | **`Provide zero (0) price for FixedUpfrontPricingTerm<br>when the offer contains a<br>PaymentScheduleTerm.`**                                                                                                                                        |
+| INCOMPATIBLE\_TERMS                   | **`The following terms aren't compatible with the<br>PricingModel: [x,y,z].`**                                                                                                                                                                       |
+| INCOMPATIBLE\_TERMS                   | **`FixedUpfrontPricingTerm isn't supported when<br>MarkupPercentage is greater than zero (0).`**                                                                                                                                                     |
+| INCOMPATIBLE\_TERMS                   | **`The requested change can't be performed after the<br>offer is released.`**                                                                                                                                                                        |
+| INCOMPATIBLE\_TERMS                   | **`The requested change can't be performed after the<br>offer is expired.`**                                                                                                                                                                         |
+| INVALID\_AGREEMENT\_DURATION          | **`Provide duration between [x] and [y]<br>months.`**                                                                                                                                                                                                |
+| INVALID\_AGREEMENT\_DURATION          | **`Ensure duration granularity is at the day level for<br>metered dimensions.`**                                                                                                                                                                     |
+| INVALID\_CURRENCY\_CODE               | **`Provide a supported CurrencyCode.`**                                                                                                                                                                                                              |
+| INVALID\_CURRENCY\_CODE               | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                                                                                                                                                                         |
+| INVALID\_CURRENCY\_CODE               | **`Provide a supported CurrencyCode.`**                                                                                                                                                                                                              |
+| INVALID\_CURRENCY\_CODE               | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                                                                                                                                                                         |
+| INVALID\_DURATION                     | **`Ensure Duration in FreeTrialPricingTerm is within the<br>allowed range.`**                                                                                                                                                                        |
+| INVALID\_DURATION                     | **`Provide Duration in FixedUpfrontPricingTerm that<br>matches the duration between AgreementStartDate and<br>AgreementEndDate.`**                                                                                                                   |
+| INVALID\_DURATION                     | **`Provide duration between [x] and [y]<br>months.`**                                                                                                                                                                                                |
+| INVALID\_DURATION                     | **`Ensure duration granularity is at the day level for<br>metered dimensions.`**                                                                                                                                                                     |
+| INVALID\_GRANTS                       | **`Provide the same MaxQuantity for all Grants in<br>FreeTrialPricingTerm.`**                                                                                                                                                                        |
+| INVALID\_GRANTS                       | **`Provide Grants for all available metered dimensions in<br>FreeTrialPricingTerm.`**                                                                                                                                                                |
+| INVALID\_GRANTS                       | `The combination of Dimensions in grants is invalid in<br>FixedUpfrontPricingTerm for the product.`                                                                                                                                                  |
+| INVALID\_GRANTS                       | `The combination of Dimensions in grants is invalid in<br>FreeTrialPricingTerm for the product.`                                                                                                                                                     |
+| INVALID\_GRANTS                       | `FixedUpfrontPricingTerm with MaxQuantity is not supported<br>for this product.`                                                                                                                                                                     |
+| INVALID\_PRICE\_CHANGE                | **`[x] can't be updated until [y] because you have<br>requested a price increase in the past 120 days. To cancel your<br>previous price increase request or for more information, contact<br>the AWS Marketplace Managed Catalog Operations Team.`** |
+| INVALID\_PRICE\_CHANGE                | **`Price increase and dimension addition in [x] isn't<br>supported in the same request. Add dimensions<br>first.`**                                                                                                                                  |
+| INVALID\_PRICE\_CHANGE                | **`Price increase and decrease in UsageBasedPricingTerm<br>isn't supported in the same request. Decrease prices<br>first.`**                                                                                                                         |
+| INVALID\_PRICE\_CHANGE                | **`Price increase in RecurringPaymentTerm and price<br>decrease in UsageBasedPricingTerm isn't supported in the same<br>request. Decrease prices first.`**                                                                                           |
+| INVALID\_PRICE\_CHANGE                | **`Price decrease in RecurringPaymentTerm and price<br>increase in UsageBasedPricingTerm isn't supported in the same<br>request. Decrease prices first.`**                                                                                           |
+| INVALID\_RATE\_CARD                   | **`ConfigurableUpfrontPricingTerm is missing one or<br>more-dimension keys for duration [x]. Provide prices for the<br>same set of dimension keys for all<br>durations.`**                                                                           |
+| INVALID\_RATE\_CARD                   | **`Provide a rate card for only metered dimensions in<br>UsageBasedPricingTerm.`**                                                                                                                                                                   |
+| INVALID\_RATE\_CARD                   | **`Rates can't be removed from [x]. Provide prices for<br>all dimensions in the existing rate card.`**                                                                                                                                               |
+| INVALID\_RATE\_CARD                   | **`Provide dimensions that have the same unit in<br>[x].`**                                                                                                                                                                                          |
+| INVALID\_RATE\_CARD                   | **`Provide either all metered or all entitled dimensions<br>in [x].`**                                                                                                                                                                               |
+| INVALID\_RATE\_CARD                   | **`Provide only entitled dimensions in<br>[x].`**                                                                                                                                                                                                    |
+| INVALID\_RATE\_CARD                   | **`Provide usage based rates for all available metered<br>dimensions in UsageBasedPricingTerm.`**                                                                                                                                                    |
+| INVALID\_RATE\_CARD                   | **`Provide usage based rates for all free trial<br>dimensions.`**                                                                                                                                                                                    |
+| INVALID\_RATE\_CARD                   | **`Provide prices with up to 8 decimal places in<br>UsageBasedPricingTerm.`**                                                                                                                                                                        |
+| INVALID\_RATE\_CARD                   | `The combination of Dimensions in rate card is invalid in<br>UsageBasedPricingTerm for the product.`                                                                                                                                                 |
+| INVALID\_SELECTOR\_DURATION\_VALUE    | **`Provide duration between [x] and [y]<br>months.`**                                                                                                                                                                                                |
+| INVALID\_SELECTOR\_DURATION\_VALUE    | **`Ensure duration granularity is at the day level for<br>metered dimensions.`**                                                                                                                                                                     |
+| INVALID\_SELECTOR\_DURATION\_VALUE    | **`Ensure Duration in ConfigurableUpfrontPricingTerm is<br>within the allowed range.`**                                                                                                                                                              |
+| INVALID\_SELECTOR\_DURATION\_VALUE    | **`Provide one or more supported contract<br>durations.`**                                                                                                                                                                                           |
+| INVALID\_SELECTOR\_DURATION\_VALUE    | **`Provide one or more supported contract durations or a<br>single custom duration.`**                                                                                                                                                               |
+| INVALID\_SELECTOR\_DURATION\_VALUE    | **`Provide Duration in ConfigurableUpfrontPricingTerm<br>that matches the duration between AgreementStartDate and<br>AgreementEndDate.`**                                                                                                            |
+| MISSING\_DURATION                     | **`Provide Duration in<br>FixedUpfrontPricingTerm.`**                                                                                                                                                                                                |
+| MISSING\_MANDATORY\_TERMS             | **`FixedUpfrontPricingTerm is only supported when paired<br>with ByolPricingTerm or PaymentScheduleTerm.`**                                                                                                                                          |
+| MISSING\_MANDATORY\_TERMS             | **`Provide at least one of [x,y,z].`**                                                                                                                                                                                                               |
+| MISSING\_MANDATORY\_TERMS             | **`Provide a ByolPricingTerm when using Byol pricing<br>model.`**                                                                                                                                                                                    |
+| TOO\_MANY\_GRANTS                     | **`Provide up to [x] grants in [y].`**                                                                                                                                                                                                               |
+| TOO\_MANY\_RATE\_CARDS                | **`Only one rate card in ConfigurableUpfrontPricingTerm<br>is allowed for the product.`**                                                                                                                                                            |
+| TOO\_MANY\_RATE\_CARDS                | **`Up to [x] rate cards are allowed in<br>ConfigurableUpfrontPricingTerm for the<br>product.`**                                                                                                                                                      |
+| TOO\_MANY\_RATES                      | **`Provide RateCards within the allowed limits in<br>ConfigurableUpfrontPricingTerm.`**                                                                                                                                                              |
+| TOO\_MANY\_RATES                      | **`Provide RateCards within the allowed limits in<br>UsageBasedPricingTerm.`**                                                                                                                                                                       |
+| INCOMPATIBLE\_RATE\_CARD\_CONSTRAINTS | **`Set both MultipleDimensionSelection and<br>QuantityConfiguration to the same value (Allowed or Disallowed)<br>in ConfigurableUpfrontPricingTerm.`**                                                                                               |
+| INCOMPATIBLE\_RATE\_CARD\_CONSTRAINTS | **`Provide the same constraints for all rate cards in<br>ConfigurableUpfrontPricingTerm.`**                                                                                                                                                          |
+| INVALID\_UPDATE\_REQUEST              | **`[x] can't be updated. To request pricing change or for<br>more information, contact the AWS Marketplace Managed Catalog Operations<br>Team.`**                                                                                                    |
+| INCOMPATIBLE\_PRICING\_MODEL          | **`PricingModel can't change from [x] to<br>[y].`**                                                                                                                                                                                                  |
+| INVALID\_GRANTS                       | **`MaxQuantity for the FreeTrialPricingTerm is limited for<br>the product. Provide a MaxQuantity less than or equal to [x].<br>For more information, contact the AWS Marketplace Managed Catalog<br>Operations Team.`**                              |
+| INVALID\_GRANTS                       | **`Provide MaxQuantity for all Grants in<br>FixedUpfrontPricingTerm.`**                                                                                                                                                                              |
+| INVALID\_GRANTS                       | **`MaxQuantity isn't supported in<br>FixedUpfrontPricingTerm for the product.`**                                                                                                                                                                     |
+| INCOMPATIBLE\_RESALE\_AUTHORIZATION   | **`Ensure Grants in FixedUpfrontPricingTerm matches<br>RateCards specified in the<br>ResaleAuthorization.`**                                                                                                                                         |
 
 ## Update the discoverability of the offer
 
@@ -1413,7 +1413,7 @@ You can use the Catalog API to control the discoverability of your offer in AWS 
 You can either choose to set a specific date in the future to restrict the
 discoverability of your offer or in the past to expire your offer.
 The
-`UpdateAvailability` change type doesn’t affect existing
+`UpdateAvailability` change type doesn't affect existing
 agreements.
 
 ###### Note
@@ -1511,7 +1511,7 @@ or in the Catalog API with the `DescribeChangeSet` action.
 
 The following schema validations are specific to `UpdateAvailability`
 actions in the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following
+`StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field         | Validation rule                  | HTTP code |
@@ -1526,19 +1526,19 @@ the AWS Marketplace Catalog API. These errors are returned when you call
 details about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                    | Error message                                                                    |
-| ----------------------------- | -------------------------------------------------------------------------------- |
-| INVALID_AVAILABILITY_END_DATE | **`AvailabilityEndDate isn't supported for public<br>offers.`**                  |
-| INVALID_AVAILABILITY_END_DATE | **`Provide a future<br>AvailabilityEndDate.`**                                   |
-| INVALID_AVAILABILITY_END_DATE | **`Provide an AvailabilityEndDate that is before<br>AgreementEndDate.`**         |
-| MISSING_AVAILABILITY_END_DATE | **`Provide an AvailabilityEndDate that is before the<br>agreement's end date.`** |
+| Error code                       | Error message                                                                    |
+| -------------------------------- | -------------------------------------------------------------------------------- |
+| INVALID\_AVAILABILITY\_END\_DATE | **`AvailabilityEndDate isn't supported for public<br>offers.`**                  |
+| INVALID\_AVAILABILITY\_END\_DATE | **`Provide a future<br>AvailabilityEndDate.`**                                   |
+| INVALID\_AVAILABILITY\_END\_DATE | **`Provide an AvailabilityEndDate that is before<br>AgreementEndDate.`**         |
+| MISSING\_AVAILABILITY\_END\_DATE | **`Provide an AvailabilityEndDate that is before the<br>agreement's end date.`** |
 
 ## Define the expiration date of agreements created using the offer
 
 You can use the Catalog API to define the expiration date details of agreements
 created using the offer in AWS Marketplace.
 
-This change type doesn’t affect existing agreements.
+This change type doesn't affect existing agreements.
 
 ###### Note
 
@@ -1625,16 +1625,16 @@ change type:
       - **AgreementDuration**
         (string) – Defines the duration that the
         agreement remains active. If
-        `AgreementStartDate` isn’t provided,
+        `AgreementStartDate` isn't provided,
         agreement duration is relative to the agreement
         signature time. The duration is represented in the
-        ISO_8601 format.
+        ISO\_8601 format.
       - **AgreementStartDate** (string) –
         Defines the date when agreement starts.
         `AgreementStartDate` is represented in
         `YYYY-MM-DD` format. The agreement
         starts at 00:00:00.000 UTC on the date provided. If
-        `AgreementStartDate` isn’t provided,
+        `AgreementStartDate` isn't provided,
         agreement start date is determined based on
         agreement signature time.
       - **AgreementEndDate**
@@ -1642,7 +1642,7 @@ change type:
         agreement ends. The `AgreementEndDate` is
         represented in `YYYY-MM-DD` format. The
         agreement ends at 23:59:59.999 UTC on the date
-        provided. If `AgreementEndDate` isn’t
+        provided. If `AgreementEndDate` isn't
         provided, the agreement end date is determined by
         the validity of individual terms.
 
@@ -1670,7 +1670,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following schema validations are specific to `UpdateValidityTerms`
 actions in the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following
+`StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field                | Validation rule                                                                                                                 | HTTP code |
@@ -1689,35 +1689,35 @@ the AWS Marketplace Catalog API. These errors are returned when you call
 information about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                        | Error message                                                                                                                            |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| INCOMPATIBLE_AGREEMENT            | **`AgreementStartDate can't be in the future when the<br>current agreement to be replaced isn't future<br>dated.`**                      |
-| INCOMPATIBLE_AGREEMENT_END_DATE   | **`AgreementEndDate can't be updated after the offer is<br>released.`**                                                                  |
-| INCOMPATIBLE_AGREEMENT_START_DATE | **`AgreementStartDate can't be updated after the offer is<br>released.`**                                                                |
-| INCOMPATIBLE_PRODUCT              | **`AgreementStartDate in the future isn't<br>supported.`**                                                                               |
-| INCOMPATIBLE_RESALE_AUTHORIZATION | **`Ensure the duration between AgreementStartDate and<br>AgreementEndDate is compatible with the<br>ResaleAuthorization.`**              |
-| INCOMPATIBLE_RESALE_AUTHORIZATION | **`Ensure AgreementStartDate is compatible with the<br>ResaleAuthorization.`**                                                           |
-| INCOMPATIBLE_RESALE_AUTHORIZATION | **`Ensure AgreementEndDate is compatible with the<br>ResaleAuthorization.`**                                                             |
-| INCOMPATIBLE_RESALE_AUTHORIZATION | **`Ensure the duration between AgreementStartDate and<br>AgreementEndDate is compatible with the<br>ResaleAuthorization.`**              |
-| INCOMPATIBLE_RESALE_AUTHORIZATION | **`Ensure AgreementDuration matches duration specified in<br>the ResaleAuthorization.`**                                                 |
-| INCOMPATIBLE_TERMS                | **`ValidityTerm isn't supported for public<br>offers.`**                                                                                 |
-| INCOMPATIBLE_TERMS                | **`The requested change can't be performed after the<br>offer is expired.`**                                                             |
-| INVALID_AGREEMENT_DURATION        | **`Provide AgreementDuration that is greater than or<br>equal to [x] days.`**                                                            |
-| INVALID_AGREEMENT_END_DATE        | **`Provide a future AgreementEndDate.`**                                                                                                 |
-| INVALID_AGREEMENT_END_DATE        | **`Provide AgreementEndDate that is after or equal to<br>[x].`**                                                                         |
-| INVALID_AGREEMENT_START_DATE      | **`Provide an AgreementStartDate that is after<br>AvailabilityEndDate.`**                                                                |
-| INVALID_AGREEMENT_START_DATE      | **`Provide an AgreementStartDate that is before the<br>AgreementEndDate.`**                                                              |
-| INVALID_AGREEMENT_START_DATE      | **`Provide an AgreementStartDate that is within [x] years<br>from today.`**                                                              |
-| INVALID_AGREEMENT_TIME_INTERVAL   | **`ValidityTerm with both AgreementDuration and<br>AgreementEndDate isn't supported.`**                                                  |
-| INVALID_AGREEMENT_TIME_INTERVAL   | **`ValidityTerm with both AgreementStartDate and<br>AgreementDuration isn't supported in an offer for the<br>product.`**                 |
-| INVALID_AGREEMENT_TIME_INTERVAL   | **`ValidityTerm with AgreementStartDate isn't supported<br>in an offer for the product.`**                                               |
-| INVALID_AGREEMENT_TIME_INTERVAL   | **`ValidityTerm with only AgreementStartDate isn't<br>supported.`**                                                                      |
-| INVALID_AGREEMENT_TIME_INTERVAL   | **`AgreementEndDate isn't supported unless it's used in<br>combination with a future AgreementStartDate or for replacement<br>offers.`** |
-| INVALID_AGREEMENT_TIME_INTERVAL   | **`Provide AgreementStartDate and AgreementEndDate where<br>the difference is less than or equal to [x]<br>years.`**                     |
-| MISSING_AGREEMENT_START_DATE      | **`Ensure AgreementStartDate is present in ValidityTerm<br>when used along with<br>ConfigurableUpfrontPricingTerm.`**                    |
-| INVALID_AGREEMENT_END_DATE        | **`Provide an AgreementEndDate that is within [x] years<br>from today.`**                                                                |
-| INCOMPATIBLE_AGREEMENT_START_DATE | **`Provide the same AgreementStartDate as defined in the<br>agreement when the agreement has a future start<br>date.`**                  |
-| INCOMPATIBLE_AGREEMENT            | **`AgreementStartDate can't be future dated when the<br>agreement isn't future dated.`**                                                 |
+| Error code                           | Error message                                                                                                                            |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| INCOMPATIBLE\_AGREEMENT              | **`AgreementStartDate can't be in the future when the<br>current agreement to be replaced isn't future<br>dated.`**                      |
+| INCOMPATIBLE\_AGREEMENT\_END\_DATE   | **`AgreementEndDate can't be updated after the offer is<br>released.`**                                                                  |
+| INCOMPATIBLE\_AGREEMENT\_START\_DATE | **`AgreementStartDate can't be updated after the offer is<br>released.`**                                                                |
+| INCOMPATIBLE\_PRODUCT                | **`AgreementStartDate in the future isn't<br>supported.`**                                                                               |
+| INCOMPATIBLE\_RESALE\_AUTHORIZATION  | **`Ensure the duration between AgreementStartDate and<br>AgreementEndDate is compatible with the<br>ResaleAuthorization.`**              |
+| INCOMPATIBLE\_RESALE\_AUTHORIZATION  | **`Ensure AgreementStartDate is compatible with the<br>ResaleAuthorization.`**                                                           |
+| INCOMPATIBLE\_RESALE\_AUTHORIZATION  | **`Ensure AgreementEndDate is compatible with the<br>ResaleAuthorization.`**                                                             |
+| INCOMPATIBLE\_RESALE\_AUTHORIZATION  | **`Ensure the duration between AgreementStartDate and<br>AgreementEndDate is compatible with the<br>ResaleAuthorization.`**              |
+| INCOMPATIBLE\_RESALE\_AUTHORIZATION  | **`Ensure AgreementDuration matches duration specified in<br>the ResaleAuthorization.`**                                                 |
+| INCOMPATIBLE\_TERMS                  | **`ValidityTerm isn't supported for public<br>offers.`**                                                                                 |
+| INCOMPATIBLE\_TERMS                  | **`The requested change can't be performed after the<br>offer is expired.`**                                                             |
+| INVALID\_AGREEMENT\_DURATION         | **`Provide AgreementDuration that is greater than or<br>equal to [x] days.`**                                                            |
+| INVALID\_AGREEMENT\_END\_DATE        | **`Provide a future AgreementEndDate.`**                                                                                                 |
+| INVALID\_AGREEMENT\_END\_DATE        | **`Provide AgreementEndDate that is after or equal to<br>[x].`**                                                                         |
+| INVALID\_AGREEMENT\_START\_DATE      | **`Provide an AgreementStartDate that is after<br>AvailabilityEndDate.`**                                                                |
+| INVALID\_AGREEMENT\_START\_DATE      | **`Provide an AgreementStartDate that is before the<br>AgreementEndDate.`**                                                              |
+| INVALID\_AGREEMENT\_START\_DATE      | **`Provide an AgreementStartDate that is within [x] years<br>from today.`**                                                              |
+| INVALID\_AGREEMENT\_TIME\_INTERVAL   | **`ValidityTerm with both AgreementDuration and<br>AgreementEndDate isn't supported.`**                                                  |
+| INVALID\_AGREEMENT\_TIME\_INTERVAL   | **`ValidityTerm with both AgreementStartDate and<br>AgreementDuration isn't supported in an offer for the<br>product.`**                 |
+| INVALID\_AGREEMENT\_TIME\_INTERVAL   | **`ValidityTerm with AgreementStartDate isn't supported<br>in an offer for the product.`**                                               |
+| INVALID\_AGREEMENT\_TIME\_INTERVAL   | **`ValidityTerm with only AgreementStartDate isn't<br>supported.`**                                                                      |
+| INVALID\_AGREEMENT\_TIME\_INTERVAL   | **`AgreementEndDate isn't supported unless it's used in<br>combination with a future AgreementStartDate or for replacement<br>offers.`** |
+| INVALID\_AGREEMENT\_TIME\_INTERVAL   | **`Provide AgreementStartDate and AgreementEndDate where<br>the difference is less than or equal to [x]<br>years.`**                     |
+| MISSING\_AGREEMENT\_START\_DATE      | **`Ensure AgreementStartDate is present in ValidityTerm<br>when used along with<br>ConfigurableUpfrontPricingTerm.`**                    |
+| INVALID\_AGREEMENT\_END\_DATE        | **`Provide an AgreementEndDate that is within [x] years<br>from today.`**                                                                |
+| INCOMPATIBLE\_AGREEMENT\_START\_DATE | **`Provide the same AgreementStartDate as defined in the<br>agreement when the agreement has a future start<br>date.`**                  |
+| INCOMPATIBLE\_AGREEMENT              | **`AgreementStartDate can't be future dated when the<br>agreement isn't future dated.`**                                                 |
 
 ## Update payment schedule details
 
@@ -1852,7 +1852,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 The following schema validations are specific to
 `UpdatePaymentScheduleTerms` actions in the AWS Marketplace Catalog API. These
 validations are performed when you call `StartChangeSet`. If the request
-doesn’t meet the following requirements, it will fail with an HTTP response.
+doesn't meet the following requirements, it will fail with an HTTP response.
 
 | Input Field                                         | Validation Rule                                                                             | HTTP |
 | --------------------------------------------------- | ------------------------------------------------------------------------------------------- | ---- |
@@ -1871,24 +1871,24 @@ actions in the AWS Marketplace Catalog API. These errors are returned when you c
 information about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                        | Error message                                                                                                            |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| DUPLICATE_CHARGE_DATES            | **`Provide unique charge dates in<br>PaymentScheduleTerm.`**                                                             |
-| INCOMPATIBLE_CURRENCY_CODE        | **`CurrencyCode can't be changed after the offer is<br>released.`**                                                      |
-| INCOMPATIBLE_MARKUP_PERCENTAGE    | **`PaymentScheduleTerm isn't supported when<br>MarkupPercentage is greater than zero (0).`**                             |
-| INCOMPATIBLE_PAYMENT_SETTINGS     | **`Update your payment settings to be compatible with the<br>CurrencyCode.`**                                            |
-| INCOMPATIBLE_RESALE_AUTHORIZATION | **`Provide term(s) that are compatible with the<br>ResaleAuthorization. Incompatible terms:<br>[PaymentScheduleTerm].`** |
-| INCOMPATIBLE_RESALE_AUTHORIZATION | **`Ensure the total ChargeAmounts in PaymentScheduleTerm<br>is compatible with the ResaleAuthorization.`**               |
-| INCOMPATIBLE_SELLER_VERIFICATION  | **`Complete all required seller verification<br>processes.`**                                                            |
-| INCOMPATIBLE_TERMS                | **`The requested change can't be performed after the<br>offer is released.`**                                            |
-| INCOMPATIBLE_TERMS                | **`The requested change can't be performed after the<br>offer is expired.`**                                             |
-| INVALID_CHARGE_DATES              | **`Provide charge dates before<br>AgreementEndDate.`**                                                                   |
-| INVALID_CURRENCY_CODE             | **`Provide a supported CurrencyCode.`**                                                                                  |
-| INVALID_CURRENCY_CODE             | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                                             |
-| TOO_MANY_BACKDATED_CHARGES        | **`Provide up to 1 scheduled payment before<br>AvailabilityEndDate.`**                                                   |
-| INVALID_CHARGE_DATES              | **`Provide a last charge date that is before<br>AgreementEndDate.`**                                                     |
-| INVALID_CHARGE_DATES              | **`Provide a first charge date that isn't in the<br>past.`**                                                             |
-| TOO_MANY_CHARGES                  | **`Provide up to [x] scheduled payments in<br>PaymentScheduleTerm.`**                                                    |
+| Error code                          | Error message                                                                                                            |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| DUPLICATE\_CHARGE\_DATES            | **`Provide unique charge dates in<br>PaymentScheduleTerm.`**                                                             |
+| INCOMPATIBLE\_CURRENCY\_CODE        | **`CurrencyCode can't be changed after the offer is<br>released.`**                                                      |
+| INCOMPATIBLE\_MARKUP\_PERCENTAGE    | **`PaymentScheduleTerm isn't supported when<br>MarkupPercentage is greater than zero (0).`**                             |
+| INCOMPATIBLE\_PAYMENT\_SETTINGS     | **`Update your payment settings to be compatible with the<br>CurrencyCode.`**                                            |
+| INCOMPATIBLE\_RESALE\_AUTHORIZATION | **`Provide term(s) that are compatible with the<br>ResaleAuthorization. Incompatible terms:<br>[PaymentScheduleTerm].`** |
+| INCOMPATIBLE\_RESALE\_AUTHORIZATION | **`Ensure the total ChargeAmounts in PaymentScheduleTerm<br>is compatible with the ResaleAuthorization.`**               |
+| INCOMPATIBLE\_SELLER\_VERIFICATION  | **`Complete all required seller verification<br>processes.`**                                                            |
+| INCOMPATIBLE\_TERMS                 | **`The requested change can't be performed after the<br>offer is released.`**                                            |
+| INCOMPATIBLE\_TERMS                 | **`The requested change can't be performed after the<br>offer is expired.`**                                             |
+| INVALID\_CHARGE\_DATES              | **`Provide charge dates before<br>AgreementEndDate.`**                                                                   |
+| INVALID\_CURRENCY\_CODE             | **`Provide a supported CurrencyCode.`**                                                                                  |
+| INVALID\_CURRENCY\_CODE             | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                                             |
+| TOO\_MANY\_BACKDATED\_CHARGES       | **`Provide up to 1 scheduled payment before<br>AvailabilityEndDate.`**                                                   |
+| INVALID\_CHARGE\_DATES              | **`Provide a last charge date that is before<br>AgreementEndDate.`**                                                     |
+| INVALID\_CHARGE\_DATES              | **`Provide a first charge date that isn't in the<br>past.`**                                                             |
+| TOO\_MANY\_CHARGES                  | **`Provide up to [x] scheduled payments in<br>PaymentScheduleTerm.`**                                                    |
 
 ## Modify renewal options
 
@@ -1988,7 +1988,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following schema validations are specific to `UpdateRenewalTerms`
 actions in the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following
+`StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field  | Validation rule                   | HTTP code |
@@ -2004,13 +2004,13 @@ the AWS Marketplace Catalog API. These errors are returned when you call
 details about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code           | Error message                                                                 |
-| -------------------- | ----------------------------------------------------------------------------- |
-| INCOMPATIBLE_PRODUCT | **`RenewalTerm isn't supported in private offers for the<br>product.`**       |
-| INCOMPATIBLE_TERMS   | **`RenewalTerm isn't supported together with<br>PaymentScheduleTerm.`**       |
-| INCOMPATIBLE_TERMS   | **`RenewalTerm isn't supported with the<br>PricingModel.`**                   |
-| INCOMPATIBLE_TERMS   | **`The requested change can't be performed after the<br>offer is released.`** |
-| INCOMPATIBLE_TERMS   | **`The requested change can't be performed after the<br>offer is expired.`**  |
+| Error code            | Error message                                                                 |
+| --------------------- | ----------------------------------------------------------------------------- |
+| INCOMPATIBLE\_PRODUCT | **`RenewalTerm isn't supported in private offers for the<br>product.`**       |
+| INCOMPATIBLE\_TERMS   | **`RenewalTerm isn't supported together with<br>PaymentScheduleTerm.`**       |
+| INCOMPATIBLE\_TERMS   | **`RenewalTerm isn't supported with the<br>PricingModel.`**                   |
+| INCOMPATIBLE\_TERMS   | **`The requested change can't be performed after the<br>offer is released.`** |
+| INCOMPATIBLE\_TERMS   | **`The requested change can't be performed after the<br>offer is expired.`**  |
 
 ## Publish an offer
 
@@ -2018,7 +2018,7 @@ You can use the Catalog API to merge the information collected from all update
 change types, and then publish the offer.
 
 Offers remain in a `Draft` state, until `ReleaseOffer` is
-called. After the offer is released, it’s discoverable in AWS Marketplace.
+called. After the offer is released, it's discoverable in AWS Marketplace.
 
 To publish your offer, call the `StartChangeSet` API operation with the
 `ReleaseOffer` change type, as shown in the following example.
@@ -2079,7 +2079,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following schema validations are specific to `ReleaseOffer` actions
 in the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following
+`StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field     | Validation rule      |
@@ -2093,27 +2093,27 @@ AWS Marketplace Catalog API. These errors are returned when you call `DescribeCh
 after a change set is processing. For more information about using
 `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                       | Error message                                                                                                                                                                                                                                                                                                           |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INCOMPATIBLE_PAYMENT_SETTINGS    | **`Update your payment settings to be compatible with the<br>CurrencyCode.`**                                                                                                                                                                                                                                           |
-| INCOMPATIBLE_PRODUCT             | **`First create a public offer for the<br>product.`**                                                                                                                                                                                                                                                                   |
-| INCOMPATIBLE_SELLER_VERIFICATION | **`Complete all required seller verification<br>processes.`**                                                                                                                                                                                                                                                           |
-| INCOMPATIBLE_TARGETING           | **`PreExistingAgreement is only supported for buyer<br>targeted offers.`**                                                                                                                                                                                                                                              |
-| INCOMPATIBLE_TARGETING           | **`OfferSetId is only supported for buyer targeted offers.`**                                                                                                                                                                                                                                                           |
-| INVALID_TAX_INFORMATION          | **`Your tax information is<br>incomplete. To sell professional services on AWS Marketplace, you must<br>complete the DAC7 tax questionnaire. Navigate to the<br>**Payment Information*<br>• section, and select<br>the \*\*DAC7*<br>• tax form. It can take up to two<br>hours for your tax information to update.`\*\* |
-| INVALID_UPDATE_REQUEST           | **`The requested change can't be performed after the<br>offer is released.`**                                                                                                                                                                                                                                           |
-| MISSING_AGREEMENT_END_DATE       | **`Provide an AgreementEndDate for replacement<br>offers.`**                                                                                                                                                                                                                                                            |
-| MISSING_AVAILABILITY_END_DATE    | **`Provide an AvailabilityEndDate for private<br>offer.`**                                                                                                                                                                                                                                                              |
-| MISSING_BUYER_ACCOUNTS           | **`Provide PositiveTargeting with BuyersAccounts for<br>offers created using ResaleAuthorization.`**                                                                                                                                                                                                                    |
-| MISSING_BUYER_ACCOUNTS           | **`All offers for the product must be private. Provide<br>PositiveTargeting with BuyersAccounts.`**                                                                                                                                                                                                                     |
-| MISSING_DESCRIPTION              | **`Set Description before releasing the<br>offer.`**                                                                                                                                                                                                                                                                    |
-| MISSING_MANDATORY_TERMS          | **`Add [x] to the offer.`**                                                                                                                                                                                                                                                                                             |
-| MISSING_MANDATORY_TERMS          | **`Provide a FixedUpfrontPricingTerm when the offer<br>contains a PaymentScheduleTerm.`**                                                                                                                                                                                                                               |
-| MISSING_NAME                     | **`Set Name before releasing the<br>offer.`**                                                                                                                                                                                                                                                                           |
-| TOO_MANY_OFFERS                  | **`Only one public free trial offer can be created per<br>product.`**                                                                                                                                                                                                                                                   |
-| TOO_MANY_OFFERS                  | **`Only one public offer can be created per<br>product.`**                                                                                                                                                                                                                                                              |
-| MISSING_MANDATORY_TERMS          | **`Provide a RenewalTerm for public offers with contract<br>pricing for the product.`**                                                                                                                                                                                                                                 |
-| MISSING_AGREEMENT_END_DATE       | **`Provide an AgreementEndDate for replacement<br>offers.`**                                                                                                                                                                                                                                                            |
+| Error code                         | Error message                                                                                                                                                                                                                                                                                                       |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| INCOMPATIBLE\_PAYMENT\_SETTINGS    | **`Update your payment settings to be compatible with the<br>CurrencyCode.`**                                                                                                                                                                                                                                       |
+| INCOMPATIBLE\_PRODUCT              | **`First create a public offer for the<br>product.`**                                                                                                                                                                                                                                                               |
+| INCOMPATIBLE\_SELLER\_VERIFICATION | **`Complete all required seller verification<br>processes.`**                                                                                                                                                                                                                                                       |
+| INCOMPATIBLE\_TARGETING            | **`PreExistingAgreement is only supported for buyer<br>targeted offers.`**                                                                                                                                                                                                                                          |
+| INCOMPATIBLE\_TARGETING            | **`OfferSetId is only supported for buyer targeted offers.`**                                                                                                                                                                                                                                                       |
+| INVALID\_TAX\_INFORMATION          | **`Your tax information is<br>incomplete. To sell professional services on AWS Marketplace, you must<br>complete the DAC7 tax questionnaire. Navigate to the<br>**Payment Information*<br>• section, and select<br>the **DAC7*<br>• tax form. It can take up to two<br>hours for your tax information to update.`** |
+| INVALID\_UPDATE\_REQUEST           | **`The requested change can't be performed after the<br>offer is released.`**                                                                                                                                                                                                                                       |
+| MISSING\_AGREEMENT\_END\_DATE      | **`Provide an AgreementEndDate for replacement<br>offers.`**                                                                                                                                                                                                                                                        |
+| MISSING\_AVAILABILITY\_END\_DATE   | **`Provide an AvailabilityEndDate for private<br>offer.`**                                                                                                                                                                                                                                                          |
+| MISSING\_BUYER\_ACCOUNTS           | **`Provide PositiveTargeting with BuyersAccounts for<br>offers created using ResaleAuthorization.`**                                                                                                                                                                                                                |
+| MISSING\_BUYER\_ACCOUNTS           | **`All offers for the product must be private. Provide<br>PositiveTargeting with BuyersAccounts.`**                                                                                                                                                                                                                 |
+| MISSING\_DESCRIPTION               | **`Set Description before releasing the<br>offer.`**                                                                                                                                                                                                                                                                |
+| MISSING\_MANDATORY\_TERMS          | **`Add [x] to the offer.`**                                                                                                                                                                                                                                                                                         |
+| MISSING\_MANDATORY\_TERMS          | **`Provide a FixedUpfrontPricingTerm when the offer<br>contains a PaymentScheduleTerm.`**                                                                                                                                                                                                                           |
+| MISSING\_NAME                      | **`Set Name before releasing the<br>offer.`**                                                                                                                                                                                                                                                                       |
+| TOO\_MANY\_OFFERS                  | **`Only one public free trial offer can be created per<br>product.`**                                                                                                                                                                                                                                               |
+| TOO\_MANY\_OFFERS                  | **`Only one public offer can be created per<br>product.`**                                                                                                                                                                                                                                                          |
+| MISSING\_MANDATORY\_TERMS          | **`Provide a RenewalTerm for public offers with contract<br>pricing for the product.`**                                                                                                                                                                                                                             |
+| MISSING\_AGREEMENT\_END\_DATE      | **`Provide an AgreementEndDate for replacement<br>offers.`**                                                                                                                                                                                                                                                        |
 
 ## Describe existing offer details
 

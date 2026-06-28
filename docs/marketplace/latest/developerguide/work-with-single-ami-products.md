@@ -358,54 +358,54 @@ the AWS Marketplace Catalog API. These errors are returned when you call
 information about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                              | Error message                                                                                                                                                                      |
-| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INVALID_AMI_NAME                        | **`The prefix (x) in the AMI name is invalid. Provide a<br>new name using your company or brand name as a<br>prefix.`**                                                            |
-| INVALID_PRODUCT                         | **`Use an existing limited or public<br>product.`**                                                                                                                                |
-| DUPLICATE_VERSION_TITLE                 | **`The version title must be different from any other<br>version titles of this product.`**                                                                                        |
-| INVALID_VERSION_TITLE                   | **`Remove spaces before the trademark<br>symbol.`**                                                                                                                                |
-| INVALID_VERSION_TITLE                   | **`Remove unsupported characters: [x, y,<br>z]`**                                                                                                                                  |
-| INVALID_VERSION_TITLE                   | **`Remove spaces from the beginning of the version<br>title.`**                                                                                                                    |
-| INVALID_VERSION_TITLE                   | **`Provide version title with fewer than [x]<br>characters.`**                                                                                                                     |
-| INVALID_RELEASE_NOTES                   | **`Remove spaces before the trademark<br>symbol.`**                                                                                                                                |
-| INVALID_RELEASE_NOTES                   | **`Remove unsupported characters: [x, y,<br>z]`**                                                                                                                                  |
-| INVALID_RELEASE_NOTES                   | **`Remove spaces from the beginning of release<br>notes.`**                                                                                                                        |
-| INVALID_RELEASE_NOTES                   | **`Provide release notes with fewer than (x)<br>characters.`**                                                                                                                     |
-| INVALID_USAGE_INSTRUCTIONS              | **`Remove spaces before the trademark<br>symbol.`**                                                                                                                                |
-| INVALID_USAGE_INSTRUCTIONS              | **`Remove unsupported characters: [x, y,<br>z]`**                                                                                                                                  |
-| INVALID_USAGE_INSTRUCTIONS              | **`Remove spaces from the beginning of release<br>notes.`**                                                                                                                        |
-| INVALID_USAGE_INSTRUCTIONS              | **`Provide usage instructions with fewer than (x)<br>characters.`**                                                                                                                |
-| RECOMMENDED_INSTANCE_TYPE_NOT_AVAILABLE | **`Provide an existing, available instance<br>type.`**                                                                                                                             |
-| INVALID_RECOMMENDED_INSTANCE_TYPE       | **`Provide a valid instance type.`**                                                                                                                                               |
-| INVALID_SECURITY_GROUP                  | **`Security group ports must be between 1 and<br>[max].`**                                                                                                                         |
-| INVALID_SECURITY_GROUP                  | **`Provide a value for CIDR IP<br>ranges.`**                                                                                                                                       |
-| INVALID_SECURITY_GROUP                  | **`Provide security group start port that is not greater<br>than end port.`**                                                                                                      |
-| INVALID_SECURITY_GROUP_PROTOCOL         | **`Security group protocol must either be ‘tcp’ or<br>‘udp’.`**                                                                                                                    |
-| INVALID_CIDR_IP                         | **`Provide standard CIDR IP range in form<br>'0.0.0.0/0'.`**                                                                                                                       |
-| INVALID_ACCESS_ENDPOINT_PORT            | **`Provide endpoint port less than<br>[x].`**                                                                                                                                      |
-| INVALID_ACCESS_ENDPOINT_PORT            | **`Provide endpoint port between 1 and<br>[max].`**                                                                                                                                |
-| INVALID_ACCESS_ENDPOINT_PORT            | **`Provide endpoint port.`**                                                                                                                                                       |
-| INVALID_ACCESS_ENDPOINT_RELATIVE_PATH   | **`Remove spaces in the relative<br>path.`**                                                                                                                                       |
-| INVALID_ACCESS_ENDPOINT_RELATIVE_PATH   | **`Remove preceding '/' from relative<br>path.`**                                                                                                                                  |
-| INCOMPATIBLE_OPERATING_SYSTEM           | **`Provide operating system name and version that is<br>compatible with instance types: [x]`**                                                                                     |
-| INCOMPATIBLE_OPERATING_SYSTEM_NAME      | **`Provide name with fewer than (x)<br>characters.`**                                                                                                                              |
-| INCOMPATIBLE_OPERATING_SYSTEM_NAME      | **`Provide operating system name that is<br>supported.`**                                                                                                                          |
-| INCOMPATIBLE_OPERATING_SYSTEM_VERSION   | **`Provide version with fewer than (x)<br>characters.`**                                                                                                                           |
-| INVALID_SCANNING_PORT                   | **`Provide scanning port between 1 and<br>[max].`**                                                                                                                                |
-| INVALID_AMI_ID                          | **`Provide valid AMI ID.`**                                                                                                                                                        |
-| EXISTING_AMI_PRODUCT_CODE               | **`Remove product code attached to image<br>X.`**                                                                                                                                  |
-| INVALID_AMI_ARCHITECTURE                | **`Provide new AMI with architecture<br>[x].`**                                                                                                                                    |
-| INVALID_AMI_VIRTUALIZATION_TYPE         | **`Provide new AMI with virtualization type<br>[x].`**                                                                                                                             |
-| INVALID_AMI_VIRTUALIZATION_TYPE         | **`Provide expected [z] volume on image<br>[x].`**                                                                                                                                 |
-| INCOMPATIBLE_AMI                        | **`Provide new AMI as architecture [x] on [y] is not<br>supported by following instance types: [z]`**                                                                              |
-| INCOMPATIBLE_AMI                        | **`Provide new AMI as virtualization type [x] on [y] is<br>not supported by following instance types:<br>[z]`**                                                                    |
-| INCOMPATIBLE_AMI                        | **`Enable ENA support for image x because following<br>instance types require ENA support: [y]`**                                                                                  |
-| ASSET_NOT_FOUND                         | **`Check if [ami-id] exists in us-east-1 Region of<br>[account-id] AWS account and the `AccessARN`<br>provided [ARN] has permissions to share this AMI with<br>AWS Marketplace.`** |
-| ASSET_ACCESS_EXCEPTION                  | **`Unable to copy AMI [x] into AWS Marketplace<br>account.`**                                                                                                                      |
-| SCAN_ERROR                              | **`Fix security vulnerability [y] on Image<br>[x].`**                                                                                                                              |
-| ASSET_NOT_FOUND                         | **`Check if [afi-id] exists in us-east-1 Region of<br>[account-id] AWS account and the `AccessARN`<br>provided [ARN] has permissions to share this AFI with<br>AWS Marketplace.`** |
-| ASSET_ACCESS_EXCEPTION                  | **`Unable to access AFI. Check if AccessARN provided<br>[ARN] has permissions to share this AFI with AWS Marketplace and access<br>role Account is AFI owner.`**                   |
-| MISSING_FPGA_INSTANCE_TYPE              | **`No FPGA based instance type found. Use AddInstanceTypes<br>change type to add FPGA based instance type.`**                                                                      |
+| Error code                                  | Error message                                                                                                                                                                      |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| INVALID\_AMI\_NAME                          | **`The prefix (x) in the AMI name is invalid. Provide a<br>new name using your company or brand name as a<br>prefix.`**                                                            |
+| INVALID\_PRODUCT                            | **`Use an existing limited or public<br>product.`**                                                                                                                                |
+| DUPLICATE\_VERSION\_TITLE                   | **`The version title must be different from any other<br>version titles of this product.`**                                                                                        |
+| INVALID\_VERSION\_TITLE                     | **`Remove spaces before the trademark<br>symbol.`**                                                                                                                                |
+| INVALID\_VERSION\_TITLE                     | **`Remove unsupported characters: [x, y,<br>z]`**                                                                                                                                  |
+| INVALID\_VERSION\_TITLE                     | **`Remove spaces from the beginning of the version<br>title.`**                                                                                                                    |
+| INVALID\_VERSION\_TITLE                     | **`Provide version title with fewer than [x]<br>characters.`**                                                                                                                     |
+| INVALID\_RELEASE\_NOTES                     | **`Remove spaces before the trademark<br>symbol.`**                                                                                                                                |
+| INVALID\_RELEASE\_NOTES                     | **`Remove unsupported characters: [x, y,<br>z]`**                                                                                                                                  |
+| INVALID\_RELEASE\_NOTES                     | **`Remove spaces from the beginning of release<br>notes.`**                                                                                                                        |
+| INVALID\_RELEASE\_NOTES                     | **`Provide release notes with fewer than (x)<br>characters.`**                                                                                                                     |
+| INVALID\_USAGE\_INSTRUCTIONS                | **`Remove spaces before the trademark<br>symbol.`**                                                                                                                                |
+| INVALID\_USAGE\_INSTRUCTIONS                | **`Remove unsupported characters: [x, y,<br>z]`**                                                                                                                                  |
+| INVALID\_USAGE\_INSTRUCTIONS                | **`Remove spaces from the beginning of release<br>notes.`**                                                                                                                        |
+| INVALID\_USAGE\_INSTRUCTIONS                | **`Provide usage instructions with fewer than (x)<br>characters.`**                                                                                                                |
+| RECOMMENDED\_INSTANCE\_TYPE\_NOT\_AVAILABLE | **`Provide an existing, available instance<br>type.`**                                                                                                                             |
+| INVALID\_RECOMMENDED\_INSTANCE\_TYPE        | **`Provide a valid instance type.`**                                                                                                                                               |
+| INVALID\_SECURITY\_GROUP                    | **`Security group ports must be between 1 and<br>[max].`**                                                                                                                         |
+| INVALID\_SECURITY\_GROUP                    | **`Provide a value for CIDR IP<br>ranges.`**                                                                                                                                       |
+| INVALID\_SECURITY\_GROUP                    | **`Provide security group start port that is not greater<br>than end port.`**                                                                                                      |
+| INVALID\_SECURITY\_GROUP\_PROTOCOL          | **`Security group protocol must either be 'tcp' or<br>'udp'.`**                                                                                                                    |
+| INVALID\_CIDR\_IP                           | **`Provide standard CIDR IP range in form<br>'0.0.0.0/0'.`**                                                                                                                       |
+| INVALID\_ACCESS\_ENDPOINT\_PORT             | **`Provide endpoint port less than<br>[x].`**                                                                                                                                      |
+| INVALID\_ACCESS\_ENDPOINT\_PORT             | **`Provide endpoint port between 1 and<br>[max].`**                                                                                                                                |
+| INVALID\_ACCESS\_ENDPOINT\_PORT             | **`Provide endpoint port.`**                                                                                                                                                       |
+| INVALID\_ACCESS\_ENDPOINT\_RELATIVE\_PATH   | **`Remove spaces in the relative<br>path.`**                                                                                                                                       |
+| INVALID\_ACCESS\_ENDPOINT\_RELATIVE\_PATH   | **`Remove preceding '/' from relative<br>path.`**                                                                                                                                  |
+| INCOMPATIBLE\_OPERATING\_SYSTEM             | **`Provide operating system name and version that is<br>compatible with instance types: [x]`**                                                                                     |
+| INCOMPATIBLE\_OPERATING\_SYSTEM\_NAME       | **`Provide name with fewer than (x)<br>characters.`**                                                                                                                              |
+| INCOMPATIBLE\_OPERATING\_SYSTEM\_NAME       | **`Provide operating system name that is<br>supported.`**                                                                                                                          |
+| INCOMPATIBLE\_OPERATING\_SYSTEM\_VERSION    | **`Provide version with fewer than (x)<br>characters.`**                                                                                                                           |
+| INVALID\_SCANNING\_PORT                     | **`Provide scanning port between 1 and<br>[max].`**                                                                                                                                |
+| INVALID\_AMI\_ID                            | **`Provide valid AMI ID.`**                                                                                                                                                        |
+| EXISTING\_AMI\_PRODUCT\_CODE                | **`Remove product code attached to image<br>X.`**                                                                                                                                  |
+| INVALID\_AMI\_ARCHITECTURE                  | **`Provide new AMI with architecture<br>[x].`**                                                                                                                                    |
+| INVALID\_AMI\_VIRTUALIZATION\_TYPE          | **`Provide new AMI with virtualization type<br>[x].`**                                                                                                                             |
+| INVALID\_AMI\_VIRTUALIZATION\_TYPE          | **`Provide expected [z] volume on image<br>[x].`**                                                                                                                                 |
+| INCOMPATIBLE\_AMI                           | **`Provide new AMI as architecture [x] on [y] is not<br>supported by following instance types: [z]`**                                                                              |
+| INCOMPATIBLE\_AMI                           | **`Provide new AMI as virtualization type [x] on [y] is<br>not supported by following instance types:<br>[z]`**                                                                    |
+| INCOMPATIBLE\_AMI                           | **`Enable ENA support for image x because following<br>instance types require ENA support: [y]`**                                                                                  |
+| ASSET\_NOT\_FOUND                           | **`Check if [ami-id] exists in us-east-1 Region of<br>[account-id] AWS account and the `AccessARN`<br>provided [ARN] has permissions to share this AMI with<br>AWS Marketplace.`** |
+| ASSET\_ACCESS\_EXCEPTION                    | **`Unable to copy AMI [x] into AWS Marketplace<br>account.`**                                                                                                                      |
+| SCAN\_ERROR                                 | **`Fix security vulnerability [y] on Image<br>[x].`**                                                                                                                              |
+| ASSET\_NOT\_FOUND                           | **`Check if [afi-id] exists in us-east-1 Region of<br>[account-id] AWS account and the `AccessARN`<br>provided [ARN] has permissions to share this AFI with<br>AWS Marketplace.`** |
+| ASSET\_ACCESS\_EXCEPTION                    | **`Unable to access AFI. Check if AccessARN provided<br>[ARN] has permissions to share this AFI with AWS Marketplace and access<br>role Account is AFI owner.`**                   |
+| MISSING\_FPGA\_INSTANCE\_TYPE               | **`No FPGA based instance type found. Use AddInstanceTypes<br>change type to add FPGA based instance type.`**                                                                      |
 
 You can also create a AMI-based product using the AWS Marketplace Management Portal. For more information,
 see [AMI
@@ -697,12 +697,12 @@ You can retrieve `UpdatePricingTerms` actions by using the
 For more information about error details and troubleshooting, refer to [Change set status and errors](work-with-seller-products.md#seller-product-change-set-errors "work-with-seller-products.md#seller-product-change-set-errors"), earlier in this
 guide.
 
-| Error code                  | Error message                                                                             |
-| --------------------------- | ----------------------------------------------------------------------------------------- |
-| INVALID_PRODUCT             | **`Use an existing limited or public<br>product.`**                                       |
-| MISSING_DELIVERY_OPTION_IDS | **`Provide at least one delivery option<br>ID.`**                                         |
-| INVALID_DELIVERY_OPTION_IDS | **`Provide delivery option IDs that can be found in the<br>product. IDs not found: [x]`** |
-| INVALID_DELIVERY_OPTIONS    | **`Provide delivery option IDs that belong to the same<br>version.`**                     |
+| Error code                     | Error message                                                                             |
+| ------------------------------ | ----------------------------------------------------------------------------------------- |
+| INVALID\_PRODUCT               | **`Use an existing limited or public<br>product.`**                                       |
+| MISSING\_DELIVERY\_OPTION\_IDS | **`Provide at least one delivery option<br>ID.`**                                         |
+| INVALID\_DELIVERY\_OPTION\_IDS | **`Provide delivery option IDs that can be found in the<br>product. IDs not found: [x]`** |
+| INVALID\_DELIVERY\_OPTIONS     | **`Provide delivery option IDs that belong to the same<br>version.`**                     |
 
 ## Restrict a version
 
@@ -813,13 +813,13 @@ in the AWS Marketplace Catalog API. These errors are returned when you call
 information about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                      | Error message                                                                                    |
-| ------------------------------- | ------------------------------------------------------------------------------------------------ |
-| INVALID_PRODUCT                 | **`Use an existing public product.`**                                                            |
-| MISSING_DELIVERY_OPTION_IDS     | **`Provide at least one delivery option<br>ID.`**                                                |
-| INVALID_DELIVERY_OPTION_IDS     | **`Provide delivery option IDs that can be found in the<br>product. IDs not found: [x]`**        |
-| INVALID_DELIVERY_OPTION         | **`Provide delivery option IDs that are in a public<br>state. IDs not in public state: [x]`**    |
-| ALL_DELIVERY_OPTIONS_RESTRICTED | **`Provide fewer delivery options to restrict as at least<br>one must remain in public state.`** |
+| Error code                         | Error message                                                                                    |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------ |
+| INVALID\_PRODUCT                   | **`Use an existing public product.`**                                                            |
+| MISSING\_DELIVERY\_OPTION\_IDS     | **`Provide at least one delivery option<br>ID.`**                                                |
+| INVALID\_DELIVERY\_OPTION\_IDS     | **`Provide delivery option IDs that can be found in the<br>product. IDs not found: [x]`**        |
+| INVALID\_DELIVERY\_OPTION          | **`Provide delivery option IDs that are in a public<br>state. IDs not in public state: [x]`**    |
+| ALL\_DELIVERY\_OPTIONS\_RESTRICTED | **`Provide fewer delivery options to restrict as at least<br>one must remain in public state.`** |
 
 ## Update future AWS Region support
 
@@ -894,7 +894,7 @@ Provide information for the fields to add the
       array of strings
 
     Element supported values: one of [`"All"`,
-    `"US"`, `"None”`]
+    `"US"`, `"None"`]
 
 **Response Syntax**
 
@@ -924,11 +924,11 @@ actions in the AWS Marketplace Catalog API. These errors are returned when you c
 information about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code       | Error message                                                                                            |
-| ---------------- | -------------------------------------------------------------------------------------------------------- |
-| TOO_MANY_REGIONS | **`Currently, only 1 value is supported for<br>FutureRegionSupport: All, US, or None`**                  |
-| INVALID_REGIONS  | **`Requested Regions [a, b, c] are invalid or<br>unavailable. Only supported values are [x, y,<br>z].`** |
-| INVALID_INPUT    | **`SupportedRegions can't be empty.`**                                                                   |
+| Error code         | Error message                                                                                            |
+| ------------------ | -------------------------------------------------------------------------------------------------------- |
+| TOO\_MANY\_REGIONS | **`Currently, only 1 value is supported for<br>FutureRegionSupport: All, US, or None`**                  |
+| INVALID\_REGIONS   | **`Requested Regions [a, b, c] are invalid or<br>unavailable. Only supported values are [x, y,<br>z].`** |
+| INVALID\_INPUT     | **`SupportedRegions can't be empty.`**                                                                   |
 
 ## Add a supported AWS Region
 
@@ -1033,10 +1033,10 @@ AWS Marketplace Catalog API. These errors are returned when you call `DescribeCh
 after a change set is processing. For more information about using
 `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code      | Error message                                                                                            |
-| --------------- | -------------------------------------------------------------------------------------------------------- |
-| INVALID_REGIONS | **`Requested regions [a, b, c] are invalid or<br>unavailable. Only supported values are [x, y,<br>z].`** |
-| INVALID_INPUT   | **`Regions can't be empty.`**                                                                            |
+| Error code       | Error message                                                                                            |
+| ---------------- | -------------------------------------------------------------------------------------------------------- |
+| INVALID\_REGIONS | **`Requested regions [a, b, c] are invalid or<br>unavailable. Only supported values are [x, y,<br>z].`** |
+| INVALID\_INPUT   | **`Regions can't be empty.`**                                                                            |
 
 ## Restrict an AWS Region
 
@@ -1137,10 +1137,10 @@ AWS Marketplace Catalog API. These errors are returned when you call `DescribeCh
 after a change set is processing. For more information about using
 `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code      | Error message                                                                                            |
-| --------------- | -------------------------------------------------------------------------------------------------------- |
-| INVALID_REGIONS | **`Requested regions [a, b, c] are invalid or<br>unavailable. Only supported values are [x, y,<br>z].`** |
-| INVALID_INPUT   | **`Regions can't be empty.`**                                                                            |
+| Error code       | Error message                                                                                            |
+| ---------------- | -------------------------------------------------------------------------------------------------------- |
+| INVALID\_REGIONS | **`Requested regions [a, b, c] are invalid or<br>unavailable. Only supported values are [x, y,<br>z].`** |
+| INVALID\_INPUT   | **`Regions can't be empty.`**                                                                            |
 
 ## Add a new instance type
 
@@ -1252,7 +1252,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following schema validations are specific to `AddInstanceTypes`
 actions in the AWS Marketplace Catalog API. These validations are performed when you call
-`StartChangeSet`. If the request doesn’t meet the following
+`StartChangeSet`. If the request doesn't meet the following
 requirements, it will fail with an HTTP response.
 
 | Input field         | Validation rule                                                                   | HTTP |
@@ -1271,17 +1271,17 @@ AWS Marketplace Catalog API. These errors are returned when you call `DescribeCh
 after a change set is processing. For more information about using
 `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                      | Error message                                                                                                                                                         |
-| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INVALID_INSTANCE_TYPES          | **`The following instance types are not valid:<br>[x]`**                                                                                                              |
-| INVALID_INSTANCE_VIRTUALIZATION | **`Virtualization of the product is [x]. It is not<br>supported by the following instance types:<br>[x]`**                                                            |
-| INVALID_AMI_ARCHITECTURE        | **`CPU architecture of the product is '%s'." + "It is not<br>supported by the following instance types:<br>[x]`**                                                     |
-| INCOMPATIBLE_OPERATING_SYSTEM   | **`The instance types are incompatible with the OS<br>defined in the product. Provide instance types that are<br>compatible with the OS defined in the<br>product.`** |
-| INVALID_PRODUCT_TYPE            | **`Use an existing single AMI<br>product.`**                                                                                                                          |
-| INVALID_ENA_SETTING             | **`The product does not support ENA. ENA support is<br>required by the following instance types:<br>[x]`**                                                            |
-| INVALID_DIMENSIONS              | **`No internally metered dimensions found for instance<br>types: [x]`**                                                                                               |
-| MISSING_DIMENSIONS              | **`No dimensions found for the product. AddDimensions is<br>required before AddInstanceTypes.`**                                                                      |
-| UPDATE_PRICING_REQUIRED         | **`UpdatePricingTerms change type is required when<br>internally metered dimensions are available on the<br>product.`**                                               |
+| Error code                        | Error message                                                                                                                                                         |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| INVALID\_INSTANCE\_TYPES          | **`The following instance types are not valid:<br>[x]`**                                                                                                              |
+| INVALID\_INSTANCE\_VIRTUALIZATION | **`Virtualization of the product is [x]. It is not<br>supported by the following instance types:<br>[x]`**                                                            |
+| INVALID\_AMI\_ARCHITECTURE        | **`CPU architecture of the product is '%s'." + "It is not<br>supported by the following instance types:<br>[x]`**                                                     |
+| INCOMPATIBLE\_OPERATING\_SYSTEM   | **`The instance types are incompatible with the OS<br>defined in the product. Provide instance types that are<br>compatible with the OS defined in the<br>product.`** |
+| INVALID\_PRODUCT\_TYPE            | **`Use an existing single AMI<br>product.`**                                                                                                                          |
+| INVALID\_ENA\_SETTING             | **`The product does not support ENA. ENA support is<br>required by the following instance types:<br>[x]`**                                                            |
+| INVALID\_DIMENSIONS               | **`No internally metered dimensions found for instance<br>types: [x]`**                                                                                               |
+| MISSING\_DIMENSIONS               | **`No dimensions found for the product. AddDimensions is<br>required before AddInstanceTypes.`**                                                                      |
+| UPDATE\_PRICING\_REQUIRED         | **`UpdatePricingTerms change type is required when<br>internally metered dimensions are available on the<br>product.`**                                               |
 
 ## Restrict an instance type
 
@@ -1301,9 +1301,9 @@ are restricted), you must contact the AWS Marketplace Seller Operations Team.
 
 `RestrictInstanctTypes` restricts instance types to all the versions in
 the product document. In the `AddInstanceTypes` change type, you are
-updating all versions of the product. You won’t be able to restrict the recommended
-instance types. The recommended instance type is at the version level, so it’s
-possible that the seller won’t be able to restrict multiple instance types.
+updating all versions of the product. You won't be able to restrict the recommended
+instance types. The recommended instance type is at the version level, so it's
+possible that the seller won't be able to restrict multiple instance types.
 
 For an internally metered product, you need to call separate change types when
 calling `RestrictDimensions`. This prevents new offers being created for
@@ -1393,7 +1393,7 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following schema validations are specific to
 `RestrictInstanceTypes` actions in the AWS Marketplace Catalog API. These validations
-are performed when you call `StartChangeSet`. If the request doesn’t meet
+are performed when you call `StartChangeSet`. If the request doesn't meet
 the following requirements, it will fail with an HTTP response.
 
 | Input field         | Validation rule                                                                   | HTTP |
@@ -1413,13 +1413,13 @@ the AWS Marketplace Catalog API. These errors are returned when you call
 information about using `DescribeChangeSet` to get the status of a change
 request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                           | Error message                                                                                                                                                                                    |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| INVALID\_ INSTANCE_TYPES             | **`The following instance types are not valid:<br>[x]`**                                                                                                                                         |
-| INVALID\_ PRODUCT_TYPE               | **`Use an existing single AMI<br>product.`**                                                                                                                                                     |
-| DUPLICATE_INSTANCE_TYPE              | **`Provide instance types with no<br>duplicates.`**                                                                                                                                              |
-| UNAVAILABLE_INSTANCE_TYPE            | **`Provide an available instance<br>type.`**                                                                                                                                                     |
-| RECOMMENDED_INSTANCE_TYPE_RESTRICTED | **`The following instance types cannot be restricted.<br>Recommended instance type must be changed to a different one<br>before being restricted. Delivery Options Id [X] Instance<br>Type[X]`** |
-| DIMENSIONS_NOT_RESTICTED             | **`Restrict dimensions before restricting internally<br>metered instance types: [x]`**                                                                                                           |
-| REGION_NO_INSTANCES                  | **`Your restricted instance types would cause product<br>launch failure in region: X. Consider restricting fewer<br>instances.`**                                                                |
-| INCOMPATIBLE_RESTRICTION             | **`Your restricted instance types would cause product with<br>no FPGA based instance types for AFIs. Product needs to support at least<br>one FPGA based instance type.`**                       |
+| Error code                              | Error message                                                                                                                                                                                    |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| INVALID\_ INSTANCE\_TYPES               | **`The following instance types are not valid:<br>[x]`**                                                                                                                                         |
+| INVALID\_ PRODUCT\_TYPE                 | **`Use an existing single AMI<br>product.`**                                                                                                                                                     |
+| DUPLICATE\_INSTANCE\_TYPE               | **`Provide instance types with no<br>duplicates.`**                                                                                                                                              |
+| UNAVAILABLE\_INSTANCE\_TYPE             | **`Provide an available instance<br>type.`**                                                                                                                                                     |
+| RECOMMENDED\_INSTANCE\_TYPE\_RESTRICTED | **`The following instance types cannot be restricted.<br>Recommended instance type must be changed to a different one<br>before being restricted. Delivery Options Id [X] Instance<br>Type[X]`** |
+| DIMENSIONS\_NOT\_RESTICTED              | **`Restrict dimensions before restricting internally<br>metered instance types: [x]`**                                                                                                           |
+| REGION\_NO\_INSTANCES                   | **`Your restricted instance types would cause product<br>launch failure in region: X. Consider restricting fewer<br>instances.`**                                                                |
+| INCOMPATIBLE\_RESTRICTION               | **`Your restricted instance types would cause product with<br>no FPGA based instance types for AFIs. Product needs to support at least<br>one FPGA based instance type.`**                       |

@@ -37,14 +37,14 @@ All 6 tools are stateless and require no conversation context or session managem
 
 The following table summarizes each tool and whether it is read-only.
 
-| Tool name                                                                                                                  | Description                                                                                                                                                             | Read-only |
-| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| [get_aws_marketplace_report_guidelines](#marketplace-mcp-tool-report-guidelines "#marketplace-mcp-tool-report-guidelines") | Returns workflow instructions and report format templates for recommendations, comparisons, or evaluations. **Call first for any report workflow.**                     | Yes       |
-| [search_aws_marketplace_solutions](#marketplace-mcp-tool-search-solutions "#marketplace-mcp-tool-search-solutions")        | Searches the AWS Marketplace catalog by queries. Supports batch queries (up to 10) and cursor-based pagination.                                                         | Yes       |
-| [get_aws_marketplace_solution](#marketplace-mcp-tool-get-solution "#marketplace-mcp-tool-get-solution")                    | Gets detailed solution metadata by solution IDs (reviews, pricing, sentiments, rankings, CTAs).                                                                         | Yes       |
-| [get_aws_marketplace_related_solutions](#marketplace-mcp-tool-related-solutions "#marketplace-mcp-tool-related-solutions") | Gets related solutions for given solution IDs, ranked by relation score.                                                                                                | Yes       |
-| [research_aws_marketplace_solution](#marketplace-mcp-tool-research-solution "#marketplace-mcp-tool-research-solution")     | Performs deep web research on solutions (features, reviews, limitations, competitors, pricing, integrations, case studies). Hidden from clients with native web search. | Yes       |
-| [submit_aws_marketplace_feedback](#marketplace-mcp-tool-submit-feedback "#marketplace-mcp-tool-submit-feedback")           | Submits user feedback (positive/negative) about report quality.                                                                                                         | No        |
+| Tool name                                                                                                                      | Description                                                                                                                                                             | Read-only |
+| ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| [get\_aws\_marketplace\_report\_guidelines](#marketplace-mcp-tool-report-guidelines "#marketplace-mcp-tool-report-guidelines") | Returns workflow instructions and report format templates for recommendations, comparisons, or evaluations. **Call first for any report workflow.**                     | Yes       |
+| [search\_aws\_marketplace\_solutions](#marketplace-mcp-tool-search-solutions "#marketplace-mcp-tool-search-solutions")         | Searches the AWS Marketplace catalog by queries. Supports batch queries (up to 10) and cursor-based pagination.                                                         | Yes       |
+| [get\_aws\_marketplace\_solution](#marketplace-mcp-tool-get-solution "#marketplace-mcp-tool-get-solution")                     | Gets detailed solution metadata by solution IDs (reviews, pricing, sentiments, rankings, CTAs).                                                                         | Yes       |
+| [get\_aws\_marketplace\_related\_solutions](#marketplace-mcp-tool-related-solutions "#marketplace-mcp-tool-related-solutions") | Gets related solutions for given solution IDs, ranked by relation score.                                                                                                | Yes       |
+| [research\_aws\_marketplace\_solution](#marketplace-mcp-tool-research-solution "#marketplace-mcp-tool-research-solution")      | Performs deep web research on solutions (features, reviews, limitations, competitors, pricing, integrations, case studies). Hidden from clients with native web search. | Yes       |
+| [submit\_aws\_marketplace\_feedback](#marketplace-mcp-tool-submit-feedback "#marketplace-mcp-tool-submit-feedback")            | Submits user feedback (positive/negative) about report quality.                                                                                                         | No        |
 
 ## Integration guide
 
@@ -238,7 +238,7 @@ MCP-Protocol-Version: 2025-06-18
 
 This section describes each tool's input parameters, output format, and usage guidance.
 
-### get_aws_marketplace_report_guidelines
+### get\_aws\_marketplace\_report\_guidelines
 
 Returns workflow instructions and output format template for a given report type. **Call this first** for any recommendation, comparison, or evaluation workflow.
 
@@ -280,7 +280,7 @@ The following table describes the output fields.
 - **comparison** — "compare Datadog vs New Relic", "Splunk vs Elastic for log management".
 - **evaluation** — "build evaluation report for Terraform Cloud", "justify purchasing New Relic to my CTO".
 
-### search_aws_marketplace_solutions
+### search\_aws\_marketplace\_solutions
 
 Performs a direct AWS Marketplace Catalog API search. Returns raw, unranked, unfiltered results without AI processing or relevance scoring. Supports batch queries (up to 10) and cursor-based pagination for single queries.
 
@@ -327,7 +327,7 @@ The following table describes the input parameters.
 The following table describes the output fields.
 
 | Field         | Type                      | Description                  |
-| ------------- | ------------------------- | ---------------------------- | --------------------------------------------------------------------------------- |
+| ------------- | ------------------------- | ---------------------------- |
 | `results`     | MinimalSolutionMetadata[] | Array of matching solutions. |
 | `next_cursor` | string                    | null                         | Pagination cursor for next page (single query only). `null` when no more results. |
 
@@ -335,7 +335,7 @@ The following table describes the output fields.
 
 **Pagination:** If `next_cursor` is returned (single-query requests only), pass it back as the `cursor` parameter to retrieve additional results. When `next_cursor` is `null`, all matching solutions have been retrieved.
 
-### get_aws_marketplace_solution
+### get\_aws\_marketplace\_solution
 
 Performs a direct AWS Marketplace Catalog API call. Retrieves comprehensive solution metadata by solution ID without AI processing. Supports batch requests (up to 10 IDs).
 
@@ -417,27 +417,27 @@ The following table describes the output fields.
 
 The following table describes the fields in each `SolutionOutput` object.
 
-| Field                       | Type              | Description                                                                                                                       |
-| --------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `solution_id`               | string            | AWS Marketplace solution ID.                                                                                                      |
-| `solution_name`             | string            | Product name.                                                                                                                     |
-| `solution_description`      | string            | Long or short description.                                                                                                        |
-| `solution_url`              | string            | Marketplace URL with ref tags.                                                                                                    |
-| `vendor_name`               | string            | Vendor display name.                                                                                                              |
-| `vendor_url`                | string            | Vendor profile URL with ref tags.                                                                                                 |
-| `highlights`                | string[]          | Product highlights.                                                                                                               |
-| `reviews_summary`           | object            | `{ reviews_count, average_rating }`                                                                                               |
-| `review_sentiments`         | ReviewSentiment[] | Sentiment by category (functionality, ease_of_use, customer_service, cost_effectiveness) with polarity scores and sample reviews. |
-| `free_trial_available`      | boolean?          | Whether a free trial is available.                                                                                                |
-| `pricing_options`           | PricingOption[]   | `{ name, description }` pairs.                                                                                                    |
-| `fulfillment_options_types` | string[]?         | Fulfillment types such as SaaS, Container, or AMI.                                                                                |
-| `categories`                | string[]?         | Categories such as "Monitoring & Observability".                                                                                  |
-| `security_certificates`     | string[]?         | Certifications such as "SOC 2 Type II" or "ISO 27001".                                                                            |
-| `rankings`                  | Ranking[]?        | `{ category, rank }` — rank within category (1-100).                                                                              |
-| `has_standard_contract`     | boolean?          | Whether the product supports AWS Standard Contract.                                                                               |
-| `call_to_action`            | CallToAction      | `{ procurement_url, request_for_demo_url, request_for_private_offer_url, procure_free_trial_url }`                                |
+| Field                       | Type              | Description                                                                                                                           |
+| --------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `solution_id`               | string            | AWS Marketplace solution ID.                                                                                                          |
+| `solution_name`             | string            | Product name.                                                                                                                         |
+| `solution_description`      | string            | Long or short description.                                                                                                            |
+| `solution_url`              | string            | Marketplace URL with ref tags.                                                                                                        |
+| `vendor_name`               | string            | Vendor display name.                                                                                                                  |
+| `vendor_url`                | string            | Vendor profile URL with ref tags.                                                                                                     |
+| `highlights`                | string[]          | Product highlights.                                                                                                                   |
+| `reviews_summary`           | object            | `{ reviews_count, average_rating }`                                                                                                   |
+| `review_sentiments`         | ReviewSentiment[] | Sentiment by category (functionality, ease\_of\_use, customer\_service, cost\_effectiveness) with polarity scores and sample reviews. |
+| `free_trial_available`      | boolean?          | Whether a free trial is available.                                                                                                    |
+| `pricing_options`           | PricingOption[]   | `{ name, description }` pairs.                                                                                                        |
+| `fulfillment_options_types` | string[]?         | Fulfillment types such as SaaS, Container, or AMI.                                                                                    |
+| `categories`                | string[]?         | Categories such as "Monitoring & Observability".                                                                                      |
+| `security_certificates`     | string[]?         | Certifications such as "SOC 2 Type II" or "ISO 27001".                                                                                |
+| `rankings`                  | Ranking[]?        | `{ category, rank }` — rank within category (1-100).                                                                                  |
+| `has_standard_contract`     | boolean?          | Whether the product supports AWS Standard Contract.                                                                                   |
+| `call_to_action`            | CallToAction      | `{ procurement_url, request_for_demo_url, request_for_private_offer_url, procure_free_trial_url }`                                    |
 
-### get_aws_marketplace_related_solutions
+### get\_aws\_marketplace\_related\_solutions
 
 Performs a direct AWS Marketplace Catalog API call. Returns related solutions for given solution IDs as identified by AWS Marketplace, sorted by relation score (descending), without AI analysis or relevance scoring. Supports batch requests (up to 10 IDs).
 
@@ -485,7 +485,7 @@ The following table describes the output fields.
 | `results[].solution_id`       | string                         | The input solution ID.                 |
 | `results[].related_solutions` | MinimalSolutionMetadata[]      | Related solutions sorted by relevance. |
 
-### research_aws_marketplace_solution
+### research\_aws\_marketplace\_solution
 
 Performs deep web research on AWS Marketplace solutions. Runs web searches for each requested section and returns content with inline citation links. Supports batch requests (up to 5 IDs).
 
@@ -557,7 +557,7 @@ The following table describes the output fields.
 
 **Concurrency:** Solutions are researched in parallel. Sections within each solution are sequential to avoid overwhelming downstream services.
 
-### submit_aws_marketplace_feedback
+### submit\_aws\_marketplace\_feedback
 
 Submits user feedback about an AWS Marketplace report. Call this tool after completing any recommendation, comparison, or evaluation workflow.
 

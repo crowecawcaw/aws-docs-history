@@ -45,10 +45,10 @@ The general structure of any entity is:
 
 Every named type has a type and version associated with it, for example,
 ``Entity`Product@1.0`. The
- *type* (`Entity`Product)
- represents the classification of the content. The *version*
- (1.0) represents the structure of
- `Entity`Product.
+_type_ (`Entity`Product)
+represents the classification of the content. The _version_
+(1.0) represents the structure of
+`Entity`Product.
 
 The version gives you details about the structure of the entity. The following
 describes when a version will be changed:

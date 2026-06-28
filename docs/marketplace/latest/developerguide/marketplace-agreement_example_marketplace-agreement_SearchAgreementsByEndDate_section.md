@@ -15,9 +15,7 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 repository.
 
 ```
-// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-// SPDX-License-Identifier: Apache-2.0
-package com.example.awsmarketplace.agreementapi;
+package com.example.awsmarketplace.agreementapi.seller;
 
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.http.apache.ApacheHttpClient;
@@ -56,8 +54,8 @@ public class SearchAgreementsByEndDate {
 				.credentialsProvider(ProfileCredentialsProvider.create())
 				.build();
 
-		// set up filters
-
+		// Set PartyType filter to PARTY_TYPE_FILTER_VALUE_PROPOSER to return agreements where you are the proposer.
+		// Change to PARTY_TYPE_FILTER_VALUE_ACCEPTOR to return agreements where you are the acceptor.
 		Filter partyTypeFilter = Filter.builder().name(PARTY_TYPE_FILTER_NAME)
 				.values(PARTY_TYPE_FILTER_VALUE_PROPOSER).build();
 
@@ -128,6 +126,11 @@ AG-03
 import logging
 
 import boto3
+import sys
+import os
+
+sys.path.append(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+
 import utils.helpers as helper
 from botocore.exceptions import ClientError
 
@@ -151,6 +154,8 @@ def get_agreements():
         agreement = mp_client.search_agreements(
             catalog="AWSMarketplace",
             maxResults=MAX_PAGE_RESULTS,
+            # Set PartyType filter to "Proposer" to return agreements where you are the proposer.
+            # Change to "Acceptor" to return agreements where you are the acceptor.
             filters=[
                 {"name": "PartyType", "values": ["Proposer"]},
                 {"name": beforeOrAfterEndtimeFilterName, "values": [cutoffDate]},

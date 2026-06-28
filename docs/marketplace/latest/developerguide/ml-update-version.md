@@ -380,12 +380,12 @@ operation after the change set begins processing.
 For error details and troubleshooting,
 see [Change set status and errors](../APIReference/catalog-apis.md#working-with-change-sets "../APIReference/catalog-apis.md#working-with-change-sets").
 
-| Error code                          | Error message                                                                                                                |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| INCOMPATIBLE_PRODUCT_STATUS         | Use an existing limited or public product.                                                                                   |
-| INVALID_DELIVERY_OPTION_ID          | Provide delivery option IDs that can be found in the product. IDs not<br>found: [x]                                          |
-| INCOMPATIBLE_DELIVERY_OPTION_STATUS | The delivery option cannot be updated because it's in restricted status.<br>Try adding a new version instead.                |
-| INCOMPATIBLE_DELIVERY_OPTIONS       | Product previously used [X ] as delivery option, therefore all the<br>upcoming delivery options should be of type [X]        |
-| INVALID_RECOMMENDED_INSTANCE_TYPE   | Provide an existing, available instance type for [X] (X can be Batch<br>Transform, Realtime Inference or ALgorithm Training) |
-| DUPLICATE_VERSION_TITLE             | The version title must be different from any other version titles of<br>this product.                                        |
-| FIELD_NOT_ALLOWED_TO_CHANGE         | Field X is not allowed to be changed.                                                                                        |
+| Error code                             | Error message                                                                                                                |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| INCOMPATIBLE\_PRODUCT\_STATUS          | Use an existing limited or public product.                                                                                   |
+| INVALID\_DELIVERY\_OPTION\_ID          | Provide delivery option IDs that can be found in the product. IDs not<br>found: [x]                                          |
+| INCOMPATIBLE\_DELIVERY\_OPTION\_STATUS | The delivery option cannot be updated because it's in restricted status.<br>Try adding a new version instead.                |
+| INCOMPATIBLE\_DELIVERY\_OPTIONS        | Product previously used [X ] as delivery option, therefore all the<br>upcoming delivery options should be of type [X]        |
+| INVALID\_RECOMMENDED\_INSTANCE\_TYPE   | Provide an existing, available instance type for [X] (X can be Batch<br>Transform, Realtime Inference or ALgorithm Training) |
+| DUPLICATE\_VERSION\_TITLE              | The version title must be different from any other version titles of<br>this product.                                        |
+| FIELD\_NOT\_ALLOWED\_TO\_CHANGE        | Field X is not allowed to be changed.                                                                                        |

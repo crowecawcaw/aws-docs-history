@@ -338,11 +338,11 @@ When the request is completed successfully (if the `Status` is `SUCCEEDED`), a n
 
 `CreateSolution` actions return specific errors, in addition to [common asynchronous errors](#solution-error-codes "#solution-error-codes"). You receive these errors from `DescribeChangeSet` after a change set finishes processing. To learn how to get change request status, see [Working with change sets](../APIReference/catalog-apis.md#working-with-change-sets "../APIReference/catalog-apis.md#working-with-change-sets").
 
-| Error code    | Error message                                                                                           |
-| ------------- | ------------------------------------------------------------------------------------------------------- |
-| INVALID_NAME  | The solution Name length isn't valid. Enter a Name that's between 1 and 100 characters and try again.   |
-| MISSING_NAME  | A Name value is required. Specify a Name value and try again.                                           |
-| INVALID_TITLE | The solution Title length isn't valid. Enter a Title that's between 1 and 255 characters and try again. |
+| Error code     | Error message                                                                                           |
+| -------------- | ------------------------------------------------------------------------------------------------------- |
+| INVALID\_NAME  | The solution Name length isn't valid. Enter a Name that's between 1 and 100 characters and try again.   |
+| MISSING\_NAME  | A Name value is required. Specify a Name value and try again.                                           |
+| INVALID\_TITLE | The solution Title length isn't valid. Enter a Title that's between 1 and 255 characters and try again. |
 
 ## Update solution information
 
@@ -481,42 +481,42 @@ After triggering this change type with `PromotionalMedia` assets modified for a 
 
 In addition to [common asynchronous errors](#solution-error-codes "#solution-error-codes"), the following errors are specific to `UpdateInformation` actions in the AWS Marketplace Catalog API. These errors are returned when you call `DescribeChangeSet` after a change set is processing. For more information about using `DescribeChangeSet` to get the status of a change request, see [Working with change sets](../APIReference/catalog-apis.md#working-with-change-sets "../APIReference/catalog-apis.md#working-with-change-sets").
 
-| Error code                   | Error message                                                                                                                            |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| INVALID_SHORT_DESCRIPTION    | The solution ShortDescription length isn't valid. Enter a ShortDescription that's between 1 and 1000 characters and try again.           |
-| INVALID_LONG_DESCRIPTION     | The solution LongDescription length isn't valid. Enter a LongDescription that's between 1 and 5000 characters and try again.             |
-| INVALID_NAME                 | The solution Name length isn't valid. Enter a Name that's between 1 and 100 characters and try again.                                    |
-| INVALID_TITLE                | The solution Title length isn't valid. Enter a Title that's between 1 and 255 characters and try again.                                  |
-| INVALID_ADDITIONAL_RESOURCES | The solution AdditionalResources[%d].Text length isn't valid. Enter a Text that's between 1 and 500 characters and try again.            |
-| INVALID_ADDITIONAL_RESOURCES | The following URLs in the provided additional resources are inaccessible: [%s]. Provide valid and accessible URLs                        |
-| INVALID_ADDITIONAL_RESOURCES | A Url value is required. Specify a Url value and try again.                                                                              |
-| INVALID_ADDITIONAL_RESOURCES | Text cannot be missing. Provide a Text                                                                                                   |
-| INVALID_USE_CASE             | The solution UseCases[%d].Description length isn't valid. Enter a Description that's between 1 and 500 characters and try again.         |
-| INVALID_USE_CASE             | UseCases[%d].Group: The provided Group (%s) is invalid. Provide a valid Group.                                                           |
-| INVALID_USE_CASE             | UseCases[%d].SubGroup: The provided Group (%s) is invalid. Provide a valid SubGroup.                                                     |
-| INVALID_USE_CASE             | UseCases[%d].Item: The provided Item (%s) is invalid. Provide a valid Item.                                                              |
-| INVALID_USE_CASE             | UseCases[%d].Item: The provided use case is inactive. Provide an active use case                                                         |
-| INVALID_USE_CASE             | UseCases[%d].Group: Group cannot be missing. Provide a Group.                                                                            |
-| INVALID_USE_CASE             | UseCases[%d].SubGroup: SubGroup cannot be missing. Provide a SubGroup.                                                                   |
-| INVALID_USE_CASE             | UseCases[%d].Item: SubGroup cannot be missing. Provide a Item.                                                                           |
-| INVALID_MEDIA                | The solution PromotionalMedia[%d].Title length isn't valid. Enter a Title that's between 1 and 100 characters and try again.             |
-| INVALID_MEDIA                | The solution PromotionalMedia[%d].Description length isn't valid. Enter a Description that's between 1 and 200 characters and try again. |
-| INVALID_MEDIA                | Invalid URL: %s Provide a new URL for media stored in S3.                                                                                |
-| INVALID_MEDIA                | Media location not accessible: %s Provide a new, accessible URL for media stored in one of the following locations: [S3].                |
-| INVALID_MEDIA                | Image size exceeds %s. Provide an image that is under %s.                                                                                |
-| INVALID_MEDIA                | Video size exceeds %s. Provide an video that is under %s.                                                                                |
-| INVALID_MEDIA                | Logo size exceeds %s. Provide an logo that is under %s.                                                                                  |
-| INVALID_MEDIA                | Malware detected in %s. Provide media without malware.                                                                                   |
-| INVALID_MEDIA                | Inappropriate content: %s detected. Provide media with no inappropriate content                                                          |
-| INVALID_MEDIA                | Explicit content in %s: '{ExplicitContent}' detected. Provide media without explicit content.                                            |
-| INVALID_MEDIA                | PromotionalMedia[%s].Url: %s is not in a supported format (%s). Use a well-formed image in a supported format: [JPEG, PNG].              |
-| INVALID_MEDIA                | PromotionalMedia[%s].Url: %s is not in a supported format (%s). Use a well-formed video in a supported format: [MP4, MOV].               |
-| INVALID_MEDIA                | LogoUrl at %s has invalid aspect ratio. Provide an image with 1:1 (square) or 2:1 (wide) aspect ratio.                                   |
-| INVALID_MEDIA                | Logo: %s has invalid dimensions. Provide an image between 120x120 and 1080x1080 pixels.                                                  |
-| INVALID_MEDIA                | PromotionalMedia[%d].Type is not supported. Provide PromotionalMedia in a supported type: %s                                             |
-| DUPLICATE_MEDIA              | Duplicate media detected: [%s] Provide media items with no duplicates.                                                                   |
-| INVALID_MEDIA                | PromotionalMedia[%d].Url: Malware detected in %s. Provide media without malware.                                                         |
-| TOO_MANY_ITEMS               | Provide no more than %d %s.                                                                                                              |
+| Error code                     | Error message                                                                                                                            |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| INVALID\_SHORT\_DESCRIPTION    | The solution ShortDescription length isn't valid. Enter a ShortDescription that's between 1 and 1000 characters and try again.           |
+| INVALID\_LONG\_DESCRIPTION     | The solution LongDescription length isn't valid. Enter a LongDescription that's between 1 and 5000 characters and try again.             |
+| INVALID\_NAME                  | The solution Name length isn't valid. Enter a Name that's between 1 and 100 characters and try again.                                    |
+| INVALID\_TITLE                 | The solution Title length isn't valid. Enter a Title that's between 1 and 255 characters and try again.                                  |
+| INVALID\_ADDITIONAL\_RESOURCES | The solution AdditionalResources[%d].Text length isn't valid. Enter a Text that's between 1 and 500 characters and try again.            |
+| INVALID\_ADDITIONAL\_RESOURCES | The following URLs in the provided additional resources are inaccessible: [%s]. Provide valid and accessible URLs                        |
+| INVALID\_ADDITIONAL\_RESOURCES | A Url value is required. Specify a Url value and try again.                                                                              |
+| INVALID\_ADDITIONAL\_RESOURCES | Text cannot be missing. Provide a Text                                                                                                   |
+| INVALID\_USE\_CASE             | The solution UseCases[%d].Description length isn't valid. Enter a Description that's between 1 and 500 characters and try again.         |
+| INVALID\_USE\_CASE             | UseCases[%d].Group: The provided Group (%s) is invalid. Provide a valid Group.                                                           |
+| INVALID\_USE\_CASE             | UseCases[%d].SubGroup: The provided Group (%s) is invalid. Provide a valid SubGroup.                                                     |
+| INVALID\_USE\_CASE             | UseCases[%d].Item: The provided Item (%s) is invalid. Provide a valid Item.                                                              |
+| INVALID\_USE\_CASE             | UseCases[%d].Item: The provided use case is inactive. Provide an active use case                                                         |
+| INVALID\_USE\_CASE             | UseCases[%d].Group: Group cannot be missing. Provide a Group.                                                                            |
+| INVALID\_USE\_CASE             | UseCases[%d].SubGroup: SubGroup cannot be missing. Provide a SubGroup.                                                                   |
+| INVALID\_USE\_CASE             | UseCases[%d].Item: SubGroup cannot be missing. Provide a Item.                                                                           |
+| INVALID\_MEDIA                 | The solution PromotionalMedia[%d].Title length isn't valid. Enter a Title that's between 1 and 100 characters and try again.             |
+| INVALID\_MEDIA                 | The solution PromotionalMedia[%d].Description length isn't valid. Enter a Description that's between 1 and 200 characters and try again. |
+| INVALID\_MEDIA                 | Invalid URL: %s Provide a new URL for media stored in S3.                                                                                |
+| INVALID\_MEDIA                 | Media location not accessible: %s Provide a new, accessible URL for media stored in one of the following locations: [S3].                |
+| INVALID\_MEDIA                 | Image size exceeds %s. Provide an image that is under %s.                                                                                |
+| INVALID\_MEDIA                 | Video size exceeds %s. Provide an video that is under %s.                                                                                |
+| INVALID\_MEDIA                 | Logo size exceeds %s. Provide an logo that is under %s.                                                                                  |
+| INVALID\_MEDIA                 | Malware detected in %s. Provide media without malware.                                                                                   |
+| INVALID\_MEDIA                 | Inappropriate content: %s detected. Provide media with no inappropriate content                                                          |
+| INVALID\_MEDIA                 | Explicit content in %s: '{ExplicitContent}' detected. Provide media without explicit content.                                            |
+| INVALID\_MEDIA                 | PromotionalMedia[%s].Url: %s is not in a supported format (%s). Use a well-formed image in a supported format: [JPEG, PNG].              |
+| INVALID\_MEDIA                 | PromotionalMedia[%s].Url: %s is not in a supported format (%s). Use a well-formed video in a supported format: [MP4, MOV].               |
+| INVALID\_MEDIA                 | LogoUrl at %s has invalid aspect ratio. Provide an image with 1:1 (square) or 2:1 (wide) aspect ratio.                                   |
+| INVALID\_MEDIA                 | Logo: %s has invalid dimensions. Provide an image between 120x120 and 1080x1080 pixels.                                                  |
+| INVALID\_MEDIA                 | PromotionalMedia[%d].Type is not supported. Provide PromotionalMedia in a supported type: %s                                             |
+| DUPLICATE\_MEDIA               | Duplicate media detected: [%s] Provide media items with no duplicates.                                                                   |
+| INVALID\_MEDIA                 | PromotionalMedia[%d].Url: Malware detected in %s. Provide media without malware.                                                         |
+| TOO\_MANY\_ITEMS               | Provide no more than %d %s.                                                                                                              |
 
 ## Update related products
 
@@ -607,24 +607,24 @@ To check request status, use the AWS Marketplace Management Portal or call the `
 
 In addition to [common asynchronous errors](#solution-error-codes "#solution-error-codes"), the following errors are specific to `UpdateRelatedProducts` actions in the AWS Marketplace Catalog API. These errors are returned when you call `DescribeChangeSet` after a change set is processing. For more information about using `DescribeChangeSet` to get the status of a change request, see [Working with change sets](../APIReference/catalog-apis.md#working-with-change-sets "../APIReference/catalog-apis.md#working-with-change-sets").
 
-| Error code                                              | Error message                                                                                                                                                                                                           |
-| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INCOMPATIBLE_OPERATION_UPDATE_RELATED_PRODUCTS_SOLUTION | The operation to update related products isn't supported for public solutions. To make this change, first change the solution's visibility to limited and try again.                                                    |
-| INVALID_AWS_MARKETPLACE_PRODUCTS                        | AWS Marketplace product '%s' is not available for your account. Choose a Public product or a Limited product where you have allowlist access, or contact the seller to request access.                                  |
-| INVALID_AWS_MARKETPLACE_PRODUCTS                        | The specified product type '%s' isn't supported. Provide one of these valid product types: [AmiProduct, SaaSProduct, ContainerProduct, MachineLearningProduct, ProfessionalServicesProduct, DataProduct] and try again. |
-| INVALID_AWS_MARKETPLACE_PRODUCTS                        | Product '%s' not found. Provide a valid product ID in the same catalog.                                                                                                                                                 |
-| INVALID_NON_AWS_MARKETPLACE_PRODUCTS                    | The specified Non-AWS Marketplace product URLs aren't accessible: [%s]. Verify that the URLs are valid and publicly accessible, and try again.                                                                          |
-| INVALID_INTEGRATION_DESCRIPTION                         | Provide a solution IntegrationDescription between 1 and 5000 characters.                                                                                                                                                |
-| INVALID_NON_AWS_MARKETPLACE_PRODUCTS                    | The solution NonAwsMarketplaceProduct[%d].Title length isn't valid. Enter a Description that's between 1 and 255 characters and try again.                                                                              |
-| INVALID_NON_AWS_MARKETPLACE_PRODUCTS                    | The solution NonAwsMarketplaceProduct[%d].Description length isn't valid. Enter a Description that's between 1 and 220 characters and try again.                                                                        |
-| INVALID_NON_AWS_MARKETPLACE_PRODUCTS                    | The solution NonAwsMarketplaceProduct[%d].Type length isn't valid. Enter a Type that's between 1 and 50 characters and try again.                                                                                       |
-| INVALID_NON_AWS_MARKETPLACE_PRODUCTS                    | NonAwsMarketplaceProduct[%d].Type is not a valid non-AWS Marketplace product type. Provide one of the following non-AWS Marketplace product types: [%s]                                                                 |
-| INVALID_NON_AWS_MARKETPLACE_PRODUCTS                    | A NonAwsMarketplaceProduct[%d].Title value is required. Specify a Title value and try again.                                                                                                                            |
-| INVALID_NON_AWS_MARKETPLACE_PRODUCTS                    | A NonAwsMarketplaceProduct[%d].Type value is required. Specify a Type value and try again.                                                                                                                              |
-| TOO_MANY_PRODUCTS                                       | The maximum number of AWS Marketplace products you can link is %d. Remove existing linked products before adding new ones.                                                                                              |
-| TOO_MANY_PRODUCTS                                       | The maximum number of none AWS Marketplace products you can add is %d. Remove existing none AWS Marketplace products before adding new ones.                                                                            |
-| INVALID_AWS_MARKETPLACE_PRODUCTS                        | Duplicate AWS Marketplace product IDs aren't allowed. Each product ID must be unique in your solution.                                                                                                                  |
-| INVALID_REMOVE_OPERATION                                | Invalid operation, you can not remove all products.                                                                                                                                                                     |
+| Error code                                                   | Error message                                                                                                                                                                                                           |
+| ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| INCOMPATIBLE\_OPERATION\_UPDATE\_RELATED\_PRODUCTS\_SOLUTION | The operation to update related products isn't supported for public solutions. To make this change, first change the solution's visibility to limited and try again.                                                    |
+| INVALID\_AWS\_MARKETPLACE\_PRODUCTS                          | AWS Marketplace product '%s' is not available for your account. Choose a Public product or a Limited product where you have allowlist access, or contact the seller to request access.                                  |
+| INVALID\_AWS\_MARKETPLACE\_PRODUCTS                          | The specified product type '%s' isn't supported. Provide one of these valid product types: [AmiProduct, SaaSProduct, ContainerProduct, MachineLearningProduct, ProfessionalServicesProduct, DataProduct] and try again. |
+| INVALID\_AWS\_MARKETPLACE\_PRODUCTS                          | Product '%s' not found. Provide a valid product ID in the same catalog.                                                                                                                                                 |
+| INVALID\_NON\_AWS\_MARKETPLACE\_PRODUCTS                     | The specified Non-AWS Marketplace product URLs aren't accessible: [%s]. Verify that the URLs are valid and publicly accessible, and try again.                                                                          |
+| INVALID\_INTEGRATION\_DESCRIPTION                            | Provide a solution IntegrationDescription between 1 and 5000 characters.                                                                                                                                                |
+| INVALID\_NON\_AWS\_MARKETPLACE\_PRODUCTS                     | The solution NonAwsMarketplaceProduct[%d].Title length isn't valid. Enter a Description that's between 1 and 255 characters and try again.                                                                              |
+| INVALID\_NON\_AWS\_MARKETPLACE\_PRODUCTS                     | The solution NonAwsMarketplaceProduct[%d].Description length isn't valid. Enter a Description that's between 1 and 220 characters and try again.                                                                        |
+| INVALID\_NON\_AWS\_MARKETPLACE\_PRODUCTS                     | The solution NonAwsMarketplaceProduct[%d].Type length isn't valid. Enter a Type that's between 1 and 50 characters and try again.                                                                                       |
+| INVALID\_NON\_AWS\_MARKETPLACE\_PRODUCTS                     | NonAwsMarketplaceProduct[%d].Type is not a valid non-AWS Marketplace product type. Provide one of the following non-AWS Marketplace product types: [%s]                                                                 |
+| INVALID\_NON\_AWS\_MARKETPLACE\_PRODUCTS                     | A NonAwsMarketplaceProduct[%d].Title value is required. Specify a Title value and try again.                                                                                                                            |
+| INVALID\_NON\_AWS\_MARKETPLACE\_PRODUCTS                     | A NonAwsMarketplaceProduct[%d].Type value is required. Specify a Type value and try again.                                                                                                                              |
+| TOO\_MANY\_PRODUCTS                                          | The maximum number of AWS Marketplace products you can link is %d. Remove existing linked products before adding new ones.                                                                                              |
+| TOO\_MANY\_PRODUCTS                                          | The maximum number of none AWS Marketplace products you can add is %d. Remove existing none AWS Marketplace products before adding new ones.                                                                            |
+| INVALID\_AWS\_MARKETPLACE\_PRODUCTS                          | Duplicate AWS Marketplace product IDs aren't allowed. Each product ID must be unique in your solution.                                                                                                                  |
+| INVALID\_REMOVE\_OPERATION                                   | Invalid operation, you can not remove all products.                                                                                                                                                                     |
 
 ## Release a solution
 
@@ -681,10 +681,10 @@ The change request is added to a queue and processed. You can check the status o
 
 In addition to [common asynchronous errors](#solution-error-codes "#solution-error-codes"), the following errors are specific to `ReleaseSolution` actions in the AWS Marketplace Catalog API. These errors are returned when you call `DescribeChangeSet` after a change set is processing. For more information about using `DescribeChangeSet` to get the status of a change request, see [Working with change sets](../APIReference/catalog-apis.md#working-with-change-sets "../APIReference/catalog-apis.md#working-with-change-sets").
 
-| Error code                              | Error message                                                                                                              |
-| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| MISSING_REQUIRED_FIELDS                 | The request is missing required parameters: [%s]. Specify values for all required parameters and try again.                |
-| INCOMPATIBLE_OPERATION_RELEASE_SOLUTION | The change type can only be invoked on Solutions in Draft status. Update the Solution's visibility to Draft and try again. |
+| Error code                                 | Error message                                                                                                              |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| MISSING\_REQUIRED\_FIELDS                  | The request is missing required parameters: [%s]. Specify values for all required parameters and try again.                |
+| INCOMPATIBLE\_OPERATION\_RELEASE\_SOLUTION | The change type can only be invoked on Solutions in Draft status. Update the Solution's visibility to Draft and try again. |
 
 ## Update buyer engagement options
 
@@ -754,9 +754,9 @@ To check request status, use the AWS Marketplace Management Portal or call the `
 
 In addition to [common asynchronous errors](#solution-error-codes "#solution-error-codes"), the following errors are specific to `UpdateBuyerEngagementOptions` actions in the AWS Marketplace Catalog API. These errors are returned when you call `DescribeChangeSet` after a change set is processing. For more information about using `DescribeChangeSet` to get the status of a change request, see [Working with change sets](../APIReference/catalog-apis.md#working-with-change-sets "../APIReference/catalog-apis.md#working-with-change-sets").
 
-| Error code        | Error message                                                                                                                                                  |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INELIGIBLE_SELLER | ACE eligibility validation isn't complete. To proceed: 1) Link your AWS Marketplace account to your APN account, 2) Complete the ACE eligibility requirements. |
+| Error code         | Error message                                                                                                                                                  |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| INELIGIBLE\_SELLER | ACE eligibility validation isn't complete. To proceed: 1) Link your AWS Marketplace account to your APN account, 2) Complete the ACE eligibility requirements. |
 
 ## Update solution visibility
 
@@ -863,17 +863,17 @@ After triggering this change type with `TargetVisibility` as `Public`, it can ta
 
 The following errors are specific to `UpdateVisibility` actions in the AWS Marketplace Catalog API. These errors are returned when you call `DescribeChangeSet` after a change set is processing. For more information about using `DescribeChangeSet` to get the status of a change request, see [Working with change sets](../APIReference/catalog-apis.md#working-with-change-sets "../APIReference/catalog-apis.md#working-with-change-sets").
 
-| Error code                               | Error message                                                                                                                                                                                       |
-| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INVALID_VISIBILITY_TRANSITION            | The solution can't be moved back to Draft state. Once released, solutions can only transition between Limited, Public, and Restricted states.                                                       |
-| TOO_FEW_USE_CASES                        | At least one use case is required to make a solution public. Add a use case and try again.                                                                                                          |
-| TOO_FEW_PUBLIC_PRODUCTS                  | A minimum of 2 public AWS Marketplace products are required to make a solution public. Add the required products and try again.                                                                     |
-| INCOMPATIBLE_PRODUCTS                    | The solution contains one or more non-public AWS Marketplace products. To make the solution public, remove all non-public products and try again.                                                   |
-| TOO_FEW_SELF_OWNED_PRODUCTS              | The solution requires at least one AWS Marketplace product owned by the solution owner. Add an AWS Marketplace product from your account and try again.                                             |
-| INCOMPATIBLE_BUYER_ENGAGEMENT_OPTIONS    | The RequestPrivateOffer buyer engagement option must be enabled to make this solution public. Enable RequestPrivateOffer and try again.                                                             |
-| INCOMPATIBLE_OPERATION_UPDATE_VISIBILITY | UpdateVisibility isn't supported for solutions in Draft state. Publish the solution first from Draft to Limited using ReleaseSolution, then use UpdateVisibility to change to Public or Restricted. |
-| LIMIT_EXCEEDED_TOO_MANY_PUBLIC_SOLUTIONS | This account has reached its limit of 5 public solutions. Update an existing public solution to Limited or Restricted visibility and try again.                                                     |
-| MISSING_SELLER_PROFILE_INFORMATION       | A public seller profile is required to make solutions public. Create a public profile in your seller account and try again.                                                                         |
+| Error code                                    | Error message                                                                                                                                                                                       |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| INVALID\_VISIBILITY\_TRANSITION               | The solution can't be moved back to Draft state. Once released, solutions can only transition between Limited, Public, and Restricted states.                                                       |
+| TOO\_FEW\_USE\_CASES                          | At least one use case is required to make a solution public. Add a use case and try again.                                                                                                          |
+| TOO\_FEW\_PUBLIC\_PRODUCTS                    | A minimum of 2 public AWS Marketplace products are required to make a solution public. Add the required products and try again.                                                                     |
+| INCOMPATIBLE\_PRODUCTS                        | The solution contains one or more non-public AWS Marketplace products. To make the solution public, remove all non-public products and try again.                                                   |
+| TOO\_FEW\_SELF\_OWNED\_PRODUCTS               | The solution requires at least one AWS Marketplace product owned by the solution owner. Add an AWS Marketplace product from your account and try again.                                             |
+| INCOMPATIBLE\_BUYER\_ENGAGEMENT\_OPTIONS      | The RequestPrivateOffer buyer engagement option must be enabled to make this solution public. Enable RequestPrivateOffer and try again.                                                             |
+| INCOMPATIBLE\_OPERATION\_UPDATE\_VISIBILITY   | UpdateVisibility isn't supported for solutions in Draft state. Publish the solution first from Draft to Limited using ReleaseSolution, then use UpdateVisibility to change to Public or Restricted. |
+| LIMIT\_EXCEEDED\_TOO\_MANY\_PUBLIC\_SOLUTIONS | This account has reached its limit of 5 public solutions. Update an existing public solution to Limited or Restricted visibility and try again.                                                     |
+| MISSING\_SELLER\_PROFILE\_INFORMATION         | A public seller profile is required to make solutions public. Create a public profile in your seller account and try again.                                                                         |
 
 ## Common asynchronous error codes
 
@@ -881,13 +881,13 @@ There are some asynchronous validation that applies across all solution change t
 
 Each URL field provided must use HTTPS protocol, and conform to RFC2396 or RFC 2732 standards.
 
-| Error code               | Error message                                                                           |
-| ------------------------ | --------------------------------------------------------------------------------------- |
-| INVALID_INPUT            | Invalid '%s' field. Remove unsupported characters %s.                                   |
-| INVALID_INPUT            | Inappropriate content '%s' found in %s field. Provide %s with no inappropriate content. |
-| UNSUPPORTED_CATALOG      | Requested catalog %s is not supported by this change type.                              |
-| INVALID_REMOVE_OPERATION | Invalid operation, you can not remove %s                                                |
-| AUDIT_ERROR              | (varies based on AWS Marketplace Seller Operations team audit result)                   |
+| Error code                 | Error message                                                                           |
+| -------------------------- | --------------------------------------------------------------------------------------- |
+| INVALID\_INPUT             | Invalid '%s' field. Remove unsupported characters %s.                                   |
+| INVALID\_INPUT             | Inappropriate content '%s' found in %s field. Provide %s with no inappropriate content. |
+| UNSUPPORTED\_CATALOG       | Requested catalog %s is not supported by this change type.                              |
+| INVALID\_REMOVE\_OPERATION | Invalid operation, you can not remove %s                                                |
+| AUDIT\_ERROR               | (varies based on AWS Marketplace Seller Operations team audit result)                   |
 
 ## Solution lifecycle
 

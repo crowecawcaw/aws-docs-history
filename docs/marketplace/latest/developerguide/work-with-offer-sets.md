@@ -407,11 +407,11 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following errors are specific to `AssociateOffers` actions in the AWS Marketplace Catalog API. These errors are returned when you call `DescribeChangeSet` after a change set is processing. For more information about using `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                       | Error message                                                         |
-| -------------------------------- | --------------------------------------------------------------------- |
-| TOO_MANY_OFFERS                  | Associate up to 7 offers to the offer set.                            |
-| INCOMPATIBLE_OFFER_SET_REFERENCE | Ensure all offers were created specifically for this offer set.       |
-| INVALID_UPDATE_REQUEST           | The requested change can't be performed after the offer set released. |
+| Error code                          | Error message                                                         |
+| ----------------------------------- | --------------------------------------------------------------------- |
+| TOO\_MANY\_OFFERS                   | Associate up to 7 offers to the offer set.                            |
+| INCOMPATIBLE\_OFFER\_SET\_REFERENCE | Ensure all offers were created specifically for this offer set.       |
+| INVALID\_UPDATE\_REQUEST            | The requested change can't be performed after the offer set released. |
 
 ## Disassociate offers from an offer set
 
@@ -479,9 +479,9 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following errors are specific to `DisassociateOffers` actions in the AWS Marketplace Catalog API. These errors are returned when you call `DescribeChangeSet` after a change set is processing. For more information about using `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code             | Error message                                                         |
-| ---------------------- | --------------------------------------------------------------------- |
-| INVALID_UPDATE_REQUEST | The requested change can't be performed after the offer set released. |
+| Error code               | Error message                                                         |
+| ------------------------ | --------------------------------------------------------------------- |
+| INVALID\_UPDATE\_REQUEST | The requested change can't be performed after the offer set released. |
 
 ## Associate a solution with an offer set
 
@@ -549,10 +549,10 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following errors are specific to `AssociateSolution` actions in the AWS Marketplace Catalog API. These errors are returned when you call `DescribeChangeSet` after a change set is processing. For more information about using `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                        | Error message                                                         |
-| --------------------------------- | --------------------------------------------------------------------- |
-| INCOMPATIBLE_SOLUTION_ASSOCIATION | Disassociate the existing solution before associating a new solution. |
-| INVALID_UPDATE_REQUEST            | The requested change can't be performed after the offer set released. |
+| Error code                          | Error message                                                         |
+| ----------------------------------- | --------------------------------------------------------------------- |
+| INCOMPATIBLE\_SOLUTION\_ASSOCIATION | Disassociate the existing solution before associating a new solution. |
+| INVALID\_UPDATE\_REQUEST            | The requested change can't be performed after the offer set released. |
 
 ## Disassociate a solution from an offer set
 
@@ -614,9 +614,9 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following errors are specific to `DisassociateSolution` actions in the AWS Marketplace Catalog API. These errors are returned when you call `DescribeChangeSet` after a change set is processing. For more information about using `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code             | Error message                                                         |
-| ---------------------- | --------------------------------------------------------------------- |
-| INVALID_UPDATE_REQUEST | The requested change can't be performed after the offer set released. |
+| Error code               | Error message                                                         |
+| ------------------------ | --------------------------------------------------------------------- |
+| INVALID\_UPDATE\_REQUEST | The requested change can't be performed after the offer set released. |
 
 ## Release an offer set
 
@@ -676,19 +676,19 @@ Catalog API using the `DescribeChangeSet` API operation.
 
 The following errors are specific to `ReleaseOfferSet` actions in the AWS Marketplace Catalog API. These errors are returned when you call `DescribeChangeSet` after a change set is processing. For more information about using `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
 
-| Error code                               | Error message                                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------ |
-| MISSING_BUYER_NOTES                      | Provide BuyerNotes before releasing the offer set.                                   |
-| MISSING_OFFERS                           | Associate at least two offers to the offer set before releasing it.                  |
-| TOO_MANY_OFFERS_PER_PRODUCT              | Associate only one offer per product to the offer set.                               |
-| INCONSISTENT_OFFER_CURRENCY_CODE         | Ensure all associated offers have matching CurrencyCode.                             |
-| INCONSISTENT_OFFER_AVAILABILITY_END_DATE | Ensure all associated offers have matching AvailabilityEndDate.                      |
-| INCONSISTENT_OFFER_TARGETING_RULE        | Ensure all associated offers have matching TargetingRule.                            |
-| INCOMPATIBLE_OFFER_TARGETING_RULE        | Only buyer-targeted offers can be associated to an offer set.                        |
-| EXPIRED_OFFERS                           | Disassociate expired offers from the offer set or extend their AvailabilityEndDates. |
-| DRAFT_OFFERS                             | Release all associated offers before releasing the offer set.                        |
-| INCOMPATIBLE_SOLUTION_STATE              | Provide a solution in limited or public state.                                       |
-| INVALID_UPDATE_REQUEST                   | The requested change can't be performed after the offer set released.                |
+| Error code                                   | Error message                                                                        |
+| -------------------------------------------- | ------------------------------------------------------------------------------------ |
+| MISSING\_BUYER\_NOTES                        | Provide BuyerNotes before releasing the offer set.                                   |
+| MISSING\_OFFERS                              | Associate at least two offers to the offer set before releasing it.                  |
+| TOO\_MANY\_OFFERS\_PER\_PRODUCT              | Associate only one offer per product to the offer set.                               |
+| INCONSISTENT\_OFFER\_CURRENCY\_CODE          | Ensure all associated offers have matching CurrencyCode.                             |
+| INCONSISTENT\_OFFER\_AVAILABILITY\_END\_DATE | Ensure all associated offers have matching AvailabilityEndDate.                      |
+| INCONSISTENT\_OFFER\_TARGETING\_RULE         | Ensure all associated offers have matching TargetingRule.                            |
+| INCOMPATIBLE\_OFFER\_TARGETING\_RULE         | Only buyer-targeted offers can be associated to an offer set.                        |
+| EXPIRED\_OFFERS                              | Disassociate expired offers from the offer set or extend their AvailabilityEndDates. |
+| DRAFT\_OFFERS                                | Release all associated offers before releasing the offer set.                        |
+| INCOMPATIBLE\_SOLUTION\_STATE                | Provide a solution in limited or public state.                                       |
+| INVALID\_UPDATE\_REQUEST                     | The requested change can't be performed after the offer set released.                |
 
 ## Offer set lifecycle
 

@@ -24,13 +24,12 @@ The role does the following:
   organization, and you must belong to an administrator account. For more information,
   see the following topics in the _AWS Organizations User Guide_:
 
-      + [Enabling all features for an organization with AWS Organizations](../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md "../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md")
-      + [Tutorial: Creating and configuring an organization](../../../organizations/latest/userguide/orgs_tutorials_basic.md "../../../organizations/latest/userguide/orgs_tutorials_basic.md")
-      + [Managing the management account with AWS Organizations](../../../organizations/latest/userguide/orgs-manage_accounts_management.md "../../../organizations/latest/userguide/orgs-manage_accounts_management.md")
-
-  The `AWSServiceRoleForProcurementInsightsPolicy` must have the following
-  IAM permissions in order to call the [GetBuyerDashboard](../APIReference/API_marketplace-reporting_GetBuyerDashboard.md "../APIReference/API_marketplace-reporting_GetBuyerDashboard.md") action, and to register and deregister
-  delegated administrators:
+  - [Enabling all features for an organization with AWS Organizations](../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md "../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md")
+  - [Tutorial: Creating and configuring an organization](../../../organizations/latest/userguide/orgs_tutorials_basic.md "../../../organizations/latest/userguide/orgs_tutorials_basic.md")
+  - [Managing the management account with AWS Organizations](../../../organizations/latest/userguide/orgs-manage_accounts_management.md "../../../organizations/latest/userguide/orgs-manage_accounts_management.md")
+    The `AWSServiceRoleForProcurementInsightsPolicy` must have the following
+    IAM permissions in order to call the [GetBuyerDashboard](../APIReference/API_marketplace-reporting_GetBuyerDashboard.md "../APIReference/API_marketplace-reporting_GetBuyerDashboard.md") action, and to register and deregister
+    delegated administrators:
 
 JSON
 

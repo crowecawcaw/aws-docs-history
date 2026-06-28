@@ -8,7 +8,7 @@ To manage deployments in AWS Marketplace, you must ensure that you have the nece
 Before calling the `PutDeploymentParameter` action, buyers must create the
 **AWSServiceRoleForMarketplaceDeployment**
 service-linked role. This provides AWS Marketplace with the permissions required to create,
-manage, and tag the necessary deployment parameter related resources in the buyer’s
+manage, and tag the necessary deployment parameter related resources in the buyer's
 account. Buyers create this role using prompts as they progress through the
 configuration process for any Quick Launch experience. For more information, see [Using
 roles to configure and launch products](../buyerguide/using-service-linked-roles-secrets.md "../buyerguide/using-service-linked-roles-secrets.md") in _AWS Marketplace
