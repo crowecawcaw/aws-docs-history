@@ -74,17 +74,17 @@ Initial setup can be performed using the following command
 # pcs cluster setup hana_cluster hanahost01 addr=10.1.20.1 addr=10.1.20.2 hanahost02 addr=10.2.20.1 addr=10.2.20.2
 ```
 
-| IP address type        | Example   |
-| ---------------------- | --------- |
-| <host_ip_1>            | 10.2.10.1 |
-| <host_additional_ip_1> | 10.2.10.2 |
-| <host_ip_2>            | 10.2.20.1 |
-| <host_additional_ip_2> | 10.2.20.2 |
+| IP address type           | Example   |
+| ------------------------- | --------- |
+| <host\_ip\_1>             | 10.2.10.1 |
+| <host\_additional\_ip\_1> | 10.2.10.2 |
+| <host\_ip\_2>             | 10.2.20.1 |
+| <host\_additional\_ip\_2> | 10.2.20.2 |
 
 The timing parameters are optimized for AWS cloud environments:
 
 - Increasing the value of totem token to 15s provides reliable cluster operation while accommodating normal cloud network characteristics. These settings prevent unnecessary failovers during brief network variations
-- When scaling beyond two nodes, remove the two_node parameter from the quorum section. The timing parameters will automatically adjust using the token_coefficient feature to maintain appropriate failure detection as nodes are added.
+- When scaling beyond two nodes, remove the two\_node parameter from the quorum section. The timing parameters will automatically adjust using the token\_coefficient feature to maintain appropriate failure detection as nodes are added.
 
 ```
 # pcs cluster config update totem token=15000

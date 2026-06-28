@@ -94,7 +94,7 @@ The `preload_column_tables` parameter is set to _false_ for both, smaller and sh
 
 Before performing a takeover in a cost optimized deployment, you must set the `preload_column_tables` parameter to its default value of _true_ and restart the SAP HANA system.
 
-The size of your SAP HANA database impacts the time taken to load the column tables into main memory. This affects your overall recovery time objective. You can use SQL scripts to get a rough estimate of the minimum memory required for these tables. Refer to the _HANA_Tables_ColumnStore_Columns_LastTouchTime_ section in [SAP Note 1969700 – SQL Statement Collection for SAP HANA](https://me.sap.com/notes/1969700 "https://me.sap.com/notes/1969700") for more information.
+The size of your SAP HANA database impacts the time taken to load the column tables into main memory. This affects your overall recovery time objective. You can use SQL scripts to get a rough estimate of the minimum memory required for these tables. Refer to the _HANA\_Tables\_ColumnStore\_Columns\_LastTouchTime_ section in [SAP Note 1969700 – SQL Statement Collection for SAP HANA](https://me.sap.com/notes/1969700 "https://me.sap.com/notes/1969700") for more information.
 
 **Smaller secondary**
 

@@ -260,7 +260,7 @@ no_proxy=127.0.0.1,localhost,169.254.169.254,fd00:ec2::254
 
 - Modify proxyhost and proxyport to match your settings.
 - Ensure that you exempt the address used to access the instance metadata.
-- Configure no_proxy to include the IP address of the instance metadata service – 169.254.169.254 (IPV4) and fd00:ec2::254 (IPV6). This address does not vary.
+- Configure no\_proxy to include the IP address of the instance metadata service – 169.254.169.254 (IPV4) and fd00:ec2::254 (IPV6). This address does not vary.
 
 ## Add Overlay IP for Initial Database Access
 

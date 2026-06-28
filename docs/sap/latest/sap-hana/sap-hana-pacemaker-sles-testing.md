@@ -32,7 +32,7 @@ hdbadm> HDB kill-9
 
 1. Monitor cluster status using `crm_mon -r`
 2. Verify HANA system replication status using `hdbnsutil -sr_state`
-3. If AUTOMATED_REGISTER is "false", manually reregister the former primary:
+3. If AUTOMATED\_REGISTER is "false", manually reregister the former primary:
 
    - See more details on how to register the secondary in [HSR Setup](sap-hana-pacemaker-sles-hana-setup-hsr.md "sap-hana-pacemaker-sles-hana-setup-hsr.md") :
 
@@ -60,7 +60,7 @@ hdbadm> HDB kill-9
 2. Verify cluster status using `crm_mon -r`
 3. Clean up STONITH history using `crm resource refresh`
 4. Check HANA replication status using `hdbnsutil -sr_state`
-5. If AUTOMATED_REGISTER is "false", manually register as secondary
+5. If AUTOMATED\_REGISTER is "false", manually register as secondary
 6. Verify application connectivity to the new primary
 
 ## Test 3: Simulate a kernel panic
@@ -83,7 +83,7 @@ hdbadm> HDB kill-9
 2. Verify cluster status using `crm_mon -r`
 3. Clean up STONITH history using `crm resource refresh`
 4. Check HANA replication status using `hdbnsutil -sr_state`
-5. If AUTOMATED_REGISTER is "false", manually register as secondary
+5. If AUTOMATED\_REGISTER is "false", manually register as secondary
 6. Verify all cluster resources are clean
 
 ## Test 4: Simulate a network failure
@@ -95,7 +95,7 @@ hdbadm> HDB kill-9
 - Iptables must be installed
 - Use a subnet in this command because of the secondary ring
 - Check for any existing iptables rules as iptables -F will flush all rules
-- Review pcmk_delay and priority parameters if you see neither node survives the fence race
+- Review pcmk\_delay and priority parameters if you see neither node survives the fence race
 
 **Simulate failure** – On either node as root:
 

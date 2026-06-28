@@ -38,7 +38,9 @@ Amazon CloudWatch action based recovery
 
 When the CloudWatch alarm detects this failure, recover action is initiated. A recovered instance is identical to the original instance, including the instance ID, private IP addresses, Elastic IP addresses, and all instance metadata. For more information, see [Amazon CloudWatch action based recovery](../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md#cloudwatch-recovery "../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md#cloudwatch-recovery").
 
-- TIP: When you create the `StatusCheckFailed_System` CloudWatch alarm using AWS Management Console, associate it with Amazon SNS to receive email notifications. Alternatively, you can set up Amazon SNS notifications after creating the alarm. For more information, see [Setting up Amazon SNS notifications](../../../AmazonCloudWatch/latest/monitoring/US_SetupSNS.md "../../../AmazonCloudWatch/latest/monitoring/US_SetupSNS.md").
+-
+
+TIP: When you create the `StatusCheckFailed_System` CloudWatch alarm using AWS Management Console, associate it with Amazon SNS to receive email notifications. Alternatively, you can set up Amazon SNS notifications after creating the alarm. For more information, see [Setting up Amazon SNS notifications](../../../AmazonCloudWatch/latest/monitoring/US_SetupSNS.md "../../../AmazonCloudWatch/latest/monitoring/US_SetupSNS.md").
 
 Dedicated host recovery
 

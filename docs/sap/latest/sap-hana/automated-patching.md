@@ -170,7 +170,7 @@ The following table shows the example secrets created in the Shared Services acc
 | zsap/hana/upgrade/password/PRD | Password         | <HANA PRD Upgrade User Password>                   |
 | zsap/hana/upgrade/password/SBX | Password         | <HANA SBX Upgrade User Password>                   |
 | zsap/hana/upgrade/bucket       | Amazon S3 bucket | <Amazon S3 bucket for SAP HANA software>           |
-| zsap/sap/bucket/version_repo   | Amazon S3 bucket | <Amazon S3 bucket for SAP HANA version repository> |
+| zsap/sap/bucket/version\_repo  | Amazon S3 bucket | <Amazon S3 bucket for SAP HANA version repository> |
 
 ###### Note
 

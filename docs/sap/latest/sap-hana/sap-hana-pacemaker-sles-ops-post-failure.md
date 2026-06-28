@@ -54,4 +54,4 @@ For quick analysis of recent events, you can use:
 ```
 
 - Both `hb_report` and `crm history` commands require passwordless SSH between nodes
-- For more information, see SUSE Documentation - [Usage of hb_report for SLES HAE](https://www.suse.com/support/kb/doc/?id=000017501 "https://www.suse.com/support/kb/doc/?id=000017501")
+- For more information, see SUSE Documentation - [Usage of hb\_report for SLES HAE](https://www.suse.com/support/kb/doc/?id=000017501 "https://www.suse.com/support/kb/doc/?id=000017501")

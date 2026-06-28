@@ -16,13 +16,13 @@ When you resume the instance, it will automatically start with the same IP addre
 
 Tagging your SAP resources on AWS can significantly simplify identification, security, manageability, and billing of those resources. You can tag your resources using the AWS Management Console or by using the `create-tags` functionality of the AWS Command Line Interface (AWS CLI). This table lists some example tag names and tag values:
 
-| ​                 | Tag name                                                             | Tag value |
-| ----------------- | -------------------------------------------------------------------- | --------- |
-| **Name**          | SAP server’s virtual (host) name                                     |
-| **Environment**   | SAP server’s landscape role; for example: SBX, DEV, QAT, STG, PRD.   |
-| **Application**   | SAP solution or product; for example: ECC, CRM, BW, PI, SCM, SRM, EP |
-| **Owner**         | SAP point of contact                                                 |
-| **Service level** | Known uptime and downtime schedule                                   |
+​| Tag name | Tag value |
+| --- | --- |
+| **Name** | SAP server’s virtual (host) name |
+| **Environment** | SAP server’s landscape role; for example: SBX, DEV, QAT, STG, PRD. |
+| **Application** | SAP solution or product; for example: ECC, CRM, BW, PI, SCM, SRM, EP |
+| **Owner** | SAP point of contact |
+| **Service level** | Known uptime and downtime schedule |
 
 After you have tagged your resources, you can apply specific security restrictions such as access control, based on the tag values. Here is an example of such a policy from the [AWS Security blog](https://aws.amazon.com/blogs/security/how-to-automatically-tag-amazon-ec2-resources-in-response-to-api-events/ "https://aws.amazon.com/blogs/security/how-to-automatically-tag-amazon-ec2-resources-in-response-to-api-events/"):
 

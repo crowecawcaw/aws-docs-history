@@ -24,8 +24,8 @@ Before using `u-*tb1.112xlarge` instance types with one of the following operati
 - SLES for SAP 15 – 4.12.14-150.66
 - SLES for SAP 15 SP1 – 4.12.14-197.83
 - SLES for SAP 15 SP2 – 5.3.18-24.52
-- RHEL for SAP 8.1 - 4.18.0-147.44.1.el8_1
-- RHEL for SAP 8.2 - 4.18.0-193.47.1.el8_2
+- RHEL for SAP 8.1 - 4.18.0-147.44.1.el8\_1
+- RHEL for SAP 8.2 - 4.18.0-193.47.1.el8\_2
 
 **u-\*tb1.metal**
 

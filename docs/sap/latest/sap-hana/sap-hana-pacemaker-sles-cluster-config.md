@@ -57,7 +57,7 @@ Configure cluster properties to establish fencing behavior and resource failover
 # crm configure property stonith-action="off"
 ```
 
-- The **priority-fencing-delay** is recommended for protecting SAP HANA nodes during network partitioning events. When a cluster partition occurs, this delay gives preference to nodes hosting higher priority resources, with SAP HANA Primary (promoted) instances receiving additional priority weighting. This helps ensure the Primary HANA node survives in split-brain scenarios. The recommended 20 second priority-fencing-delay works in conjunction with the pcmk_delay_max (10 seconds) configured in the stonith resource, providing a total potential delay of up to 30 seconds before fencing occurs
+- The **priority-fencing-delay** is recommended for protecting SAP HANA nodes during network partitioning events. When a cluster partition occurs, this delay gives preference to nodes hosting higher priority resources, with SAP HANA Primary (promoted) instances receiving additional priority weighting. This helps ensure the Primary HANA node survives in split-brain scenarios. The recommended 20 second priority-fencing-delay works in conjunction with the pcmk\_delay\_max (10 seconds) configured in the stonith resource, providing a total potential delay of up to 30 seconds before fencing occurs
 - Setting **stonith-action="off"** ensures fenced nodes remain down until manually investigated, preventing potentially compromised nodes from automatically rejoining the cluster. While "reboot" is available as an alternative if automated recovery is preferred, "off" is recommended for SAP HANA clusters to prevent potential data corruption and enable root cause analysis
 
 To verify your cluster property settings:
@@ -94,7 +94,7 @@ Configure operation timeout defaults:
 # crm configure op_defaults timeout="600"
 ```
 
-- The **op_defaults timeout** ensures all cluster operations have a reasonable default timeout of 600 seconds. Individual resources may override this with their own timeout values.
+- The **op\_defaults timeout** ensures all cluster operations have a reasonable default timeout of 600 seconds. Individual resources may override this with their own timeout values.
 
 To verify your operation default settings:
 
@@ -127,12 +127,12 @@ op monitor interval="300" timeout="60"
 
 Details:
 
-- **pcmk_host_map** - Maps cluster node hostnames to their EC2 instance IDs. This mapping must be unique within the AWS account and follow the format hostname:instance-id, with multiple entries separated by semicolons.
+- **pcmk\_host\_map** - Maps cluster node hostnames to their EC2 instance IDs. This mapping must be unique within the AWS account and follow the format hostname:instance-id, with multiple entries separated by semicolons.
 - **region** - AWS region where the EC2 instances are deployed
-- **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing in 2-node clusters. Historically set to higher values, but with `priority-fencing-delay` now handling primary node protection, a lower value (10s) is sufficient. Omit in clusters with real quorum (3+ nodes) to avoid unnecessary delay.
-- **pcmk_reboot_timeout** - Maximum time in seconds allowed for a reboot operation
-- **pcmk_reboot_retries** - Number of times to retry a failed reboot operation
-- **skip_os_shutdown** (recommended) - Leverages a new ec2 stop-instance API flag to forcefully stop an EC2 Instance by skipping the shutdown of the Operating System.
+- **pcmk\_delay\_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing in 2-node clusters. Historically set to higher values, but with `priority-fencing-delay` now handling primary node protection, a lower value (10s) is sufficient. Omit in clusters with real quorum (3+ nodes) to avoid unnecessary delay.
+- **pcmk\_reboot\_timeout** - Maximum time in seconds allowed for a reboot operation
+- **pcmk\_reboot\_retries** - Number of times to retry a failed reboot operation
+- **skip\_os\_shutdown** (recommended) - Leverages a new ec2 stop-instance API flag to forcefully stop an EC2 Instance by skipping the shutdown of the Operating System.
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
 
 ```
@@ -147,7 +147,7 @@ op stop interval="0" timeout="180" \
 op monitor interval="300" timeout="60"
 ```
 
-When configuring the STONITH resource, consider your instance’s startup and shutdown times. The default pcmk_reboot_action is 'reboot', where the cluster waits for both stop and start actions to complete before considering the fencing action successful. Setting `pcmk_reboot_action=off` allows the cluster to proceed immediately after shutdown. For High Memory Metal instances, only 'off' is recommended due to the extended time to initialize memory during startup. If changing `pcmk_reboot_action="off"`, also add `pcmk_off_timeout="600"` and `pcmk_off_retries="4"`. Use `crm configure edit <stonith_resource_name>` to modify.
+When configuring the STONITH resource, consider your instance’s startup and shutdown times. The default pcmk\_reboot\_action is 'reboot', where the cluster waits for both stop and start actions to complete before considering the fencing action successful. Setting `pcmk_reboot_action=off` allows the cluster to proceed immediately after shutdown. For High Memory Metal instances, only 'off' is recommended due to the extended time to initialize memory during startup. If changing `pcmk_reboot_action="off"`, also add `pcmk_off_timeout="600"` and `pcmk_off_retries="4"`. Use `crm configure edit <stonith_resource_name>` to modify.
 
 Older SLES versions
 Create the STONITH resource using resource agent **`external/ec2`**:
@@ -164,7 +164,7 @@ Details:
 
 - **tag** - EC2 instance tag key name that associates instances with this cluster configuration. This tag key must be unique within the AWS account and have a value which matches the instance hostname. See [Create Amazon EC2 Resource Tags Used by Amazon EC2 STONITH Agent](sap-hana-pacemaker-sles-ec2-configuration.md#create-cluster-tags "sap-hana-pacemaker-sles-ec2-configuration.md#create-cluster-tags") for EC2 instance tagging configuration.
 - **profile** - (optional) AWS CLI profile name for API authentication. Verify profile exists with `aws configure list-profiles`. If a profile is not explicitly configured the default profile will be used.
-- **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing. Historically set to higher values (45s), but with `priority-fencing-delay` now handling primary node protection, a lower value (10s) is sufficient.
+- **pcmk\_delay\_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing. Historically set to higher values (45s), but with `priority-fencing-delay` now handling primary node protection, a lower value (10s) is sufficient.
 
 _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
 
@@ -227,7 +227,7 @@ op monitor interval="60" timeout="60"
 Details:
 
 - **ip** - Overlay IP address that will be used to connect to the Primary SAP HANA database. See [Overlay IP Concept](sap-hana-pacemaker-sles-concepts.md#overlay-ip-sles "sap-hana-pacemaker-sles-concepts.md#overlay-ip-sles")
-- **routing_table** - AWS route table ID(s) that need to be updated. Multiple route tables can be specified using commas (For example, `routing_table=rtb-xxxxxroutetable1,rtb-xxxxxroutetable2`). Ensure initial entries have been created following [Add VPC Route Table Entries for Overlay IPs](sap-hana-pacemaker-sles-infra-setup.md#rt-sles "sap-hana-pacemaker-sles-infra-setup.md#rt-sles")
+- **routing\_table** - AWS route table ID(s) that need to be updated. Multiple route tables can be specified using commas (For example, `routing_table=rtb-xxxxxroutetable1,rtb-xxxxxroutetable2`). Ensure initial entries have been created following [Add VPC Route Table Entries for Overlay IPs](sap-hana-pacemaker-sles-infra-setup.md#rt-sles "sap-hana-pacemaker-sles-infra-setup.md#rt-sles")
 - **interface** - Network interface for the IP address (typically eth0)
 - **profile** - (optional) AWS CLI profile name for API authentication. Verify profile exists with `aws configure list-profiles`. If a profile is not explicitly configured the default profile will be used.
 - **awscli** - (optional) Path to the AWS CLI executable. The default path is `/usr/bin/aws`. Only specify this parameter if the AWS CLI is installed in a different location. To confirm the path on your system, run `which aws`.
@@ -292,8 +292,8 @@ op monitor interval="60" timeout="60"
 
 Additional details:
 
-- **lookup_type** = NetworkInterfaceId
-- **routing_table_role** = "arn:aws:iam::<shared_vpc_account_id>:role/<sharing_vpc_account_cluster_role>"
+- **lookup\_type** = NetworkInterfaceId
+- **routing\_table\_role** = "arn:aws:iam::<shared\_vpc\_account\_id>:role/<sharing\_vpc\_account\_cluster\_role>"
 
 ## Create SAPHanaTopology Resource
 
@@ -500,9 +500,9 @@ Details:
 - **clone-node-max** - Defines how many copies of the resource agent can be started on a single node (set to 1)
 - **interleave** - Enables parallel starting of dependent clone resources on the same node (set to true)
 - **clone-max** - Defines the total number of clone instances that can be started in the cluster (For example, use 2 for scale-out or set to 6 for scale-out with 3 nodes per site, do not include majority maker node)
-- **PREFER_SITE_TAKEOVER** defines whether a takeover to the secondary is preferred. Review for non standard deployments.
-- **AUTOMATED_REGISTER** defines whether the ex-primary should be registered as a secondary. Review for non standard deployments.
-- **DUPLICATE_PRIMARY_TIMEOUT** is the wait time to minimise the risk of an unintended dual primary.
+- **PREFER\_SITE\_TAKEOVER** defines whether a takeover to the secondary is preferred. Review for non standard deployments.
+- **AUTOMATED\_REGISTER** defines whether the ex-primary should be registered as a secondary. Review for non standard deployments.
+- **DUPLICATE\_PRIMARY\_TIMEOUT** is the wait time to minimise the risk of an unintended dual primary.
 - **meta priority** - Setting this to 100 works in conjunction with priority-fencing-delay to ensure proper failover order and prevent simultaneous fencing operations
 - The start and stop timeout values (3600s) may need to be increased for larger databases. Adjust these values based on your database size and observed startup/shutdown times
 
@@ -609,9 +609,9 @@ Details:
 - **clone-node-max** - Defines how many copies of the resource agent can be started on a single node (set to 1)
 - **interleave** - Enables parallel starting of dependent clone resources on the same node (set to true)
 - **clone-max** - Defines the total number of clone instances that can be started in the cluster (For example, use 2 for scale-out or set to 6 for scale-out with 3 nodes per site, do not include majority maker node)
-- **PREFER_SITE_TAKEOVER** defines whether a takeover to the secondary is preferred. Review for non standard deployments.
-- **AUTOMATED_REGISTER** defines whether the ex-primary should be registered as a secondary. Review for non standard deployments.
-- **DUPLICATE_PRIMARY_TIMEOUT** is the wait time to minimise the risk of an unintended dual primary.
+- **PREFER\_SITE\_TAKEOVER** defines whether a takeover to the secondary is preferred. Review for non standard deployments.
+- **AUTOMATED\_REGISTER** defines whether the ex-primary should be registered as a secondary. Review for non standard deployments.
+- **DUPLICATE\_PRIMARY\_TIMEOUT** is the wait time to minimise the risk of an unintended dual primary.
 - **meta priority** - Setting this to 100 works in conjunction with priority-fencing-delay to ensure proper failover order and prevent simultaneous fencing operations
 - The start and stop timeout values (3600s) may need to be increased for larger databases. Adjust these values based on your database size and observed startup/shutdown times
 

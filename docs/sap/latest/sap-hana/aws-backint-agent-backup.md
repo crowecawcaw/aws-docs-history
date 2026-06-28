@@ -39,20 +39,19 @@ The SSM Agent will not work if you do not attach the `AmazonSSMManagedInstanceCo
 
 Ensure that your installed SSM Agent is running, and then follow these steps.
 
-1.  Go to [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager "https://console.aws.amazon.com/systems-manager") > Shared Resources > Documents.
-2.  Search for the **AWSSAP-InstallBackintForAWSBackup** document.
-3.  Select **Run command**.
-4.  Specify the following parameters in **Command parameters**.
+1. Go to [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager "https://console.aws.amazon.com/systems-manager") > Shared Resources > Documents.
+2. Search for the **AWSSAP-InstallBackintForAWSBackup** document.
+3. Select **Run command**.
+4. Specify the following parameters in **Command parameters**.
 
-        * System ID – Enter a system ID for your SAP HANA database. For instance, `HDB`.
-        * Installation Directory Confirmation – yes
-        * Modify Global Ini File – modify
-        * Confirm Log Backup Post Install – yes
-        * Ensure No Backup In Process – yes
+   - System ID – Enter a system ID for your SAP HANA database. For instance, `HDB`.
+   - Installation Directory Confirmation – yes
+   - Modify Global Ini File – modify
+   - Confirm Log Backup Post Install – yes
+   - Ensure No Backup In Process – yes
+     You can retain the other parameters without any manual changes.
 
-    You can retain the other parameters without any manual changes.
-
-5.  Under **Target selection**, choose **Choose instances manually**, and search for the Amazon EC2 instance on which your SAP HANA database is running.
+5. Under **Target selection**, choose **Choose instances manually**, and search for the Amazon EC2 instance on which your SAP HANA database is running.
 
 Alternatively, you can select an instance with the `SSMForSAPManaged: True` tag. 6. **Run** the **AWSSAP-InstallBackintForAWSBackup** SSM document.
 

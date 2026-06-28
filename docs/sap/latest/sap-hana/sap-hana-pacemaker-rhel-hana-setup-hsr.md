@@ -28,9 +28,9 @@ Review the documentation for your SAP HANA Version to ensure no changes to the g
 
 Run the following as <sid>adm. These commands will prompt for the system password for the SYSTEMDB database.
 
-###### Check log_mode is set to normal
+###### Check log\_mode is set to normal
 
-Ensure that the configuration parameter log_mode is set to `normal` in the persistence section of the global.ini file:
+Ensure that the configuration parameter log\_mode is set to `normal` in the persistence section of the global.ini file:
 
 ```
 hdbsql -jx -i <hana_sys_nr> -u system -d SYSTEMDB "SELECT VALUE FROM M_INIFILE_CONTENTS WHERE FILE_NAME = 'global.ini' AND SECTION = 'persistence' AND KEY = 'log_mode';"

@@ -35,7 +35,7 @@ On all cluster nodes, change the password of the operating system user hacluster
 
 For a more comprehensive and easily consumable view of cluster activity, SUSE provides additional reporting tools. Many of these tools require access to both nodes without entering a password. SUSE recommends performing this setup for root user.
 
-For more details, see Configuration to collect cluster report as root with root SSH access between cluster nodes section in SUSE Documentation [Usage of hb_report for SLES HAE](https://www.suse.com/support/kb/doc/?id=000017501 "https://www.suse.com/support/kb/doc/?id=000017501").
+For more details, see Configuration to collect cluster report as root with root SSH access between cluster nodes section in SUSE Documentation [Usage of hb\_report for SLES HAE](https://www.suse.com/support/kb/doc/?id=000017501 "https://www.suse.com/support/kb/doc/?id=000017501").
 
 ###### Warning
 
@@ -199,8 +199,8 @@ _Example IP configuration:_
 
 | Network Interface | Node 1    | Node 2    |
 | ----------------- | --------- | --------- |
-| ring0_addr        | 10.2.10.1 | 10.2.20.1 |
-| ring1_addr        | 10.2.10.2 | 10.2.20.2 |
+| ring0\_addr       | 10.2.10.1 | 10.2.20.1 |
+| ring1\_addr       | 10.2.10.2 | 10.2.20.2 |
 
 **3. Synchronize the modified configuration to all nodes:**
 

@@ -121,7 +121,7 @@ Where:
 - Rounding factor = 100
 ```
 
-- Large instances may require multiple volumes to achieve the specified data_iops_target. Refer to the striping guidelines below.
+- Large instances may require multiple volumes to achieve the specified data\_iops\_target. Refer to the striping guidelines below.
 - The minimum IOPS required to meet SAP HANA KPIs for Data is 7000.
 
 **Throughput Formula**

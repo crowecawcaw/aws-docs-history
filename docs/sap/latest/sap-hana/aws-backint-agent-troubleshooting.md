@@ -196,7 +196,7 @@ _These values reduce concurrency and parallelism used by AWS Backint agent to ac
 
 ![Image showing a 'No data backups found' error and the agent log message 'The operation is not valid for the objects' access tier'.](images/s3-intelligent-tiering-troubleshoot-backint.png)
 
-- **Root Cause**: With the **S3StorageClass = "INTELLIGENT_TIERING"** parameter set in the `aws-backint-agent-config.yaml`, the objects have moved to archival storage tiers. AWS Backint agent does not support recovery from archival tiers.
+- **Root Cause**: With the **S3StorageClass = "INTELLIGENT\_TIERING"** parameter set in the `aws-backint-agent-config.yaml`, the objects have moved to archival storage tiers. AWS Backint agent does not support recovery from archival tiers.
 - **Resolution**: You must first [restore the archived S3 objects](../../../AmazonS3/latest/userguide/restoring-objects.md "../../../AmazonS3/latest/userguide/restoring-objects.md") to move them in the access tier. This can take from a few minutes to 12 hours, depending on the archival tier and restore option that is selected. After the S3 restore is complete, you can initiate recovery for the HANA database.
 
 **Problem: Backup request initiated by IAM doesn’t have access to your Amazon S3 bucket.**
@@ -210,12 +210,11 @@ Error Fetching Bucket: Access Denied
 - **Root Cause**: Credentials for internal tasks are configured in the `–0—/aws` folder which is picked by default instead of the configured IAM role for initiating a backup request.
 - **Resolution**: When you initialize a new service client without providing any credential arguments, the SDK uses the default credential provider chain to find AWS credentials. The SDK uses the first provider in the chain that returns credentials without an error. The default provider chain looks for credentials in the following order:
 
-      1. Environment variables
-      2. Shared credentials file
-      3. If your application uses an Amazon ECS task definition or RunTask API operation, IAM role for tasks
-      4. If your application is running on an Amazon EC2 instance, IAM role for Amazon EC2
-
-  For more information, see [Configuring the AWS SDK for Go](../../../sdk-for-go/v1/developer-guide/configuring-sdk.md "../../../sdk-for-go/v1/developer-guide/configuring-sdk.md").
+  1.  Environment variables
+  2.  Shared credentials file
+  3.  If your application uses an Amazon ECS task definition or RunTask API operation, IAM role for tasks
+  4.  If your application is running on an Amazon EC2 instance, IAM role for Amazon EC2
+      For more information, see [Configuring the AWS SDK for Go](../../../sdk-for-go/v1/developer-guide/configuring-sdk.md "../../../sdk-for-go/v1/developer-guide/configuring-sdk.md").
 
 **Problem: "/bin/sh: error importing function definition for `which`" when performing backup and restore with AWS Backint agent.**
 
@@ -235,16 +234,16 @@ Error Fetching Bucket: Access Denied
 
   Based on your business requirements, use one of the following resolutions.
 
-      1. *Temporary*: Run `unset -f which` to unset the function. This step must be repeated for each new session.
-      2. *User-level*: Add `unset -f which` to the user’s `–0—bashrc` file. Verify if this is a scalable resolution for you.
-      3. *System-level*: Move `/etc/profile.d/which2.{sh,csh}` files to a backup location or create `/etc/profile.d/zzz_which2.{sh,csh}` using the following steps.
+        1. *Temporary*: Run `unset -f which` to unset the function. This step must be repeated for each new session.
+        2. *User-level*: Add `unset -f which` to the user’s `–0—bashrc` file. Verify if this is a scalable resolution for you.
+        3. *System-level*: Move `/etc/profile.d/which2.{sh,csh}` files to a backup location or create `/etc/profile.d/zzz_which2.{sh,csh}` using the following steps.
 
 
 
-      `sh: echo "unset -f which"` > `/etc/profile.d/zzz_which2.sh csh: echo "unalias which"` > `/etc/profile.d/zzz_which2.csh`.
+        `sh: echo "unset -f which"` > `/etc/profile.d/zzz_which2.sh csh: echo "unalias which"` > `/etc/profile.d/zzz_which2.csh`.
 
 
-      The system-level fix is a persistent solution that survives package updates to the "which" package. We recommended this resolution.
+        The system-level fix is a persistent solution that survives package updates to the "which" package. We recommended this resolution.
 
 ## Backup deletion
 

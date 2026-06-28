@@ -169,7 +169,7 @@ sidadm> systemctl --version
 When using an SAP HANA version with systemd integration (SPS07 and later), you must run the following steps to prevent the nodes from being fenced when Amazon EC2 instances are intentionally stopped.
 See Note [3189534 - Linux: systemd integration for sapstartsrv and SAP HANA](https://me.sap.com/notes/3189534 "https://me.sap.com/notes/3189534")
 
-1. Verify if SAP HANA is integrated with systemd. If it is integrated, a systemd service name, such as SAP<SID>\_<hana_sys_nr>.service is present. For example, for SID HDB and instance number 00, SAPHDB_00.service is the service name.
+1. Verify if SAP HANA is integrated with systemd. If it is integrated, a systemd service name, such as SAP<SID>\_<hana\_sys\_nr>.service is present. For example, for SID HDB and instance number 00, SAPHDB\_00.service is the service name.
 
 Use the following command as root to find SAP systemd services:
 

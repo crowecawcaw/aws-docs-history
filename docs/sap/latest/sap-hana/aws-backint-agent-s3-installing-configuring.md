@@ -27,39 +27,39 @@ Use the following steps to install the AWS Backint agent using the AWS SSM docum
 
 Disable any existing backup processes (including scheduled log backups) before continuing with the installation. If you don’t disable existing backup processes before running the SSM document, you can corrupt an in-progress backup, which can impact your ability to recover your database.
 
-1.  From the AWS Management Console, choose **Systems Manager** under **Management & Governance**, or enter `Systems Manager` in the **Find Services** search bar.
-2.  From the Systems Manager console, choose **Documents** under **Shared Resources** in the left navigation pane.
-3.  On the Documents page, select the **Owned by Amazon** tab. You should see a document named **AWSSAP-InstallBackint**.
-4.  Select the **AWSSAP-InstallBackint** document and choose **Run command**.
-5.  Under the Command parameters, enter the following
+1. From the AWS Management Console, choose **Systems Manager** under **Management & Governance**, or enter `Systems Manager` in the **Find Services** search bar.
+2. From the Systems Manager console, choose **Documents** under **Shared Resources** in the left navigation pane.
+3. On the Documents page, select the **Owned by Amazon** tab. You should see a document named **AWSSAP-InstallBackint**.
+4. Select the **AWSSAP-InstallBackint** document and choose **Run command**.
+5. Under the Command parameters, enter the following
 
-    1. **Bucket Name**. Enter the name of the Amazon S3 bucket where you want to store your SAP HANA backup files.
-    2. **Bucket Folder**. Optionally, enter the name of the folder within your Amazon S3 bucket where you want to store your SAP HANA backup files.
-    3. **System ID**. Enter your SAP HANA System ID, for example `HDB`.
-    4. **Bucket Region**. Enter the AWS Region of the Amazon S3 bucket where you want to store your **SAP HANA backup files**. AWS Backint agent supports cross-Region and cross-account backups. You must provide the AWS Region and Amazon S3 bucket owner account ID along with the Amazon S3 bucket name for the agent to perform successfully.
-    5. **Bucket Owner Account ID**. Enter the account ID of the Amazon S3 bucket where you want to store your SAP HANA backup files.
-    6. **Kms Key**. Enter the ARN of AWS KMS that AWS Backint agent can use to encrypt the backup files stored in your Amazon S3 bucket.
-    7. **Installation Directory**. Enter the path of the directory location where you want to install the AWS Backint agent. Avoid using `/tmp` as the install path.
-    8. **Agent Version**. Enter the version number of the agent that you want to install. If you do not enter a version number, the latest published version of the agent is installed.
+   1. **Bucket Name**. Enter the name of the Amazon S3 bucket where you want to store your SAP HANA backup files.
+   2. **Bucket Folder**. Optionally, enter the name of the folder within your Amazon S3 bucket where you want to store your SAP HANA backup files.
+   3. **System ID**. Enter your SAP HANA System ID, for example `HDB`.
+   4. **Bucket Region**. Enter the AWS Region of the Amazon S3 bucket where you want to store your **SAP HANA backup files**. AWS Backint agent supports cross-Region and cross-account backups. You must provide the AWS Region and Amazon S3 bucket owner account ID along with the Amazon S3 bucket name for the agent to perform successfully.
+   5. **Bucket Owner Account ID**. Enter the account ID of the Amazon S3 bucket where you want to store your SAP HANA backup files.
+   6. **Kms Key**. Enter the ARN of AWS KMS that AWS Backint agent can use to encrypt the backup files stored in your Amazon S3 bucket.
+   7. **Installation Directory**. Enter the path of the directory location where you want to install the AWS Backint agent. Avoid using `/tmp` as the install path.
+   8. **Agent Version**. Enter the version number of the agent that you want to install. If you do not enter a version number, the latest published version of the agent is installed.
 
-    ###### Note
+   ###### Note
 
-    1.0 versions are unavailable in the GovCloud Regions. 9. **Modify Global ini file**. Choose how you want to modify the `global.ini` file. The `global.ini` file of the SAP HANA SYSTEM DB must be updated to complete the setup.
+   1.0 versions are unavailable in the GovCloud Regions. 9. **Modify Global ini file**. Choose how you want to modify the `global.ini` file. The `global.ini` file of the SAP HANA SYSTEM DB must be updated to complete the setup.
 
         1. "modify" — SSM will update the `global.ini` file directly.
         2. "sql" — SSM will create a file called `modify_global_ini.sql` with SQL statements that you can run in your target SAP HANA system to set the required parameters. You can find the `modify_global_ini.sql` file in the `<installation directory>/aws-backint-agent/` folder.
         3. "none" — No action will be taken by SSM to modify the `global.ini` file. You must manually update it to complete the setup.
-    10. **Ignore Bucket Checks**. Select **yes** to ignore sanity checks of the S3 bucket. S3 Bucket sanity checks verify the following:
 
-        - the bucket exists in your account
-        - the bucket Region is correct
-        - the bucket is public
+   10. **Ignore Bucket Checks**. Select **yes** to ignore sanity checks of the S3 bucket. S3 Bucket sanity checks verify the following:
 
-    11. **Debug Mode**. Select **yes** to activate debug mode.
-    12. **Important! Ensure No Backup In Process**. Choose **Yes** to confirm that you have disabled existing backups and are ready to proceed with the installation. **The SSM document will fail if you choose "No"** .
+        * the bucket exists in your account
+        * the bucket Region is correct
+        * the bucket is public
 
-6.  Under **Targets**, select the method for your target instance to use to install the AWS Backint agent, and then choose the instance on which to install it. If you are not able to find your instance in the list, verify that you have followed all of the steps in the [prerequisites](aws-backint-agent-s3-prerequisites.md "aws-backint-agent-s3-prerequisites.md").
-7.  Under **Other parameters**, leave the field empty and choose **Run**.
+   11. **Debug Mode**. Select **yes** to activate debug mode. 12. **Important! Ensure No Backup In Process**. Choose **Yes** to confirm that you have disabled existing backups and are ready to proceed with the installation. **The SSM document will fail if you choose "No"** .
+
+6. Under **Targets**, select the method for your target instance to use to install the AWS Backint agent, and then choose the instance on which to install it. If you are not able to find your instance in the list, verify that you have followed all of the steps in the [prerequisites](aws-backint-agent-s3-prerequisites.md "aws-backint-agent-s3-prerequisites.md").
+7. Under **Other parameters**, leave the field empty and choose **Run**.
 
 ###### Important
 
@@ -161,32 +161,31 @@ $ sudo python install-aws-backint-agent -l s3://<S3 bucket>/aws-backint-agent.ta
 $ sudo python install-aws-backint-agent -l https://<S3 bucket>.s3.amazonaws.com/aws-backint-agent.tar.gz
 ```
 
-6.  Enter information for the following parameters.
+6. Enter information for the following parameters.
 
-    1. **Installation directory** — Enter the path of the directory location where you want to install the AWS Backint agent. The default value for the installation directory is `/hana/shared/`.
-    2. **Amazon S3 bucket owner** — Enter the account ID of the Amazon S3 bucket owner of the bucket where you want to store your SAP HANA backup files.
-    3. **Amazon S3 bucket Region** — Enter the AWS Region of the Amazon S3 bucket where you want to store your SAP HANA backup files.
-    4. **Amazon S3 bucket name** — Enter the name of the Amazon S3 bucket where you want to store your SAP HANA backup files.
-    5. **Folder in the S3 bucket** — Enter the name of the folder in the Amazon S3 bucket where you want to store your SAP HANA backup files. This parameter is optional.
-    6. **Amazon S3 SSE KMS ARN** — Enter the ARN of the AWS KMS that AWS Backint agent can use to encrypt the backup files stored in your Amazon S3 bucket.
+   1. **Installation directory** — Enter the path of the directory location where you want to install the AWS Backint agent. The default value for the installation directory is `/hana/shared/`.
+   2. **Amazon S3 bucket owner** — Enter the account ID of the Amazon S3 bucket owner of the bucket where you want to store your SAP HANA backup files.
+   3. **Amazon S3 bucket Region** — Enter the AWS Region of the Amazon S3 bucket where you want to store your SAP HANA backup files.
+   4. **Amazon S3 bucket name** — Enter the name of the Amazon S3 bucket where you want to store your SAP HANA backup files.
+   5. **Folder in the S3 bucket** — Enter the name of the folder in the Amazon S3 bucket where you want to store your SAP HANA backup files. This parameter is optional.
+   6. **Amazon S3 SSE KMS ARN** — Enter the ARN of the AWS KMS that AWS Backint agent can use to encrypt the backup files stored in your Amazon S3 bucket.
 
-    ###### Note
+   ###### Note
 
-    If you leave this field empty, AWS Backint installer will prompt you to confirm that you don’t want to encrypt your backup files with encryption keys stored in AWS KMS. If you do not confirm that you do not want to encrypt with the kms-key, the installer will abort. We strongly recommend that you encrypt your data. 7. **SAP HANA system ID** — Enter your SAP HANA System ID, for example `HDB`. 8. **HANA opt dir** — Confirm the location of the SAP HANA opt directory. 9. **Modify global.ini [modify/sql/[none]]** — Choose how you want to modify the `global.ini` file. The `global.ini` file of the SAP HANA SYSTEM must be updated to complete the setup.
+   If you leave this field empty, AWS Backint installer will prompt you to confirm that you don’t want to encrypt your backup files with encryption keys stored in AWS KMS. If you do not confirm that you do not want to encrypt with the kms-key, the installer will abort. We strongly recommend that you encrypt your data. 7. **SAP HANA system ID** — Enter your SAP HANA System ID, for example `HDB`. 8. **HANA opt dir** — Confirm the location of the SAP HANA opt directory. 9. **Modify global.ini [modify/sql/[none]]** — Choose how you want to modify the `global.ini` file. The `global.ini` file of the SAP HANA SYSTEM must be updated to complete the setup.
 
         1. "modify" — AWS Backint installer will update the `global.ini` file directly.
         2. "sql" — AWS Backint installer will create a file called `modify_global_ini.sql` with SQL statements that you can run in your target SAP HANA system to set the required parameters. You can find the `modify_global_ini.sql` file in the `<installation directory>/aws-backint-agent/` folder.
         3. "none" — No action will be taken by AWS Backint installer to modify the `global.ini` file. You must manually update them to complete the setup.
-    10. **HANA SYSTEM db global.ini file** — Confirm the location of `global.ini` file.
-    11. **Verify signature of the agent binary `–0—tar` file** — 
 
-        - Choose `y` to verify the signature of the AWS Backint agent source file. If you choose `y`, enter the Amazon S3 bucket location of the signature file of the agent binary `–0—tar` file, for example, `https://s3.amazonaws.com/awssap-backint-agent/binary/latest/aws-backint-agent.sig`. Or, provide a local file that is stored on the instance. If you proceed without making a selection, the default location listed within brackets ([]) is used.
-        - Choose `n` if you do not want to verify the signature of the AWS Backint agent source file.
+   10. **HANA SYSTEM db global.ini file** — Confirm the location of `global.ini` file. 11. **Verify signature of the agent binary `–0—tar` file** — 
 
-    12. **Save responses for future usage?** — You can save your information for the AWS Backint installer to a file. You can then use it later to run the installer in silent mode, if needed.
-    13. **Do you want to proceed with the installation?** — Confirm that you have disabled the existing backups and are ready to proceed with the installation.
+        * Choose `y` to verify the signature of the AWS Backint agent source file. If you choose `y`, enter the Amazon S3 bucket location of the signature file of the agent binary `–0—tar` file, for example, `https://s3.amazonaws.com/awssap-backint-agent/binary/latest/aws-backint-agent.sig`. Or, provide a local file that is stored on the instance. If you proceed without making a selection, the default location listed within brackets ([]) is used.
+        * Choose `n` if you do not want to verify the signature of the AWS Backint agent source file.
 
-7.  To verify the installation, log in to your instance and view the `/<install directory>/aws-backint-agent` directory. You should see the following files in the directory: the AWS Backint agent binary, the `THIRD_PARTY_LICENSES.txt` file, which contains licenses of libraries used by the agent, the launcher script, the YAML configuration file, and the optional `modify_global_ini.sql` file. In addition, a source file (`aws-backint-agent.tar.gz`) of AWS Backint agent is stored in the package directory. You can verify the signature of this file to ensure that the downloaded source file is original and unmodified. See the [Verifying the signature of AWS Backint agent and installer for SAP HANA](aws-backint-agent-signature.md "aws-backint-agent-signature.md") section in this document for details.
+   12. **Save responses for future usage?** — You can save your information for the AWS Backint installer to a file. You can then use it later to run the installer in silent mode, if needed. 13. **Do you want to proceed with the installation?** — Confirm that you have disabled the existing backups and are ready to proceed with the installation.
+
+7. To verify the installation, log in to your instance and view the `/<install directory>/aws-backint-agent` directory. You should see the following files in the directory: the AWS Backint agent binary, the `THIRD_PARTY_LICENSES.txt` file, which contains licenses of libraries used by the agent, the launcher script, the YAML configuration file, and the optional `modify_global_ini.sql` file. In addition, a source file (`aws-backint-agent.tar.gz`) of AWS Backint agent is stored in the package directory. You can verify the signature of this file to ensure that the downloaded source file is original and unmodified. See the [Verifying the signature of AWS Backint agent and installer for SAP HANA](aws-backint-agent-signature.md "aws-backint-agent-signature.md") section in this document for details.
 
 In addition, the AWS Backint installer creates symbolic links (symlinks) in the SAP HANA global directory for the Backint configuration. Verify that the symlink for `hdbbackint` exists in the `/usr/sap/<SID>/SYS/global/hdb/opt` directory, and that the symlink for `aws-backint-agent-config.yaml` exists in the `/usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig` directory.
 
@@ -356,23 +355,23 @@ The backup catalog is assigned a name in the following format: `log_backup_0_0_0
 
 The following table provides an example of a SYSTEM DB folder structure:
 
-| Backup folder                            | Descriptions                                           |
-| ---------------------------------------- | ------------------------------------------------------ |
-| COMPLETE_DATA_BACKUP_databackup_0_1/     | Nameserver data backup with the source type "topology" |
-| COMPLETE_DATA_BACKUP_databackup_1_1/     | Nameserver data backup with the source type "volume"   |
-| log_backup_0_0_0_0/                      | Log file with source type "catalog"                    |
-| log_backup_1_0\_<backup ID>\_<backup ID> | Log file with source type "volume"                     |
+| Backup folder                               | Descriptions                                           |
+| ------------------------------------------- | ------------------------------------------------------ |
+| COMPLETE\_DATA\_BACKUP\_databackup\_0\_1/   | Nameserver data backup with the source type "topology" |
+| COMPLETE\_DATA\_BACKUP\_databackup\_1\_1/   | Nameserver data backup with the source type "volume"   |
+| log\_backup\_0\_0\_0\_0/                    | Log file with source type "catalog"                    |
+| log\_backup\_1\_0\_<backup ID>\_<backup ID> | Log file with source type "volume"                     |
 
 The following table provides an example of a TENANT DB folder structure:
 
-| Backup folder                            | Descriptions                                            |
-| ---------------------------------------- | ------------------------------------------------------- |
-| COMPLETE_DATA_BACKUP_databackup_0_1/     | Indexserver data backup with the source type "topology" |
-| COMPLETE_DATA_BACKUP_databackup_2_1/     | Indexserver data backup with the source type "volume"   |
-| COMPLETE_DATA_BACKUP_databackup_3_1/     | Xsengine data backup with the source type "volume"      |
-| log_backup_0_0_0_0/                      | Log file with source type "catalog"                     |
-| log_backup_2_0\_<backup ID>\_<backup ID> | Log file with source type "volume"                      |
-| log_backup_3_0\_<backup ID>\_<backup ID> | Log file with source type "volume"                      |
+| Backup folder                               | Descriptions                                            |
+| ------------------------------------------- | ------------------------------------------------------- |
+| COMPLETE\_DATA\_BACKUP\_databackup\_0\_1/   | Indexserver data backup with the source type "topology" |
+| COMPLETE\_DATA\_BACKUP\_databackup\_2\_1/   | Indexserver data backup with the source type "volume"   |
+| COMPLETE\_DATA\_BACKUP\_databackup\_3\_1/   | Xsengine data backup with the source type "volume"      |
+| log\_backup\_0\_0\_0\_0/                    | Log file with source type "catalog"                     |
+| log\_backup\_2\_0\_<backup ID>\_<backup ID> | Log file with source type "volume"                      |
+| log\_backup\_3\_0\_<backup ID>\_<backup ID> | Log file with source type "volume"                      |
 
 ###### Note
 
@@ -423,23 +422,29 @@ Before doing steps a and b, ensure that there is no backup process running.
 
 3. **Create the `aws-backint-agent-config-logs.yaml` parameter file**
 
-   1. Make a copy of the existing AWS Backint agent configuration for logs backup.
+    1. Make a copy of the existing AWS Backint agent configuration for logs backup.
 
-   ```
-   $ cp /hana/shared/aws-backint-agent/aws-backint-agent-config.yaml /hana/shared/aws-backint-agent/aws-backint-agent-config-logs.yaml
-   ```
-   2. Modify the `S3BucketName`, `S3BucketFolder`, and `LogFile` parameters in `aws-backint-agent-config-logs.yaml`, using your preferred editor.
 
-   ```
-   S3BucketName: "<Amazon S3 bucket for SAP HANA logs>"
-   S3BucketFolder: "<Amazon S3 folder for SAP HANA logs>"
-   LogFile: "/hana/shared/aws-backint-agent/aws-backint-agent-logs.log"
-   ```
-   3. Create a `hdbbackint` soft link from `/usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/` to `/hana/shared/aws-backint-agent/`.
 
-   ```
-   $ ln -s /hana/shared/aws-backint-agent/aws-backint-agent-config-logs.yaml /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config-logs.yaml
-   ```
+    ```
+    $ cp /hana/shared/aws-backint-agent/aws-backint-agent-config.yaml /hana/shared/aws-backint-agent/aws-backint-agent-config-logs.yaml
+    ```
+    2. Modify the `S3BucketName`, `S3BucketFolder`, and `LogFile` parameters in `aws-backint-agent-config-logs.yaml`, using your preferred editor.
+
+
+
+    ```
+    S3BucketName: "<Amazon S3 bucket for SAP HANA logs>"
+    S3BucketFolder: "<Amazon S3 folder for SAP HANA logs>"
+    LogFile: "/hana/shared/aws-backint-agent/aws-backint-agent-logs.log"
+    ```
+    3. Create a `hdbbackint` soft link from `/usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/` to `/hana/shared/aws-backint-agent/`.
+
+
+
+    ```
+    $ ln -s /hana/shared/aws-backint-agent/aws-backint-agent-config-logs.yaml /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config-logs.yaml
+    ```
 
 4. **Update the `global.ini` file**
 
@@ -500,23 +505,23 @@ The backup catalog is assigned a name in the following format: `log_backup_0_0_0
 
 The following table provides an example of a SYSTEM DB folder structure:
 
-| Backup folder                            | Descriptions                                           |
-| ---------------------------------------- | ------------------------------------------------------ |
-| COMPLETE_DATA_BACKUP_databackup_0_1/     | Nameserver data backup with the source type "topology" |
-| COMPLETE_DATA_BACKUP_databackup_1_1/     | Nameserver data backup with the source type "volume"   |
-| log_backup_0_0_0_0/                      | Log file with source type "catalog"                    |
-| log_backup_1_0\_<backup ID>\_<backup ID> | Log file with source type "volume"                     |
+| Backup folder                               | Descriptions                                           |
+| ------------------------------------------- | ------------------------------------------------------ |
+| COMPLETE\_DATA\_BACKUP\_databackup\_0\_1/   | Nameserver data backup with the source type "topology" |
+| COMPLETE\_DATA\_BACKUP\_databackup\_1\_1/   | Nameserver data backup with the source type "volume"   |
+| log\_backup\_0\_0\_0\_0/                    | Log file with source type "catalog"                    |
+| log\_backup\_1\_0\_<backup ID>\_<backup ID> | Log file with source type "volume"                     |
 
 The following table is an example of a TENANT DB folder structure:
 
-| Backup folder                            | Descriptions                                            |
-| ---------------------------------------- | ------------------------------------------------------- |
-| COMPLETE_DATA_BACKUP_databackup_0_1/     | Indexserver data backup with the source type "topology" |
-| COMPLETE_DATA_BACKUP_databackup_2_1/     | Indexserver data backup with the source type "volume"   |
-| COMPLETE_DATA_BACKUP_databackup_3_1/     | Xsengine data backup with the source type "volume"      |
-| log_backup_0_0_0_0/                      | Log file with source type "catalog"                     |
-| log_backup_2_0\_<backup ID>\_<backup ID> | Log file with source type "volume"                      |
-| log_backup_3_0\_<backup ID>\_<backup ID> | Log file with source type "volume"                      |
+| Backup folder                               | Descriptions                                            |
+| ------------------------------------------- | ------------------------------------------------------- |
+| COMPLETE\_DATA\_BACKUP\_databackup\_0\_1/   | Indexserver data backup with the source type "topology" |
+| COMPLETE\_DATA\_BACKUP\_databackup\_2\_1/   | Indexserver data backup with the source type "volume"   |
+| COMPLETE\_DATA\_BACKUP\_databackup\_3\_1/   | Xsengine data backup with the source type "volume"      |
+| log\_backup\_0\_0\_0\_0/                    | Log file with source type "catalog"                     |
+| log\_backup\_2\_0\_<backup ID>\_<backup ID> | Log file with source type "volume"                      |
+| log\_backup\_3\_0\_<backup ID>\_<backup ID> | Log file with source type "volume"                      |
 
 ###### Note
 
@@ -566,23 +571,29 @@ Before doing steps a and b, ensure that there is no backup process running.
 
 3. Create the `**aws-backint-agent-config-catalog.yaml**` parameter file
 
-   1. Make a copy of the existing AWS Backint agent configuration for catalog backup.
+    1. Make a copy of the existing AWS Backint agent configuration for catalog backup.
 
-   ```
-   $ cp /hana/shared/aws-backint-agent/aws-backint-agent-config.yaml  /hana/shared/aws-backint-agent/aws-backint-agent-config-catalog.yaml
-   ```
-   2. Modify the `S3BucketName`, `S3BucketFolder`, and `LogFile` parameters in `aws-backint-agent-config-catalog.yaml`, using your preferred editor.
 
-   ```
-   S3BucketName: "Amazon S3 bucket for SAP HANA catalog"
-   S3BucketFolder: "Amazon S3 folder for SAP HANA catalog"
-   LogFile: "/hana/shared/aws-backint-agent/aws-backint-agent-catalog.log"
-   ```
-   3. Create a `hdbbackint` soft link from `/usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/` to `/hana/shared/aws-backint-agent/`.
 
-   ```
-   $ ln -s /hana/shared/aws-backint-agent/aws-backint-agent-config-catalog.yaml  /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config-catalog.yaml
-   ```
+    ```
+    $ cp /hana/shared/aws-backint-agent/aws-backint-agent-config.yaml  /hana/shared/aws-backint-agent/aws-backint-agent-config-catalog.yaml
+    ```
+    2. Modify the `S3BucketName`, `S3BucketFolder`, and `LogFile` parameters in `aws-backint-agent-config-catalog.yaml`, using your preferred editor.
+
+
+
+    ```
+    S3BucketName: "Amazon S3 bucket for SAP HANA catalog"
+    S3BucketFolder: "Amazon S3 folder for SAP HANA catalog"
+    LogFile: "/hana/shared/aws-backint-agent/aws-backint-agent-catalog.log"
+    ```
+    3. Create a `hdbbackint` soft link from `/usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/` to `/hana/shared/aws-backint-agent/`.
+
+
+
+    ```
+    $ ln -s /hana/shared/aws-backint-agent/aws-backint-agent-config-catalog.yaml  /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config-catalog.yaml
+    ```
 
 4. Update the `**global.ini**` file
 

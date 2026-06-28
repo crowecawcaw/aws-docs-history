@@ -84,12 +84,12 @@ Note: Amazon EC2 root volumes used as boot volumes for the operating system alwa
 
 The following table presents an example of volume and mount point configuration for scale-up setup. It includes a single host. `HDB` is the SAP HANA system ID. To place the home directory of the `hdbadm` user on the central storage, the `/usr/sap/HDB` file system must be mounted from the `HDB_shared` volume.
 
-| Volume name       | Junction path     | Directory | Mount point             |
-| ----------------- | ----------------- | --------- | ----------------------- |
-| HDB_data_mnt00001 | HDB_data_mnt00001 | -         | /hana/data/HDB/mnt00001 |
-| HDB_log_mnt00001  | HDB_log_mnt00001  | -         | /hana/log/HDB/mnt00001  |
-| HDB_shared        | HDB_shared        | usr-sap   | /usr/sap/HDB            |
-| shared            | /hana/shared      |
+| Volume name         | Junction path       | Directory | Mount point             |
+| ------------------- | ------------------- | --------- | ----------------------- |
+| HDB\_data\_mnt00001 | HDB\_data\_mnt00001 | -         | /hana/data/HDB/mnt00001 |
+| HDB\_log\_mnt00001  | HDB\_log\_mnt00001  | -         | /hana/log/HDB/mnt00001  |
+| HDB\_shared         | HDB\_shared         | usr-sap   | /usr/sap/HDB            |
+| shared              | /hana/shared        |
 
 ### SAP HANA scale-out
 
@@ -97,22 +97,22 @@ You must mount all the data, log, and shared volumes in every node, including th
 
 The following table presents an example of volume and mount point configuration for a scale-out setup. It includes four active and one standby host. `HDB` is the SAP HANA system ID. The home (`/usr/sap/HDB`) and shared (`(/hana/shared`) directories of every host are stored in the `HDB_shared` volume. To place the home directory of the `hdbadm` user on the central storage, the `/usr/sap/HDB` file system must be mounted from the `HDB_shared` volume.
 
-| Volume name       | Junction path     | Directory     | Mount point             | Note                 |
-| ----------------- | ----------------- | ------------- | ----------------------- | -------------------- |
-| HDB_data_mnt00001 | HDB_data_mnt00001 | N/A           | /hana/data/HDB/mnt00001 | Mounted on all hosts |
-| HDB_log_mnt00001  | HDB_log_mnt00001  | N/A           | /hana/log/HDB/mnt00001  | Mounted on all hosts |
-| HDB_data_mnt00002 | HDB_data_mnt00002 | N/A           | /hana/data/HDB/mnt00002 | Mounted on all hosts |
-| HDB_log_mnt00002  | HDB_log_mnt00002  | N/A           | /hana/log/HDB/mnt00002  | Mounted on all hosts |
-| HDB_data_mnt00003 | HDB_data_mnt00003 | N/A           | /hana/data/HDB/mnt00003 | Mounted on all hosts |
-| HDB_log_mnt00003  | HDB_log_mnt00003  | N/A           | /hana/log/HDB/mnt00003  | Mounted on all hosts |
-| HDB_data_mnt00004 | HDB_data_mnt00004 | N/A           | /hana/data/HDB/mnt00004 | Mounted on all hosts |
-| HDB_log_mnt00004  | HDB_log_mnt00004  | N/A           | /hana/log/HDB/mnt00004  | Mounted on all hosts |
-| HDB_shared        | HDB_shared        | HDB_shared    | /hana/shared/HDB        | Mounted on all hosts |
-| HDB_shared        | HDB_shared        | usr-sap-host1 | /usr/sap/HDB            | Mounted on host 1    |
-| HDB_shared        | HDB_shared        | usr-sap-host2 | /usr/sap/HDB            | Mounted on host 2    |
-| HDB_shared        | HDB_shared        | usr-sap-host3 | /usr/sap/HDB            | Mounted on host 3    |
-| HDB_shared        | HDB_shared        | usr-sap-host4 | /usr/sap/HDB            | Mounted on host 4    |
-| HDB_shared        | HDB_shared        | usr-sap-host5 | /usr/sap/HDB            | Mounted on host 5    |
+| Volume name         | Junction path       | Directory     | Mount point             | Note                 |
+| ------------------- | ------------------- | ------------- | ----------------------- | -------------------- |
+| HDB\_data\_mnt00001 | HDB\_data\_mnt00001 | N/A           | /hana/data/HDB/mnt00001 | Mounted on all hosts |
+| HDB\_log\_mnt00001  | HDB\_log\_mnt00001  | N/A           | /hana/log/HDB/mnt00001  | Mounted on all hosts |
+| HDB\_data\_mnt00002 | HDB\_data\_mnt00002 | N/A           | /hana/data/HDB/mnt00002 | Mounted on all hosts |
+| HDB\_log\_mnt00002  | HDB\_log\_mnt00002  | N/A           | /hana/log/HDB/mnt00002  | Mounted on all hosts |
+| HDB\_data\_mnt00003 | HDB\_data\_mnt00003 | N/A           | /hana/data/HDB/mnt00003 | Mounted on all hosts |
+| HDB\_log\_mnt00003  | HDB\_log\_mnt00003  | N/A           | /hana/log/HDB/mnt00003  | Mounted on all hosts |
+| HDB\_data\_mnt00004 | HDB\_data\_mnt00004 | N/A           | /hana/data/HDB/mnt00004 | Mounted on all hosts |
+| HDB\_log\_mnt00004  | HDB\_log\_mnt00004  | N/A           | /hana/log/HDB/mnt00004  | Mounted on all hosts |
+| HDB\_shared         | HDB\_shared         | HDB\_shared   | /hana/shared/HDB        | Mounted on all hosts |
+| HDB\_shared         | HDB\_shared         | usr-sap-host1 | /usr/sap/HDB            | Mounted on host 1    |
+| HDB\_shared         | HDB\_shared         | usr-sap-host2 | /usr/sap/HDB            | Mounted on host 2    |
+| HDB\_shared         | HDB\_shared         | usr-sap-host3 | /usr/sap/HDB            | Mounted on host 3    |
+| HDB\_shared         | HDB\_shared         | usr-sap-host4 | /usr/sap/HDB            | Mounted on host 4    |
+| HDB\_shared         | HDB\_shared         | usr-sap-host5 | /usr/sap/HDB            | Mounted on host 5    |
 
 ## File system setup
 

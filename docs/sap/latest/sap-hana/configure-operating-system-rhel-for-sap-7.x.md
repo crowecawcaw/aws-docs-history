@@ -93,7 +93,7 @@ tuned-adm active
    sed -i 's/\(SELINUX=enforcing\|SELINUX=permissive\)/SELINUX=disabled/g' \/etc/selinux/config
 ```
 
-9. Disable Transparent Hugepages (THP) at boot time by adding the following to the line that starts with GRUB_CMDLINE_LINUX in the `/etc/default/grub` file. Execute the following commands to add the required parameter and to re-configure grub (Skip this step if you are using the RHEL for SAP with HA & US image.)
+9. Disable Transparent Hugepages (THP) at boot time by adding the following to the line that starts with GRUB\_CMDLINE\_LINUX in the `/etc/default/grub` file. Execute the following commands to add the required parameter and to re-configure grub (Skip this step if you are using the RHEL for SAP with HA & US image.)
 
 ```
    sed -i '/GRUB_CMDLINE_LINUX/ s|"| transparent_hugepage=never"|2' /etc/default/grub
