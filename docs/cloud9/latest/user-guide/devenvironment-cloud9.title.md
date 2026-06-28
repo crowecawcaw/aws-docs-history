@@ -86,7 +86,7 @@ created.
 ###### Note
 
 When using Amazon CodeCatalyst AWS CLI from the terminal, you must ensure you set
-_AWS_PROFILE=codecatalyst_ before running any CodeCatalyst commands.
+_AWS\_PROFILE=codecatalyst_ before running any CodeCatalyst commands.
 
 ## Resuming a Dev Environment
 
@@ -193,6 +193,6 @@ guide_.
 ###### Note
 
 When using Amazon CodeCatalyst AWS CLI from the terminal, you must ensure you set
-_AWS_PROFILE=codecatalyst_ before running any CodeCatalyst commands.
+_AWS\_PROFILE=codecatalyst_ before running any CodeCatalyst commands.
 
 If you encounter issues with your Dev Environment, see [Troubleshooting problems with Dev Environments](../../../codecatalyst/latest/userguide/devenvironments-troubleshooting.md "../../../codecatalyst/latest/userguide/devenvironments-troubleshooting.md") in the _Amazon CodeCatalyst guide_.

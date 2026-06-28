@@ -29,49 +29,49 @@ systems in the AWS Cloud9 Integrated Development Environment (IDE).
 
 ## General
 
-| Description                                                                                                                                                                 | Keybinding         | Command                 |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------------------- | ------------------- |
-| Add the selection as a watch expression                                                                                                                                     | `Ctrl-Shift-C`     | `addwatchfromselection` |
-| Remove the cut selection from the clipboard                                                                                                                                 | `Esc`              | `clearcut`              |
-| Show the code completion context menu                                                                                                                                       | `Ctrl-Space`       | `Alt-Space`             | `complete`          |
-| Code complete, and then overwrite                                                                                                                                           | `Ctrl-Shift-Space` | `Alt-Shift-Space`       | `completeoverwrite` |
-| Copy the selection to the clipboard                                                                                                                                         | `Ctrl-C`           | `copy`                  |
-| Cut the selection to the clipboard                                                                                                                                          | `Ctrl-X`           | `cut`                   |
-| Expand code, where applicable                                                                                                                                               | `Tab`              | `expandSnippet`         |
-| Show the find and replace bar for the current document                                                                                                                      | `Ctrl-F`           | `find`                  |
-| Select all find matches in the current document                                                                                                                             | `Ctrl-Alt-K`       | `findall`               |
-| Go to the next match in the current document for the find query you<br>entered last                                                                                         | `Ctrl-K`           | `findnext`              |
-| Go to the previous match in the current document for the find query you<br>entered last                                                                                     | `Ctrl-Shift-K`     | `findprevious`          |
-| Display all known references to the symbol at the insertion point in the<br>active file in the editor                                                                       | `Shift-F3`         | `findReferences`        |
-| Open the \*_Environment_<br>• window, and then make the list<br>of files active                                                                                             | `Shift-Esc`        | `focusTree`             |
-| Reformat the selected JavaScript code                                                                                                                                       | `Ctrl-Shift-B`     | `formatcode`            |
-| Show the go to line box                                                                                                                                                     | `Ctrl-G`           | `gotoline`              |
-| Hide the find and replace bar, if it is showing                                                                                                                             | `Esc`              | `hidesearchreplace`     |
-| Go to the definition of the variable or function at the cursor                                                                                                              | `F3`               | `jumptodef`             |
-| If a local Lambda function is selected in the **Lambda**<br>section of the \*_AWS Resources_<br>• window, attempts to<br>upload the function to Lambda as a remote function | `Ctrl-Shift-U`     | `lambdaUploadFunction`  |
-| Create a new file                                                                                                                                                           | `Alt-N`            | `newfile`               |
-| Show the \*_Preferences_<br>• tab                                                                                                                                           | `Ctrl-,`           | `openpreferences`       |
-| Open a \*_Terminal_<br>• tab, and then switch to the parent<br>folder of the selected file in the list of files                                                             | `Alt-L`            | `opentermhere`          |
-| Paste the clipboard's current contents at the cursor                                                                                                                        | `Ctrl-V`           | `paste`                 |
-| Show suggestions for fixing errors                                                                                                                                          | `Ctrl-F3`          | `quickfix`              |
-| Redo the last action                                                                                                                                                        | `Ctrl-Shift-Z`     | `Ctrl-Y`                | `redo`              |
-| Refresh the preview pane                                                                                                                                                    | `Ctrl-Enter`       | `reloadpreview`         |
-| Start a rename refactor for the selection                                                                                                                                   | `Ctrl-Alt-R`       | `renameVar`             |
-| Show the find and replace bar for the current document, with focus on the<br>replace with expression                                                                        | `Alt-Shift-F`      | `Ctrl-H`                | `replace`           |
-| Rerun your initialization script                                                                                                                                            | `Ctrl-Enter`       | `rerunInitScript`       |
-| Restart the environment                                                                                                                                                     | `Ctrl-R`           | `restartc9`             |
-| Reset the current file to its last saved version                                                                                                                            | `Ctrl-Shift-Q`     | `reverttosaved`         |
-| Reset each open file to its saved version                                                                                                                                   | `Alt-Shift-Q`      | `reverttosavedall`      |
-| Save the current file to disk                                                                                                                                               | `Ctrl-S`           | `save`                  |
-| Save the current file to disk with a different file name                                                                                                                    | `Ctrl-Shift-S`     | `saveas`                |
-| Show the find and replace bar for multiple files                                                                                                                            | `Ctrl-Shift-F`     | `searchinfiles`         |
-| Show the \*_Process List_<br>• dialog box                                                                                                                                   | `Ctrl-Alt-P`       | `showprocesslist`       |
-| Undo the last action                                                                                                                                                        | `Ctrl-Z`           | `undo`                  |
+| Description                                                                                                                                                                | Keybinding         | Command                 |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------------------- |
+| Add the selection as a watch expression                                                                                                                                    | `Ctrl-Shift-C`     | `addwatchfromselection` |
+| Remove the cut selection from the clipboard                                                                                                                                | `Esc`              | `clearcut`              |
+| Show the code completion context menu                                                                                                                                      | `Ctrl-Space`       | `Alt-Space`             | `complete`          |
+| Code complete, and then overwrite                                                                                                                                          | `Ctrl-Shift-Space` | `Alt-Shift-Space`       | `completeoverwrite` |
+| Copy the selection to the clipboard                                                                                                                                        | `Ctrl-C`           | `copy`                  |
+| Cut the selection to the clipboard                                                                                                                                         | `Ctrl-X`           | `cut`                   |
+| Expand code, where applicable                                                                                                                                              | `Tab`              | `expandSnippet`         |
+| Show the find and replace bar for the current document                                                                                                                     | `Ctrl-F`           | `find`                  |
+| Select all find matches in the current document                                                                                                                            | `Ctrl-Alt-K`       | `findall`               |
+| Go to the next match in the current document for the find query you<br>entered last                                                                                        | `Ctrl-K`           | `findnext`              |
+| Go to the previous match in the current document for the find query you<br>entered last                                                                                    | `Ctrl-Shift-K`     | `findprevious`          |
+| Display all known references to the symbol at the insertion point in the<br>active file in the editor                                                                      | `Shift-F3`         | `findReferences`        |
+| Open the *_Environment_<br>• window, and then make the list<br>of files active                                                                                             | `Shift-Esc`        | `focusTree`             |
+| Reformat the selected JavaScript code                                                                                                                                      | `Ctrl-Shift-B`     | `formatcode`            |
+| Show the go to line box                                                                                                                                                    | `Ctrl-G`           | `gotoline`              |
+| Hide the find and replace bar, if it is showing                                                                                                                            | `Esc`              | `hidesearchreplace`     |
+| Go to the definition of the variable or function at the cursor                                                                                                             | `F3`               | `jumptodef`             |
+| If a local Lambda function is selected in the **Lambda**<br>section of the *_AWS Resources_<br>• window, attempts to<br>upload the function to Lambda as a remote function | `Ctrl-Shift-U`     | `lambdaUploadFunction`  |
+| Create a new file                                                                                                                                                          | `Alt-N`            | `newfile`               |
+| Show the *_Preferences_<br>• tab                                                                                                                                           | `Ctrl-,`           | `openpreferences`       |
+| Open a *_Terminal_<br>• tab, and then switch to the parent<br>folder of the selected file in the list of files                                                             | `Alt-L`            | `opentermhere`          |
+| Paste the clipboard's current contents at the cursor                                                                                                                       | `Ctrl-V`           | `paste`                 |
+| Show suggestions for fixing errors                                                                                                                                         | `Ctrl-F3`          | `quickfix`              |
+| Redo the last action                                                                                                                                                       | `Ctrl-Shift-Z`     | `Ctrl-Y`                | `redo`              |
+| Refresh the preview pane                                                                                                                                                   | `Ctrl-Enter`       | `reloadpreview`         |
+| Start a rename refactor for the selection                                                                                                                                  | `Ctrl-Alt-R`       | `renameVar`             |
+| Show the find and replace bar for the current document, with focus on the<br>replace with expression                                                                       | `Alt-Shift-F`      | `Ctrl-H`                | `replace`           |
+| Rerun your initialization script                                                                                                                                           | `Ctrl-Enter`       | `rerunInitScript`       |
+| Restart the environment                                                                                                                                                    | `Ctrl-R`           | `restartc9`             |
+| Reset the current file to its last saved version                                                                                                                           | `Ctrl-Shift-Q`     | `reverttosaved`         |
+| Reset each open file to its saved version                                                                                                                                  | `Alt-Shift-Q`      | `reverttosavedall`      |
+| Save the current file to disk                                                                                                                                              | `Ctrl-S`           | `save`                  |
+| Save the current file to disk with a different file name                                                                                                                   | `Ctrl-Shift-S`     | `saveas`                |
+| Show the find and replace bar for multiple files                                                                                                                           | `Ctrl-Shift-F`     | `searchinfiles`         |
+| Show the *_Process List_<br>• dialog box                                                                                                                                   | `Ctrl-Alt-P`       | `showprocesslist`       |
+| Undo the last action                                                                                                                                                       | `Ctrl-Z`           | `undo`                  |
 
 ## Tabs
 
 | Description                                                                                                  | Keybinding        | Command         |
-| ------------------------------------------------------------------------------------------------------------ | ----------------- | --------------- | ------------- |
+| ------------------------------------------------------------------------------------------------------------ | ----------------- | --------------- |
 | Close all open tabs in the current pane, except the current tab                                              | `Ctrl-Alt-W`      | `closeallbutme` |
 | Close all open tabs in all panes                                                                             | `Alt-Shift-W`     | `closealltabs`  |
 | Close the current pane                                                                                       | `Ctrl-W`          | `closepane`     |
@@ -106,20 +106,20 @@ systems in the AWS Cloud9 Integrated Development Environment (IDE).
 
 ## Panels
 
-| Description                                                         | Keybinding     | Command         |
-| ------------------------------------------------------------------- | -------------- | --------------- | -------------- |
-| Show the **Go\*<br>• window in **Go to<br>Anything\*<br>• mode      | `Ctrl-E        | Ctrl-P`         | `gotoanything` |
-| Show the **Go\*<br>• window in **Go to<br>Command\*<br>• mode       | `Ctrl-.        | F1`             | `gotocommand`  |
-| Show the **Go\*<br>• window in **Go to<br>File\*<br>• mode.         | `Ctrl-O`       | `gotofile`      |
-| Show the **Go\*<br>• window in **Go to<br>Symbol\*<br>• mode.       | `Ctrl-Shift-O` | `gotosymbol`    |
-| Show the \*_Outline_<br>• window                                    | `Ctrl-Shift-E` | `outline`       |
-| Show the \*_Console_<br>• window if hidden, or hide if<br>shown     | `F6`           | `toggleconsole` |
-| Show the \*_Environment_<br>• window if hidden, or hide if<br>shown | `Ctrl-I`       | `toggletree`    |
+| Description                                                        | Keybinding     | Command         |
+| ------------------------------------------------------------------ | -------------- | --------------- |
+| Show the *_Go_<br>• window in *_Go to<br>Anything_<br>• mode       | `Ctrl-E        | Ctrl-P`         | `gotoanything` |
+| Show the *_Go_<br>• window in *_Go to<br>Command_<br>• mode        | `Ctrl-.        | F1`             | `gotocommand`  |
+| Show the *_Go_<br>• window in *_Go to<br>File_<br>• mode.          | `Ctrl-O`       | `gotofile`      |
+| Show the *_Go_<br>• window in *_Go to<br>Symbol_<br>• mode.        | `Ctrl-Shift-O` | `gotosymbol`    |
+| Show the *_Outline_<br>• window                                    | `Ctrl-Shift-E` | `outline`       |
+| Show the *_Console_<br>• window if hidden, or hide if<br>shown     | `F6`           | `toggleconsole` |
+| Show the *_Environment_<br>• window if hidden, or hide if<br>shown | `Ctrl-I`       | `toggletree`    |
 
 ## Code Editor
 
 | Description                                                                                                                           | Keybinding              | Command                     |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | --------------------------- | --------------- | ------------------------ |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | --------------------------- |
 | Add a cursor one line above the active cursor, or if a cursor is already<br>added, add another cursor above that one                  | `Ctrl-Alt-Up`           | `addCursorAbove`            |
 | Add a second cursor one line above the active cursor, or if a second<br>cursor is already added, move the second cursor up one line   | `Ctrl-Alt-Shift-Up`     | `addCursorAboveSkipCurrent` |
 | Add a cursor one line below the active cursor, or if a cursor is already<br>added, add another cursor below that one                  | `Ctrl-Alt-Down`         | `addCursorBelow`            |
@@ -195,7 +195,7 @@ systems in the AWS Cloud9 Integrated Development Environment (IDE).
 | Include the next line up in the selection                                                                                             | `Shift-Up`              | `selectup`                  |
 | Include the next word to the left of the cursor in the selection                                                                      | `Ctrl-Shift-Left`       | `selectwordleft`            |
 | Include the next word to the right of the cursor in the selection                                                                     | `Ctrl-Shift-Right`      | `selectwordright`           |
-| Show the \*_Preferences_<br>• tab                                                                                                     | `Ctrl-,`                | `showSettingsMenu`          |
+| Show the *_Preferences_<br>• tab                                                                                                      | `Ctrl-,`                | `showSettingsMenu`          |
 | Clear all previous selections                                                                                                         | `Esc`                   | `singleSelection`           |
 | Decrease the font size                                                                                                                | `Ctrl--`                | `smallerfont`               |
 | If multiple lines are selected, rearrange them into a sorted order                                                                    | `Ctrl-Alt-S`            | `sortlines`                 |
@@ -228,7 +228,7 @@ systems in the AWS Cloud9 Integrated Development Environment (IDE).
 
 | Description                                           | Keybinding | Command          |
 | ----------------------------------------------------- | ---------- | ---------------- |
-| Open a new \*_Terminal_<br>• tab                      | `Alt-T`    | `openterminal`   |
+| Open a new *_Terminal_<br>• tab                       | `Alt-T`    | `openterminal`   |
 | Switch between the editor and the **Terminal**<br>tab | `Alt-S`    | `switchterminal` |
 
 ## Run and Debug

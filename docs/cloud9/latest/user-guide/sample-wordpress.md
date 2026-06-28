@@ -28,7 +28,7 @@ requirements:
 
 - **You have an up-to-date EC2 instance with all the latest software
   packages**. In the AWS Cloud9 IDE terminal window, you can run `yum
-update` with the `-y` option to install updates without asking for
+ update` with the `-y` option to install updates without asking for
   confirmation. If you would like to examine the updates before installing, you can omit
   this option.
 

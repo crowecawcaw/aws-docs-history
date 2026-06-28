@@ -190,9 +190,8 @@ instance:
      `quit` the vi editor), and then press
      `Enter`.
 
-16. Back in the AWS Cloud9 console, choose **Next step**.
-17. On the **Review choices** page, choose **Create environment**. Wait while AWS Cloud9 creates your environment and then displays the AWS Cloud9 IDE for the environment.
-    This can take several minutes.
+16. Back in the AWS Cloud9 console, choose **Next step**. 17. On the **Review choices** page, choose **Create environment**. Wait while AWS Cloud9 creates your environment and then displays the AWS Cloud9 IDE for the environment.
+This can take several minutes.
 
 After AWS Cloud9 creates your environment, it displays the AWS Cloud9 IDE for the environment.
 

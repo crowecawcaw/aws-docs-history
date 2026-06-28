@@ -8,7 +8,7 @@ The AWS Cloud9 Integrated Development Environment (IDE) supports setting custom 
 environment variables in the AWS Cloud9 IDE in the following ways.
 
 - [Set Command-Level Custom Environment Variables](#env-vars-command-level "#env-vars-command-level")
-- [Set Custom User Environment Variables in ~/.bash_profile](#env-vars-bash-profile "#env-vars-bash-profile")
+- [Set Custom User Environment Variables in ~/.bash\_profile](#env-vars-bash-profile "#env-vars-bash-profile")
 - [Set Local Custom Environment Variables](#env-vars-local "#env-vars-local")
 - [Set Custom User Environment Variables in ~/.bashrc](#env-vars-bashrc "#env-vars-bashrc")
 - [Set Custom Environment Variables in the ENV List](#env-vars-env-list "#env-vars-env-list")
@@ -32,7 +32,7 @@ MY_ENV_VAR='Terminal session' sh ./script.sh
 If you set the custom environment variable by using multiple approaches described in this topic, then when you try to get the custom environment variable's value,
 this setting takes priority over all of the others.
 
-## Set Custom User Environment Variables in ~/.bash_profile
+## Set Custom User Environment Variables in ~/.bash\_profile
 
 You can set custom user environment variables in the `~/.bash_profile` file in your environment. To test this behavior, add the following code to the `~/.bash_profile` file in your environment:
 

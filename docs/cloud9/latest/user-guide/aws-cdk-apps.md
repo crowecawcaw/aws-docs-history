@@ -65,11 +65,11 @@ cdk bootstrap
 
 - When you perform the first several steps of the tutorial, you might notice
   that the last command that you ran is **`cdk
-synth`**. This command synthesizes the CloudFormation
+ synth`**. This command synthesizes the CloudFormation
   template by translating your AWS CDK app to CFN. As a by-product, it also
   generates the `tree.json` file. If you make changes to a
   CDK app, run the **`cdk
-synth`** command again to see the changes reflected in
+ synth`** command again to see the changes reflected in
   the tree view. One example change is adding more resource to the app.
 
 ## Perform other operations on an AWS CDK app

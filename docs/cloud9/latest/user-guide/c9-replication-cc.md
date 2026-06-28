@@ -509,7 +509,7 @@ git push origin --force
 
 5. Add the files that you want to replicate. If you want to
    replicate all the files in your environment directory, run `git
-add -A`:
+ add -A`:
 
 ```
 git add -A .
@@ -566,6 +566,4 @@ chosen IDE. 7. Do one of the following:
      name** field, and choose a branch off of which to create the new
      branch from the **Create branch from** drop-down menu.
 
-8. Optionally, add an alias for the Dev Environment.
-9. Optionally, choose the **Dev Environment configuration** edit button to edit the Dev Environment's compute, storage, or timeout configuration.
-10. Choose **Create**. While your Dev Environment is being created, the Dev Environment status column will display **Starting**, and the status column will display **Running** once the Dev Environment has been created.
+8. Optionally, add an alias for the Dev Environment. 9. Optionally, choose the **Dev Environment configuration** edit button to edit the Dev Environment's compute, storage, or timeout configuration. 10. Choose **Create**. While your Dev Environment is being created, the Dev Environment status column will display **Starting**, and the status column will display **Running** once the Dev Environment has been created.

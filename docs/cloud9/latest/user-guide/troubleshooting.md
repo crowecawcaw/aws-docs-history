@@ -77,7 +77,7 @@ export NODE_EXTRA_CA_CERTS=[path_to_pem_certificate]
 
 For example, if your HTTP proxy URL is `https://172.31.26.80:3128` and your HTTP proxy URL is `https://172.31.26.80:3129`,
 add the following lines to your `~/.bashrc` file and set `NODE_EXTRA_CA_CERTS` to the path of a certificate authority file in PEM format. For more information on this variable,
-see [https://nodejs.org/api/cli.html#node_extra_ca_certsfile](https://nodejs.org/api/cli.html#node_extra_ca_certsfile "https://nodejs.org/api/cli.html#node_extra_ca_certsfile").
+see [https://nodejs.org/api/cli.html#node\_extra\_ca\_certsfile](https://nodejs.org/api/cli.html#node_extra_ca_certsfile "https://nodejs.org/api/cli.html#node_extra_ca_certsfile").
 
 ```
 export http_proxy=http://172.31.26.80:3128
@@ -248,25 +248,24 @@ display for more than five minutes.
   more information see the following, or check with your AWS account
   administrator:
 
-      + [Step 2: Add AWS Cloud9 access permissions to the group](setup.md#setup-give-user-access "setup.md#setup-give-user-access") in *Team
-       Setup*
-      + [AWS managed policies for AWS Cloud9](security-iam.md#auth-and-access-control-managed-policies "security-iam.md#auth-and-access-control-managed-policies") in
-       *Authentication and Access Control*
-      + [Customer managed policy examples for teams using AWS Cloud9](setup-teams-policy-examples.md "setup-teams-policy-examples.md") in *Advanced Team
-       Setup*
-      + [Customer managed policy examples](security-iam.md#auth-and-access-control-customer-policies-examples "security-iam.md#auth-and-access-control-customer-policies-examples") in
-       *Authentication and Access Control*
-      + [Changing
-       Permissions for an IAM user](../../../IAM/latest/UserGuide/id_users_change-permissions.md "../../../IAM/latest/UserGuide/id_users_change-permissions.md") in the
-       *IAM User Guide*
-      + [Troubleshoot IAM
-       Policies](../../../IAM/latest/UserGuide/troubleshoot_policies.md "../../../IAM/latest/UserGuide/troubleshoot_policies.md") in the *IAM User Guide*
-
-  If the signed-in IAM user still can't open the environment, try signing out and
-  then signing back in as either the AWS account root user or an administrator
-  user in the account. Then, try opening the environment again. If you can't open the
-  environment in this way, then there is most likely a problem with the IAM users access
-  permissions.
+  - [Step 2: Add AWS Cloud9 access permissions to the group](setup.md#setup-give-user-access "setup.md#setup-give-user-access") in _Team
+    Setup_
+  - [AWS managed policies for AWS Cloud9](security-iam.md#auth-and-access-control-managed-policies "security-iam.md#auth-and-access-control-managed-policies") in
+    _Authentication and Access Control_
+  - [Customer managed policy examples for teams using AWS Cloud9](setup-teams-policy-examples.md "setup-teams-policy-examples.md") in _Advanced Team
+    Setup_
+  - [Customer managed policy examples](security-iam.md#auth-and-access-control-customer-policies-examples "security-iam.md#auth-and-access-control-customer-policies-examples") in
+    _Authentication and Access Control_
+  - [Changing
+    Permissions for an IAM user](../../../IAM/latest/UserGuide/id_users_change-permissions.md "../../../IAM/latest/UserGuide/id_users_change-permissions.md") in the
+    _IAM User Guide_
+  - [Troubleshoot IAM
+    Policies](../../../IAM/latest/UserGuide/troubleshoot_policies.md "../../../IAM/latest/UserGuide/troubleshoot_policies.md") in the _IAM User Guide_
+    If the signed-in IAM user still can't open the environment, try signing out and
+    then signing back in as either the AWS account root user or an administrator
+    user in the account. Then, try opening the environment again. If you can't open the
+    environment in this way, then there is most likely a problem with the IAM users access
+    permissions.
 
 - If the environment is associated with an AWS cloud compute instance (for example,
   an Amazon EC2 instance), do the following:
@@ -353,7 +352,7 @@ of the undeleted environments.
    environment.
 3. In the list of CloudFormation stacks, select the entry where **Stack
    name** contains the undeleted environment name and
-   **Status** is **DELETE_FAILED**. For example,
+   **Status** is **DELETE\_FAILED**. For example,
    if the environment name is `my-demo-environment`, choose the stack
    that begins with the name **aws-cloud9-my-demo-environment**.
    (Choose the box or option next to the environment name, not the environment name
@@ -365,7 +364,7 @@ The process of deleting a stack might take a few minutes.
 
 If the stack disappears from the list, the environment is now deleted.
 
-If the stack still displays **DELETE_FAILED** after a few minutes,
+If the stack still displays **DELETE\_FAILED** after a few minutes,
 the environment still isn't deleted. You can try to manually delete each of the failed stack's
 resources.
 
@@ -925,7 +924,7 @@ error, or the tab is blank.
   `curl` command, followed by the URL. If this command displays an
   error message, there might be some other issue that's not related to AWS Cloud9.
 
-### Error when running AWS Toolkit: "Your environment is running out of inodes, please increase 'fs.inotify.max_user_watches' limit."
+### Error when running AWS Toolkit: "Your environment is running out of inodes, please increase 'fs.inotify.max\_user\_watches' limit."
 
 **Issue:** A file watcher utility that AWS Toolkit uses
 is approaching its current limit or quota of files it can watch.

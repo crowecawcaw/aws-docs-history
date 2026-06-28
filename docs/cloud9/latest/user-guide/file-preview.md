@@ -40,8 +40,8 @@ files that have the following file extensions:
   - `.svg`
 
 - With the file you want to preview already open and active, on the menu bar, choose
-  **Preview, Preview File FILE_NAME**. Or choose **Tools,
-  Preview, Preview File FILE_NAME**, where **FILE_NAME**
+  **Preview, Preview File FILE\_NAME**. Or choose **Tools,
+  Preview, Preview File FILE\_NAME**, where **FILE\_NAME**
   is the name of the file you want to preview.
 
 ###### Note

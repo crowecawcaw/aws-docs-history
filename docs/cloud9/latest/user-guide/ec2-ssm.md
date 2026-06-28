@@ -418,32 +418,30 @@ example, if you're using AWS Cloud9 in the Europe (Ireland) Region, you specify 
 The following table lists the bucket names for the AWS Regions where AWS Cloud9
 is available.
 
-| Amazon S3 buckets in AWS Cloud9 Regions | AWS Region                                        | Bucket name |
-| --------------------------------------- | ------------------------------------------------- | ----------- |
-| US East (Ohio)                          | `static-us-east-2-prod-static-1c3sfcvf9hy4m`      |
-| US East (N. Virginia)                   | `static-us-east-1-prod-static-mft1klnkc4hl`       |
-| US West (Oregon)                        | `static-us-west-2-prod-static-p21mksqx9zlr`       |
-| US West (N. California)                 | `static-us-west-1-prod-static-16d59zrrp01z0`      |
-| Africa (Cape Town)                      | `static-af-south-1-prod-static-v6v7i5ypdppv`      |
-| Asia Pacific (Hong Kong)                | `static-ap-east-1-prod-static-171xhpfkrorh6`      |
-| Asia Pacific (Mumbai)                   | `static-ap-south-1-prod-static-ykocre202i9d`      |
-| Asia Pacific (Osaka)                    | `static-ap-northeast-3-prod-static-ivmxqzrx2ioi`  |
-| Asia Pacific (Seoul)                    | `static-ap-northeast-2-prod-static-1wxyctlhwiajm` |
-| Asia Pacific (Singapore)                | `static-ap-southeast-1-prod-static-13ibpyrx4vk6d` |
-| Asia Pacific (Sydney)                   | `static-ap-southeast-2-prod-static-1cjsl8bx27rfu` |
-| Asia Pacific (Tokyo)                    | `static-ap-northeast-1-prod-static-4fwvbdisquj8`  |
-| Canada (Central)                        | `static-ca-central-1-prod-static-g80lpejy486c`    |
-| Europe (Frankfurt)                      | `static-eu-central-1-prod-static-14lbgls2vrkh`    |
-| Europe (Ireland)                        | `static-eu-west-1-prod-static-hld3vzaf7c4h`       |
-| Europe (London)                         | `static-eu-west-2-prod-static-36lbg202837x`       |
-| Europe (Milan)                          | `static-eu-south-1-prod-static-1379tzkd3ni7d`     |
-| Europe (Paris)                          | `static-eu-west-3-prod-static-1rwpkf766ke58`      |
-| Europe (Stockholm)                      | `static-eu-north-1-prod-static-1qzw982y7yu7e`     |
-| Middle East (Bahrain)                   | `static-me-south-1-prod-static-gmljex38qtqx`      |
-| South America (São Paulo)               | `static-sa-east-1-prod-static-1cl8k0y7opidt`      |
-| Israel (Tel Aviv)                       | `static-il-central-1-prod-static-k02vrnhcesue`    |
-
-9. Choose **Create Endpoint**.
+Amazon S3 buckets in AWS Cloud9 Regions| AWS Region | Bucket name |
+| --- | --- |
+| US East (Ohio) | `static-us-east-2-prod-static-1c3sfcvf9hy4m` |
+| US East (N. Virginia) | `static-us-east-1-prod-static-mft1klnkc4hl` |
+| US West (Oregon) | `static-us-west-2-prod-static-p21mksqx9zlr` |
+| US West (N. California) | `static-us-west-1-prod-static-16d59zrrp01z0` |
+| Africa (Cape Town) | `static-af-south-1-prod-static-v6v7i5ypdppv` |
+| Asia Pacific (Hong Kong) | `static-ap-east-1-prod-static-171xhpfkrorh6` |
+| Asia Pacific (Mumbai) | `static-ap-south-1-prod-static-ykocre202i9d` |
+| Asia Pacific (Osaka) | `static-ap-northeast-3-prod-static-ivmxqzrx2ioi` |
+| Asia Pacific (Seoul) | `static-ap-northeast-2-prod-static-1wxyctlhwiajm` |
+| Asia Pacific (Singapore) | `static-ap-southeast-1-prod-static-13ibpyrx4vk6d` |
+| Asia Pacific (Sydney) | `static-ap-southeast-2-prod-static-1cjsl8bx27rfu` |
+| Asia Pacific (Tokyo) | `static-ap-northeast-1-prod-static-4fwvbdisquj8` |
+| Canada (Central) | `static-ca-central-1-prod-static-g80lpejy486c` |
+| Europe (Frankfurt) | `static-eu-central-1-prod-static-14lbgls2vrkh` |
+| Europe (Ireland) | `static-eu-west-1-prod-static-hld3vzaf7c4h` |
+| Europe (London) | `static-eu-west-2-prod-static-36lbg202837x` |
+| Europe (Milan) | `static-eu-south-1-prod-static-1379tzkd3ni7d` |
+| Europe (Paris) | `static-eu-west-3-prod-static-1rwpkf766ke58` |
+| Europe (Stockholm) | `static-eu-north-1-prod-static-1qzw982y7yu7e` |
+| Middle East (Bahrain) | `static-me-south-1-prod-static-gmljex38qtqx` |
+| South America (São Paulo) | `static-sa-east-1-prod-static-1cl8k0y7opidt` |
+| Israel (Tel Aviv) | `static-il-central-1-prod-static-k02vrnhcesue` | 9. Choose **Create Endpoint**.
 
 If you provided the correct configuration information, a message displays the
 ID of the endpoint that's created. 10. To check that your IDE can access the Amazon S3 bucket, start a terminal session

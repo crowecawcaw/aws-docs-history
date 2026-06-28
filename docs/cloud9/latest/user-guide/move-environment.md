@@ -298,7 +298,7 @@ volume:
     	```
 
 8. (Optional) To back up the old `.c9` directory to
-   `.c9.backup`, in the environment terminal, run the following command:
+`.c9.backup`, in the environment terminal, run the following command:
 
 ```
 cp .c9 .c9.backup

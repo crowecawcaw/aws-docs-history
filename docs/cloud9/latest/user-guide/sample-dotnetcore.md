@@ -109,7 +109,7 @@ sudo chmod u=rx dotnet-install.sh
    For Ubuntu Server, move to the last line of the file by typing
    `G`. 3. Using the right arrow or `$` key, move to the end of that
    line. 4. Switch to insert mode by pressing the `i` key. (`-- INSERT
- ---` will appear at the end of the display.) 5. For Amazon Linux, add the `$HOME/.dotnet` subdirectory to the
+  ---` will appear at the end of the display.) 5. For Amazon Linux, add the `$HOME/.dotnet` subdirectory to the
    **`PATH`** variable by typing `:$HOME/.dotnet`. Be sure to include
    the colon character (`:`). The line should now look similar to the
    following.
@@ -126,7 +126,7 @@ sudo chmod u=rx dotnet-install.sh
    export PATH=$HOME/.dotnet:$PATH
    ```
    6. Save the file. To do this, press the `Esc` key (`-- INSERT
----` will disappear from the end of the display), type
+  ---` will disappear from the end of the display), type
       `:wq` (to write to and then quit the file), and then press
       `Enter`.
 
@@ -302,27 +302,31 @@ name depending on the version you've installed. 3. Create a runner for .NET as f
     6. Choose **Save**.
 
 4. Run the application with two integers to add (for example, `5` and
-   `9`) as follows.
+`9`) as follows.
 
-   1. With the contents of the `Program.cs` file displayed in
-      the editor, choose **Run, Run Configurations, New Run
-      Configuration**.
-   2. In the **[New] - Idle** tab, choose **Runner:
-      Auto**, and then choose **.NET**.
-   3. In the **Command** box, type `hello 5 9`.
-   4. Choose **Run**.
+    1. With the contents of the `Program.cs` file displayed in
+     the editor, choose **Run, Run Configurations, New Run
+     Configuration**.
+    2. In the **[New] - Idle** tab, choose **Runner:
+     Auto**, and then choose **.NET**.
+    3. In the **Command** box, type `hello 5 9`.
+    4. Choose **Run**.
 
-   By default, this runner instructs .NET to run the
-   `hello.dll` file in the
-   `hello/bin/Debug/netcoreapp3.1` directory.
 
-   Compare your output to the following.
+    By default, this runner instructs .NET to run the
+     `hello.dll` file in the
+     `hello/bin/Debug/netcoreapp3.1` directory.
 
-   ```
-   Hello, World!
-   The sum of 2 and 3 is 5.
-   The sum of 5 and 9 is 14.
-   ```
+
+    Compare your output to the following.
+
+
+
+    ```
+    Hello, World!
+    The sum of 2 and 3 is 5.
+    The sum of 5 and 9 is 14.
+    ```
 
 ## Step 6: Create and set up a .NET console application project that uses the AWS SDK for .NET
 

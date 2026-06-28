@@ -83,7 +83,7 @@ this.
     3. Save the file.
 
 5. Source the `~/.bashrc` file so that the terminal can now find
-   the Go binary you just referenced.
+the Go binary you just referenced.
 
 ```
 . ~/.bashrc
@@ -156,8 +156,8 @@ Go.
     5. Choose the **hello.go** tab to make it active.
 
 3. For **Command**, type `hello.go 5 9`. In the code,
-   `5` represents `os.Args[1]`, and `9` represents
-   `os.Args[2]`.
+`5` represents `os.Args[1]`, and `9` represents
+`os.Args[2]`.
 
 ![Output of running the Go code in the AWS Cloud9 IDE](images/ide-go-simple.png) 4. Choose the **Run** button, and compare your output.
 

@@ -56,35 +56,32 @@ _read/write_, and _read-only_.
 - An owner has full control over an environment. Each environment has one and only one
   owner, who is the environment creator. An owner can do the following actions.
 
-      + Add, change, and remove members for the environment
-      + Open, view, and edit files
-      + Run code
-      + Change environment settings
-      + Chat with other members
-      + Delete existing chat messages
-
-  In the AWS Cloud9 IDE, an environment owner is displayed with **Read+Write**
-  access.
+  - Add, change, and remove members for the environment
+  - Open, view, and edit files
+  - Run code
+  - Change environment settings
+  - Chat with other members
+  - Delete existing chat messages
+    In the AWS Cloud9 IDE, an environment owner is displayed with **Read+Write**
+    access.
 
 - A read/write member can do the following actions.
 
-      + Open, view, and edit files
-      + Run code
-      + Change various environment settings from within the AWS Cloud9 IDE
-      + Chat with other members
-      + Delete existing chat messages
-
-  In the AWS Cloud9 IDE, read/write members are displayed with
-  **Read+Write** access.
+  - Open, view, and edit files
+  - Run code
+  - Change various environment settings from within the AWS Cloud9 IDE
+  - Chat with other members
+  - Delete existing chat messages
+    In the AWS Cloud9 IDE, read/write members are displayed with
+    **Read+Write** access.
 
 - A read-only member can do the following actions.
 
-      + Open and view files
-      + Chat with other members
-      + Delete existing chat messages
-
-  In the AWS Cloud9 IDE, read-only members are displayed with **Read Only**
-  access.
+  - Open and view files
+  - Chat with other members
+  - Delete existing chat messages
+    In the AWS Cloud9 IDE, read-only members are displayed with **Read Only**
+    access.
 
 Before a user can become an environment owner or member, that user must meet one of the
 following criteria.

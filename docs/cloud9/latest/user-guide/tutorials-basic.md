@@ -134,11 +134,11 @@ accessed from the two following options:
      environment using SSH and requires open inbound ports.
 
 11. Choose **VPC Settings** to display the Amazon Virtual Private Cloud and Subnet
-    for your environment. AWS Cloud9 uses Amazon Virtual Private Cloud (Amazon VPC) to communicate with the newly
-    created Amazon EC2 instance. For this tutorial, we recommend that you don't change the
-    preselected default settings. With the default settings, AWS Cloud9 attempts to
-    automatically use the default VPC with its single subnet in the same AWS account
-    and Region as the new environment.
+for your environment. AWS Cloud9 uses Amazon Virtual Private Cloud (Amazon VPC) to communicate with the newly
+created Amazon EC2 instance. For this tutorial, we recommend that you don't change the
+preselected default settings. With the default settings, AWS Cloud9 attempts to
+automatically use the default VPC with its single subnet in the same AWS account
+and Region as the new environment.
 
 You can find more information about Amazon VPC choices in [Create an EC2 Environment with the
 Console](create-environment-main.md#create-environment-vpc-step "create-environment-main.md#create-environment-vpc-step"), and in [VPC settings for AWS Cloud9 Development Environments](vpc-settings.md "vpc-settings.md"). 12. Add up to 50 tags by supplying a **Key** and **Value**
@@ -182,34 +182,33 @@ proxy details to AWS Cloud9 so it can install dependencies. For more information
 Create an EC2 environment with the
 AWS CLI
 
-1.  Install and configure the AWS CLI, if you have not done so already. To do this,
-    see the following in the _AWS Command Line Interface User Guide_:
+1. Install and configure the AWS CLI, if you have not done so already. To do this,
+   see the following in the _AWS Command Line Interface User Guide_:
 
-        * [Installing the AWS
-         Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md")
-        * [Quick configuration](../../../cli/latest/userguide/cli-chap-getting-started.md#cli-quick-configuration "../../../cli/latest/userguide/cli-chap-getting-started.md#cli-quick-configuration")
+   - [Installing the AWS
+     Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md")
+   - [Quick configuration](../../../cli/latest/userguide/cli-chap-getting-started.md#cli-quick-configuration "../../../cli/latest/userguide/cli-chap-getting-started.md#cli-quick-configuration")
+     You can configure the AWS CLI using credentials for one of the following:
 
-    You can configure the AWS CLI using credentials for one of the following:
+   - The IAM user you created in [Setting up Team for AWS Cloud9](setup.md "setup.md").
+   - An IAM administrator in your AWS account, if you will be working
+     regularly with AWS Cloud9 resources for multiple users across the account. If you
+     cannot configure the AWS CLI as an IAM administrator, check with your AWS
+     account administrator. For more information, see [Creating your
+     first IAM admin user and group](../../../IAM/latest/UserGuide/getting-set-up.md#create-an-admin "../../../IAM/latest/UserGuide/getting-set-up.md#create-an-admin") in the
+     _IAM User Guide_.
+   - An
+     AWS account root user, but only if you will always be the only one using
+     your own AWS account, and you don't need to share your environments with
+     anyone else. We don't recommend this option as it isn't an AWS security
+     best practice. For more information, see [Creating, Disabling, and Deleting Access Keys for Your AWS
+     Account](../../../general/latest/gr/managing-aws-access-keys.md#create-aws-access-key "../../../general/latest/gr/managing-aws-access-keys.md#create-aws-access-key") in the _Amazon Web Services General Reference_.
+   - For other options, see your AWS account administrator or classroom
+     instructor.
 
-        * The IAM user you created in [Setting up Team for AWS Cloud9](setup.md "setup.md").
-        * An IAM administrator in your AWS account, if you will be working
-         regularly with AWS Cloud9 resources for multiple users across the account. If you
-         cannot configure the AWS CLI as an IAM administrator, check with your AWS
-         account administrator. For more information, see [Creating your
-         first IAM admin user and group](../../../IAM/latest/UserGuide/getting-set-up.md#create-an-admin "../../../IAM/latest/UserGuide/getting-set-up.md#create-an-admin") in the
-         *IAM User Guide*.
-        * An
-         AWS account root user, but only if you will always be the only one using
-         your own AWS account, and you don't need to share your environments with
-         anyone else. We don't recommend this option as it isn't an AWS security
-         best practice. For more information, see [Creating, Disabling, and Deleting Access Keys for Your AWS
-         Account](../../../general/latest/gr/managing-aws-access-keys.md#create-aws-access-key "../../../general/latest/gr/managing-aws-access-keys.md#create-aws-access-key") in the *Amazon Web Services General Reference*.
-        * For other options, see your AWS account administrator or classroom
-         instructor.
-
-2.  In the following AWS Cloud9 command, provide a value for `--region` and
-    `--subnet-id`. Then run the command and make a note of the
-    `"environmentId"` value for later cleanup.
+2. In the following AWS Cloud9 command, provide a value for `--region` and
+   `--subnet-id`. Then run the command and make a note of the
+   `"environmentId"` value for later cleanup.
 
 ```
 aws cloud9 create-environment-ec2 --name my-demo-environment --description "This environment is for the AWS Cloud9 tutorial." --instance-type t2.micro --image-id resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64 --region MY-REGION --connection-type CONNECT_SSM --subnet-id subnet-12a3456b
@@ -266,9 +265,9 @@ In the preceding command:
      owning entity.
 
 3. After you successfully run this command, open the AWS Cloud9 IDE for the newly
-   created environment. To do this, see [Opening an environment in AWS Cloud9](open-environment.md "open-environment.md"). Then return to this topic and continue with
-   [Step 2: Basic tour of the IDE](#tutorial-tour-ide "#tutorial-tour-ide") to learn
-   how to use the AWS Cloud9 IDE to work with your new environment.
+created environment. To do this, see [Opening an environment in AWS Cloud9](open-environment.md "open-environment.md"). Then return to this topic and continue with
+[Step 2: Basic tour of the IDE](#tutorial-tour-ide "#tutorial-tour-ide") to learn
+how to use the AWS Cloud9 IDE to work with your new environment.
 
 If you try to open the environment, but AWS Cloud9 doesn't display the IDE after at
 least five minutes, there might be a problem with your web browser, your AWS

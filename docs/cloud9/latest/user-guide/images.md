@@ -41,18 +41,18 @@ In the AWS Cloud9 IDE, open the file for the image you want to view or edit. Sup
 
 ## Crop an Image
 
-1.  Open the image file in the IDE.
-2.  Drag the pointer over the portion of the image that you want to keep.
-3.  To confirm the selection's dimensions, on the image editing bar, see the **Selection** dimensions,
-    as follows:
+1. Open the image file in the IDE.
+2. Drag the pointer over the portion of the image that you want to keep.
+3. To confirm the selection's dimensions, on the image editing bar, see the **Selection** dimensions,
+   as follows:
 
-        * The distance in pixels from the original image's left edge to the left edge of the selection (**L**)
-        * The distance in pixels from the original image's top edge to the top edge of the selection (**T**)
-        * The selection's width in pixels (**W**)
-        * The selection's height in pixels (**H**)
+   - The distance in pixels from the original image's left edge to the left edge of the selection (**L**)
+   - The distance in pixels from the original image's top edge to the top edge of the selection (**T**)
+   - The selection's width in pixels (**W**)
+   - The selection's height in pixels (**H**)
 
-4.  On the image editing bar, choose **Crop**.
-5.  To discard the crop, on the menu bar, choose **Edit**, **Undo**. To keep the new cropped image, choose **File**, **Save**.
+4. On the image editing bar, choose **Crop**.
+5. To discard the crop, on the menu bar, choose **Edit**, **Undo**. To keep the new cropped image, choose **File**, **Save**.
 
 ## Rotate an Image
 

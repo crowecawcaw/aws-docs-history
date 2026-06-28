@@ -26,7 +26,7 @@ pane.
 
 ## EC2 instance
 
-\***\*Stop my environment\*\***
+****Stop my environment****
 
 Choose when to automatically stop your environment's Amazon EC2 instance (if
 used) after you close all web browser instances that are connected to the IDE
@@ -40,16 +40,16 @@ manually using the console interface](stopping-instance-manually.md "stopping-in
 
 ## Code editor (Ace)
 
-\***\*Soft tabs\*\***
+****Soft tabs****
 
 If selected, inserts the specified number of spaces instead of a tab
 character each time you press `Tab`.
 
-\***\*Autodetect tab size on load\*\***
+****Autodetect tab size on load****
 
 If selected, AWS Cloud9 attempts to guess the tab size.
 
-\***\*New file line endings\*\***
+****New file line endings****
 
 The type of line endings to use for new files.
 
@@ -59,25 +59,25 @@ Valid options include the following:
   and then a line feed.
 - **Unix (LF)** to end lines with just a line feed.
 
-\***\*On save, strip whitespace\*\***
+****On save, strip whitespace****
 
 If selected, AWS Cloud9 attempts to remove what it considers to be unnecessary
 spaces and tabs from a file each time that file is saved.
 
 ## Find in files
 
-\***\*Ignore these Files\*\***
+****Ignore these Files****
 
 When finding in files, the types of files that AWS Cloud9 ignores.
 
-\***\*Maximum number of files to search (in 1000)\*\***
+****Maximum number of files to search (in 1000)****
 
 When finding in files, the maximum number of files, in multiples of 1,000,
 that AWS Cloud9 finds in the current scope.
 
 ## Hints and warnings
 
-\***\*Warning Level\*\***
+****Warning Level****
 
 The minimum level of messages to enable.
 
@@ -89,22 +89,22 @@ Valid values include the following:
   messages.
 - **Error** to enable just error messages.
 
-\***\*Mark Missing Optional Semicolons\*\***
+****Mark Missing Optional Semicolons****
 
 If enabled, AWS Cloud9 flags in a file each time it notices a semicolon that
 could be used in code, but that isn't used.
 
-\***\*Mark Undeclared Variables\*\***
+****Mark Undeclared Variables****
 
 If enabled, AWS Cloud9 flags in a file each time it notices an undeclared
 variable in code.
 
-\***\*Mark Unused Function Arguments\*\***
+****Mark Unused Function Arguments****
 
 If enabled, AWS Cloud9 flags in a file each time it notices an unused argument in
 a function.
 
-\***\*Ignore Messages Matching Regex\*\***
+****Ignore Messages Matching Regex****
 
 AWS Cloud9 will not display any messages matching the specified regular
 expression. For more information, see [Writing a regular expression pattern](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Writing_a_regular_expression_pattern "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Writing_a_regular_expression_pattern") in the
@@ -113,48 +113,48 @@ on the Mozilla Developer Network.
 
 ## JavaScript support
 
-\***\*Customize JavaScript warnings with
-.eslintrc\*\***
+****Customize JavaScript warnings with
+.eslintrc****
 
 If enabled, AWS Cloud9 uses an `.eslintrc` file to determine
 which JavaScript warnings to enable or disable. For more
 information, see [Configuration File Formats](http://eslint.org/docs/user-guide/configuring#configuration-file-formats "http://eslint.org/docs/user-guide/configuring#configuration-file-formats") on the ESLint
 website.
 
-\***\*JavaScript library code completion\*\***
+****JavaScript library code completion****
 
 The JavaScript libraries that AWS Cloud9 uses to attempt to
 suggest or do automatic code completion.
 
-\***\*Format Code on Save\*\***
+****Format Code on Save****
 
 If enabled, AWS Cloud9 attempts to format the code in a JavaScript
 file every time that file is saved.
 
-\***\*Use builtin JSBeautify as code formatter\*\***
+****Use builtin JSBeautify as code formatter****
 
 If enabled, AWS Cloud9 uses its internal implementation of
 JSBeautify to attempt to increase the readability of code in
 files.
 
-\***\*Custom code formatter\*\***
+****Custom code formatter****
 
 The command for AWS Cloud9 to attempt to run when formatting code in a
 JavaScript file.
 
 ## Build
 
-\***\*Builder path in environment\*\***
+****Builder path in environment****
 
 The path to any custom build configurations.
 
 ## Run and debug
 
-\***\*Runner path in environment\*\***
+****Runner path in environment****
 
 The path to any custom run configurations.
 
-\***\*Preview URL\*\***
+****Preview URL****
 
 The URL to use to preview applications for the environment.
 
@@ -162,50 +162,50 @@ The URL to use to preview applications for the environment.
 
 The custom run configurations for this environment.
 
-\***\*Remove selected configs\*\***
+****Remove selected configs****
 
 Deletes the selected run configurations.
 
-\***\*Add new config\*\***
+****Add new config****
 
 Creates a new run configuration.
 
-\***\*Set as default\*\***
+****Set as default****
 
 Sets the selected run configuration as the default run configuration.
 
 ## Code formatters
 
-\***\*JSBeautify settings\*\***
+****JSBeautify settings****
 
 Settings for increasing the readability of code in files.
 
-\***\*Format Code on Save\*\***
+****Format Code on Save****
 
 If enabled, AWS Cloud9 attempts to apply JSBeautify
 settings whenever code files are saved.
 
-\***\*Use JSBeautify for
-JavaScript\*\***
+****Use JSBeautify for
+JavaScript****
 
 If enabled, AWS Cloud9 attempts to apply JSBeautify
 settings whenever JavaScript files are saved.
 
-\***\*Preserve empty lines\*\***
+****Preserve empty lines****
 
 If enabled, AWS Cloud9 doesn't remove empty lines in code files.
 
-\***\*Keep array indentation\*\***
+****Keep array indentation****
 
 If enabled, AWS Cloud9 preserves the indentation of element declarations
 in arrays in code files.
 
-\***\*JSLint strict whitespace\*\***
+****JSLint strict whitespace****
 
 If enabled, AWS Cloud9 attempts to apply JSLint whitespace rules in code
 files. For more information, see "Whitespace" in [JSLint Help](http://jslint.com/help.html "http://jslint.com/help.html").
 
-\***\*Braces\*\***
+****Braces****
 
 Specifies the alignment of braces in code.
 
@@ -271,48 +271,48 @@ for (var i = 0; i < 10; i++) {
 }
 ```
 
-\***\*Preserve inline blocks\*\***
+****Preserve inline blocks****
 
 If enabled, AWS Cloud9 doesn't attempt to move the beginning and ending
 braces for inline blocks to separate lines, if those braces are on the
 same line.
 
-\***\*Space before conditionals\*\***
+****Space before conditionals****
 
 If enabled, AWS Cloud9 adds a space before each conditional declaration,
 as needed.
 
-\***\*Unescape strings\*\***
+****Unescape strings****
 
 If enabled, AWS Cloud9 converts escaped strings to their unescaped
 equivalents. For example, converts `\n` to a newline
 character and converts `\r` to a carriage return
 character.
 
-\***\*Indent inner HTML\*\***
+****Indent inner HTML****
 
 If enabled, AWS Cloud9 indents `<head>` and
 `<body>` sections in HTML code.
 
 ## TypeScript support
 
-\***\*Format Code on Save\*\***
+****Format Code on Save****
 
 If enabled, AWS Cloud9 attempts to format TypeScript code whenever
 TypeScript files are saved.
 
-\***\*Custom code formatter\*\***
+****Custom code formatter****
 
 The path to any custom code formatting configuration for
 TypeScript code.
 
 ## PHP support
 
-\***\*Enable PHP code completion\*\***
+****Enable PHP code completion****
 
 If enabled, AWS Cloud9 attempts to complete PHP code.
 
-\***\*PHP completion include paths\*\***
+****PHP completion include paths****
 
 Locations that AWS Cloud9 uses to attempt to help complete PHP
 code. For example, if you have custom PHP files that you want
@@ -320,63 +320,63 @@ AWS Cloud9 to use for completion, and those files are somewhere in the
 `~/environment` directory, add `~/environment`
 to this path.
 
-\***\*Format Code on Save\*\***
+****Format Code on Save****
 
 If enabled, AWS Cloud9 attempts to format PHP code whenever
 PHP files are saved.
 
-\***\*Custom code formatter\*\***
+****Custom code formatter****
 
 The path to any custom code formatting configuration for PHP
 code.
 
 ## Python support
 
-\***\*Enable Python code completion\*\***
+****Enable Python code completion****
 
 If enabled, AWS Cloud9 attempts to complete Python code. To set
 the paths for AWS Cloud9 to use to complete Python code, use the
 **PYTHONPATH** setting.
 
-\***\*Python version\*\***
+****Python version****
 
 Specifies the version of Python to use.
 
-\***\*Pylint command line options\*\***
+****Pylint command line options****
 
 Options for AWS Cloud9 to use for Pylint with
 Python code. For more information, see the [Pylint User
 Manual](https://pylint.readthedocs.io/en/latest/ "https://pylint.readthedocs.io/en/latest/") on the Pylint website.
 
-\***\*PYTHONPATH\*\***
+****PYTHONPATH****
 
 The paths to Python libraries and packages for AWS Cloud9 to use.
 For example, if you have custom Python libraries and packages in
 the `~/environment` directory, add
 `~/environment` to this path.
 
-\***\*Format Code on Save\*\***
+****Format Code on Save****
 
 If enabled, AWS Cloud9 attempts to format Python code whenever
 Python files are saved.
 
-\***\*Custom code formatter\*\***
+****Custom code formatter****
 
 The path to any custom code formatting configuration for
 Python code.
 
 ## Go support
 
-\***\*Enable Go code completion\*\***
+****Enable Go code completion****
 
 If enabled, AWS Cloud9 attempts to complete Go code.
 
-\***\*Format Code on Save\*\***
+****Format Code on Save****
 
 If enabled, AWS Cloud9 attempts to format Go code whenever
 Go files are saved.
 
-\***\*Custom code formatter\*\***
+****Custom code formatter****
 
 The path to any custom code formatting configuration for Go
 code.

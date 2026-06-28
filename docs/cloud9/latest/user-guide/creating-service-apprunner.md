@@ -83,13 +83,10 @@ to specify the following:
      in the runtime environment of your service instance.
 
 5. For **Port**, enter the IP port that the service uses (for example,
-   port `8000`).
-6. (Optional) For **Configure environment variables**, specify a file
-   that contains environment variables to customize behavior in your service
-   instance.
-7. For **Name your service**, enter a unique name and press **Enter**. The name cannot contain spaces.
-8. For **Select instance configuration**, choose a combination of
-   CPU units and memory in GB for your service instance.
+port `8000`). 6. (Optional) For **Configure environment variables**, specify a file
+that contains environment variables to customize behavior in your service
+instance. 7. For **Name your service**, enter a unique name and press **Enter**. The name cannot contain spaces. 8. For **Select instance configuration**, choose a combination of
+CPU units and memory in GB for your service instance.
 
 While your service is being created, its status changes from **Creating** to **Running**. 9. After your service starts running, open the context (right-click) menu for it and
 choose **Copy Service URL**. 10. To access your deployed application, paste the copied URL into the address bar of

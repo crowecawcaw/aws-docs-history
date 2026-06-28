@@ -54,13 +54,12 @@ packages](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcom
      involved.
 
 4. Choose a location for your new project. If one is available, you can
-   select an existing workspace folder. Otherwise, browse for a different
-   folder. If you choose **Select a different folder**, a
-   dialog box displays where you can select a folder location.
-5. Enter a name for your new application. For this example, use
-   `my-sam-app-nodejs`. After you press
-   **Enter**, the AWS Toolkit takes a few moments to
-   create the project.
+select an existing workspace folder. Otherwise, browse for a different
+folder. If you choose **Select a different folder**, a
+dialog box displays where you can select a folder location. 5. Enter a name for your new application. For this example, use
+`my-sam-app-nodejs`. After you press
+**Enter**, the AWS Toolkit takes a few moments to
+create the project.
 
 When the project is created, you can view your application's files in the
 Environment window. Find it listed in the **Explorer**
@@ -229,7 +228,7 @@ confirm values for the following configuration properties:
     	 event payload.
 
 6. If you're satisfied with the debug configuration, choose the green play
-   arrow next to **RUN** to start debugging.
+arrow next to **RUN** to start debugging.
 
 When the debugging sessions starts, the **DEBUG CONSOLE**
 panel shows debugging output and displays any values that are returned by

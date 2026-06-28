@@ -270,8 +270,8 @@ say_goodbye(i)
 To show or hide the contents of the **Outline** window, choose the
 **Outline** button.
 
-In the **Outline** window, choose **say_hello(i)**,
-and then choose **say_goodbye(i)**, as follows.
+In the **Outline** window, choose **say\_hello(i)**,
+and then choose **say\_goodbye(i)**, as follows.
 
 ![Outline window in AWS Cloud9 IDE](images/ide-outline.png)
 

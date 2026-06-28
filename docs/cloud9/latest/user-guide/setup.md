@@ -213,8 +213,8 @@ _IAM User Guide_.
      (console)](../../../IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.md#id_credentials_passwords_admin-change-user_console "../../../IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.md#id_credentials_passwords_admin-change-user_console")
 
 13. Repeat this procedure for each additional IAM user that you want to create,
-    and then skip ahead to [Step 3: Add AWS Cloud9
-    access permissions to the group](#setup-give-user-access "#setup-give-user-access").
+and then skip ahead to [Step 3: Add AWS Cloud9
+access permissions to the group](#setup-give-user-access "#setup-give-user-access").
 
 ### Step 1.4: Create an IAM user and add the user to the group with the AWS CLI
 

@@ -40,18 +40,20 @@ interact with. 4. For **Select a method**, choose one of the following method ty
 
 5. To supply input to your API method call, you can use a query string or JSON-formatted payload:
 
-   - **Query string**: Enter a query string using the format:
+    * **Query string**: Enter a query string using the format:
      `parameter1=value1&parameter2=value2`. (Before you use query strings,
      create a [mapping
      template](../../../apigateway/latest/developerguide/api-gateway-mapping-template-reference.md "../../../apigateway/latest/developerguide/api-gateway-mapping-template-reference.md") to transform incoming web requests before they're sent to the
      integration back end.)
-   - JSON format: You can define a JSON-formatted payload in the large text field in **Invoke methods** window.
+    * JSON format: You can define a JSON-formatted payload in the large text field in **Invoke methods** window.
 
-   For example, you can add a new resource with a `POST` method that contains the following payload:
+    For example, you can add a new resource with a `POST` method that contains the following payload:
 
-   ```
-   {"type": "soda", "price" : 3.99}
-   ```
+
+
+    ```
+    {"type": "soda", "price" : 3.99}
+    ```
 
 6. Choose the **Invoke** button to call the REST API resource.
 

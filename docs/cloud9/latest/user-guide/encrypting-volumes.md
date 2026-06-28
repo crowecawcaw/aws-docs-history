@@ -64,25 +64,25 @@ because you can't change the key policy for an AWS managed key.
 
 ###### To encrypt an existing Amazon EBS volume
 
-1.  In the AWS KMS console, create a symmetric KMS key. For more information, see [Creating
-    symmetric KMS key](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the _AWS Key Management Service Developer Guide_.
-2.  In the Amazon EC2 console, stop the Amazon EBS-backed instance used by the environment. You
-    can [stop the instance using the console or
-    the command line](../../../AWSEC2/latest/UserGuide/Stop_Start.md "../../../AWSEC2/latest/UserGuide/Stop_Start.md").
-3.  In the navigation pane of the Amazon EC2 console, choose **Snapshots**
-    [to create a
-    snapshot of the existing volume](../../../AWSEC2/latest/UserGuide/ebs-creating-snapshot.md#ebs-create-snapshot "../../../AWSEC2/latest/UserGuide/ebs-creating-snapshot.md#ebs-create-snapshot") that you want to encrypt.
-4.  In the navigation pane of the Amazon EC2 console, choose **Snapshots**
-    [to copy the snapshot](../../../AWSEC2/latest/UserGuide/ebs-copy-snapshot.md "../../../AWSEC2/latest/UserGuide/ebs-copy-snapshot.md"). In the
-    **Copy snapshot** dialog box, do the following to enable
-    encryption:
+1. In the AWS KMS console, create a symmetric KMS key. For more information, see [Creating
+   symmetric KMS key](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the _AWS Key Management Service Developer Guide_.
+2. In the Amazon EC2 console, stop the Amazon EBS-backed instance used by the environment. You
+   can [stop the instance using the console or
+   the command line](../../../AWSEC2/latest/UserGuide/Stop_Start.md "../../../AWSEC2/latest/UserGuide/Stop_Start.md").
+3. In the navigation pane of the Amazon EC2 console, choose **Snapshots**
+   [to create a
+   snapshot of the existing volume](../../../AWSEC2/latest/UserGuide/ebs-creating-snapshot.md#ebs-create-snapshot "../../../AWSEC2/latest/UserGuide/ebs-creating-snapshot.md#ebs-create-snapshot") that you want to encrypt.
+4. In the navigation pane of the Amazon EC2 console, choose **Snapshots**
+   [to copy the snapshot](../../../AWSEC2/latest/UserGuide/ebs-copy-snapshot.md "../../../AWSEC2/latest/UserGuide/ebs-copy-snapshot.md"). In the
+   **Copy snapshot** dialog box, do the following to enable
+   encryption:
 
-        * Choose **Encrypt this snapshot**.
-        * For **Master Key**, select the KMS key that you created
-         earlier. (If you're using an AWS managed key, keep the **(default)
-         aws/ebs** setting.)
+   - Choose **Encrypt this snapshot**.
+   - For **Master Key**, select the KMS key that you created
+     earlier. (If you're using an AWS managed key, keep the **(default)
+     aws/ebs** setting.)
 
-5.  [Create a new volume from the encrypted snapshot](../../../AWSEC2/latest/UserGuide/ebs-creating-volume.md#ebs-create-volume-from-snapshot "../../../AWSEC2/latest/UserGuide/ebs-creating-volume.md#ebs-create-volume-from-snapshot").
+5. [Create a new volume from the encrypted snapshot](../../../AWSEC2/latest/UserGuide/ebs-creating-volume.md#ebs-create-volume-from-snapshot "../../../AWSEC2/latest/UserGuide/ebs-creating-volume.md#ebs-create-volume-from-snapshot").
 
 ###### Note
 

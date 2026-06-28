@@ -30,15 +30,15 @@ those changes to your current environment.
 You can change the following kinds of overall theme settings on the **Preferences**
 tab in the **Themes** pane.
 
-\***\*Flat Theme\*\***
+****Flat Theme****
 
 Applies the built-in flat theme across the AWS Cloud9 IDE.
 
-\***\*Classic Theme\*\***
+****Classic Theme****
 
 Applies the selected built-in classic theme across the AWS Cloud9 IDE.
 
-\***\*Syntax Theme\*\***
+****Syntax Theme****
 
 Applies the selected theme to code files across the AWS Cloud9 IDE.
 

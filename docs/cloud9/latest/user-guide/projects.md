@@ -84,18 +84,17 @@ The **`Jump to Definition`** command might be disabled, or might not work as exp
 
 You can go to a specific symbol within a project, as follows.
 
-1.  Make one of the files in the project active by opening it in the editor. If the file is already open, choose its tab in the editor to make that file the active one.
-2.  Run the **`Go to Symbol`** command. For example:
+1. Make one of the files in the project active by opening it in the editor. If the file is already open, choose its tab in the editor to make that file the active one.
+2. Run the **`Go to Symbol`** command. For example:
 
-        * Choose the **Go** window button (magnifying glass icon). In the **Go to Anything** box, type `@`, and then start typing the symbol.
-        * On the menu bar, choose **Go, Go To Symbol**. In the **Go** window, start typing the symbol after **@**.
-        * Press `Command-2` or `Command-Shift-O` by default for macOS, or `Ctrl-Shift-O` by default for Windows or Linux.
-        In the **Go** window, start typing the symbol after **@**.
+   - Choose the **Go** window button (magnifying glass icon). In the **Go to Anything** box, type `@`, and then start typing the symbol.
+   - On the menu bar, choose **Go, Go To Symbol**. In the **Go** window, start typing the symbol after **@**.
+   - Press `Command-2` or `Command-Shift-O` by default for macOS, or `Ctrl-Shift-O` by default for Windows or Linux.
+     In the **Go** window, start typing the symbol after **@**.
+     For example, to find all symbols in the project named `toString`, start typing `@toString` (or start typing `toString` after **@**, if **@** is already displayed).
 
-    For example, to find all symbols in the project named `toString`, start typing `@toString` (or start typing `toString` after **@**, if **@** is already displayed).
-
-3.  If you see the symbol you want in the **Symbols** list, choose it by clicking it. Or use your up arrow or down arrow key to select it, and then press `Enter`. The
-    insertion point then switches to that symbol.
+3. If you see the symbol you want in the **Symbols** list, choose it by clicking it. Or use your up arrow or down arrow key to select it, and then press `Enter`. The
+   insertion point then switches to that symbol.
 
 If the symbol that you want to go to isn't in the active file's project, this procedure might not work as expected.
 

@@ -54,8 +54,8 @@ curl https://dx5z5embsyrja.cloudfront.net -o /tmp/replicate-tool.tar.gz && tar -
    identify any issues you may encounter while using the tool. We emit
    telemetry events for `tool starts`, `tool fails`,
    `tool is cancelled by user`, `tool completes
-successfully` and `tool creates a Dev Environment for the
-user`. If you want to disable telemetry with the replication tool,
+ successfully` and `tool creates a Dev Environment for the
+ user`. If you want to disable telemetry with the replication tool,
    see [Disabling telemetry for the
    replication tool](#disable-telemetry "#disable-telemetry") below.
 3. After you copy and run the replication tool in your AWS Cloud9 environment,

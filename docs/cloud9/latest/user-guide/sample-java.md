@@ -77,7 +77,7 @@ Based on the output of the preceding command, do one of the following:
      upgrade the installed OpenJDK version to OpenJDK 8.
 
 2. Ensure the latest security updates and bug fixes are installed. To do this, run the
-   yum tool (for Amazon Linux) or the apt tool (for Ubuntu Server) with the **`update`** command.
+yum tool (for Amazon Linux) or the apt tool (for Ubuntu Server) with the **`update`** command.
 
 For Amazon Linux:
 

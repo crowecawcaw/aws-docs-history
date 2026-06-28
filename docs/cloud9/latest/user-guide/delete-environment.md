@@ -46,31 +46,34 @@ following actions.
     ![Deleting an environment from the environments list](images/console-delete-env-card.png)
 
 4. In the **Delete** dialog box, type `Delete`, and then
-   choose **Delete**.
+choose **Delete**.
 
-   - **EC2 environment**
+    * **EC2 environment**
 
-   AWS Cloud9 also terminates the Amazon EC2 instance that was connected to that
-   environment.
 
-   ###### Note
+    AWS Cloud9 also terminates the Amazon EC2 instance that was connected to that
+     environment.
 
-   If account deletion fails, a banner is displayed at the top of the
-   console webpage. Additionally, the card for the environment, if it exists,
-   indicates that environment deletion failed.
-   - **SSH environment**
 
-   If the environment was connected to an Amazon EC2 instance, AWS Cloud9 doesn't terminate
-   that instance. If you don't terminate that instance later, your AWS account
-   might continue to have ongoing charges for Amazon EC2 related to that
-   instance.
+    ###### Note
+
+    If account deletion fails, a banner is displayed at the top of the
+     console webpage. Additionally, the card for the environment, if it exists,
+     indicates that environment deletion failed.
+    * **SSH environment**
+
+
+    If the environment was connected to an Amazon EC2 instance, AWS Cloud9 doesn't terminate
+     that instance. If you don't terminate that instance later, your AWS account
+     might continue to have ongoing charges for Amazon EC2 related to that
+     instance.
 
 5. If the environment was an SSH environment, AWS Cloud9 leaves behind a hidden subdirectory on the
-   cloud compute instance or your own server that was connected to that environment. If you
-   want to delete it, you can now safely delete that subdirectory. The subdirectory is
-   named `.c9`. The subdirectory is located in the
-   **Environment path** directory that you specified when you
-   created the environment.
+cloud compute instance or your own server that was connected to that environment. If you
+want to delete it, you can now safely delete that subdirectory. The subdirectory is
+named `.c9`. The subdirectory is located in the
+**Environment path** directory that you specified when you
+created the environment.
 
 If your environment isn't displayed in the console, try doing one or more of the following
 actions to have it be displayed.
@@ -113,7 +116,7 @@ follows.
 | AWS SDK for JavaScript           | [deleteEnvironment](../../../AWSJavaScriptSDK/latest/AWS/Cloud9.md#deleteEnvironment-property "../../../AWSJavaScriptSDK/latest/AWS/Cloud9.md#deleteEnvironment-property")                                                                                                                                                                                                                                                                                                                                                                     |
 | AWS SDK for .NET                 | [DeleteEnvironmentRequest](../../../sdkfornet/v3/apidocs/items/Cloud9/TDeleteEnvironmentRequest.md "../../../sdkfornet/v3/apidocs/items/Cloud9/TDeleteEnvironmentRequest.md"), [DeleteEnvironmentResponse](../../../sdkfornet/v3/apidocs/items/Cloud9/TDeleteEnvironmentResponse.md "../../../sdkfornet/v3/apidocs/items/Cloud9/TDeleteEnvironmentResponse.md")                                                                                                                                                                                |
 | AWS SDK for PHP                  | [deleteEnvironment](../../../aws-sdk-php/v3/api/api-cloud9-2017-09-23.md#deleteenvironment "../../../aws-sdk-php/v3/api/api-cloud9-2017-09-23.md#deleteenvironment")                                                                                                                                                                                                                                                                                                                                                                           |
-| AWS SDK for Python (Boto)        | [delete_environment](https://boto3.readthedocs.io/en/latest/reference/services/cloud9.html#Cloud9.Client.delete_environment "https://boto3.readthedocs.io/en/latest/reference/services/cloud9.html#Cloud9.Client.delete_environment")                                                                                                                                                                                                                                                                                                          |
-| AWS SDK for Ruby                 | [delete_environment](../../../sdk-for-ruby/v3/api/Aws/Cloud9/Client.md#delete_environment-instance_method "../../../sdk-for-ruby/v3/api/Aws/Cloud9/Client.md#delete_environment-instance_method")                                                                                                                                                                                                                                                                                                                                              |
+| AWS SDK for Python (Boto)        | [delete\_environment](https://boto3.readthedocs.io/en/latest/reference/services/cloud9.html#Cloud9.Client.delete_environment "https://boto3.readthedocs.io/en/latest/reference/services/cloud9.html#Cloud9.Client.delete_environment")                                                                                                                                                                                                                                                                                                         |
+| AWS SDK for Ruby                 | [delete\_environment](../../../sdk-for-ruby/v3/api/Aws/Cloud9/Client.md#delete_environment-instance_method "../../../sdk-for-ruby/v3/api/Aws/Cloud9/Client.md#delete_environment-instance_method")                                                                                                                                                                                                                                                                                                                                             |
 | AWS Tools for Windows PowerShell | [Remove-C9Environment](../../../powershell/latest/reference/items/Remove-C9Environment.md "../../../powershell/latest/reference/items/Remove-C9Environment.md")                                                                                                                                                                                                                                                                                                                                                                                |
 | AWS Cloud9 API                   | [DeleteEnvironment](../APIReference/API_DeleteEnvironment.md "../APIReference/API_DeleteEnvironment.md")                                                                                                                                                                                                                                                                                                                                                                                                                                       |

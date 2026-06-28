@@ -26,7 +26,7 @@ visible, choose the thin bar along the top edge of the IDE to show it.
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Preferences**                | Do one of the following:<br>• Open the **Preferences** tab if it isn't open.<br>• Make the **Preferences** tab active if it is open but not active.<br>• Hide the **Preferences** tab if it is active.<br>See [Working with Project Settings](settings-project.md "settings-project.md"),<br>[Working with User Settings](settings-user.md "settings-user.md"),<br>[Working with Keybindings](settings-keybindings.md "settings-keybindings.md"),<br>[Working with Themes](settings-theme.md "settings-theme.md"), and<br>[Working with Initialization Scripts](settings-init-script.md "settings-init-script.md"). |
 | **Go To Your Dashboard**       | Open the AWS Cloud9 console in a separate web browser tab. See<br>[Creating an Environment](create-environment.md "create-environment.md"),<br>[Opening an Environment](open-environment.md "open-environment.md"),<br>[Changing Environment Settings](change-environment.md "change-environment.md"), and<br>[Deleting an Environment](delete-environment.md "delete-environment.md").                                                                                                                                                                                                                             |
-| **Welcome Page**               | Open the \*_Welcome_<br>• tab.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **Welcome Page**               | Open the *_Welcome_<br>• tab.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | **Open Your Project Settings** | Open the `project.settings` file for the current environment. See [Working with Project Settings](settings-project.md "settings-project.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | **Open Your User Settings**    | Open the `user.settings` file for the current user. See [Working with User Settings](settings-user.md "settings-user.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | **Open Your Keymap**           | Open the `keybindings.settings` file for the current user. See [Working with Keybindings](settings-keybindings.md "settings-keybindings.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -39,7 +39,7 @@ visible, choose the thin bar along the top edge of the IDE to show it.
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
 | **New File**                   | Create a new file.                                                                                                                   |
 | **New From Template**          | Create a new file, based on the chosen file template.                                                                                |
-| **Open**                       | Show and go to the \*_Navigate_<br>• window.                                                                                         |
+| **Open**                       | Show and go to the *_Navigate_<br>• window.                                                                                          |
 | **Open Recent**                | Open the chosen file.                                                                                                                |
 | **Save**                       | Save the current file.                                                                                                               |
 | **Save As**                    | Save the current file with a different file name, location, or both.                                                                 |
@@ -47,9 +47,9 @@ visible, choose the thin bar along the top edge of the IDE to show it.
 | **Revert to Saved**            | Discard changes for current file since it was last saved.                                                                            |
 | **Revert All to Saved**        | Discard changes for all unsaved files since they were last saved.                                                                    |
 | **Show File Revision History** | View and manage changes to the current file in the editor. See [Working with File Revisions](file-revisions.md "file-revisions.md"). |
-| **Upload Local Files**         | Show the \*_Upload Files_<br>• dialog box, which enables you to drag files from your<br>local computer into the environment.         |
+| **Upload Local Files**         | Show the *_Upload Files_<br>• dialog box, which enables you to drag files from your<br>local computer into the environment.          |
 | **Download Project**           | Combine the files in the environment into a .zip file, which you can download to your local computer.                                |
-| **Line Endings**               | Use **Windows\*<br>• (carriage return plus line feed) or **Unix\*<br>• (line feed only) line endings.                                |
+| **Line Endings**               | Use *_Windows_<br>• (carriage return plus line feed) or *_Unix_<br>• (line feed only) line endings.                                  |
 | **Close File**                 | Close the current file.                                                                                                              |
 | **Close All Files**            | Close all open files.                                                                                                                |
 
@@ -102,57 +102,57 @@ visible, choose the thin bar along the top edge of the IDE to show it.
 | **Code Folding, Fold All**                                       | Fold all possibly foldable elements.                                                                                                                                  |
 | **Code Folding, Unfold All**                                     | Unfold code folding for the entire file.                                                                                                                              |
 | **Code Formatting, Apply Code Formatting**                       | Reformat the selected JavaScript code.                                                                                                                                |
-| **Code Formatting, Open Language & Formatting Preferences**      | Open the **Project Settings\*<br>• section of the **Preferences\*<br>• tab to programming language settings.                                                          |
+| **Code Formatting, Open Language & Formatting Preferences**      | Open the *_Project Settings_<br>• section of the *_Preferences_<br>• tab to programming language settings.                                                            |
 
 ## Find menu
 
 For more information, see [Finding and Replacing Text](find-replace-text.md "find-replace-text.md").
 
-| Command              | Description                                                                                                                   |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| **Find**             | Show the find and replace bar for the current document, with focus on the \*_Find_<br>• expression.                           |
-| **Find Next**        | Go to the next match in the current document for the find query you entered last.                                             |
-| **Find Previous**    | Go to the previous match in the current document for the find query you entered last.                                         |
-| **Replace**          | Show the find and replace bar for the current document, with focus on the \*_Replace With_<br>• expression.                   |
-| **Replace Next**     | Replace the next match for **Find\*<br>• with **Replace With\*<br>• in the find and replace bar for the current document .    |
-| **Replace Previous** | Replace the previous match for **Find\*<br>• with **Replace With\*<br>• in the find and replace bar for the current document. |
-| **Replace All**      | Replace all matches for **Find\*<br>• with **Replace With\*<br>• in the find and replace bar for the current document.        |
-| **Find in Files**    | Show the find and replace bar for multiple files.                                                                             |
+| Command              | Description                                                                                                                 |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| **Find**             | Show the find and replace bar for the current document, with focus on the *_Find_<br>• expression.                          |
+| **Find Next**        | Go to the next match in the current document for the find query you entered last.                                           |
+| **Find Previous**    | Go to the previous match in the current document for the find query you entered last.                                       |
+| **Replace**          | Show the find and replace bar for the current document, with focus on the *_Replace With_<br>• expression.                  |
+| **Replace Next**     | Replace the next match for *_Find_<br>• with *_Replace With_<br>• in the find and replace bar for the current document .    |
+| **Replace Previous** | Replace the previous match for *_Find_<br>• with *_Replace With_<br>• in the find and replace bar for the current document. |
+| **Replace All**      | Replace all matches for *_Find_<br>• with *_Replace With_<br>• in the find and replace bar for the current document.        |
+| **Find in Files**    | Show the find and replace bar for multiple files.                                                                           |
 
 ## View menu
 
-| Command                           | Description                                                                                                                                                          |
-| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Editors**                       | Show the chosen editor.                                                                                                                                              |
-| **Open Files**                    | Show the **Open Files\*<br>• list in the **Environment\*<br>• window, or hide if shown.                                                                              |
-| **Problems**                      | Show any problems in the Java projects for the environment in the<br>\*_Problems_<br>• panel in the terminal. You can select the<br>problem to open the target file. |
-| **Menu Bar**                      | Show the menu bar, or hide if shown.                                                                                                                                 |
-| **Tab Buttons**                   | Show tabs, or hide if shown.                                                                                                                                         |
-| **Gutter**                        | Show the gutter, or hide if shown.                                                                                                                                   |
-| **Status Bar**                    | Show the status bar, or hide if shown.                                                                                                                               |
-| **Console**                       | Show the \*_Console_<br>• window, or hide if shown.                                                                                                                  |
-| **Layout, Single**                | Show a single pane.                                                                                                                                                  |
-| **Layout, Vertical Split**        | Show two panes, top and bottom.                                                                                                                                      |
-| **Layout, Horizontal Split**      | Show two panes, side by side.                                                                                                                                        |
-| **Layout, Cross Split**           | Show four panes of equal size.                                                                                                                                       |
-| **Layout, Split 1:2**             | Show one pane on the left and two panes on the right.                                                                                                                |
-| **Layout, Split 2:1**             | Show two panes on the left and one pane on the right.                                                                                                                |
-| **Font Size, Increase Font Size** | Increase the font size.                                                                                                                                              |
-| **Font Size, Decrease Font Size** | Decrease the font size.                                                                                                                                              |
-| **Syntax**                        | Show the syntax type for the current document.                                                                                                                       |
-| **Themes**                        | Show the IDE theme type.                                                                                                                                             |
-| **Wrap Lines**                    | Wrap words to the edge of the current pane, or stop wrapping words if they are already wrapping.                                                                     |
-| **Wrap To Print Margin**          | Wrap words to the edge of the current print margin, or stop wrapping words if they are already wrapping.                                                             |
+| Command                           | Description                                                                                                                                                         |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Editors**                       | Show the chosen editor.                                                                                                                                             |
+| **Open Files**                    | Show the *_Open Files_<br>• list in the *_Environment_<br>• window, or hide if shown.                                                                               |
+| **Problems**                      | Show any problems in the Java projects for the environment in the<br>*_Problems_<br>• panel in the terminal. You can select the<br>problem to open the target file. |
+| **Menu Bar**                      | Show the menu bar, or hide if shown.                                                                                                                                |
+| **Tab Buttons**                   | Show tabs, or hide if shown.                                                                                                                                        |
+| **Gutter**                        | Show the gutter, or hide if shown.                                                                                                                                  |
+| **Status Bar**                    | Show the status bar, or hide if shown.                                                                                                                              |
+| **Console**                       | Show the *_Console_<br>• window, or hide if shown.                                                                                                                  |
+| **Layout, Single**                | Show a single pane.                                                                                                                                                 |
+| **Layout, Vertical Split**        | Show two panes, top and bottom.                                                                                                                                     |
+| **Layout, Horizontal Split**      | Show two panes, side by side.                                                                                                                                       |
+| **Layout, Cross Split**           | Show four panes of equal size.                                                                                                                                      |
+| **Layout, Split 1:2**             | Show one pane on the left and two panes on the right.                                                                                                               |
+| **Layout, Split 2:1**             | Show two panes on the left and one pane on the right.                                                                                                               |
+| **Font Size, Increase Font Size** | Increase the font size.                                                                                                                                             |
+| **Font Size, Decrease Font Size** | Decrease the font size.                                                                                                                                             |
+| **Syntax**                        | Show the syntax type for the current document.                                                                                                                      |
+| **Themes**                        | Show the IDE theme type.                                                                                                                                            |
+| **Wrap Lines**                    | Wrap words to the edge of the current pane, or stop wrapping words if they are already wrapping.                                                                    |
+| **Wrap To Print Margin**          | Wrap words to the edge of the current print margin, or stop wrapping words if they are already wrapping.                                                            |
 
 ## Go menu
 
 | Command                    | Description                                                     |
 | -------------------------- | --------------------------------------------------------------- |
-| **Go To Anything**         | Show the **Go\*<br>• window in **Go to Anything\*<br>• mode.    |
-| **Go To Symbol**           | Show the **Go\*<br>• window in **Go to Symbol\*<br>• mode.      |
-| **Go To File**             | Show the **Go\*<br>• window in **Go to File\*<br>• mode.        |
-| **Go To Command**          | Show the **Go\*<br>• window in **Go to Command\*<br>• mode.     |
-| **Go To Line**             | Show the **Go\*<br>• window in **Go to Line\*<br>• mode.        |
+| **Go To Anything**         | Show the *_Go_<br>• window in *_Go to Anything_<br>• mode.      |
+| **Go To Symbol**           | Show the *_Go_<br>• window in *_Go to Symbol_<br>• mode.        |
+| **Go To File**             | Show the *_Go_<br>• window in *_Go to File_<br>• mode.          |
+| **Go To Command**          | Show the *_Go_<br>• window in *_Go to Command_<br>• mode.       |
+| **Go To Line**             | Show the *_Go_<br>• window in *_Go to Line_<br>• mode.          |
 | **Next Error**             | Go to the next error.                                           |
 | **Previous Error**         | Go to the previous error.                                       |
 | **Word Right**             | Go one word to the right.                                       |
@@ -172,7 +172,7 @@ For more information, see [Finding and Replacing Text](find-replace-text.md "fin
 | **Run With**                            | Run or debug using the chosen runner. See<br>[Working with Builders, Runners, and Debuggers](build-run-debug.md "build-run-debug.md").                                                 |
 | **Run History**                         | View run history.                                                                                                                                                                      |
 | **Run Configurations**                  | Choose a run configuration to run or debug with, or create or manage run configurations. See [Working with Builders, Runners, and Debuggers](build-run-debug.md "build-run-debug.md"). |
-| **Show Debugger at Break**              | When running code reaches a breakpoint, show the \*_Debugger_<br>• window.                                                                                                             |
+| **Show Debugger at Break**              | When running code reaches a breakpoint, show the *_Debugger_<br>• window.                                                                                                              |
 | **Build**                               | Build the current file.                                                                                                                                                                |
 | **Cancel Build**                        | Stop building the current file.                                                                                                                                                        |
 | **Build System**                        | Build using the chosen build system.                                                                                                                                                   |
@@ -182,33 +182,33 @@ For more information, see [Finding and Replacing Text](find-replace-text.md "fin
 
 ## Tools menu
 
-| Command                                  | Description                                                                                                              |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| **Strip Trailing Space**                 | Trim whitespace at the ends of lines.                                                                                    |
-| **Preview, Preview File**                | Preview the current document in a preview tab.                                                                           |
-| **Preview, Preview Running Application** | Preview the current application in a separate web browser tab.                                                           |
-| **Preview, Configure Preview URL**       | Open the **Project Settings\*<br>• section of the **Preferences*<br>• tab to the \*\*Run & Debug, Preview URL*<br>• box. |
-| **Preview, Show Active Servers**         | Show a list of available active server addresses in the \*_Process List_<br>• dialog box.                                |
-| **Process List**                         | Show the \*_Process List_<br>• dialog box.                                                                               |
-| **Show Autocomplete**                    | Show the code completion context menu.                                                                                   |
-| **Rename Variable**                      | Start a rename refactor for the selection.                                                                               |
-| **Toggle Macro Recording**               | Start keystroke recording, of stop if it is already recording.                                                           |
-| **Play Macro**                           | Play previously recorded keystrokes.                                                                                     |
+| Command                                  | Description                                                                                                           |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| **Strip Trailing Space**                 | Trim whitespace at the ends of lines.                                                                                 |
+| **Preview, Preview File**                | Preview the current document in a preview tab.                                                                        |
+| **Preview, Preview Running Application** | Preview the current application in a separate web browser tab.                                                        |
+| **Preview, Configure Preview URL**       | Open the *_Project Settings_<br>• section of the *_Preferences_<br>• tab to the *_Run & Debug, Preview URL_<br>• box. |
+| **Preview, Show Active Servers**         | Show a list of available active server addresses in the *_Process List_<br>• dialog box.                              |
+| **Process List**                         | Show the *_Process List_<br>• dialog box.                                                                             |
+| **Show Autocomplete**                    | Show the code completion context menu.                                                                                |
+| **Rename Variable**                      | Start a rename refactor for the selection.                                                                            |
+| **Toggle Macro Recording**               | Start keystroke recording, of stop if it is already recording.                                                        |
+| **Play Macro**                           | Play previously recorded keystrokes.                                                                                  |
 
 ## Window menu
 
 | Command                                            | Description                                                                                                |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| **Go**                                             | Show the \*_Go_<br>• window, or hide if shown.                                                             |
-| **New Terminal**                                   | Open a new \*_Terminal_<br>• tab.                                                                          |
-| **New Immediate Window**                           | Open a new \*_Immediate_<br>• tab.                                                                         |
-| **Share**                                          | Show the \*_Share this environment_<br>• dialog box.                                                       |
-| **Installer**                                      | Show the \*_AWS Cloud9 Installer_<br>• dialog box.                                                         |
-| **Collaborate**                                    | Show the \*_Collaborate_<br>• window, or hide if shown.                                                    |
-| **Outline**                                        | Show the \*_Outline_<br>• window, or hide if shown.                                                        |
-| **AWS Resources**                                  | Show the \*_AWS Resources_<br>• window, or hide if shown.                                                  |
-| **Environment**                                    | Show the \*_Environment_<br>• window, or hide if shown.                                                    |
-| **Debugger**                                       | Show the \*_Debugger_<br>• window, or hide if shown.                                                       |
+| **Go**                                             | Show the *_Go_<br>• window, or hide if shown.                                                              |
+| **New Terminal**                                   | Open a new *_Terminal_<br>• tab.                                                                           |
+| **New Immediate Window**                           | Open a new *_Immediate_<br>• tab.                                                                          |
+| **Share**                                          | Show the *_Share this environment_<br>• dialog box.                                                        |
+| **Installer**                                      | Show the *_AWS Cloud9 Installer_<br>• dialog box.                                                          |
+| **Collaborate**                                    | Show the *_Collaborate_<br>• window, or hide if shown.                                                     |
+| **Outline**                                        | Show the *_Outline_<br>• window, or hide if shown.                                                         |
+| **AWS Resources**                                  | Show the *_AWS Resources_<br>• window, or hide if shown.                                                   |
+| **Environment**                                    | Show the *_Environment_<br>• window, or hide if shown.                                                     |
+| **Debugger**                                       | Show the *_Debugger_<br>• window, or hide if shown.                                                        |
 | **Navigation, Tab to the Right**                   | Go one tab right.                                                                                          |
 | **Navigation, Tab to the Left**                    | Go one tab left.                                                                                           |
 | **Navigation, Next Tab in History**                | Go to the next tab.                                                                                        |
@@ -221,12 +221,12 @@ For more information, see [Finding and Replacing Text](find-replace-text.md "fin
 | **Navigation, Go to Pane to Left**                 | Go one pane left.                                                                                          |
 | **Navigation, Go to Pane to Up**                   | Go one pane up.                                                                                            |
 | **Navigation, Go to Pane to Down**                 | Go one pane down.                                                                                          |
-| **Navigation, Switch Between Editor and Terminal** | Switch between the editor and the \*_Terminal_<br>• tab .                                                  |
+| **Navigation, Switch Between Editor and Terminal** | Switch between the editor and the *_Terminal_<br>• tab .                                                   |
 | **Navigation, Next Pane in History**               | Go to the next pane.                                                                                       |
 | **Navigation, Previous Pane in History**           | Go to the previous pane.                                                                                   |
 | **Saved Layouts, Save**                            | Save the current layout. To switch to this layout later, choose **Saved Layouts, LAYOUT-ID**.              |
 | **Saved Layouts, Save and Close All**              | Save the current layout, and then close all tabs and panes.                                                |
-| **Saved Layouts, Show Saved Layouts in File Tree** | Show all saved layouts in the \*_Environment_<br>• window.                                                 |
+| **Saved Layouts, Show Saved Layouts in File Tree** | Show all saved layouts in the *_Environment_<br>• window.                                                  |
 | **Tabs, Close Pane**                               | Close the current pane.                                                                                    |
 | **Tabs, Close All Tabs In All Panes**              | Close all open tabs in all panes.                                                                          |
 | **Tabs, Close All But Current Tab**                | Close all open tabs in the current pane, except the current tab.                                           |
@@ -240,23 +240,23 @@ For more information, see [Finding and Replacing Text](find-replace-text.md "fin
 
 | Command                  | Description                                                                  |
 | ------------------------ | ---------------------------------------------------------------------------- |
-| **Welcome Page**         | Open the \*_Welcome_<br>• tab.                                               |
+| **Welcome Page**         | Open the *_Welcome_<br>• tab.                                                |
 | **Get Help (Community)** | Opens the AWS Cloud9 online community website in a separate web browser tab. |
-| **Read Documentation**   | Opens the \*AWS Cloud9 User Guide<br>• in a separate web browser tab.        |
+| **Read Documentation**   | Opens the *AWS Cloud9 User Guide<br>• in a separate web browser tab.         |
 
 ## Preview menu
 
-| Command                         | Description                                                                                                              |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| **Preview File**                | Preview the current document in a preview tab.                                                                           |
-| **Preview Running Application** | Preview the current application in a separate web browser tab.                                                           |
-| **Configure Preview URL**       | Open the **Project Settings\*<br>• section of the **Preferences*<br>• tab to the \*\*Run & Debug, Preview URL*<br>• box. |
-| **Show Active Servers**         | Show a list of available active server addresses in the \*_Process List_<br>• dialog box.                                |
+| Command                         | Description                                                                                                           |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| **Preview File**                | Preview the current document in a preview tab.                                                                        |
+| **Preview Running Application** | Preview the current application in a separate web browser tab.                                                        |
+| **Configure Preview URL**       | Open the *_Project Settings_<br>• section of the *_Preferences_<br>• tab to the *_Run & Debug, Preview URL_<br>• box. |
+| **Show Active Servers**         | Show a list of available active server addresses in the *_Process List_<br>• dialog box.                              |
 
 ## Other menu bar commands
 
-| Command                          | Description                                           |
-| -------------------------------- | ----------------------------------------------------- |
-| **Run**                          | Run or debug the current application.                 |
-| **Share**                        | Opens the \*_Share this environment_<br>• dialog box. |
-| \*_Preferences_<br>• (gear icon) | Open the \*_Preferences_<br>• tab.                    |
+| Command                         | Description                                          |
+| ------------------------------- | ---------------------------------------------------- |
+| **Run**                         | Run or debug the current application.                |
+| **Share**                       | Opens the *_Share this environment_<br>• dialog box. |
+| *_Preferences_<br>• (gear icon) | Open the *_Preferences_<br>• tab.                    |

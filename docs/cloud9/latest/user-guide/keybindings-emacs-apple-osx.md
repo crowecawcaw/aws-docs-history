@@ -28,44 +28,44 @@ the AWS Cloud9 IDE:
 
 ## General
 
-| Description                                                                                                                                                                 | Keybinding            | Command                 |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------------------- | ------------------- |
-| Add the selection as a watch expression                                                                                                                                     | `Command-Shift-C`     | `addwatchfromselection` |
-| Remove the cut selection from the clipboard                                                                                                                                 | `Esc`                 | `clearcut`              |
-| Show the code completion context menu                                                                                                                                       | `Control-Space`       | `Option-Space`          | `complete`          |
-| Complete code, and then overwrite                                                                                                                                           | `Control-Shift-Space` | `Option-Shift-Space`    | `completeoverwrite` |
-| Copy the selection to the clipboard                                                                                                                                         | `Command-C`           | `copy`                  |
-| Cut the selection to the clipboard                                                                                                                                          | `Command-X`           | `cut`                   |
-| Expand code, where applicable                                                                                                                                               | `Tab`                 | `expandSnippet`         |
-| Show the find and replace bar for the current document                                                                                                                      | `Command-F`           | `find`                  |
-| Select all find matches in the current document                                                                                                                             | `Control-Option-G`    | `findAll`               |
-| Go to the next match in the current document for the find query you<br>entered last                                                                                         | `Command-G`           | `findnext`              |
-| Go to the previous match in the current document for the find query you<br>entered last                                                                                     | `Command-Shift-G`     | `findprevious`          |
-| Display all known references to the symbol at the insertion point in the<br>active file in the editor                                                                       | `Shift-F3`            | `findReferences`        |
-| Open the \*_Environment_<br>• window, and then make the list<br>of files active                                                                                             | `Shift-Esc`           | `focusTree`             |
-| Reformat the selected JavaScript code                                                                                                                                       | `Command-Shift-B`     | `formatcode`            |
-| Show the \*go to line<br>• box                                                                                                                                              | `Command-L`           | `gotoline`              |
-| Hide the find and replace bar, if shown                                                                                                                                     | `Esc`                 | `hidesearchreplace`     |
-| Go to the definition of the variable or function at the cursor                                                                                                              | `F3`                  | `jumptodef`             |
-| If a local Lambda function is selected in the **Lambda**<br>section of the \*_AWS Resources_<br>• window, attempts to<br>upload the function to Lambda as a remote function | `Command-Shift-U`     | `lambdaUploadFunction`  |
-| Create a new file                                                                                                                                                           | `Control-N`           | `newfile`               |
-| Show the \*_Preferences_<br>• tab                                                                                                                                           | `Command-,`           | `openpreferences`       |
-| Open a \*_Terminal_<br>• tab, then switch to the parent<br>folder of the selected file in the list of files                                                                 | `Command-Option-L`    | `opentermhere`          |
-| Paste the clipboard's current contents at the cursor                                                                                                                        | `Command-V`           | `paste`                 |
-| Show suggestions for fixing errors                                                                                                                                          | `Command-F3`          | `quickfix`              |
-| Redo the last action                                                                                                                                                        | `Command-Shift-Z`     | `Command-Y`             | `redo`              |
-| Refresh the preview pane                                                                                                                                                    | `Command-Enter`       | `reloadpreview`         |
-| Start a rename refactor for the selection                                                                                                                                   | `Option-Command-R`    | `renameVar`             |
-| Show the find and replace bar for the current document, with focus on the<br>\*replace with<br>• expression                                                                 | `Option-Command-F`    | `replace`               |
-| Rerun your initialization script                                                                                                                                            | `Command-Enter`       | `rerunInitScript`       |
-| Restart the environment                                                                                                                                                     | `Command-R`           | `restartc9`             |
-| Reset the current file to its last saved version                                                                                                                            | `Control-Shift-Q`     | `reverttosaved`         |
-| Reset each open file to its saved version                                                                                                                                   | `Option-Shift-Q`      | `reverttosavedall`      |
-| Save the current file to disk                                                                                                                                               | `Command-S`           | `save`                  |
-| Save the current file to disk with a different file name                                                                                                                    | `Command-Shift-S`     | `saveas`                |
-| Show the find and replace bar for multiple files                                                                                                                            | `Shift-Command-F`     | `searchinfiles`         |
-| Show the \*_Process List_<br>• dialog box                                                                                                                                   | `Command-Option-P`    | `showprocesslist`       |
-| Undo the last action                                                                                                                                                        | `Command-Z`           | `undo`                  |
+| Description                                                                                                                                                                | Keybinding            | Command                 |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------------------- |
+| Add the selection as a watch expression                                                                                                                                    | `Command-Shift-C`     | `addwatchfromselection` |
+| Remove the cut selection from the clipboard                                                                                                                                | `Esc`                 | `clearcut`              |
+| Show the code completion context menu                                                                                                                                      | `Control-Space`       | `Option-Space`          | `complete`          |
+| Complete code, and then overwrite                                                                                                                                          | `Control-Shift-Space` | `Option-Shift-Space`    | `completeoverwrite` |
+| Copy the selection to the clipboard                                                                                                                                        | `Command-C`           | `copy`                  |
+| Cut the selection to the clipboard                                                                                                                                         | `Command-X`           | `cut`                   |
+| Expand code, where applicable                                                                                                                                              | `Tab`                 | `expandSnippet`         |
+| Show the find and replace bar for the current document                                                                                                                     | `Command-F`           | `find`                  |
+| Select all find matches in the current document                                                                                                                            | `Control-Option-G`    | `findAll`               |
+| Go to the next match in the current document for the find query you<br>entered last                                                                                        | `Command-G`           | `findnext`              |
+| Go to the previous match in the current document for the find query you<br>entered last                                                                                    | `Command-Shift-G`     | `findprevious`          |
+| Display all known references to the symbol at the insertion point in the<br>active file in the editor                                                                      | `Shift-F3`            | `findReferences`        |
+| Open the *_Environment_<br>• window, and then make the list<br>of files active                                                                                             | `Shift-Esc`           | `focusTree`             |
+| Reformat the selected JavaScript code                                                                                                                                      | `Command-Shift-B`     | `formatcode`            |
+| Show the *go to line<br>• box                                                                                                                                              | `Command-L`           | `gotoline`              |
+| Hide the find and replace bar, if shown                                                                                                                                    | `Esc`                 | `hidesearchreplace`     |
+| Go to the definition of the variable or function at the cursor                                                                                                             | `F3`                  | `jumptodef`             |
+| If a local Lambda function is selected in the **Lambda**<br>section of the *_AWS Resources_<br>• window, attempts to<br>upload the function to Lambda as a remote function | `Command-Shift-U`     | `lambdaUploadFunction`  |
+| Create a new file                                                                                                                                                          | `Control-N`           | `newfile`               |
+| Show the *_Preferences_<br>• tab                                                                                                                                           | `Command-,`           | `openpreferences`       |
+| Open a *_Terminal_<br>• tab, then switch to the parent<br>folder of the selected file in the list of files                                                                 | `Command-Option-L`    | `opentermhere`          |
+| Paste the clipboard's current contents at the cursor                                                                                                                       | `Command-V`           | `paste`                 |
+| Show suggestions for fixing errors                                                                                                                                         | `Command-F3`          | `quickfix`              |
+| Redo the last action                                                                                                                                                       | `Command-Shift-Z`     | `Command-Y`             | `redo`              |
+| Refresh the preview pane                                                                                                                                                   | `Command-Enter`       | `reloadpreview`         |
+| Start a rename refactor for the selection                                                                                                                                  | `Option-Command-R`    | `renameVar`             |
+| Show the find and replace bar for the current document, with focus on the<br>*replace with<br>• expression                                                                 | `Option-Command-F`    | `replace`               |
+| Rerun your initialization script                                                                                                                                           | `Command-Enter`       | `rerunInitScript`       |
+| Restart the environment                                                                                                                                                    | `Command-R`           | `restartc9`             |
+| Reset the current file to its last saved version                                                                                                                           | `Control-Shift-Q`     | `reverttosaved`         |
+| Reset each open file to its saved version                                                                                                                                  | `Option-Shift-Q`      | `reverttosavedall`      |
+| Save the current file to disk                                                                                                                                              | `Command-S`           | `save`                  |
+| Save the current file to disk with a different file name                                                                                                                   | `Command-Shift-S`     | `saveas`                |
+| Show the find and replace bar for multiple files                                                                                                                           | `Shift-Command-F`     | `searchinfiles`         |
+| Show the *_Process List_<br>• dialog box                                                                                                                                   | `Command-Option-P`    | `showprocesslist`       |
+| Undo the last action                                                                                                                                                       | `Command-Z`           | `undo`                  |
 
 ## Tabs
 
@@ -105,20 +105,20 @@ the AWS Cloud9 IDE:
 
 ## Panels
 
-| Description                                                         | Keybinding        | Command         |
-| ------------------------------------------------------------------- | ----------------- | --------------- | -------------- |
-| Show the **Go\*<br>• window in **Go to<br>Anything\*<br>• mode      | `Command-E        | Command-P`      | `gotoanything` |
-| Show the **Go\*<br>• window in **Go to<br>Command\*<br>• mode       | `Command-.        | F1`             | `gotocommand`  |
-| Show the **Go\*<br>• window in **Go to<br>File\*<br>• mode.         | `Command-O`       | `gotofile`      |
-| Show the **Go\*<br>• window in **Go to<br>Symbol\*<br>• mode.       | `Command-Shift-O` | `gotosymbol`    |
-| Show the \*_Outline_<br>• window                                    | `Command-Shift-E` | `outline`       |
-| Show the \*_Console_<br>• window if hidden, or hide if<br>shown     | `Control-Esc`     | `toggleconsole` |
-| Show the \*_Environment_<br>• window if hidden, or hide if<br>shown | `Command-U`       | `toggletree`    |
+| Description                                                        | Keybinding        | Command         |
+| ------------------------------------------------------------------ | ----------------- | --------------- |
+| Show the *_Go_<br>• window in *_Go to<br>Anything_<br>• mode       | `Command-E        | Command-P`      | `gotoanything` |
+| Show the *_Go_<br>• window in *_Go to<br>Command_<br>• mode        | `Command-.        | F1`             | `gotocommand`  |
+| Show the *_Go_<br>• window in *_Go to<br>File_<br>• mode.          | `Command-O`       | `gotofile`      |
+| Show the *_Go_<br>• window in *_Go to<br>Symbol_<br>• mode.        | `Command-Shift-O` | `gotosymbol`    |
+| Show the *_Outline_<br>• window                                    | `Command-Shift-E` | `outline`       |
+| Show the *_Console_<br>• window if hidden, or hide if<br>shown     | `Control-Esc`     | `toggleconsole` |
+| Show the *_Environment_<br>• window if hidden, or hide if<br>shown | `Command-U`       | `toggletree`    |
 
 ## Code Editor
 
 | Description                                                                                                                           | Keybinding                   | Command                     |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | --------------------------- | ------------------- | ------------------------ |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | --------------------------- |
 | Add a cursor one line above the active cursor, or if a cursor is already<br>added, add another cursor above that one                  | `Control-Option-Up`          | `addCursorAbove`            |
 | Add a second cursor one line above the active cursor, or if a second<br>cursor is already added, move the second cursor up one line   | `Control-Option-Shift-Up`    | `addCursorAboveSkipCurrent` |
 | Add a cursor one line below the active cursor, or if a cursor is already<br>added, add another cursor below that one                  | `Control-Option-Down`        | `addCursorBelow`            |
@@ -191,7 +191,7 @@ the AWS Cloud9 IDE:
 | Include the next line up in the selection                                                                                             | `Shift-Up                    | Control-Shift-Up`           | `selectup`          |
 | Include the next word to the left of the cursor in the selection                                                                      | `Option-Shift-Left`          | `selectwordleft`            |
 | Include the next word to the right of the cursor in the selection                                                                     | `Option-Shift-Right`         | `selectwordright`           |
-| Show the \*_Preferences_<br>• tab                                                                                                     | `Command-,`                  | `showSettingsMenu`          |
+| Show the *_Preferences_<br>• tab                                                                                                      | `Command-,`                  | `showSettingsMenu`          |
 | Clear all previous selections                                                                                                         | `Esc`                        | `singleSelection`           |
 | Decrease the font size                                                                                                                | `Command--`                  | `smallerfont`               |
 | If multiple lines are selected, rearrange them into a sorted order                                                                    | `Command-Option-S`           | `sortlines`                 |
@@ -224,13 +224,13 @@ the AWS Cloud9 IDE:
 
 | Description                                           | Keybinding | Command          |
 | ----------------------------------------------------- | ---------- | ---------------- |
-| Open a new \*_Terminal_<br>• tab                      | `Option-T` | `openterminal`   |
+| Open a new *_Terminal_<br>• tab                       | `Option-T` | `openterminal`   |
 | Switch between the editor and the **Terminal**<br>tab | `Option-S` | `switchterminal` |
 
 ## Run and Debug
 
 | Description                                       | Keybinding        | Command          |
-| ------------------------------------------------- | ----------------- | ---------------- | ---------- |
+| ------------------------------------------------- | ----------------- | ---------------- |
 | Build the current file                            | `Command-B`       | `build`          |
 | Resume the current paused process                 | `F8               | Command-\`       | `resume`   |
 | Run or debug the current application              | `Option-F5`       | `run`            |

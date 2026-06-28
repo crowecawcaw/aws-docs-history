@@ -240,8 +240,8 @@ This creates the following files and subdirectories in the directory.
      make running the **`tsc`** command easier and with possibly fewer build and run errors.
 
 3. In the **Environment** window, open the
-   `lib/hello-cdk-stack.ts` file, and browse the following code in
-   that file.
+`lib/hello-cdk-stack.ts` file, and browse the following code in
+that file.
 
 ```
 import sns = require('@aws-cdk/aws-sns');
@@ -272,8 +272,8 @@ export class HelloCdkStack extends cdk.Stack {
      application.
 
 4. In the **Environment** window, open the
-   `bin/hello-cdk.ts` file, and browse the following code in that
-   file.
+`bin/hello-cdk.ts` file, and browse the following code in that
+file.
 
 ```
 #!/usr/bin/env node

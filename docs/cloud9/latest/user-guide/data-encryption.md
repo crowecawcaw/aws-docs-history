@@ -11,14 +11,14 @@ AWS cloud-compute instances.
 In the context of AWS Cloud9, the following types of data may require protection through
 encryption:
 
-**_Your content and data_**
+_**Your content and data**_
 
 Information that you manipulate, collect, and store. The following are examples of this type of
 data:
 
 - Your code files
 - Configuration, applications, and data for the attached EC2 environment or SSH environment
-  **_AWS Cloud9 metadata_**
+  _**AWS Cloud9 metadata**_
 
 Data that AWS Cloud9 manipulates, collects, and stores. The following are examples of this type of data:
 

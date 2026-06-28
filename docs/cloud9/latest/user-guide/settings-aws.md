@@ -23,12 +23,12 @@ Settings for an Environment to Another Environment](settings-project.md#settings
 
 ## Project-level settings
 
-\***\*AWS Region\*\***
+****AWS Region****
 
 Which AWS Region to use for the **Lambda** section of the
 **AWS Resources** window.
 
-\***\*AWS managed temporary credentials\*\***
+****AWS managed temporary credentials****
 
 If turned on, AWS managed temporary credentials are used when you call AWS services from the
 AWS CLI, the AWS CloudShell, or AWS SDK code from an environment. For more information, see
@@ -37,7 +37,7 @@ Managed Temporary Credentials](security-iam.md#auth-and-access-control-temporary
 
 ## User-level settings
 
-\***\*Use AWS SAM visual editor\*\***
+****Use AWS SAM visual editor****
 
 If turned on, the AWS Serverless Application Model (AWS SAM) template editor is displayed in visual mode
 when you use the **Lambda** section of the **AWS

@@ -300,7 +300,7 @@ listMyBuckets($s3);
 2. On the **[New] - Idle** tab, choose **Runner:
    Auto**, and then choose **PHP (cli)**.
 3. For **Command**, type `s3.php America/Los_Angeles
-my-test-bucket us-east-2`, where:
+ my-test-bucket us-east-2`, where:
 
    - `America/Los_Angeles` is your default time zone ID. For more IDs,
      see [List of Supported

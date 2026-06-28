@@ -82,18 +82,17 @@ function from the AWS Cloud and work with them in the AWS Cloud9 IDE.
 
 ### To download a Lambda function
 
-1.  In the **AWS Explorer**, under the Lambda node, open the context
-    (right-click) menu for the function, and choose
-    **Download**.
-2.  When asked to **Select a workspace folder for your new project**,
-    you can do one of the following:
+1. In the **AWS Explorer**, under the Lambda node, open the context
+   (right-click) menu for the function, and choose
+   **Download**.
+2. When asked to **Select a workspace folder for your new project**,
+   you can do one of the following:
 
-        * Choose the folder that's suggested to create a subfolder with the same name as
-         your Lambda project.
-        * Choose **Select a different folder** to open a dialog box to
-         browse for and select a different parent folder for your project subfolder.
-
-    The IDE opens a new editor window.
+   - Choose the folder that's suggested to create a subfolder with the same name as
+     your Lambda project.
+   - Choose **Select a different folder** to open a dialog box to
+     browse for and select a different parent folder for your project subfolder.
+     The IDE opens a new editor window.
 
 ### Configuring a downloaded Lambda function for running and debugging
 
@@ -117,7 +116,7 @@ So, you might need to add it manually.
       includes the `Add Debug Config` link.
    2. Choose **Go** (the magnifying glass icon) on the left of
       the IDE, and enter "sam hint" to display the `AWS: Toggle SAM hints in source
-files` command. Choose the command to run it.
+  files` command. Choose the command to run it.
    3. Close your Lambda source code file and then reopen it.
    4. If the CodeLens is available in the source code after you reopen the file, choose `Add Debug Config` to add the launch configuration.
 

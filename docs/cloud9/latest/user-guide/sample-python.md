@@ -44,7 +44,7 @@ See [Opening an environment in AWS Cloud9](open-environment.md "open-environment
    **Window**, **New Terminal**.) If Python is
    installed, skip ahead to [Step 2: Add code](#sample-python-code "#sample-python-code").
 2. Run the **`yum update`** (for Amazon Linux) or **`apt
-update`** (for Ubuntu Server) command to help ensure the latest
+ update`** (for Ubuntu Server) command to help ensure the latest
    security updates and bug fixes are installed.
 
 For Amazon Linux:
@@ -252,7 +252,7 @@ if __name__ == "__main__":
 1. On the menu bar, choose **Run**, **Run
    Configurations**, **New Run Configuration**.
 2. For **Command**, enter `s3.py my-test-bucket
-us-west-2`, where `my-test-bucket` is the name of the bucket to
+ us-west-2`, where `my-test-bucket` is the name of the bucket to
    create, and `us-west-2` is the ID of the AWS Region where your bucket is
    created. By default, your bucket is deleted before the script exits. To keep your
    bucket, add `--keep_bucket` to your command. For a list of AWS Region

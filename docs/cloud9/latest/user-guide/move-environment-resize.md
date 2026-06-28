@@ -96,8 +96,10 @@ fi
    to:
 
    - ```
-     bash resize.sh 20
+
      ```
+
+   bash resize.sh 20
 
    ````
    * ```

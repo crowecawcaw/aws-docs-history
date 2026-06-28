@@ -154,7 +154,7 @@ to commit:
 - Commit all files in working directory: Go to the **Git panel**
   menu and choose **Commit All**. (This option uses the
   `git add` to add files to the staging area before calling `git
-commit`.)
+ commit`.)
 
 ###### Note
 
@@ -205,9 +205,8 @@ Creating a branch involves naming the branch and selecting its starting point.
     * **Create new branch from**: The new branch starts from the last
      commit of the branch that you select in a subsequent screen.
 
-3. Enter the new branch's name.
-4. If you're specifying a specific branch as the starting point for your branch, select
-   one from the list.
+3. Enter the new branch's name. 4. If you're specifying a specific branch as the starting point for your branch, select
+one from the list.
 
 After switching to the new branch, you can check the name of the current branch by viewing
 the bottom of the Git panel.

@@ -47,8 +47,8 @@ MySQL.
 
 1. Ensure that the latest security updates and bug fixes are installed on the instance.
    To do this, in a terminal session in the AWS Cloud9 IDE, run the **`yum
-update`** for (Amazon Linux) or **`apt
-update`** for (Ubuntu Server) command. (To start a new
+ update`** for (Amazon Linux) or **`apt
+ update`** for (Ubuntu Server) command. (To start a new
    terminal session, on the menu bar, choose **Window**, **New
    Terminal**.)
 
@@ -222,10 +222,10 @@ For Ubuntu Server:
      `y`, and then press `Enter`.
 
 3. To interact directly with MySQL, start the MySQL command
-   line client as the root user by running the following command. When prompted, type the
-   root user's password that you set earlier, and then press `Enter`. The prompt
-   changes to `mysql>` while you are in the MySQL command line
-   client.
+line client as the root user by running the following command. When prompted, type the
+root user's password that you set earlier, and then press `Enter`. The prompt
+changes to `mysql>` while you are in the MySQL command line
+client.
 
 ```
 sudo mysql -uroot -p
