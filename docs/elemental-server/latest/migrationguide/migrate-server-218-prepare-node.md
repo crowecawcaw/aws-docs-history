@@ -4,7 +4,7 @@
 
 To upgrade to version 2.18.0 or higher, the software currently installed on the
 node must be version 2.17.0 or higher. For instructions about how to upgrade to that
-version, see the [https://docs.aws.amazon.com/elemental-onprem/latest/pdf/elemental_server_upgrade_guide_2.17.pdf](../../../elemental-onprem/latest/pdf/elemental_server_upgrade_guide_2.17.pdf.md "../../../elemental-onprem/latest/pdf/elemental_server_upgrade_guide_2.17.pdf.md")Server 2.17 Upgrade Guide.
+version, see the [https://docs.aws.amazon.com/elemental-onprem/latest/pdf/elemental\_server\_upgrade\_guide\_2.17.pdf](../../../elemental-onprem/latest/pdf/elemental_server_upgrade_guide_2.17.pdf.md "../../../elemental-onprem/latest/pdf/elemental_server_upgrade_guide_2.17.pdf.md")Server 2.17 Upgrade Guide.
 
 ## Verify access to the BMC on the appliances
 

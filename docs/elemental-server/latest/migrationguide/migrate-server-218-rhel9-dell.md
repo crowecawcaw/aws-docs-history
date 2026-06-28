@@ -45,46 +45,44 @@ appears.
 
 ### Install the operating system
 
-1.  At the **Enter the server complete hostname**
-    prompt, enter the hostname that already applies to this node, then
-    press **Enter**. The installation starts.
-2.  When the installation is complete, press
-    **Enter** to quit and reboot.
-3.  You can now install any third-party packages. AWS Elemental maintains an
-    RPM repository for use with RHEL 9. The repository contains the
-    following types of third-party packages:
+1. At the **Enter the server complete hostname**
+   prompt, enter the hostname that already applies to this node, then
+   press **Enter**. The installation starts.
+2. When the installation is complete, press
+   **Enter** to quit and reboot.
+3. You can now install any third-party packages. AWS Elemental maintains an
+   RPM repository for use with RHEL 9. The repository contains the
+   following types of third-party packages:
 
-        * Packages that are stored in the Red Hat BaseOS repository,
-         and that are required to run AWS Elemental software.
-        * Packages that are stored in the Red Hat AppStream
-         repository, that aren't required but that you want to
-         include.
-
-    For more information about the packages that you must obtain from
-    the AWS Elemental RPM repository, and for instructions about configuring
-    the repository, see the knowledge base article [Advisory](https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/Advisory-AWS-Elemental-is-introducing-RHEL-9-2-support-for-Elemental-Live-Conductor-Live-and-Statmux-replacing-CentOS-7 "https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/Advisory-AWS-Elemental-is-introducing-RHEL-9-2-support-for-Elemental-Live-Conductor-Live-and-Statmux-replacing-CentOS-7").
+   - Packages that are stored in the Red Hat BaseOS repository,
+     and that are required to run AWS Elemental software.
+   - Packages that are stored in the Red Hat AppStream
+     repository, that aren't required but that you want to
+     include.
+     For more information about the packages that you must obtain from
+     the AWS Elemental RPM repository, and for instructions about configuring
+     the repository, see the knowledge base article [Advisory](https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/Advisory-AWS-Elemental-is-introducing-RHEL-9-2-support-for-Elemental-Live-Conductor-Live-and-Statmux-replacing-CentOS-7 "https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/Advisory-AWS-Elemental-is-introducing-RHEL-9-2-support-for-Elemental-Live-Conductor-Live-and-Statmux-replacing-CentOS-7").
 
 ## USB stick
 
-1.  Make sure that you have created a boot USB drive. See [Create a boot USB drive](migrate-server-218-get-ready.md#migrate-server-218-boot "migrate-server-218-get-ready.md#migrate-server-218-boot").
-2.  Insert the USB drive into an available USB port. You might need to
-    press **F2** while booting in order to select the boot
-    device. The recovery (kickstart) screen appears.
-3.  Enter the hostname that already applies to this node, then press
-    **Enter**. The installation starts.
-4.  When the installation is complete, remove the USB drive from the
-    system and store it in a secure location.
-5.  Then on the screen, press the reboot button shown or press the
-    **Enter** key.
-6.  You can now install any third-party packages. AWS Elemental maintains an RPM
-    repository for use with RHEL 9. The repository contains the following
-    types of third-party packages:
+1. Make sure that you have created a boot USB drive. See [Create a boot USB drive](migrate-server-218-get-ready.md#migrate-server-218-boot "migrate-server-218-get-ready.md#migrate-server-218-boot").
+2. Insert the USB drive into an available USB port. You might need to
+   press **F2** while booting in order to select the boot
+   device. The recovery (kickstart) screen appears.
+3. Enter the hostname that already applies to this node, then press
+   **Enter**. The installation starts.
+4. When the installation is complete, remove the USB drive from the
+   system and store it in a secure location.
+5. Then on the screen, press the reboot button shown or press the
+   **Enter** key.
+6. You can now install any third-party packages. AWS Elemental maintains an RPM
+   repository for use with RHEL 9. The repository contains the following
+   types of third-party packages:
 
-        * Packages that are stored in the Red Hat BaseOS repository, and
-         that are required to run AWS Elemental software.
-        * Packages that are stored in the Red Hat AppStream repository,
-         that aren't required but that you want to include.
-
-    For more information about the packages that you must obtain from the
-    AWS Elemental RPM repository, and for instructions about configuring the
-    repository, see the knowledge base article [Advisory](https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/Advisory-AWS-Elemental-is-introducing-RHEL-9-2-support-for-Elemental-Live-Conductor-Live-and-Statmux-replacing-CentOS-7 "https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/Advisory-AWS-Elemental-is-introducing-RHEL-9-2-support-for-Elemental-Live-Conductor-Live-and-Statmux-replacing-CentOS-7").
+   - Packages that are stored in the Red Hat BaseOS repository, and
+     that are required to run AWS Elemental software.
+   - Packages that are stored in the Red Hat AppStream repository,
+     that aren't required but that you want to include.
+     For more information about the packages that you must obtain from the
+     AWS Elemental RPM repository, and for instructions about configuring the
+     repository, see the knowledge base article [Advisory](https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/Advisory-AWS-Elemental-is-introducing-RHEL-9-2-support-for-Elemental-Live-Conductor-Live-and-Statmux-replacing-CentOS-7 "https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/Advisory-AWS-Elemental-is-introducing-RHEL-9-2-support-for-Elemental-Live-Conductor-Live-and-Statmux-replacing-CentOS-7").
