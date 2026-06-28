@@ -52,8 +52,8 @@ Required: No
 
 **TelemetrySourceTypes**
 
-The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS
-or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
+The specific telemetry source types to configure for the resource, such as VPC\_FLOW\_LOGS
+or EKS\_AUDIT\_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
 
 Type: Array of strings
 

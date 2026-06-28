@@ -27,7 +27,7 @@ Required: No
 
 **Requirement**
 
-Whether the log record must meet all conditions (MEETS_ALL) or any condition (MEETS_ANY)
+Whether the log record must meet all conditions (MEETS\_ALL) or any condition (MEETS\_ANY)
 to match this filter.
 
 Type: String

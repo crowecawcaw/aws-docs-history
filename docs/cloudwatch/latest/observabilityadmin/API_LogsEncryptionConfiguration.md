@@ -9,7 +9,7 @@ Customer Managed KMS Keys.
 **EncryptionStrategy**
 
 Configuration that determines the encryption strategy of the destination log groups.
-CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log
+CUSTOMER\_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log
 groups.
 
 Type: String
@@ -21,7 +21,7 @@ Required: Yes
 **EncryptionConflictResolutionStrategy**
 
 Conflict resolution strategy for centralization if the encryption strategy is set to
-CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW
+CUSTOMER\_MANAGED and the destination log group is encrypted with an AWS\_OWNED KMS Key. ALLOW
 lets centralization go through while SKIP prevents centralization into the destination log
 group.
 

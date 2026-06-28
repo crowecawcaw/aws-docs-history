@@ -7,7 +7,7 @@ Condition that matches based on the specific WAF action taken on the request.
 **Action**
 
 The WAF action to match against (ALLOW, BLOCK, COUNT, CAPTCHA, CHALLENGE,
-EXCLUDED_AS_COUNT).
+EXCLUDED\_AS\_COUNT).
 
 Type: String
 

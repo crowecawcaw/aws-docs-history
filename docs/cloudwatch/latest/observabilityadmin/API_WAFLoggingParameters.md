@@ -14,7 +14,7 @@ Required: No
 
 **LogType**
 
-The type of WAF logs to collect (currently supports WAF_LOGS).
+The type of WAF logs to collect (currently supports WAF\_LOGS).
 
 Type: String
 
