@@ -12,12 +12,12 @@ We also recommend you first read some key overview and best practice guides:
 
 SAP Notes listed in the following table have useful information regarding SAP BOBI deployment in AWS.
 
-| SAP Notes for SAP BOBI deployment on AWS                                       | SAP Note                                                                         | Description |
-| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | ----------- |
-| [1588667](https://me.sap.com/notes/1588667 "https://me.sap.com/notes/1588667") | SAP on AWS: Overview of related SAP notes and web links                          |
-| [1656099](https://me.sap.com/notes/1656099 "https://me.sap.com/notes/1656099") | SAP on AWS: Supported products, platforms, and landscapes                        |
+SAP Notes for SAP BOBI deployment on AWS| SAP Note | Description |
+| --- | --- |
+| [1588667](https://me.sap.com/notes/1588667 "https://me.sap.com/notes/1588667") | SAP on AWS: Overview of related SAP notes and web links |
+| [1656099](https://me.sap.com/notes/1656099 "https://me.sap.com/notes/1656099") | SAP on AWS: Supported products, platforms, and landscapes |
 | [2442979](https://me.sap.com/notes/2442979 "https://me.sap.com/notes/2442979") | Amazon S3 recommendations for SAP BusinessObjects Business Intelligence Platform |
-| [2438592](https://me.sap.com/notes/2438592 "https://me.sap.com/notes/2438592") | BI Platform 4.2 Cloud Support                                                    |
+| [2438592](https://me.sap.com/notes/2438592 "https://me.sap.com/notes/2438592") | BI Platform 4.2 Cloud Support |
 
 ## Technical Requirements
 

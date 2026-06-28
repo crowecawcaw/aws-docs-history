@@ -2,7 +2,7 @@
 
 ## Tagging AWS Resources
 
-A tag is a label that you assign to an AWS resource. Each tag consists of a *key* and an optional *value*, both of which you define. Adding tags to the various AWS resources will not only make managing your SAP environment much easier but can also be used to quickly search for resources. Many Amazon EC2 API calls can be used in conjunction with a special tag filter. See [AWS Tagging Strategies](https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ "https://aws.amazon.com/answers/account-management/aws-tagging-strategies/") and use it as a starting point to define the tags you need for your resources. Below are the examples on how you can use tags for operational needs:
+A tag is a label that you assign to an AWS resource. Each tag consists of a _key_ and an optional _value_, both of which you define. Adding tags to the various AWS resources will not only make managing your SAP environment much easier but can also be used to quickly search for resources. Many Amazon EC2 API calls can be used in conjunction with a special tag filter. See [AWS Tagging Strategies](https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ "https://aws.amazon.com/answers/account-management/aws-tagging-strategies/") and use it as a starting point to define the tags you need for your resources. Below are the examples on how you can use tags for operational needs:
 
 - You can tag your EBS volumes to identify their environment (for example Environment= DEV/QAS/PRD etc.) and use these tags to create backup policies for EBS volumes
 - You can use similar tags as in above example with EC2 instances and use them for patching your operating systems or running scripts to stop/start application or EC2 instances.
@@ -151,12 +151,12 @@ There are many AWS-provided documents specific to Windows already available.
 
 The SAP BOBI Platform product can use multiple AWS Big Data services as data sources for reporting purposes. When using SAP BOBI version 4.2, you can connect to the following AWS data sources:
 
-| Table 2: AWS Big Data services support for SAP BusinessObjects Business Intelligence 4.2 | Use Case                    | Amazon Product | SAP BOBI 4.2 Supported |
-| ---------------------------------------------------------------------------------------- | --------------------------- | -------------- | ---------------------- |
-| Data source                                                                              | Amazon RDS Oracle           | Yes            |
-| Data source                                                                              | Amazon Redshift             | Yes            |
-| Data source                                                                              | Amazon EMR Hive (Hive1)     | Yes            |
-| Data source                                                                              | Amazon EMR Hive (Hive2)     | Yes            |
-| Data source                                                                              | Amazon EMR Hive 5.6 (Hive2) | Yes            |
+Table 2: AWS Big Data services support for SAP BusinessObjects Business Intelligence 4.2| Use Case | Amazon Product | SAP BOBI 4.2 Supported |
+| --- | --- | --- |
+| Data source | Amazon RDS Oracle | Yes |
+| Data source | Amazon Redshift | Yes |
+| Data source | Amazon EMR Hive (Hive1) | Yes |
+| Data source | Amazon EMR Hive (Hive2) | Yes |
+| Data source | Amazon EMR Hive 5.6 (Hive2) | Yes |
 
 See the [SAP Product Availability Matrix (PAM)](https://support.sap.com/pam "https://support.sap.com/pam") for the complete list of SAP BOBI Platform supported data sources specific to your version.

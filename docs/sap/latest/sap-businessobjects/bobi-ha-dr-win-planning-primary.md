@@ -40,18 +40,18 @@ This guide uses an example of a typical, large-scale deployment with two Availab
 - The management, storage, and processing tiers are installed in subnet 2 in both Availability Zones.
 - The data tier (CMS database) is installed in the DB subnet group in subnet 3 in both Availability Zones.
 
-| Example design for HA/DR architecture           | AWS component                                                                                                                                          | Key consideration             | Specifications for primary region                           | Information used for DR region |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------- | ----------------------------------------------------------- | ------------------------------ |
-| Region                                          | Consider latency requirements, distance from end users.                                                                                                | us-west-2<br>US West (Oregon) | us-east-1<br>US East (N. Virginia)                          |
-| Availability Zone 1                             | Choose at least two Availability Zones.                                                                                                                | us-west-2a                    | us-east-1a                                                  |
-| Availability Zone 2                             | Choose at least two Availability Zones.                                                                                                                | us-west-2b                    | Availability Zone 2 isn’t available for DR in this example. |
-| VPC IP range/CIDR block                         | Range shouldn’t overlap with existing internal IP range. The IP range should be sized appropriately to support the number of hosts and planned growth. | 192.168.0.0/16                | 10.0.0.0/16                                                 |
-| Web tier subnet                                 | CIDR IP range for Availability Zone 1 subnets should accommodate future growth.                                                                        | 192.168.5.0/24                | 10.0.5.0/24                                                 |
-| Management, storage, and processing tier subnet |                                                                                                                                                        | 192.168.6.0/24                | 10.0.6.0/24                                                 |
-| DB group subnet                                 |                                                                                                                                                        | 192.168.7.0/24                | 10.0.7.0/24                                                 |
-| Web tier subnet                                 | CIDR IP range for Availability Zone 2 subnets should accommodate future growth.                                                                        | 192.168.8.0/24                | Availability Zone 2 isn’t available for DR in this example. |
-| Management, storage and processing tier subnet  |                                                                                                                                                        | 192.168.9.0/24                |                                                             |
-| DB group subnet                                 |                                                                                                                                                        | 192.168.10.0/24               |                                                             |
+Example design for HA/DR architecture| AWS component | Key consideration | Specifications for primary region | Information used for DR region |
+| --- | --- | --- | --- |
+| Region | Consider latency requirements, distance from end users. | us-west-2<br>US West (Oregon) | us-east-1<br>US East (N. Virginia) |
+| Availability Zone 1 | Choose at least two Availability Zones. | us-west-2a | us-east-1a |
+| Availability Zone 2 | Choose at least two Availability Zones. | us-west-2b | Availability Zone 2 isn’t available for DR in this example. |
+| VPC IP range/CIDR block | Range shouldn’t overlap with existing internal IP range. The IP range should be sized appropriately to support the number of hosts and planned growth. | 192.168.0.0/16 | 10.0.0.0/16 |
+| Web tier subnet | CIDR IP range for Availability Zone 1 subnets should accommodate future growth. | 192.168.5.0/24 | 10.0.5.0/24 |
+| Management, storage, and processing tier subnet | | 192.168.6.0/24 | 10.0.6.0/24 |
+| DB group subnet | | 192.168.7.0/24 | 10.0.7.0/24 |
+| Web tier subnet | CIDR IP range for Availability Zone 2 subnets should accommodate future growth. | 192.168.8.0/24 | Availability Zone 2 isn’t available for DR in this example. |
+| Management, storage and processing tier subnet | | 192.168.9.0/24 | |
+| DB group subnet | | 192.168.10.0/24 | |
 
 ###### Note
 
