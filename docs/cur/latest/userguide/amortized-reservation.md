@@ -4,7 +4,7 @@ Amortizing is when you distribute one-time reservation costs across the billing
 period that is affected by that cost. Amortizing enables you to see your costs in
 accrual-based accounting as opposed to cash-based accounting. For example, if you
 pay $365 for an All Upfront RI for one year and you have a matching instance that
-uses that RI, that instance costs you $1 a day, amortized.
+ uses that RI, that instance costs you $1 a day, amortized.
 
 You can see the data that Billing and Cost Management uses to calculate your amortized costs in the
 following Cost and Usage Reports columns.

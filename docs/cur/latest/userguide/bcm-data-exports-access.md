@@ -32,7 +32,7 @@ The following table describes the resource types that are available in Data Expo
 | export        | An export is the resource created by the CreateExport API. An export generates a<br>billing and cost management query output on a recurring basis.                           | arn:${Partition}:bcm-data-exports:${Region}:${Account}:export/${exportName}-{UUID} |
 | table         | A table is data in a row-column format that a user queries with an export. Tables<br>are created and managed by AWS for customers. Tables cannot be deleted by<br>customers. | arn:${Partition}:bcm-data-exports:${Region}:${Account}:table/${TableName}          |
 
-To create exports of the COST_AND_USAGE_REPORT or COST_AND_USAGE_DASHBOARD table resources
+To create exports of the COST\_AND\_USAGE\_REPORT or COST\_AND\_USAGE\_DASHBOARD table resources
 in Data Exports, IAM users must also have permissions for the respective `cur` action in
 IAM. This means that if an IAM user is blocked from using `cur` actions for any
 reason, such as lacking an explicit allow on `cur` or a service control policy
@@ -42,9 +42,9 @@ creating or updating exports of these two tables.
 The following table shows which `cur` action is required for which
 `bcm-data-exports` actions in Data Exports for these two tables.
 
-| Data Exports action           | Table resources                                   | Additional required actions in IAM |
-| ----------------------------- | ------------------------------------------------- | ---------------------------------- |
-| bcm-data-exports:CreateExport | COST_AND_USAGE_REPORT<br>COST_AND_USAGE_DASHBOARD | cur:PutReportDefinition            |
+| Data Exports action           | Table resources                                         | Additional required actions in IAM |
+| ----------------------------- | ------------------------------------------------------- | ---------------------------------- |
+| bcm-data-exports:CreateExport | COST\_AND\_USAGE\_REPORT<br>COST\_AND\_USAGE\_DASHBOARD | cur:PutReportDefinition            |
 
 ## Sample policy
 

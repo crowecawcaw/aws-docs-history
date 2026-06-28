@@ -45,7 +45,7 @@ each Kubernetes pod per hour in order to reflect the accelerator, CPU, and memor
 To estimate the number of new line items in AWS CUR per day, use the following
 formula:
 
-For EKS with accelerated computing: `(number of pods _ average pod lifetime _ 3)
+For EKS with accelerated computing: `(number of pods * average pod lifetime * 3)
 
 - 24`
 

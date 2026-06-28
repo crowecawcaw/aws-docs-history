@@ -55,8 +55,8 @@ This step is optional for Amazon Redshift or Quick, but required for Amazon Athe
      aggregated by the day.
 
 18. For **Report versioning**, choose whether you want each
-    version of the report to overwrite the previous version of the report, or to be
-    delivered in addition to the previous versions.
+version of the report to overwrite the previous version of the report, or to be
+delivered in addition to the previous versions.
 
 Overwriting reports can save on Amazon S3 storage costs. Delivering new report versions can improve auditability of billing data over time. 19. For **Report data integration**, choose whether you want to upload your
 Cost and Usage Reports to Amazon Athena, Amazon Redshift, or Quick. The report is compressed in the following
@@ -65,6 +65,5 @@ formats:
     * **Athena**: parquet format
     * **Amazon Redshift or Quick**: .gz compression
 
-20. Choose **Next**.
-21. After you have reviewed the settings for your report, choose **Review
-    and Complete**.
+20. Choose **Next**. 21. After you have reviewed the settings for your report, choose **Review
+and Complete**.

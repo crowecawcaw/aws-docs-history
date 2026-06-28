@@ -28,9 +28,9 @@ need the IAM permission
 
 The methodology for calculating your carbon emissions will evolve over time to better
 reflect your usage and align with carbon accounting best practices. Exports are
-partitioned in hierarchical order by “model_version=Y/” and “usage_period=YYYY-MM/”.
-The “model_version” partition that an export is stored under will correspond to the
-model version used to generate that export, while the “usage_period” partition
+partitioned in hierarchical order by “model\_version=Y/” and “usage\_period=YYYY-MM/”.
+The “model\_version” partition that an export is stored under will correspond to the
+model version used to generate that export, while the “usage\_period” partition
 corresponds to the dates the carbon emissions were generated. This structure enables
 you to differentiate between data with the old and new models by viewing the
 partition names.

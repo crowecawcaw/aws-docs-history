@@ -15,7 +15,7 @@ provide details about reserved resources.
   payment for all upfront RIs and partial upfront RIs amortized for usage
   time. The value is equal to:
   `RIAmortizedUpfrontFeeForBillingPeriod` \* `The
-normalized usage amount for DiscountedUsage line items` /
+ normalized usage amount for DiscountedUsage line items` /
   `The normalized usage amount for the RIFee`. Because
   there are no upfront payments for no upfront RIs, the value for a no
   upfront RI is `0`. We do not provide this value for Dedicated
@@ -218,8 +218,8 @@ period.
   amortized for usage time, for partial upfront RIs and no upfront RIs.
   The value is equal to: `The unblended cost of the RIFee` \*
   `The sum of the normalized usage amount of Usage line
-items` / `The normalized usage amount of the RIFee for
-size flexible Reserved Instances`. Because all upfront RIs
+ items` / `The normalized usage amount of the RIFee for
+ size flexible Reserved Instances`. Because all upfront RIs
   don't have recurring fee payments greater than `0`, the
   value for all upfront RIs is `0`.
 - **Line items applicable:**
@@ -318,22 +318,20 @@ size flexible Reserved Instances`. Because all upfront RIs
   `TotalReservedUnits` populates for both Fee and RIFee line
   items with distinct values.
 
-      + Fee line items: The total number of units reserved, for the
-       total quantity of leases purchased in your subscription for the
-       entire term.
+  - Fee line items: The total number of units reserved, for the
+    total quantity of leases purchased in your subscription for the
+    entire term.
 
+  This is calculated by multiplying the
+  `NumberOfReservations` with
+  `UnitsPerReservation`. For example, 5 RIs x 744
+  hours per month x 12 months = 44,640.
+  - RIFee line items (monthly recurring costs): The
+    total number of available units in your subscription, such as
+    the total number of Amazon EC2 hours in a specific RI
+    subscription.
 
-      This is calculated by multiplying the
-       `NumberOfReservations` with
-       `UnitsPerReservation`. For example, 5 RIs x 744
-       hours per month x 12 months = 44,640.
-      + RIFee line items (monthly recurring costs): The
-       total number of available units in your subscription, such as
-       the total number of Amazon EC2 hours in a specific RI
-       subscription.
-
-
-      For example, 5 RIs x 744 hours = 3,720.
+  For example, 5 RIs x 744 hours = 3,720.
 
 - **Line items applicable:** Fee, RIFee,
   Refund, Credit
@@ -356,20 +354,18 @@ size flexible Reserved Instances`. Because all upfront RIs
   `UnitsPerReservation` populates for both Fee and RIFee line
   items with distinct values.
 
-      + Fee line items: The total number of units reserved for the
-       subscription, such as the total number of RI hours purchased for
-       the term of the subscription.
+  - Fee line items: The total number of units reserved for the
+    subscription, such as the total number of RI hours purchased for
+    the term of the subscription.
 
+  For example 744 hours per month x 12 months = 8,928
+  total hours/units.
+  - RIFee line items (monthly recurring costs): The
+    total number of available units in your subscription, such as
+    the total number of Amazon EC2 hours in a specific RI
+    subscription.
 
-      For example 744 hours per month x 12 months = 8,928
-       total hours/units.
-      + RIFee line items (monthly recurring costs): The
-       total number of available units in your subscription, such as
-       the total number of Amazon EC2 hours in a specific RI
-       subscription.
-
-
-      For example, 1 unit x 744 hours = 744.
+  For example, 1 unit x 744 hours = 744.
 
 - **Line items applicable:** Fee, RIFee,
   Refund, Credit

@@ -2,7 +2,7 @@
 
 The FOCUS 1.0 with AWS columns table contains your cost and usage data formatted with
 FinOps Open Cost and Usage Specification (FOCUS) 1.0, along with five additional columns
-from AWS that contain proprietary billing data. These columns are **x_CostCategories**, **x_Discounts**, **x_Operation**, **x_ServiceCode**, and **x_UsageType**. For more information about the FOCUS open-source
+from AWS that contain proprietary billing data. These columns are **x\_CostCategories**, **x\_Discounts**, **x\_Operation**, **x\_ServiceCode**, and **x\_UsageType**. For more information about the FOCUS open-source
 specification, refer to the [FOCUS](https://focus.finops.org/ "https://focus.finops.org/")
 website.
 

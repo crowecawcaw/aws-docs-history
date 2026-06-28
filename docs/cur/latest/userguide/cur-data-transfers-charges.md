@@ -15,7 +15,7 @@ transfer.
 Data transfer between Availability Zones in the same AWS Region have a
 **UsageType** of
 ``Region`-DataTransfer-Regional-Bytes`. For
- example, the `USE2-DataTransfer-Regional-Bytes` usage type identifies
+example, the `USE2-DataTransfer-Regional-Bytes` usage type identifies
 charges for data transfer between Availability Zones in the US East (Ohio) Region.
 
 For a given resource, you’re charged for both inbound and outbound traffic in a
@@ -30,11 +30,11 @@ Data transfer between different AWS Regions can have the following usage
 types:
 
 - ``Source Region`-`Destination
-Region`-AWS-In-Bytes`: Measures incoming data
+  Region`-AWS-In-Bytes`: Measures incoming data
   transfer TO the destination Region FROM another specific AWS
   Region.
 - ``Source Region`-`Destination
-Region`-AWS-Out-Bytes`: Measures outgoing data
+  Region`-AWS-Out-Bytes`: Measures outgoing data
   transfer FROM the source Region TO another specific AWS Region.
 - ``Source Region`-AWS-In-Bytes`: This
   usage type appears when traffic flows via VPC Peering.
@@ -62,8 +62,8 @@ line item.
 
 Data transfer from AWS to the internet have a **UsageType** of
 ``Region`-DataTransfer-Out-Bytes`. For
- example, the `USE2-DataTransfer-Out-Bytes`usage type identifies charges
- for data transfer from the`USE2` Region to the internet.
+example, the `USE2-DataTransfer-Out-Bytes` usage type identifies charges
+for data transfer from the `USE2` Region to the internet.
 
 There’s no charge for data transfer from the internet to AWS.
 
@@ -99,8 +99,8 @@ Amazon S3 data transfer using S3 Transfer Acceleration have usage types that con
   `CloudFront-Out-ABytes`
 - Between Amazon S3 buckets in different AWS Regions: Usage type of
   ``Source
-Region`-`Destination
-Region`-AWS-Out-ABytes`
+  Region`-`Destination
+  Region`-AWS-Out-ABytes`
 
 ## CloudFront traffic
 

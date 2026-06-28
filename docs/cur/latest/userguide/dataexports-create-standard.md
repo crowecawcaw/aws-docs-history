@@ -96,67 +96,66 @@ different table configurations to add data to your export.
      export** in Cost Optimization Hub.
 
 7. For **Column selection**, select the columns you want to include in
-   your export. If unsure, select all columns by selecting the first check box at the top of
-   the table. Selecting more columns may increase the file size of your export.
-8. Under **Data table delivery options**, for **Data export
-   refresh cadence**: .
+your export. If unsure, select all columns by selecting the first check box at the top of
+the table. Selecting more columns may increase the file size of your export. 8. Under **Data table delivery options**, for **Data export
+refresh cadence**: .
 
-   - For billing and cost management data exports, the only option available is
+    * For billing and cost management data exports, the only option available is
      **Daily - export is refreshed up to one time per day**.
-   - For carbon emissions data exports, the only option available is \*\*Monthly
-   * export is refreshed once per month\*\*. Each update provides the carbon
+    * For carbon emissions data exports, the only option available is **Monthly
+     - export is refreshed once per month**. Each update provides the carbon
      emissions data from the previous month (for example, a February update contains January data).
 
 9. For **File versioning**, choose between the following which
-   determines whether your export is overwritten with each update:
+determines whether your export is overwritten with each update:
 
-   - **Overwrite existing data export file**: Each export refresh
+    * **Overwrite existing data export file**: Each export refresh
      overwrites the previous delivery within the data partition (for example, billing
      periods). Overwriting exports can save on Amazon S3 storage costs.
 
-   ###### Note
 
-   Overwrite is not supported for exports of cost optimization
-   recommendations.
-   - **Create new data export file**: Each export refresh is written
+    ###### Note
+
+    Overwrite is not supported for exports of cost optimization
+     recommendations.
+    * **Create new data export file**: Each export refresh is written
      to a separate directory, even for deliveries of the same partition (for example,
      billing period). Creating new export versions allows you to track the changes in cost
      and usage data over time.
 
 10. For **Report data integration**, choose whether you want to enable your
-    export to integrate with Amazon Athena,or Amazon Redshift. The export is
-    compressed in the following formats:
+export to integrate with Amazon Athena,or Amazon Redshift. The export is
+compressed in the following formats:
 
-    - **Amazon Athena:** Selects the delivery options optimal for Amazon Athena
-      which are Parquet ﬁle format and overwrite existing report. Also delivers a script that
-      can be used to set up the integration.
-    - **Amazon Redshift:** Selects the delivery option optimal for Amazon
-      Redshift which is gzip/csv ﬁle format. Also delivers a script that can be used to set
-      up the integration.
+    * **Amazon Athena:** Selects the delivery options optimal for Amazon Athena
+     which are Parquet ﬁle format and overwrite existing report. Also delivers a script that
+     can be used to set up the integration.
+    * **Amazon Redshift:** Selects the delivery option optimal for Amazon
+     Redshift which is gzip/csv ﬁle format. Also delivers a script that can be used to set
+     up the integration.
 
 11. For **Compression type and file format**, choose between the
-    following for your export:
+following for your export:
 
-    - Parquet – Parquet
-    - gzip – text/csv
+    * Parquet – Parquet
+    * gzip – text/csv
 
 12. Under **Data export storage settings**, choose whether you want your export delivered to the S3 bucket of:
 
-    - This account
-    - Another account
+    * This account
+    * Another account
 
 13. If you choose **This Account** for **S3 bucket** name, choose **Configure** and do one of the following:
 
-    - Select existing bucket.
-    - Choose **Create a bucket** enter **S3 bucket name** and then choose the **Region** where you want to create a new bucket
-    - Review the **Bucket policy**. If you are selecting an existing bucket, you need to acknowledge that Data Exports will
-      overwrite your existing S3 bucket policy. The new
-      policy will allow both CUR and Data Exports to deliver exports.
+    * Select existing bucket.
+    * Choose **Create a bucket** enter **S3 bucket name** and then choose the **Region** where you want to create a new bucket
+    * Review the **Bucket policy**. If you are selecting an existing bucket, you need to acknowledge that Data Exports will
+     overwrite your existing S3 bucket policy. The new
+     policy will allow both CUR and Data Exports to deliver exports.
 
 14. If you choose **Another account** enter **S3 bucket**, **S3 bucket owner**,
-    which is the AWS account that owns the bucket, and **Region**
-15. For **S3 path prefix**, enter a name for the directory that will be
-    created in your S3 bucket to store all the export data.
+which is the AWS account that owns the bucket, and **Region** 15. For **S3 path prefix**, enter a name for the directory that will be
+created in your S3 bucket to store all the export data.
 
 ###### Note
 

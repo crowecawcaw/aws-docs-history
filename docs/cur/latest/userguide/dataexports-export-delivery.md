@@ -180,8 +180,8 @@ client in the following order:
      tag table.
 
 9. After you have copied all of the data from your AWS Data Export into Amazon
-   Redshift, you can query the data using SQL. For more information, see [Amazon Redshift
-   SQL](../../../redshift/latest/dg/c_redshift-sql.md "../../../redshift/latest/dg/c_redshift-sql.md") in the _Amazon Redshift Database Developer Guide_.
+Redshift, you can query the data using SQL. For more information, see [Amazon Redshift
+SQL](../../../redshift/latest/dg/c_redshift-sql.md "../../../redshift/latest/dg/c_redshift-sql.md") in the _Amazon Redshift Database Developer Guide_.
 
 ## Amazon Athena Integration
 

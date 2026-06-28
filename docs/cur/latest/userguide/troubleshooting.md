@@ -63,7 +63,7 @@ When you create your report, you can select the option to **Include resource ID*
 
 ## My Cost and Usage Report queries for Amazon Athena don’t work on Amazon Redshift, or my Amazon Redshift queries don’t work on Amazon Athena
 
-Amazon Athena and Amazon Redshift databases format Cost and Usage Report columns differently. Amazon Athena adds an underscore between words in the column name (line_item_normalized_usage_amount). Amazon Redshift adds an underscore between the column type and the attribute (lineitem_normalizedusageamount). Make sure to modify your queries to match the column name format in Amazon Athena or Amazon Redshift.
+Amazon Athena and Amazon Redshift databases format Cost and Usage Report columns differently. Amazon Athena adds an underscore between words in the column name (line\_item\_normalized\_usage\_amount). Amazon Redshift adds an underscore between the column type and the attribute (lineitem\_normalizedusageamount). Make sure to modify your queries to match the column name format in Amazon Athena or Amazon Redshift.
 
 ## The columns included in my report have changed from a previous month
 

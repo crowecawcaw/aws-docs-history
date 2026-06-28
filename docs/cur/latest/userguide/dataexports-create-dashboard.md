@@ -42,17 +42,15 @@ following:
      create a new bucket.
 
 13. Review the **Bucket policy**, and then choose **Create
-    bucket**.
-14. For **S3 path prefix**, enter the S3 path prefix that you want
-    prepended to the name of your export.
-15. Under **Service access**, choose a method to authorize
-    QuickSight:
+bucket**. 14. For **S3 path prefix**, enter the S3 path prefix that you want
+prepended to the name of your export. 15. Under **Service access**, choose a method to authorize
+QuickSight:
 
-    - Create a new service role (default)
-    - Use an existing service role
+    * Create a new service role (default)
+    * Use an existing service role
 
 16. Under **Tags**, you can choose to add up to 50 tags in order to
-    search and filter your resources or track your AWS costs.
+search and filter your resources or track your AWS costs.
 
 ###### Note
 

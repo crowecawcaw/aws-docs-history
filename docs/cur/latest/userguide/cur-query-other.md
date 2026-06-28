@@ -88,8 +88,8 @@ client in the following order:
     * insert - These commands insert the user-defined tags into the tag table.
 
 9. After you have copied all of the data from your AWS CUR into Amazon Redshift, you can query the
-   data using SQL. For more information about querying data in Amazon Redshift, see [Amazon Redshift SQL](../../../redshift/latest/dg/c_redshift-sql.md "../../../redshift/latest/dg/c_redshift-sql.md") in the
-   _Amazon Redshift Database Developer Guide_.
+data using SQL. For more information about querying data in Amazon Redshift, see [Amazon Redshift SQL](../../../redshift/latest/dg/c_redshift-sql.md "../../../redshift/latest/dg/c_redshift-sql.md") in the
+_Amazon Redshift Database Developer Guide_.
 
 ###### Note
 

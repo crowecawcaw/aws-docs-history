@@ -27,7 +27,7 @@ today in CUR. You do this using the AWS API or SDK.
       selecting `product.from_location`.
 
    Example: `SELECT product.from_location FROM
- COST_AND_USAGE_REPORT`
+  COST_AND_USAGE_REPORT`
 
    This selects the `from_location` column of the `product` map
    column. 3. By default, the column selected with a dot operator is named by the attribute (for
@@ -35,7 +35,7 @@ today in CUR. You do this using the AWS API or SDK.
    declare an alias for the column in order to have the same as before.
 
    Example: `SELECT product.from_location AS product_from_location FROM
- COST_AND_USAGE_REPORT`
+  COST_AND_USAGE_REPORT`
 
    For more details on nested columns, see the [Data Exports table dictionary](dataexports-table-dictionary.md "dataexports-table-dictionary.md").
 

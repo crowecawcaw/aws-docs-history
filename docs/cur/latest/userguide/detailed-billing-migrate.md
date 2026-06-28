@@ -113,29 +113,29 @@ needed. When you begin using a new AWS service, AWS CUR can dynamically start to
 include new data in the report that might be useful in your case. The manifest
 file provides a map of all columns present in the report.
 
-| Equivalent Column Names for DBR and AWS CUR | DBR column name              | AWS CUR column name |
-| ------------------------------------------- | ---------------------------- | ------------------- |
-| InvoiceId                                   | bill/InvoiceId               |
-| PayerAccountId                              | bill/PayerAccountId          |
-| LinkedAccountId                             | lineItem/UsageAccountId      |
-| ProductName                                 | product/ProductName          |
-| SubscriptionId                              | reservation/subscriptionid   |
-| UsageType                                   | lineItem/UsageType           |
-| Operation                                   | lineItem/Operation           |
-| AvailabilityZone                            | lineItem/AvailabilityZone    |
-| ReservedInstance                            | Not Supported                |
-| ItemDescription                             | lineItem/LineItemDescription |
-| UsageStartDate                              | lineItem/UsageStartDate      |
-| UsageEndDate                                | lineItem/UsageEndDate        |
-| UsageQuantity                               | lineItem/UsageAmount         |
-| BlendedRate                                 | lineItem/BlendedRate         |
-| BlendedCost                                 | lineItem/BlendedCost         |
-| UnBlendedRate                               | lineItem/UnblendedRate       |
-| UnBlendedCost                               | lineItem/UnblendedCost       |
-| ResourceId                                  | lineItem/ResourceId          |
-| RecordType                                  | Not Supported                |
-| PricingplanId                               | Not Supported                |
-| RateID                                      | pricing/RateId               |
+Equivalent Column Names for DBR and AWS CUR| DBR column name | AWS CUR column name |
+| --- | --- |
+| InvoiceId | bill/InvoiceId |
+| PayerAccountId | bill/PayerAccountId |
+| LinkedAccountId | lineItem/UsageAccountId |
+| ProductName | product/ProductName |
+| SubscriptionId | reservation/subscriptionid |
+| UsageType | lineItem/UsageType |
+| Operation | lineItem/Operation |
+| AvailabilityZone | lineItem/AvailabilityZone |
+| ReservedInstance | Not Supported |
+| ItemDescription | lineItem/LineItemDescription |
+| UsageStartDate | lineItem/UsageStartDate |
+| UsageEndDate | lineItem/UsageEndDate |
+| UsageQuantity | lineItem/UsageAmount |
+| BlendedRate | lineItem/BlendedRate |
+| BlendedCost | lineItem/BlendedCost |
+| UnBlendedRate | lineItem/UnblendedRate |
+| UnBlendedCost | lineItem/UnblendedCost |
+| ResourceId | lineItem/ResourceId |
+| RecordType | Not Supported |
+| PricingplanId | Not Supported |
+| RateID | pricing/RateId |
 
 ###### Note
 
@@ -143,14 +143,14 @@ There's no equivalent for RecordId in AWS CUR. But, you can gather this
 information by combining identity/LineItemId, identity/TimeInterval, and
 bill/BillType.
 
-| Retrieving DBR RecordType values through AWS CUR | RecordType values in DBR                                                                                              | Syntax to retrieve RecordType through AWS CUR                                                           | Use case |
-| ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------- |
-| LineItem                                         | SELECT SUM(line_item_unblended_cost) FROM [CUR] WHERE<br>line_item_line_item_type = 'Usage'                           | Usage line item partitions out usage costs from one-time<br>charges (for example, upfront RI payment).  |
-| InvoiceTotal                                     | SELECT (bill_invoice_id), sum(line_item_unblended_cost)<br>FROM [CUR] GROUP BY bill_invoice_id                        | You can use invoice total to reconcile your costs between<br>Invoices and Cost and Usage Reports.       |
-| AccountTotal                                     | SELECT line_item_usage_account_id,<br>sum(line_item_unblended_cost) FROM [CUR] GROUP BY<br>line_item_usage_account_id | You can use account total to isolate costs related to<br>your member accounts for charge back purposes. |
-| StatementTotal                                   | SELECT SUM(line_item_unblended_cost) FROM [CUR]                                                                       | You can use statement total to understand your costs for<br>the billing period.                         |
-| Discount                                         | SELECT SUM(line_item_unblended_cost) FROM [CUR] WHERE<br>line_item_line_item_type = 'Discount'                        | You can use discount line items to identify all of your<br>discount-related line items.                 |
-| Rounding                                         | Not yet supported                                                                                                     | Not yet supported                                                                                       |
+Retrieving DBR RecordType values through AWS CUR| RecordType values in DBR | Syntax to retrieve RecordType through AWS CUR | Use case |
+| --- | --- | --- |
+| LineItem | SELECT SUM(line\_item\_unblended\_cost) FROM [CUR] WHERE<br>line\_item\_line\_item\_type = 'Usage' | Usage line item partitions out usage costs from one-time<br>charges (for example, upfront RI payment). |
+| InvoiceTotal | SELECT (bill\_invoice\_id), sum(line\_item\_unblended\_cost)<br>FROM [CUR] GROUP BY bill\_invoice\_id | You can use invoice total to reconcile your costs between<br>Invoices and Cost and Usage Reports. |
+| AccountTotal | SELECT line\_item\_usage\_account\_id,<br>sum(line\_item\_unblended\_cost) FROM [CUR] GROUP BY<br>line\_item\_usage\_account\_id | You can use account total to isolate costs related to<br>your member accounts for charge back purposes. |
+| StatementTotal | SELECT SUM(line\_item\_unblended\_cost) FROM [CUR] | You can use statement total to understand your costs for<br>the billing period. |
+| Discount | SELECT SUM(line\_item\_unblended\_cost) FROM [CUR] WHERE<br>line\_item\_line\_item\_type = 'Discount' | You can use discount line items to identify all of your<br>discount-related line items. |
+| Rounding | Not yet supported | Not yet supported |
 
 ## Reporting on advanced charge types
 

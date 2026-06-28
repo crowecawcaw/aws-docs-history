@@ -47,9 +47,9 @@ Based on the cpu and memory resources on the EC2 instance and using the ratio of
 
 `Cost-per-GB-Hour = Memory-Weight * UnitCostPerResource = .1 * $0.056 = $0.00506`
 
-| Table 1: Unit cost calculation | Instance    | Instance Type | vCPU Available | GPU Available | \*\* | Memory Available | Amortized Cost per Hour | Cost per vCPU-Hour | Cost per GPU-Hour | Cost per GB-Hour |
-| ------------------------------ | ----------- | ------------- | -------------- | ------------- | ---- | ---------------- | ----------------------- | ------------------ | ----------------- | ---------------- |
-| Instance 1                     | p3.16xlarge | 64            | 8              |               | 488  | $10              | $0.05                   | $0.50              | 0.005             |
+Table 1: Unit cost calculation| Instance | Instance Type | vCPU Available | GPU Available | \*\* | Memory Available | Amortized Cost per Hour | Cost per vCPU-Hour | Cost per GPU-Hour | Cost per GB-Hour |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Instance 1 | p3.16xlarge | 64 | 8 | | 488 | $10 | $0.05 | $0.50 | 0.005 |
 
 ## Step 2: Calculate allocated and unused capacity
 
@@ -81,14 +81,14 @@ The unused capacity of GPU, vcpu and Memory
 
 In this example, the instance has CPU over subscription, attributed to Pod 2 that used more GPU and vcpu that what was reserved.
 
-| Table 2: Calculate Allocated and Unused Capacity | Pod Name    | Namespace | vcpu Reserved | vcpu Used | vcpu Allocated | GPU Reserved | GPU used | GPU Allocated | Memory Reserved | Memory Used | Memory Allocated |
-| ------------------------------------------------ | ----------- | --------- | ------------- | --------- | -------------- | ------------ | -------- | ------------- | --------------- | ----------- | ---------------- |
-| Pod 1                                            | Namespace 1 | 16        | 4             | 16        | 1              | 1            | 1        | 100           | 60              | 100         |
-| Pod 2                                            | Namespace 2 | 16        | 18            | 18        | 2              | 3            | 3        | 100           | 140             | 140         |
-| Pod 3                                            | Namespace 1 | 16        | 4             | 16        | 2              | 1            | 2        | 100           | 60              | 100         |
-| Pod 4                                            | Namespace 2 | 16        | 4             | 16        | 2              | 2            | 2        | 100           | 40              | 100         |
-| Unused                                           | Unused      | 0         | 34            | 0         | 1              | 1            | 0        | 88            | 188             | 48          |
-| \*\*\*                                           |             | 64        | 32            | 66        | 8              | 8            | 8        | 488           | 488             | 488         |
+Table 2: Calculate Allocated and Unused Capacity| Pod Name | Namespace | vcpu Reserved | vcpu Used | vcpu Allocated | GPU Reserved | GPU used | GPU Allocated | Memory Reserved | Memory Used | Memory Allocated |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Pod 1 | Namespace 1 | 16 | 4 | 16 | 1 | 1 | 1 | 100 | 60 | 100 |
+| Pod 2 | Namespace 2 | 16 | 18 | 18 | 2 | 3 | 3 | 100 | 140 | 140 |
+| Pod 3 | Namespace 1 | 16 | 4 | 16 | 2 | 1 | 2 | 100 | 60 | 100 |
+| Pod 4 | Namespace 2 | 16 | 4 | 16 | 2 | 2 | 2 | 100 | 40 | 100 |
+| Unused | Unused | 0 | 34 | 0 | 1 | 1 | 0 | 88 | 188 | 48 |
+| \*\*\* | | 64 | 32 | 66 | 8 | 8 | 8 | 488 | 488 | 488 |
 
 ## Step 3: Compute the split usage and utilization ratios
 
@@ -126,14 +126,14 @@ The percentage of CPU or memory used by the Kubernetes Pod compared to the overa
 
 `= 0.204/ (1-0.102) = 0.227`
 
-| Table 3: Compute Utilization ratios | Pod Name    | Namespace | vcpu Utilization | vcpu Split Ratio | GPU Utilization | GPU Split Ratio | Memory Utilization | Memory Split Ratio |
-| ----------------------------------- | ----------- | --------- | ---------------- | ---------------- | --------------- | --------------- | ------------------ | ------------------ |
-| Pod 1                               | Namespace 1 | 0.242     | 0                | 0.125            | 0               | 0.205           | 0.227              |
-| Pod 2                               | Namespace 2 | 0.277     | 0                | 0.375            | 0               | 0.287           | 0.318              |
-| Pod 3                               | Namespace 1 | 0.242     | 0                | 0.25             | 0               | 0.205           | 0.227              |
-| Pod 4                               | Namespace 2 | 0.242     | 0                | 0.25             | 0               | 0.205           | 0.227              |
-| Unused                              | Unused      | 0         |                  |                  |                 | 0.098           |                    |
-|                                     |             | 1         | 0                | 1                | 0               | 1               | 1                  |
+Table 3: Compute Utilization ratios| Pod Name | Namespace | vcpu Utilization | vcpu Split Ratio | GPU Utilization | GPU Split Ratio | Memory Utilization | Memory Split Ratio |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Pod 1 | Namespace 1 | 0.242 | 0 | 0.125 | 0 | 0.205 | 0.227 |
+| Pod 2 | Namespace 2 | 0.277 | 0 | 0.375 | 0 | 0.287 | 0.318 |
+| Pod 3 | Namespace 1 | 0.242 | 0 | 0.25 | 0 | 0.205 | 0.227 |
+| Pod 4 | Namespace 2 | 0.242 | 0 | 0.25 | 0 | 0.205 | 0.227 |
+| Unused | Unused | 0 | | | | 0.098 | |
+| | | 1 | 0 | 1 | 0 | 1 | 1 |
 
 ## Step 4: Compute the split cost and unused costs
 
@@ -157,10 +157,10 @@ The cost of unused CPU or memory resources on the instance
 
 [Note: Unused cost = Unused util ratio \* Total resource \* resource hourly cost]
 
-| Table 4 - Summary of the Split and Unused costs calculated each hour for all Pods running within the cluster | Pod Name    | Namespace | Split Cost | Unused Cost | Total Cost |
-| ------------------------------------------------------------------------------------------------------------ | ----------- | --------- | ---------- | ----------- | ---------- |
-| Pod 1                                                                                                        | Namespace 1 | $1.85     | $0.06      | $1.91       |
-| Pod 2                                                                                                        | Namespace 2 | $3.18     | $0.09      | $3.26       |
-| Pod 3                                                                                                        | Namespace 1 | $2.35     | $0.06      | $2.41       |
-| Pod 4                                                                                                        | Namespace 2 | $2.35     | $0.06      | $2.41       |
-| Total                                                                                                        |             |           |            | $10         |
+Table 4 - Summary of the Split and Unused costs calculated each hour for all Pods running within the cluster| Pod Name | Namespace | Split Cost | Unused Cost | Total Cost |
+| --- | --- | --- | --- | --- |
+| Pod 1 | Namespace 1 | $1.85 | $0.06 | $1.91 |
+| Pod 2 | Namespace 2 | $3.18 | $0.09 | $3.26 |
+| Pod 3 | Namespace 1 | $2.35 | $0.06 | $2.41 |
+| Pod 4 | Namespace 2 | $2.35 | $0.06 | $2.41 |
+| Total | | | | $10 |

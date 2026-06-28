@@ -303,7 +303,7 @@ helm upgrade prometheus-chart-name prometheus-community/prometheus -n prometheus
 ```
 
 To learn more about `scrape_interval`or how to use a non-global
-scrape_interval, refer to [Prometheus scrape configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config").
+scrape\_interval, refer to [Prometheus scrape configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config").
 
 Alternatively, you can use the AWS Distro for OpenTelemetry collector
 that has a Prometheus Receiver, a Prometheus Remote Write Exporter, and the

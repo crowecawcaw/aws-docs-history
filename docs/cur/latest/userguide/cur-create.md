@@ -45,21 +45,19 @@ following:
      the Region where you want to create a new bucket.
 
 11. Review the bucket policy, select **The following default policy will be
-    applied to your bucket**, and then choose **Save**.
-12. For **Report path prefix**, enter the report path prefix that you
-    want prepended to the name of your report.
-13. For **Time granularity**, choose one of the following:
+applied to your bucket**, and then choose **Save**. 12. For **Report path prefix**, enter the report path prefix that you
+want prepended to the name of your report. 13. For **Time granularity**, choose one of the following:
 
-    - **Hourly** if you want the line items in the report to be
-      aggregated by the hour.
-    - **Daily** if you want the line items in the report to be
-      aggregated by the day.
-    - **Monthly** if you want the line items in the report to be
-      aggregated by month.
+    * **Hourly** if you want the line items in the report to be
+     aggregated by the hour.
+    * **Daily** if you want the line items in the report to be
+     aggregated by the day.
+    * **Monthly** if you want the line items in the report to be
+     aggregated by month.
 
 14. For **Report versioning**, choose whether you want each version of
-    the report to overwrite the previous version of the report or to be delivered in addition
-    to the previous versions.
+the report to overwrite the previous version of the report or to be delivered in addition
+to the previous versions.
 
 Overwriting reports can save on Amazon S3 storage costs. Delivering new report versions can
 improve auditability of billing data over time. 15. For **Report data integration**, select whether you want to enable
@@ -69,8 +67,7 @@ the following formats:
     * **Athena**: parquet format
     * **Amazon Redshift or Quick**: .gz compression
 
-16. Choose **Next**.
-17. After you have reviewed the settings for your report, choose **Review and
-    Complete**.
-    You can always return to the **Cost and Usage Reports** page in the Billing and Cost Management console to
-    see when your reports were last updated.
+16. Choose **Next**. 17. After you have reviewed the settings for your report, choose **Review and
+Complete**.
+You can always return to the **Cost and Usage Reports** page in the Billing and Cost Management console to
+see when your reports were last updated.

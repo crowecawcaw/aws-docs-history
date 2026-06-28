@@ -169,20 +169,20 @@ according to a normalization factor, based on the instance size. The following
 table shows the normalization factor that AWS applies to each instance
 size.
 
-| Normalization factors for Amazon EC2 size-flexible RIs | Instance size | Normalization factor |
-| ------------------------------------------------------ | ------------- | -------------------- |
-| `nano`                                                 | 0.25          |
-| `micro`                                                | 0.5           |
-| `small`                                                | 1             |
-| `medium`                                               | 2             |
-| `large`                                                | 4             |
-| `xlarge`                                               | 8             |
-| `2xlarge`                                              | 16            |
-| `4xlarge`                                              | 32            |
-| `8xlarge`                                              | 64            |
-| `10xlarge`                                             | 80            |
-| `16xlarge`                                             | 128           |
-| `32xlarge`                                             | 256           |
+Normalization factors for Amazon EC2 size-flexible RIs| Instance size | Normalization factor |
+| --- | --- |
+| `nano` | 0.25 |
+| `micro` | 0.5 |
+| `small` | 1 |
+| `medium` | 2 |
+| `large` | 4 |
+| `xlarge` | 8 |
+| `2xlarge` | 16 |
+| `4xlarge` | 32 |
+| `8xlarge` | 64 |
+| `10xlarge` | 80 |
+| `16xlarge` | 128 |
+| `32xlarge` | 256 |
 
 ### lineItem/NormalizedUsageAmount
 
@@ -219,23 +219,23 @@ with an instantiated host, such as data transfers and API requests, and line
 item types such as discounts, credits, and taxes. The following table shows a
 list of resource identifiers for common AWS services.
 
-| AWS resource identifiers                     | AWS service                           | Resource identifier |
-| -------------------------------------------- | ------------------------------------- | ------------------- |
-| Amazon CloudFront                            | Distribution ID                       |
-| Amazon CloudSearch                           | Search domain                         |
-| Amazon DynamoDB                              | DynamoDB table                        |
-| Amazon Elastic Compute Cloud<br>• Amazon EBS | Amazon EBS volume                     |
-| Amazon Elastic Compute Cloud                 | Instance ID                           |
+AWS resource identifiers| AWS service | Resource identifier |
+| --- | --- |
+| Amazon CloudFront | Distribution ID |
+| Amazon CloudSearch | Search domain |
+| Amazon DynamoDB | DynamoDB table |
+| Amazon Elastic Compute Cloud<br>• Amazon EBS | Amazon EBS volume |
+| Amazon Elastic Compute Cloud | Instance ID |
 | Amazon Elastic Compute Cloud<br>• CloudWatch | CloudWatch charges for an instance ID |
-| Amazon EMR                                   | MapReduce cluster                     |
-| Amazon ElastiCache                           | Cache cluster                         |
-| Amazon OpenSearch Service                    | Search domain                         |
-| Amazon Glacier                               | Vault                                 |
-| Amazon Relational Database Service           | Database                              |
-| Amazon Redshift                              | Amazon Redshift cluster               |
-| Amazon Simple Storage Service                | Amazon S3 bucket                      |
-| Amazon Virtual Private Cloud                 | VPN ID                                |
-| AWS Lambda                                   | Lambda function name                  |
+| Amazon EMR | MapReduce cluster |
+| Amazon ElastiCache | Cache cluster |
+| Amazon OpenSearch Service | Search domain |
+| Amazon Glacier | Vault |
+| Amazon Relational Database Service | Database |
+| Amazon Redshift | Amazon Redshift cluster |
+| Amazon Simple Storage Service | Amazon S3 bucket |
+| Amazon Virtual Private Cloud | VPN ID |
+| AWS Lambda | Lambda function name |
 
 ## T
 

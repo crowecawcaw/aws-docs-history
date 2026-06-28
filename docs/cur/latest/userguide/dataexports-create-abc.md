@@ -42,14 +42,12 @@ Use the following steps to generate a pro forma AWS CUR for a billing group.
     * Choose an existing bucket from the drop down list and choose **Next**.
     * Enter a bucket name and the AWS Region where you want to create a new bucket and choose **Next**.
 
-11. Review the **Bucket policy**, select **I have confirmed that this policy is correct**, and choose **Save**.
-12. For **S3 path prefix**, enter the S3 path prefix that you want
-    prepended to the name of your export.
-13. For **Time granularity**, choose one of the following:
+11. Review the **Bucket policy**, select **I have confirmed that this policy is correct**, and choose **Save**. 12. For **S3 path prefix**, enter the S3 path prefix that you want
+prepended to the name of your export. 13. For **Time granularity**, choose one of the following:
 
-    - **Hourly** if you want the line items in the report to be aggregated by the hour.
-    - **Daily** if you want the line items in the report to be aggregated by the day.
-    - **Monthly** if you want the line items in the report to be aggregated by the month.
+    * **Hourly** if you want the line items in the report to be aggregated by the hour.
+    * **Daily** if you want the line items in the report to be aggregated by the day.
+    * **Monthly** if you want the line items in the report to be aggregated by the month.
 
 14. For **Report versioning**, choose whether you want each version of the report to overwrite the previous version of the report, or to be delivered in addition to the previous versions.
 

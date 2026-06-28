@@ -2,7 +2,7 @@
 
 The FOCUS 1.2 with AWS columns table contains your cost and usage data formatted with
 FinOps Open Cost and Usage Specification (FOCUS) 1.0, along with three additional
-columns from AWS that contain proprietary billing data. These columns are **x_Discounts**, **x_Operation**, and **x_ServiceCode**. For more information about the FOCUS open-source
+columns from AWS that contain proprietary billing data. These columns are **x\_Discounts**, **x\_Operation**, and **x\_ServiceCode**. For more information about the FOCUS open-source
 specification, refer to the [FOCUS](https://focus.finops.org/ "https://focus.finops.org/")
 website.
 
@@ -17,7 +17,7 @@ FOCUS 1.2 has the following table configurations:
 
 | Configuration name | Description                                                                                                                                                                                                               | Valid values                 |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| TIME_GRANULARITY   | This configuration changes the cost and usage line items in<br>the FOCUS 1.2 table to have different time granularities.<br>For example, selecting "HOURLY" will make all line items<br>represent a single hour of usage. | HOURLY,<br>DAILY,<br>MONTHLY |
+| TIME\_GRANULARITY  | This configuration changes the cost and usage line items in<br>the FOCUS 1.2 table to have different time granularities.<br>For example, selecting "HOURLY" will make all line items<br>represent a single hour of usage. | HOURLY,<br>DAILY,<br>MONTHLY |
 
 ## AWS Organizations support
 

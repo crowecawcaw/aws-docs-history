@@ -50,7 +50,7 @@ Note the following two pieces of information about SQL queries:
 
 ## Recommended SQL queries for processing carbon emissions data exports
 
-To get the total carbon emissions per payer_account_id:
+To get the total carbon emissions per payer\_account\_id:
 
 ```
 SELECT payer_account_id, SUM(total_mbm_emissions_value) AS total_emissions
@@ -60,7 +60,7 @@ ORDER BY total_emissions DESC;
 
 ```
 
-To get the total carbon emissions per payer_account_id and per product_code:
+To get the total carbon emissions per payer\_account\_id and per product\_code:
 
 ```
 SELECT payer_account_id, product_code, SUM(total_mbm_emissions_value) AS total_emissions
@@ -69,7 +69,7 @@ GROUP BY payer_account_id, product_code
 ORDER BY total_emissions DESC;
 ```
 
-To get the total carbon emissions per payer_account_id and per region_code:
+To get the total carbon emissions per payer\_account\_id and per region\_code:
 
 ```
 SELECT payer_account_id, region_code, SUM(total_mbm_emissions_value) AS total_emissions

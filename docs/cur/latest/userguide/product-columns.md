@@ -182,7 +182,7 @@ attribute of Hosting.
   destination Country ISO 3166-1 alpha-2 code to which the SMS was sent
   to.
 
-For reference, visit [https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 "https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2").
+For reference, visit [https://en.wikipedia.org/wiki/ISO\_3166-1\_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 "https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2").
 
 - **Sample values:**
   `FR`, `CO`, `MA`, `KN`,
@@ -490,7 +490,7 @@ application programming interface that conforms to the constraints of
   - Amazon ElastiCache
   - Amazon EMR
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
+  and more. For the full service list, download [Column\_Attribute\_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/instanceSize
 
@@ -519,7 +519,7 @@ application programming interface that conforms to the constraints of
   - Amazon ElastiCache
   - Amazon EMR
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
+  and more. For the full service list, download [Column\_Attribute\_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/instanceTypeFamily
 
@@ -620,7 +620,7 @@ application programming interface that conforms to the constraints of
   - Amazon RDS
   - Amazon DynamoDB
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
+  and more. For the full service list, download [Column\_Attribute\_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/locationType
 
@@ -637,7 +637,7 @@ application programming interface that conforms to the constraints of
   - Amazon RDS
   - Amazon DynamoDB
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
+  and more. For the full service list, download [Column\_Attribute\_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/logsDestination
 
@@ -657,7 +657,7 @@ application programming interface that conforms to the constraints of
   - Amazon RDS
   - Amazon DynamoDB
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
+  and more. For the full service list, download [Column\_Attribute\_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ## M
 
@@ -744,7 +744,7 @@ application programming interface that conforms to the constraints of
   - Amazon SageMaker AI
   - AWS Database Migration Service
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
+  and more. For the full service list, download [Column\_Attribute\_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/normalizationSizeFactor
 
@@ -797,7 +797,7 @@ application programming interface that conforms to the constraints of
   - Amazon CloudWatch
   - Amazon Redshift
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
+  and more. For the full service list, download [Column\_Attribute\_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/originationIdType
 
@@ -845,8 +845,8 @@ application programming interface that conforms to the constraints of
 - **Description:** Describes the processor
   on your Amazon EC2 instance.
 - **Sample values:** `High Frequency
-Intel Xeon E7-8880 v3 (Haswell)`, `Intel Xeon
-E5-2670`, `AMD EPYC 7571`
+ Intel Xeon E7-8880 v3 (Haswell)`, `Intel Xeon
+ E5-2670`, `AMD EPYC 7571`
 - **Services:**
 
   - Amazon DocumentDB
@@ -925,7 +925,7 @@ E5-2670`, `AMD EPYC 7571`
   - Amazon RDS
   - Amazon DynamoDB
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
+  and more. For the full service list, download [Column\_Attribute\_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/ProductName
 
@@ -995,7 +995,7 @@ E5-2670`, `AMD EPYC 7571`
   - Amazon RDS
   - Amazon DynamoDB
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
+  and more. For the full service list, download [Column\_Attribute\_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/regioncode
 
@@ -1133,7 +1133,7 @@ E5-2670`, `AMD EPYC 7571`
   - Amazon RDS
   - Amazon DynamoDB
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
+  and more. For the full service list, download [Column\_Attribute\_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/storage
 
@@ -1150,7 +1150,7 @@ E5-2670`, `AMD EPYC 7571`
   - OpenSearch Service
   - Amazon WorkSpaces
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
+  and more. For the full service list, download [Column\_Attribute\_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/storageclass
 
@@ -1258,7 +1258,7 @@ E5-2670`, `AMD EPYC 7571`
   - Amazon CloudFront
   - Amazon Lightsail
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
+  and more. For the full service list, download [Column\_Attribute\_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/toRegionCode
 
@@ -1325,7 +1325,7 @@ For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricin
   - Amazon RDS
   - Amazon DynamoDB
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
+  and more. For the full service list, download [Column\_Attribute\_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ## V
 
@@ -1347,7 +1347,7 @@ For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricin
   - OpenSearch Service
   - Amazon ElastiCache
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
+  and more. For the full service list, download [Column\_Attribute\_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ### product/videoCodec
 
@@ -1398,7 +1398,7 @@ For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricin
   - Amazon DynamoDB
   - Amazon Glacier
 
-  and more. For the full service list, download [Column_Attribute_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
+  and more. For the full service list, download [Column\_Attribute\_Service.zip](samples/Column_Attribute_Service.zip.md "samples/Column_Attribute_Service.zip.md").
 
 ## W
 
@@ -1406,7 +1406,7 @@ For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricin
 
 - **Description:** The segmentation of the
   employed or unemployed labour pool. For example, `Full Time
-Employees` (FTE), or `Temporary`.
+ Employees` (FTE), or `Temporary`.
 - **Services:**
 
   - Amazon SageMaker AI

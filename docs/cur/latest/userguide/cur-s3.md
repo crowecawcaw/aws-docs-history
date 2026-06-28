@@ -60,7 +60,7 @@ Usage Report. Specifically:
   changed, the report will not be delivered. This helps to ensure the security of the
   account’s billing data. This bucket policy allows AWS (`"Effect": "Allow"`)
   to check which account owns the bucket (`"Action": ["s3:GetBucketAcl",
-"s3:GetBucketPolicy"`).
+ "s3:GetBucketPolicy"`).
 - To deliver reports to your Amazon S3 bucket, AWS needs write permissions for that bucket.
   To do this, the bucket policy grants (`"Effect": "Allow"`) the AWS Cost and Usage Reports
   service (`"Service": "billingreports.amazonaws.com"`) permission to deliver

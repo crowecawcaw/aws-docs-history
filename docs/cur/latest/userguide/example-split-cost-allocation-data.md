@@ -126,9 +126,9 @@ if Instance-unused-memory is 0)
 
 = (0.204 \* 4 vCPU \* $0.17) + (0.25 \* 16GB \* $0.02) = $0.22
 
-`Pod1-Unused-cost = (Pod1-vCPU-unused-ratio _
-Instance-vCPU-unused-ratio _ vCPU-available _ Cost-per-VCPU-hour) +
-(Pod1-Memory-unused-ratio _ Instance-Memory-unused ratio \* Memory-available
+`Pod1-Unused-cost = (Pod1-vCPU-unused-ratio *
+Instance-vCPU-unused-ratio * vCPU-available * Cost-per-VCPU-hour) +
+(Pod1-Memory-unused-ratio * Instance-Memory-unused ratio * Memory-available
 
 - Cost-per-GB-hour)`
 
