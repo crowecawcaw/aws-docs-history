@@ -59,8 +59,8 @@ as the primary memory metric to generate recommendations.
 - We recommend that you configure the `CWAgent` namespace to use
   `Available MBytes` as your memory metric for Windows instances.
 - Compute Optimizer also supports the `Available KBytes` and `Available
-Bytes` metrics, and prioritizes both over the `Memory % Committed Bytes
-In Use` metric when generating recommendations for Windows instances.
+ Bytes` metrics, and prioritizes both over the `Memory % Committed Bytes
+ In Use` metric when generating recommendations for Windows instances.
 
 Additionally, the namespace must contain the `InstanceId` dimension. If the
 `InstanceId` dimension is missing or you overwrite it with a custom dimension

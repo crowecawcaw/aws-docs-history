@@ -24,9 +24,8 @@ metrics ingestion.
      Preference level dropdown. In the prompt that appears, select the account you want to opt out.
      Then, choose **Set account level**.
 
-4. Choose **Edit**.
-5. In the prompt that appears, select **No external metrics provider**.
-   Then, choose **Confirm**.
+4. Choose **Edit**. 5. In the prompt that appears, select **No external metrics provider**.
+Then, choose **Confirm**.
 
 CLI
 

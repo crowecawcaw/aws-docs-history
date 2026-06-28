@@ -39,12 +39,12 @@ Export jobs can have one of the following statuses.
 
 3. You can perform the following actions on the page:
 
-   - Choose the export destination link for a completed job to access the destination
+    * Choose the export destination link for a completed job to access the destination
      S3 bucket. The export destination displays only for successful export
      jobs.
      A dash (-) displays for export jobs that are in progress or that
      failed.
-   - Scroll right to view the failure reason for failed export jobs. Use the failure
+    * Scroll right to view the failure reason for failed export jobs. Use the failure
      reason to determine why your export job isn't complete.
 
 ## Additional resources

@@ -18,38 +18,37 @@ Bucket?](../../../AmazonS3/latest/userguide/create-bucket.md "../../../AmazonS3/
 After you create your S3 bucket, follow these steps to add a policy to the S3 bucket
 that allows Compute Optimizer to write recommendations export files to your bucket.
 
-1.  Open the Amazon S3 console at
-    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2.  Choose the bucket where you want Compute Optimizer to deliver your export files.
-3.  Choose **Permissions**.
-4.  Choose **Bucket Policy**.
-5.  Copy one of the following policies, and paste it into the **Bucket
-    Policy Editor** text box.
-6.  Replace the following placeholder text in the policy:
+1. Open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. Choose the bucket where you want Compute Optimizer to deliver your export files.
+3. Choose **Permissions**.
+4. Choose **Bucket Policy**.
+5. Copy one of the following policies, and paste it into the **Bucket
+   Policy Editor** text box.
+6. Replace the following placeholder text in the policy:
 
-    - Replace `amzn-s3-demo-bucket` with the name of your
-      bucket.
-    - Replace `optionalPrefix` with the optional
-      object prefix.
-    - Replace `myRegion` with the source
-      AWS Region.
-    - Replace `myAccountID` with the account number
-      of the requester of the export job.
+   - Replace `amzn-s3-demo-bucket` with the name of your
+     bucket.
+   - Replace `optionalPrefix` with the optional
+     object prefix.
+   - Replace `myRegion` with the source
+     AWS Region.
+   - Replace `myAccountID` with the account number
+     of the requester of the export job.
 
-7.  Include all three of the following statements in the policy:
+7. Include all three of the following statements in the policy:
 
-        1. The first statement (for the `GetBucketAcl` action) allows
-         Compute Optimizer to get the access control list (ACL) of your bucket.
-        2. The second statement (for the `GetBucketPolicyStatus`
-         action) allows Compute Optimizer to get the policy status of your bucket, indicating
-         whether the bucket is public.
-        3. The third statement (for the `PutObject` action) gives Compute Optimizer
-         full control to put the export file in your bucket.
-
-    Your export request fails if any of these statements are missing or if the
-    bucket name and optional object prefix in the policy don't match what you
-    specify in your export request. Your export also fails if the account number in
-    the policy doesn't match the account number of the requester of the export job.
+   1. The first statement (for the `GetBucketAcl` action) allows
+      Compute Optimizer to get the access control list (ACL) of your bucket.
+   2. The second statement (for the `GetBucketPolicyStatus`
+      action) allows Compute Optimizer to get the policy status of your bucket, indicating
+      whether the bucket is public.
+   3. The third statement (for the `PutObject` action) gives Compute Optimizer
+      full control to put the export file in your bucket.
+      Your export request fails if any of these statements are missing or if the
+      bucket name and optional object prefix in the policy don't match what you
+      specify in your export request. Your export also fails if the account number in
+      the policy doesn't match the account number of the requester of the export job.
 
 ###### Note
 

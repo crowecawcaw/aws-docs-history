@@ -84,20 +84,20 @@ resource-specific requirements. For a list of the requiremtents for each resourc
 Compute Optimizer generates recommendations for the instance types listed in this section.
 The following table lists the EC2 instance types that are supported by Compute Optimizer.
 
-| Instance series                           | Instance family |
-| ----------------------------------------- | --------------- | ------ | ------ | ------- | ------- | ------- | ------- | ------- | -------- | --------- | --------- | --------- | --- | ---- | ----- | ---- | ----- | ---- | ---- | --- | -------- | --- | -------- | ---- | ----- | ---- | ---- | -------- | ---- | --- | -------- | ---- |
-| \*_C_<br>• – Compute optimized            | C1              | C3     | C4     | C5      | C5a     | C5ad    | C5d     | C5n     | C6a      | C6g       | C6gd      | C6gn      | C6i | C6in | C6id  | C7a  | C7g   | C7gd | C7gn | C7i | C7i-flex | C8a | C8g      | C8gb | C8gd  | C8gn | C8i  | C8i-flex | C8id |
-| \*_D_<br>• – Dense storage                | D2              | D3     | D3en   |
-| \*_G_<br>• – Graphics intensive           | G4dn            | G5g    | G5     | G6      | Gr6     | G6e     |
-| \*_Hpc_<br>• – High performance computing | H1              | Hpc6a  | Hpc6id | Hpc7a   | Hpc7g   |
-| \*_I_<br>• – Storage optimized            | I2              | I3     | I3en   | I4g     | I4i     | I7i     | I7ie    | I8g     | I8ge     | Im4gn     | Is4gen    |
-| \*_M_<br>• – General purpose              | M1              | M2     | M3     | M4      | M5      | M5a     | M5ad    | M5d     | M5dn     | M5n       | M5zn      | M6a       | M6g | M6gd | M6i   | M6id | M6idn | M6in | M7a  | M7g | M7gd     | M7i | M7i-flex | M8a  | M8azn | M8g  | M8gb | M8gd     | M8gn | M8i | M8i-flex | M8id |
-| \*_P_<br>• – GPU accelerated              | P3              | P4     | P4d    | P4de    | P5      | P5e     | P5en    |
-| \*_R_<br>• – Memory optimized             | R3              | R4     | R5     | R5a     | R5ad    | R5b     | R5d     | R5dn    | R5n      | R6a       | R6g       | R6gd      | R6i | R6id | R6idn | R6in | R7a   | R7g  | R7gd | R7i | R7iz     | R8a | R8g      | R8gb | R8gd  | R8gn | R8i  | R8i-flex | R8id |
-| \*_T_<br>• – Burstable performance        | T1              | T2     | T3     | T3a     | T4g     |
-| \*_U_<br>• – High memory                  | U-3tb1          | U-6tb1 | U-9tb1 | U-12tb1 | U-18tb1 | U-24tb1 | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | U7in-24tb | U7in-32tb |
-| \*_X_<br>• – Memory intensive             | X1              | X1e    | X2gd   | X2idn   | X2iedn  | X2iezn  | X8g     | X8i     |
-| \*_Z_<br>• – High memory                  | z1d             |
+| Instance series                          | Instance family |
+| ---------------------------------------- | --------------- |
+| *_C_<br>• – Compute optimized            | C1              | C3     | C4     | C5      | C5a     | C5ad    | C5d     | C5n     | C6a      | C6g       | C6gd      | C6gn      | C6i | C6in | C6id  | C7a  | C7g   | C7gd | C7gn | C7i | C7i-flex | C8a | C8g      | C8gb | C8gd  | C8gn | C8i  | C8i-flex | C8id |
+| *_D_<br>• – Dense storage                | D2              | D3     | D3en   |
+| *_G_<br>• – Graphics intensive           | G4dn            | G5g    | G5     | G6      | Gr6     | G6e     |
+| *_Hpc_<br>• – High performance computing | H1              | Hpc6a  | Hpc6id | Hpc7a   | Hpc7g   |
+| *_I_<br>• – Storage optimized            | I2              | I3     | I3en   | I4g     | I4i     | I7i     | I7ie    | I8g     | I8ge     | Im4gn     | Is4gen    |
+| *_M_<br>• – General purpose              | M1              | M2     | M3     | M4      | M5      | M5a     | M5ad    | M5d     | M5dn     | M5n       | M5zn      | M6a       | M6g | M6gd | M6i   | M6id | M6idn | M6in | M7a  | M7g | M7gd     | M7i | M7i-flex | M8a  | M8azn | M8g  | M8gb | M8gd     | M8gn | M8i | M8i-flex | M8id |
+| *_P_<br>• – GPU accelerated              | P3              | P4     | P4d    | P4de    | P5      | P5e     | P5en    |
+| *_R_<br>• – Memory optimized             | R3              | R4     | R5     | R5a     | R5ad    | R5b     | R5d     | R5dn    | R5n      | R6a       | R6g       | R6gd      | R6i | R6id | R6idn | R6in | R7a   | R7g  | R7gd | R7i | R7iz     | R8a | R8g      | R8gb | R8gd  | R8gn | R8i  | R8i-flex | R8id |
+| *_T_<br>• – Burstable performance        | T1              | T2     | T3     | T3a     | T4g     |
+| *_U_<br>• – High memory                  | U-3tb1          | U-6tb1 | U-9tb1 | U-12tb1 | U-18tb1 | U-24tb1 | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | U7in-24tb | U7in-32tb |
+| *_X_<br>• – Memory intensive             | X1              | X1e    | X2gd   | X2idn   | X2iedn  | X2iezn  | X8g     | X8i     |
+| *_Z_<br>• – High memory                  | z1d             |
 
 ###### Note
 
@@ -184,7 +184,7 @@ Amazon RDS
 The DB instance types for the RDS for MySQL and RDS for PostgreSQL database engines supported by Compute Optimizer.
 
 | DB instance class family      | Type   |
-| ----------------------------- | ------ | ------ | -------- | --------- | ------- | ------- | ------- | ------ | ------ | ------ |
+| ----------------------------- | ------ |
 | **General purpose**           | db.m5  | db.m5d | db.m6g   | db.m6gd   | db.m6i  | db.m6id | db.m7g  | db.m7i | db.m8g |
 | **Memory-optimized R family** | db.r5  | db.r5b | db.r5d   | db.r6g    | db.r6gd | db.r6i  | db.r6id | db.r7g | db.r7i | db.r8g |
 | **Burstable-performance**     | db.t3  | db.t4g |
@@ -195,7 +195,7 @@ Amazon Aurora
 The DB instance types for the Aurora MySQL-Compatible Edition and Aurora PostgreSQL-Compatible Edition database engines supported by Compute Optimizer.
 
 | DB instance class family      | Type    |
-| ----------------------------- | ------- | ------- | ------ | ------ | ------ |
+| ----------------------------- | ------- |
 | **General purpose**           | db.m8g  |
 | **Memory-optimized R family** | db.r5   | db.r6g  | db.r6i | db.r7g | db.r8g |
 | **Memory-optimized X family** | db.x2g  |

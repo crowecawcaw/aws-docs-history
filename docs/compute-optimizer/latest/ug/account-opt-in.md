@@ -50,7 +50,7 @@ step.
      automatically opts in those accounts.
 
 5. Choose **Opt in**. By opting in, you indicate that you agree to
-   and understand the requirements to opt in to Compute Optimizer.
+and understand the requirements to opt in to Compute Optimizer.
 
 After you opt in, you're redirected to the dashboard in the Compute Optimizer console. At the
 same time, the service immediately starts analyzing the configuration and utilization

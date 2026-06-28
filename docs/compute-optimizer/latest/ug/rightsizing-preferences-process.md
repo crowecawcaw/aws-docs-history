@@ -81,8 +81,8 @@ organization or an individual AWS account holder.
     3. Select **✔** to confirm your selections.
 
 5. (Optional) If you don't want Compute Optimizer to automatically consider future variations of your chosen
-   instance families, turn off **Automatically consider future variations of the instance
-   families selected**.
+instance families, turn off **Automatically consider future variations of the instance
+families selected**.
 
 ![Automatically consider future variations of the instance families toggle](images/rightsizing-future-instances.png) 6. Choose **Next**.
 
