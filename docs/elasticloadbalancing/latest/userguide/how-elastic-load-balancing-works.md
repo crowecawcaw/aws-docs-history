@@ -328,7 +328,7 @@ The following table describes IP address types supported for each target group p
 | HTTP and HTTPS        | Yes       | Yes       |
 | TCP                   | Yes       | Yes       |
 | TLS                   | Yes       | Yes       |
-| UDP and TCP_UDP       | Yes       | Yes       |
+| UDP and TCP\_UDP      | Yes       | Yes       |
 | GENEVE                | -         | -         |
 
 ## Network MTU for your load balancer
