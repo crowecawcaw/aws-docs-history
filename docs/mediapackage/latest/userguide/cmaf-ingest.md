@@ -55,11 +55,11 @@ manifests.
 The following table compares the capabilities available with each MediaLive output
 group:
 
-| Capability comparison between MediaLive output groups | Capability                                       | CMAF Ingest Output Group                       | MediaPackage Output Group |
-| ----------------------------------------------------- | ------------------------------------------------ | ---------------------------------------------- | ------------------------- |
-| Stream order preservation                             | Standard (alphabetical order in output manifest) | Enhanced (preserves desired stream ordering)   |
-| Stream metadata passthrough                           | Standard                                         | Enhanced (additional passthrough capabilities) |
-| Setup complexity                                      | Simple                                           | More configuration options                     |
+Capability comparison between MediaLive output groups| Capability | CMAF Ingest Output Group | MediaPackage Output Group |
+| --- | --- | --- |
+| Stream order preservation | Standard (alphabetical order in output manifest) | Enhanced (preserves desired stream ordering) |
+| Stream metadata passthrough | Standard | Enhanced (additional passthrough capabilities) |
+| Setup complexity | Simple | More configuration options |
 
 ## Enhanced CMAF capabilities with MediaPackage output groups
 

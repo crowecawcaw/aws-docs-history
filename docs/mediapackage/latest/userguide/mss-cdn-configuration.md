@@ -89,16 +89,15 @@ regions implemented the following CloudFront configuration:
 
 - **Cache behavior for segments**:
 
-      + Path pattern: \*Fragments\*
-      + TTL settings: Minimum 3600, Default 86400, Maximum 604800
-       (seconds)
-      + Compress objects automatically: No (to avoid modifying encrypted
-       segments)
-
-  This configuration ensured that manifests were refreshed frequently while segments
-  were cached for longer periods, optimizing both content freshness and CDN cost
-  efficiency. The company also implemented regional price classes in CloudFront to balance
-  performance and cost based on their audience distribution.
+  - Path pattern: \*Fragments\*
+  - TTL settings: Minimum 3600, Default 86400, Maximum 604800
+    (seconds)
+  - Compress objects automatically: No (to avoid modifying encrypted
+    segments)
+    This configuration ensured that manifests were refreshed frequently while segments
+    were cached for longer periods, optimizing both content freshness and CDN cost
+    efficiency. The company also implemented regional price classes in CloudFront to balance
+    performance and cost based on their audience distribution.
 
 For Microsoft Smooth Streaming endpoints, you should create a cache behavior with the
 path pattern `out/v1/your-endpoint-id/index.ism/*` to properly route manifest

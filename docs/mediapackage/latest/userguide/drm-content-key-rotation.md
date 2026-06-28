@@ -13,4 +13,4 @@ actions:
   continue to work.
 - If MediaPackage has _not_ successfully retrieved a content key for
   this endpoint before, MediaPackage responds to the playback request with **`error
-404`**.
+ 404`**.

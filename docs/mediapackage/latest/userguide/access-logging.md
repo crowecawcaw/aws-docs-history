@@ -72,20 +72,20 @@ For each log type, you can configure up to 3 log deliveries.
 
 ###### To enable access logs for an existing channel (console)
 
-1.  Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/ "https://console.aws.amazon.com/mediapackage/").
-2.  Select your channel group from the list of channel groups.
-3.  Under **Access Logging**, do the following:
+1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/ "https://console.aws.amazon.com/mediapackage/").
+2. Select your channel group from the list of channel groups.
+3. Under **Access Logging**, do the following:
 
-    1. For **Log deliveries – Egress Access Logs** or
-       **Log deliveries – Ingress Access Logs**,
-       choose **Add**, and then do the following:
-    2. Choose one of the following logging destinations.
+   1. For **Log deliveries – Egress Access Logs** or
+      **Log deliveries – Ingress Access Logs**,
+      choose **Add**, and then do the following:
+   2. Choose one of the following logging destinations.
 
-       - Amazon CloudWatch Logs
-       - Amazon S3
-       - Firehose
+      - Amazon CloudWatch Logs
+      - Amazon S3
+      - Firehose
 
-    ###### Tip
+   ###### Tip
 
         * If you choose Amazon S3 or Firehose, you can deliver your logs to
          a **Cross account** or **In current
@@ -95,28 +95,28 @@ For each log type, you can configure up to 3 log deliveries.
          [Cross-account delivery example](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#vended-logs-crossaccount-example "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#vended-logs-crossaccount-example") in the
          *Amazon CloudWatch Logs User Guide*.
 
-4.  For the **Delivery destination ARN**, choose or enter the
-    ARN. If you don't have one already, follow the prompts to create one.
-5.  For **Additional settings - _optional_**,
-    choose the following:
+4. For the **Delivery destination ARN**, choose or enter the
+   ARN. If you don't have one already, follow the prompts to create one.
+5. For **Additional settings - _optional_**,
+   choose the following:
 
-    1. For **Field selection**, select the log fields to
-       include in each log record.
-    2. For **Output format**, choose the output format for
-       the log.
-    3. For **Field delimiter**, choose how to separate each
-       log field.
-    4. (Amazon S3) For **Suffix**, specify the suffix path to
-       partition your data. You can use the following fields: {accountid},
-       {region}, {channel_group_id}, {yyyy}, {MM}, {dd}, {HH}
-    5. (Amazon S3) For **Hive-compatible**, choose
-       **Enable** if you want to use Hive-compatible S3
-       paths.
+   1. For **Field selection**, select the log fields to
+      include in each log record.
+   2. For **Output format**, choose the output format for
+      the log.
+   3. For **Field delimiter**, choose how to separate each
+      log field.
+   4. (Amazon S3) For **Suffix**, specify the suffix path to
+      partition your data. You can use the following fields: {accountid},
+      {region}, {channel\_group\_id}, {yyyy}, {MM}, {dd}, {HH}
+   5. (Amazon S3) For **Hive-compatible**, choose
+      **Enable** if you want to use Hive-compatible S3
+      paths.
 
-6.  To apply your changes to all log types, choose **Apply to all log
-    types**.
-7.  To create another log destination, repeat steps 3 – 5.
-8.  Follow the prompts to update your channel group.
+6. To apply your changes to all log types, choose **Apply to all log
+   types**.
+7. To create another log destination, repeat steps 3 – 5.
+8. Follow the prompts to update your channel group.
 
 You can also use the CloudWatch API to enable access logs for your channel groups.
 
@@ -294,37 +294,37 @@ log record represents one request. The order of the fields within the log can va
 
 The following list describes the log record fields, in order:
 
-**event_timestamp**
+**event\_timestamp**
 
 The time of day when the request was received. The value is
 `ISO-8601` date time and is based on the system clock of
 the host that served the request.
 
-**resource_arn**
+**resource\_arn**
 
 The Amazon Resource Name (ARN) of the channel group that received the
 request.
 
-**client_ip**
+**client\_ip**
 
 The IP address of the requesting client.
 
-**time_to_first_byte**
+**time\_to\_first\_byte**
 
 The number of seconds that MediaPackage spent processing your request. This
 value is measured from the time the last byte of your request was
 received until the time the first byte of the response was sent.
 
-**status_code**
+**status\_code**
 
 The numeric HTTP status code of the response.
 
-**received_bytes**
+**received\_bytes**
 
 The number of bytes in the request body that the MediaPackage server
 receives.
 
-**sent_bytes**
+**sent\_bytes**
 
 The number of bytes in the response body that the MediaPackage server sends.
 This value often is the same as the value of the
@@ -344,7 +344,7 @@ The request URL.
 
 The type of protocol used for the request, such as HTTP.
 
-**user_agent**
+**user\_agent**
 
 A user-agent string that identifies the client that originated the
 request, enclosed in double quotes. The string consists of one or more
@@ -356,16 +356,16 @@ it is truncated.
 The AWS account ID of the account that was used to make the
 request.
 
-**channel_id**
+**channel\_id**
 
 The ID of the channel that received the request.
 
-**channel_arn**
+**channel\_arn**
 
 The Amazon Resource Name (ARN) of the channel that received the
 request.
 
-**domain_name**
+**domain\_name**
 
 The server name indication domain provided by the client during the
 TLS handshake, enclosed in double quotes. This value is set to
@@ -373,39 +373,39 @@ TLS handshake, enclosed in double quotes. This value is set to
 doesn't match a certificate and the default certificate is presented to
 the client.
 
-**request_id**
+**request\_id**
 
 A string that's generated by MediaPackage to uniquely identify each
 request.
 
-**endpoint_id**
+**endpoint\_id**
 
 The ID of the endpoint that received the request.
 
-**endpoint_arn**
+**endpoint\_arn**
 
 The Amazon Resource Name (ARN) of the endpoint that received the
 request.
 
-**input_type**
+**input\_type**
 
 The ingest file formats and protocol.
 
-**input_index**
+**input\_index**
 
 The input source index.
 
-**manifest_name**
+**manifest\_name**
 
 The name of the egress request manifest request. Remains empty for
 segment egress request.
 
-**manifest_type**
+**manifest\_type**
 
 The type of the egress request manifest request. Remains empty for
 segment egress request.
 
-**request_query_params**
+**request\_query\_params**
 
 The manifest filtering query parameter names and values.
 

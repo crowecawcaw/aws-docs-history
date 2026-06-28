@@ -57,10 +57,10 @@ The container type options are:
      IV)
 
 4. For **Startover window (sec.)**, enter the size of the window (in seconds) to
-   create a window of the live stream that's available for on-demand viewing.
-   Viewers can start-over or catch-up on content that falls within the window.
-   The maximum startover window is 1,209,600 seconds (14 days). For more
-   information about implementing start-over and catch-up TV, see [Time-shifted viewing](time-shifted.md "time-shifted.md").
+create a window of the live stream that's available for on-demand viewing.
+Viewers can start-over or catch-up on content that falls within the window.
+The maximum startover window is 1,209,600 seconds (14 days). For more
+information about implementing start-over and catch-up TV, see [Time-shifted viewing](time-shifted.md "time-shifted.md").
 
 You must define a startover window if you're using some settings in the
 **Filter configuration** fields in the [Manifest fields](#endpoints-manifest "#endpoints-manifest"). 5. For **Force endpoint error configuration**, choose the
@@ -250,8 +250,8 @@ The valid DRM system for ISM container types is:
     * PlayReady
 
 4. For **Resource ID**, enter an identifier for the content. The service sends this to the key server to
-   identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does
-   not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.
+identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does
+not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.
 
 The following example shows a resource ID.
 
@@ -415,48 +415,48 @@ based on your specified offset settings.
      smaller than the configured manifest duration.
 
 7. If you chose **Enable SCTE support**, for
-   **Ad markers**, choose how ad markers are
-   included in the packaged content. If you include ad markers in the
-   content stream in your upstream encoders, then you need to inform
-   MediaPackage what to do with the ad markers in the output. If you don't see
-   this field, select **Enable SCTE support** in the
-   origin endpoint segment settings. Choose from the following
-   options:
+**Ad markers**, choose how ad markers are
+included in the packaged content. If you include ad markers in the
+content stream in your upstream encoders, then you need to inform
+MediaPackage what to do with the ad markers in the output. If you don't see
+this field, select **Enable SCTE support** in the
+origin endpoint segment settings. Choose from the following
+options:
 
-   - **Daterange** – Insert `EXT-X-DATERANGE` tags to signal ads and program transition events
-     in TS and CMAF output manifests. If you choose daterange, you _must_ also enter a **Program date/time interval
+    * **Daterange** – Insert `EXT-X-DATERANGE` tags to signal ads and program transition events
+     in TS and CMAF output manifests. If you choose daterange, you *must* also enter a **Program date/time interval
      (sec.)** value of 1 or greater.
-   - **SCTE-35 enhanced** – Generate industry-standard CUE tag ad markers in HLS
-     manifests based on SCTE-35 input messages from the input stream. This option
-     inserts EXT-X-CUE-OUT, EXT-X-CUE-IN, and related CUE tags to signal ads and
-     program transition events, providing the same SCTE-35 information as DATERANGE
-     tags but in a format compatible with legacy ad insertion systems.
+    * **SCTE-35 enhanced** – Generate industry-standard CUE tag ad markers in HLS
+    manifests based on SCTE-35 input messages from the input stream. This option
+    inserts EXT-X-CUE-OUT, EXT-X-CUE-IN, and related CUE tags to signal ads and
+    program transition events, providing the same SCTE-35 information as DATERANGE
+    tags but in a format compatible with legacy ad insertion systems.
 
 8. For **SCTE in manifests**, choose
-   which SCTE-35 events appear in the output manifests. Choose from the
-   following options:
+which SCTE-35 events appear in the output manifests. Choose from the
+following options:
 
-   - **All** – All SCTE-35 events appear in
+    * **All** – All SCTE-35 events appear in
      the manifest. This is the default setting.
-   - **Matches filter** – Only SCTE-35 events
+    * **Matches filter** – Only SCTE-35 events
      whose type matches the configured SCTE filtering appear in
      the manifest. You must have SCTE support enabled with at
      least one SCTE filter value configured to use this
      option.
 
 9. For **URI path type**, choose how
-   MediaPackage generates child manifest and segment URIs. Choose from the
-   following options:
+MediaPackage generates child manifest and segment URIs. Choose from the
+following options:
 
-   - **Leaf** – URIs are relative paths
+    * **Leaf** – URIs are relative paths
      (leaf). This is the default setting.
-   - **Root** – URIs are absolute paths rooted
+    * **Root** – URIs are absolute paths rooted
      at the endpoint base egress URI.
 
 10. Select **Enable filter configuration** if you
-    want to optionally add filters and settings to modify manifests.
-    These filters apply to all manifests that originate from this
-    endpoint.
+want to optionally add filters and settings to modify manifests.
+These filters apply to all manifests that originate from this
+endpoint.
 
 To automatically fill these values from an existing query string,
 choose **Import from query string**.
@@ -573,85 +573,83 @@ must adhere to the following requirements:
 
 ###### To create a DASH manifest
 
-1.  For **Manifest name**, enter a short string that
-    will be appended to the endpoint URL. The manifest name creates a
-    unique path to this endpoint. If you don't enter a value, MediaPackage uses
-    the default manifest name, _index_. MediaPackage
-    automatically inserts the format extension, such as .mpd. Supported
-    characters are **A-Z**, **a-z**, **0-9**, and **-** (hyphen).
-    You can't use underscores in the name.
-2.  For **Manifest window (sec.)** enter the total
-    duration (in seconds) of the manifest's content. The maximum
-    manifest window is 900 seconds (15 minutes). You can request a quota
-    increase if necessary.
-3.  For **Min update period (sec.)**, enter the
-    minimum amount of time (in seconds) that the player should wait
-    before requesting manifest updates. A lower value means that
-    manifests are updated more frequently, but a lower value also
-    contributes to request and response network traffic.
-4.  For **Min buffer time (sec.)**, enter the minimum
-    amount of time (in seconds) that a player must keep in the buffer.
-    If network conditions interrupt playback, the player will have
-    additional buffered content before playback fails, allowing for
-    recovery time before the viewer's experience is affected.
-5.  For **Suggested presentation delay (sec.)**,
-    enter the amount of time (in seconds) that the player should be from
-    the end of the manifest. This sets the content start point back x
-    seconds from the end of the manifest (the point where content is
-    live). For example, with a 35-second presentation delay, requests at
-    5:30 receive content from 5:29:25. When used with time delay,
-    MediaPackage adds the suggested presentation delay to the time
-    delay duration.
-6.  For **Segment template format**, choose how
-    MediaPackage and playback requests refer to each segment.
+1. For **Manifest name**, enter a short string that
+   will be appended to the endpoint URL. The manifest name creates a
+   unique path to this endpoint. If you don't enter a value, MediaPackage uses
+   the default manifest name, _index_. MediaPackage
+   automatically inserts the format extension, such as .mpd. Supported
+   characters are **A-Z**, **a-z**, **0-9**, and **-** (hyphen).
+   You can't use underscores in the name.
+2. For **Manifest window (sec.)** enter the total
+   duration (in seconds) of the manifest's content. The maximum
+   manifest window is 900 seconds (15 minutes). You can request a quota
+   increase if necessary.
+3. For **Min update period (sec.)**, enter the
+   minimum amount of time (in seconds) that the player should wait
+   before requesting manifest updates. A lower value means that
+   manifests are updated more frequently, but a lower value also
+   contributes to request and response network traffic.
+4. For **Min buffer time (sec.)**, enter the minimum
+   amount of time (in seconds) that a player must keep in the buffer.
+   If network conditions interrupt playback, the player will have
+   additional buffered content before playback fails, allowing for
+   recovery time before the viewer's experience is affected.
+5. For **Suggested presentation delay (sec.)**,
+   enter the amount of time (in seconds) that the player should be from
+   the end of the manifest. This sets the content start point back x
+   seconds from the end of the manifest (the point where content is
+   live). For example, with a 35-second presentation delay, requests at
+   5:30 receive content from 5:29:25. When used with time delay,
+   MediaPackage adds the suggested presentation delay to the time
+   delay duration.
+6. For **Segment template format**, choose how
+   MediaPackage and playback requests refer to each segment.
 
-    - For **Number with timeline**,
-      MediaPackage uses the `$Number$` variable to
-      refer to the segment in the `media` attribute of
-      the `SegmentTemplate` tag. The value of the
-      variable is the sequential number of the segment.
-      `SegmentTimeline` is included in each segment
-      template.
+   - For **Number with timeline**,
+     MediaPackage uses the `$Number$` variable to
+     refer to the segment in the `media` attribute of
+     the `SegmentTemplate` tag. The value of the
+     variable is the sequential number of the segment.
+     `SegmentTimeline` is included in each segment
+     template.
 
-7.  For **Manifest compactness**, indicate if you
-    want MediaPackage to serve a standard (compacted) or full manifest (no
-    compacting) in response to playback requests.
+7. For **Manifest compactness**, indicate if you
+   want MediaPackage to serve a standard (compacted) or full manifest (no
+   compacting) in response to playback requests.
 
-        * If you choose **None**, MediaPackage
-         presents the `SegmentTemplate` and
-         `SegmentTimeline` tags for every
-         `Representation` in the manifest.
-        * **Standard** is the default selection. It
-         indicates that MediaPackage combines duplicate
-         `SegmentTemplate` tags and presents them at
-         the start of the manifest. This shortens the manifest and
-         makes it easier for some devices to process it.
+   - If you choose **None**, MediaPackage
+     presents the `SegmentTemplate` and
+     `SegmentTimeline` tags for every
+     `Representation` in the manifest.
+   - **Standard** is the default selection. It
+     indicates that MediaPackage combines duplicate
+     `SegmentTemplate` tags and presents them at
+     the start of the manifest. This shortens the manifest and
+     makes it easier for some devices to process it.
+     For more information about the manifest layout options, see [DASH manifest compactness](compacted.md "compacted.md").
 
-    For more information about the manifest layout options, see [DASH manifest compactness](compacted.md "compacted.md").
+8. For **Audio timeline pattern**, choose how
+   MediaPackage represents audio segment durations in the
+   `SegmentTimeline`.
 
-8.  For **Audio timeline pattern**, choose how
-    MediaPackage represents audio segment durations in the
-    `SegmentTimeline`.
+   - If you choose **None**, MediaPackage
+     lists each audio segment duration individually in the
+     `SegmentTimeline`. This is the default
+     setting.
+   - **Patterned** enables Segment Duration
+     Patternization (SDP). MediaPackage detects repeating
+     cycles in audio segment durations and represents them
+     as `Pattern` elements, reducing manifest
+     size for long time-shift buffers.
+     For more information about audio timeline patterns, see [DASH audio timeline pattern](dash-audio-timeline-pattern.md "dash-audio-timeline-pattern.md").
 
-        * If you choose **None**, MediaPackage
-         lists each audio segment duration individually in the
-         `SegmentTimeline`. This is the default
-         setting.
-        * **Patterned** enables Segment Duration
-         Patternization (SDP). MediaPackage detects repeating
-         cycles in audio segment durations and represents them
-         as `Pattern` elements, reducing manifest
-         size for long time-shift buffers.
+9. For **Profiles**, optionally choose if the output
+   is compliant with DVB-DASH. Review the DVB-DASH requirements to
+   ensure the endpoint is compliant with this profile:
 
-    For more information about audio timeline patterns, see [DASH audio timeline pattern](dash-audio-timeline-pattern.md "dash-audio-timeline-pattern.md").
-
-9.  For **Profiles**, optionally choose if the output
-    is compliant with DVB-DASH. Review the DVB-DASH requirements to
-    ensure the endpoint is compliant with this profile:
-
-    - The channel must use CMAF input
-    - The endpoint must not use **UTC Direct**
-      for UTC timing mode
+   - The channel must use CMAF input
+   - The endpoint must not use **UTC Direct**
+     for UTC timing mode
 
 10. For **UTC timing**, select the method that the
     player uses to synchronize to coordinated universal time (UTC) wall
@@ -670,7 +668,7 @@ must adhere to the following requirements:
     data according to the scheme defined by **UTC
     timing**. This value is only valid if **UTC
     timing** is not `NONE` or `UTC
-DIRECT`. This value will be set as the `@value`
+ DIRECT`. This value will be set as the `@value`
     attribute for the `UTCTiming` element. For information
     about `@value`, see [DASH clock synchronization](https://dashif.org/dash.js/pages/usage/clock-sync.html "https://dashif.org/dash.js/pages/usage/clock-sync.html").
 12. For **DASH period triggers**, choose how
@@ -808,30 +806,30 @@ options:
      expressed fully in XML.
 
 18. For **SCTE in manifests**, choose
-    which SCTE-35 events appear in the output manifests. Choose from the
-    following options:
+which SCTE-35 events appear in the output manifests. Choose from the
+following options:
 
-    - **All** – All SCTE-35 events appear in
-      the manifest. This is the default setting.
-    - **Matches filter** – Only SCTE-35 events
-      whose type matches the configured SCTE filtering appear in
-      the manifest. You must have SCTE support enabled with at
-      least one SCTE filter value configured to use this
-      option.
+    * **All** – All SCTE-35 events appear in
+     the manifest. This is the default setting.
+    * **Matches filter** – Only SCTE-35 events
+     whose type matches the configured SCTE filtering appear in
+     the manifest. You must have SCTE support enabled with at
+     least one SCTE filter value configured to use this
+     option.
 
 19. For **URI path type**, choose how
-    MediaPackage generates child manifest and segment URIs. Choose from the
-    following options:
+MediaPackage generates child manifest and segment URIs. Choose from the
+following options:
 
-    - **Leaf** – URIs are relative paths
-      (leaf). This is the default setting.
-    - **Root** – URIs are absolute paths rooted
-      at the endpoint base egress URI.
+    * **Leaf** – URIs are relative paths
+     (leaf). This is the default setting.
+    * **Root** – URIs are absolute paths rooted
+     at the endpoint base egress URI.
 
 20. Select **Enable filter configuration** if you
-    want to optionally add filters and settings to modify manifests.
-    These filters apply to all manifests that originate from this
-    endpoint.
+want to optionally add filters and settings to modify manifests.
+These filters apply to all manifests that originate from this
+endpoint.
 
 To automatically fill these values from an existing query string,
 choose **Import from query string**.
@@ -941,34 +939,33 @@ When creating an MSS manifest, note the following requirements and limitations:
 
 ###### To create an MSS manifest
 
-1.  For **Manifest name**, enter a short string that will be appended
-    to the endpoint URL. The manifest name creates a unique path to this endpoint. If
-    you don't enter a value, MediaPackage uses the default manifest name,
-    _index_. MediaPackage automatically inserts the format extension,
-    such as .isml. Supported characters are **A-Z**,
-    **a-z**, **0-9**, and
-    **-** (hyphen). You can't use underscores in the
-    name.
-2.  For **Manifest window (sec.)** enter the total duration (in
-    seconds) of the manifest's content. The default value is 60 seconds. The maximum manifest window is 900 seconds (15
-    minutes). You can request a quota increase if necessary.
-3.  For **Manifest layout**, choose how MediaPackage formats the
-    manifest:
+1. For **Manifest name**, enter a short string that will be appended
+   to the endpoint URL. The manifest name creates a unique path to this endpoint. If
+   you don't enter a value, MediaPackage uses the default manifest name,
+   _index_. MediaPackage automatically inserts the format extension,
+   such as .isml. Supported characters are **A-Z**,
+   **a-z**, **0-9**, and
+   **-** (hyphen). You can't use underscores in the
+   name.
+2. For **Manifest window (sec.)** enter the total duration (in
+   seconds) of the manifest's content. The default value is 60 seconds. The maximum manifest window is 900 seconds (15
+   minutes). You can request a quota increase if necessary.
+3. For **Manifest layout**, choose how MediaPackage formats the
+   manifest:
 
-        * **Full** – Each fragment in the sequence has an
-         explicit value for the duration field and an implicit value for the time
-         field, except the first fragment, whose start-time is explicit.
-        * **Compact** – Uses the FragmentRepeat field on
-         segments that share the same attributes and length to reduce manifest size.
-         This can significantly reduce manifest length for streams with consistent
-         segment durations.
+   - **Full** – Each fragment in the sequence has an
+     explicit value for the duration field and an implicit value for the time
+     field, except the first fragment, whose start-time is explicit.
+   - **Compact** – Uses the FragmentRepeat field on
+     segments that share the same attributes and length to reduce manifest size.
+     This can significantly reduce manifest length for streams with consistent
+     segment durations.
+     For most use cases, **Compact** is recommended as it reduces
+     manifest size and network overhead.
 
-    For most use cases, **Compact** is recommended as it reduces
-    manifest size and network overhead.
-
-4.  For **Lookahead fragment count**, the value is automatically set
-    to 2 and cannot be changed for MSS manifests. This buffer helps ensure smooth
-    playback.
+4. For **Lookahead fragment count**, the value is automatically set
+   to 2 and cannot be changed for MSS manifests. This buffer helps ensure smooth
+   playback.
 
 MSS includes the concept of server lookahead, where a buffer of segments is held
 back by the server until future segments are available. This means that segments

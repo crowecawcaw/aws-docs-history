@@ -67,15 +67,15 @@ Use this guide to determine which protocols you need to implement:
 This comparison helps you understand the key differences between streaming
 protocols to plan your implementation:
 
-| Streaming Protocol Comparison | Feature                            | MSS                         | HLS                                  | DASH |
-| ----------------------------- | ---------------------------------- | --------------------------- | ------------------------------------ | ---- |
-| Developer                     | Microsoft                          | Apple                       | MPEG                                 |
-| Year introduced               | 2008                               | 2009                        | 2012                                 |
-| Manifest format               | XML                                | M3U8 (text)                 | XML (MPD)                            |
-| Segment format                | MP4 (ISM)                          | TS or fMP4                  | MP4                                  |
-| DRM support                   | PlayReady only                     | FairPlay, AES-128           | Multiple (Widevine, PlayReady, etc.) |
-| Device support                | Xbox, Silverlight, older smart TVs | iOS, macOS, newer smart TVs | Android, browsers, newer smart TVs   |
-| Industry adoption             | Limited (legacy)                   | Widespread                  | Growing                              |
+Streaming Protocol Comparison| Feature | MSS | HLS | DASH |
+| --- | --- | --- | --- |
+| Developer | Microsoft | Apple | MPEG |
+| Year introduced | 2008 | 2009 | 2012 |
+| Manifest format | XML | M3U8 (text) | XML (MPD) |
+| Segment format | MP4 (ISM) | TS or fMP4 | MP4 |
+| DRM support | PlayReady only | FairPlay, AES-128 | Multiple (Widevine, PlayReady, etc.) |
+| Device support | Xbox, Silverlight, older smart TVs | iOS, macOS, newer smart TVs | Android, browsers, newer smart TVs |
+| Industry adoption | Limited (legacy) | Widespread | Growing |
 
 ### Common implementation scenarios
 

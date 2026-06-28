@@ -18,14 +18,14 @@ your source content.
 The SCTE configuration is achieved through settings available both at the segment
 level and at the manifest level.
 
-\***\*Enable SCTE support\*\***
+****Enable SCTE support****
 
 This setting is available on TS and CMAF origin endpoints, in the Segment
 settings parameters group. When enabled, it allows to define the SCTE
 configuration options in both the Segment settings and Manifest definitions
 parameters groups.
 
-\***\*SCTE filtering\*\***
+****SCTE filtering****
 
 This setting is available on TS and CMAF origin endpoints.
 
@@ -61,7 +61,7 @@ opportunity, Network, Provider promo, Distributor promo, Provider ad block,
 and Distributor ad block) require explicit opt-in through the SCTE filtering
 configuration.
 
-\***\*Ad markers\*\***
+****Ad markers****
 
 This setting is available for both HLS and DASH manifests, in the SCTE
 configuration section of the Manifest definitions parameters group.
@@ -84,7 +84,7 @@ For DASH manifests on CMAF endpoints, these are the options:
   elements with the `urn:scte:scte35:2014:xml+bin`
   scheme
 
-\***\*SCTE in segments\*\***
+****SCTE in segments****
 
 Choose whether to include SCTE-35 messages in the segment files of MediaPackage
 outputs. This setting works independently of the **SCTE
@@ -105,7 +105,7 @@ When you enable SCTE in segments:
 
 Your downstream components or players must be implemented to consume SCTE-35 messages from segments to take advantage of this feature. If your players cannot handle SCTE-35 messages in segments, playback may fail when this setting is enabled.
 
-\***\*Custom ad types\*\***
+****Custom ad types****
 
 This setting is available on TS and CMAF origin endpoints, in the Segment
 settings parameters group.
@@ -123,7 +123,7 @@ Choose from the following values:
 - `ALTERNATE_CONTENT_OPPORTUNITY`
 - `NETWORK`
 
-\***\*SCTE in manifests\*\***
+****SCTE in manifests****
 
 This setting is available for HLS, LL-HLS, and DASH manifests, in the
 SCTE configuration section of the Manifest definitions parameters

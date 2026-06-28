@@ -187,7 +187,7 @@ standard CENC PSSH XML format:
 <cenc:pssh xmlns:cenc="urn:mpeg:cenc:2013">PSSH_BOX_BASE64</cenc:pssh>
 ```
 
-The PSSH_BOX_BASE64 inside `cenc:pssh` is the same base64-encoded PSSH box
+The PSSH\_BOX\_BASE64 inside `cenc:pssh` is the same base64-encoded PSSH box
 as in the `cpix:PSSH` element.
 
 **Decoded HLS signaling:** The URI must be a data URI

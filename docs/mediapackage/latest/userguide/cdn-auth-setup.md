@@ -81,11 +81,11 @@ Cross-Region secret access is not supported.
      MediaPackage in step 4.
 
 3. **Create an IAM role for MediaPackage access to Secrets Manager.**
-   Create an IAM role to give MediaPackage access to Secrets Manager and AWS Key Management Service (AWS KMS). When
-   MediaPackage receives a playback request from the CDN that includes a secret value in
-   the custom headers, MediaPackage retrieves the stored secret value from AWS KMS and
-   verifies that the secret values match. Follow the steps in [Allowing MediaPackage to access other AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md") to set up the policy and
-   role.
+Create an IAM role to give MediaPackage access to Secrets Manager and AWS Key Management Service (AWS KMS). When
+MediaPackage receives a playback request from the CDN that includes a secret value in
+the custom headers, MediaPackage retrieves the stored secret value from AWS KMS and
+verifies that the secret values match. Follow the steps in [Allowing MediaPackage to access other AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md") to set up the policy and
+role.
 
 You use the ARN for the IAM role that you created when you enable CDN
 authorization in MediaPackage in the next step. 4. **Enable CDN authorization in MediaPackage.** You can

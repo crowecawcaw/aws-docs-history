@@ -45,8 +45,10 @@ AWS CLI
 At a command prompt, enter the following command:
 
 - ```
-  aws cloudwatch list-metrics --namespace "AWS/MediaPackage"
+
   ```
+
+aws cloudwatch list-metrics --namespace "AWS/MediaPackage"
 
 ```
 
