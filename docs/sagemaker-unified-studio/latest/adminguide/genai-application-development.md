@@ -106,12 +106,12 @@ modify any of the Tooling blueprint settings.
      the service to function properly.
 
 6. On the **Create project profile: Amazon Bedrock generative AI**
-   page, in the **Authorization - optional** section, specify who can use
-   this project profile to create projects in all domain units. This can also be done per
-   domain unit in the Amazon SageMaker Unified Studio. Choose either **Selected users and
-   groups** (select which users and groups are authorized to use this project
-   profile) or **Allow all users and groups** (allow any user to use this
-   project profile).
+page, in the **Authorization - optional** section, specify who can use
+this project profile to create projects in all domain units. This can also be done per
+domain unit in the Amazon SageMaker Unified Studio. Choose either **Selected users and
+groups** (select which users and groups are authorized to use this project
+profile) or **Allow all users and groups** (allow any user to use this
+project profile).
 
 ###### Note
 
@@ -164,8 +164,8 @@ models:
      in the Amazon Bedrock management console. For more information, see [Amazon Bedrock Documentation](../../../bedrock.md "../../../bedrock.md").
 
 10. On the **Configure model access** page, in the **Default
-    models - optional** section, you can set default models for the generative AI
-    playgrounds in Amazon SageMaker Unified Studio.
+models - optional** section, you can set default models for the generative AI
+playgrounds in Amazon SageMaker Unified Studio.
 
 Amazon Bedrock in SageMaker Unified Studio supports generative AI playgrounds that
 enable Amazon SageMaker unified domain users to easily experiment with Amazon Bedrock

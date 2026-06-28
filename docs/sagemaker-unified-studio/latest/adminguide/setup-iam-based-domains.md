@@ -265,44 +265,43 @@ details:
 
 ```
 
-6.  Recommended: Navigate to AWS Lake Formation and grant this role AWS Lake
-    Formation administrator permission to enable data discovery and access management within
-    the domain.
-    **Create Your Domain:**
+6. Recommended: Navigate to AWS Lake Formation and grant this role AWS Lake
+   Formation administrator permission to enable data discovery and access management within
+   the domain.
+   **Create Your Domain:**
 
-1.  Login to the AWS Management Console and choose the Login IAM role (defined in
-    [Overview of IAM-based domains](iam-based-domains-overview.md "iam-based-domains-overview.md")) you created for the Administrator.
-1.  Navigate to the Amazon SageMaker console and use the region selector to choose your
-    desired AWS Region.
-1.  Choose **Get started** from the Amazon SageMaker Unified Studio section.
-1.  You should see a screen with the title **Set up
-    Amazon SageMaker Unified Studio**.
-1.  Choose and select the Execution IAM Role for the Admin
-1.  **Setup S3 table integration with AWS analytics services**. This
-    option is enabled by default, and will allow Amazon SageMaker Unified Studio to access table buckets and
-    integrate the table buckets with AWS analytics services using AWS Glue. If S3 Tables
-    analytics integration has already been configured in your account and Region (that is,
-    the `s3tablescatalog` already exists in the AWS Glue Data Catalog), this
-    option will not be shown. [Learn more](../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md "../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md").
-1.  In the **Data encryption** section, configure your encryption
-    preferences:
+1. Login to the AWS Management Console and choose the Login IAM role (defined in
+   [Overview of IAM-based domains](iam-based-domains-overview.md "iam-based-domains-overview.md")) you created for the Administrator.
+1. Navigate to the Amazon SageMaker console and use the region selector to choose your
+   desired AWS Region.
+1. Choose **Get started** from the Amazon SageMaker Unified Studio section.
+1. You should see a screen with the title **Set up
+   Amazon SageMaker Unified Studio**.
+1. Choose and select the Execution IAM Role for the Admin
+1. **Setup S3 table integration with AWS analytics services**. This
+   option is enabled by default, and will allow Amazon SageMaker Unified Studio to access table buckets and
+   integrate the table buckets with AWS analytics services using AWS Glue. If S3 Tables
+   analytics integration has already been configured in your account and Region (that is,
+   the `s3tablescatalog` already exists in the AWS Glue Data Catalog), this
+   option will not be shown. [Learn more](../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md "../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md").
+1. In the **Data encryption** section, configure your encryption
+   preferences:
 
-        * Leave **Customize encryption settings (advanced)** unchecked to
-         use AWS-managed encryption
-        * Check **Customize encryption settings (advanced)** to specify a
-         custom AWS KMS key
+   - Leave **Customize encryption settings (advanced)** unchecked to
+     use AWS-managed encryption
+   - Check **Customize encryption settings (advanced)** to specify a
+     custom AWS KMS key
+     If using custom encryption, see [Manage data encryption in IAM-based domains](manage-data-encryption-iam-based-domains.md "manage-data-encryption-iam-based-domains.md")
 
-    If using custom encryption, see [Manage data encryption in IAM-based domains](manage-data-encryption-iam-based-domains.md "manage-data-encryption-iam-based-domains.md")
-
-1.  Choose **Set up** to begin the domain creation process.
-1.  Monitor the setup progress in the **Setting up Amazon SageMaker Unified Studio**
-    dialog. The process typically takes 1-2 minutes to complete.
-1.  Once the setup is completed, project will automatically be created using the same
-    Execution role. Then you will be redirected to the Administrative pages for managing the
-    domain. See [Access the Domain Administration Page](access-domain-administration-page.md "access-domain-administration-page.md") for details.
-1.  You can also access the project associated with your Login IAM role by choosing on
-    the first project. See **Navigating within Amazon SageMaker Unified Studio** for
-    details.
+1. Choose **Set up** to begin the domain creation process.
+1. Monitor the setup progress in the **Setting up Amazon SageMaker Unified Studio**
+   dialog. The process typically takes 1-2 minutes to complete.
+1. Once the setup is completed, project will automatically be created using the same
+   Execution role. Then you will be redirected to the Administrative pages for managing the
+   domain. See [Access the Domain Administration Page](access-domain-administration-page.md "access-domain-administration-page.md") for details.
+1. You can also access the project associated with your Login IAM role by choosing on
+   the first project. See **Navigating within Amazon SageMaker Unified Studio** for
+   details.
 
 ###### Note
 

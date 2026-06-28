@@ -25,9 +25,9 @@ that you can customize later:
     * Authentication via AWS IAM or AWS IAM Identity Center
 
 3. If you see the following note **No VPC has been specifically set up for use
-   with Amazon SageMaker Unified Studio**, you can use the **Choose
-   VPC** or **Create VPC** buttons to **Create a new
-   VPC (recommended)** or choose an existing properly-configured VPC.
+with Amazon SageMaker Unified Studio**, you can use the **Choose
+VPC** or **Create VPC** buttons to **Create a new
+VPC (recommended)** or choose an existing properly-configured VPC.
 
 If you plan to choose your own VPC, Amazon SageMaker Unified Studio enables you to
 choose VPCs within the same account as well as shared VPCs from other member accounts of

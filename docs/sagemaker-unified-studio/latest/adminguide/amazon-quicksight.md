@@ -26,34 +26,33 @@ required conditions:
 
 ###### Enable the QuickSight blueprint
 
-1.  Navigate to the Amazon SageMaker management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and use the region selector in the top
-    navigation bar to choose the appropriate AWS Region.
-2.  Choose **View domains** or **View associated domains**
-    depending on whether you want to enable the Quicksight blueprint in the domain owner AWS
-    account or the associated AWS account and then choose that domain by choosing its name
-    from the list. The name is a hyperlink.
-3.  On the domain's details page, navigate to the **Blueprints** tab.
-4.  In the **Blueprints** tab, locate the **QuickSight**
-    blueprint. You can either choose the radio button next to the QuickSight blueprint and then
-    choose the **Enable** button. Or you can choose the
-    **QuickSight** blueprint (the name is a hyperlink) and then on the
-    blueprint details page, choose **Enable in this account**.
-5.  On the **Enable QuickSight** page, specify the following and then
-    choose **Enable blueprint**:
+1. Navigate to the Amazon SageMaker management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and use the region selector in the top
+   navigation bar to choose the appropriate AWS Region.
+2. Choose **View domains** or **View associated domains**
+   depending on whether you want to enable the Quicksight blueprint in the domain owner AWS
+   account or the associated AWS account and then choose that domain by choosing its name
+   from the list. The name is a hyperlink.
+3. On the domain's details page, navigate to the **Blueprints** tab.
+4. In the **Blueprints** tab, locate the **QuickSight**
+   blueprint. You can either choose the radio button next to the QuickSight blueprint and then
+   choose the **Enable** button. Or you can choose the
+   **QuickSight** blueprint (the name is a hyperlink) and then on the
+   blueprint details page, choose **Enable in this account**.
+5. On the **Enable QuickSight** page, specify the following and then
+   choose **Enable blueprint**:
 
-        * **Provisioning role** - Amazon SageMaker Unified Studio uses this role to provision and
-         manage resources defined in the selected blueprints in your account. You can either
-         choose the existing or create a new role. For more information, see [AmazonSageMakerProvisioning](AmazonSageMakerProvisioning.md "AmazonSageMakerProvisioning.md") role.
-        * **QuickSight VPC manager role** - Amazon SageMaker Unified Studio provisions QuickSight
-         to create and manage VPCs in your account using this role. You can either choose the
-         existing or create a new role. For more information, see [AmazonSageMakerQuickSightVPCTRole](AmazonSageMakerQuickSightVPCRole.md "AmazonSageMakerQuickSightVPCRole.md").
-        * **Authorized domain units** - these are domain units where projects
-         can access resources defined by this blueprint. You can use the text field to search for
-         the domain units and then the **Add** button to add them to the list of
-         authorized domain units.
-
-    Complete the following steps to add the Quicksight blueprint to an existing project profile.
-    You can only do this in the domain owner AWS account.
+   - **Provisioning role** - Amazon SageMaker Unified Studio uses this role to provision and
+     manage resources defined in the selected blueprints in your account. You can either
+     choose the existing or create a new role. For more information, see [AmazonSageMakerProvisioning](AmazonSageMakerProvisioning.md "AmazonSageMakerProvisioning.md") role.
+   - **QuickSight VPC manager role** - Amazon SageMaker Unified Studio provisions QuickSight
+     to create and manage VPCs in your account using this role. You can either choose the
+     existing or create a new role. For more information, see [AmazonSageMakerQuickSightVPCTRole](AmazonSageMakerQuickSightVPCRole.md "AmazonSageMakerQuickSightVPCRole.md").
+   - **Authorized domain units** - these are domain units where projects
+     can access resources defined by this blueprint. You can use the text field to search for
+     the domain units and then the **Add** button to add them to the list of
+     authorized domain units.
+     Complete the following steps to add the Quicksight blueprint to an existing project profile.
+     You can only do this in the domain owner AWS account.
 
 ###### Add the QuickSight blueprint to an existing project profile
 

@@ -253,9 +253,9 @@ JSON
 
 ```
 
-- \*\*AmazonSageMakerProvisioning-<domainAccountId> role
+- **AmazonSageMakerProvisioning-<domainAccountId> role
 
-* inline Policy\*\*: manually attach the following to the
+* inline Policy**: manually attach the following to the
   AmazonSageMakerProvisioning-<domainAccountId> role or the role that is
   used as the provisioning role in the IAM console.
 

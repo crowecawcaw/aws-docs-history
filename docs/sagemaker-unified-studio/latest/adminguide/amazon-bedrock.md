@@ -21,17 +21,16 @@ different level of customization:
   requiring user input. When selected during domain creation, the **Quick
   setup** performs the following:
 
-      + Creates the **Generative AI application development project
-       profile** that the Amazon SageMaker Unified Studio user then uses to create Amazon SageMaker in
-       SageMaker Unified Studio projects.
-      + Activates all generative AI blueprints and the default Tooling blueprint needed to
-       provision resources for the Amazon Bedrock capabilities.
-      + Configures permissions for all enabled Amazon Bedrock serverless models accessible
-       in the AWS account and Region, enabling their use in the generative AI projects and
-       playgrounds.
-
-  For more informaiton about creating an Amazon SageMaker unified domain with
-  **Quick setup**, see [Create a Amazon SageMaker Unified Studio domain - quick setup](create-domain-sagemaker-unified-studio-quick.md "create-domain-sagemaker-unified-studio-quick.md").
+  - Creates the **Generative AI application development project
+    profile** that the Amazon SageMaker Unified Studio user then uses to create Amazon SageMaker in
+    SageMaker Unified Studio projects.
+  - Activates all generative AI blueprints and the default Tooling blueprint needed to
+    provision resources for the Amazon Bedrock capabilities.
+  - Configures permissions for all enabled Amazon Bedrock serverless models accessible
+    in the AWS account and Region, enabling their use in the generative AI projects and
+    playgrounds.
+    For more informaiton about creating an Amazon SageMaker unified domain with
+    **Quick setup**, see [Create a Amazon SageMaker Unified Studio domain - quick setup](create-domain-sagemaker-unified-studio-quick.md "create-domain-sagemaker-unified-studio-quick.md").
 
 - **Guided setup** - this is the guided setup with a
   step-by-step walkthrough of configuring Generative AI capabilities for your Amazon SageMaker
@@ -40,18 +39,17 @@ different level of customization:
   for your domain** section. It pre-populates system-recommended configurations
   which you can review and modify. Key steps include:
 
-      + Creating the **Generative AI application development project
-       profile** - the system generates a project profile specific to the domain's
-       AWS account and Region. This step also automatically enables the generative AI
-       blueprints if they are not already enabled. If the Tooling blueprint is not yet enabled
-       in the domain, the system augments steps to enable it as well.
-      + Configuring model access - the system identifies all Amazon Bedrock serverless
-       models available in the account and Region, then configures access permissions for these
-       models. You can review the model list and selectively enable models for use in Amazon
-       Bedrock in SageMaker Unified Studio projects and domain playgrounds.
-
-  For detailed steps of using the guided setup of Generative AI capabilities for your
-  Amazon SageMaker unified domain, see [Configure Amazon Bedrock in SageMaker Unified Studio for your domain](genai-application-development.md#configure-bedrock-ide "genai-application-development.md#configure-bedrock-ide").
+  - Creating the **Generative AI application development project
+    profile** - the system generates a project profile specific to the domain's
+    AWS account and Region. This step also automatically enables the generative AI
+    blueprints if they are not already enabled. If the Tooling blueprint is not yet enabled
+    in the domain, the system augments steps to enable it as well.
+  - Configuring model access - the system identifies all Amazon Bedrock serverless
+    models available in the account and Region, then configures access permissions for these
+    models. You can review the model list and selectively enable models for use in Amazon
+    Bedrock in SageMaker Unified Studio projects and domain playgrounds.
+    For detailed steps of using the guided setup of Generative AI capabilities for your
+    Amazon SageMaker unified domain, see [Configure Amazon Bedrock in SageMaker Unified Studio for your domain](genai-application-development.md#configure-bedrock-ide "genai-application-development.md#configure-bedrock-ide").
 
 - **Manual setup** - this is a step-by-step configuration of
   project profiles, blueprints, and model access with granular control over configurations.
@@ -62,13 +60,12 @@ different level of customization:
   scenarios, such as enabling generative AI in a different Region or account from the domain.
   Manual setup includes:
 
-      + Manually creating [custom project profiles](custom.md "custom.md")
-      + Enabling specific [blueprints](blueprints.md "blueprints.md")
-      + [Configuring access to your Amazon Bedrock serverless
-       models for the selected AWS accounts and regions](#manage-models "#manage-models")
-
-  Once Amazon Bedrock in SageMaker Unified Studio for a domain is set up, you can perform the
-  following procedures to further customize and configure it.
+  - Manually creating [custom project profiles](custom.md "custom.md")
+  - Enabling specific [blueprints](blueprints.md "blueprints.md")
+  - [Configuring access to your Amazon Bedrock serverless
+    models for the selected AWS accounts and regions](#manage-models "#manage-models")
+    Once Amazon Bedrock in SageMaker Unified Studio for a domain is set up, you can perform the
+    following procedures to further customize and configure it.
 
 ###### Topics
 
@@ -132,10 +129,10 @@ models:
      window that appears.
 
 6. To enable or disable your models in the Amazon SageMaker Unified Studio projects and playgrounds, choose
-   **Manage** and then use the checkboxes in the **Enable in
-   project** and **Enable in playground** columns to enable or
-   disable your models. If you choose to disable a model in a project, confirm the disable
-   action in the pop up window that appears.
+**Manage** and then use the checkboxes in the **Enable in
+project** and **Enable in playground** columns to enable or
+disable your models. If you choose to disable a model in a project, confirm the disable
+action in the pop up window that appears.
 
 ## Set default models for the generative AI playgrounds in Amazon SageMaker Unified Studio
 

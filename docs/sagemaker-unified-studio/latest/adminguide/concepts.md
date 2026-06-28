@@ -312,7 +312,7 @@ owner of that project.
 The purpose of the project S3 path in Amazon SageMaker Unified Studio is to provide a secure, project-isolated
 location for storing temporary execution data and other project-related artifacts. The project
 S3 path follows a standardized structure of
-"<bucket>/<domain_id>/<project_id>/<project_scope>/" to ensure
+"<bucket>/<domain\_id>/<project\_id>/<project\_scope>/" to ensure
 separation between projects and prevent objects from being shared across projects. The project
 S3 path is also used to store specific types of data, such as the location for the provisioned
 consumer AWS Glue database, Athena Workgroup output, and temporary storage for individual

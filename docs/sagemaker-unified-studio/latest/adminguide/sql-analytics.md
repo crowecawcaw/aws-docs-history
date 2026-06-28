@@ -52,39 +52,33 @@ domain's, see [Create a SQL analytics project profile](#create-sql-analytics-pro
     * DataLake
 
 7. On the **Create project profile: SQL analytics** page, in the
-   **Manage access role** section, specify a service role that gives
-   Amazon SageMaker Unified Studio authorization to ingest and manage access to datashares, tables and views in
-   Amazon Redshift. You can create a new or using an existing role.
-8. On the **Create project profil: SQL analytics** page, in the
-   **Provisioning role** section, specify a service role that gives
-   Amazon SageMaker Unified Studio authorization to ingest and manage access to datashares, tables and views in
-   Amazon Redshift.
-9. On the **Create project profile: SQL analytics** page, in the
-   **Amazon S3 bucket for blueprints** section, specify an Amazon S3
-   bucket for blueprints in your AWS account.
-10. On the **Create project profile: SQL analytics** page, in the
-    **Networking** section, specify a VPC in which to provision your
-    Amazon SageMaker unified domain. VPCs tagged with Amazon SageMaker Unified Studio should
-    be correctly configured. In the **Subnets** section, select at least 3
-    subnets in different **Availability Zones** that contain required VPC
-    Endpoints. Private subnets are recommended, not all functionality is available when
-    selecting public subnets.
-11. In the **Data encryption** section, specify the encryption
-    settings. Your data is encrypted by default with a key that AWS owns and manages for
-    you. To choose a different key, customize your encryption settings.
-12. In the **User role policy** section, you have the option to specify
-    your own user role policy. Amazon SageMaker Unified Studio creates IAM roles for project users to perform data
-    analytics, AI, and ML actions. You can attach your own AWS IAM policies to the role
-    rather than using the default system-managed policy. This provides more granular control
-    over permissions but requires knowledge of IAM policy configuration. The IAM policy must
-    include all necessary permissions required for the service to function properly.
-13. On the **Create project profile: SQL analytics** page, in the
-    **Authorization - optional** section, specify who can use this
-    project profile to create projects in all domain units. This can also be done per domain
-    unit in the Amazon SageMaker Unified Studio. Choose either **Selected users and groups**
-    (select which users and groups are authorized to use this project profile) or
-    **Allow all users and groups** (allow any user to use this project
-    profile).
+**Manage access role** section, specify a service role that gives
+Amazon SageMaker Unified Studio authorization to ingest and manage access to datashares, tables and views in
+Amazon Redshift. You can create a new or using an existing role. 8. On the **Create project profil: SQL analytics** page, in the
+**Provisioning role** section, specify a service role that gives
+Amazon SageMaker Unified Studio authorization to ingest and manage access to datashares, tables and views in
+Amazon Redshift. 9. On the **Create project profile: SQL analytics** page, in the
+**Amazon S3 bucket for blueprints** section, specify an Amazon S3
+bucket for blueprints in your AWS account. 10. On the **Create project profile: SQL analytics** page, in the
+**Networking** section, specify a VPC in which to provision your
+Amazon SageMaker unified domain. VPCs tagged with Amazon SageMaker Unified Studio should
+be correctly configured. In the **Subnets** section, select at least 3
+subnets in different **Availability Zones** that contain required VPC
+Endpoints. Private subnets are recommended, not all functionality is available when
+selecting public subnets. 11. In the **Data encryption** section, specify the encryption
+settings. Your data is encrypted by default with a key that AWS owns and manages for
+you. To choose a different key, customize your encryption settings. 12. In the **User role policy** section, you have the option to specify
+your own user role policy. Amazon SageMaker Unified Studio creates IAM roles for project users to perform data
+analytics, AI, and ML actions. You can attach your own AWS IAM policies to the role
+rather than using the default system-managed policy. This provides more granular control
+over permissions but requires knowledge of IAM policy configuration. The IAM policy must
+include all necessary permissions required for the service to function properly. 13. On the **Create project profile: SQL analytics** page, in the
+**Authorization - optional** section, specify who can use this
+project profile to create projects in all domain units. This can also be done per domain
+unit in the Amazon SageMaker Unified Studio. Choose either **Selected users and groups**
+(select which users and groups are authorized to use this project profile) or
+**Allow all users and groups** (allow any user to use this project
+profile).
 
 ###### Note
 

@@ -139,8 +139,8 @@ Record the following values from the output. You need these values in the next s
     * All fields inside `regionalParameters`
 
 4. Update the blueprint configuration to include
-   `PermissionsBoundaryArn` in the regional parameters by running
-   the following command:
+`PermissionsBoundaryArn` in the regional parameters by running
+the following command:
 
 ```
 aws datazone put-environment-blueprint-configuration \

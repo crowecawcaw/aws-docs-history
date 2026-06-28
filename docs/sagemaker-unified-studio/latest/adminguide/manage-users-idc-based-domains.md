@@ -43,16 +43,14 @@ an account instance of the IAM Identity Center.
      Center account instance is selected.
 
 5. On the **Configure IAM Identity Center** details page, verify that your
-   domain is connected to the IAM Identity Center and then choose user and group assignment
-   method. You can choose either **Require assignments** - which allows only
-   assigned IAM Identity Center users and groups access to this domain or **Do not
-   require assignments** - which allows all authorized IAM Identity Center users and
-   groups access to this domain.
-6. On the **Review and save** page, review your choices and then choose
-   **Save**. These settings cannot be changed once you save them.
-7. If you've chosen to require assignments, use the **Add users and
-   groups** to add IAM Identity Center users and groups to your Amazon SageMaker Unified Studio
-   domain.
+domain is connected to the IAM Identity Center and then choose user and group assignment
+method. You can choose either **Require assignments** - which allows only
+assigned IAM Identity Center users and groups access to this domain or **Do not
+require assignments** - which allows all authorized IAM Identity Center users and
+groups access to this domain. 6. On the **Review and save** page, review your choices and then choose
+**Save**. These settings cannot be changed once you save them. 7. If you've chosen to require assignments, use the **Add users and
+groups** to add IAM Identity Center users and groups to your Amazon SageMaker Unified Studio
+domain.
 
 ## Enable SAML
 
