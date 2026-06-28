@@ -20,7 +20,7 @@ You are logged in at the home directory (/elemental). 2. Enter this command.
 
 3. At the prompt, enter the activation code for the first VM, including the dashes.
    The following file is created in the home directory: `activation_<hostname 
-of the system>`.key``
+ of the system>`.key``
 4. Copy the activation key file from the VM to your workstation using SCP.
 
 Use the _elemental_ user credentials. 5. Repeat these steps for each VM.
