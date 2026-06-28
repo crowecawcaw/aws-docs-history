@@ -79,4 +79,4 @@ information, see [Listener configuration](listeners.md#listener-configuration "l
 ###### To add a TLS listener using the AWS CLI
 
 Use the [create-listener](../../../cli/latest/reference/vpc-lattice/create-listener.md "../../../cli/latest/reference/vpc-lattice/create-listener.md")
-command to create a listener with a default rule. Specify the TLS_PASSTHROUGH protocol.
+command to create a listener with a default rule. Specify the TLS\_PASSTHROUGH protocol.

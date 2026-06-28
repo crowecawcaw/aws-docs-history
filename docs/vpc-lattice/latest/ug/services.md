@@ -8,7 +8,7 @@ targets. The supported target types include EC2 instances, IP addresses, Lambda 
 You can associate a service with multiple service networks. The following diagram shows
 the key components of a typical service within VPC Lattice.
 
-![A service with a listener, listener rules, and two target groups.](/images/vpc-lattice/latest/ug/images/service.png)
+![A service with a listener, listener rules, and two target groups.](images/service.png)
 You can create a service by giving it a name and description. However, to control and
 monitor traffic to your service, it is important that you include access settings and
 monitoring details. To send traffic from your service to your targets you must set up a
@@ -85,25 +85,24 @@ policy to the service, do one of the following for **Auth policy**:
      only by signing the request (meaning authenticated).
 
 7. (Optional) To enable [access logs](monitoring-access-logs.md "monitoring-access-logs.md"),
-   turn on the **Access logs** toggle switch and specify a destination
-   for your access logs as follows:
+turn on the **Access logs** toggle switch and specify a destination
+for your access logs as follows:
 
-   - Select **CloudWatch Log group** and choose a
+    * Select **CloudWatch Log group** and choose a
      CloudWatch Log group. To create a log group, choose
      **Create a log group in CloudWatch**.
-   - Select **S3 bucket** and enter the S3 bucket path,
+    * Select **S3 bucket** and enter the S3 bucket path,
      including any prefix. To search your S3 buckets, choose
      **Browse S3**.
-   - Select **Kinesis Data Firehose delivery stream**
+    * Select **Kinesis Data Firehose delivery stream**
      and choose a delivery stream. To create a delivery stream, choose
      **Create a delivery stream in Kinesis**.
 
 8. (Optional) To [share your service](sharing.md "sharing.md") with other accounts,
-   choose an AWS RAM resource share from **Resource shares**. To create a
-   resource share, choose **Create a resource share in RAM console**.
-9. To review your configuration and create the service, choose **Skip to
-   review and create**. Otherwise, choose **Next** to
-   define the routing configuration for your service.
+choose an AWS RAM resource share from **Resource shares**. To create a
+resource share, choose **Create a resource share in RAM console**. 9. To review your configuration and create the service, choose **Skip to
+review and create**. Otherwise, choose **Next** to
+define the routing configuration for your service.
 
 ## Step 2: Define routing
 

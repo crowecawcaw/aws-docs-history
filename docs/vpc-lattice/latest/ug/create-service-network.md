@@ -73,25 +73,24 @@ for **Auth policy**:
      by signing the request (meaning authenticated).
 
 10. (Optional) To turn on [access
-    logs](monitoring-access-logs.md "monitoring-access-logs.md"), select the **Access logs** toggle switch and
-    specify a destination for your access logs as follows:
+logs](monitoring-access-logs.md "monitoring-access-logs.md"), select the **Access logs** toggle switch and
+specify a destination for your access logs as follows:
 
-    - Select **CloudWatch Log group** and choose a
-      CloudWatch Log group. To create a log group, choose **Create a
-      log group in CloudWatch**.
-    - Select **S3 bucket** and enter the S3 bucket path,
-      including any prefix. To search your S3 buckets, choose **Browse
-      S3**.
-    - Select **Kinesis Data Firehose delivery stream** and
-      choose a delivery stream. To create a delivery stream, choose
-      **Create a delivery stream in Kinesis**.
+    * Select **CloudWatch Log group** and choose a
+     CloudWatch Log group. To create a log group, choose **Create a
+     log group in CloudWatch**.
+    * Select **S3 bucket** and enter the S3 bucket path,
+     including any prefix. To search your S3 buckets, choose **Browse
+     S3**.
+    * Select **Kinesis Data Firehose delivery stream** and
+     choose a delivery stream. To create a delivery stream, choose
+     **Create a delivery stream in Kinesis**.
 
 11. (Optional) To [share your service network](sharing.md "sharing.md") with
-    other accounts, choose the AWS RAM resource shares from **Resource
-    shares**. To create a resource share, choose **Create a
-    resource share in RAM console**.
-12. Review your configuration in the **Summary** section, and
-    then choose **Create service network**.
+other accounts, choose the AWS RAM resource shares from **Resource
+shares**. To create a resource share, choose **Create a
+resource share in RAM console**. 12. Review your configuration in the **Summary** section, and
+then choose **Create service network**.
 
 ###### To create a service network using the AWS CLI
 

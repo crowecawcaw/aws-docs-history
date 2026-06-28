@@ -104,10 +104,10 @@ domain-name targets. This property is immutable. You can choose:
 
 * Domain names are resolved using public DNS resolvers.
 
-- **IN_VPC**
+- **IN\_VPC**
 
 * Domain names are resolved using the DNS server configured in the DHCP option set of the VPC
   which the resource gateway is in. You should use this if you are using a private DNS server or your
   domain-name targets are in a Route53 private hosted zone.
 
-If DNS resolution is IN_VPC, you cannot attach resource configurations defined by ARN to the resource gateway. You cannot set DNS Resolution to IN_VPC if the resource gateway uses IPv6-only subnets.
+If DNS resolution is IN\_VPC, you cannot attach resource configurations defined by ARN to the resource gateway. You cannot set DNS Resolution to IN\_VPC if the resource gateway uses IPv6-only subnets.
