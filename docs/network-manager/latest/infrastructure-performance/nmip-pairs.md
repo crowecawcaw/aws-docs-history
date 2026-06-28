@@ -82,7 +82,7 @@ for. 4. Scroll through the pages and choose one or more pairs. 5. (Optional). To
     ![Infrastructure Performance filter for a single source and a single destination .](images/nmip-metric-filter.png)
 
 6. Choose a time range, and then choose **Apply**. You can choose a
-   **Relative range** or an **Absolute range**.
+**Relative range** or an **Absolute range**.
 
 **Relative range** options use a date range based on your current date
 and time:
@@ -136,7 +136,7 @@ When using an absolute range, both start and end dates are required. 7. Choose t
     * **1W** — One week
 
 8. The **Health status timeline** and **Network latency
-   sections** update.
+sections** update.
 
 ## Health status timeline
 
