@@ -68,7 +68,7 @@ resolving to link-local addresses to send traffic locally to the service network
 When creating VPC Lattice services, you can configure a custom domain name
 to provide a more intuitive URL for your users. When a client makes a
 request using your custom domain name, the DNS server resolves it to
-the VPC Lattice-generated domain name (service-name-service_id.partition_id.vpc-lattice-svcs.region.on.aws).
+the VPC Lattice-generated domain name (service-name-service\_id.partition\_id.vpc-lattice-svcs.region.on.aws).
 However, this happens only if you map your custom domain name to
 the VPC Lattice-generated domain name (CNAME record).
 
