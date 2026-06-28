@@ -149,7 +149,7 @@ On the **Review** page, click
 
 At this point, you will be directed back to the CloudFormation
 console and will see a status of
-**CREATE_IN_PROGRESS**. Please wait
+**CREATE\_IN\_PROGRESS**. Please wait
 here until the status changes to
 **COMPLETE**.
 
@@ -161,7 +161,7 @@ creation.
 ![A table of events showing timestamps, logical IDs, and statuses, with statuses including "CREATE_COMPLETE" and "CREATE_IN_PROGRESS.".](images/table-events-timestamps-logical-ids.png) 7. View stack outputs
 
 Once CloudFormation status changes to
-**CREATE_COMPLETE**, go to the
+**CREATE\_COMPLETE**, go to the
 **Outputs** section.
 
 Make a note of the **Output**
@@ -317,7 +317,7 @@ Before you can promote the Aurora Read Replica to a stand-alone DB
 cluster and redirect your application to the endpoint for the Aurora
 Read Replica, stop any write transactions from being written to the
 source RDS MySQL DB instance. The way to do this is by modifying the
-**read_only** parameter in the
+**read\_only** parameter in the
 parameter group assigned to the RDS DB instance.
 
 1. Open parameter group
@@ -328,10 +328,10 @@ template) and for **Parameter group
 actions**, choose
 **Edit**.
 
-![AWS RDS console showing the "Parameter groups" section with a selected custom parameter group and the "Edit" option highlighted in the dropdown menu.](images/console-parameter-groups-section-selected.png) 2. Modify read_only parameter
+![AWS RDS console showing the "Parameter groups" section with a selected custom parameter group and the "Edit" option highlighted in the dropdown menu.](images/console-parameter-groups-section-selected.png) 2. Modify read\_only parameter
 
 Under **Parameters** section,
-search for **read_only** parameter.
+search for **read\_only** parameter.
 The default value is{TrueIfReplica}. Explicitly set this value to
 **1**, which converts the instance
 into a read-only mode.
@@ -370,7 +370,7 @@ precise measurement by logging in to the newly created Amazon Aurora cluster. To
 **show slave status\G**. This
 command returns a lot of very useful information, but the specific
 metric that we want is
-**Seconds_Behind_Master**. When
+**Seconds\_Behind\_Master**. When
 this metric reaches 0 i.e. there is no replication lag, your newly
 created Amazon Aurora cluster is in sync with your original RDS
 MySQL DB instance.
@@ -475,7 +475,7 @@ rds.conf.php.**
 
 ![Terminal interface showing an Amazon Linux 2 AMI session, navigating to the /var/www/html directory and editing the rds.conf.php file using the vi editor.](images/terminal-interface-linux-ami-session.png) 2. Configure the database endpoint
 
-Change the **RDS_URL** parameter to
+Change the **RDS\_URL** parameter to
 Aurora Cluster Writer Node DNS name -
 **aurora-db-cluster.cluster-cp94ll5qcjxh.us-west-2.rds.amazonaws.com**.
 Then save the file.
