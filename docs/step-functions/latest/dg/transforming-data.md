@@ -133,19 +133,19 @@ At runtime, JSONata expression evaluation might fail for a variety of reasons, s
 as:
 
 - **Type error** - An expression, such as `{%
-$x + $y %}`, will fail if `$x` or `$y` is not a
+ $x + $y %}`, will fail if `$x` or `$y` is not a
   number.
 - **Type incompatibility** - An expression might
   evaluate to a type that the field will not accept. For example, the field
   `TimeoutSeconds` requires a numeric input, so the expression `{%
-$timeout %}` will fail if `$timeout` returns a string.
+ $timeout %}` will fail if `$timeout` returns a string.
 - **Value out of range** - An expression that
   produces a value that is outside the acceptable range for a field will fail. For
   example, an expression such as `{% $evaluatesToNegativeNumber %}`
   will fail in the `TimeoutSeconds` field.
 - **Failure to return a result** - JSON cannot
   represent an undefined value expression, so the expression `{%
-$data.thisFieldDoesNotExist %}` would result in an error.
+ $data.thisFieldDoesNotExist %}` would result in an error.
 - **Memory limit exceeded** - A JSONata expression
   that consumes too much memory during evaluation will fail with an
   `Expression evaluation memory limit exceeded` error. This can occur

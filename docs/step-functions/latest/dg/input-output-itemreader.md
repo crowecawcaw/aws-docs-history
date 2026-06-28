@@ -277,7 +277,7 @@ You can specify one of the following options as your dataset:
 - [JSON data from a previous step](#itemsource-json-array "#itemsource-json-array")
 - [A list of Amazon S3 objects](#itemsource-example-s3-object-data "#itemsource-example-s3-object-data")
 - [Amazon S3 objects transformed by
-  LOAD_AND_FLATTEN](#itemsource-example-s3-object-data-flatten "#itemsource-example-s3-object-data-flatten")
+  LOAD\_AND\_FLATTEN](#itemsource-example-s3-object-data-flatten "#itemsource-example-s3-object-data-flatten")
 - [JSON file in an Amazon S3 bucket](#itemsource-example-json-data "#itemsource-example-json-data")
 - [JSON Lines file in an Amazon S3 bucket](#itemsource-example-json-lines-data "#itemsource-example-json-lines-data")
 - [CSV file in an Amazon S3 bucket](#itemsource-example-csv-data "#itemsource-example-csv-data")
@@ -359,7 +359,7 @@ contains 100 metadata items. The _Distributed Map state_ then starts 100 child w
 executions to process each item.
 
 To process data objects directly, without nested workflows, you can choose the
-LOAD_AND_FLATTEN Transformation option to process items **directly**.
+LOAD\_AND\_FLATTEN Transformation option to process items **directly**.
 
 ###### Note
 
@@ -414,7 +414,7 @@ With the `LOAD_AND_FLATTEN` option, your state machine will do the following:
 - Parse the content based on InputType (CSV, JSON, JSONL, Parquet).
 - Create items from the file contents (rows/records) rather than metadata.
   With the transformation option, you no longer need nested Distributed Maps to process the
-  metadata. Using the LOAD_AND_FLATTEN option increases scalability, reduces
+  metadata. Using the LOAD\_AND\_FLATTEN option increases scalability, reduces
   active map run counts, and processes multiple objects concurrently.
 
 The following configuration shows the setting for an
@@ -741,7 +741,7 @@ file.
 By default, the `Map` state then iterates over the **objects** in the inventory to return an array of Amazon S3
 inventory object metadata.
 
-If you specify ManifestType is S3_INVENTORY then InputType cannot be
+If you specify ManifestType is S3\_INVENTORY then InputType cannot be
 specified.
 
 ###### Note

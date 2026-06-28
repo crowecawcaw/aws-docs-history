@@ -143,20 +143,20 @@ Local.
 
 When you configure the Step Functions Local container to use an override endpoint such as Lambda Endpoint and Batch Endpoint, and make calls to that endpoint, Step Functions Local doesn't use the [credentials](#docker-credentials "#docker-credentials") you specify. Setting these endpoint overrides is optional.
 
-| Option                  | Command Line                                      | Environment             |
-| ----------------------- | ------------------------------------------------- | ----------------------- |
-| Account                 | -account, --aws-account                           | AWS_ACCOUNT_ID          |
-| Region                  | -region, --aws-region                             | AWS_DEFAULT_REGION      |
-| Wait Time Scale         | -waitTimeScale, --wait-time-scale                 | WAIT_TIME_SCALE         |
-| Lambda Endpoint         | -lambdaEndpoint, --lambda-endpoint                | LAMBDA_ENDPOINT         |
-| Batch Endpoint          | -batchEndpoint, --batch-endpoint                  | BATCH_ENDPOINT          |
-| DynamoDB Endpoint       | -dynamoDBEndpoint, --dynamodb-endpoint            | DYNAMODB_ENDPOINT       |
-| ECS Endpoint            | -ecsEndpoint, --ecs-endpoint                      | ECS_ENDPOINT            |
-| Glue Endpoint           | -glueEndpoint, --glue-endpoint                    | GLUE_ENDPOINT           |
-| SageMaker Endpoint      | -sageMakerEndpoint, --sagemaker-endpoint          | SAGE_MAKER_ENDPOINT     |
-| SQS Endpoint            | -sqsEndpoint, --sqs-endpoint                      | SQS_ENDPOINT            |
-| SNS Endpoint            | -snsEndpoint, --sns-endpoint                      | SNS_ENDPOINT            |
-| Step Functions Endpoint | -stepFunctionsEndpoint, --step-functions-endpoint | STEP_FUNCTIONS_ENDPOINT |
+| Option                  | Command Line                                      | Environment               |
+| ----------------------- | ------------------------------------------------- | ------------------------- |
+| Account                 | -account, --aws-account                           | AWS\_ACCOUNT\_ID          |
+| Region                  | -region, --aws-region                             | AWS\_DEFAULT\_REGION      |
+| Wait Time Scale         | -waitTimeScale, --wait-time-scale                 | WAIT\_TIME\_SCALE         |
+| Lambda Endpoint         | -lambdaEndpoint, --lambda-endpoint                | LAMBDA\_ENDPOINT          |
+| Batch Endpoint          | -batchEndpoint, --batch-endpoint                  | BATCH\_ENDPOINT           |
+| DynamoDB Endpoint       | -dynamoDBEndpoint, --dynamodb-endpoint            | DYNAMODB\_ENDPOINT        |
+| ECS Endpoint            | -ecsEndpoint, --ecs-endpoint                      | ECS\_ENDPOINT             |
+| Glue Endpoint           | -glueEndpoint, --glue-endpoint                    | GLUE\_ENDPOINT            |
+| SageMaker Endpoint      | -sageMakerEndpoint, --sagemaker-endpoint          | SAGE\_MAKER\_ENDPOINT     |
+| SQS Endpoint            | -sqsEndpoint, --sqs-endpoint                      | SQS\_ENDPOINT             |
+| SNS Endpoint            | -snsEndpoint, --sns-endpoint                      | SNS\_ENDPOINT             |
+| Step Functions Endpoint | -stepFunctionsEndpoint, --step-functions-endpoint | STEP\_FUNCTIONS\_ENDPOINT |
 
 ### Credentials and configuration for Docker
 

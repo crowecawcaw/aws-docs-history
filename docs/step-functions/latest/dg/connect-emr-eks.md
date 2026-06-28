@@ -45,11 +45,10 @@ When sending or receiving data between services, the maximum input or result for
 
 - [`StartJobRun`](../../../emr-on-eks/latest/APIReference/API_StartJobRun.md "../../../emr-on-eks/latest/APIReference/API_StartJobRun.md")
 
-      + [Request syntax](../../../emr-on-eks/latest/APIReference/API_StartJobRun.md#API_StartJobRun_RequestSyntax "../../../emr-on-eks/latest/APIReference/API_StartJobRun.md#API_StartJobRun_RequestSyntax")
-      + [Supported parameters](../../../emr-on-eks/latest/APIReference/API_StartJobRun.md#API_StartJobRun_RequestParameters "../../../emr-on-eks/latest/APIReference/API_StartJobRun.md#API_StartJobRun_RequestParameters")
-      + [Response syntax](../../../emr-on-eks/latest/APIReference/API_StartJobRun.md#API_StartJobRun_ResponseSyntax "../../../emr-on-eks/latest/APIReference/API_StartJobRun.md#API_StartJobRun_ResponseSyntax")
-
-  The following includes a `Task` state that creates a virtual cluster.
+  - [Request syntax](../../../emr-on-eks/latest/APIReference/API_StartJobRun.md#API_StartJobRun_RequestSyntax "../../../emr-on-eks/latest/APIReference/API_StartJobRun.md#API_StartJobRun_RequestSyntax")
+  - [Supported parameters](../../../emr-on-eks/latest/APIReference/API_StartJobRun.md#API_StartJobRun_RequestParameters "../../../emr-on-eks/latest/APIReference/API_StartJobRun.md#API_StartJobRun_RequestParameters")
+  - [Response syntax](../../../emr-on-eks/latest/APIReference/API_StartJobRun.md#API_StartJobRun_ResponseSyntax "../../../emr-on-eks/latest/APIReference/API_StartJobRun.md#API_StartJobRun_ResponseSyntax")
+    The following includes a `Task` state that creates a virtual cluster.
 
 ```
 "Create_Virtual_Cluster": {

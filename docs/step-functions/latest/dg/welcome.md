@@ -55,7 +55,7 @@ more than once, while each step in the workflow executes at least once.
 | Show execution history and visual debugging                                                                                                                                              | Show execution history and visual debugging based on<br>**log level**                                           |
 | See execution history in Step Functions                                                                                                                                                  | Send execution history to [CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/") |
 | Support integrations with all services.Support<br>optimized integrations with some services.                                                                                             | Support integrations with all services.                                                                         |
-| Support _Request Response_<br>pattern for all services<br>Support *Run a Job<br>• and/or *Wait for<br>Callback<br>• patterns in specific services (see following<br>section for details) | Support \*Request Response<br>• pattern for all services                                                        |
+| Support _Request Response_<br>pattern for all services<br>Support *Run a Job<br>• and/or *Wait for<br>Callback<br>• patterns in specific services (see following<br>section for details) | Support *Request Response<br>• pattern for all services                                                         |
 
 For more information on Step Functions pricing and choosing workflow type, see the
 following:

@@ -56,7 +56,7 @@ has both required and optional parameters.
   - Type: `String`
   - The hostname of an API Gateway URL. The format is
     ``<API
-ID>`.execute-api.`region`.amazonaws.com`.
+       ID>`.execute-api.`region`.amazonaws.com`.
 
   The API ID can only contain a combination of the following
   alphanumeric characters:
@@ -133,12 +133,11 @@ ID>`.execute-api.`region`.amazonaws.com`.
   - The authentication method. The default method is
     `NO_AUTH`. The allowed values are:
 
-        - `NO_AUTH`
-        - `IAM_ROLE`
-        - `RESOURCE_POLICY`
-
-    See **Authentication and authorization** for more
-    information.
+    - `NO_AUTH`
+    - `IAM_ROLE`
+    - `RESOURCE_POLICY`
+      See **Authentication and authorization** for more
+      information.
 
 ###### Note
 
@@ -200,32 +199,26 @@ You can use the following authentication methods:
   then calls the API. You must attach a resource policy to the API which specifies
   the following:
 
-      1. The state machine that will invoke API Gateway.
+  1.  The state machine that will invoke API Gateway.
 
+  ###### Important
 
-      ###### Important
+  You must specify your state machine to limit access to it. If you
+  do not, then any state machine that authenticates its API Gateway request
+  with **Resource policy** authentication to your API
+  will be granted access. 2. That Step Functions is the service calling API Gateway: `"Service":
+   "states.amazonaws.com"`. 3. The resource you want to access, including:
 
-      You must specify your state machine to limit access to it. If you
-       do not, then any state machine that authenticates its API Gateway request
-       with **Resource policy** authentication to your API
-       will be granted access.
-      2. That Step Functions is the service calling API Gateway: `"Service":
-       "states.amazonaws.com"`.
-      3. The resource you want to access, including:
+        + The `region`.
+        + The `account-id` in the specified
+         region.
+        + The `api-id`.
+        + The `stage-name`.
+        + The `HTTP-VERB` (method).
+        + The `resource-path-specifier`.
 
-
-
-
-      	+ The `region`.
-      	+ The `account-id` in the specified
-      	 region.
-      	+ The `api-id`.
-      	+ The `stage-name`.
-      	+ The `HTTP-VERB` (method).
-      	+ The `resource-path-specifier`.
-
-  For an example resource policy, see [IAM
-  policies for Step Functions and API Gateway](#api-gateway-iam "#api-gateway-iam").
+For an example resource policy, see [IAM
+policies for Step Functions and API Gateway](#api-gateway-iam "#api-gateway-iam").
 
 For more information on the resource format, see [Resource format of permissions for executing API in API Gateway](../../../apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.md#api-gateway-iam-policy-resource-format-for-executing-api "../../../apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.md#api-gateway-iam-policy-resource-format-for-executing-api") in the
 API Gateway Developer Guide.
@@ -301,7 +294,7 @@ follows:
 
 - If the HTTP status code is available, then the error will be returned in the
   format `ApiGateway.`<HTTP Status
-  Code>``.
+   Code>``.
 - If the HTTP status code is not available, then the error will be returned in
   the format
   `ApiGateway.`<Exception>``.

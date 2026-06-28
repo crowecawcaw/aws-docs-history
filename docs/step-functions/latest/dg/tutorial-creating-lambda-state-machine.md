@@ -83,8 +83,7 @@ Make sure that your state machine is under the same AWS account and Region as th
     2. Keep the default selection in the **Payload** dropdown list.
 
 6. (Optional) Choose **Definition** to view the state machine's [Amazon States Language](concepts-amazon-states-language.md "concepts-amazon-states-language.md") (ASL) definition, which is automatically generated
-   based on your selections in the **Actions** tab and **Inspector** panel.
-7. Specify a name for your state machine. To do this, choose the edit icon next to the default state machine name of **MyStateMachine**. Then, in **State machine configuration**, specify a name in the **State machine name** box.
+based on your selections in the **Actions** tab and **Inspector** panel. 7. Specify a name for your state machine. To do this, choose the edit icon next to the default state machine name of **MyStateMachine**. Then, in **State machine configuration**, specify a name in the **State machine name** box.
 
 For example, enter the name `LambdaStateMachine`.
 

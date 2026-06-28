@@ -36,7 +36,7 @@ for your OS. It assumes that you've done the following:
    macOS.
 4. Installed the AWS SAM CLI. Note: Make sure you have version 0.52.0 or later. You
    can check which version you have by executing the command `sam
---version`.
+ --version`.
 
 ## Step 1: Download a Sample AWS SAM Application
 
@@ -230,7 +230,7 @@ steps:
 4. Choose **Delete**.
 
 When done, the status of the of the stack will change to
-**DELETE_COMPLETE**.
+**DELETE\_COMPLETE**.
 
 Alternatively, you can delete the CloudFormation stack by executing the following AWS CLI
 command:

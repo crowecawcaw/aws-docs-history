@@ -18,21 +18,20 @@ keys by choosing a customer managed key when you create your state machine and a
   second layer of encryption over the existing AWS owned encryption. Because you
   have full control of this layer of encryption, you can perform such tasks as:
 
-      + Establishing and maintaining key policies
-      + Establishing and maintaining IAM policies and grants
-      + Enabling and disabling key policies
-      + Rotating key cryptographic material
-      + Adding tags
-      + Creating key aliases
-      + Scheduling keys for deletion
-
-  For information, see [customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk")
-  in the _AWS Key Management Service Developer Guide_.
-  You can encrypt your data using a **customer-managed
-  key** for AWS Step Functions state machines and activities. You can configure a
-  symmetric AWS KMS key and data key reuse period when creating or updating a **State Machine**, and when creating an **Activity**. The execution history and state machine definition will be
-  encrypted with the key applied to the State Machine. Activity inputs will be encrypted with
-  the key applied to the Activity.
+  - Establishing and maintaining key policies
+  - Establishing and maintaining IAM policies and grants
+  - Enabling and disabling key policies
+  - Rotating key cryptographic material
+  - Adding tags
+  - Creating key aliases
+  - Scheduling keys for deletion
+    For information, see [customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk")
+    in the _AWS Key Management Service Developer Guide_.
+    You can encrypt your data using a **customer-managed
+    key** for AWS Step Functions state machines and activities. You can configure a
+    symmetric AWS KMS key and data key reuse period when creating or updating a **State Machine**, and when creating an **Activity**. The execution history and state machine definition will be
+    encrypted with the key applied to the State Machine. Activity inputs will be encrypted with
+    the key applied to the Activity.
 
 With customer managed AWS KMS keys, you can secure customer data that includes **protected health information (PHI)** from unauthorized access. Step Functions is integrated with CloudTrail, so you can view and audit the most recent events in the CloudTrail console in the event history.
 
@@ -745,7 +744,7 @@ The following example event records the `GenerateDataKey`operation:
 
 ### What happens if my key is marked for deletion or deleted in AWS KMS?
 
-If the key is deleted or marked for deletion in AWS KMS, any related running executions will fail. New executions cannot be started until you remove or change the key associated with the workflow. After a AWS KMS key is deleted, all encrypted data associated with the workflow execution will remain encrypted and can no longer be decrypted, making the data **_unrecoverable_**.
+If the key is deleted or marked for deletion in AWS KMS, any related running executions will fail. New executions cannot be started until you remove or change the key associated with the workflow. After a AWS KMS key is deleted, all encrypted data associated with the workflow execution will remain encrypted and can no longer be decrypted, making the data _**unrecoverable**_.
 
 ### What happens if a AWS KMS key is disabled in AWS KMS?
 

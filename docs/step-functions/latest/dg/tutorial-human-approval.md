@@ -49,8 +49,8 @@ For this example the file is called `human-approval.yaml`.
 7. On the **Review** page, choose **I acknowledge that CloudFormation might create IAM resources** and then choose
    **Create**.
 
-CloudFormation begins to create your stack and displays the **CREATE_IN_PROGRESS** status. When the process is complete, CloudFormation displays the
-**CREATE_COMPLETE** status. 8. (Optional) To display the resources in your stack, select the stack and choose the **Resources** tab.
+CloudFormation begins to create your stack and displays the **CREATE\_IN\_PROGRESS** status. When the process is complete, CloudFormation displays the
+**CREATE\_COMPLETE** status. 8. (Optional) To display the resources in your stack, select the stack and choose the **Resources** tab.
 
 ## Step 3: Approve the Amazon SNS subscription
 

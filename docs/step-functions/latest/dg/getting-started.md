@@ -229,7 +229,7 @@ In the Graph view, review the **Input/Output** for the first Pass State. Notice 
 
 ###### Tip
 
-What do you expect if you run a new execution with _hello_world_ set to **false**? Try it!
+What do you expect if you run a new execution with _hello\_world_ set to **false**? Try it!
 
 ### Review workflow executions
 
@@ -296,7 +296,7 @@ Note that API actions will be _camelCase_ (lowercase initial), but _ParameterNam
 - `arn:aws:states:::aws-sdk:s3:listBuckets` will return the results from calling the Amazon S3 listBuckets API.
 - `arn:aws:states:::aws-sdk:sfn:startExecution` will start a nested Step Functions state machine execution and return the results of that workflow.
 
-When Step Functions calls another service using the `Task` state, the default pattern is [Request Response](connect-to-resource.md#connect-default "connect-to-resource.md#connect-default"). With the **Request Response** integration pattern, Step Functions calls a service, receives a response, and **_immediately_** proceeds to the next state.
+When Step Functions calls another service using the `Task` state, the default pattern is [Request Response](connect-to-resource.md#connect-default "connect-to-resource.md#connect-default"). With the **Request Response** integration pattern, Step Functions calls a service, receives a response, and _**immediately**_ proceeds to the next state.
 
 ![Sentiment detection integration](images/integrate_sentiment_592194331.png)
 

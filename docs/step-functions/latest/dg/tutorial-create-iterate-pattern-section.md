@@ -201,8 +201,7 @@ and must not contain any of the following:
     * Special characters (`" # % \ ^ | ~ ` $ & , ; : /`)
     * Control characters (`\\u0000` - `\\u001f` or `\\u007f` - `\\u009f`).Step Functions accepts names for state machines, executions, activities, and labels that contain non-ASCII characters. Because such characters will prevent Amazon CloudWatch from logging data, we recommend using only ASCII characters so you can track Step Functions metrics.
 
-6. For **Type**, accept default value of **Standard**. For **Permissions**, choose **Create new role**.
-7. Choose **Create**, and then **Confirm** the role creations.
+6. For **Type**, accept default value of **Standard**. For **Permissions**, choose **Create new role**. 7. Choose **Create**, and then **Confirm** the role creations.
 
 ## Step 4: Start a New Execution
 

@@ -46,7 +46,7 @@ prototype.
 5. In the **Configuration** tab, for **State name**, enter `Process data`.
 6. From the **Actions** tab, drag an **AWS Lambda Invoke** API action and drop it inside the **Process data** state.
 7. Rename the **AWS Lambda Invoke** state to `Process CSV
-data`.
+ data`.
 
 ## Step 2: Configure the required fields for Map state
 
@@ -279,19 +279,14 @@ restore its original settings later.
 An _execution_ is an instance of your state machine where you run
 your workflow to perform tasks.
 
-1.  On the **DistributedMapDemo** page, choose **Start execution**.
-2.  In the **Start execution** dialog box, do the following:
+1. On the **DistributedMapDemo** page, choose **Start execution**.
+2. In the **Start execution** dialog box, do the following:
 
-        1. (Optional) Enter a custom execution name to override the generated default.
+   1. (Optional) Enter a custom execution name to override the generated default.
 
-         ###### Non-ASCII names and logging
+   ###### Non-ASCII names and logging
 
-        Step Functions accepts names for state machines, executions, activities, and labels that contain non-ASCII characters. Because such characters will prevent Amazon CloudWatch from logging data, we recommend using only ASCII characters so you can track Step Functions metrics.
-        2. (Optional) In the **Input** box, enter input values in JSON format to run your workflow.
-        3. Choose **Start execution**.
-        4. The Step Functions console directs you to a page that's titled with your execution ID, known as the *Execution Details* page. You can review the execution results as the workflow progresses and after it completes.
+   Step Functions accepts names for state machines, executions, activities, and labels that contain non-ASCII characters. Because such characters will prevent Amazon CloudWatch from logging data, we recommend using only ASCII characters so you can track Step Functions metrics. 2. (Optional) In the **Input** box, enter input values in JSON format to run your workflow. 3. Choose **Start execution**. 4. The Step Functions console directs you to a page that's titled with your execution ID, known as the _Execution Details_ page. You can review the execution results as the workflow progresses and after it completes.
 
-
-        To review the execution results, choose individual states on the **Graph view**, and then choose the individual tabs on the [Step details](concepts-view-execution-details.md#exec-details-intf-step-details "concepts-view-execution-details.md#exec-details-intf-step-details") pane to view each state's details including input, output, and definition respectively. For details about the execution information you can view on the *Execution Details* page, see [Execution details overview](concepts-view-execution-details.md#exec-details-interface-overview "concepts-view-execution-details.md#exec-details-interface-overview").
-
-    For example, choose the `Map` state, and then choose **Map Run** to open the _Map Run Details_ page. On this page, you can view all the execution details of the _Distributed Map state_ and the child workflow executions that it started. For information about this page, see [Viewing Map Runs](concepts-examine-map-run.md "concepts-examine-map-run.md").
+   To review the execution results, choose individual states on the **Graph view**, and then choose the individual tabs on the [Step details](concepts-view-execution-details.md#exec-details-intf-step-details "concepts-view-execution-details.md#exec-details-intf-step-details") pane to view each state's details including input, output, and definition respectively. For details about the execution information you can view on the _Execution Details_ page, see [Execution details overview](concepts-view-execution-details.md#exec-details-interface-overview "concepts-view-execution-details.md#exec-details-interface-overview").
+   For example, choose the `Map` state, and then choose **Map Run** to open the _Map Run Details_ page. On this page, you can view all the execution details of the _Distributed Map state_ and the child workflow executions that it started. For information about this page, see [Viewing Map Runs](concepts-examine-map-run.md "concepts-examine-map-run.md").

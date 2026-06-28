@@ -330,7 +330,7 @@ proactively handle these exceptions in your state machine to `Retry` invoking yo
 Lambda function, or to `Catch` the error.
 
 Lambda errors are reported as `Lambda.`ErrorName``. To
- retry a Lambda service exception error, you could use the following `Retry`
+retry a Lambda service exception error, you could use the following `Retry`
 code.
 
 ```

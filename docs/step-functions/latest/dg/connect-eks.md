@@ -152,7 +152,7 @@ Supported parameters include:
   information, see the [Read Log](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#read-log-pod-v1-core "https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#read-log-pod-v1-core") section of the Kubernetes API Reference.
 
   - `Type:` Map of `String` to `List of
-Strings`
+   Strings`
   - Required: no
   - Example:
 
@@ -266,7 +266,7 @@ Supported parameters for `Call` include:
   REST API operation.
 
   - `Type:` Map of `String` to `List of
-Strings`
+   Strings`
   - Required: No
   - Example:
 
@@ -355,10 +355,10 @@ Supported Amazon EKS APIs and syntax include:
   make calls to the Kubernetes API server. For more information,
   see:
 
-      - [Managing users
-       or IAM roles for your cluster](../../../eks/latest/userguide/add-user-role.md "../../../eks/latest/userguide/add-user-role.md") in the
-       *Amazon EKS User Guide*
-      - The [Permissions](#connect-eks-permissions "#connect-eks-permissions") section
+        - [Managing users
+         or IAM roles for your cluster](../../../eks/latest/userguide/add-user-role.md "../../../eks/latest/userguide/add-user-role.md") in the
+         *Amazon EKS User Guide*
+        - The [Permissions](#connect-eks-permissions "#connect-eks-permissions") section
 
   Amazon EKS uses service-linked roles which contain the permissions Amazon EKS
   requires to call other services on your behalf. If these service-linked

@@ -716,7 +716,7 @@ The expected API response should be:
 
 This response indicates that:
 
-- the error is caught (status: CAUGHT_ERROR)
+- the error is caught (status: CAUGHT\_ERROR)
 - the next state is HandleThrottling
 - the error information is added to the output via ResultPath
 - the first Catch handler (index 0) caught the error

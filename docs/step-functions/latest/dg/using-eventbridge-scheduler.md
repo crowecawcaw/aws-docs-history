@@ -27,102 +27,100 @@ in the _EventBridge Scheduler User Guide_.
 
 ###### To create a schedule by using the console
 
-1.  Open the Amazon EventBridge Scheduler console at [https://console.aws.amazon.com/scheduler/home](https://console.aws.amazon.com/scheduler/home/ "https://console.aws.amazon.com/scheduler/home/").
-2.  On the **Schedules** page, choose **Create schedule**.
-3.  On the **Specify schedule detail** page, in the **Schedule name and description** section, do the following:
+1. Open the Amazon EventBridge Scheduler console at [https://console.aws.amazon.com/scheduler/home](https://console.aws.amazon.com/scheduler/home/ "https://console.aws.amazon.com/scheduler/home/").
+2. On the **Schedules** page, choose **Create schedule**.
+3. On the **Specify schedule detail** page, in the **Schedule name and description** section, do the following:
 
-    1. For **Schedule name**, enter a name for your
-       schedule. For example, `MyTestSchedule`.
-    2. (Optional) For **Description**, enter a
-       description for your schedule. For example, `My first
-schedule`.
-    3. For **Schedule group**, choose a schedule group from
-       the dropdown list. If you don't have a group, choose
-       **default**. To create a schedule group, choose
-       **create your own schedule**.
+   1. For **Schedule name**, enter a name for your
+      schedule. For example, `MyTestSchedule`.
+   2. (Optional) For **Description**, enter a
+      description for your schedule. For example, `My first
+  schedule`.
+   3. For **Schedule group**, choose a schedule group from
+      the dropdown list. If you don't have a group, choose
+      **default**. To create a schedule group, choose
+      **create your own schedule**.
 
-    You use schedule groups to add tags to groups of schedules.
+   You use schedule groups to add tags to groups of schedules.
 
-4.  1. Choose your schedule options.
+4. 1. Choose your schedule options.
 
-    | Occurrence                                                                                                                                               | Do this...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-    | -------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | **One-time schedule**<br>A one-time schedule invokes a target only once<br>at the date and time that you specify.                                        | For **Date and time**, do the<br>following:<br>• Enter a valid date in<br>`YYYY/MM/DD` format.<br>• Enter a timestamp in 24-hour<br>`hh:mm` format.<br>• For **Timezone**, choose<br>the timezone.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-    | **Recurring schedule**<br>A recurring schedule invokes a target at a<br>rate that you specify using a<br>\*_cron_<br>• expression or rate<br>expression. | 1. For **Schedule type**, do<br>one of the following:<br>• To use a cron expression to define the<br>schedule, choose **Cron-based<br>schedule\*<br>• and enter the cron<br>expression.<br>• To use a rate expression to define the<br>schedule, choose **Rate-based<br>schedule*<br>• and enter the rate<br>expression.<br>For more information about cron and rate<br>expressions, see [Schedule types on EventBridge Scheduler](../../../scheduler/latest/UserGuide/schedule-types.md#cron-based "../../../scheduler/latest/UserGuide/schedule-types.md#cron-based") in the *Amazon EventBridge Scheduler User Guide*.<br>2. For **Flexible time<br>window**, choose **Off**<br>to turn off the option, or choose one of the<br>pre-defined time windows.<br>For example, if you choose \*\*15<br>minutes*<br>• and you set a recurring<br>schedule to invoke its target once every hour, the<br>schedule runs within 15 minutes after the start of<br>every hour. |
+   | Occurrence                                                                                                                                              | Do this...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+   | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+   | **One-time schedule**<br>A one-time schedule invokes a target only once<br>at the date and time that you specify.                                       | For **Date and time**, do the<br>following:<br>• Enter a valid date in<br>`YYYY/MM/DD` format.<br>• Enter a timestamp in 24-hour<br>`hh:mm` format.<br>• For **Timezone**, choose<br>the timezone.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+   | **Recurring schedule**<br>A recurring schedule invokes a target at a<br>rate that you specify using a<br>*_cron_<br>• expression or rate<br>expression. | 1. For **Schedule type**, do<br>one of the following:<br>• To use a cron expression to define the<br>schedule, choose *_Cron-based<br>schedule_<br>• and enter the cron<br>expression.<br>• To use a rate expression to define the<br>schedule, choose *_Rate-based<br>schedule_<br>• and enter the rate<br>expression.<br>For more information about cron and rate<br>expressions, see [Schedule types on EventBridge Scheduler](../../../scheduler/latest/UserGuide/schedule-types.md#cron-based "../../../scheduler/latest/UserGuide/schedule-types.md#cron-based") in the _Amazon EventBridge Scheduler User Guide_.<br>2. For **Flexible time<br>window**, choose **Off**<br>to turn off the option, or choose one of the<br>pre-defined time windows.<br>For example, if you choose *_15<br>minutes_<br>• and you set a recurring<br>schedule to invoke its target once every hour, the<br>schedule runs within 15 minutes after the start of<br>every hour. |
 
-5.  (Optional) If you chose **Recurring schedule** in the previous step,
-    in the **Timeframe** section, do the following:
+5. (Optional) If you chose **Recurring schedule** in the previous step,
+   in the **Timeframe** section, do the following:
 
-    1. For **Timezone**,
-       choose a timezone.
-    2. For **Start date and time**, enter a valid date in
-       `YYYY/MM/DD` format, and then specify a timestamp in
-       24-hour `hh:mm` format.
-    3. For **End date and time**, enter a valid date in
-       `YYYY/MM/DD` format, and then specify a timestamp in
-       24-hour `hh:mm` format.
+   1. For **Timezone**,
+      choose a timezone.
+   2. For **Start date and time**, enter a valid date in
+      `YYYY/MM/DD` format, and then specify a timestamp in
+      24-hour `hh:mm` format.
+   3. For **End date and time**, enter a valid date in
+      `YYYY/MM/DD` format, and then specify a timestamp in
+      24-hour `hh:mm` format.
 
-6.  Choose **Next**.
-7.  On the **Select target** page, choose the AWS API operation that EventBridge Scheduler invokes:
+6. Choose **Next**.
+7. On the **Select target** page, choose the AWS API operation that EventBridge Scheduler invokes:
 
-    1. Choose **AWS Step Functions StartExecution**.
-    2. In the **StartExecution** section, select a state machine or choose **Create new state machine**.
+   1. Choose **AWS Step Functions StartExecution**.
+   2. In the **StartExecution** section, select a state machine or choose **Create new state machine**.
 
-    Currently, you can't run Synchronous Express workflows on a schedule. 3. Enter a JSON payload for the execution. Even if your state machine doesn't require any JSON payload, you must still include input in JSON format as shown in the following example.
+   Currently, you can't run Synchronous Express workflows on a schedule. 3. Enter a JSON payload for the execution. Even if your state machine doesn't require any JSON payload, you must still include input in JSON format as shown in the following example.
 
-    ```
-    {
-        "Comment": "sampleJSONData"
-    }
-    ```
+   ```
+   {
+       "Comment": "sampleJSONData"
+   }
+   ```
 
-8.  Choose **Next**.
-9.  On the **Settings** page, do the following:
+8. Choose **Next**.
+9. On the **Settings** page, do the following:
 
-    1.  To turn on the schedule, under **Schedule
-        state**, toggle **Enable schedule**.
-    2.  To configure a retry policy for your schedule, under
-        **Retry policy and dead-letter queue (DLQ)**,
-        do the following:
+   1. To turn on the schedule, under **Schedule
+      state**, toggle **Enable schedule**.
+   2. To configure a retry policy for your schedule, under
+      **Retry policy and dead-letter queue (DLQ)**,
+      do the following:
 
-            * Toggle **Retry**.
-            * For **Maximum age of event**,
-             enter the maximum **hour(s)** and
-             **min(s)** that EventBridge Scheduler must keep an
-             unprocessed event.
-            * The maximum time is 24 hours.
-            * For **Maximum retries**, enter the
-             maximum number of times EventBridge Scheduler retries the schedule if the
-             target returns an error.
+      - Toggle **Retry**.
+      - For **Maximum age of event**,
+        enter the maximum **hour(s)** and
+        **min(s)** that EventBridge Scheduler must keep an
+        unprocessed event.
+      - The maximum time is 24 hours.
+      - For **Maximum retries**, enter the
+        maximum number of times EventBridge Scheduler retries the schedule if the
+        target returns an error.
 
+      The maximum value is 185 retries.
+      With retry policies, if a schedule fails to invoke its target,
+      EventBridge Scheduler re-runs the schedule. If configured, you must set the maximum
+      retention time and retries for the schedule.
 
-             The maximum value is 185 retries.
+   3. Choose where EventBridge Scheduler stores undelivered events.
 
-        With retry policies, if a schedule fails to invoke its target,
-        EventBridge Scheduler re-runs the schedule. If configured, you must set the maximum
-        retention time and retries for the schedule.
+   | **Dead-letter queue (DLQ)**<br>option                                                 | Do this...                                                                                                                                          |
+   | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | Don't store                                                                           | Choose **None**.                                                                                                                                    |
+   | Store the event in the same AWS account where<br>you're creating the schedule         | 1. Choose **Select an Amazon SQS queue in<br>my AWS account as a DLQ**.<br>2. Choose the Amazon Resource Name (ARN) of<br>the Amazon SQS queue.     |
+   | Store the event in a different AWS account from<br>where you're creating the schedule | 1. Choose **Specify an Amazon SQS queue in<br>other AWS accounts as a DLQ**.<br>2. Enter the Amazon Resource Name (ARN) of<br>the Amazon SQS queue. |
+   4. To use a customer managed key to encrypt your target input, under
+      **Encryption**, choose **Customize
+      encryption settings (advanced)**.
 
-    3.  Choose where EventBridge Scheduler stores undelivered events.
-
-    | **Dead-letter queue (DLQ)**<br>option                                                 | Do this...                                                                                                                                          |
-    | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | Don't store                                                                           | Choose **None**.                                                                                                                                    |
-    | Store the event in the same AWS account where<br>you're creating the schedule         | 1. Choose **Select an Amazon SQS queue in<br>my AWS account as a DLQ**.<br>2. Choose the Amazon Resource Name (ARN) of<br>the Amazon SQS queue.     |
-    | Store the event in a different AWS account from<br>where you're creating the schedule | 1. Choose **Specify an Amazon SQS queue in<br>other AWS accounts as a DLQ**.<br>2. Enter the Amazon Resource Name (ARN) of<br>the Amazon SQS queue. |
-    4. To use a customer managed key to encrypt your target input, under
-       **Encryption**, choose **Customize
-       encryption settings (advanced)**.
-
-    If you choose this option, enter an existing KMS key ARN or choose
-    **Create an AWS KMS key** to navigate to the
-    AWS KMS console. For more information about how EventBridge Scheduler encrypts your data
-    at rest, see [Encryption at
-    rest](../../../scheduler/latest/UserGuide/encryption-rest.md "../../../scheduler/latest/UserGuide/encryption-rest.md") in the _Amazon EventBridge Scheduler User
-    Guide_. 5. To have EventBridge Scheduler create a new execution role for you, choose
-    **Create new role for this schedule**.
-    Then, enter a name for **Role name**. If you choose
-    this option, EventBridge Scheduler attaches the required permissions necessary for
-    your templated target to the role.
+   If you choose this option, enter an existing KMS key ARN or choose
+   **Create an AWS KMS key** to navigate to the
+   AWS KMS console. For more information about how EventBridge Scheduler encrypts your data
+   at rest, see [Encryption at
+   rest](../../../scheduler/latest/UserGuide/encryption-rest.md "../../../scheduler/latest/UserGuide/encryption-rest.md") in the _Amazon EventBridge Scheduler User
+   Guide_. 5. To have EventBridge Scheduler create a new execution role for you, choose
+   **Create new role for this schedule**.
+   Then, enter a name for **Role name**. If you choose
+   this option, EventBridge Scheduler attaches the required permissions necessary for
+   your templated target to the role.
 
 10. Choose **Next**.
 11. In the **Review and create schedule** page, review the

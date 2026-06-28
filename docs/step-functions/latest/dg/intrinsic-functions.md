@@ -758,7 +758,7 @@ Hello, my name is Arnav.
 
 The following characters are reserved for intrinsic functions, and must be escaped
 with a backslash ('\') if you want them to appear in the Value:
-**'\*\***{\***\*}**, and \*\*\*\*.
+**'****{****}**, and **\**.
 
 If the character `\` needs to appear as part of the value without serving
 as an escape character, you must escape it with a backslash. The following escaped

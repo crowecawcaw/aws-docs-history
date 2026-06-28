@@ -78,7 +78,7 @@ workflow input. To learn more, see [Accessing execution data from the Context ob
 
 ## Variable name syntax
 
-Variable names follow the rules for Unicode Identifiers as described in [Unicode® Standard Annex #31](https://unicode.org/reports/tr31/ "https://unicode.org/reports/tr31/"). The first character of a variable name must be a Unicode ID_Start character, and the second and subsequent characters must be Unicode ID_Continue characters. The maximum length of a variable name is 80.
+Variable names follow the rules for Unicode Identifiers as described in [Unicode® Standard Annex #31](https://unicode.org/reports/tr31/ "https://unicode.org/reports/tr31/"). The first character of a variable name must be a Unicode ID\_Start character, and the second and subsequent characters must be Unicode ID\_Continue characters. The maximum length of a variable name is 80.
 
 The variable name convention is similar to rules for JavaScript and other programming languages.
 
@@ -163,8 +163,8 @@ the **next** state. For example, consider the following
 
 In the preceding example, the variable `x` is both assigned and referenced.
 
-Remember, all expressions are **_evaluated
-first_**, then assignments are made. And newly assigned values will
+Remember, all expressions are _**evaluated
+first**_, then assignments are made. And newly assigned values will
 be available in the **next** state.
 
 Let's go through the example in detail. Assume that in a previous state,

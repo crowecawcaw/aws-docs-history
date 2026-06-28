@@ -499,22 +499,21 @@ HTTPS API:
   specified in the connection.
 - **Body parameters**
 
-      + Step Functions adds any request body values specified in the
-       connection to the request body in the `RequestBody` field of
-       the HTTP Task. If there is a conflict between the request body keys,
-       Step Functions uses the values specified in the connection for
-       the request body. For example, say that you specified a
-       `Mode` field in the `RequestBody` of both the
-       HTTP Task definition and EventBridge connection.
-       Step Functions uses the `Mode` field value you
-       specified in the connection.
-      + If you specify the request body as a string instead of a JSON object,
-       and the EventBridge connection also contains request body,
-       Step Functions can't merge the request body specified in both
-       these places. It fails the HTTP Task with the `States.Runtime` error.
-
-  Step Functions applies all transformations and serializes the request
-  body after it completes the merging of the request body.
+  - Step Functions adds any request body values specified in the
+    connection to the request body in the `RequestBody` field of
+    the HTTP Task. If there is a conflict between the request body keys,
+    Step Functions uses the values specified in the connection for
+    the request body. For example, say that you specified a
+    `Mode` field in the `RequestBody` of both the
+    HTTP Task definition and EventBridge connection.
+    Step Functions uses the `Mode` field value you
+    specified in the connection.
+  - If you specify the request body as a string instead of a JSON object,
+    and the EventBridge connection also contains request body,
+    Step Functions can't merge the request body specified in both
+    these places. It fails the HTTP Task with the `States.Runtime` error.
+    Step Functions applies all transformations and serializes the request
+    body after it completes the merging of the request body.
 
 The following example sets the `Headers`, `QueryParameters`, and
 `RequestBody` fields in both the HTTP Task and EventBridge
@@ -926,7 +925,7 @@ Workflow Studio. 5. In the **Test state** dialog box, do the following:
 
 
 
-    ![Output of a selected state which succeeds the test for the TRACE level.](images/test-state-trace-success.png)
+    ![Output of a selected state which succeeds the test for the TRACE level.](/images/step-functions/latest/dg/images/test-state-trace-success.png)
     8. Choose **Start test**.
     9. If the test succeeds, you can see your HTTP details under the
      **HTTP request & response** tab.
