@@ -29,11 +29,11 @@ transit gateways.
 
    - Your transit gateway **Inventory**:
 
-| Icon                           | Description                                                                                                                                                                                                        |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| The icon for transit gateways. | **Transit gateways\*<br>• The total number of<br>registered transit gateways in. Choose the link to open the<br>**Transit gateways\*<br>• page to view more<br>information about your transit gateways.            |
-| The icon for sites.            | **Sites**<br>The total number of sites that are associated with your<br>transit gateways. Choose the link to open the<br>\*_Sites_<br>• page to view more information<br>about your transit gateway sites.         |
-| The icon for devices.          | **Devices**<br>The total number of devices that are associated with your<br>transit gateways. Choose the link to open the<br>\*_Devices_<br>• page to view more<br>information about your transit gateway devices. |
+| Icon                           | Description                                                                                                                                                                                                       |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| The icon for transit gateways. | *_Transit gateways_<br>• The total number of<br>registered transit gateways in. Choose the link to open the<br>*_Transit gateways_<br>• page to view more<br>information about your transit gateways.             |
+| The icon for sites.            | **Sites**<br>The total number of sites that are associated with your<br>transit gateways. Choose the link to open the<br>*_Sites_<br>• page to view more information<br>about your transit gateway sites.         |
+| The icon for devices.          | **Devices**<br>The total number of devices that are associated with your<br>transit gateways. Choose the link to open the<br>*_Devices_<br>• page to view more<br>information about your transit gateway devices. |
 
     * **Transit gateways VPN status**:
 
@@ -206,10 +206,10 @@ The **Add to dashboard** option only works if your registered transit gateway is
     * **Packets dropped – no route**
 
 10. (Optional) Choose **Add to dashboard** to add this metric to
-    your CloudWatch dashboard. For more information about using CloudWatch dashboards, see
-    [Using
-    Amazon CloudWatch Dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") in the _Amazon CloudWatch User
-    Guide_.
+your CloudWatch dashboard. For more information about using CloudWatch dashboards, see
+[Using
+Amazon CloudWatch Dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") in the _Amazon CloudWatch User
+Guide_.
 
 ###### Note
 

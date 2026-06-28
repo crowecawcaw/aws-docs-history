@@ -238,6 +238,5 @@ location.
     	* + Choose **Add** to include
     		 additional edge overrides.
 
-8. Choose **Create service insertion**.
-9. (Optional) Add **Attachment policies**. For more information,
-   see [Create an attachment policy in an AWS Cloud WAN core network policy version](cloudwan-policy-attachments.md "cloudwan-policy-attachments.md").
+8. Choose **Create service insertion**. 9. (Optional) Add **Attachment policies**. For more information,
+see [Create an attachment policy in an AWS Cloud WAN core network policy version](cloudwan-policy-attachments.md "cloudwan-policy-attachments.md").

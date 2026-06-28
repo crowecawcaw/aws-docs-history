@@ -26,12 +26,12 @@ information:
 
 Use the following legend to understand the icons on your global network map:
 
-| Icon                           | Description                                                                                                                                                                                                                      |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The icon for edge locations.   | **Edge locations**<br>The total number of edge locations in your global network. The<br>number is shown in the \*_Inventory_<br>• section and as<br>an icon on the map for each edge location in your global network.            |
-| The icon for transit gateways. | **Transit gateways\*<br>• The total number of<br>transit gateways in your global network. The number is shown in the<br>**Inventory\*<br>• section and as an icon on the map<br>for each transit gateway in your global network. |
-| The icon for devices.          | **Devices**<br>The total number of devices in your global network. The number is<br>shown in the \*_Inventory_<br>• section and as an icon<br>on the map for each device in your global network.                                 |
-| The icon for sites.            | **Sites**<br>The total number of sites in your global network. The number is<br>shown in the \*_Inventory_<br>• section and as an icon<br>on the map for each site in your global network.                                       |
+| Icon                           | Description                                                                                                                                                                                                                    |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| The icon for edge locations.   | **Edge locations**<br>The total number of edge locations in your global network. The<br>number is shown in the *_Inventory_<br>• section and as<br>an icon on the map for each edge location in your global network.           |
+| The icon for transit gateways. | *_Transit gateways_<br>• The total number of<br>transit gateways in your global network. The number is shown in the<br>*_Inventory_<br>• section and as an icon on the map<br>for each transit gateway in your global network. |
+| The icon for devices.          | **Devices**<br>The total number of devices in your global network. The number is<br>shown in the *_Inventory_<br>• section and as an icon<br>on the map for each device in your global network.                                |
+| The icon for sites.            | **Sites**<br>The total number of sites in your global network. The number is<br>shown in the *_Inventory_<br>• section and as an icon<br>on the map for each site in your global network.                                      |
 
 ###### To access your global network resource inventory list
 
@@ -99,22 +99,21 @@ The **Details** page shows the following information:
      global network when it was created.
 
 6. (Optional) Change the global network **Description**. Choose
-   **Edit** in the **Details** section, and
-   then in the **Description - _optional_**
-   field, replace the current description with a new description. Then choose
-   **Edit global network** to save your change.
-7. (Optional) Edit, remove or add tags. In the **Tags** section,
-   choose **Edit tags** and do any of the following. When
-   finished, choose **Edit global network** to return to the
-   **Details** page.
+**Edit** in the **Details** section, and
+then in the **Description - _optional_**
+field, replace the current description with a new description. Then choose
+**Edit global network** to save your change. 7. (Optional) Edit, remove or add tags. In the **Tags** section,
+choose **Edit tags** and do any of the following. When
+finished, choose **Edit global network** to return to the
+**Details** page.
 
-   1. Choose **Add tag** to add a new tag. Add
-      **Key** and **Value** pairs to
-      help identify this resource. You can add multiple tags.
-   2. Choose **Remove tag** to delete any tag. You are not
-      prompted to confirm the deletion.
-   3. To edit an existing tag, enter the new **Key** or
-      **Value** into the applicable field.
+    1. Choose **Add tag** to add a new tag. Add
+     **Key** and **Value** pairs to
+     help identify this resource. You can add multiple tags.
+    2. Choose **Remove tag** to delete any tag. You are not
+     prompted to confirm the deletion.
+    3. To edit an existing tag, enter the new **Key** or
+     **Value** into the applicable field.
 
 ## Topology graph
 
@@ -161,8 +160,8 @@ choices for any combination of the following:
      off.
 
 7. On the **Topology graph**, choose any of your network
-   resources to view details about that resource. A panel opens on the right-hand
-   side of the graph.
+resources to view details about that resource. A panel opens on the right-hand
+side of the graph.
 
 The following example shows the Metrics for the **eu-west-1**
 edge location.
@@ -223,8 +222,8 @@ making choices for any combination of the following:
      off.
 
 7. In the **Topology tree**, choose any of your network
-   resources to view details about that resource. A panel opens on the right-hand
-   side of the graph.
+resources to view details about that resource. A panel opens on the right-hand
+side of the graph.
 
 The following example shows the **Details** for the
 **us-west-1** edge location.

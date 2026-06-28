@@ -62,7 +62,7 @@ The following steps add a Tunnel-less Connect peer using the console.
 
 The **Details** tab displays the **Connect
 protocol**. Make sure to choose a Connect attachment where the
-Connect protocol is **NO_ENCAP**. 6. Choose the **Connect peers** tab. 7. Choose **Create Connect peer**. 8. Enter a **Name** to identify the Tunnel-less Connect
+Connect protocol is **NO\_ENCAP**. 6. Choose the **Connect peers** tab. 7. Choose **Create Connect peer**. 8. Enter a **Name** to identify the Tunnel-less Connect
 peer. 9. For the **Peer BGP address**, enter the appliance's
 private IPv4 address.
 

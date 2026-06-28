@@ -32,47 +32,52 @@ create using the console:
 
 2. Using either the console or within the JSON file you'll do the following:
 
-   1. **Configure your core network**. Set the BGP and ASN for
-      this core network policy.
-   2. **Add segments**. Add segments to your core network
-      policy. Segments with cross-segment or same-segment traffic that must be
-      steered via the network functions. Based on your policy configuration, Cloud
-      WAN will automatically propagate routes from VPCs and networks associated to
-      the network function groups and redirect VPC-to-VPC or VPC-to-Internet or
-      on-premises traffic through a network functions group.
-   3. **Create a network function group**. The network function
-      group is a collection of attachments specifically used for network or
-      security functions.
+    1. **Configure your core network**. Set the BGP and ASN for
+     this core network policy.
+    2. **Add segments**. Add segments to your core network
+     policy. Segments with cross-segment or same-segment traffic that must be
+     steered via the network functions. Based on your policy configuration, Cloud
+     WAN will automatically propagate routes from VPCs and networks associated to
+     the network function groups and redirect VPC-to-VPC or VPC-to-Internet or
+     on-premises traffic through a network functions group.
+    3. **Create a network function group**. The network function
+     group is a collection of attachments specifically used for network or
+     security functions.
 
-   ###### Note
 
-   You can only have one attachment per network function group per
-   Region. 4. **Set segment actions**. Segment actions allow you to
-   share segments, create routes, and create a service insertion action.
+    ###### Note
 
-   For the service insertion action, you can create a send via action which
-   sends traffic east-west between all VPCs. Or you can create a send to
-   action, which first sends traffic to a security appliance and then out from
-   the appliance. For example, you might create segment action using send via.
-   With send via (east-west traffic), traffic is routed to the Inspection VPC
-   for security processing and then re-enters the Cloud WAN core network to
-   reach its final VPC destination. See [Traffic actions and modes](#cloudwan-policy-service-insertion-modes "#cloudwan-policy-service-insertion-modes") below for more
-   information about traffic actions and modes.
+    You can only have one attachment per network function group per
+     Region.
+    4. **Set segment actions**. Segment actions allow you to
+     share segments, create routes, and create a service insertion action.
 
-   By default, Cloud WAN will select an attachment in one of the two Regions
-   used for the network function. For example, if the network function is
-   steering traffic to an Inspection VPC, and that Inspection VPC exists in
-   only one Region, Cloud WAN uses the Region where the Inspection VPC resides
-   to steer all cross-Region traffic. If the Inspection VPC exists in both
-   Regions, service insertion will deterministically choose which Region to use
-   based on the [default Region priority list](what-is-cloudwan.md#cloudwan-available-regions "what-is-cloudwan.md#cloudwan-available-regions"). However, when setting the segment
-   actions, you can choose the Region priority order as well as choose the
-   preferred Region to use. If the Inspection VPC doesn't exist in either
-   Region, Cloud WAN uses the fallback Region specified in the segment policy.
-   You can only specific a single fallback Region per segment policy. 5. **Create an attachment policy for the network function
-   group**. Add the network function group to an attachment
-   policy. The attachment policy then controls the order in which the network
-   function group runs.
+
+    For the service insertion action, you can create a send via action which
+     sends traffic east-west between all VPCs. Or you can create a send to
+     action, which first sends traffic to a security appliance and then out from
+     the appliance. For example, you might create segment action using send via.
+     With send via (east-west traffic), traffic is routed to the Inspection VPC
+     for security processing and then re-enters the Cloud WAN core network to
+     reach its final VPC destination. See [Traffic actions and modes](#cloudwan-policy-service-insertion-modes "#cloudwan-policy-service-insertion-modes") below for more
+     information about traffic actions and modes.
+
+
+    By default, Cloud WAN will select an attachment in one of the two Regions
+     used for the network function. For example, if the network function is
+     steering traffic to an Inspection VPC, and that Inspection VPC exists in
+     only one Region, Cloud WAN uses the Region where the Inspection VPC resides
+     to steer all cross-Region traffic. If the Inspection VPC exists in both
+     Regions, service insertion will deterministically choose which Region to use
+     based on the [default Region priority list](what-is-cloudwan.md#cloudwan-available-regions "what-is-cloudwan.md#cloudwan-available-regions"). However, when setting the segment
+     actions, you can choose the Region priority order as well as choose the
+     preferred Region to use. If the Inspection VPC doesn't exist in either
+     Region, Cloud WAN uses the fallback Region specified in the segment policy.
+     You can only specific a single fallback Region per segment policy.
+    5. **Create an attachment policy for the network function
+     group**. Add the network function group to an attachment
+     policy. The attachment policy then controls the order in which the network
+     function group runs.
 
 3. Deploy the policy version. See [Deploy an AWS Cloud WAN core network policy version](cloudwan-policy-version-deploy.md "cloudwan-policy-version-deploy.md").
 

@@ -162,9 +162,9 @@ The **Add to dashboard** option only works if your registered transit gateway is
     * **Packets dropped – no route**
 
 11. (Optional) Choose **Add to dashboard** to add this metric to
-    your CloudWatch dashboard. For more information about using CloudWatch dashboards, see
-    [Using
-    Amazon CloudWatch Dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") in the _Amazon CloudWatch User Guide_.
+your CloudWatch dashboard. For more information about using CloudWatch dashboards, see
+[Using
+Amazon CloudWatch Dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") in the _Amazon CloudWatch User Guide_.
 
 ###### Note
 

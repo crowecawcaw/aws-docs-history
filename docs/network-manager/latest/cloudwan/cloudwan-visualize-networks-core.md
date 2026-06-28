@@ -32,13 +32,13 @@ information:
 
 Use the following legend to understand the icons on your core network map:
 
-| Icon                                  | Description                                                                                                                                                                                                                        |
-| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The icon for edge locations.          | **Edge locations**<br>The total number of edge locations in your core network. The<br>number is shown in the \*_Inventory_<br>• section and as<br>an icon on the map for each edge location in your core network.                  |
-| The icon for segments.                | **Segments\*<br>• The total number of segments in<br>your core network. The number is shown in the<br>**Inventory\*<br>• section and as an icon on the map<br>for each section in your core network.                               |
-| The icon for network function groups. | **Network function groups\*<br>• The total number<br>of network function groups in your core network. The number is shown<br>in the **Inventory\*<br>• section and as an icon on the<br>map for each section in your core network. |
-| The icon for devices.                 | **Devices**<br>The total number of devices in your core network. The number is<br>shown in the \*_Inventory_<br>• section and as an icon<br>on the map for each device in your core network.                                       |
-| The icon for sites.                   | **Sites**<br>The total number of sites in your core network. The number is<br>shown in the \*_Inventory_<br>• section and as an icon<br>on the map for each site in your core network.                                             |
+| Icon                                  | Description                                                                                                                                                                                                                      |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| The icon for edge locations.          | **Edge locations**<br>The total number of edge locations in your core network. The<br>number is shown in the *_Inventory_<br>• section and as<br>an icon on the map for each edge location in your core network.                 |
+| The icon for segments.                | *_Segments_<br>• The total number of segments in<br>your core network. The number is shown in the<br>*_Inventory_<br>• section and as an icon on the map<br>for each section in your core network.                               |
+| The icon for network function groups. | *_Network function groups_<br>• The total number<br>of network function groups in your core network. The number is shown<br>in the *_Inventory_<br>• section and as an icon on the<br>map for each section in your core network. |
+| The icon for devices.                 | **Devices**<br>The total number of devices in your core network. The number is<br>shown in the *_Inventory_<br>• section and as an icon<br>on the map for each device in your core network.                                      |
+| The icon for sites.                   | **Sites**<br>The total number of sites in your core network. The number is<br>shown in the *_Inventory_<br>• section and as an icon<br>on the map for each site in your core network.                                            |
 
 ###### To view the core network map
 
@@ -109,22 +109,21 @@ The **Details** page shows the following information:
      with the core network when it was created.
 
 7. (Optional) Change the core network **Description**. Choose
-   **Edit** in the **Core network details**
-   section, and then in the **Description** field, replace the
-   current description with a new description. Then choose **Edit core
-   network** to save your change.
-8. (Optional) Edit, remove or add Tags. In the **Tags** section
-   choose **Edit tags** and do any of the following. When
-   finished, choose **Edit core network** to return to the
-   **Details** tab.
+**Edit** in the **Core network details**
+section, and then in the **Description** field, replace the
+current description with a new description. Then choose **Edit core
+network** to save your change. 8. (Optional) Edit, remove or add Tags. In the **Tags** section
+choose **Edit tags** and do any of the following. When
+finished, choose **Edit core network** to return to the
+**Details** tab.
 
-   1. Choose **Add tag** to add a new tag. Add
-      **Key** and **Value** pairs to
-      help identify this resource. You can add multiple tags.
-   2. Choose **Remove tag** to delete any tag. You are not
-      prompted to confirm the deletion.
-   3. To edit an existing tag, enter the new **Key** or
-      **Value** into the applicable field.
+    1. Choose **Add tag** to add a new tag. Add
+     **Key** and **Value** pairs to
+     help identify this resource. You can add multiple tags.
+    2. Choose **Remove tag** to delete any tag. You are not
+     prompted to confirm the deletion.
+    3. To edit an existing tag, enter the new **Key** or
+     **Value** into the applicable field.
 
 ## Sharing
 
@@ -187,7 +186,7 @@ for any combination of the following:
      off.
 
 8. On the graph, choose any of your network resources to view details about that
-   resource. A panel opens on the right-hand side of the graph.
+resource. A panel opens on the right-hand side of the graph.
 
 In this example, the `development` segment is chosen in the graph.
 The panel displays **Details** about the segment. Choose the
@@ -245,7 +244,7 @@ choices for any combination of the following:
      off.
 
 8. On the tree, choose the label of any of your network resources to view details
-   about that resource. A panel opens on the right-hand side of the tree.
+about that resource. A panel opens on the right-hand side of the tree.
 
 In this example, an edge location, **us-west-1**, is chosen
 in the tree. The panel displays **Edge location details**.
@@ -328,7 +327,7 @@ choices for any combination of the following:
      of unassociated attachments on or off.
 
 9. On the graph, choose any of your network resources to view details about that
-   resource. A panel opens on the right-hand side of the graph.
+resource. A panel opens on the right-hand side of the graph.
 
 In this example, a segment, **segment-b**, is chosen in the
 graph. The panel displays **Segment details**.

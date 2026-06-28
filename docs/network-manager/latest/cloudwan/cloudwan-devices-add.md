@@ -32,8 +32,6 @@ within AWS:
      `arn:aws:ec2:useast-1:111111111111:subnet/subnet-abcd1234`).
 
 12. For **Address**, enter the physical location of the site (for
-    example `New York, NY 10004`).
-13. For **Latitude**, enter the latitude coordinates for the site
-    (for example, `40.7128`).
-14. For **Longitude**, enter the longitude coordinates for the site
-    (for example, `-74.0060`).
+example `New York, NY 10004`). 13. For **Latitude**, enter the latitude coordinates for the site
+(for example, `40.7128`). 14. For **Longitude**, enter the longitude coordinates for the site
+(for example, `-74.0060`).

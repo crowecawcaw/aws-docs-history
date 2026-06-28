@@ -153,8 +153,7 @@ following:
     4. Choose **Add** to include additional conditions or choose
      **Remove** to delete any conditions.
 
-14. Choose **Create attachment policy**.
-15. Choose **Create policy**.
+14. Choose **Create attachment policy**. 15. Choose **Create policy**.
 
 ## Example condition logic for a network function group attachment policy
 

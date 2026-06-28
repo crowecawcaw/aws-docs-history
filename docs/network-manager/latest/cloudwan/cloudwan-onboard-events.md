@@ -57,4 +57,4 @@ JSON
    To view this policy, run the following AWS CLI command:
 
    `aws logs describe-resource-policies --region
- us-west-2`
+  us-west-2`

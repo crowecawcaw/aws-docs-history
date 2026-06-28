@@ -77,8 +77,8 @@ For outbound routes,
   to your on-premises locations via BGP.
 - Each core network edge associated with the Direct Connect gateway attachment
   advertises only its local routes towards the Direct Connect gateway.
-- The AS_PATH BGP attribute is retained in these route advertisements to your
-  on-premises locations. For more information about AS_PATH and BGP, see [Private virtual interface and transit virtual interface routing
+- The AS\_PATH BGP attribute is retained in these route advertisements to your
+  on-premises locations. For more information about AS\_PATH and BGP, see [Private virtual interface and transit virtual interface routing
   policies](../../../directconnect/latest/UserGuide/routing-and-bgp.md#private-routing-policies "../../../directconnect/latest/UserGuide/routing-and-bgp.md#private-routing-policies") in the _AWS Direct Connect User
   Guide_.
 

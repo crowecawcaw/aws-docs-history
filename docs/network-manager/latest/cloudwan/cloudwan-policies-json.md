@@ -316,19 +316,18 @@ The following parameters are used in `segment-actions`:
 - `action` — The action to take for the chosen segment. The
   `action` can be any of the following:
 
-      + `share` for a shared route
-      + `create-route` for a route
-      + `send-via` for service insertion, indicating that
-       traffic is sent from one Cloud WAN attachment to another
-       (east-west).
-      + `send-to` for service insertion, indicating that
-       traffic is sent out from the cloud and doesn't re-enter
-       (north-south).
-      + `associate-routing-policy` for associating routing
-       policies with edge location pairs within a segment.
-
-  The following parameters are described for these
-  actions.
+  - `share` for a shared route
+  - `create-route` for a route
+  - `send-via` for service insertion, indicating that
+    traffic is sent from one Cloud WAN attachment to another
+    (east-west).
+  - `send-to` for service insertion, indicating that
+    traffic is sent out from the cloud and doesn't re-enter
+    (north-south).
+  - `associate-routing-policy` for associating routing
+    policies with edge location pairs within a segment.
+    The following parameters are described for these
+    actions.
 
 - `share` parameters. If the action to take is share, the following
   parameters are required. `share` is the default action
@@ -408,29 +407,25 @@ The following parameters are used in `segment-actions`:
 
   ###### Note
 
-      - AWS Cloud WAN does not propagate blackhole routes.
+        - AWS Cloud WAN does not propagate blackhole routes.
   - `description` — (Optional) A user-defined description to
     help further identify this route.
 
 - `associate-routing-policy` parameters. If the action is
   `associate-routing-policy`, the following parameters are required:
 
-      + `segment` — The name of the segment where the routing
-       policy association will be applied.
-      + `edge-location-association` — Defines the edge location
-       pair and routing policies to associate:
+  - `segment` — The name of the segment where the routing
+    policy association will be applied.
+  - `edge-location-association` — Defines the edge location
+    pair and routing policies to associate:
 
-
-
-
-      	- `edge-location` — The primary edge location.
-      	- `peer-edge-location` — The peer edge location
-      	 that forms the edge location pair.
-      	- `routing-policy-names` — An array of routing
-      	 policy names to apply to traffic between these edge locations.
-
-  The following example shows associating a routing policy with an edge
-  location pair:
+    - `edge-location` — The primary edge location.
+    - `peer-edge-location` — The peer edge location
+      that forms the edge location pair.
+    - `routing-policy-names` — An array of routing
+      policy names to apply to traffic between these edge locations.
+      The following example shows associating a routing policy with an edge
+      location pair:
 
 ```
 {
@@ -929,37 +924,37 @@ The following parameters are used in `routing-policies`:
       drop and allow result in terminal states, this means if a route matches a policy with a drop/allow action then no other
       routing poliy rules after that rule will be evaluated. For example, if you have a routing policy with the following rules:
 
-          + Rule 1: drop, prefix-in-cidr 0.0.0.0/0
-          + Rule 2: allow, prefix-in-cidr 10.0.0.0/8
-          + Rule 3: set-local-prefrence, prefix-in-cidr 10.0.0.0/8
+            + Rule 1: drop, prefix-in-cidr 0.0.0.0/0
+            + Rule 2: allow, prefix-in-cidr 10.0.0.0/8
+            + Rule 3: set-local-prefrence, prefix-in-cidr 10.0.0.0/8
 
       The rule 1 drop rule would be terminal meaning all routes would be dropped and rule 2 and 3 will do nothing. If Rule 1 and 2 are reversed,
       then 10.0.0.0/8 will be allowed and not dropped but the local preference rule 3 will not work because allow is also terminal. The proper order would be as follows
 
-          + Rule 1: set-local-prefrence, prefix-in-cidr 10.0.0.0/8
-          + Rule 2: allow, prefix-in-cidr 10.0.0.0/8
-          + Rule 3: drop, prefix-in-cidr 0.0.0.0/0
+            + Rule 1: set-local-prefrence, prefix-in-cidr 10.0.0.0/8
+            + Rule 2: allow, prefix-in-cidr 10.0.0.0/8
+            + Rule 3: drop, prefix-in-cidr 0.0.0.0/0
 
 
-          + `drop` — Drop matched routes
-          + `allow` — Allow specified routes that would otherwise be dropped by a drop rule.
-           Allow rules should have a lower rule number than drop rules.
-          + `summarize` — Summarize routes
-           (outbound only)
-          + `prepend-asn-list` — Add ASNs to
-           the beginning of the AS path to influence route
-           selection
-          + `remove-asn-list` — Remove specific
-           ASNs in the AS path
-          + `replace-asn-list` — Replace
-           specific ASNs in the AS path with different
-           values
-          + `add-community` — Add BGP community values to routes
-          + `remove-community` — Remove BGP community values from routes
-          + `set-med` — Set the MED
-           value
-          + `set-local-preference` — Set
-           local preference
+            + `drop` — Drop matched routes
+            + `allow` — Allow specified routes that would otherwise be dropped by a drop rule.
+             Allow rules should have a lower rule number than drop rules.
+            + `summarize` — Summarize routes
+             (outbound only)
+            + `prepend-asn-list` — Add ASNs to
+             the beginning of the AS path to influence route
+             selection
+            + `remove-asn-list` — Remove specific
+             ASNs in the AS path
+            + `replace-asn-list` — Replace
+             specific ASNs in the AS path with different
+             values
+            + `add-community` — Add BGP community values to routes
+            + `remove-community` — Remove BGP community values from routes
+            + `set-med` — Set the MED
+             value
+            + `set-local-preference` — Set
+             local preference
 
 The following example shows two inbound routing policies: `RP1` is a
 routing policy that matches on the prefix list alias `prefixListAlias`,

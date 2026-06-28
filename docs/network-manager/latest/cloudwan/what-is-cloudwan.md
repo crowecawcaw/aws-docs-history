@@ -31,13 +31,13 @@ For more information, see the [Amazon EC2 command line
 reference](../../../cli/latest/reference/ec2/index.md "../../../cli/latest/reference/ec2/index.md"), which includes AWS Transit Gateway and Amazon VPC, and the [AWS Global Networks for Transit Gateways command
 line reference](../../../cli/latest/reference/networkmanager/index.md "../../../cli/latest/reference/networkmanager/index.md").
 
-- \***\*AWS** SDKs\*\*
+- ****AWS** SDKs**
 
 Provides language-specific API operations and takes care of a number of connection
 details, such as calculating signatures, handling request retries, and handling errors. For
 more information, see the _[AWS Global Networks for Transit Gateways API Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/networkmanager/index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/networkmanager/index.html")_.
 
-- \***\*Query API\*\***
+- ****Query API****
 
 Provides low-level API actions using HTTPS requests. Using the Query API is the most direct
 way to access Amazon VPC, but it requires that your application handle low-level details
