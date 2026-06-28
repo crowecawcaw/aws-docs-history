@@ -207,7 +207,7 @@ Credential should be scoped to correct service: 'service'
 
 ###### Termination string
 
-If the credential scope does not end with aws4_request, the
+If the credential scope does not end with aws4\_request, the
 signature verification step fails with the following error message:
 
 ```

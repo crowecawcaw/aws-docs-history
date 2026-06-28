@@ -232,58 +232,68 @@ policies](../../../aws-managed-policy/latest/reference/policy-list.md "../../../
 
 3. Create the security credentials needed for the workload.
 
-   - **Create access keys for testing**–[aws iam
+    * **Create access keys for testing**–[aws iam
      create-access-key](../../../cli/latest/reference/iam/create-access-key.md "../../../cli/latest/reference/iam/create-access-key.md")
 
-   ```
 
-                          aws iam create-access-key \
-                              --user-name Automation
-   ```
 
-   The output of this command displays the secret access key and the access key
-   ID. Record and store this information in a secure location. If these credentials
-   are lost, they can't be recovered, and you must create a new access key.
+    ```
 
-   ###### Important
+                           aws iam create-access-key \
+                               --user-name Automation
+    ```
 
-   These IAM user access keys are long-term credentials that present a
-   security-risk to your account. After you have completed testing, we recommend
-   that you delete these access keys. If you have scenarios in which you are
-   considering access keys, investigate whether you can enable MFA for your
-   workload IAM user and use [aws sts
-   get-session-token](../../../cli/latest/reference/sts/get-session-token.md "../../../cli/latest/reference/sts/get-session-token.md") to obtain temporary credentials for the session
-   instead of using IAM access keys.
-   - **Upload SSH public keys for AWS CodeCommit**–[aws iam
+    The output of this command displays the secret access key and the access key
+     ID. Record and store this information in a secure location. If these credentials
+     are lost, they can't be recovered, and you must create a new access key.
+
+
+    ###### Important
+
+    These IAM user access keys are long-term credentials that present a
+     security-risk to your account. After you have completed testing, we recommend
+     that you delete these access keys. If you have scenarios in which you are
+     considering access keys, investigate whether you can enable MFA for your
+     workload IAM user and use [aws sts
+     get-session-token](../../../cli/latest/reference/sts/get-session-token.md "../../../cli/latest/reference/sts/get-session-token.md") to obtain temporary credentials for the session
+     instead of using IAM access keys.
+    * **Upload SSH public keys for AWS CodeCommit**–[aws iam
      upload-ssh-public-key](../../../cli/latest/reference/iam/upload-ssh-public-key.md "../../../cli/latest/reference/iam/upload-ssh-public-key.md")
 
-   The following example assumes that you have your SSH public keys stored in
-   the file `sshkey.pub`.
 
-   ```
+    The following example assumes that you have your SSH public keys stored in
+     the file `sshkey.pub`.
 
-                          aws upload-ssh-public-key \
-                              --user-name `Automation` \
-                              --ssh-public-key-body file://sshkey.pub
-   ```
-   - **Upload an X.509 signing certificate**–[aws iam
+
+
+    ```
+
+                           aws upload-ssh-public-key \
+                               --user-name `Automation` \
+                               --ssh-public-key-body file://sshkey.pub
+    ```
+    * **Upload an X.509 signing certificate**–[aws iam
      upload-signing-certificate](../../../cli/latest/reference/iam/upload-signing-certificate.md "../../../cli/latest/reference/iam/upload-signing-certificate.md")
 
-   Upload an X.509 certificate if you need to make secure SOAP-protocol
-   requests and are in a Region that's not supported by AWS Certificate Manager. ACM is the
-   preferred tool to provision, manage, and deploy your server certificates. For
-   more information about using ACM, see the [_AWS Certificate Manager User Guide_](../../../acm/latest/userguide/acm-overview.md "../../../acm/latest/userguide/acm-overview.md").
 
-   The following example assumes that you have your X.509 signing certificate
-   stored in the file `certificate.pem`.
+    Upload an X.509 certificate if you need to make secure SOAP-protocol
+     requests and are in a Region that's not supported by AWS Certificate Manager. ACM is the
+     preferred tool to provision, manage, and deploy your server certificates. For
+     more information about using ACM, see the [*AWS Certificate Manager User Guide*](../../../acm/latest/userguide/acm-overview.md "../../../acm/latest/userguide/acm-overview.md").
 
-   ```
 
-                         aws iam upload-signing-certificate \
-                         --user-name Automation \
-                         --certificate-body file://certificate.pem
+    The following example assumes that you have your X.509 signing certificate
+     stored in the file `certificate.pem`.
 
-   ```
+
+
+    ```
+
+                          aws iam upload-signing-certificate \
+                          --user-name Automation \
+                          --certificate-body file://certificate.pem
+
+    ```
 
 You can use this same process to give additional workloads programmatic access to
 your AWS account resources, if the workloads are unable to assume IAM roles. This

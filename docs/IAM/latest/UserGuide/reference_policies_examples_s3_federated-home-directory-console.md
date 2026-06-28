@@ -14,10 +14,10 @@ request when the federated principal assumed their role.
 
 You can view the role ID using the AWS CLI command `aws iam get-role --role-name
  `specified-name``. For example, imagine that you
- specify the friendly name `John`and the CLI returns the role ID
+specify the friendly name `John` and the CLI returns the role ID
 `AROAXXT2NJT7D3SIQN7Z6`. In this case, the federated principal's user ID is
- `AROAXXT2NJT7D3SIQN7Z6:John`. This policy then allows the federated principal John
- to access the Amazon S3 bucket with prefix `AROAXXT2NJT7D3SIQN7Z6:John`.
+`AROAXXT2NJT7D3SIQN7Z6:John`. This policy then allows the federated principal John
+to access the Amazon S3 bucket with prefix `AROAXXT2NJT7D3SIQN7Z6:John`.
 
 JSON
 

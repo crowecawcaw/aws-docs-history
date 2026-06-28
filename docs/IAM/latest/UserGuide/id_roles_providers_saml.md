@@ -275,7 +275,7 @@ resources like Amazon S3 folders.
   `AWS` account ID and the friendly name (the last part of the ARN) of the SAML
   provider in IAM. The concatenation of the account ID and friendly name of the SAML
   provider is available to IAM policies as the key `saml:doc`. The account ID
-  and provider name must be separated by a '/' as in "123456789012/provider_name".
+  and provider name must be separated by a '/' as in "123456789012/provider\_name".
   For more information, see the `saml:doc` key at [Available keys for SAML-based AWS STS federation](reference_policies_iam-condition-keys.md#condition-keys-saml "reference_policies_iam-condition-keys.md#condition-keys-saml").
 
 The combination of `NameQualifier` and `Subject` can be used to

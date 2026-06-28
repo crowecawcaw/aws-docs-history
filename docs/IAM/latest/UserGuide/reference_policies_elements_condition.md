@@ -41,8 +41,8 @@ AWS KMS [`kms:EncryptionContext:`encryption_context_key``](../../../kms/latest/d
 and the [ResourceTag/tag-key](reference_policies_condition-keys.md#condition-keys-resourcetag "reference_policies_condition-keys.md#condition-keys-resourcetag") context key supported
 by multiple services.
 
-- If you use the `ResourceTag/`tag-key``context key
-for a service such as [Amazon EC2](../../../AWSEC2/latest/UserGuide/iam-policy-structure.md#amazon-ec2-keys "../../../AWSEC2/latest/UserGuide/iam-policy-structure.md#amazon-ec2-keys"), then you must specify a key name for the`tag-key`.
+- If you use the `ResourceTag/`tag-key`` context key
+  for a service such as [Amazon EC2](../../../AWSEC2/latest/UserGuide/iam-policy-structure.md#amazon-ec2-keys "../../../AWSEC2/latest/UserGuide/iam-policy-structure.md#amazon-ec2-keys"), then you must specify a key name for the `tag-key`.
 - **Key names are not case-sensitive.** This means that if
   you specify `"aws:ResourceTag/TagKey1": "Value1"` in the condition element of
   your policy, then the condition matches a resource tag key named either `TagKey1`

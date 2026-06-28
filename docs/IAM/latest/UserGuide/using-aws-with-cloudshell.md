@@ -55,7 +55,7 @@ the group, and then verify that the command succeeded.
      option.
 
 2. To create an IAM group, enter the following command in the CloudShell command
-   line. In this example we named the group _east_coast_:
+   line. In this example we named the group _east\_coast_:
 
 ```
 aws iam create-group --group-name east_coast
@@ -79,14 +79,14 @@ similar to the following output:
 ```
 
 3. To add a user to the group that you created, use the following command, specifying the
-   group name and username. In this example we named the group _east_coast_ and the user _john_:
+   group name and username. In this example we named the group _east\_coast_ and the user _john_:
 
 ```
 aws iam add-user-to-group --group-name east_coast --user-name john
 ```
 
 4. To verify that the user is in the group, use the following command, specifying the
-   group name. In this example we continue using the group _east_coast_ :
+   group name. In this example we continue using the group _east\_coast_ :
 
 ```
 aws iam get-group --group-name east_coast

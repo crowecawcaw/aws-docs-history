@@ -30,7 +30,7 @@ AWS CLI
 Run the following command:
 
 - `aws iam
-attach-group-policy`
+ attach-group-policy`
 
 API
 Call the following operation:

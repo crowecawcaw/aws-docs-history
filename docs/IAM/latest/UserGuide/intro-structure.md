@@ -22,7 +22,7 @@ AWS account. For example, the principal could launch a new Amazon Elastic Comput
 IAM group membership, or delete Amazon Simple Storage Service buckets. The following diagram illustrates
 this process through the IAM infrastructure:
 
-![This diagram that shows how a principal is authenticated and authorized by the IAM service to perform actions or operations upon other AWS services or resources.](images/intro-diagram \_policies_800.png)
+![This diagram that shows how a principal is authenticated and authorized by the IAM service to perform actions or operations upon other AWS services or resources.](images/intro-diagram _policies_800.png)
 
 ## Components of a request
 
@@ -59,8 +59,8 @@ of user goes through authentication.
 - **Federated principal** – Your identity provider
   authenticates you and passes your credentials to AWS, you don't have to sign-in directly
   to AWS. Both IAM Identity Center and IAM support identity federation.
-- **Users in AWS IAM Identity Center directory\***(not
-  federated)\*– Users created directly in the IAM Identity Center default directory sign
+- **Users in AWS IAM Identity Center directory***(not
+  federated)*– Users created directly in the IAM Identity Center default directory sign
   in using the AWS access portal and provide your username and password.
 - **IAM user** – You sign-in by providing your
   account ID or alias, your username, and password. To authenticate workloads from the API

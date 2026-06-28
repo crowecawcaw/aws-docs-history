@@ -72,50 +72,49 @@ will stop generating new findings and updating existing findings for that accoun
 after 24 hours. Findings associated with the member account that is removed from the
 organization will be removed permanently after 90 days.
 
-1.  Open the IAM console at
-    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2.  Under **Access analyzer**, choose **Analyzer
-    settings**.
-3.  Choose **Create analyzer**.
-4.  In the **Analysis** section, choose **Principal
-    analysis - Unused access**.
-5.  Enter a name for the analyzer.
-6.  For **Tracking period**, enter the number of days for
-    analysis. The analyzer will only evaluate permissions for IAM entities within
-    the accounts of the selected organization that have existed for the entire
-    tracking period. For example, if you set a tracking period of 90 days, only
-    permissions that are at least 90 days old will be analyzed, and findings will be
-    generated if they show no usage during this period. You can enter a value
-    between 1 and 365 days.
-7.  In the **Analyzer details** section, confirm that the Region
-    displayed is the Region where you want to enable IAM Access Analyzer.
-8.  For **Selected accounts**, choose **Current
-    organization**.
-9.  Optional. In the **Exclude AWS accounts from analysis**
-    section, you can choose AWS accounts in your organization to exclude from
-    unused access analysis. Findings will not be generated for excluded
-    accounts.
+1. Open the IAM console at
+   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. Under **Access analyzer**, choose **Analyzer
+   settings**.
+3. Choose **Create analyzer**.
+4. In the **Analysis** section, choose **Principal
+   analysis - Unused access**.
+5. Enter a name for the analyzer.
+6. For **Tracking period**, enter the number of days for
+   analysis. The analyzer will only evaluate permissions for IAM entities within
+   the accounts of the selected organization that have existed for the entire
+   tracking period. For example, if you set a tracking period of 90 days, only
+   permissions that are at least 90 days old will be analyzed, and findings will be
+   generated if they show no usage during this period. You can enter a value
+   between 1 and 365 days.
+7. In the **Analyzer details** section, confirm that the Region
+   displayed is the Region where you want to enable IAM Access Analyzer.
+8. For **Selected accounts**, choose **Current
+   organization**.
+9. Optional. In the **Exclude AWS accounts from analysis**
+   section, you can choose AWS accounts in your organization to exclude from
+   unused access analysis. Findings will not be generated for excluded
+   accounts.
 
-    1.  To specify individual account IDs to exclude, choose **Specify
-        AWS account ID** and enter the account IDs separated by
-        commas in the **AWS account ID** field. Choose
-        **Exclude**. The accounts are then listed in the
-        **AWS accounts to exclude** table.
-    2.  To choose from a list of accounts in your organization to exclude,
-        choose **Choose from organization**.
+   1. To specify individual account IDs to exclude, choose **Specify
+      AWS account ID** and enter the account IDs separated by
+      commas in the **AWS account ID** field. Choose
+      **Exclude**. The accounts are then listed in the
+      **AWS accounts to exclude** table.
+   2. To choose from a list of accounts in your organization to exclude,
+      choose **Choose from organization**.
 
-            1. You can search for accounts by name, email, and account ID in
-             the **Exclude accounts from organization**
-             field.
-            2. Choose **Hierarchy** to view your accounts by
-             organizational unit or choose **List** to view
-             a list of all individual accounts in your organization.
-            3. Choose **Exclude all current accounts** to
-             exclude all accounts in an organizational unit or choose
-             **Exclude** to exclude individual
-             accounts.The accounts are then listed in the **AWS accounts to
-
-        exclude\*\* table.
+      1. You can search for accounts by name, email, and account ID in
+         the **Exclude accounts from organization**
+         field.
+      2. Choose **Hierarchy** to view your accounts by
+         organizational unit or choose **List** to view
+         a list of all individual accounts in your organization.
+      3. Choose **Exclude all current accounts** to
+         exclude all accounts in an organizational unit or choose
+         **Exclude** to exclude individual
+         accounts.The accounts are then listed in the **AWS accounts to
+         exclude** table.
 
 ###### Note
 

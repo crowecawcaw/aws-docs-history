@@ -67,7 +67,7 @@ refer to access key last used information because it is accurate for all dates.
 
    - **N/A** – Users that do not have a password assigned at
      all.
-   - **no_information** – Users that have not used their
+   - **no\_information** – Users that have not used their
      password since IAM began tracking password age on October 20, 2014.
 
 ###### To find unused passwords (AWS CLI)
@@ -135,10 +135,10 @@ the IAM API.
 Run the following commands to find unused access keys:
 
 - `aws iam
-list-access-keys` returns information about the access keys for a user,
+ list-access-keys` returns information about the access keys for a user,
   including the `AccessKeyID`.
 - `aws iam
-get-access-key-last-used` takes an access key ID and returns output that
+ get-access-key-last-used` takes an access key ID and returns output that
   includes the `LastUsedDate`, the `Region` in which the access key
   was last used, and the `ServiceName` of the last service requested. If
   `LastUsedDate` is missing, then the access key has not been used since IAM

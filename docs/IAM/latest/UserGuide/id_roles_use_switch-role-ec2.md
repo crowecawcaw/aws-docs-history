@@ -92,12 +92,11 @@ managing credentials.)
 
 Alternatively, the application can get the temporary credentials directly from the
 instance metadata of the Amazon EC2 instance. Credentials and related values are available from
-the `iam/security-credentials/`role-name``category
- (in this case,`iam/security-credentials/Get-pics`) of the metadata. If the
- application gets the credentials from the instance metadata, it can cache the
- credentials.
-4. Using the retrieved temporary credentials, the application accesses the photo bucket.
- Because of the policy attached to the `Get-pics` role, the
+the `iam/security-credentials/`role-name`` category
+(in this case, `iam/security-credentials/Get-pics`) of the metadata. If the
+application gets the credentials from the instance metadata, it can cache the
+credentials. 4. Using the retrieved temporary credentials, the application accesses the photo bucket.
+Because of the policy attached to the `Get-pics` role, the
 application has read-only permissions.
 
 The temporary security credentials available on the instance automatically update
@@ -239,8 +238,8 @@ The `abcd` Amazon EC2 instance profile role must have the following permissions
 policy to allow the application to access the `amzn-s3-demo-bucket1` Amazon S3
 bucket:
 
-**_Account 111111111111
-`abcd` Role Permissions Policy_**
+_**Account 111111111111
+`abcd` Role Permissions Policy**_
 
 JSON
 
@@ -285,8 +284,8 @@ JSON
 The `abcd` role must trust the Amazon EC2 service to assume the role. To do this,
 the `abcd` role must have the following trust policy:
 
-**_Account 111111111111
-`abcd` Role Trust Policy_**
+_**Account 111111111111
+`abcd` Role Trust Policy**_
 
 JSON
 
@@ -310,8 +309,8 @@ Assume that the `efgh` cross-account role allows read-only Amazon S3 tasks on th
 `222222222222` account. To do this, the `efgh`
 cross-account role must have the following permissions policy:
 
-**_Account 222222222222
-`efgh` Role Permissions Policy_**
+_**Account 222222222222
+`efgh` Role Permissions Policy**_
 
 JSON
 
@@ -351,8 +350,8 @@ The `efgh` role must trust the `abcd` instance profile role to
 assume it. To do this, the `efgh` role must have the following trust
 policy:
 
-**_Account 222222222222
-`efgh` Role Trust Policy_**
+_**Account 222222222222
+`efgh` Role Trust Policy**_
 
 JSON
 

@@ -132,7 +132,7 @@ policy:
      You can type a new JSON policy document or paste an [example policy](access_policies_examples.md "access_policies_examples.md").
 
 7. After you create an inline policy, it is automatically embedded in your user or
-   role.
+role.
 
 ###### To embed an inline policy for a user group (console)
 

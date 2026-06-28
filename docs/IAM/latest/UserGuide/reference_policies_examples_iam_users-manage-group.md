@@ -9,7 +9,7 @@ What does this policy do?
 - The `AllowAllUsersToListAllGroups` statement allows listing all groups. This
   is necessary for console access. This permission must be in its own statement because it
   does not support a resource ARN. Instead the permissions specify `"Resource" :
-"*"`.
+ "*"`.
 - The `AllowAllUsersToViewAndManageThisGroup` statement allows all group
   actions that can be performed on the group resource type. It does not allow the
   `ListGroupsForUser` action, which can be performed on a user resource type and

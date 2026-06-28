@@ -52,7 +52,7 @@ Where:
 - `partition` identifies the partition for the resource. For standard AWS
   Regions, the partition is `aws`. If you have resources in other partitions, the
   partition is `aws-`partitionname``. For example, the
-partition for resources in the China (Beijing) Region is `aws-cn`. You
+  partition for resources in the China (Beijing) Region is `aws-cn`. You
   cannot [delegate access](access_policies-cross-account-resource-access.md#access_policies-cross-account-delegating-resource-based-policies "access_policies-cross-account-resource-access.md#access_policies-cross-account-delegating-resource-based-policies") between accounts in different partitions.
 - `service` identifies the AWS product. IAM resources always use
   `iam`.
@@ -292,7 +292,7 @@ runtime information (such as the user's name) as part of the ARN. For more infor
 
 You can use wildcards in the `resource` portion of the ARN to
 specify multiple users or IAM groups or policies. For example, to specify all users
-working on product_1234, you use:
+working on product\_1234, you use:
 
 ```
 arn:aws:iam::123456789012:user/division_abc/subdivision_xyz/product_1234/*
@@ -357,13 +357,13 @@ ARNs. Using an incomplete ARN in a session policy will result in a
 Paths cannot be created or manipulated in the AWS Management Console. To use paths you must work
 with the resource by using the AWS API, the AWS CLI, or the Tools for Windows PowerShell.
 
-In this example, Jules in the Marketing_Admin user group creates a project-based user
+In this example, Jules in the Marketing\_Admin user group creates a project-based user
 group within the /marketing/ path. Jules assigns users from different parts of the company
 to the user group. This example illustrates that a user's path isn't related to the user
 groups the user is in.
 
 The marketing group has a new product they'll be launching, so Jules creates a new
-user group in the /marketing/ path called Widget_Launch. Jules then assigns the following
+user group in the /marketing/ path called Widget\_Launch. Jules then assigns the following
 policy to the user group, which gives the user group access to objects in the part of the
 `example_bucket` that is designated to this particular launch.
 

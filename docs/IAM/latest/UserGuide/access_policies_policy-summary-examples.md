@@ -31,18 +31,18 @@ JSON
 
 ```
 
-**\*DenyCustomerBucket** Policy
-Summary:\*
+_**DenyCustomerBucket** Policy
+Summary:_
 
 ![Policy summary dialog image.](images/policies-summary-example1-dialog.png)
 
-**\*DenyCustomerBucket S3 (Explicit deny)** Service
-Summary:\*
+_**DenyCustomerBucket S3 (Explicit deny)** Service
+Summary:_
 
 ![Service summary dialog image.](images/policies-summary-action-example1-dialog.png)
 
-**\*GetObject (Read)** Action
-Summary:\*
+_**GetObject (Read)** Action
+Summary:_
 
 ![Action summary dialog image.](images/policies-summary-resource-example1-dialog.png)
 
@@ -80,18 +80,18 @@ JSON
 
 ```
 
-**\*DynamoDbRowCognitoID** Policy
-Summary:\*
+_**DynamoDbRowCognitoID** Policy
+Summary:_
 
 ![Policy summary dialog image.](images/policies-summary-example2-dialog.png)
 
-**\*DynamoDbRowCognitoID DynamoDB (Allow)** Service
-Summary:\*
+_**DynamoDbRowCognitoID DynamoDB (Allow)** Service
+Summary:_
 
 ![Service summary dialog image.](images/policies-summary-action-example2-dialog.png)
 
-**\*GetItem (List)** Action
-Summary:\*
+_**GetItem (List)** Action
+Summary:_
 
 ![Action summary dialog image.](images/policies-summary-resource-example2-dialog.png)
 
@@ -131,22 +131,22 @@ JSON
 
 ```
 
-**\*MultipleResourceCondition** Policy
-Summary:\*
+_**MultipleResourceCondition** Policy
+Summary:_
 
 ![Policy summary dialog image.](images/policies-summary-example3-dialog.png)
 
-**\*MultipleResourceCondition S3 (Allow)** Service
-Summary:\*
+_**MultipleResourceCondition S3 (Allow)** Service
+Summary:_
 
 ![Service summary dialog image.](images/policies-summary-action-example3-dialog.png)
 
-**\*PutObject (Write)** Action
-Summary:\*
+_**PutObject (Write)** Action
+Summary:_
 
 ![Action summary dialog image.](images/policies-summary-resource-example3-dialog.png)
 
-## Policy 4: EC2_troubleshoot
+## Policy 4: EC2\_troubleshoot
 
 The following policy allows users to get a screenshot of a running Amazon EC2 instance, which
 can help with EC2 troubleshooting. This policy also permits viewing information about the
@@ -181,22 +181,22 @@ JSON
 
 ```
 
-**\*EC2_Troubleshoot** Policy
-Summary:\*
+_**EC2\_Troubleshoot** Policy
+Summary:_
 
 ![Policy summary dialog image.](images/policies-summary-example4-dialog.png)
 
-**\*EC2_Troubleshoot S3 (Allow)** Service
-Summary:\*
+_**EC2\_Troubleshoot S3 (Allow)** Service
+Summary:_
 
 ![Service summary dialog image.](images/policies-summary-action-example4-dialog.png)
 
-**\*ListBucket (List)** Action
-Summary:\*
+_**ListBucket (List)** Action
+Summary:_
 
 ![Action summary dialog image.](images/policies-summary-resource-example4-dialog.png)
 
-## Policy 5: CodeBuild_CodeCommit_CodeDeploy
+## Policy 5: CodeBuild\_CodeCommit\_CodeDeploy
 
 This policy provides access to specific CodeBuild, CodeCommit, and CodeDeploy resources. Because these
 resources are specific to each service, they appear only with the matching service. If you
@@ -229,17 +229,17 @@ JSON
 
 ```
 
-**\*CodeBuild_CodeCommit_CodeDeploy** Policy
-Summary:\*
+_**CodeBuild\_CodeCommit\_CodeDeploy** Policy
+Summary:_
 
 ![Policy summary dialog image.](images/policies-summary-example6-dialog.png)
 
-**\*CodeBuild_CodeCommit_CodeDeploy CodeBuild
-(Allow)** Service Summary:\*
+_**CodeBuild\_CodeCommit\_CodeDeploy CodeBuild
+(Allow)** Service Summary:_
 
 ![Service summary dialog image.](images/policies-summary-action-example6-dialog.png)
 
-**\*CodeBuild_CodeCommit_CodeDeploy StartBuild
-(Write)** Action Summary:\*
+_**CodeBuild\_CodeCommit\_CodeDeploy StartBuild
+(Write)** Action Summary:_
 
 ![Action summary dialog image.](images/policies-summary-resource-example6-dialog.png)

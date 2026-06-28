@@ -477,7 +477,7 @@ To secure setting source identity across the account boundary, the following rol
 trust policy trusts only the role principal for `CriticalRole` to set the
 source identity.
 
-###### Example role trust policy on CriticalRole_2
+###### Example role trust policy on CriticalRole\_2
 
 JSON
 

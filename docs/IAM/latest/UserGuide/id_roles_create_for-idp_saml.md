@@ -89,49 +89,48 @@ federation.
 
 ###### To create a role for SAML-based federation
 
-1.  Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2.  In the navigation pane of the IAM console, choose **Roles** and
-    then choose **Create role**.
-3.  Choose the **SAML 2.0 federation** role type.
-4.  For **Select a SAML provider**, choose the provider for your role.
-5.  Choose the SAML 2.0 access level method.
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane of the IAM console, choose **Roles** and
+   then choose **Create role**.
+3. Choose the **SAML 2.0 federation** role type.
+4. For **Select a SAML provider**, choose the provider for your role.
+5. Choose the SAML 2.0 access level method.
 
-        * Choose **Allow programmatic access only** to create a role that
-         can be assumed programmatically from the AWS API or AWS CLI.
-        * Choose **Allow programmatic and AWS Management Console access** to create a
-         role that can be assumed programmatically and from the AWS Management Console.
+   - Choose **Allow programmatic access only** to create a role that
+     can be assumed programmatically from the AWS API or AWS CLI.
+   - Choose **Allow programmatic and AWS Management Console access** to create a
+     role that can be assumed programmatically and from the AWS Management Console.
+     The roles created by both are similar, but the role that can also be assumed from the
+     console includes a trust policy with a particular condition. That condition explicitly
+     ensures that the SAML audience (`SAML:aud` attribute) is set to the AWS
+     sign-in endpoint for your SAML provider.
 
-    The roles created by both are similar, but the role that can also be assumed from the
-    console includes a trust policy with a particular condition. That condition explicitly
-    ensures that the SAML audience (`SAML:aud` attribute) is set to the AWS
-    sign-in endpoint for your SAML provider.
+6. The procedure for defining attributes varies depending on the access type.
 
-6.  The procedure for defining attributes varies depending on the access type.
+   - If you're creating a role for programmatic access, choose an attribute from the
+     **Attribute** list. Then, in the **Value** box,
+     enter a value to include in the role. This restricts role access to users from the
+     identity provider whose SAML authentication response (assertion) includes the
+     attributes that you specify. You must specify at least one attribute to ensure that
+     your role is limited to a subset of users at your organization.
+   - If you're creating a role for programmatic and AWS Management Console access, the
+     **Sign-in endpoints** section defines the URL your browser displays
+     when signing into the console. This endpoint is your identity provider's SAML
+     recipient attribute, which maps to the [saml:aud](reference_policies_iam-condition-keys.md#condition-keys-saml "reference_policies_iam-condition-keys.md#condition-keys-saml") context key. For more information, see [Configure SAML assertions for the authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md").
 
-    - If you're creating a role for programmatic access, choose an attribute from the
-      **Attribute** list. Then, in the **Value** box,
-      enter a value to include in the role. This restricts role access to users from the
-      identity provider whose SAML authentication response (assertion) includes the
-      attributes that you specify. You must specify at least one attribute to ensure that
-      your role is limited to a subset of users at your organization.
-    - If you're creating a role for programmatic and AWS Management Console access, the
-      **Sign-in endpoints** section defines the URL your browser displays
-      when signing into the console. This endpoint is your identity provider's SAML
-      recipient attribute, which maps to the [saml:aud](reference_policies_iam-condition-keys.md#condition-keys-saml "reference_policies_iam-condition-keys.md#condition-keys-saml") context key. For more information, see [Configure SAML assertions for the authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md").
+     1. Choose **Regional endpoints** or **Non-regional
+        endpoint**. We recommend using multiple Regional SAML sign-in endpoints
+        to improve federation resiliency.
+     2. For **Regions**, choose the regions that your SAML provider
+        supports for AWS sign-in.
+     3. For **Sign-in URLs to include unique identifiers**, select
+        whether the sign-in endpoints include the unique identifiers AWS assigns to your
+        SAML identity provider. This option is required for encrypted SAML assertions. For
+        more information, see [SAML 2.0 federation](id_roles_providers_saml.md "id_roles_providers_saml.md").
 
-      1. Choose **Regional endpoints** or **Non-regional
-         endpoint**. We recommend using multiple Regional SAML sign-in endpoints
-         to improve federation resiliency.
-      2. For **Regions**, choose the regions that your SAML provider
-         supports for AWS sign-in.
-      3. For **Sign-in URLs to include unique identifiers**, select
-         whether the sign-in endpoints include the unique identifiers AWS assigns to your
-         SAML identity provider. This option is required for encrypted SAML assertions. For
-         more information, see [SAML 2.0 federation](id_roles_providers_saml.md "id_roles_providers_saml.md").
-
-7.  To add more attribute-related conditions to the trust policy, choose
-    **Condition (optional)**, select the additional condition, and specify
-    a value.
+7. To add more attribute-related conditions to the trust policy, choose
+   **Condition (optional)**, select the additional condition, and specify
+   a value.
 
 ###### Note
 

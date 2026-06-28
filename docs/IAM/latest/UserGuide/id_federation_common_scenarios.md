@@ -110,7 +110,7 @@ you have already created an app that uses OIDC federation by manually calling th
 `AssumeRoleWithWebIdentity` API, you can continue to use it and your apps will
 still work fine.
 
-The process for using OIDC federation **_without_** Amazon Cognito follows this general outline:
+The process for using OIDC federation _**without**_ Amazon Cognito follows this general outline:
 
 1. Sign up as a developer with the external identity provider (IdP) and configure your app
    with the IdP, who gives you a unique ID for your app. (Different IdPs use different

@@ -167,30 +167,38 @@ ARN: `arn:aws:iam::123456789012:role/myrole`, you refer to the role as
 
 3. Delete all policies that are associated with the role.
 
-   1. To list all inline policies that are in the role, enter the following
-      command:
+    1. To list all inline policies that are in the role, enter the following
+     command:
 
-   ```
-   `aws iam list-role-policies --role-name `role-name``
-   ```
-   2. To delete each inline policy from the role, enter the following command for each
-      policy:
 
-   ```
-   `aws iam delete-role-policy --role-name `role-name` --policy-name `policy-name``
-   ```
-   3. To list all managed policies that are attached to the role, enter the following
-      command:
 
-   ```
-   `aws iam list-attached-role-policies --role-name `role-name``
-   ```
-   4. To detach each managed policy from the role, enter the following command for each
-      policy:
+    ```
+    `aws iam list-role-policies --role-name `role-name``
+    ```
+    2. To delete each inline policy from the role, enter the following command for each
+     policy:
 
-   ```
-   `aws iam detach-role-policy --role-name `role-name` --policy-arn `policy-arn``
-   ```
+
+
+    ```
+    `aws iam delete-role-policy --role-name `role-name` --policy-name `policy-name``
+    ```
+    3. To list all managed policies that are attached to the role, enter the following
+     command:
+
+
+
+    ```
+    `aws iam list-attached-role-policies --role-name `role-name``
+    ```
+    4. To detach each managed policy from the role, enter the following command for each
+     policy:
+
+
+
+    ```
+    `aws iam detach-role-policy --role-name `role-name` --policy-arn `policy-arn``
+    ```
 
 4. Enter the following command to delete the role:
 

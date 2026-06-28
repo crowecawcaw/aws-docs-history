@@ -104,67 +104,66 @@ IAM resource can be a user, user group, role, or policy.
 
 ###### To view information for IAM (AWS CLI)
 
-1.  Generate a report. The request must include the ARN of the IAM resource (user,
-    user group, role, or policy) for which you want a report. You can specify the level
-    of granularity that you want to generate in the report to view access details for
-    either services or both services and actions. The request returns a
-    `job-id` that you can then use in the
-    `get-service-last-accessed-details` and
-    `get-service-last-accessed-details-with-entities` operations to monitor
-    the `job-status` until the job is complete.
+1. Generate a report. The request must include the ARN of the IAM resource (user,
+   user group, role, or policy) for which you want a report. You can specify the level
+   of granularity that you want to generate in the report to view access details for
+   either services or both services and actions. The request returns a
+   `job-id` that you can then use in the
+   `get-service-last-accessed-details` and
+   `get-service-last-accessed-details-with-entities` operations to monitor
+   the `job-status` until the job is complete.
 
-    - [aws
-      iam generate-service-last-accessed-details](../../../cli/latest/reference/iam/generate-service-last-accessed-details.md "../../../cli/latest/reference/iam/generate-service-last-accessed-details.md")
+   - [aws
+     iam generate-service-last-accessed-details](../../../cli/latest/reference/iam/generate-service-last-accessed-details.md "../../../cli/latest/reference/iam/generate-service-last-accessed-details.md")
 
-2.  Retrieve details about the report using the `job-id` parameter from the
-    previous step.
+2. Retrieve details about the report using the `job-id` parameter from the
+   previous step.
 
-        * [aws iam
-         get-service-last-accessed-details](../../../cli/latest/reference/iam/get-service-last-accessed-details.md "../../../cli/latest/reference/iam/get-service-last-accessed-details.md")
+   - [aws iam
+     get-service-last-accessed-details](../../../cli/latest/reference/iam/get-service-last-accessed-details.md "../../../cli/latest/reference/iam/get-service-last-accessed-details.md")
+     This operation returns the following information, based on the type of resource
+     and level of granularity that you requested in the
+     `generate-service-last-accessed-details` operation:
 
-    This operation returns the following information, based on the type of resource
-    and level of granularity that you requested in the
-    `generate-service-last-accessed-details` operation:
+   - **User** – Returns a list of services
+     that the specified user can access. For each service, the operation returns the
+     date and time of the user's last attempt and the ARN of the user.
+   - **User group** – Returns a list of
+     services that members of the specified user group can access using the policies
+     attached to the user group. For each service, the operation returns the date
+     and time of the last attempt made by any user group member. It also returns the
+     ARN of that user and the total number of user group members that have attempted
+     to access the service. Use the [GetServiceLastAccessedDetailsWithEntities](../APIReference/API_GetServiceLastAccessedDetailsWithEntities.md "../APIReference/API_GetServiceLastAccessedDetailsWithEntities.md") operation to retrieve a
+     list of all of the members.
+   - **Role** – Returns a list of services
+     that the specified role can access. For each service, the operation returns the
+     date and time of the role's last attempt and the ARN of the role.
+   - **Policy** – Returns a list of services
+     for which the specified policy allows access. For each service, the operation
+     returns the date and time that an entity (user or role) last attempted to
+     access the service using the policy. It also returns the ARN of that entity and
+     the total number of entities that attempted access.
 
-        * **User** – Returns a list of services
-         that the specified user can access. For each service, the operation returns the
-         date and time of the user's last attempt and the ARN of the user.
-        * **User group** – Returns a list of
-         services that members of the specified user group can access using the policies
-         attached to the user group. For each service, the operation returns the date
-         and time of the last attempt made by any user group member. It also returns the
-         ARN of that user and the total number of user group members that have attempted
-         to access the service. Use the [GetServiceLastAccessedDetailsWithEntities](../APIReference/API_GetServiceLastAccessedDetailsWithEntities.md "../APIReference/API_GetServiceLastAccessedDetailsWithEntities.md") operation to retrieve a
-         list of all of the members.
-        * **Role** – Returns a list of services
-         that the specified role can access. For each service, the operation returns the
-         date and time of the role's last attempt and the ARN of the role.
-        * **Policy** – Returns a list of services
-         for which the specified policy allows access. For each service, the operation
-         returns the date and time that an entity (user or role) last attempted to
-         access the service using the policy. It also returns the ARN of that entity and
-         the total number of entities that attempted access.
+3. Learn more about the entities that used user group or policy permissions in an
+   attempt to access a specific service. This operation returns a list of entities with
+   each entity's ARN, ID, name, path, type (user or role), and when they last attempted
+   to access the service. You can also use this operation for users and roles, but it
+   only returns information about that entity.
 
-3.  Learn more about the entities that used user group or policy permissions in an
-    attempt to access a specific service. This operation returns a list of entities with
-    each entity's ARN, ID, name, path, type (user or role), and when they last attempted
-    to access the service. You can also use this operation for users and roles, but it
-    only returns information about that entity.
+   - [aws
+     iam get-service-last-accessed-details-with-entities](../../../cli/latest/reference/iam/get-service-last-accessed-details-with-entities.md "../../../cli/latest/reference/iam/get-service-last-accessed-details-with-entities.md")
 
-    - [aws
-      iam get-service-last-accessed-details-with-entities](../../../cli/latest/reference/iam/get-service-last-accessed-details-with-entities.md "../../../cli/latest/reference/iam/get-service-last-accessed-details-with-entities.md")
+4. Learn more about the identity-based policies that an identity (user, user group,
+   or role) used in an attempt to access a specific service. When you specify an
+   identity and service, this operation returns a list of permissions policies that the
+   identity can use to access the specified service. This operation gives the current
+   state of policies and does not depend on the generated report. It also does not
+   return other policy types, such as resource-based policies, access control lists,
+   AWS Organizations policies, IAM permissions boundaries, or session policies. For more
+   information, see [Policy types](access_policies.md#access_policy-types "access_policies.md#access_policy-types") or [Policy evaluation for requests within a single account](reference_policies_evaluation-logic_policy-eval-basics.md "reference_policies_evaluation-logic_policy-eval-basics.md").
 
-4.  Learn more about the identity-based policies that an identity (user, user group,
-    or role) used in an attempt to access a specific service. When you specify an
-    identity and service, this operation returns a list of permissions policies that the
-    identity can use to access the specified service. This operation gives the current
-    state of policies and does not depend on the generated report. It also does not
-    return other policy types, such as resource-based policies, access control lists,
-    AWS Organizations policies, IAM permissions boundaries, or session policies. For more
-    information, see [Policy types](access_policies.md#access_policy-types "access_policies.md#access_policy-types") or [Policy evaluation for requests within a single account](reference_policies_evaluation-logic_policy-eval-basics.md "reference_policies_evaluation-logic_policy-eval-basics.md").
-
-    - [aws iam
-      list-policies-granting-service-access](../../../cli/latest/reference/iam/list-policies-granting-service-access.md "../../../cli/latest/reference/iam/list-policies-granting-service-access.md")
+   - [aws iam
+     list-policies-granting-service-access](../../../cli/latest/reference/iam/list-policies-granting-service-access.md "../../../cli/latest/reference/iam/list-policies-granting-service-access.md")
 
 ## Viewing information for IAM (AWS API)
 
@@ -176,58 +175,57 @@ services and actions.
 
 ###### To view information for IAM (AWS API)
 
-1.  Generate a report. The request must include the ARN of the IAM resource (user,
-    user group, role, or policy) for which you want a report. It returns a
-    `JobId` that you can then use in the
-    `GetServiceLastAccessedDetails` and
-    `GetServiceLastAccessedDetailsWithEntities` operations to monitor the
-    `JobStatus` until the job is complete.
+1. Generate a report. The request must include the ARN of the IAM resource (user,
+   user group, role, or policy) for which you want a report. It returns a
+   `JobId` that you can then use in the
+   `GetServiceLastAccessedDetails` and
+   `GetServiceLastAccessedDetailsWithEntities` operations to monitor the
+   `JobStatus` until the job is complete.
 
-    - [GenerateServiceLastAccessedDetails](../APIReference/API_GenerateServiceLastAccessedDetails.md "../APIReference/API_GenerateServiceLastAccessedDetails.md")
+   - [GenerateServiceLastAccessedDetails](../APIReference/API_GenerateServiceLastAccessedDetails.md "../APIReference/API_GenerateServiceLastAccessedDetails.md")
 
-2.  Retrieve details about the report using the `JobId` parameter from the
-    previous step.
+2. Retrieve details about the report using the `JobId` parameter from the
+   previous step.
 
-        * [GetServiceLastAccessedDetails](../APIReference/API_GetServiceLastAccessedDetails.md "../APIReference/API_GetServiceLastAccessedDetails.md")
+   - [GetServiceLastAccessedDetails](../APIReference/API_GetServiceLastAccessedDetails.md "../APIReference/API_GetServiceLastAccessedDetails.md")
+     This operation returns the following information, based on the type of resource
+     and level of granularity that you requested in the
+     `GenerateServiceLastAccessedDetails` operation:
 
-    This operation returns the following information, based on the type of resource
-    and level of granularity that you requested in the
-    `GenerateServiceLastAccessedDetails` operation:
+   - **User** – Returns a list of services
+     that the specified user can access. For each service, the operation returns the
+     date and time of the user's last attempt and the ARN of the user.
+   - **User group** – Returns a list of
+     services that members of the specified user group can access using the policies
+     attached to the user group. For each service, the operation returns the date
+     and time of the last attempt made by any user group member. It also returns the
+     ARN of that user and the total number of user group members that have attempted
+     to access the service. Use the [GetServiceLastAccessedDetailsWithEntities](../APIReference/API_GetServiceLastAccessedDetailsWithEntities.md "../APIReference/API_GetServiceLastAccessedDetailsWithEntities.md") operation to retrieve a
+     list of all of the members.
+   - **Role** – Returns a list of services
+     that the specified role can access. For each service, the operation returns the
+     date and time of the role's last attempt and the ARN of the role.
+   - **Policy** – Returns a list of services
+     for which the specified policy allows access. For each service, the operation
+     returns the date and time that an entity (user or role) last attempted to
+     access the service using the policy. It also returns the ARN of that entity and
+     the total number of entities that attempted access.
 
-        * **User** – Returns a list of services
-         that the specified user can access. For each service, the operation returns the
-         date and time of the user's last attempt and the ARN of the user.
-        * **User group** – Returns a list of
-         services that members of the specified user group can access using the policies
-         attached to the user group. For each service, the operation returns the date
-         and time of the last attempt made by any user group member. It also returns the
-         ARN of that user and the total number of user group members that have attempted
-         to access the service. Use the [GetServiceLastAccessedDetailsWithEntities](../APIReference/API_GetServiceLastAccessedDetailsWithEntities.md "../APIReference/API_GetServiceLastAccessedDetailsWithEntities.md") operation to retrieve a
-         list of all of the members.
-        * **Role** – Returns a list of services
-         that the specified role can access. For each service, the operation returns the
-         date and time of the role's last attempt and the ARN of the role.
-        * **Policy** – Returns a list of services
-         for which the specified policy allows access. For each service, the operation
-         returns the date and time that an entity (user or role) last attempted to
-         access the service using the policy. It also returns the ARN of that entity and
-         the total number of entities that attempted access.
+3. Learn more about the entities that used user group or policy permissions in an
+   attempt to access a specific service. This operation returns a list of entities with
+   each entity's ARN, ID, name, path, type (user or role), and when they last attempted
+   to access the service. You can also use this operation for users and roles, but it
+   only returns information about that entity.
 
-3.  Learn more about the entities that used user group or policy permissions in an
-    attempt to access a specific service. This operation returns a list of entities with
-    each entity's ARN, ID, name, path, type (user or role), and when they last attempted
-    to access the service. You can also use this operation for users and roles, but it
-    only returns information about that entity.
+   - [GetServiceLastAccessedDetailsWithEntities](../APIReference/API_GetServiceLastAccessedDetailsWithEntities.md "../APIReference/API_GetServiceLastAccessedDetailsWithEntities.md")
 
-    - [GetServiceLastAccessedDetailsWithEntities](../APIReference/API_GetServiceLastAccessedDetailsWithEntities.md "../APIReference/API_GetServiceLastAccessedDetailsWithEntities.md")
+4. Learn more about the identity-based policies that an identity (user, user group,
+   or role) used in an attempt to access a specific service. When you specify an
+   identity and service, this operation returns a list of permissions policies that the
+   identity can use to access the specified service. This operation gives the current
+   state of policies and does not depend on the generated report. It also does not
+   return other policy types, such as resource-based policies, access control lists,
+   AWS Organizations policies, IAM permissions boundaries, or session policies. For more
+   information, see [Policy types](access_policies.md#access_policy-types "access_policies.md#access_policy-types") or [Policy evaluation for requests within a single account](reference_policies_evaluation-logic_policy-eval-basics.md "reference_policies_evaluation-logic_policy-eval-basics.md").
 
-4.  Learn more about the identity-based policies that an identity (user, user group,
-    or role) used in an attempt to access a specific service. When you specify an
-    identity and service, this operation returns a list of permissions policies that the
-    identity can use to access the specified service. This operation gives the current
-    state of policies and does not depend on the generated report. It also does not
-    return other policy types, such as resource-based policies, access control lists,
-    AWS Organizations policies, IAM permissions boundaries, or session policies. For more
-    information, see [Policy types](access_policies.md#access_policy-types "access_policies.md#access_policy-types") or [Policy evaluation for requests within a single account](reference_policies_evaluation-logic_policy-eval-basics.md "reference_policies_evaluation-logic_policy-eval-basics.md").
-
-    - [ListPoliciesGrantingServiceAccess](../APIReference/API_ListPoliciesGrantingServiceAccess.md "../APIReference/API_ListPoliciesGrantingServiceAccess.md")
+   - [ListPoliciesGrantingServiceAccess](../APIReference/API_ListPoliciesGrantingServiceAccess.md "../APIReference/API_ListPoliciesGrantingServiceAccess.md")

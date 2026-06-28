@@ -59,7 +59,7 @@ Information, see the documentation for your IdP.
    your IdP's documentation to complete this task.
 
    - issuer: The URL for your domain.
-   - jwks_uri: The JSON Web Key Set (JWKS) endpoint where IAM gets your public keys.
+   - jwks\_uri: The JSON Web Key Set (JWKS) endpoint where IAM gets your public keys.
      Your identity provider must include a JSON Web Key Set (JWKS) endpoint in the
      openid-configuration. This URI defines where to get your public keys that are used to
      verify the signed tokens from your identity provider.
@@ -73,7 +73,7 @@ Information, see the documentation for your IdP.
    that exceeds the 100-key limit. For example, if a JWT is signed with the RSA
    algorithm and there are more than 100 RSA keys in your provider's JWKS, an
    `InvalidIdentityToken` exception will be returned.
-   - claims_supported: Information about the user that helps you ensure OIDC
+   - claims\_supported: Information about the user that helps you ensure OIDC
      authentication responses from your IdP contain the required attributes AWS uses in
      IAM policies to check permissions for OIDC federated principals. For a list of IAM condition
      keys that can be used for claims, see [Available keys for AWS OIDC federation](reference_policies_iam-condition-keys.md#condition-keys-wif "reference_policies_iam-condition-keys.md#condition-keys-wif").
@@ -93,9 +93,9 @@ Information, see the documentation for your IdP.
        of only a hostname, like https://server.example.org or https://example.com. The
        URL should not contain a port number.
 
-   - response_types_supported: id_token
-   - subject_types_supported: public
-   - id_token_signing_alg_values_supported: RS256, RS384, RS512, ES256, ES384,
+   - response\_types\_supported: id\_token
+   - subject\_types\_supported: public
+   - id\_token\_signing\_alg\_values\_supported: RS256, RS384, RS512, ES256, ES384,
      ES512
 
 ###### Note
@@ -173,9 +173,9 @@ with these restrictions:
      provider in the AWS account, you will get an error.
 
 6. For **Audience**, type the client ID of the application that you
-   registered with the IdP and received in [Step 1](#idpoidcstep1 "#idpoidcstep1"), and that make requests to AWS. If you have
-   additional client IDs (also known as _audiences_) for
-   this IdP, you can add them later on the provider detail page.
+registered with the IdP and received in [Step 1](#idpoidcstep1 "#idpoidcstep1"), and that make requests to AWS. If you have
+additional client IDs (also known as _audiences_) for
+this IdP, you can add them later on the provider detail page.
 
 ###### Note
 
@@ -199,7 +199,7 @@ URL, then the intermediate certificate, and end with the root certificate. If th
 certificate chain order is different or includes duplicate or additional certificates,
 then you receive a signature mismatch error and STS fails to validate the JSON Web Token
 (JWT). Correct the order of the certificates in the chain returned from the server to
-resolve the error. For more information about certificate chain standards, see [certificate_list in RFC
+resolve the error. For more information about certificate chain standards, see [certificate\_list in RFC
 5246](https://www.rfc-editor.org/rfc/rfc5246#section-7.4.2 "https://www.rfc-editor.org/rfc/rfc5246#section-7.4.2") on the RFC Series website. 9. Assign an IAM role to your identity provider to give external user identities
 managed by your identity provider permissions to access AWS resources in your account.
 To learn more about creating roles for identity federation, see [Create a role for a third-party identity provider](id_roles_create_for-idp.md "id_roles_create_for-idp.md").
@@ -284,12 +284,12 @@ providers.
    account, run the following command:
 
    - [`aws iam
-list-open-id-connect-providers`](../../../cli/latest/reference/iam/list-open-id-connect-providers.md "../../../cli/latest/reference/iam/list-open-id-connect-providers.md")
+  list-open-id-connect-providers`](../../../cli/latest/reference/iam/list-open-id-connect-providers.md "../../../cli/latest/reference/iam/list-open-id-connect-providers.md")
 
 2. To create a new IAM OIDC identity provider, run the following command:
 
    - [`aws iam
-create-open-id-connect-provider`](../../../cli/latest/reference/iam/create-open-id-connect-provider.md "../../../cli/latest/reference/iam/create-open-id-connect-provider.md")
+  create-open-id-connect-provider`](../../../cli/latest/reference/iam/create-open-id-connect-provider.md "../../../cli/latest/reference/iam/create-open-id-connect-provider.md")
 
 ###### To update the list of server certificate thumbprints for an existing IAM OIDC identity provider (AWS CLI)
 
@@ -303,7 +303,7 @@ create-open-id-connect-provider`](../../../cli/latest/reference/iam/create-open-
 - To tag an existing IAM OIDC identity provider, run the following command:
 
   - [`aws iam
-tag-open-id-connect-provider`](../../../cli/latest/reference/iam/tag-open-id-connect-provider.md "../../../cli/latest/reference/iam/tag-open-id-connect-provider.md")
+   tag-open-id-connect-provider`](../../../cli/latest/reference/iam/tag-open-id-connect-provider.md "../../../cli/latest/reference/iam/tag-open-id-connect-provider.md")
 
 ###### To list tags for an existing IAM OIDC identity provider (AWS CLI)
 
@@ -311,7 +311,7 @@ tag-open-id-connect-provider`](../../../cli/latest/reference/iam/tag-open-id-con
   command:
 
   - [`aws
-iam list-open-id-connect-provider-tags`](../../../cli/latest/reference/iam/list-open-id-connect-provider-tags.md "../../../cli/latest/reference/iam/list-open-id-connect-provider-tags.md")
+   iam list-open-id-connect-provider-tags`](../../../cli/latest/reference/iam/list-open-id-connect-provider-tags.md "../../../cli/latest/reference/iam/list-open-id-connect-provider-tags.md")
 
 ###### To remove tags on an IAM OIDC identity provider (AWS CLI)
 
@@ -319,7 +319,7 @@ iam list-open-id-connect-provider-tags`](../../../cli/latest/reference/iam/list-
   command:
 
   - [`aws iam
-untag-open-id-connect-provider`](../../../cli/latest/reference/iam/untag-open-id-connect-provider.md "../../../cli/latest/reference/iam/untag-open-id-connect-provider.md")
+   untag-open-id-connect-provider`](../../../cli/latest/reference/iam/untag-open-id-connect-provider.md "../../../cli/latest/reference/iam/untag-open-id-connect-provider.md")
 
 ###### To add or remove a client ID from an existing IAM OIDC identity provider (AWS CLI)
 
@@ -327,13 +327,13 @@ untag-open-id-connect-provider`](../../../cli/latest/reference/iam/untag-open-id
    account, run the following command:
 
    - [`aws iam
-list-open-id-connect-providers`](../../../cli/latest/reference/iam/list-open-id-connect-providers.md "../../../cli/latest/reference/iam/list-open-id-connect-providers.md")
+  list-open-id-connect-providers`](../../../cli/latest/reference/iam/list-open-id-connect-providers.md "../../../cli/latest/reference/iam/list-open-id-connect-providers.md")
 
 2. (Optional) To get detailed information about an IAM OIDC identity provider, run the
    following command:
 
    - [`aws iam
-get-open-id-connect-provider`](../../../cli/latest/reference/iam/get-open-id-connect-provider.md "../../../cli/latest/reference/iam/get-open-id-connect-provider.md")
+  get-open-id-connect-provider`](../../../cli/latest/reference/iam/get-open-id-connect-provider.md "../../../cli/latest/reference/iam/get-open-id-connect-provider.md")
 
 3. To add a new client ID to an existing IAM OIDC identity provider, run the following
    command:
@@ -344,7 +344,7 @@ get-open-id-connect-provider`](../../../cli/latest/reference/iam/get-open-id-con
    command:
 
    - [`aws iam
-remove-client-id-from-open-id-connect-provider`](../../../cli/latest/reference/iam/remove-client-id-from-open-id-connect-provider.md "../../../cli/latest/reference/iam/remove-client-id-from-open-id-connect-provider.md")
+  remove-client-id-from-open-id-connect-provider`](../../../cli/latest/reference/iam/remove-client-id-from-open-id-connect-provider.md "../../../cli/latest/reference/iam/remove-client-id-from-open-id-connect-provider.md")
 
 ###### To delete an IAM OIDC identity provider (AWS CLI)
 
@@ -352,18 +352,18 @@ remove-client-id-from-open-id-connect-provider`](../../../cli/latest/reference/i
    account, run the following command:
 
    - [`aws iam
-list-open-id-connect-providers`](../../../cli/latest/reference/iam/list-open-id-connect-providers.md "../../../cli/latest/reference/iam/list-open-id-connect-providers.md")
+  list-open-id-connect-providers`](../../../cli/latest/reference/iam/list-open-id-connect-providers.md "../../../cli/latest/reference/iam/list-open-id-connect-providers.md")
 
 2. (Optional) To get detailed information about an IAM OIDC identity provider, run the
    following command:
 
    - [`aws iam
-get-open-id-connect-provider`](../../../cli/latest/reference/iam/get-open-id-connect-provider.md "../../../cli/latest/reference/iam/get-open-id-connect-provider.md")
+  get-open-id-connect-provider`](../../../cli/latest/reference/iam/get-open-id-connect-provider.md "../../../cli/latest/reference/iam/get-open-id-connect-provider.md")
 
 3. To delete an IAM OIDC identity provider, run the following command:
 
    - [`aws iam
-delete-open-id-connect-provider`](../../../cli/latest/reference/iam/delete-open-id-connect-provider.md "../../../cli/latest/reference/iam/delete-open-id-connect-provider.md")
+  delete-open-id-connect-provider`](../../../cli/latest/reference/iam/delete-open-id-connect-provider.md "../../../cli/latest/reference/iam/delete-open-id-connect-provider.md")
 
 ## Creating and managing an OIDC Identity Provider (AWS API)
 

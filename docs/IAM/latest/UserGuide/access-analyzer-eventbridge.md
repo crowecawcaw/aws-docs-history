@@ -386,118 +386,101 @@ that the access preview failed due to an invalid resource configuration.
 
 The following procedure describes how to create an event rule using the console.
 
-1.  Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2.  Using the following values, create an EventBridge rule that monitors finding events or access
-    preview events:
+1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
+2. Using the following values, create an EventBridge rule that monitors finding events or access
+   preview events:
 
-        * For **Rule type**, choose **Rule with an event
-         pattern**.
-        * For **Event source**, choose **Other**.
-        * For **Event pattern**, choose **Custom patterns (JSON
-         editor)**, and paste one of the following event pattern examples into the
-         text area:
+   - For **Rule type**, choose **Rule with an event
+     pattern**.
+   - For **Event source**, choose **Other**.
+   - For **Event pattern**, choose **Custom patterns (JSON
+     editor)**, and paste one of the following event pattern examples into the
+     text area:
 
+     - To create a rule based on any IAM Access Analyzer event, use the following pattern
+       example:
 
+     ```
+     {
+       "source": [
+         "aws.access-analyzer"
+       ]
+     }
+     ```
+     - To create a rule based on an external access, internal access, or unused
+       access findings event, use the following pattern example:
 
+     ```
+     {
+       "source": [
+         "aws.access-analyzer"
+       ],
+       "detail-type": [
+         "Access Analyzer Finding",
+         "Internal Access Finding",
+         "Unused Access Finding for IAM entities"
+       ]
+     }
+     ```
+     - To create a rule based only on an external access findings event, use the
+       following pattern example:
 
-        	+ To create a rule based on any IAM Access Analyzer event, use the following pattern
-        	 example:
+     ```
+     {
+       "source": [
+         "aws.access-analyzer"
+       ],
+       "detail-type": [
+         "Access Analyzer Finding"
+       ]
+     }
+     ```
+     - To create a rule based only on an internal access findings event, use the
+       following pattern example:
 
+     ```
+     {
+       "source": [
+         "aws.access-analyzer"
+       ],
+       "detail-type": [
+         "Internal Access Finding"
+       ]
+     }
+     ```
+     - To create a rule based only on an unused access findings event, use the
+       following pattern example:
 
+     ```
+     {
+       "source": [
+         "aws.access-analyzer"
+       ],
+       "detail-type": [
+         "Unused Access Finding for IAM entities"
+       ]
+     }
+     ```
+     - To create a rule based on an access preview event, use the following pattern
+       example:
 
-        	```
-        	{
-        	  "source": [
-        	    "aws.access-analyzer"
-        	  ]
-        	}
-        	```
-        	+ To create a rule based on an external access, internal access, or unused
-        	 access findings event, use the following pattern example:
+     ```
+     {
+       "source": [
+         "aws.access-analyzer"
+       ],
+       "detail-type": [
+         "Access Preview State Change"
+       ]
+     }
+     ```
 
-
-
-        	```
-        	{
-        	  "source": [
-        	    "aws.access-analyzer"
-        	  ],
-        	  "detail-type": [
-        	    "Access Analyzer Finding",
-        	    "Internal Access Finding",
-        	    "Unused Access Finding for IAM entities"
-        	  ]
-        	}
-        	```
-        	+ To create a rule based only on an external access findings event, use the
-        	 following pattern example:
-
-
-
-        	```
-        	{
-        	  "source": [
-        	    "aws.access-analyzer"
-        	  ],
-        	  "detail-type": [
-        	    "Access Analyzer Finding"
-        	  ]
-        	}
-        	```
-        	+ To create a rule based only on an internal access findings event, use the
-        	 following pattern example:
-
-
-
-        	```
-        	{
-        	  "source": [
-        	    "aws.access-analyzer"
-        	  ],
-        	  "detail-type": [
-        	    "Internal Access Finding"
-        	  ]
-        	}
-        	```
-        	+ To create a rule based only on an unused access findings event, use the
-        	 following pattern example:
-
-
-
-        	```
-        	{
-        	  "source": [
-        	    "aws.access-analyzer"
-        	  ],
-        	  "detail-type": [
-        	    "Unused Access Finding for IAM entities"
-        	  ]
-        	}
-        	```
-        	+ To create a rule based on an access preview event, use the following pattern
-        	 example:
-
-
-
-        	```
-        	{
-        	  "source": [
-        	    "aws.access-analyzer"
-        	  ],
-        	  "detail-type": [
-        	    "Access Preview State Change"
-        	  ]
-        	}
-        	```
-
-
-        * For **Target types**, choose **AWS service**,
-         and for **Select a target**, choose a target such as an Amazon SNS topic
-         or AWS Lambda function. The target is triggered when an event is received that matches
-         the event pattern defined in the rule.
-
-    To learn more about creating rules, see [Creating Amazon EventBridge rules that
-    react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the _Amazon EventBridge User Guide_.
+   - For **Target types**, choose **AWS service**,
+     and for **Select a target**, choose a target such as an Amazon SNS topic
+     or AWS Lambda function. The target is triggered when an event is received that matches
+     the event pattern defined in the rule.
+     To learn more about creating rules, see [Creating Amazon EventBridge rules that
+     react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the _Amazon EventBridge User Guide_.
 
 ### Creating an event rule using the CLI
 

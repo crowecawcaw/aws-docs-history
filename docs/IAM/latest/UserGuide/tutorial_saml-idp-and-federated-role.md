@@ -43,59 +43,59 @@ First, create the CloudFormation template.
 
 Next, use the template you've saved to provision a CloudFormation stack.
 
-1.  Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2.  On the **Stacks** page, from the **Create stack**
-    menu, choose **with new resources (standard)**.
-3.  Specify the template:
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+2. On the **Stacks** page, from the **Create stack**
+   menu, choose **with new resources (standard)**.
+3. Specify the template:
 
-    1. Under **Prerequisite**, choose **Choose an existing
-       template**.
-    2. Under **Specify template**, choose **Upload a template
-       file**.
-    3. Choose **Choose file**, navigate to the template file, and
-       choose it.
-    4. Choose **Next**.
+   1. Under **Prerequisite**, choose **Choose an existing
+      template**.
+   2. Under **Specify template**, choose **Upload a template
+      file**.
+   3. Choose **Choose file**, navigate to the template file, and
+      choose it.
+   4. Choose **Next**.
 
-4.  Specify the following stack details:
+4. Specify the following stack details:
 
-    1. Enter a stack name.
-    2. For **IdentityProviderName**, you can leave this empty to
-       auto-generate a name based on the stack name, or enter a custom name for your SAML
-       IdP.
+   1. Enter a stack name.
+   2. For **IdentityProviderName**, you can leave this empty to
+      auto-generate a name based on the stack name, or enter a custom name for your SAML
+      IdP.
 
-    Example: `CompanyIdP` or `EnterpriseSSO` 3. For **IdentityProviderSAMLMetadataDocument**, you need to
-    format your SAML metadata XML file as a single line before pasting it into this
-    field. This is necessary because the CloudFormation console requires XML content to
-    be formatted as a single line when passed through console parameters.
+   Example: `CompanyIdP` or `EnterpriseSSO` 3. For **IdentityProviderSAMLMetadataDocument**, you need to
+   format your SAML metadata XML file as a single line before pasting it into this
+   field. This is necessary because the CloudFormation console requires XML content to
+   be formatted as a single line when passed through console parameters.
 
-    Use the following Python command to reformat your XML file:
+   Use the following Python command to reformat your XML file:
 
-    ```
-    python3 -c "import sys, re; content=open(sys.argv[1]).read(); print(re.sub(r'>\s+<', '><', content.replace('\n', '').replace('\r', '').strip()))" `saml-metadata.xml`
-    ```
+   ```
+   python3 -c "import sys, re; content=open(sys.argv[1]).read(); print(re.sub(r'>\s+<', '><', content.replace('\n', '').replace('\r', '').strip()))" `saml-metadata.xml`
+   ```
 
-    ###### Note
+   ###### Note
 
-    The IdP's SAML metadata document must be formatted as a single line for
-    console parameter input. The Python command removes line breaks and extra
-    whitespace to create the required format while maintaining all original content
-    and structure.
+   The IdP's SAML metadata document must be formatted as a single line for
+   console parameter input. The Python command removes line breaks and extra
+   whitespace to create the required format while maintaining all original content
+   and structure.
 
-    Copy the output from the Python command and paste it into the
-    **IdentityProviderSAMLMetadataDocument** field.
+   Copy the output from the Python command and paste it into the
+   **IdentityProviderSAMLMetadataDocument** field.
 
-    Example of formatted SAML metadata document (abbreviated):
+   Example of formatted SAML metadata document (abbreviated):
 
-    ```
-    <?xml version="1.0" encoding="UTF-8"?><md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://portal.sso.example.com/saml/assertion/CompanyIdP"><md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"><md:KeyDescriptor use="signing"><ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:X509Data><ds:X509Certificate>MIIDXTCCAkWgAwIBAgIJAJC1HiIAZAiIMA0GCSqGSIb3DQEBBQUAMEUxCzAJBgNV...</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://portal.sso.example.com/saml/logout/CompanyIdP"/><md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat><md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://portal.sso.example.com/saml/assertion/CompanyIdP"/></md:IDPSSODescriptor></md:EntityDescriptor>
-    ```
-    4. For **RoleName**, you can leave this empty to auto-generate a
-       name based on the stack name, or enter a custom name for the federated IAM
-       role.
+   ```
+   <?xml version="1.0" encoding="UTF-8"?><md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://portal.sso.example.com/saml/assertion/CompanyIdP"><md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"><md:KeyDescriptor use="signing"><ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:X509Data><ds:X509Certificate>MIIDXTCCAkWgAwIBAgIJAJC1HiIAZAiIMA0GCSqGSIb3DQEBBQUAMEUxCzAJBgNV...</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://portal.sso.example.com/saml/logout/CompanyIdP"/><md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat><md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://portal.sso.example.com/saml/assertion/CompanyIdP"/></md:IDPSSODescriptor></md:EntityDescriptor>
+   ```
+   4. For **RoleName**, you can leave this empty to auto-generate a
+      name based on the stack name, or enter a custom name for the federated IAM
+      role.
 
-    Example: `SAML-Developer-Access` or
-    `SAML-ReadOnly-Role` 5. For other parameters, accept the default values or enter your own based on your
-    requirements:
+   Example: `SAML-Developer-Access` or
+   `SAML-ReadOnly-Role` 5. For other parameters, accept the default values or enter your own based on your
+   requirements:
 
         * **IdentityProviderAddPrivateKey** - Optional private key
          for decrypting SAML assertions
@@ -130,21 +130,22 @@ Next, use the template you've saved to provision a CloudFormation stack.
 
         Example for RoleManagedPolicy2:
          `arn:aws:iam::123456789012:policy/CustomPolicy`
-    6. Choose **Next**.
 
-5.  Configure the stack options:
+   6. Choose **Next**.
 
-    1. Under **Stack failure options**, choose **Delete all
-       newly created resources**.
+5. Configure the stack options:
 
-    ###### Note
+   1. Under **Stack failure options**, choose **Delete all
+      newly created resources**.
 
-    Choosing this option prevents you from possibly being billed for resources
-    whose deletion policy specifies they be retained even if the stack creation
-    fails. 2. Accept all other default values. 3. Under **Capabilities**, check the box to acknowledge that
-    CloudFormation might create IAM resources in your account. 4. Choose **Next**.
+   ###### Note
 
-6.  Review the stack details and choose **Submit**.
+   Choosing this option prevents you from possibly being billed for resources
+   whose deletion policy specifies they be retained even if the stack creation
+   fails. 2. Accept all other default values. 3. Under **Capabilities**, check the box to acknowledge that
+   CloudFormation might create IAM resources in your account. 4. Choose **Next**.
+
+6. Review the stack details and choose **Submit**.
 
 CloudFormation creates the stack. Once the stack creation is complete, the stack resources are
 ready to use. You can use the **Resources** tab on the stack detail page to

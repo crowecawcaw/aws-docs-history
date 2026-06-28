@@ -112,10 +112,9 @@ Guide_. 3. In the Capabilities to enable section, choose which features to enabl
      IAM to perform certain tasks that require root user credentials.
 
 4. (Optional) Enter the account ID of the **Delegated
-   administrator** that is authorized to manage root user access and take
-   privileged actions on member accounts. We recommend an account that is intended
-   for security or management purposes.
-5. Choose **Enable**.
+administrator** that is authorized to manage root user access and take
+privileged actions on member accounts. We recommend an account that is intended
+for security or management purposes. 5. Choose **Enable**.
 
 ## Enabling centralized root access (AWS CLI)
 

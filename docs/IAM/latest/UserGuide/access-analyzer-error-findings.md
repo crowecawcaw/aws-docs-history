@@ -14,7 +14,7 @@ that might need attention to ensure proper analysis.
 External access analyzers, which identify resources shared outside your account or
 organization, can generate two types of error findings:
 
-- INTERNAL_ERROR – Indicates that IAM Access Analyzer encountered an internal issue
+- INTERNAL\_ERROR – Indicates that IAM Access Analyzer encountered an internal issue
   while analyzing the resource. This could be due to service limitations or temporary
   issues.
 
@@ -38,7 +38,7 @@ organization, can generate two types of error findings:
 }
 ```
 
-- ACCESS_DENIED – Indicates that IAM Access Analyzer doesn't have the required
+- ACCESS\_DENIED – Indicates that IAM Access Analyzer doesn't have the required
   permissions to analyze the resource. This typically happens when the service-linked role
   (SLR) for IAM Access Analyzer is denied access to the resource.
 
@@ -67,7 +67,7 @@ organization, can generate two types of error findings:
 Internal access analyzers, which identify access within your account or organization, can
 generate four types of error findings:
 
-- PRINCIPAL_LIMIT_EXCEEDED – Generated when more than 3,000 principals have
+- PRINCIPAL\_LIMIT\_EXCEEDED – Generated when more than 3,000 principals have
   access to a critical resource. This error helps you identify resources with overly broad
   access that might need to be restricted.
 
@@ -95,7 +95,7 @@ the next scan, and the error finding will be marked as resolved.
 }
 ```
 
-- Resource-level errors (INTERNAL_ERROR or ACCESS_DENIED) – Similar to external
+- Resource-level errors (INTERNAL\_ERROR or ACCESS\_DENIED) – Similar to external
   access errors, these indicate that the analyzer couldn't analyze a specific resource due
   to internal issues or permission problems. When a resource-level error occurs, the
   analyzer generates a single error finding for the resource instead of normal
@@ -121,7 +121,7 @@ the next scan, and the error finding will be marked as resolved.
 }
 ```
 
-- Principal-level errors (INTERNAL_ERROR or ACCESS_DENIED) – Indicates that the
+- Principal-level errors (INTERNAL\_ERROR or ACCESS\_DENIED) – Indicates that the
   analyzer couldn't analyze access for a specific principal to a specific resource. Unlike
   resource-level errors, a resource can have both normal findings for some principals and
   error findings for other principals.
@@ -153,7 +153,7 @@ the next scan, and the error finding will be marked as resolved.
 }
 ```
 
-- PRINCIPAL_ERRORS_LIMIT_EXCEEDED – Generated when there are too many principal-level
+- PRINCIPAL\_ERRORS\_LIMIT\_EXCEEDED – Generated when there are too many principal-level
   error findings for a single resource. This is a resource-level error finding that may
   appear alongside normal findings for the same resource.
 
@@ -187,13 +187,13 @@ error finding will be removed completely instead of changing to a resolved findi
 To resolve error findings, consider the following approaches based on the error
 type:
 
-- For ACCESS_DENIED errors, verify that the IAM Access Analyzer service-linked role has the
+- For ACCESS\_DENIED errors, verify that the IAM Access Analyzer service-linked role has the
   necessary permissions to access the resource.
-- For PRINCIPAL_LIMIT_EXCEEDED errors, review the resource's access policies and
+- For PRINCIPAL\_LIMIT\_EXCEEDED errors, review the resource's access policies and
   consider restricting access to fewer principals.
-- For INTERNAL_ERROR findings, you may need to wait for a subsequent analysis cycle or
+- For INTERNAL\_ERROR findings, you may need to wait for a subsequent analysis cycle or
   contact AWS support if the issue persists.
-- For PRINCIPAL_ERRORS_LIMIT_EXCEEDED, review and potentially simplify the access patterns for
+- For PRINCIPAL\_ERRORS\_LIMIT\_EXCEEDED, review and potentially simplify the access patterns for
   the affected resource.
 
 After making changes to address the underlying issues, IAM Access Analyzer will attempt to

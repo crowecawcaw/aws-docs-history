@@ -153,11 +153,11 @@ Additionally, the following rules apply:
 - You cannot specify multiple values in a single tag, but you can create a custom
   multivalue structure in the single value. For example, assume that the user Zhang works
   on the engineering team and the QA team. If you attach the `team =
-Engineering` tag and then attach the `team = QA` tag,
+ Engineering` tag and then attach the `team = QA` tag,
   you change the value of the tag from `Engineering` to
   `QA`. Instead, you can include multiple values in a single tag
   with a custom separator. In this example, you could attach the `team =
-Engineering:QA` tag to Zhang.
+ Engineering:QA` tag to Zhang.
 
 ###### Note
 
@@ -184,17 +184,17 @@ Observe the following conventions when attaching tags to IAM resources:
   have a department named `AWS_Development` with 12 members. You can have 12
   users and a role with the tag key of `department` and a value of
   `awsDevelopment` (`department =
-awsDevelopment`). You can also use the same tag on resources in other [services that support
+ awsDevelopment`). You can also use the same tag on resources in other [services that support
   tagging](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 - IAM entities (users or roles) cannot have multiple instances of the same tag key.
   For example, if you have a user with the tag key-value pair `costCenter =
-1234`, you can then attach the tag key-value pair `costCenter =
-5678`. IAM updates the value of the `costCenter` tag
+ 1234`, you can then attach the tag key-value pair `costCenter =
+ 5678`. IAM updates the value of the `costCenter` tag
   to `5678`.
 - To edit a tag that is attached to an IAM entity (user or role), attach a tag with
   a new value to overwrite the existing tag. For example, assume that you have a user with
   the tag key-value pair `department = Engineering`. If you need to
   move the user to the QA department, then you can attach the `department =
-QA` tag key-value pair to the user. This results in the
+ QA` tag key-value pair to the user. This results in the
   `Engineering` value of the `department` tag
   key being replaced with the `QA` value.

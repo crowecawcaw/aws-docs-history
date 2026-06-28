@@ -133,7 +133,7 @@ Put access keys in one of the following locations:
   your organization, remove the corresponding IAM user so that the user can no
   longer access your resources. To find out when an access key was last used, use
   the [`GetAccessKeyLastUsed`](../APIReference/API_GetAccessKeyLastUsed.md "../APIReference/API_GetAccessKeyLastUsed.md") API (AWS CLI command: [`aws iam
-get-access-key-last-used`](../../../cli/latest/reference/iam/get-access-key-last-used.md "../../../cli/latest/reference/iam/get-access-key-last-used.md")).
+ get-access-key-last-used`](../../../cli/latest/reference/iam/get-access-key-last-used.md "../../../cli/latest/reference/iam/get-access-key-last-used.md")).
 - **Use temporary credentials and configure multi-factor
   authentication for your most sensitive API operations.** With IAM
   policies, you can specify which API operations a user is allowed to call. In

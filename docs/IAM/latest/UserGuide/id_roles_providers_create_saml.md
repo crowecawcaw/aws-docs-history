@@ -69,23 +69,17 @@ policies.
   needs this private key to decrypt SAML responses that correspond to the public key
   uploaded to your IdP. The following algorithms are supported:
 
-      + Encryption algorithms
+  - Encryption algorithms
 
+    - AES-128
+    - AES-256
+    - RSA-OAEP
 
+  - Key transport algorithms
 
-
-      	- AES-128
-      	- AES-256
-      	- RSA-OAEP
-      + Key transport algorithms
-
-
-
-
-      	- AES-CBC
-      	- AES-GCM
-
-  See your identity provider's documentation for steps to generate a private key.
+    - AES-CBC
+    - AES-GCM
+      See your identity provider's documentation for steps to generate a private key.
 
 ###### Note
 
@@ -207,7 +201,7 @@ federation](troubleshoot_saml.md "troubleshoot_saml.md").
 ###### To create an IAM identity provider and upload a metadata document (AWS CLI)
 
 - Run this command: [`aws
-iam create-saml-provider`](../../../cli/latest/reference/iam/create-saml-provider.md "../../../cli/latest/reference/iam/create-saml-provider.md")
+ iam create-saml-provider`](../../../cli/latest/reference/iam/create-saml-provider.md "../../../cli/latest/reference/iam/create-saml-provider.md")
 
 ###### To update an IAM SAML identity provider (AWS CLI)
 
@@ -217,22 +211,22 @@ keys, add your new private key and then remove the old key in a separate request
 information about rotating private keys, see [Manage SAML encryption keys](#id_federation_manage-saml-encryption "#id_federation_manage-saml-encryption").
 
 - Run this command:[`aws iam
-update-saml-provider`](../../../cli/latest/reference/iam/update-saml-provider.md "../../../cli/latest/reference/iam/update-saml-provider.md")
+ update-saml-provider`](../../../cli/latest/reference/iam/update-saml-provider.md "../../../cli/latest/reference/iam/update-saml-provider.md")
 
 ###### To tag an existing IAM identity provider (AWS CLI)
 
 - Run this command:[`aws iam
-tag-saml-provider`](../../../cli/latest/reference/iam/tag-saml-provider.md "../../../cli/latest/reference/iam/tag-saml-provider.md")
+ tag-saml-provider`](../../../cli/latest/reference/iam/tag-saml-provider.md "../../../cli/latest/reference/iam/tag-saml-provider.md")
 
 ###### To list tags for existing IAM identity provider (AWS CLI)
 
 - Run this command:[`aws
-iam list-saml-provider-tags`](../../../cli/latest/reference/iam/list-saml-provider-tags.md "../../../cli/latest/reference/iam/list-saml-provider-tags.md")
+ iam list-saml-provider-tags`](../../../cli/latest/reference/iam/list-saml-provider-tags.md "../../../cli/latest/reference/iam/list-saml-provider-tags.md")
 
 ###### To remove tags on an existing IAM identity provider (AWS CLI)
 
 - Run this command:[`aws iam
-untag-saml-provider`](../../../cli/latest/reference/iam/untag-saml-provider.md "../../../cli/latest/reference/iam/untag-saml-provider.md")
+ untag-saml-provider`](../../../cli/latest/reference/iam/untag-saml-provider.md "../../../cli/latest/reference/iam/untag-saml-provider.md")
 
 ###### To delete an IAM SAML identity provider (AWS CLI)
 
@@ -240,19 +234,19 @@ untag-saml-provider`](../../../cli/latest/reference/iam/untag-saml-provider.md "
    expiration, run the following command:
 
    - [`aws iam
-list-saml-providers`](../../../cli/latest/reference/iam/list-saml-providers.md "../../../cli/latest/reference/iam/list-saml-providers.md")
+  list-saml-providers`](../../../cli/latest/reference/iam/list-saml-providers.md "../../../cli/latest/reference/iam/list-saml-providers.md")
 
 2. (Optional) To get information about a specific provider, such as the ARN, creation
    date, expiration date, encryption settings, and private key information, run the following
    command:
 
    - [`aws iam
-get-saml-provider`](../../../cli/latest/reference/iam/get-saml-provider.md "../../../cli/latest/reference/iam/get-saml-provider.md")
+  get-saml-provider`](../../../cli/latest/reference/iam/get-saml-provider.md "../../../cli/latest/reference/iam/get-saml-provider.md")
 
 3. To delete an IAM identity provider, run the following command:
 
    - [`aws iam
-delete-saml-provider`](../../../cli/latest/reference/iam/delete-saml-provider.md "../../../cli/latest/reference/iam/delete-saml-provider.md")
+  delete-saml-provider`](../../../cli/latest/reference/iam/delete-saml-provider.md "../../../cli/latest/reference/iam/delete-saml-provider.md")
 
 ## Create and manage an IAM SAML identity provider (AWS API)
 

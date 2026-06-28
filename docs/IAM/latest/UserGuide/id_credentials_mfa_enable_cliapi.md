@@ -44,7 +44,7 @@ passwords (TOTP) expire after a short period of time. If this happens, you can r
 the device using the commands described below.
 
 - AWS CLI: [`aws
-iam enable-mfa-device`](../../../cli/latest/reference/iam/enable-mfa-device.md "../../../cli/latest/reference/iam/enable-mfa-device.md")
+ iam enable-mfa-device`](../../../cli/latest/reference/iam/enable-mfa-device.md "../../../cli/latest/reference/iam/enable-mfa-device.md")
 - AWS API: [`EnableMFADevice`](../APIReference/API_EnableMFADevice.md "../APIReference/API_EnableMFADevice.md")
 
 ###### To deactivate a device
@@ -68,7 +68,7 @@ Use these commands to list virtual MFA device entities.
 Use these commands to tag a virtual MFA device.
 
 - AWS CLI: [`aws iam
-tag-mfa-device`](../../../cli/latest/reference/iam/tag-mfa-device.md "../../../cli/latest/reference/iam/tag-mfa-device.md")
+ tag-mfa-device`](../../../cli/latest/reference/iam/tag-mfa-device.md "../../../cli/latest/reference/iam/tag-mfa-device.md")
 - AWS API: [`TagMFADevice`](../APIReference/API_TagMFADevice.md "../APIReference/API_TagMFADevice.md")
 
 ###### To list tags for a virtual MFA device
@@ -83,7 +83,7 @@ Use these commands to list the tags attached to a virtual MFA device.
 Use these commands to remove tags attached to a virtual MFA device.
 
 - AWS CLI: [`aws
-iam untag-mfa-device`](../../../cli/latest/reference/iam/untag-mfa-device.md "../../../cli/latest/reference/iam/untag-mfa-device.md")
+ iam untag-mfa-device`](../../../cli/latest/reference/iam/untag-mfa-device.md "../../../cli/latest/reference/iam/untag-mfa-device.md")
 - AWS API: [`UntagMFADevice`](../APIReference/API_UntagMFADevice.md "../APIReference/API_UntagMFADevice.md")
 
 ###### To resynchronize an MFA device
@@ -92,7 +92,7 @@ Use these commands if the device is generating codes that are not accepted by AW
 the device is virtual, use the ARN of the virtual device as the serial number.
 
 - AWS CLI: [`aws
-iam resync-mfa-device`](../../../cli/latest/reference/iam/resync-mfa-device.md "../../../cli/latest/reference/iam/resync-mfa-device.md")
+ iam resync-mfa-device`](../../../cli/latest/reference/iam/resync-mfa-device.md "../../../cli/latest/reference/iam/resync-mfa-device.md")
 - AWS API: [`ResyncMFADevice`](../APIReference/API_ResyncMFADevice.md "../APIReference/API_ResyncMFADevice.md")
 
 ###### To delete a virtual MFA device entity in IAM

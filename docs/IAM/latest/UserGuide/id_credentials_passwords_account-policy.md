@@ -92,7 +92,7 @@ The default password policy enforces the following conditions:
 - Minimum password length of 8 characters and a maximum length of 128 characters
 - Minimum of three of the following mix of character types: uppercase, lowercase,
   numbers, and non-alphanumeric character (`! @ # $ % ^ & * ( ) _ + - = [ ] { } |
-'`)
+ '`)
 - Not be identical to your AWS account name or email address
 - Never expire password
 
@@ -110,7 +110,7 @@ following conditions:
   - Require at least one lowercase letter from the Latin alphabet (a–z)
   - Require at least one number
   - Require at least one nonalphanumeric character `! @ # $ % ^ & * ( ) _ + -
-= [ ] { } | '`
+   = [ ] { } | '`
 
 - **Turn on password expiration** – You can select and specify a
   minimum of 1 and a maximum of 1,095 days that IAM user passwords are valid after they
@@ -215,11 +215,11 @@ You can use the AWS Command Line Interface to set a password policy.
 Run the following commands:
 
 - To create or change the custom password policy: [`aws iam
-update-account-password-policy`](../../../cli/latest/reference/iam/update-account-password-policy.md "../../../cli/latest/reference/iam/update-account-password-policy.md")
+ update-account-password-policy`](../../../cli/latest/reference/iam/update-account-password-policy.md "../../../cli/latest/reference/iam/update-account-password-policy.md")
 - To view the password policy: [`aws iam
-get-account-password-policy`](../../../cli/latest/reference/iam/get-account-password-policy.md "../../../cli/latest/reference/iam/get-account-password-policy.md")
+ get-account-password-policy`](../../../cli/latest/reference/iam/get-account-password-policy.md "../../../cli/latest/reference/iam/get-account-password-policy.md")
 - To delete the custom password policy: [`aws iam
-delete-account-password-policy`](../../../cli/latest/reference/iam/delete-account-password-policy.md "../../../cli/latest/reference/iam/delete-account-password-policy.md")
+ delete-account-password-policy`](../../../cli/latest/reference/iam/delete-account-password-policy.md "../../../cli/latest/reference/iam/delete-account-password-policy.md")
 
 ## Setting a password policy (AWS API)
 

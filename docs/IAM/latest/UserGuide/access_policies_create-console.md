@@ -90,37 +90,36 @@ to write JSON syntax. To view an example of using the visual editor to create a 
 
 ###### To use the visual editor to create a policy
 
-1.  Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2.  In the navigation pane on the left, choose **Policies**.
-3.  Choose **Create policy**.
-4.  In the **Policy editor** section, find the **Select a
-    service** section, and then choose an AWS service. You can use the search box
-    at the top to limit the results in the list of services. You can choose only one service
-    within a visual editor permission block. To grant access to more than one service, add
-    multiple permission blocks by choosing **Add more permissions**.
-5.  In **Actions allowed**, choose the actions to add to the policy. You
-    can choose actions in the following ways:
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane on the left, choose **Policies**.
+3. Choose **Create policy**.
+4. In the **Policy editor** section, find the **Select a
+   service** section, and then choose an AWS service. You can use the search box
+   at the top to limit the results in the list of services. You can choose only one service
+   within a visual editor permission block. To grant access to more than one service, add
+   multiple permission blocks by choosing **Add more permissions**.
+5. In **Actions allowed**, choose the actions to add to the policy. You
+   can choose actions in the following ways:
 
-        * Select the checkbox for all actions.
-        * Choose **add actions** to type the name of a specific action. You
-         can use wildcards (`*`) to specify multiple actions.
-        * Select one of the **Access level** groups to choose all actions
-         for the access level (for example, **Read**,
-         **Write**, or **List**).
-        * Expand each of the **Access level** groups to choose individual
-         actions.
+   - Select the checkbox for all actions.
+   - Choose **add actions** to type the name of a specific action. You
+     can use wildcards (`*`) to specify multiple actions.
+   - Select one of the **Access level** groups to choose all actions
+     for the access level (for example, **Read**,
+     **Write**, or **List**).
+   - Expand each of the **Access level** groups to choose individual
+     actions.
+     By default, the policy that you are creating allows the actions that you choose. To
+     deny the chosen actions instead, choose **Switch to deny permissions**.
+     Because [IAM denies by
+     default](reference_policies_evaluation-logic.md "reference_policies_evaluation-logic.md"), we recommend as a security best practice that you allow permissions to
+     only those actions and resources that a user needs. You should create a JSON statement to
+     deny permissions only if you want to override a permission separately allowed by another
+     statement or policy. We recommend that you limit the number of deny permissions to a
+     minimum because they can increase the difficulty of troubleshooting permissions.
 
-    By default, the policy that you are creating allows the actions that you choose. To
-    deny the chosen actions instead, choose **Switch to deny permissions**.
-    Because [IAM denies by
-    default](reference_policies_evaluation-logic.md "reference_policies_evaluation-logic.md"), we recommend as a security best practice that you allow permissions to
-    only those actions and resources that a user needs. You should create a JSON statement to
-    deny permissions only if you want to override a permission separately allowed by another
-    statement or policy. We recommend that you limit the number of deny permissions to a
-    minimum because they can increase the difficulty of troubleshooting permissions.
-
-6.  For **Resources**, if the service and actions that you selected in
-    the previous steps do not support choosing [specific resources](access_controlling.md#access_controlling-resources "access_controlling.md#access_controlling-resources"), all resources are allowed and you cannot edit this section.
+6. For **Resources**, if the service and actions that you selected in
+   the previous steps do not support choosing [specific resources](access_controlling.md#access_controlling-resources "access_controlling.md#access_controlling-resources"), all resources are allowed and you cannot edit this section.
 
 If you chose one or more actions that support [resource-level permissions](access_controlling.md#access_controlling-resources "access_controlling.md#access_controlling-resources"), then the
 visual editor lists those resources. You can then expand **Resources** to
@@ -138,15 +137,15 @@ You can specify resources in the following ways:
     * Choose **All** to choose all resources for the service.
 
 7. (Optional) Choose **Request conditions -
-   _optional_** to add conditions to the policy that you are
-   creating. Conditions limit a JSON policy statement's effect. For example, you can specify
-   that a user is allowed to perform the actions on the resources only when that user's
-   request happens within a certain time range. You can also use commonly used conditions to
-   limit whether a user must be authenticated using a multi-factor authentication (MFA)
-   device. Or you can require that the request originate from within a certain range of IP
-   addresses. For lists of all of the context keys that you can use in a policy condition,
-   see [Actions, resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md") in the
-   _Service Authorization Reference_.
+_optional_** to add conditions to the policy that you are
+creating. Conditions limit a JSON policy statement's effect. For example, you can specify
+that a user is allowed to perform the actions on the resources only when that user's
+request happens within a certain time range. You can also use commonly used conditions to
+limit whether a user must be authenticated using a multi-factor authentication (MFA)
+device. Or you can require that the request originate from within a certain range of IP
+addresses. For lists of all of the context keys that you can use in a policy condition,
+see [Actions, resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md") in the
+_Service Authorization Reference_.
 
 You can choose conditions in the following ways:
 

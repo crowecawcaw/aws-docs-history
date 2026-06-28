@@ -15,7 +15,7 @@ This workflow has three basic steps.
 
 **[Step 1: Create a policy to enforce MFA sign-in](#tutorial_mfa_step1 "#tutorial_mfa_step1")**
 
-Create a customer managed policy that prohibits all actions **_except_** the few IAM actions. These
+Create a customer managed policy that prohibits all actions _**except**_ the few IAM actions. These
 exceptions allow a user to change their own credentials and manage their MFA devices on
 the **Security credentials** page. For more information about accessing
 that page, see [How IAM users change their own password (console)](id_credentials_passwords_user-change-own.md#ManagingUserPwdSelf-Console "id_credentials_passwords_user-change-own.md#ManagingUserPwdSelf-Console").
@@ -109,7 +109,7 @@ MFA-protected permissions.
    **AmazonEC2FullAccess** in the list. Don't save your changes
    yet.
 5. In the search box, type `Force`, and then select the checkbox
-   next to **Force_MFA** in the list.
+   next to **Force\_MFA** in the list.
 6. Choose **Attach policies**.
 
 ## Step 3: Test your user's access
@@ -119,7 +119,7 @@ works as intended.
 
 1. Sign in to your AWS account as `MFAUser` with the password you
    assigned in the previous section. Use the URL: `https://`<alias or
-   account ID number>`.signin.aws.amazon.com/console`
+    account ID number>`.signin.aws.amazon.com/console`
 2. Choose **EC2** to open the Amazon EC2 console and verify that the user has
    no permissions to do anything.
 3. In the navigation bar on the upper right, choose the `MFAUser` user name,

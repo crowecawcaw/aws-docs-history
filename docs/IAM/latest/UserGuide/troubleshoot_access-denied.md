@@ -78,11 +78,11 @@ action.
 - If your policy includes a condition with a key–value pair, review it
   carefully. Examples include the [aws:RequestTag/tag-key](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
   global condition key, the AWS KMS [`kms:EncryptionContext:`encryption_context_key``](kms/latest/developerguide/policy-conditions.md#conditions-kms-encryption-context "kms/latest/developerguide/policy-conditions.md#conditions-kms-encryption-context"),
-  and the `ResourceTag/`tag-key``condition
-key supported by multiple services. Make sure that the key name does not match
-multiple results. Because condition key names are not case sensitive, a
-condition that checks for a key named`foo`matches`foo`,
-`Foo`, or `FOO`. If your request includes multiple
+ and the `ResourceTag/`tag-key`` condition
+  key supported by multiple services. Make sure that the key name does not match
+  multiple results. Because condition key names are not case sensitive, a
+  condition that checks for a key named `foo` matches `foo`,
+  `Foo`, or `FOO`. If your request includes multiple
   key–value pairs with key names that differ only by case, then your access
   might be unexpectedly denied. For more information, see [IAM JSON policy elements: Condition](reference_policies_elements_condition.md "reference_policies_elements_condition.md").
 - If you have a [permissions
@@ -164,10 +164,10 @@ Most access denied error messages appear in the format `User
  `user`is not authorized to perform
 `action`on`resource`because
 `context``. In this example,
- `user`is the ARN of the principal that is denied access,
-`action`is the service action that the policy denies,
- and`resource`is the ARN of the resource on which the
- policy acts. The`context` field provides additional
+`user` is the ARN of the principal that is denied access,
+`action` is the service action that the policy denies,
+and `resource` is the ARN of the resource on which the
+policy acts. The `context` field provides additional
 context about the policy type that denied access. In some cases, it also contains
 the ARN of the policy which denied access.
 

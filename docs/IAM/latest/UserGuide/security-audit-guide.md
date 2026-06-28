@@ -183,7 +183,7 @@ permissions granted by each policy. Use the following guidelines when reviewing 
   policies](policies-managed-vs-inline.md#aws-managed-policies "policies-managed-vs-inline.md#aws-managed-policies"), make sure the AWS managed policies that are in use in your account
   are for services that you actually use. To find out which AWS managed policies are in
   use in your account, use the IAM [`GetAccountAuthorizationDetails`](../APIReference/API_GetAccountAuthorizationDetails.md "../APIReference/API_GetAccountAuthorizationDetails.md") API (AWS CLI command: [`aws iam
-get-account-authorization-details`](../../../cli/latest/reference/iam/get-account-authorization-details.md "../../../cli/latest/reference/iam/get-account-authorization-details.md")).
+ get-account-authorization-details`](../../../cli/latest/reference/iam/get-account-authorization-details.md "../../../cli/latest/reference/iam/get-account-authorization-details.md")).
 - If the policy grants a user permission to launch an Amazon EC2 instance, it might also
   allow the `iam:PassRole` action, but if so it should [explicitly list the roles](roles-usingrole-ec2instance.md#roles-usingrole-ec2instance-passrole "roles-usingrole-ec2instance.md#roles-usingrole-ec2instance-passrole") that the user can pass to the Amazon EC2 instance.
 - Examine any values for the `Action` or `Resource` element that

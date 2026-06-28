@@ -195,35 +195,32 @@ boxes next to the following actions:
     * **UpdateGroup**
 
 12. Choose **Resources** to specify the resources for your policy.
-    Based on the actions that you chose, you should see the **group**
-    resource type. Choose **Add ARNs**. For **Resource
-    in**, select the **Any account** option. For
-    **Any group name with path**, type the user group name
-    `AllUsers`. Then choose **Add ARNs**.
-13. Choose **Request conditions - _optional_** and
-    then choose **Add another condition**. Complete the form with the
-    following values:
+Based on the actions that you chose, you should see the **group**
+resource type. Choose **Add ARNs**. For **Resource
+in**, select the **Any account** option. For
+**Any group name with path**, type the user group name
+`AllUsers`. Then choose **Add ARNs**. 13. Choose **Request conditions - _optional_** and
+then choose **Add another condition**. Complete the form with the
+following values:
 
-        * **Condition key** – Choose
-         **aws:username**
-        * **Qualifier** – Choose
-         **Default**
-        * **Operator** – Choose
-         **StringNotEquals**
-        * **Value** – Type `srodriguez`
-         and then choose **Add** to add another value. Type
-         `mjackson` and then choose **Add** to
-         add another value. Type `adesai` and then choose
-         **Add condition**.
+    * **Condition key** – Choose
+     **aws:username**
+    * **Qualifier** – Choose
+     **Default**
+    * **Operator** – Choose
+     **StringNotEquals**
+    * **Value** – Type `srodriguez`
+     and then choose **Add** to add another value. Type
+     `mjackson` and then choose **Add** to
+     add another value. Type `adesai` and then choose
+     **Add condition**.
 
-    This condition ensures that access will be denied to the specified user group
-    management actions when the user making the call is not included in the list. Because
-    this explicitly denies permission, it overrides the previous block that allowed those
-    users to call the actions. Users on the list are not denied access, and they are
-    granted permission in the first permission block, so they can fully manage the user
-    group.
-
-14. When you are finished, choose **Next**.
+This condition ensures that access will be denied to the specified user group
+management actions when the user making the call is not included in the list. Because
+this explicitly denies permission, it overrides the previous block that allowed those
+users to call the actions. Users on the list are not denied access, and they are
+granted permission in the first permission block, so they can fully manage the user
+group. 14. When you are finished, choose **Next**.
 
 ###### Note
 

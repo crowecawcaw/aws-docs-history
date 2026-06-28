@@ -426,32 +426,31 @@ working as expected by testing your roles in Secrets Manager.
 
 ###### To test viewing a secret with and without the required tags
 
-1.  Sign in as one of the following IAM users:
+1. Sign in as one of the following IAM users:
 
-    - `access-Arnav-peg-eng`
-    - `access-Mary-peg-qas`
-    - `access-Saanvi-uni-eng`
-    - `access-Carlos-uni-qas`
+   - `access-Arnav-peg-eng`
+   - `access-Mary-peg-qas`
+   - `access-Saanvi-uni-eng`
+   - `access-Carlos-uni-qas`
 
-2.  Switch to the matching role:
+2. Switch to the matching role:
 
-        * `access-peg-engineering`
-        * `access-peg-quality-assurance`
-        * `access-uni-engineering`
-        * `access-uni-quality-assurance`
+   - `access-peg-engineering`
+   - `access-peg-quality-assurance`
+   - `access-uni-engineering`
+   - `access-uni-quality-assurance`
+     For more information about switching roles in the AWS Management Console, see [Switch from a user to an IAM role (console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md").
 
-    For more information about switching roles in the AWS Management Console, see [Switch from a user to an IAM role (console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md").
-
-3.  In the navigation pane on the left, choose the menu icon to expand the menu and
-    then choose **Secrets**.
-4.  You should see all four secrets in the table, regardless of your current role.
-    This is expected because the policy named `access-same-project-team`
-    allows the `secretsmanager:ListSecrets` action for all resources.
-5.  Choose the name of one of the secrets.
-6.  On the details page for the secret, your role's tags determine whether you can
-    view the page content. Compare the name of your role to the name of your secret. If
-    they share the same team name, then the `access-team` tags match. If they
-    don't match, then access is denied.
+3. In the navigation pane on the left, choose the menu icon to expand the menu and
+   then choose **Secrets**.
+4. You should see all four secrets in the table, regardless of your current role.
+   This is expected because the policy named `access-same-project-team`
+   allows the `secretsmanager:ListSecrets` action for all resources.
+5. Choose the name of one of the secrets.
+6. On the details page for the secret, your role's tags determine whether you can
+   view the page content. Compare the name of your role to the name of your secret. If
+   they share the same team name, then the `access-team` tags match. If they
+   don't match, then access is denied.
 
 The following table shows ABAC secret viewing behavior for each role.
 
@@ -569,26 +568,25 @@ Secrets Manager.
 
 ###### To test updating and deleting a secret with and without the required tags
 
-1.  Sign in as one of the following IAM users:
+1. Sign in as one of the following IAM users:
 
-    - `access-Arnav-peg-eng`
-    - `access-Mary-peg-qas`
-    - `access-Saanvi-uni-eng`
-    - `access-Carlos-uni-qas`
-    - `access-Nikhil-cen-eng`
+   - `access-Arnav-peg-eng`
+   - `access-Mary-peg-qas`
+   - `access-Saanvi-uni-eng`
+   - `access-Carlos-uni-qas`
+   - `access-Nikhil-cen-eng`
 
-2.  Switch to the matching role:
+2. Switch to the matching role:
 
-        * `access-peg-engineering`
-        * `access-peg-quality-assurance`
-        * `access-uni-engineering`
-        * `access-peg-quality-assurance`
-        * `access-cen-engineering`
+   - `access-peg-engineering`
+   - `access-peg-quality-assurance`
+   - `access-uni-engineering`
+   - `access-peg-quality-assurance`
+   - `access-cen-engineering`
+     For more information about switching roles in the AWS Management Console, see [Switch from a user to an IAM role (console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md").
 
-    For more information about switching roles in the AWS Management Console, see [Switch from a user to an IAM role (console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md").
-
-3.  For each role, try to update the secret description and then try to delete the
-    following secrets. For more information, see [Modifying a Secret](../../../secretsmanager/latest/userguide/manage_update-secret.md "../../../secretsmanager/latest/userguide/manage_update-secret.md") and [Deleting and Restoring a Secret](../../../secretsmanager/latest/userguide/manage_delete-restore-secret.md "../../../secretsmanager/latest/userguide/manage_delete-restore-secret.md") in the _AWS Secrets Manager User Guide_.
+3. For each role, try to update the secret description and then try to delete the
+   following secrets. For more information, see [Modifying a Secret](../../../secretsmanager/latest/userguide/manage_update-secret.md "../../../secretsmanager/latest/userguide/manage_update-secret.md") and [Deleting and Restoring a Secret](../../../secretsmanager/latest/userguide/manage_delete-restore-secret.md "../../../secretsmanager/latest/userguide/manage_delete-restore-secret.md") in the _AWS Secrets Manager User Guide_.
 
 The following table shows ABAC secret updating and deleting behavior for each
 role.

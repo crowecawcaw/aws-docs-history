@@ -105,43 +105,42 @@ You can update access keys from the AWS Command Line Interface.
 
 ###### To update access keys without interrupting your applications (AWS CLI)
 
-1.  While the first access key is still active, create a second access key, which
-    is active by default. Run the following command:
+1. While the first access key is still active, create a second access key, which
+   is active by default. Run the following command:
 
-    - [`aws iam
-create-access-key`](../../../cli/latest/reference/iam/create-access-key.md "../../../cli/latest/reference/iam/create-access-key.md")
+   - [`aws iam
+  create-access-key`](../../../cli/latest/reference/iam/create-access-key.md "../../../cli/latest/reference/iam/create-access-key.md")
 
-    At this point, the user has two active access keys.
+   At this point, the user has two active access keys.
 
-2.  Update all applications and tools to use the new access key.
-3.  Determine whether the first access key is still in use by using this
-    command:
+2. Update all applications and tools to use the new access key.
+3. Determine whether the first access key is still in use by using this
+   command:
 
-        * [`aws iam
-         get-access-key-last-used`](../../../cli/latest/reference/iam/get-access-key-last-used.md "../../../cli/latest/reference/iam/get-access-key-last-used.md")
+   - [`aws iam
+  get-access-key-last-used`](../../../cli/latest/reference/iam/get-access-key-last-used.md "../../../cli/latest/reference/iam/get-access-key-last-used.md")
+     One approach is to wait several days and then check the old access key for any
+     use before proceeding.
 
-    One approach is to wait several days and then check the old access key for any
-    use before proceeding.
+4. Even if step [Step 3](#step-determine-use "#step-determine-use")
+   indicates no use of the old key, we recommend that you do not immediately delete
+   the first access key. Instead, change the state of the first access key to
+   `Inactive` using this command:
 
-4.  Even if step [Step 3](#step-determine-use "#step-determine-use")
-    indicates no use of the old key, we recommend that you do not immediately delete
-    the first access key. Instead, change the state of the first access key to
-    `Inactive` using this command:
+   - [`aws iam
+  update-access-key`](../../../cli/latest/reference/iam/update-access-key.md "../../../cli/latest/reference/iam/update-access-key.md")
 
-    - [`aws iam
-update-access-key`](../../../cli/latest/reference/iam/update-access-key.md "../../../cli/latest/reference/iam/update-access-key.md")
+5. Use only the new access key to confirm that your applications are working. Any
+   applications and tools that still use the original access key will stop working at
+   this point because they no longer have access to AWS resources. If you find such
+   an application or tool, you can switch its state back to `Active` to
+   reactivate the first access key. Then return to step [Step 2](#step-update-apps "#step-update-apps") and update this
+   application to use the new key.
+6. After you wait some period of time to ensure that all applications and tools
+   have been updated, you can delete the first access key with this command:
 
-5.  Use only the new access key to confirm that your applications are working. Any
-    applications and tools that still use the original access key will stop working at
-    this point because they no longer have access to AWS resources. If you find such
-    an application or tool, you can switch its state back to `Active` to
-    reactivate the first access key. Then return to step [Step 2](#step-update-apps "#step-update-apps") and update this
-    application to use the new key.
-6.  After you wait some period of time to ensure that all applications and tools
-    have been updated, you can delete the first access key with this command:
-
-    - [`aws iam
-delete-access-key`](../../../cli/latest/reference/iam/delete-access-key.md "../../../cli/latest/reference/iam/delete-access-key.md")
+   - [`aws iam
+  delete-access-key`](../../../cli/latest/reference/iam/delete-access-key.md "../../../cli/latest/reference/iam/delete-access-key.md")
 
 ## Updating access keys (AWS API)
 
@@ -149,36 +148,35 @@ You can update access keys using the AWS API.
 
 ###### To update access keys without interrupting your applications (AWS API)
 
-1.  While the first access key is still active, create a second access key, which
-    is active by default. Call the following operation:
+1. While the first access key is still active, create a second access key, which
+   is active by default. Call the following operation:
 
-    - [`CreateAccessKey`](../APIReference/API_CreateAccessKey.md "../APIReference/API_CreateAccessKey.md")
+   - [`CreateAccessKey`](../APIReference/API_CreateAccessKey.md "../APIReference/API_CreateAccessKey.md")
 
-    At this point, the user has two active access keys.
+   At this point, the user has two active access keys.
 
-2.  Update all applications and tools to use the new access key.
-3.  Determine whether the first access key is still in use by calling this
-    operation:
+2. Update all applications and tools to use the new access key.
+3. Determine whether the first access key is still in use by calling this
+   operation:
 
-        * [`GetAccessKeyLastUsed`](../APIReference/API_GetAccessKeyLastUsed.md "../APIReference/API_GetAccessKeyLastUsed.md")
+   - [`GetAccessKeyLastUsed`](../APIReference/API_GetAccessKeyLastUsed.md "../APIReference/API_GetAccessKeyLastUsed.md")
+     One approach is to wait several days and then check the old access key for any
+     use before proceeding.
 
-    One approach is to wait several days and then check the old access key for any
-    use before proceeding.
+4. Even if step [Step 3](#step-determine-use-2 "#step-determine-use-2") indicates no use of the old key, we recommend that you do not immediately
+   delete the first access key. Instead, change the state of the first access key to
+   `Inactive` by calling this operation:
 
-4.  Even if step [Step 3](#step-determine-use-2 "#step-determine-use-2") indicates no use of the old key, we recommend that you do not immediately
-    delete the first access key. Instead, change the state of the first access key to
-    `Inactive` by calling this operation:
+   - [`UpdateAccessKey`](../APIReference/API_UpdateAccessKey.md "../APIReference/API_UpdateAccessKey.md")
 
-    - [`UpdateAccessKey`](../APIReference/API_UpdateAccessKey.md "../APIReference/API_UpdateAccessKey.md")
+5. Use only the new access key to confirm that your applications are working. Any
+   applications and tools that still use the original access key will stop working at
+   this point because they no longer have access to AWS resources. If you find such
+   an application or tool, you can switch its state back to `Active` to
+   reactivate the first access key. Then return to step [Step 2](#step-update-apps-2 "#step-update-apps-2") and update this
+   application to use the new key.
+6. After you wait some period of time to ensure that all applications and tools
+   have been updated, you can delete the first access key by calling this
+   operation:
 
-5.  Use only the new access key to confirm that your applications are working. Any
-    applications and tools that still use the original access key will stop working at
-    this point because they no longer have access to AWS resources. If you find such
-    an application or tool, you can switch its state back to `Active` to
-    reactivate the first access key. Then return to step [Step 2](#step-update-apps-2 "#step-update-apps-2") and update this
-    application to use the new key.
-6.  After you wait some period of time to ensure that all applications and tools
-    have been updated, you can delete the first access key by calling this
-    operation:
-
-    - [`DeleteAccessKey`](../APIReference/API_DeleteAccessKey.md "../APIReference/API_DeleteAccessKey.md")
+   - [`DeleteAccessKey`](../APIReference/API_DeleteAccessKey.md "../APIReference/API_DeleteAccessKey.md")

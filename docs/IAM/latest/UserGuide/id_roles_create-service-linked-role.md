@@ -218,24 +218,23 @@ role from the service's console, API, or CLI.
 
 ###### To create a service-linked role (console)
 
-1.  Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2.  In the navigation pane of the IAM console, choose **Roles**.
-    Then, choose **Create role**.
-3.  Choose the **AWS Service** role type.
-4.  Choose the use case for your service. Use cases are defined by the service to
-    include the trust policy required by the service. Then, choose
-    **Next**.
-5.  Choose one or more permissions policies to attach to the role. Depending on the use
-    case that you selected, the service might do any of the following:
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane of the IAM console, choose **Roles**.
+   Then, choose **Create role**.
+3. Choose the **AWS Service** role type.
+4. Choose the use case for your service. Use cases are defined by the service to
+   include the trust policy required by the service. Then, choose
+   **Next**.
+5. Choose one or more permissions policies to attach to the role. Depending on the use
+   case that you selected, the service might do any of the following:
 
-        * Define the permissions used by the role.
-        * Allow you to choose from a limited set of permissions.
-        * Allow you to choose from any permissions.
-        * Allow you to select no policies at this time, create the policies later, and
-         then attach them to the role.
-
-    Select the checkbox next to the policy that assigns the permissions that you want
-    the role to have, and then choose **Next**.
+   - Define the permissions used by the role.
+   - Allow you to choose from a limited set of permissions.
+   - Allow you to choose from any permissions.
+   - Allow you to select no policies at this time, create the policies later, and
+     then attach them to the role.
+     Select the checkbox next to the policy that assigns the permissions that you want
+     the role to have, and then choose **Next**.
 
 ###### Note
 

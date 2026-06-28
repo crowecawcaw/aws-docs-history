@@ -147,40 +147,40 @@ Console
 
 ###### To create a role for an AWS service (IAM console)
 
-1.  Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2.  In the navigation pane of the IAM console, choose **Roles**, and
-    then choose **Create role**.
-3.  For **Trusted entity type**, choose **AWS service**.
-4.  For **Service or use case**, choose a service, and then choose the use case. Use cases are defined by the service to include the trust policy
-    that the service requires.
-5.  Choose **Next**.
-6.  For **Permissions policies**, the options depend on the use case that you selected:
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane of the IAM console, choose **Roles**, and
+   then choose **Create role**.
+3. For **Trusted entity type**, choose **AWS service**.
+4. For **Service or use case**, choose a service, and then choose the use case. Use cases are defined by the service to include the trust policy
+   that the service requires.
+5. Choose **Next**.
+6. For **Permissions policies**, the options depend on the use case that you selected:
 
-    - If the service defines the permissions for the role, you can't select permissions policies.
-    - Select from a limited set of permission polices.
-    - Select from all permission policies.
-    - Select no permissions policies, create the policies after the role is created, and then attach the policies to the role.
+   - If the service defines the permissions for the role, you can't select permissions policies.
+   - Select from a limited set of permission polices.
+   - Select from all permission policies.
+   - Select no permissions policies, create the policies after the role is created, and then attach the policies to the role.
 
-7.  (Optional) Set a [permissions
-    boundary](access_policies_boundaries.md "access_policies_boundaries.md"). This is an advanced feature that is available for service roles, but
-    not service-linked roles.
+7. (Optional) Set a [permissions
+   boundary](access_policies_boundaries.md "access_policies_boundaries.md"). This is an advanced feature that is available for service roles, but
+   not service-linked roles.
 
-    1. Open the **Set permissions boundary** section, and then choose
-       **Use a permissions boundary to control the maximum role
-       permissions**.
+   1. Open the **Set permissions boundary** section, and then choose
+      **Use a permissions boundary to control the maximum role
+      permissions**.
 
-    IAM includes a list of the AWS managed and customer-managed policies in your account. 2. Select the policy to use for the permissions boundary.
+   IAM includes a list of the AWS managed and customer-managed policies in your account. 2. Select the policy to use for the permissions boundary.
 
-8.  Choose **Next**.
-9.  For **Role name**, the options depend on the service:
+8. Choose **Next**.
+9. For **Role name**, the options depend on the service:
 
-    - If the service defines the role name, you can't edit the role name.
-    - If the service defines a prefix for the role name, you can enter an optional suffix.
-    - If the service doesn't define the role name, you can name the role.
+   - If the service defines the role name, you can't edit the role name.
+   - If the service defines a prefix for the role name, you can enter an optional suffix.
+   - If the service doesn't define the role name, you can name the role.
 
-    ###### Important
+   ###### Important
 
-    When you name a role, note the following:
+   When you name a role, note the following:
 
         + Role names must be unique within your AWS account, and can't be made unique by case.
 

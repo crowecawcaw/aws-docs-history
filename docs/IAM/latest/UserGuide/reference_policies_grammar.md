@@ -230,7 +230,7 @@ Action names can include wildcards. Examples:
 Provides a way to include information about the policy as a whole.
 Some services, such as Amazon SQS and Amazon SNS, use the
 `Id` element in reserved ways. Unless otherwise
-restricted by an individual service, policy_id_string can include
+restricted by an individual service, policy\_id\_string can include
 spaces. Some services require this value to be unique within an AWS
 account.
 
@@ -374,7 +374,7 @@ service such as the following:
 
 **`condition_value_string`**
 
-Identifies the value of the condition_key_string that determines
+Identifies the value of the condition\_key\_string that determines
 whether the condition is met. For a complete list of valid values for a
 condition type, see [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md "reference_policies_elements_condition_operators.md").
 

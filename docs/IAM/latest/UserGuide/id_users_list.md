@@ -19,7 +19,7 @@ AWS CLI
 Run the following command:
 
 - `aws iam
-list-users`
+ list-users`
 
 API
 Call the following operation:
@@ -44,7 +44,7 @@ AWS CLI
 Run the following command:
 
 - `aws iam
-get-group`
+ get-group`
 
 API
 Call the following operation:
@@ -68,7 +68,7 @@ AWS CLI
 Run the following command:
 
 - `aws
-iam list-groups-for-user`
+ iam list-groups-for-user`
 
 API
 Call the following operation:

@@ -46,41 +46,41 @@ First, create the CloudFormation template.
 
 Next, use the template you've saved to provision a CloudFormation stack.
 
-1.  Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2.  On the **Stacks** page, from the **Create
-    stack** menu, choose **with new resources
-    (standard)**.
-3.  Specify the template:
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+2. On the **Stacks** page, from the **Create
+   stack** menu, choose **with new resources
+   (standard)**.
+3. Specify the template:
 
-    1. Under **Prerequisite**, choose **Choose
-       an existing template**.
-    2. Under **Specify template**, choose
-       **Upload a template file**.
-    3. Choose **Choose file**, navigate to the template
-       file, and choose it.
-    4. Choose **Next**.
+   1. Under **Prerequisite**, choose **Choose
+      an existing template**.
+   2. Under **Specify template**, choose
+      **Upload a template file**.
+   3. Choose **Choose file**, navigate to the template
+      file, and choose it.
+   4. Choose **Next**.
 
-4.  Specify the following stack details:
+4. Specify the following stack details:
 
-    1. Enter a stack name.
-    2. For **SAMLProviderARN**, enter the ARN of your
-       existing SAML IdP. This should be in the format
-       `arn:aws:iam::123456789012:saml-provider/YourProviderName`.
+   1. Enter a stack name.
+   2. For **SAMLProviderARN**, enter the ARN of your
+      existing SAML IdP. This should be in the format
+      `arn:aws:iam::123456789012:saml-provider/YourProviderName`.
 
-    Example:
-    `arn:aws:iam::123456789012:saml-provider/CompanyIdP`
+   Example:
+   `arn:aws:iam::123456789012:saml-provider/CompanyIdP`
 
-    ###### Note
+   ###### Note
 
-    If you created your SAML IdP using the [IAM tutorial: Use an CloudFormation template to create a SAML Identity Provider (IdP)](tutorial_saml-idp.md "tutorial_saml-idp.md") tutorial, you can find
-    the provider ARN in the Outputs tab of that CloudFormation
-    stack. 3. For **RoleName**, you can leave this empty to
-    auto-generate a name based on the stack name, or enter a custom name
-    for the IAM role.
+   If you created your SAML IdP using the [IAM tutorial: Use an CloudFormation template to create a SAML Identity Provider (IdP)](tutorial_saml-idp.md "tutorial_saml-idp.md") tutorial, you can find
+   the provider ARN in the Outputs tab of that CloudFormation
+   stack. 3. For **RoleName**, you can leave this empty to
+   auto-generate a name based on the stack name, or enter a custom name
+   for the IAM role.
 
-    Example: `SAML-Developer-Access` or
-    `SAML-ReadOnly-Role` 4. For other parameters, accept the default values or enter your own
-    based on your requirements:
+   Example: `SAML-Developer-Access` or
+   `SAML-ReadOnly-Role` 4. For other parameters, accept the default values or enter your own
+   based on your requirements:
 
         * **RoleSessionDuration** - Maximum session
          duration in seconds (3600-43200, default 7200)
@@ -108,22 +108,23 @@ Next, use the template you've saved to provision a CloudFormation stack.
 
         Example for ManagedPolicy2:
          `arn:aws:iam::123456789012:policy/CustomPolicy`
-    5. Choose **Next**.
 
-5.  Configure the stack options:
+   5. Choose **Next**.
 
-    1. Under **Stack failure options**, choose
-       **Delete all newly created resources**.
+5. Configure the stack options:
 
-    ###### Note
+   1. Under **Stack failure options**, choose
+      **Delete all newly created resources**.
 
-    Choosing this option prevents you from possibly being billed
-    for resources whose deletion policy specifies they be retained
-    even if the stack creation fails. 2. Accept all other default values. 3. Under **Capabilities**, check the box to
-    acknowledge that CloudFormation might create IAM resources in your
-    account. 4. Choose **Next**.
+   ###### Note
 
-6.  Review the stack details and choose **Submit**.
+   Choosing this option prevents you from possibly being billed
+   for resources whose deletion policy specifies they be retained
+   even if the stack creation fails. 2. Accept all other default values. 3. Under **Capabilities**, check the box to
+   acknowledge that CloudFormation might create IAM resources in your
+   account. 4. Choose **Next**.
+
+6. Review the stack details and choose **Submit**.
 
 CloudFormation creates the stack. Once the stack creation is complete, the stack resources
 are ready to use. You can use the **Resources** tab on the stack

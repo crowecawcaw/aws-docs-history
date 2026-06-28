@@ -52,7 +52,7 @@ Check the following:
   requires. For example, in the following policy permissions, the `Condition`
   element requires that you, as the principal requesting to assume the role, must have a
   specific tag. You must be tagged with `department = HR` or `department =
-CS`. Otherwise, you cannot assume the role. To learn about tagging IAM users and
+ CS`. Otherwise, you cannot assume the role. To learn about tagging IAM users and
   roles, see [Tags for AWS Identity and Access Management resources](id_tags.md "id_tags.md").
 
 ```

@@ -1,7 +1,7 @@
 # AWS JSON policy elements: NotPrincipal
 
 The `NotPrincipal` element uses `"Effect":"Deny"` to deny access to
-all principals **_except_** the
+all principals _**except**_ the
 principal specified in the `NotPrincipal` element. A principal can be an IAM user,
 AWS STS federated user principal, IAM role, assumed role session, AWS account, AWS service, or other
 principal type. For more information about principals, see [AWS JSON policy elements: Principal](reference_policies_elements_principal.md "reference_policies_elements_principal.md").

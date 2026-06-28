@@ -76,7 +76,7 @@ limited access to IAM and AWS Organizations, use the [PowerUserAccess](../../../
 function. For a list and descriptions of the job function policies, see [AWS managed policies for job functions](access_policies_job-functions.md "access_policies_job-functions.md").
 
 The following diagram illustrates AWS managed policies. The diagram shows three AWS
-managed policies: **AdministratorAccess**, **PowerUserAccess**, and **AWSCloudTrail_ReadOnlyAccess**.
+managed policies: **AdministratorAccess**, **PowerUserAccess**, and **AWSCloudTrail\_ReadOnlyAccess**.
 Notice that a single AWS managed policy can be attached to principal entities in different
 AWS accounts, and to different principal entities in a single AWS account.
 

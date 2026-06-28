@@ -55,7 +55,7 @@ AWS CLI
 Run the following command:
 
 - [`aws iam
-create-access-key`](../../../cli/latest/reference/iam/create-access-key.md "../../../cli/latest/reference/iam/create-access-key.md")
+ create-access-key`](../../../cli/latest/reference/iam/create-access-key.md "../../../cli/latest/reference/iam/create-access-key.md")
 
 API
 Call the following operation:
@@ -84,7 +84,7 @@ AWS CLI
 Run the following command:
 
 - [`aws iam
-update-access-key`](../../../cli/latest/reference/iam/update-access-key.md "../../../cli/latest/reference/iam/update-access-key.md")
+ update-access-key`](../../../cli/latest/reference/iam/update-access-key.md "../../../cli/latest/reference/iam/update-access-key.md")
 
 API
 Call the following operation:
@@ -110,7 +110,7 @@ AWS CLI
 Run the following command:
 
 - [`aws iam
-update-access-key`](../../../cli/latest/reference/iam/update-access-key.md "../../../cli/latest/reference/iam/update-access-key.md")
+ update-access-key`](../../../cli/latest/reference/iam/update-access-key.md "../../../cli/latest/reference/iam/update-access-key.md")
 
 API
 Call the following operation:
@@ -142,7 +142,7 @@ AWS CLI
 Run the following command:
 
 - [`aws iam
-delete-access-key`](../../../cli/latest/reference/iam/delete-access-key.md "../../../cli/latest/reference/iam/delete-access-key.md")
+ delete-access-key`](../../../cli/latest/reference/iam/delete-access-key.md "../../../cli/latest/reference/iam/delete-access-key.md")
 
 API
 Call the following operation:
@@ -173,7 +173,7 @@ AWS CLI
 Run the following command:
 
 - [`aws iam
-list-access-keys`](../../../cli/latest/reference/iam/list-access-keys.md "../../../cli/latest/reference/iam/list-access-keys.md")
+ list-access-keys`](../../../cli/latest/reference/iam/list-access-keys.md "../../../cli/latest/reference/iam/list-access-keys.md")
 
 API
 Call the following operation:

@@ -170,9 +170,9 @@ IAM role trust policy are met, AWS returns the following information to you:
      ID.
 
 2. Your application may then use the temporary security credentials that were returned in
-   the response to make AWS API calls. This is the same process as making an AWS API call
-   with long-term security credentials. The difference is that you must include the session
-   token, which lets AWS verify that the temporary security credentials are valid.
+the response to make AWS API calls. This is the same process as making an AWS API call
+with long-term security credentials. The difference is that you must include the session
+token, which lets AWS verify that the temporary security credentials are valid.
 
 Your application should cache the credentials returned by AWS STS and refresh them as
 needed. If your application is built using an AWS SDK, the SDK has credential providers that
@@ -228,9 +228,9 @@ the following information to you:
      see [Configure SAML assertions for the authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md").
 
 3. Use the temporary security credentials returned in the response to make AWS API
-   calls. This is the same process as making an AWS API call with long-term security
-   credentials. The difference is that you must include the session token, which lets AWS
-   verify that the temporary security credentials are valid.
+calls. This is the same process as making an AWS API call with long-term security
+credentials. The difference is that you must include the session token, which lets AWS
+verify that the temporary security credentials are valid.
 
 Your app should cache the credentials. By default the credentials expire after an hour. If
 you are not using the [AmazonSTSCredentialsProvider](https://aws.amazon.com/blogs/mobile/using-the-amazoncredentialsprovider-protocol-in-the-aws-sdk-for-ios "https://aws.amazon.com/blogs/mobile/using-the-amazoncredentialsprovider-protocol-in-the-aws-sdk-for-ios") action in the AWS SDK, it's up to you and your app

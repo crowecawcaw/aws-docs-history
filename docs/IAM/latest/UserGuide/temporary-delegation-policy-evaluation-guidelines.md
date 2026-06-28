@@ -40,7 +40,7 @@ For IAM:
 
 - Only limited write operations are allowed for IAM roles and policies. You can not request permissions on other IAM resources such as users, groups, and certificates.
 - Policy attachment or inline policy management actions are limited to roles with a permission boundary. Permission boundaries must be partner-supplied or on a list of allowed AWS managed policies. AWS managed policies may be allowed if they do not grant highly privileged or administrative permissions. For example, AWS managed policies for specific job functions or the SecurityAudit policy may be acceptable. AWS will review each AWS managed policy on a case-by-case basis during the onboarding process.
-- Policy management is only allowed for policies with a partner-specific path: arn:aws:iam::@{AccountId}:policy/partner_domain.com/[feature]\*
+- Policy management is only allowed for policies with a partner-specific path: arn:aws:iam::@{AccountId}:policy/partner\_domain.com/[feature]\*
 - Tags may only be applied during resource creation, and only for roles and policies
 - iam:PassRole checks must match a specific name or path prefix
 

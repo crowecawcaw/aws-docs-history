@@ -194,7 +194,7 @@ Template:
 }
 ```
 
-Parameters (when ENABLE_S3_WRITE is "True"):
+Parameters (when ENABLE\_S3\_WRITE is "True"):
 
 ```
 [
@@ -231,7 +231,7 @@ Rendered result:
 }
 ```
 
-Parameters (when ENABLE_S3_WRITE is "False"):
+Parameters (when ENABLE\_S3\_WRITE is "False"):
 
 ```
 [
@@ -263,7 +263,7 @@ Rendered result:
 }
 ```
 
-When ENABLE_S3_WRITE is set to "True", the conditional statement is included. When set to "False", the statement is excluded from the rendered policy.
+When ENABLE\_S3\_WRITE is set to "True", the conditional statement is included. When set to "False", the statement is excluded from the rendered policy.
 
 ## Additional Examples
 
@@ -294,7 +294,7 @@ The following permission boundary is submitted as "SQSAccessorBoundary" for "par
 
 This includes a same-account condition to avoid granting access to queues in other accounts with open resource policies. A direct reference to the customer's account ID cannot be included because the boundary is shared across all customers and cannot be templated.
 
-Since this is the first version of this policy, its ARN is arn:aws:iam::partner:policy/permissions-boundary/partner.com/SQSAccessorBoundary_2025_01_15
+Since this is the first version of this policy, its ARN is arn:aws:iam::partner:policy/permissions-boundary/partner.com/SQSAccessorBoundary\_2025\_01\_15
 
 The following policy template is submitted for temporary access permissions:
 
@@ -443,7 +443,7 @@ Updated permission boundary with additional permission:
 }
 ```
 
-As the second version, this policy has the ARN: arn:aws:iam::partner:policy/permissions-boundary/partner.com/SQSAccessorBoundary_2025_01_20
+As the second version, this policy has the ARN: arn:aws:iam::partner:policy/permissions-boundary/partner.com/SQSAccessorBoundary\_2025\_01\_20
 
 Policy template to update the permission boundary on the existing role:
 

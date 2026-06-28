@@ -156,32 +156,31 @@ OU, account, or policy.
 
 ###### To view AWS Organizations service last accessed information (AWS CLI)
 
-1.  Use your AWS Organizations management account credentials with the required IAM and AWS Organizations
-    permissions, and confirm that SCPs are enabled for your root. For more information,
-    see [Things to know about last accessed information](access_policies_last-accessed.md#access_policies_last-accessed-know "access_policies_last-accessed.md#access_policies_last-accessed-know").
-2.  Generate a report. The request must include the path of the AWS Organizations entity (root, OU,
-    or account) for which you want a report. You can optionally include an
-    `organization-policy-id` parameter to view a report for a specific
-    policy. The command returns a `job-id` that you can then use in the
-    `get-organizations-access-report` command to monitor the
-    `job-status` until the job is complete.
+1. Use your AWS Organizations management account credentials with the required IAM and AWS Organizations
+   permissions, and confirm that SCPs are enabled for your root. For more information,
+   see [Things to know about last accessed information](access_policies_last-accessed.md#access_policies_last-accessed-know "access_policies_last-accessed.md#access_policies_last-accessed-know").
+2. Generate a report. The request must include the path of the AWS Organizations entity (root, OU,
+   or account) for which you want a report. You can optionally include an
+   `organization-policy-id` parameter to view a report for a specific
+   policy. The command returns a `job-id` that you can then use in the
+   `get-organizations-access-report` command to monitor the
+   `job-status` until the job is complete.
 
-    - [aws iam
-      generate-organizations-access-report](../../../cli/latest/reference/iam/generate-organizations-access-report.md "../../../cli/latest/reference/iam/generate-organizations-access-report.md")
+   - [aws iam
+     generate-organizations-access-report](../../../cli/latest/reference/iam/generate-organizations-access-report.md "../../../cli/latest/reference/iam/generate-organizations-access-report.md")
 
-3.  Retrieve details about the report using the `job-id` parameter from the
-    previous step.
+3. Retrieve details about the report using the `job-id` parameter from the
+   previous step.
 
-        * [aws iam
-         get-organizations-access-report](../../../cli/latest/reference/iam/get-organizations-access-report.md "../../../cli/latest/reference/iam/get-organizations-access-report.md")
-
-    This command returns a list of services that entity members can access. For each
-    service, the command returns the date and time of an account member's last attempt
-    and the entity path of the account. It also returns the total number of services that
-    are available to access and the number of services that were not accessed. If you
-    specified the optional `organizations-policy-id` parameter, then the
-    services that are available to access are those that are allowed by the specified
-    policy.
+   - [aws iam
+     get-organizations-access-report](../../../cli/latest/reference/iam/get-organizations-access-report.md "../../../cli/latest/reference/iam/get-organizations-access-report.md")
+     This command returns a list of services that entity members can access. For each
+     service, the command returns the date and time of an account member's last attempt
+     and the entity path of the account. It also returns the total number of services that
+     are available to access and the number of services that were not accessed. If you
+     specified the optional `organizations-policy-id` parameter, then the
+     services that are available to access are those that are allowed by the specified
+     policy.
 
 ## Viewing information for AWS Organizations (AWS API)
 
@@ -190,27 +189,26 @@ root, OU, account, or policy.
 
 ###### To view AWS Organizations service last accessed information (AWS API)
 
-1.  Use your AWS Organizations management account credentials with the required IAM and AWS Organizations
-    permissions, and confirm that SCPs are enabled for your root. For more information,
-    see [Things to know about last accessed information](access_policies_last-accessed.md#access_policies_last-accessed-know "access_policies_last-accessed.md#access_policies_last-accessed-know").
-2.  Generate a report. The request must include the path of the AWS Organizations entity (root, OU,
-    or account) for which you want a report. You can optionally include an
-    `OrganizationsPolicyId` parameter to view a report for a specific
-    policy. The operation returns a `JobId` that you can then use in the
-    `GetOrganizationsAccessReport` operation to monitor the
-    `JobStatus` until the job is complete.
+1. Use your AWS Organizations management account credentials with the required IAM and AWS Organizations
+   permissions, and confirm that SCPs are enabled for your root. For more information,
+   see [Things to know about last accessed information](access_policies_last-accessed.md#access_policies_last-accessed-know "access_policies_last-accessed.md#access_policies_last-accessed-know").
+2. Generate a report. The request must include the path of the AWS Organizations entity (root, OU,
+   or account) for which you want a report. You can optionally include an
+   `OrganizationsPolicyId` parameter to view a report for a specific
+   policy. The operation returns a `JobId` that you can then use in the
+   `GetOrganizationsAccessReport` operation to monitor the
+   `JobStatus` until the job is complete.
 
-    - [GenerateOrganizationsAccessReport](../APIReference/API_GenerateOrganizationsAccessReport.md "../APIReference/API_GenerateOrganizationsAccessReport.md")
+   - [GenerateOrganizationsAccessReport](../APIReference/API_GenerateOrganizationsAccessReport.md "../APIReference/API_GenerateOrganizationsAccessReport.md")
 
-3.  Retrieve details about the report using the `JobId` parameter from the
-    previous step.
+3. Retrieve details about the report using the `JobId` parameter from the
+   previous step.
 
-        * [GetOrganizationsAccessReport](../APIReference/API_GetOrganizationsAccessReport.md "../APIReference/API_GetOrganizationsAccessReport.md")
-
-    This operation returns a list of services that entity members can access. For each
-    service, the operation returns the date and time of an account member's last attempt
-    and the entity path of the account. It also returns the total number of services that
-    are available to access, and the number of services that were not accessed. If you
-    specified the optional `OrganizationsPolicyId` parameter, then the
-    services that are available to access are those that are allowed by the specified
-    policy.
+   - [GetOrganizationsAccessReport](../APIReference/API_GetOrganizationsAccessReport.md "../APIReference/API_GetOrganizationsAccessReport.md")
+     This operation returns a list of services that entity members can access. For each
+     service, the operation returns the date and time of an account member's last attempt
+     and the entity path of the account. It also returns the total number of services that
+     are available to access, and the number of services that were not accessed. If you
+     specified the optional `OrganizationsPolicyId` parameter, then the
+     services that are available to access are those that are allowed by the specified
+     policy.

@@ -41,7 +41,7 @@ AWS CLI
 Run the following command:
 
 - `aws
-iam update-account-password-policy`
+ iam update-account-password-policy`
 
 API
 To update the account password policy, call the following operation:

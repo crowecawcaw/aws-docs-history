@@ -85,14 +85,14 @@ automatically.
 If your policy is restructured in your editing session, IAM determines whether to save
 the restructuring based on the following situations:
 
-| Using this editor option | If you edit your policy | And then choose **\*Next**<br>• from this<br>tab | When you choose **_Save changes_**  |
-| ------------------------ | ----------------------- | ------------------------------------------------ | ----------------------------------- |
-| **Visual**               | Edited                  | **Visual**                                       | The policy is restructured          |
-| **Visual**               | Edited                  | **JSON**                                         | The policy is restructured          |
-| **Visual**               | Not Edited              | **Visual**                                       | The policy is restructured          |
-| **JSON**                 | Edited                  | **Visual**                                       | The policy is restructured          |
-| **JSON**                 | Edited                  | **JSON**                                         | The policy structure is not changed |
-| **JSON**                 | Not Edited              | **JSON**                                         | The policy structure is not changed |
+| Using this editor option | If you edit your policy | And then choose ***Next**<br>• from this<br>tab | When you choose _**Save changes**_  |
+| ------------------------ | ----------------------- | ----------------------------------------------- | ----------------------------------- |
+| **Visual**               | Edited                  | **Visual**                                      | The policy is restructured          |
+| **Visual**               | Edited                  | **JSON**                                        | The policy is restructured          |
+| **Visual**               | Not Edited              | **Visual**                                      | The policy is restructured          |
+| **JSON**                 | Edited                  | **Visual**                                      | The policy is restructured          |
+| **JSON**                 | Edited                  | **JSON**                                        | The policy structure is not changed |
+| **JSON**                 | Not Edited              | **JSON**                                        | The policy structure is not changed |
 
 IAM might restructure complex policies or policies that have permission blocks or
 statements that allow multiple services, resource types, or condition keys.
@@ -268,7 +268,7 @@ occurred:
 - **No policy permissions** – If a policy does not
   provide any effective permissions, then the policy summary cannot be generated. For
   example, if a policy includes a single statement with the element `"NotAction":
-"*"`, then it grants access to all actions except "all actions" (\*). This means
+ "*"`, then it grants access to all actions except "all actions" (\*). This means
   it grants `Deny` or `Allow` access to nothing.
 
 ###### Note
@@ -290,7 +290,7 @@ better understand the policy.
 
 In the IAM console, if a [policy
 summary](access_policies_understand.md "access_policies_understand.md") includes a warning symbol (
-![Warning hazard sign icon with yellow triangle background.](/images/IAM/latest/UserGuide/images/console-alert-icon.console.png)
+![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
 ), then the policy might include an unrecognized service, action, or
 resource type. To learn about warnings within a policy summary, see [Policy summary (list of services)](access_policies_understand-policy-summary.md "access_policies_understand-policy-summary.md").
 
@@ -359,11 +359,11 @@ the service does not fully support IAM policy summaries.
 
 3. In the left side on the AWS Management Console footer, choose **Feedback**. In
    the **Feedback for IAM** box, type `I request that the
-<ServiceName> service add support for IAM policy summaries and the visual
-editor`. If you want more than one service to support summaries, type
+ <ServiceName> service add support for IAM policy summaries and the visual
+ editor`. If you want more than one service to support summaries, type
    `I request that the <ServiceName1>, <ServiceName2>, and
-<ServiceName3> services add support for IAM policy summaries and the visual
-editor`.
+ <ServiceName3> services add support for IAM policy summaries and the visual
+ editor`.
 
 ###### To request that a service add IAM policy summary support for a missing action
 
@@ -383,11 +383,11 @@ editor`.
    action.
 4. In the left side on the AWS Management Console footer, choose **Feedback**. In
    the **Feedback for IAM** box, type `I request that the
-<ServiceName> service add IAM policy summary and the visual editor support for
-the <ActionName> action`. If you want to report more than one
+ <ServiceName> service add IAM policy summary and the visual editor support for
+ the <ActionName> action`. If you want to report more than one
    unsupported action, type `I request that the <ServiceName> service add
-IAM policy summary and the visual editor support for the <ActionName1>,
-<ActionName2>, and <ActionName3> actions`.
+ IAM policy summary and the visual editor support for the <ActionName1>,
+ <ActionName2>, and <ActionName3> actions`.
 
 To request that a different service includes missing actions, repeat the last three
 steps.

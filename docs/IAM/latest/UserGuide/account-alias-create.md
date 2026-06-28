@@ -23,7 +23,7 @@ AWS CLI
 Run the following command:
 
 - `aws
-iam create-account-alias`
+ iam create-account-alias`
 
 API
 To create an alias for your AWS Management Console

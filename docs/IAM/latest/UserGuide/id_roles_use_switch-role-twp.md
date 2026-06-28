@@ -96,5 +96,5 @@ Thursday, June 18, 2018 2:28:31 PM
 ```
 
 4. To return to your original credentials, simply stop using the `-Credentials
-$Creds` parameter and allow PowerShell to revert to the credentials that are stored
+ $Creds` parameter and allow PowerShell to revert to the credentials that are stored
    in the default profile.

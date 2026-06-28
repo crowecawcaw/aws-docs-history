@@ -183,7 +183,7 @@ if it is present in an `AssumeRoleWithSAML` API call, it can be used to _shorten
 credentials returned by the call is 60 minutes.
 
 Note, too, that if a `SessionNotOnOrAfter` attribute is also defined, then the
-**_lesser_** value of the two
+_**lesser**_ value of the two
 attributes, `SessionDuration` or `SessionNotOnOrAfter`, establishes the
 maximum duration of the console session.
 

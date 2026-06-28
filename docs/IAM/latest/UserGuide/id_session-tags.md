@@ -289,8 +289,8 @@ session tags, see [Integrate third-party SAML solution providers with AWS](id_ro
 To pass SAML attributes as session tags, include the `Attribute` element with
 the `Name` attribute set to
 `https://aws.amazon.com/SAML/Attributes/PrincipalTag:`{TagKey}``.
- Use the `AttributeValue`element to specify the value of the tag. Include a
- separate`Attribute` element for each session tag.
+Use the `AttributeValue` element to specify the value of the tag. Include a
+separate `Attribute` element for each session tag.
 
 For example, assume that you want to pass the following identity attributes as session
 tags:

@@ -167,7 +167,7 @@ user named Carol has been explicitly granted permissions by the following resour
 policy.
 
 Remember, an AWS STS federated user is granted permissions only when those permissions are
-explicitly granted to both the IAM user **_and_** the AWS STS federated user. They can also be granted (within the
+explicitly granted to both the IAM user _**and**_ the AWS STS federated user. They can also be granted (within the
 account) by a resource-based policy that explicitly names the AWS STS federated user in the
 `Principal` element of the policy, as in the following example.
 

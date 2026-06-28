@@ -754,7 +754,7 @@ Therefore we recommend that when you check for this key that you use the `...IfE
 condition operators.
 
 It is important to understand that the following `Condition` element is
-**_not_** a reliable way to
+_**not**_ a reliable way to
 check whether a request is authenticated using MFA.
 
 ```
@@ -832,7 +832,7 @@ temporary credentials that support using MFA. This statement does not allow acce
 to requests that were made using long-term access keys, or to requests made using
 temporary credentials without MFA.
 
-**_Do not_** use a
+_**Do not**_ use a
 policy construct similar to the following to check whether the MFA key is
 present:
 
@@ -2117,10 +2117,7 @@ resource with an account ID in the ARN, and an Amazon S3 ARN without an account
 ID:
 
 - `arn:aws:iam::123456789012:role/AWSExampleRole`
-  – IAM role created and owned within the account
-
-123456789012.
-
+  – IAM role created and owned within the account 123456789012.
 - `arn:aws:s3:::amzn-s3-demo-bucket2` – Amazon S3 bucket
   created and owned within the account `111122223333`,
   not displayed in the ARN.
@@ -2634,7 +2631,7 @@ DynamoDB. It was first called via CloudFormation and last called via DynamoDB.
 
 ### aws:CalledViaFirst
 
-Use this key to compare the services in the policy with the **_first service_** that
+Use this key to compare the services in the policy with the _**first service**_ that
 made a request on behalf of the IAM principal (user or role). For more
 information, see `aws:CalledVia`.
 
@@ -2992,7 +2989,7 @@ you must create a policy that includes both the tagging action and the
 resource-modifying action. You can then use the `aws:TagKeys` condition
 key to enforce using specific tag keys in the request. For example, to limit tags
 when someone creates an Amazon EC2 snapshot, you must include the
-`ec2:CreateSnapshot` creation action **_and_** the
+`ec2:CreateSnapshot` creation action _**and**_ the
 `ec2:CreateTags` tagging action in the policy. To view a policy for
 this scenario that uses `aws:TagKeys`, see [Creating a Snapshot with Tags](../../../AWSEC2/latest/UserGuide/ExamplePolicies_EC2.md#iam-creating-snapshot-with-tags "../../../AWSEC2/latest/UserGuide/ExamplePolicies_EC2.md#iam-creating-snapshot-with-tags") in the
 _Amazon EC2 User Guide_.

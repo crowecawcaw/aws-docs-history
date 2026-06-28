@@ -85,7 +85,7 @@ Before you use these sample reference policies, do the following:
   AWS services that you use.
 
 The reference policies demonstrate the implementation and use of custom
-policy checks. They're **_not_** intended to be interpreted as official
+policy checks. They're _**not**_ intended to be interpreted as official
 AWS recommendations or best practices to be implemented exactly as shown.
 It is your responsibility to carefully test reference policies for their
 suitability to solve the security requirements for your environment.

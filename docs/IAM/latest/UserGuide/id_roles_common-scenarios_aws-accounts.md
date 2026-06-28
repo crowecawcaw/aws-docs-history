@@ -90,22 +90,22 @@ to the role and therefore cannot access the S3 bucket in the production account.
 
 4. AWS STS returns temporary credentials:
 
-   - AWS console: AWS STS verifies the request with the role's trust policy to
+    * AWS console: AWS STS verifies the request with the role's trust policy to
      ensure that the request is from a trusted entity (which it is: the development
      account). After verification, AWS STS returns [temporary security credentials](../../../STS/latest/UsingSTS/Welcome.md "../../../STS/latest/UsingSTS/Welcome.md") to the AWS
      console.
-   - API/CLI: AWS STS verifies the request against the role's trust policy to ensure
+    * API/CLI: AWS STS verifies the request against the role's trust policy to ensure
      that the request is from a trusted entity (which it is: the Development account).
      After verification, AWS STS returns [temporary security credentials](../../../STS/latest/UsingSTS/Welcome.md "../../../STS/latest/UsingSTS/Welcome.md") to the application.
 
 5. The temporary credentials allow access to the AWS resource:
 
-   - AWS console: The AWS console uses the temporary credentials on behalf of the
+    * AWS console: The AWS console uses the temporary credentials on behalf of the
      user for all subsequent console actions, in this case, to read and write to the
      `productionapp` bucket. The console cannot access any other resource in
      the production account. When the user exits the role, the user's permissions revert to
      the original permissions held before switching to the role.
-   - API/CLI: The application uses the temporary security credentials to update the
+    * API/CLI: The application uses the temporary security credentials to update the
      `productionapp` bucket. With the temporary security credentials, the
      application can only read from and write to the `productionapp` bucket and
      cannot access any other resource in the Production account. The application does not

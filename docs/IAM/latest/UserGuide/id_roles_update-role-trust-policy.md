@@ -201,11 +201,11 @@ users or groups in your account:
      list-groups](../../../cli/latest/reference/iam/list-groups.md "../../../cli/latest/reference/iam/list-groups.md")
 
 4. Use one of the following commands to attach the policy that you created in the
-   previous step to the user or group:
+previous step to the user or group:
 
-   - [aws iam
+    * [aws iam
      attach-user-policy](../../../cli/latest/reference/iam/attach-user-policy.md "../../../cli/latest/reference/iam/attach-user-policy.md")
-   - [aws iam
+    * [aws iam
      attach-group-policy](../../../cli/latest/reference/iam/attach-group-policy.md "../../../cli/latest/reference/iam/attach-group-policy.md")
 
 ## Updating a role trust policy (AWS API)
@@ -298,7 +298,7 @@ users or groups in your account:
     * [ListGroups](../APIReference/API_ListGroups.md "../APIReference/API_ListGroups.md")
 
 4. Call one of the following operations to attach the policy that you created in
-   the previous step to the user or group:
+the previous step to the user or group:
 
-   - API: [AttachUserPolicy](../APIReference/API_AttachUserPolicy.md "../APIReference/API_AttachUserPolicy.md")
-   - [AttachGroupPolicy](../APIReference/API_AttachGroupPolicy.md "../APIReference/API_AttachGroupPolicy.md")
+    * API: [AttachUserPolicy](../APIReference/API_AttachUserPolicy.md "../APIReference/API_AttachUserPolicy.md")
+    * [AttachGroupPolicy](../APIReference/API_AttachGroupPolicy.md "../APIReference/API_AttachGroupPolicy.md")

@@ -28,7 +28,7 @@ AWS CLI
 Run the following command:
 
 - `aws
-iam add-user-to-group`
+ iam add-user-to-group`
 
 API
 Call the following operation:
@@ -49,7 +49,7 @@ AWS CLI
 Run the following command:
 
 - `aws iam
-remove-user-from-group`
+ remove-user-from-group`
 
 API
 Call the following operation:

@@ -422,7 +422,7 @@ DateRegionServiceKey = *hash*(kRegion, Service)
 ```
 
 4. Call the hash function with the result of the previous call as the key and
-   "aws4_request" as the data.
+   "aws4\_request" as the data.
 
 ```
 SigningKey = *hash*(kService, "aws4_request")

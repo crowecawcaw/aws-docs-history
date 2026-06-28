@@ -102,9 +102,9 @@ This tutorial assumes that you have the following already in place:
 - Users and roles in the **Originating** account
   created and configured as follows:
 
-| Job title | User  | Permissions                                                                                       |
-| --------- | ----- | ------------------------------------------------------------------------------------------------- |
-| Developer | David | Both users can sign in and use the AWS Management Console in the<br>\*_Originating_<br>• account. |
+| Job title | User  | Permissions                                                                                      |
+| --------- | ----- | ------------------------------------------------------------------------------------------------ |
+| Developer | David | Both users can sign in and use the AWS Management Console in the<br>*_Originating_<br>• account. |
 | Analyst   | Jane  |
 
 - You do not need to create any users in the **Destination** account.
@@ -468,27 +468,26 @@ NhyDHq6ikBQ==",
 }
 ```
 
-3.  David sees the three pieces that they need in the Credentials section of the
-    output.
+3. David sees the three pieces that they need in the Credentials section of the
+   output.
 
-        * `AccessKeyId`
-        * `SecretAccessKey`
-        * `SessionToken`
-
-    David needs to configure the AWS CLI environment to use these parameters in
-    subsequent calls. For information about the various ways to configure your
-    credentials, see [Configuring the AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-started.md#config-settings-and-precedence "../../../cli/latest/userguide/cli-chap-getting-started.md#config-settings-and-precedence"). You cannot use the `aws
+   - `AccessKeyId`
+   - `SecretAccessKey`
+   - `SessionToken`
+     David needs to configure the AWS CLI environment to use these parameters in
+     subsequent calls. For information about the various ways to configure your
+     credentials, see [Configuring the AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-started.md#config-settings-and-precedence "../../../cli/latest/userguide/cli-chap-getting-started.md#config-settings-and-precedence"). You cannot use the `aws
  configure` command because it does not support capturing the session
-    token. However, you can manually enter the information into a configuration file.
-    Because these are temporary credentials with a relatively short expiration time,
-    it is easiest to add them to the environment of your current command line
-    session.
+     token. However, you can manually enter the information into a configuration file.
+     Because these are temporary credentials with a relatively short expiration time,
+     it is easiest to add them to the environment of your current command line
+     session.
 
-4.  To add the three values to the environment, David cuts and pastes the output of
-    the previous step into the following commands. You might want to cut and paste
-    into a simple text editor to address line wrap issues in the output of the session
-    token. It must be added as a single long string, even though it is shown line
-    wrapped here for clarity.
+4. To add the three values to the environment, David cuts and pastes the output of
+   the previous step into the following commands. You might want to cut and paste
+   into a simple text editor to address line wrap issues in the output of the session
+   token. It must be added as a single long string, even though it is shown line
+   wrapped here for clarity.
 
 The following example shows commands given in the Windows environment, where
 "set" is the command to create an environment variable. On a Linux or macOS

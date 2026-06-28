@@ -94,7 +94,7 @@ Some of the use cases include the following:
 
 Here are some basic terms to help you get started with roles.
 
-\***\*Role\*\***
+****Role****
 
 An IAM identity that you can create in your account that has specific permissions.
 An IAM role has some similarities to an IAM user. Roles and users are both AWS
@@ -121,13 +121,13 @@ Roles can be assumed by the following:
 - An external user authenticated by an external identity provider (IdP) service
   that is compatible with SAML 2.0 or OpenID Connect
 
-\***\*AWS service role\*\***
+****AWS service role****
 
 A service role is an [IAM role](id_roles.md "id_roles.md") that a service assumes to perform
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
 more information, see [Create a role to delegate permissions to an AWS service](id_roles_create_for-service.md "id_roles_create_for-service.md") in the _IAM User Guide_.
 
-\***\*AWS service-linked role\*\***
+****AWS service-linked role****
 
 A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf.
 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
@@ -146,7 +146,7 @@ that have **Yes** in the **Service-Linked Role** column. Choose a **Yes**
 with a link to view the service-linked role documentation for that service. For more
 information, see [Create a service-linked role](id_roles_create-service-linked-role.md "id_roles_create-service-linked-role.md").
 
-\***\*Role chaining\*\***
+****Role chaining****
 
 Role chaining is when you use a role to assume a second role. You can perform role
 chaining through the AWS Management Console by switching roles, the AWS CLI, or API. For example,
@@ -171,7 +171,7 @@ fails.
 
 For information about switching to a role in the AWS Management Console, see [Switch from a user to an IAM role (console)](id_roles_use_switch-role-console.md "id_roles_use_switch-role-console.md").
 
-\***\*Delegation\*\***
+****Delegation****
 
 The granting of permissions to someone to allow access to resources that you
 control. Delegation involves setting up a trust between two accounts. The first is the
@@ -200,7 +200,7 @@ parameter called [external ID](id_roles_common-scenarios_third-party.md#id_roles
 helps ensure secure use of roles between accounts that are not controlled by the same
 organization.
 
-\***\*Trust policy\*\***
+****Trust policy****
 
 A [JSON policy document](reference_policies_grammar.md "reference_policies_grammar.md") in which
 you define the principals that you _trust_ to assume
@@ -210,7 +210,7 @@ see [How to
 use trust policies in IAM roles](https://aws.amazon.com/blogs//security/how-to-use-trust-policies-with-iam-roles/ "https://aws.amazon.com/blogs//security/how-to-use-trust-policies-with-iam-roles/") in _AWS Security
 Blog_.
 
-\***\*Role for cross-account access\*\***
+****Role for cross-account access****
 
 A role that grants access to resources in one account to a trusted principal in a
 different account. Roles are the primary way to grant cross-account access. However,

@@ -142,7 +142,7 @@ certificate. If the certificate chain order is different or includes duplicate o
 additional certificates, you will receive a signature mismatch error and STS fails to
 validate the JSON Web Token (JWT). Correct the order of the certificates in the chain
 returned from the server to resolve the error. For more information about certificate
-chain standards, see [certificate_list in RFC 5246](https://www.rfc-editor.org/rfc/rfc5246#section-7.4.2 "https://www.rfc-editor.org/rfc/rfc5246#section-7.4.2") on the RFC Series website. 6. Use the OpenSSL command line tool to run the following command.
+chain standards, see [certificate\_list in RFC 5246](https://www.rfc-editor.org/rfc/rfc5246#section-7.4.2 "https://www.rfc-editor.org/rfc/rfc5246#section-7.4.2") on the RFC Series website. 6. Use the OpenSSL command line tool to run the following command.
 
 ```
 openssl x509 -in certificate.crt -fingerprint -sha1 -noout

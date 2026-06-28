@@ -409,7 +409,7 @@ note the following:
   information, and any attempt to match it fails and causes the statement to be invalid.
 - `role-id` is a unique identifier assigned to each role at
   creation. You can display the role ID with the AWS CLI command: `aws iam get-role
---role-name `rolename``
+ --role-name `rolename``
 - `caller-specified-name` and
   `caller-specified-role-name` are names that are passed by the
   calling process (such as an application or service) when it makes a call to get
@@ -417,7 +417,7 @@ note the following:
 - `ec2-instance-id` is a value assigned to the instance when
   it is launched and appears on the **Instances** page of the Amazon EC2
   console. You can also display the instance ID by running the AWS CLI command: `aws
-ec2 describe-instances`
+ ec2 describe-instances`
 
 ### Information available in requests for federated principals
 

@@ -84,8 +84,8 @@ Identity-based policies are permissions policies that you attach to an IAM ident
 such as an IAM user, group, or role. Resource-based policies are permissions policies that
 you attach to a resource such as an Amazon S3 bucket or an IAM role trust policy.
 
-**_Identity-based
-policies_** control what actions the identity can perform, on which
+_**Identity-based
+policies**_ control what actions the identity can perform, on which
 resources, and under what conditions. Identity-based policies can be further
 categorized:
 
@@ -106,8 +106,8 @@ categorized:
   manage and that are embedded directly into a single user, group, or role. In most cases,
   we don't recommend using inline policies.
 
-**_Resource-based
-policies_** control what actions a specified principal can perform on
+_**Resource-based
+policies**_ control what actions a specified principal can perform on
 that resource and under what conditions. Resource-based policies are inline policies, and
 there are no managed resource-based policies. To enable cross-account access, you can specify
 an entire account or IAM entities in another account as the principal in a resource-based

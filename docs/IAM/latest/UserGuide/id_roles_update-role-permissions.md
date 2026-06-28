@@ -22,47 +22,45 @@ service.
 
 ###### To change the permissions allowed by a role (console)
 
-1.  Open the IAM console at
-    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2.  In the navigation pane of the IAM console, choose
-    **Roles**.
-3.  Choose the name of the role that you want to modify, and then choose
-    the **Permissions** tab.
-4.  Do one of the following:
+1. Open the IAM console at
+   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane of the IAM console, choose
+   **Roles**.
+3. Choose the name of the role that you want to modify, and then choose
+   the **Permissions** tab.
+4. Do one of the following:
 
-        * To edit an existing customer managed policy, choose the name
-         of the policy and then choose **Edit
-         policy**.
+   - To edit an existing customer managed policy, choose the name
+     of the policy and then choose **Edit
+     policy**.
 
+   ###### Note
 
-        ###### Note
-
-        You cannot edit an AWS managed policy. AWS managed
-         policies appear with the AWS icon (
-        ![Orange cube icon indicating a policy is managed by AWS.](images/policy_icon.png)
-        ). For more information about the
-         difference between AWS managed policies and customer
-         managed policies, see [Managed policies and inline policies](access_policies_managed-vs-inline.md "access_policies_managed-vs-inline.md").
-        * To attach an existing managed policy to the role, choose
-         **Add permissions** and then choose
-         **Attach policies**.
-        * To edit an existing inline policy, expand the policy and
-         choose **Edit**.
-        * To embed a new inline policy, choose **Add
-         permissions** and then choose **Create
-         inline policy**.
-        * To remove an existing policy from the role, select the check
-         box next to the policy name and then choose
-         **Remove**.
-
-    To change the permissions allowed by the role, modify the role's permissions
-    policy (or policies). You cannot modify the permissions policy for a
-    _[service-linked
-    role](id_roles.md#iam-term-service-linked-role "id_roles.md#iam-term-service-linked-role")_ in IAM. You might be able to modify the permissions
-    policy within the service that depends on the role. To check whether a service
-    supports this feature, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the
-    services that have **Yes** in the **Service-linked roles** column. Choose a **Yes** with a link to view the service-linked role
-    documentation for that service.
+   You cannot edit an AWS managed policy. AWS managed
+   policies appear with the AWS icon (
+   ![Orange cube icon indicating a policy is managed by AWS.](images/policy_icon.png)
+   ). For more information about the
+   difference between AWS managed policies and customer
+   managed policies, see [Managed policies and inline policies](access_policies_managed-vs-inline.md "access_policies_managed-vs-inline.md").
+   - To attach an existing managed policy to the role, choose
+     **Add permissions** and then choose
+     **Attach policies**.
+   - To edit an existing inline policy, expand the policy and
+     choose **Edit**.
+   - To embed a new inline policy, choose **Add
+     permissions** and then choose **Create
+     inline policy**.
+   - To remove an existing policy from the role, select the check
+     box next to the policy name and then choose
+     **Remove**.
+     To change the permissions allowed by the role, modify the role's permissions
+     policy (or policies). You cannot modify the permissions policy for a
+     _[service-linked
+     role](id_roles.md#iam-term-service-linked-role "id_roles.md#iam-term-service-linked-role")_ in IAM. You might be able to modify the permissions
+     policy within the service that depends on the role. To check whether a service
+     supports this feature, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md") and look for the
+     services that have **Yes** in the **Service-linked roles** column. Choose a **Yes** with a link to view the service-linked role
+     documentation for that service.
 
 ###### To change the permissions allowed by a role (AWS CLI)
 
@@ -140,33 +138,31 @@ this role.
 
 ###### To change the managed policy used to set the permissions boundary for a role (AWS CLI)
 
-1.  (Optional) To view the current [permissions boundary](access_policies_boundaries.md "access_policies_boundaries.md") for
-    a role, run the following command:
+1. (Optional) To view the current [permissions boundary](access_policies_boundaries.md "access_policies_boundaries.md") for
+   a role, run the following command:
 
-    - [aws iam
-      get-role](../../../cli/latest/reference/iam/get-role.md "../../../cli/latest/reference/iam/get-role.md")
+   - [aws iam
+     get-role](../../../cli/latest/reference/iam/get-role.md "../../../cli/latest/reference/iam/get-role.md")
 
-2.  To use a different managed policy to update the permissions boundary
-    for a role, run the following command:
+2. To use a different managed policy to update the permissions boundary
+   for a role, run the following command:
 
-        * [aws iam put-role-permissions-boundary](../../../cli/latest/reference/iam/put-role-permissions-boundary.md "../../../cli/latest/reference/iam/put-role-permissions-boundary.md")
-
-    A role can have only one managed policy set as a permissions boundary.
-    If you change the permissions boundary, you change the maximum
-    permissions allowed for a role.
+   - [aws iam put-role-permissions-boundary](../../../cli/latest/reference/iam/put-role-permissions-boundary.md "../../../cli/latest/reference/iam/put-role-permissions-boundary.md")
+     A role can have only one managed policy set as a permissions boundary.
+     If you change the permissions boundary, you change the maximum
+     permissions allowed for a role.
 
 ###### To change the managed policy used to set the permissions boundary for a role (AWS API)
 
-1.  (Optional) To view the current [permissions boundary](access_policies_boundaries.md "access_policies_boundaries.md") for
-    a role, call the following operation:
+1. (Optional) To view the current [permissions boundary](access_policies_boundaries.md "access_policies_boundaries.md") for
+   a role, call the following operation:
 
-    - [GetRole](../APIReference/API_GetRole.md "../APIReference/API_GetRole.md")
+   - [GetRole](../APIReference/API_GetRole.md "../APIReference/API_GetRole.md")
 
-2.  To use a different managed policy to update the permissions boundary
-    for a role, call the following operation:
+2. To use a different managed policy to update the permissions boundary
+   for a role, call the following operation:
 
-        * [PutRolePermissionsBoundary](../APIReference/API_PutRolePermissionsBoundary.md "../APIReference/API_PutRolePermissionsBoundary.md")
-
-    A role can have only one managed policy set as a permissions boundary.
-    If you change the permissions boundary, you change the maximum
-    permissions allowed for a role.
+   - [PutRolePermissionsBoundary](../APIReference/API_PutRolePermissionsBoundary.md "../APIReference/API_PutRolePermissionsBoundary.md")
+     A role can have only one managed policy set as a permissions boundary.
+     If you change the permissions boundary, you change the maximum
+     permissions allowed for a role.

@@ -30,49 +30,49 @@ settings:
 
 ###### To launch a session for privileged action in a member account in the AWS Management Console
 
-1.  Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2.  In the navigation pane of the console, choose **Root access
-    management**.
-3.  Select a name from the member account list, and choose **Take
-    privileged action**.
-4.  Choose the privileged action you want to take in the member account.
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane of the console, choose **Root access
+   management**.
+3. Select a name from the member account list, and choose **Take
+   privileged action**.
+4. Choose the privileged action you want to take in the member account.
 
-    - Select **Delete Amazon S3 bucket policy** to remove a
-      misconfigured bucket policy that denies all principals from accessing
-      the Amazon S3 bucket.
+   - Select **Delete Amazon S3 bucket policy** to remove a
+     misconfigured bucket policy that denies all principals from accessing
+     the Amazon S3 bucket.
 
-      1. Choose **Browse S3** to select a name from
-         the buckets owned by the member account, and select
-         **Choose**.
-      2. Choose **Delete bucket policy**.
-      3. Use the Amazon S3 console to correct the bucket policy after
-         deleting the misconfigured policy. For more information, see
-         [Adding a bucket policy by using the Amazon S3 console](../../../AmazonS3/latest/userguide/add-bucket-policy.md "../../../AmazonS3/latest/userguide/add-bucket-policy.md") in
-         the _Amazon S3 User Guide_.
+     1. Choose **Browse S3** to select a name from
+        the buckets owned by the member account, and select
+        **Choose**.
+     2. Choose **Delete bucket policy**.
+     3. Use the Amazon S3 console to correct the bucket policy after
+        deleting the misconfigured policy. For more information, see
+        [Adding a bucket policy by using the Amazon S3 console](../../../AmazonS3/latest/userguide/add-bucket-policy.md "../../../AmazonS3/latest/userguide/add-bucket-policy.md") in
+        the _Amazon S3 User Guide_.
 
-    - Select **Delete Amazon SQS policy** to delete an Amazon Simple Queue Service
-      resource-based policy that denies all principals from accessing an Amazon SQS
-      queue.
+   - Select **Delete Amazon SQS policy** to delete an Amazon Simple Queue Service
+     resource-based policy that denies all principals from accessing an Amazon SQS
+     queue.
 
-      1. Enter the queue name in **SQS queue name**,
-         and select **Delete SQS policy**.
-      2. Use the Amazon SQS console to correct the queue policy after
-         deleting the misconfigured policy. For more information, see
-         [Configuring an access policy in Amazon SQS](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-add-permissions.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-add-permissions.md") in the
-         _Amazon SQS Developer Guide_.
+     1. Enter the queue name in **SQS queue name**,
+        and select **Delete SQS policy**.
+     2. Use the Amazon SQS console to correct the queue policy after
+        deleting the misconfigured policy. For more information, see
+        [Configuring an access policy in Amazon SQS](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-add-permissions.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-add-permissions.md") in the
+        _Amazon SQS Developer Guide_.
 
-    - Select **Delete root credentials** to remove root
-      access from a member account. Deleting root user credentials removes the
-      root user password, access keys, signing certificates, and deactivates
-      multi-factor authentication (MFA) for the member account.
+   - Select **Delete root credentials** to remove root
+     access from a member account. Deleting root user credentials removes the
+     root user password, access keys, signing certificates, and deactivates
+     multi-factor authentication (MFA) for the member account.
 
-      1. Choose **Delete root credentials**.
+     1. Choose **Delete root credentials**.
 
-    - Select **Allow password recovery** to recover root user
-      credentials for a member account.
+   - Select **Allow password recovery** to recover root user
+     credentials for a member account.
 
-    This option is only available when the member account has no root user
-    credentials.
+   This option is only available when the member account has no root user
+   credentials.
 
         1. Choose **Allow password recovery**.
         2. After taking this privileged action, the person with access to

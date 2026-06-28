@@ -12,7 +12,7 @@ using policy validation, see [Validate policies with IAM Access Analyzer](access
 
 ## Error – ARN account not allowed
 
-**Issue code:** ARN_ACCOUNT_NOT_ALLOWED
+**Issue code:** ARN\_ACCOUNT\_NOT\_ALLOWED
 
 **Finding type:** ERROR
 
@@ -48,7 +48,7 @@ and the namespace is shared by all AWS accounts. To view all of the resource typ
 
 ## Error – ARN Region not allowed
 
-**Issue code:** ARN_REGION_NOT_ALLOWED
+**Issue code:** ARN\_REGION\_NOT\_ALLOWED
 
 **Finding type:** ERROR
 
@@ -81,7 +81,7 @@ geographic region.
 
 ## Error – Data type mismatch
 
-**Issue code:** DATA_TYPE_MISMATCH
+**Issue code:** DATA\_TYPE\_MISMATCH
 
 **Finding type:** ERROR
 
@@ -114,7 +114,7 @@ data type won't match.
 
 ## Error – Duplicate keys with different case
 
-**Issue code:** DUPLICATE_KEYS_WITH_DIFFERENT_CASE
+**Issue code:** DUPLICATE\_KEYS\_WITH\_DIFFERENT\_CASE
 
 **Finding type:** ERROR
 
@@ -151,7 +151,7 @@ depends on the condition operator that you use. For more information about case-
 
 ## Error – Invalid action
 
-**Issue code:** INVALID_ACTION
+**Issue code:** INVALID\_ACTION
 
 **Finding type:** ERROR
 
@@ -187,12 +187,12 @@ based on general AWS use cases.
 The following AWS managed policies include invalid actions in their policy statements. Invalid actions do not affect the permissions
 granted by the policy. When using an AWS managed policy as a reference to create your managed policy, AWS recommends that you remove invalid actions from your policy.
 
-- [AmazonEMRFullAccessPolicy_v2](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEMRFullAccessPolicy_v2 "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEMRFullAccessPolicy_v2")
+- [AmazonEMRFullAccessPolicy\_v2](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEMRFullAccessPolicy_v2 "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEMRFullAccessPolicy_v2")
 - [CloudWatchSyntheticsFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/CloudWatchSyntheticsFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/CloudWatchSyntheticsFullAccess")
 
 ## Error – Invalid ARN account
 
-**Issue code:** INVALID_ARN_ACCOUNT
+**Issue code:** INVALID\_ARN\_ACCOUNT
 
 **Finding type:** ERROR
 
@@ -225,7 +225,7 @@ Update the account ID in the resource ARN. Account IDs are 12-digit integers. To
 
 ## Error – Invalid ARN prefix
 
-**Issue code:** INVALID_ARN_PREFIX
+**Issue code:** INVALID\_ARN\_PREFIX
 
 **Finding type:** ERROR
 
@@ -256,7 +256,7 @@ AWS resource ARNs must include the required `arn:` prefix.
 
 ## Error – Invalid ARN Region
 
-**Issue code:** INVALID_ARN_REGION
+**Issue code:** INVALID\_ARN\_REGION
 
 **Finding type:** ERROR
 
@@ -288,7 +288,7 @@ see the [Region table](https://aws.amazon.com/about-aws/global-infrastructure/re
 
 ## Error – Invalid ARN resource
 
-**Issue code:** INVALID_ARN_RESOURCE
+**Issue code:** INVALID\_ARN\_RESOURCE
 
 **Finding type:** ERROR
 
@@ -321,7 +321,7 @@ Choose the name of the service to view its resource types and ARN formats.
 
 ## Error – Invalid ARN service case
 
-**Issue code:** INVALID_ARN_SERVICE_CASE
+**Issue code:** INVALID\_ARN\_SERVICE\_CASE
 
 **Finding type:** ERROR
 
@@ -354,7 +354,7 @@ Choose the name of the service and locate its prefix in the first sentence.
 
 ## Error – Invalid condition data type
 
-**Issue code:** INVALID_CONDITION_DATA_TYPE
+**Issue code:** INVALID\_CONDITION\_DATA\_TYPE
 
 **Finding type:** ERROR
 
@@ -392,7 +392,7 @@ the `Date` condition operator. If you provide a string or an integer for the val
 
 ## Error – Invalid condition key format
 
-**Issue code:** INVALID_CONDITION_KEY_FORMAT
+**Issue code:** INVALID\_CONDITION\_KEY\_FORMAT
 
 **Finding type:** ERROR
 
@@ -425,7 +425,7 @@ Choose the name of the service to view the condition keys for that service.
 
 ## Error – Invalid condition multiple Boolean
 
-**Issue code:** INVALID_CONDITION_MULTIPLE_BOOLEAN
+**Issue code:** INVALID\_CONDITION\_MULTIPLE\_BOOLEAN
 
 **Finding type:** ERROR
 
@@ -458,7 +458,7 @@ Choose the name of the service to view the condition keys for that service.
 
 ## Error – Invalid condition operator
 
-**Issue code:** INVALID_CONDITION_OPERATOR
+**Issue code:** INVALID\_CONDITION\_OPERATOR
 
 **Finding type:** ERROR
 
@@ -489,7 +489,7 @@ Update the condition to use a supported condition operator.
 
 ## Error – Invalid effect
 
-**Issue code:** INVALID_EFFECT
+**Issue code:** INVALID\_EFFECT
 
 **Finding type:** ERROR
 
@@ -519,7 +519,7 @@ Update the `Effect` element to use a valid effect. Valid values for `Effect` a
 
 ## Error – Invalid global condition key
 
-**Issue code:** INVALID_GLOBAL_CONDITION_KEY
+**Issue code:** INVALID\_GLOBAL\_CONDITION\_KEY
 
 **Finding type:** ERROR
 
@@ -553,7 +553,7 @@ and choose the service whose keys you want to view.
 
 ## Error – Invalid partition
 
-**Issue code:** INVALID_PARTITION
+**Issue code:** INVALID\_PARTITION
 
 **Finding type:** ERROR
 
@@ -586,7 +586,7 @@ A _partition_ is a group of AWS Regions. Each AWS account is scoped to one parti
 
 ## Error – Invalid policy element
 
-**Issue code:** INVALID_POLICY_ELEMENT
+**Issue code:** INVALID\_POLICY\_ELEMENT
 
 **Finding type:** ERROR
 
@@ -615,7 +615,7 @@ Update the policy to include only supported JSON policy elements.
 
 ## Error – Invalid principal format
 
-**Issue code:** INVALID_PRINCIPAL_FORMAT
+**Issue code:** INVALID\_PRINCIPAL\_FORMAT
 
 **Finding type:** ERROR
 
@@ -653,7 +653,7 @@ For example, to define access for everyone in an AWS account, use the following 
 
 ## Error – Invalid principal key
 
-**Issue code:** INVALID_PRINCIPAL_KEY
+**Issue code:** INVALID\_PRINCIPAL\_KEY
 
 **Finding type:** ERROR
 
@@ -687,7 +687,7 @@ Update the key in the principal key-value pair to use a supported principal key.
 
 ## Error – Invalid Region
 
-**Issue code:** INVALID_REGION
+**Issue code:** INVALID\_REGION
 
 **Finding type:** ERROR
 
@@ -719,7 +719,7 @@ see the [Region table](https://aws.amazon.com/about-aws/global-infrastructure/re
 
 ## Error – Invalid service
 
-**Issue code:** INVALID_SERVICE
+**Issue code:** INVALID\_SERVICE
 
 **Finding type:** ERROR
 
@@ -750,7 +750,7 @@ Choose the name of the service and locate its prefix in the first sentence.
 
 ## Error – Invalid service condition key
 
-**Issue code:** INVALID_SERVICE_CONDITION_KEY
+**Issue code:** INVALID\_SERVICE\_CONDITION\_KEY
 
 **Finding type:** ERROR
 
@@ -782,7 +782,7 @@ see [Actions, resources, and condition keys for AWS services](../../../service-a
 
 ## Error – Invalid service in action
 
-**Issue code:** INVALID_SERVICE_IN_ACTION
+**Issue code:** INVALID\_SERVICE\_IN\_ACTION
 
 **Finding type:** ERROR
 
@@ -814,7 +814,7 @@ Choose the name of the service and locate its prefix in the first sentence.
 
 ## Error – Invalid variable for operator
 
-**Issue code:** INVALID_VARIABLE_FOR_OPERATOR
+**Issue code:** INVALID\_VARIABLE\_FOR\_OPERATOR
 
 **Finding type:** ERROR
 
@@ -847,7 +847,7 @@ Binary, IP Address, or Null operators.
 
 ## Error – Invalid version
 
-**Issue code:** INVALID_VERSION
+**Issue code:** INVALID\_VERSION
 
 **Finding type:** ERROR
 
@@ -881,7 +881,7 @@ policy features, include the latest `Version` element before the `Statement`�
 
 ## Error – Json syntax error
 
-**Issue code:** JSON_SYNTAX_ERROR
+**Issue code:** JSON\_SYNTAX\_ERROR
 
 **Finding type:** ERROR
 
@@ -912,7 +912,7 @@ Your policy includes a syntax error. Check your JSON syntax.
 
 ## Error – Json syntax error
 
-**Issue code:** JSON_SYNTAX_ERROR
+**Issue code:** JSON\_SYNTAX\_ERROR
 
 **Finding type:** ERROR
 
@@ -943,7 +943,7 @@ Your policy includes a syntax error. Check your JSON syntax.
 
 ## Error – Missing action
 
-**Issue code:** MISSING_ACTION
+**Issue code:** MISSING\_ACTION
 
 **Finding type:** ERROR
 
@@ -974,7 +974,7 @@ AWS JSON policies must include an `Action` or `NotAction` element.
 
 ## Error – Missing ARN field
 
-**Issue code:** MISSING_ARN_FIELD
+**Issue code:** MISSING\_ARN\_FIELD
 
 **Finding type:** ERROR
 
@@ -1007,7 +1007,7 @@ Choose the name of the service to view its resource types and ARN formats.
 
 ## Error – Missing ARN Region
 
-**Issue code:** MISSING_ARN_REGION
+**Issue code:** MISSING\_ARN\_REGION
 
 **Finding type:** ERROR
 
@@ -1039,7 +1039,7 @@ see the [Region table](https://aws.amazon.com/about-aws/global-infrastructure/re
 
 ## Error – Missing effect
 
-**Issue code:** MISSING_EFFECT
+**Issue code:** MISSING\_EFFECT
 
 **Finding type:** ERROR
 
@@ -1069,7 +1069,7 @@ AWS JSON policies must include an `Effect` element with a value of `Allow` and
 
 ## Error – Missing principal
 
-**Issue code:** MISSING_PRINCIPAL
+**Issue code:** MISSING\_PRINCIPAL
 
 **Finding type:** ERROR
 
@@ -1105,7 +1105,7 @@ For example, to define access for everyone in an AWS account, use the following 
 
 ## Error – Missing qualifier
 
-**Issue code:** MISSING_QUALIFIER
+**Issue code:** MISSING\_QUALIFIER
 
 **Finding type:** ERROR
 
@@ -1150,7 +1150,7 @@ qualifiers to your `Condition` element.
 
 ## Error – Missing resource
 
-**Issue code:** MISSING_RESOURCE
+**Issue code:** MISSING\_RESOURCE
 
 **Finding type:** ERROR
 
@@ -1182,7 +1182,7 @@ All policies except role trust policies must include a `Resource` or `NotResourc
 
 ## Error – Missing statement
 
-**Issue code:** MISSING_STATEMENT
+**Issue code:** MISSING\_STATEMENT
 
 **Finding type:** ERROR
 
@@ -1211,7 +1211,7 @@ A JSON policy must include a statement.
 
 ## Error – Null with if exists
 
-**Issue code:** NULL_WITH_IF_EXISTS
+**Issue code:** NULL\_WITH\_IF\_EXISTS
 
 **Finding type:** ERROR
 
@@ -1245,7 +1245,7 @@ specified in the policy. If the key is not present, evaluate the condition eleme
 
 ## Error – SCP syntax error action wildcard
 
-**Issue code:** SCP_SYNTAX_ERROR_ACTION_WILDCARD
+**Issue code:** SCP\_SYNTAX\_ERROR\_ACTION\_WILDCARD
 
 **Finding type:** ERROR
 
@@ -1281,7 +1281,7 @@ To specify multiple actions, AWS recommends that you list them individually.
 
 ## Error – SCP syntax error principal
 
-**Issue code:** SCP_SYNTAX_ERROR_PRINCIPAL
+**Issue code:** SCP\_SYNTAX\_ERROR\_PRINCIPAL
 
 **Finding type:** ERROR
 
@@ -1313,7 +1313,7 @@ You can specify the Amazon Resource Name (ARN) using the `aws:PrincipalArn` glob
 
 ## Error – Unique Sids required
 
-**Issue code:** UNIQUE_SIDS_REQUIRED
+**Issue code:** UNIQUE\_SIDS\_REQUIRED
 
 **Finding type:** ERROR
 
@@ -1344,7 +1344,7 @@ such as SQS and SNS, the `Sid` value is just a sub-ID of the policy document's I
 
 ## Error – Unsupported action in policy
 
-**Issue code:** UNSUPPORTED_ACTION_IN_POLICY
+**Issue code:** UNSUPPORTED\_ACTION\_IN\_POLICY
 
 **Finding type:** ERROR
 
@@ -1377,7 +1377,7 @@ policy.
 
 ## Error – Unsupported element combination
 
-**Issue code:** UNSUPPORTED_ELEMENT_COMBINATION
+**Issue code:** UNSUPPORTED\_ELEMENT\_COMBINATION
 
 **Finding type:** ERROR
 
@@ -1408,7 +1408,7 @@ in the same policy statement. Other pairs that are mutually exclusive include `P
 
 ## Error – Unsupported global condition key
 
-**Issue code:** UNSUPPORTED_GLOBAL_CONDITION_KEY
+**Issue code:** UNSUPPORTED\_GLOBAL\_CONDITION\_KEY
 
 **Finding type:** ERROR
 
@@ -1440,7 +1440,7 @@ Name (ARN) of the resource making a service-to-service request with the ARN that
 
 ## Error – Unsupported principal
 
-**Issue code:** UNSUPPORTED_PRINCIPAL
+**Issue code:** UNSUPPORTED\_PRINCIPAL
 
 **Finding type:** ERROR
 
@@ -1472,7 +1472,7 @@ you can embed policies in an Amazon S3 bucket or an AWS KMS key.
 
 ## Error – Unsupported resource ARN in policy
 
-**Issue code:** UNSUPPORTED_RESOURCE_ARN_IN_POLICY
+**Issue code:** UNSUPPORTED\_RESOURCE\_ARN\_IN\_POLICY
 
 **Finding type:** ERROR
 
@@ -1505,7 +1505,7 @@ policy.
 
 ## Error – Unsupported Sid
 
-**Issue code:** UNSUPPORTED_SID
+**Issue code:** UNSUPPORTED\_SID
 
 **Finding type:** ERROR
 
@@ -1533,7 +1533,7 @@ The `Sid` element supports uppercase letters, lowercase letters, and numbers.
 
 ## Error – Unsupported wildcard in principal
 
-**Issue code:** UNSUPPORTED_WILDCARD_IN_PRINCIPAL
+**Issue code:** UNSUPPORTED\_WILDCARD\_IN\_PRINCIPAL
 
 **Finding type:** ERROR
 
@@ -1566,7 +1566,7 @@ To resolve this finding, remove the wildcard and provide a more specific princip
 
 ## Error – Missing brace in variable
 
-**Issue code:** MISSING_BRACE_IN_VARIABLE
+**Issue code:** MISSING\_BRACE\_IN\_VARIABLE
 
 **Finding type:** ERROR
 
@@ -1598,7 +1598,7 @@ To resolve this finding, add the missing brace to make sure the full opening and
 
 ## Error – Missing quote in variable
 
-**Issue code:** MISSING_QUOTE_IN_VARIABLE
+**Issue code:** MISSING\_QUOTE\_IN\_VARIABLE
 
 **Finding type:** ERROR
 
@@ -1644,7 +1644,7 @@ information, such as instructions for joining a team.
 
 ## Error – Unsupported space in variable
 
-**Issue code:** UNSUPPORTED_SPACE_IN_VARIABLE
+**Issue code:** UNSUPPORTED\_SPACE\_IN\_VARIABLE
 
 **Finding type:** ERROR
 
@@ -1675,7 +1675,7 @@ a space in the variable name.
 
 ## Error – Empty variable
 
-**Issue code:** EMPTY_VARIABLE
+**Issue code:** EMPTY\_VARIABLE
 
 **Finding type:** ERROR
 
@@ -1705,7 +1705,7 @@ include the name of the value from the request that you want to use in the polic
 
 ## Error – Variable unsupported in element
 
-**Issue code:** VARIABLE_UNSUPPORTED_IN_ELEMENT
+**Issue code:** VARIABLE\_UNSUPPORTED\_IN\_ELEMENT
 
 **Finding type:** ERROR
 
@@ -1734,7 +1734,7 @@ You can use policy variables in the `Resource` element and in string comparisons
 
 ## Error – Variable unsupported in version
 
-**Issue code:** VARIABLE_UNSUPPORTED_IN_VERSION
+**Issue code:** VARIABLE\_UNSUPPORTED\_IN\_VERSION
 
 **Finding type:** ERROR
 
@@ -1769,7 +1769,7 @@ version of the managed policy.
 
 ## Error – Private IP address
 
-**Issue code:** PRIVATE_IP_ADDRESS
+**Issue code:** PRIVATE\_IP\_ADDRESS
 
 **Finding type:** ERROR
 
@@ -1798,7 +1798,7 @@ In this case, the condition would never match.
 
 ## Error – Private NotIpAddress
 
-**Issue code:** PRIVATE_NOT_IP_ADDRESS
+**Issue code:** PRIVATE\_NOT\_IP\_ADDRESS
 
 **Finding type:** ERROR
 
@@ -1827,7 +1827,7 @@ condition operator and list only private IP addresses. In this case, the conditi
 
 ## Error – Policy size exceeds SCP quota
 
-**Issue code:** POLICY_SIZE_EXCEEDS_SCP_QUOTA
+**Issue code:** POLICY\_SIZE\_EXCEEDS\_SCP\_QUOTA
 
 **Finding type:** ERROR
 
@@ -1861,7 +1861,7 @@ To specify multiple actions, AWS recommends that you list them individually.
 
 ## Error – Invalid service principal format
 
-**Issue code:** INVALID_SERVICE_PRINCIPAL_FORMAT
+**Issue code:** INVALID\_SERVICE\_PRINCIPAL\_FORMAT
 
 **Finding type:** ERROR
 
@@ -1902,7 +1902,7 @@ Some service-specific keys may use a different format for service principals. Fo
 
 ## Error – Missing tag key in condition
 
-**Issue code:** MISSING_TAG_KEY_IN_CONDITION
+**Issue code:** MISSING\_TAG\_KEY\_IN\_CONDITION
 
 **Finding type:** ERROR
 
@@ -1925,7 +1925,7 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 To control access based on tags, you provide tag information in the [condition element](reference_policies_elements_condition.md "reference_policies_elements_condition.md") of a policy.
 
-For example, to [control access to AWS resources](access_tags.md#access_tags_control-resources "access_tags.md#access_tags_control-resources"), you include the `aws:ResourceTag` condition key. This key requires the format `aws:ResourceTag/`tag-key``. To specify the tag key `owner`and the tag value`JaneDoe` in a condition, use the following format.
+For example, to [control access to AWS resources](access_tags.md#access_tags_control-resources "access_tags.md#access_tags_control-resources"), you include the `aws:ResourceTag` condition key. This key requires the format `aws:ResourceTag/`tag-key``. To specify the tag key `owner` and the tag value `JaneDoe` in a condition, use the following format.
 
 ```
 "Condition": {
@@ -1942,7 +1942,7 @@ For example, to [control access to AWS resources](access_tags.md#access_tags_con
 
 ## Error – Invalid vpc format
 
-**Issue code:** INVALID_VPC_FORMAT
+**Issue code:** INVALID\_VPC\_FORMAT
 
 **Finding type:** ERROR
 
@@ -1971,7 +1971,7 @@ The `aws:SourceVpc` condition key must use the prefix `vpc-` followed by either 
 
 ## Error – Invalid vpce format
 
-**Issue code:** INVALID_VPCE_FORMAT
+**Issue code:** INVALID\_VPCE\_FORMAT
 
 **Finding type:** ERROR
 
@@ -2000,7 +2000,7 @@ The `aws:SourceVpce` condition key must use the prefix `vpce-` followed by eithe
 
 ## Error – Federated principal not supported
 
-**Issue code:** FEDERATED_PRINCIPAL_NOT_SUPPORTED
+**Issue code:** FEDERATED\_PRINCIPAL\_NOT\_SUPPORTED
 
 **Finding type:** ERROR
 
@@ -2035,7 +2035,7 @@ type.
 
 ## Error – Unsupported action for condition key
 
-**Issue code:** UNSUPPORTED_ACTION_FOR_CONDITION_KEY
+**Issue code:** UNSUPPORTED\_ACTION\_FOR\_CONDITION\_KEY
 
 **Finding type:** ERROR
 
@@ -2071,7 +2071,7 @@ If the `Action` element has actions with wildcards, IAM Access Analyzer doesn't 
 
 ## Error – Unsupported action in policy
 
-**Issue code:** UNSUPPORTED_ACTION_IN_POLICY
+**Issue code:** UNSUPPORTED\_ACTION\_IN\_POLICY
 
 **Finding type:** ERROR
 
@@ -2104,7 +2104,7 @@ policy.
 
 ## Error – Unsupported resource ARN in policy
 
-**Issue code:** UNSUPPORTED_RESOURCE_ARN_IN_POLICY
+**Issue code:** UNSUPPORTED\_RESOURCE\_ARN\_IN\_POLICY
 
 **Finding type:** ERROR
 
@@ -2137,7 +2137,7 @@ policy.
 
 ## Error – Unsupported condition key for service principal
 
-**Issue code:** UNSUPPORTED_CONDITION_KEY_FOR_SERVICE_PRINCIPAL
+**Issue code:** UNSUPPORTED\_CONDITION\_KEY\_FOR\_SERVICE\_PRINCIPAL
 
 **Finding type:** ERROR
 
@@ -2174,7 +2174,7 @@ element.
 
 ## Error – Role trust policy syntax error notprincipal
 
-**Issue code:** ROLE_TRUST_POLICY_SYNTAX_ERROR_NOTPRINCIPAL
+**Issue code:** ROLE\_TRUST\_POLICY\_SYNTAX\_ERROR\_NOTPRINCIPAL
 
 **Finding type:** ERROR
 
@@ -2205,7 +2205,7 @@ Role trust policies do not support `NotPrincipal`. Update the policy to use a `P
 
 ## Error – Role trust policy unsupported wildcard in principal
 
-**Issue code:** ROLE_TRUST_POLICY_UNSUPPORTED_WILDCARD_IN_PRINCIPAL
+**Issue code:** ROLE\_TRUST\_POLICY\_UNSUPPORTED\_WILDCARD\_IN\_PRINCIPAL
 
 **Finding type:** ERROR
 
@@ -2236,7 +2236,7 @@ trust policy. Replace the wildcard with a valid principal value.
 
 ## Error – Role trust policy syntax error resource
 
-**Issue code:** ROLE_TRUST_POLICY_SYNTAX_ERROR_RESOURCE
+**Issue code:** ROLE\_TRUST\_POLICY\_SYNTAX\_ERROR\_RESOURCE
 
 **Finding type:** ERROR
 
@@ -2265,7 +2265,7 @@ Role trust policies apply to the role that they are attached to. You cannot spec
 
 ## Error – Type mismatch IP range
 
-**Issue code:** TYPE_MISMATCH_IP_RANGE
+**Issue code:** TYPE\_MISMATCH\_IP\_RANGE
 
 **Finding type:** ERROR
 
@@ -2295,7 +2295,7 @@ Update the text to use the IP address condition operator data type, in a CIDR fo
 
 ## Error – Missing action for condition key
 
-**Issue code:** MISSING_ACTION_FOR_CONDITION_KEY
+**Issue code:** MISSING\_ACTION\_FOR\_CONDITION\_KEY
 
 **Finding type:** ERROR
 
@@ -2326,7 +2326,7 @@ condition keys you specify are effectively allowed or denied by your policy, add
 
 ## Error – Invalid federated principal syntax in role trust policy
 
-**Issue code:** INVALID_FEDERATED_PRINCIPAL_SYNTAX_IN_ROLE_TRUST_POLICY
+**Issue code:** INVALID\_FEDERATED\_PRINCIPAL\_SYNTAX\_IN\_ROLE\_TRUST\_POLICY
 
 **Finding type:** ERROR
 
@@ -2357,7 +2357,7 @@ metadata ARN.
 
 ## Error – Mismatched action for principal
 
-**Issue code:** MISMATCHED_ACTION_FOR_PRINCIPAL
+**Issue code:** MISMATCHED\_ACTION\_FOR\_PRINCIPAL
 
 **Finding type:** ERROR
 
@@ -2392,7 +2392,7 @@ principal with the `sts:AssumeRoleWithWebIdentity` action.
 
 ## Error – Missing action for roles anywhere trust policy
 
-**Issue code:** MISSING_ACTION_FOR_ROLES_ANYWHERE_TRUST_POLICY
+**Issue code:** MISSING\_ACTION\_FOR\_ROLES\_ANYWHERE\_TRUST\_POLICY
 
 **Finding type:** ERROR
 
@@ -2425,7 +2425,7 @@ policy.
 
 ## Error – Policy size exceeds RCP quota
 
-**Issue code:** POLICY_SIZE_EXCEEDS_RCP_QUOTA
+**Issue code:** POLICY\_SIZE\_EXCEEDS\_RCP\_QUOTA
 
 **Finding type:** ERROR
 
@@ -2458,7 +2458,7 @@ To specify multiple actions, AWS recommends that you list them individually.
 
 ## Error – RCP syntax error principal
 
-**Issue code:** RCP_SYNTAX_ERROR_PRINCIPAL
+**Issue code:** RCP\_SYNTAX\_ERROR\_PRINCIPAL
 
 **Finding type:** ERROR
 
@@ -2488,7 +2488,7 @@ AWS Organizations resource control policies (RCPs) only support specifying all p
 
 ## Error – RCP syntax error allow
 
-**Issue code:** RCP_SYNTAX_ERROR_ALLOW
+**Issue code:** RCP\_SYNTAX\_ERROR\_ALLOW
 
 **Finding type:** ERROR
 
@@ -2518,7 +2518,7 @@ AWS Organizations resource control policies (RCPs) only support specifying all p
 
 ## Error – RCP syntax error NotAction
 
-**Issue code:** RCP_SYNTAX_ERROR_NOTACTION
+**Issue code:** RCP\_SYNTAX\_ERROR\_NOTACTION
 
 **Finding type:** ERROR
 
@@ -2549,7 +2549,7 @@ AWS Organizations resource control policies (RCPs) do not support the `NotAction
 
 ## Error – RCP syntax error action
 
-**Issue code:** RCP_SYNTAX_ERROR_ACTION
+**Issue code:** RCP\_SYNTAX\_ERROR\_ACTION
 
 **Finding type:** ERROR
 
@@ -2579,7 +2579,7 @@ AWS Organizations resource control policies (RCPs) only support specifying selec
 
 ## Error – Missing ARN account
 
-**Issue code:** MISSING_ARN_ACCOUNT
+**Issue code:** MISSING\_ARN\_ACCOUNT
 
 **Finding type:** ERROR
 
@@ -2611,7 +2611,7 @@ Include an account ID in the resource ARN. Account IDs are 12-digit integers. To
 
 ## Error – Invalid kms key value
 
-**Issue code:** INVALID_KMS_KEY_VALUE
+**Issue code:** INVALID\_KMS\_KEY\_VALUE
 
 **Finding type:** ERROR
 
@@ -2647,7 +2647,7 @@ this format:
 
 ## Error – Variable usage too permissive
 
-**Issue code:** VARIABLE_USAGE_TOO_PERMISSIVE
+**Issue code:** VARIABLE\_USAGE\_TOO\_PERMISSIVE
 
 **Finding type:** ERROR
 
@@ -2713,7 +2713,7 @@ There are three possible finding messages for this error.
 
 ## Error – Wildcard usage too permissive
 
-**Issue code:** WILDCARD_USAGE_TOO_PERMISSIVE
+**Issue code:** WILDCARD\_USAGE\_TOO\_PERMISSIVE
 
 **Finding type:** ERROR
 
@@ -2775,9 +2775,9 @@ There are three possible finding messages for this error.
 
 ## General Warning – Create SLR with NotResource
 
-**Issue code:** CREATE_SLR_WITH_NOT_RESOURCE
+**Issue code:** CREATE\_SLR\_WITH\_NOT\_RESOURCE
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -2806,9 +2806,9 @@ AWS recommends that you specify allowed ARNs in the `Resource` element instead.
 
 ## General Warning – Create SLR with star in action and NotResource
 
-**Issue code:** CREATE_SLR_WITH_STAR_IN_ACTION_AND_NOT_RESOURCE
+**Issue code:** CREATE\_SLR\_WITH\_STAR\_IN\_ACTION\_AND\_NOT\_RESOURCE
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -2837,9 +2837,9 @@ AWS recommends that you specify allowed ARNs in the `Resource` element instead.
 
 ## General Warning – Create SLR with NotAction and NotResource
 
-**Issue code:** CREATE_SLR_WITH_NOT_ACTION_AND_NOT_RESOURCE
+**Issue code:** CREATE\_SLR\_WITH\_NOT\_ACTION\_AND\_NOT\_RESOURCE
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -2871,9 +2871,9 @@ You can also add `iam:CreateServiceLinkedRole` to the `NotAction` element.
 
 ## General Warning – Create SLR with star in resource
 
-**Issue code:** CREATE_SLR_WITH_STAR_IN_RESOURCE
+**Issue code:** CREATE\_SLR\_WITH\_STAR\_IN\_RESOURCE
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -2916,9 +2916,9 @@ only IAM identities that you consider power users.
 
 ## General Warning – Create SLR with star in action and resource
 
-**Issue code:** CREATE_SLR_WITH_STAR_IN_ACTION_AND_RESOURCE
+**Issue code:** CREATE\_SLR\_WITH\_STAR\_IN\_ACTION\_AND\_RESOURCE
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -2960,9 +2960,9 @@ to only the IAM identities that you consider administrators.
 
 ## General Warning – Create SLR with star in resource and NotAction
 
-**Issue code:** CREATE_SLR_WITH_STAR_IN_RESOURCE_AND_NOT_ACTION
+**Issue code:** CREATE\_SLR\_WITH\_STAR\_IN\_RESOURCE\_AND\_NOT\_ACTION
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -2992,9 +2992,9 @@ AWS recommends that you specify allowed ARNs in the `Resource` element instead. 
 
 ## General Warning – Deprecated global condition key
 
-**Issue code:** DEPRECATED_GLOBAL_CONDITION_KEY
+**Issue code:** DEPRECATED\_GLOBAL\_CONDITION\_KEY
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3019,9 +3019,9 @@ The policy includes a deprecated global condition key. Update the condition key 
 
 ## General Warning – Invalid date value
 
-**Issue code:** INVALID_DATE_VALUE
+**Issue code:** INVALID\_DATE\_VALUE
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3050,9 +3050,9 @@ such as YYYY-MM-DD (1997-07-16), or you could also append the time to the second
 
 ## General Warning – Invalid role reference
 
-**Issue code:** INVALID_ROLE_REFERENCE
+**Issue code:** INVALID\_ROLE\_REFERENCE
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3081,9 +3081,9 @@ new role's ID.
 
 ## General Warning – Invalid user reference
 
-**Issue code:** INVALID_USER_REFERENCE
+**Issue code:** INVALID\_USER\_REFERENCE
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3112,9 +3112,9 @@ new user's ID.
 
 ## General Warning – Missing version
 
-**Issue code:** MISSING_VERSION
+**Issue code:** MISSING\_VERSION
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3141,9 +3141,9 @@ strings in the policy.
 
 ## General Warning – Unique Sids recommended
 
-**Issue code:** UNIQUE_SIDS_RECOMMENDED
+**Issue code:** UNIQUE\_SIDS\_RECOMMENDED
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3171,9 +3171,9 @@ you provide for the policy statement. You can assign a statement ID value to eac
 
 ## General Warning – Wildcard without like operator
 
-**Issue code:** WILDCARD_WITHOUT_LIKE_OPERATOR
+**Issue code:** WILDCARD\_WITHOUT\_LIKE\_OPERATOR
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3215,9 +3215,9 @@ with wildcards (\*, ?), such as `StringLike`.
 
 ## General Warning – Policy size exceeds identity policy quota
 
-**Issue code:** POLICY_SIZE_EXCEEDS_IDENTITY_POLICY_QUOTA
+**Issue code:** POLICY\_SIZE\_EXCEEDS\_IDENTITY\_POLICY\_QUOTA
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3267,9 +3267,9 @@ AWS managed policy as a reference to create your managed policy, you must split 
 
 ## General Warning – Policy size exceeds resource policy quota
 
-**Issue code:** POLICY_SIZE_EXCEEDS_RESOURCE_POLICY_QUOTA
+**Issue code:** POLICY\_SIZE\_EXCEEDS\_RESOURCE\_POLICY\_QUOTA
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3306,9 +3306,9 @@ policies.
 
 ## General Warning – Type mismatch
 
-**Issue code:** TYPE_MISMATCH
+**Issue code:** TYPE\_MISMATCH
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3339,9 +3339,9 @@ data type won't match.
 
 ## General Warning – Type mismatch Boolean
 
-**Issue code:** TYPE_MISMATCH_BOOLEAN
+**Issue code:** TYPE\_MISMATCH\_BOOLEAN
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3372,9 +3372,9 @@ data type won't match.
 
 ## General Warning – Type mismatch date
 
-**Issue code:** TYPE_MISMATCH_DATE
+**Issue code:** TYPE\_MISMATCH\_DATE
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3402,9 +3402,9 @@ Update the text to use the date condition operator data type, in a `YYYY-MM-DD` 
 
 ## General Warning – Type mismatch number
 
-**Issue code:** TYPE_MISMATCH_NUMBER
+**Issue code:** TYPE\_MISMATCH\_NUMBER
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3432,9 +3432,9 @@ Update the text to use the numeric condition operator data type.
 
 ## General Warning – Type mismatch string
 
-**Issue code:** TYPE_MISMATCH_STRING
+**Issue code:** TYPE\_MISMATCH\_STRING
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3462,9 +3462,9 @@ Update the text to use the string condition operator data type.
 
 ## General Warning – Specific github repo and branch recommended
 
-**Issue code:** SPECIFIC_GITHUB_REPO_AND_BRANCH_RECOMMENDED
+**Issue code:** SPECIFIC\_GITHUB\_REPO\_AND\_BRANCH\_RECOMMENDED
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3498,9 +3498,9 @@ associated with the GitHub IAM IdP in your AWS account.
 
 ## General Warning – Policy size exceeds role trust policy quota
 
-**Issue code:** POLICY_SIZE_EXCEEDS_ROLE_TRUST_POLICY_QUOTA
+**Issue code:** POLICY\_SIZE\_EXCEEDS\_ROLE\_TRUST\_POLICY\_QUOTA
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3528,9 +3528,9 @@ recommend that you request a role trust policy length quota increase using Servi
 
 ## General Warning – RCP missing related principal condition key
 
-**Issue code:** RCP_MISSING_RELATED_PRINCIPAL_CONDITION_KEY
+**Issue code:** RCP\_MISSING\_RELATED\_PRINCIPAL\_CONDITION\_KEY
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3561,9 +3561,9 @@ AWS Organizations resource control policies (RCPs) can impact IAM roles, users, 
 
 ## General Warning – RCP missing related service principal condition key
 
-**Issue code:** RCP_MISSING_RELATED_SERVICE_PRINCIPAL_CONDITION_KEY
+**Issue code:** RCP\_MISSING\_RELATED\_SERVICE\_PRINCIPAL\_CONDITION\_KEY
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3594,9 +3594,9 @@ AWS Organizations resource control policies (RCPs) can impact IAM roles, users, 
 
 ## General Warning – RCP missing service condition key null check
 
-**Issue code:** RCP_MISSING_SERVICE_CONDITION_KEY_NULL_CHECK
+**Issue code:** RCP\_MISSING\_SERVICE\_CONDITION\_KEY\_NULL\_CHECK
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3638,9 +3638,9 @@ or
 
 ## General Warning – Use condition key only with supported services
 
-**Issue code:** USE_CONDITION_KEY_ONLY_WITH_SUPPORTED_SERVICES
+**Issue code:** USE\_CONDITION\_KEY\_ONLY\_WITH\_SUPPORTED\_SERVICES
 
-**Finding type:** GENERAL_WARNING
+**Finding type:** GENERAL\_WARNING
 
 **Finding details**
 
@@ -3671,9 +3671,9 @@ to scope the condition key to only the AWS services that support it.
 
 ## Security Warning – Untrustworthy condition key
 
-**Issue code:** UNTRUSTWORTHY_CONDITION_KEY
+**Issue code:** UNTRUSTWORTHY\_CONDITION\_KEY
 
-**Finding type:** SECURITY_WARNING
+**Finding type:** SECURITY\_WARNING
 
 **Finding details**
 
@@ -3701,9 +3701,9 @@ spoof the key value, which creates a security risk.
 
 ## Security Warning – Allow with NotPrincipal
 
-**Issue code:** ALLOW_WITH_NOT_PRINCIPAL
+**Issue code:** ALLOW\_WITH\_NOT\_PRINCIPAL
 
-**Finding type:** SECURITY_WARNING
+**Finding type:** SECURITY\_WARNING
 
 **Finding details**
 
@@ -3731,9 +3731,9 @@ statement that uses the `NotPrincipal` element with `“Effect”: “Deny”`.
 
 ## Security Warning – ForAllValues with single valued key
 
-**Issue code:** FORALLVALUES_WITH_SINGLE_VALUED_KEY
+**Issue code:** FORALLVALUES\_WITH\_SINGLE\_VALUED\_KEY
 
-**Finding type:** SECURITY_WARNING
+**Finding type:** SECURITY\_WARNING
 
 **Finding details**
 
@@ -3769,9 +3769,9 @@ For example, Amazon SES supports keys with single values (`String`) and the
 
 ## Security Warning – Pass role with NotResource
 
-**Issue code:** PASS_ROLE_WITH_NOT_RESOURCE
+**Issue code:** PASS\_ROLE\_WITH\_NOT\_RESOURCE
 
-**Finding type:** SECURITY_WARNING
+**Finding type:** SECURITY\_WARNING
 
 **Finding details**
 
@@ -3803,9 +3803,9 @@ condition key.
 
 ## Security Warning – Pass role with star in action and NotResource
 
-**Issue code:** PASS_ROLE_WITH_STAR_IN_ACTION_AND_NOT_RESOURCE
+**Issue code:** PASS\_ROLE\_WITH\_STAR\_IN\_ACTION\_AND\_NOT\_RESOURCE
 
-**Finding type:** SECURITY_WARNING
+**Finding type:** SECURITY\_WARNING
 
 **Finding details**
 
@@ -3837,9 +3837,9 @@ element can allow your principals to access more services or features than you i
 
 ## Security Warning – Pass role with NotAction and NotResource
 
-**Issue code:** PASS_ROLE_WITH_NOT_ACTION_AND_NOT_RESOURCE
+**Issue code:** PASS\_ROLE\_WITH\_NOT\_ACTION\_AND\_NOT\_RESOURCE
 
-**Finding type:** SECURITY_WARNING
+**Finding type:** SECURITY\_WARNING
 
 **Finding details**
 
@@ -3873,9 +3873,9 @@ element can allow your principals to access more services or features than you i
 
 ## Security Warning – Pass role with star in resource
 
-**Issue code:** PASS_ROLE_WITH_STAR_IN_RESOURCE
+**Issue code:** PASS\_ROLE\_WITH\_STAR\_IN\_RESOURCE
 
-**Finding type:** SECURITY_WARNING
+**Finding type:** SECURITY\_WARNING
 
 **Finding details**
 
@@ -3945,9 +3945,9 @@ You cannot attach these policies to your IAM identities.
 
 ## Security Warning – Pass role with star in action and resource
 
-**Issue code:** PASS_ROLE_WITH_STAR_IN_ACTION_AND_RESOURCE
+**Issue code:** PASS\_ROLE\_WITH\_STAR\_IN\_ACTION\_AND\_RESOURCE
 
-**Finding type:** SECURITY_WARNING
+**Finding type:** SECURITY\_WARNING
 
 **Finding details**
 
@@ -3991,9 +3991,9 @@ to only the IAM identities that you consider administrators.
 
 ## Security Warning – Pass role with star in resource and NotAction
 
-**Issue code:** PASS_ROLE_WITH_STAR_IN_RESOURCE_AND_NOT_ACTION
+**Issue code:** PASS\_ROLE\_WITH\_STAR\_IN\_RESOURCE\_AND\_NOT\_ACTION
 
-**Finding type:** SECURITY_WARNING
+**Finding type:** SECURITY\_WARNING
 
 **Finding details**
 
@@ -4026,9 +4026,9 @@ ARNs in the `Resource` element instead. Additionally, you can reduce permissions
 
 ## Security Warning – Missing paired condition keys
 
-**Issue code:** MISSING_PAIRED_CONDITION_KEYS
+**Issue code:** MISSING\_PAIRED\_CONDITION\_KEYS
 
-**Finding type:** SECURITY_WARNING
+**Finding type:** SECURITY\_WARNING
 
 **Finding details**
 
@@ -4068,9 +4068,9 @@ specify.
 
 ## Security Warning – Deny with unsupported tag condition key for service
 
-**Issue code:** DENY_WITH_UNSUPPORTED_TAG_CONDITION_KEY_FOR_SERVICE
+**Issue code:** DENY\_WITH\_UNSUPPORTED\_TAG\_CONDITION\_KEY\_FOR\_SERVICE
 
-**Finding type:** SECURITY_WARNING
+**Finding type:** SECURITY\_WARNING
 
 **Finding details**
 
@@ -4173,9 +4173,9 @@ is denied, regardless of whether the resource is tagged.
 
 ## Security Warning – Deny NotAction with unsupported tag condition key for service
 
-**Issue code:** DENY_NOTACTION_WITH_UNSUPPORTED_TAG_CONDITION_KEY_FOR_SERVICE
+**Issue code:** DENY\_NOTACTION\_WITH\_UNSUPPORTED\_TAG\_CONDITION\_KEY\_FOR\_SERVICE
 
-**Finding type:** SECURITY_WARNING
+**Finding type:** SECURITY\_WARNING
 
 **Finding details**
 
@@ -4222,9 +4222,9 @@ access control (RBAC)](introduction_attribute-based-access-control.md#introducti
 
 ## Security Warning – Restrict access to service principal
 
-**Issue code:** RESTRICT_ACCESS_TO_SERVICE_PRINCIPAL
+**Issue code:** RESTRICT\_ACCESS\_TO\_SERVICE\_PRINCIPAL
 
-**Finding type:** SECURITY_WARNING
+**Finding type:** SECURITY\_WARNING
 
 **Finding details**
 
@@ -4263,9 +4263,9 @@ confused deputy problem_.
 
 ## Security Warning – Missing condition key for oidc principal
 
-**Issue code:** MISSING_CONDITION_KEY_FOR_OIDC_PRINCIPAL
+**Issue code:** MISSING\_CONDITION\_KEY\_FOR\_OIDC\_PRINCIPAL
 
-**Finding type:** SECURITY_WARNING
+**Finding type:** SECURITY\_WARNING
 
 **Finding details**
 
@@ -4294,9 +4294,9 @@ only the intended identity provider assumes the role.
 
 ## Security Warning – Missing github repo condition key
 
-**Issue code:** MISSING_GITHUB_REPO_CONDITION_KEY
+**Issue code:** MISSING\_GITHUB\_REPO\_CONDITION\_KEY
 
-**Finding type:** SECURITY_WARNING
+**Finding type:** SECURITY\_WARNING
 
 **Finding details**
 
@@ -4330,9 +4330,9 @@ associated with the GitHub IAM IdP in your AWS account.
 
 ## Security Warning – String like operator with ARN condition keys
 
-**Issue code:** STRING_LIKE_OPERATOR_WITH_ARN_CONDITION_KEYS
+**Issue code:** STRING\_LIKE\_OPERATOR\_WITH\_ARN\_CONDITION\_KEYS
 
-**Finding type:** SECURITY_WARNING
+**Finding type:** SECURITY\_WARNING
 
 **Finding details**
 
@@ -4359,8 +4359,8 @@ ARNs to ensure proper access restriction based on ARN condition values. Update t
 These AWS managed policies are exceptions to this security warning:
 
 - [AmazonSecurityLakeAdministrator](../../../aws-managed-policy/latest/reference/AmazonSecurityLakeAdministrator.md "../../../aws-managed-policy/latest/reference/AmazonSecurityLakeAdministrator.md")
-- [AWSCodePipeline_FullAccess](../../../aws-managed-policy/latest/reference/AWSCodePipeline_FullAccess.md "../../../aws-managed-policy/latest/reference/AWSCodePipeline_FullAccess.md")
-- [AWSCodePipeline_ReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSCodePipeline_ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSCodePipeline_ReadOnlyAccess.md")
+- [AWSCodePipeline\_FullAccess](../../../aws-managed-policy/latest/reference/AWSCodePipeline_FullAccess.md "../../../aws-managed-policy/latest/reference/AWSCodePipeline_FullAccess.md")
+- [AWSCodePipeline\_ReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSCodePipeline_ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSCodePipeline_ReadOnlyAccess.md")
 - [S3UnlockBucketPolicy](../../../aws-managed-policy/latest/reference/S3UnlockBucketPolicy.md "../../../aws-managed-policy/latest/reference/S3UnlockBucketPolicy.md")
 - [SQSUnlockQueuePolicy](../../../aws-managed-policy/latest/reference/SQSUnlockQueuePolicy.md "../../../aws-managed-policy/latest/reference/SQSUnlockQueuePolicy.md")
 
@@ -4372,9 +4372,9 @@ These AWS managed policies are exceptions to this security warning:
 
 ## Security Warning – ForAnyValue with audience claim type
 
-**Issue code:** FORANYVALUE_WITH_AUDIENCE_CLAIM_TYPE
+**Issue code:** FORANYVALUE\_WITH\_AUDIENCE\_CLAIM\_TYPE
 
-**Finding type:** SECURITY_WARNING
+**Finding type:** SECURITY\_WARNING
 
 **Finding details**
 
@@ -4403,7 +4403,7 @@ the `ForAnyValue` set operator.
 
 ## Suggestion – Empty array action
 
-**Issue code:** EMPTY_ARRAY_ACTION
+**Issue code:** EMPTY\_ARRAY\_ACTION
 
 **Finding type:** SUGGESTION
 
@@ -4431,7 +4431,7 @@ element is empty, the policy statement provides no permissions. Specify actions 
 
 ## Suggestion – Empty array condition
 
-**Issue code:** EMPTY_ARRAY_CONDITION
+**Issue code:** EMPTY\_ARRAY\_CONDITION
 
 **Finding type:** SUGGESTION
 
@@ -4459,7 +4459,7 @@ condition value is empty, the condition returns `true` and the policy statement 
 
 ## Suggestion – Empty array condition ForAllValues
 
-**Issue code:** EMPTY_ARRAY_CONDITION_FORALLVALUES
+**Issue code:** EMPTY\_ARRAY\_CONDITION\_FORALLVALUES
 
 **Finding type:** SUGGESTION
 
@@ -4491,7 +4491,7 @@ recommends that if you want to test whether a request context is empty, use the 
 
 ## Suggestion – Empty array condition ForAnyValue
 
-**Issue code:** EMPTY_ARRAY_CONDITION_FORANYVALUE
+**Issue code:** EMPTY\_ARRAY\_CONDITION\_FORANYVALUE
 
 **Finding type:** SUGGESTION
 
@@ -4523,7 +4523,7 @@ on the policy. AWS recommends that you rewrite the condition.
 
 ## Suggestion – Empty array condition IfExists
 
-**Issue code:** EMPTY_ARRAY_CONDITION_IFEXISTS
+**Issue code:** EMPTY\_ARRAY\_CONDITION\_IFEXISTS
 
 **Finding type:** SUGGESTION
 
@@ -4554,7 +4554,7 @@ recommends that if you want to test whether a request context is empty, use the 
 
 ## Suggestion – Empty array principal
 
-**Issue code:** EMPTY_ARRAY_PRINCIPAL
+**Issue code:** EMPTY\_ARRAY\_PRINCIPAL
 
 **Finding type:** SUGGESTION
 
@@ -4586,7 +4586,7 @@ specify the principals that should have access to the resource.
 
 ## Suggestion – Empty array resource
 
-**Issue code:** EMPTY_ARRAY_RESOURCE
+**Issue code:** EMPTY\_ARRAY\_RESOURCE
 
 **Finding type:** SUGGESTION
 
@@ -4617,7 +4617,7 @@ specify Amazon Resource Names (ARNs) for resources.
 
 ## Suggestion – Empty object condition
 
-**Issue code:** EMPTY_OBJECT_CONDITION
+**Issue code:** EMPTY\_OBJECT\_CONDITION
 
 **Finding type:** SUGGESTION
 
@@ -4647,7 +4647,7 @@ specify conditions.
 
 ## Suggestion – Empty object principal
 
-**Issue code:** EMPTY_OBJECT_PRINCIPAL
+**Issue code:** EMPTY\_OBJECT\_PRINCIPAL
 
 **Finding type:** SUGGESTION
 
@@ -4679,7 +4679,7 @@ specify the principals that should have access to the resource.
 
 ## Suggestion – Empty Sid value
 
-**Issue code:** EMPTY_SID_VALUE
+**Issue code:** EMPTY\_SID\_VALUE
 
 **Finding type:** SUGGESTION
 
@@ -4710,7 +4710,7 @@ string value.
 
 ## Suggestion – Equivalent to null false
 
-**Issue code:** EQUIVALENT_TO_NULL_FALSE
+**Issue code:** EQUIVALENT\_TO\_NULL\_FALSE
 
 **Finding type:** SUGGESTION
 
@@ -4746,7 +4746,7 @@ key-operator combination.
 
 ## Suggestion – Equivalent to null true
 
-**Issue code:** EQUIVALENT_TO_NULL_TRUE
+**Issue code:** EQUIVALENT\_TO\_NULL\_TRUE
 
 **Finding type:** SUGGESTION
 
@@ -4781,7 +4781,7 @@ block to use `{recommendedKey}: true` instead of the current key-operator combin
 
 ## Suggestion – Improve IP range
 
-**Issue code:** IMPROVE_IP_RANGE
+**Issue code:** IMPROVE\_IP\_RANGE
 
 **Finding type:** SUGGESTION
 
@@ -4810,7 +4810,7 @@ after the masked bits, they are not considered for the condition. AWS recommends
 
 ## Suggestion – Null with qualifier
 
-**Issue code:** NULL_WITH_QUALIFIER
+**Issue code:** NULL\_WITH\_QUALIFIER
 
 **Finding type:** SUGGESTION
 
@@ -4847,7 +4847,7 @@ you use the `StringLike` condition operator with these set operators.
 
 ## Suggestion – Private IP address subset
 
-**Issue code:** PRIVATE_IP_ADDRESS_SUBSET
+**Issue code:** PRIVATE\_IP\_ADDRESS\_SUBSET
 
 **Finding type:** SUGGESTION
 
@@ -4884,7 +4884,7 @@ and it goes through a VPC endpoint.
 
 ## Suggestion – Private NotIpAddress subset
 
-**Issue code:** PRIVATE_NOT_IP_ADDRESS_SUBSET
+**Issue code:** PRIVATE\_NOT\_IP\_ADDRESS\_SUBSET
 
 **Finding type:** SUGGESTION
 
@@ -4918,7 +4918,7 @@ the private IP addresses that should not match.
 
 ## Suggestion – Redundant action
 
-**Issue code:** REDUNDANT_ACTION
+**Issue code:** REDUNDANT\_ACTION
 
 **Finding type:** SUGGESTION
 
@@ -4972,7 +4972,7 @@ redundant actions from your policy.
 
 ## Suggestion – Redundant condition value num
 
-**Issue code:** REDUNDANT_CONDITION_VALUE_NUM
+**Issue code:** REDUNDANT\_CONDITION\_VALUE\_NUM
 
 **Finding type:** SUGGESTION
 
@@ -5016,7 +5016,7 @@ the redundant `2700` value.
 
 ## Suggestion – Redundant resource
 
-**Issue code:** REDUNDANT_RESOURCE
+**Issue code:** REDUNDANT\_RESOURCE
 
 **Finding type:** SUGGESTION
 
@@ -5066,7 +5066,7 @@ that you remove redundant resources from your policy.
 
 ## Suggestion – Redundant statement
 
-**Issue code:** REDUNDANT_STATEMENT
+**Issue code:** REDUNDANT\_STATEMENT
 
 **Finding type:** SUGGESTION
 
@@ -5097,7 +5097,7 @@ granted by the policy. When someone edits a policy, they might change one of the
 
 ## Suggestion – Wildcard in service name
 
-**Issue code:** WILDCARD_IN_SERVICE_NAME
+**Issue code:** WILDCARD\_IN\_SERVICE\_NAME
 
 **Finding type:** SUGGESTION
 
@@ -5129,7 +5129,7 @@ add permissions for future services that you do not intend. For example, there a
 
 ## Suggestion – Allow with unsupported tag condition key for service
 
-**Issue code:** ALLOW_WITH_UNSUPPORTED_TAG_CONDITION_KEY_FOR_SERVICE
+**Issue code:** ALLOW\_WITH\_UNSUPPORTED\_TAG\_CONDITION\_KEY\_FOR\_SERVICE
 
 **Finding type:** SUGGESTION
 
@@ -5240,7 +5240,7 @@ is allowed, regardless of whether the resource is tagged.
 
 ## Suggestion – Allow NotAction with unsupported tag condition key for service
 
-**Issue code:** ALLOW_NOTACTION_WITH_UNSUPPORTED_TAG_CONDITION_KEY_FOR_SERVICE
+**Issue code:** ALLOW\_NOTACTION\_WITH\_UNSUPPORTED\_TAG\_CONDITION\_KEY\_FOR\_SERVICE
 
 **Finding type:** SUGGESTION
 
@@ -5289,7 +5289,7 @@ access control (RBAC)](introduction_attribute-based-access-control.md#introducti
 
 ## Suggestion – Recommended condition key for service principal
 
-**Issue code:** RECOMMENDED_CONDITION_KEY_FOR_SERVICE_PRINCIPAL
+**Issue code:** RECOMMENDED\_CONDITION\_KEY\_FOR\_SERVICE\_PRINCIPAL
 
 **Finding type:** SUGGESTION
 
@@ -5329,7 +5329,7 @@ problem_.
 
 ## Suggestion – Irrelevant condition key in policy
 
-**Issue code:** IRRELEVANT_CONDITION_KEY_IN_POLICY
+**Issue code:** IRRELEVANT\_CONDITION\_KEY\_IN\_POLICY
 
 **Finding type:** SUGGESTION
 
@@ -5360,7 +5360,7 @@ You should use the condition key in an identity-based policy to control access t
 
 ## Suggestion – Redundant key due to wildcard in condition
 
-**Issue code:** REDUNDANT_KEY_DUE_TO_WILDCARD_IN_CONDITION
+**Issue code:** REDUNDANT\_KEY\_DUE\_TO\_WILDCARD\_IN\_CONDITION
 
 **Finding type:** SUGGESTION
 
@@ -5395,7 +5395,7 @@ while maintaining the same effective permissions.
 
 ## Suggestion – Redundant principal in role trust policy
 
-**Issue code:** REDUNDANT_PRINCIPAL_IN_ROLE_TRUST_POLICY
+**Issue code:** REDUNDANT\_PRINCIPAL\_IN\_ROLE\_TRUST\_POLICY
 
 **Finding type:** SUGGESTION
 
@@ -5437,7 +5437,7 @@ We recommend removing the assumed-role principal.
 
 ## Suggestion – Redundant statement due to wildcard in condition
 
-**Issue code:** REDUNDANT_STATEMENT_DUE_TO_WILDCARD_IN_CONDITION
+**Issue code:** REDUNDANT\_STATEMENT\_DUE\_TO\_WILDCARD\_IN\_CONDITION
 
 **Finding type:** SUGGESTION
 
@@ -5472,7 +5472,7 @@ this key to improve readability and performance.
 
 ## Suggestion – Confirm audience claim type
 
-**Issue code:** CONFIRM_AUDIENCE_CLAIM_TYPE
+**Issue code:** CONFIRM\_AUDIENCE\_CLAIM\_TYPE
 
 **Finding type:** SUGGESTION
 

@@ -21,14 +21,14 @@ To delete an AWS account ID
 alias, run the following command:
 
 - `aws
-iam delete-account-alias`
+ iam delete-account-alias`
 
 To confirm that the account alias is
 deleted, attempt to display your AWS account ID
 alias, by running the following command:
 
 - `aws
-iam list-account-aliases`
+ iam list-account-aliases`
 
 API
 To delete an AWS account ID

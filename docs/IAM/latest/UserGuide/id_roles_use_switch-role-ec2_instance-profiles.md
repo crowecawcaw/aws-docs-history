@@ -49,37 +49,37 @@ You can use the following AWS CLI commands to work with instance profiles in an 
 account.
 
 - Create an instance profile: [`aws iam
-create-instance-profile`](../../../cli/latest/reference/iam/create-instance-profile.md "../../../cli/latest/reference/iam/create-instance-profile.md")
+ create-instance-profile`](../../../cli/latest/reference/iam/create-instance-profile.md "../../../cli/latest/reference/iam/create-instance-profile.md")
 - Tag an instance profile: [`aws iam
-tag-instance-profile`](../../../cli/latest/reference/iam/tag-instance-profile.md "../../../cli/latest/reference/iam/tag-instance-profile.md")
+ tag-instance-profile`](../../../cli/latest/reference/iam/tag-instance-profile.md "../../../cli/latest/reference/iam/tag-instance-profile.md")
 - List tags for an instance profile: [`aws iam
-list-instance-profile-tags`](../../../cli/latest/reference/iam/list-instance-profile-tags.md "../../../cli/latest/reference/iam/list-instance-profile-tags.md")
+ list-instance-profile-tags`](../../../cli/latest/reference/iam/list-instance-profile-tags.md "../../../cli/latest/reference/iam/list-instance-profile-tags.md")
 - Untag an instance profile: [`aws iam
-untag-instance-profile`](../../../cli/latest/reference/iam/untag-instance-profile.md "../../../cli/latest/reference/iam/untag-instance-profile.md")
+ untag-instance-profile`](../../../cli/latest/reference/iam/untag-instance-profile.md "../../../cli/latest/reference/iam/untag-instance-profile.md")
 - Add a role to an instance profile: [`aws iam
-add-role-to-instance-profile`](../../../cli/latest/reference/iam/add-role-to-instance-profile.md "../../../cli/latest/reference/iam/add-role-to-instance-profile.md")
+ add-role-to-instance-profile`](../../../cli/latest/reference/iam/add-role-to-instance-profile.md "../../../cli/latest/reference/iam/add-role-to-instance-profile.md")
 - List instance profiles: [`aws iam
-list-instance-profiles`](../../../cli/latest/reference/iam/list-instance-profiles.md "../../../cli/latest/reference/iam/list-instance-profiles.md"), [`aws iam
-list-instance-profiles-for-role`](../../../cli/latest/reference/iam/list-instance-profiles-for-role.md "../../../cli/latest/reference/iam/list-instance-profiles-for-role.md")
+ list-instance-profiles`](../../../cli/latest/reference/iam/list-instance-profiles.md "../../../cli/latest/reference/iam/list-instance-profiles.md"), [`aws iam
+ list-instance-profiles-for-role`](../../../cli/latest/reference/iam/list-instance-profiles-for-role.md "../../../cli/latest/reference/iam/list-instance-profiles-for-role.md")
 - Get information about an instance profile: [`aws iam
-get-instance-profile`](../../../cli/latest/reference/iam/get-instance-profile.md "../../../cli/latest/reference/iam/get-instance-profile.md")
+ get-instance-profile`](../../../cli/latest/reference/iam/get-instance-profile.md "../../../cli/latest/reference/iam/get-instance-profile.md")
 - Remove a role from an instance profile: [`aws iam
-remove-role-from-instance-profile`](../../../cli/latest/reference/iam/remove-role-from-instance-profile.md "../../../cli/latest/reference/iam/remove-role-from-instance-profile.md")
+ remove-role-from-instance-profile`](../../../cli/latest/reference/iam/remove-role-from-instance-profile.md "../../../cli/latest/reference/iam/remove-role-from-instance-profile.md")
 - Delete an instance profile: [`aws iam
-delete-instance-profile`](../../../cli/latest/reference/iam/delete-instance-profile.md "../../../cli/latest/reference/iam/delete-instance-profile.md")
+ delete-instance-profile`](../../../cli/latest/reference/iam/delete-instance-profile.md "../../../cli/latest/reference/iam/delete-instance-profile.md")
 
 You can also attach a role to an already running EC2 instance by using the following
 commands. For more information, see [IAM Roles for Amazon EC2](../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md#attach-iam-role "../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md#attach-iam-role").
 
 - Attach an instance profile with a role to a stopped or running
   EC2 instance: [`aws ec2
-associate-iam-instance-profile`](../../../cli/latest/reference/ec2/associate-iam-instance-profile.md "../../../cli/latest/reference/ec2/associate-iam-instance-profile.md")
+ associate-iam-instance-profile`](../../../cli/latest/reference/ec2/associate-iam-instance-profile.md "../../../cli/latest/reference/ec2/associate-iam-instance-profile.md")
 - Get information about an instance profile attached to an EC2
   instance: [`aws ec2
-describe-iam-instance-profile-associations`](../../../cli/latest/reference/ec2/describe-iam-instance-profile-associations.md "../../../cli/latest/reference/ec2/describe-iam-instance-profile-associations.md")
+ describe-iam-instance-profile-associations`](../../../cli/latest/reference/ec2/describe-iam-instance-profile-associations.md "../../../cli/latest/reference/ec2/describe-iam-instance-profile-associations.md")
 - Detach an instance profile with a role from a stopped or
   running EC2 instance: [`aws ec2
-disassociate-iam-instance-profile`](../../../cli/latest/reference/ec2/disassociate-iam-instance-profile.md "../../../cli/latest/reference/ec2/disassociate-iam-instance-profile.md")
+ disassociate-iam-instance-profile`](../../../cli/latest/reference/ec2/disassociate-iam-instance-profile.md "../../../cli/latest/reference/ec2/disassociate-iam-instance-profile.md")
 
 ### Managing instance profiles (AWS API)
 

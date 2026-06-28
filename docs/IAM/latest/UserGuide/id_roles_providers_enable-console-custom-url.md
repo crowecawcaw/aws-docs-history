@@ -15,42 +15,42 @@ Active Directory Federation Services or open-source Shibboleth. For details, see
 To enable your organization's users to access the AWS Management Console, you can create a custom
 _identity broker_ that performs the following steps:
 
-1.  Verify that the user is authenticated by your local identity system.
-2.  Call the AWS Security Token Service (AWS STS) [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") (recommended) or [GetFederationToken](../../../STS/latest/APIReference/API_GetFederationToken.md "../../../STS/latest/APIReference/API_GetFederationToken.md") API operations to obtain temporary security credentials for
-    the user. To learn about the different methods that you can use to assume a role, see [Methods to assume a role](id_roles_manage-assume.md "id_roles_manage-assume.md"). To learn how to
-    pass optional session tags when you obtain your security credentials, see [Pass session tags in AWS STS](id_session-tags.md "id_session-tags.md").
+1. Verify that the user is authenticated by your local identity system.
+2. Call the AWS Security Token Service (AWS STS) [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") (recommended) or [GetFederationToken](../../../STS/latest/APIReference/API_GetFederationToken.md "../../../STS/latest/APIReference/API_GetFederationToken.md") API operations to obtain temporary security credentials for
+   the user. To learn about the different methods that you can use to assume a role, see [Methods to assume a role](id_roles_manage-assume.md "id_roles_manage-assume.md"). To learn how to
+   pass optional session tags when you obtain your security credentials, see [Pass session tags in AWS STS](id_session-tags.md "id_session-tags.md").
 
-    - If you use one of the `AssumeRole*` API operations to get the temporary
-      security credentials for a role, you can include the `DurationSeconds`
-      parameter in your call. This parameter specifies the duration of your role session, from
-      900 seconds (15 minutes) up to the maximum session duration setting for the role. When
-      you use `DurationSeconds` in an `AssumeRole*` operation, you must
-      call it as an IAM user with long-term credentials. Otherwise, the call to the
-      federation endpoint in step 3 fails. To learn how to view or change the maximum value
-      for a role, see [Update the maximum session duration for a role](id_roles_update-role-settings.md#id_roles_update-session-duration "id_roles_update-role-settings.md#id_roles_update-session-duration").
-    - If you use the `GetFederationToken` API operation to get the credentials,
-      you can include the `DurationSeconds` parameter in your call. This parameter
-      specifies the duration of your role session. The value can range from 900 seconds (15
-      minutes) to 129,600 seconds (36 hours). You can make this API call only by using the
-      long-term AWS security credentials of an IAM user. You can also make these calls
-      using AWS account root user credentials, but we do not recommend it. If you make this call as the
-      root user, the default session lasts for one hour. Or you can specify a session from 900
-      seconds (15 minutes) up to 3,600 seconds (one hour).
+   - If you use one of the `AssumeRole*` API operations to get the temporary
+     security credentials for a role, you can include the `DurationSeconds`
+     parameter in your call. This parameter specifies the duration of your role session, from
+     900 seconds (15 minutes) up to the maximum session duration setting for the role. When
+     you use `DurationSeconds` in an `AssumeRole*` operation, you must
+     call it as an IAM user with long-term credentials. Otherwise, the call to the
+     federation endpoint in step 3 fails. To learn how to view or change the maximum value
+     for a role, see [Update the maximum session duration for a role](id_roles_update-role-settings.md#id_roles_update-session-duration "id_roles_update-role-settings.md#id_roles_update-session-duration").
+   - If you use the `GetFederationToken` API operation to get the credentials,
+     you can include the `DurationSeconds` parameter in your call. This parameter
+     specifies the duration of your role session. The value can range from 900 seconds (15
+     minutes) to 129,600 seconds (36 hours). You can make this API call only by using the
+     long-term AWS security credentials of an IAM user. You can also make these calls
+     using AWS account root user credentials, but we do not recommend it. If you make this call as the
+     root user, the default session lasts for one hour. Or you can specify a session from 900
+     seconds (15 minutes) up to 3,600 seconds (one hour).
 
-3.  Call the AWS federation endpoint and supply the temporary security credentials to
-    request a sign-in token.
-4.  Construct a URL for the console that includes the token:
+3. Call the AWS federation endpoint and supply the temporary security credentials to
+   request a sign-in token.
+4. Construct a URL for the console that includes the token:
 
-    - If you use one of the `AssumeRole*` API operations in your URL, you can
-      include the `SessionDuration` HTTP parameter. This parameter specifies the
-      duration of the console session, from 900 seconds (15 minutes) to 43200 seconds (12
-      hours).
-    - If you use the `GetFederationToken` API operation in your URL, you can
-      include the `DurationSeconds` parameter. This parameter specifies the
-      duration of the federated console session. The value can range from 900 seconds (15
-      minutes) to 129,600 seconds (36 hours).
+   - If you use one of the `AssumeRole*` API operations in your URL, you can
+     include the `SessionDuration` HTTP parameter. This parameter specifies the
+     duration of the console session, from 900 seconds (15 minutes) to 43200 seconds (12
+     hours).
+   - If you use the `GetFederationToken` API operation in your URL, you can
+     include the `DurationSeconds` parameter. This parameter specifies the
+     duration of the federated console session. The value can range from 900 seconds (15
+     minutes) to 129,600 seconds (36 hours).
 
-    ###### Note
+   ###### Note
 
         + Your `SessionDuration` cannot be greater than or equal to the
          maximum session duration setting for the role you're assuming. For example,
@@ -68,11 +68,11 @@ _identity broker_ that performs the following steps:
         + Do not use the `SessionDuration` HTTP parameter when you get
          temporary credentials through role chaining. The operation will fail.
 
-5.  Give the URL to the user or invoke the URL on the user's behalf.
-    The URL that the federation endpoint provides is valid for 15 minutes after it is created.
-    This differs from the duration (in seconds) of the temporary security credential session that is
-    associated with the URL. Those credentials are valid for the duration you specified when you
-    created them, starting from the time they were created.
+5. Give the URL to the user or invoke the URL on the user's behalf.
+   The URL that the federation endpoint provides is valid for 15 minutes after it is created.
+   This differs from the duration (in seconds) of the temporary security credential session that is
+   associated with the URL. Those credentials are valid for the duration you specified when you
+   created them, starting from the time they were created.
 
 ###### Important
 

@@ -95,22 +95,21 @@ are valid for one hour.
 
 ###### To change the maximum session duration setting for roles that are assumed using the AWS CLI (AWS CLI)
 
-1.  (Optional) To view the current maximum session duration setting for a
-    role, run the following command:
+1. (Optional) To view the current maximum session duration setting for a
+   role, run the following command:
 
-    - [aws iam
-      get-role](../../../cli/latest/reference/iam/get-role.md "../../../cli/latest/reference/iam/get-role.md")
+   - [aws iam
+     get-role](../../../cli/latest/reference/iam/get-role.md "../../../cli/latest/reference/iam/get-role.md")
 
-2.  To update a role's maximum session duration setting, run the following
-    command with the `max-session-duration` CLI parameter or the
-    `MaxSessionDuration` API parameter:
+2. To update a role's maximum session duration setting, run the following
+   command with the `max-session-duration` CLI parameter or the
+   `MaxSessionDuration` API parameter:
 
-        * [aws iam
-         update-role](../../../cli/latest/reference/iam/update-role.md "../../../cli/latest/reference/iam/update-role.md")
-
-    Your changes don't take effect until the next time someone assumes
-    this role. To learn how to revoke existing sessions for this role, see
-    [Revoke IAM role temporary security credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md").
+   - [aws iam
+     update-role](../../../cli/latest/reference/iam/update-role.md "../../../cli/latest/reference/iam/update-role.md")
+     Your changes don't take effect until the next time someone assumes
+     this role. To learn how to revoke existing sessions for this role, see
+     [Revoke IAM role temporary security credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md").
 
 ###### Note
 
@@ -125,17 +124,16 @@ are valid for one hour.
 
 ###### To change the maximum session duration setting for roles that are assumed using the API (AWS API)
 
-1.  (Optional) To view the current maximum session duration setting for a
-    role, call the following operation:
+1. (Optional) To view the current maximum session duration setting for a
+   role, call the following operation:
 
-    - [GetRole](../APIReference/API_GetRole.md "../APIReference/API_GetRole.md")
+   - [GetRole](../APIReference/API_GetRole.md "../APIReference/API_GetRole.md")
 
-2.  To update a role's maximum session duration setting, call the
-    following operation with the `max-session-duration` CLI
-    parameter or the `MaxSessionDuration` API parameter:
+2. To update a role's maximum session duration setting, call the
+   following operation with the `max-session-duration` CLI
+   parameter or the `MaxSessionDuration` API parameter:
 
-        * [UpdateRole](../APIReference/API_UpdateRole.md "../APIReference/API_UpdateRole.md")
-
-    Your changes don't take effect until the next time someone assumes
-    this role. To learn how to revoke existing sessions for this role, see
-    [Revoke IAM role temporary security credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md").
+   - [UpdateRole](../APIReference/API_UpdateRole.md "../APIReference/API_UpdateRole.md")
+     Your changes don't take effect until the next time someone assumes
+     this role. To learn how to revoke existing sessions for this role, see
+     [Revoke IAM role temporary security credentials](id_roles_use_revoke-sessions.md "id_roles_use_revoke-sessions.md").

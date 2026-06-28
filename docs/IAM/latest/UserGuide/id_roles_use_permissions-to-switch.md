@@ -10,21 +10,20 @@ in that account permission to switch to the role.
 
 ###### To grant permission to switch to a role
 
-1.  As the administrator of the trusted account, create a new policy for the user, or edit
-    an existing policy to add the required elements. For details, see [Creating or editing the policy](#roles-usingrole-createpolicy "#roles-usingrole-createpolicy").
-2.  Then, choose how you want to share the role information:
+1. As the administrator of the trusted account, create a new policy for the user, or edit
+   an existing policy to add the required elements. For details, see [Creating or editing the policy](#roles-usingrole-createpolicy "#roles-usingrole-createpolicy").
+2. Then, choose how you want to share the role information:
 
-        * **Role link:** Send users a link that takes them to the
-         **Switch Role** page with all the details already filled
-         in.
-        * **Account ID or alias:** Provide each user with the
-         role name along with the account ID number or account alias. The user then goes to the
-         **Switch Role** page and adds the details manually.
-
-    For details, see [Providing information to the user](#roles-usingrole-giveuser "#roles-usingrole-giveuser").
-    Note that you can switch roles only when you sign in as an IAM user, a SAML-federated
-    role, or a web-identity federated role. You cannot switch roles when you sign in as the
-    AWS account root user.
+   - **Role link:** Send users a link that takes them to the
+     **Switch Role** page with all the details already filled
+     in.
+   - **Account ID or alias:** Provide each user with the
+     role name along with the account ID number or account alias. The user then goes to the
+     **Switch Role** page and adds the details manually.
+     For details, see [Providing information to the user](#roles-usingrole-giveuser "#roles-usingrole-giveuser").
+     Note that you can switch roles only when you sign in as an IAM user, a SAML-federated
+     role, or a web-identity federated role. You cannot switch roles when you sign in as the
+     AWS account root user.
 
 ###### Important
 

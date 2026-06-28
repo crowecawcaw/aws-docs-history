@@ -68,7 +68,7 @@ In the preceding image, the policy summary is visible from within the
      has access to some but not all of the actions for the service. The access is then
      defined by following descriptions for each of the access level classifications
      (`List`, `Read`, `Write`, `Permission
-Management`, and `Tagging`):
+  Management`, and `Tagging`):
 
    **Full**: The policy provides access to all actions within each
    access level classification listed. In this example, the policy provides access to all
@@ -136,71 +136,69 @@ warnings.
 In the preceding image, you can see all services that include defined actions, resources,
 or conditions with no permissions:
 
-1.  **Resource warnings** – For services that do not provide
-    permissions for all of the included actions or resources, you see one of the following
-    warnings in the **Resource** column of the table:
+1. **Resource warnings** – For services that do not provide
+   permissions for all of the included actions or resources, you see one of the following
+   warnings in the **Resource** column of the table:
 
-        * **![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
-         No resources are defined.** – This means that
-         the service has defined actions but no supported resources are included in the
-         policy.
+   - **![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
+     No resources are defined.** – This means that
+     the service has defined actions but no supported resources are included in the
+     policy.
 
+   - **![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
+     One or more actions do not have an applicable
+     resource.** – This means that the service has defined actions, but
+     that some of those actions don't have a supported resource.
+   - **![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
+     One or more resources do not have an applicable
+     action.** – This means that the service has defined resources, but
+     that some of those resources don't have a supporting action.
+     If a service includes both actions that do not have an applicable resource and
+     resources that do have an applicable resource, then only the **One or more
+     resources do not have an applicable action.** warning is shown. This is because
+     when you view the service summary for the service, resources that do not apply to any
+     action are not shown. For the `ListAllMyBuckets` action, this policy includes
+     the last warning because the action does not support resource-level permissions, and does
+     not support the `s3:x-amz-acl` condition key. If you fix either the resource
+     problem or the condition problem, the remaining issue appears in a detailed
+     warning.
 
-        * **![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
-         One or more actions do not have an applicable
-         resource.** – This means that the service has defined actions, but
-         that some of those actions don't have a supported resource.
-        * **![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
-         One or more resources do not have an applicable
-         action.** – This means that the service has defined resources, but
-         that some of those resources don't have a supporting action.
+2. **Request condition warnings** – For services that do not
+   provide permissions for all of the included conditions, you see one of the following
+   warnings in the **Request condition** column of the table:
 
-    If a service includes both actions that do not have an applicable resource and
-    resources that do have an applicable resource, then only the **One or more
-    resources do not have an applicable action.** warning is shown. This is because
-    when you view the service summary for the service, resources that do not apply to any
-    action are not shown. For the `ListAllMyBuckets` action, this policy includes
-    the last warning because the action does not support resource-level permissions, and does
-    not support the `s3:x-amz-acl` condition key. If you fix either the resource
-    problem or the condition problem, the remaining issue appears in a detailed
-    warning.
+   - **![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
+     One or more actions do not have an applicable
+     condition.** – This means that the service has defined actions, but
+     that some of those actions don't have a supported condition.
+   - **![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
+     One or more conditions do not have an applicable
+     action.** – This means that the service has defined conditions, but
+     that some of those conditions don't have a supporting action.
 
-2.  **Request condition warnings** – For services that do not
-    provide permissions for all of the included conditions, you see one of the following
-    warnings in the **Request condition** column of the table:
-
-    - **![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
-      One or more actions do not have an applicable
-      condition.** – This means that the service has defined actions, but
-      that some of those actions don't have a supported condition.
-    - **![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
-      One or more conditions do not have an applicable
-      action.** – This means that the service has defined conditions, but
-      that some of those conditions don't have a supporting action.
-
-3.  **Multiple |
-    ![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
-    One or more actions do not have an applicable resource.**
-    – The `Deny` statement for Amazon S3 includes more than one resource. It also
-    includes more than one action, and some actions support the resources and some do not. To
-    view this policy, see [SummaryAllElements JSON policy document](#policy-summary-example-json "#policy-summary-example-json"). In this case, the
-    policy includes all Amazon S3 actions, and only the actions that can be performed on a bucket
-    or bucket object are denied.
-4.  **![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
-    No resources are defined** – The service has
-    defined actions, but no supported resources are included in the policy, and therefore the
-    service provides no permissions. In this case, the policy includes CodeCommit actions but no
-    CodeCommit resources.
-5.  **DeploymentGroupName | string like | All, region | string like | us-west-2 |
-    ![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
-    One or more actions do not have an applicable resource.**
-    – The service has a defined action, and at least one more action that does not have
-    a supporting resource.
-6.  **None |
-    ![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
-    One or more conditions do not have an applicable action.**
-    – The service has at least one condition key that does not have a supporting
-    action.
+3. **Multiple |
+   ![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
+   One or more actions do not have an applicable resource.**
+   – The `Deny` statement for Amazon S3 includes more than one resource. It also
+   includes more than one action, and some actions support the resources and some do not. To
+   view this policy, see [SummaryAllElements JSON policy document](#policy-summary-example-json "#policy-summary-example-json"). In this case, the
+   policy includes all Amazon S3 actions, and only the actions that can be performed on a bucket
+   or bucket object are denied.
+4. **![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
+   No resources are defined** – The service has
+   defined actions, but no supported resources are included in the policy, and therefore the
+   service provides no permissions. In this case, the policy includes CodeCommit actions but no
+   CodeCommit resources.
+5. **DeploymentGroupName | string like | All, region | string like | us-west-2 |
+   ![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
+   One or more actions do not have an applicable resource.**
+   – The service has a defined action, and at least one more action that does not have
+   a supporting resource.
+6. **None |
+   ![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
+   One or more conditions do not have an applicable action.**
+   – The service has at least one condition key that does not have a supporting
+   action.
 
 ## **SummaryAllElements** JSON policy document
 

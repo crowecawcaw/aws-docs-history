@@ -130,8 +130,8 @@ allowed to assume the `efgh` cross-account role to perform tasks in account
 `222222222222`. To do this, the `abcd` EC2 instance
 profile role must have the following permissions policy:
 
-**_Account 111111111111
-`abcd` role permissions policy_**
+_**Account 111111111111
+`abcd` role permissions policy**_
 
 JSON
 
@@ -178,8 +178,8 @@ Assume that the `efgh` cross-account role allows read-only Amazon S3 tasks on th
 `222222222222` account. To do this, the `efgh`
 cross-account role must have the following permissions policy:
 
-**_Account 222222222222
-`efgh` role permissions policy_**
+_**Account 222222222222
+`efgh` role permissions policy**_
 
 JSON
 
@@ -219,8 +219,8 @@ The `efgh` role must allow the `abcd` instance profile role to
 assume it. To do this, the `efgh` role must have the following trust
 policy:
 
-**_Account 222222222222
-`efgh` role trust policy_**
+_**Account 222222222222
+`efgh` role trust policy**_
 
 JSON
 
@@ -252,7 +252,7 @@ To differentiate between role sessions when a role is used by different principa
 CloudTrail logs, you can use the role session name. When the AWS CLI assumes a role on a user's
 behalf as described in this topic, a role session name is automatically created as
 `AWS-CLI-session-`nnnnnnnn``. Here
- `nnnnnnnn` is an integer that represents the time in [Unix epoch time](http://wikipedia.org/wiki/Unix_time "http://wikipedia.org/wiki/Unix_time") (the number of
+`nnnnnnnn` is an integer that represents the time in [Unix epoch time](http://wikipedia.org/wiki/Unix_time "http://wikipedia.org/wiki/Unix_time") (the number of
 seconds since midnight UTC on January 1, 1970). For more information, see [CloudTrail Event Reference](../../../awscloudtrail/latest/userguide/eventreference.md "../../../awscloudtrail/latest/userguide/eventreference.md") in the
 _AWS CloudTrail User Guide_.
 

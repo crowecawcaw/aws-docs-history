@@ -25,16 +25,15 @@ work with IAM in order to update your permissions.
 
 - If you created a role using the IAM CLI or API, verify the following:
 
-      + You created an instance profile and added the role to that instance
-       profile.
-      + You used the same name for the role and the instance profile. If you name your
-       role and instance profile differently, you won't see the correct role name in the
-       Amazon EC2 console.
-
-  The **IAM Role** list in the Amazon EC2 console lists the names of
-  instance profiles, not the names of roles. You will have to select the name of the
-  instance profile that contains the role you want. For details about instance profiles, see
-  [Use instance profiles](id_roles_use_switch-role-ec2_instance-profiles.md "id_roles_use_switch-role-ec2_instance-profiles.md").
+  - You created an instance profile and added the role to that instance
+    profile.
+  - You used the same name for the role and the instance profile. If you name your
+    role and instance profile differently, you won't see the correct role name in the
+    Amazon EC2 console.
+    The **IAM Role** list in the Amazon EC2 console lists the names of
+    instance profiles, not the names of roles. You will have to select the name of the
+    instance profile that contains the role you want. For details about instance profiles, see
+    [Use instance profiles](id_roles_use_switch-role-ec2_instance-profiles.md "id_roles_use_switch-role-ec2_instance-profiles.md").
 
 ###### Note
 
@@ -110,7 +109,7 @@ the following:
 - Does the `iam` subtree of the IMDS exist? If not, verify that your instance
   has an IAM instance profile associated with it by calling the EC2
   `DescribeInstances` API operation or using the `aws ec2
-describe-instances` CLI command.
+ describe-instances` CLI command.
 
 ```
 `[ec2-user@domU-12-31-39-0A-8D-DE ~]$` `GET http://169.254.169.254/latest/meta-data/iam; echo`

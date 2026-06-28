@@ -61,30 +61,30 @@ that you want to locate.
 - `add user `user_name` to groups` or
   `add users to group `group_name``
 - `remove user `user_name` from
-groups`
+ groups`
 - `delete `user_name`` or
-`delete `group_name`` or `delete
-`role_name``, or `delete
-`policy_name``, or `delete
-`identity_provider_name``
+ `delete `group_name`` or `delete
+ `role_name``, or `delete
+ `policy_name``, or `delete
+ `identity_provider_name``
 - `manage access keys `user_name``
 - `manage signing certificates
-`user_name``
+ `user_name``
 - `users`
 - `manage MFA for `user_name``
 - `manage password for `user_name``
 - `create role`
 - `password policy`
 - `edit trust policy for role
-`role_name``
+ `role_name``
 - `show policy document for role
-`role_name``
+ `role_name``
 - `attach policy to `role_name``
 - `create managed policy`
 - `create user`
 - `create group`
 - `attach policy to `group_name``
 - `attach entities to
-`policy_name``
+ `policy_name``
 - `detach entities from
-`policy_name``
+ `policy_name``

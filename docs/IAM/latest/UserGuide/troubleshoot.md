@@ -35,7 +35,7 @@ Access keys consist of two parts:
   can be seen in the IAM console wherever access keys are listed, such as on the user
   summary page.
 - **The secret access key**. This is provided when you
-  initially create the access key pair. Just like a password, it **_cannot be retrieved later_**. If you lost
+  initially create the access key pair. Just like a password, it _**cannot be retrieved later**_. If you lost
   your secret access key, then you must create a new access key pair. If you already have
   the [maximum number of access keys](reference_iam-quotas.md#reference_iam-quotas-entities "reference_iam-quotas.md#reference_iam-quotas-entities"),
   you must delete an existing pair before you can create another.
@@ -126,7 +126,7 @@ existing but unassigned virtual MFA device.
 1. View the virtual MFA devices in your account.
 
    - AWS CLI: [`aws iam
-list-virtual-mfa-devices`](../../../cli/latest/reference/iam/list-virtual-mfa-devices.md "../../../cli/latest/reference/iam/list-virtual-mfa-devices.md")
+  list-virtual-mfa-devices`](../../../cli/latest/reference/iam/list-virtual-mfa-devices.md "../../../cli/latest/reference/iam/list-virtual-mfa-devices.md")
    - AWS API: [`ListVirtualMFADevices`](../APIReference/API_ListVirtualMFADevices.md "../APIReference/API_ListVirtualMFADevices.md")
 
 2. In the response, locate the ARN of the virtual MFA device for the user you are trying
@@ -134,7 +134,7 @@ list-virtual-mfa-devices`](../../../cli/latest/reference/iam/list-virtual-mfa-de
 3. Delete the virtual MFA device.
 
    - AWS CLI: [`aws iam
-delete-virtual-mfa-device`](../../../cli/latest/reference/iam/delete-virtual-mfa-device.md "../../../cli/latest/reference/iam/delete-virtual-mfa-device.md")
+  delete-virtual-mfa-device`](../../../cli/latest/reference/iam/delete-virtual-mfa-device.md "../../../cli/latest/reference/iam/delete-virtual-mfa-device.md")
    - AWS API: [`DeleteVirtualMFADevice`](../APIReference/API_DeleteVirtualMFADevice.md "../APIReference/API_DeleteVirtualMFADevice.md")
 
 ## How do I securely create IAM users?

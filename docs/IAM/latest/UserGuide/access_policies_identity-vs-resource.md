@@ -15,8 +15,8 @@ be [managed or inline](access_policies_managed-vs-inline.md "access_policies_man
 
 **Resource-based policies** are attached to a resource. For
 example, you can attach resource-based policies to Amazon S3 buckets, Amazon SQS queues, VPC endpoints,
-AWS Key Management Service encryption keys, and Amazon DynamoDB tables and streams. For a list of services that
-support resource-based policies, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
+AWS Key Management Service encryption keys, Amazon DynamoDB tables and streams, and AWS Sign-In resources. For a
+list of services that support resource-based policies, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 
 With resource-based policies, you can specify who has access to the resource and what
 actions they can perform on it.
@@ -63,12 +63,12 @@ the listed actions:
   list and read actions on `Resource Y`. The `Resource Y`
   resource-based policy also allows him write permissions. However, although his
   identity-based policy allows him access to `Resource Z`, the `Resource
-Z` resource-based policy denies that access. An explicit `Deny`
+ Z` resource-based policy denies that access. An explicit `Deny`
   overrides an `Allow` and his access to `Resource Z` is denied. For
   more information, see [Policy evaluation logic](reference_policies_evaluation-logic.md "reference_policies_evaluation-logic.md").
 - **Mary** – Mary can perform list, read, and
   write operations on `Resource X`, `Resource Y`, and `Resource
-Z`. Her identity-based policy allows her more actions on more resources than
+ Z`. Her identity-based policy allows her more actions on more resources than
   the resource-based policies, but none of them deny access.
 - **Zhang** – Zhang has full access to
   `Resource Z`. Zhang has no identity-based policies, but the `Resource
