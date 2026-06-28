@@ -16,5 +16,5 @@ The **Choose what to share** dialog box appears and displays thumbnail images of
     * To share your screen, choose **Entire screen**, then choose **Entire screen** again.
 
 3. Choose **Share**.
-   Desktop users in the meeting see a **Shared screen** pop-up, and mobile users see an alert to either view or ignore the shared screen.
-   Meeting attendees who view your shared screen can use their pointers to zoom in and out.
+Desktop users in the meeting see a **Shared screen** pop-up, and mobile users see an alert to either view or ignore the shared screen.
+Meeting attendees who view your shared screen can use their pointers to zoom in and out.

@@ -23,7 +23,7 @@ using the meeting from the meeting bridge information. For more information abou
      international phone numbers attendees can use to join a meeting.
 
 3. Use email or chat messages outside of your meeting to send the information to the
-   invitee.
+invitee.
 
 ###### To add attendees from your Contacts list
 

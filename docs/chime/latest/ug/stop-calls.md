@@ -25,8 +25,8 @@ If you don't see this command, do the following:
      window.
 
 4. When prompted, confirm the deletion.
-   Amazon Chime stops auto-calling you for the remaining meetings in the series, and your name stops appearing on the meeting
-   roster.
+Amazon Chime stops auto-calling you for the remaining meetings in the series, and your name stops appearing on the meeting
+roster.
 
 ###### Note
 

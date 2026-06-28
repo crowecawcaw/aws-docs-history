@@ -107,9 +107,9 @@ browser.
   _Limited meeting support_ means the
   following.
 
-      - You must dial in for audio.
-      - You can view video and screen shares.
-      - You can't share video.
+        - You must dial in for audio.
+        - You can view video and screen shares.
+        - You can't share video.
 
 ## Amazon Chime Add-In for Outlook requirements
 

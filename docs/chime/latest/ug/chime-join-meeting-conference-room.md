@@ -13,9 +13,9 @@ system to connect to Amazon Chime..
 
    - SIP –
      ``10-digit meeting
-ID`@meet.chime.in`,
-`u@meet.chime.in`, or
-`meet.chime.in`
+     ID`@meet.chime.in`,
+     `u@meet.chime.in`, or
+     `meet.chime.in`
    - H.323 –
      `13.248.147.139` or
      `76.223.18.152`

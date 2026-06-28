@@ -15,10 +15,9 @@ Outbound calling enables you to initiate a call from the desktop client and web 
 
 - iOS and Android:
 
-      + Choose **Calls**, then choose the dial pad icon
-      + Choose **Calls**, then **Call history**, then select a previous outbound number
-
-  All users with a Business Calling number and outbound calling enabled see the following banner after choosing **Dial a phone number**: **Amazon Chime is not a
-  replacement for your telephone and can't be used for emergency calling outside the United States.**
+  - Choose **Calls**, then choose the dial pad icon
+  - Choose **Calls**, then **Call history**, then select a previous outbound number
+    All users with a Business Calling number and outbound calling enabled see the following banner after choosing **Dial a phone number**: **Amazon Chime is not a
+    replacement for your telephone and can't be used for emergency calling outside the United States.**
 
 To use Amazon Chime Business Calling, your device must be connected to a network. If not, calls made by choosing **Dial** will not be completed.

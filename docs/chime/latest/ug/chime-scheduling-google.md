@@ -24,14 +24,12 @@ Do the following:
     * (Optional) On the **Find a time** tab, use the calendar to find a date and time.
     * Under **Guests**, choose **Add guests** and select the meeting attendees.
 
-6. Choose **Save**.
-7. When asked if you want to send the invitation, choose **Send**.
-8. (Optional) If you created a moderated meeting with a passcode, choose **Copy moderator info** and send the moderator information to the attendees who will act as moderators.
-   Amazon Chime meeting invites don't include moderator information. You must send it separately.
-   To create a moderated meeting as a delegate, ask the meeting host to complete the
-   previous procedure to create a meeting ID and moderator passcode. Then, have the meeting
-   host copy and paste the following information from their Amazon Chime app, and send it to
-   you:
+6. Choose **Save**. 7. When asked if you want to send the invitation, choose **Send**. 8. (Optional) If you created a moderated meeting with a passcode, choose **Copy moderator info** and send the moderator information to the attendees who will act as moderators.
+Amazon Chime meeting invites don't include moderator information. You must send it separately.
+To create a moderated meeting as a delegate, ask the meeting host to complete the
+previous procedure to create a meeting ID and moderator passcode. Then, have the meeting
+host copy and paste the following information from their Amazon Chime app, and send it to
+you:
 
 - For **Copy addresses**, the attendee email addresses.
 - For **Copy attendee invitation**, the instructions in the

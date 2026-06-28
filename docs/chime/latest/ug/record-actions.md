@@ -18,38 +18,36 @@ chat message once the meeting ends.
 
 ###### To start or stop meeting recording
 
-1.  To start recording, do one of the following:
+1. To start recording, do one of the following:
 
-    - In the left control bar, choose the **Record meeting** icon
-      (
+   - In the left control bar, choose the **Record meeting** icon
+     (
 
-    ![Icon of a record button.](images/icon-record-meeting.png)
+   ![Icon of a record button.](images/icon-record-meeting.png)
 
-    ).
-    - In the left control bar, choose the **More options** menu
-      (
+   ).
+   - In the left control bar, choose the **More options** menu
+     (
 
-    ![An icon showing a horizontal ellipsis.](images/left-control-6.png)
+   ![An icon showing a horizontal ellipsis.](images/left-control-6.png)
 
-    ), then choose **Record meeting**.
-    - If you joined the meeting from a phone or in-room conference system, press
-      .
+   ), then choose **Record meeting**.
+   - If you joined the meeting from a phone or in-room conference system, press
+     .
 
-2.  To stop recording, do one of the following:
+2. To stop recording, do one of the following:
 
-        * In the left control bar, choose the **Record meeting** icon,
-         located at the bottom of the bar.
-        * Open the **More options** menu (
+   - In the left control bar, choose the **Record meeting** icon,
+     located at the bottom of the bar.
+   - Open the **More options** menu (
 
-         ![An icon showing a horizontal ellipsis.](images/left-control-6.png)
+   ![An icon showing a horizontal ellipsis.](images/left-control-6.png)
 
-
-         ) and choose **Record meeting**.
-        * From a phone or in-room video system, press \*2.
-
-    When meeting attendees join a meeting that you record, Amazon Chime notifies them that you've
-    started recording. When you stop recording, the attendees receive an update that you've
-    stopped recording. Recording automatically stops when the meeting ends.
+   ) and choose **Record meeting**.
+   - From a phone or in-room video system, press \*2.
+     When meeting attendees join a meeting that you record, Amazon Chime notifies them that you've
+     started recording. When you stop recording, the attendees receive an update that you've
+     stopped recording. Recording automatically stops when the meeting ends.
 
 The meeting host, moderator, or delegate that started the recording receives the recording
 in a regular Amazon Chime chat message, not the meeting window. However, if a moderator or delegate starts the meeting from their

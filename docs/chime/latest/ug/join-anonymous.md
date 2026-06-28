@@ -32,5 +32,5 @@ information choosing video and audio settings, see [Setting video and audio sour
      Amazon Chime.
 
 5. Remain in the Waiting Room until an authorized attendee admits you to the meeting.
-   When you join a moderated meeting, you can't interact with other attendees until a
-   moderator joins and starts the meeting.
+When you join a moderated meeting, you can't interact with other attendees until a
+moderator joins and starts the meeting.
