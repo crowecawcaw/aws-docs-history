@@ -307,7 +307,7 @@ The options you can configure vary according to which parser you use:
   split incorrectly.) For example, you could disable all operators
   other than the phrase operator to support just simple term and
   phrase queries: `operators:['and', 'not', 'or',
-'prefix']`. Valid values: `and`, `escape`,
+ 'prefix']`. Valid values: `and`, `escape`,
   `fuzzy`, `near`, `not`, `or`,
   `phrase`, `precedence`, `prefix`,
   `whitespace`. Default: All
@@ -324,7 +324,7 @@ The options you can configure vary according to which parser you use:
   matches in the `title` field over the
   `abstract` field, you could specify:
   `phraseFields:['title^3',
-'abstract']`
+ 'abstract']`
   Valid values: The name of any `text` or
   `text-array` field and an optional numeric value greater than zero. Default: No fields. If you don't specify any fields with `phraseFields`, proximity scoring is disabled even if `phraseSlop` is specified. Valid
   for: `dismax`.

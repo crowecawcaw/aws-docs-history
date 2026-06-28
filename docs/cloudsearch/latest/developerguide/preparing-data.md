@@ -66,7 +66,7 @@ For each document in a batch, you must specify:
 - A name-value pair for each document field. To specify the value for a
   `latlon` field, you specify the latitude and longitude as a
   comma-separated list; for example, `"location_field":
-"35.628611,-120.694152"`. When specifying documents in JSON, the value
+ "35.628611,-120.694152"`. When specifying documents in JSON, the value
   for a field cannot be `null`. (You can, however, omit the field
   entirely.)
 

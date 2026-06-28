@@ -49,7 +49,7 @@ term(s) by enclosing them in HTML emphasis tags,
   is 5.
 - To specify the string to prepend to each highlighted term, use the
   `pre_tag` option; for example, `highlight.plot={pre_tag:'<strong>',
-post_tag:'</strong>'}`.
+ post_tag:'</strong>'}`.
 - To specify the string to append to each highlighted term, use the
   `post_tag` option; for example,
   `highlight.plot={pre_tag:'<strong>', post_tag:'</strong>'}`.

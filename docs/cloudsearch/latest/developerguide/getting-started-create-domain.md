@@ -44,8 +44,8 @@ The domain you're about to create will be live and you will incur the standard A
    a sample of your data.
 6. Choose **Next**.
 7. Review the index fields being configured. Eleven fields are configured automatically for the
-   imdb-movie data: actors, directors, genres, image_url, plot, rank, rating,
-   release_date, running_time_secs, title, and year.
+   imdb-movie data: actors, directors, genres, image\_url, plot, rank, rating,
+   release\_date, running\_time\_secs, title, and year.
 
 ###### Note
 

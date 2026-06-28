@@ -188,8 +188,8 @@ and at the end of the time period upload the changes and delete the period's
 tracking tables.
 
 For example, to synchronize changes and additions once a day, at the beginning of
-each day you could create a table called updates_YYYY_MM_DD to collect the daily
-updates. At the end of the day, you upload the updates_YYYY_MM_DD table to your
+each day you could create a table called updates\_YYYY\_MM\_DD to collect the daily
+updates. At the end of the day, you upload the updates\_YYYY\_MM\_DD table to your
 search domain. After the upload is complete, you can delete the update table and
 create a new one for the next day.
 

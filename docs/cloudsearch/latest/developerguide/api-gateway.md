@@ -60,22 +60,15 @@ For example, if your domain's search endpoint is
 specify `search-my-test-asdf5ambgebbgmmodhhq5asdfg`. 10. For **HTTP Method**, choose **GET**. 11. For **Action Type**, choose **Use path
 override** and enter `/2013-01-01/search`. 12. For **Execution role**, specify the ARN for
 `my-api-gateway-role`, such as
-`arn:aws:iam::`123456789012`:role/`my-api-gateway-role``.
-13. For **Content Handling**, choose
- **Passthrough**, use the default timeout, and then choose
- **Save**.
-14. Choose **Method Request**.
-15. For **Request Validator**, choose **Validate query
- string parameters and headers**, and then confirm.
-16. Expand **URL Query String Parameters**. Choose **Add
- query string**, name the string `q`, and confirm. Mark
- the query string as required.
-17. Choose **Method Execution** to return to the method
- summary.
-18. Choose **Integration Request**.
-19. Expand **URL Query String Parameters**. Choose **Add
- query string**, name the string `q`, provide a mapping
- of `method.request.querystring.q`, and then confirm.
+`arn:aws:iam::`123456789012`:role/`my-api-gateway-role``. 13. For **Content Handling**, choose
+**Passthrough**, use the default timeout, and then choose
+**Save**. 14. Choose **Method Request**. 15. For **Request Validator**, choose **Validate query
+string parameters and headers**, and then confirm. 16. Expand **URL Query String Parameters**. Choose **Add
+query string**, name the string `q`, and confirm. Mark
+the query string as required. 17. Choose **Method Execution** to return to the method
+summary. 18. Choose **Integration Request**. 19. Expand **URL Query String Parameters**. Choose **Add
+query string**, name the string `q`, provide a mapping
+of `method.request.querystring.q`, and then confirm.
 
 ## Testing the API (Console)
 

@@ -104,20 +104,19 @@ automatically generating document batches, see [Preparing Your Data](preparing-d
 
 ###### To send data to a domain for indexing
 
-1.  Open the Amazon CloudSearch console at [https://console.aws.amazon.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home "https://console.aws.amazon.com/cloudsearch/home").
-2.  In the left navigation pane, choose **Domains**.
-3.  Choose the name of your domain to open the domain configuration.
-4.  Choose **Actions**, **Upload
-    documents**.
-5.  Select the location of the data you want to upload to your domain:
+1. Open the Amazon CloudSearch console at [https://console.aws.amazon.com/cloudsearch/home](https://console.aws.amazon.com/cloudsearch/home "https://console.aws.amazon.com/cloudsearch/home").
+2. In the left navigation pane, choose **Domains**.
+3. Choose the name of your domain to open the domain configuration.
+4. Choose **Actions**, **Upload
+   documents**.
+5. Select the location of the data you want to upload to your domain:
 
-        * Local machine
-        * Amazon S3
-        * Amazon DynamoDB
-        * Sample data
-
-    If you upload data that isn't formatted as document batches, it will
-    automatically be converted during the upload process.
+   - Local machine
+   - Amazon S3
+   - Amazon DynamoDB
+   - Sample data
+     If you upload data that isn't formatted as document batches, it will
+     automatically be converted during the upload process.
 
 ###### Note
 
@@ -138,13 +137,11 @@ stating that the fields don't exist. 6. Upload your data.
     4. If you're uploading predefined sample data, choose the data set to
      use.
 
-7. Choose **Continue.**
-8. Review the documents to be uploaded and choose **Upload
-   documents**.
-9. In the **Upload Summary**, if a document batch has been
-   automatically generated from your data, you can choose **Download the
-   generated document batch** to get it. Choose
-   **Close** to return to the domain dashboard.
+7. Choose **Continue.** 8. Review the documents to be uploaded and choose **Upload
+documents**. 9. In the **Upload Summary**, if a document batch has been
+automatically generated from your data, you can choose **Download the
+generated document batch** to get it. Choose
+**Close** to return to the domain dashboard.
 
 ## Uploading Data Using the AWS CLI
 

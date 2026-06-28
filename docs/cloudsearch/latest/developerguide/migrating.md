@@ -232,7 +232,7 @@ This table summarizes the changes and additions to the Amazon CloudSearch limits
 
 | Change                                                   | Summary                                                                                                                                               |
 | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Reserved names                                           | \*score<br>• is the only reserved name.                                                                                                               |
+| Reserved names                                           | *score<br>• is the only reserved name.                                                                                                                |
 | No limit on return data                                  | Data returned from a text field is no longer truncated at 2 KB. However, keep in mind that the maximum document size is 1 MB.                         |
 | No limit on stemming, stopword, or synonym dictionaries. | Stemming, stopword, and synonym dictionaries are configured in an analysis scheme and there is no limit on the size of an analysis scheme definition. |
 | Maximum number of field values                           | An array type field can contain up to 1000 values.                                                                                                    |

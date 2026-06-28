@@ -101,7 +101,7 @@ You specify the following information in your access policies for Amazon CloudSe
 - `Condition` specifies conditions for when the policy is in
   effect. When configuring anonymous, IP-based access, you would specify the
   IP addresses that the access rule applies to, for example `"IpAddress":
-{"aws:SourceIp": ["192.0.2.0/32"]}`.
+ {"aws:SourceIp": ["192.0.2.0/32"]}`.
 - `Principal` specifies who is allowed access to the domain in a
   resource-based policy. `Principal` is not specified in user-based
   policies configured through IAM. The `Principal` value for a
@@ -178,8 +178,9 @@ actions:
 - `cloudsearch:suggest` allows access to the suggest API.
   Permission to use the `suggest` action is required to get
   suggestions from a domain.
-- `cloudsearch:`CONFIGURATION-ACTION``allows access to the specified configuration service action. Permission
-to use the`DescribeDomains`and`ListDomainNames`
+- `cloudsearch:`CONFIGURATION-ACTION``
+  allows access to the specified configuration service action. Permission
+  to use the `DescribeDomains` and `ListDomainNames`
   configuration actions is required to access the Amazon CloudSearch console.
   Configuration actions can be specified only in user-based policies. For
   the complete list of actions, see [Actions](API_Operations.md "API_Operations.md").

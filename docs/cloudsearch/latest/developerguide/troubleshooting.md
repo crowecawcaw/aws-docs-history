@@ -201,7 +201,7 @@ The following list shows minimum operating system and Java versions:
 - Red Hat Enterprise Linux 5 (March 2007), 6, and 7 and CentOS 5, 6, and 7 all
   contain at least one of the required CAs in their default trusted CA
   list.
-- Java 1.4.2_12 (May 2006), 5 Update 2 (March 2005), and all later versions,
+- Java 1.4.2\_12 (May 2006), 5 Update 2 (March 2005), and all later versions,
   including Java 6 (December 2006), 7, and 8, contain at least one of the required
   CAs in their default trusted CA list.
 

@@ -17,9 +17,7 @@ String
 
 Length constraints:
 
-Minimum length of
-
-1.
+Minimum length of 1.
 
 Maximum length of 64.
 
