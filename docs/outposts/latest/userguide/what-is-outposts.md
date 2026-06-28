@@ -76,33 +76,33 @@ deployments with ACE racks](https://aws.amazon.com/blogs/compute/scaling-aws-out
 You can create the following resources on your Outpost to support low-latency workloads
 that must run in close proximity to on-premises data and applications:
 
-| Compute                                                                                                                                                                                                   | Resource type | Racks | Servers |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----- | ------- |
-| [Amazon EC2 instances](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#outposts-instances "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#outposts-instances") | Yes           | Yes   |
-| [Amazon ECS<br>clusters](../../../AmazonECS/latest/developerguide/using-outposts.md "../../../AmazonECS/latest/developerguide/using-outposts.md")                                                         | Yes           | Yes   |
-| [Amazon EKS<br>nodes](../../../eks/latest/userguide/eks-outposts.md "../../../eks/latest/userguide/eks-outposts.md")                                                                                      | Yes           | No    |
+Compute| Resource type | Racks | Servers |
+| --- | --- | --- |
+| [Amazon EC2 instances](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#outposts-instances "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#outposts-instances") | Yes | Yes |
+| [Amazon ECS<br>clusters](../../../AmazonECS/latest/developerguide/using-outposts.md "../../../AmazonECS/latest/developerguide/using-outposts.md") | Yes | Yes |
+| [Amazon EKS<br>nodes](../../../eks/latest/userguide/eks-outposts.md "../../../eks/latest/userguide/eks-outposts.md") | Yes | No |
 
-| Database and analytics                                                                                                                                                                        | Resource type | Racks | Servers |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----- | ------- |
-| [Amazon ElastiCache<br>nodes](../../../AmazonElastiCache/latest/dg/ElastiCache-Outposts.md "../../../AmazonElastiCache/latest/dg/ElastiCache-Outposts.md") (Redis cluster, Memcached cluster) | Yes           | No    |
-| [Amazon EMR<br>clusters](../../../emr/latest/ManagementGuide/emr-plan-outposts.md "../../../emr/latest/ManagementGuide/emr-plan-outposts.md")                                                 | Yes           | No    |
-| [Amazon RDS DB<br>instances](../../../AmazonRDS/latest/UserGuide/rds-on-outposts.md "../../../AmazonRDS/latest/UserGuide/rds-on-outposts.md")                                                 | Yes           | No    |
+Database and analytics| Resource type | Racks | Servers |
+| --- | --- | --- |
+| [Amazon ElastiCache<br>nodes](../../../AmazonElastiCache/latest/dg/ElastiCache-Outposts.md "../../../AmazonElastiCache/latest/dg/ElastiCache-Outposts.md") (Redis cluster, Memcached cluster) | Yes | No |
+| [Amazon EMR<br>clusters](../../../emr/latest/ManagementGuide/emr-plan-outposts.md "../../../emr/latest/ManagementGuide/emr-plan-outposts.md") | Yes | No |
+| [Amazon RDS DB<br>instances](../../../AmazonRDS/latest/UserGuide/rds-on-outposts.md "../../../AmazonRDS/latest/UserGuide/rds-on-outposts.md") | Yes | No |
 
-| Networking                                                                                                                                                                                                                                | Resource type | Racks | Servers |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----- | ------- |
-| [App Mesh Envoy<br>proxy](../../../app-mesh/latest/userguide/app-mesh-on-outposts.md "../../../app-mesh/latest/userguide/app-mesh-on-outposts.md")                                                                                        | Yes           | Yes   |
-| [Application Load Balancers](../../../elasticloadbalancing/latest/application/application-load-balancers.md#subnets-load-balancer "../../../elasticloadbalancing/latest/application/application-load-balancers.md#subnets-load-balancer") | Yes           | No    |
-| [Amazon VPC subnets](../../../vpc/latest/userguide/Extend_VPCs.md#outposts "../../../vpc/latest/userguide/Extend_VPCs.md#outposts")                                                                                                       | Yes           | Yes   |
-| [Amazon Route 53](../../../Route53/latest/DeveloperGuide/outpost-resolver.md "../../../Route53/latest/DeveloperGuide/outpost-resolver.md")                                                                                                | Yes           | No    |
+Networking| Resource type | Racks | Servers |
+| --- | --- | --- |
+| [App Mesh Envoy<br>proxy](../../../app-mesh/latest/userguide/app-mesh-on-outposts.md "../../../app-mesh/latest/userguide/app-mesh-on-outposts.md") | Yes | Yes |
+| [Application Load Balancers](../../../elasticloadbalancing/latest/application/application-load-balancers.md#subnets-load-balancer "../../../elasticloadbalancing/latest/application/application-load-balancers.md#subnets-load-balancer") | Yes | No |
+| [Amazon VPC subnets](../../../vpc/latest/userguide/Extend_VPCs.md#outposts "../../../vpc/latest/userguide/Extend_VPCs.md#outposts") | Yes | Yes |
+| [Amazon Route 53](../../../Route53/latest/DeveloperGuide/outpost-resolver.md "../../../Route53/latest/DeveloperGuide/outpost-resolver.md") | Yes | No |
 
-| Storage                                                                                                                                                                                                | Resource type | Racks | Servers |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | ----- | ------- |
-| [Amazon EBS<br>volumes](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#outposts-volumes "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#outposts-volumes") | Yes           | No    |
-| [Amazon S3 buckets](../../../AmazonS3/latest/s3-outposts/S3onOutposts.md "../../../AmazonS3/latest/s3-outposts/S3onOutposts.md")                                                                       | Yes           | No    |
+Storage| Resource type | Racks | Servers |
+| --- | --- | --- |
+| [Amazon EBS<br>volumes](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#outposts-volumes "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#outposts-volumes") | Yes | No |
+| [Amazon S3 buckets](../../../AmazonS3/latest/s3-outposts/S3onOutposts.md "../../../AmazonS3/latest/s3-outposts/S3onOutposts.md") | Yes | No |
 
-| Other AWS services | Service | Racks | Servers |
-| ------------------ | ------- | ----- | ------- |
-| AWS IoT Greengrass | Yes     | Yes   |
+Other AWS services| Service | Racks | Servers |
+| --- | --- | --- |
+| AWS IoT Greengrass | Yes | Yes |
 
 ## Supported AWS services by AWS Region
 

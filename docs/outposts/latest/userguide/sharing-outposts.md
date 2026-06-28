@@ -91,11 +91,10 @@ These are the resources available for Outposts racks.
 - Subnets – Consumers with access to this resource
   can:
 
-      + View information about subnets.
-      + Launch and run EC2 instances in subnets.
-
-  Use the Amazon VPC console to share an Outpost subnet. For more information, see [Sharing a
-  subnet](../../../vpc/latest/userguide/vpc-sharing.md#vpc-sharing-share-subnet "../../../vpc/latest/userguide/vpc-sharing.md#vpc-sharing-share-subnet") in the _Amazon VPC User Guide_.
+  - View information about subnets.
+  - Launch and run EC2 instances in subnets.
+    Use the Amazon VPC console to share an Outpost subnet. For more information, see [Sharing a
+    subnet](../../../vpc/latest/userguide/vpc-sharing.md#vpc-sharing-share-subnet "../../../vpc/latest/userguide/vpc-sharing.md#vpc-sharing-share-subnet") in the _Amazon VPC User Guide_.
 
 ## Prerequisites for sharing Outposts resources
 
