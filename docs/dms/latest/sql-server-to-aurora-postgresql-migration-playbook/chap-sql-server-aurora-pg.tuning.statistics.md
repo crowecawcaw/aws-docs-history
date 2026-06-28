@@ -60,7 +60,7 @@ Turn off automatic statistics creation for a database.
 ALTER DATABASE MyDB SET AUTO_CREATE_STATS OFF;
 ```
 
-For more information, see [Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/statistics/statistics?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/statistics/statistics?view=sql-server-ver15"), [CREATE STATISTICS (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15"), and [DBCC SHOW_STATISTICS (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/statistics/statistics?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/statistics/statistics?view=sql-server-ver15"), [CREATE STATISTICS (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15"), and [DBCC SHOW\_STATISTICS (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 
@@ -119,7 +119,7 @@ The following example gathers statistics for a specific column.
 ANALYZE EMPLOYEES (HIRE_DATE);
 ```
 
-Specify the default_statistics_target parameter for an individual table column and reset it back to default.
+Specify the default\_statistics\_target parameter for an individual table column and reset it back to default.
 
 ```
 ALTER TABLE EMPLOYEES ALTER COLUMN SALARY SET STATISTICS 150;

@@ -117,7 +117,7 @@ WITH RESULT SETS
 );
 ```
 
-### sp_executesql System Stored Procedure
+### sp\_executesql System Stored Procedure
 
 This option runs a T-SQL command or block that you can run several times and build dynamically. You can also use this option with embedded parameters.
 
@@ -145,7 +145,7 @@ EXECUTE sp_executesql
   @DID = 23;
 ```
 
-For more information, see [sp_executesql (Transact-SQL)](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql?view=sql-server-2017") and [EXECUTE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/execute-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/execute-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
+For more information, see [sp\_executesql (Transact-SQL)](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql?view=sql-server-2017") and [EXECUTE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/execute-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/execute-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 

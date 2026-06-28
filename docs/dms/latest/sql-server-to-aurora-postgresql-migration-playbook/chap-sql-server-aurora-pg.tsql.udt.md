@@ -137,7 +137,9 @@ Similar to SQL Server, PostgreSQL enables the creation of user-defined types usi
 
 A user-defined type is owned by the user who creates it. If a schema name is specified, the type is created under that schema.
 
-PostgreSQL supports the creation of several different user-defined types: \* Composite types store a single named attribute attached to a data type or multiple attributes as an attribute collection. In PostgreSQL, you can also use the CREATE TYPE statement standalone with an association to a table. \* Enumerated types (enum) store a static ordered set of values. For example, product categories.
+PostgreSQL supports the creation of several different user-defined types:
+\* Composite types store a single named attribute attached to a data type or multiple attributes as an attribute collection. In PostgreSQL, you can also use the CREATE TYPE statement standalone with an association to a table.
+\* Enumerated types (enum) store a static ordered set of values. For example, product categories.
 
 -
 

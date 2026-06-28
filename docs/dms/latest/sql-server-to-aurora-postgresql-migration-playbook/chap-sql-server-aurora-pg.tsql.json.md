@@ -139,13 +139,13 @@ In PostgreSQL version 10 and higher, JSON and JSONB are compatible with full-tex
 
 **Querying JSON data in PostgreSQL uses different syntax than SQL Server**
 
-The following example returns the JSON document stored in the emp_data column associated with emp_id=1.
+The following example returns the JSON document stored in the emp\_data column associated with emp\_id=1.
 
 ```
 SELECT emp_data FROM employees WHERE emp_id = 1;
 ```
 
-The following example returns all JSON documents stored in the emp_data column having a key named address.
+The following example returns all JSON documents stored in the emp\_data column having a key named address.
 
 ```
 SELECT emp_data FROM employees WHERE emp_data ? ' address';
@@ -213,13 +213,13 @@ When you use GIN indexes, you can efficiently and quickly query data using only 
 
 Without indexes, PostgreSQL is forced to perform a full table scan when filtering data. This condition applies to JSON data and will most likely have a negative impact on performance since Postgres has to step into each JSON document.
 
-The following example creates an index on the address key of emp_data.
+The following example creates an index on the address key of emp\_data.
 
 ```
 CREATE idx1_employees ON employees ((emp_data->>'address'));
 ```
 
-The following example creates a GIN index on a specific key or the entire emp_data column.
+The following example creates a GIN index on a specific key or the entire emp\_data column.
 
 ```
 CREATE INDEX idx2_employees ON cards USING gin ((emp_data->'tags'));

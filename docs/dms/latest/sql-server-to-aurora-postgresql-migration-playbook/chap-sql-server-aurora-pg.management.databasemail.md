@@ -182,7 +182,7 @@ def lambda_handler(event, context):
     return result
 ```
 
-**db_util.py:**
+**db\_util.py:**
 
 ```
 #!/usr/bin/python

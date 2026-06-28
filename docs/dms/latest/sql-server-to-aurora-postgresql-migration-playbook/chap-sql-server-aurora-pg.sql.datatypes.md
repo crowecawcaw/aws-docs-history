@@ -130,7 +130,7 @@ PostgreSQL provides multiple data types equivalent to certain SQL Server data ty
 | -------------------- | ----------------------------------- | ---------------------------------- | ---------------------------------- |
 | GEOMETRY             | Euclidean (flat) coordinate system  | Yes                                | GEOMETRY                           |
 | GEOGRAPHY            | Round-earth coordinate system       | Yes                                | GEOGRAPHY                          |
-| SQL_VARIANT          | Maximum length of 8016              | No                                 | No equivalent                      |
+| SQL\_VARIANT         | Maximum length of 8016              | No                                 | No equivalent                      |
 
 **Other data types**
 

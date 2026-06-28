@@ -58,7 +58,7 @@ While some of the functions appear to be similar to those in SQL Server, the fun
 | `MAKE_TIMESTAMPTZ`      | Create timestamp with time zone from year, month, day, hour, minute, and seconds fields. If the time zone isn’t specified, the current time zone is used. |
 | NOW                     | Current date and time.                                                                                                                                    |
 | `STATEMENT_TIMESTAMP`   | Current date and time.                                                                                                                                    |
-| `TIMEOFDAY`             | Current date and time (like clock_timestamp, but as a text string).                                                                                       |
+| `TIMEOFDAY`             | Current date and time (like clock\_timestamp, but as a text string).                                                                                      |
 | `TRANSACTION_TIMESTAMP` | Current date and time.                                                                                                                                    |
 | `TO_TIMESTAMP`          | Convert Unix epoch (seconds since 1970-01-01 00:00:00+00) to timestamp.                                                                                   |
 

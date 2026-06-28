@@ -230,7 +230,7 @@ END$$;
 ## Summary
 
 | Feature              | SQL Server                             | Aurora PostgreSQL                               |
-| -------------------- | -------------------------------------- | ----------------------------------------------- | ------ | ------- | --------------------------- | --------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
+| -------------------- | -------------------------------------- | ----------------------------------------------- |
 | Cursor options       | ```<br>[FORWARD_ONLY                   | SCROLL] [STATIC                                 | KEYSET | DYNAMIC | FAST_FORWARD]<br>[READ_ONLY | SCROLL_LOCKS    | OPTIMISTIC]<br>```              | ```<br>[ BINARY ] [ INSENSITIVE ] [ [ NO ]<br>SCROLL ] CURSOR [ { WITH                                                                                                                                                                                       | WITHOUT } HOLD ]<br>``` |
 | Updateable cursors   | `<br>DECLARE CURSOR... FOR UPDATE<br>` | `<br>DECLARE cur_name CURSOR... FOR UPDATE<br>` |
 | Cursor declaration   | `<br>DECLARE CURSOR<br>`               | `<br>DECLARE cur_name CURSOR<br>`               |

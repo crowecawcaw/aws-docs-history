@@ -146,15 +146,15 @@ PostgreSQL provides support for two main types of window functions: aggregation 
 | Avg                        | numeric, double, otherwise same data type as the argument | Yes               |
 | Sum                        | bigint, otherwise same data type as the argument          | Yes               |
 | rank()                     | bigint                                                    | Yes               |
-| row_number()               | bigint                                                    | Yes               |
-| dense_rank()               | bigint                                                    | Yes               |
-| percent_rank()             | double                                                    | Yes               |
-| cume_dist()                | double                                                    | Yes               |
+| row\_number()              | bigint                                                    | Yes               |
+| dense\_rank()              | bigint                                                    | Yes               |
+| percent\_rank()            | double                                                    | Yes               |
+| cume\_dist()               | double                                                    | Yes               |
 | ntile()                    | integer                                                   | Yes               |
 | lag()                      | Same type as value                                        | Yes               |
 | lead()                     | Same type as value                                        | Yes               |
-| first_value()              | Same type as value                                        | Yes               |
-| last_value()               | Same type as value                                        | Yes               |
+| first\_value()             | Same type as value                                        | Yes               |
+| last\_value()              | Same type as value                                        | Yes               |
 
 ### Examples
 

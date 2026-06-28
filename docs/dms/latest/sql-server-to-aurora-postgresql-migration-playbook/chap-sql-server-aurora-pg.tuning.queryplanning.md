@@ -142,7 +142,7 @@ SET SEQ_PAGE_COST to 4;
 SET RANDOM_PAGE_COST to 1;
 ```
 
-Turn on or turn off the query planner’s use of nested-loops when performing joins. While it is impossible to completely disable the usage of nested-loop joins, setting the ENABLE_NESTLOOP to OFF discourages the query planner from choosing nested-loop joins compared to alternative join methods.
+Turn on or turn off the query planner’s use of nested-loops when performing joins. While it is impossible to completely disable the usage of nested-loop joins, setting the ENABLE\_NESTLOOP to OFF discourages the query planner from choosing nested-loop joins compared to alternative join methods.
 
 ```
 SET ENABLE_NESTLOOP to FALSE;

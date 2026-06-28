@@ -247,7 +247,7 @@ constraint_exclusion
 partition
 ```
 
-For more information, see [constraint_exclusion](https://www.postgresql.org/docs/10/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION "https://www.postgresql.org/docs/10/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION") in the _PostgreSQL documentation_.
+For more information, see [constraint\_exclusion](https://www.postgresql.org/docs/10/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION "https://www.postgresql.org/docs/10/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION") in the _PostgreSQL documentation_.
 
 PostgreSQL 9.6 doesn’t support declarative partitioning, nor several of the table partitioning features available in SQL Server.
 

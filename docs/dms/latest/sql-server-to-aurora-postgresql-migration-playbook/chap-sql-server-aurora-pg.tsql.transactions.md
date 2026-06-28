@@ -226,7 +226,7 @@ You can use parameter groups to modify instance-level parameters for Aurora Post
 ## Summary
 
 | Transaction property          | SQL Server                                        | Aurora PostgreSQL                                  |
-| ----------------------------- | ------------------------------------------------- | -------------------------------------------------- | ------------------------- | ----------------------- | ---------------------- | -------------- | ---------------- | ------------------- |
+| ----------------------------- | ------------------------------------------------- | -------------------------------------------------- |
 | Default isolation level       | `READ COMMITTED`                                  | `READ COMMITTED`                                   |
 | Initialize transaction syntax | `BEGIN TRAN` or `TRANSACTION`                     | `SET TRANSACTION`                                  |
 | Default isolation mechanism   | Pessimistic lock based                            | Lock based for writes, consistent read for selects |

@@ -134,12 +134,12 @@ FORMATMESSAGE (<Message Number> | <Message String>, <Parameter List>)
 
 SQL Server provides the following error state functions:
 
-- ERROR_LINE
-- ERROR_MESSAGE
-- ERROR_NUMBER
-- ERROR_PROCEDURE
-- ERROR_SEVERITY
-- ERROR_STATE
+- ERROR\_LINE
+- ERROR\_MESSAGE
+- ERROR\_NUMBER
+- ERROR\_PROCEDURE
+- ERROR\_SEVERITY
+- ERROR\_STATE
 - @@ERROR
 
 The following example uses error state functions within a `CATCH` block.

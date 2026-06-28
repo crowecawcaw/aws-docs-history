@@ -95,8 +95,8 @@ For more information, see [sqlcmd Utility](https://docs.microsoft.com/en-us/sql/
 
 PostgreSQL provides the native utilities `pg_dump` and `pg_restore` to perform logical database exports and imports with comparable functionality to the SQl Server SQLCMD utility. For example, moving data between two databases and creating logical database backups.
 
-- **pg_dump** to export data.
-- **pg_restore** to import data.
+- **pg\_dump** to export data.
+- **pg\_restore** to import data.
 
 The binaries for both utilities must be installed on your local workstation or on an Amazon EC2 server as part of the PostgreSQL client binaries.
 
@@ -109,7 +109,8 @@ Starting with PostgreSQL 10, these capabilities were added:
 - Allow to run `pg_dumpall` by non-superusers, using the `--no-role-passwords` option.
 - Create additional integrity option to ensure that the data is stored in disk using `fsync()` method.
 
-Starting with PostgreSQL 11, the following capabilities were added: \* `pg_dump` and `pg_restore` now export or import relationships between extensions and database objects established with `ALTER …​ DEPENDS ON EXTENSION`, which allows these objects to be dropped when extension is dropped with `CASCADE` option.
+Starting with PostgreSQL 11, the following capabilities were added:
+\* `pg_dump` and `pg_restore` now export or import relationships between extensions and database objects established with `ALTER …​ DEPENDS ON EXTENSION`, which allows these objects to be dropped when extension is dropped with `CASCADE` option.
 
 ### Notes
 
@@ -180,4 +181,4 @@ CREATE DATABASE mydb_copy TEPLATE mydb;
 | Using SQLCMD or Export/Import Wizard<br>`<br>SQLCMD -i C:\sql\myquery.sql -o C:\sql\output.txt<br>` | `<br>pg_dump -F c -h hostname.rds.amazonaws.com<br>-U username -d hr -p 5432 > c:\Export\hr.dmp<br>` |
 | Import data to a new database with a new name                                                       | Run SQLCMD with objects and data creation script<br>`<br>SQLCMD -i C:\sql\myquery.sql<br>`           |
 
-For more information, see [SQL Dump](https://www.postgresql.org/docs/13/backup-dump.html "https://www.postgresql.org/docs/13/backup-dump.html") and [pg_restore](https://www.postgresql.org/docs/13/app-pgrestore.html "https://www.postgresql.org/docs/13/app-pgrestore.html") in the _PostgreSQL documentation_.
+For more information, see [SQL Dump](https://www.postgresql.org/docs/13/backup-dump.html "https://www.postgresql.org/docs/13/backup-dump.html") and [pg\_restore](https://www.postgresql.org/docs/13/app-pgrestore.html "https://www.postgresql.org/docs/13/app-pgrestore.html") in the _PostgreSQL documentation_.

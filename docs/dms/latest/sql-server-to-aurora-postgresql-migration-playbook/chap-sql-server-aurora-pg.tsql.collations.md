@@ -32,7 +32,7 @@ Collations define sorting and matching sensitivity for the following string char
 - Width
 - Variation selector
 
-SQL Server uses a suffix naming convention that appends the option name to the collation name. For example, the collation Azeri_Cyrillic_100_CS_AS_KS_WS_SC, is an Azeri-Cyrillic-100 collation that is case-sensitive, accent-sensitive, kana type-sensitive, width-sensitive, and has supplementary characters.
+SQL Server uses a suffix naming convention that appends the option name to the collation name. For example, the collation Azeri\_Cyrillic\_100\_CS\_AS\_KS\_WS\_SC, is an Azeri-Cyrillic-100 collation that is case-sensitive, accent-sensitive, kana type-sensitive, width-sensitive, and has supplementary characters.
 
 SQL Server supports three types of collation sets:
 
@@ -70,7 +70,7 @@ COLLATE <Collation> [ <Column Constraints> ]...
 
 ### Examples
 
-The following example creates a database with a default Bengali_100_CS_AI collation.
+The following example creates a database with a default Bengali\_100\_CS\_AI collation.
 
 ```
 CREATE DATABASE MyBengaliDatabase
@@ -155,7 +155,7 @@ Unlike SQL Server, PostgreSQL doesn’t natively support an NVARHCHAR data type 
 
 ### Examples
 
-The following example creates a database named test01 which uses the Korean EUC_KR Encoding the and the `ko_KR` locale.
+The following example creates a database named test01 which uses the Korean EUC\_KR Encoding the and the `ko_KR` locale.
 
 ```
 CREATE DATABASE test01 WITH ENCODING 'EUC_KR' LC_COLLATE='ko_KR.euckr' LC_CTYPE='ko_KR.euckr' TEMPLATE=template0;
