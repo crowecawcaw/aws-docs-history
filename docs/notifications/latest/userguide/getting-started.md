@@ -70,44 +70,50 @@ are turned on by default. We recommend you use aggregation settings.
      Choose **Reduce notifications delivery time** for high priority
      notifications.
 
-5.  ###### (Optional) Add delivery channels:
+5. ###### (Optional) Add delivery channels:
+
     1. Select your delivery channels. We recommend that you view an event before adding
-       additional recipients.
+     additional recipients.
+
+
 
     Email
-
     ###### Note
 
     A verification email is sent to newly added email addresses once you create the
-    notification configuration. You can generate another verification email for pending
-    addresses by choosing **Reverify**.
+     notification configuration. You can generate another verification email for pending
+     addresses by choosing **Reverify**.
 
     The recipient must be signed in to the AWS account that added the email address to complete the
-    verification process. The verification link directs to the AWS Management Console.
-
-        1. Choose **Add emails**.
+     verification process. The verification link directs to the AWS Management Console.
 
 
-        ###### Tip
 
-        You can use your email distribution lists as an email delivery channel to easily subscribe multiple email addresses to User Notifications with a single verification flow.
-         You can separately add and remove emails to the distribution list without requiring further verification with User Notifications.
-        2. For **Recipient**, enter or choose the recipient's email
-         address.
-        3. For **Name**, enter the recipient's name.
-        4. (Optional) Choose **Add another recipient** to add more
-         recipients.
-        5. Choose **Add emails**.
+    	1. Choose **Add emails**.
+
+
+    	###### Tip
+
+    	You can use your email distribution lists as an email delivery channel to easily subscribe multiple email addresses to User Notifications with a single verification flow.
+    	 You can separately add and remove emails to the distribution list without requiring further verification with User Notifications.
+    	2. For **Recipient**, enter or choose the recipient's email
+    	 address.
+    	3. For **Name**, enter the recipient's name.
+    	4. (Optional) Choose **Add another recipient** to add more
+    	 recipients.
+    	5. Choose **Add emails**.
 
     Amazon Q Developer
 
-        1. For **Channel**, add a new channel or select the existing channels
-         you want to send notifications to.
 
+    	1. For **Channel**, add a new channel or select the existing channels
+    	 you want to send notifications to.
     ###### Note
 
     For more information about Amazon Q Developer in chat applications, see [What is Amazon Q Developer in chat applications?](../../../chatbot/latest/adminguide/what-is.md "../../../chatbot/latest/adminguide/what-is.md") in the
-    _Amazon Q Developer in chat applications Administrator Guide_.
+     *Amazon Q Developer in chat applications Administrator Guide*.
+
+
 
     AWS Console Mobile Application
 
@@ -115,19 +121,21 @@ are turned on by default. We recommend you use aggregation settings.
 
     Before you add a mobile device as a delivery channel, you must:
 
-        * Add the appropriate IAM permissions to make mobile device available in theUser Notifications
-         console. For more information, see [IAM permissions for
-         listing mobile devices as delivery channels](../../../consolemobileapp/latest/userguide/permissions-policies.md "../../../consolemobileapp/latest/userguide/permissions-policies.md") in the *AWS Console Mobile Application User
-         Guide*.
-        * Install the AWS Console Mobile Application on to your device with push notifications enabled. Note
-         that the notifications you receive are push notifications, not Short Message Service
-         (SMS). For more information, see [Step 1: Get started with push notifications](../../../consolemobileapp/latest/userguide/managing-notifications.md#step-1-get-started-with-push-notifications "../../../consolemobileapp/latest/userguide/managing-notifications.md#step-1-get-started-with-push-notifications") in the *AWS Console Mobile Application User
-         Guide*.
 
-        1. For **Device**, select the devices you want to send notifications
-         to.
 
-6.  ###### (Optional) Manage tags:
+    	* Add the appropriate IAM permissions to make mobile device available in theUser Notifications
+    	 console. For more information, see [IAM permissions for
+    	 listing mobile devices as delivery channels](../../../consolemobileapp/latest/userguide/permissions-policies.md "../../../consolemobileapp/latest/userguide/permissions-policies.md") in the *AWS Console Mobile Application User
+    	 Guide*.
+    	* Install the AWS Console Mobile Application on to your device with push notifications enabled. Note
+    	 that the notifications you receive are push notifications, not Short Message Service
+    	 (SMS). For more information, see [Step 1: Get started with push notifications](../../../consolemobileapp/latest/userguide/managing-notifications.md#step-1-get-started-with-push-notifications "../../../consolemobileapp/latest/userguide/managing-notifications.md#step-1-get-started-with-push-notifications") in the *AWS Console Mobile Application User
+    	 Guide*.
+
+    	1. For **Device**, select the devices you want to send notifications
+    	 to.
+
+6. ###### (Optional) Manage tags:
 
 ###### Tip
 
@@ -138,8 +146,7 @@ resources. For more information, see [Tagging your resources](tagging-resources.
     2. (Optional) For **Value**, enter a value for the specified key.
     3. (Optional) Choose **Add new tag** to add more tags.
 
-7. Review your configuration and confirm its details.
-8. Choose **Create notification configuration**.
+7. Review your configuration and confirm its details. 8. Choose **Create notification configuration**.
 
 ### Configuring notifications across accounts
 
