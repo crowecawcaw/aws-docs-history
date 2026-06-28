@@ -61,7 +61,7 @@ Provide your `DataFrame` as input. The estimator returns a
 `SageMakerModel` extends the
 `org.apache.spark.ml.Model`.
 
-The `fit` method does the following:
+The `train` method does the following:
 
     1. Converts the input `DataFrame` to the protobuf format. It
      does so by selecting the `features` and
@@ -90,7 +90,7 @@ The `fit` method does the following:
     	 them.
 
 3. You can get inferences from your model hosted in SageMaker AI with the
-   `SageMakerModel.transform`.
+`SageMakerModel.transform`.
 
 Provide an input `DataFrame` with features as input. The
 `transform` method transforms it to a `DataFrame`

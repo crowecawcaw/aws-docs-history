@@ -23,63 +23,61 @@ configured with VPC and installed using Helm.
   Amazon EKS cluster](../../../eks/latest/userguide/create-cluster.md "../../../eks/latest/userguide/create-cluster.md") in the Amazon EKS User Guide.
   When provisioning your Amazon EKS cluster, consider the following:
 
-1.  **Kubernetes version support**
+1. **Kubernetes version support**
 
-    - SageMaker HyperPod supports Kubernetes versions 1.28, 1.29, 1.30,
-      1.31, 1.32, 1.33, and 1.34.
+   - SageMaker HyperPod supports Kubernetes versions 1.28, 1.29, 1.30,
+     1.31, 1.32, 1.33, and 1.34.
 
-2.  **Amazon EKS cluster authentication mode**
+2. **Amazon EKS cluster authentication mode**
 
-    - The authentication mode of an Amazon EKS cluster supported by SageMaker HyperPod are
-      `API` and `API_AND_CONFIG_MAP`.
+   - The authentication mode of an Amazon EKS cluster supported by SageMaker HyperPod are
+     `API` and `API_AND_CONFIG_MAP`.
 
-3.  **Networking**
+3. **Networking**
 
-    - SageMaker HyperPod requires the Amazon VPC Container Network Interface (CNI)
-      plug-in version 1.18.3 or later.
+   - SageMaker HyperPod requires the Amazon VPC Container Network Interface (CNI)
+     plug-in version 1.18.3 or later.
 
-    ###### Note
+   ###### Note
 
-    [AWS VPC CNI
-    plugin for Kubernetes](https://github.com/aws/amazon-vpc-cni-k8s "https://github.com/aws/amazon-vpc-cni-k8s") is the only CNI supported by
-    SageMaker HyperPod.
-    - The [type of
-      the subnet](../../../vpc/latest/userguide/configure-subnets.md#subnet-types "../../../vpc/latest/userguide/configure-subnets.md#subnet-types") in your VPC must be private for HyperPod
-      clusters.
+   [AWS VPC CNI
+   plugin for Kubernetes](https://github.com/aws/amazon-vpc-cni-k8s "https://github.com/aws/amazon-vpc-cni-k8s") is the only CNI supported by
+   SageMaker HyperPod.
+   - The [type of
+     the subnet](../../../vpc/latest/userguide/configure-subnets.md#subnet-types "../../../vpc/latest/userguide/configure-subnets.md#subnet-types") in your VPC must be private for HyperPod
+     clusters.
 
-4.  **IAM roles**
+4. **IAM roles**
 
-    - Ensure the necessary IAM roles for HyperPod are set up as
-      guided in the [AWS Identity and Access Management for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md "sagemaker-hyperpod-prerequisites-iam.md")
-      section.
+   - Ensure the necessary IAM roles for HyperPod are set up as
+     guided in the [AWS Identity and Access Management for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md "sagemaker-hyperpod-prerequisites-iam.md")
+     section.
 
-5.  **Amazon EKS cluster add-ons**
+5. **Amazon EKS cluster add-ons**
 
-        * You can continue using the various add-ons provided by Amazon EKS such as
-         [Kube-proxy](../../../eks/latest/userguide/add-ons-kube-proxy.md "../../../eks/latest/userguide/add-ons-kube-proxy.md"),
-         [CoreDNS](../../../eks/latest/userguide/add-ons-coredns.md "../../../eks/latest/userguide/add-ons-coredns.md"), the
-         [Amazon VPC Container
-         Network Interface (CNI)](../../../eks/latest/userguide/add-ons-vpc-cni.md "../../../eks/latest/userguide/add-ons-vpc-cni.md") plugin, Amazon EKS pod identity, the GuardDuty
-         agent, the Amazon FSx Container Storage Interface (CSI) driver, the Mountpoint
-         for Amazon S3 CSI driver, the AWS Distro for OpenTelemetry, and the CloudWatch
-         Observability agent.
+   - You can continue using the various add-ons provided by Amazon EKS such as
+     [Kube-proxy](../../../eks/latest/userguide/add-ons-kube-proxy.md "../../../eks/latest/userguide/add-ons-kube-proxy.md"),
+     [CoreDNS](../../../eks/latest/userguide/add-ons-coredns.md "../../../eks/latest/userguide/add-ons-coredns.md"), the
+     [Amazon VPC Container
+     Network Interface (CNI)](../../../eks/latest/userguide/add-ons-vpc-cni.md "../../../eks/latest/userguide/add-ons-vpc-cni.md") plugin, Amazon EKS pod identity, the GuardDuty
+     agent, the Amazon FSx Container Storage Interface (CSI) driver, the Mountpoint
+     for Amazon S3 CSI driver, the AWS Distro for OpenTelemetry, and the CloudWatch
+     Observability agent.
 
+   ###### Important
 
-        ###### Important
-
-        Do not install a CSI driver that manages NVMe instance storage
-         (sometimes called a Local Instance Storage CSI driver) on
-         HyperPod nodes that use the SageMaker HyperPod AMI. The AMI
-         configures an LVM volume group (`vg.01`) on the NVMe
-         instance store at boot, before the CSI driver starts, and a CSI driver
-         that targets the same NVMe devices will conflict with this
-         configuration and cause I/O failures. The Amazon EBS CSI driver, the Amazon FSx
-         CSI driver, the Amazon EFS CSI driver, and the Mountpoint for Amazon S3 CSI driver are not affected
-         because they do not manage local NVMe instance storage. For details and
-         remediation steps, see the Considerations section in [Using the Amazon EBS CSI driver on SageMaker HyperPod EKS clusters](sagemaker-hyperpod-eks-ebs.md "sagemaker-hyperpod-eks-ebs.md").
-
-    **Considerations for configuring SageMaker HyperPod clusters with
-    Amazon EKS**
+   Do not install a CSI driver that manages NVMe instance storage
+   (sometimes called a Local Instance Storage CSI driver) on
+   HyperPod nodes that use the SageMaker HyperPod AMI. The AMI
+   configures an LVM volume group (`vg.01`) on the NVMe
+   instance store at boot, before the CSI driver starts, and a CSI driver
+   that targets the same NVMe devices will conflict with this
+   configuration and cause I/O failures. The Amazon EBS CSI driver, the Amazon FSx
+   CSI driver, the Amazon EFS CSI driver, and the Mountpoint for Amazon S3 CSI driver are not affected
+   because they do not manage local NVMe instance storage. For details and
+   remediation steps, see the Considerations section in [Using the Amazon EBS CSI driver on SageMaker HyperPod EKS clusters](sagemaker-hyperpod-eks-ebs.md "sagemaker-hyperpod-eks-ebs.md").
+   **Considerations for configuring SageMaker HyperPod clusters with
+   Amazon EKS**
 
 - You must use distinct IAM roles based on the type of your nodes. For
   HyperPod nodes, use a role based on [IAM role for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod"). For

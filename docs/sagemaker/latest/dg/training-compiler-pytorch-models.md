@@ -11,7 +11,7 @@ Bring your own PyTorch model to SageMaker AI, and run the training job with Sage
 PyTorch models with [Hugging Face Transformers](https://huggingface.co/docs/transformers/index "https://huggingface.co/docs/transformers/index") are based on PyTorch's [torch.nn.Module](https://pytorch.org/docs/stable/nn.html#torch.nn.Module "https://pytorch.org/docs/stable/nn.html#torch.nn.Module") API. Hugging Face Transformers also provides [Trainer](https://huggingface.co/docs/transformers/main_classes/trainer "https://huggingface.co/docs/transformers/main_classes/trainer") and pretrained model classes for PyTorch to help reduce the effort
 for configuring natural language processing (NLP) models. After preparing your training
 script, you can launch a training job using the SageMaker AI `PyTorch` or
-`HuggingFace` estimator with the SageMaker Training Compiler configuration when you'll
+`HuggingFace` ModelTrainer with the SageMaker Training Compiler configuration when you'll
 proceed to the next topic at [Enable SageMaker Training Compiler](training-compiler-enable.md "training-compiler-enable.md").
 
 ###### Tip
@@ -35,7 +35,7 @@ documentation_.
 
 If you use the transformers library’s Trainer class, you don’t need to make any
 additional changes to your training script. SageMaker Training Compiler automatically compiles your
-Trainer model if you enable it through the estimator class. The following code shows
+Trainer model if you enable it through the ModelTrainer class. The following code shows
 the basic form of a PyTorch training script with Hugging Face Trainer API.
 
 ```
@@ -82,8 +82,7 @@ SageMaker Training Compiler uses an alternate mechanism for launching a distribu
 and you don't need to make any modification in your training script. Instead,
 SageMaker Training Compiler requires you to pass a SageMaker AI distributed training launcher script to the
 `entry_point` argument and pass your training script to the
-`hyperparameters` argument in the SageMaker AI Hugging Face
-estimator.
+`hyperparameters` argument in the SageMaker AI Hugging Face ModelTrainer.
 
 #### Best Practices to Use SageMaker Training Compiler with `Trainer`
 
@@ -232,7 +231,7 @@ train_loader=torch.utils.data.DataLoader(
 
 4. Make the following changes to make sure you use the
    `parallel_loader` provided by the `torch_xla
-distributed` module.
+ distributed` module.
 
 ```
 import torch_xla.distributed.parallel_loader as pl
@@ -279,7 +278,7 @@ SageMaker Training Compiler uses an alternate mechanism for launching a distribu
 training job and requires you to pass a SageMaker AI distributed training
 launcher script to the `entry_point` argument and pass your
 training script to the `hyperparameters` argument in the SageMaker AI
-Hugging Face estimator.
+Hugging Face ModelTrainer.
 
 After you have completed adapting your training script, proceed to [Run PyTorch Training Jobs with SageMaker Training Compiler](training-compiler-enable-pytorch.md "training-compiler-enable-pytorch.md").
 

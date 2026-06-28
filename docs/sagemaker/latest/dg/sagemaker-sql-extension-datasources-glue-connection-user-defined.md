@@ -8,10 +8,10 @@ with the following:
 - `UserProfile: `user-profile-name``
 - `AppType: "JL"`
   Those tags applied to the AWS Glue connections created via the SQL extension UI serve two
-  purposes. The `"UserProfile": `user-profile-name``tag
- allows the identification of the specific user profile that created the AWS Glue connection,
- providing visibility into the user responsible for the connection. The`"AppType":
-  "JL"` tag categorizes the provenance of the connection, associating it with the
+  purposes. The `"UserProfile": `user-profile-name`` tag
+  allows the identification of the specific user profile that created the AWS Glue connection,
+  providing visibility into the user responsible for the connection. The `"AppType":
+ "JL"` tag categorizes the provenance of the connection, associating it with the
   JupyterLab application. This allows these connections to be differentiated from those that
   may have been created through other means, such as the AWS CLI.
 

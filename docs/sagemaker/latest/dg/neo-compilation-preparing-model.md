@@ -283,6 +283,32 @@ The command flags used in this example accomplish the following:
 
 For example, you can use a `sagemaker.TensorFlow` to define a TensorFlow estimator:
 
+SageMaker Python SDK v3
+
+```
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute, SourceCode
+
+model_trainer = ModelTrainer(
+    training_image='insert appropriate TensorFlow training image URI',
+    role=role,  #param role can be arn of a sagemaker execution role
+    compute=Compute(instance_type='ml.c4.xlarge', instance_count=2),
+    hyperparameters={
+        'training_steps': '1000',
+        'evaluation_steps': '100',
+    },
+    source_code=SourceCode(entry_script='mnist.py'),
+)
+```
+
+Then train the model with the `.train` method:
+
+```
+model_trainer.train(inputs)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 from sagemaker.tensorflow import TensorFlow
 
@@ -305,6 +331,35 @@ estimator.fit(inputs)
 Before finally compiling model with the build in
 `compile_model` method:
 
+SageMaker Python SDK v3
+
+```
+# Neo compilation in V3 uses ModelBuilder.optimize() with compilation_config
+from sagemaker.serve import ModelBuilder
+
+# Specify output path of the compiled model
+output_path = '/'.join(model_trainer.output_path.split('/')[:-1])
+
+model_builder = ModelBuilder(
+    model=model_trainer,
+    role_arn=role,
+    instance_type='ml.c5.xlarge',
+)
+optimized_model = model_builder.optimize(
+    instance_type='ml.c5.xlarge',
+    output_path=output_path,
+    compilation_config={
+        'OverrideEnvironment': {
+            'OPTION_TARGET_INSTANCE_FAMILY': 'ml_c5',
+            'OPTION_FRAMEWORK': 'tensorflow',
+            'OPTION_FRAMEWORK_VERSION': '1.15.3',
+        },
+    },
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 # Specify output path of the compiled model
 output_path = '/'.join(estimator.output_path.split('/')[:-1])
@@ -319,6 +374,64 @@ optimized_estimator = estimator.compile_model(target_instance_family='ml_c5',
 You can also use the `sagemaker.estimator.Estimator` Class to initialize an
 estimator object for training and compiling a built-in algorithm with the
 `compile_model` method from the SageMaker Python SDK:
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.core import image_uris
+from sagemaker.core.helper.session_helper import Session
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute, InputData
+
+sagemaker_session = Session()
+aws_region = sagemaker_session.boto_region_name
+
+# Specify built-in algorithm training image
+training_image = image_uris.retrieve(framework='image-classification',
+                          region=aws_region, image_scope='training')
+
+# Create ModelTrainer object for training
+model_trainer = ModelTrainer(training_image=training_image,
+                                          role=role,  #param role can be arn of a sagemaker execution role
+                                          compute=Compute(
+                                              instance_count=1,
+                                              instance_type='ml.p3.8xlarge',
+                                              volume_size_in_gb=50,
+                                          ),
+                                          output_data_config={'s3_output_path': s3_training_output_location},
+                                          base_job_name='image-classification-training'
+                                          )
+
+# Setup the input data_channels to be used later for training.
+train_data = InputData(channel_name='train', data_source=s3_training_data_location)
+validation_data = InputData(channel_name='validation', data_source=s3_validation_data_location)
+data_channels = [train_data, validation_data]
+
+# Train model
+model_trainer.train(inputs=data_channels)
+
+# Neo compilation in V3 uses ModelBuilder.optimize() with compilation_config
+from sagemaker.serve import ModelBuilder
+
+model_builder = ModelBuilder(
+    model=model_trainer,
+    role_arn=role,
+    instance_type='ml.c5.xlarge',
+)
+optimized_model = model_builder.optimize(
+    instance_type='ml.c5.xlarge',
+    output_path=s3_compilation_output_location,
+    compilation_config={
+        'OverrideEnvironment': {
+            'OPTION_TARGET_INSTANCE_FAMILY': 'ml_c5',
+            'OPTION_FRAMEWORK': 'mxnet',
+            'OPTION_FRAMEWORK_VERSION': '1.7',
+        },
+    },
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import sagemaker

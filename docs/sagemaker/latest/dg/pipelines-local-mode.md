@@ -35,6 +35,68 @@ In order to execute a pipeline locally, the `sagemaker_session` fields associate
 
 The following example shows how you can define a SageMaker AI pipeline to execute locally.
 
+SageMaker Python SDK v3
+
+```
+
+from sagemaker.core.workflow.pipeline_context import LocalPipelineSession
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import InputData, SourceCode
+from sagemaker.train.configs import Compute
+from sagemaker.mlops.workflow.steps import TrainingStep
+from sagemaker.mlops.workflow.pipeline import Pipeline
+from sagemaker.core.helper.session_helper import get_execution_role
+from sagemaker.core import image_uris
+
+local_pipeline_session = LocalPipelineSession()
+
+training_image = image_uris.retrieve(
+    framework="pytorch", region=region, version="1.8.0",
+    py_version="py36", instance_type="ml.c5.xlarge",
+    image_scope="training"
+)
+
+pytorch_model_trainer = ModelTrainer(
+    role=get_execution_role(),
+    compute=Compute(
+        instance_type="ml.c5.xlarge",
+        instance_count=1,
+    ),
+    training_image=training_image,
+    source_code=SourceCode(entry_script="./entry_point.py"),
+)
+
+step = TrainingStep(
+    name="MyTrainingStep",
+    step_args=pytorch_model_trainer.train(
+        input_data_config=[InputData(channel_name="training", data_source="s3://`amzn-s3-demo-bucket/my-data/train`")],
+    )
+)
+
+pipeline = Pipeline(
+    name="MyPipeline",
+    steps=[step],
+    sagemaker_session=local_pipeline_session
+)
+
+pipeline.create(
+    role_arn=get_execution_role(),
+    description="local pipeline example"
+)
+
+# pipeline will execute locally
+execution = pipeline.start()
+
+steps = execution.list_steps()
+
+training_job_name = steps['PipelineExecutionSteps'][0]['Metadata']['TrainingJob']['Arn']
+
+step_outputs = local_pipeline_session.sagemaker_client.describe_training_job(TrainingJobName = training_job_name)
+
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 
 from sagemaker.workflow.pipeline_context import LocalPipelineSession
@@ -72,7 +134,7 @@ pipeline.create(
     description="local pipeline example"
 )
 
-// pipeline will execute locally
+# pipeline will execute locally
 execution = pipeline.start()
 
 steps = execution.list_steps()

@@ -4,7 +4,7 @@
 
 ### IAM Roles Required for SageMaker Spaces on SageMaker HyperPod
 
-When enabling **SageMaker Spaces (a.k.a\*\***SageMaker IDE / Notebooks)\*\* features on a SageMaker
+When enabling **SageMaker Spaces (a.k.a\****SageMaker IDE / Notebooks)** features on a SageMaker
 HyperPod (EKS) cluster, several IAM roles must be created and assigned. These
 roles support secure access, routing, remote IDE sessions, and EBS storage
 provisioning. The following table summarizes the four roles and when they are

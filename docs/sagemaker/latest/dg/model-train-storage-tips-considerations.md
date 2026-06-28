@@ -19,8 +19,7 @@ Consider the following when setting up storage paths for training jobs in SageMa
   instance storage. For example, ML instance families with the NVMe-type instance storage
   include `ml.p4d`, `ml.g4dn`, and `ml.g5`. When using an
   ML instance with the EBS-only storage option and without instance storage, you must define
-  the size of EBS volume through the `volume_size` parameter in the SageMaker AI
-  estimator class (or `VolumeSizeInGB` if you are using the
+  the size of EBS volume through the `volume_size` parameter in the SageMaker AI ModelTrainer class (or `VolumeSizeInGB` if you are using the
   `ResourceConfig` API). For example, ML instance families that use EBS volumes
   include `ml.c5` and `ml.p2`. To look up instance types and their
   instance storage types and volumes, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").

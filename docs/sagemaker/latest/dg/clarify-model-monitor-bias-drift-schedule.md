@@ -32,7 +32,7 @@ sample:
 from sagemaker.model_monitor import CronExpressionGenerator
 
 model_bias_monitor = ModelBiasModelMonitor(
-    role=sagemaker.get_execution_role(),
+    role=get_execution_role(),
     ...
 )
 
@@ -75,7 +75,7 @@ sample:
 from sagemaker.model_monitor import CronExpressionGenerator
 
 model_bias_monitor = ModelBiasModelMonitor(
-    role=sagemaker.get_execution_role(),
+    role=get_execution_role(),
     ...
 )
 

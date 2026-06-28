@@ -74,6 +74,7 @@ SageMaker HyperPod is available in the following AWS Regions.
 - eu-west-2
 - eu-south-2
 - ap-south-1
+- ap-south-2
 - ap-southeast-1
 - ap-southeast-2
 - ap-southeast-3

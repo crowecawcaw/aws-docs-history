@@ -48,7 +48,7 @@ IMAGE_VERSION=`custom-image-version`
      image. To view your custom image details, see [View custom image details (console)](studio-updated-byoi-view-images.md#studio-updated-byoi-view-images-console "studio-updated-byoi-view-images.md#studio-updated-byoi-view-images-console").
 
 2. Use the [`CreateAppImageConfig`](../APIReference/API_CreateAppImageConfig.md "../APIReference/API_CreateAppImageConfig.md") API to create an image
-   configuration.
+configuration.
 
 ```
 aws sagemaker create-app-image-config \

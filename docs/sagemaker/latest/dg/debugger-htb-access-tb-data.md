@@ -41,7 +41,7 @@ load TensorBoard-compatible training output data from Amazon S3.
 
 The **SageMaker AI Data Manager** tab only shows training jobs configured
 with the `TensorBoardOutputConfig` parameter. Make sure you have
-configured the SageMaker AI estimator with this parameter. For more information, see [Step 2: Create a SageMaker training estimator object with the TensorBoard output configuration](debugger-htb-prepare-training-job.md#debugger-htb-prepare-training-job-2 "debugger-htb-prepare-training-job.md#debugger-htb-prepare-training-job-2").
+configured the SageMaker AI ModelTrainer with this parameter. For more information, see [Step 2: Create a SageMaker training ModelTrainer object with the TensorBoard output configuration](debugger-htb-prepare-training-job.md#debugger-htb-prepare-training-job-2 "debugger-htb-prepare-training-job.md#debugger-htb-prepare-training-job-2").
 
 ###### Note
 

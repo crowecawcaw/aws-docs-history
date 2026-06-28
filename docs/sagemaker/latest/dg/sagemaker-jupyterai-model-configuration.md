@@ -201,16 +201,22 @@ passed to the LCC.
 
 For models hosted by AWS, `boto3` is already installed in the SageMaker AI
 Distribution image used by JupyterLab, or any Data Science image used with
-Studio Classic. 2. _ **For models hosted by AWS**
-Ensure that your execution role has the permission to invoke your SageMaker AI endpoint
-for models provided by JumpStart or that you have access to Amazon Bedrock.
-_ **For models hosted by third-party
-providers**
-Export your provider's API key in your notebook environment using environment
-variables. You can use the following magic command. Replace the
-`provider_API_key` in the command by the environment variable found in
-the _Environment variable_ column of the Jupyter AI
-[Model providers list](https://jupyter-ai.readthedocs.io/en/latest/users/index.html#model-providers "https://jupyter-ai.readthedocs.io/en/latest/users/index.html#model-providers") for your provider.
-`
-	%env provider_API_key=your_API_key
-	`
+Studio Classic. 2. * **For models hosted by AWS**
+
+    Ensure that your execution role has the permission to invoke your SageMaker AI endpoint
+     for models provided by JumpStart or that you have access to Amazon Bedrock.
+    * **For models hosted by third-party
+     providers**
+
+
+    Export your provider's API key in your notebook environment using environment
+     variables. You can use the following magic command. Replace the
+     `provider_API_key` in the command by the environment variable found in
+     the *Environment variable* column of the Jupyter AI
+     [Model providers list](https://jupyter-ai.readthedocs.io/en/latest/users/index.html#model-providers "https://jupyter-ai.readthedocs.io/en/latest/users/index.html#model-providers") for your provider.
+
+
+
+    ```
+    %env provider_API_key=your_API_key
+    ```

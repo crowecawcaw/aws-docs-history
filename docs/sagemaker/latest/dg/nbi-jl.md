@@ -85,9 +85,9 @@ released!](https://blog.jupyter.org/jupyterlab-3-0-is-out-4f58385e25bb "https://
 
 - Visual debugger when using the following kernels:
 
-  - conda_pytorch_p38
-  - conda_tensorflow2_p38
-  - conda_amazonei_pytorch_latest_p37
+  - conda\_pytorch\_p38
+  - conda\_tensorflow2\_p38
+  - conda\_amazonei\_pytorch\_latest\_p37
 
 - File browser filter
 - Table of Contents (TOC)

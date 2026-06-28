@@ -13,7 +13,7 @@ hyperparameter tuning job to stop training jobs early, do one of the following:
 - In the Amazon SageMaker AI console, in the **Create hyperparameter tuning job**
   workflow, under **Early stopping**, choose
   **Auto**.
-  For a sample notebook that demonstrates how to use early stopping, see [https://github.com/awslabs/amazon-sagemaker-examples/blob/master/hyperparameter_tuning/image_classification_early_stopping/hpo_image_classification_early_stopping.ipynb](https://github.com/awslabs/amazon-sagemaker-examples/blob/master/hyperparameter_tuning/image_classification_early_stopping/hpo_image_classification_early_stopping.ipynb "https://github.com/awslabs/amazon-sagemaker-examples/blob/master/hyperparameter_tuning/image_classification_early_stopping/hpo_image_classification_early_stopping.ipynb")
+  For a sample notebook that demonstrates how to use early stopping, see [https://github.com/awslabs/amazon-sagemaker-examples/blob/master/hyperparameter\_tuning/image\_classification\_early\_stopping/hpo\_image\_classification\_early\_stopping.ipynb](https://github.com/awslabs/amazon-sagemaker-examples/blob/master/hyperparameter_tuning/image_classification_early_stopping/hpo_image_classification_early_stopping.ipynb "https://github.com/awslabs/amazon-sagemaker-examples/blob/master/hyperparameter_tuning/image_classification_early_stopping/hpo_image_classification_early_stopping.ipynb")
   or open the `hpo_image_classification_early_stopping.ipynb` notebook in the
   **Hyperparameter Tuning** section of the **SageMaker AI Examples**
   in a notebook instance.

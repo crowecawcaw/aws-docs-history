@@ -19,7 +19,7 @@ to update.
   root volume to Amazon S3 or Amazon FSx for Lustre.
 - All cluster nodes experience downtime (nodes appear as
   `<NotReady>` in the output of `kubectl get
-node`) while the patching is in progress. We recommend that
+ node`) while the patching is in progress. We recommend that
   you terminate all workloads before patching and resume them after the
   patch completes.
 

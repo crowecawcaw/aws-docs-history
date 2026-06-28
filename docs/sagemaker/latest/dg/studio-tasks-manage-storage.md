@@ -33,7 +33,7 @@ all of your users will lose their work.
    settings** tab.
 6. Under **General settings**, find the **Domain ID**.
    The ID will be in the following format: `d-xxxxxxxxxxxx`.
-7. Pass the `Domain ID`, as `DomainId`, to the [describe_domain](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.describe_domain "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.describe_domain") method.
+7. Pass the `Domain ID`, as `DomainId`, to the [describe\_domain](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.describe_domain "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.describe_domain") method.
 8. In the response from `describe_domain`, note the value for the
    `HomeEfsFileSystemId` key. This is the Amazon EFS file system ID.
 9. Open the [Amazon EFS console](https://console.aws.amazon.com/efs#/file-systems/ "https://console.aws.amazon.com/efs#/file-systems/"). Make

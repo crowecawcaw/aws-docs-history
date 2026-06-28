@@ -70,7 +70,7 @@ The following are use cases for extending a pre-built Docker container:
 
   - [TensorFlow](https://sagemaker.readthedocs.io/en/v2.18.0/frameworks/tensorflow/using_tf.html "https://sagemaker.readthedocs.io/en/v2.18.0/frameworks/tensorflow/using_tf.html")
   - [Chainer](https://sagemaker.readthedocs.io/en/v2.18.0/frameworks/chainer/using_chainer.html?highlight=requirements.txt "https://sagemaker.readthedocs.io/en/v2.18.0/frameworks/chainer/using_chainer.html?highlight=requirements.txt")
-  - [Sci-kit learn](https://sagemaker.readthedocs.io/en/stable/frameworks/sklearn/using_sklearn.html?highlight=requirements.txt "https://sagemaker.readthedocs.io/en/stable/frameworks/sklearn/using_sklearn.html?highlight=requirements.txt")
+  - [Sci-kit learn](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html")
   - [PyTorch](https://sagemaker.readthedocs.io/en/v2.18.0/frameworks/pytorch/using_pytorch.html?highlight=requirements.txt "https://sagemaker.readthedocs.io/en/v2.18.0/frameworks/pytorch/using_pytorch.html?highlight=requirements.txt")
   - [Apache MXNet](https://sagemaker.readthedocs.io/en/v2.18.0/frameworks/mxnet/using_mxnet.html?highlight=requirements.txt "https://sagemaker.readthedocs.io/en/v2.18.0/frameworks/mxnet/using_mxnet.html?highlight=requirements.txt")
 
@@ -89,8 +89,8 @@ TensorFlow model.
 - Because a TensorFlow model is going to be built in the TensorFlow framework,
   use the TensorFlow pre-built framework container to train and host the
   model.
-- If you require custom packages in either your [entrypoint](https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/using_tf.html#train-a-model-with-tensorflow "https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/using_tf.html#train-a-model-with-tensorflow") script or [inference script, either extend the pre-built container or use a
-  requirements.txt file to install dependencies at runtime.](https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/deploying_tensorflow_serving.html#how-to-implement-the-pre-and-or-post-processing-handler-s "https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/deploying_tensorflow_serving.html#how-to-implement-the-pre-and-or-post-processing-handler-s")
+- If you require custom packages in either your [entrypoint](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") script or [inference script, either extend the pre-built container or use a
+  requirements.txt file to install dependencies at runtime.](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html")
 
 After you determine the type of container that you need, the following list provides
 details about the previously listed options.
@@ -100,7 +100,7 @@ details about the previously listed options.
   worrying about containers. You can train and deploy these algorithms from the
   SageMaker AI console, the AWS Command Line Interface (AWS CLI), a Python notebook, or the
   [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"). You can do that by specifying the algorithm or framework
-  version when creating your Estimator. The available built-in algorithms are
+  version when creating your ModelTrainer. The available built-in algorithms are
   itemized and described in the [Built-in algorithms and pretrained models in Amazon SageMaker](algos.md "algos.md")
   topic. For more information about the available frameworks, see [ML Frameworks and Languages](frameworks.md "frameworks.md"). For an example of
   how to train and deploy a built-in algorithm using a Jupyter notebook running in
@@ -113,7 +113,7 @@ details about the previously listed options.
   SageMaker Images, see [Available Deep Learning Containers Images](https://github.com/aws/deep-learning-containers/blob/master/available_images.md "https://github.com/aws/deep-learning-containers/blob/master/available_images.md"). It also supports machine
   learning libraries such as scikit-learn and SparkML. If you use the
   [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"), you can deploy the containers by passing the full
-  container URI to their respective SageMaker SDK `Estimator` class. For the
+  container URI to their respective SageMaker SDK `ModelTrainer` class. For the
   full list of deep learning frameworks that are currently supported by SageMaker AI, see
   [Prebuilt SageMaker AI Docker images for deep learning](pre-built-containers-frameworks-deep-learning.md "pre-built-containers-frameworks-deep-learning.md"). For
   information about the scikit-learn and SparkML pre-built container images, see

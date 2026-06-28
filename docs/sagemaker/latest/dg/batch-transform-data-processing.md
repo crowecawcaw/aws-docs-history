@@ -164,7 +164,7 @@ and `content_type` parameters as well. The `split_type`
 parameter must have the same value as `assemble_with`, and the
 `content_type` parameter must have the same value as
 `accept`. For more information about the parameters and their
-accepted values, see the [Transformer](https://sagemaker.readthedocs.io/en/stable/api/inference/transformer.html#sagemaker.transformer.Transformer "https://sagemaker.readthedocs.io/en/stable/api/inference/transformer.html#sagemaker.transformer.Transformer") page in the _Amazon SageMaker AI Python
+accepted values, see the [Transformer](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") page in the _Amazon SageMaker AI Python
 SDK_.
 
 ```
@@ -233,7 +233,7 @@ example, if your input data includes five columns and the first one is the ID
 column, use the following transform request to select all columns except the ID
 column as features. The transformer still outputs all of the input columns
 joined with the inferences. For more information about the parameters and their
-accepted values, see the [Transformer](https://sagemaker.readthedocs.io/en/stable/api/inference/transformer.html#sagemaker.transformer.Transformer "https://sagemaker.readthedocs.io/en/stable/api/inference/transformer.html#sagemaker.transformer.Transformer") page in the _Amazon SageMaker AI Python
+accepted values, see the [Transformer](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") page in the _Amazon SageMaker AI Python
 SDK_.
 
 ```
@@ -287,7 +287,7 @@ excluding an ID column and then join the ID column with the inferences. Note
 that in the following example, the last column (`-1`) of the output
 contains the inferences. If you are using JSON files, SageMaker AI stores the inference
 results in the attribute `SageMakerOutput`. For more information
-about the parameters and their accepted values, see the [Transformer](https://sagemaker.readthedocs.io/en/stable/api/inference/transformer.html#sagemaker.transformer.Transformer "https://sagemaker.readthedocs.io/en/stable/api/inference/transformer.html#sagemaker.transformer.Transformer") page in the _Amazon SageMaker AI Python
+about the parameters and their accepted values, see the [Transformer](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") page in the _Amazon SageMaker AI Python
 SDK_.
 
 ```

@@ -75,5 +75,5 @@ step_train = TrainingStep(
 ```
 
 For more information on configuring retry behavior for certain step types, see
-_[Amazon SageMaker Pipelines - Retry Policy](https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_model_building_pipeline.html#retry-policy "https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_model_building_pipeline.html#retry-policy")_ in the Amazon SageMaker Python SDK
+_[Amazon SageMaker Pipelines - Retry Policy](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#retry-policy "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#retry-policy")_ in the Amazon SageMaker Python SDK
 documentation.

@@ -449,14 +449,13 @@ SageMaker HyperPod releases the following for [Orchestrating SageMaker HyperPod 
   SageMaker HyperPod cluster, see the updated documentation on the following
   pages.
 
-      + [Getting started with SageMaker HyperPod](smcluster-getting-started-slurm.md "smcluster-getting-started-slurm.md")
-      + [SageMaker HyperPod Slurm cluster operations](sagemaker-hyperpod-operate-slurm.md "sagemaker-hyperpod-operate-slurm.md")
-
-  Note that you need to update the HyperPod cluster software to use this
-  capability. After patching the HyperPod cluster software, you can
-  utilize this capability for existing SageMaker HyperPod clusters created before June
-  20, 2024 by adding new instance groups. This capability is fully effective for
-  any SageMaker HyperPod clusters created after June 20, 2024.
+  - [Getting started with SageMaker HyperPod](smcluster-getting-started-slurm.md "smcluster-getting-started-slurm.md")
+  - [SageMaker HyperPod Slurm cluster operations](sagemaker-hyperpod-operate-slurm.md "sagemaker-hyperpod-operate-slurm.md")
+    Note that you need to update the HyperPod cluster software to use this
+    capability. After patching the HyperPod cluster software, you can
+    utilize this capability for existing SageMaker HyperPod clusters created before June
+    20, 2024 by adding new instance groups. This capability is fully effective for
+    any SageMaker HyperPod clusters created after June 20, 2024.
 
 **Upgrade steps**
 
@@ -534,7 +533,7 @@ SageMaker HyperPod releases the following for [Orchestrating SageMaker HyperPod 
 - HyperPod now properly supports passing partition names provided
   through `provisioning_parameters.json` and creates partitions
   appropriately based on provided inputs. For more information about
-  `provisioning_parameters.json`, see [Legacy configuration: provisioning_parameters.json](sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-provisioning-forms "sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-provisioning-forms") and [Customizing SageMaker HyperPod clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md").
+  `provisioning_parameters.json`, see [Legacy configuration: provisioning\_parameters.json](sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-provisioning-forms "sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-provisioning-forms") and [Customizing SageMaker HyperPod clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md").
 
 **AMI releases**
 
@@ -549,10 +548,10 @@ SageMaker HyperPod releases the following for [Orchestrating SageMaker HyperPod 
 - Added a new `UpdateClusterSoftware` API for SageMaker HyperPod security
   patching. When security patches become available, we recommend you to update
   existing SageMaker HyperPod clusters in your account by running `aws sagemaker
-update-cluster-software --cluster-name
-`your-cluster-name``. To follow up with
-future security patches, keep tracking this Amazon SageMaker HyperPod release notes page.
-To learn how the `UpdateClusterSoftware` API works, see [Update the SageMaker HyperPod platform software of a cluster](sagemaker-hyperpod-operate-slurm-cli-command.md#sagemaker-hyperpod-operate-slurm-cli-command-update-cluster-software "sagemaker-hyperpod-operate-slurm-cli-command.md#sagemaker-hyperpod-operate-slurm-cli-command-update-cluster-software").
+ update-cluster-software --cluster-name
+ `your-cluster-name``. To follow up with
+  future security patches, keep tracking this Amazon SageMaker HyperPod release notes page.
+  To learn how the `UpdateClusterSoftware` API works, see [Update the SageMaker HyperPod platform software of a cluster](sagemaker-hyperpod-operate-slurm-cli-command.md#sagemaker-hyperpod-operate-slurm-cli-command-update-cluster-software "sagemaker-hyperpod-operate-slurm-cli-command.md#sagemaker-hyperpod-operate-slurm-cli-command-update-cluster-software").
 
 ## SageMaker HyperPod release notes: November 29, 2023
 

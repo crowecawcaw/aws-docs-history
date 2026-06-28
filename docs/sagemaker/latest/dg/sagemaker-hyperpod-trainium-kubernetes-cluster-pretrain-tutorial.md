@@ -144,7 +144,7 @@ Alternatively, use SageMaker HyperPod recipes to submit your training job. To su
 training job using a recipe, update `k8s.yaml` and
 `config.yaml`. Run the bash script for the model to launch it.
 
-- In `k8s.yaml`, update persistent_volume_claims to mount the
+- In `k8s.yaml`, update persistent\_volume\_claims to mount the
   Amazon FSx claim to the /data directory in the compute nodes
 
 ```
@@ -154,15 +154,14 @@ persistent_volume_claims:
 ```
 
 - Update
-  launcher_scripts/llama/run_hf_llama3_8b_seq8k_trn1x4_pretrain.sh
+  launcher\_scripts/llama/run\_hf\_llama3\_8b\_seq8k\_trn1x4\_pretrain.sh
 
-      + `your_neuron_contrainer`: The container from the
-       environment setup section
-      + `your_model_config`: The model config from the
-       environment setup section
-
-  (Optional) You can provide the HuggingFace token if you need pre-trained
-  weights from HuggingFace by setting the following key-value pair:
+  - `your_neuron_contrainer`: The container from the
+    environment setup section
+  - `your_model_config`: The model config from the
+    environment setup section
+    (Optional) You can provide the HuggingFace token if you need pre-trained
+    weights from HuggingFace by setting the following key-value pair:
 
 ```
 recipes.model.hf_access_token=`<your_hf_token>`

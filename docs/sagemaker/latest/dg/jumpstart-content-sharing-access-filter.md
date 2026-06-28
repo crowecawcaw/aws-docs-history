@@ -12,5 +12,5 @@ There are three main options for filtering shared models and notebooks:
    are shared to anyone in your organization
    You can also sort your models and notebooks based on the time they were last updated or by
    ascending or descending alphabetical order. Choose the filter icon (
-   ![](images/jumpstart/jumpstart-filter-icon.png)
+   ![Filter icon.](images/jumpstart/jumpstart-filter-icon.png)
    ) to further sort your selections.

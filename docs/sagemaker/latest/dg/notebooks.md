@@ -41,7 +41,7 @@ The following diagram outlines how a notebook kernel runs in relation to the Ker
 App, User, and domain.
 
 ![How a notebook kernel runs in relation to the KernelGateway App, User, and domain.](images/studio/studio-components.png)
-Sample SageMaker Studio Classic notebooks are available in the [aws_sagemaker_studio](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_sagemaker_studio "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_sagemaker_studio") folder of the [Amazon SageMaker example GitHub repository](https://github.com/awslabs/amazon-sagemaker-examples "https://github.com/awslabs/amazon-sagemaker-examples"). Each notebook comes with the
+Sample SageMaker Studio Classic notebooks are available in the [aws\_sagemaker\_studio](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_sagemaker_studio "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_sagemaker_studio") folder of the [Amazon SageMaker example GitHub repository](https://github.com/awslabs/amazon-sagemaker-examples "https://github.com/awslabs/amazon-sagemaker-examples"). Each notebook comes with the
 necessary SageMaker image that opens the notebook with the appropriate kernel.
 
 We recommend that you familiarize yourself with the SageMaker Studio Classic interface and the

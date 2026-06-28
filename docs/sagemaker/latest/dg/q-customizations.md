@@ -109,7 +109,7 @@ Open your Code Editor space and complete the following steps.
 1. In the Code Editor menu, choose **View**, and choose
    **Command Pallette**.
 2. In the command pallet, begin typing `>Amazon Q: Select
-Customization`, and choose that option in the filtered list of
+ Customization`, and choose that option in the filtered list of
    commands when it appears. The command pallet shows your Q Developer
    customizations.
 3. Choose your customization.

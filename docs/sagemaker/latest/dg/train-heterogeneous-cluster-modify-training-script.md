@@ -9,7 +9,7 @@ to performance loss.
 
 For example, if you mix CPU instances and GPU instances in a heterogeneous cluster
 while passing a deep neural network training script to the `entry_point`
-argument of the SageMaker AI estimator, the `entry_point` script is replicated to
+argument of the SageMaker AI ModelTrainer, the `entry_point` script is replicated to
 each instance. This means that, without proper task assignments, CPU instances also run
 the entire script and start the training job that’s designed for distributed training on
 GPU instances. Therefore, you must make changes in specific processing functions that
@@ -58,10 +58,10 @@ clusters:
   heterogeneous cluster configuration of the training job.
 - `env.distribution_instance_groups` – Returns a list of
   instance groups assigned to the `distribution` parameter of the
-  SageMaker AI estimator class.
+  SageMaker AI ModelTrainer class.
 - `env.distribution_hosts` – Returns a list of hosts
   belonging to the instance groups assigned to the `distribution`
-  parameter of the SageMaker AI estimator class.
+  parameter of the SageMaker AI ModelTrainer class.
   For example, consider the following example of a heterogeneous cluster that
   consists of two instance groups.
 

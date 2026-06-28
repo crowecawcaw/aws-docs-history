@@ -21,7 +21,64 @@ The following code examples are templates for constructing the SageMaker AI fram
 and not directly executable. You need to proceed to the next sections and configure
 the Debugger-specific parameters.
 
-PyTorch
+SageMaker Python SDK v3
+
+```
+# An example of creating a training job with debugger configuration
+import boto3
+from sagemaker.core import image_uris
+from sagemaker.core.resources import TrainingJob
+from sagemaker.core.shapes import (
+    AlgorithmSpecification,
+    ResourceConfig,
+    OutputDataConfig,
+    StoppingCondition,
+    DebugHookConfig,
+    CollectionConfiguration,
+    DebugRuleConfiguration,
+)
+
+session=boto3.session.Session()
+region=session.region_name
+
+# Retrieve the training image for your framework
+# Change framework to "tensorflow", "mxnet", "xgboost", etc. as needed
+training_image = image_uris.retrieve(
+    framework="pytorch",  # or "tensorflow", "mxnet", "xgboost"
+    region=region,
+    version="`1.12.0`",
+    py_version="`py37`",
+    instance_type="`ml.p3.2xlarge`",
+    image_scope="training"
+)
+
+`debug_hook_config`=`DebugHookConfig(...)`
+`debug_rule_configurations`=[
+    `DebugRuleConfiguration(
+ rule_configuration_name="built_in_rule",
+ rule_evaluator_image="rule-evaluator-image-uri",
+ )`
+]
+
+TrainingJob.create(
+    training_job_name="`debugger-demo`",
+    algorithm_specification=AlgorithmSpecification(
+        training_image=training_image,
+        training_input_mode="File",
+    ),
+    role_arn="`arn:aws:iam::123456789012:role/SageMakerRole`",
+    resource_config=ResourceConfig(instance_type="`ml.p3.2xlarge`", instance_count=`1`, volume_size_in_gb=`30`),
+    output_data_config=OutputDataConfig(s3_output_path="`s3://bucket/output`"),
+    stopping_condition=StoppingCondition(max_runtime_in_seconds=`3600`),
+
+    # Debugger-specific parameters
+    debug_hook_config=`debug_hook_config`,
+    debug_rule_configurations=`debug_rule_configurations`,
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+**PyTorch:**
 
 ```
 # An example of constructing a SageMaker AI PyTorch estimator
@@ -55,7 +112,7 @@ estimator=PyTorch(
 estimator.fit(wait=False)
 ```
 
-TensorFlow
+**TensorFlow:**
 
 ```
 # An example of constructing a SageMaker AI TensorFlow estimator
@@ -90,7 +147,7 @@ estimator=TensorFlow(
 estimator.fit(wait=False)
 ```
 
-MXNet
+**MXNet:**
 
 ```
 # An example of constructing a SageMaker AI MXNet estimator
@@ -120,7 +177,7 @@ estimator=MXNet(
 estimator.fit(wait=False)
 ```
 
-XGBoost
+**XGBoost:**
 
 ```
 # An example of constructing a SageMaker AI XGBoost estimator
@@ -149,7 +206,7 @@ estimator=XGBoost(
 estimator.fit(wait=False)
 ```
 
-Generic estimator
+**Generic estimator:**
 
 ```
 # An example of constructing a SageMaker AI generic estimator using the XGBoost algorithm base image

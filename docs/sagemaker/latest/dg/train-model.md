@@ -152,18 +152,17 @@ during-training stages and relevant SageMaker Training features.
   jobs over the latency reduction from warm pools alone. To learn more, see
   the following topics.
 
-      + [Running training jobs on a heterogeneous cluster](train-heterogeneous-cluster.md "train-heterogeneous-cluster.md")
-      + [SageMaker AI Managed Warm Pools](train-warm-pools.md "train-warm-pools.md")
-      + [Using persistent cache](train-warm-pools.md#train-warm-pools-persistent-cache "train-warm-pools.md#train-warm-pools-persistent-cache")
-
-  You must have sufficient quota to run a training job. If you run your
-  training job on an instance where you have insufficient quota, you will
-  receive a `ResourceLimitExceeded` error. To check the currently
-  available quotas in your account, use your [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas "https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas"). To learn how to request a quota
-  increase, see [Supported Regions and
-  Quotas](regions-quotas.md "regions-quotas.md"). Also, to find pricing information and available instance
-  types depending on the AWS Regions, look up the tables in the [Amazon SageMaker Pricing](https://aws.amazon.com/sagemaker/pricing/ "https://aws.amazon.com/sagemaker/pricing/")
-  page.
+  - [Running training jobs on a heterogeneous cluster](train-heterogeneous-cluster.md "train-heterogeneous-cluster.md")
+  - [SageMaker AI Managed Warm Pools](train-warm-pools.md "train-warm-pools.md")
+  - [Using persistent cache](train-warm-pools.md#train-warm-pools-persistent-cache "train-warm-pools.md#train-warm-pools-persistent-cache")
+    You must have sufficient quota to run a training job. If you run your
+    training job on an instance where you have insufficient quota, you will
+    receive a `ResourceLimitExceeded` error. To check the currently
+    available quotas in your account, use your [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas "https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas"). To learn how to request a quota
+    increase, see [Supported Regions and
+    Quotas](regions-quotas.md "regions-quotas.md"). Also, to find pricing information and available instance
+    types depending on the AWS Regions, look up the tables in the [Amazon SageMaker Pricing](https://aws.amazon.com/sagemaker/pricing/ "https://aws.amazon.com/sagemaker/pricing/")
+    page.
 
 - **Run a training job from a local code:** You
   can annotate your local code with a remote decorator to run your code as a
@@ -178,16 +177,15 @@ during-training stages and relevant SageMaker Training features.
   SageMaker Debugger’s profiling tools or Amazon CloudWatch. To learn more, see the following
   topics.
 
-      + [Manage Machine
-       Learning with Amazon SageMaker Experiments](experiments.md "experiments.md")
-      + [Profile Training Jobs Using Amazon SageMaker Debugger](debugger-profile-training-jobs.md "debugger-profile-training-jobs.md")
-      + [Monitor and
-       Analyze Using CloudWatch Metrics](training-metrics.md "training-metrics.md")
-
-  Additionally, for deep learning tasks, use the [Amazon SageMaker Debugger model
-  debugging tools](debugger-debug-training-jobs.md "debugger-debug-training-jobs.md") and [built-in
-  rules](debugger-built-in-rules.md "debugger-built-in-rules.md") to identify more complex issues in model convergence and
-  weight update processes.
+  - [Manage Machine
+    Learning with Amazon SageMaker Experiments](experiments.md "experiments.md")
+  - [Profile Training Jobs Using Amazon SageMaker Debugger](debugger-profile-training-jobs.md "debugger-profile-training-jobs.md")
+  - [Monitor and
+    Analyze Using CloudWatch Metrics](training-metrics.md "training-metrics.md")
+    Additionally, for deep learning tasks, use the [Amazon SageMaker Debugger model
+    debugging tools](debugger-debug-training-jobs.md "debugger-debug-training-jobs.md") and [built-in
+    rules](debugger-built-in-rules.md "debugger-built-in-rules.md") to identify more complex issues in model convergence and
+    weight update processes.
 
 - **Distributed training:** If your training
   job is going into a stable stage without breaking due to misconfiguration of

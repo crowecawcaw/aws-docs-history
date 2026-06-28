@@ -9,15 +9,15 @@ geospatial data, including the input, output, and AoI for EOJ.
 
 ###### Topics
 
-- [add_dataset API](#geo-add-dataset "#geo-add-dataset")
-- [update_dataset API](#geo-update-dataset "#geo-update-dataset")
-- [add_layer API](#geo-add-layer "#geo-add-layer")
-- [update_layer API](#geo-update-layer "#geo-update-layer")
-- [visualize_eoj_aoi API](#geo-visualize-eoj-aoi "#geo-visualize-eoj-aoi")
-- [visualize_eoj_input API](#geo-visualize-eoj-input "#geo-visualize-eoj-input")
-- [visualize_eoj_output API](#geo-visualize-eoj-output "#geo-visualize-eoj-output")
+- [add\_dataset API](#geo-add-dataset "#geo-add-dataset")
+- [update\_dataset API](#geo-update-dataset "#geo-update-dataset")
+- [add\_layer API](#geo-add-layer "#geo-add-layer")
+- [update\_layer API](#geo-update-layer "#geo-update-layer")
+- [visualize\_eoj\_aoi API](#geo-visualize-eoj-aoi "#geo-visualize-eoj-aoi")
+- [visualize\_eoj\_input API](#geo-visualize-eoj-input "#geo-visualize-eoj-input")
+- [visualize\_eoj\_output API](#geo-visualize-eoj-output "#geo-visualize-eoj-output")
 
-## add_dataset API
+## add\_dataset API
 
 Adds a raster or vector dataset object to the map.
 
@@ -61,7 +61,7 @@ Keyword arguments
 This API returns the [Dataset](https://location.foursquare.com/developer/docs/studio-map-sdk-types#dataset "https://location.foursquare.com/developer/docs/studio-map-sdk-types#dataset")
 object that was added to the map.
 
-## update_dataset API
+## update\_dataset API
 
 Updates an existing dataset's settings.
 
@@ -100,7 +100,7 @@ Keyword arguments
 This API returns the updated dataset object for interactive maps,
 or `None` for non-interactive HTML environments.
 
-## add_layer API
+## add\_layer API
 
 Adds a new layer to the map. This function requires at
 least one valid layer configuration.
@@ -130,7 +130,7 @@ Arguments
 
 The layer object that was added to the map.
 
-## update_layer API
+## update\_layer API
 
 Update an existing layer with given values.
 
@@ -172,7 +172,7 @@ Keyword arguments
 
 Returns the updated layer object.
 
-## visualize_eoj_aoi API
+## visualize\_eoj\_aoi API
 
 Visualize the AoI of the given job ARN.
 
@@ -191,7 +191,7 @@ Arguments
 
 Reference of the added input layer object.
 
-## visualize_eoj_input API
+## visualize\_eoj\_input API
 
 Visualize the input of the given EOJ ARN.
 
@@ -201,17 +201,17 @@ The request accepts the following parameters.
 
 Arguments
 
-| Argument            | Type                                                                                                                         | Description                                                                                                       |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `Arn`               | String                                                                                                                       | The ARN of the job.                                                                                               |
-| `time_range_filter` | Dictionary<br>time_range_filter = {<br>start_date: <string> date in ISO format<br>end_date: <string> date in ISO format<br>} | An option to provide the start and end time.<br>Defaults to the raster data collection search start and end date. |
-| `config`            | Dictionary<br>config = {<br>label: <string> custom label of the added output layer, default Input<br>}                       | An option to pass layer properties.                                                                               |
+| Argument            | Type                                                                                                                             | Description                                                                                                       |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `Arn`               | String                                                                                                                           | The ARN of the job.                                                                                               |
+| `time_range_filter` | Dictionary<br>time\_range\_filter = {<br>start\_date: <string> date in ISO format<br>end\_date: <string> date in ISO format<br>} | An option to provide the start and end time.<br>Defaults to the raster data collection search start and end date. |
+| `config`            | Dictionary<br>config = {<br>label: <string> custom label of the added output layer, default Input<br>}                           | An option to pass layer properties.                                                                               |
 
 **Response**
 
 Reference of the added input layer object.
 
-## visualize_eoj_output API
+## visualize\_eoj\_output API
 
 Visualize the output of the given EOJ ARN.
 
@@ -221,11 +221,11 @@ The request accepts the following parameters.
 
 Arguments
 
-| Argument            | Type                                                                                                                                                                                                                                        | Description                                                                                                       |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `Arn`               | String                                                                                                                                                                                                                                      | The ARN of the job.                                                                                               |
-| `time_range_filter` | Dictionary<br>time_range_filter = {<br>start_date: <string> date in ISO format<br>end_date: <string> date in ISO format<br>}                                                                                                                | An option to provide the start and end time.<br>Defaults to the raster data collection search start and end date. |
-| `config`            | Dictionary<br>config = {<br>label: <string> custom label of the added output layer, default Output<br>preset: <string> singleBand or trueColor,<br>band_name: <string>, only required for 'singleBand' preset. Allowed bands for a EOJ<br>} | An option to pass layer properties.                                                                               |
+| Argument            | Type                                                                                                                                                                                                                                         | Description                                                                                                       |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `Arn`               | String                                                                                                                                                                                                                                       | The ARN of the job.                                                                                               |
+| `time_range_filter` | Dictionary<br>time\_range\_filter = {<br>start\_date: <string> date in ISO format<br>end\_date: <string> date in ISO format<br>}                                                                                                             | An option to provide the start and end time.<br>Defaults to the raster data collection search start and end date. |
+| `config`            | Dictionary<br>config = {<br>label: <string> custom label of the added output layer, default Output<br>preset: <string> singleBand or trueColor,<br>band\_name: <string>, only required for 'singleBand' preset. Allowed bands for a EOJ<br>} | An option to pass layer properties.                                                                               |
 
 **Response**
 

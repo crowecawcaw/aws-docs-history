@@ -66,46 +66,46 @@ You can use the console to view the lineage of a feature group. The instructions
 Feature Store on the console vary depending on whether you enabled [Amazon SageMaker Studio](studio-updated.md "studio-updated.md") or [Amazon SageMaker Studio Classic](studio.md "studio.md") as your
 default experience.
 
-1.  Open the Studio console by following the instructions in [Launch Amazon SageMaker Studio](studio-updated-launch.md "studio-updated-launch.md").
-2.  Choose **Data** from the left navigation pane to expand the
-    dropdown list.
-3.  From the dropdown list, choose **Feature Store**.
-4.  Choose **Create feature group**.
-5.  Under **Feature group details**, enter a feature group
-    name.
-6.  (Optional) Enter a description of the feature group.
-7.  Under **Feature group storage configuration**, choose a storage
-    configuration from the dropdown list. For information about storage configurations,
-    see [Feature Store storage configurations](feature-store-storage-configurations.md "feature-store-storage-configurations.md").
-8.  If you have chosen to enable the online storage:
+1. Open the Studio console by following the instructions in [Launch Amazon SageMaker Studio](studio-updated-launch.md "studio-updated-launch.md").
+2. Choose **Data** from the left navigation pane to expand the
+   dropdown list.
+3. From the dropdown list, choose **Feature Store**.
+4. Choose **Create feature group**.
+5. Under **Feature group details**, enter a feature group
+   name.
+6. (Optional) Enter a description of the feature group.
+7. Under **Feature group storage configuration**, choose a storage
+   configuration from the dropdown list. For information about storage configurations,
+   see [Feature Store storage configurations](feature-store-storage-configurations.md "feature-store-storage-configurations.md").
+8. If you have chosen to enable the online storage:
 
-    1. If you _only_ enable the online storage, you
-       can choose a **Storage type** from the dropdown list. For
-       information about online store storage types, see [Online store](feature-store-storage-configurations-online-store.md "feature-store-storage-configurations-online-store.md").
-    2. (Optional) Apply **Time to Live (TTL)** by toggling the
-       switch to **On** and specifying the **Time to Live
-       duration** value and unit. This will update the default TTL duration
-       for all records added to the feature group _after the
-       feature group is created_. For more information about TTL, see [Time to live (TTL) duration for records](feature-store-time-to-live.md "feature-store-time-to-live.md").
+   1. If you _only_ enable the online storage, you
+      can choose a **Storage type** from the dropdown list. For
+      information about online store storage types, see [Online store](feature-store-storage-configurations-online-store.md "feature-store-storage-configurations-online-store.md").
+   2. (Optional) Apply **Time to Live (TTL)** by toggling the
+      switch to **On** and specifying the **Time to Live
+      duration** value and unit. This will update the default TTL duration
+      for all records added to the feature group _after the
+      feature group is created_. For more information about TTL, see [Time to live (TTL) duration for records](feature-store-time-to-live.md "feature-store-time-to-live.md").
 
-9.  If you have chosen to enable the offline storage:
+9. If you have chosen to enable the offline storage:
 
-    1. Under the **Amazon S3 bucket name**, enter a new bucket name, or
-       enter an existing bucket URL, manually.
-    2. From the **Table format** dropdown list, choose the table
-       format. In most use cases, you should use the Apache Iceberg table
-       format. For more information about table formats, see [Use Feature Store with SDK for Python (Boto3)](feature-store-create-feature-group.md "feature-store-create-feature-group.md").
-    3. Under **IAM role ARN**, choose the IAM role ARN you want
-       to attach to this feature group. For more information about how to find your role
-       and attached policies, see [Adding policies to your IAM role](feature-store-adding-policies.md "feature-store-adding-policies.md").
-    4. If you have chosen to enable the offline storage **Table
-       format** and AWS Glue (default) **Table
-       format**, under **Data catalog**, you can choose one
-       of the following two options:
+   1. Under the **Amazon S3 bucket name**, enter a new bucket name, or
+      enter an existing bucket URL, manually.
+   2. From the **Table format** dropdown list, choose the table
+      format. In most use cases, you should use the Apache Iceberg table
+      format. For more information about table formats, see [Use Feature Store with SDK for Python (Boto3)](feature-store-create-feature-group.md "feature-store-create-feature-group.md").
+   3. Under **IAM role ARN**, choose the IAM role ARN you want
+      to attach to this feature group. For more information about how to find your role
+      and attached policies, see [Adding policies to your IAM role](feature-store-adding-policies.md "feature-store-adding-policies.md").
+   4. If you have chosen to enable the offline storage **Table
+      format** and AWS Glue (default) **Table
+      format**, under **Data catalog**, you can choose one
+      of the following two options:
 
-       - **Use default values for your AWS Glue Data Catalog**.
-       - Provide your existing Data Catalog name, table name, and database name to
-         extend your existing AWS Glue Data Catalog.
+      - **Use default values for your AWS Glue Data Catalog**.
+      - Provide your existing Data Catalog name, table name, and database name to
+        extend your existing AWS Glue Data Catalog.
 
 10. Under the **Online store encryption key** or **Offline
     store encryption key** dropdown list, choose one of the following
@@ -128,23 +128,22 @@ default experience.
 13. Under **Specify feature definitions**, you have two options for
     providing a schema for your features: a JSON editor, or a table editor.
 
-        * JSON editor: In the **JSON** tab, enter or copy and paste
-         your feature definitions in the JSON format.
-        * Table editor: In the **Table** tab, enter the feature feature
-         name and choose the corresponding data type for each feature in your feature
-         group. Choose **+ Add feature definitions** to include more
-         features. Be aware that you cannot remove feature definitions from your feature
-         groups. However, you can add and update feature definitions after the feature
-         group is created.
+    - JSON editor: In the **JSON** tab, enter or copy and paste
+      your feature definitions in the JSON format.
+    - Table editor: In the **Table** tab, enter the feature feature
+      name and choose the corresponding data type for each feature in your feature
+      group. Choose **+ Add feature definitions** to include more
+      features. Be aware that you cannot remove feature definitions from your feature
+      groups. However, you can add and update feature definitions after the feature
+      group is created.
+      There must be at least two features in a feature group that represent the record
+      identifier and event time:
 
-    There must be at least two features in a feature group that represent the record
-    identifier and event time:
-
-        * The record **Feature type** can be a string, fractional, or
-         an integral.
-        * The event time **Feature type** must be a string or a
-         fractional. However, if you chose the Iceberg table format, the
-         event time must be a string.
+    - The record **Feature type** can be a string, fractional, or
+      an integral.
+    - The event time **Feature type** must be a string or a
+      fractional. However, if you chose the Iceberg table format, the
+      event time must be a string.
 
 14. After all of the features are included, choose
     **Continue**.
@@ -173,29 +172,29 @@ After the feature group has been successfully created, a green pop-up message
 appears at the bottom of the page. The new feature group also appears in your feature
 groups catalog.
 
-1.  Open the Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
-2.  Choose the **Home** icon (
-    ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
-    ) on the left navigation pane.
-3.  Choose **Data**.
-4.  From the dropdown list, choose **Feature Store**.
-5.  Choose **Create feature group**.
-6.  Under **Feature group details**, enter a feature group
-    name.
-7.  (Optional) Enter a description of the feature group.
-8.  Under **Feature group storage configuration**, choose a storage
-    configuration from the dropdown list. For information about storage configurations,
-    see [Feature Store storage configurations](feature-store-storage-configurations.md "feature-store-storage-configurations.md").
-9.  If you have chosen to enable the online storage:
+1. Open the Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
+2. Choose the **Home** icon (
+   ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+   ) on the left navigation pane.
+3. Choose **Data**.
+4. From the dropdown list, choose **Feature Store**.
+5. Choose **Create feature group**.
+6. Under **Feature group details**, enter a feature group
+   name.
+7. (Optional) Enter a description of the feature group.
+8. Under **Feature group storage configuration**, choose a storage
+   configuration from the dropdown list. For information about storage configurations,
+   see [Feature Store storage configurations](feature-store-storage-configurations.md "feature-store-storage-configurations.md").
+9. If you have chosen to enable the online storage:
 
-    1. If you _only_ enable the online storage, you
-       may choose a **Storage type** from the dropdown list. For
-       information about online store storage types, see [Online store](feature-store-storage-configurations-online-store.md "feature-store-storage-configurations-online-store.md").
-    2. (Optional) Apply **Time to Live (TTL)** by toggling the
-       switch to **On** and specifying the **Time to Live
-       duration** value and unit. This will update the default TTL duration
-       for all records added to the feature group _after the
-       feature group is created_. For more information about TTL, see [Time to live (TTL) duration for records](feature-store-time-to-live.md "feature-store-time-to-live.md").
+   1. If you _only_ enable the online storage, you
+      may choose a **Storage type** from the dropdown list. For
+      information about online store storage types, see [Online store](feature-store-storage-configurations-online-store.md "feature-store-storage-configurations-online-store.md").
+   2. (Optional) Apply **Time to Live (TTL)** by toggling the
+      switch to **On** and specifying the **Time to Live
+      duration** value and unit. This will update the default TTL duration
+      for all records added to the feature group _after the
+      feature group is created_. For more information about TTL, see [Time to live (TTL) duration for records](feature-store-time-to-live.md "feature-store-time-to-live.md").
 
 10. If you have chosen to enable the offline storage:
 
@@ -232,23 +231,22 @@ groups catalog.
 13. Under **Specify feature definitions**, you have two options for
     providing a schema for your features: a JSON editor, or a table editor.
 
-        * JSON editor: In the **JSON** tab, enter or copy and paste
-         your feature definitions in the JSON format.
-        * Table editor: In the **Table** tab, enter the feature feature
-         name and choose the corresponding data type for each feature in your feature
-         group. Choose **+ Add feature definitions** to include more
-         features. Be aware that you cannot remove feature definitions from your feature
-         groups. However, you can add and update feature definitions after the feature
-         group is created.
+    - JSON editor: In the **JSON** tab, enter or copy and paste
+      your feature definitions in the JSON format.
+    - Table editor: In the **Table** tab, enter the feature feature
+      name and choose the corresponding data type for each feature in your feature
+      group. Choose **+ Add feature definitions** to include more
+      features. Be aware that you cannot remove feature definitions from your feature
+      groups. However, you can add and update feature definitions after the feature
+      group is created.
+      There must be at least two features in a feature group that represent the record
+      identifier and event time:
 
-    There must be at least two features in a feature group that represent the record
-    identifier and event time:
-
-        * The record **Feature type** can be a string, fractional, or
-         an integral.
-        * The event time **Feature type** must be a string or a
-         fractional. However, if you chose the Iceberg table format, the
-         event time must be a string.
+    - The record **Feature type** can be a string, fractional, or
+      an integral.
+    - The event time **Feature type** must be a string or a
+      fractional. However, if you chose the Iceberg table format, the
+      event time must be a string.
 
 14. After all of the features are included, choose
     **Continue**.

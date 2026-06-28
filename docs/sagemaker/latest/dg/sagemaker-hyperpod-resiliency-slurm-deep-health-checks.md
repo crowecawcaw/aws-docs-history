@@ -105,48 +105,47 @@ aws sagemaker create-cluster \
 When on-start deep health checks are enabled, the following process
 occurs:
 
-1.  **Node provisioning**: New instances
-    are launched and lifecycle scripts execute.
-2.  **Node isolation**: The
-    HyperPod cluster agent places new nodes in a Slurm maintenance
-    reservation (`hyperpod-deep-health-check`) and adds them to
-    the `hyperpod-system-maintenance` partition. Nodes are marked
-    with the Slurm feature
-    `SageMakerDeepHealthCheck:InProgress`. This prevents
-    jobs from being scheduled on these nodes during testing.
-3.  **Test execution**: The following
-    tests run on each node as part of the
-    `InstanceStress` check:
+1. **Node provisioning**: New instances
+   are launched and lifecycle scripts execute.
+2. **Node isolation**: The
+   HyperPod cluster agent places new nodes in a Slurm maintenance
+   reservation (`hyperpod-deep-health-check`) and adds them to
+   the `hyperpod-system-maintenance` partition. Nodes are marked
+   with the Slurm feature
+   `SageMakerDeepHealthCheck:InProgress`. This prevents
+   jobs from being scheduled on these nodes during testing.
+3. **Test execution**: The following
+   tests run on each node as part of the
+   `InstanceStress` check:
 
-        * **HARDWARE\_CHECK**: Runs
-         `stress-ng` for CPU, memory, and disk stress
-         testing, followed by GPU and PCI device count verification.
-         Typical duration: ~1-2 minutes.
-        * **DCGM**: Runs NVIDIA DCGM
-         diagnostics at level 4, including GPU memory tests. Typical
-         duration: ~45-90 minutes depending on GPU count.
-        * **EFA**: Runs EFA loopback
-         bandwidth and latency tests. Typical duration: ~2-5
-         minutes.
+   - **HARDWARE\_CHECK**: Runs
+     `stress-ng` for CPU, memory, and disk stress
+     testing, followed by GPU and PCI device count verification.
+     Typical duration: ~1-2 minutes.
+   - **DCGM**: Runs NVIDIA DCGM
+     diagnostics at level 4, including GPU memory tests. Typical
+     duration: ~45-90 minutes depending on GPU count.
+   - **EFA**: Runs EFA loopback
+     bandwidth and latency tests. Typical duration: ~2-5
+     minutes.
+     If `InstanceConnectivity` is also enabled, the following
+     additional test is executed:
 
-    If `InstanceConnectivity` is also enabled, the following
-    additional test is executed:
+   - **NCCL**: Runs NCCL
+     `all_reduce` performance tests across
+     multiple nodes to verify inter-node GPU communication
+     bandwidth. Typical duration:
+     ~5-15 minutes depending on node count.
 
-        * **NCCL**: Runs NCCL
-         `all_reduce` performance tests across
-         multiple nodes to verify inter-node GPU communication
-         bandwidth. Typical duration:
-         ~5-15 minutes depending on node count.
+4. **Result handling**:
 
-4.  **Result handling**:
-
-    - **Pass**: The node is removed
-      from the maintenance reservation, the deep health check feature
-      is cleared, and the node becomes available for jobs in its
-      assigned partition.
-    - **Fail**: The node remains
-      isolated. SageMaker HyperPod automatically replaces the failed node
-      and runs deep health checks on the replacement.
+   - **Pass**: The node is removed
+     from the maintenance reservation, the deep health check feature
+     is cleared, and the node becomes available for jobs in its
+     assigned partition.
+   - **Fail**: The node remains
+     isolated. SageMaker HyperPod automatically replaces the failed node
+     and runs deep health checks on the replacement.
 
 The cluster transitions to `InService` once at least the
 controller node is running. Worker nodes show
@@ -338,7 +337,7 @@ Then view the log:
 cat /var/log/aws/clusters/sagemaker-deep-health-check.log
 ```
 
-**Example HARDWARE_CHECK output**
+**Example HARDWARE\_CHECK output**
 
 ```
 2026-03-29T18:03:14Z  info  Executing Hardware stress check with command: stress-ng

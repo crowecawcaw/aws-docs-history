@@ -30,7 +30,7 @@ You can modify the following parameters in `config.yaml`:
    repository for the training job.
 4. `env_vars`: You can specify the environment variables to be
    passed into your runtime training job. For example, you can adjust the
-   logging level of NCCL by specifying the NCCL_DEBUG environment
+   logging level of NCCL by specifying the NCCL\_DEBUG environment
    variable.
    The recipe is the core configuration that defines your training job architecture.
    This file includes many important pieces of information for your training job, such
@@ -68,11 +68,11 @@ run:
    using. For example, you can specify `hf` if your model is
    from HuggingFace.
 
-## exp_manager
+## exp\_manager
 
-The exp_manager configures the experiment. With the exp_manager, you can
+The exp\_manager configures the experiment. With the exp\_manager, you can
 specify fields such as the output directory or checkpoint settings. The
-following is an example of how you can configure the exp_manager.
+following is an example of how you can configure the exp\_manager.
 
 ```
 exp_manager:
@@ -86,7 +86,7 @@ exp_manager:
    output and standard error files for your training job. By default, it
    uses your current directory.
 2. `name`: The experiment name used to identify your
-   experiment under the exp_dir.
+   experiment under the exp\_dir.
 3. `create_tensorboard_logger`: Specify `True` or
    `False` to enable or disable the TensorBoard
    logger.
@@ -116,7 +116,7 @@ exp_manager
 
 ```
 
-Auto checkpoint is saving the local_state_dict asynchronously with an
+Auto checkpoint is saving the local\_state\_dict asynchronously with an
 automatically computed optimal saving interval.
 
 ###### Note
@@ -129,7 +129,7 @@ don't need to specify extra information to auto resume.
 ### Manual checkpointing
 
 You can modify `checkpoint_callback_params` to asynchronously
-save an intermediate checkpoint in shared_state_dict. For example, you can
+save an intermediate checkpoint in shared\_state\_dict. For example, you can
 specify the following configuration to enable sharded checkpointing every 10
 steps and keep the latest 3 checkpoints.
 
@@ -162,11 +162,11 @@ To learn more about checkpointing, see [Checkpointing using SMP](model-parallel-
 
 ### Full checkpointing
 
-The exported full_state_dict checkpoint can be used for inference or fine
-tuning. You can load a full checkpoint through hf_model_name_or_path. Under
+The exported full\_state\_dict checkpoint can be used for inference or fine
+tuning. You can load a full checkpoint through hf\_model\_name\_or\_path. Under
 this mode, only the model weights are saved.
 
-To export the full_state_dict model, you can set the following
+To export the full\_state\_dict model, you can set the following
 parameters.
 
 ###### Note
@@ -198,7 +198,7 @@ the key components you can configure within the model section:
 
 After you've specified the recipe, you define the model that you're
 training. You can also define the model parallelism. For example, you can
-define tensor_model_parallel_degree. You can enable other features like
+define tensor\_model\_parallel\_degree. You can enable other features like
 training with FP8 precision. For example, you can train a model with tensor
 parallelism and context parallelism:
 

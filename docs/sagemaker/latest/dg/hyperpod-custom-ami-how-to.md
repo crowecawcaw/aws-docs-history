@@ -64,7 +64,7 @@ building AMIs. SageMaker HyperPod does not have any specific recommendation.
   an Amazon EC2 instance using the SageMaker HyperPod AMI, make desired customizations,
   and then create an AMI from that instance.
 - **AWS CLI**: You can also use the `aws ec2
-create-image` command to create an AMI from an existing Amazon EC2
+ create-image` command to create an AMI from an existing Amazon EC2
   instance after performing the customization.
 - **HashiCorp Packer**: Packer is an
   open-source tool from HashiCorp that enables you to create identical machine
@@ -109,7 +109,7 @@ To create an AMI from an Amazon EC2 instance using the Amazon EC2 console:
    **Encrypt snapshots**.
 3. Select your KMS key from the dropdown. For example:
    `arn:aws:kms:`us-east-2`:`111122223333`:key/`<your-kms-key-id>``
-or use the key alias: `alias/`<your-hyperpod-key>``.
+ or use the key alias: `alias/`<your-hyperpod-key>``.
 
 #### AWS CLI example: Create a new AMI from an Amazon EC2 instance
 

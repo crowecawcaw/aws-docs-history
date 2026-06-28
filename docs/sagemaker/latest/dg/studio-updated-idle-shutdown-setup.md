@@ -84,7 +84,7 @@ shutdown settings to take effect.
 
 1. Navigate to the user profile.
 2. Choose the **App Configurations** tab.
-3. From the \***\*App Configurations\*\*** tab, navigate to
+3. From the ****App Configurations**** tab, navigate to
    either the Code Editor or JupyterLab section.
 4. Select **Edit**.
 5. Idle shutdown settings will show domain settings by default if configured for the domain.

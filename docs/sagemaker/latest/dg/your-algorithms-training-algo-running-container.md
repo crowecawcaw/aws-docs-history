@@ -52,9 +52,9 @@ algorithm link in [Use Amazon SageMaker AI Built-in Algorithms or Pre-trained Mo
 
 SageMaker AI sets the following environment variables in your container:
 
-- TRAINING_JOB_NAME – Specified in the `TrainingJobName`
+- TRAINING\_JOB\_NAME – Specified in the `TrainingJobName`
   parameter of the `CreateTrainingJob` request.
-- TRAINING_JOB_ARN – The Amazon Resource Name (ARN) of the training
+- TRAINING\_JOB\_ARN – The Amazon Resource Name (ARN) of the training
   job returned as the `TrainingJobArn` in the
   `CreateTrainingJob` response.
 - All environment variables specified in the [Environment](../APIReference/API_CreateTrainingJob.md#sagemaker-CreateTrainingJob-request-Environment "../APIReference/API_CreateTrainingJob.md#sagemaker-CreateTrainingJob-request-Environment") parameter in the `CreateTrainingJob`
@@ -184,40 +184,36 @@ the channel would be ambiguous if there existed another folder
 
 - **`Pipe` mode**
 
-      + `TrainingInputMode` parameter written to
-       `inputdataconfig.json`: "Pipe"
-      + Data channel directory in the Docker container:
-       `/opt/ml/input/data/`channel_name_epoch_number``
-      + Supported data sources: Amazon S3
+  - `TrainingInputMode` parameter written to
+    `inputdataconfig.json`: "Pipe"
+  - Data channel directory in the Docker container:
+    `/opt/ml/input/data/`channel_name_epoch_number``
+  - Supported data sources: Amazon S3
+    You need to read from a separate pipe for each channel. For example, if
+    you have three channels named `training`,
+    `validation`, and `testing`, you need to read from the
+    following pipes:
 
-  You need to read from a separate pipe for each channel. For example, if
-  you have three channels named `training`,
-  `validation`, and `testing`, you need to read from the
-  following pipes:
-
-      + `/opt/ml/input/data/training_0,
-       /opt/ml/input/data/training_1, ...`
-      + `/opt/ml/input/data/validation_0,
-       /opt/ml/input/data/validation_1, ...`
-      + `/opt/ml/input/data/testing_0, /opt/ml/input/data/testing_1,
-       ...`
-
-  Read the pipes sequentially. For example, if you have a channel called
-  `training`, read the pipes in this sequence:
-
-      1. Open `/opt/ml/input/data/training_0` in read
-       mode and read it to end-of-file (EOF) or, if you are done with the
-       first epoch, close the pipe file early.
-      2. After closing the first pipe file, look for
-       `/opt/ml/input/data/training_1` and read it
-       until you have completed the second epoch, and so on.
-
-  If the file for a given epoch doesn't exist yet, your code may need to
-  retry until the pipe is created There is no sequencing restriction across
-  channel types. For example, you can read multiple epochs for the
-  `training` channel and only start reading the
-  `validation` channel when you are ready. Or, you can read
-  them simultaneously if your algorithm requires that.
+  - `/opt/ml/input/data/training_0,
+   /opt/ml/input/data/training_1, ...`
+  - `/opt/ml/input/data/validation_0,
+   /opt/ml/input/data/validation_1, ...`
+  - `/opt/ml/input/data/testing_0, /opt/ml/input/data/testing_1,
+   ...`
+    Read the pipes sequentially. For example, if you have a channel called
+    `training`, read the pipes in this sequence:
+  1.  Open `/opt/ml/input/data/training_0` in read
+      mode and read it to end-of-file (EOF) or, if you are done with the
+      first epoch, close the pipe file early.
+  2.  After closing the first pipe file, look for
+      `/opt/ml/input/data/training_1` and read it
+      until you have completed the second epoch, and so on.
+      If the file for a given epoch doesn't exist yet, your code may need to
+      retry until the pipe is created There is no sequencing restriction across
+      channel types. For example, you can read multiple epochs for the
+      `training` channel and only start reading the
+      `validation` channel when you are ready. Or, you can read
+      them simultaneously if your algorithm requires that.
 
 For an example of a Jupyter notebook that shows how to use Pipe mode when
 bringing your own container, see [Bring your own pipe-mode algorithm to Amazon SageMaker AI](https://github.com/aws/amazon-sagemaker-examples/blob/main/advanced_functionality/pipe_bring_your_own/pipe_bring_your_own.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/advanced_functionality/pipe_bring_your_own/pipe_bring_your_own.ipynb").

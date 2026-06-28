@@ -2,7 +2,25 @@
 
 The following code sample shows how to configure a custom rule with the
 [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"). This example assumes that the custom rule script you created in the previous step
-is located at '_path/to/my_custom_rule.py_'.
+is located at '_path/to/my\_custom\_rule.py_'.
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.debugger import Rule, CollectionConfig
+
+**custom\_rule** = Rule.custom(
+    name='MyCustomRule',
+    image_uri='759209512951.dkr.ecr.us-west-2.amazonaws.com/sagemaker-debugger-rule-evaluator:latest',
+    instance_type='ml.t3.medium',
+    source='path/to/my_custom_rule.py',
+    rule_to_invoke='CustomGradientRule',
+    collections_to_save=[CollectionConfig("gradients")],
+    rule_parameters={"threshold": "20.0"}
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.debugger import Rule, CollectionConfig
@@ -40,6 +58,29 @@ The following list explains the Debugger `Rule.custom` API arguments.
   custom rule script.
   After you set up the `custom_rule` object, you can use it for building a SageMaker AI estimator for any training jobs.
   Specify the `entry_point` to your training script. You do not need to make any change of your training script.
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import SourceCode, Compute
+from sagemaker.core.helper.session_helper import get_execution_role
+
+model_trainer = ModelTrainer(
+                role=get_execution_role(),
+                base_job_name='smdebug-custom-rule-demo-tf-keras',
+                source_code=SourceCode(entry_script='path/to/your_training_script.py'),
+                compute=Compute(instance_type='ml.p2.xlarge'),
+                ...
+
+                # debugger-specific arguments below
+                rules = [**custom\_rule**]
+)
+
+model_trainer.train()
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.tensorflow import TensorFlow

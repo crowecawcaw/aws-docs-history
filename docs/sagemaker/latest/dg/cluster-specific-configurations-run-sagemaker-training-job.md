@@ -37,6 +37,6 @@ sm_jobs_config:
 4. `inputs`: You can specify the paths for your training and
    validation data. The data source can be from a shared filesystem such as
    Amazon FSx or an Amazon S3 URL.
-5. `additional_estimator_kwargs`: Additional estimator
+5. `additional_estimator_kwargs`: Additional ModelTrainer
    arguments for submitting a training job to the SageMaker training job
-   platform. For more information, see [Algorithm Estimator](https://sagemaker.readthedocs.io/en/stable/api/training/algorithm.html "https://sagemaker.readthedocs.io/en/stable/api/training/algorithm.html").
+   platform. For more information, see [Algorithm ModelTrainer](https://sagemaker.readthedocs.io/en/stable/api/training/algorithm.html "https://sagemaker.readthedocs.io/en/stable/api/training/algorithm.html").

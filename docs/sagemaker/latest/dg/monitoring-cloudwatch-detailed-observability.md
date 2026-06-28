@@ -43,15 +43,15 @@ backend is involved.
 
 ## What's included
 
-| Detailed observability metric categories            | Category                                                                    | Metrics                                                                        | Scope        | Frequency |
-| --------------------------------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ------------ | --------- |
-| Inference framework (vLLM/SGLang)                   | TTFT, ITL, KV cache, queue depth, batch size, TPS, concurrent requests      | Per-IC for inference component endpoints, per-instance/per-endpoint for<br>SME | Configurable |
-| GPU health (DCGM)                                   | GPU utilization, memory copy utilization, GPU temperature                   | Per-instance, per-GPU                                                          | Configurable |
-| Node health                                         | CPU, memory, disk, filesystem                                               | Per-instance                                                                   | Configurable |
-| Inference component placement and high availability | IC copy count, copies per AZ, AZ skew, IC per instance, instances per<br>AZ | Per-endpoint                                                                   | Periodic     |
-| Lifecycle                                           | Model download time, GPU load time, container start, cold start             | Per-IC, per-endpoint                                                           | Event-driven |
-| Autoscaling                                         | Scaling events, E2E latency, rebalancing                                    | Per-endpoint                                                                   | Event-driven |
-| ICE diagnostics                                     | ICE count, failed type, failed AZ                                           | Per-endpoint                                                                   | Event-driven |
+Detailed observability metric categories| Category | Metrics | Scope | Frequency |
+| --- | --- | --- | --- |
+| Inference framework (vLLM/SGLang) | TTFT, ITL, KV cache, queue depth, batch size, TPS, concurrent requests | Per-IC for inference component endpoints, per-instance/per-endpoint for<br>SME | Configurable |
+| GPU health (DCGM) | GPU utilization, memory copy utilization, GPU temperature | Per-instance, per-GPU | Configurable |
+| Node health | CPU, memory, disk, filesystem | Per-instance | Configurable |
+| Inference component placement and high availability | IC copy count, copies per AZ, AZ skew, IC per instance, instances per<br>AZ | Per-endpoint | Periodic |
+| Lifecycle | Model download time, GPU load time, container start, cold start | Per-IC, per-endpoint | Event-driven |
+| Autoscaling | Scaling events, E2E latency, rebalancing | Per-endpoint | Event-driven |
+| ICE diagnostics | ICE count, failed type, failed AZ | Per-endpoint | Event-driven |
 
 For the complete list, see [OpenTelemetry metrics reference](inference-monitoring.md "inference-monitoring.md").
 

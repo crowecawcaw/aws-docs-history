@@ -13,7 +13,7 @@ trying to create resources. For more information, see [Provide permissions for t
 that give permissions to create SageMaker resources already include permissions to add tags
 while creating those resources.
 
-Amazon SageMaker Studio applications support the use of local mode to create estimators, processors,
+Amazon SageMaker Studio applications support the use of local mode to create ModelTrainers, processors,
 and pipelines, then deploy them to a local environment. With local mode, you can test machine
 learning scripts before running them in Amazon SageMaker AI managed training or hosting environments.
 Studio supports local mode in the following applications:
@@ -26,7 +26,7 @@ Studio supports local mode in the following applications:
   with some differences. With the [Rootless Docker configuration](studio-updated-local-get-started.md#studio-updated-local-rootless "studio-updated-local-get-started.md#studio-updated-local-rootless") enabled, you can also access additional Docker
   registries through your VPC configuration, including on-premises repositories, and public
   registries. For more information about using local mode with the SageMaker Python SDK, see [Local
-  Mode](https://sagemaker.readthedocs.io/en/stable/overview.html#local-mode "https://sagemaker.readthedocs.io/en/stable/overview.html#local-mode").
+  Mode](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html").
 
 ###### Note
 

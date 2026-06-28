@@ -35,18 +35,17 @@ multi-model endpoint:
 
 - Determine your tolerance to loading/downloading times:
 
-      + d instance type families (for example, m5d, c5d, or r5d) and g5s come with an NVMe
-       (non-volatile memory express) SSD, which offers high I/O performance and might reduce
-       the time it takes to download models to the storage volume and for the container to
-       load the model from the storage volume.
-      + Because d and g5 instance types come with an NVMe SSD storage, SageMaker AI does not
-       attach an Amazon EBS storage volume to these ML compute instances that hosts the
-       multi-model endpoint. Auto scaling works best when the models are similarly sized and
-       homogenous, that is when they have similar inference latency and resource
-       requirements.
-
-  You can also use the following guidance to help you optimize model loading on your
-  multi-model endpoints:
+  - d instance type families (for example, m5d, c5d, or r5d) and g5s come with an NVMe
+    (non-volatile memory express) SSD, which offers high I/O performance and might reduce
+    the time it takes to download models to the storage volume and for the container to
+    load the model from the storage volume.
+  - Because d and g5 instance types come with an NVMe SSD storage, SageMaker AI does not
+    attach an Amazon EBS storage volume to these ML compute instances that hosts the
+    multi-model endpoint. Auto scaling works best when the models are similarly sized and
+    homogenous, that is when they have similar inference latency and resource
+    requirements.
+    You can also use the following guidance to help you optimize model loading on your
+    multi-model endpoints:
 
 **Choosing an instance type that can't hold all of the targeted models
 in memory**

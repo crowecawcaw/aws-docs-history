@@ -29,7 +29,7 @@ features.
   the number of records over which the gradient is computed at each iteration. If data
   parallelism is used, it is equal to the total number of model replicas multiplied by the
   per-replica batch size: `global batch size = (the number of model replicas) *
-(per-replica batch size)`. A single batch of global batch size is often referred
+ (per-replica batch size)`. A single batch of global batch size is often referred
   to as the _mini-batch_ in machine learning
   literature.
 - **Per-replica batch size:** When data parallelism is
@@ -119,8 +119,8 @@ gradient average. The processing of a mini-batch is consequently particularly su
 parallelization and distribution. 
 
 Parallelizing SGD training by distributing the records of a mini-batch over different
-computing devices is called *data parallel distributed
-training*, and is the most commonly used DL distribution paradigm. Data parallel
+computing devices is called _data parallel distributed
+training_, and is the most commonly used DL distribution paradigm. Data parallel
 training is a relevant distribution strategy to scale the mini-batch size and process each
 mini-batch faster. However, data parallel training comes with the extra complexity of having
 to compute the mini-batch gradient average with gradients coming from all the workers and

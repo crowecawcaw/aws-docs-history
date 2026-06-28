@@ -54,12 +54,11 @@ environment:
 - A worker image that includes vLLM, LMCache, NVIDIA NIXL, and the EFA
   libfabric provider. The following image options are supported:
 
-      + DLC:
-       `public.ecr.aws/deep-learning-containers/vllm:server-hyperpod-cuda-v1.1`
-      + LMCache:
-       `lmcache/vllm-openai:v0.4.3`
-
-  Both images include LMCache 0.4.3, vLLM 0.19.0, and NIXL 1.0.0.
+  - DLC:
+    `public.ecr.aws/deep-learning-containers/vllm:server-hyperpod-cuda-v1.1`
+  - LMCache:
+    `lmcache/vllm-openai:v0.4.3`
+    Both images include LMCache 0.4.3, vLLM 0.19.0, and NIXL 1.0.0.
 
 - HyperPod Inference Operator **version 3.2
   or later** installed. DPD is not supported on earlier versions.
@@ -474,30 +473,30 @@ HyperPod inference dashboard. For more information, see [Implementing inference 
 
 The following DPD-specific metrics are available:
 
-| DPD-specific metrics | Metric                                                           | Description |
-| -------------------- | ---------------------------------------------------------------- | ----------- |
-| E2E TTFT             | Overall time to first token (prefill + KV transfer +<br>routing) |
-| Prefill TTFT         | Prefiller-only latency                                           |
-| Prefill Queue        | Number of requests waiting for prefill                           |
-| Decode Queue         | Number of requests waiting on the decoder                        |
-| Prefill Time         | Time spent on prefill computation                                |
-| Decode Latency       | Per-token output latency (TPOT)                                  |
-| KV Transfer Time     | Time to transfer KV cache from prefiller to<br>decoder           |
-| DPD Routing Counts   | Disaggregated vs. fallback (under-threshold)<br>requests         |
+DPD-specific metrics| Metric | Description |
+| --- | --- |
+| E2E TTFT | Overall time to first token (prefill + KV transfer +<br>routing) |
+| Prefill TTFT | Prefiller-only latency |
+| Prefill Queue | Number of requests waiting for prefill |
+| Decode Queue | Number of requests waiting on the decoder |
+| Prefill Time | Time spent on prefill computation |
+| Decode Latency | Per-token output latency (TPOT) |
+| KV Transfer Time | Time to transfer KV cache from prefiller to<br>decoder |
+| DPD Routing Counts | Disaggregated vs. fallback (under-threshold)<br>requests |
 
 ## Tune your DPD deployment
 
 The following table provides a quick reference for tuning DPD based on the
 symptoms you observe in your metrics dashboard.
 
-| DPD tuning reference                     | Config                                                                                                                                    | What it does                        | Default                                                                                                                                                                                                                                        | When to tune |
-| ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| `pdSpec.routingThreshold`                | Minimum input tokens to route through the prefiller.<br>Requests under this threshold go directly to the decoder.                         | `4096`                              | The default works well for most workloads. Setting it too<br>low increases TTFT due to unnecessary KV transfers on short<br>prompts, while setting it too high limits TPOT improvement<br>because fewer requests take the DPD path.            |
-| `pdSpec.prefillSpec.replicas`            | Number of prefill pods.                                                                                                                   | `1`                                 | Scale up if prefill queue depth is high in order to<br>improve prefill TTFT.                                                                                                                                                                   |
-| `PD_BUFFER_SIZE`                         | Decoder GPU buffer for incoming KV transfers (per rank).<br>8 GiB holds approximately 35 in-flight 6K-token transfers for<br>70B at TP=8. | `"8589934592"` (8 GiB)              | Increase to handle more concurrent KV transfers. Decrease<br>if you see memory issues. When increasing, you may need to<br>lower `--gpu-memory-utilization` on the decoder to<br>free GPU memory for the larger buffer.                        |
-| `--gpu-memory-utilization`               | Fraction of GPU memory vLLM uses for weights, activations,<br>and KV cache.                                                               | `0.75`                              | Increase for more KV cache headroom on long inputs. Risk:<br>prefiller OOM because prefill also needs memory for<br>activations. Test with your actual input length<br>distribution.                                                           |
-| `--max-num-seqs`                         | Max concurrent sequences per worker batch.                                                                                                | `16` (prefiller), `32`<br>(decoder) | Raise for better batching under load. Lower if hitting OOM<br>on the prefiller. Set per-role via<br>`pdSpec.{prefillSpec,decodingSpec}.args`.                                                                                                  |
-| `intelligentRoutingSpec.routingStrategy` | How the router selects a prefiller when multiple replicas<br>exist.                                                                       | `prefixaware`                       | Use `roundrobin` to evenly distribute load<br>across multiple prefiller replicas. Use<br>`prefixaware` or `kvaware` with a<br>single prefiller or when prompts share common prefixes (system<br>prompts, chat history) to maximize cache hits. |
+DPD tuning reference| Config | What it does | Default | When to tune |
+| --- | --- | --- | --- |
+| `pdSpec.routingThreshold` | Minimum input tokens to route through the prefiller.<br>Requests under this threshold go directly to the decoder. | `4096` | The default works well for most workloads. Setting it too<br>low increases TTFT due to unnecessary KV transfers on short<br>prompts, while setting it too high limits TPOT improvement<br>because fewer requests take the DPD path. |
+| `pdSpec.prefillSpec.replicas` | Number of prefill pods. | `1` | Scale up if prefill queue depth is high in order to<br>improve prefill TTFT. |
+| `PD_BUFFER_SIZE` | Decoder GPU buffer for incoming KV transfers (per rank).<br>8 GiB holds approximately 35 in-flight 6K-token transfers for<br>70B at TP=8. | `"8589934592"` (8 GiB) | Increase to handle more concurrent KV transfers. Decrease<br>if you see memory issues. When increasing, you may need to<br>lower `--gpu-memory-utilization` on the decoder to<br>free GPU memory for the larger buffer. |
+| `--gpu-memory-utilization` | Fraction of GPU memory vLLM uses for weights, activations,<br>and KV cache. | `0.75` | Increase for more KV cache headroom on long inputs. Risk:<br>prefiller OOM because prefill also needs memory for<br>activations. Test with your actual input length<br>distribution. |
+| `--max-num-seqs` | Max concurrent sequences per worker batch. | `16` (prefiller), `32`<br>(decoder) | Raise for better batching under load. Lower if hitting OOM<br>on the prefiller. Set per-role via<br>`pdSpec.{prefillSpec,decodingSpec}.args`. |
+| `intelligentRoutingSpec.routingStrategy` | How the router selects a prefiller when multiple replicas<br>exist. | `prefixaware` | Use `roundrobin` to evenly distribute load<br>across multiple prefiller replicas. Use<br>`prefixaware` or `kvaware` with a<br>single prefiller or when prompts share common prefixes (system<br>prompts, chat history) to maximize cache hits. |
 
 Test with your actual workload and input length distribution.
 

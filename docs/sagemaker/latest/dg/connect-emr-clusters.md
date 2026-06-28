@@ -39,19 +39,24 @@ cross-account access to Amazon EMR clusters, you can view a consolidated list
 of clusters across all accounts that you have granted access to
 Studio. 2. Select an Amazon EMR cluster you want to connect to a new notebook, and then
 choose **Attach to notebook**. This opens up a modal window
-displaying the list of your JupyterLab spaces. 3. _ Select the space from which you want to launch a JupyterLab
+displaying the list of your JupyterLab spaces. 3. * Select the space from which you want to launch a JupyterLab
 application, and then choose **Open notebook**.
 This launches a JupyterLab application from your chosen space and
-opens a new notebook. ###### Note
-Users of Studio Classic need to select an image and kernel. For a
-list of supported images, see [Supported images and kernels to connect to an Amazon EMR cluster from Studio or Studio Classic](studio-emr-user-guide.md#studio-notebooks-emr-cluster-connect-kernels "studio-emr-user-guide.md#studio-notebooks-emr-cluster-connect-kernels") or refer to [Bring your own image](studio-emr-user-guide.md#studio-notebooks-emr-byoi "studio-emr-user-guide.md#studio-notebooks-emr-byoi").
-_ Alternatively, you can create a new private space by choosing the
-**Create new space** button at the top of the
-modal window. Enter a name for your space and then choose
-**Create space and open notebook**. This
-creates a private space with the default instance type and latest
-SageMaker distribution image available, launches a JupyterLab
-application, and opens a new notebook. 4. If the cluster you select does not use Kerberos, LDAP, or runtime role
+opens a new notebook.
+
+    ###### Note
+
+    Users of Studio Classic need to select an image and kernel. For a
+     list of supported images, see [Supported images and kernels to connect to an Amazon EMR cluster from Studio or Studio Classic](studio-emr-user-guide.md#studio-notebooks-emr-cluster-connect-kernels "studio-emr-user-guide.md#studio-notebooks-emr-cluster-connect-kernels") or refer to [Bring your own image](studio-emr-user-guide.md#studio-notebooks-emr-byoi "studio-emr-user-guide.md#studio-notebooks-emr-byoi").
+    * Alternatively, you can create a new private space by choosing the
+     **Create new space** button at the top of the
+     modal window. Enter a name for your space and then choose
+     **Create space and open notebook**. This
+     creates a private space with the default instance type and latest
+     SageMaker distribution image available, launches a JupyterLab
+     application, and opens a new notebook.
+
+4. If the cluster you select does not use Kerberos, LDAP, or runtime role
 authentication, Studio prompts you to select the credential type.
 Choose from **Http basic authentication** or **No
 credentials**, then enter your credentials, if

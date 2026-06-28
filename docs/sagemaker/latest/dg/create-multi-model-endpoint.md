@@ -60,14 +60,14 @@ backed multi-model endpoint.
 1. Get a container with an image that supports deploying multi-model endpoints. For a
    list of built-in algorithms and framework containers that support multi-model endpoints,
    see [Supported algorithms, frameworks, and instances for multi-model endpoints](multi-model-support.md "multi-model-support.md"). For this
-   example, we use the [K-Nearest Neighbors (k-NN) Algorithm](k-nearest-neighbors.md "k-nearest-neighbors.md") built-in algorithm. We call the [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/v2.html "https://sagemaker.readthedocs.io/en/stable/v2.html")
+   example, we use the [K-Nearest Neighbors (k-NN) Algorithm](k-nearest-neighbors.md "k-nearest-neighbors.md") built-in algorithm. We call the [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/")
    utility function `image_uris.retrieve()` to get the address for the K-Nearest
    Neighbors built-in algorithm image.
 
 ```
 import sagemaker
 region = sagemaker_session.boto_region_name
-image = sagemaker.image_uris.retrieve("knn",region=region)
+image = image_uris.retrieve("knn",region=region)
 container = {
               'Image':        image,
               'ModelDataUrl': 's3://`<BUCKET_NAME>`/`<PATH_TO_ARTIFACTS>`',
@@ -193,7 +193,7 @@ endpoint.
    ResNet models, define the container to use the [NVIDIA Triton Server image](triton.md "triton.md"). This
    container supports multi-model endpoints and is optimized for running on GPU instances.
    We call the [SageMaker AI Python
-   SDK](https://sagemaker.readthedocs.io/en/stable/v2.html "https://sagemaker.readthedocs.io/en/stable/v2.html") utility function `image_uris.retrieve()` to get the address for
+   SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") utility function `image_uris.retrieve()` to get the address for
    the image. For example:
 
 ```

@@ -72,6 +72,40 @@ increases with respect to time because of its sampling mechanism.
 The following example configuration shows the full structure when you use the
 different profiling options with specified values.
 
+SageMaker Python SDK v3
+
+```
+import time
+from sagemaker.core.debugger import (ProfilerConfig,
+                                FrameworkProfile,
+                                DetailedProfilingConfig,
+                                DataloaderProfilingConfig,
+                                PythonProfilingConfig,
+                                PythonProfiler, cProfileTimer)
+
+profiler_config=ProfilerConfig(
+    system_monitor_interval_millis=`500`,
+    framework_profile_params=FrameworkProfile(
+        detailed_profiling_config=DetailedProfilingConfig(
+            start_step=`5`,
+            num_steps=`1`
+        ),
+        dataloader_profiling_config=DataloaderProfilingConfig(
+            start_step=`7`,
+            num_steps=`1`
+        ),
+        python_profiling_config=PythonProfilingConfig(
+            start_step=`9`,
+            num_steps=`1`,
+            python_profiler=PythonProfiler.`CPROFILE`,
+            cprofile_timer=`cProfileTimer.TOTAL_TIME`
+        )
+    )
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 import time
 from sagemaker.debugger import (ProfilerConfig,

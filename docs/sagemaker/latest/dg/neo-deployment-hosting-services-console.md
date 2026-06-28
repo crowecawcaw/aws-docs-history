@@ -63,9 +63,9 @@ and optionally, **Container host name**, and
     	| MMS\_DEFAULT\_RESPONSE\_TIMEOUT | 500 | Leave this field blank for TF |
 
 4. Confirm that the information for the containers is accurate, and then
-   choose **Create model**. On the **Create model
-   landing page**, choose **Create
-   endpoint**.
+choose **Create model**. On the **Create model
+landing page**, choose **Create
+endpoint**.
 
 ![Create Model landing page.](images/neo-deploy-console-create-model-land-page.png) 5. In **Create and configure endpoint** diagram, specify
 the **Endpoint name**. For **Attach endpoint

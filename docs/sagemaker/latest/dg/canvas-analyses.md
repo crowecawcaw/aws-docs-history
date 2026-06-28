@@ -560,9 +560,7 @@ much multicollinearity there is in our data.
 When the numbers are roughly uniform, the data has very few instances of
 multicollinearity. When there is a lot of variability among the values, we
 have many instances of multicollinearity. Before it performs PCA, Data Wrangler
-normalizes each feature to have a mean of 0 and a standard deviation of
-
-1.
+normalizes each feature to have a mean of 0 and a standard deviation of 1.
 
 ###### Note
 

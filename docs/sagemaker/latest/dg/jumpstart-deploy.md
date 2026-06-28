@@ -217,7 +217,7 @@ By default, the SageMaker Python SDK uses two configuration files: one for the
 administrator and one for the user. Using the admininistrator configuration file,
 administrators can define a set of default values. End-users can override values set in
 the administrator configuration file and set additional default values using the end-user
-configuration file. For more information, see [Default configuration file location](https://sagemaker.readthedocs.io/en/stable/overview.html#default-configuration-file-location "https://sagemaker.readthedocs.io/en/stable/overview.html#default-configuration-file-location").
+configuration file. For more information, see [Default configuration file location](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/").
 
 The following code sample lists the default locations of the configuration files when
 using the SageMaker Python SDK in Amazon SageMaker Studio Classic.
@@ -239,7 +239,7 @@ Administrators can optionally set configuration defaults for JumpStart model tra
 deployment through `JupyterServer` lifecycle configurations. For more
 information, see [Create and Associate a Lifecycle Configuration with Amazon SageMaker Studio Classic](studio-lcc-create.md "studio-lcc-create.md").
 
-Your configuration file should adhere to the SageMaker Python SDK [configuration file structure](https://sagemaker.readthedocs.io/en/stable/overview.html#configuration-file-structure "https://sagemaker.readthedocs.io/en/stable/overview.html#configuration-file-structure"). Note that specific fields in the
+Your configuration file should adhere to the SageMaker Python SDK [configuration file structure](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/"). Note that specific fields in the
 `TrainingJob`, `Model`, and
 `EndpointConfig` configurations apply to JumpStart model training and deployment
 default values.

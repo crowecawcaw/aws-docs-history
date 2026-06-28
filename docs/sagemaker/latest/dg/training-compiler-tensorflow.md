@@ -44,8 +44,7 @@ TensorFlow models with [Hugging
 Face Transformers](https://huggingface.co/docs/transformers/index "https://huggingface.co/docs/transformers/index") are based on TensorFlow's [tf.keras.Model](https://www.tensorflow.org/api_docs/python/tf/keras/Model "https://www.tensorflow.org/api_docs/python/tf/keras/Model") API. Hugging Face Transformers also provides pretrained
 model classes for TensorFlow to help reduce the effort for configuring natural language
 processing (NLP) models. After creating your own training script using the Transformers
-library, you can run the training script using the SageMaker AI `HuggingFace`
-estimator with the SageMaker Training Compiler configuration class as shown in the previous topic at [Run TensorFlow Training Jobs with SageMaker Training Compiler](training-compiler-enable-tensorflow.md "training-compiler-enable-tensorflow.md").
+library, you can run the training script using the SageMaker AI `HuggingFace` ModelTrainer with the SageMaker Training Compiler configuration class as shown in the previous topic at [Run TensorFlow Training Jobs with SageMaker Training Compiler](training-compiler-enable-tensorflow.md "training-compiler-enable-tensorflow.md").
 
 SageMaker Training Compiler automatically optimizes model training workloads that are built on top of the
 native TensorFlow API or the high-level Keras API, such as the TensorFlow transformer

@@ -244,7 +244,7 @@ PyTorch's Elastic Agent, see their [official documentation](https://docs.pytorch
 | --pre-train-args          | Arguments for pre-training script                                                                                              | None          |
 | --post-train-script       | Path to post-training script                                                                                                   | None          |
 | --post-train-args         | Arguments for post-training script                                                                                             | None          |
-| --inprocess-restart       | Flag specifying whether to use the inprocess_restart feature                                                                   | FALSE         |
+| --inprocess-restart       | Flag specifying whether to use the inprocess\_restart feature                                                                  | FALSE         |
 | --inprocess-timeout       | Time in seconds that the agent waits for workers to reach a synchronization barrier before triggering a process-level restart. | None          |
 
 ## Task governance (optional)

@@ -68,7 +68,7 @@ training_image_config = {
 
 For information about how to create the Lambda function to provide
 authentication, see [Use a Docker registry that requires authentication for training](docker-containers-adapt-your-own-private-registry-authentication.md "docker-containers-adapt-your-own-private-registry-authentication.md"). 2. Use a Boto3 client to create a training job and pass the correct
-configuration to the [create_training_job](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md") API. The following instructions show you
+configuration to the [create\_training\_job](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md") API. The following instructions show you
 how to configure the components and create a training job.
 
     1. Create the `AlgorithmSpecification` object that you

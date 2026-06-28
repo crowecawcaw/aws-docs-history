@@ -39,7 +39,7 @@ resources made discoverable to them when `CrossAccountFilterOption` is set to
 `"CrossAccount"`:
 
 ```
-from sagemaker.session import Session
+from sagemaker.core.helper.session_helper import Session
 
 sagemaker_session = Session(boto_session=boto_session)
 

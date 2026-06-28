@@ -222,36 +222,35 @@ complexity. HyperPod supports three node lifecycle configuration
 options, each offering a different level of control over the provisioning
 process.
 
-1.  For **Lifecycle scripts**, choose one of the
-    following options to control how nodes are provisioned in your
-    cluster:
+1. For **Lifecycle scripts**, choose one of the
+   following options to control how nodes are provisioned in your
+   cluster:
 
-        * **None** — HyperPod configures
-         nodes automatically using AMI-based configuration. Slurm
-         daemons, Docker, Enroot, Pyxis, Slurm accounting with
-         MariaDB, SSH key generation and propagation, log rotation,
-         and home directory setup are all configured without any
-         scripts or Amazon S3 bucket. All software is pre-packaged in the
-         AMI, so no internet access is required during provisioning.
-         This is the simplest path for new clusters.
-        * **Use default lifecycle scripts** —
-         Default lifecycle scripts are uploaded to the chosen Amazon S3
-         bucket and used to provision nodes. This option uses the
-         scripts from the [Awsome Distributed Training repository](https://github.com/awslabs/awsome-distributed-training/tree/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config "https://github.com/awslabs/awsome-distributed-training/tree/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config") (ADTR).
-        * **Use custom lifecycle scripts** — Choose
-         lifecycle scripts from an Amazon S3 bucket. This corresponds to
-         the `OnCreate` path in the API, where your
-         scripts own the entire provisioning sequence, including when
-         Slurm starts. HyperPod does not run AMI-based
-         configuration when this option is selected.
+   - **None** — HyperPod configures
+     nodes automatically using AMI-based configuration. Slurm
+     daemons, Docker, Enroot, Pyxis, Slurm accounting with
+     MariaDB, SSH key generation and propagation, log rotation,
+     and home directory setup are all configured without any
+     scripts or Amazon S3 bucket. All software is pre-packaged in the
+     AMI, so no internet access is required during provisioning.
+     This is the simplest path for new clusters.
+   - **Use default lifecycle scripts** —
+     Default lifecycle scripts are uploaded to the chosen Amazon S3
+     bucket and used to provision nodes. This option uses the
+     scripts from the [Awsome Distributed Training repository](https://github.com/awslabs/awsome-distributed-training/tree/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config "https://github.com/awslabs/awsome-distributed-training/tree/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config") (ADTR).
+   - **Use custom lifecycle scripts** — Choose
+     lifecycle scripts from an Amazon S3 bucket. This corresponds to
+     the `OnCreate` path in the API, where your
+     scripts own the entire provisioning sequence, including when
+     Slurm starts. HyperPod does not run AMI-based
+     configuration when this option is selected.
+     The following table summarizes the three options:
 
-    The following table summarizes the three options:
-
-| Option                                     | What HyperPod does                                                          | Amazon S3 bucket needed? | Internet access needed? |
-| ------------------------------------------ | --------------------------------------------------------------------------- | ------------------------ | ----------------------- |
-| \*_None_<br>• (AMI-based<br>configuration) | Configures nodes automatically with Slurm and essential<br>packages         | No                       | No                      |
-| **Use default lifecycle scripts**          | Uploads and runs ADTR scripts from Amazon S3                                | Yes                      | Yes                     |
-| **Use custom lifecycle scripts**           | Runs your scripts from Amazon S3; you own the full<br>provisioning sequence | Yes                      | Depends on your scripts |
+| Option                                    | What HyperPod does                                                          | Amazon S3 bucket needed? | Internet access needed? |
+| ----------------------------------------- | --------------------------------------------------------------------------- | ------------------------ | ----------------------- |
+| *_None_<br>• (AMI-based<br>configuration) | Configures nodes automatically with Slurm and essential<br>packages         | No                       | No                      |
+| **Use default lifecycle scripts**         | Uploads and runs ADTR scripts from Amazon S3                                | Yes                      | Yes                     |
+| **Use custom lifecycle scripts**          | Runs your scripts from Amazon S3; you own the full<br>provisioning sequence | Yes                      | Depends on your scripts |
 
 2. For **Extension script file in S3 -
    _optional_**

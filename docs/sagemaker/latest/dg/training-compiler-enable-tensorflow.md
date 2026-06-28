@@ -1,5 +1,14 @@
 # Run TensorFlow Training Jobs with SageMaker Training Compiler
 
+###### Important
+
+**Deprecation notice:** SageMaker Training Compiler is not
+supported in SageMaker Python SDK v3. If you are currently using Training Compiler,
+continue using SageMaker Python SDK v2. For new projects, consider using the unified
+`ModelTrainer` class with supported frameworks. See
+[SageMaker Python SDK
+documentation](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") for migration guidance.
+
 You can use any of the SageMaker AI interfaces to run a training job with SageMaker Training Compiler: Amazon SageMaker Studio Classic,
 Amazon SageMaker notebook instances, AWS SDK for Python (Boto3), and AWS Command Line Interface.
 
@@ -24,7 +33,7 @@ libraries, try using the batch sizes provided in the reference table at [Tested 
 
 ###### Note
 
-SageMaker Training Compiler for TensorFlow is available through the SageMaker AI [TensorFlow](https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/sagemaker.tensorflow.html#tensorflow-estimator "https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/sagemaker.tensorflow.html#tensorflow-estimator") and [Hugging Face](https://sagemaker.readthedocs.io/en/stable/frameworks/huggingface/sagemaker.huggingface.html#hugging-face-estimator "https://sagemaker.readthedocs.io/en/stable/frameworks/huggingface/sagemaker.huggingface.html#hugging-face-estimator") framework estimators.
+SageMaker Training Compiler for TensorFlow is available through the SageMaker AI [TensorFlow](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") and [Hugging Face](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") framework estimators.
 
 For information that fits your use case, see one of the following options.
 

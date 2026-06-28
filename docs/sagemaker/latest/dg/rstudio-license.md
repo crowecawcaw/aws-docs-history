@@ -16,30 +16,29 @@ PBC.
 
 **Get an RStudio license**
 
-1.  If you don't have an RStudio license, you may purchase one from the AWS Marketplace or from RStudio PBC directly.
+1. If you don't have an RStudio license, you may purchase one from the AWS Marketplace or from RStudio PBC directly.
 
-        * To purchase a subscription from the AWS Marketplace, complete the steps to [subscribe with a SaaS contract](../../../marketplace/latest/buyerguide/buyer-saas-products.md "../../../marketplace/latest/buyerguide/buyer-saas-products.md") by searching for **Posit Team**. To fulfill the license, you will be redirected to
-         an external form outside the AWS Marketplace. You must provide additional information,
-         including your company name and email address. If you can’t access that form to provide
-         a company name and a contact email, create a ticket with Posit Support at [https://support.posit.co/hc/en-us/requests/new](https://support.posit.co/hc/en-us/requests/new "https://support.posit.co/hc/en-us/requests/new") with details about your
-         purchase.
-        * To purchase from RStudio PBC directly, navigate to [RStudio Pricing](https://www.rstudio.com/pricing/ "https://www.rstudio.com/pricing/") or contact [sales@rstudio.com](mailto:sales@rstudio.com "mailto:sales@rstudio.com"). When buying or updating an
-         RStudio license, you must provide the AWS Account that will host your Amazon SageMaker AI domain.
+   - To purchase a subscription from the AWS Marketplace, complete the steps to [subscribe with a SaaS contract](../../../marketplace/latest/buyerguide/buyer-saas-products.md "../../../marketplace/latest/buyerguide/buyer-saas-products.md") by searching for **Posit Team**. To fulfill the license, you will be redirected to
+     an external form outside the AWS Marketplace. You must provide additional information,
+     including your company name and email address. If you can’t access that form to provide
+     a company name and a contact email, create a ticket with Posit Support at [https://support.posit.co/hc/en-us/requests/new](https://support.posit.co/hc/en-us/requests/new "https://support.posit.co/hc/en-us/requests/new") with details about your
+     purchase.
+   - To purchase from RStudio PBC directly, navigate to [RStudio Pricing](https://www.rstudio.com/pricing/ "https://www.rstudio.com/pricing/") or contact [sales@rstudio.com](mailto:sales@rstudio.com "mailto:sales@rstudio.com"). When buying or updating an
+     RStudio license, you must provide the AWS Account that will host your Amazon SageMaker AI domain.
+     If you have an existing RStudio license, contact your RStudio Sales representative or
+     [sales@rstudio.com](mailto:sales@rstudio.com "mailto:sales@rstudio.com") to add RStudio on Amazon SageMaker AI
+     to your existing Posit Workbench Enterprise license, or to convert your Posit Workbench
+     Standard license. The RStudio Sales representative will send you the appropriate electronic
+     order form.
 
-    If you have an existing RStudio license, contact your RStudio Sales representative or
-    [sales@rstudio.com](mailto:sales@rstudio.com "mailto:sales@rstudio.com") to add RStudio on Amazon SageMaker AI
-    to your existing Posit Workbench Enterprise license, or to convert your Posit Workbench
-    Standard license. The RStudio Sales representative will send you the appropriate electronic
-    order form.
-
-2.  RStudio grants a Posit Workbench license to your AWS Account through
-    AWS License Manager in the US East (N. Virginia) Region. Although the RStudio
-    license is granted in the US East (N. Virginia) Region, your license can be consumed in any
-    AWS Region that RStudio on Amazon SageMaker AI is supported in. You can expect the license grant
-    process to complete within three business days after you share your AWS account ID with
-    RStudio.
-3.  When this license is granted, you receive an email from
-    your RStudio Sales representative with instructions to accept your license grant.
+2. RStudio grants a Posit Workbench license to your AWS Account through
+   AWS License Manager in the US East (N. Virginia) Region. Although the RStudio
+   license is granted in the US East (N. Virginia) Region, your license can be consumed in any
+   AWS Region that RStudio on Amazon SageMaker AI is supported in. You can expect the license grant
+   process to complete within three business days after you share your AWS account ID with
+   RStudio.
+3. When this license is granted, you receive an email from
+   your RStudio Sales representative with instructions to accept your license grant.
 
 **Validate your RStudio license to be used with Amazon SageMaker AI**
 

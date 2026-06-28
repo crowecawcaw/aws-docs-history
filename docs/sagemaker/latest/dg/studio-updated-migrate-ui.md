@@ -727,40 +727,38 @@ applications.
 
 ###### To attach IAM policies to an execution role
 
-1.  ###### Find the execution role attached to your SageMaker AI user profile
-    1. In the SageMaker AI console [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/"),
-       navigate to **Domains**, then choose your SageMaker AI
-       domain.
-    2. The execution role ARN is listed under _Execution role_ on the **User
-       Details** page of your user profile. Make note of
-       the execution role name in the ARN.
-    3. In the IAM console [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"), choose
-       **Roles**.
-    4. Search for your role by name in the search field.
-    5. Select the role.
+1. ###### Find the execution role attached to your SageMaker AI user profile
+   1. In the SageMaker AI console [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/"),
+      navigate to **Domains**, then choose your SageMaker AI
+      domain.
+   2. The execution role ARN is listed under _Execution role_ on the **User
+      Details** page of your user profile. Make note of
+      the execution role name in the ARN.
+   3. In the IAM console [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"), choose
+      **Roles**.
+   4. Search for your role by name in the search field.
+   5. Select the role.
 
-2.  Add policies to the role
+2. Add policies to the role
 
-        1. In the IAM console [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"), choose
-         **Roles**.
-        2. Search for your role by name in the search field.
-        3. Select the role.
-        4. In the **Permissions** tab, navigate to the
-         dropdown menu **Add permissions**.
-        5. * For managed policies: Select **Attach
-        	 policies**, search for the name of the
-        	 manage policy you want to attach.
+   1. In the IAM console [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"), choose
+      **Roles**.
+   2. Search for your role by name in the search field.
+   3. Select the role.
+   4. In the **Permissions** tab, navigate to the
+      dropdown menu **Add permissions**.
+   5. - For managed policies: Select **Attach
+        policies**, search for the name of the
+        manage policy you want to attach.
 
-
-        	Select the policy then choose **Add
-        	 permissions**.
-        	* For inline policies: Select **Create inline
-        	 policy**, paste your policy in the JSON
-        	 tab, choose next, name your policy, and choose
-        	 **Create**.
-
-    For a procedure that shows you how to attach IAM policies to a role, see
-    [Adding IAM identity permissions (console)](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console") in the _AWS IAM User Guide._
+      Select the policy then choose **Add
+      permissions**.
+      - For inline policies: Select **Create inline
+        policy**, paste your policy in the JSON
+        tab, choose next, name your policy, and choose
+        **Create**.
+        For a procedure that shows you how to attach IAM policies to a role, see
+        [Adding IAM identity permissions (console)](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console") in the _AWS IAM User Guide._
 
 After attaching the necessary permissions, you can create a Canvas
 application and log in. For more information, see [Getting started with using Amazon SageMaker Canvas](canvas-getting-started.md "canvas-getting-started.md").

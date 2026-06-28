@@ -34,39 +34,39 @@ training phases.
 
 The summary table contains the following information:
 
-- **start_time** – The exact time when
+- **start\_time** – The exact time when
   the training job started.
-- **end_time** – The exact time when the
+- **end\_time** – The exact time when the
   training job finished.
-- **job_duration_in_seconds** – The
-  total training time from the **start_time** to
-  the **end_time**.
-- **training_loop_start** – The exact
+- **job\_duration\_in\_seconds** – The
+  total training time from the **start\_time** to
+  the **end\_time**.
+- **training\_loop\_start** – The exact
   time when the first step of the first epoch has started.
-- **training_loop_end** – The exact time
+- **training\_loop\_end** – The exact time
   when the last step of the last epoch has finished.
-- **training_loop_duration_in_seconds**
+- **training\_loop\_duration\_in\_seconds**
   – The total time between the training loop start time and the
   training loop end time.
-- **initialization_in_seconds** – Time
+- **initialization\_in\_seconds** – Time
   spent on initializing the training job. The initialization phase covers the
-  period from the **start_time** to the **training_loop_start** time. The initialization time
+  period from the **start\_time** to the **training\_loop\_start** time. The initialization time
   is spent on compiling the training script, starting the training script,
   creating and initializing the model, initiating EC2 instances, and
   downloading training data.
-- **finalization_in_seconds** – Time
+- **finalization\_in\_seconds** – Time
   spent on finalizing the training job, such as finishing the model training,
   updating the model artifacts, and closing the EC2 instances. The
-  finalization phase covers the period from the **training_loop_end** time to the **end_time**.
+  finalization phase covers the period from the **training\_loop\_end** time to the **end\_time**.
 - **initialization (%)** – The
   percentage of time spent on **initialization**
-  over the total **job_duration_in_seconds**.
+  over the total **job\_duration\_in\_seconds**.
 - **training loop (%)** – The percentage
   of time spent on **training loop** over the
-  total **job_duration_in_seconds**.
+  total **job\_duration\_in\_seconds**.
 - **finalization (%)** – The percentage
   of time spent on **finalization** over the
-  total **job_duration_in_seconds**.
+  total **job\_duration\_in\_seconds**.
 
 ## System usage statistics
 

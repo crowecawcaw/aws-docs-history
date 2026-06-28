@@ -25,7 +25,9 @@ configuration to your training job request.
 SageMaker Python SDK
 
 ```
-estimator=sagemaker.estimator.Estimator(
+from sagemaker.train import ModelTrainer
+
+model_trainer=ModelTrainer(
     ...
 
     rules=ProfilerRule.sagemaker(

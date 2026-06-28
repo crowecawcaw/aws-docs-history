@@ -94,7 +94,7 @@ instructions on uploading a notebook to the file browser, see [Upload Files to A
 
 1. To open the Launcher, choose **Amazon SageMaker Studio Classic** at the top left of
    the Studio Classic interface or use the keyboard shortcut `Ctrl + Shift +
-L`.
+ L`.
 
 To learn about all the available ways to open the Launcher, see [Use the Amazon SageMaker Studio Classic Launcher](studio-launcher.md "studio-launcher.md") 2. In the Launcher, in the **Notebooks and compute resources**
 section, choose **Change environment**.

@@ -83,7 +83,7 @@ following:
 - `IMAGE`: The container from the environment setup
   section.
 - `HF_MODEL_NAME_OR_PATH`: Define the name or the path of the
-  pre-trained weights in the hf_model_name_or_path parameter of the
+  pre-trained weights in the hf\_model\_name\_or\_path parameter of the
   recipe.
 - (Optional) You can provide the HuggingFace token if you need pre-trained
   weights from HuggingFace by setting the following key-value pair:

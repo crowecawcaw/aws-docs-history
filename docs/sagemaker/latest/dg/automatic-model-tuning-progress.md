@@ -134,14 +134,13 @@ obtain statistics about your tuning job.
 - [TuningJobCompletionDetails](../APIReference/API_HyperParameterTuningJobCompletionDetails.md "../APIReference/API_HyperParameterTuningJobCompletionDetails.md") – Tuning job completion information that
   includes the following:
 
-      + The timestamp of when convergence is detected if the job has converged.
-      + The number of training jobs that have not improved model performance. Model
-       performance is evaluated against the objective metric from the best training
-       job.
-
-  Use the tuning job completion criteria to assess how likely your tuning job is to
-  improve your model performance. Model performance is evaluated against the best
-  objective metric if it ran to completion.
+  - The timestamp of when convergence is detected if the job has converged.
+  - The number of training jobs that have not improved model performance. Model
+    performance is evaluated against the objective metric from the best training
+    job.
+    Use the tuning job completion criteria to assess how likely your tuning job is to
+    improve your model performance. Model performance is evaluated against the best
+    objective metric if it ran to completion.
 
 ## Stopping your tuning job manually
 

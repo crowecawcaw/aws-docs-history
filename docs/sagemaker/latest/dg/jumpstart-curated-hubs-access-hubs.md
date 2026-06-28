@@ -48,10 +48,11 @@ If a hub is not shared across accounts, then the `HUB_NAME` can be the hub name.
 
     # Import the necessary Python packages
     import boto3
-    from sagemaker import Session
+    from sagemaker.core.helper.session_helper import Session
     from sagemaker.jumpstart.hub.hub import Hub
-    from sagemaker.jumpstart.model import JumpStartModel
-    from sagemaker.jumpstart.estimator import JumpStartEstimator
+    from sagemaker.serve import ModelBuilder
+    from sagemaker.train import ModelTrainer
+    from sagemaker.core.jumpstart.configs import JumpStartConfig
 ```
 
 2. Initalize a SageMaker AI session and connect to your private hub using the hub name and Region.

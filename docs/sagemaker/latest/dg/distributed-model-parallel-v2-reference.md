@@ -11,7 +11,7 @@ The following are references for the SageMaker model parallel library v2 (SMP v2
 ## SMP v2 core feature configuration parameters
 
 The following is a complete list of parameters to activate and configure the [Core features of the SageMaker model parallelism library v2](model-parallel-core-features-v2.md "model-parallel-core-features-v2.md"). These must be written in JSON format
-and passed to the PyTorch estimator in the SageMaker Python SDK or saved as a JSON file for
+and passed to the PyTorch ModelTrainer in the SageMaker Python SDK or saved as a JSON file for
 SageMaker HyperPod.
 
 ```
@@ -85,7 +85,7 @@ SageMaker HyperPod.
 - `context_parallel_degree` (Integer) – Specifies the context
   parallelism degree. The value must be between `1` and
   `world_size` , and must be `<=
-hybrid_shard_degree`. The default value is `1`. Note that
+ hybrid_shard_degree`. The default value is `1`. Note that
   passing a value greater than 1 does not enable context parallelism
   automatically; you also need to use the [torch.sagemaker.transform](#model-parallel-v2-torch-sagemaker-reference-transform "#model-parallel-v2-torch-sagemaker-reference-transform") API to
   wrap the model in your training script. To learn more, see [Context parallelism](model-parallel-core-features-v2-context-parallelism.md "model-parallel-core-features-v2-context-parallelism.md").
@@ -109,15 +109,15 @@ SMP v2.
 
 ###### Topics
 
-- [torch.sagemaker.delayed_param.DelayedParamIniter](#model-parallel-v2-torch-sagemaker-reference-delayed-param-init "#model-parallel-v2-torch-sagemaker-reference-delayed-param-init")
-- [torch.sagemaker.distributed.checkpoint.state_dict_saver.async_save](#model-parallel-v2-torch-sagemaker-reference-checkpoint-async-save "#model-parallel-v2-torch-sagemaker-reference-checkpoint-async-save")
-- [torch.sagemaker.distributed.checkpoint.state_dict_saver.maybe_finalize_async_calls](#model-parallel-v2-torch-sagemaker-reference-checkpoint-state-dict-saver "#model-parallel-v2-torch-sagemaker-reference-checkpoint-state-dict-saver")
-- [torch.sagemaker.distributed.checkpoint.state_dict_saver.save](#model-parallel-v2-torch-sagemaker-reference-checkpoint-save "#model-parallel-v2-torch-sagemaker-reference-checkpoint-save")
-- [torch.sagemaker.distributed.checkpoint.state_dict_loader.load](#model-parallel-v2-torch-sagemaker-reference-checkpoint-load "#model-parallel-v2-torch-sagemaker-reference-checkpoint-load")
-- [torch.sagemaker.moe.moe_config.MoEConfig](#model-parallel-v2-torch-sagemaker-reference-moe "#model-parallel-v2-torch-sagemaker-reference-moe")
+- [torch.sagemaker.delayed\_param.DelayedParamIniter](#model-parallel-v2-torch-sagemaker-reference-delayed-param-init "#model-parallel-v2-torch-sagemaker-reference-delayed-param-init")
+- [torch.sagemaker.distributed.checkpoint.state\_dict\_saver.async\_save](#model-parallel-v2-torch-sagemaker-reference-checkpoint-async-save "#model-parallel-v2-torch-sagemaker-reference-checkpoint-async-save")
+- [torch.sagemaker.distributed.checkpoint.state\_dict\_saver.maybe\_finalize\_async\_calls](#model-parallel-v2-torch-sagemaker-reference-checkpoint-state-dict-saver "#model-parallel-v2-torch-sagemaker-reference-checkpoint-state-dict-saver")
+- [torch.sagemaker.distributed.checkpoint.state\_dict\_saver.save](#model-parallel-v2-torch-sagemaker-reference-checkpoint-save "#model-parallel-v2-torch-sagemaker-reference-checkpoint-save")
+- [torch.sagemaker.distributed.checkpoint.state\_dict\_loader.load](#model-parallel-v2-torch-sagemaker-reference-checkpoint-load "#model-parallel-v2-torch-sagemaker-reference-checkpoint-load")
+- [torch.sagemaker.moe.moe\_config.MoEConfig](#model-parallel-v2-torch-sagemaker-reference-moe "#model-parallel-v2-torch-sagemaker-reference-moe")
 - [torch.sagemaker.nn.attn.FlashSelfAttention](#model-parallel-v2-torch-sagemaker-reference-flashselfattention "#model-parallel-v2-torch-sagemaker-reference-flashselfattention")
 - [torch.sagemaker.nn.attn.FlashGroupedQueryAttention](#model-parallel-v2-torch-sagemaker-reference-flashGroupedQueryAttn "#model-parallel-v2-torch-sagemaker-reference-flashGroupedQueryAttn")
-- [torch.sagemaker.nn.huggingface.llama_flashattn.LlamaFlashAttention](#model-parallel-v2-torch-sagemaker-reference-llamaFlashAttn "#model-parallel-v2-torch-sagemaker-reference-llamaFlashAttn")
+- [torch.sagemaker.nn.huggingface.llama\_flashattn.LlamaFlashAttention](#model-parallel-v2-torch-sagemaker-reference-llamaFlashAttn "#model-parallel-v2-torch-sagemaker-reference-llamaFlashAttn")
 - [torch.sagemaker.transform](#model-parallel-v2-torch-sagemaker-reference-transform "#model-parallel-v2-torch-sagemaker-reference-transform")
 - [torch.sagemaker util functions and properties](#model-parallel-v2-torch-sagemaker-reference-utils "#model-parallel-v2-torch-sagemaker-reference-utils")
 
@@ -193,14 +193,14 @@ functions in the preceding code snippet, see [torch.sagemaker util functions and
   must implement the method `tie_weights`. For more information,
   see the **Notes on tied weight** in [Delayed parameter initialization](model-parallel-core-features-v2-delayed-param-init.md "model-parallel-core-features-v2-delayed-param-init.md").
 - `count_num_params` (`module: nn.Module, *args:
-Tuple[nn.Parameter]`) – Tracks how many parameters are being
+ Tuple[nn.Parameter]`) – Tracks how many parameters are being
   initialized by the parameter initialization function. This helps implement
   the following `validate_params_and_buffers_inited` method. You
   usually don’t need to call this function explicitly, because the
   `validate_params_and_buffers_inited` method implicitly calls
   this method in the backend.
 - `validate_params_and_buffers_inited` (`enabled:
-bool=True`) – This is a context manager that helps validate that
+ bool=True`) – This is a context manager that helps validate that
   the number of parameters initialized matches the total number of parameters
   in the model. It also validates that all parameters and buffers are now on
   GPU devices instead of meta devices. It raises `AssertionErrors`
@@ -495,17 +495,17 @@ def generate_alibi_attn_mask(attention_mask, batch_size, seq_length,
 **Methods**
 
 - `forward(self, qkv, attn_mask=None, causal=False, cast_dtype=None,
-layout="b h s d")` – A regular PyTorch module function. When a
+ layout="b h s d")` – A regular PyTorch module function. When a
   `module(x)` is called, SMP runs this function
   automatically.
 
   - `qkv` – `torch.Tensor` of the following
     form: `(batch_size x seqlen x (3 x num_heads) x
-head_size)` or `(batch_size, (3 x num_heads) x seqlen
-x head_size)`, a tuple of `torch.Tensors` each
+   head_size)` or `(batch_size, (3 x num_heads) x seqlen
+   x head_size)`, a tuple of `torch.Tensors` each
     of which might be of shape `(batch_size x seqlen x num_heads x
-head_size)`, or `(batch_size x num_heads x seqlen x
-head_size)`. An appropriate layout arg must be passed
+   head_size)`, or `(batch_size x num_heads x seqlen x
+   head_size)`. An appropriate layout arg must be passed
     based on the shape.
   - `attn_mask` – `torch.Tensor` of the
     following form `(batch_size x 1 x 1 x seqlen)`. To enable
@@ -527,7 +527,7 @@ head_size)`. An appropriate layout arg must be passed
     after rotary embeddings. If set to `None`, no cast is
     applied. The default value is `None`.
   - `layout` (string) – Available values are `b h s
-d` or `b s h d`. This should be set to the
+   d` or `b s h d`. This should be set to the
     layout of `qkv` tensors passed, so appropriate
     transformations can be applied for `attn`. The default
     value is `b h s d`.
@@ -561,7 +561,7 @@ class torch.sagemaker.nn.attn.FlashGroupedQueryAttention(
 **Methods**
 
 - `forward(self, q, kv, causal=False, cast_dtype=None, layout="b s h
-d")` – A regular PyTorch module function. When a
+ d")` – A regular PyTorch module function. When a
   `module(x)` is called, SMP runs this function
   automatically.
 
@@ -592,7 +592,7 @@ d")` – A regular PyTorch module function. When a
     `"b s h d"`. This should be set to the layout of
     `qkv` tensors passed, so appropriate transformations
     can be applied for `attn`. The default value is `"b
-h s d"`.
+   h s d"`.
 
 **Returns**
 
@@ -618,18 +618,18 @@ class torch.sagemaker.nn.huggingface.llama_flashattn.LlamaFlashAttention(
 **Methods**
 
 - `forward(self, hidden_states, attention_mask, position_ids,
-past_key_value, output_attentions, use_cache)`
+ past_key_value, output_attentions, use_cache)`
 
   - `hidden_states` (`torch.Tensor`) –
     Hidden states of a tensor in form of `(batch_size x seq_len x
-num_heads x head_size)`.
+   num_heads x head_size)`.
   - `attention_mask` (`torch.LongTensor`) – Mask
     to avoid performing attention on padding token indices in form of
     `(batch_size x seqlen)`. The default value is
     `None`.
   - `position_ids` (`torch.LongTensor`) –
     When not being `None`, it is in form of `(batch_size
-x seqlen)`, indicating the indices of positions of each
+   x seqlen)`, indicating the indices of positions of each
     input sequence token in the position embeddings. The default value
     is `None`.
   - `past_key_value` (Cache) – Pre-computed hidden-states
@@ -728,7 +728,7 @@ parameters and buffers on the meta device to save memory.
 ###### torch.sagemaker util functions
 
 - `torch.sagemaker.init(config: Optional[Union[str, Dict[str, Any]]] =
-None) -> None` – Initializes the PyTorch training job with
+ None) -> None` – Initializes the PyTorch training job with
   SMP.
 - `torch.sagemaker.is_initialized() -> bool` – Checks
   whether the training job is initialized with SMP. When falling back to the
@@ -736,13 +736,13 @@ None) -> None` – Initializes the PyTorch training job with
   some of the properties are not relevant and become
   `None`, as indicated in the following **Properties** list.
 - `torch.sagemaker.utils.module_utils.empty_module_params(module:
-nn.Module, device: Optional[torch.device] = None, recurse: bool = False)
--> nn.Module` – Creates empty parameters on the given
+ nn.Module, device: Optional[torch.device] = None, recurse: bool = False)
+ -> nn.Module` – Creates empty parameters on the given
   `device` if any, and it can be recursive for all nested
   modules if specified.
 - `torch.sagemaker.utils.module_utils.move_buffers_to_device(module:
-nn.Module, device: torch.device, recurse: bool = False) ->
-nn.Module` – Moves module buffers to the given
+ nn.Module, device: torch.device, recurse: bool = False) ->
+ nn.Module` – Moves module buffers to the given
   `device`, and it can be recursive for all nested modules if
   specified.
 

@@ -1,23 +1,23 @@
 # Upgrade XGBoost Version 0.90 to Version 1.5
 
 If you are using the SageMaker Python SDK, to upgrade existing XGBoost 0.90 jobs to version
-1.5, you must have version 2.x of the SDK installed and change the XGBoost
+1.5, you must have version 3.x of the SDK installed and change the XGBoost
 `version` and `framework_version` parameters to 1.5-1. If you
 are using Boto3, you need to update the Docker image, and a few hyperparameters and
 learning objectives.
 
 ###### Topics
 
-- [Upgrade SageMaker AI Python SDK Version 1.x to Version 2.x](#upgrade-xgboost-version-0.90-sagemaker-python-sdk "#upgrade-xgboost-version-0.90-sagemaker-python-sdk")
+- [Upgrade SageMaker AI Python SDK Version 1.x to Version 3.x](#upgrade-xgboost-version-0.90-sagemaker-python-sdk "#upgrade-xgboost-version-0.90-sagemaker-python-sdk")
 - [Change the image tag to 1.5-1](#upgrade-xgboost-version-0.90-change-image-tag "#upgrade-xgboost-version-0.90-change-image-tag")
 - [Change Docker Image for Boto3](#upgrade-xgboost-version-0.90-boto3 "#upgrade-xgboost-version-0.90-boto3")
 - [Update Hyperparameters and Learning Objectives](#upgrade-xgboost-version-0.90-hyperparameters "#upgrade-xgboost-version-0.90-hyperparameters")
 
-## Upgrade SageMaker AI Python SDK Version 1.x to Version 2.x
+## Upgrade SageMaker AI Python SDK Version 1.x to Version 3.x
 
 If you are still using Version 1.x of the SageMaker Python SDK, you must to upgrade
-version 2.x of the SageMaker Python SDK. For information on the latest version of the
-SageMaker Python SDK, see [Use Version 2.x of the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/v2.html "https://sagemaker.readthedocs.io/en/stable/v2.html"). To install the latest
+version 3.x of the SageMaker Python SDK. For information on the latest version of the
+SageMaker Python SDK, see [Use Version 3.x of the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/"). To install the latest
 version, run:
 
 ```
@@ -67,8 +67,8 @@ validation_input = TrainingInput("s3://{}/{}/{}/".format(bucket, prefix, 'valida
 ```
 
 For the full
-list of SageMaker Python SDK version 2.x changes, see [Use Version 2.x of the
-SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/v2.html "https://sagemaker.readthedocs.io/en/stable/v2.html").
+list of SageMaker Python SDK version 3.x changes, see [Use Version 3.x of the
+SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/").
 
 ## Change Docker Image for Boto3
 

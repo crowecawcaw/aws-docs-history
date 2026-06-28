@@ -183,25 +183,25 @@ follows.
       the process. This section shows the following information
       from the process.
 
-      - **GPU-inum_gpu
+      - **GPU-inum\_gpu
         utilization** – The utilization
-        rate of the inum_gpu-th GPU
+        rate of the inum\_gpu-th GPU
         over time.
-      - **GPU-inum_gpu
+      - **GPU-inum\_gpu
         device** – The kernel runs on the
-        inum_gpu-th GPU
+        inum\_gpu-th GPU
         device.
 
         - **stream
-          icuda_stream**
+          icuda\_stream**
           – CUDA streams showing kernel runs on the
           GPU device. To learn more about CUDA streams, see
           the slides in PDF at [CUDA C/C++ Streams and Concurrency](https://developer.download.nvidia.com/CUDA/training/StreamsAndConcurrencyWebinar.pdf "https://developer.download.nvidia.com/CUDA/training/StreamsAndConcurrencyWebinar.pdf")
           provided by NVIDIA.
 
-      - **GPU-inum_gpu
+      - **GPU-inum\_gpu
         host** – The kernel launches on
-        the inum_gpu-th GPU
+        the inum\_gpu-th GPU
         host.
 
 The following several screenshots show the **Timeline** of the

@@ -43,7 +43,8 @@ retrieve the execution role output:
 
 ```
 import sagemaker
-sagemaker.get_execution_role()
+from sagemaker.core.helper.session_helper import get_execution_role
+get_execution_role()
 ```
 
 8. At the bottom of the page, choose **Create

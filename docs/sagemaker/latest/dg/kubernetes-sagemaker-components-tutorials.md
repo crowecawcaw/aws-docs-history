@@ -264,7 +264,7 @@ payload = np2csv(train_set[0][30:31])
 response = runtime.invoke_endpoint(EndpointName=ENDPOINT_NAME,
                                    ContentType='text/csv',
                                    Body=payload)
-result = json.loads(response['Body'].read().decode())
+result = json.loads(response['Body'].read().decode('utf-8'))
 print(result)
 ```
 

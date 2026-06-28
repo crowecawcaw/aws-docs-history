@@ -17,7 +17,7 @@ This tutorial video demonstrates how to use Amazon SageMaker Debugger to capture
 debugging information from a training model. The example training model used in this
 video is a simple convolutional neural network (CNN) based on Keras with the
 TensorFlow backend. SageMaker AI in a TensorFlow framework and Debugger enable you to build an
-estimator directly using the training script and debug the training job.
+ModelTrainer directly using the training script and debug the training job.
 
 You can find the example notebook in the video in [this
 Studio Demo repository](https://gitlab.com/juliensimon/amazon-studio-demos/-/tree/master "https://gitlab.com/juliensimon/amazon-studio-demos/-/tree/master") provided by the author. You need to clone the

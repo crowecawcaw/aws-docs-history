@@ -84,7 +84,7 @@ the default roles using the following procedure.
 2. Choose **Control Panel** at the top left of the page.
 3. From the **domain** page, choose the
    **Settings** icon (
-   ![Black square icon representing a placeholder or empty image.](images/icons/Settings_squid.png)
+   ![Settings icon.](images/icons/Settings_squid.png)
    ) to edit the domain settings.
 4. On **General Settings** choose **Next**.
 5. Under **SageMaker Projects and JumpStart**, select **Enable

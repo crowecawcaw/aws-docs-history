@@ -10,8 +10,8 @@
 
 - **Pods stuck in `ContainerCreating`
   for more than 10 minutes.** Run `kubectl describe pod
-<pod-name>` and look for `Failed to pull
-image` or `MountVolume.SetUp failed`. Verify the
+ <pod-name>` and look for `Failed to pull
+ image` or `MountVolume.SetUp failed`. Verify the
   worker image exists and the Amazon S3 bucket is accessible from the
   cluster.
 - **Pods stuck at 2/3 Ready.** The vLLM
@@ -45,14 +45,14 @@ kubectl get inferenceendpointconfig <endpoint-name> -n <namespace> -w
 **Symptoms and resolution:**
 
 - **Decoder logs show `Retrieved 0 out of N
-required tokens`.** KV transfer did not occur and the
+ required tokens`.** KV transfer did not occur and the
   decoder fell back to local recomputation. Verify that the
   `pd_role` is correct (prefiller must be
   `sender`, decoder must be `receiver`), both
   pods use the same worker image, and `PYTHONHASHSEED` is
   set to `"0"` on both pods.
 - **Decoder logs show `Failed to allocate
-memory object, retrying...`** The decoder PD buffer
+ memory object, retrying...`** The decoder PD buffer
   is full under high concurrency. Either increase
   `PD_BUFFER_SIZE` (try `"17179869184"` for
   16 GiB or `"34359738368"` for 32 GiB) or scale
@@ -62,7 +62,7 @@ memory object, retrying...`** The decoder PD buffer
   back to CPU. Verify that both pods are scheduled on EFA-capable
   nodes in the same Availability Zone, that nodes have EFA resources
   available (`kubectl describe node <node-name> | grep
-efa`), and that the worker image includes the EFA libfabric
+ efa`), and that the worker image includes the EFA libfabric
   provider.
 
 ## Routing issues

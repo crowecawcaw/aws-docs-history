@@ -45,7 +45,7 @@ must comply with the following:
 When you create a model and deploy it to SageMaker AI hosting, you can specify that it use an
 image from your private Docker registry to build the inference container. Specify this
 in the `ImageConfig` object in the `PrimaryContainer` parameter
-that you pass to a call to the [create_model](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model") function.
+that you pass to a call to the [create\_model](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model") function.
 
 ###### To use an image stored in your private Docker registry for your inference container
 
@@ -137,7 +137,7 @@ else:
     print(resp)
 ```
 
-8. Finally, call [create_endpoint_config](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint_config "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint_config") and [create_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint") to create the hosting endpoint, using the model
+8. Finally, call [create\_endpoint\_config](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint_config "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint_config") and [create\_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint") to create the hosting endpoint, using the model
    that you created in the previous step.
 
 ```
@@ -167,7 +167,7 @@ sm.describe_endpoint(EndpointName=endpoint_name)
 
 To pull an inference image from a private Docker registry that requires
 authentication, create an AWS Lambda function that provides credentials, and provide the
-Amazon Resource Name (ARN) of the Lambda function when you call [create_model](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model"). When SageMaker AI runs `create_model`, it calls the Lambda
+Amazon Resource Name (ARN) of the Lambda function when you call [create\_model](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model"). When SageMaker AI runs `create_model`, it calls the Lambda
 function that you specified to get credentials to authenticate to your Docker
 registry.
 

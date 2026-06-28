@@ -45,9 +45,8 @@ if necessary.
      routing, see [SageMaker HyperPod model deployment](sagemaker-hyperpod-model-deployment.md "sagemaker-hyperpod-model-deployment.md").
 
 5. Choose **Deploy** and wait for the
-   **Endpoint** to be created.
-6. After the **Endpoint** has been created,
-   select **Test inference**.
+**Endpoint** to be created. 6. After the **Endpoint** has been created,
+select **Test inference**.
 
 ## Edit a HyperPod deployment
 

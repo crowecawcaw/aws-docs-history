@@ -10,12 +10,12 @@ inference metrics.
 
 ## PromQL endpoint and authentication
 
-| PromQL connection settings | Setting                                                                               | Value |
-| -------------------------- | ------------------------------------------------------------------------------------- | ----- |
-| Endpoint URL               | `https://monitoring.`region`.amazonaws.com`                                           |
-| Auth                       | Signature Version 4 (SigV4)                                                           |
-| Service                    | `monitoring`                                                                          |
-| Required permissions       | `cloudwatch:QueryMetrics`,<br>`cloudwatch:GetMetricData`,<br>`cloudwatch:ListMetrics` |
+PromQL connection settings| Setting | Value |
+| --- | --- |
+| Endpoint URL | `https://monitoring.`region`.amazonaws.com` |
+| Auth | Signature Version 4 (SigV4) |
+| Service | `monitoring` |
+| Required permissions | `cloudwatch:QueryMetrics`,<br>`cloudwatch:GetMetricData`,<br>`cloudwatch:ListMetrics` |
 
 ## Setting up a Prometheus data source in Grafana
 
@@ -86,15 +86,15 @@ Insights dashboard.
 
 In PromQL, labels with dots must be enclosed in single quotes:
 
-| OTel labels                                | Label                    | Description |
-| ------------------------------------------ | ------------------------ | ----------- |
-| `'aws.sagemaker.endpoint.name'`            | Endpoint name            |
-| `'aws.sagemaker.inference_component.name'` | IC name                  |
-| `'aws.sagemaker.inference_framework'`      | Framework (vllm, sglang) |
-| `'aws.sagemaker.variant.name'`             | Variant name             |
-| `@resource.host.id`                        | Instance ID              |
-| `@resource.cloud.availability_zone`        | Availability zone        |
-| `@resource.host.type`                      | Instance type            |
+OTel labels| Label | Description |
+| --- | --- |
+| `'aws.sagemaker.endpoint.name'` | Endpoint name |
+| `'aws.sagemaker.inference_component.name'` | IC name |
+| `'aws.sagemaker.inference_framework'` | Framework (vllm, sglang) |
+| `'aws.sagemaker.variant.name'` | Variant name |
+| `@resource.host.id` | Instance ID |
+| `@resource.cloud.availability_zone` | Availability zone |
+| `@resource.host.type` | Instance type |
 
 ## Example PromQL queries
 

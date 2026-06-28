@@ -20,10 +20,9 @@ Date: December 03, 2025
 - **Checkpointless**: Enables faster recovery from cluster training faults in large-scale distributed training environments by making framework-level optimizations
 - **Built on Nvidia Nemo and PyTorch Lightning**: Leverages these powerful frameworks for efficient and flexible model training
 
-      + [Nividia NeMo](https://github.com/NVIDIA-NeMo/NeMo "https://github.com/NVIDIA-NeMo/NeMo")
-      + [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/ "https://lightning.ai/docs/pytorch/stable/")
-
-  **SageMaker HyperPod Checkpointless training Docker container**
+  - [Nividia NeMo](https://github.com/NVIDIA-NeMo/NeMo "https://github.com/NVIDIA-NeMo/NeMo")
+  - [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/ "https://lightning.ai/docs/pytorch/stable/")
+    **SageMaker HyperPod Checkpointless training Docker container**
 
 Checkpointless training on HyperPod is built on top of the [NVIDIA NeMo framework](https://docs.nvidia.com/nemo-framework/user-guide/latest/overview.html "https://docs.nvidia.com/nemo-framework/user-guide/latest/overview.html"). HyperPod checkpointless training aims to recover faster from cluster training faults in large-scale distributed training environments by making framework-level optimizations that will be delivered on a base container containing the base image with NCCL and PyTorch optimizations.
 

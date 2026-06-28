@@ -59,27 +59,27 @@ In addition to the standard [Liquid filters](https://shopify.github.io/liquid/fi
 
 By default, inputs will be HTML escaped to prevent confusion between your variable text and HTML. You can explicitly add the `escape` filter to make it more obvious to someone reading the source of your template that the escaping is being done.
 
-### escape_once
+### escape\_once
 
 `escape_once` ensures that if you've already escaped your code, it doesn't get re-escaped on top of that. For example, so that &amp; doesn't become &amp;amp;.
 
-### skip_autoescape
+### skip\_autoescape
 
 `skip_autoescape` is useful when your content is meant to be used as HTML. For example, you might have a few paragraphs of text and some images in the full instructions for a bounding box.
 
-###### Use skip_autoescape sparingly
+###### Use skip\_autoescape sparingly
 
 The best practice in templates is to avoid passing in functional code or markup with `skip_autoescape` unless you are absolutely sure you have strict control over what's being passed. If you're passing user input, you could be opening your workers up to a Cross Site Scripting attack.
 
-### to_json
+### to\_json
 
 `to_json` will encode what you feed it to JSON (JavaScript Object Notation). If you feed it an object, it will serialize it.
 
-### grant_read_access
+### grant\_read\_access
 
 `grant_read_access` takes an S3 URI and encodes it into an HTTPS URL with a short-lived access token for that resource. This makes it possible to display to workers the photo, audio, or video objects stored in S3 buckets that are not otherwise publicly accessible.
 
-### s3_presign
+### s3\_presign
 
 The `s3_presign` filter works the same way as the `grant_read_access` filter. `s3_presign` takes an Amazon S3 URI and encodes it into an HTTPS URL with a short-lived access token for that resource. This makes it possible to display photo, audio, or video objects stored in S3 buckets that are not otherwise publicly accessible to workers.
 

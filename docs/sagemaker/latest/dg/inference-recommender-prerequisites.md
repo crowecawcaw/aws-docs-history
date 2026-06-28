@@ -24,7 +24,8 @@ IAM role (from Step 1), and the SageMaker AI client.
 
 ```
 !pip install --upgrade pip awscli botocore boto3  --quiet
-from sagemaker import get_execution_role, Session, image_uris
+from sagemaker.core.helper.session_helper import get_execution_role, Session
+from sagemaker.core import image_uris
 import boto3
 
 region = boto3.Session().region_name
@@ -184,7 +185,7 @@ The following demonstrates how to retrieve a PyTorch version 1.7.1 inference
 image using the SageMaker Python SDK:
 
 ```
-from sagemaker import image_uris
+from sagemaker.core import image_uris
 
 ## Uncomment and replace with your own values if you did not define
 ## these variables a previous step.
@@ -449,7 +450,7 @@ job.
     ```
 
 9. **Option 2: Create a model and configure the
-   `ContainerConfig` field**
+`ContainerConfig` field**
 
 Use this option if you want to start an inference recommendations job and
 don't need to register your model in the Model Registry. In the following steps,

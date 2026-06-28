@@ -80,7 +80,7 @@ Learn how to configure SMP distribution options for launching a PyTorch FSDP tra
 job with SMP core features.
 
 SageMaker Training
-When you set up a training job launcher object of the [PyTorch framework estimator](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html") class in the SageMaker Python SDK,
+When you set up a training job launcher object of the [PyTorch framework estimator](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") class in the SageMaker Python SDK,
 configure [SMP v2 core feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config") through
 `distribution` argument as follows.
 

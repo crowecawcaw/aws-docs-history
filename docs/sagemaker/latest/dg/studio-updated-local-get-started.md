@@ -155,7 +155,7 @@ cat /etc/os-release
    of the application in the [Amazon SageMaker AI Local Mode Examples repository](https://github.com/aws-samples/amazon-sagemaker-local-mode/tree/main/sagemaker_studio_docker_cli_install "https://github.com/aws-samples/amazon-sagemaker-local-mode/tree/main/sagemaker_studio_docker_cli_install").
 
 For example, install Docker on Ubuntu following the
-script at [https://github.com/aws-samples/amazon-sagemaker-local-mode/blob/main/sagemaker_studio_docker_cli_install/sagemaker-ubuntu-focal-docker-cli-install.sh](https://github.com/aws-samples/amazon-sagemaker-local-mode/blob/main/sagemaker_studio_docker_cli_install/sagemaker-ubuntu-focal-docker-cli-install.sh "https://github.com/aws-samples/amazon-sagemaker-local-mode/blob/main/sagemaker_studio_docker_cli_install/sagemaker-ubuntu-focal-docker-cli-install.sh")
+script at [https://github.com/aws-samples/amazon-sagemaker-local-mode/blob/main/sagemaker\_studio\_docker\_cli\_install/sagemaker-ubuntu-focal-docker-cli-install.sh](https://github.com/aws-samples/amazon-sagemaker-local-mode/blob/main/sagemaker_studio_docker_cli_install/sagemaker-ubuntu-focal-docker-cli-install.sh "https://github.com/aws-samples/amazon-sagemaker-local-mode/blob/main/sagemaker_studio_docker_cli_install/sagemaker-ubuntu-focal-docker-cli-install.sh")
 with the following considerations:
 
     * If chained commands fail, run commands one at a time.

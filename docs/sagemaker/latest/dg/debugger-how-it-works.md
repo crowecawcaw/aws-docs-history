@@ -26,7 +26,7 @@ bucket:
 ###### Note
 
 By default, Debugger monitors and debugs SageMaker training jobs without any
-Debugger-specific parameters configured in SageMaker AI estimators. Debugger collects
+Debugger-specific parameters configured in SageMaker AI ModelTrainers. Debugger collects
 system metrics every 500 milliseconds and basic output tensors (scalar
 outputs such as loss and accuracy) every 500 steps. It also runs the
 `ProfilerReport` rule to analyze the system metrics and

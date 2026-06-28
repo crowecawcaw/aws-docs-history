@@ -26,7 +26,7 @@ The high-level Debugger workflow is as follows:
    SDK if needed.
 2. Configure a SageMaker training job with SageMaker Debugger.
 
-   - Configure using the SageMaker AI Estimator API (for Python SDK).
+   - Configure using the SageMaker AI ModelTrainer API (for Python SDK).
    - Configure using the SageMaker AI [`CreateTrainingJob` request (for Boto3 or
      CLI)](debugger-createtrainingjob-api.md "debugger-createtrainingjob-api.md").
    - Configure [custom

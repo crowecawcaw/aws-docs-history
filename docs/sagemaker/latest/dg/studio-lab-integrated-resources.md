@@ -37,9 +37,8 @@ because you are currently in a Git repository. Instead, use the following subste
     4. Choose **Clone a Repository**.
 
 4. Under **Git repository URL (.git)** you will be asked to provide a
-   URL.
-5. On a new browser tab, navigate to your Studio Lab project overview page. The URL takes the
-   following format.
+URL. 5. On a new browser tab, navigate to your Studio Lab project overview page. The URL takes the
+following format.
 
 ```
 https://studiolab.sagemaker.aws/users/`<YOUR_USER_NAME>`
@@ -83,9 +82,8 @@ because you are currently in a Git repository. Instead, use the following subste
     4. Choose **Clone a Repository**.
 
 4. Under **Git repository URL (.git)** you will be asked to provide a
-   URL.
-5. On a new browser tab, navigate to your Studio Lab project overview page. The URL takes the
-   following format.
+URL. 5. On a new browser tab, navigate to your Studio Lab project overview page. The URL takes the
+following format.
 
 ```
 https://studiolab.sagemaker.aws/users/`<YOUR_USER_NAME>`

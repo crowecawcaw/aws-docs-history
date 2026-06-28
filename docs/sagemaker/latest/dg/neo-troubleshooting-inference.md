@@ -8,7 +8,7 @@ v1.7.0 or later**.
 - Make sure the first inference (warm-up inference) on a valid input data is
   done in `model_fn()`, if you defined a `model_fn` in your inference script,
   otherwise the following error message may be seen on the
-  terminal when [`predict API`](https://sagemaker.readthedocs.io/en/stable/api/inference/predictors.html#sagemaker.predictor.Predictor.predict "https://sagemaker.readthedocs.io/en/stable/api/inference/predictors.html#sagemaker.predictor.Predictor.predict") is called:
+  terminal when [`predict API`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html") is called:
 
 ```
 An error occurred (ModelError) when calling the InvokeEndpoint operation: Received server error (0) from <users-sagemaker-endpoint> with message "Your invocation timed out while waiting for a response from container model. Review the latency metrics for each container in Amazon CloudWatch, resolve the issue, and try again."
@@ -29,12 +29,12 @@ An error occurred (ModelError) when calling the InvokeEndpoint operation: Receiv
 W-9001-model-stdout com.amazonaws.ml.mms.wlm.WorkerLifeCycle - AttributeError: 'NoneType' object has no attribute 'transform'
 ```
 
-| Key                           | Value              |
-| ----------------------------- | ------------------ |
-| SAGEMAKER_PROGRAM             | inference.py       |
-| SAGEMAKER_SUBMIT_DIRECTORY    | /opt/ml/model/code |
-| SAGEMAKER_CONTAINER_LOG_LEVEL | 20                 |
-| SAGEMAKER_REGION              | <your region>      |
+| Key                              | Value              |
+| -------------------------------- | ------------------ |
+| SAGEMAKER\_PROGRAM               | inference.py       |
+| SAGEMAKER\_SUBMIT\_DIRECTORY     | /opt/ml/model/code |
+| SAGEMAKER\_CONTAINER\_LOG\_LEVEL | 20                 |
+| SAGEMAKER\_REGION                | <your region>      |
 
 - Make sure that the `MMS_DEFAULT_RESPONSE_TIMEOUT` environment
   variable is set to 500 or a higher value while creating the Amazon SageMaker AI model;

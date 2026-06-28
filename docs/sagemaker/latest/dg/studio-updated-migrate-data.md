@@ -165,118 +165,95 @@ export SOURCE_LOCATION_ARN=$(aws datasync create-location-efs --subdirectory "/"
 export DESTINATION_LOCATION_ARN=$(aws datasync create-location-efs --subdirectory "/" --efs-filesystem-arn $TARGET_EFS_ARN --ec2-config SubnetArn=$EFS_SUBNET_ID_ARN,SecurityGroupArns=$EFS_SG_ID_ARN --region $REGION | jq -r ".LocationArn")
 ```
 
-5.  Allow traffic between the source and target network file system (NFS) mounts.
-    When a new domain is created, SageMaker AI creates 2 security groups.
+5. Allow traffic between the source and target network file system (NFS) mounts.
+   When a new domain is created, SageMaker AI creates 2 security groups.
 
-        * NFS inbound security group with only inbound traffic.
-        * NFS outbound security group with only outbound traffic.
+   - NFS inbound security group with only inbound traffic.
+   - NFS outbound security group with only outbound traffic.
+     The source and target NFS are placed inside the same security groups. You can
+     allow traffic between these mounts from the AWS Management Console or AWS CLI.
 
-    The source and target NFS are placed inside the same security groups. You can
-    allow traffic between these mounts from the AWS Management Console or AWS CLI.
+   - Allow traffic from the AWS Management Console
 
-        * Allow traffic from the AWS Management Console
+     1. Sign in to the AWS Management Console and open the Amazon VPC console at
+        [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+     2. Choose **Security Groups**.
+     3. Search for the existing domain's ID on the **Security
+        Groups** page.
 
+     ```
+     d-`xxxxxxx`
+     ```
 
+     The results should return two security groups that include the domain ID in the name.
 
-        	1. Sign in to the AWS Management Console and open the Amazon VPC console at
-        	 [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-        	2. Choose **Security Groups**.
-        	3. Search for the existing domain's ID on the **Security
-        	 Groups** page.
+           + `security-group-for-inbound-nfs-`domain-id``
+           + `security-group-for-outbound-nfs-`domain-id``
 
+     4. Select the inbound security group ID. This opens a new page with details about the security group. 5. Select the **Outbound Rules** tab. 6. Select **Edit outbound rules**. 7. Update the existing outbound rules or add a new outbound rule with the following values:
 
+           + Type: NFS
+           + Protocol: TCP
+           + Port range: 2049
+           + Destination:
+            security-group-for-outbound-nfs-`domain-id`
+            | `security-group-id`
 
-        	```
-        	d-`xxxxxxx`
-        	```
+     8. Choose **Save rules**. 9. Select the **Inbound Rules** tab. 10. Select **Edit inbound rules**. 11. Update the existing inbound rules or add a new outbound rule with the following values:
 
-        	The results should return two security groups that include the domain ID in the name.
+           + Type: NFS
+           + Protocol: TCP
+           + Port range: 2049
+           + Destination:
+            security-group-for-outbound-nfs-`domain-id`
+            |
+            `security-group-id`
 
+     12. Choose **Save rules**.
 
+   - Allow traffic from the AWS CLI
 
+     1. Update the security group inbound and outbound rules with the
+        following values:
 
-        		+ `security-group-for-inbound-nfs-`domain-id``
-        		+ `security-group-for-outbound-nfs-`domain-id``
-        	4. Select the inbound security group ID. This opens a new page with details about the security group.
-        	5. Select the **Outbound Rules** tab.
-        	6. Select **Edit outbound rules**.
-        	7. Update the existing outbound rules or add a new outbound rule with the following values:
+        - Protocol: TCP
+        - Port range: 2049
+        - Group ID: Inbound security group ID or outbound security group ID
 
+     ```
+     export INBOUND_SG_ID=$(aws ec2 describe-security-groups --filters "Name=group-name,Values=security-group-for-inbound-nfs-$SOURCE_DOMAIN_ID" | jq -r ".SecurityGroups[0].GroupId")
+     export OUTBOUND_SG_ID=$(aws ec2 describe-security-groups --filters "Name=group-name,Values=security-group-for-outbound-nfs-$SOURCE_DOMAIN_ID" | jq -r ".SecurityGroups[0].GroupId")
 
+     echo "Outbound SG ID: $OUTBOUND_SG_ID | Inbound SG ID: $INBOUND_SG_ID"
+     aws ec2 authorize-security-group-egress \
+     --group-id $INBOUND_SG_ID \
+     --protocol tcp --port 2049 \
+     --source-group $OUTBOUND_SG_ID
 
+     aws ec2 authorize-security-group-ingress \
+     --group-id $OUTBOUND_SG_ID \
+     --protocol tcp --port 2049 \
+     --source-group $INBOUND_SG_ID
+     ```
+     2. Add both the inbound and outbound security groups to the
+        source and target Amazon EFS mount targets. This allows traffic
+        between the 2 Amazon EFS mounts.
 
-        		+ Type: NFS
-        		+ Protocol: TCP
-        		+ Port range: 2049
-        		+ Destination:
-        		 security-group-for-outbound-nfs-`domain-id`
-        		 | `security-group-id`
-        	8. Choose **Save rules**.
-        	9. Select the **Inbound Rules** tab.
-        	10. Select **Edit inbound rules**.
-        	11. Update the existing inbound rules or add a new outbound rule with the following values:
+     ```
+     export SOURCE_EFS_MOUNT_TARGET=$(aws efs describe-mount-targets --file-system-id $SOURCE_EFS | jq -r ".MountTargets[0].MountTargetId")
+     export TARGET_EFS_MOUNT_TARGET=$(aws efs describe-mount-targets --file-system-id $TARGET_EFS | jq -r ".MountTargets[0].MountTargetId")
 
+     aws efs modify-mount-target-security-groups \
+     --mount-target-id $SOURCE_EFS_MOUNT_TARGET \
+     --security-groups $INBOUND_SG_ID $OUTBOUND_SG_ID
 
+     aws efs modify-mount-target-security-groups \
+     --mount-target-id $TARGET_EFS_MOUNT_TARGET \
+     --security-groups $INBOUND_SG_ID $OUTBOUND_SG_ID
+     ```
 
-
-        		+ Type: NFS
-        		+ Protocol: TCP
-        		+ Port range: 2049
-        		+ Destination:
-        		 security-group-for-outbound-nfs-`domain-id`
-        		 |
-        		 `security-group-id`
-        	12. Choose **Save rules**.
-        * Allow traffic from the AWS CLI
-
-
-
-        	1. Update the security group inbound and outbound rules with the
-        	 following values:
-
-
-
-
-        		+ Protocol: TCP
-        		+ Port range: 2049
-        		+ Group ID: Inbound security group ID or outbound security group ID
-
-        	```
-        	export INBOUND_SG_ID=$(aws ec2 describe-security-groups --filters "Name=group-name,Values=security-group-for-inbound-nfs-$SOURCE_DOMAIN_ID" | jq -r ".SecurityGroups[0].GroupId")
-        	export OUTBOUND_SG_ID=$(aws ec2 describe-security-groups --filters "Name=group-name,Values=security-group-for-outbound-nfs-$SOURCE_DOMAIN_ID" | jq -r ".SecurityGroups[0].GroupId")
-
-        	echo "Outbound SG ID: $OUTBOUND_SG_ID | Inbound SG ID: $INBOUND_SG_ID"
-        	aws ec2 authorize-security-group-egress \
-        	--group-id $INBOUND_SG_ID \
-        	--protocol tcp --port 2049 \
-        	--source-group $OUTBOUND_SG_ID
-
-        	aws ec2 authorize-security-group-ingress \
-        	--group-id $OUTBOUND_SG_ID \
-        	--protocol tcp --port 2049 \
-        	--source-group $INBOUND_SG_ID
-        	```
-        	2. Add both the inbound and outbound security groups to the
-        	 source and target Amazon EFS mount targets. This allows traffic
-        	 between the 2 Amazon EFS mounts.
-
-
-
-        	```
-        	export SOURCE_EFS_MOUNT_TARGET=$(aws efs describe-mount-targets --file-system-id $SOURCE_EFS | jq -r ".MountTargets[0].MountTargetId")
-        	export TARGET_EFS_MOUNT_TARGET=$(aws efs describe-mount-targets --file-system-id $TARGET_EFS | jq -r ".MountTargets[0].MountTargetId")
-
-        	aws efs modify-mount-target-security-groups \
-        	--mount-target-id $SOURCE_EFS_MOUNT_TARGET \
-        	--security-groups $INBOUND_SG_ID $OUTBOUND_SG_ID
-
-        	aws efs modify-mount-target-security-groups \
-        	--mount-target-id $TARGET_EFS_MOUNT_TARGET \
-        	--security-groups $INBOUND_SG_ID $OUTBOUND_SG_ID
-        	```
-
-6.  Create a AWS DataSync task. This returns a task ARN that can be used to run the
-    task on-demand or as part of a regular cadence.
+6. Create a AWS DataSync task. This returns a task ARN that can be used to run the
+   task on-demand or as part of a regular cadence.
 
 ```
 export EXTRA_XFER_OPTIONS='VerifyMode=ONLY_FILES_TRANSFERRED,OverwriteMode=ALWAYS,Atime=NONE,Mtime=NONE,Uid=NONE,Gid=NONE,PreserveDeletedFiles=REMOVE,PreserveDevices=NONE,PosixPermissions=NONE,TaskQueueing=ENABLED,TransferMode=CHANGED,SecurityDescriptorCopyFlags=NONE,ObjectTags=NONE'
@@ -658,8 +635,8 @@ Use the following procedure to migrate all of your flow files:
 5. When Canvas is ready, choose **Open in Canvas.**
 6. Canvas opens to the **Data Wrangler** page, and a banner
    at the top of the page appears that says **`Import your
-data flows from Data Wrangler in Studio Classic to Canvas. This is a one time import.
-Learn more.`** In the banner, choose **Import All**.
+ data flows from Data Wrangler in Studio Classic to Canvas. This is a one time import.
+ Learn more.`** In the banner, choose **Import All**.
 
 ###### Warning
 

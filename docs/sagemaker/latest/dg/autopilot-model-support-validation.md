@@ -36,13 +36,12 @@ For a list of algorithms that Autopilot supports in HPO mode, see the following
   100 MB, Autopilot chooses HPO. Otherwise, it chooses ensembling mode. Autopilot can fail to
   read the size of your dataset in the following cases.
 
-      + If you enable Virtual Private Cloud (VPC) mode, for an AutoML job but the S3
-       bucket containing the dataset only allows access from the VPC.
-      + The input [S3DataType](../APIReference/API_AutoMLS3DataSource.md#sagemaker-Type-AutoMLS3DataSource-S3DataType "../APIReference/API_AutoMLS3DataSource.md#sagemaker-Type-AutoMLS3DataSource-S3DataType") of your dataset is a `ManifestFile`.
-      + The input [S3Uri](../APIReference/API_AutoMLS3DataSource.md#sagemaker-Type-AutoMLS3DataSource-S3Uri "../APIReference/API_AutoMLS3DataSource.md#sagemaker-Type-AutoMLS3DataSource-S3Uri") contains more than 1000 items.
-
-  If Autopilot is unable to read your dataset size, it defaults to choosing HPO
-  mode.
+  - If you enable Virtual Private Cloud (VPC) mode, for an AutoML job but the S3
+    bucket containing the dataset only allows access from the VPC.
+  - The input [S3DataType](../APIReference/API_AutoMLS3DataSource.md#sagemaker-Type-AutoMLS3DataSource-S3DataType "../APIReference/API_AutoMLS3DataSource.md#sagemaker-Type-AutoMLS3DataSource-S3DataType") of your dataset is a `ManifestFile`.
+  - The input [S3Uri](../APIReference/API_AutoMLS3DataSource.md#sagemaker-Type-AutoMLS3DataSource-S3Uri "../APIReference/API_AutoMLS3DataSource.md#sagemaker-Type-AutoMLS3DataSource-S3Uri") contains more than 1000 items.
+    If Autopilot is unable to read your dataset size, it defaults to choosing HPO
+    mode.
 
 ###### Note
 

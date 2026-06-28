@@ -22,14 +22,14 @@ the specific feature group are written.
 The following additional fields are added by Feature Store to each record when they persist in the
 offline store:
 
-- **api_invocation_time** – The timestamp when the
+- **api\_invocation\_time** – The timestamp when the
   service receives the `PutRecord` or `DeleteRecord` call. If
   using managed ingestion (e.g. Data Wrangler), this is the timestamp when data was
   written into the offline store.
-- **write_time** – The timestamp when data was
+- **write\_time** – The timestamp when data was
   written into the offline store. Can be used for constructing time-travel related
   queries.
-- **is_deleted** – `False` by default.
+- **is\_deleted** – `False` by default.
   If `DeleteRecord` is called, a new `Record` is inserted into
   `RecordIdentifierValue` and set to `True` in the offline
   store.

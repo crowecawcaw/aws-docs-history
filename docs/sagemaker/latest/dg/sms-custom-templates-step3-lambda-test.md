@@ -100,30 +100,29 @@ when you deployed the Ground Truth AWS Serverless Application Repository (SAR) r
 
 ###### Test the Ground Truth SAR recipe post-annotation Lambda
 
-1.  Open the [**Functions** page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") in the Lambda
-    console.
-2.  Select the post-annotation function that was deployed from the Ground Truth
-    SAR recipe. The name of this function is similar to
-    `serverlessrepo-aws-sagema-GtRecipeAnnotationConsol-`<id>``.
-3.  In the **Code source** section, select the arrow next to
-    **Test**.
-4.  Select **Configure test event**.
-5.  Keep the **Create new test event** option
-    selected.
-6.  Under **Event template**, select **SageMaker
-    Ground Truth AnnotationConsolidation**.
-7.  Give your test an **Event name**.
-8.  Modify the template code provided as follows:
+1. Open the [**Functions** page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") in the Lambda
+   console.
+2. Select the post-annotation function that was deployed from the Ground Truth
+   SAR recipe. The name of this function is similar to
+   `serverlessrepo-aws-sagema-GtRecipeAnnotationConsol-`<id>``.
+3. In the **Code source** section, select the arrow next to
+   **Test**.
+4. Select **Configure test event**.
+5. Keep the **Create new test event** option
+   selected.
+6. Under **Event template**, select **SageMaker
+   Ground Truth AnnotationConsolidation**.
+7. Give your test an **Event name**.
+8. Modify the template code provided as follows:
 
-        * Replace the Amazon Resource Name (ARN) in `roleArn`
-         with the ARN of the SageMaker AI execution role you used to create the
-         labeling job.
-        * Replace the S3 URI in `s3Uri` with the URI of the
-         ``sample-annotations.json`` file
-         you added to Amazon S3.
-
-    After you make these modifications, your test should look similar to
-    the following:
+   - Replace the Amazon Resource Name (ARN) in `roleArn`
+     with the ARN of the SageMaker AI execution role you used to create the
+     labeling job.
+   - Replace the S3 URI in `s3Uri` with the URI of the
+     `sample-annotations.json` file
+     you added to Amazon S3.
+     After you make these modifications, your test should look similar to
+     the following:
 
 ```
 {

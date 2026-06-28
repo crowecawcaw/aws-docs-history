@@ -98,7 +98,7 @@ Amazon Textract – Key-value pair extraction
    missing**.
 
 2. For **Key name**, enter `Mail
-Address`.
+ Address`.
 
 3. Set the identification confidence threshold between
    `0` and `99`.

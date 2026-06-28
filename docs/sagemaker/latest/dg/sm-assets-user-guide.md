@@ -188,10 +188,9 @@ Use the following procedure to publish an AWS Glue table.
 ###### Note
 
 Even though you can specify more than one table, we
-strongly suggest providing only one table name. 10. Choose **Next**. 11. _ For **Publish asset to the catalog**,
+strongly suggest providing only one table name. 10. Choose **Next**. 11. * For **Publish asset to the catalog**,
 select **Yes** to publish to the asset
-catalog.
-_ For **Publish asset to the catalog**,
+catalog. * For **Publish asset to the catalog**,
 select **No** to publish to the asset
 catalog. 12. Choose **Next**. 13. Under **Asset details**, choose **Run
 on a schedule** or **Run on
@@ -240,7 +239,6 @@ Use the following procedure to publish an Amazon Redshift table.
      2. For **Secret**, specify the
         name of the AWS Secrets Manager secret containing the
         credentials for the workgroup.
-
 9. For **Publish source selection**, select the
    database containing the Amazon Redshift table.
 10. For **Table selection criteria**, specify the
@@ -249,10 +247,9 @@ Use the following procedure to publish an Amazon Redshift table.
 ###### Note
 
 Even though you can specify more than one table, we
-strongly suggest providing only one table name. 11. Choose **Next**. 12. _ For **Publish asset to the catalog**,
+strongly suggest providing only one table name. 11. Choose **Next**. 12. * For **Publish asset to the catalog**,
 select **Yes** to publish to the asset
-catalog.
-_ For **Publish asset to the catalog**,
+catalog. * For **Publish asset to the catalog**,
 select **No** to publish to the asset
 catalog. 13. Choose **Next**. 14. Under **Asset details**, choose **Run
 on a schedule** or **Run on

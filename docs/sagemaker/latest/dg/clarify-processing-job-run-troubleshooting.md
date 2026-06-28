@@ -40,7 +40,7 @@ If the processing job fails to finish, you can try the following:
   the failure reason and exit message:
 
   - `aws sagemaker describe-processing-job —processing-job-name
-<processing-job-id>`
+   <processing-job-id>`
 
 ## Processing job is taking too long to run
 
@@ -66,12 +66,11 @@ load. To speed up your job, try the following:
   in your analysis configuration file. The number of samples directly affects the
   following:
 
-      + The size of the synthetic datasets that are sent to your
-       endpoint
-      + Job runtime
-
-  Reducing the number of samples can also lead to reduced accuracy in estimating
-  SHAP values. For more information, see [Analysis Configuration Files](clarify-processing-job-configure-analysis.md "clarify-processing-job-configure-analysis.md").
+  - The size of the synthetic datasets that are sent to your
+    endpoint
+  - Job runtime
+    Reducing the number of samples can also lead to reduced accuracy in estimating
+    SHAP values. For more information, see [Analysis Configuration Files](clarify-processing-job-configure-analysis.md "clarify-processing-job-configure-analysis.md").
 
 ## Processing job finishes without results and you get a CloudWatch warning message
 
@@ -85,11 +84,11 @@ its completion. In the latter case, check the maximum runtime in the job configu
 ## Error message for invalid analysis configuration
 
 - If you get the error message **`Unable to load analysis configuration
-as JSON.`**, this means that the analysis configuration input file
+ as JSON.`**, this means that the analysis configuration input file
   for the processing job does not contain a valid JSON object. Check the validity
   of the JSON object using a JSON linter.
 - If you get the error message **`Analysis configuration schema
-validation error.`**, this means that the analysis configuration
+ validation error.`**, this means that the analysis configuration
   input file for the processing job contains unknown fields or invalid types for
   some field values. Review the configuration parameters in the file and
   cross-check them with the parameters listed in the analysis configuration file.
@@ -121,17 +120,17 @@ If your receive one of the following error messages **`No Label values are
 - Check that the baseline format in the analysis config is the same as dataset
   format.
 - If your receive the error message **`Could not convert string to
-float.`**, check that the format is correctly specified. It could
+ float.`**, check that the format is correctly specified. It could
   also indicate that the model predictions have a different format than the label
   column or it could indicate that the configuration for the label or
   probabilities is incorrect.
 - If your receive the error message **`Unable to locate the
-facet.`** or **`Headers must contain label.`** or
+ facet.`** or **`Headers must contain label.`** or
   **`Headers in config do not match with the number of columns in the
-dataset.`** or **`Feature names not found.`**,
+ dataset.`** or **`Feature names not found.`**,
   check that the headers match the columns.
 - If your receive the error message **`Data must contain
-features.`**, check the content template for JSON Lines and compare
+ features.`**, check the content template for JSON Lines and compare
   it with the dataset sample if available.
 
 ## Model returns 500 Internal Server Error or container falls back to per-record predictions due to model error

@@ -23,8 +23,30 @@ FileNotFoundError: [Errno 2] No such file or directory: '/opt/ml/checkpoints/met
 ```
 
 To fix this issue, disable Debugger by passing `debugger_hook_config=False`
-when creating a framework `estimator` as shown in the following
+when creating a framework `ModelTrainer` as shown in the following
 example.
+
+SageMaker Python SDK v3
+
+```
+bucket=Session().default_bucket()
+base_job_name="sagemaker-checkpoint-test"
+checkpoint_in_bucket="checkpoints"
+
+# The S3 URI to store the checkpoints
+checkpoint_s3_bucket="s3://{}/{}/{}".format(bucket, base_job_name, checkpoint_in_bucket)
+
+model_trainer = ModelTrainer(
+    ...
+
+    distribution={"smdistributed": {"modelparallel": { "enabled": True }}},
+    checkpoint_s3_uri=checkpoint_s3_bucket,
+    checkpoint_local_path="/opt/ml/checkpoints",
+    debugger_hook_config=False
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 bucket=sagemaker.Session().default_bucket()
@@ -58,7 +80,7 @@ during training. To disable checkpointing in SageMaker AI, use the following exa
 explicitly upload the checkpoints.
 
 If you run into the preceding error, do not use `checkpoint_s3_uri` with
-the SageMaker `estimator` call. While saving checkpoints for larger models, we
+the SageMaker `ModelTrainer` call. While saving checkpoints for larger models, we
 recommend saving checkpoints to a custom directory and passing the same to the helper
 function (as a `local_path` argument).
 
@@ -201,7 +223,7 @@ For more information about checkpointing a model with model parallelism, see
   `ml.p4d.24xlarge` instances.
 - If you find that your training job takes a long time during the data
   downloading stage, make sure the Amazon S3 path you provided to
-  `checkpoint_s3_uri` for the SageMaker `Estimator` class is
+  `checkpoint_s3_uri` for the SageMaker `ModelTrainer` class is
   unique for the current training job. If this path is reused across multiple
   training jobs running simultaneously, all those checkpoints are uploaded and
   downloaded to the same Amazon S3 path and might significantly increase checkpoint

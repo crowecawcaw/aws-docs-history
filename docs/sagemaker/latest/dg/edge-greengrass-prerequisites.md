@@ -21,75 +21,85 @@ Before you start, you must complete the following prerequisites:
     * The IAM Role must start with `SageMaker*`
 
 3. Attach the following permission and inline policy to the IAM role
-   created during AWS IoT Greengrass V2 setup.
+created during AWS IoT Greengrass V2 setup.
 
-   - Navigate to the IAM console [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-   - Search for the role you created by typing in rhe role name in the
+    * Navigate to the IAM console [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+    * Search for the role you created by typing in rhe role name in the
      **Search** field.
-   - Choose your role.
-   - Next, choose **Attach policies**.
-   - Search for **AmazonSageMakerEdgeDeviceFleetPolicy**.
-   - Select **AmazonSageMakerFullAccess**
+    * Choose your role.
+    * Next, choose **Attach policies**.
+    * Search for **AmazonSageMakerEdgeDeviceFleetPolicy**.
+    * Select **AmazonSageMakerFullAccess**
      (This is an optional step that makes it easier for you to reuse this
      IAM role in model compilation and packaging).
-   - Add required permissions to a role's permissions policy, don't
+    * Add required permissions to a role's permissions policy, don't
      attach inline policies to IAM users.
 
-   JSON
 
-   ```
-   `{
-    "Version":"2012-10-17",
-    "Statement":[
-    {
-    "Sid":"GreengrassComponentAccess",
-    "Effect":"Allow",
-    "Action":[
-    "greengrass:CreateComponentVersion",
-    "greengrass:DescribeComponent"
-    ],
-    "Resource":"*"
-    }
-    ]
-   }`
 
-   ```
-   - Choose **Attach policy**.
-   - Choose **Trust relationship**.
-   - Choose **Edit trust relationship**.
-   - Replace the content with the following.
+    JSON
 
-   JSON
 
-   ```
-   `{
-    "Version":"2012-10-17",
-    "Statement": [
-    {
-    "Effect": "Allow",
-    "Principal": {
-    "Service": "credentials.iot.amazonaws.com"
-    },
-    "Action": "sts:AssumeRole"
-    },
-    {
-    "Effect": "Allow",
-    "Principal": {
-    "Service": "sagemaker.amazonaws.com"
-    },
-    "Action": "sts:AssumeRole"
-    }
-    ]
-   }`
 
-   ```
+
+
+    ```
+    `{
+     "Version":"2012-10-17",
+     "Statement":[
+     {
+     "Sid":"GreengrassComponentAccess",
+     "Effect":"Allow",
+     "Action":[
+     "greengrass:CreateComponentVersion",
+     "greengrass:DescribeComponent"
+     ],
+     "Resource":"*"
+     }
+     ]
+    }`
+
+    ```
+    * Choose **Attach policy**.
+    * Choose **Trust relationship**.
+    * Choose **Edit trust relationship**.
+    * Replace the content with the following.
+
+
+
+    JSON
+
+
+
+
+
+    ```
+    `{
+     "Version":"2012-10-17",
+     "Statement": [
+     {
+     "Effect": "Allow",
+     "Principal": {
+     "Service": "credentials.iot.amazonaws.com"
+     },
+     "Action": "sts:AssumeRole"
+     },
+     {
+     "Effect": "Allow",
+     "Principal": {
+     "Service": "sagemaker.amazonaws.com"
+     },
+     "Action": "sts:AssumeRole"
+     }
+     ]
+    }`
+
+    ```
 
 4. Create an Edge Manager device fleet. For information on how to create a
-   fleet, see [Setup for Devices and Fleets in SageMaker Edge Manager](edge-device-fleet.md "edge-device-fleet.md").
-5. Register your device with the same name as your AWS IoT thing name created
-   during the AWS IoT Greengrass V2 setup.
-6. Create at least one custom private AWS IoT Greengrass component. This component is the
-   application that runs inference on the device. For more information, see [Create a Hello World custom component](edge-greengrass-custom-component.md#edge-greengrass-create-custom-component-how "edge-greengrass-custom-component.md#edge-greengrass-create-custom-component-how")
+fleet, see [Setup for Devices and Fleets in SageMaker Edge Manager](edge-device-fleet.md "edge-device-fleet.md"). 5. Register your device with the same name as your AWS IoT thing name created
+during the AWS IoT Greengrass V2 setup. 6. Create at least one custom private AWS IoT Greengrass component. This component is the
+application that runs inference on the device. For more information, see [Create a Hello World custom component](edge-greengrass-custom-component.md#edge-greengrass-create-custom-component-how "edge-greengrass-custom-component.md#edge-greengrass-create-custom-component-how")
 
 ###### Note
 

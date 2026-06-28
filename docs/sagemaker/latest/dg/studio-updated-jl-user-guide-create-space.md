@@ -38,5 +38,4 @@ images while creating those resources. 9. (Optional) For **Space Settings**, spe
     * **Attach custom EFS filesystem** – An Amazon EFS to
      which your administrator provides access.
 
-10. Choose **Run space**.
-11. Choose **Open JupyterLab**.
+10. Choose **Run space**. 11. Choose **Open JupyterLab**.

@@ -39,7 +39,7 @@ per parameter is about 20 bytes, which we can break down as follows:
 - An FP16 gradient ~ 2 bytes
 - An FP32 optimizer state ~ 8 bytes based on the Adam optimizers
 - An FP32 copy of parameter ~ 4 bytes (needed for the `optimizer
-apply` (OA) operation)
+ apply` (OA) operation)
 - An FP32 copy of gradient ~ 4 bytes (needed for the OA operation)
 
 Even for a relatively small DL model with 10 billion parameters, it can require at

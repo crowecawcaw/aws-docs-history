@@ -149,11 +149,11 @@ def lambda_grader(samples: list[dict]) -> list[dict]:
 
 **Output fields**
 
-| Output Fields          | Field                                       | Description                                 | Additional notes |
-| ---------------------- | ------------------------------------------- | ------------------------------------------- | ---------------- |
-| id                     | Same identifier as input sample             | Must match input                            |
-| aggregate_reward_score | Overall score for the sample                | Float (e.g., 0.0–1.0 or task-defined range) |
-| metrics_list           | Component scores that make up the aggregate | Array of metric objects                     |
+Output Fields| Field | Description | Additional notes |
+| --- | --- | --- |
+| id | Same identifier as input sample | Must match input |
+| aggregate\_reward\_score | Overall score for the sample | Float (e.g., 0.0–1.0 or task-defined range) |
+| metrics\_list | Component scores that make up the aggregate | Array of metric objects |
 
 ### Required Permissions
 

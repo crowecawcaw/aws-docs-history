@@ -29,7 +29,7 @@ domain. The stack also creates a user profile and configures the needed environm
 permissions. The SageMaker AI domain is configured to let you directly launch Amazon EMR clusters
 from Studio. For this example, the Amazon EMR clusters are created in the same AWS
 account as SageMaker AI without authentication. You can find additional CloudFormation stacks supporting
-various authentication methods like Kerberos in the [getting_started](https://github.com/aws-samples/sagemaker-studio-emr/tree/main/cloudformation/getting_started "https://github.com/aws-samples/sagemaker-studio-emr/tree/main/cloudformation/getting_started") GitHub repository.
+various authentication methods like Kerberos in the [getting\_started](https://github.com/aws-samples/sagemaker-studio-emr/tree/main/cloudformation/getting_started "https://github.com/aws-samples/sagemaker-studio-emr/tree/main/cloudformation/getting_started") GitHub repository.
 
 ###### Note
 

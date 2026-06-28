@@ -64,7 +64,7 @@ You can launch distributed training jobs using the [Deep Learning Containers
 (DLC)](https://github.com/aws/deep-learning-containers "https://github.com/aws/deep-learning-containers") for SageMaker Training, which you can orchestrate either through the
 dedicated Python modules in the [SageMaker AI
 Python SDK](http://sagemaker.readthedocs.io/ "http://sagemaker.readthedocs.io/"), or through the SageMaker APIs with [AWS CLI](../../../cli/latest/reference/sagemaker/index.md "../../../cli/latest/reference/sagemaker/index.md"), [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html"). SageMaker AI provides training containers for machine learning
-frameworks, including [PyTorch](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/index.html "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/index.html"), [TensorFlow](https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/index.html "https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/index.html"), [Hugging Face Transformers](https://sagemaker.readthedocs.io/en/stable/frameworks/huggingface/index.html "https://sagemaker.readthedocs.io/en/stable/frameworks/huggingface/index.html"), and [Apache MXNet](https://sagemaker.readthedocs.io/en/stable/frameworks/mxnet/index.html "https://sagemaker.readthedocs.io/en/stable/frameworks/mxnet/index.html"). You have two options to write deep learning code for
+frameworks, including [PyTorch](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/"), [TensorFlow](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/"), [Hugging Face Transformers](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html"), and [Apache MXNet](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html"). You have two options to write deep learning code for
 distributed training.
 
 - **The SageMaker AI distributed training
@@ -187,7 +187,7 @@ or SageMaker Processing job on a cluster with multiple nodes, SageMaker AI by de
 launches your training code (in Python or Docker) on all the nodes. Tasks requiring
 random spread of input data across such multiple nodes can be facilitated by setting
 `S3DataDistributionType=ShardedByS3Key` in the data input configuration
-of the SageMaker AI `TrainingInput` API.
+of the SageMaker AI `InputData` API.
 
 ## Option 4: Launch multiple jobs in parallel or sequentially
 
@@ -215,4 +215,4 @@ logic that can be random, Bayesian, or HyperBand.
 Additionally, to orchestrate multiple training jobs, you can also consider workflow
 orchestration tools, such as [SageMaker Pipelines](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-pipelines/index.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-pipelines/index.html"), [AWS Step Functions](../../../step-functions/latest/dg/connect-sagemaker.md "../../../step-functions/latest/dg/connect-sagemaker.md"),
 and Apache Airflow supported by [Amazon Managed
-Workflows for Apache Airflow (MWAA)](https://aws.amazon.com/managed-workflows-for-apache-airflow/ "https://aws.amazon.com/managed-workflows-for-apache-airflow/") and [SageMaker AI Workflows](https://sagemaker.readthedocs.io/en/stable/workflows/airflow/using_workflow.html "https://sagemaker.readthedocs.io/en/stable/workflows/airflow/using_workflow.html").
+Workflows for Apache Airflow (MWAA)](https://aws.amazon.com/managed-workflows-for-apache-airflow/ "https://aws.amazon.com/managed-workflows-for-apache-airflow/") and [SageMaker AI Workflows](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html").

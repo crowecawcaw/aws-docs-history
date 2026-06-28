@@ -22,40 +22,40 @@ You can create an IAM role by using the IAM console, AWS SDK for Python
 (Boto3), or AWS CLI. The following is an example of how to create an IAM role,
 attach the necessary policies with the IAM console, and create an Amazon S3 bucket.
 
-1.  **Create an IAM role for Amazon SageMaker AI.**
+1. **Create an IAM role for Amazon SageMaker AI.**
 
-    1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-    2. In the navigation pane of the IAM console, choose
-       **Roles**, and then choose **Create
+   1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+   2. In the navigation pane of the IAM console, choose
+      **Roles**, and then choose **Create
+      role**.
+   3. For **Select type of trusted entity**, choose
+      **AWS service**.
+   4. Choose the service that you want to allow to assume this role. In this
+      case, choose **SageMaker AI**. Then choose **Next:
+      Permissions**.
+
+      - This automatically creates an IAM policy that grants access
+        to related services such as Amazon S3, Amazon ECR, and CloudWatch Logs.
+
+   5. Choose **Next: Tags**.
+   6. (Optional) Add metadata to the role by attaching tags as key–value
+      pairs. For more information about using tags in IAM, see [Tagging IAM resources](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md").
+   7. Choose **Next: Review**.
+   8. Type in a **Role name**.
+   9. If possible, type a role name or role name suffix. Role names must be
+      unique within your AWS account. They are not distinguished by case. For
+      example, you cannot create roles named both `PRODROLE` and
+      `prodrole`. Because other AWS resources might reference
+      the role, you cannot edit the name of the role after it has been
+      created.
+   10. (Optional) For **Role description**, type a
+       description for the new role.
+   11. Review the role and then choose **Create
        role**.
-    3. For **Select type of trusted entity**, choose
-       **AWS service**.
-    4. Choose the service that you want to allow to assume this role. In this
-       case, choose **SageMaker AI**. Then choose **Next:
-       Permissions**.
 
-       - This automatically creates an IAM policy that grants access
-         to related services such as Amazon S3, Amazon ECR, and CloudWatch Logs.
-
-    5. Choose **Next: Tags**.
-    6. (Optional) Add metadata to the role by attaching tags as key–value
-       pairs. For more information about using tags in IAM, see [Tagging IAM resources](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md").
-    7. Choose **Next: Review**.
-    8. Type in a **Role name**.
-    9. If possible, type a role name or role name suffix. Role names must be
-       unique within your AWS account. They are not distinguished by case. For
-       example, you cannot create roles named both `PRODROLE` and
-       `prodrole`. Because other AWS resources might reference
-       the role, you cannot edit the name of the role after it has been
-       created.
-    10. (Optional) For **Role description**, type a
-        description for the new role.
-    11. Review the role and then choose **Create
-        role**.
-
-    Note the SageMaker AI Role ARN, which you use to create a compilation job with
-    SageMaker Neo and a packaging job with Edge Manager. To find out the role ARN
-    using the console, do the following:
+   Note the SageMaker AI Role ARN, which you use to create a compilation job with
+   SageMaker Neo and a packaging job with Edge Manager. To find out the role ARN
+   using the console, do the following:
 
         1. Go to the IAMconsole: [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")
         2. Select **Roles**.
@@ -65,7 +65,7 @@ attach the necessary policies with the IAM console, and create an Amazon S3 buck
         5. The role ARN is at the top of the **Summary**
          page.
 
-2.  **Create an IAM role for AWS IoT.**
+2. **Create an IAM role for AWS IoT.**
 
 The AWS IoT IAM role you create is used to authorize your thing objects. You
 also use the IAM role ARN to create and register device fleets with a SageMaker AI

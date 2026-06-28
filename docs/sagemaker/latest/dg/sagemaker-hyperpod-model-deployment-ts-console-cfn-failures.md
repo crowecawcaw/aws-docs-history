@@ -17,8 +17,8 @@
 
 **Symptoms:**
 
-- Inference operator add-on shows CREATE_FAILED or DEGRADED status in console
-- CloudFormation stack associated with the add-on is in CREATE_FAILED state
+- Inference operator add-on shows CREATE\_FAILED or DEGRADED status in console
+- CloudFormation stack associated with the add-on is in CREATE\_FAILED state
 - Installation progress stops or shows error messages
 
 **Diagnostic steps:**

@@ -44,7 +44,69 @@ about how to configure the two parameters.
 The following code examples are not directly executable. Proceed to the next
 sections to learn how to configure each parameter.
 
-PyTorch
+SageMaker Python SDK v3
+
+```
+# An example of creating a training job with profiler configuration
+import boto3
+from sagemaker.core import image_uris
+from sagemaker.core.resources import TrainingJob
+from sagemaker.core.shapes import (
+    AlgorithmSpecification,
+    ResourceConfig,
+    OutputDataConfig,
+    StoppingCondition,
+    ProfilerConfig as CoreProfilerConfig,
+    ProfilerRuleConfiguration,
+)
+
+session=boto3.session.Session()
+region=session.region_name
+
+# Retrieve the training image for your framework
+# Change framework to "tensorflow", "mxnet", "xgboost", etc. as needed
+training_image = image_uris.retrieve(
+    framework="pytorch",  # or "tensorflow", "mxnet", "xgboost"
+    region=region,
+    version="`1.12.0`",
+    py_version="`py37`",
+    instance_type="`ml.p3.2xlarge`",
+    image_scope="training"
+)
+
+`profiler_config`=`CoreProfilerConfig(...)`
+`profiler_rule_configurations`=[
+    `ProfilerRuleConfiguration(
+ rule_configuration_name="BuiltInRule",
+ rule_evaluator_image="rule-evaluator-image-uri",
+ )`
+]
+
+TrainingJob.create(
+    training_job_name="`debugger-profiling-demo`",
+    algorithm_specification=AlgorithmSpecification(
+        training_image=training_image,
+        training_input_mode="File",
+    ),
+    role_arn="`arn:aws:iam::123456789012:role/SageMakerRole`",
+    resource_config=ResourceConfig(instance_type="`ml.p3.2xlarge`", instance_count=`1`, volume_size_in_gb=`30`),
+    output_data_config=OutputDataConfig(s3_output_path="`s3://bucket/output`"),
+    stopping_condition=StoppingCondition(max_runtime_in_seconds=`3600`),
+
+    # SageMaker Debugger parameters
+    profiler_config=`profiler_config`,
+    profiler_rule_configurations=`profiler_rule_configurations`,
+)
+```
+
+###### Note
+
+For MXNet and XGBoost, when configuring the `profiler_config`
+parameter, you can only configure for system monitoring. Profiling
+framework metrics is not supported for MXNet or XGBoost.
+
+SageMaker Python SDK v2 (Legacy)
+**PyTorch:**
 
 ```
 # An example of constructing a SageMaker AI PyTorch estimator
@@ -78,7 +140,7 @@ estimator=PyTorch(
 estimator.fit(wait=False)
 ```
 
-TensorFlow
+**TensorFlow:**
 
 ```
 # An example of constructing a SageMaker AI TensorFlow estimator
@@ -112,7 +174,7 @@ estimator=TensorFlow(
 estimator.fit(wait=False)
 ```
 
-MXNet
+**MXNet:**
 
 ```
 # An example of constructing a SageMaker AI MXNet estimator
@@ -148,7 +210,7 @@ For MXNet, when configuring the `profiler_config`
 parameter, you can only configure for system monitoring. Profiling
 framework metrics is not supported for MXNet.
 
-XGBoost
+**XGBoost:**
 
 ```
 # An example of constructing a SageMaker AI XGBoost estimator
@@ -183,7 +245,7 @@ For XGBoost, when configuring the `profiler_config`
 parameter, you can only configure for system monitoring. Profiling
 framework metrics is not supported for XGBoost.
 
-Generic estimator
+**Generic estimator:**
 
 ```
 # An example of constructing a SageMaker AI generic estimator using the XGBoost algorithm base image

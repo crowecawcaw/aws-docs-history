@@ -56,7 +56,7 @@ SDK from within an R script.
 
 - [Hyperparameter Optimization for XGBoost in R](https://sagemaker-examples.readthedocs.io/en/latest/r_examples/r_xgboost_hpo_batch_transform/r_xgboost_hpo_batch_transform.html "https://sagemaker-examples.readthedocs.io/en/latest/r_examples/r_xgboost_hpo_batch_transform/r_xgboost_hpo_batch_transform.html") – This sample notebook extends the
   previous beginner notebooks that use the abalone dataset and XGBoost. It describes how to
-  do model tuning with [hyperparameter optimization](https://sagemaker.readthedocs.io/en/stable/tuner.html "https://sagemaker.readthedocs.io/en/stable/tuner.html"). You will also learn how to use batch transform for
+  do model tuning with [hyperparameter optimization](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html"). You will also learn how to use batch transform for
   batching predictions, as well as how to create a model endpoint to make real-time
   predictions.
 - [Amazon SageMaker Processing with R](https://sagemaker-examples.readthedocs.io/en/latest/r_examples/r_in_sagemaker_processing/r_in_sagemaker_processing.html "https://sagemaker-examples.readthedocs.io/en/latest/r_examples/r_in_sagemaker_processing/r_in_sagemaker_processing.html") – [SageMaker Processing](https://aws.amazon.com/blogs/aws/amazon-sagemaker-processing-fully-managed-data-processing-and-model-evaluation/ "https://aws.amazon.com/blogs/aws/amazon-sagemaker-processing-fully-managed-data-processing-and-model-evaluation/") lets you preprocess, post-process and run model evaluation

@@ -46,7 +46,7 @@ it.
 ### Image classification problem
 
 The data format of the response payload should be specified by the analysis
-configuration parameter accept_type. If `accept_type` is not
+configuration parameter accept\_type. If `accept_type` is not
 provided, the data format defaults to `application/json`. The
 supported formats are the same as those described in the **Endpoint response for tabular data** in the tabular data
 section.
@@ -76,8 +76,8 @@ the response is a JSON object, as shown in the following table.
 
 In the previous example, set `probability` to JMESPath expression
 "[\*]" to extract all the elements of the array. In the previous example,
-[`0.1, 0.6, 0.3]`is extracted. Alternatively, if you skip
- setting the`probability` configuration parameter, then all the
+[`0.1, 0.6, 0.3]` is extracted. Alternatively, if you skip
+setting the `probability` configuration parameter, then all the
 elements of the array are also extracted. This is because the entire payload is
 deserialized as the predictions.
 

@@ -1,9 +1,9 @@
-# Overview: Run processing jobs using `ScriptProcessor` and a SageMaker geospatial container
+# Overview: Run processing jobs using `ProcessingJob` and a SageMaker geospatial container
 
 SageMaker geospatial provides a purpose-built processing container,
 `081189585635.dkr.ecr.us-west-2.amazonaws.com/sagemaker-geospatial-v1-0:latest`.
 You can use this container when running a job with Amazon SageMaker Processing. When you create an instance of
-the [`ScriptProcessor`](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.ScriptProcessor "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.ScriptProcessor") class that is available through the
+the [`ProcessingJob`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") class that is available through the
 _Amazon SageMaker Python SDK for Processing_, specify this
 `image_uri`.
 
@@ -14,7 +14,7 @@ attempting to start a processing job, you need to request a quota increase. To g
 started on a Service Quotas quota increase request, see [Requesting a
 quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_
 
-###### Prerequisites for using `ScriptProcessor`
+###### Prerequisites for using `ProcessingJob`
 
 1. You have created a Python script that specifies your geospatial
    ML workload.
@@ -26,24 +26,25 @@ quota increase](../../../servicequotas/latest/userguide/request-quota-increase.m
    `s3_data_type` equal to `"ManifestFile"` or to
    `"S3Prefix"`.
    The following procedure show you how to create an instance of
-   `ScriptProcessor` and submit a Amazon SageMaker Processing job using the SageMaker geospatial
+   `ProcessingJob` and submit a Amazon SageMaker Processing job using the SageMaker geospatial
    container.
 
-###### To create a `ScriptProcessor` instance and submit a Amazon SageMaker Processing job using a SageMaker geospatial container
+###### To create a `ProcessingJob` instance and submit a Amazon SageMaker Processing job using a SageMaker geospatial container
 
-1. Instantiate an instance of the `ScriptProcessor` class using the
+1. Instantiate an instance of the `ProcessingJob` class using the
    SageMaker geospatial image:
 
 ```
-from sagemaker.processing import ScriptProcessor, ProcessingInput, ProcessingOutput
+from sagemaker.core.processing import Processor, ProcessingInput, ProcessingOutput
+from sagemaker.core.helper.session_helper import Session, get_execution_role
 
-sm_session = sagemaker.session.Session()
-execution_role_arn = sagemaker.get_execution_role()
+sm_session = Session()
+execution_role_arn = get_execution_role()
 
 # purpose-built geospatial container
 image_uri = `'081189585635.dkr.ecr.us-west-2.amazonaws.com/sagemaker-geospatial-v1-0:latest'`
 
-script_processor = ScriptProcessor(
+script_processor = Processor(
 	command=['python3'],
 	image_uri=image_uri,
 	role=`execution_role_arn`,
@@ -121,15 +122,15 @@ script_processor.run(
 
 You can use a script to process SageMaker geospatial data. That script can be found in [Step 3: Writing a script
 that can calculate the NDVI](geospatial-custom-operations-procedure.md#geospatial-custom-operations-script-mode "geospatial-custom-operations-procedure.md#geospatial-custom-operations-script-mode"). To learn more about the
-`.run()` API operation, see [`run`](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.ScriptProcessor.run "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.ScriptProcessor.run") in the _Amazon SageMaker Python SDK for
+`.run()` API operation, see [`run`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") in the _Amazon SageMaker Python SDK for
 Processing_.
 To monitor the progress of your processing job, the `ProcessingJobs` class
-supports a [`describe`](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.ProcessingJob.describe "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.ProcessingJob.describe") method.
+supports a [`describe`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") method.
 This
 method returns a response from the `DescribeProcessingJob`
 API call. To learn more, see [`DescribeProcessingJob` in the
 _Amazon SageMaker AI API Reference_](../APIReference/API_DescribeProcessingJob.md "../APIReference/API_DescribeProcessingJob.md").
 
-The next topic show you how to create an instance of the `ScriptProcessor`
+The next topic show you how to create an instance of the `ProcessingJob`
 class using the SageMaker geospatial container, and then how to use it to calculate the Normalized
 Difference Vegetation Index (NDVI) with Sentinel-2 images.

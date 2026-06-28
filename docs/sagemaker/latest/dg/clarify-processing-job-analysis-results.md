@@ -43,13 +43,13 @@ The analysis file is in JSON format and is organized into two sections:
 pre-training bias metrics and post-training bias metrics. The parameters for
 pre-training and post-training bias metrics are as follows.
 
-- pre_training_bias_metrics –
+- pre\_training\_bias\_metrics –
   Parameters for pre-training bias metrics. For more information, see [Pre-training Bias Metrics](clarify-measure-data-bias.md "clarify-measure-data-bias.md") and [Analysis Configuration Files](clarify-processing-job-configure-analysis.md "clarify-processing-job-configure-analysis.md").
 
   - label – The ground truth
     label name defined by the `label` parameter of the
     analysis configuration.
-  - label_value_or_threshold – A
+  - label\_value\_or\_threshold – A
     string containing the label values or interval defined by the
     `label_values_or_threshold` parameter of the analysis
     configuration. For example, if value `1` is provided for
@@ -66,7 +66,7 @@ pre-training and post-training bias metrics are as follows.
     the facet configuration, and the value is an array of facet objects.
     Each facet object has the following members:
 
-    - value_or_threshold –
+    - value\_or\_threshold –
       A string containing the facet values or interval defined by
       the `value_or_threshold` parameter of the facet
       configuration.
@@ -90,7 +90,7 @@ pre-training and post-training bias metrics are as follows.
         optional error message that explains why the bias
         metric was not computed.
 
-- post_training_bias_metrics – The
+- post\_training\_bias\_metrics – The
   section contains the post-training bias metrics and it follows a similar
   layout and structure to the pre-training section. For more information, see
   [Post-training Data and Model Bias Metrics](clarify-measure-post-training-bias.md "clarify-measure-post-training-bias.md").
@@ -174,11 +174,11 @@ of the SHAP analysis file are as follows:
 - explanations – The section of the
   analysis file that contains the feature importance analysis results.
 
-  - kernal_shap – The section of
+  - kernal\_shap – The section of
     the analysis file that contains the global SHAP analysis
     result.
 
-    - global_shap_values –
+    - global\_shap\_values –
       A section of the analysis file that contains several
       key-value pairs. Each key in the key-value pair represents a
       feature name from the input dataset. Each value in the
@@ -190,12 +190,12 @@ of the SHAP analysis file are as follows:
       the value is calculated using the logistic regression
       coefficients, which can be interpreted as log-odds
       ratios.
-    - expected_value – The
+    - expected\_value – The
       mean prediction of the baseline dataset. If the
       `use_logit` configuration is activated, then
       the value is calculated using the logistic regression
       coefficients.
-    - global_top_shap_text
+    - global\_top\_shap\_text
       – Used for NLP explainability analysis. A section of the
       analysis file that includes a set of key-value pairs. SageMaker Clarify
       processing jobs aggregate the SHAP values of each token and
@@ -325,9 +325,9 @@ valid JSON object. The JSON object has the following attributes:
   analysis file that contains an array of Kernel SHAP explanations for a
   single instance. Each element in the array has the following members:
 
-  - feature_name – The header
+  - feature\_name – The header
     name of the features provided by the headers configuration.
-  - data_type – The feature type
+  - data\_type – The feature type
     inferred by the SageMaker Clarify processing job. Valid values for text features
     include `numerical`, `categorical`, and
     `free_text` (for text features).
@@ -342,10 +342,10 @@ valid JSON object. The JSON object has the following attributes:
     - description – (For
       text features) The description of the text units.
 
-      - partial_text
+      - partial\_text
         – The portion of the text explained by the
         SageMaker Clarify processing job.
-      - start_idx –
+      - start\_idx –
         A zero-based index to identify the array location
         indicating the beginning of the partial text
         fragment.
@@ -455,14 +455,14 @@ are as follows:
     single instance. Each element of the array has the following
     members:
 
-    - feature_name – The
+    - feature\_name – The
       header name of the features provided by the
       `headers` configuration.
-    - data_type – The
+    - data\_type – The
       feature type inferred by the SageMaker Clarify processing job. Valid
       values for `data_type` include numerical and
       categorical.
-    - feature_values –
+    - feature\_values –
       Contains the values present in the feature. If the
       `data_type` inferred by SageMaker Clarify is categorical,
       `feature_values` contains all of the unique
@@ -473,18 +473,18 @@ are as follows:
       `grid_resolution` parameter determines the
       number of buckets used to group the feature column
       values.
-    - data_distribution –
+    - data\_distribution –
       An array of percentages, where each value is the percentage
       of instances that a bucket contains. The
       `grid_resolution` parameter determines the
       number of buckets. The feature column values are grouped
       into these buckets.
-    - model_predictions –
+    - model\_predictions –
       An array of model predictions, where each element of the
       array is an array of predictions that corresponds to one
       class in the model’s output.
 
-    label_headers – The
+    label\_headers – The
     label headers provided by the `label_headers`
     configuration.
     - error – An error
@@ -545,11 +545,11 @@ of this bucket in the section _explanations_
 of the analysis file. This section contains the feature importance analysis results. The
 following parameters are included in the asymmetric Shapley value analysis file.
 
-- **asymmetric_shapley_value** —
+- **asymmetric\_shapley\_value** —
   The section of the analysis file that contains metadata about the explanation
   job results, including the following:
 
-  - **explanation_results_path** —
+  - **explanation\_results\_path** —
     The Amazon S3 location with the explanation results
   - **direction** — The
     user-provided configuration for the config value of

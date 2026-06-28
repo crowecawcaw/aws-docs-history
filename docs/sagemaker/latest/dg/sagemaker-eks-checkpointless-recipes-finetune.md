@@ -65,7 +65,7 @@ You can use the Amazon SageMaker HyperPod recipes to submit your training job. U
 
 1. Update `launcher_scripts/gpt_oss/run_checkpointless_gpt_oss_120b_full_fine_tuning.sh`
 
-your_container: A Deep Learning container. To find the most recent release of
+your\_container: A Deep Learning container. To find the most recent release of
 the checkpointless training container, see
 [checkpointless training release notes](sagemaker-eks-checkpointless-release-notes.md "sagemaker-eks-checkpointless-release-notes.md").
 
@@ -132,17 +132,17 @@ The `STATUS` will turn to `COMPLETED` when you run `kubectl get pods`.
 
 Another option is to launch the training through kubectl with a pre-defined job yaml.
 
-1. update the examples/gpt_oss/launch/full_finetune_gpt_oss_120b_checkpointless_p5.yaml
+1. update the examples/gpt\_oss/launch/full\_finetune\_gpt\_oss\_120b\_checkpointless\_p5.yaml
 
    - image: A Deep Learning container. To find the most
      recent release of the checkpointless training container, see
      [checkpointless training release notes](sagemaker-eks-checkpointless-release-notes.md "sagemaker-eks-checkpointless-release-notes.md").
-   - resume.restore_config.path=<path_to_pretrained_weights>: The path to
+   - resume.restore\_config.path=<path\_to\_pretrained\_weights>: The path to
      downloaded pretrained model weigths in Nemo format in
      [Prerequisites](sagemaker-eks-checkpointless-recipes-finetune.md#sagemaker-eks-checkpointless-recipes-finetune-prereqs "sagemaker-eks-checkpointless-recipes-finetune.md#sagemaker-eks-checkpointless-recipes-finetune-prereqs") step.
-   - dataset.dataset_path=<path_to_dataset>: The path to the dataset that stored in the shared storage
+   - dataset.dataset\_path=<path\_to\_dataset>: The path to the dataset that stored in the shared storage
 
-2. Submit the job using kubectl with full_finetune_gpt_oss_120b_checkpointless_p5.yaml
+2. Submit the job using kubectl with full\_finetune\_gpt\_oss\_120b\_checkpointless\_p5.yaml
 
 ```
 kubectl apply -f examples/gpt_oss/launch/full_finetune_gpt_oss_120b_checkpointless_p5.yaml

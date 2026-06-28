@@ -88,7 +88,7 @@ To configure the all at once traffic shifting option, do the following:
   finish.
 - In `AutoRollbackConfiguration`, within the `Alarms` field, you can add
   your CloudWatch alarms by name. Create one `AlarmName:
-`<your-cw-alarm>`` entry for each alarm you want to
+ `<your-cw-alarm>`` entry for each alarm you want to
   use.
 
 ### How to update an endpoint with an existing blue/green update policy (API)

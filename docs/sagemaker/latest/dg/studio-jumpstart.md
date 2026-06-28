@@ -14,7 +14,7 @@ landing page in Amazon SageMaker Studio Classic.
 The following steps show how to access JumpStart models using Amazon SageMaker Studio and Amazon SageMaker Studio Classic.
 
 You can also access JumpStart models using the SageMaker Python SDK. For information about how to
-use JumpStart models programmatically, see [Use SageMaker JumpStart Algorithms with Pretrained Models](https://sagemaker.readthedocs.io/en/stable/overview.html#use-sagemaker-jumpstart-algorithms-with-pretrained-models "https://sagemaker.readthedocs.io/en/stable/overview.html#use-sagemaker-jumpstart-algorithms-with-pretrained-models").
+use JumpStart models programmatically, see [Use SageMaker JumpStart Algorithms with Pretrained Models](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/").
 
 ## Open JumpStart in Studio
 
@@ -113,7 +113,7 @@ panel.
 The JumpStart landing page lists available end-to-end machine learning solutions, pretrained
 models, and example notebooks. From any individual solution or model page, you can choose
 the **Browse JumpStart** button (
-![Button labeled "Browse JumpStart" with an icon indicating a browsing action.](images/jumpstart/jumpstart-browse-button.png)
+![Browse JumpStart button.](images/jumpstart/jumpstart-browse-button.png)
 ) at the top right of the tab to return to the **SageMaker
 JumpStart** page.
 

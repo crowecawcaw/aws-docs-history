@@ -21,18 +21,17 @@ Among other things, with Feature Store you can:
 - Create feature groups that can be configured to include an online or offline store, or
   both, to manage your features and automate how features are stored for your ML tasks.
 
-      + The online store retains only the latest records for your features. This is
-       primarily designed for supporting real-time predictions that need low millisecond
-       latency reads and high throughput writes.
-      + The offline store keeps all records for your features as a historical database. This
-       is primarily intended for data exploration, model training, and batch
-       predictions.
-
-  The following diagram shows how you can use Feature Store as part of your ML pipeline. Once you read
-  in your raw data, you can use Feature Store to transform the raw data into features and ingest them into
-  your feature group. The features can be ingested via streaming or batches to the feature group's
-  online and offline stores. The features can then be served for data exploration, model training,
-  and real-time or batch inference.
+  - The online store retains only the latest records for your features. This is
+    primarily designed for supporting real-time predictions that need low millisecond
+    latency reads and high throughput writes.
+  - The offline store keeps all records for your features as a historical database. This
+    is primarily intended for data exploration, model training, and batch
+    predictions.
+    The following diagram shows how you can use Feature Store as part of your ML pipeline. Once you read
+    in your raw data, you can use Feature Store to transform the raw data into features and ingest them into
+    your feature group. The features can be ingested via streaming or batches to the feature group's
+    online and offline stores. The features can then be served for data exploration, model training,
+    and real-time or batch inference.
 
 ![Where Feature Store fits in your machine learning pipeline.](images/feature-store/feature-store-overview.png)
 

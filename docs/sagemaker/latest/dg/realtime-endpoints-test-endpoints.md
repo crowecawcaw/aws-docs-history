@@ -64,14 +64,14 @@ use one of the following Python methods:
   endpoint and returns the response that the model generates.
 
 This method returns the inference payload as one response after the model
-finishes generating it. For more information, see [invoke_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-runtime/client/invoke_endpoint.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-runtime/client/invoke_endpoint.html") in the _AWS SDK for Python (Boto3) API Reference_.
+finishes generating it. For more information, see [invoke\_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-runtime/client/invoke_endpoint.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-runtime/client/invoke_endpoint.html") in the _AWS SDK for Python (Boto3) API Reference_.
 
 - `invoke_endpoint_with_response_stream` – Sends an inference
   request to a model endpoint and streams the response incrementally while the
   model generates it.
 
 With this method, your application receives parts of the response as soon as
-the parts become available. For more information, see [invoke_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-runtime/client/invoke_endpoint.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-runtime/client/invoke_endpoint.html") in the _AWS SDK for Python (Boto3) API Reference_.
+the parts become available. For more information, see [invoke\_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-runtime/client/invoke_endpoint.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-runtime/client/invoke_endpoint.html") in the _AWS SDK for Python (Boto3) API Reference_.
 
 Use this method only to invoke models that support inference streaming.
 

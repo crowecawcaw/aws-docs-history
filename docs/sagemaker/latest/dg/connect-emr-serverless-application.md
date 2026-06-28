@@ -32,11 +32,10 @@ cross-account access to EMR Serverless applications, you can view a
 consolidated list of applications across all accounts that you have granted
 access to Studio. 2. Select an EMR Serverless application you want to connect to a new notebook,
 and then choose **Attach to notebook**. This opens up a modal
-window displaying the list of your JupyterLab spaces. 3. _ Select the private space from which you want to launch a JupyterLab
+window displaying the list of your JupyterLab spaces. 3. * Select the private space from which you want to launch a JupyterLab
 application, and then choose **Open notebook**. This
 launches a JupyterLab application from your chosen space and opens a
-new notebook.
-_ Alternatively, you can create a new private space by choosing the
+new notebook. * Alternatively, you can create a new private space by choosing the
 **Create new space** button at the top of the modal
 window. Enter a name for your space and then choose **Create
 space and open notebook**. This creates a private space

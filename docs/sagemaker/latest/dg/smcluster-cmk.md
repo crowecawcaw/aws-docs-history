@@ -34,12 +34,11 @@ following prerequisites:
   `kms:CreateGrant` permission allows HyperPod to take the
   following actions using permissions to your KMS key:
 
-      + Scaling out your instance count (UpdateCluster operations)
-      + Adding cluster nodes (BatchAddClusterNodes operations)
-      + Patching software (UpdateClusterSoftware operations)
-
-  For more information on updating your IAM role's permissions, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _IAM
-  User Guide_.
+  - Scaling out your instance count (UpdateCluster operations)
+  - Adding cluster nodes (BatchAddClusterNodes operations)
+  - Patching software (UpdateClusterSoftware operations)
+    For more information on updating your IAM role's permissions, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _IAM
+    User Guide_.
 
 JSON
 

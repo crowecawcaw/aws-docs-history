@@ -3,7 +3,7 @@
 When you query data from Athena or Amazon Redshift, the queried dataset is automatically stored in
 the default SageMaker AI S3 bucket for the AWS Region in which you are using Studio Classic.
 Additionally, when you export a Jupyter Notebook from Amazon SageMaker Data Wrangler and run it, your data
-flows, or .flow files, are saved to the same default bucket, under the prefix _data_wrangler_flows_.
+flows, or .flow files, are saved to the same default bucket, under the prefix _data\_wrangler\_flows_.
 
 For high-level security needs, you can configure a bucket policy that restricts the
 AWS roles that have access to this default SageMaker AI S3 bucket. Use the following section
@@ -26,7 +26,7 @@ the AWS Region you are using Studio Classic in include the following:
 - Queried Amazon Redshift results. These are stored under the _redshift/_ prefix.
 - Queried Athena results. These are stored under the _athena/_ prefix.
 - The .flow files uploaded to Amazon S3 when you run an exported Jupyter Notebook
-  Data Wrangler produces. These are stored under the _data_wrangler_flows/_ prefix.
+  Data Wrangler produces. These are stored under the _data\_wrangler\_flows/_ prefix.
 
 Use the following procedure to create an S3 bucket policy that you can add to
 restrict IAM role access to that bucket. To learn how to add a policy to an S3
@@ -224,8 +224,8 @@ JSON
 
 ```
 
-\***\*Policy example to grant access to an
-Amazon Redshift dataset import\*\***
+****Policy example to grant access to an
+Amazon Redshift dataset import****
 
 The following policy grants permission to set up an Amazon Redshift connection to Data Wrangler using
 database users that have the prefix `sagemaker_access` in the name. To

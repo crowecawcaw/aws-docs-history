@@ -11,7 +11,7 @@ workloads but is no longer available for onboarding. You can only stop or delete
 applications and cannot create new ones. We recommend that you [migrate your workload to the new Studio experience](studio-updated-migrate.md "studio-updated-migrate.md").
 
 For a walkthrough that takes you on a tour of the main features of Amazon SageMaker Studio Classic, see the
-[xgboost_customer_churn_studio.ipynb](https://sagemaker-examples.readthedocs.io/en/latest/aws_sagemaker_studio/getting_started/xgboost_customer_churn_studio.html "https://sagemaker-examples.readthedocs.io/en/latest/aws_sagemaker_studio/getting_started/xgboost_customer_churn_studio.html") sample notebook from the [aws/amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples "https://github.com/aws/amazon-sagemaker-examples")
+[xgboost\_customer\_churn\_studio.ipynb](https://sagemaker-examples.readthedocs.io/en/latest/aws_sagemaker_studio/getting_started/xgboost_customer_churn_studio.html "https://sagemaker-examples.readthedocs.io/en/latest/aws_sagemaker_studio/getting_started/xgboost_customer_churn_studio.html") sample notebook from the [aws/amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples "https://github.com/aws/amazon-sagemaker-examples")
 GitHub repository. The code in the notebook trains multiple models and sets up the SageMaker Debugger and
 SageMaker Model Monitor. The walkthrough shows you how to view the trials, compare the resulting
 models, show the debugger results, and deploy the best model using the Studio Classic UI. You don't

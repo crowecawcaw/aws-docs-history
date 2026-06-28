@@ -2,7 +2,7 @@
 
 If your Docker registry requires authentication, you must create an AWS Lambda
 function that provides access credentials to SageMaker AI. Then, create a training job and
-provide the ARN of this Lambda function inside the [create_training_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_training_job "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_training_job") API. Lastly, you can optionally create an interface
+provide the ARN of this Lambda function inside the [create\_training\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_training_job "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_training_job") API. Lastly, you can optionally create an interface
 VPC endpoint so that your VPC can communicate with your Lambda function without
 sending traffic over the internet. The following guide shows how to create a Lambda
 function, assign it the correct role and create an interface VPC endpoint.

@@ -15,19 +15,19 @@ dataset in the following namespace:
   metrics:
 
 - Metric: Max → query for `MetricName: feature_data_{feature_name},
-Stat: Max`
+ Stat: Max`
 - Metric: Min → query for `MetricName: feature_data_{feature_name},
-Stat: Min`
+ Stat: Min`
 - Metric: Sum → query for `MetricName: feature_data_{feature_name},
-Stat: Sum`
+ Stat: Sum`
 - Metric: SampleCount → query for `MetricName:
-feature_data_{feature_name}, Stat: SampleCount`
+ feature_data_{feature_name}, Stat: SampleCount`
 - Metric: Average → query for `MetricName: feature_data_{feature_name},
  Stat: Average`
   For both numerical and string fields, the built-in container emits the following
   CloudWatch metrics:
 
 - Metric: Completeness → query for `MetricName:
-feature_non_null_{feature_name}, Stat: Sum`
+ feature_non_null_{feature_name}, Stat: Sum`
 - Metric: Baseline Drift → query for `MetricName:
-feature_baseline_drift_{feature_name}, Stat: Sum`
+ feature_baseline_drift_{feature_name}, Stat: Sum`

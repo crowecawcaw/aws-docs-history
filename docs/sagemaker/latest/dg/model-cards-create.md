@@ -115,7 +115,7 @@ For information about creating a model card from a model registry, see [Create a
 ###### Note
 
 To use model cards with the SageMaker Python SDK, you first need to establish a
-SageMaker AI Session. For more information, see [Session](https://sagemaker.readthedocs.io/en/stable/api/utility/session.html "https://sagemaker.readthedocs.io/en/stable/api/utility/session.html") in the SageMaker Python SDK API reference.
+SageMaker AI Session. For more information, see [Session](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") in the SageMaker Python SDK API reference.
 
 To create a model card for models that aren't in the SageMaker Model Registry, see [Create a model that isn't in the model registry](#model-card-sdk-create-model-non-model-registry "#model-card-sdk-create-model-non-model-registry").
 

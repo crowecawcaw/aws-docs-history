@@ -35,10 +35,10 @@ call the [CreateEndpointConfig](../APIReference/API_CreateEndpointConfig.md "../
 
 The `MetricsConfig` parameter has the following fields:
 
-| MetricsConfig parameters          | Parameter | Type | Required | Default                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Description |
-| --------------------------------- | --------- | ---- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `EnableEnhancedMetrics`           | Boolean   | No   | `False`  | Enables instance-level and container-level metric dimensions.                                                                                                                                                                                                                                                                                                                                                                                             |
-| `MetricPublishFrequencyInSeconds` | Integer   | No   | `60`     | The interval, in seconds, at which metrics are published to Amazon CloudWatch. Defaults<br>to `60`. Valid values: `10`, `30`,<br>`60`, `120`, `180`, `240`,<br>`300`. When `EnableEnhancedMetrics` is set to<br>`False`, this interval applies to utilization metrics only; invocation<br>metrics continue to be published at the default 60-second interval. When<br>set to `True`, this interval applies to both utilization and invocation<br>metrics. |
+MetricsConfig parameters| Parameter | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| `EnableEnhancedMetrics` | Boolean | No | `False` | Enables instance-level and container-level metric dimensions. |
+| `MetricPublishFrequencyInSeconds` | Integer | No | `60` | The interval, in seconds, at which metrics are published to Amazon CloudWatch. Defaults<br>to `60`. Valid values: `10`, `30`,<br>`60`, `120`, `180`, `240`,<br>`300`. When `EnableEnhancedMetrics` is set to<br>`False`, this interval applies to utilization metrics only; invocation<br>metrics continue to be published at the default 60-second interval. When<br>set to `True`, this interval applies to both utilization and invocation<br>metrics. |
 
 ###### Note
 
@@ -73,10 +73,10 @@ dimensions, see [SageMaker AI endpoint metrics](monitoring-cloudwatch.md#cloudwa
 When you enable enhanced metrics, the following additional dimensions are
 available:
 
-| Additional dimensions for instance-level utilization metrics | Dimension                                                          | Description |
-| ------------------------------------------------------------ | ------------------------------------------------------------------ | ----------- |
-| `InstanceId`                                                 | Filters utilization metrics for a specific instance.               |
-| `AcceleratorId`                                              | (GPU metrics only) Filters utilization metrics for a specific GPU. |
+Additional dimensions for instance-level utilization metrics| Dimension | Description |
+| --- | --- |
+| `InstanceId` | Filters utilization metrics for a specific instance. |
+| `AcceleratorId` | (GPU metrics only) Filters utilization metrics for a specific GPU. |
 
 ## Instance and container-level invocation metrics
 
@@ -89,10 +89,10 @@ dimensions, see [SageMaker AI endpoint invocation metrics](monitoring-cloudwatch
 When you enable enhanced metrics, the following additional dimensions are
 available:
 
-| Additional dimensions for invocation metrics | Dimension                                                                        | Description |
-| -------------------------------------------- | -------------------------------------------------------------------------------- | ----------- |
-| `InstanceId`                                 | Filters invocation metrics for a specific instance.                              |
-| `ContainerId`                                | (Inference components only) Filters invocation metrics for a specific container. |
+Additional dimensions for invocation metrics| Dimension | Description |
+| --- | --- |
+| `InstanceId` | Filters invocation metrics for a specific instance. |
+| `ContainerId` | (Inference components only) Filters invocation metrics for a specific container. |
 
 ## Container-level utilization metrics
 
@@ -106,11 +106,11 @@ complete list of metrics and dimensions, see [SageMaker AI inference component m
 When you enable enhanced metrics, the following additional dimensions are
 available:
 
-| Additional dimensions for container-level utilization metrics | Dimension                                                          | Description |
-| ------------------------------------------------------------- | ------------------------------------------------------------------ | ----------- |
-| `InstanceId`                                                  | Filters utilization metrics for a specific instance.               |
-| `ContainerId`                                                 | Filters utilization metrics for a specific container.              |
-| `AcceleratorId`                                               | (GPU metrics only) Filters utilization metrics for a specific GPU. |
+Additional dimensions for container-level utilization metrics| Dimension | Description |
+| --- | --- |
+| `InstanceId` | Filters utilization metrics for a specific instance. |
+| `ContainerId` | Filters utilization metrics for a specific container. |
+| `AcceleratorId` | (GPU metrics only) Filters utilization metrics for a specific GPU. |
 
 ## Configurable metric frequency
 

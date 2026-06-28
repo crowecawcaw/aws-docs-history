@@ -25,15 +25,15 @@ In summary, SageMaker AI offers the following workflow technologies:
   You can also leverage other services that integrate with SageMaker AI to build your workflow.
   Options include the following services:
 
-- [Airflow Workflows](https://sagemaker.readthedocs.io/en/stable/workflows/airflow/index.html "https://sagemaker.readthedocs.io/en/stable/workflows/airflow/index.html"): SageMaker APIs to export configurations for creating and
+- [Airflow Workflows](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/"): SageMaker APIs to export configurations for creating and
   managing Airflow workflows.
-- [AWS Step Functions](https://sagemaker.readthedocs.io/en/stable/workflows/step_functions/index.html "https://sagemaker.readthedocs.io/en/stable/workflows/step_functions/index.html"): Multi-step ML workflows in Python that orchestrate SageMaker AI
+- [AWS Step Functions](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/"): Multi-step ML workflows in Python that orchestrate SageMaker AI
   infrastructure without having to provision your resources separately.
 - [AWS Batch](../../../batch/latest/userguide/getting-started-sagemaker.md "../../../batch/latest/userguide/getting-started-sagemaker.md"):
   Submit SageMaker AI training jobs to an AWS Batch job queue, where you can prioritize and schedule jobs
   to run in a compute environment.
   For more information on managing SageMaker training and inference, see [Amazon SageMaker
-  Python SDK Workflows](https://sagemaker.readthedocs.io/en/stable/workflows/index.html "https://sagemaker.readthedocs.io/en/stable/workflows/index.html").
+  Python SDK Workflows](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/").
 
 ###### Topics
 

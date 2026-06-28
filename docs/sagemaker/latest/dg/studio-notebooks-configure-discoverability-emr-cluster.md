@@ -270,9 +270,9 @@ clusters.
      your Studio execution role as defined in *List Amazon EMR policies* in [Reference policies](studio-set-up-emr-permissions-reference.md "studio-set-up-emr-permissions-reference.md").
 
 3. **Step 3**: Associate your assumable
-   role(s) (access role) with your domain or user profile. JupyterLab
-   users in Studio can use the SageMaker AI console or the provided
-   script.
+role(s) (access role) with your domain or user profile. JupyterLab
+users in Studio can use the SageMaker AI console or the provided
+script.
 
 Choose the tab that corresponds to your use case.
 

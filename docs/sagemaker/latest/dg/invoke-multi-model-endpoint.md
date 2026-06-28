@@ -38,7 +38,7 @@ aws sagemaker-runtime invoke-endpoint \
 
 An `output_file.txt` with information about your inference
 requests is made if the inference was successful. For more examples on how to make
-predictions with the AWS CLI, see [Making predictions with the AWS CLI](https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/deploying_tensorflow_serving.html#making-predictions-with-the-aws-cli "https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/deploying_tensorflow_serving.html#making-predictions-with-the-aws-cli") in the SageMaker Python SDK
+predictions with the AWS CLI, see [Making predictions with the AWS CLI](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") in the SageMaker Python SDK
 documentation.
 
 The multi-model endpoint dynamically loads target models as needed. You can observe this

@@ -46,4 +46,4 @@ settings, follow these steps:
     regular expression for each metric that your training monitors. Design the regular
     expressions to capture the values of metrics that your algorithm emits. For example, the
     metric `loss` might have the regular expression `"Loss
-=(.*?);"`.
+ =(.*?);"`.

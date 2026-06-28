@@ -114,7 +114,7 @@ safety system is falsely deemed safe to fly. A false positive (FP) reflects a
 positive prediction that is actually negative in the data.
 
 - Recall – The model correctly predicted {recall}% to be {category x}
-  when {target_column} was actually {category x}.
+  when {target\_column} was actually {category x}.
 
 Recall measures how well an algorithm correctly predicts all of the true
 positives (TP) in a dataset. A true positive is a positive prediction that is
@@ -208,7 +208,7 @@ safety system is falsely deemed safe to fly. A false positive (FP) reflects a
 positive prediction that is actually negative in the data.
 
 - Recall – The model correctly predicted {recall}% to be {category x}
-  when {target_column} was actually {category x}.
+  when {target\_column} was actually {category x}.
 
 Recall measures how well an algorithm correctly predicts all of the true
 positives (TP) in a dataset. A true positive is a positive prediction that is

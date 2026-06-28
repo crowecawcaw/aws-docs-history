@@ -23,7 +23,7 @@ Amazon SageMaker HyperPod now supports new public AMIs for Amazon EKS clusters. 
 the following:
 
 K8s v1.32
-AMI Name: HyperPod EKS 1.32 x86_64 AMI Amazon Linux 2
+AMI Name: HyperPod EKS 1.32 x86\_64 AMI Amazon Linux 2
 2025080407
 
 - **Amazon EKS Components**
@@ -36,7 +36,7 @@ AMI Name: HyperPod EKS 1.32 x86_64 AMI Amazon Linux 2
 - **Amazon SSM Agent:**
   3.3.2299.0
 - **Linux Kernel:**
-  5.10.238-234.956.amzn2.x86_64
+  5.10.238-234.956.amzn2.x86\_64
 - **OSS NVIDIA driver:**
   550.163.01
 - **NVIDIA CUDA:** 12.2
@@ -50,45 +50,45 @@ AMI Name: HyperPod EKS 1.32 x86_64 AMI Amazon Linux 2
 
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
-  - **aws-neuronx-oci-hook.x86_64:**
+  - **aws-neuronx-oci-hook.x86\_64:**
     2.4.4.0-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-tools.x86\_64:**
     2.18.3.0-1
   - **aws-neuron-dkms.noarch:**
     2.3.26.0-dkms
-  - **aws-neuron-k8-plugin.x86_64:**
+  - **aws-neuron-k8-plugin.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-k8-scheduler.x86_64:**
+  - **aws-neuron-k8-scheduler.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-runtime.x86_64:**
+  - **aws-neuron-runtime.x86\_64:**
     1.6.24.0-1
-  - **aws-neuron-runtime-base.x86_64:**
+  - **aws-neuron-runtime-base.x86\_64:**
     1.6.21.0-1
-  - **aws-neuron-tools.x86_64:**
+  - **aws-neuron-tools.x86\_64:**
     2.1.4.0-1
-  - **aws-neuronx-collectives.x86_64:**
-    2.27.34.0_ec8cd5e8b-1
-  - **aws-neuronx-gpsimd-customop.x86_64:**
+  - **aws-neuronx-collectives.x86\_64:**
+    2.27.34.0\_ec8cd5e8b-1
+  - **aws-neuronx-gpsimd-customop.x86\_64:**
     0.2.3.0-1
-  - **aws-neuronx-gpsimd-customop-lib.x86_64:**
+  - **aws-neuronx-gpsimd-customop-lib.x86\_64:**
     0.17.1.0-1
-  - **aws-neuronx-gpsimd-tools.x86_64:**
-    0.17.0.0_aacc27699-1
-  - **aws-neuronx-k8-plugin.x86_64:**
+  - **aws-neuronx-gpsimd-tools.x86\_64:**
+    0.17.0.0\_aacc27699-1
+  - **aws-neuronx-k8-plugin.x86\_64:**
     2.27.7.0-1
-  - **aws-neuronx-k8-scheduler.x86_64:**
+  - **aws-neuronx-k8-scheduler.x86\_64:**
     2.27.7.0-1
-  - **aws-neuronx-runtime-lib.x86_64:**
-    2.27.23.0_8deec4dbf-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-runtime-lib.x86\_64:**
+    2.27.23.0\_8deec4dbf-1
+  - **aws-neuronx-tools.x86\_64:**
     2.25.145.0-1
-  - **tensorflow-model-server-neuron.x86_64:**
+  - **tensorflow-model-server-neuron.x86\_64:**
     2.8.0.2.3.0.0-0
-  - **tensorflow-model-server-neuronx.x86_64:**
+  - **tensorflow-model-server-neuronx.x86\_64:**
     2.10.1.2.12.2.0-0
 
 K8s v1.30
-AMI Name: HyperPod EKS 1.30 x86_64 AMI Amazon Linux 2
+AMI Name: HyperPod EKS 1.30 x86\_64 AMI Amazon Linux 2
 2025080407
 
 - **Amazon EKS Components**
@@ -101,7 +101,7 @@ AMI Name: HyperPod EKS 1.30 x86_64 AMI Amazon Linux 2
 - **Amazon SSM Agent:**
   3.3.2299.0
 - **Linux Kernel:**
-  5.10.238-234.956.amzn2.x86_64
+  5.10.238-234.956.amzn2.x86\_64
 - **OSS NVIDIA driver:**
   550.163.01
 - **NVIDIA CUDA:** 12.2
@@ -115,45 +115,45 @@ AMI Name: HyperPod EKS 1.30 x86_64 AMI Amazon Linux 2
 
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
-  - **aws-neuronx-oci-hook.x86_64:**
+  - **aws-neuronx-oci-hook.x86\_64:**
     2.4.4.0-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-tools.x86\_64:**
     2.18.3.0-1
   - **aws-neuron-dkms.noarch:**
     2.3.26.0-dkms
-  - **aws-neuron-k8-plugin.x86_64:**
+  - **aws-neuron-k8-plugin.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-k8-scheduler.x86_64:**
+  - **aws-neuron-k8-scheduler.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-runtime.x86_64:**
+  - **aws-neuron-runtime.x86\_64:**
     1.6.24.0-1
-  - **aws-neuron-runtime-base.x86_64:**
+  - **aws-neuron-runtime-base.x86\_64:**
     1.6.21.0-1
-  - **aws-neuron-tools.x86_64:**
+  - **aws-neuron-tools.x86\_64:**
     2.1.4.0-1
-  - **aws-neuronx-collectives.x86_64:**
-    2.27.34.0_ec8cd5e8b-1
-  - **aws-neuronx-gpsimd-customop.x86_64:**
+  - **aws-neuronx-collectives.x86\_64:**
+    2.27.34.0\_ec8cd5e8b-1
+  - **aws-neuronx-gpsimd-customop.x86\_64:**
     0.2.3.0-1
-  - **aws-neuronx-gpsimd-customop-lib.x86_64:**
+  - **aws-neuronx-gpsimd-customop-lib.x86\_64:**
     0.17.1.0-1
-  - **aws-neuronx-gpsimd-tools.x86_64:**
-    0.17.0.0_aacc27699-1
-  - **aws-neuronx-k8-plugin.x86_64:**
+  - **aws-neuronx-gpsimd-tools.x86\_64:**
+    0.17.0.0\_aacc27699-1
+  - **aws-neuronx-k8-plugin.x86\_64:**
     2.27.7.0-1
-  - **aws-neuronx-k8-scheduler.x86_64:**
+  - **aws-neuronx-k8-scheduler.x86\_64:**
     2.27.7.0-1
-  - **aws-neuronx-runtime-lib.x86_64:**
-    2.27.23.0_8deec4dbf-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-runtime-lib.x86\_64:**
+    2.27.23.0\_8deec4dbf-1
+  - **aws-neuronx-tools.x86\_64:**
     2.25.145.0-1
-  - **tensorflow-model-server-neuron.x86_64:**
+  - **tensorflow-model-server-neuron.x86\_64:**
     2.8.0.2.3.0.0-0
-  - **tensorflow-model-server-neuronx.x86_64:**
+  - **tensorflow-model-server-neuronx.x86\_64:**
     2.10.1.2.12.2.0-0
 
 K8s v1.31
-AMI Name: HyperPod EKS 1.31 x86_64 AMI Amazon Linux 2
+AMI Name: HyperPod EKS 1.31 x86\_64 AMI Amazon Linux 2
 2025080407
 
 - **Amazon EKS Components**
@@ -166,7 +166,7 @@ AMI Name: HyperPod EKS 1.31 x86_64 AMI Amazon Linux 2
 - **Amazon SSM Agent:**
   3.3.2299.0
 - **Linux Kernel:**
-  5.10.238-234.956.amzn2.x86_64
+  5.10.238-234.956.amzn2.x86\_64
 - **OSS NVIDIA driver:**
   550.163.01
 - **NVIDIA CUDA:** 12.2
@@ -180,45 +180,45 @@ AMI Name: HyperPod EKS 1.31 x86_64 AMI Amazon Linux 2
 
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
-  - **aws-neuronx-oci-hook.x86_64:**
+  - **aws-neuronx-oci-hook.x86\_64:**
     2.4.4.0-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-tools.x86\_64:**
     2.18.3.0-1
   - **aws-neuron-dkms.noarch:**
     2.3.26.0-dkms
-  - **aws-neuron-k8-plugin.x86_64:**
+  - **aws-neuron-k8-plugin.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-k8-scheduler.x86_64:**
+  - **aws-neuron-k8-scheduler.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-runtime.x86_64:**
+  - **aws-neuron-runtime.x86\_64:**
     1.6.24.0-1
-  - **aws-neuron-runtime-base.x86_64:**
+  - **aws-neuron-runtime-base.x86\_64:**
     1.6.21.0-1
-  - **aws-neuron-tools.x86_64:**
+  - **aws-neuron-tools.x86\_64:**
     2.1.4.0-1
-  - **aws-neuronx-collectives.x86_64:**
-    2.27.34.0_ec8cd5e8b-1
-  - **aws-neuronx-gpsimd-customop.x86_64:**
+  - **aws-neuronx-collectives.x86\_64:**
+    2.27.34.0\_ec8cd5e8b-1
+  - **aws-neuronx-gpsimd-customop.x86\_64:**
     0.2.3.0-1
-  - **aws-neuronx-gpsimd-customop-lib.x86_64:**
+  - **aws-neuronx-gpsimd-customop-lib.x86\_64:**
     0.17.1.0-1
-  - **aws-neuronx-gpsimd-tools.x86_64:**
-    0.17.0.0_aacc27699-1
-  - **aws-neuronx-k8-plugin.x86_64:**
+  - **aws-neuronx-gpsimd-tools.x86\_64:**
+    0.17.0.0\_aacc27699-1
+  - **aws-neuronx-k8-plugin.x86\_64:**
     2.27.7.0-1
-  - **aws-neuronx-k8-scheduler.x86_64:**
+  - **aws-neuronx-k8-scheduler.x86\_64:**
     2.27.7.0-1
-  - **aws-neuronx-runtime-lib.x86_64:**
-    2.27.23.0_8deec4dbf-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-runtime-lib.x86\_64:**
+    2.27.23.0\_8deec4dbf-1
+  - **aws-neuronx-tools.x86\_64:**
     2.25.145.0-1
-  - **tensorflow-model-server-neuron.x86_64:**
+  - **tensorflow-model-server-neuron.x86\_64:**
     2.8.0.2.3.0.0-0
-  - **tensorflow-model-server-neuronx.x86_64:**
+  - **tensorflow-model-server-neuronx.x86\_64:**
     2.10.1.2.12.2.0-0
 
 K8s v1.29
-AMI Name: HyperPod EKS 1.29 x86_64 AMI Amazon Linux 2
+AMI Name: HyperPod EKS 1.29 x86\_64 AMI Amazon Linux 2
 2025080407
 
 - **Amazon EKS Components**
@@ -231,7 +231,7 @@ AMI Name: HyperPod EKS 1.29 x86_64 AMI Amazon Linux 2
 - **Amazon SSM Agent:**
   3.3.2299.0
 - **Linux Kernel:**
-  5.10.238-234.956.amzn2.x86_64
+  5.10.238-234.956.amzn2.x86\_64
 - **OSS NVIDIA driver:**
   550.163.01
 - **NVIDIA CUDA:** 12.2
@@ -245,45 +245,45 @@ AMI Name: HyperPod EKS 1.29 x86_64 AMI Amazon Linux 2
 
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
-  - **aws-neuronx-oci-hook.x86_64:**
+  - **aws-neuronx-oci-hook.x86\_64:**
     2.4.4.0-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-tools.x86\_64:**
     2.18.3.0-1
   - **aws-neuron-dkms.noarch:**
     2.3.26.0-dkms
-  - **aws-neuron-k8-plugin.x86_64:**
+  - **aws-neuron-k8-plugin.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-k8-scheduler.x86_64:**
+  - **aws-neuron-k8-scheduler.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-runtime.x86_64:**
+  - **aws-neuron-runtime.x86\_64:**
     1.6.24.0-1
-  - **aws-neuron-runtime-base.x86_64:**
+  - **aws-neuron-runtime-base.x86\_64:**
     1.6.21.0-1
-  - **aws-neuron-tools.x86_64:**
+  - **aws-neuron-tools.x86\_64:**
     2.1.4.0-1
-  - **aws-neuronx-collectives.x86_64:**
-    2.27.34.0_ec8cd5e8b-1
-  - **aws-neuronx-gpsimd-customop.x86_64:**
+  - **aws-neuronx-collectives.x86\_64:**
+    2.27.34.0\_ec8cd5e8b-1
+  - **aws-neuronx-gpsimd-customop.x86\_64:**
     0.2.3.0-1
-  - **aws-neuronx-gpsimd-customop-lib.x86_64:**
+  - **aws-neuronx-gpsimd-customop-lib.x86\_64:**
     0.17.1.0-1
-  - **aws-neuronx-gpsimd-tools.x86_64:**
-    0.17.0.0_aacc27699-1
-  - **aws-neuronx-k8-plugin.x86_64:**
+  - **aws-neuronx-gpsimd-tools.x86\_64:**
+    0.17.0.0\_aacc27699-1
+  - **aws-neuronx-k8-plugin.x86\_64:**
     2.27.7.0-1
-  - **aws-neuronx-k8-scheduler.x86_64:**
+  - **aws-neuronx-k8-scheduler.x86\_64:**
     2.27.7.0-1
-  - **aws-neuronx-runtime-lib.x86_64:**
-    2.27.23.0_8deec4dbf-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-runtime-lib.x86\_64:**
+    2.27.23.0\_8deec4dbf-1
+  - **aws-neuronx-tools.x86\_64:**
     2.25.145.0-1
-  - **tensorflow-model-server-neuron.x86_64:**
+  - **tensorflow-model-server-neuron.x86\_64:**
     2.8.0.2.3.0.0-0
-  - **tensorflow-model-server-neuronx.x86_64:**
+  - **tensorflow-model-server-neuronx.x86\_64:**
     2.10.1.2.12.2.0-0
 
 K8s v1.28
-AMI Name: HyperPod EKS 1.28 x86_64 AMI Amazon Linux 2
+AMI Name: HyperPod EKS 1.28 x86\_64 AMI Amazon Linux 2
 2025080407
 
 - **Amazon EKS Components**
@@ -296,7 +296,7 @@ AMI Name: HyperPod EKS 1.28 x86_64 AMI Amazon Linux 2
 - **Amazon SSM Agent:**
   3.3.2299.0
 - **Linux Kernel:**
-  5.10.238-234.956.amzn2.x86_64
+  5.10.238-234.956.amzn2.x86\_64
 - **OSS NVIDIA driver:**
   550.163.01
 - **NVIDIA CUDA:** 12.2
@@ -310,39 +310,39 @@ AMI Name: HyperPod EKS 1.28 x86_64 AMI Amazon Linux 2
 
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
-  - **aws-neuronx-oci-hook.x86_64:**
+  - **aws-neuronx-oci-hook.x86\_64:**
     2.4.4.0-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-tools.x86\_64:**
     2.18.3.0-1
   - **aws-neuron-dkms.noarch:**
     2.3.26.0-dkms
-  - **aws-neuron-k8-plugin.x86_64:**
+  - **aws-neuron-k8-plugin.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-k8-scheduler.x86_64:**
+  - **aws-neuron-k8-scheduler.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-runtime.x86_64:**
+  - **aws-neuron-runtime.x86\_64:**
     1.6.24.0-1
-  - **aws-neuron-runtime-base.x86_64:**
+  - **aws-neuron-runtime-base.x86\_64:**
     1.6.21.0-1
-  - **aws-neuron-tools.x86_64:**
+  - **aws-neuron-tools.x86\_64:**
     2.1.4.0-1
-  - **aws-neuronx-collectives.x86_64:**
-    2.27.34.0_ec8cd5e8b-1
-  - **aws-neuronx-gpsimd-customop.x86_64:**
+  - **aws-neuronx-collectives.x86\_64:**
+    2.27.34.0\_ec8cd5e8b-1
+  - **aws-neuronx-gpsimd-customop.x86\_64:**
     0.2.3.0-1
-  - **aws-neuronx-gpsimd-customop-lib.x86_64:**
+  - **aws-neuronx-gpsimd-customop-lib.x86\_64:**
     0.17.1.0-1
-  - **aws-neuronx-gpsimd-tools.x86_64:**
-    0.17.0.0_aacc27699-1
-  - **aws-neuronx-k8-plugin.x86_64:**
+  - **aws-neuronx-gpsimd-tools.x86\_64:**
+    0.17.0.0\_aacc27699-1
+  - **aws-neuronx-k8-plugin.x86\_64:**
     2.27.7.0-1
-  - **aws-neuronx-k8-scheduler.x86_64:**
+  - **aws-neuronx-k8-scheduler.x86\_64:**
     2.27.7.0-1
-  - **aws-neuronx-runtime-lib.x86_64:**
-    2.27.23.0_8deec4dbf-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-runtime-lib.x86\_64:**
+    2.27.23.0\_8deec4dbf-1
+  - **aws-neuronx-tools.x86\_64:**
     2.25.145.0-1
-  - **tensorflow-model-server-neuron.x86_64:**
+  - **tensorflow-model-server-neuron.x86\_64:**
     2.8.0.2.3.0.0-0
-  - **tensorflow-model-server-neuronx.x86_64:**
+  - **tensorflow-model-server-neuronx.x86\_64:**
     2.10.1.2.12.2.0-0

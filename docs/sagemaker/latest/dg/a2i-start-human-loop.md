@@ -84,7 +84,7 @@ The following table shows examples of how to use this operation with the AWS CLI
 AWS SDK for Python (Boto3).
 
 AWS SDK for Python (Boto3)
-The following request example uses the SDK for Python (Boto3). For more information, see [analyze_document](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/textract.html#Textract.Client.analyze_document "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/textract.html#Textract.Client.analyze_document") in the _AWS SDK for Python (Boto) API Reference_.
+The following request example uses the SDK for Python (Boto3). For more information, see [analyze\_document](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/textract.html#Textract.Client.analyze_document "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/textract.html#Textract.Client.analyze_document") in the _AWS SDK for Python (Boto) API Reference_.
 
 ```
 import boto3
@@ -146,7 +146,7 @@ AWS SDK for Python (Boto3).
 
 AWS SDK for Python (Boto3)
 The following request example uses the SDK for Python (Boto3). For more information, see
-[detect_moderation_labels](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Client.detect_moderation_labels "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Client.detect_moderation_labels") in the _AWS SDK for Python (Boto) API Reference_.
+[detect\_moderation\_labels](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Client.detect_moderation_labels "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Client.detect_moderation_labels") in the _AWS SDK for Python (Boto) API Reference_.
 
 ```
 import boto3

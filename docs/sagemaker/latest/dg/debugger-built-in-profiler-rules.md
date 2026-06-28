@@ -69,7 +69,7 @@ frameworks and SDKs as follows.
 use the following configuration format:
 
 ```
-from sagemaker.debugger import Rule, ProfilerRule, rule_configs
+from sagemaker.core.debugger import Rule, ProfilerRule, rule_configs
 
 rules = [
     ProfilerRule.sagemaker(rule_configs.`BuiltInRuleName_1`()),
@@ -83,7 +83,7 @@ rules = [
 values** – use the following configuration format:
 
 ```
-from sagemaker.debugger import Rule, ProfilerRule, rule_configs
+from sagemaker.core.debugger import Rule, ProfilerRule, rule_configs
 
 rules = [
     ProfilerRule.sagemaker(
@@ -249,8 +249,8 @@ Parameter Descriptions for the LoadBalancing Rule
 
 The LowGPUUtilization rule helps detect if GPU utilization is low or suffers from
 fluctuations. This is checked for each GPU on each worker. Rule returns True if 95th
-quantile is below threshold_p95 which indicates underutilization. Rule returns true if
-95th quantile is above threshold_p95 and 5th quantile is below threshold_p5 which
+quantile is below threshold\_p95 which indicates underutilization. Rule returns true if
+95th quantile is above threshold\_p95 and 5th quantile is below threshold\_p5 which
 indicates fluctuations.
 
 Parameter Descriptions for the LowGPUUtilization Rule

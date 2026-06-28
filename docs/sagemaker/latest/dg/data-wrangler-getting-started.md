@@ -33,22 +33,21 @@ The following procedure assumes you have completed the [Prerequisites](#data-wra
 
 To access Data Wrangler in Studio Classic, do the following.
 
-1.  Sign in to Studio Classic. For more information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md "gs-studio-onboard.md").
-2.  Choose **Studio**.
-3.  Choose **Launch app**.
-4.  From the dropdown list, select **Studio**.
-5.  Choose the Home icon.
-6.  Choose **Data**.
-7.  Choose **Data Wrangler**.
-8.  You can also create a Data Wrangler flow by doing the following.
+1. Sign in to Studio Classic. For more information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md "gs-studio-onboard.md").
+2. Choose **Studio**.
+3. Choose **Launch app**.
+4. From the dropdown list, select **Studio**.
+5. Choose the Home icon.
+6. Choose **Data**.
+7. Choose **Data Wrangler**.
+8. You can also create a Data Wrangler flow by doing the following.
 
-        1. In the top navigation bar, select **File**.
-        2. Select **New**.
-        3. Select **Data Wrangler Flow**.
+   1. In the top navigation bar, select **File**.
+   2. Select **New**.
+   3. Select **Data Wrangler Flow**.
+      ![Home tab of the Studio Classic console.](images/studio/mohave/new-flow-file-menu.png)
 
-    ![Home tab of the Studio Classic console.](images/studio/mohave/new-flow-file-menu.png)
-
-9.  (Optional) Rename the new directory and the .flow file.
+9. (Optional) Rename the new directory and the .flow file.
 10. When you create a new .flow file in Studio Classic, you might see a carousel that introduces you to Data Wrangler.
 
 **This may take a few minutes.**

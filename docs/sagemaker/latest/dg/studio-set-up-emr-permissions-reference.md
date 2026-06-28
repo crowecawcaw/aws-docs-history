@@ -57,19 +57,18 @@ JSON
 - **Create Amazon EMR clusters policies**: This policy
   allows performing the following actions:
 
-      + `AllowEMRTemplateDiscovery` allows searching for Amazon EMR
-       templates in the Service Catalog. Studio and Studio Classic use this to show
-       available templates.
-      + `AllowSagemakerProjectManagement` enables the creation of
-       [What is a SageMaker AI Project?](sagemaker-projects-whatis.md "sagemaker-projects-whatis.md"). In
-       Studio or Studio Classic, access to the AWS Service Catalog is managed
-       through [What is a SageMaker AI Project?](sagemaker-projects-whatis.md "sagemaker-projects-whatis.md").
-
-  The IAM policy defined in the provided JSON grants those permissions.
-  Replace `region` and
-  `accountID` with your actual region and AWS
-  account ID values before copying the list of statements to the inline policy of
-  your role.
+  - `AllowEMRTemplateDiscovery` allows searching for Amazon EMR
+    templates in the Service Catalog. Studio and Studio Classic use this to show
+    available templates.
+  - `AllowSagemakerProjectManagement` enables the creation of
+    [What is a SageMaker AI Project?](sagemaker-projects-whatis.md "sagemaker-projects-whatis.md"). In
+    Studio or Studio Classic, access to the AWS Service Catalog is managed
+    through [What is a SageMaker AI Project?](sagemaker-projects-whatis.md "sagemaker-projects-whatis.md").
+    The IAM policy defined in the provided JSON grants those permissions.
+    Replace `region` and
+    `accountID` with your actual region and AWS
+    account ID values before copying the list of statements to the inline policy of
+    your role.
 
 JSON
 

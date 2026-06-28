@@ -51,7 +51,7 @@ In recovery mode:
   temporary and ensures that any corrupted configurations in your standard home
   directory does not impact your recovery mode operations. You can navigate to
   your standard home directory by using the command `cd
-/home/sagemaker-user`.
+ /home/sagemaker-user`.
 
   - Standard mode: `/home/sagemaker-user`
   - Recovery mode: `/tmp/sagemaker-recovery-mode-home`

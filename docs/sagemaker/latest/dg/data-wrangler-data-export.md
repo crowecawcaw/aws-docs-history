@@ -238,15 +238,15 @@ method:
 ![Example data flow showing how to export data in the Data Wrangler console.](images/studio/mohave/export-s3.png) 2. Configure how you want to export the data. 3. Choose **Export data**.
 
 When you export your data flow to an Amazon S3 bucket, Data Wrangler stores a copy of the flow file
-in the S3 bucket. It stores the flow file under the _data_wrangler_flows_ prefix. If you use the default Amazon S3 bucket to store
+in the S3 bucket. It stores the flow file under the _data\_wrangler\_flows_ prefix. If you use the default Amazon S3 bucket to store
 your flow files, it uses the following naming convention:
 `sagemaker-`region`-`account
 number``. For example, if your account number is
- 111122223333 and you are using Studio Classic in us-east-1, your imported datasets
- are stored in `sagemaker-us-east-1-111122223333`. In this example,
- your .flow files created in us-east-1 are stored in
- `s3://sagemaker-`region`-`account
- number`/data_wrangler_flows/`.
+111122223333 and you are using Studio Classic in us-east-1, your imported datasets
+are stored in `sagemaker-us-east-1-111122223333`. In this example,
+your .flow files created in us-east-1 are stored in
+`s3://sagemaker-`region`-`account
+number`/data_wrangler_flows/`.
 
 ## Export to Pipelines
 
@@ -334,12 +334,11 @@ The serial inference pipeline supports the following data types for the input an
 
 - `text/csv` – the datatype for CSV strings
 
-      + The string can't have a header.
-      + Features used for the inference pipeline must be in the same order as features in the training dataset.
-      + There must be a comma delimiter between features.
-      + Records must be delimited by a newline character.
-
-  The following is an example of a validly formatted CSV string that you can provide in an inference request.
+  - The string can't have a header.
+  - Features used for the inference pipeline must be in the same order as features in the training dataset.
+  - There must be a comma delimiter between features.
+  - Records must be delimited by a newline character.
+    The following is an example of a validly formatted CSV string that you can provide in an inference request.
 
 ```
 
@@ -349,10 +348,9 @@ abc,0.0,"Doe, John",12345\ndef,1.1,"Doe, Jane",67890
 
 - `application/json` – the datatype for JSON strings
 
-      + The features used in the dataset for the inference pipeline must be in the same order as the features in the training dataset.
-      + The data must have a specific schema. You define schema as a single `instances` object that has a set of `features`. Each `features` object represents an observation.
-
-  The following is an example of a validly formatted JSON string that you can provide in an inference request.
+  - The features used in the dataset for the inference pipeline must be in the same order as the features in the training dataset.
+  - The data must have a specific schema. You define schema as a single `instances` object that has a set of `features`. Each `features` object represents an observation.
+    The following is an example of a validly formatted JSON string that you can provide in an inference request.
 
 ```
 {
@@ -946,8 +944,7 @@ The schedule resets every day. If you schedule a job to run every five hours, it
     * 15:00
     * 20:00
 
-11. Choose **Create**.
-12. (Optional) Choose **Add another schedule** to run the job on an additional schedule.
+11. Choose **Create**. 12. (Optional) Choose **Add another schedule** to run the job on an additional schedule.
 
 ###### Note
 

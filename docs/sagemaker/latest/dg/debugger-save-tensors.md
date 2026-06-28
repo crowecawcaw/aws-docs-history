@@ -80,6 +80,65 @@ For example:
 "s3://sagemaker-us-east-1-111122223333/sagemaker-debugger-training-YYYY-MM-DD-HH-MM-SS-123/debug-output"
 ```
 
+SageMaker Python SDK v3
+
+```
+import boto3
+import sagemaker
+from sagemaker.train import ModelTrainer
+from sagemaker.core.debugger import DebuggerHookConfig, CollectionConfig
+from sagemaker.core.helper.session_helper import Session, get_execution_role
+
+**# use Debugger CollectionConfig to call built-in collections**
+**collection\_configs**=[
+        CollectionConfig(name="weights"),
+        CollectionConfig(name="gradients"),
+        CollectionConfig(name="losses"),
+        CollectionConfig(name="biases")
+    ]
+
+# configure Debugger hook
+# set a target S3 bucket as you want
+sagemaker_session=Session()
+BUCKET_NAME=sagemaker_session.default_bucket()
+LOCATION_IN_BUCKET='debugger-built-in-collections-hook'
+
+**hook\_config**=DebuggerHookConfig(
+    s3_output_path='s3://{BUCKET_NAME}/{LOCATION_IN_BUCKET}'.
+                    format(BUCKET_NAME=BUCKET_NAME,
+                           LOCATION_IN_BUCKET=LOCATION_IN_BUCKET),
+    collection_configs=**collection\_configs**
+)
+
+from sagemaker.core import image_uris
+from sagemaker.train.configs import SourceCode, Compute
+
+training_image = image_uris.retrieve(
+    framework="tensorflow",
+    region=boto3.Session().region_name,
+    version="`2.9.0`",
+    py_version="`py39`",
+    instance_type="`ml.p3.2xlarge`",
+    image_scope="training"
+)
+
+# construct a SageMaker ModelTrainer
+sagemaker_model_trainer=ModelTrainer(
+    training_image=training_image,
+    source_code=SourceCode(entry_script='directory/to/your_training_script.py'),
+    role=get_execution_role(),
+    base_job_name='debugger-demo-job',
+    compute=Compute(instance_type="`ml.p3.2xlarge`", instance_count=1),
+
+    # debugger-specific hook argument below
+    debugger_hook_config=**hook\_config**
+)
+
+sagemaker_model_trainer.train()
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 import sagemaker
 from sagemaker.tensorflow import TensorFlow
@@ -132,6 +191,63 @@ API operation. The following example shows how to tweak the built-in `losses`
 collection and construct a SageMaker AI TensorFlow estimator. You can also use this for MXNet,
 PyTorch, and XGBoost estimators.
 
+SageMaker Python SDK v3
+
+```
+import boto3
+import sagemaker
+from sagemaker.train import ModelTrainer
+from sagemaker.core.debugger import DebuggerHookConfig, CollectionConfig
+from sagemaker.core.helper.session_helper import Session, get_execution_role
+
+# use Debugger CollectionConfig to call and modify built-in collections
+**collection\_configs**=[
+    CollectionConfig(
+                name="losses",
+                parameters={"save_interval": "50"})]
+
+# configure Debugger hook
+# set a target S3 bucket as you want
+sagemaker_session=Session()
+BUCKET_NAME=sagemaker_session.default_bucket()
+LOCATION_IN_BUCKET='debugger-modified-collections-hook'
+
+**hook\_config**=DebuggerHookConfig(
+    s3_output_path='s3://{BUCKET_NAME}/{LOCATION_IN_BUCKET}'.
+                    format(BUCKET_NAME=BUCKET_NAME,
+                           LOCATION_IN_BUCKET=LOCATION_IN_BUCKET),
+    collection_configs=**collection\_configs**
+)
+
+from sagemaker.core import image_uris
+from sagemaker.train.configs import SourceCode, Compute
+
+training_image = image_uris.retrieve(
+    framework="tensorflow",
+    region=boto3.Session().region_name,
+    version="`2.9.0`",
+    py_version="`py39`",
+    instance_type="`ml.p3.2xlarge`",
+    image_scope="training"
+)
+
+# construct a SageMaker ModelTrainer
+sagemaker_model_trainer=ModelTrainer(
+    training_image=training_image,
+    source_code=SourceCode(entry_script='directory/to/your_training_script.py'),
+    role=get_execution_role(),
+    base_job_name='debugger-demo-job',
+    compute=Compute(instance_type="`ml.p3.2xlarge`", instance_count=1),
+
+    # debugger-specific hook argument below
+    debugger_hook_config=**hook\_config**
+)
+
+sagemaker_model_trainer.train()
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 import sagemaker
 from sagemaker.tensorflow import TensorFlow
@@ -182,6 +298,67 @@ example, if you want to reduce the amount of data saved in your Amazon S3 bucket
 following example shows how to customize the Debugger hook configuration to specify target
 tensors that you want to save. You can use this for TensorFlow, MXNet, PyTorch, and
 XGBoost estimators.
+
+SageMaker Python SDK v3
+
+```
+import boto3
+import sagemaker
+from sagemaker.train import ModelTrainer
+from sagemaker.core.debugger import DebuggerHookConfig, CollectionConfig
+from sagemaker.core.helper.session_helper import Session, get_execution_role
+
+# use Debugger CollectionConfig to create a custom collection
+**collection\_configs**=[
+        CollectionConfig(
+            name="custom_activations_collection",
+            parameters={
+                "include_regex": "relu|tanh", # Required
+                "reductions": "mean,variance,max,abs_mean,abs_variance,abs_max"
+            })
+    ]
+
+# configure Debugger hook
+# set a target S3 bucket as you want
+sagemaker_session=Session()
+BUCKET_NAME=sagemaker_session.default_bucket()
+LOCATION_IN_BUCKET='debugger-custom-collections-hook'
+
+**hook\_config**=DebuggerHookConfig(
+    s3_output_path='s3://{BUCKET_NAME}/{LOCATION_IN_BUCKET}'.
+                    format(BUCKET_NAME=BUCKET_NAME,
+                           LOCATION_IN_BUCKET=LOCATION_IN_BUCKET),
+    collection_configs=**collection\_configs**
+)
+
+from sagemaker.core import image_uris
+from sagemaker.train.configs import SourceCode, Compute
+
+training_image = image_uris.retrieve(
+    framework="tensorflow",
+    region=boto3.Session().region_name,
+    version="`2.9.0`",
+    py_version="`py39`",
+    instance_type="`ml.p3.2xlarge`",
+    image_scope="training"
+)
+
+# construct a SageMaker ModelTrainer
+sagemaker_model_trainer=ModelTrainer(
+    training_image=training_image,
+    source_code=SourceCode(entry_script='directory/to/your_training_script.py'),
+    role=get_execution_role(),
+    base_job_name='debugger-demo-job',
+    compute=Compute(instance_type="`ml.p3.2xlarge`", instance_count=1),
+
+    # debugger-specific hook argument below
+    debugger_hook_config=**hook\_config**
+)
+
+sagemaker_model_trainer.train()
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import sagemaker

@@ -58,7 +58,7 @@ does not have the ability to impact resources used in other steps unless there i
 relationship between the two steps specified in the pipeline definition. You pass these
 roles when defining the processor or estimator for your step. For examples of how to include
 these roles in these definitions, see the [SageMaker AI
-Python SDK documentation](https://sagemaker.readthedocs.io/en/stable/overview.html#using-estimators "https://sagemaker.readthedocs.io/en/stable/overview.html#using-estimators").
+Python SDK documentation](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html").
 
 ## CORS configuration with Amazon S3 buckets
 
@@ -111,7 +111,7 @@ the policy to your bucket, you must use the JSON format.
 The following GIF demonstrates the instructions found in the Amazon S3
 documentation to add a CORS header policy using the Amazon S3 console.
 
-![Gif on how to add a CORS header policy using the Amazon S3 console.](/images/sagemaker/latest/dg/images/sms/gifs/cors-config.gif)
+![Gif on how to add a CORS header policy using the Amazon S3 console.](images/sms/gifs/cors-config.gif)
 
 ## Customize access management for Pipelines jobs
 

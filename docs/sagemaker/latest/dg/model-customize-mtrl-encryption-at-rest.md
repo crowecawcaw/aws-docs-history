@@ -41,21 +41,20 @@ mechanisms to encrypt your data:
   time, Amazon SageMaker AI uses the caller's credentials to create one or two
   grants on the KMS key:
 
-      + **Write grant** –
-       Created for every job that specifies a customer managed
-       key. Allows the service to encrypt and decrypt the current
-       job's checkpoint and temporary data stored within the
-       platform during training.
-      + **Read grant** –
-       Created only for iterative jobs that resume from a previous
-       job's checkpoint when the previous job also used a customer
-       managed key. Allows the service to decrypt the previous
-       job's checkpoint data. This grant permits decryption
-       only and does not allow writing new data.
-
-  All grants are retired automatically when the job completes,
-  ensuring that the service no longer has access to the key after the
-  job lifecycle ends.
+  - **Write grant** –
+    Created for every job that specifies a customer managed
+    key. Allows the service to encrypt and decrypt the current
+    job's checkpoint and temporary data stored within the
+    platform during training.
+  - **Read grant** –
+    Created only for iterative jobs that resume from a previous
+    job's checkpoint when the previous job also used a customer
+    managed key. Allows the service to decrypt the previous
+    job's checkpoint data. This grant permits decryption
+    only and does not allow writing new data.
+    All grants are retired automatically when the job completes,
+    ensuring that the service no longer has access to the key after the
+    job lifecycle ends.
 
 - **Execution role** – When
   saving output data (model artifacts, checkpoints) to your Amazon S3

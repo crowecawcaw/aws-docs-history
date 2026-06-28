@@ -17,6 +17,24 @@ achieve.
    of lines to predict at a time. You can change the value of it to perform a batch
    inference that fully utilizes the instance's hardware resource.
 
+SageMaker Python SDK v3
+
+```
+import numpy as np
+from sagemaker.core.resources import Endpoint
+
+def predict(data, endpoint_name, rows=1000):
+    xgb_endpoint = Endpoint.get(endpoint_name=endpoint_name)
+    split_array = np.array_split(data, int(data.shape[0] / float(rows) + 1))
+    predictions = ''
+    for array in split_array:
+        response = xgb_endpoint.invoke(body=array.tostring(), content_type="text/csv")
+        predictions = ','.join([predictions, response.body.read().decode('utf-8')])
+    return np.fromstring(predictions[1:], sep=',')
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 import numpy as np
 def predict(data, rows=1000):

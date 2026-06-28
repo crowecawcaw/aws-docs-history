@@ -344,13 +344,13 @@ text and HTML. You can explicitly add the `escape` filter to make it
 more obvious to someone reading the source of your template that escaping is
 being done.
 
-#### escape_once
+#### escape\_once
 
 `escape_once` ensures that if you've already escaped your code, it
 doesn't get re-escaped again. For example, it ensures that
 `&amp;` doesn't become `&amp;amp;`.
 
-#### skip_autoescape
+#### skip\_autoescape
 
 `skip_autoescape` is useful when your content is meant to be used
 as HTML. For example, you might have a few paragraphs of text and some images in
@@ -365,19 +365,19 @@ have strict control over what's being passed. If you're passing user input,
 you could be opening your workers up to a cross-site scripting
 attack.
 
-#### to_json
+#### to\_json
 
 `to_json` encodes data that you provide to JavaScript Object
 Notation (JSON). If you provide an object, it serializes it.
 
-#### grant_read_access
+#### grant\_read\_access
 
 `grant_read_access` takes an Amazon Simple Storage Service (Amazon S3) URI and encodes it
 into an HTTPS URL with a short-lived access token for that resource. This makes
 it possible to display photo, audio, or video objects stored in S3 buckets that
 are not otherwise publicly accessible to workers.
 
-#### s3_presign
+#### s3\_presign
 
 The `s3_presign` filter works the same way as the `grant_read_access` filter. `s3_presign` takes an Amazon S3 URI and encodes it into an HTTPS URL with a short-lived access token for that resource. This makes it possible to display photo, audio, or video objects stored in S3 buckets that are not otherwise publicly accessible to workers.
 
@@ -465,10 +465,10 @@ objects that are used by the template. To learn how to configure your role or us
    **`Task`**, provide a JSON object that
    contains values for the variables defined in the template. These are the
    variables that are substituted for the
-   `task.input.`source``variable. For
-example, if you define a task.input.text variable in your template, you can
-supply the variable in the JSON object as`text`: `sample
-   text`.
+   `task.input.`source`` variable. For
+   example, if you define a task.input.text variable in your template, you can
+   supply the variable in the JSON object as `text`: `sample
+ text`.
 3. In the **`Content`** parameter of
    **`UiTemplate`**, insert your
    template.

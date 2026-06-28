@@ -96,43 +96,42 @@ facet outcomes.
 - probability distributions for outcomes of the labeled facet data
   outcomes:
 
-      + Pa(y) is the probability distribution of the
-       observed labels for facet *a*. For
-       binary labeled data, this distribution is given by the ratio of the
-       number of samples in facet *a* labeled
-       with positive outcomes to the total number,
-       Pa(y1) =
-       na(1)/
-       na, and the ratio of the number of samples
-       with negative outcomes to the total number,
-       Pa(y0) =
-       na(0)/
-       na.
-      + Pd(y) is the probability distribution of the
-       observed labels for facet *d*. For
-       binary labeled data, this distribution is given by the number of samples
-       in facet *d* labeled with positive
-       outcomes to the total number,
-       Pd(y1) =
-       nd(1)/
-       nd, and the ratio of the number of samples
-       with negative outcomes to the total number,
-       Pd(y0) =
-       nd(0)/
-       nd.
-
-  Models trained on data biased by demographic disparities might learn and even
-  exacerbate them. To identify bias in the data before expending resources to train models
-  on it, SageMaker Clarify provides data bias metrics that you can compute on raw datasets before
-  training. All of the pretraining metrics are model-agnostic because they do not depend
-  on model outputs and so are valid for any model. The first bias metric examines facet
-  imbalance, but not outcomes. It determines the extent to which the amount of training
-  data is representative across different facets, as desired for the application. The
-  remaining bias metrics compare the distribution of outcome labels in various ways for
-  facets _a_ and _d_ in
-  the data. The metrics that range over negative values can detect negative bias. The
-  following table contains a cheat sheet for quick guidance and links to the pretraining
-  bias metrics.
+  - Pa(y) is the probability distribution of the
+    observed labels for facet _a_. For
+    binary labeled data, this distribution is given by the ratio of the
+    number of samples in facet _a_ labeled
+    with positive outcomes to the total number,
+    Pa(y1) =
+    na(1)/
+    na, and the ratio of the number of samples
+    with negative outcomes to the total number,
+    Pa(y0) =
+    na(0)/
+    na.
+  - Pd(y) is the probability distribution of the
+    observed labels for facet _d_. For
+    binary labeled data, this distribution is given by the number of samples
+    in facet _d_ labeled with positive
+    outcomes to the total number,
+    Pd(y1) =
+    nd(1)/
+    nd, and the ratio of the number of samples
+    with negative outcomes to the total number,
+    Pd(y0) =
+    nd(0)/
+    nd.
+    Models trained on data biased by demographic disparities might learn and even
+    exacerbate them. To identify bias in the data before expending resources to train models
+    on it, SageMaker Clarify provides data bias metrics that you can compute on raw datasets before
+    training. All of the pretraining metrics are model-agnostic because they do not depend
+    on model outputs and so are valid for any model. The first bias metric examines facet
+    imbalance, but not outcomes. It determines the extent to which the amount of training
+    data is representative across different facets, as desired for the application. The
+    remaining bias metrics compare the distribution of outcome labels in various ways for
+    facets _a_ and _d_ in
+    the data. The metrics that range over negative values can detect negative bias. The
+    following table contains a cheat sheet for quick guidance and links to the pretraining
+    bias metrics.
 
 Pre-training Bias Metrics
 

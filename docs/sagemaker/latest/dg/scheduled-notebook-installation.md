@@ -45,8 +45,8 @@ To install SageMaker Notebook Jobs, complete the following steps:
 7. Add the JupyterLab extension for SageMaker Notebook Jobs. You can add it to your JupyterLab
    environment with the command: `pip install amazon_sagemaker_jupyter_scheduler`.
    You may need to restart your Jupyter server with the command:`sudo systemctl restart
-jupyter-server`.
+ jupyter-server`.
 8. Start JupyterLab with the command: `jupyter lab`.
 9. Verify that the Notebook Jobs widget (
-   ![](images/icons/notebook-schedule.png)
+   ![Notebook Jobs scheduling icon.](images/icons/notebook-schedule.png)
    ) appears in your Jupyter notebook taskbar.

@@ -109,7 +109,7 @@ kubectl describe jumpstartmodel.inference.sagemaker.aws.amazon.com/<model-name> 
    - Look for `Status.State`: Should show
      `DeploymentComplete`
    - Check `Status.Deployment Status.Available
-Replicas`
+  Replicas`
    - Monitor `Status.Conditions` for deployment
      progress
 
@@ -123,7 +123,7 @@ Replicas`
 
    - View `Status.Tls Certificate` details
    - Check certificate expiration in `Last Cert Expiry
-Time`
+  Time`
 
 **Method 2: Check the inference endpoint
 configuration**

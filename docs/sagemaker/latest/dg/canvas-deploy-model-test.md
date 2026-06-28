@@ -42,7 +42,7 @@ on the **Test deployment** tab.
 For all model types except numeric prediction and time series forecasting, the prediction returns the following
 fields:
 
-- **predicted_label** – the predicted output
+- **predicted\_label** – the predicted output
 - **probability** – the probability that the predicted
   label is correct
 - **labels** – the list of all the possible labels

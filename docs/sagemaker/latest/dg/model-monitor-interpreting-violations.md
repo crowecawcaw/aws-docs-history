@@ -1,4 +1,4 @@
-# Schema for Violations (constraint_violations.json file)
+# Schema for Violations (constraint\_violations.json file)
 
 The violations file is generated as the output of a
 `MonitoringExecution`, which lists the results of evaluating the

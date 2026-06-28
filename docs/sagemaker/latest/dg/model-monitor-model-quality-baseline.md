@@ -19,7 +19,7 @@ by the SageMaker Python SDK, and complete the following steps.
    The following code snippet shows how to do this.
 
 ```
-from sagemaker import get_execution_role, session, Session
+from sagemaker.core.helper.session_helper import get_execution_role, session, Session
 from sagemaker.model_monitor import ModelQualityMonitor
 
 role = get_execution_role()
@@ -105,7 +105,7 @@ def preprocess_handler(csv_line):
 
 You can add your pre-processing script to a baseline or monitoring
 schedule as a `record_preprocessor_script`, as defined in the
-[Model Monitor](https://sagemaker.readthedocs.io/en/stable/api/inference/model_monitor.html "https://sagemaker.readthedocs.io/en/stable/api/inference/model_monitor.html") documentation. 5. When you are satisfied with the constraints, pass them as the
+[Model Monitor](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") documentation. 5. When you are satisfied with the constraints, pass them as the
 `constraints` parameter when you create a monitoring
 schedule. For more information, see [Schedule model quality monitoring jobs](model-monitor-model-quality-schedule.md "model-monitor-model-quality-schedule.md").
 The suggested baseline constraints are contained in the constraints.json file in

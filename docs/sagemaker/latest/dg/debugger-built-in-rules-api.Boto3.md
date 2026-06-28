@@ -131,7 +131,7 @@ This will make the training job save a tensor collection, `gradients`,
 every `save_interval` of 500 steps. To find available
 `CollectionName` values, see [Debugger Built-in Collections](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#built-in-collections "https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#built-in-collections") in the _SMDebug client library
 documentation_. To find available `CollectionParameters`
-parameter keys and values, see the [`sagemaker.debugger.CollectionConfig`](https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html#sagemaker.debugger.CollectionConfig "https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html#sagemaker.debugger.CollectionConfig") class in the
+parameter keys and values, see the [`sagemaker.debugger.CollectionConfig`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") class in the
 _SageMaker Python SDK documentation_.
 
 **To enable Debugger rules for debugging the output
@@ -279,7 +279,7 @@ A custom rule can be configured for a training job using the [DebugHookConfig](.
 [`create_training_job()`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_training_job "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_training_job") function. The following code
 sample shows how to configure a custom `ImproperActivation` rule written
 with the _smdebug_ library using this SageMaker API
-operation. This example assumes that you’ve written the custom rule in _custom_rules.py_ file and uploaded it to an Amazon S3 bucket.
+operation. This example assumes that you’ve written the custom rule in _custom\_rules.py_ file and uploaded it to an Amazon S3 bucket.
 The example provides pre-built Docker images that you can use to run your custom
 rules. These are listed at [Amazon SageMaker Debugger image URIs for custom rule evaluators](debugger-reference.md#debuger-custom-rule-registry-ids "debugger-reference.md#debuger-custom-rule-registry-ids"). You specify the URL registry
 address for the pre-built Docker image in the `RuleEvaluatorImage`

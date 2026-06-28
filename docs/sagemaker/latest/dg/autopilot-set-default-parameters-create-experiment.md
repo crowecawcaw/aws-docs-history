@@ -53,7 +53,7 @@ the Studio Classic environment for a given domain or user profile.
 
 To configure any or all default values listed in [List of default parameters supported](#autopilot-list-default-parameters-create-experiment "#autopilot-list-default-parameters-create-experiment"), administrators
 can create a configuration file named `config.yaml`, the structure of which
-should adhere to this [sample configuration file](https://sagemaker.readthedocs.io/en/stable/overview.html#configuration-file-structure "https://sagemaker.readthedocs.io/en/stable/overview.html#configuration-file-structure"). The following snippet shows a sample configuration
+should adhere to this [sample configuration file](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/"). The following snippet shows a sample configuration
 file with all the supported `AutoML` parameters. For more information on the
 format of this file, refer to the [full schema](https://github.com/aws/sagemaker-python-sdk/blob/master/src/sagemaker/config/config_schema.py "https://github.com/aws/sagemaker-python-sdk/blob/master/src/sagemaker/config/config_schema.py").
 

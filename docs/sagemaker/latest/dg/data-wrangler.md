@@ -32,12 +32,11 @@ machine learning applications.
   analysis and quick modeling to understand feature correlation.
 - **Export** – Export your data preparation workflow to a different location. The following are example locations:
 
-      + Amazon Simple Storage Service (Amazon S3) bucket
-      + Amazon SageMaker Pipelines – Use Pipelines to automate model deployment. You can export the data that you've transformed directly to the pipelines.
-      + Amazon SageMaker Feature Store – Store the features and their data in a centralized store.
-      + Python script – Store the data and their transformations in a Python script for your custom workflows.
-
-  To start using Data Wrangler, see [Get Started with Data Wrangler](data-wrangler-getting-started.md "data-wrangler-getting-started.md").
+  - Amazon Simple Storage Service (Amazon S3) bucket
+  - Amazon SageMaker Pipelines – Use Pipelines to automate model deployment. You can export the data that you've transformed directly to the pipelines.
+  - Amazon SageMaker Feature Store – Store the features and their data in a centralized store.
+  - Python script – Store the data and their transformations in a Python script for your custom workflows.
+    To start using Data Wrangler, see [Get Started with Data Wrangler](data-wrangler-getting-started.md "data-wrangler-getting-started.md").
 
 ###### Important
 

@@ -77,11 +77,10 @@ detection tasks**. 9. Choose a method of **Frame extraction**.
      60th frames are extracted.
 
 10. Choose or create an IAM execution role. Make sure that this role
-    has permission to access your Amazon S3 locations for input and output
-    data specified in steps 5 and 6.
-11. Select **Complete data setup**.
-    Use the following procedure to connect your sequences of video frames with
-    Ground Truth for video frame object detection and object tracking labeling jobs.
+has permission to access your Amazon S3 locations for input and output
+data specified in steps 5 and 6. 11. Select **Complete data setup**.
+Use the following procedure to connect your sequences of video frames with
+Ground Truth for video frame object detection and object tracking labeling jobs.
 
 Make sure your video frames are stored in an Amazon S3 bucket in the same AWS
 Region that you perform the automated data setup in. Each sequence of video

@@ -44,21 +44,20 @@ In the next step, you create a flow definition:
      when you choose **Create human review workflow**.
 
 4. When creating your flow definition, provide the path to your S3 buckets, your
-   IAM role ARN, and your worker template.
+IAM role ARN, and your worker template.
 
-   - To learn how to create a flow definition using the SageMaker AI
+    * To learn how to create a flow definition using the SageMaker AI
      `CreateFlowDefinition` API, see [Create a Human Review Workflow (API)](a2i-create-flow-definition.md#a2i-create-human-review-api "a2i-create-flow-definition.md#a2i-create-human-review-api").
-   - To learn how to create a flow definition using the SageMaker AI console, see [Create a Human Review Workflow (Console)](a2i-create-flow-definition.md#a2i-create-human-review-console "a2i-create-flow-definition.md#a2i-create-human-review-console").
+    * To learn how to create a flow definition using the SageMaker AI console, see [Create a Human Review Workflow (Console)](a2i-create-flow-definition.md#a2i-create-human-review-console "a2i-create-flow-definition.md#a2i-create-human-review-console").
 
 5. Configure your human loop using the [Amazon A2I Runtime
-   API](../../../augmented-ai/2019-11-07/APIReference/Welcome.md "../../../augmented-ai/2019-11-07/APIReference/Welcome.md"). To learn how, see [Create and Start a Human Loop](a2i-start-human-loop.md "a2i-start-human-loop.md").
-6. To control when human reviews are initiated in your application, specify
-   conditions under which `StartHumanLoop` is called in your application.
-   Human loop activation conditions, such as confidence thresholds that initiate the
-   human loop, are not available when using Amazon A2I with custom task types. Every
-   `StartHumanLoop` invocation results in a human review.
-   Once you have started a human loop, you can manage and monitor your loops using the
-   Amazon Augmented AI Runtime API and Amazon EventBridge (also known as Amazon CloudWatch Events). To learn more, see [Monitor and Manage Your Human Loop](a2i-monitor-humanloop-results.md "a2i-monitor-humanloop-results.md").
+API](../../../augmented-ai/2019-11-07/APIReference/Welcome.md "../../../augmented-ai/2019-11-07/APIReference/Welcome.md"). To learn how, see [Create and Start a Human Loop](a2i-start-human-loop.md "a2i-start-human-loop.md"). 6. To control when human reviews are initiated in your application, specify
+conditions under which `StartHumanLoop` is called in your application.
+Human loop activation conditions, such as confidence thresholds that initiate the
+human loop, are not available when using Amazon A2I with custom task types. Every
+`StartHumanLoop` invocation results in a human review.
+Once you have started a human loop, you can manage and monitor your loops using the
+Amazon Augmented AI Runtime API and Amazon EventBridge (also known as Amazon CloudWatch Events). To learn more, see [Monitor and Manage Your Human Loop](a2i-monitor-humanloop-results.md "a2i-monitor-humanloop-results.md").
 
 ## End-to-end Tutorial Using Amazon A2I Custom Task Types
 

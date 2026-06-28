@@ -20,8 +20,8 @@ contains the following information:
 - `text`: The input text content explained.
 - `token_scores`: The list of scores for every token in the text.
 - - `attribution`: The score depicting the importance of the token.
-  - `description.partial_text`: The partial substring that represents the
-    token.
+    - `description.partial_text`: The partial substring that represents the
+      token.
 - `predicted_label`: The label class predicted by the best model
   candidate.
 - `probability`: The confidence with which the `predicted_label`

@@ -65,7 +65,7 @@ The priority classes are defined in the **Cluster policy**, which
 defines how tasks are prioritized and idle compute is allocated. When a data
 scientist submits a job, they use one of the priority class names with the format
 ``priority-class-name`-priority`. In
- this example, `training-priority` refers to the priority class named
+this example, `training-priority` refers to the priority class named
 “training”. For more information on policy concepts, see [Policies](sagemaker-hyperpod-eks-operate-console-ui-governance-policies.md "sagemaker-hyperpod-eks-operate-console-ui-governance-policies.md").
 
 If a priority class is not specified, the job is treated as a low priority job,
@@ -136,9 +136,9 @@ priority class ``priority-class-name`-priority`,
 you must include the following labels:
 
 - `kueue.x-k8s.io/queue-name:
-hyperpod-ns-`team-name`-localqueue`
+ hyperpod-ns-`team-name`-localqueue`
 - `kueue.x-k8s.io/priority-class:
-`priority-class-name`-priority`
+ `priority-class-name`-priority`
 
 The following YAML configuration snippet demonstrates how to add labels to your
 original configuration file to ensure your task appears in the

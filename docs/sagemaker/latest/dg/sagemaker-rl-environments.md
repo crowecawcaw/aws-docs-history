@@ -41,7 +41,7 @@ more information about OpenAI Gym, see [Gym Documentation](https://www.gymlibrar
   environment, and the agent uses the initial state to take its first action.
   The action is then sent to `step()` repeatedly until the episode
   reaches a terminal state. When `step()` returns `done =
-True`, the episode ends. The RL toolkit re-initializes the
+ True`, the episode ends. The RL toolkit re-initializes the
   environment by calling `reset()`.
 - `step()`—Takes the agent action as input and outputs the
   next state of the environment, the reward, whether the episode has

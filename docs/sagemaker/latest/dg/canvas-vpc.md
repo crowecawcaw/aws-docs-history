@@ -289,6 +289,6 @@ these settings are passed on to the SageMaker Canvas application for that user.
 
 You can override the security groups that a specific user has access to in your VPC when you set
 up a new user profile in Studio Classic. You can use the [CreateUserProfile](../APIReference/API_CreateUserProfile.md "../APIReference/API_CreateUserProfile.md")
-SageMaker API call (or [create_user_profile](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_user_profile "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_user_profile")
+SageMaker API call (or [create\_user\_profile](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_user_profile "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_user_profile")
 with the [AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md")),
 and then in the `UserSettings`, you can specify the `SecurityGroups` for the user.

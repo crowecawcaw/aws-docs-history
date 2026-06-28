@@ -331,7 +331,7 @@ df.rename(columns={"A column": "A_column", "B column": "B_column"})
 ```
 
 You can use this transform to perform operations on columns, referencing the columns
-by name. For example, assuming the current dataframe contains columns named _col_a_ and _col_b_, you can
+by name. For example, assuming the current dataframe contains columns named _col\_a_ and _col\_b_, you can
 use the following operation to produce an **Output column** that is the
 product of these two columns with the following code:
 
@@ -650,49 +650,47 @@ To learn more, see the Spark documentation on [Tokenizer](https://spark.apache.o
     filter infrequent or too common tokens. **Count vectorize
     parameters** include the following:
 
-        - **Minimum term frequency**: In each row,
-         terms (tokens) with smaller frequency are filtered. If you
-         specify an integer, this is an absolute threshold
-         (inclusive). If you specify a fraction between 0 (inclusive)
-         and 1, the threshold is relative to the total term count.
-         Defaults to `1`.
-        - **Minimum document frequency**: Minimum
-         number of rows in which a term (token) must appear to be
-         included. If you specify an integer, this is an absolute
-         threshold (inclusive). If you specify a fraction between 0
-         (inclusive) and 1, the threshold is relative to the total
-         term count. Defaults to `1`.
-        - **Maximum document frequency**: Maximum
-         number of documents (rows) in which a term (token) can
-         appear to be included. If you specify an integer, this is an
-         absolute threshold (inclusive). If you specify a fraction
-         between 0 (inclusive) and 1, the threshold is relative to
-         the total term count. Defaults to `0.999`.
-        - **Maximum vocabulary size**: Maximum size
-         of the vocabulary. The vocabulary is made up of all terms
-         (tokens) in all rows of the column. Defaults to
-         `262144`.
-        - **Binary outputs**: If selected, the
-         vector outputs do not include the number of appearances of a
-         term in a document, but rather are a binary indicator of its
-         appearance. Defaults to `False`.
-
-    To learn more about this option, see the Spark documentation on
-    [CountVectorizer](https://spark.apache.org/docs/latest/ml-features#countvectorizer "https://spark.apache.org/docs/latest/ml-features#countvectorizer").
+    - **Minimum term frequency**: In each row,
+      terms (tokens) with smaller frequency are filtered. If you
+      specify an integer, this is an absolute threshold
+      (inclusive). If you specify a fraction between 0 (inclusive)
+      and 1, the threshold is relative to the total term count.
+      Defaults to `1`.
+    - **Minimum document frequency**: Minimum
+      number of rows in which a term (token) must appear to be
+      included. If you specify an integer, this is an absolute
+      threshold (inclusive). If you specify a fraction between 0
+      (inclusive) and 1, the threshold is relative to the total
+      term count. Defaults to `1`.
+    - **Maximum document frequency**: Maximum
+      number of documents (rows) in which a term (token) can
+      appear to be included. If you specify an integer, this is an
+      absolute threshold (inclusive). If you specify a fraction
+      between 0 (inclusive) and 1, the threshold is relative to
+      the total term count. Defaults to `0.999`.
+    - **Maximum vocabulary size**: Maximum size
+      of the vocabulary. The vocabulary is made up of all terms
+      (tokens) in all rows of the column. Defaults to
+      `262144`.
+    - **Binary outputs**: If selected, the
+      vector outputs do not include the number of appearances of a
+      term in a document, but rather are a binary indicator of its
+      appearance. Defaults to `False`.
+      To learn more about this option, see the Spark documentation on
+      [CountVectorizer](https://spark.apache.org/docs/latest/ml-features#countvectorizer "https://spark.apache.org/docs/latest/ml-features#countvectorizer").
 
   - **Hashing** is computationally faster.
     **Hash vectorize parameters** includes the
     following:
 
-        - **Number of features during hashing**: A
-         hash vectorizer maps tokens to a vector index according to
-         their hash value. This feature determines the number of
-         possible hash values. Large values result in fewer
-         collisions between hash values but a higher dimension output
-         vector.
-
-    To learn more about this option, see the Spark documentation on
-    [FeatureHasher](https://spark.apache.org/docs/latest/ml-features#featurehasher "https://spark.apache.org/docs/latest/ml-features#featurehasher")
+    - **Number of features during hashing**: A
+      hash vectorizer maps tokens to a vector index according to
+      their hash value. This feature determines the number of
+      possible hash values. Large values result in fewer
+      collisions between hash values but a higher dimension output
+      vector.
+      To learn more about this option, see the Spark documentation on
+      [FeatureHasher](https://spark.apache.org/docs/latest/ml-features#featurehasher "https://spark.apache.org/docs/latest/ml-features#featurehasher")
 
 - **Apply IDF** applies an IDF transformation, which
   multiplies the term frequency with the standard inverse document frequency
@@ -701,9 +699,9 @@ To learn more, see the Spark documentation on [Tokenizer](https://spark.apache.o
 
   - **Minimum document frequency** : Minimum number
     of documents (rows) in which a term (token) must appear to be
-    included. If **count_vectorize** is the chosen
+    included. If **count\_vectorize** is the chosen
     vectorizer, we recommend that you keep the default value and only
-    modify the **min_doc_freq** field in
+    modify the **min\_doc\_freq** field in
     **Count vectorize parameters**. Defaults to
     `5`.
 
@@ -768,11 +766,11 @@ Average daily household electricity usage
 
 | Household ID | Daily timestamp | Electricity usage (kWh) | Number of household occupants |
 | ------------ | --------------- | ----------------------- | ----------------------------- |
-| household_0  | 1/1/2020        | 30                      | 2                             |
-| household_0  | 1/2/2020        | 40                      | 2                             |
-| household_0  | 1/4/2020        | 35                      | 3                             |
-| household_1  | 1/2/2020        | 45                      | 3                             |
-| household_1  | 1/3/2020        | 55                      | 4                             |
+| household\_0 | 1/1/2020        | 30                      | 2                             |
+| household\_0 | 1/2/2020        | 40                      | 2                             |
+| household\_0 | 1/4/2020        | 35                      | 3                             |
+| household\_1 | 1/2/2020        | 45                      | 3                             |
+| household\_1 | 1/3/2020        | 55                      | 4                             |
 
 If you choose to group by ID, you get the following table.
 
@@ -780,8 +778,8 @@ Electricity usage grouped by household ID
 
 | Household ID | Electricity usage series (kWh) | Number of household occupants series |
 | ------------ | ------------------------------ | ------------------------------------ |
-| household_0  | [30, 40, 35]                   | [2, 2, 3]                            |
-| household_1  | [45, 55]                       | [3, 4]                               |
+| household\_0 | [30, 40, 35]                   | [2, 2, 3]                            |
+| household\_1 | [45, 55]                       | [3, 4]                               |
 
 Each entry in the time series sequence is ordered by the corresponding timestamp.
 The first element of the sequence corresponds to the first timestamp of the series.
@@ -794,10 +792,10 @@ shows how that information appears.
 
 Electricity usage grouped by household ID
 
-| Household ID | Electricity usage series (kWh) | Number of household occupants series | Start_time | End_time |
-| ------------ | ------------------------------ | ------------------------------------ | ---------- | -------- |
-| household_0  | [30, 40, 35]                   | [2, 2, 3]                            | 1/1/2020   | 1/4/2020 |
-| household_1  | [45, 55]                       | [3, 4]                               | 1/2/2020   | 1/3/2020 |
+| Household ID | Electricity usage series (kWh) | Number of household occupants series | Start\_time | End\_time |
+| ------------ | ------------------------------ | ------------------------------------ | ----------- | --------- |
+| household\_0 | [30, 40, 35]                   | [2, 2, 3]                            | 1/1/2020    | 1/4/2020  |
+| household\_1 | [45, 55]                       | [3, 4]                               | 1/2/2020    | 1/3/2020  |
 
 You can use the following procedure to group by a time series column.
 
@@ -931,15 +929,15 @@ Electricity usage with missing values
 
 | Household ID | Electricity usage series (kWh) |
 | ------------ | ------------------------------ |
-| household_0  | [30, 40, 35, NaN, NaN]         |
-| household_1  | [45, NaN, 55]                  |
+| household\_0 | [30, 40, 35, NaN, NaN]         |
+| household\_1 | [45, NaN, 55]                  |
 
 Electricity usage with values imputed using a forward fill
 
 | Household ID | Electricity usage series (kWh) |
 | ------------ | ------------------------------ |
-| household_0  | [30, 40, 35, 35, 35]           |
-| household_1  | [45, 45, 55]                   |
+| household\_0 | [30, 40, 35, 35, 35]           |
+| household\_1 | [45, 45, 55]                   |
 
 The following example shows how values are imputed within a column.
 
@@ -947,22 +945,22 @@ Average daily household electricity usage with missing values
 
 | Household ID | Electricity usage (kWh) |
 | ------------ | ----------------------- |
-| household_0  | 30                      |
-| household_0  | 40                      |
-| household_0  | NaN                     |
-| household_1  | NaN                     |
-| household_1  | NaN                     |
+| household\_0 | 30                      |
+| household\_0 | 40                      |
+| household\_0 | NaN                     |
+| household\_1 | NaN                     |
+| household\_1 | NaN                     |
 
 Average daily household electricity usage with values imputed using a forward
 fill
 
 | Household ID | Electricity usage (kWh) |
 | ------------ | ----------------------- |
-| household_0  | 30                      |
-| household_0  | 40                      |
-| household_0  | 40                      |
-| household_1  | 40                      |
-| household_1  | 40                      |
+| household\_0 | 30                      |
+| household\_0 | 40                      |
+| household\_0 | 40                      |
+| household\_1 | 40                      |
+| household\_1 | 40                      |
 
 You can use the following procedure to handle missing values.
 
@@ -1267,7 +1265,7 @@ a datetime field. To use this transform, your datetime data must be in one of th
 following formats:
 
 - Strings describing datetime: For example, `"January 1st, 2020,
-12:44pm"`.
+ 12:44pm"`.
 - A Unix timestamp: A Unix timestamp describes the number of seconds,
   milliseconds, microseconds, or nanoseconds from 1/1/1970.
 
@@ -1314,21 +1312,21 @@ This feature group contains the following transforms. All transforms return copi
 the strings in the **Input column** and add the result to a new, output
 column.
 
-| Name                        | Function                                                                                                                                                                                                                                     |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Left pad                    | Left-pad the string with a given **Fill<br>character\*<br>• to the given **width**. If<br>the string is longer than **width**, the return<br>value is shortened to **width\*<br>• characters.                                                |
-| Right pad                   | Right-pad the string with a given **Fill<br>character\*<br>• to the given **width**. If<br>the string is longer than **width**, the return<br>value is shortened to **width\*<br>• characters.                                               |
-| Center (pad on either side) | Center-pad the string (add padding on both sides of the string)<br>with a given **Fill character\*<br>• to the given<br>**width**. If the string is longer than<br>**width**, the return value is shortened to<br>**width\*<br>• characters. |
-| Prepend zeros               | Left-fill a numeric string with zeros, up to a given<br>**width**. If the string is longer than<br>**width**, the return value is shortened to<br>\*_width_<br>• characters.                                                                 |
-| Strip left and right        | Returns a copy of the string with the leading and trailing<br>characters removed.                                                                                                                                                            |
-| Strip characters from left  | Returns a copy of the string with leading characters<br>removed.                                                                                                                                                                             |
-| Strip characters from right | Returns a copy of the string with trailing characters<br>removed.                                                                                                                                                                            |
-| Lower case                  | Convert all letters in text to lowercase.                                                                                                                                                                                                    |
-| Upper case                  | Convert all letters in text to uppercase.                                                                                                                                                                                                    |
-| Capitalize                  | Capitalize the first letter in each sentence.                                                                                                                                                                                                |
-| Swap case                   | Converts all uppercase characters to lowercase and all lowercase<br>characters to uppercase characters of the given string, and returns<br>it.                                                                                               |
-| Add prefix or suffix        | Adds a prefix and a suffix the string column. You must specify at<br>least one of **Prefix\*<br>• and<br>**Suffix\*\*.                                                                                                                       |
-| Remove symbols              | Removes given symbols from a string. All listed characters are<br>removed. Defaults to white space.                                                                                                                                          |
+| Name                        | Function                                                                                                                                                                                                                                   |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Left pad                    | Left-pad the string with a given *_Fill<br>character_<br>• to the given **width**. If<br>the string is longer than **width**, the return<br>value is shortened to *_width_<br>• characters.                                                |
+| Right pad                   | Right-pad the string with a given *_Fill<br>character_<br>• to the given **width**. If<br>the string is longer than **width**, the return<br>value is shortened to *_width_<br>• characters.                                               |
+| Center (pad on either side) | Center-pad the string (add padding on both sides of the string)<br>with a given *_Fill character_<br>• to the given<br>**width**. If the string is longer than<br>**width**, the return value is shortened to<br>*_width_<br>• characters. |
+| Prepend zeros               | Left-fill a numeric string with zeros, up to a given<br>**width**. If the string is longer than<br>**width**, the return value is shortened to<br>*_width_<br>• characters.                                                                |
+| Strip left and right        | Returns a copy of the string with the leading and trailing<br>characters removed.                                                                                                                                                          |
+| Strip characters from left  | Returns a copy of the string with leading characters<br>removed.                                                                                                                                                                           |
+| Strip characters from right | Returns a copy of the string with trailing characters<br>removed.                                                                                                                                                                          |
+| Lower case                  | Convert all letters in text to lowercase.                                                                                                                                                                                                  |
+| Upper case                  | Convert all letters in text to uppercase.                                                                                                                                                                                                  |
+| Capitalize                  | Capitalize the first letter in each sentence.                                                                                                                                                                                              |
+| Swap case                   | Converts all uppercase characters to lowercase and all lowercase<br>characters to uppercase characters of the given string, and returns<br>it.                                                                                             |
+| Add prefix or suffix        | Adds a prefix and a suffix the string column. You must specify at<br>least one of *_Prefix_<br>• and<br>**Suffix**.                                                                                                                        |
+| Remove symbols              | Removes given symbols from a string. All listed characters are<br>removed. Defaults to white space.                                                                                                                                        |
 
 ## Handle Outliers
 
@@ -1609,20 +1607,20 @@ The following transforms are supported under **Search and edit**. All
 transforms return copies of the strings in the **Input column** and add
 the result to a new output column.
 
-| Name                        | Function                                                                                                                                                                                                                                                                                                    |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Find substring              | Returns the index of the first occurrence of the<br>**Substring\*<br>• for which you searched , You can<br>start and end the search at **Start*<br>• and<br>\*\*End*<br>• respectively.                                                                                                                     |
-| Find substring (from right) | Returns the index of the last occurrence of the<br>**Substring\*<br>• for which you searched. You can<br>start and end the search at **Start*<br>• and<br>\*\*End*<br>• respectively.                                                                                                                       |
-| Matches prefix              | Returns a Boolean value if the string contains a given<br>**Pattern**. A pattern can be a character<br>sequence or regular expression. Optionally, you can make the pattern<br>case sensitive.                                                                                                              |
-| Find all occurrences        | Returns an array with all occurrences of a given pattern. A<br>pattern can be a character sequence or regular expression.                                                                                                                                                                                   |
-| Extract using regex         | Returns a string that matches a given Regex pattern.                                                                                                                                                                                                                                                        |
-| Extract between delimiters  | Returns a string with all characters found between **Left<br>delimiter\*<br>• and **Right delimiter\*\*.                                                                                                                                                                                                    |
-| Extract from position       | Returns a string, starting from **Start<br>position\*<br>• in the input string, that contains all<br>characters up to the start position plus<br>**Length\*\*.                                                                                                                                              |
-| Find and replace substring  | Returns a string with all matches of a given<br>**Pattern\*<br>• (regular expression) replaced by<br>**Replacement string\*\*.                                                                                                                                                                              |
-| Replace between delimiters  | Returns a string with the substring found between the first<br>appearance of a **Left delimiter\*<br>• and the last<br>appearance of a **Right delimiter\*<br>• replaced by<br>**Replacement string**. If no match is found,<br>nothing is replaced.                                                        |
-| Replace from position       | Returns a string with the substring between **Start<br>position\*<br>• and **Start position*<br>• plus<br>\*\*Length*<br>• replaced by **Replacement<br>string**. If **Start position\*<br>• plus<br>**Length\*<br>• is greater than the length of the<br>replacement string, the output contains<br>**…**. |
-| Convert regex to missing    | Converts a string to `None` if invalid and returns the<br>result. Validity is defined with a regular expression in<br>**Pattern**.                                                                                                                                                                          |
-| Split string by delimiter   | Returns an array of strings from the input string, split by<br>**Delimiter**, with up to \*_Max number<br>of splits_<br>• (optional). The delimiter defaults to white<br>space.                                                                                                                             |
+| Name                        | Function                                                                                                                                                                                                                                                                                               |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Find substring              | Returns the index of the first occurrence of the<br>*_Substring_<br>• for which you searched , You can<br>start and end the search at *_Start_<br>• and<br>*_End_<br>• respectively.                                                                                                                   |
+| Find substring (from right) | Returns the index of the last occurrence of the<br>*_Substring_<br>• for which you searched. You can<br>start and end the search at *_Start_<br>• and<br>*_End_<br>• respectively.                                                                                                                     |
+| Matches prefix              | Returns a Boolean value if the string contains a given<br>**Pattern**. A pattern can be a character<br>sequence or regular expression. Optionally, you can make the pattern<br>case sensitive.                                                                                                         |
+| Find all occurrences        | Returns an array with all occurrences of a given pattern. A<br>pattern can be a character sequence or regular expression.                                                                                                                                                                              |
+| Extract using regex         | Returns a string that matches a given Regex pattern.                                                                                                                                                                                                                                                   |
+| Extract between delimiters  | Returns a string with all characters found between *_Left<br>delimiter_<br>• and **Right delimiter**.                                                                                                                                                                                                  |
+| Extract from position       | Returns a string, starting from *_Start<br>position_<br>• in the input string, that contains all<br>characters up to the start position plus<br>**Length**.                                                                                                                                            |
+| Find and replace substring  | Returns a string with all matches of a given<br>*_Pattern_<br>• (regular expression) replaced by<br>**Replacement string**.                                                                                                                                                                            |
+| Replace between delimiters  | Returns a string with the substring found between the first<br>appearance of a *_Left delimiter_<br>• and the last<br>appearance of a *_Right delimiter_<br>• replaced by<br>**Replacement string**. If no match is found,<br>nothing is replaced.                                                     |
+| Replace from position       | Returns a string with the substring between *_Start<br>position_<br>• and *_Start position_<br>• plus<br>*_Length_<br>• replaced by **Replacement<br>string**. If *_Start position_<br>• plus<br>*_Length_<br>• is greater than the length of the<br>replacement string, the output contains<br>**…**. |
+| Convert regex to missing    | Converts a string to `None` if invalid and returns the<br>result. Validity is defined with a regular expression in<br>**Pattern**.                                                                                                                                                                     |
+| Split string by delimiter   | Returns an array of strings from the input string, split by<br>**Delimiter**, with up to *_Max number<br>of splits_<br>• (optional). The delimiter defaults to white<br>space.                                                                                                                         |
 
 ## Split data
 
@@ -1657,7 +1655,7 @@ column are the same across datasets. You can use the following split transforms:
   the 1s, 80% of the 2s, and 80% of the 3s go to the training set. About 20% of
   each type of observation go to the testing set.
 - Split by key – Avoids data with the same key occurring in more than one
-  split. For example, if you have a dataset with the column 'customer_id' and
+  split. For example, if you have a dataset with the column 'customer\_id' and
   you're using it as a key, no customer id is in more than one split.
 
 After you split the data, you can apply additional transformations to each dataset.
@@ -1883,8 +1881,8 @@ structured** operator creates columns for the first-level keys. To create
 columns for nested keys, call the operator again. For the preceding example, calling the
 operator creates the columns:
 
-- name_first
-- name_last
+- name\_first
+- name\_last
 
 The following example shows the dataset that results from calling the operation
 again.
@@ -1903,7 +1901,7 @@ default.
 ## Explode Array
 
 Use **Explode array** to expand the values of the array into separate
-output rows. For example, the operation can take each value in the array, [[1, 2, 3,],
+ output rows. For example, the operation can take each value in the array, [[1, 2, 3,],
  [4, 5, 6], [7, 8, 9]] and create a new column with the following rows:
 
 ```
@@ -1914,7 +1912,7 @@ output rows. For example, the operation can take each value in the array, [[1, 2
 
 ```
 
-Data Wrangler names the new column, input_column_name_flatten.
+Data Wrangler names the new column, input\_column\_name\_flatten.
 
 You can call the **Explode array** operation multiple times to get
 the nested values of the array into separate output columns. The following example shows
@@ -1923,16 +1921,16 @@ array.
 
 Putting the values of a nested array into separate columns
 
-| id  | array                            | id  | array_items     | id  | array_items_items |
-| --- | -------------------------------- | --- | --------------- | --- | ----------------- |
-| 1   | [ [cat, dog], [bat, frog] ]      | 1   | [cat, dog]      | 1   | cat               |
-| 2   | [[rose, petunia], [lily, daisy]] | 1   | [bat, frog]     | 1   | dog               |
-|     |                                  | 2   | [rose, petunia] | 1   | bat               |
-|     |                                  | 2   | [lily, daisy]   | 1   | frog              |
-|     |                                  |     | 2               | 2   | rose              |
-|     |                                  |     | 2               | 2   | petunia           |
-|     |                                  |     | 2               | 2   | lily              |
-|     |                                  |     | 2               | 2   | daisy             |
+| id  | array                            | id  | array\_items    | id  | array\_items\_items |
+| --- | -------------------------------- | --- | --------------- | --- | ------------------- |
+| 1   | [ [cat, dog], [bat, frog] ]      | 1   | [cat, dog]      | 1   | cat                 |
+| 2   | [[rose, petunia], [lily, daisy]] | 1   | [bat, frog]     | 1   | dog                 |
+|     |                                  | 2   | [rose, petunia] | 1   | bat                 |
+|     |                                  | 2   | [lily, daisy]   | 1   | frog                |
+|     |                                  |     | 2               | 2   | rose                |
+|     |                                  |     | 2               | 2   | petunia             |
+|     |                                  |     | 2               | 2   | lily                |
+|     |                                  |     | 2               | 2   | daisy               |
 
 ## Transform Image Data
 

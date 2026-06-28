@@ -31,26 +31,26 @@ link to see details of each cluster.
 
 ## Edit a SageMaker HyperPod cluster
 
-1.  Under **Clusters** in the main pane of the SageMaker HyperPod
-    console, choose the cluster you want to update.
-2.  Select your cluster, and choose **Edit**.
-3.  In the **Edit <your-cluster>** page, you can edit the
-    configurations of existing instance groups, add more instance groups, delete
-    instance groups, and change tags for the cluster. After making changes,
-    choose **Submit**.
+1. Under **Clusters** in the main pane of the SageMaker HyperPod
+   console, choose the cluster you want to update.
+2. Select your cluster, and choose **Edit**.
+3. In the **Edit <your-cluster>** page, you can edit the
+   configurations of existing instance groups, add more instance groups, delete
+   instance groups, and change tags for the cluster. After making changes,
+   choose **Submit**.
 
-    1. In the **Configure instance groups** section, you
-       can add more instance groups by choosing **Create instance
-       group**.
-    2. In the **Configure instance groups** section, you
-       can choose **Edit** to change its configuration or
-       **Delete** to remove the instance group
-       permanently.
+   1. In the **Configure instance groups** section, you
+      can add more instance groups by choosing **Create instance
+      group**.
+   2. In the **Configure instance groups** section, you
+      can choose **Edit** to change its configuration or
+      **Delete** to remove the instance group
+      permanently.
 
-    ###### Important
+   ###### Important
 
-    When deleting an instance group, consider the following
-    points:
+   When deleting an instance group, consider the following
+   points:
 
         * Your SageMaker HyperPod cluster must always maintain at
          least one instance group.
@@ -58,11 +58,11 @@ link to see details of each cluster.
          removal
         * The removal process cannot be undone.
 
-    ###### Note
+   ###### Note
 
-    Deleting an instance group will terminate all compute
-    resources associated with that group. 3. In the **Tags** section, you can update tags for
-    the cluster.
+   Deleting an instance group will terminate all compute
+   resources associated with that group. 3. In the **Tags** section, you can update tags for
+   the cluster.
 
 ## Delete a SageMaker HyperPod cluster
 

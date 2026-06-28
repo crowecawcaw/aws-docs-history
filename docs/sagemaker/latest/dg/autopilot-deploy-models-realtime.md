@@ -37,28 +37,25 @@ procedures: Automatic or Manual.
 - **Manual Deployment**: To manually deploy the best
   model from an Autopilot experiment to an endpoint
 
-      1. [Create an experiment](autopilot-automate-model-development-create-experiment.md "autopilot-automate-model-development-create-experiment.md") in SageMaker Studio Classic.
-      2. Toggle the **Auto deploy** value to
-       **No**.
-      3. Select the model that you want to deploy under **Model
-       name**.
-      4. Select the orange **Deployment and advanced settings**
-       button located on the right of the leaderboard. This opens a new tab.
-      5. Configure the endpoint name, instance type, and other optional
-       information.
-      6. Select the orange **Deploy model** to deploy to an
-       endpoint.
-      7. Check the progress of the endpoint creation process in the [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/")
-       by navigating to the Endpoints section. That section is located in the
-       **Inference** dropdown menu in the navigation panel.
-      8. After the endpoint status changes from **Creating** to
-       **InService**, as shown below, return to Studio Classic and
-       invoke the endpoint.
+  1.  [Create an experiment](autopilot-automate-model-development-create-experiment.md "autopilot-automate-model-development-create-experiment.md") in SageMaker Studio Classic.
+  2.  Toggle the **Auto deploy** value to
+      **No**.
+  3.  Select the model that you want to deploy under **Model
+      name**.
+  4.  Select the orange **Deployment and advanced settings**
+      button located on the right of the leaderboard. This opens a new tab.
+  5.  Configure the endpoint name, instance type, and other optional
+      information.
+  6.  Select the orange **Deploy model** to deploy to an
+      endpoint.
+  7.  Check the progress of the endpoint creation process in the [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/")
+      by navigating to the Endpoints section. That section is located in the
+      **Inference** dropdown menu in the navigation panel.
+  8.  After the endpoint status changes from **Creating** to
+      **InService**, as shown below, return to Studio Classic and
+      invoke the endpoint.
 
-
-
-      ![SageMaker AI console: Endpoints page to create an endpoint or check endpoint status.](images/autopilot/autopilot-check-progress.PNG)
-
+  ![SageMaker AI console: Endpoints page to create an endpoint or check endpoint status.](images/autopilot/autopilot-check-progress.PNG)
   You can also obtain real-time inference by deploying your model using **API calls**. This section shows the five steps of this process
   using AWS Command Line Interface (AWS CLI) code snippets.
 

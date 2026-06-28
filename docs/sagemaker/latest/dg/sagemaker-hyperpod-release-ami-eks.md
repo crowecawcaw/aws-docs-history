@@ -33,16 +33,16 @@ This release includes the following updates:
 Kubernetes v1.28
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -75,9 +75,9 @@ Kubernetes v1.28
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.170-210.320.amzn2023.x86_64
+  - Linux Kernel version: 6.1.170-210.320.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -116,16 +116,16 @@ Kubernetes v1.28
 Kubernetes v1.29
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -158,9 +158,9 @@ Kubernetes v1.29
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.170-210.320.amzn2023.x86_64
+  - Linux Kernel version: 6.1.170-210.320.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -199,16 +199,16 @@ Kubernetes v1.29
 Kubernetes v1.30
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -241,9 +241,9 @@ Kubernetes v1.30
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.170-210.320.amzn2023.x86_64
+  - Linux Kernel version: 6.1.170-210.320.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -282,16 +282,16 @@ Kubernetes v1.30
 Kubernetes v1.31
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -324,9 +324,9 @@ Kubernetes v1.31
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.170-210.320.amzn2023.x86_64
+  - Linux Kernel version: 6.1.170-210.320.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -403,16 +403,16 @@ Kubernetes v1.31
 Kubernetes v1.32
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -445,9 +445,9 @@ Kubernetes v1.32
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.170-210.320.amzn2023.x86_64
+  - Linux Kernel version: 6.1.170-210.320.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -523,9 +523,9 @@ Kubernetes v1.32
 
 Kubernetes v1.33
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.170-210.320.amzn2023.x86_64
+  - Linux Kernel version: 6.1.170-210.320.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -601,9 +601,9 @@ Kubernetes v1.33
 
 Kubernetes v1.34
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.170-210.320.amzn2023.x86_64
+  - Linux Kernel version: 6.1.170-210.320.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -679,9 +679,9 @@ Kubernetes v1.34
 
 Kubernetes v1.35
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.170-210.320.amzn2023.x86_64
+  - Linux Kernel version: 6.1.170-210.320.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -769,16 +769,16 @@ This release includes the following updates:
 Kubernetes v1.28
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -811,9 +811,9 @@ Kubernetes v1.28
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.168-203.330.amzn2023.x86_64
+  - Linux Kernel version: 6.1.168-203.330.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -852,16 +852,16 @@ Kubernetes v1.28
 Kubernetes v1.29
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -894,9 +894,9 @@ Kubernetes v1.29
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.168-203.330.amzn2023.x86_64
+  - Linux Kernel version: 6.1.168-203.330.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -935,16 +935,16 @@ Kubernetes v1.29
 Kubernetes v1.30
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -977,9 +977,9 @@ Kubernetes v1.30
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.168-203.330.amzn2023.x86_64
+  - Linux Kernel version: 6.1.168-203.330.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -1018,16 +1018,16 @@ Kubernetes v1.30
 Kubernetes v1.31
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -1060,9 +1060,9 @@ Kubernetes v1.31
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.168-203.330.amzn2023.x86_64
+  - Linux Kernel version: 6.1.168-203.330.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -1139,16 +1139,16 @@ Kubernetes v1.31
 Kubernetes v1.32
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -1181,9 +1181,9 @@ Kubernetes v1.32
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.168-203.330.amzn2023.x86_64
+  - Linux Kernel version: 6.1.168-203.330.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -1259,9 +1259,9 @@ Kubernetes v1.32
 
 Kubernetes v1.33
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.168-203.330.amzn2023.x86_64
+  - Linux Kernel version: 6.1.168-203.330.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -1337,9 +1337,9 @@ Kubernetes v1.33
 
 Kubernetes v1.34
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.168-203.330.amzn2023.x86_64
+  - Linux Kernel version: 6.1.168-203.330.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -1415,9 +1415,9 @@ Kubernetes v1.34
 
 Kubernetes v1.35
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.168-203.330.amzn2023.x86_64
+  - Linux Kernel version: 6.1.168-203.330.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -1505,16 +1505,16 @@ This release includes the following updates:
 Kubernetes v1.28
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -1547,9 +1547,9 @@ Kubernetes v1.28
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.166-197.305.amzn2023.x86_64
+  - Linux Kernel version: 6.1.166-197.305.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -1588,16 +1588,16 @@ Kubernetes v1.28
 Kubernetes v1.29
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -1630,9 +1630,9 @@ Kubernetes v1.29
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.166-197.305.amzn2023.x86_64
+  - Linux Kernel version: 6.1.166-197.305.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -1671,16 +1671,16 @@ Kubernetes v1.29
 Kubernetes v1.30
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -1713,9 +1713,9 @@ Kubernetes v1.30
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.166-197.305.amzn2023.x86_64
+  - Linux Kernel version: 6.1.166-197.305.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -1754,16 +1754,16 @@ Kubernetes v1.30
 Kubernetes v1.31
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -1796,9 +1796,9 @@ Kubernetes v1.31
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.166-197.305.amzn2023.x86_64
+  - Linux Kernel version: 6.1.166-197.305.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -1875,16 +1875,16 @@ Kubernetes v1.31
 Kubernetes v1.32
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -1917,9 +1917,9 @@ Kubernetes v1.32
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.166-197.305.amzn2023.x86_64
+  - Linux Kernel version: 6.1.166-197.305.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -1995,9 +1995,9 @@ Kubernetes v1.32
 
 Kubernetes v1.33
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.166-197.305.amzn2023.x86_64
+  - Linux Kernel version: 6.1.166-197.305.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -2073,9 +2073,9 @@ Kubernetes v1.33
 
 Kubernetes v1.34
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.166-197.305.amzn2023.x86_64
+  - Linux Kernel version: 6.1.166-197.305.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -2151,9 +2151,9 @@ Kubernetes v1.34
 
 Kubernetes v1.35
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.166-197.305.amzn2023.x86_64
+  - Linux Kernel version: 6.1.166-197.305.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
   - FSx Lustre Client version: 2.15.6
@@ -2241,16 +2241,16 @@ This release includes the following updates:
 Kubernetes v1.28
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -2283,9 +2283,9 @@ Kubernetes v1.28
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.163-186.299.amzn2023.x86_64
+  - Linux Kernel version: 6.1.163-186.299.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
   - FSx Lustre Client version: 2.15.6
@@ -2324,16 +2324,16 @@ Kubernetes v1.28
 Kubernetes v1.29
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -2366,9 +2366,9 @@ Kubernetes v1.29
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.163-186.299.amzn2023.x86_64
+  - Linux Kernel version: 6.1.163-186.299.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
   - FSx Lustre Client version: 2.15.6
@@ -2407,16 +2407,16 @@ Kubernetes v1.29
 Kubernetes v1.30
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -2449,9 +2449,9 @@ Kubernetes v1.30
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.163-186.299.amzn2023.x86_64
+  - Linux Kernel version: 6.1.163-186.299.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
   - FSx Lustre Client version: 2.15.6
@@ -2490,16 +2490,16 @@ Kubernetes v1.30
 Kubernetes v1.31
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -2532,9 +2532,9 @@ Kubernetes v1.31
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.163-186.299.amzn2023.x86_64
+  - Linux Kernel version: 6.1.163-186.299.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
   - FSx Lustre Client version: 2.15.6
@@ -2611,16 +2611,16 @@ Kubernetes v1.31
 Kubernetes v1.32
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
-  - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
+  - Linux Kernel version: 5.10.248-247.988.amzn2.x86\_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
   - FSx Lustre Client version: 2.12.8
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.60
+  - aws CLI v2 version: aws-cli/1.44.50 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.60
   - aws SSM Agent version: 3.3.3598.0
   - aws Neuronx DKMS version: 2.26.5.0
   - NVIDIA Driver version: 570.211.01
@@ -2653,9 +2653,9 @@ Kubernetes v1.32
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.163-186.299.amzn2023.x86_64
+  - Linux Kernel version: 6.1.163-186.299.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
   - FSx Lustre Client version: 2.15.6
@@ -2731,9 +2731,9 @@ Kubernetes v1.32
 
 Kubernetes v1.33
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.163-186.299.amzn2023.x86_64
+  - Linux Kernel version: 6.1.163-186.299.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
   - FSx Lustre Client version: 2.15.6
@@ -2809,9 +2809,9 @@ Kubernetes v1.33
 
 Kubernetes v1.34
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
-  - Linux Kernel version: 6.1.163-186.299.amzn2023.x86_64
+  - Linux Kernel version: 6.1.163-186.299.amzn2023.x86\_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
   - FSx Lustre Client version: 2.15.6
@@ -2899,7 +2899,7 @@ This release includes the following updates:
 Kubernetes v1.28
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -2908,7 +2908,7 @@ Kubernetes v1.28
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.44 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.54
+  - aws CLI v2 version: aws-cli/1.44.44 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.54
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.211.01
   - CUDA version: 12.2
@@ -2939,7 +2939,7 @@ Kubernetes v1.28
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -2978,7 +2978,7 @@ Kubernetes v1.28
 Kubernetes v1.29
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -2987,7 +2987,7 @@ Kubernetes v1.29
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.44 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.54
+  - aws CLI v2 version: aws-cli/1.44.44 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.54
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.211.01
   - CUDA version: 12.2
@@ -3018,7 +3018,7 @@ Kubernetes v1.29
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -3057,7 +3057,7 @@ Kubernetes v1.29
 Kubernetes v1.30
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -3066,7 +3066,7 @@ Kubernetes v1.30
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.44 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.54
+  - aws CLI v2 version: aws-cli/1.44.44 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.54
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.211.01
   - CUDA version: 12.2
@@ -3097,7 +3097,7 @@ Kubernetes v1.30
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -3136,7 +3136,7 @@ Kubernetes v1.30
 Kubernetes v1.31
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -3145,7 +3145,7 @@ Kubernetes v1.31
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.44 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.54
+  - aws CLI v2 version: aws-cli/1.44.44 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.54
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.211.01
   - CUDA version: 12.2
@@ -3176,7 +3176,7 @@ Kubernetes v1.31
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -3251,7 +3251,7 @@ Kubernetes v1.31
 Kubernetes v1.32
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -3260,7 +3260,7 @@ Kubernetes v1.32
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.46 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86_64 botocore/1.42.56
+  - aws CLI v2 version: aws-cli/1.44.46 Python/3.10.17 Linux/5.10.248-247.988.amzn2.x86\_64 botocore/1.42.56
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.211.01
   - CUDA version: 12.2
@@ -3291,7 +3291,7 @@ Kubernetes v1.32
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -3365,7 +3365,7 @@ Kubernetes v1.32
 
 Kubernetes v1.33
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -3439,7 +3439,7 @@ Kubernetes v1.33
 
 Kubernetes v1.34
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -3525,7 +3525,7 @@ This release includes the following updates:
 Kubernetes v1.28
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -3534,7 +3534,7 @@ Kubernetes v1.28
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.31 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86_64 botocore/1.42.41
+  - aws CLI v2 version: aws-cli/1.44.31 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86\_64 botocore/1.42.41
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.211.01
   - CUDA version: 12.2
@@ -3565,7 +3565,7 @@ Kubernetes v1.28
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -3604,7 +3604,7 @@ Kubernetes v1.28
 Kubernetes v1.29
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -3613,7 +3613,7 @@ Kubernetes v1.29
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.31 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86_64 botocore/1.42.41
+  - aws CLI v2 version: aws-cli/1.44.31 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86\_64 botocore/1.42.41
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.211.01
   - CUDA version: 12.2
@@ -3644,7 +3644,7 @@ Kubernetes v1.29
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -3683,7 +3683,7 @@ Kubernetes v1.29
 Kubernetes v1.30
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -3692,7 +3692,7 @@ Kubernetes v1.30
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.31 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86_64 botocore/1.42.41
+  - aws CLI v2 version: aws-cli/1.44.31 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86\_64 botocore/1.42.41
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.211.01
   - CUDA version: 12.2
@@ -3723,7 +3723,7 @@ Kubernetes v1.30
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -3762,7 +3762,7 @@ Kubernetes v1.30
 Kubernetes v1.31
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -3771,7 +3771,7 @@ Kubernetes v1.31
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.31 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86_64 botocore/1.42.41
+  - aws CLI v2 version: aws-cli/1.44.31 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86\_64 botocore/1.42.41
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.211.01
   - CUDA version: 12.2
@@ -3802,7 +3802,7 @@ Kubernetes v1.31
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -3877,7 +3877,7 @@ Kubernetes v1.31
 Kubernetes v1.32
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -3886,7 +3886,7 @@ Kubernetes v1.32
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.31 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86_64 botocore/1.42.41
+  - aws CLI v2 version: aws-cli/1.44.31 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86\_64 botocore/1.42.41
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.211.01
   - CUDA version: 12.2
@@ -3917,7 +3917,7 @@ Kubernetes v1.32
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -3991,7 +3991,7 @@ Kubernetes v1.32
 
 Kubernetes v1.33
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -4065,7 +4065,7 @@ Kubernetes v1.33
 
 Kubernetes v1.34
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -4151,7 +4151,7 @@ This release includes the following updates:
 Kubernetes v1.28
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -4160,7 +4160,7 @@ Kubernetes v1.28
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.21 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86_64 botocore/1.42.31
+  - aws CLI v2 version: aws-cli/1.44.21 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86\_64 botocore/1.42.31
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.211.01
   - CUDA version: 12.2
@@ -4190,7 +4190,7 @@ Kubernetes v1.28
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -4228,7 +4228,7 @@ Kubernetes v1.28
 Kubernetes v1.29
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -4237,7 +4237,7 @@ Kubernetes v1.29
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.21 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86_64 botocore/1.42.31
+  - aws CLI v2 version: aws-cli/1.44.21 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86\_64 botocore/1.42.31
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.211.01
   - CUDA version: 12.2
@@ -4267,7 +4267,7 @@ Kubernetes v1.29
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -4305,7 +4305,7 @@ Kubernetes v1.29
 Kubernetes v1.30
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -4314,7 +4314,7 @@ Kubernetes v1.30
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.21 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86_64 botocore/1.42.31
+  - aws CLI v2 version: aws-cli/1.44.21 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86\_64 botocore/1.42.31
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.211.01
   - CUDA version: 12.2
@@ -4344,7 +4344,7 @@ Kubernetes v1.30
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -4382,7 +4382,7 @@ Kubernetes v1.30
 Kubernetes v1.31
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -4391,7 +4391,7 @@ Kubernetes v1.31
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.21 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86_64 botocore/1.42.31
+  - aws CLI v2 version: aws-cli/1.44.21 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86\_64 botocore/1.42.31
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.211.01
   - CUDA version: 12.2
@@ -4421,7 +4421,7 @@ Kubernetes v1.31
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -4494,7 +4494,7 @@ Kubernetes v1.31
 Kubernetes v1.32
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -4503,7 +4503,7 @@ Kubernetes v1.32
   - Docker version: Docker version 25.0.14, build 0bab007
   - Runc version: 1.3.4
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.21 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86_64 botocore/1.42.31
+  - aws CLI v2 version: aws-cli/1.44.21 Python/3.10.17 Linux/5.10.247-246.989.amzn2.x86\_64 botocore/1.42.31
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.211.01
   - CUDA version: 12.2
@@ -4533,7 +4533,7 @@ Kubernetes v1.32
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -4605,7 +4605,7 @@ Kubernetes v1.32
 
 Kubernetes v1.33
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -4677,7 +4677,7 @@ Kubernetes v1.33
 
 Kubernetes v1.34
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -4761,7 +4761,7 @@ This release includes the following updates:
 Kubernetes v1.28
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -4770,7 +4770,7 @@ Kubernetes v1.28
   - Docker version: Docker version 25.0.13, build 0bab007
   - Runc version: 1.3.3
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.4 Python/3.10.17 Linux/5.10.245-245.983.amzn2.x86_64 botocore/1.42.14
+  - aws CLI v2 version: aws-cli/1.44.4 Python/3.10.17 Linux/5.10.245-245.983.amzn2.x86\_64 botocore/1.42.14
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.195.03
   - CUDA version: 12.2
@@ -4800,7 +4800,7 @@ Kubernetes v1.28
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -4838,7 +4838,7 @@ Kubernetes v1.28
 Kubernetes v1.29
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -4847,7 +4847,7 @@ Kubernetes v1.29
   - Docker version: Docker version 25.0.13, build 0bab007
   - Runc version: 1.3.3
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.4 Python/3.10.17 Linux/5.10.245-245.983.amzn2.x86_64 botocore/1.42.14
+  - aws CLI v2 version: aws-cli/1.44.4 Python/3.10.17 Linux/5.10.245-245.983.amzn2.x86\_64 botocore/1.42.14
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.195.03
   - CUDA version: 12.2
@@ -4877,7 +4877,7 @@ Kubernetes v1.29
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -4915,7 +4915,7 @@ Kubernetes v1.29
 Kubernetes v1.30
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -4924,7 +4924,7 @@ Kubernetes v1.30
   - Docker version: Docker version 25.0.13, build 0bab007
   - Runc version: 1.3.3
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.4 Python/3.10.17 Linux/5.10.245-245.983.amzn2.x86_64 botocore/1.42.14
+  - aws CLI v2 version: aws-cli/1.44.4 Python/3.10.17 Linux/5.10.245-245.983.amzn2.x86\_64 botocore/1.42.14
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.195.03
   - CUDA version: 12.2
@@ -4954,7 +4954,7 @@ Kubernetes v1.30
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -4992,7 +4992,7 @@ Kubernetes v1.30
 Kubernetes v1.31
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -5001,7 +5001,7 @@ Kubernetes v1.31
   - Docker version: Docker version 25.0.13, build 0bab007
   - Runc version: 1.3.3
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.4 Python/3.10.17 Linux/5.10.245-245.983.amzn2.x86_64 botocore/1.42.14
+  - aws CLI v2 version: aws-cli/1.44.4 Python/3.10.17 Linux/5.10.245-245.983.amzn2.x86\_64 botocore/1.42.14
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.195.03
   - CUDA version: 12.2
@@ -5031,7 +5031,7 @@ Kubernetes v1.31
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -5104,7 +5104,7 @@ Kubernetes v1.31
 Kubernetes v1.32
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -5113,7 +5113,7 @@ Kubernetes v1.32
   - Docker version: Docker version 25.0.13, build 0bab007
   - Runc version: 1.3.3
   - Containerd version: containerd github.com/containerd/containerd 1.7.29
-  - aws CLI v2 version: aws-cli/1.44.4 Python/3.10.17 Linux/5.10.245-245.983.amzn2.x86_64 botocore/1.42.14
+  - aws CLI v2 version: aws-cli/1.44.4 Python/3.10.17 Linux/5.10.245-245.983.amzn2.x86\_64 botocore/1.42.14
   - aws Neuronx DKMS version: 2.25.4.0
   - NVIDIA Driver version: 570.195.03
   - CUDA version: 12.2
@@ -5143,7 +5143,7 @@ Kubernetes v1.32
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 60.0
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -5215,7 +5215,7 @@ Kubernetes v1.32
 
 Kubernetes v1.33
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -5299,7 +5299,7 @@ This release includes the following updates:
 Kubernetes v1.28
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -5308,7 +5308,7 @@ Kubernetes v1.28
   - Docker version: Docker version 25.0.13, build 0bab007
   - Runc version: 1.3.3
   - Containerd version: containerd github.com/containerd/containerd 1.7.27
-  - aws CLI v2 version: aws-cli/1.42.71 Python/3.10.17 Linux/5.10.245-241.978.amzn2.x86_64 botocore/1.40.71
+  - aws CLI v2 version: aws-cli/1.42.71 Python/3.10.17 Linux/5.10.245-241.978.amzn2.x86\_64 botocore/1.40.71
   - aws Neuronx DKMS version: 2.24.7.0
   - NVIDIA Driver version: 570.195.03
   - CUDA version: 12.2
@@ -5338,7 +5338,7 @@ Kubernetes v1.28
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 59.
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -5376,7 +5376,7 @@ Kubernetes v1.28
 Kubernetes v1.29
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -5385,7 +5385,7 @@ Kubernetes v1.29
   - Docker version: Docker version 25.0.13, build 0bab007
   - Runc version: 1.3.3
   - Containerd version: containerd github.com/containerd/containerd 1.7.27
-  - aws CLI v2 version: aws-cli/1.42.71 Python/3.10.17 Linux/5.10.245-241.978.amzn2.x86_64 botocore/1.40.71
+  - aws CLI v2 version: aws-cli/1.42.71 Python/3.10.17 Linux/5.10.245-241.978.amzn2.x86\_64 botocore/1.40.71
   - aws Neuronx DKMS version: 2.24.7.0
   - NVIDIA Driver version: 570.195.03
   - CUDA version: 12.2
@@ -5415,7 +5415,7 @@ Kubernetes v1.29
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 59.
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -5453,7 +5453,7 @@ Kubernetes v1.29
 Kubernetes v1.30
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -5462,7 +5462,7 @@ Kubernetes v1.30
   - Docker version: Docker version 25.0.13, build 0bab007
   - Runc version: 1.3.2
   - Containerd version: containerd github.com/containerd/containerd 1.7.27
-  - aws CLI v2 version: aws-cli/1.42.69 Python/3.10.17 Linux/5.10.245-241.976.amzn2.x86_64 botocore/1.40.69
+  - aws CLI v2 version: aws-cli/1.42.69 Python/3.10.17 Linux/5.10.245-241.976.amzn2.x86\_64 botocore/1.40.69
   - aws Neuronx DKMS version: 2.24.7.0
   - NVIDIA Driver version: 570.195.03
   - CUDA version: 12.2
@@ -5492,7 +5492,7 @@ Kubernetes v1.30
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 58.
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -5530,7 +5530,7 @@ Kubernetes v1.30
 Kubernetes v1.31
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -5539,7 +5539,7 @@ Kubernetes v1.31
   - Docker version: Docker version 25.0.13, build 0bab007
   - Runc version: 1.3.3
   - Containerd version: containerd github.com/containerd/containerd 1.7.27
-  - aws CLI v2 version: aws-cli/1.42.71 Python/3.10.17 Linux/5.10.245-241.978.amzn2.x86_64 botocore/1.40.71
+  - aws CLI v2 version: aws-cli/1.42.71 Python/3.10.17 Linux/5.10.245-241.978.amzn2.x86\_64 botocore/1.40.71
   - aws Neuronx DKMS version: 2.24.7.0
   - NVIDIA Driver version: 570.195.03
   - CUDA version: 12.2
@@ -5569,7 +5569,7 @@ Kubernetes v1.31
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 59.
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -5642,7 +5642,7 @@ Kubernetes v1.31
 Kubernetes v1.32
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
@@ -5651,7 +5651,7 @@ Kubernetes v1.32
   - Docker version: Docker version 25.0.13, build 0bab007
   - Runc version: 1.3.3
   - Containerd version: containerd github.com/containerd/containerd 1.7.27
-  - aws CLI v2 version: aws-cli/1.42.74 Python/3.10.17 Linux/5.10.245-241.978.amzn2.x86_64 botocore/1.40.74
+  - aws CLI v2 version: aws-cli/1.42.74 Python/3.10.17 Linux/5.10.245-241.978.amzn2.x86\_64 botocore/1.40.74
   - aws Neuronx DKMS version: 2.24.7.0
   - NVIDIA Driver version: 570.195.03
   - CUDA version: 12.2
@@ -5681,7 +5681,7 @@ Kubernetes v1.32
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 59.
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -5753,7 +5753,7 @@ Kubernetes v1.32
 
 Kubernetes v1.33
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
@@ -5838,13 +5838,13 @@ This release includes the following updates:
 Kubernetes v1.28
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.28.15
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
@@ -5856,13 +5856,13 @@ Kubernetes v1.28
 Kubernetes v1.29
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.29.15
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
@@ -5874,13 +5874,13 @@ Kubernetes v1.29
 Kubernetes v1.30
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.30.11
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
@@ -5892,13 +5892,13 @@ Kubernetes v1.30
 Kubernetes v1.31
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.31.7
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
@@ -5917,14 +5917,14 @@ Kubernetes v1.31
 Kubernetes v1.32
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.32.3
   - AWS IAM Authenticator version: v0.6.29
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
@@ -5942,12 +5942,12 @@ Kubernetes v1.32
 
 Kubernetes v1.33
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.33.5
-  - Kernel version: 6.1.155-176.282.amzn2023.x86_64
+  - Kernel version: 6.1.155-176.282.amzn2023.x86\_64
 
 - AL2023 (arm):
 
@@ -5978,13 +5978,13 @@ This release includes the following updates:
 Kubernetes v1.28
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.28.15
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
@@ -5996,13 +5996,13 @@ Kubernetes v1.28
 Kubernetes v1.29
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.29.15
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
@@ -6014,13 +6014,13 @@ Kubernetes v1.29
 Kubernetes v1.30
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.30.11
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
@@ -6032,13 +6032,13 @@ Kubernetes v1.30
 Kubernetes v1.31
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.31.7
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
@@ -6057,13 +6057,13 @@ Kubernetes v1.31
 Kubernetes v1.32
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
-- AL2 (x86_64):
+- AL2 (x86\_64):
 
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.32.3
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
@@ -6081,12 +6081,12 @@ Kubernetes v1.32
 
 Kubernetes v1.33
 
-- AL2023 (x86_64):
+- AL2023 (x86\_64):
 
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.33.5
-  - Kernel version: 6.1.155-176.282.amzn2023.x86_64
+  - Kernel version: 6.1.155-176.282.amzn2023.x86\_64
 
 - AL2023 (arm):
 
@@ -6122,23 +6122,23 @@ CUDA Version: 12.8
 
 - Major versions
 
-| package name                     | version                                                                             |
-| -------------------------------- | ----------------------------------------------------------------------------------- |
-| framework_version                | 70                                                                                  |
-| gdr_copy                         | 2.4.1                                                                               |
-| supported_ec2_instances          | G4dn, G5, G6, Gr6, G6e, P4d, P4de, P5, P5e, P5en                                    |
-| efa_version                      | 1.43.3                                                                              |
-| ebs_volume_type                  | gp3                                                                                 |
-| nvidia_driver                    | 570.195.03                                                                          |
-| python_location                  | /usr/bin/python3.10                                                                 |
-| nvidia_cuda_stack                | /usr/local/cuda-12.1,/usr/local/cuda-12.2,/usr/local/cuda-12.3,/usr/local/cuda-12.4 |
-| ssm_agent_version                | 3.3.3050.0                                                                          |
-| kernel_version                   | 5.10.244-240.965.amzn2.x86_64                                                       |
-| nvidia_container_toolkit_version | 1.17.8                                                                              |
-| ofi_nccl_version                 | 1.16.3                                                                              |
-| operating_system                 | Amazon Linux 2                                                                      |
-| default_cuda                     | /usr/local/cuda-12.1/                                                               |
-| compute_architecture             | x86_64                                                                              |
+| package name                        | version                                                                             |
+| ----------------------------------- | ----------------------------------------------------------------------------------- |
+| framework\_version                  | 70                                                                                  |
+| gdr\_copy                           | 2.4.1                                                                               |
+| supported\_ec2\_instances           | G4dn, G5, G6, Gr6, G6e, P4d, P4de, P5, P5e, P5en                                    |
+| efa\_version                        | 1.43.3                                                                              |
+| ebs\_volume\_type                   | gp3                                                                                 |
+| nvidia\_driver                      | 570.195.03                                                                          |
+| python\_location                    | /usr/bin/python3.10                                                                 |
+| nvidia\_cuda\_stack                 | /usr/local/cuda-12.1,/usr/local/cuda-12.2,/usr/local/cuda-12.3,/usr/local/cuda-12.4 |
+| ssm\_agent\_version                 | 3.3.3050.0                                                                          |
+| kernel\_version                     | 5.10.244-240.965.amzn2.x86\_64                                                      |
+| nvidia\_container\_toolkit\_version | 1.17.8                                                                              |
+| ofi\_nccl\_version                  | 1.16.3                                                                              |
+| operating\_system                   | Amazon Linux 2                                                                      |
+| default\_cuda                       | /usr/local/cuda-12.1/                                                               |
+| compute\_architecture               | x86\_64                                                                             |
 
 - Added packages: No packages were added in this release.
 - Updated packages
@@ -6149,7 +6149,7 @@ CUDA Version: 12.8
 | botocore              | 1.40.46          | 1.40.49        |
 | fastapi               | 0.118.0          | 0.118.2        |
 | filelock              | 3.19.1           | 3.20.0         |
-| importlib_metadata    | 8.7.0            | 8.0.0          |
+| importlib\_metadata   | 8.7.0            | 8.0.0          |
 | jaraco.context        | 6.0.1            | 5.3.0          |
 | jaraco.functools      | 4.3.0            | 4.0.1          |
 | matplotlib            | 3.10.6           | 3.10.7         |
@@ -6182,24 +6182,24 @@ CUDA Version: 13.0
 
 - Major versions
 
-| package name                     | version                                                                             |
-| -------------------------------- | ----------------------------------------------------------------------------------- |
-| gdr_copy                         | 2.5.1                                                                               |
-| supported_ec2_instances          | G4dn, G5, G6, Gr6, G6e, P4d, P4de, P5, P5e, P5en, P6-B200                           |
-| efa_version                      | 1.43.3                                                                              |
-| ebs_volume_type                  | gp3                                                                                 |
-| nvidia_gds_version               | 1.15.0.42                                                                           |
-| nvidia_driver                    | 580.95.05                                                                           |
-| python_location                  | /usr/bin/python3.9                                                                  |
-| nvidia_cuda_stack                | /usr/local/cuda-12.6,/usr/local/cuda-12.8,/usr/local/cuda-12.9,/usr/local/cuda-13.0 |
-| ssm_agent_version                | 3.3.3050.0                                                                          |
-| kernel_version                   | 6.1.153-175.280.amzn2023.x86_64                                                     |
-| nvidia_container_toolkit_version | 1.17.8                                                                              |
-| dcgm_version                     | 4.4.1                                                                               |
-| ofi_nccl_version                 | 1.16.3                                                                              |
-| operating_system                 | Amazon Linux 2023.9.20250929                                                        |
-| default_cuda                     | /usr/local/cuda-12.9/                                                               |
-| compute_architecture             | x86_64                                                                              |
+| package name                        | version                                                                             |
+| ----------------------------------- | ----------------------------------------------------------------------------------- |
+| gdr\_copy                           | 2.5.1                                                                               |
+| supported\_ec2\_instances           | G4dn, G5, G6, Gr6, G6e, P4d, P4de, P5, P5e, P5en, P6-B200                           |
+| efa\_version                        | 1.43.3                                                                              |
+| ebs\_volume\_type                   | gp3                                                                                 |
+| nvidia\_gds\_version                | 1.15.0.42                                                                           |
+| nvidia\_driver                      | 580.95.05                                                                           |
+| python\_location                    | /usr/bin/python3.9                                                                  |
+| nvidia\_cuda\_stack                 | /usr/local/cuda-12.6,/usr/local/cuda-12.8,/usr/local/cuda-12.9,/usr/local/cuda-13.0 |
+| ssm\_agent\_version                 | 3.3.3050.0                                                                          |
+| kernel\_version                     | 6.1.153-175.280.amzn2023.x86\_64                                                    |
+| nvidia\_container\_toolkit\_version | 1.17.8                                                                              |
+| dcgm\_version                       | 4.4.1                                                                               |
+| ofi\_nccl\_version                  | 1.16.3                                                                              |
+| operating\_system                   | Amazon Linux 2023.9.20250929                                                        |
+| default\_cuda                       | /usr/local/cuda-12.9/                                                               |
+| compute\_architecture               | x86\_64                                                                             |
 
 - Added packages: No packages were added in this release.
 - Updated packages
@@ -6218,10 +6218,10 @@ CUDA Version: 13.0
 | packaging             | 25               | 24.2           |
 | propcache             | 0.4.0            | 0.4.1          |
 | pydantic              | 2.11.10          | 2.12.0         |
-| pydantic_core         | 2.33.2           | 2.41.1         |
+| pydantic\_core        | 2.33.2           | 2.41.1         |
 | rich                  | 14.1.0           | 14.2.0         |
 | types-python-dateutil | 2.9.0.20250822   | 2.9.0.20251008 |
-| typing_extensions     | 4.12.2           | 4.15.0         |
+| typing\_extensions    | 4.12.2           | 4.15.0         |
 | virtualenv            | 20.34.0          | 20.35.1        |
 | websocket-client      | 1.8.0            | 1.9.0          |
 
@@ -6245,23 +6245,23 @@ CUDA Version: 13.0
 
 - Major versions
 
-| package name                     | version                                                                             |
-| -------------------------------- | ----------------------------------------------------------------------------------- |
-| gdr_copy                         | 2.5                                                                                 |
-| supported_ec2_instances          | G5g, P6e-GB200                                                                      |
-| efa_version                      | 1.43.3                                                                              |
-| ebs_volume_type                  | gp3                                                                                 |
-| nvidia_driver                    | 580.95.05                                                                           |
-| python_location                  | /usr/bin/python3.9                                                                  |
-| nvidia_cuda_stack                | /usr/local/cuda-12.6,/usr/local/cuda-12.8,/usr/local/cuda-12.9,/usr/local/cuda-13.0 |
-| ssm_agent_version                | 3.3.3050.0                                                                          |
-| kernel_version                   | 6.12.46-66.121.amzn2023.aarch64                                                     |
-| nvidia_container_toolkit_version | 1.17.8                                                                              |
-| dcgm_version                     | 4.4.1                                                                               |
-| ofi_nccl_version                 | 1.16.3                                                                              |
-| operating_system                 | Amazon Linux 2023.9.20250929                                                        |
-| default_cuda                     | /usr/local/cuda-12.9/                                                               |
-| compute_architecture             | aarch64                                                                             |
+| package name                        | version                                                                             |
+| ----------------------------------- | ----------------------------------------------------------------------------------- |
+| gdr\_copy                           | 2.5                                                                                 |
+| supported\_ec2\_instances           | G5g, P6e-GB200                                                                      |
+| efa\_version                        | 1.43.3                                                                              |
+| ebs\_volume\_type                   | gp3                                                                                 |
+| nvidia\_driver                      | 580.95.05                                                                           |
+| python\_location                    | /usr/bin/python3.9                                                                  |
+| nvidia\_cuda\_stack                 | /usr/local/cuda-12.6,/usr/local/cuda-12.8,/usr/local/cuda-12.9,/usr/local/cuda-13.0 |
+| ssm\_agent\_version                 | 3.3.3050.0                                                                          |
+| kernel\_version                     | 6.12.46-66.121.amzn2023.aarch64                                                     |
+| nvidia\_container\_toolkit\_version | 1.17.8                                                                              |
+| dcgm\_version                       | 4.4.1                                                                               |
+| ofi\_nccl\_version                  | 1.16.3                                                                              |
+| operating\_system                   | Amazon Linux 2023.9.20250929                                                        |
+| default\_cuda                       | /usr/local/cuda-12.9/                                                               |
+| compute\_architecture               | aarch64                                                                             |
 
 - Added packages: No packages were added in this release.
 - Updated packages
@@ -6277,14 +6277,14 @@ CUDA Version: 13.0
 | efa                   | 2.17.2-1.amzn2023 | 2.17.3-1.amzn2023 |
 | fastapi               | 0.118.0           | 0.118.2           |
 | frozenlist            | 1.7.0             | 1.8.0             |
-| importlib_metadata    | 8.7.0             | 8.0.0             |
+| importlib\_metadata   | 8.7.0             | 8.0.0             |
 | jaraco.context        | 5.3.0             | 6.0.1             |
 | multidict             | 6.6.4             | 6.7.0             |
 | narwhals              | 2.6.0             | 2.7.0             |
 | nh3                   | 0.3.0             | 0.3.1             |
 | propcache             | 0.3.2             | 0.4.1             |
 | pydantic              | 2.11.9            | 2.12.0            |
-| pydantic_core         | 2.33.2            | 2.41.1            |
+| pydantic\_core        | 2.33.2            | 2.41.1            |
 | pylint                | 3.3.8             | 3.3.9             |
 | python-json-logger    | 3.3.0             | 4.0.0             |
 | rich                  | 14.1.0            | 14.2.0            |
@@ -6612,7 +6612,7 @@ Kubernetes v1.33
 The following table contains information about components within this AMI release
 and the corresponding versions.
 
-| component                | AL2023_x86                | AL2023_arm64              |
+| component                | AL2023\_x86               | AL2023\_arm64             |
 | ------------------------ | ------------------------- | ------------------------- |
 | EKS                      | v1.33.4                   | v1.33.4                   |
 | amazon-ssm-agent         | 3.3.2299.0-1.amzn2023     | 3.3.2299.0-1.amzn2023     |
@@ -6640,40 +6640,40 @@ Kubernetes v1.28
 
 **Added Packages:**
 
-- kernel-livepatch-5.10.240-238.955.x86_64 1.0-0.amzn2
+- kernel-livepatch-5.10.240-238.955.x86\_64 1.0-0.amzn2
   amzn2extra-kernel-5.10
 
 **Updated Packages:**
 
-- gdk-pixbuf2.x86_64: 2.36.12-3.amzn2 →
+- gdk-pixbuf2.x86\_64: 2.36.12-3.amzn2 →
   2.36.12-3.amzn2.0.2
-- kernel.x86_64: 5.10.239-236.958.amzn2 →
+- kernel.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- kernel-devel.x86_64: 5.10.239-236.958.amzn2 →
+- kernel-devel.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- kernel-headers.x86_64: 5.10.239-236.958.amzn2 →
+- kernel-headers.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- kernel-tools.x86_64: 5.10.239-236.958.amzn2 →
+- kernel-tools.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- libgs.x86_64: 9.54.0-9.amzn2.0.11 → 9.54.0-9.amzn2.0.12
-- microcode_ctl.x86_64: 2:2.1-47.amzn2.4.24 →
+- libgs.x86\_64: 9.54.0-9.amzn2.0.11 → 9.54.0-9.amzn2.0.12
+- microcode\_ctl.x86\_64: 2:2.1-47.amzn2.4.24 →
   2:2.1-47.amzn2.4.25
-- pam.x86_64: 1.1.8-23.amzn2.0.2 → 1.1.8-23.amzn2.0.4
+- pam.x86\_64: 1.1.8-23.amzn2.0.2 → 1.1.8-23.amzn2.0.4
 
 **Removed Packages:**
 
-- kernel-livepatch-5.10.239-236.958.x86_64 1.0-0.amzn2
+- kernel-livepatch-5.10.239-236.958.x86\_64 1.0-0.amzn2
   amzn2extra-kernel-5.10
 
 **Repository Changed:**
 
-- libnvidia-container-tools.x86_64: cuda-rhel8-x86_64 →
+- libnvidia-container-tools.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
-- libnvidia-container1.x86_64: cuda-rhel8-x86_64 →
+- libnvidia-container1.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
-- nvidia-container-toolkit.x86_64: cuda-rhel8-x86_64 →
+- nvidia-container-toolkit.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
-- nvidia-container-toolkit-base.x86_64: cuda-rhel8-x86_64 →
+- nvidia-container-toolkit-base.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
 
 Kubernetes v1.29
@@ -6684,40 +6684,40 @@ Kubernetes v1.29
 
 **Added Packages:**
 
-- kernel-livepatch-5.10.240-238.955.x86_64 1.0-0.amzn2
+- kernel-livepatch-5.10.240-238.955.x86\_64 1.0-0.amzn2
   amzn2extra-kernel-5.10
 
 **Updated Packages:**
 
-- gdk-pixbuf2.x86_64: 2.36.12-3.amzn2 →
+- gdk-pixbuf2.x86\_64: 2.36.12-3.amzn2 →
   2.36.12-3.amzn2.0.2
-- kernel.x86_64: 5.10.239-236.958.amzn2 →
+- kernel.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- kernel-devel.x86_64: 5.10.239-236.958.amzn2 →
+- kernel-devel.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- kernel-headers.x86_64: 5.10.239-236.958.amzn2 →
+- kernel-headers.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- kernel-tools.x86_64: 5.10.239-236.958.amzn2 →
+- kernel-tools.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- libgs.x86_64: 9.54.0-9.amzn2.0.11 → 9.54.0-9.amzn2.0.12
-- microcode_ctl.x86_64: 2:2.1-47.amzn2.4.24 →
+- libgs.x86\_64: 9.54.0-9.amzn2.0.11 → 9.54.0-9.amzn2.0.12
+- microcode\_ctl.x86\_64: 2:2.1-47.amzn2.4.24 →
   2:2.1-47.amzn2.4.25
-- pam.x86_64: 1.1.8-23.amzn2.0.2 → 1.1.8-23.amzn2.0.4
+- pam.x86\_64: 1.1.8-23.amzn2.0.2 → 1.1.8-23.amzn2.0.4
 
 **Removed Packages:**
 
-- kernel-livepatch-5.10.239-236.958.x86_64 1.0-0.amzn2
+- kernel-livepatch-5.10.239-236.958.x86\_64 1.0-0.amzn2
   amzn2extra-kernel-5.10
 
 **Repository Changed:**
 
-- libnvidia-container-tools.x86_64: cuda-rhel8-x86_64 →
+- libnvidia-container-tools.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
-- libnvidia-container1.x86_64: cuda-rhel8-x86_64 →
+- libnvidia-container1.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
-- nvidia-container-toolkit.x86_64: cuda-rhel8-x86_64 →
+- nvidia-container-toolkit.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
-- nvidia-container-toolkit-base.x86_64: cuda-rhel8-x86_64 →
+- nvidia-container-toolkit-base.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
 
 Kubernetes v1.30
@@ -6728,68 +6728,68 @@ Kubernetes v1.30
 
 **Added Packages:**
 
-- kernel-livepatch-5.10.240-238.955.x86_64 1.0-0.amzn2
+- kernel-livepatch-5.10.240-238.955.x86\_64 1.0-0.amzn2
   amzn2extra-kernel-5.10
 
 **Updated Packages:**
 
 - aws-neuronx-dkms.noarch: 2.22.2.0-dkms → 2.23.9.0-dkms
-- efa.x86_64: 2.15.3-1.amzn2 → 2.17.2-1.amzn2
-- efa-nv-peermem.x86_64: 1.2.1-1.amzn2 → 1.2.2-1.amzn2
-- gdk-pixbuf2.x86_64: 2.36.12-3.amzn2 →
+- efa.x86\_64: 2.15.3-1.amzn2 → 2.17.2-1.amzn2
+- efa-nv-peermem.x86\_64: 1.2.1-1.amzn2 → 1.2.2-1.amzn2
+- gdk-pixbuf2.x86\_64: 2.36.12-3.amzn2 →
   2.36.12-3.amzn2.0.2
-- ibacm.x86_64: 57.amzn1-1.amzn2.0.2 →
+- ibacm.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
-- infiniband-diags.x86_64: 57.amzn1-1.amzn2.0.2 →
+- infiniband-diags.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
-- kernel.x86_64: 5.10.239-236.958.amzn2 →
+- kernel.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- kernel-devel.x86_64: 5.10.239-236.958.amzn2 →
+- kernel-devel.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- kernel-headers.x86_64: 5.10.239-236.958.amzn2 →
+- kernel-headers.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- kernel-tools.x86_64: 5.10.239-236.958.amzn2 →
+- kernel-tools.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- libfabric-aws.x86_64: 2.1.0amzn3.0-1.amzn2 →
+- libfabric-aws.x86\_64: 2.1.0amzn3.0-1.amzn2 →
   2.1.0amzn5.0-1.amzn2
-- libfabric-aws-devel.x86_64: 2.1.0amzn3.0-1.amzn2 →
+- libfabric-aws-devel.x86\_64: 2.1.0amzn3.0-1.amzn2 →
   2.1.0amzn5.0-1.amzn2
-- libgs.x86_64: 9.54.0-9.amzn2.0.11 → 9.54.0-9.amzn2.0.12
-- libibumad.x86_64: 57.amzn1-1.amzn2.0.2 →
+- libgs.x86\_64: 9.54.0-9.amzn2.0.11 → 9.54.0-9.amzn2.0.12
+- libibumad.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
-- libibverbs.x86_64: 57.amzn1-1.amzn2.0.2 →
+- libibverbs.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
-- libibverbs-core.x86_64: 57.amzn1-1.amzn2.0.2 →
+- libibverbs-core.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
-- libibverbs-utils.x86_64: 57.amzn1-1.amzn2.0.2 →
+- libibverbs-utils.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
-- libnccl-ofi.x86_64: 1.15.0-1.amzn2 → 1.16.2-1.amzn2
-- librdmacm.x86_64: 57.amzn1-1.amzn2.0.2 →
+- libnccl-ofi.x86\_64: 1.15.0-1.amzn2 → 1.16.2-1.amzn2
+- librdmacm.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
-- librdmacm-utils.x86_64: 57.amzn1-1.amzn2.0.2 →
+- librdmacm-utils.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
-- microcode_ctl.x86_64: 2:2.1-47.amzn2.4.24 →
+- microcode\_ctl.x86\_64: 2:2.1-47.amzn2.4.24 →
   2:2.1-47.amzn2.4.25
-- pam.x86_64: 1.1.8-23.amzn2.0.2 → 1.1.8-23.amzn2.0.4
-- rdma-core.x86_64: 57.amzn1-1.amzn2.0.2 →
+- pam.x86\_64: 1.1.8-23.amzn2.0.2 → 1.1.8-23.amzn2.0.4
+- rdma-core.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
-- rdma-core-devel.x86_64: 57.amzn1-1.amzn2.0.2 →
+- rdma-core-devel.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
 
 **Removed Packages:**
 
-- kernel-livepatch-5.10.239-236.958.x86_64 1.0-0.amzn2
+- kernel-livepatch-5.10.239-236.958.x86\_64 1.0-0.amzn2
   amzn2extra-kernel-5.10
 
 **Repository Changed:**
 
-- libnvidia-container-tools.x86_64: cuda-rhel8-x86_64 →
+- libnvidia-container-tools.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
-- libnvidia-container1.x86_64: cuda-rhel8-x86_64 →
+- libnvidia-container1.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
-- nvidia-container-toolkit.x86_64: cuda-rhel8-x86_64 →
+- nvidia-container-toolkit.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
-- nvidia-container-toolkit-base.x86_64: cuda-rhel8-x86_64 →
+- nvidia-container-toolkit-base.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
 
 Kubernetes v1.31
@@ -6800,40 +6800,40 @@ Kubernetes v1.31
 
 **Added Packages:**
 
-- kernel-livepatch-5.10.240-238.955.x86_64 1.0-0.amzn2
+- kernel-livepatch-5.10.240-238.955.x86\_64 1.0-0.amzn2
   amzn2extra-kernel-5.10
 
 **Updated Packages:**
 
-- gdk-pixbuf2.x86_64: 2.36.12-3.amzn2 →
+- gdk-pixbuf2.x86\_64: 2.36.12-3.amzn2 →
   2.36.12-3.amzn2.0.2
-- kernel.x86_64: 5.10.239-236.958.amzn2 →
+- kernel.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- kernel-devel.x86_64: 5.10.239-236.958.amzn2 →
+- kernel-devel.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- kernel-headers.x86_64: 5.10.239-236.958.amzn2 →
+- kernel-headers.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- kernel-tools.x86_64: 5.10.239-236.958.amzn2 →
+- kernel-tools.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- libgs.x86_64: 9.54.0-9.amzn2.0.11 → 9.54.0-9.amzn2.0.12
-- microcode_ctl.x86_64: 2:2.1-47.amzn2.4.24 →
+- libgs.x86\_64: 9.54.0-9.amzn2.0.11 → 9.54.0-9.amzn2.0.12
+- microcode\_ctl.x86\_64: 2:2.1-47.amzn2.4.24 →
   2:2.1-47.amzn2.4.25
-- pam.x86_64: 1.1.8-23.amzn2.0.2 → 1.1.8-23.amzn2.0.4
+- pam.x86\_64: 1.1.8-23.amzn2.0.2 → 1.1.8-23.amzn2.0.4
 
 **Removed Packages:**
 
-- kernel-livepatch-5.10.239-236.958.x86_64 1.0-0.amzn2
+- kernel-livepatch-5.10.239-236.958.x86\_64 1.0-0.amzn2
   amzn2extra-kernel-5.10
 
 **Repository Changed:**
 
-- libnvidia-container-tools.x86_64: cuda-rhel8-x86_64 →
+- libnvidia-container-tools.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
-- libnvidia-container1.x86_64: cuda-rhel8-x86_64 →
+- libnvidia-container1.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
-- nvidia-container-toolkit.x86_64: cuda-rhel8-x86_64 →
+- nvidia-container-toolkit.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
-- nvidia-container-toolkit-base.x86_64: cuda-rhel8-x86_64 →
+- nvidia-container-toolkit-base.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
 
 Kubernetes v1.32
@@ -6844,68 +6844,68 @@ Kubernetes v1.32
 
 **Added Packages:**
 
-- kernel-livepatch-5.10.240-238.955.x86_64 1.0-0.amzn2
+- kernel-livepatch-5.10.240-238.955.x86\_64 1.0-0.amzn2
   amzn2extra-kernel-5.10
 
 **Updated Packages:**
 
 - aws-neuronx-dkms.noarch: 2.22.2.0-dkms → 2.23.9.0-dkms
-- efa.x86_64: 2.15.3-1.amzn2 → 2.17.2-1.amzn2
-- efa-nv-peermem.x86_64: 1.2.1-1.amzn2 → 1.2.2-1.amzn2
-- gdk-pixbuf2.x86_64: 2.36.12-3.amzn2 →
+- efa.x86\_64: 2.15.3-1.amzn2 → 2.17.2-1.amzn2
+- efa-nv-peermem.x86\_64: 1.2.1-1.amzn2 → 1.2.2-1.amzn2
+- gdk-pixbuf2.x86\_64: 2.36.12-3.amzn2 →
   2.36.12-3.amzn2.0.2
-- ibacm.x86_64: 57.amzn1-1.amzn2.0.2 →
+- ibacm.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
-- infiniband-diags.x86_64: 57.amzn1-1.amzn2.0.2 →
+- infiniband-diags.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
-- kernel.x86_64: 5.10.239-236.958.amzn2 →
+- kernel.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- kernel-devel.x86_64: 5.10.239-236.958.amzn2 →
+- kernel-devel.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- kernel-headers.x86_64: 5.10.239-236.958.amzn2 →
+- kernel-headers.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- kernel-tools.x86_64: 5.10.239-236.958.amzn2 →
+- kernel-tools.x86\_64: 5.10.239-236.958.amzn2 →
   5.10.240-238.955.amzn2
-- libfabric-aws.x86_64: 2.1.0amzn3.0-1.amzn2 →
+- libfabric-aws.x86\_64: 2.1.0amzn3.0-1.amzn2 →
   2.1.0amzn5.0-1.amzn2
-- libfabric-aws-devel.x86_64: 2.1.0amzn3.0-1.amzn2 →
+- libfabric-aws-devel.x86\_64: 2.1.0amzn3.0-1.amzn2 →
   2.1.0amzn5.0-1.amzn2
-- libgs.x86_64: 9.54.0-9.amzn2.0.11 → 9.54.0-9.amzn2.0.12
-- libibumad.x86_64: 57.amzn1-1.amzn2.0.2 →
+- libgs.x86\_64: 9.54.0-9.amzn2.0.11 → 9.54.0-9.amzn2.0.12
+- libibumad.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
-- libibverbs.x86_64: 57.amzn1-1.amzn2.0.2 →
+- libibverbs.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
-- libibverbs-core.x86_64: 57.amzn1-1.amzn2.0.2 →
+- libibverbs-core.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
-- libibverbs-utils.x86_64: 57.amzn1-1.amzn2.0.2 →
+- libibverbs-utils.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
-- libnccl-ofi.x86_64: 1.15.0-1.amzn2 → 1.16.2-1.amzn2
-- librdmacm.x86_64: 57.amzn1-1.amzn2.0.2 →
+- libnccl-ofi.x86\_64: 1.15.0-1.amzn2 → 1.16.2-1.amzn2
+- librdmacm.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
-- librdmacm-utils.x86_64: 57.amzn1-1.amzn2.0.2 →
+- librdmacm-utils.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
-- microcode_ctl.x86_64: 2:2.1-47.amzn2.4.24 →
+- microcode\_ctl.x86\_64: 2:2.1-47.amzn2.4.24 →
   2:2.1-47.amzn2.4.25
-- pam.x86_64: 1.1.8-23.amzn2.0.2 → 1.1.8-23.amzn2.0.4
-- rdma-core.x86_64: 57.amzn1-1.amzn2.0.2 →
+- pam.x86\_64: 1.1.8-23.amzn2.0.2 → 1.1.8-23.amzn2.0.4
+- rdma-core.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
-- rdma-core-devel.x86_64: 57.amzn1-1.amzn2.0.2 →
+- rdma-core-devel.x86\_64: 57.amzn1-1.amzn2.0.2 →
   58.amzn0-1.amzn2.0.2
 
 **Removed Packages:**
 
-- kernel-livepatch-5.10.239-236.958.x86_64 1.0-0.amzn2
+- kernel-livepatch-5.10.239-236.958.x86\_64 1.0-0.amzn2
   amzn2extra-kernel-5.10
 
 **Repository Changed:**
 
-- libnvidia-container-tools.x86_64: cuda-rhel8-x86_64 →
+- libnvidia-container-tools.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
-- libnvidia-container1.x86_64: cuda-rhel8-x86_64 →
+- libnvidia-container1.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
-- nvidia-container-toolkit.x86_64: cuda-rhel8-x86_64 →
+- nvidia-container-toolkit.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
-- nvidia-container-toolkit-base.x86_64: cuda-rhel8-x86_64 →
+- nvidia-container-toolkit-base.x86\_64: cuda-rhel8-x86\_64 →
   nvidia-container-toolkit
 
 ## SageMaker HyperPod AMI releases for Amazon EKS: August 12, 2025
@@ -6976,11 +6976,11 @@ K8s v1.28
 - **Neuron packages:**
 
   - **aws-neuronx-collectives:**
-    2.27.34.0_ec8cd5e8b-1
+    2.27.34.0\_ec8cd5e8b-1
   - **aws-neuronx-dkms:**
     2.23.9.0-dkms
   - **aws-neuronx-runtime-lib:**
-    2.27.23.0_8deec4dbf-1
+    2.27.23.0\_8deec4dbf-1
   - **aws-neuronx-k8-plugin:** 2.27.7.0-1
   - **aws-neuronx-k8-scheduler:**
     2.27.7.0-1
@@ -6992,11 +6992,11 @@ K8s v1.29
 - **Neuron packages:**
 
   - **aws-neuronx-collectives:**
-    2.27.34.0_ec8cd5e8b-1
+    2.27.34.0\_ec8cd5e8b-1
   - **aws-neuronx-dkms:**
     2.23.9.0-dkms
   - **aws-neuronx-runtime-lib:**
-    2.27.23.0_8deec4dbf-1
+    2.27.23.0\_8deec4dbf-1
   - **aws-neuronx-k8-plugin:** 2.27.7.0-1
   - **aws-neuronx-k8-scheduler:**
     2.27.7.0-1
@@ -7008,11 +7008,11 @@ K8s v1.30
 - **Neuron packages:**
 
   - **aws-neuronx-collectives:**
-    2.27.34.0_ec8cd5e8b-1
+    2.27.34.0\_ec8cd5e8b-1
   - **aws-neuronx-dkms:**
     2.23.9.0-dkms
   - **aws-neuronx-runtime-lib:**
-    2.27.23.0_8deec4dbf-1
+    2.27.23.0\_8deec4dbf-1
   - **aws-neuronx-k8-plugin:** 2.27.7.0-1
   - **aws-neuronx-k8-scheduler:**
     2.27.7.0-1
@@ -7024,11 +7024,11 @@ K8s v1.31
 - **Neuron packages:**
 
   - **aws-neuronx-collectives:**
-    2.27.34.0_ec8cd5e8b-1
+    2.27.34.0\_ec8cd5e8b-1
   - **aws-neuronx-dkms:**
     2.23.9.0-dkms
   - **aws-neuronx-runtime-lib:**
-    2.27.23.0_8deec4dbf-1
+    2.27.23.0\_8deec4dbf-1
   - **aws-neuronx-k8-plugin:** 2.27.7.0-1
   - **aws-neuronx-k8-scheduler:**
     2.27.7.0-1
@@ -7040,11 +7040,11 @@ K8s v1.32
 - **Neuron packages:**
 
   - **aws-neuronx-collectives:**
-    2.27.34.0_ec8cd5e8b-1
+    2.27.34.0\_ec8cd5e8b-1
   - **aws-neuronx-dkms:**
     2.23.9.0-dkms
   - **aws-neuronx-runtime-lib:**
-    2.27.23.0_8deec4dbf-1
+    2.27.23.0\_8deec4dbf-1
   - **aws-neuronx-k8-plugin:** 2.27.7.0-1
   - **aws-neuronx-k8-scheduler:**
     2.27.7.0-1
@@ -7151,11 +7151,11 @@ following procedure to update the Health Monitoring Agent:
    AL2023.
 2. Pull in the latest version of the [HyperPod CLI git repository](https://github.com/aws/sagemaker-hyperpod-cli/tree/main "https://github.com/aws/sagemaker-hyperpod-cli/tree/main").
 3. Update dependencies with the following command: `helm
-dependencies update helm_chart/HyperPodHelmChart`
+ dependencies update helm_chart/HyperPodHelmChart`
 4. As mentioned on the step 4 in the [README of HyperPodHelmChart](https://github.com/aws/sagemaker-hyperpod-cli/tree/main/helm_chart#step-four-whenever-you-want-to-upgrade-the-installation-of-helm-charts "https://github.com/aws/sagemaker-hyperpod-cli/tree/main/helm_chart#step-four-whenever-you-want-to-upgrade-the-installation-of-helm-charts"), run the following command to
    upgrade the version of dependencies running on the cluster: `helm
-upgrade dependencies helm_chart/HyperPodHelmChart -namespace
-kube-system`
+ upgrade dependencies helm_chart/HyperPodHelmChart -namespace
+ kube-system`
 
 ### Workloads that have been tested on upgraded EKS clusters
 
@@ -7244,41 +7244,41 @@ K8s v1.28
 
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
-  - **aws-neuronx-oci-hook.x86_64:**
+  - **aws-neuronx-oci-hook.x86\_64:**
     2.4.4.0-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-tools.x86\_64:**
     2.18.3.0-1
   - **aws-neuron-dkms.noarch:**
     2.3.26.0-dkms
-  - **aws-neuron-k8-plugin.x86_64:**
+  - **aws-neuron-k8-plugin.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-k8-scheduler.x86_64:**
+  - **aws-neuron-k8-scheduler.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-runtime.x86_64:**
+  - **aws-neuron-runtime.x86\_64:**
     1.6.24.0-1
-  - **aws-neuron-runtime-base.x86_64:**
+  - **aws-neuron-runtime-base.x86\_64:**
     1.6.21.0-1
-  - **aws-neuron-tools.x86_64:**
+  - **aws-neuron-tools.x86\_64:**
     2.1.4.0-1
-  - **aws-neuronx-collectives.x86_64:**
-    2.26.43.0_47cc904ea-1
-  - **aws-neuronx-gpsimd-customop.x86_64:**
+  - **aws-neuronx-collectives.x86\_64:**
+    2.26.43.0\_47cc904ea-1
+  - **aws-neuronx-gpsimd-customop.x86\_64:**
     0.2.3.0-1
-  - **aws-neuronx-gpsimd-customop-lib.x86_64:**
+  - **aws-neuronx-gpsimd-customop-lib.x86\_64:**
     0.16.2.0-1
-  - **aws-neuronx-gpsimd-tools.x86_64:**
-    0.16.1.0_0a6506a47-1
-  - **aws-neuronx-k8-plugin.x86_64:**
+  - **aws-neuronx-gpsimd-tools.x86\_64:**
+    0.16.1.0\_0a6506a47-1
+  - **aws-neuronx-k8-plugin.x86\_64:**
     2.26.26.0-1
-  - **aws-neuronx-k8-scheduler.x86_64:**
+  - **aws-neuronx-k8-scheduler.x86\_64:**
     2.26.26.0-1
-  - **aws-neuronx-runtime-lib.x86_64:**
-    2.26.42.0_2ff3b5c7d-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-runtime-lib.x86\_64:**
+    2.26.42.0\_2ff3b5c7d-1
+  - **aws-neuronx-tools.x86\_64:**
     2.24.54.0-1
-  - **tensorflow-model-server-neuron.x86_64:**
+  - **tensorflow-model-server-neuron.x86\_64:**
     2.8.0.2.3.0.0-0
-  - **tensorflow-model-server-neuronx.x86_64:**
+  - **tensorflow-model-server-neuronx.x86\_64:**
     2.10.1.2.12.2.0-0
 
 K8s v1.29
@@ -7291,41 +7291,41 @@ K8s v1.29
 
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
-  - **aws-neuronx-oci-hook.x86_64:**
+  - **aws-neuronx-oci-hook.x86\_64:**
     2.4.4.0-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-tools.x86\_64:**
     2.18.3.0-1
   - **aws-neuron-dkms.noarch:**
     2.3.26.0-dkms
-  - **aws-neuron-k8-plugin.x86_64:**
+  - **aws-neuron-k8-plugin.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-k8-scheduler.x86_64:**
+  - **aws-neuron-k8-scheduler.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-runtime.x86_64:**
+  - **aws-neuron-runtime.x86\_64:**
     1.6.24.0-1
-  - **aws-neuron-runtime-base.x86_64:**
+  - **aws-neuron-runtime-base.x86\_64:**
     1.6.21.0-1
-  - **aws-neuron-tools.x86_64:**
+  - **aws-neuron-tools.x86\_64:**
     2.1.4.0-1
-  - **aws-neuronx-collectives.x86_64:**
-    2.26.43.0_47cc904ea-1
-  - **aws-neuronx-gpsimd-customop.x86_64:**
+  - **aws-neuronx-collectives.x86\_64:**
+    2.26.43.0\_47cc904ea-1
+  - **aws-neuronx-gpsimd-customop.x86\_64:**
     0.2.3.0-1
-  - **aws-neuronx-gpsimd-customop-lib.x86_64:**
+  - **aws-neuronx-gpsimd-customop-lib.x86\_64:**
     0.16.2.0-1
-  - **aws-neuronx-gpsimd-tools.x86_64:**
-    0.16.1.0_0a6506a47-1
-  - **aws-neuronx-k8-plugin.x86_64:**
+  - **aws-neuronx-gpsimd-tools.x86\_64:**
+    0.16.1.0\_0a6506a47-1
+  - **aws-neuronx-k8-plugin.x86\_64:**
     2.26.26.0-1
-  - **aws-neuronx-k8-scheduler.x86_64:**
+  - **aws-neuronx-k8-scheduler.x86\_64:**
     2.26.26.0-1
-  - **aws-neuronx-runtime-lib.x86_64:**
-    2.26.42.0_2ff3b5c7d-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-runtime-lib.x86\_64:**
+    2.26.42.0\_2ff3b5c7d-1
+  - **aws-neuronx-tools.x86\_64:**
     2.24.54.0-1
-  - **tensorflow-model-server-neuron.x86_64:**
+  - **tensorflow-model-server-neuron.x86\_64:**
     2.8.0.2.3.0.0-0
-  - **tensorflow-model-server-neuronx.x86_64:**
+  - **tensorflow-model-server-neuronx.x86\_64:**
     2.10.1.2.12.2.0-0
 
 K8s v1.30
@@ -7339,41 +7339,41 @@ K8s v1.30
 
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
-  - **aws-neuronx-oci-hook.x86_64:**
+  - **aws-neuronx-oci-hook.x86\_64:**
     2.4.4.0-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-tools.x86\_64:**
     2.18.3.0-1
   - **aws-neuron-dkms.noarch:**
     2.3.26.0-dkms
-  - **aws-neuron-k8-plugin.x86_64:**
+  - **aws-neuron-k8-plugin.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-k8-scheduler.x86_64:**
+  - **aws-neuron-k8-scheduler.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-runtime.x86_64:**
+  - **aws-neuron-runtime.x86\_64:**
     1.6.24.0-1
-  - **aws-neuron-runtime-base.x86_64:**
+  - **aws-neuron-runtime-base.x86\_64:**
     1.6.21.0-1
-  - **aws-neuron-tools.x86_64:**
+  - **aws-neuron-tools.x86\_64:**
     2.1.4.0-1
-  - **aws-neuronx-collectives.x86_64:**
-    2.26.43.0_47cc904ea-1
-  - **aws-neuronx-gpsimd-customop.x86_64:**
+  - **aws-neuronx-collectives.x86\_64:**
+    2.26.43.0\_47cc904ea-1
+  - **aws-neuronx-gpsimd-customop.x86\_64:**
     0.2.3.0-1
-  - **aws-neuronx-gpsimd-customop-lib.x86_64:**
+  - **aws-neuronx-gpsimd-customop-lib.x86\_64:**
     0.16.2.0-1
-  - **aws-neuronx-gpsimd-tools.x86_64:**
-    0.16.1.0_0a6506a47-1
-  - **aws-neuronx-k8-plugin.x86_64:**
+  - **aws-neuronx-gpsimd-tools.x86\_64:**
+    0.16.1.0\_0a6506a47-1
+  - **aws-neuronx-k8-plugin.x86\_64:**
     2.26.26.0-1
-  - **aws-neuronx-k8-scheduler.x86_64:**
+  - **aws-neuronx-k8-scheduler.x86\_64:**
     2.26.26.0-1
-  - **aws-neuronx-runtime-lib.x86_64:**
-    2.26.42.0_2ff3b5c7d-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-runtime-lib.x86\_64:**
+    2.26.42.0\_2ff3b5c7d-1
+  - **aws-neuronx-tools.x86\_64:**
     2.24.54.0-1
-  - **tensorflow-model-server-neuron.x86_64:**
+  - **tensorflow-model-server-neuron.x86\_64:**
     2.8.0.2.3.0.0-0
-  - **tensorflow-model-server-neuronx.x86_64:**
+  - **tensorflow-model-server-neuronx.x86\_64:**
     2.10.1.2.12.2.0-0
 
 K8s v1.31
@@ -7387,41 +7387,41 @@ K8s v1.31
 
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
-  - **aws-neuronx-oci-hook.x86_64:**
+  - **aws-neuronx-oci-hook.x86\_64:**
     2.4.4.0-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-tools.x86\_64:**
     2.18.3.0-1
   - **aws-neuron-dkms.noarch:**
     2.3.26.0-dkms
-  - **aws-neuron-k8-plugin.x86_64:**
+  - **aws-neuron-k8-plugin.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-k8-scheduler.x86_64:**
+  - **aws-neuron-k8-scheduler.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-runtime.x86_64:**
+  - **aws-neuron-runtime.x86\_64:**
     1.6.24.0-1
-  - **aws-neuron-runtime-base.x86_64:**
+  - **aws-neuron-runtime-base.x86\_64:**
     1.6.21.0-1
-  - **aws-neuron-tools.x86_64:**
+  - **aws-neuron-tools.x86\_64:**
     2.1.4.0-1
-  - **aws-neuronx-collectives.x86_64:**
-    2.26.43.0_47cc904ea-1
-  - **aws-neuronx-gpsimd-customop.x86_64:**
+  - **aws-neuronx-collectives.x86\_64:**
+    2.26.43.0\_47cc904ea-1
+  - **aws-neuronx-gpsimd-customop.x86\_64:**
     0.2.3.0-1
-  - **aws-neuronx-gpsimd-customop-lib.x86_64:**
+  - **aws-neuronx-gpsimd-customop-lib.x86\_64:**
     0.16.2.0-1
-  - **aws-neuronx-gpsimd-tools.x86_64:**
-    0.16.1.0_0a6506a47-1
-  - **aws-neuronx-k8-plugin.x86_64:**
+  - **aws-neuronx-gpsimd-tools.x86\_64:**
+    0.16.1.0\_0a6506a47-1
+  - **aws-neuronx-k8-plugin.x86\_64:**
     2.26.26.0-1
-  - **aws-neuronx-k8-scheduler.x86_64:**
+  - **aws-neuronx-k8-scheduler.x86\_64:**
     2.26.26.0-1
-  - **aws-neuronx-runtime-lib.x86_64:**
-    2.26.42.0_2ff3b5c7d-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-runtime-lib.x86\_64:**
+    2.26.42.0\_2ff3b5c7d-1
+  - **aws-neuronx-tools.x86\_64:**
     2.24.54.0-1
-  - **tensorflow-model-server-neuron.x86_64:**
+  - **tensorflow-model-server-neuron.x86\_64:**
     2.8.0.2.3.0.0-0
-  - **tensorflow-model-server-neuronx.x86_64:**
+  - **tensorflow-model-server-neuronx.x86\_64:**
     2.10.1.2.12.2.0-0
 
 K8s v1.32
@@ -7435,41 +7435,41 @@ K8s v1.32
 
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
-  - **aws-neuronx-oci-hook.x86_64:**
+  - **aws-neuronx-oci-hook.x86\_64:**
     2.4.4.0-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-tools.x86\_64:**
     2.18.3.0-1
   - **aws-neuron-dkms.noarch:**
     2.3.26.0-dkms
-  - **aws-neuron-k8-plugin.x86_64:**
+  - **aws-neuron-k8-plugin.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-k8-scheduler.x86_64:**
+  - **aws-neuron-k8-scheduler.x86\_64:**
     1.9.3.0-1
-  - **aws-neuron-runtime.x86_64:**
+  - **aws-neuron-runtime.x86\_64:**
     1.6.24.0-1
-  - **aws-neuron-runtime-base.x86_64:**
+  - **aws-neuron-runtime-base.x86\_64:**
     1.6.21.0-1
-  - **aws-neuron-tools.x86_64:**
+  - **aws-neuron-tools.x86\_64:**
     2.1.4.0-1
-  - **aws-neuronx-collectives.x86_64:**
-    2.26.43.0_47cc904ea-1
-  - **aws-neuronx-gpsimd-customop.x86_64:**
+  - **aws-neuronx-collectives.x86\_64:**
+    2.26.43.0\_47cc904ea-1
+  - **aws-neuronx-gpsimd-customop.x86\_64:**
     0.2.3.0-1
-  - **aws-neuronx-gpsimd-customop-lib.x86_64:**
+  - **aws-neuronx-gpsimd-customop-lib.x86\_64:**
     0.16.2.0-1
-  - **aws-neuronx-gpsimd-tools.x86_64:**
-    0.16.1.0_0a6506a47-1
-  - **aws-neuronx-k8-plugin.x86_64:**
+  - **aws-neuronx-gpsimd-tools.x86\_64:**
+    0.16.1.0\_0a6506a47-1
+  - **aws-neuronx-k8-plugin.x86\_64:**
     2.26.26.0-1
-  - **aws-neuronx-k8-scheduler.x86_64:**
+  - **aws-neuronx-k8-scheduler.x86\_64:**
     2.26.26.0-1
-  - **aws-neuronx-runtime-lib.x86_64:**
-    2.26.42.0_2ff3b5c7d-1
-  - **aws-neuronx-tools.x86_64:**
+  - **aws-neuronx-runtime-lib.x86\_64:**
+    2.26.42.0\_2ff3b5c7d-1
+  - **aws-neuronx-tools.x86\_64:**
     2.24.54.0-1
-  - **tensorflow-model-server-neuron.x86_64:**
+  - **tensorflow-model-server-neuron.x86\_64:**
     2.8.0.2.3.0.0-0
-  - **tensorflow-model-server-neuronx.x86_64:**
+  - **tensorflow-model-server-neuronx.x86\_64:**
     2.10.1.2.12.2.0-0
 
 ## SageMaker HyperPod AMI releases for Amazon EKS: June 09, 2025
@@ -7520,18 +7520,18 @@ Neuron SDK Updates
 
 - **aws-neuronx-dkms.noarch:**
   2.20.74.0 (from 2.20.28.0)
-- **aws-neuronx-collectives.x86_64:**
-  2.25.65.0_9858ac9a1-1 (from 2.24.59.0_838c7fc8b-1)
-- **aws-neuronx-runtime-lib.x86_64:**
-  2.25.57.0_166c7a468-1 (from 2.24.53.0_f239092cc-1)
-- **aws-neuronx-tools.x86_64:**
+- **aws-neuronx-collectives.x86\_64:**
+  2.25.65.0\_9858ac9a1-1 (from 2.24.59.0\_838c7fc8b-1)
+- **aws-neuronx-runtime-lib.x86\_64:**
+  2.25.57.0\_166c7a468-1 (from 2.24.53.0\_f239092cc-1)
+- **aws-neuronx-tools.x86\_64:**
   2.23.9.0 (from 2.22.61.0)
-- **aws-neuronx-gpsimd-customop-lib.x86_64:**
+- **aws-neuronx-gpsimd-customop-lib.x86\_64:**
   0.15.12.0 (from 0.14.12.0)
-- **aws-neuronx-gpsimd-tools.x86_64:**
-  0.15.1.0_5d31b6a3f (from 0.14.6.0_241eb69f4)
-- **aws-neuronx-k8-plugin.x86_64:** 2.25.24.0 (from 2.24.23.0)
-- **aws-neuronx-k8-scheduler.x86_64:** 2.25.24.0 (from
+- **aws-neuronx-gpsimd-tools.x86\_64:**
+  0.15.1.0\_5d31b6a3f (from 0.14.6.0\_241eb69f4)
+- **aws-neuronx-k8-plugin.x86\_64:** 2.25.24.0 (from 2.24.23.0)
+- **aws-neuronx-k8-scheduler.x86\_64:** 2.25.24.0 (from
   2.24.23.0)
 
 **Support notes:**
@@ -7547,7 +7547,7 @@ Neuron SDK Updates
 
 Installed the latest version of AWS Neuron SDK
 
-- **tensorflow-model-server-neuron.x86_64**
+- **tensorflow-model-server-neuron.x86\_64**
   2.8.0.2.3.0.0-0 neuron
 
 ## SageMaker HyperPod AMI releases for Amazon EKS: April 28, 2025
@@ -7564,38 +7564,38 @@ Installed the latest version of AWS Neuron SDK
 
 - **aws-neuronx-dkms.noarch:**
   2.20.28.0-dkms
-- **aws-neuronx-oci-hook.x86_64:**
+- **aws-neuronx-oci-hook.x86\_64:**
   2.4.4.0-1
-- **aws-neuronx-tools.x86_64:**
+- **aws-neuronx-tools.x86\_64:**
   2.18.3.0-1
 - **aws-neuron-dkms.noarch:**
   2.3.26.0-dkms
-- **aws-neuron-k8-plugin.x86_64:**
+- **aws-neuron-k8-plugin.x86\_64:**
   1.9.3.0-1
-- **aws-neuron-k8-scheduler.x86_64:** 1.9.3.0-1
-- **aws-neuron-runtime.x86_64:**
+- **aws-neuron-k8-scheduler.x86\_64:** 1.9.3.0-1
+- **aws-neuron-runtime.x86\_64:**
   1.6.24.0-1
-- **aws-neuron-runtime-base.x86_64:**
+- **aws-neuron-runtime-base.x86\_64:**
   1.6.21.0-1
-- **aws-neuron-tools.x86_64:**
+- **aws-neuron-tools.x86\_64:**
   2.1.4.0-1
-- **aws-neuronx-collectives.x86_64:**
-  2.24.59.0_838c7fc8b-1
-- **aws-neuronx-gpsimd-customop.x86_64:**
+- **aws-neuronx-collectives.x86\_64:**
+  2.24.59.0\_838c7fc8b-1
+- **aws-neuronx-gpsimd-customop.x86\_64:**
   0.2.3.0-1
-- **aws-neuronx-gpsimd-customop-lib.x86_64:**
+- **aws-neuronx-gpsimd-customop-lib.x86\_64:**
   0.14.12.0-1
-- **aws-neuronx-gpsimd-tools.x86_64:**
-  0.14.6.0_241eb69f4-1
-- **aws-neuronx-k8-plugin.x86_64:**
+- **aws-neuronx-gpsimd-tools.x86\_64:**
+  0.14.6.0\_241eb69f4-1
+- **aws-neuronx-k8-plugin.x86\_64:**
   2.24.23.0-1
-- **aws-neuronx-k8-scheduler.x86_64:**
+- **aws-neuronx-k8-scheduler.x86\_64:**
   2.24.23.0-1
-- **aws-neuronx-runtime-lib.x86_64:**
-  2.24.53.0_f239092cc-1
-- **aws-neuronx-tools.x86_64:**
+- **aws-neuronx-runtime-lib.x86\_64:**
+  2.24.53.0\_f239092cc-1
+- **aws-neuronx-tools.x86\_64:**
   2.22.61.0-1
-- **tensorflow-model-server-neuronx.x86_64:**
+- **tensorflow-model-server-neuronx.x86\_64:**
   2.10.1.2.12.2.0-0
 
 ## SageMaker HyperPod AMI releases for Amazon EKS: April 18, 2025
@@ -7663,26 +7663,26 @@ Installed the latest version of neuron SDK
 
 - **aws-neuronx-dkms.noarch:**
   2.19.64.0-dkms @neuron
-- **aws-neuronx-oci-hook.x86_64:**
+- **aws-neuronx-oci-hook.x86\_64:**
   2.4.4.0-1 @neuron
-- **aws-neuronx-tools.x86_64:**
+- **aws-neuronx-tools.x86\_64:**
   2.18.3.0-1 @neuron
-- **aws-neuronx-collectives.x86_64:**
-  2.23.135.0_3e70920f2-1 neuron
-- **aws-neuronx-gpsimd-customop.x86_64:** 0.2.3.0-1
+- **aws-neuronx-collectives.x86\_64:**
+  2.23.135.0\_3e70920f2-1 neuron
+- **aws-neuronx-gpsimd-customop.x86\_64:** 0.2.3.0-1
   neuron
-- **aws-neuronx-gpsimd-customop-lib.x86_64**
-- **aws-neuronx-gpsimd-tools.x86_64:**
-  0.13.2.0_94ba34927-1 neuron
-- **aws-neuronx-k8-plugin.x86_64:**
+- **aws-neuronx-gpsimd-customop-lib.x86\_64**
+- **aws-neuronx-gpsimd-tools.x86\_64:**
+  0.13.2.0\_94ba34927-1 neuron
+- **aws-neuronx-k8-plugin.x86\_64:**
   2.23.45.0-1 neuron
-- **aws-neuronx-k8-scheduler.x86_64:** 2.23.45.0-1
+- **aws-neuronx-k8-scheduler.x86\_64:** 2.23.45.0-1
   neuron
-- **aws-neuronx-runtime-lib.x86_64:**
-  2.23.112.0_9b5179492-1 neuron
-- **aws-neuronx-tools.x86_64:**
+- **aws-neuronx-runtime-lib.x86\_64:**
+  2.23.112.0\_9b5179492-1 neuron
+- **aws-neuronx-tools.x86\_64:**
   2.20.204.0-1 neuron
-- **tensorflow-model-server-neuronx.x86_64**
+- **tensorflow-model-server-neuronx.x86\_64**
 
 ## SageMaker HyperPod AMI releases for Amazon EKS: January 22, 2025
 

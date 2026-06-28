@@ -434,10 +434,10 @@ environment.
 
     	```
     	import boto3
-    	import sagemaker
+    	from sagemaker.core.helper.session_helper import Session
     	from sagemaker.remote_function import remote
 
-    	sm_session = sagemaker.Session(boto_session=boto3.session.Session(region_name="`us-west-2`"))
+    	sm_session = Session(boto_session=boto3.session.Session(region_name="`us-west-2`"))
     	settings = dict(
     	    sagemaker_session=sm_session,
     	    role=`<The IAM role name>`,
@@ -462,10 +462,10 @@ environment.
 
     ```
     import boto3
-    import sagemaker
+    from sagemaker.core.helper.session_helper import Session
     from sagemaker.remote_function import remote
 
-    sm_session = sagemaker.Session(boto_session=boto3.session.Session(region_name="`us-west-2`"))
+    sm_session = Session(boto_session=boto3.session.Session(region_name="`us-west-2`"))
     settings = dict(
         sagemaker_session=sm_session,
         role=`<The IAM role name>`,

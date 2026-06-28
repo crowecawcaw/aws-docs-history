@@ -54,7 +54,7 @@ operation.
    workers (world size) and assigns small batches (batch shards) to the workers.
 
    - The size of the global batch is `(number of nodes in a cluster) * (number of
-GPUs per node) * (per batch shard)`.
+  GPUs per node) * (per batch shard)`.
    - A batch shard (small batch) is a subset of dataset assigned to each GPU (worker)
      per iteration.
 

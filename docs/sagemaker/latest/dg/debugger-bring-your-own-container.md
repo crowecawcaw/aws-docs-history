@@ -1,7 +1,7 @@
 # Use Debugger with custom training containers
 
 Amazon SageMaker Debugger is available for any deep learning models that you bring to Amazon SageMaker AI. The AWS CLI,
-SageMaker AI `Estimator` API, and the Debugger APIs enable you to use any Docker base
+SageMaker AI `ModelTrainer` API, and the Debugger APIs enable you to use any Docker base
 images to build and customize containers to train your models. To use Debugger with customized
 containers, you need to make a minimal change to your training script to implement the
 Debugger hook callback and retrieve tensors from training jobs. The following sections will
@@ -110,7 +110,7 @@ script mode, open this notebook and put it and [the previous Debugger in a Deep 
 example](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/tensorflow2/tensorflow2_zero_code_change/tf2-keras-default-container.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/tensorflow2/tensorflow2_zero_code_change/tf2-keras-default-container.html") side by side.
 
 In script mode, the hook configuration part is removed from the script in which
-you set the estimator. Instead, the Debugger hook feature is merged into the training
+you set the ModelTrainer. Instead, the Debugger hook feature is merged into the training
 script, [TensorFlow Keras ResNet training script in script mode](https://github.com/awslabs/amazon-sagemaker-examples/blob/master/sagemaker-debugger/tensorflow2/tensorflow2_keras_custom_container/src/tf_keras_resnet_byoc.py "https://github.com/awslabs/amazon-sagemaker-examples/blob/master/sagemaker-debugger/tensorflow2/tensorflow2_keras_custom_container/src/tf_keras_resnet_byoc.py"). The training
 script imports the `smdebug` library in the required TensorFlow Keras
 environment to communicate with the TensorFlow ResNet50 algorithm. It also manually
@@ -130,9 +130,8 @@ This notebook enables Debugger in script mode in PyTorch v1.3.1 framework. PyTor
 v1.3.1 is supported by SageMaker AI containers, and this example shows details of how to
 modify a training script.
 
-The SageMaker AI PyTorch estimator is already in script mode by default. In the notebook,
-the line to activate `script_mode` is not included in the estimator
-configuration.
+The SageMaker AI PyTorch ModelTrainer is already in script mode by default. In the notebook,
+the line to activate `script_mode` is not included in the ModelTrainer configuration.
 
 This notebook shows detailed steps to change [the
 original PyTorch training script](https://github.com/pytorch/examples/blob/master/mnist/main.py "https://github.com/pytorch/examples/blob/master/mnist/main.py") to a modified version to enable
@@ -204,13 +203,49 @@ in to Amazon ECR and access to the Deep Learning Container image repository.
 
 ## Run and debug training jobs using the custom training container
 
-After you build and push your docker container to Amazon ECR, configure a SageMaker AI estimator
+After you build and push your docker container to Amazon ECR, configure a SageMaker AI ModelTrainer
 with your training script and the Debugger-specific parameters. After you execute the
-`estimator.fit()`, Debugger will collect output tensors, monitor them, and
+`model_trainer.train()`, Debugger will collect output tensors, monitor them, and
 detect training issues. Using the saved tensors, you can further analyze the training
 job by using the `smdebug` core features and tools. Configuring a workflow of
 Debugger rule monitoring process with Amazon CloudWatch Events and AWS Lambda, you can automate a stopping
 training job process whenever the Debugger rules spots training issues.
+
+SageMaker Python SDK v3
+
+```
+import sagemaker
+from sagemaker.train import ModelTrainer
+from sagemaker.core.debugger import Rule, DebuggerHookConfig, CollectionConfig, rule_configs
+from sagemaker.core.helper.session_helper import get_execution_role
+
+`profiler_config`=`ProfilerConfig(...)`
+`debugger_hook_config`=`DebuggerHookConfig(...)`
+`rules`=[
+    `Rule.sagemaker(rule_configs.built_in_rule())`,
+    `ProfilerRule.sagemaker(rule_configs.BuiltInRule())`
+]
+
+from sagemaker.train.configs import SourceCode, Compute
+
+model_trainer=ModelTrainer(
+    training_image=byoc_image_uri,
+    source_code=SourceCode(entry_script="./debugger_custom_container_test_folder/your-training-script.py"),
+    role=get_execution_role(),
+    base_job_name='debugger-custom-container-test',
+    compute=Compute(instance_type='ml.p3.2xlarge', instance_count=1),
+
+    # Debugger-specific parameters
+    profiler_config=`profiler_config`,
+    debugger_hook_config=`debugger_hook_config`,
+    rules=`rules`
+)
+
+# start training
+model_trainer.train()
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import sagemaker

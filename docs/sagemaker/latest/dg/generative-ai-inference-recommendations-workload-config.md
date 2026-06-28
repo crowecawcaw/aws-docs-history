@@ -319,7 +319,7 @@ format. Common keys include
 custom-format endpoints,
 `response_field:jmespath.query` for response
 extraction, and
-`ignore_eos:true` to force max_tokens
+`ignore_eos:true` to force max\_tokens
 generation.
 
 `random_seed`

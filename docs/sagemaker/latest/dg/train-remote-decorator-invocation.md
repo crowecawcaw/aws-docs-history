@@ -477,7 +477,7 @@ mechanism without optimizing compute resource allocation. In the previous code
 example, `RemoteExecutor` doesn’t reserve compute resources for the two
 parallel jobs before any jobs are submitted. For more information about
 `max_parallel_job` or other parameters for the @remote decorator, see
-[Remote function classes and methods specification](https://sagemaker.readthedocs.io/en/stable/remote_function/sagemaker.remote_function.html "https://sagemaker.readthedocs.io/en/stable/remote_function/sagemaker.remote_function.html").
+[Remote function classes and methods specification](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html").
 
 ### Future class for the `RemoteExecutor` API
 

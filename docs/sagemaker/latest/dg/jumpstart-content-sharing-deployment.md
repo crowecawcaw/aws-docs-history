@@ -16,8 +16,8 @@ your model for inference, follow these steps:
    your chosen container. Your inference script should include a function for model
    loading, and optionally functions generating predictions, and input and output
    processing. For more information on creating inference scripts for the framework of your
-   choice, see [Frameworks](https://sagemaker.readthedocs.io/en/stable/frameworks/index.html "https://sagemaker.readthedocs.io/en/stable/frameworks/index.html") in the SageMaker Python SDK documentation. For example, for TensorFlow, see
-   [How to implement the pre- and/or post-processing handler(s)](https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/deploying_tensorflow_serving.html#how-to-implement-the-pre-and-or-post-processing-handler-s "https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/deploying_tensorflow_serving.html#how-to-implement-the-pre-and-or-post-processing-handler-s").
+   choice, see [Frameworks](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") in the SageMaker Python SDK documentation. For example, for TensorFlow, see
+   [How to implement the pre- and/or post-processing handler(s)](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html").
 3. Provide an Amazon S3 URI for model artifacts. Model artifacts are the output that results
    from training a model, and typically consist of trained parameters, a model definition
    that describes how to compute inferences, and other metadata. If you trained your model

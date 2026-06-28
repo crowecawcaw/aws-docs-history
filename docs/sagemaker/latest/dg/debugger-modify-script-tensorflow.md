@@ -15,9 +15,9 @@ hook=smd.get_hook(hook_type="keras", create_if_not_exists=True)
 This creates a hook when you start a SageMaker training job. When you launch a training job
 in [Launch training jobs with Debugger using the SageMaker Python SDK](debugger-configuration-for-debugging.md "debugger-configuration-for-debugging.md") with any of the
 `DebuggerHookConfig`, `TensorBoardConfig`, or
-`Rules` in your estimator, SageMaker AI adds a JSON configuration file to your
+`Rules` in your ModelTrainer, SageMaker AI adds a JSON configuration file to your
 training instance that is picked up by the `smd.get_hook` method. Note that
-if you do not include any of the configuration APIs in your estimator, there will be no
+if you do not include any of the configuration APIs in your ModelTrainer, there will be no
 configuration file for the hook to find, and the function returns
 `None`.
 

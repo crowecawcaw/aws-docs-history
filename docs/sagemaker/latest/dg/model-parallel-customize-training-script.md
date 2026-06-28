@@ -129,7 +129,7 @@ context manager for manual partitioning, see the following pages.
 
 To use this option after making modifications, in Step 2, you'll need to set
 `auto_partition` to `False`, and define a
-`default_partition` in the framework estimator class of the SageMaker
+`default_partition` in the ModelTrainer class of the SageMaker
 Python SDK. Any operation that is not explicitly placed on a partition through the
 `smp.partition` context manager is executed on the
 `default_partition`. In this case, the automated splitting logic is

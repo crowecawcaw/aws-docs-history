@@ -140,7 +140,7 @@ estimator.fit(accept_eula=False,
 
 The `accept_eula` value is `None` by default and
 must be explicitly redefined as `"true"` within the `fit()` method in order to
-accept the end-user license agreement. For more information, see [JumpStartEstimator](https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.jumpstart.estimator.JumpStartEstimator "https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.jumpstart.estimator.JumpStartEstimator").
+accept the end-user license agreement. For more information, see [JumpStartEstimator](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html").
 
 #### EULA acceptance SageMaker Python SDK versions earlier than 2.198.0
 

@@ -100,7 +100,7 @@ installation section.
    to open the Amazon SageMaker Studio Classic Launcher. This launcher must be opened from your root
    directory. For more information, see [Use the Amazon SageMaker Studio Classic Launcher](studio-launcher.md "studio-launcher.md")
 2. In the Launcher, under `Utilities and files`, click `System
-terminal`.
+ terminal`.
 3. From the terminal, run the following commands. Copy `EFS_PATH_LOG_DIR` from
    the Jupyter notebook. You must run this from the `/home/sagemaker-user` root
    directory.

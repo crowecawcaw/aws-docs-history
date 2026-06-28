@@ -571,7 +571,7 @@ Changes to the field `invocationEndpoint` in the spec of the
 
 **Installing Helm:**
 
-Follow: [https://github.com/aws/sagemaker-hyperpod-cli/tree/main/helm_chart](https://github.com/aws/sagemaker-hyperpod-cli/tree/main/helm_chart "https://github.com/aws/sagemaker-hyperpod-cli/tree/main/helm_chart")
+Follow: [https://github.com/aws/sagemaker-hyperpod-cli/tree/main/helm\_chart](https://github.com/aws/sagemaker-hyperpod-cli/tree/main/helm_chart "https://github.com/aws/sagemaker-hyperpod-cli/tree/main/helm_chart")
 
 If you are focused on only installing the inference operator, after step 1 i.e.
 `Set Up Your Helm Environment`, do

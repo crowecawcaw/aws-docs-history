@@ -54,7 +54,7 @@ We support 2 types of sharing patterns: “Public” and “OwnerOnly”. Both t
 Admin users are defined by:
 
 1. Part of the `system:masters` Kubernetes group
-2. Part of the Kubernetes group defined in the CLUSTER_ADMIN_GROUP
+2. Part of the Kubernetes group defined in the CLUSTER\_ADMIN\_GROUP
    environment variable in the helm chart.
 
 A user’s groups can be configured using EKS access entries. A space can be defined

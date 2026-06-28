@@ -97,7 +97,7 @@ To choose the inference response content in HPO mode: Add the
 variables to the second and third containers that are generated in HPO mode for
 classification problems.
 
-The keys supported by the second container (algorithm) are predicted_label,
+The keys supported by the second container (algorithm) are predicted\_label,
 probability, and probabilities. Note that `labels` is deliberately not added to
 `SAGEMAKER_INFERENCE_SUPPORTED`.
 

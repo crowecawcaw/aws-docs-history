@@ -106,10 +106,10 @@ Lines** format. The probabilities can be extracted by
 label headers can be extracted by `JMESPath` expression
 `predicted labels`.
 
-| Model container input | Model container output                                                                                                                             |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Single record         | '{"predicted_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]}'                                                                          |
-| Two records           | '{"predicted_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]}\n{"predicted_labels":["cat","dog","fish"],"probabilities":[0.2,0.5,0.3]}' |
+| Model container input | Model container output                                                                                                                               |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Single record         | '{"predicted\_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]}'                                                                           |
+| Two records           | '{"predicted\_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]}\n{"predicted\_labels":["cat","dog","fish"],"probabilities":[0.2,0.5,0.3]}' |
 
 Predicted labels header and probabilities
 In this example, a multi-class model container outputs a list of label
@@ -119,10 +119,10 @@ expression `probability`, and the label headers can be
 extracted by `JMESPath` expression `predicted
  labels`.
 
-| Model container input | Model container output                                                                                                                             |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Single record         | '{"predicted_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]}'                                                                          |
-| Two records           | '{"predicted_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]}\n{"predicted_labels":["cat","dog","fish"],"probabilities":[0.2,0.5,0.3]}' |
+| Model container input | Model container output                                                                                                                               |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Single record         | '{"predicted\_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]}'                                                                           |
+| Two records           | '{"predicted\_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]}\n{"predicted\_labels":["cat","dog","fish"],"probabilities":[0.2,0.5,0.3]}' |
 
 ## Model container validation
 
@@ -160,7 +160,7 @@ The parameters are defined, as follows:
 - `$CLI_BINARY_FORMAT`: The format of the command line interface
   (CLI) parameter. For AWS CLI v1, this parameter should remain blank. For v2,
   this parameter should be set to `--cli-binary-format
-raw-in-base64-out`.
+ raw-in-base64-out`.
 
 ###### Note
 

@@ -24,10 +24,10 @@ Alternatively, you can chose the automatic deployment option when creating your
 fine-tuning experiment in Autopilot. For information on setting up the automatic deployment
 of models, see [How to enable automatic deployment](autopilot-create-experiment-finetune-llms.md#autopilot-llms-finetuning-auto-model-deployment "autopilot-create-experiment-finetune-llms.md#autopilot-llms-finetuning-auto-model-deployment").
 
-You can also use the SageMaker Python SDK and the `JumpStartModel` class to
+You can also use the SageMaker Python SDK and the `ModelBuilder.from_jumpstart_config` method to
 perform inferences with models fine-tuned by Autopilot. This can be done by specifying a
 custom location for the model's artifact in Amazon S3. For information on defining your model
-as a JumpStart model and deploying your model for inference, see [Low-code deployment with the JumpStartModel class](https://sagemaker.readthedocs.io/en/stable/overview.html#deploy-a-pre-trained-model-directly-to-a-sagemaker-endpoint "https://sagemaker.readthedocs.io/en/stable/overview.html#deploy-a-pre-trained-model-directly-to-a-sagemaker-endpoint").
+as a JumpStart model and deploying your model for inference, see [Low-code deployment with the ModelBuilder class](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/").
 
 1. **Obtain the candidate inference container
    definitions**

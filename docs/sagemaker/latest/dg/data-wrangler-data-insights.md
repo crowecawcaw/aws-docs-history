@@ -363,4 +363,4 @@ The following describes the patterns that Data Wrangler can recognize:
 | {upper}      | An uppercase word                      |
 | {whitespace} | whitespace characters                  |
 
-A word character is either an underscore or a character that might appear in a word in any language. For example, the strings 'Hello_word' and 'écoute' both consist of word characters. 'H' and 'é' are both examples of word characters.
+A word character is either an underscore or a character that might appear in a word in any language. For example, the strings 'Hello\_word' and 'écoute' both consist of word characters. 'H' and 'é' are both examples of word characters.

@@ -13,27 +13,26 @@ launch a SageMaker Clarify processing job.
 
 ###### Configure a SageMaker Clarify processing job using the API
 
-1.  Define the configuration objects for each portion of the job configuration. These
-    portions can include the following:
+1. Define the configuration objects for each portion of the job configuration. These
+   portions can include the following:
 
-        * The input dataset and output location: [DataConfig](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.DataConfig "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.DataConfig").
-        * The model or endpoint to be analyzed: [ModelConfig](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.ModelConfig "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.ModelConfig").
-        * Bias analysis parameters: [BiasConfig](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.BiasConfig "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.BiasConfig").
-        * SHapley Additive exPlanations (SHAP) analysis parameters:
-         [SHAPConfig](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.SHAPConfig "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.SHAPConfig").
-        * Asymmetric Shapley value analysis parameters (for time series only):
-         [AsymmetricShapleyValueConfig](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.AsymmetricShapleyValueConfig "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.AsymmetricShapleyValueConfig").
+   - The input dataset and output location: [DataConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html").
+   - The model or endpoint to be analyzed: [ModelConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html").
+   - Bias analysis parameters: [BiasConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html").
+   - SHapley Additive exPlanations (SHAP) analysis parameters:
+     [SHAPConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html").
+   - Asymmetric Shapley value analysis parameters (for time series only):
+     [AsymmetricShapleyValueConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html").
+     The configuration objects for a SageMaker Clarify processing job vary for different types of
+     data formats and use cases. Configuration examples for tabular data in [CSV](#clarify-processing-job-run-tabular-csv "#clarify-processing-job-run-tabular-csv") and [JSON Lines](#clarify-processing-job-run-tabular-jsonlines "#clarify-processing-job-run-tabular-jsonlines") format, natural
+     language processing ([NLP](#clarify-processing-job-run-tabular-nlp "#clarify-processing-job-run-tabular-nlp")),
+     [computer vision](#clarify-processing-job-run-cv "#clarify-processing-job-run-cv") (CV), and time series (TS)
+     problems are provided in the
+     following sections.
 
-    The configuration objects for a SageMaker Clarify processing job vary for different types of
-    data formats and use cases. Configuration examples for tabular data in [CSV](#clarify-processing-job-run-tabular-csv "#clarify-processing-job-run-tabular-csv") and [JSON Lines](#clarify-processing-job-run-tabular-jsonlines "#clarify-processing-job-run-tabular-jsonlines") format, natural
-    language processing ([NLP](#clarify-processing-job-run-tabular-nlp "#clarify-processing-job-run-tabular-nlp")),
-    [computer vision](#clarify-processing-job-run-cv "#clarify-processing-job-run-cv") (CV), and time series (TS)
-    problems are provided in the
-    following sections.
-
-2.  Create a `SageMakerClarifyProcessor` object and initialize it with
-    parameters that specify the job resources. These resources include parameters such
-    as the number of compute instances to use.
+2. Create a `SageMakerClarifyProcessor` object and initialize it with
+   parameters that specify the job resources. These resources include parameters such
+   as the number of compute instances to use.
 
 The following code example shows how to create a
 `SageMakerClarifyProcessor` object and instruct it to use one
@@ -50,19 +49,18 @@ clarify_processor = clarify.SageMakerClarifyProcessor(
 )
 ```
 
-3.  Call the specific run method of the [SageMakerClarifyProcessor](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.SageMakerClarifyProcessor.run "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.SageMakerClarifyProcessor.run") object with the configuration objects for
-    your use case to launch the job. These run methods include the following:
+3. Call the specific run method of the [SageMakerClarifyProcessor](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") object with the configuration objects for
+   your use case to launch the job. These run methods include the following:
 
-        * `run_pre_training_bias`
-        * `run_post_training_bias`
-        * `run_bias`
-        * `run_explainability`
-        * `run_bias_and_explainability`
-
-    This `SageMakerClarifyProcessor` handles several tasks behind the
-    scenes. These tasks include retrieving the SageMaker Clarify container image universal resource
-    identifier (URI), composing an analysis configuration file based on the provided
-    configuration objects, uploading the file to an Amazon S3 bucket, and [configuring the SageMaker Clarify processing job](clarify-processing-job-configure-parameters.md "clarify-processing-job-configure-parameters.md").
+   - `run_pre_training_bias`
+   - `run_post_training_bias`
+   - `run_bias`
+   - `run_explainability`
+   - `run_bias_and_explainability`
+     This `SageMakerClarifyProcessor` handles several tasks behind the
+     scenes. These tasks include retrieving the SageMaker Clarify container image universal resource
+     identifier (URI), composing an analysis configuration file based on the provided
+     configuration objects, uploading the file to an Amazon S3 bucket, and [configuring the SageMaker Clarify processing job](clarify-processing-job-configure-parameters.md "clarify-processing-job-configure-parameters.md").
 
 The following expandable sections show how to compute **pre-training** and **post-training bias
 metrics**, **SHAP values**,
@@ -890,7 +888,7 @@ You can control the structure of the payload sent from the SageMaker Clarify pro
 In the following code sample, a `ModelConfig` configuration object
 directs a time series forecasting explainability job to aggregate records using
 JMESPath syntax into `'{"instances": $records}'` , where the structure
-of each record is defined with the following record_template `'{"start": 
+of each record is defined with the following record\_template `'{"start": 
  $start_time, "target": $target_time_series, "dynamic_feat": $related_time_series, 
  "cat": $static_covariates}'`. Note that `$start_time`,
 `$target_time_series`, `$related_time_series`, and
@@ -955,12 +953,12 @@ spark_clarify_processor = clarify.SageMakerClarifyProcessor(
 )
 ```
 
-If you set the `save_local_shap_values` parameter of [SHAPConfig](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.SHAPConfig "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.SHAPConfig") to `True`, the SageMaker Clarify processing job saves the local
+If you set the `save_local_shap_values` parameter of [SHAPConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") to `True`, the SageMaker Clarify processing job saves the local
 SHAP value as multiple part files in the job output location.
 
 To associate the local SHAP values to the input dataset instances, use
 the `joinsource` parameter of `DataConfig`. If you add more
 compute instances, we recommend that you also increase the `instance_count`
-of [ModelConfig](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.ModelConfig "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.ModelConfig") for the ephemeral endpoint. This prevents Spark workers'
+of [ModelConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") for the ephemeral endpoint. This prevents Spark workers'
 concurrent inference requests from overwhelming the endpoint. Specifically, we recommend
 that you use a one-to-one ratio of endpoint-to-processing instances.

@@ -167,6 +167,49 @@ cache to store your pip dependencies for use in a subsequent job. The subsequent
 must run within the time frame given by the parameter
 `keep_alive_period_in_seconds`.
 
+SageMaker Python SDK v3
+
+```
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute, SourceCode
+from sagemaker.core.helper.session_helper import Session, get_execution_role
+from sagemaker.core import image_uris
+
+# Creates a SageMaker session and gets execution role
+session = Session()
+role = get_execution_role()
+
+# Retrieve the TensorFlow training image
+training_image = image_uris.retrieve(
+    framework="tensorflow", region=session.boto_region_name,
+    version="`2.2`", py_version="`py37`",
+    instance_type="`ml.g4dn.xlarge`", image_scope="training"
+)
+
+# Creates an example ModelTrainer with warm pool enabled
+model_trainer = ModelTrainer(
+    training_image=training_image,
+    source_code=SourceCode(source_dir='`code`', entry_script='`my-training-script.py`'),
+    role=role,
+    compute=Compute(
+        instance_type='`ml.g4dn.xlarge`',
+        instance_count=`1`,
+        volume_size_in_gb=`250`,
+        keep_alive_period_in_seconds=`1800`,
+    ),
+    hyperparameters={
+        "batch-size": "`512`",
+        "epochs": "`1`",
+        "learning-rate": "`1e-3`",
+        "beta_1": "`0.9`",
+        "beta_2": "`0.999`",
+    },
+    environment={"PIP_CACHE_DIR": "/opt/ml/sagemaker/warmpoolcache/pip"}
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 import sagemakerfrom sagemaker import get_execution_rolefrom sagemaker.tensorflow import TensorFlow
 # Creates a SageMaker session and gets execution role
@@ -197,7 +240,7 @@ estimator = TensorFlow(
 )
 ```
 
-In the previous code example, using the [environment](https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#estimators "https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#estimators") parameter exports the environment variable
+In the previous code example, using the [environment](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") parameter exports the environment variable
 `PIP_CACHE_DIRECTORY` to point to the directory
 `/opt/ml/sagemaker/warmpoolcache/pip`. Exporting this environment
 variable will change where pip stores its cache to the new location. Any directory,

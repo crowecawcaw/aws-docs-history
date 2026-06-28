@@ -22,7 +22,7 @@ with open(image, 'rb') as f:
 response = runtime.invoke_endpoint(EndpointName=endpoint, ContentType='application/x-image', Body=payload)
 
 # Unpack response
-result = json.loads(response['Body'].read().decode())
+result = json.loads(response['Body'].read().decode('utf-8'))
 ```
 
 TensorFlow
@@ -67,7 +67,7 @@ csv_text = '1,-1.0,1.0,1.5,2.6'
 # Send CSV text via InvokeEndpoint API
 response = runtime.invoke_endpoint(EndpointName=endpoint, ContentType='text/csv', Body=csv_text)
 # Unpack response
-result = json.loads(response['Body'].read().decode())
+result = json.loads(response['Body'].read().decode('utf-8'))
 ```
 
 Note that BYOM allows for a custom content type. For more information,

@@ -20,8 +20,8 @@ JSON format and run them using the AWS CLI commands.
 1. Prepare lifecycle configuration scripts and upload them to an S3 bucket,
    such as
    `s3://sagemaker-`amzn-s3-demo-bucket`/`lifecycle-script-directory/src/``.
-The following step 2 assumes that there’s an entry point script named
-`on_create.sh` in the specified S3 bucket.
+   The following step 2 assumes that there’s an entry point script named
+   `on_create.sh` in the specified S3 bucket.
 
 ###### Important
 
@@ -176,72 +176,60 @@ You can use the `UpdateCluster` API to scale down or remove entire
 instance groups from your SageMaker HyperPod cluster. For additional instructions on
 how to scale down or delete instance groups, see [Scale down a cluster](#sagemaker-hyperpod-operate-slurm-cli-command-scale-down "#sagemaker-hyperpod-operate-slurm-cli-command-scale-down").
 
-1.  Create an `UpdateCluster` request file in JSON format. Make
-    sure that you specify the right cluster name and instance group name to
-    update. You can change the instance type, the number of instances, the
-    lifecycle configuration entrypoint script, and the path to the
-    script.
+1. Create an `UpdateCluster` request file in JSON format. Make
+   sure that you specify the right cluster name and instance group name to
+   update. You can change the instance type, the number of instances, the
+   lifecycle configuration entrypoint script, and the path to the
+   script.
 
-        1. For `ClusterName`, specify the name of the cluster you
-         want to update.
-        2. For `InstanceGroupName`
+   1. For `ClusterName`, specify the name of the cluster you
+      want to update.
+   2. For `InstanceGroupName`
 
+      1. To update an existing instance group, specify the name of
+         the instance group you want to update.
+      2. To add a new instance group, specify a new name not
+         existing in your cluster.
 
+   3. For `InstanceType`
 
+      1. To update an existing instance group, you must match the
+         instance type you initially specified to the group.
+      2. To add a new instance group, specify an instance type you
+         want to configure the group with.
 
-        	1. To update an existing instance group, specify the name of
-        	 the instance group you want to update.
-        	2. To add a new instance group, specify a new name not
-        	 existing in your cluster.
-        3. For `InstanceType`
+   4. For `InstanceCount`
 
+      1. To update an existing instance group, specify an integer
+         that corresponds to your desired number of instances. You
+         can provide a higher or lower value (down to 0) to scale the
+         instance group up or down.
+      2. To add a new instance group, specify an integer greater or
+         equal to 1.
 
+   5. For `LifeCycleConfig`, you can change both
+      `SourceS3Uri` and `OnCreate` values as you
+      want to update the instance group.
+   6. For `ExecutionRole`
 
+      1. For updating an existing instance group, keep using the
+         same IAM role you attached during cluster creation.
+      2. For adding a new instance group, specify an IAM role you
+         want to attach.
 
-        	1. To update an existing instance group, you must match the
-        	 instance type you initially specified to the group.
-        	2. To add a new instance group, specify an instance type you
-        	 want to configure the group with.
-        4. For `InstanceCount`
+   7. For `ThreadsPerCore`
 
-
-
-
-        	1. To update an existing instance group, specify an integer
-        	 that corresponds to your desired number of instances. You
-        	 can provide a higher or lower value (down to 0) to scale the
-        	 instance group up or down.
-        	2. To add a new instance group, specify an integer greater or
-        	 equal to 1.
-        5. For `LifeCycleConfig`, you can change both
-         `SourceS3Uri` and `OnCreate` values as you
-         want to update the instance group.
-        6. For `ExecutionRole`
-
-
-
-
-        	1. For updating an existing instance group, keep using the
-        	 same IAM role you attached during cluster creation.
-        	2. For adding a new instance group, specify an IAM role you
-        	 want to attach.
-        7. For `ThreadsPerCore`
-
-
-
-
-        	1. For updating an existing instance group, keep using the
-        	 same value you specified during cluster creation.
-        	2. For adding a new instance group, you can choose any value
-        	 from the allowed options per instance type. For more
-        	 information, search the instance type and see the **Valid threads per core** column in
-        	 the reference table at [CPU cores and threads per CPU core per instance
-        	 type](../../../AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.md "../../../AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.md") in the *Amazon EC2 User
-        	 Guide*.
-
-    The following code snippet is a JSON request file template you can use.
-    For more information about the request syntax and parameters of this API,
-    see the [UpdateCluster](../APIReference/API_UpdateCluster.md "../APIReference/API_UpdateCluster.md") API reference.
+      1. For updating an existing instance group, keep using the
+         same value you specified during cluster creation.
+      2. For adding a new instance group, you can choose any value
+         from the allowed options per instance type. For more
+         information, search the instance type and see the **Valid threads per core** column in
+         the reference table at [CPU cores and threads per CPU core per instance
+         type](../../../AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.md "../../../AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.md") in the _Amazon EC2 User
+         Guide_.
+         The following code snippet is a JSON request file template you can use.
+         For more information about the request syntax and parameters of this API,
+         see the [UpdateCluster](../APIReference/API_UpdateCluster.md "../APIReference/API_UpdateCluster.md") API reference.
 
 ```
 // update_cluster.json

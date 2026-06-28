@@ -104,7 +104,7 @@ implements the additional multi-model endpoint APIs. For information, see [Custo
 
 1. Create a model handler. MMS expects a model handler, which is a Python file that
    implements functions to pre-process, get preditions from the model, and process the
-   output in a model handler. For an example of a model handler, see [model_handler.py](https://github.com/awslabs/amazon-sagemaker-examples/blob/master/advanced_functionality/multi_model_bring_your_own/container/model_handler.py "https://github.com/awslabs/amazon-sagemaker-examples/blob/master/advanced_functionality/multi_model_bring_your_own/container/model_handler.py") from the sample notebook.
+   output in a model handler. For an example of a model handler, see [model\_handler.py](https://github.com/awslabs/amazon-sagemaker-examples/blob/master/advanced_functionality/multi_model_bring_your_own/container/model_handler.py "https://github.com/awslabs/amazon-sagemaker-examples/blob/master/advanced_functionality/multi_model_bring_your_own/container/model_handler.py") from the sample notebook.
 2. Import the inference toolkit and use its
    `model_server.start_model_server` function to start MMS. The following
    example is from the `dockerd-entrypoint.py` file from the sample notebook.

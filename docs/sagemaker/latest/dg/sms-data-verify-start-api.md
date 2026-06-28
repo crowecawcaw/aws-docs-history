@@ -81,22 +81,21 @@ adjustment and include them in your task template:
   `editsAllowed` parameter in your label category
   configuration file identified by the [`LabelCategoryConfigS3Uri`](../APIReference/API_CreateLabelingJob.md#SageMaker-CreateLabelingJob-request-LabelCategoryConfigS3Uri "../APIReference/API_CreateLabelingJob.md#SageMaker-CreateLabelingJob-request-LabelCategoryConfigS3Uri") parameter.
 
-      + For *verification* labeling
-       jobs, you must use the `editsAllowed` parameter to
-       specify that all labels cannot be modified.
-       `editsAllowed` must be set to `"none"`
-       in each entry in `labels`. Optionally, you can
-       specify whether or not label categories attributes and frame
-       attributes can be adjusted by workers.
-      + Optionally, for *adjustment*
-       labeling jobs, you can use the `editsAllowed`
-       parameter to specify labels, label category attributes, and
-       frame attributes that can or cannot be modified by workers. If
-       you do not use this parameter, all labels, label category
-       attributes, and frame attributes will be adjustable.
-
-  To learn more about the `editsAllowed` parameter and
-  configuring your label category configuration file, see [Label category configuration file schema](sms-label-cat-config-attributes.md#sms-label-cat-config-attributes-schema "sms-label-cat-config-attributes.md#sms-label-cat-config-attributes-schema").
+  - For _verification_ labeling
+    jobs, you must use the `editsAllowed` parameter to
+    specify that all labels cannot be modified.
+    `editsAllowed` must be set to `"none"`
+    in each entry in `labels`. Optionally, you can
+    specify whether or not label categories attributes and frame
+    attributes can be adjusted by workers.
+  - Optionally, for _adjustment_
+    labeling jobs, you can use the `editsAllowed`
+    parameter to specify labels, label category attributes, and
+    frame attributes that can or cannot be modified by workers. If
+    you do not use this parameter, all labels, label category
+    attributes, and frame attributes will be adjustable.
+    To learn more about the `editsAllowed` parameter and
+    configuring your label category configuration file, see [Label category configuration file schema](sms-label-cat-config-attributes.md#sms-label-cat-config-attributes-schema "sms-label-cat-config-attributes.md#sms-label-cat-config-attributes-schema").
 
 - Use the 3D point cloud or video frame adjustment lambda ARNs for
   [`PreHumanTaskLambdaArn`](../APIReference/API_HumanTaskConfig.md#sagemaker-Type-HumanTaskConfig-PreHumanTaskLambdaArn "../APIReference/API_HumanTaskConfig.md#sagemaker-Type-HumanTaskConfig-PreHumanTaskLambdaArn") and [`AnnotationConsolidationLambdaArn`](../APIReference/API_AnnotationConsolidationConfig.md#sagemaker-Type-AnnotationConsolidationConfig-AnnotationConsolidationLambdaArn "../APIReference/API_AnnotationConsolidationConfig.md#sagemaker-Type-AnnotationConsolidationConfig-AnnotationConsolidationLambdaArn") for both

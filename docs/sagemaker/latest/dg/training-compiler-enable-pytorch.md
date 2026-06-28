@@ -1,5 +1,14 @@
 # Run PyTorch Training Jobs with SageMaker Training Compiler
 
+###### Important
+
+**Deprecation notice:** SageMaker Training Compiler is not
+supported in SageMaker Python SDK v3. If you are currently using Training Compiler,
+continue using SageMaker Python SDK v2. For new projects, consider using the unified
+`ModelTrainer` class with supported frameworks. See
+[SageMaker Python SDK
+documentation](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") for migration guidance.
+
 You can use any of the SageMaker AI interfaces to run a training job with SageMaker Training Compiler: Amazon SageMaker Studio Classic,
 Amazon SageMaker notebook instances, AWS SDK for Python (Boto3), and AWS Command Line Interface.
 
@@ -10,7 +19,7 @@ Amazon SageMaker notebook instances, AWS SDK for Python (Boto3), and AWS Command
 
 ## Using the SageMaker Python SDK
 
-SageMaker Training Compiler for PyTorch is available through the SageMaker AI [`PyTorch`](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html") and [`HuggingFace`](https://sagemaker.readthedocs.io/en/stable/frameworks/huggingface/sagemaker.huggingface.html#hugging-face-estimator "https://sagemaker.readthedocs.io/en/stable/frameworks/huggingface/sagemaker.huggingface.html#hugging-face-estimator") framework estimator classes. To turn on
+SageMaker Training Compiler for PyTorch is available through the SageMaker AI [`PyTorch`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") and [`HuggingFace`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") framework estimator classes. To turn on
 SageMaker Training Compiler, add the `compiler_config` parameter to the SageMaker AI estimators. Import
 the `TrainingCompilerConfig` class and pass an instance of it to the
 `compiler_config` parameter. The following code examples show the
@@ -431,7 +440,7 @@ specify your training script, as shown in the preceding code example.
 
 - `distribution` (dict) – Optional. To run a distributed
   training job with SageMaker Training Compiler, add `distribution = { 'pytorchxla' : {
-'enabled': True }}`.
+ 'enabled': True }}`.
 
 ###### Warning
 

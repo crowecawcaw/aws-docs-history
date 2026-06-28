@@ -31,7 +31,7 @@ following advanced machine learning capabilities that Studio Lab does not suppor
 - Model monitoring
   Studio Classic also supports fine-grained access control and security by using AWS Identity and Access Management
   (IAM), Amazon Virtual Private Cloud (Amazon VPC), and AWS Key Management Service (AWS KMS). Studio Lab does not support these Studio Classic
-  features, nor does it support the use of estimators and built-in SageMaker AI algorithms.
+  features, nor does it support the use ModelTrainers and built-in SageMaker AI algorithms.
 
 To export your Studio Lab projects for use with Studio Classic, see [Export an Amazon SageMaker Studio Lab environment to Amazon SageMaker Studio Classic](studio-lab-use-migrate.md "studio-lab-use-migrate.md").
 

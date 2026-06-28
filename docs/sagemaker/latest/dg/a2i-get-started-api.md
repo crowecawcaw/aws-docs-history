@@ -549,7 +549,7 @@ Amazon Textract – Key-value pair extraction
 The following example uses the AWS SDK for Python (Boto3) to call
 `analyze_document` in us-west-2. Replace the italicized
 red text with your resources. Include the [`DataAttributes`](../../../augmented-ai/2019-11-07/APIReference/API_HumanLoopDataAttributes.md "../../../augmented-ai/2019-11-07/APIReference/API_HumanLoopDataAttributes.md") parameter if you are using
-the Amazon Mechanical Turk workforce. For more information, see the [analyze_document](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/textract.html#Textract.Client.analyze_document "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/textract.html#Textract.Client.analyze_document") documention in the _AWS SDK for Python (Boto) API Reference_.
+the Amazon Mechanical Turk workforce. For more information, see the [analyze\_document](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/textract.html#Textract.Client.analyze_document "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/textract.html#Textract.Client.analyze_document") documention in the _AWS SDK for Python (Boto) API Reference_.
 
 ```
 
@@ -583,7 +583,7 @@ Amazon Rekognition – Image moderation
 The following example uses the AWS SDK for Python (Boto3) to call
 `detect_moderation_labels` in us-west-2. Replace the
 italicized red text with your resources. Include the [`DataAttributes`](../../../augmented-ai/2019-11-07/APIReference/API_HumanLoopDataAttributes.md "../../../augmented-ai/2019-11-07/APIReference/API_HumanLoopDataAttributes.md") parameter if you are using
-the Amazon Mechanical Turk workforce. For more information, see the [detect_moderation_labels](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Client.detect_moderation_labels "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Client.detect_moderation_labels") documention in the _AWS SDK for Python (Boto) API Reference_.
+the Amazon Mechanical Turk workforce. For more information, see the [detect\_moderation\_labels](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Client.detect_moderation_labels "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Client.detect_moderation_labels") documention in the _AWS SDK for Python (Boto) API Reference_.
 
 ```
 
@@ -616,7 +616,7 @@ Custom Integration
 The following example uses the AWS SDK for Python (Boto3) to call
 `start_human_loop` in us-west-2. Replace the italicized
 red text with your resources. Include the [`DataAttributes`](../../../augmented-ai/2019-11-07/APIReference/API_HumanLoopDataAttributes.md "../../../augmented-ai/2019-11-07/APIReference/API_HumanLoopDataAttributes.md") parameter if you are using
-the Amazon Mechanical Turk workforce. For more information, see the [start_human_loop](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.start_human_loop "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.start_human_loop") documention in the _AWS SDK for Python (Boto) API Reference_.
+the Amazon Mechanical Turk workforce. For more information, see the [start\_human\_loop](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.start_human_loop "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.start_human_loop") documention in the _AWS SDK for Python (Boto) API Reference_.
 
 ```
 
@@ -661,7 +661,7 @@ the following:
 ```
 
 A human loop starts each time you call `start_human_loop`.
-To check the status of your human loop, use [describe_human_loop](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.describe_human_loop "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.describe_human_loop"):
+To check the status of your human loop, use [describe\_human\_loop](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.describe_human_loop "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.describe_human_loop"):
 
 ```
 

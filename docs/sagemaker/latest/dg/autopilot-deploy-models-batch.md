@@ -151,7 +151,7 @@ The following tabs show code examples for SageMaker Python SDK, AWS SDK for Pyth
 AWS CLI.
 
 SageMaker Python SDK
-The following example uses the **[SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/overview.html "https://sagemaker.readthedocs.io/en/stable/overview.html")** to make predictions in batches.
+The following example uses the **[SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/")** to make predictions in batches.
 
 ```
 from sagemaker import AutoML

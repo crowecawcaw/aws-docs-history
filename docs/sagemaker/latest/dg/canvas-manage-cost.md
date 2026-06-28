@@ -15,15 +15,14 @@ Billing in SageMaker Canvas consists of the following components:
 - AWS service charges – You are charged for building and making predictions with custom models,
   or for making predictions with Ready-to-use models:
 
-      + Training charges – For all model types, you are charged based on your resource
-       usage while the model builds. These resources include any compute instances that
-       Canvas spins up. You may see these charges on your account as Hosting, Training, Processing, or Batch Transform jobs.
-      + Prediction charges – You are charged for the resources used to generate predictions,
-       depending on the type of custom model that you built or the type of Ready-to-use model you
-       used.
-
-  The [Ready-to-use models](canvas-ready-to-use-models.md "canvas-ready-to-use-models.md") in Canvas leverage other AWS services to
-  generate predictions. When you use a Ready-to-use model, you are charged by the respective service, and their pricing conditions apply:
+  - Training charges – For all model types, you are charged based on your resource
+    usage while the model builds. These resources include any compute instances that
+    Canvas spins up. You may see these charges on your account as Hosting, Training, Processing, or Batch Transform jobs.
+  - Prediction charges – You are charged for the resources used to generate predictions,
+    depending on the type of custom model that you built or the type of Ready-to-use model you
+    used.
+    The [Ready-to-use models](canvas-ready-to-use-models.md "canvas-ready-to-use-models.md") in Canvas leverage other AWS services to
+    generate predictions. When you use a Ready-to-use model, you are charged by the respective service, and their pricing conditions apply:
 
 - For sentiment analysis, entities extraction, language detection, and personal information
   detection, you’re charged with [Amazon Comprehend

@@ -12,7 +12,7 @@ directly. You can use the `sagemaker-model-monitor-analyzer` image when you
 submit a baseline processing or monitoring job using one of the AWS SDKs.
 
 Use the SageMaker Python SDK (see `image_uris.retrieve` in the [SageMaker AI Python
-SDK reference guide](https://sagemaker.readthedocs.io/en/stable/api/utility/image_uris.html "https://sagemaker.readthedocs.io/en/stable/api/utility/image_uris.html")) to generate the ECR image URI for you, or specify the ECR
+SDK reference guide](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html")) to generate the ECR image URI for you, or specify the ECR
 image URI directly. The prebuilt image for SageMaker Model Monitor can be accessed as follows:
 
 ``<ACCOUNT_ID>`.dkr.ecr.`<REGION_NAME>`.amazonaws.com/sagemaker-model-monitor-analyzer`

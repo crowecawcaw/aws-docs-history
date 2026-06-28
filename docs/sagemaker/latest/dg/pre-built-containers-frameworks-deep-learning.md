@@ -12,13 +12,13 @@ With the [SageMaker Python SDK](https://github.com/aws/sagemaker-python-sdk#inst
 learning frameworks. For instructions on installing and using the SDK, see [[Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable")](https://github.com/aws/sagemaker-python-sdk#installing-the-sagemaker-python-sdk "https://github.com/aws/sagemaker-python-sdk#installing-the-sagemaker-python-sdk"). The following table lists the available frameworks
 and instructions on how to use them with the [SageMaker Python SDK](https://github.com/aws/sagemaker-python-sdk#installing-the-sagemaker-python-sdk "https://github.com/aws/sagemaker-python-sdk#installing-the-sagemaker-python-sdk"):
 
-| Framework      | Instructions                                                                                                                                                                                                       |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `TensorFlow`   | [Using TensorFlow with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/using_tf.html "https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/using_tf.html")  |
-| `MXNet`        | [Using MXNet with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/frameworks/mxnet/using_mxnet.html "https://sagemaker.readthedocs.io/en/stable/frameworks/mxnet/using_mxnet.html")           |
-| `PyTorch`      | [Using PyTorch with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/using_pytorch.html "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/using_pytorch.html") |
-| `Chainer`      | [Using Chainer with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/frameworks/chainer/using_chainer.html "https://sagemaker.readthedocs.io/en/stable/frameworks/chainer/using_chainer.html") |
-| `Hugging Face` | [Using Hugging Face with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/frameworks/huggingface/index.html "https://sagemaker.readthedocs.io/en/stable/frameworks/huggingface/index.html")    |
+| Framework      | Instructions                                                                                                                                                                                  |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `TensorFlow`   | [Using TensorFlow with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html")   |
+| `MXNet`        | [Using MXNet with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html")        |
+| `PyTorch`      | [Using PyTorch with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html")      |
+| `Chainer`      | [Using Chainer with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html")      |
+| `Hugging Face` | [Using Hugging Face with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") |
 
 ## Extending Prebuilt SageMaker AI Docker Images
 

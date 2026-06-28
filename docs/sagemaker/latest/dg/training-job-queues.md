@@ -30,7 +30,7 @@ section.
   - Use the AWS Batch [SubmitServiceJob](../../../batch/latest/APIReference/API_SubmitServiceJob.md "../../../batch/latest/APIReference/API_SubmitServiceJob.md") API.
   - Use the [`aws_batch` module](https://github.com/aws/sagemaker-python-sdk/tree/master/src/sagemaker/aws_batch "https://github.com/aws/sagemaker-python-sdk/tree/master/src/sagemaker/aws_batch") from the SageMaker AI Python SDK.
     After creating a TrainingQueue object and a model training object
-    (such as an Estimator or ModelTrainer), you can submit training jobs to
+    (such as a ModelTrainer), you can submit training jobs to
     the TrainingQueue using the `queue.submit()` method.
 
 - After submitting jobs, view your job queue and job status with the AWS Batch

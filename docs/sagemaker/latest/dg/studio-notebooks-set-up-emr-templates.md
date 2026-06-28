@@ -31,7 +31,7 @@ Amazon EMR cluster. In these example templates, the parent CloudFormation stack 
 VPC, security group, and subnet parameters to the Amazon EMR cluster
 template.
 
-The [sagemaker-studio-emr/cloudformation/emr_servicecatalog_templates](https://github.com/aws-samples/sagemaker-studio-emr/tree/main/cloudformation/emr_servicecatalog_templates "https://github.com/aws-samples/sagemaker-studio-emr/tree/main/cloudformation/emr_servicecatalog_templates")
+The [sagemaker-studio-emr/cloudformation/emr\_servicecatalog\_templates](https://github.com/aws-samples/sagemaker-studio-emr/tree/main/cloudformation/emr_servicecatalog_templates "https://github.com/aws-samples/sagemaker-studio-emr/tree/main/cloudformation/emr_servicecatalog_templates")
 repository contains various sample Amazon EMR CloudFormation launch templates, including
 options for single account and cross-account deployments.
 
@@ -493,9 +493,9 @@ Amazon EMR clusters.
      policies* in [Reference policies](studio-set-up-emr-permissions-reference.md "studio-set-up-emr-permissions-reference.md").
 
 3. **Step 3**: Associate your
-   assumable role(s) (access role) with your domain or user
-   profile. JupyterLab users in Studio can use the SageMaker AI
-   console or the provided script.
+assumable role(s) (access role) with your domain or user
+profile. JupyterLab users in Studio can use the SageMaker AI
+console or the provided script.
 
 Choose the tab that corresponds to your use case.
 

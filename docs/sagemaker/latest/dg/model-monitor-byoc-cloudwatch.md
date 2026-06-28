@@ -11,7 +11,7 @@ The schema for this file is closely based on the CloudWatch
 defaults to the following:
 
 - `For real-time endpoints:
-/aws/sagemaker/Endpoint/data-metrics`
+ /aws/sagemaker/Endpoint/data-metrics`
 - `For batch transform jobs:
  /aws/sagemaker/ModelMonitoring/data-metrics`
   However, you can specify dimensions. We recommend you add the following

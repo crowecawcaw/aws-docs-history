@@ -96,14 +96,14 @@ The following methods are available for the `cProfileAnalysis` and
 data:
 
 - `python_analysis.fetch_python_profile_stats_by_time(start_time_since_epoch_in_secs,
-end_time_since_epoch_in_secs)` – Takes in a start time and end
+ end_time_since_epoch_in_secs)` – Takes in a start time and end
   time, and returns the function stats of step stats whose start or end times
   overlap with the provided interval.
 - `python_analysis.fetch_python_profile_stats_by_step(start_step, end_step,
-mode, start_phase, end_phase)` – Takes in a start step and end
+ mode, start_phase, end_phase)` – Takes in a start step and end
   step and returns the function stats of all step stats whose profiled
   `step` satisfies `start_step <= step <
-end_step`.
+ end_step`.
 
   - `start_step` and `end_step` (str) –
     Specify the start step and end step to fetch the Python profiling stats
@@ -128,7 +128,7 @@ end_step`.
     section.
 
 - `python_analysis.fetch_profile_stats_between_modes(start_mode,
-end_mode)` – Fetches stats from the Python profiling between
+ end_mode)` – Fetches stats from the Python profiling between
   the start and end modes.
 - `python_analysis.fetch_pre_step_zero_profile_stats()` –
   Fetches the stats from the Python profiling until step 0.
@@ -145,7 +145,7 @@ end_mode)` – Fetches stats from the Python profiling between
   aggregates the Python profiling stats for every possible combination of start
   and end modes. For example, if a training and validation phases are done while
   detailed profiling is enabled, the combinations are `(PRE_STEP_ZERO,
-TRAIN)`, `(TRAIN, TRAIN)`, `(TRAIN, EVAL)`,
+ TRAIN)`, `(TRAIN, TRAIN)`, `(TRAIN, EVAL)`,
   `(EVAL, EVAL)`, and `(EVAL, POST_HOOK_CLOSE)`. All
   stats files within each of these combinations are aggregated.
 - `fetch_profile_stats_by_job_phase()` – Fetches and aggregates

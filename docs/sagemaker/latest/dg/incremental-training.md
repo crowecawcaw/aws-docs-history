@@ -191,6 +191,26 @@ variable used to train the new model.
 Get an AWS Identity and Access Management (IAM) role that grants required permissions and initialize
 environment variables:
 
+SageMaker Python SDK v3
+
+```
+import sagemaker
+from sagemaker.core.helper.session_helper import Session, get_execution_role
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute
+
+role = get_execution_role()
+print(role)
+
+sess = Session()
+
+bucket=sess.default_bucket()
+print(bucket)
+prefix = 'ic-incr-training'
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 import sagemaker
 from sagemaker import get_execution_role
@@ -273,6 +293,56 @@ hyperparams = { "num_layers": "18",
 Create an estimator object and train the first model using the training and validation
 datasets:
 
+SageMaker Python SDK v3
+
+```
+from sagemaker.train.configs import InputData, StoppingCondition
+from sagemaker.core.shapes import OutputDataConfig, Channel, DataSource, S3DataSource
+
+# Train the base ModelTrainer
+s3_output_location = 's3://{}/{}/output'.format(bucket, prefix)
+ic = ModelTrainer(training_image=training_image,
+                                   role=role,
+                                   compute=Compute(
+                                       instance_count=1,
+                                       instance_type='ml.p2.xlarge',
+                                       volume_size_in_gb=50,
+                                   ),
+                                   stopping_condition=StoppingCondition(max_runtime_in_seconds=360000),
+                                   training_input_mode='File',
+                                   output_data_config=OutputDataConfig(s3_output_path=s3_output_location),
+                                   hyperparameters=hyperparams)
+
+train_data = Channel(
+    channel_name="train",
+    data_source=DataSource(
+        s3_data_source=S3DataSource(
+            s3_data_type='S3Prefix',
+            s3_uri=s3train,
+            s3_data_distribution_type='FullyReplicated',
+        )
+    ),
+    content_type='application/x-recordio',
+)
+validation_data = Channel(
+    channel_name="validation",
+    data_source=DataSource(
+        s3_data_source=S3DataSource(
+            s3_data_type='S3Prefix',
+            s3_uri=s3validation,
+            s3_data_distribution_type='FullyReplicated',
+        )
+    ),
+    content_type='application/x-recordio',
+)
+
+data_channels = {'train': train_data, 'validation': validation_data}
+
+ic.train(input_data_config=[train_data, validation_data])
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 # Fit the base estimator
 s3_output_location = 's3://{}/{}/output'.format(bucket, prefix)
@@ -301,6 +371,30 @@ To use the model to incrementally train another model, create a new estimator ob
 and use the model artifacts (`ic.model_data`, in this example)
 for
 the `model_uri` input argument:
+
+SageMaker Python SDK v3
+
+```
+# Given the base ModelTrainer, create a new one for incremental training
+incr_ic = ModelTrainer(training_image=training_image,
+                                        role=role,
+                                        compute=Compute(
+                                            instance_count=1,
+                                            instance_type='ml.p2.xlarge',
+                                            volume_size_in_gb=50,
+                                        ),
+                                        stopping_condition=StoppingCondition(max_runtime_in_seconds=360000),
+                                        training_input_mode='File',
+                                        output_data_config=OutputDataConfig(s3_output_path=s3_output_location),
+                                        hyperparameters=hyperparams,
+                                        # Pass the previous model artifacts as an input data channel
+                                        input_data_config=[
+                                            InputData(channel_name="model", data_source=ic.model_data),
+                                        ])
+incr_ic.train(input_data_config=[train_data, validation_data])
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 # Given the base estimator, create a new one for incremental training

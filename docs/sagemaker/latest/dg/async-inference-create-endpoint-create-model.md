@@ -107,8 +107,8 @@ environment variables correctly by printing them out from your
 variables for several frameworks that you can set to change the default
 values.
 
-| Framework                                      | Environment variables                                                                                                  |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| PyTorch 1.8 (based on TorchServe)              | 'TS_MAX_REQUEST_SIZE': '100000000'<br>'TS_MAX_RESPONSE_SIZE': '100000000'<br>'TS_DEFAULT_RESPONSE_TIMEOUT': '1000'     |
-| PyTorch 1.4 (based on MMS)                     | 'MMS_MAX_REQUEST_SIZE': '1000000000'<br>'MMS_MAX_RESPONSE_SIZE': '1000000000'<br>'MMS_DEFAULT_RESPONSE_TIMEOUT': '900' |
-| HuggingFace Inference Container (based on MMS) | 'MMS_MAX_REQUEST_SIZE': '2000000000'<br>'MMS_MAX_RESPONSE_SIZE': '2000000000'<br>'MMS_DEFAULT_RESPONSE_TIMEOUT': '900' |
+| Framework                                      | Environment variables                                                                                                           |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| PyTorch 1.8 (based on TorchServe)              | 'TS\_MAX\_REQUEST\_SIZE': '100000000'<br>'TS\_MAX\_RESPONSE\_SIZE': '100000000'<br>'TS\_DEFAULT\_RESPONSE\_TIMEOUT': '1000'     |
+| PyTorch 1.4 (based on MMS)                     | 'MMS\_MAX\_REQUEST\_SIZE': '1000000000'<br>'MMS\_MAX\_RESPONSE\_SIZE': '1000000000'<br>'MMS\_DEFAULT\_RESPONSE\_TIMEOUT': '900' |
+| HuggingFace Inference Container (based on MMS) | 'MMS\_MAX\_REQUEST\_SIZE': '2000000000'<br>'MMS\_MAX\_RESPONSE\_SIZE': '2000000000'<br>'MMS\_DEFAULT\_RESPONSE\_TIMEOUT': '900' |

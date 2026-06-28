@@ -64,9 +64,9 @@ the following task lists.
     evaluation accepts any of the answers separated by a comma
     as correct. As an example, use
     `target_output="UK<OR>England<OR>United
- Kingdom"`, if you want to accept either
+   Kingdom"`, if you want to accept either
     `UK` or `England` or `United
- Kingdom` as acceptable answers.
+   Kingdom` as acceptable answers.
 
 - (Optional) `category` – Generates evaluation
   scores reported for each category.
@@ -134,15 +134,14 @@ for your input dataset:
   configuration parameters that are passed automatically into the
   FMeval process.
 
-      + **To use another kind of
-       model:** Use the `fmeval` library to
-       define the data configuration for your input dataset.
-
-  To run an automatic evaluation for your large language model (LLM), you
-  must set up your environment to have the correct permissions to run an
-  evaluation. Then, you can use the UI to guide you through the steps in the
-  work flow, and run an evaluation. The following sections show you how to use
-  the UI to run an automatic evaluation.
+  - **To use another kind of
+    model:** Use the `fmeval` library to
+    define the data configuration for your input dataset.
+    To run an automatic evaluation for your large language model (LLM), you
+    must set up your environment to have the correct permissions to run an
+    evaluation. Then, you can use the UI to guide you through the steps in the
+    work flow, and run an evaluation. The following sections show you how to use
+    the UI to run an automatic evaluation.
 
 ###### Prerequisites
 
@@ -329,76 +328,76 @@ procedure.
 
 ###### To set up an evaluation job
 
-1.  Next, choose **Evaluate a model,**.
-2.  In **Step 1: Specify job details** do the
-    following:
+1. Next, choose **Evaluate a model,**.
+2. In **Step 1: Specify job details** do the
+   following:
 
-    1. Enter the **Name** of your model
-       evaluation. This name helps you identify your model
-       evaluation job after it is submitted.
-    2. Enter a **Description** to add more
-       context to the name.
-    3. Choose **Next**.
+   1. Enter the **Name** of your model
+      evaluation. This name helps you identify your model
+      evaluation job after it is submitted.
+   2. Enter a **Description** to add more
+      context to the name.
+   3. Choose **Next**.
 
-3.  In **Step 2: Set up evaluation** do the
-    following:
+3. In **Step 2: Set up evaluation** do the
+   following:
 
-    1. Under **Evaluation type** choose
-       **Automatic**.
-    2. Then, choose **Add model to
-       evaluation**
-    3. In the **Add model** modal you can choose
-       to use either a **Pre-trained Jumpstart foundation
-       model** or **SageMaker AI endpoint**.
-       If you've already deployed JumpStart model choose
-       **SageMaker AI endpoint** otherwise choose
-       **Pre-trained Jumpstart foundation
-       model**.
-    4. Then, choose **Save**.
-    5. (_Optional_) After adding your model
-       choose **Prompt template** to see the
-       expected input format for prompts based on the model you
-       selected. For information about how to configure a prompt
-       template for a dataset, see [Prompt templates](clarify-foundation-model-evaluate-whatis.md#clarify-automatic-jobs-summary-prompt-templates "clarify-foundation-model-evaluate-whatis.md#clarify-automatic-jobs-summary-prompt-templates").
+   1. Under **Evaluation type** choose
+      **Automatic**.
+   2. Then, choose **Add model to
+      evaluation**
+   3. In the **Add model** modal you can choose
+      to use either a **Pre-trained Jumpstart foundation
+      model** or **SageMaker AI endpoint**.
+      If you've already deployed JumpStart model choose
+      **SageMaker AI endpoint** otherwise choose
+      **Pre-trained Jumpstart foundation
+      model**.
+   4. Then, choose **Save**.
+   5. (_Optional_) After adding your model
+      choose **Prompt template** to see the
+      expected input format for prompts based on the model you
+      selected. For information about how to configure a prompt
+      template for a dataset, see [Prompt templates](clarify-foundation-model-evaluate-whatis.md#clarify-automatic-jobs-summary-prompt-templates "clarify-foundation-model-evaluate-whatis.md#clarify-automatic-jobs-summary-prompt-templates").
 
-       - To use the default prompt template, complete the following steps:
+      - To use the default prompt template, complete the following steps:
 
-         1. Toggle on **Use the default prompt templates provided by the
-            datasets**.
-         2. (Optional) For each dataset, review the prompt supplied by Clarify.
-         3. Choose **Save**.
+        1. Toggle on **Use the default prompt templates provided by the
+           datasets**.
+        2. (Optional) For each dataset, review the prompt supplied by Clarify.
+        3. Choose **Save**.
 
-       - To use a custom prompt template, complete the following steps:
+      - To use a custom prompt template, complete the following steps:
 
-         1. Toggle off **Use the default prompt templates provided by the
-            datasets**.
-         2. If Clarify displays a default prompt, you can customize it or remove it and supply
-            your own. You must include the `$model_input` variable in the prompt template.
-         3. Choose **Save**.
+        1. Toggle off **Use the default prompt templates provided by the
+           datasets**.
+        2. If Clarify displays a default prompt, you can customize it or remove it and supply
+           your own. You must include the `$model_input` variable in the prompt template.
+        3. Choose **Save**.
 
-    6. Then, under **Task type** choose a task
-       type.
+   6. Then, under **Task type** choose a task
+      type.
 
-    For more information about tasks types and the associated
-    evaluation dimensions, see the **Automatic evaluation** in **[Using prompt datasets and available evaluation dimensions in model evaluation jobs](clarify-foundation-model-evaluate-overview.md "clarify-foundation-model-evaluate-overview.md")**. 7. In the **Evaluation metrics** section,
-    choose an **Evaluation dimension**. The
-    text box under **Description** contains
-    additional context about the dimension.
+   For more information about tasks types and the associated
+   evaluation dimensions, see the **Automatic evaluation** in **[Using prompt datasets and available evaluation dimensions in model evaluation jobs](clarify-foundation-model-evaluate-overview.md "clarify-foundation-model-evaluate-overview.md")**. 7. In the **Evaluation metrics** section,
+   choose an **Evaluation dimension**. The
+   text box under **Description** contains
+   additional context about the dimension.
 
-    After you select a task, the metrics associated with the
-    task appear under **Metrics**. In this
-    section, do the following. 8. Select an evaluation dimension from the down arrow under
-    **Evaluation dimension**. 9. Choose an evaluation dataset. You can choose to use your
-    own dataset or use a built-in dataset. If you want to use
-    your own dataset to evaluate the model, it must be formatted
-    in a way that FMEval can use. It must also be located in an
-    S3 bucket that has the CORS permissions referenced in the
-    previous [Set up your environment](#clarify-foundation-model-evaluate-auto-ui-setup "#clarify-foundation-model-evaluate-auto-ui-setup") section. For more information about how to format a
-    custom dataset see [Use a custom input dataset](clarify-foundation-model-evaluate-auto-lib-custom.md#clarify-foundation-model-evaluate-auto-lib-custom-input "clarify-foundation-model-evaluate-auto-lib-custom.md#clarify-foundation-model-evaluate-auto-lib-custom-input"). 10. Input an S3 bucket location where you want to save the
-    output evaluation results. This file is in jsonlines
-    (.jsonl) format. 11. Configure your processor in the **Processor
-    configuration** section using the following
-    parameters:
+   After you select a task, the metrics associated with the
+   task appear under **Metrics**. In this
+   section, do the following. 8. Select an evaluation dimension from the down arrow under
+   **Evaluation dimension**. 9. Choose an evaluation dataset. You can choose to use your
+   own dataset or use a built-in dataset. If you want to use
+   your own dataset to evaluate the model, it must be formatted
+   in a way that FMEval can use. It must also be located in an
+   S3 bucket that has the CORS permissions referenced in the
+   previous [Set up your environment](#clarify-foundation-model-evaluate-auto-ui-setup "#clarify-foundation-model-evaluate-auto-ui-setup") section. For more information about how to format a
+   custom dataset see [Use a custom input dataset](clarify-foundation-model-evaluate-auto-lib-custom.md#clarify-foundation-model-evaluate-auto-lib-custom-input "clarify-foundation-model-evaluate-auto-lib-custom.md#clarify-foundation-model-evaluate-auto-lib-custom-input"). 10. Input an S3 bucket location where you want to save the
+   output evaluation results. This file is in jsonlines
+   (.jsonl) format. 11. Configure your processor in the **Processor
+   configuration** section using the following
+   parameters:
 
         * Use **Instance count** to specify
          the number of compute instances you want to use to
@@ -420,9 +419,10 @@ procedure.
         * Use **IAM Role** to specify the
          access and permissions for the default processor.
          Enter the IAM role that you set up in [Set up your environment](#clarify-foundation-model-evaluate-auto-ui-setup "#clarify-foundation-model-evaluate-auto-ui-setup")
-    12. After you specify your model and criteria, choose
-        **Next**. The main window skips to
-        **Step 5 Review and Save**.
+
+   12. After you specify your model and criteria, choose
+   **Next**. The main window skips to
+   **Step 5 Review and Save**.
 
 ###### Review and run your evaluation job
 

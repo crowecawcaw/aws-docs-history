@@ -11,7 +11,7 @@ preprocessing and postprocessing scripts. Replace `user placeholder
 
 ```
 import boto3, os
-from sagemaker import get_execution_role, Session
+from sagemaker.core.helper.session_helper import get_execution_role, Session
 from sagemaker.model_monitor import CronExpressionGenerator, DefaultModelMonitor
 
 # Upload pre and postprocessor scripts

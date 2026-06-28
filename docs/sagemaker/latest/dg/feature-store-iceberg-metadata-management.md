@@ -129,19 +129,19 @@ The following table lists the Iceberg table properties that have been validated 
 with Feature Store. For more information about these properties, see [Table configuration](https://iceberg.apache.org/docs/latest/configuration/ "https://iceberg.apache.org/docs/latest/configuration/") in
 the Apache Iceberg documentation.
 
-| Allowed Iceberg table properties             | Property                   | Default value                                                                                                                                                     | Description |
-| -------------------------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `write.metadata.delete-after-commit.enabled` | `false`                    | Controls whether to delete the oldest tracked version metadata files after each<br>table commit.                                                                  |
-| `write.metadata.previous-versions-max`       | `100`                      | The max number of previous version metadata files to track.                                                                                                       |
-| `history.expire.max-snapshot-age-ms`         | `432000000` (5 days)       | Default max age of snapshots to keep on the table and all of its branches while<br>expiring snapshots.                                                            |
-| `history.expire.min-snapshots-to-keep`       | `1`                        | Default min number of snapshots to keep on the table and all of its branches<br>while expiring snapshots.                                                         |
-| `history.expire.max-ref-age-ms`              | `Long.MAX_VALUE` (forever) | For snapshot references except the `main` branch, default max age of<br>snapshot references to keep while expiring snapshots. The `main` branch<br>never expires. |
-| `write.target-file-size-bytes`               | `536870912` (512 MB)       | Controls the size of files generated to target about this many bytes.                                                                                             |
-| `write.delete.target-file-size-bytes`        | `67108864` (64 MB)         | Controls the size of delete files generated to target about this many<br>bytes.                                                                                   |
-| `write.delete.mode`                          | `copy-on-write`            | Mode used for delete commands: `copy-on-write` or<br>`merge-on-read` (v2 and above).                                                                              |
-| `write.update.mode`                          | `copy-on-write`            | Mode used for update commands: `copy-on-write` or<br>`merge-on-read` (v2 and above).                                                                              |
-| `write.delete.granularity`                   | `partition`                | Controls the granularity of generated delete files: `partition` or<br>`file`.                                                                                     |
-| `write.parquet.row-group-size-bytes`         | `134217728` (128 MB)       | Parquet row group size.                                                                                                                                           |
-| `read.split.target-size`                     | `134217728` (128 MB)       | Target size when combining data input splits.                                                                                                                     |
-| `read.split.metadata-target-size`            | `33554432` (32 MB)         | Target size when combining metadata input splits.                                                                                                                 |
-| `read.split.open-file-cost`                  | `4194304` (4 MB)           | The estimated cost to open a file, used as a minimum weight when combining<br>splits.                                                                             |
+Allowed Iceberg table properties| Property | Default value | Description |
+| --- | --- | --- |
+| `write.metadata.delete-after-commit.enabled` | `false` | Controls whether to delete the oldest tracked version metadata files after each<br>table commit. |
+| `write.metadata.previous-versions-max` | `100` | The max number of previous version metadata files to track. |
+| `history.expire.max-snapshot-age-ms` | `432000000` (5 days) | Default max age of snapshots to keep on the table and all of its branches while<br>expiring snapshots. |
+| `history.expire.min-snapshots-to-keep` | `1` | Default min number of snapshots to keep on the table and all of its branches<br>while expiring snapshots. |
+| `history.expire.max-ref-age-ms` | `Long.MAX_VALUE` (forever) | For snapshot references except the `main` branch, default max age of<br>snapshot references to keep while expiring snapshots. The `main` branch<br>never expires. |
+| `write.target-file-size-bytes` | `536870912` (512 MB) | Controls the size of files generated to target about this many bytes. |
+| `write.delete.target-file-size-bytes` | `67108864` (64 MB) | Controls the size of delete files generated to target about this many<br>bytes. |
+| `write.delete.mode` | `copy-on-write` | Mode used for delete commands: `copy-on-write` or<br>`merge-on-read` (v2 and above). |
+| `write.update.mode` | `copy-on-write` | Mode used for update commands: `copy-on-write` or<br>`merge-on-read` (v2 and above). |
+| `write.delete.granularity` | `partition` | Controls the granularity of generated delete files: `partition` or<br>`file`. |
+| `write.parquet.row-group-size-bytes` | `134217728` (128 MB) | Parquet row group size. |
+| `read.split.target-size` | `134217728` (128 MB) | Target size when combining data input splits. |
+| `read.split.metadata-target-size` | `33554432` (32 MB) | Target size when combining metadata input splits. |
+| `read.split.open-file-cost` | `4194304` (4 MB) | The estimated cost to open a file, used as a minimum weight when combining<br>splits. |

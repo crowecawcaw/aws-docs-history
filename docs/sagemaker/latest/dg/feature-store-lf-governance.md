@@ -207,7 +207,7 @@ feature group, or use the individual parameters directly with
 | `hybrid_access_mode_enabled` | bool | —       | Yes         | Whether to revoke `IAMAllowedPrincipal` from the AWS Glue table.<br>`False` = Lake Formation-only permissions. `True` = hybrid mode<br>(both IAM and Lake Formation). You must explicitly choose.                                                                                                                                                                                            |
 | `acknowledge_risk`           | bool | —       | Yes         | Must be `True` to proceed. This is a safety confirmation. Setting to<br>`False` raises a `RuntimeError` before any operations are<br>performed.                                                                                                                                                                                                                                              |
 
-### Understanding acknowledge_risk
+### Understanding acknowledge\_risk
 
 The `acknowledge_risk` parameter is a safety gate. By setting it to
 `True`, you acknowledge the following:

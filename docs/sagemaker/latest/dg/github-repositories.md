@@ -49,7 +49,7 @@ configuration files:
 After you've specified a recipe, you run the launcher script to specify an
 end-to-end training job on a cluster based on the configurations through the
 `main.py` entry point. For each recipe that you use, there are
-accompanying shell scripts located in the launch_scripts folder. These examples
+accompanying shell scripts located in the launch\_scripts folder. These examples
 guide you through submitting and initiating training jobs. The following figure
 illustrates how a SageMaker HyperPod recipe launcher submits a training job to a
 cluster based on the preceding. Currently, the SageMaker HyperPod recipe launcher is

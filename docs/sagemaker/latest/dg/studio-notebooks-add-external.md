@@ -79,7 +79,7 @@ Conda has two methods for activating environments: `conda activate`, and
 - Installing a package from conda-forge
 - Changing the conda install location to use Amazon EBS
 - Supporting both `conda activate` and `source
-activate`
+ activate`
 
 ### Pip
 

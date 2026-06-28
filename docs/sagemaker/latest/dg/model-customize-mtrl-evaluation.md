@@ -283,17 +283,17 @@ Use the same approach as Bedrock AgentCore evaluation but specify
 
 ## Evaluation hyperparameters
 
-| Category             | Parameter           | Type    | Default              | Description                                                                                                                                                                            |
-| -------------------- | ------------------- | ------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| batch                | eval_group_size     | integer | 1                    | Rollouts per prompt. Note: To compute pass@k, set<br>eval_group_size >= k.                                                                                                             |
-| eval_metrics_config  | pass_k_values       | array   | [1, 2, 4, 8, 16, 32] | List of k values for computing pass@k and pass^k metrics.<br>pass@k = probability that at least 1 of k sampled rollouts succeeds.<br>pass^k = probability that all k rollouts succeed. |
-| eval_metrics_config  | success_threshold   | float   | 1                    | A rollout is "successful" when reward >= success_threshold.<br>Note this applies for pass@k, pass^k, succeeded/failed count<br>metrics.                                                |
-| eval_sampling_params | temperature         | float   | 0                    | Sampling temperature for evaluation rollouts. Note: it is<br>recommended to increase this value beyond 0 for pass@k and pass^k<br>metrics to avoid deterministic behavior.             |
-| eval_sampling_params | sampling_top_p      | float   | 1                    | Nucleus sampling cutoff for evaluation rollouts.                                                                                                                                       |
-| eval_sampling_params | sampling_max_tokens | integer | 4096                 | Maximum tokens the model can generate per turn during evaluation<br>rollouts.                                                                                                          |
-| rollout              | timeout             | float   | 600                  | Time (seconds) after which an evaluation rollout is treated as<br>failed and may be retried.                                                                                           |
-| rollout              | max_concurrency     | int     | 96                   | Maximum number of evaluation rollouts that can execute in<br>parallel.                                                                                                                 |
-| rollout              | max_retries         | int     | 3                    | Number of retry attempts for failed evaluation rollouts before<br>marking them as permanently failed.                                                                                  |
+| Category               | Parameter             | Type    | Default              | Description                                                                                                                                                                            |
+| ---------------------- | --------------------- | ------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| batch                  | eval\_group\_size     | integer | 1                    | Rollouts per prompt. Note: To compute pass@k, set<br>eval\_group\_size >= k.                                                                                                           |
+| eval\_metrics\_config  | pass\_k\_values       | array   | [1, 2, 4, 8, 16, 32] | List of k values for computing pass@k and pass^k metrics.<br>pass@k = probability that at least 1 of k sampled rollouts succeeds.<br>pass^k = probability that all k rollouts succeed. |
+| eval\_metrics\_config  | success\_threshold    | float   | 1                    | A rollout is "successful" when reward >= success\_threshold.<br>Note this applies for pass@k, pass^k, succeeded/failed count<br>metrics.                                               |
+| eval\_sampling\_params | temperature           | float   | 0                    | Sampling temperature for evaluation rollouts. Note: it is<br>recommended to increase this value beyond 0 for pass@k and pass^k<br>metrics to avoid deterministic behavior.             |
+| eval\_sampling\_params | sampling\_top\_p      | float   | 1                    | Nucleus sampling cutoff for evaluation rollouts.                                                                                                                                       |
+| eval\_sampling\_params | sampling\_max\_tokens | integer | 4096                 | Maximum tokens the model can generate per turn during evaluation<br>rollouts.                                                                                                          |
+| rollout                | timeout               | float   | 600                  | Time (seconds) after which an evaluation rollout is treated as<br>failed and may be retried.                                                                                           |
+| rollout                | max\_concurrency      | int     | 96                   | Maximum number of evaluation rollouts that can execute in<br>parallel.                                                                                                                 |
+| rollout                | max\_retries          | int     | 3                    | Number of retry attempts for failed evaluation rollouts before<br>marking them as permanently failed.                                                                                  |
 
 ## Monitoring evaluation
 
@@ -328,7 +328,7 @@ metrics means.
 | `eval/reward/num_prompts`         | Number of distinct prompts evaluated.                                                                   |
 | `eval/reward/rollouts_per_prompt` | Number of attempts (samples) generated per prompt.                                                      |
 | `eval/reward/success_threshold`   | The reward value required to count a rollout as<br>"successful".                                        |
-| `eval/reward/mean_within_groups`  | Average reward per prompt group (requires setting<br>rollouts_per_prompt > 1).                          |
+| `eval/reward/mean_within_groups`  | Average reward per prompt group (requires setting<br>rollouts\_per\_prompt > 1).                        |
 | `eval/reward/std_within_groups`   | Standard deviation of reward within each prompt group.                                                  |
 | `eval/reward/min_within_groups`   | Minimum reward within each prompt group.                                                                |
 | `eval/reward/max_within_groups`   | Maximum reward within each prompt group.                                                                |

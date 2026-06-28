@@ -41,85 +41,85 @@ To avoid collisions between table names from different Amazon S3 locations, crea
 separate data source and crawler for each location. Each data source creates a table
 named after the folder that contain them unless prefixed.
 
-1.  Configure a query result location
+1. Configure a query result location
 
-    1. Go to the Athena console: [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
-    2. From the left menu, choose **Workgroups**.
-    3. Follow the link for the `primary` workgroup and choose
-       **Edit**.
-    4. In the **Query result configuration** section, enter
-       the Amazon S3 path for your output directory and then choose **Save
-       changes**.
+   1. Go to the Athena console: [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
+   2. From the left menu, choose **Workgroups**.
+   3. Follow the link for the `primary` workgroup and choose
+      **Edit**.
+   4. In the **Query result configuration** section, enter
+      the Amazon S3 path for your output directory and then choose **Save
+      changes**.
 
-2.  Create an Athena data source for your Amazon S3 data
+2. Create an Athena data source for your Amazon S3 data
 
-    1. From the left menu in the Athena console, choose **Data
-       sources** and then **Create Data Source**.
-    2. Choose **S3 - AWS Glue Data Catalog** and then
-       **Next**.
-    3. Leave the default **AWS Glue Data Catalog in this
-       account**, choose **Create a crawler in
-       AWS Glue** and then **Create in AWS Glue**. This
-       opens the AWS Glue console.
+   1. From the left menu in the Athena console, choose **Data
+      sources** and then **Create Data Source**.
+   2. Choose **S3 - AWS Glue Data Catalog** and then
+      **Next**.
+   3. Leave the default **AWS Glue Data Catalog in this
+      account**, choose **Create a crawler in
+      AWS Glue** and then **Create in AWS Glue**. This
+      opens the AWS Glue console.
 
-3.  Use AWS Glue to crawl your data source
+3. Use AWS Glue to crawl your data source
 
-    1. Enter a name and a description for your new crawler and then choose
-       **Next**.
-    2. Under **Data Sources**, choose **Add a data
-       source**.
+   1. Enter a name and a description for your new crawler and then choose
+      **Next**.
+   2. Under **Data Sources**, choose **Add a data
+      source**.
 
-       1. If the Amazon Amazon S3 bucket containing your data is in a
-          different AWS account than your SageMaker AI environment, choose
-          **In a different account** for the
-          **Location of the S3 data**.
-       2. Enter the path to your dataset in Amazon S3. For example:
+      1. If the Amazon Amazon S3 bucket containing your data is in a
+         different AWS account than your SageMaker AI environment, choose
+         **In a different account** for the
+         **Location of the S3 data**.
+      2. Enter the path to your dataset in Amazon S3. For example:
 
-       ```
-       s3://dsoaws/nyc-taxi-orig-cleaned-split-parquet-per-year-multiple-files/ride-info/year=2019/
-       ```
-       3. Keep all other default values and then choose **Add an
-          Amazon S3 data source**. You should see a new Amazon S3 data
-          source in the data sources table.
-       4. Choose **Next**.
+      ```
+      s3://dsoaws/nyc-taxi-orig-cleaned-split-parquet-per-year-multiple-files/ride-info/year=2019/
+      ```
+      3. Keep all other default values and then choose **Add an
+         Amazon S3 data source**. You should see a new Amazon S3 data
+         source in the data sources table.
+      4. Choose **Next**.
 
-    3. Configure the IAM role for the crawler to access your data.
+   3. Configure the IAM role for the crawler to access your data.
 
-    ###### Note
+   ###### Note
 
-    Each role is scoped down to the data source you specify. When
-    reusing a role, edit the JSON policy to add any new resource you
-    want to grant access to or create a new role for this data
-    source.
+   Each role is scoped down to the data source you specify. When
+   reusing a role, edit the JSON policy to add any new resource you
+   want to grant access to or create a new role for this data
+   source.
 
         1. Choose **Create new IAM role**.
         2. Enter a name for the role and then choose
          **Next**.
 
-4.  Create or select a database for your tables
+4. Create or select a database for your tables
 
-    1. If you do not have an existing database in Athena, choose **Add
-       database** and then **Create a new
-       database**.
-    2. Back to your previous crawler creation tab, in **Output
-       configuration**, choose the **Refresh**
-       button. You should now see your newly created database in the
-       list.
-    3. Select your database, add an optional prefix in **Table name
-       prefix** and then choose **Next**.
+   1. If you do not have an existing database in Athena, choose **Add
+      database** and then **Create a new
+      database**.
+   2. Back to your previous crawler creation tab, in **Output
+      configuration**, choose the **Refresh**
+      button. You should now see your newly created database in the
+      list.
+   3. Select your database, add an optional prefix in **Table name
+      prefix** and then choose **Next**.
 
-    ###### Note
+   ###### Note
 
-    For the previous example where your data is located at
-    `s3://dsoaws/nyc-taxi-orig-cleaned-split-parquet-per-year-multiple-files/ride-info/year=2019/`,
-    adding the prefix `taxi-ride-` will create a table named
-    `taxi-ride-year_2019`. Adding a prefix helps prevent
-    table name collisions when multiple data locations have identically
-    named folders.
+   For the previous example where your data is located at
+   `s3://dsoaws/nyc-taxi-orig-cleaned-split-parquet-per-year-multiple-files/ride-info/year=2019/`,
+   adding the prefix `taxi-ride-` will create a table named
+   `taxi-ride-year_2019`. Adding a prefix helps prevent
+   table name collisions when multiple data locations have identically
+   named folders.
 
-5.  Choose **Create crawler**.
-6.  Run your crawler to index your data. Wait for the crawler run to reach a
-    `Completed` status, which may take a few minutes.
+5. Choose **Create crawler**.
+6. Run your crawler to index your data. Wait for the crawler run to reach a
+   `Completed` status, which may take a few minutes.
 
 To ensure that a new table was created, go to the left menu in AWS Glue and choose
 **Databases** then **Tables**. You should now see

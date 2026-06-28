@@ -29,7 +29,7 @@ IPv4-only workforce, with the exceptions noted below. For more information, see
 **Example `CreateWorkforce` SDK call using
 boto3**
 
-For more information, see [create_workforce](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_workforce.html#SageMaker.Client.create_workforce "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_workforce.html#SageMaker.Client.create_workforce").
+For more information, see [create\_workforce](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_workforce.html#SageMaker.Client.create_workforce "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_workforce.html#SageMaker.Client.create_workforce").
 
 ```
 import boto3
@@ -69,7 +69,7 @@ VPC](../../../vpc/latest/userguide/vpc-migrate-ipv6.md "../../../vpc/latest/user
 **Example `UpdateWorkforce` SDK call using
 boto3**
 
-For more information, see [update_workforce](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_workforce.html#SageMaker.Client.update_workforce "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_workforce.html#SageMaker.Client.update_workforce").
+For more information, see [update\_workforce](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_workforce.html#SageMaker.Client.update_workforce "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_workforce.html#SageMaker.Client.update_workforce").
 
 ```
 import boto3

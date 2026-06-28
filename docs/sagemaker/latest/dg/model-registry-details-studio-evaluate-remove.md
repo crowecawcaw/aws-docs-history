@@ -7,7 +7,7 @@ model by completing the following steps.
 
 1. Choose the **Evaluate** tab.
 2. Choose the **Gear** (
-   ![](images/icons/Settings_squid.png)
+   ![Settings icon.](images/icons/Settings_squid.png)
    ) icon under the **Train**
    tab.
 3. (Optional) To find your evaluation job from the list, enter a search
@@ -15,5 +15,5 @@ model by completing the following steps.
 4. Choose the radio button next to your evaluation job.
 5. Choose **Remove**.
 6. Choose **Yes, I want to remove <name of your evaluation
-   job>**.
+    job>**.
 7. Choose **Done**.

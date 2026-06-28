@@ -340,52 +340,51 @@ that you've selected into Canvas.
 
 Use the following procedure to import data from Snowflake to Amazon SageMaker Canvas.
 
-1.  In the SageMaker Canvas application, go to the **Datasets** page.
-2.  Choose **Import data**, and from the dropdown menu, choose
-    **Tabular**.
-3.  Enter a name for the dataset and choose
-    **Create**.
-4.  For **Data Source**, open the dropdown menu and choose **Snowflake**.
-5.  Choose **Add connection**.
-6.  In the **Add a new Snowflake connection** dialog box,
-    specify your Snowflake credentials. For the **Authentication
-    method**, choose one of the following:
+1. In the SageMaker Canvas application, go to the **Datasets** page.
+2. Choose **Import data**, and from the dropdown menu, choose
+   **Tabular**.
+3. Enter a name for the dataset and choose
+   **Create**.
+4. For **Data Source**, open the dropdown menu and choose **Snowflake**.
+5. Choose **Add connection**.
+6. In the **Add a new Snowflake connection** dialog box,
+   specify your Snowflake credentials. For the **Authentication
+   method**, choose one of the following:
 
-    - **Basic - username
-      password** – Provide your Snowflake account ID, username, and password.
-    - **ARN** –
-      For improved protection of your Snowflake credentials, provide the ARN of an AWS Secrets Manager secret that contains
-      your credentials. For more information,
-      see [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in the _AWS Secrets Manager User Guide_.
+   - **Basic - username
+     password** – Provide your Snowflake account ID, username, and password.
+   - **ARN** –
+     For improved protection of your Snowflake credentials, provide the ARN of an AWS Secrets Manager secret that contains
+     your credentials. For more information,
+     see [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in the _AWS Secrets Manager User Guide_.
 
-    Your secret should have
-    your Snowflake credentials stored in the following JSON format:
+   Your secret should have
+   your Snowflake credentials stored in the following JSON format:
 
-    ```
-    {"accountid": "`ID`",
-    "username": "`username`",
-    "password": "`password`"}
-    ```
-    - **OAuth** –
-      OAuth lets you authenticate without
-      providing a password but requires additional setup. For more information
-      about setting up OAuth credentials for Snowflake, see [Set up connections to data sources with OAuth](canvas-setting-up-oauth.md "canvas-setting-up-oauth.md").
+   ```
+   {"accountid": "`ID`",
+   "username": "`username`",
+   "password": "`password`"}
+   ```
+   - **OAuth** –
+     OAuth lets you authenticate without
+     providing a password but requires additional setup. For more information
+     about setting up OAuth credentials for Snowflake, see [Set up connections to data sources with OAuth](canvas-setting-up-oauth.md "canvas-setting-up-oauth.md").
 
-7.  Choose **Add connection**.
-8.  From the tab that has the name of your connection, drag the .csv file that
-    you're importing to the **Drag and drop table to import**
-    pane.
-9.  Optional: Drag additional tables to the import pane. You can use the user
-    interface to join the tables. For more specificity in your joins, choose
-    **Edit in SQL**.
+7. Choose **Add connection**.
+8. From the tab that has the name of your connection, drag the .csv file that
+   you're importing to the **Drag and drop table to import**
+   pane.
+9. Optional: Drag additional tables to the import pane. You can use the user
+   interface to join the tables. For more specificity in your joins, choose
+   **Edit in SQL**.
 10. Optional: If you're using SQL to query the data, you can choose **Context** to add context to the connection by specifying values
     for the following:
 
-        * **Warehouse**
-        * **Database**
-        * **Schema**
-
-    Adding context to a connection makes it easier to specify future queries.
+    - **Warehouse**
+    - **Database**
+    - **Schema**
+      Adding context to a connection makes it easier to specify future queries.
 
 11. Choose **Import data**.
 

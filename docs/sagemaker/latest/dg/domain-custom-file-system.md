@@ -377,5 +377,5 @@ For your Amazon EFS file systems
 
 SageMaker AI creates a symbolic link at the following path:
 `/home/sagemaker-user/custom-file-systems/`file-system-type`/`file-system-id``.
- With this, the domain users can navigate to the custom file system from within their
- home directory, `/home/sagemaker-user`.
+With this, the domain users can navigate to the custom file system from within their
+home directory, `/home/sagemaker-user`.

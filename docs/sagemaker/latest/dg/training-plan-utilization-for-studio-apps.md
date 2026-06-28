@@ -24,12 +24,11 @@ plan if it is in the `Active` status. Only `JupyterLab` and
 - To use training plans in Studio, add the following permissions to your Studio
   execution role:
 
-      + `sagemaker:ListTrainingPlans` and
-       `sagemaker:DescribeTrainingPlan` — required for the Studio UI
-      + `sagemaker:DescribeTrainingPlan` — required for the API or
-       AWS CLI
-
-  For the Studio UI, add the following policy to your execution role:
+  - `sagemaker:ListTrainingPlans` and
+    `sagemaker:DescribeTrainingPlan` — required for the Studio UI
+  - `sagemaker:DescribeTrainingPlan` — required for the API or
+    AWS CLI
+    For the Studio UI, add the following policy to your execution role:
 
 ```
 {

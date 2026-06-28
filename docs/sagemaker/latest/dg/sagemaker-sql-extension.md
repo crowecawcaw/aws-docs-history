@@ -116,7 +116,7 @@ With access set up, JupyterLab users can:
       the SageMaker distribution image version 1.6 or higher.
   2.  If you are a user of the SageMaker distribution image version 1.6, load the
       SQL extension in a JupyterLab notebook by running `%load_ext
-amazon_sagemaker_sql_magic` in a notebook cell.
+   amazon_sagemaker_sql_magic` in a notebook cell.
 
   For users of SageMaker distribution image versions 1.7 and later, no action is needed,
   the SQL extension loads automatically. 3. Familiarize with the capabilities of the SQL extension in [SQL extension features and usage](sagemaker-sql-extension-features.md "sagemaker-sql-extension-features.md").

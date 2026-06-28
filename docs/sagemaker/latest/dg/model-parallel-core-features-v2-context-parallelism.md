@@ -71,7 +71,7 @@ model = tsm.transform(model, cp_comm_type="p2p")
 
 As part of [Step
 2](model-parallel-use-api-v2.md#model-parallel-launch-a-training-job-v2 "model-parallel-use-api-v2.md#model-parallel-launch-a-training-job-v2"), add the following parameter to the SMP configuration dictionary
-for the SageMaker PyTorch estimator.
+for the SageMaker PyTorch ModelTrainer.
 
 ```
 {

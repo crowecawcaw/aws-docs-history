@@ -67,14 +67,14 @@ clusters.
 The AWS services that work together to support the SageMaker HyperPod multiple
 controller (head) nodes architecture include the following.
 
-| AWS services that work together to support the SageMaker HyperPod multiple controller nodes architecture | Service                                                                                                                                                           | Description |
-| -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| **IAM (AWS Identity and Access Management)**                                                             | Defines two IAM roles to control the access permissions: one<br>role for the compute node instance group and the other for the<br>controller node instance group. |
-| **Amazon RDS for MariaDB**                                                                               | Stores accounting data for Slurm, which holds job records and<br>metering data.                                                                                   |
-| **AWS Secrets Manager**                                                                                  | Stores and manages credentials that can be accessed by<br>Amazon FSx for Lustre.                                                                                  |
-| **Amazon FSx for Lustre**                                                                                | Stores Slurm configurations and runtime state.                                                                                                                    |
-| **Amazon VPC**                                                                                           | Provides an isolated network environment where the<br>HyperPod cluster and its resources are deployed.                                                            |
-| **Amazon SNS**                                                                                           | Sends notifications to administrators when there are status<br>changes (Slurm controller is `ON` or `OFF`)<br>related to the primary controller (head) node.      |
+AWS services that work together to support the SageMaker HyperPod multiple controller nodes architecture| Service | Description |
+| --- | --- |
+| **IAM (AWS Identity and Access Management)** | Defines two IAM roles to control the access permissions: one<br>role for the compute node instance group and the other for the<br>controller node instance group. |
+| **Amazon RDS for MariaDB** | Stores accounting data for Slurm, which holds job records and<br>metering data. |
+| **AWS Secrets Manager** | Stores and manages credentials that can be accessed by<br>Amazon FSx for Lustre. |
+| **Amazon FSx for Lustre** | Stores Slurm configurations and runtime state. |
+| **Amazon VPC** | Provides an isolated network environment where the<br>HyperPod cluster and its resources are deployed. |
+| **Amazon SNS** | Sends notifications to administrators when there are status<br>changes (Slurm controller is `ON` or `OFF`)<br>related to the primary controller (head) node. |
 
 The HyperPod cluster itself consists of controller nodes (primary and
 backup) and compute nodes. The controller nodes run the Slurm controller (SlurmCtld)

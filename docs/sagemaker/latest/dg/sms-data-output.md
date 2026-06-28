@@ -1094,12 +1094,12 @@ or more `frameAttributes` to your label category configuration file,
 worker responses for frame attributes are in the JSON object,
 `dataset-object-attributes`.
 
-The ``your-label-attribute`-ref`parameter
- contains the location of a compressed file with a .zlib extension. When you
- uncompress this file, it contains an array. Each index in the array corresponds to
- the index of an annotated point in the input point cloud. The value of the array at
- a given index gives the class of the point at the same index in the point cloud,
- based on the semantic color map found in the`color-map`parameter of the
+The ``your-label-attribute`-ref` parameter
+contains the location of a compressed file with a .zlib extension. When you
+uncompress this file, it contains an array. Each index in the array corresponds to
+the index of an annotated point in the input point cloud. The value of the array at
+a given index gives the class of the point at the same index in the point cloud,
+based on the semantic color map found in the `color-map` parameter of the
 `metadata`.
 
 You can use Python code similar to the following to decompress a .zlib

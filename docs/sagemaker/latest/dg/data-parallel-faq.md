@@ -131,5 +131,5 @@ If you want to integrate the SMDDP library and its minimum dependencies into you
 container, BYOC is the right approach. You can build your own container using the binary file of
 the library. The recommended process is to write a custom Dockerfile with the library and its
 dependencies, build the Docker container, host it in Amazon ECR, and use the ECR image URI to launch
-a training job using the SageMaker AI generic estimator class. For more instructions on how to prepare a
+a training job using the SageMaker AI generic ModelTrainer class. For more instructions on how to prepare a
 custom Dockerfile for distributed training in SageMaker AI with the SMDDP library, see [Create your own Docker container with the SageMaker AI distributed data parallel library](data-parallel-bring-your-own-container.md "data-parallel-bring-your-own-container.md").

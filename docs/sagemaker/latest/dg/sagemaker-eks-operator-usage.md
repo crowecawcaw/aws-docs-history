@@ -157,15 +157,15 @@ spec:
 
 The following are events that the training operator emits that you can feed into Amazon Managed Service for Prometheus to monitor your training jobs.
 
-| Event                                                   | Description                                             |
-| ------------------------------------------------------- | ------------------------------------------------------- |
-| hyperpod_training_operator_jobs_created_total           | Total number of jobs that the training operator has run |
-| hyperpod_training_operator_jobs_restart_latency         | Current job restart latency                             |
-| hyperpod_training_operator_jobs_fault_detection_latency | Fault detection latency                                 |
-| hyperpod_training_operator_jobs_deleted_total           | Total number of deleted jobs                            |
-| hyperpod_training_operator_jobs_successful_total        | Total number of completed jobs                          |
-| hyperpod_training_operator_jobs_failed_total            | Total number of failed jobs                             |
-| hyperpod_training_operator_jobs_restarted_total         | Total number of auto-restarted jobs                     |
+| Event                                                         | Description                                             |
+| ------------------------------------------------------------- | ------------------------------------------------------- |
+| hyperpod\_training\_operator\_jobs\_created\_total            | Total number of jobs that the training operator has run |
+| hyperpod\_training\_operator\_jobs\_restart\_latency          | Current job restart latency                             |
+| hyperpod\_training\_operator\_jobs\_fault\_detection\_latency | Fault detection latency                                 |
+| hyperpod\_training\_operator\_jobs\_deleted\_total            | Total number of deleted jobs                            |
+| hyperpod\_training\_operator\_jobs\_successful\_total         | Total number of completed jobs                          |
+| hyperpod\_training\_operator\_jobs\_failed\_total             | Total number of failed jobs                             |
+| hyperpod\_training\_operator\_jobs\_restarted\_total          | Total number of auto-restarted jobs                     |
 
 ## Sample docker configuration
 

@@ -51,7 +51,7 @@ import json
 
 ## SageMaker Geospatial  is currently only avaialable in US-WEST-2
 session = boto3.Session(region_name='us-west-2')
-execution_role = sagemaker.get_execution_role()
+execution_role = get_execution_role()
 
 ## Creates a SageMaker Geospatial client instance
 geospatial_client = session.client(service_name="sagemaker-geospatial")
@@ -394,7 +394,7 @@ API request using the following code sample:
 
 ```
 # Gets the execution role arn associated with current notebook instance
-execution_role_arn = sagemaker.get_execution_role()
+execution_role_arn = get_execution_role()
 
 # Starts an earth observation job
 response = sm_geo_client.start_earth_observation_job(
@@ -464,7 +464,7 @@ results
 of the EOJ to Amazon S3 by using `export_earth_observation_job`:
 
 ```
-sagemaker_session = sagemaker.Session()
+sagemaker_session = Session()
 s3_bucket_name = sagemaker_session.default_bucket()  # Replace with your own bucket if needed
 s3_bucket = session.resource("s3").Bucket(s3_bucket_name)
 prefix = `"export-lake-mead-eoj"`  # Replace with the S3 prefix desired

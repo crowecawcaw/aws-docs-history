@@ -166,8 +166,8 @@ cannot roll it back to serverless.
 ## Getting started
 
 You can create, update, describe, and delete a serverless endpoint using the SageMaker AI console,
-the AWS SDKs, the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/overview.html#sagemaker-serverless-inference "https://sagemaker.readthedocs.io/en/stable/overview.html#sagemaker-serverless-inference"), and the AWS CLI. You can invoke your endpoint using the AWS SDKs,
-the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/overview.html#sagemaker-serverless-inference "https://sagemaker.readthedocs.io/en/stable/overview.html#sagemaker-serverless-inference"), and the AWS CLI. For serverless endpoints with Provisioned
+the AWS SDKs, the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html"), and the AWS CLI. You can invoke your endpoint using the AWS SDKs,
+the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html"), and the AWS CLI. For serverless endpoints with Provisioned
 Concurrency, you can use Application Auto Scaling to auto scale Provisioned Concurrency based on a target metric
 or a schedule. For more information about how to set up and use a serverless endpoint, read the
 guide [Serverless endpoint operations](serverless-endpoints-create-invoke-update-delete.md "serverless-endpoints-create-invoke-update-delete.md"). For more information on auto

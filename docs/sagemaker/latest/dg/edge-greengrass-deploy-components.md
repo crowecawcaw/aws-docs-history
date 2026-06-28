@@ -127,7 +127,7 @@ Deploy your AWS IoT Greengrass components with the AWS IoT console.
      latest available version.
 
 2. Run the following command to deploy the components on the
-   device:
+device:
 
 ```
 aws greengrassv2 create-deployment \

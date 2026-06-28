@@ -56,14 +56,14 @@ AWS Secrets Manager](../../../secretsmanager/latest/userguide/manage_search-secr
 - AWS Region (`your-region`)
 
 For information about obtaining your current session’s region name using SDK for Python (Boto3),
-see [region_name](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html#boto3.session.Session.region_name "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html#boto3.session.Session.region_name") in the Boto3 documentation.
+see [region\_name](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html#boto3.session.Session.region_name "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html#boto3.session.Session.region_name") in the Boto3 documentation.
 
 The following example demonstrates how to retrieve the JDBC URL and personal access token
 from Secrets Manager and override the `read_data` for your custom data source class,
 `DatabricksDataSource`.
 
 ```
-from sagemaker.feature_store.feature_processor import PySparkDataSource
+from sagemaker.mlops.feature_store.feature_processor import PySparkDataSource
 import json
 import boto3
 
@@ -102,7 +102,7 @@ The following example shows how to connect `RedshiftDataSource` to your
 `feature_processor` decorator.
 
 ```
-from sagemaker.feature_store.feature_processor import feature_processor
+from sagemaker.mlops.feature_store.feature_processor import feature_processor
 
 @feature_processor(
     inputs=[RedshiftDataSource()],
@@ -161,15 +161,15 @@ Identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier "
 
 - Snowflake database (`sf-database`)
 
-For information about obtaining the name of your database using Snowflake, see [CURRENT_DATABASE](https://docs.snowflake.com/en/sql-reference/functions/current_database "https://docs.snowflake.com/en/sql-reference/functions/current_database") in the Snowflake documentation.
+For information about obtaining the name of your database using Snowflake, see [CURRENT\_DATABASE](https://docs.snowflake.com/en/sql-reference/functions/current_database "https://docs.snowflake.com/en/sql-reference/functions/current_database") in the Snowflake documentation.
 
 - Snowflake database schema (`sf-schema`)
 
-For information about obtaining the name of your schema using Snowflake, see [CURRENT_SCHEMA](https://docs.snowflake.com/en/sql-reference/functions/current_schema "https://docs.snowflake.com/en/sql-reference/functions/current_schema") in the Snowflake documentation.
+For information about obtaining the name of your schema using Snowflake, see [CURRENT\_SCHEMA](https://docs.snowflake.com/en/sql-reference/functions/current_schema "https://docs.snowflake.com/en/sql-reference/functions/current_schema") in the Snowflake documentation.
 
 - Snowflake warehouse (`sf-warehouse`)
 
-For information about obtaining the name of your warehouse using Snowflake, see [CURRENT_WAREHOUSE](https://docs.snowflake.com/en/sql-reference/functions/current_warehouse "https://docs.snowflake.com/en/sql-reference/functions/current_warehouse") in the Snowflake documentation.
+For information about obtaining the name of your warehouse using Snowflake, see [CURRENT\_WAREHOUSE](https://docs.snowflake.com/en/sql-reference/functions/current_warehouse "https://docs.snowflake.com/en/sql-reference/functions/current_warehouse") in the Snowflake documentation.
 
 - Snowflake table name (`sf-table-name`)
 - (Optional) If using Secrets Manager, you’ll need the secret name
@@ -182,15 +182,15 @@ AWS Secrets Manager](../../../secretsmanager/latest/userguide/manage_search-secr
 - AWS Region (`your-region`)
 
 For information about obtaining your current session’s region name using SDK for Python (Boto3),
-see [region_name](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html#boto3.session.Session.region_name "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html#boto3.session.Session.region_name") in the Boto3 documentation.
+see [region\_name](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html#boto3.session.Session.region_name "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html#boto3.session.Session.region_name") in the Boto3 documentation.
 
 The following example demonstrates how to retrieve the Snowflake user name and password
 from Secrets Manager and override the `read_data` function for your custom data source class
 `SnowflakeDataSource`.
 
 ```
-from sagemaker.feature_store.feature_processor import PySparkDataSource
-from sagemaker.feature_store.feature_processor import feature_processor
+from sagemaker.mlops.feature_store.feature_processor import PySparkDataSource
+from sagemaker.mlops.feature_store.feature_processor import feature_processor
 import json
 import boto3
 
@@ -231,7 +231,7 @@ The following example shows how to connect `SnowflakeDataSource` to your
 `feature_processor` decorator.
 
 ```
-from sagemaker.feature_store.feature_processor import feature_processor
+from sagemaker.mlops.feature_store.feature_processor import feature_processor
 
 @feature_processor(
     inputs=[SnowflakeDataSource()],
@@ -324,14 +324,14 @@ AWS Secrets Manager](../../../secretsmanager/latest/userguide/manage_search-secr
 - AWS Region (`your-region`)
 
 For information about obtaining your current session’s region name using SDK for Python (Boto3),
-see [region_name](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html#boto3.session.Session.region_name "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html#boto3.session.Session.region_name") in the Boto3 documentation.
+see [region\_name](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html#boto3.session.Session.region_name "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html#boto3.session.Session.region_name") in the Boto3 documentation.
 
 The following example demonstrates how to retrieve the JDBC URL and personal access token
 from Secrets Manager and overwrite the `read_data` for your custom data source class,
 `DatabricksDataSource`.
 
 ```
-from sagemaker.feature_store.feature_processor import PySparkDataSource
+from sagemaker.mlops.feature_store.feature_processor import PySparkDataSource
 import json
 import boto3
 
@@ -369,7 +369,7 @@ The following example shows how to upload the JDBC driver jar,
 Driver](https://www.databricks.com/spark/jdbc-drivers-download "https://www.databricks.com/spark/jdbc-drivers-download")in the Databricks website.
 
 ```
-from sagemaker.feature_store.feature_processor import feature_processor
+from sagemaker.mlops.feature_store.feature_processor import feature_processor
 
 @feature_processor(
     inputs=[DatabricksDataSource()],
@@ -432,11 +432,11 @@ Guide.
 - AWS Region (`your-region`)
 
 For information about obtaining your current session’s region name using SDK for Python (Boto3),
-see [region_name](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html#boto3.session.Session.region_name "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html#boto3.session.Session.region_name") in the Boto3 documentation.
+see [region\_name](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html#boto3.session.Session.region_name "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html#boto3.session.Session.region_name") in the Boto3 documentation.
 
 ```
-from sagemaker.feature_store.feature_processor import BaseDataSource
-from sagemaker.feature_store.feature_processor import feature_processor
+from sagemaker.mlops.feature_store.feature_processor import BaseDataSource
+from sagemaker.mlops.feature_store.feature_processor import feature_processor
 
 class KinesisDataSource(BaseDataSource):
 
@@ -513,7 +513,7 @@ Streaming Programming Guide.
 - The `trigger` setting defines how often the micro-batch processing is
   triggered in a streaming application. In the example, the processing time trigger type is
   used with one-minute micro-batch intervals, specified by `trigger(processingTime="1
-minute")`. To backfill from a stream source, you can use the available-now trigger
+ minute")`. To backfill from a stream source, you can use the available-now trigger
   type, specified by `trigger(availableNow=True)`.
 
 For a full list of `trigger` types, see [Triggers](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#triggers "https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#triggers") in the Apache Spark Structured Streaming Programming Guide.
@@ -535,8 +535,8 @@ continuously.
 
 ```
 import sagemaker.feature_store.feature_processor as fp
-from sagemaker.feature_store.feature_processor import FeatureProcessorPipelineEvent
-from sagemaker.feature_store.feature_processor import FeatureProcessorPipelineExecutionStatus
+from sagemaker.mlops.feature_store.feature_processor import FeatureProcessorPipelineEvent
+from sagemaker.mlops.feature_store.feature_processor import FeatureProcessorPipelineExecutionStatus
 
 streaming_pipeline_name = "`streaming-pipeline`"
 streaming_pipeline_arn = fp.to_pipeline(

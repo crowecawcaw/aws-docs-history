@@ -55,43 +55,42 @@ parameters must be provided in a JSON file and the path must be provided in the
   Section on model parameters, required if `"shap"` and
   `"post_training_bias"` sections are present.
 
-      + `"model_name"` – Model name created by
-       `CreateModel` API, with container mode as
-       `SingleModel`.
-      + `"instance_type"` – Instance type for the shadow
-       endpoint.
-      + `"initial_instance_count"` – Instance count for the
-       shadow endpoint.
-      + `"content_type"` – (Optional) The model input format
-       to be used for getting inferences with the shadow endpoint. Valid values
-       are `"text/csv"` for CSV,
-       `"application/jsonlines"` for JSON Lines,
-       `application/x-parquet` for Apache Parquet, and
-       `application/x-image` to enable Computer Vision
-       explainability. The default value is the same as the
-       `dataset_type` format.
-      + `"accept_type"` – (Optional) The model *output* format to be used for getting
-       inferences with the shadow endpoint. Valid values are
-       `"text/csv"` for CSV,
-       `"application/jsonlines"` for JSON Lines. If omitted,
-       SageMaker Clarify uses the response data type of the captured data.
-      + `"content_template"` – (Optional) A template string
-       used to construct the model input from dataset instances. It is only
-       used when `"content_type"` is
-       `"application/jsonlines"`. The template should have only
-       one placeholder, `$features`, which is replaced by the
-       features list at runtime. For example, given
-       `"content_template":"{\"myfeatures\":$features}"`, if an
-       instance (no label) is `1,2,3`, then model input becomes JSON
-       Lines `'{"myfeatures":[1,2,3]}'`.
-      + `"label_headers"` – (Optional) A list of values that
-       the `"label"` takes in the dataset. Associates the scores
-       returned by the model endpoint or batch transform job with their corresponding label values. If
-       it is provided, then the analysis report uses the headers instead of
-       placeholders like `“label0”`.
-
-  The other parameters should be provided in `EndpointInput` (for real-time endpoints)
-  or `BatchTransformInput` (for batch transform jobs) of the [`ModelExplainabilityJobInput`](../APIReference/API_ModelExplainabilityJobInput.md "../APIReference/API_ModelExplainabilityJobInput.md") API.
+  - `"model_name"` – Model name created by
+    `CreateModel` API, with container mode as
+    `SingleModel`.
+  - `"instance_type"` – Instance type for the shadow
+    endpoint.
+  - `"initial_instance_count"` – Instance count for the
+    shadow endpoint.
+  - `"content_type"` – (Optional) The model input format
+    to be used for getting inferences with the shadow endpoint. Valid values
+    are `"text/csv"` for CSV,
+    `"application/jsonlines"` for JSON Lines,
+    `application/x-parquet` for Apache Parquet, and
+    `application/x-image` to enable Computer Vision
+    explainability. The default value is the same as the
+    `dataset_type` format.
+  - `"accept_type"` – (Optional) The model _output_ format to be used for getting
+    inferences with the shadow endpoint. Valid values are
+    `"text/csv"` for CSV,
+    `"application/jsonlines"` for JSON Lines. If omitted,
+    SageMaker Clarify uses the response data type of the captured data.
+  - `"content_template"` – (Optional) A template string
+    used to construct the model input from dataset instances. It is only
+    used when `"content_type"` is
+    `"application/jsonlines"`. The template should have only
+    one placeholder, `$features`, which is replaced by the
+    features list at runtime. For example, given
+    `"content_template":"{\"myfeatures\":$features}"`, if an
+    instance (no label) is `1,2,3`, then model input becomes JSON
+    Lines `'{"myfeatures":[1,2,3]}'`.
+  - `"label_headers"` – (Optional) A list of values that
+    the `"label"` takes in the dataset. Associates the scores
+    returned by the model endpoint or batch transform job with their corresponding label values. If
+    it is provided, then the analysis report uses the headers instead of
+    placeholders like `“label0”`.
+    The other parameters should be provided in `EndpointInput` (for real-time endpoints)
+    or `BatchTransformInput` (for batch transform jobs) of the [`ModelExplainabilityJobInput`](../APIReference/API_ModelExplainabilityJobInput.md "../APIReference/API_ModelExplainabilityJobInput.md") API.
 
 - `FeaturesAttribute` – This parameter is required if endpoint or batch job
   input data format is `"application/jsonlines"`. It is the JMESPath

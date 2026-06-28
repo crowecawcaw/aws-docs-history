@@ -2,7 +2,7 @@
 
 The SageMaker Python SDK supports managed training of models with ML frameworks such as
 TensorFlow and PyTorch. To launch a training job using one of these frameworks, you define a
-SageMaker [TensorFlow estimator](https://sagemaker.readthedocs.io/en/v2.199.0/frameworks/tensorflow/sagemaker.tensorflow.html#tensorflow-estimator "https://sagemaker.readthedocs.io/en/v2.199.0/frameworks/tensorflow/sagemaker.tensorflow.html#tensorflow-estimator"), a SageMaker [PyTorch estimator](https://sagemaker.readthedocs.io/en/v2.199.0/frameworks/pytorch/sagemaker.pytorch.html#pytorch-estimator "https://sagemaker.readthedocs.io/en/v2.199.0/frameworks/pytorch/sagemaker.pytorch.html#pytorch-estimator"), or a SageMaker generic [Estimator](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/estimators.html#sagemaker.estimator.Estimator "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/estimators.html#sagemaker.estimator.Estimator") to use the modified training script and model parallelism
+SageMaker [TensorFlow estimator](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html"), a SageMaker [PyTorch estimator](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html"), or a SageMaker generic [Estimator](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") to use the modified training script and model parallelism
 configuration.
 
 ###### Topics
@@ -23,7 +23,36 @@ The following template of a TensorFlow or PyTorch estimator shows how to configu
 the `distribution` parameter for using the SageMaker model parallel library
 with MPI.
 
-Using the SageMaker TensorFlow estimator
+SageMaker Python SDK v3
+
+```
+import sagemaker
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import SourceCode, Compute
+from sagemaker.train.distributed import Torchrun
+from sagemaker.core.helper.session_helper import get_execution_role
+from sagemaker.core import image_uris
+
+training_image = image_uris.retrieve(
+    framework="`tensorflow`", region=region, version='`2.6.3`',
+    py_version='`py38`', instance_type='`ml.p3.16xlarge`',
+    image_scope="training"
+)
+
+smd_mp_model_trainer = ModelTrainer(
+    source_code=SourceCode(entry_script="`your_training_script.py`", source_dir="`location_to_your_script`"),
+    role=get_execution_role(),
+    compute=Compute(instance_count=1, instance_type='`ml.p3.16xlarge`'),
+    training_image=training_image,
+    `distributed=Torchrun(),`
+    base_job_name="`SMD-MP-demo`",
+)
+
+smd_mp_model_trainer.train('`s3://my_bucket/my_training_data/`')
+```
+
+SageMaker Python SDK v2 (Legacy)
+**Using the SageMaker TensorFlow estimator**
 
 ```
 import sagemaker
@@ -65,7 +94,7 @@ smd_mp_estimator = TensorFlow(
 smd_mp_estimator.fit('`s3://my_bucket/my_training_data/`')
 ```
 
-Using the SageMaker PyTorch estimator
+**Using the SageMaker PyTorch estimator**
 
 ```
 import sagemaker

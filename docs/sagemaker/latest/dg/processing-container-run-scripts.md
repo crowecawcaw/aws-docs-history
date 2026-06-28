@@ -4,10 +4,8 @@ You can use scikit-learn scripts to preprocess data and evaluate your models. To
 how to run scikit-learn scripts to perform these tasks, see the [scikit-learn Processing](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker_processing/scikit_learn_data_processing_and_model_evaluation "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker_processing/scikit_learn_data_processing_and_model_evaluation") sample notebook. This notebook uses the
 `ScriptProcessor` class from the Amazon SageMaker Python SDK for Processing.
 
-The following example shows a general workflow for using a
-`ScriptProcessor` class with your own processing container. The workflow
-shows how to create your own image, build your container, and use a
-`ScriptProcessor` class to run a Python preprocessing script with the
+The following example shows a general workflow for using your own processing container. The workflow
+shows how to create your own image, build your container, and run a Python preprocessing script with the
 container. The processing job processes your input data and saves the processed data in
 Amazon Simple Storage Service (Amazon S3).
 
@@ -53,11 +51,64 @@ processing_repository_uri = '{}.dkr.ecr.{}.amazonaws.com/{}'.format(account_id, 
 !docker push $processing_repository_uri
 ```
 
-3. Set up the `ScriptProcessor` from the SageMaker Python SDK to run the
-   script. Replace `image_uri` with the URI for the image
+3. Set up and run the processing job. Replace `image_uri` with the URI for the image
    you created, and replace `role_arn` with the ARN for an
    AWS Identity and Access Management role that has access to your target Amazon S3
-   bucket.
+   bucket. Replace `preprocessing.py` with the
+   name of your own Python processing script, and replace
+   `s3://path/to/my/input-data.csv` with the
+   Amazon S3 path to your input data.
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.resources import ProcessingJob
+
+processing_job = ProcessingJob.create(
+    processing_job_name="my-processing-job",
+    role_arn='`role_arn`',
+    app_specification={
+        "image_uri": '`image_uri`',
+        "container_entrypoint": ["python3", "/opt/ml/processing/input/code/preprocessing.py"]
+    },
+    processing_resources={
+        "cluster_config": {
+            "instance_count": 1,
+            "instance_type": "ml.m5.xlarge",
+            "volume_size_in_gb": 30
+        }
+    },
+    processing_inputs=[
+        {
+            "input_name": "code",
+            "s3_input": {
+                "s3_uri": '`s3://path/to/preprocessing.py`',
+                "local_path": "/opt/ml/processing/input/code",
+                "s3_data_type": "S3Prefix",
+                "s3_input_mode": "File"
+            }
+        },
+        {
+            "input_name": "input-data",
+            "s3_input": {
+                "s3_uri": '`s3://path/to/my/input-data.csv`',
+                "local_path": "/opt/ml/processing/input",
+                "s3_data_type": "S3Prefix",
+                "s3_input_mode": "File"
+            }
+        }
+    ],
+    processing_output_config={
+        "outputs": [
+            {"output_name": "train", "s3_output": {"s3_uri": "s3://output/train", "local_path": "/opt/ml/processing/output/train", "s3_upload_mode": "EndOfJob"}},
+            {"output_name": "validation", "s3_output": {"s3_uri": "s3://output/validation", "local_path": "/opt/ml/processing/output/validation", "s3_upload_mode": "EndOfJob"}},
+            {"output_name": "test", "s3_output": {"s3_uri": "s3://output/test", "local_path": "/opt/ml/processing/output/test", "s3_upload_mode": "EndOfJob"}}
+        ]
+    }
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.processing import ScriptProcessor, ProcessingInput, ProcessingOutput
@@ -67,14 +118,7 @@ script_processor = ScriptProcessor(command=['python3'],
                 role='`role_arn`',
                 instance_count=1,
                 instance_type='ml.m5.xlarge')
-```
 
-4. Run the script. Replace `preprocessing.py` with the
-   name of your own Python processing script, and replace
-   `s3://path/to/my/input-data.csv` with the
-   Amazon S3 path to your input data.
-
-```
 script_processor.run(code='`preprocessing.py`',
                      inputs=[ProcessingInput(
                         source='`s3://path/to/my/input-data.csv`',

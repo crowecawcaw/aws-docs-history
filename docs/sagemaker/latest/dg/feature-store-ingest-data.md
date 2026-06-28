@@ -69,17 +69,18 @@ the following options:
      location.
 
 11. Choose **Export**.
+
 1. Open the Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
-1. Choose the **Home** icon (
+2. Choose the **Home** icon (
    ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
    ) in the left navigation pane.
-1. Choose **Data**.
-1. From the dropdown list, choose **Data
+3. Choose **Data**.
+4. From the dropdown list, choose **Data
    Wrangler**.
-1. Choose your workflow.
-1. Choose the **Export** tab.
-1. Choose **Export Step**.
-1. Choose **Feature Store**.
+5. Choose your workflow.
+6. Choose the **Export** tab.
+7. Choose **Export Step**.
+8. Choose **Feature Store**.
 
 After the feature group has been created, you can also select and join data across
 multiple feature groups to create new engineered features in Data Wrangler and then export your

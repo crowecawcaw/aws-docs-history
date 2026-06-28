@@ -51,13 +51,12 @@ that together allow the following traffic:
      the range `8192-65535`.
 
 4. If you want to allow internet access, you must use a [NAT gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md#nat-gateway-working-with "../../../vpc/latest/userguide/vpc-nat-gateway.md#nat-gateway-working-with") with access to the internet, for example
-   through an [internet
-   gateway](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md").
-5. If you don't want to allow internet access, [create interface
-   VPC endpoints](../../../vpc/latest/privatelink/vpce-interface.md "../../../vpc/latest/privatelink/vpce-interface.md") (AWS PrivateLink) to allow Studio Classic to
-   access the following services with the corresponding service names. You
-   must also associate the security groups for your VPC with these
-   endpoints.
+through an [internet
+gateway](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md"). 5. If you don't want to allow internet access, [create interface
+VPC endpoints](../../../vpc/latest/privatelink/vpce-interface.md "../../../vpc/latest/privatelink/vpce-interface.md") (AWS PrivateLink) to allow Studio Classic to
+access the following services with the corresponding service names. You
+must also associate the security groups for your VPC with these
+endpoints.
 
 ###### Note
 

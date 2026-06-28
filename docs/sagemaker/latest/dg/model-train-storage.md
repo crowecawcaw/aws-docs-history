@@ -10,18 +10,18 @@ channel input modes and storage options, see [Setting up training jobs to access
 ## Overview of how SageMaker AI maps storage paths
 
 The following diagram shows an example of how SageMaker AI maps input and output paths when you
-run a training job using the SageMaker Python SDK [Estimator](https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.estimator.Estimator "https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.estimator.Estimator") class.
+run a training job using the SageMaker Python SDK [ModelTrainer](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") class.
 
-![An example of how SageMaker AI maps paths between the training job container and the storage when you run a training job using the SageMaker Python SDK Estimator class and its fit method.](images/sagemaker-training-storage.png)
+![An example of how SageMaker AI maps paths between the training job container and the storage when you run a training job using the SageMaker Python SDK ModelTrainer class and its train method.](images/sagemaker-training-storage.png)
 
 SageMaker AI maps storage paths between a storage (such as Amazon S3, Amazon FSx, and Amazon EFS) and the SageMaker training
-container based on the paths and input mode specified through a SageMaker AI estimator object. More
+container based on the paths and input mode specified through a SageMaker AI ModelTrainer object. More
 information about how SageMaker AI reads from or writes to the paths and the purpose of the paths, see
 [SageMaker AI environment variables and the default paths for training storage locations](model-train-storage-env-var-summary.md "model-train-storage-env-var-summary.md").
 
 You can use `OutputDataConfig` in the [CreateTrainingJob](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md") API
 to save the results of model training to an S3 bucket. Use the [ModelArtifacts](../APIReference/API_ModelArtifacts.md "../APIReference/API_ModelArtifacts.md") API to
-find the S3 bucket that contains your model artifacts. See the [abalone_build_train_deploy](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-pipelines/tabular/abalone_build_train_deploy/sagemaker-pipelines-preprocess-train-evaluate-batch-transform.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-pipelines/tabular/abalone_build_train_deploy/sagemaker-pipelines-preprocess-train-evaluate-batch-transform.ipynb") notebook for an example of output paths and how they are
+find the S3 bucket that contains your model artifacts. See the [abalone\_build\_train\_deploy](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-pipelines/tabular/abalone_build_train_deploy/sagemaker-pipelines-preprocess-train-evaluate-batch-transform.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-pipelines/tabular/abalone_build_train_deploy/sagemaker-pipelines-preprocess-train-evaluate-batch-transform.ipynb") notebook for an example of output paths and how they are
 used in API calls.
 
 For more information and examples of how SageMaker AI manages data source, input modes, and local

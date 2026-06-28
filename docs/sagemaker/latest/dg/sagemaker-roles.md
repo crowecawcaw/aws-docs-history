@@ -75,27 +75,32 @@ a user profile, or with a Jupyter notebook instance.
   notebook instance, see [Update a Notebook Instance](nbi-update.md "nbi-update.md").
 
 You can also pass the ARN of an execution role to your API call. For example,
-using [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"), you can pass the ARN of your execution role to an
-estimator. In the code sample that follows, we create an estimator using the XGBoost
+using [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"), you can pass the ARN of your execution role to a ModelTrainer. In the code sample that follows, we create a ModelTrainer using the XGBoost
 algorithm container and pass the ARN of the execution role as a parameter. For the
 full example on GitHub, see [Customer Churn Prediction with XGBoost](https://github.com/aws/amazon-sagemaker-examples/blob/89c54681b7e0f83ce137b34b879388cf5960af93/introduction_to_applying_machine_learning/xgboost_customer_churn/xgboost_customer_churn.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/89c54681b7e0f83ce137b34b879388cf5960af93/introduction_to_applying_machine_learning/xgboost_customer_churn/xgboost_customer_churn.ipynb").
 
 ```
-import sagemaker, boto3
-from sagemaker import image_uris
+import boto3
+from sagemaker.core import image_uris
+from sagemaker.core.helper.session_helper import Session
+from sagemaker.core.shapes import OutputDataConfig
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute
 
-sess = sagemaker.Session()
+sess = Session()
 region = sess.boto_region_name
 bucket = sess.default_bucket()
 prefix = "sagemaker/DEMO-xgboost-churn"
-container = sagemaker.image_uris.retrieve("xgboost", region, "1.7-1")
+container = image_uris.retrieve("xgboost", region, "1.7-1")
 
-xgb = sagemaker.estimator.Estimator(
-    container,
-    `execution-role-ARN`,
-    instance_count=1,
-    instance_type="ml.m4.xlarge",
-    output_path="s3://{}/{}/output".format(bucket, prefix),
+xgb = ModelTrainer(
+    training_image=container,
+    role=`execution-role-ARN`,
+    compute=Compute(
+        instance_count=1,
+        instance_type="ml.m4.xlarge",
+    ),
+    output_data_config=OutputDataConfig(s3_output_path="s3://{}/{}/output".format(bucket, prefix)),
     sagemaker_session=sess,
 )
 
@@ -239,9 +244,19 @@ any of the IDEs in Amazon SageMaker Studio. You will receive an error if you
 run `get_execution_role` outside of a SageMaker AI
 environment.
 
-The following [`get_execution_role`](https://sagemaker.readthedocs.io/en/stable/api/utility/session.html#sagemaker.session.get_execution_role "https://sagemaker.readthedocs.io/en/stable/api/utility/session.html#sagemaker.session.get_execution_role") [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable")
+The following [`get_execution_role`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable")
 command retrieves the ARN of the execution role attached to the
 space.
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.helper.session_helper import get_execution_role
+role = get_execution_role()
+print(role)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker import get_execution_role
@@ -591,8 +606,7 @@ following permissions:
 {
     "Effect": "Allow",
     "Action": [
-    "kms:Encrypt",
-    "kms:GenerateDataKey"
+    "kms:Encrypt"
     ]
 }
 ```
@@ -889,23 +903,6 @@ In the preceding policy, you scope the policy as follows:
 
 The `cloudwatch` and `logs` actions are applicable for "\*"
 resources. For more information, see [CloudWatch Resources and Operations](../../../AmazonCloudWatch/latest/monitoring/iam-access-control-overview-cw.md#CloudWatch_ARN_Format "../../../AmazonCloudWatch/latest/monitoring/iam-access-control-overview-cw.md#CloudWatch_ARN_Format") in the Amazon CloudWatch User Guide.
-
-If you specify an AWS KMS key to encrypt the storage volume of the notebook
-instance, add the following permissions to the execution role:
-
-```
-{
-    "Effect": "Allow",
-    "Action": [
-        "kms:CreateGrant",
-        "kms:DescribeKey",
-        "kms:Decrypt",
-        "kms:GenerateDataKey",
-        "kms:GenerateDataKeyWithoutPlaintext"
-    ],
-    "Resource": "arn:aws:kms:`us-east-1`:`111122223333`:key/`kms-key-id`"
-}
-```
 
 ## CreateHyperParameterTuningJob API: Execution Role Permissions
 
@@ -1237,7 +1234,7 @@ the following permissions:
 {
     "Effect": "Allow",
     "Action": [
-    "kms:GenerateDataKey"
+    "kms:Encrypt"
     ]
 }
 ```
@@ -1249,8 +1246,7 @@ job, add the following permissions:
 {
     "Effect": "Allow",
     "Action": [
-    "kms:CreateGrant",
-    "kms:DescribeKey"
+    "kms:CreateGrant"
     ]
 }
 ```
@@ -1423,7 +1419,7 @@ following permissions:
 {
     "Effect": "Allow",
     "Action": [
-    "kms:GenerateDataKey"
+    "kms:Encrypt"
     ]
 }
 ```
@@ -1435,8 +1431,7 @@ job, add the following permissions:
 {
     "Effect": "Allow",
     "Action": [
-    "kms:CreateGrant",
-    "kms:DescribeKey"
+    "kms:CreateGrant"
     ]
 }
 ```

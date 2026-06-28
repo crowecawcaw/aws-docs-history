@@ -199,7 +199,7 @@ Amazon SageMaker Studio Classic
 Create an inference recommendation job in Studio Classic.
 
 1. In your Studio Classic application, choose the home icon (
-   ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+   ![Menu icon.](images/studio/icons/house.png)
    ).
 2. In the left sidebar of Studio Classic, choose
    **Models**.

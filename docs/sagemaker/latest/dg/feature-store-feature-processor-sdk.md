@@ -5,7 +5,7 @@ the `@feature_processor` decorator. The SageMaker AI SDK for Python (Boto3) auto
 the configured input data sources, applies the decorated transformation function, and then
 ingests the transformed data to a target feature group. Decorated transformation functions must
 conform to the expected signature of the `@feature_processor` decorator. For more
-information about the `@feature_processor` decorator, see [@feature_processor Decorator](https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#feature-processor-decorator "https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#feature-processor-decorator") in the Amazon SageMaker Feature Store Read the Docs.
+information about the `@feature_processor` decorator, see [@feature\_processor Decorator](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html") in the Amazon SageMaker Feature Store Read the Docs.
 
 With the `@feature_processor` decorator, your transformation function runs in a
 Spark runtime environment where the input arguments provided to your function and its return
@@ -36,7 +36,7 @@ loaded and provided to your transformation function (for example, `transform`), 
 prepares it for ingestion to a feature group. The last line runs it.
 
 ```
-from sagemaker.feature_store.feature_processor import CSVDataSource, feature_processor
+from sagemaker.mlops.feature_store.feature_processor import CSVDataSource, feature_processor
 
 CSV_DATA_SOURCE = CSVDataSource('s3://`your-bucket`/`prefix-to-csv`/')
 OUTPUT_FG = 'arn:aws:sagemaker:`us-east-1`:`111122223333`:feature-group/`your-feature-group-name`'
@@ -53,7 +53,7 @@ The `@feature_processor` parameters include:
 - `inputs` (List[str]): A list of data sources that are used in your Feature Store
   Feature Processor. If your data sources are feature groups or stored in Amazon S3 you may be able
   to use Feature Store provided data source definitions for feature processor. For a full list of Feature Store
-  provided data source definitions, see the [Feature Processor Data Source](https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#feature-processor-data-source "https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#feature-processor-data-source") in the Amazon SageMaker Feature Store Read the Docs.
+  provided data source definitions, see the [Feature Processor Data Source](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html") in the Amazon SageMaker Feature Store Read the Docs.
 - `output` (str): The ARN of the feature group to ingest the output of the
   decorated function.
 - `target_stores` (Optional[List[str]]): A list of stores (for example,
@@ -77,7 +77,7 @@ The `@feature_processor` parameters include:
   parameters.
 
 ```
-from sagemaker.feature_store.feature_processor import CSVDataSource, feature_processor
+from sagemaker.mlops.feature_store.feature_processor import CSVDataSource, feature_processor
 
 CSV_DATA_SOURCE = CSVDataSource('s3://`your-bucket`/`prefix-to-csv`/')
 OUTPUT_FG = 'arn:aws:sagemaker:`us-east-1`:`111122223333`:feature-group/`your-feature-group-name`'
@@ -116,4 +116,4 @@ Note that transformation functions decorated with `@feature_processor` do not
 return a value. To programmatically test your function, you can remove or monkey patch the
 `@feature_processor` decorator such that it acts as a pass-through to the wrapped
 function. For more details on the `@feature_processor` decorator, see [Amazon SageMaker Feature Store
-Python SDK](https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_featurestore.html "https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_featurestore.html").
+Python SDK](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html").

@@ -4,6 +4,18 @@ Use the [DebuggerHookConfig](https://sagemaker.readthedocs.io/en/stable/api/trai
 object using the `collection_configs` object you created in the previous
 step.
 
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.debugger import DebuggerHookConfig
+
+debugger_hook_config=DebuggerHookConfig(
+    collection_configs=`collection_configs`
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 from sagemaker.debugger import DebuggerHookConfig
 
@@ -18,6 +30,19 @@ format of the default S3 bucket URI is
 
 If you want to specify an exact S3 bucket URI, use the following code
 example:
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.debugger import DebuggerHookConfig
+
+debugger_hook_config=DebuggerHookConfig(
+    s3_output_path="`specify-uri`",
+    collection_configs=`collection_configs`
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.debugger import DebuggerHookConfig

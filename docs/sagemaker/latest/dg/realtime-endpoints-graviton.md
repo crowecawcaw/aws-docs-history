@@ -84,7 +84,7 @@ Create a SageMaker AI Model by calling the [`CreateModel`](../APIReference/API_C
 
 ```
 import boto3
-from sagemaker import get_execution_role
+from sagemaker.core.helper.session_helper import get_execution_role
 
 
 aws_region = "`aws-region`"

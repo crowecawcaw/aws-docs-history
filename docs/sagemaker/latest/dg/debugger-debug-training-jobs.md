@@ -2,7 +2,7 @@
 
 To prepare your training script and run training jobs with SageMaker Debugger to debug model
 training progress, you follow the typical two-step process: modify your training script
-using the `sagemaker-debugger` Python SDK, and construct a SageMaker AI estimator using
+using the `sagemaker-debugger` Python SDK, and construct a SageMaker AI ModelTrainer using
 the SageMaker Python SDK. Go through the following topics to learn how to use SageMaker Debugger's
 debugging functionality.
 

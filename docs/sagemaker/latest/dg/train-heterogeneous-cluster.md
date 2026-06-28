@@ -14,7 +14,7 @@ This feature is available in the SageMaker Python SDK v2.98.0 and later.
 
 ###### Note
 
-This feature is available through the SageMaker AI [PyTorch](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html") and [TensorFlow](https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/sagemaker.tensorflow.html#tensorflow-estimator "https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/sagemaker.tensorflow.html#tensorflow-estimator") framework estimator classes. Supported frameworks are PyTorch
+This feature is available through the SageMaker AI [ModelTrainer](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") class. Supported frameworks are PyTorch
 v1.10 or later and TensorFlow v2.6 or later.
 
 See also the blog [Improve price performance of your model training using Amazon SageMaker AI heterogeneous clusters](https://aws.amazon.com/blogs/machine-learning/improve-price-performance-of-your-model-training-using-amazon-sagemaker-heterogeneous-clusters/ "https://aws.amazon.com/blogs/machine-learning/improve-price-performance-of-your-model-training-using-amazon-sagemaker-heterogeneous-clusters/").

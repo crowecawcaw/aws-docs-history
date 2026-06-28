@@ -5,14 +5,54 @@ To get predictions, deploy your model to Amazon EC2 using Amazon SageMaker AI.
 ###### Topics
 
 - [Deploy the Model to SageMaker AI Hosting Services](#ex1-deploy-model "#ex1-deploy-model")
-- [(Optional) Use SageMaker AI Predictor to Reuse the Hosted Endpoint](#ex1-deploy-model-sdk-use-endpoint "#ex1-deploy-model-sdk-use-endpoint")
+- [(Optional) Reuse or Invoke an Existing Endpoint](#ex1-deploy-model-sdk-use-endpoint "#ex1-deploy-model-sdk-use-endpoint")
 - [(Optional) Make Prediction with Batch Transform](#ex1-batch-transform "#ex1-batch-transform")
 
 ## Deploy the Model to SageMaker AI Hosting Services
 
 To host a model through Amazon EC2 using Amazon SageMaker AI, deploy the model that you trained in
-[Create and Run a Training Job](ex1-train-model.md#ex1-train-model-sdk "ex1-train-model.md#ex1-train-model-sdk") by calling
-the `deploy` method of the `xgb_model` estimator. When you call
+[Create and Run a Training Job](ex1-train-model.md#ex1-train-model-sdk "ex1-train-model.md#ex1-train-model-sdk").
+
+SageMaker Python SDK v3
+Use the `ModelBuilder` class to build and deploy your model.
+`ModelBuilder` supports resource chaining,
+so you can pass the trained `ModelTrainer` directly to build and deploy your model.
+
+```
+from sagemaker.serve import ModelBuilder
+
+# Build and deploy using resource chaining from the trained model
+model_builder = ModelBuilder(
+    model=xgb_model_trainer,
+    role_arn=role,
+    instance_type='ml.t2.medium'
+)
+
+# Build creates a SageMaker Model resource
+model = model_builder.build()
+
+# Deploy creates a SageMaker Endpoint resource
+endpoint = model_builder.deploy(endpoint_name="xgboost-endpoint")
+```
+
+- `model` – The trained `ModelTrainer` object.
+  `ModelBuilder` automatically chains the training output to
+  deployment.
+- `instance_type` (str) – The type of instances that you
+  want to operate your deployed model.
+
+The `build()` method creates a SageMaker AI Model resource, and
+`deploy()` creates a SageMaker AI Endpoint resource. For more
+information, see the [SageMaker AI ModelBuilder](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").
+To retrieve the name of the endpoint, run
+the following code:
+
+```
+endpoint.endpoint_name
+```
+
+SageMaker Python SDK v2 (Legacy)
+When you call
 the `deploy` method, you must specify the number and type of EC2 ML instances
 that you want to use for hosting an endpoint.
 
@@ -45,8 +85,6 @@ the following code:
 xgb_predictor.endpoint_name
 ```
 
-This should return the endpoint name of the `xgb_predictor`. The format
-of the endpoint name is `"sagemaker-xgboost-YYYY-MM-DD-HH-MM-SS-SSS"`.
 This endpoint stays active in the ML instance, and you can make instantaneous
 predictions at any time unless you shut it down later. Copy this endpoint name and
 save it to reuse and make real-time predictions elsewhere in SageMaker Studio or SageMaker AI
@@ -58,8 +96,28 @@ To learn more about compiling and optimizing your model for deployment to
 Amazon EC2 instances or edge devices, see [Compile and Deploy Models with
 Neo](neo.md "neo.md").
 
-## (Optional) Use SageMaker AI Predictor to Reuse the Hosted Endpoint
+## (Optional) Reuse or Invoke an Existing Endpoint
 
+SageMaker Python SDK v3
+After you deploy the model to an endpoint, you can invoke it from any other notebook
+or application using the `Endpoint` class from sagemaker-core.
+The following example code shows how to get an existing endpoint and make predictions.
+Re-use the endpoint name from the deployment step above.
+
+```
+from sagemaker.core.resources import Endpoint
+
+endpoint = Endpoint.get(endpoint_name="`xgboost-endpoint`")
+
+# Make a prediction
+response = endpoint.invoke(
+    body=test_data,
+    content_type="text/csv"
+)
+result = response.body.read().decode('utf-8')
+```
+
+SageMaker Python SDK v2 (Legacy)
 After you deploy the model to an endpoint, you can set up a new SageMaker AI predictor by
 pairing the endpoint and continuously make real-time predictions in any other notebooks.
 The following example code shows how to use the SageMaker AI Predictor class to set up a new
@@ -82,10 +140,8 @@ original `xgb_predictor`. For more information, see the [SageMaker AI Predictor]
 
 Instead of hosting an endpoint in production, you can run a one-time batch inference
 job to make predictions on a test dataset using the SageMaker AI batch transform. After your
-model training has completed, you can extend the estimator to a `transformer`
-object, which is based on the [SageMaker AI
-Transformer](https://sagemaker.readthedocs.io/en/stable/api/inference/transformer.html "https://sagemaker.readthedocs.io/en/stable/api/inference/transformer.html") class. The batch transformer reads in input data from a
-specified S3 bucket and makes predictions.
+model training has completed, you can use the batch transformer to read input
+data from a specified S3 bucket and make predictions.
 
 ###### To run a batch transform job
 
@@ -110,10 +166,43 @@ batch_input = 's3://{}/{}/test'.format(bucket, prefix)
 batch_output = 's3://{}/{}/batch-prediction'.format(bucket, prefix)
 ```
 
-3. Create a transformer object specifying the minimal number of parameters: the
-   `instance_count` and `instance_type` parameters to run
-   the batch transform job, and the `output_path` to save prediction
-   data as shown following:
+3. Create and run a batch transform job.
+
+SageMaker Python SDK v3
+
+```
+# Build a model from the trained ModelTrainer
+model_builder = ModelBuilder(model=xgb_model_trainer, role_arn=role)
+model = model_builder.build(model_name="xgboost-batch-model")
+
+# Create and run the batch transform job
+from sagemaker.core.resources import TransformJob
+
+transform_job = TransformJob.create(
+    model_name=model.model_name,
+    transform_input={
+        "data_source": {
+            "s3_data_source": {
+                "s3_data_type": "S3Prefix",
+                "s3_uri": batch_input
+            }
+        },
+        "content_type": "text/csv",
+        "split_type": "Line"
+    },
+    transform_output={
+        "s3_output_path": batch_output
+    },
+    transform_resources={
+        "instance_type": "ml.m4.xlarge",
+        "instance_count": 1
+    }
+)
+
+transform_job.wait()
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 transformer = xgb_model.transformer(
@@ -121,12 +210,7 @@ transformer = xgb_model.transformer(
     instance_type='ml.m4.xlarge',
     output_path=batch_output
 )
-```
 
-4. Initiate the batch transform job by executing the `transform()` method of the
-   `transformer` object as shown following:
-
-```
 transformer.transform(
     data=batch_input,
     data_type='S3Prefix',
@@ -136,7 +220,7 @@ transformer.transform(
 transformer.wait()
 ```
 
-5. When the batch transform job is complete, SageMaker AI creates the `test.csv.out`
+4. When the batch transform job is complete, SageMaker AI creates the `test.csv.out`
    prediction data saved in the `batch_output` path, which should be in
    the following format:
    `s3://sagemaker-<region>-111122223333/demo-sagemaker-xgboost-adult-income-prediction/batch-prediction`.

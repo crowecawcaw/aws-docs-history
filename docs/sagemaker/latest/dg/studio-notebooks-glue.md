@@ -35,9 +35,9 @@ that you can use in your AWS Glue interactive session, see [Configure your AWS G
   the following images and kernels:
 
   - Images: `SparkAnalytics 1.0`, `SparkAnalytics
-2.0`
+   2.0`
   - Kernel: `Glue Python [PySpark and Ray]` and `Glue
-Spark`
+   Spark`
 
 - For Studio users, use the default [SageMaker Distribution
   image](https://github.com/aws/sagemaker-distribution "https://github.com/aws/sagemaker-distribution") and select a `Glue Python [PySpark and Ray]` or a

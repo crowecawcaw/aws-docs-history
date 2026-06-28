@@ -329,16 +329,16 @@ client.create_ai_workload_config(
 
 The following parameters control synthetic video generation:
 
-| Parameter          | Type   | Default       | Description                                                                                                                                                    |
-| ------------------ | ------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `video_width`      | int    | None          | Frame width in pixels. Must be set with<br>`video_height` to enable video generation.                                                                          |
-| `video_height`     | int    | None          | Frame height in pixels. Must be set with<br>`video_width` to enable video generation.                                                                          |
-| `video_fps`        | int    | 4             | Frames per second.                                                                                                                                             |
-| `video_duration`   | float  | 5.0           | Clip duration in seconds.                                                                                                                                      |
-| `video_batch_size` | int    | 1             | Number of videos per request.                                                                                                                                  |
-| `video_synth_type` | string | moving_shapes | Synthesis pattern. Valid values:<br>`moving_shapes` (animated geometric shapes),<br>`grid_clock` (grid with clock animation),<br>`noise` (random pixel noise). |
-| `video_format`     | string | webm          | Container format. Valid value: `webm`.                                                                                                                         |
-| `video_codec`      | string | libvpx-vp9    | Video codec. Supported value:<br>`libvpx-vp9` (VP9, WebM).                                                                                                     |
+| Parameter          | Type   | Default        | Description                                                                                                                                                    |
+| ------------------ | ------ | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `video_width`      | int    | None           | Frame width in pixels. Must be set with<br>`video_height` to enable video generation.                                                                          |
+| `video_height`     | int    | None           | Frame height in pixels. Must be set with<br>`video_width` to enable video generation.                                                                          |
+| `video_fps`        | int    | 4              | Frames per second.                                                                                                                                             |
+| `video_duration`   | float  | 5.0            | Clip duration in seconds.                                                                                                                                      |
+| `video_batch_size` | int    | 1              | Number of videos per request.                                                                                                                                  |
+| `video_synth_type` | string | moving\_shapes | Synthesis pattern. Valid values:<br>`moving_shapes` (animated geometric shapes),<br>`grid_clock` (grid with clock animation),<br>`noise` (random pixel noise). |
+| `video_format`     | string | webm           | Container format. Valid value: `webm`.                                                                                                                         |
+| `video_codec`      | string | libvpx-vp9     | Video codec. Supported value:<br>`libvpx-vp9` (VP9, WebM).                                                                                                     |
 
 ###### Note
 
@@ -674,7 +674,7 @@ contains the following files relevant to prompt-response correlation:
 
 The full synthetic dataset of generated conversations. Each
 record has a `session_id` and the complete request
-payload (messages, max_tokens, model).
+payload (messages, max\_tokens, model).
 
 `outputs.json`
 

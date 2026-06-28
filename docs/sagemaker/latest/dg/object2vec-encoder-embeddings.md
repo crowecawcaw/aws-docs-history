@@ -27,7 +27,7 @@ transformer = o2v.transformer(instance_count=4,
 ## Input: Encoder Embeddings
 
 Content-type: application/json;
-infer_max_seqlens=<FWD-LENGTH>,<BCK-LENGTH>
+infer\_max\_seqlens=<FWD-LENGTH>,<BCK-LENGTH>
 
 Where <FWD-LENGTH> and <BCK-LENGTH> are integers in the range [1,5000] and
 define the maximum sequence lengths for the forward and backward encoder.
@@ -43,7 +43,7 @@ define the maximum sequence lengths for the forward and backward encoder.
 ```
 
 Content-type: application/jsonlines;
-infer_max_seqlens=<FWD-LENGTH>,<BCK-LENGTH>
+infer\_max\_seqlens=<FWD-LENGTH>,<BCK-LENGTH>
 
 Where <FWD-LENGTH> and <BCK-LENGTH> are integers in the range [1,5000] and
 define the maximum sequence lengths for the forward and backward encoder.

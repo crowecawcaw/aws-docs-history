@@ -19,6 +19,27 @@ are used for the endpoint. You must choose an instance for which you have compil
 your model. For example, in the job compiled in [Compile a Model
 (Amazon SageMaker SDK)](neo-job-compilation-sagemaker-sdk.md "neo-job-compilation-sagemaker-sdk.md") section, this is `ml_c5`.
 
+SageMaker Python SDK v3
+
+```
+from sagemaker.serve import ModelBuilder
+
+model_builder = ModelBuilder(
+    model=compiled_model,
+    role_arn=role,
+    instance_type='ml.c5.4xlarge',
+)
+endpoint = model_builder.build().deploy(
+    initial_instance_count=1,
+    instance_type='ml.c5.4xlarge'
+)
+
+# Print the name of newly created endpoint
+print(endpoint.endpoint_name)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 predictor = compiled_model.deploy(initial_instance_count = 1, instance_type = 'ml.c5.4xlarge')
 
@@ -29,7 +50,7 @@ print(predictor.endpoint_name)
 ## If you compiled your model using MXNet or PyTorch
 
 Create the SageMaker AI model and deploy it using the deploy() API under the
-framework-specific Model APIs. For MXNet, it is [MXNetModel](https://sagemaker.readthedocs.io/en/stable/frameworks/mxnet/sagemaker.mxnet.html?highlight=MXNetModel#mxnet-model "https://sagemaker.readthedocs.io/en/stable/frameworks/mxnet/sagemaker.mxnet.html?highlight=MXNetModel#mxnet-model") and for PyTorch, it is [PyTorchModel](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html?highlight=PyTorchModel#sagemaker.pytorch.model.PyTorchModel "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html?highlight=PyTorchModel#sagemaker.pytorch.model.PyTorchModel"). When you are creating and deploying an SageMaker AI model, you
+framework-specific Model APIs. For MXNet, it is [MXNetModel](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") and for PyTorch, it is [PyTorchModel](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html"). When you are creating and deploying an SageMaker AI model, you
 must set `MMS_DEFAULT_RESPONSE_TIMEOUT` environment variable to
 `500` and specify the `entry_point` parameter as the
 inference script (`inference.py`) and the `source_dir`
@@ -40,7 +61,29 @@ step.
 The following example shows how to use these functions to deploy a compiled
 model using the SageMaker AI SDK for Python:
 
-MXNet
+SageMaker Python SDK v3
+
+```
+from sagemaker.serve import ModelBuilder
+
+# V3 uses a unified ModelBuilder approach for all frameworks
+model_builder = ModelBuilder(
+    s3_model_data_url='insert S3 path of compiled model archive',
+    role_arn='AmazonSageMaker-ExecutionRole',
+    instance_type='ml.p3.2xlarge',
+    env={'MMS_DEFAULT_RESPONSE_TIMEOUT': '500'},
+)
+endpoint = model_builder.build().deploy(
+    initial_instance_count=1,
+    instance_type='ml.p3.2xlarge'
+)
+
+# Print the name of newly created endpoint
+print(endpoint.endpoint_name)
+```
+
+SageMaker Python SDK v2 (Legacy)
+**MXNet:**
 
 ```
 from sagemaker.mxnet import MXNetModel
@@ -64,7 +107,7 @@ predictor = sm_mxnet_compiled_model.deploy(initial_instance_count = 1, instance_
 print(predictor.endpoint_name)
 ```
 
-PyTorch 1.4 and Older
+**PyTorch 1.4 and Older:**
 
 ```
 from sagemaker.pytorch import PyTorchModel
@@ -88,7 +131,7 @@ predictor = sm_pytorch_compiled_model.deploy(initial_instance_count = 1, instanc
 print(predictor.endpoint_name)
 ```
 
-PyTorch 1.5 and Newer
+**PyTorch 1.5 and Newer:**
 
 ```
 from sagemaker.pytorch import PyTorchModel
@@ -109,7 +152,6 @@ predictor = sm_pytorch_compiled_model.deploy(initial_instance_count = 1, instanc
 
 # Print the name of newly created endpoint
 print(predictor.endpoint_name)
-
 ```
 
 ###### Note
@@ -120,7 +162,25 @@ role.
 
 ## If you compiled your model using Boto3, SageMaker console, or the CLI for TensorFlow
 
-Construct a `TensorFlowModel` object, then call deploy:
+Construct a model object, then call deploy:
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.serve import ModelBuilder
+
+model_builder = ModelBuilder(
+    s3_model_data_url='S3 path for model file',
+    role_arn=role,
+    instance_type='ml.c5.xlarge',
+)
+endpoint = model_builder.build().deploy(
+    initial_instance_count=1,
+    instance_type='ml.c5.xlarge'
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 role='AmazonSageMaker-ExecutionRole'
@@ -141,7 +201,7 @@ directly from model artifacts](https://sagemaker.readthedocs.io/en/stable/framew
 You can select a Docker image Amazon ECR URI that meets your needs from [this list](neo-deployment-hosting-services-container-images.md "neo-deployment-hosting-services-container-images.md").
 
 For more information on how to construct a `TensorFlowModel` object,
-see the [SageMaker SDK](https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/sagemaker.tensorflow.html#tensorflow-serving-model "https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/sagemaker.tensorflow.html#tensorflow-serving-model").
+see the [SageMaker SDK](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html").
 
 ###### Note
 

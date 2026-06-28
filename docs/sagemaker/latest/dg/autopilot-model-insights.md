@@ -29,41 +29,39 @@ candidate metrics](autopilot-metrics-validation.md#autopilot-metrics "autopilot-
 
 To view a performance report from an Autopilot job, follow these steps:
 
-1.  Choose the **Home** icon (
-    ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
-    ) from the left navigation pane to view the top-level
-    **Amazon SageMaker Studio Classic** navigation menu.
-2.  Select the **AutoML** card from the main working area. This
-    opens a new **Autopilot** tab.
-3.  In the **Name** section, select the Autopilot job that has the
-    details that you want to examine. This opens a new **Autopilot
-    job** tab.
-4.  The **Autopilot job** panel lists the metric values including
-    the **Objective** metric for each model under **Model
-    name**. The **Best model** is listed at the top of
-    the list under **Model name** and it is highlighted in the
-    **Models** tab.
+1. Choose the **Home** icon (
+   ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+   ) from the left navigation pane to view the top-level
+   **Amazon SageMaker Studio Classic** navigation menu.
+2. Select the **AutoML** card from the main working area. This
+   opens a new **Autopilot** tab.
+3. In the **Name** section, select the Autopilot job that has the
+   details that you want to examine. This opens a new **Autopilot
+   job** tab.
+4. The **Autopilot job** panel lists the metric values including
+   the **Objective** metric for each model under **Model
+   name**. The **Best model** is listed at the top of
+   the list under **Model name** and it is highlighted in the
+   **Models** tab.
 
-    1. To review model details, select the model that you are interested in
-       and select **View in model details**. This opens a new
-       **Model Details** tab.
+   1. To review model details, select the model that you are interested in
+      and select **View in model details**. This opens a new
+      **Model Details** tab.
 
-5.  Choose the **Performance** tab between the
-    **Explainability** and **Artifacts**
-    tab.
+5. Choose the **Performance** tab between the
+   **Explainability** and **Artifacts**
+   tab.
 
-        1. On the top right section of the tab, select the down arrow on the
-         **Download Performance Reports** button.
-        2. The down arrow provides two options to view Autopilot performance
-         metrics:
+   1. On the top right section of the tab, select the down arrow on the
+      **Download Performance Reports** button.
+   2. The down arrow provides two options to view Autopilot performance
+      metrics:
 
-
-        	1. You can download a PDF of the performance report to view the
-        	 metrics graphically.
-        	2. You can view metrics as raw data and download it as a JSON
-        	 file.
-
-    For instructions on how to create and run an AutoML job in SageMaker Studio Classic, see [Create Regression or Classification Jobs for Tabular Data Using the AutoML API](autopilot-automate-model-development-create-experiment.md "autopilot-automate-model-development-create-experiment.md").
+      1. You can download a PDF of the performance report to view the
+         metrics graphically.
+      2. You can view metrics as raw data and download it as a JSON
+         file.
+         For instructions on how to create and run an AutoML job in SageMaker Studio Classic, see [Create Regression or Classification Jobs for Tabular Data Using the AutoML API](autopilot-automate-model-development-create-experiment.md "autopilot-automate-model-development-create-experiment.md").
 
 The performance report contains two sections. The first contains details about the
 Autopilot job that produced the model. The second section contains a model quality

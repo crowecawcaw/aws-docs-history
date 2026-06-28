@@ -37,41 +37,40 @@ model parameters and customize the handler code.
 
 To get started, ensure that you have the following prerequisites:
 
-1.  Ensure you have access to an AWS account. [Set up your
-    environment](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/latest/userguide/cli-chap-configure.md") so that the AWS CLI can access your account through
-    either an AWS IAM user or an IAM role. We recommend using an IAM
-    role. For the purposes of testing in your personal account, you can attach
-    the following managed permissions policies to the IAM role:
+1. Ensure you have access to an AWS account. [Set up your
+   environment](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/latest/userguide/cli-chap-configure.md") so that the AWS CLI can access your account through
+   either an AWS IAM user or an IAM role. We recommend using an IAM
+   role. For the purposes of testing in your personal account, you can attach
+   the following managed permissions policies to the IAM role:
 
-        * [AmazonEC2ContainerRegistryFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess")
-        * [AmazonEC2FullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2FullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2FullAccess")
-        * [AWSServiceRoleForAmazonEKSNodegroup](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSServiceRoleForAmazonEKSNodegroup "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSServiceRoleForAmazonEKSNodegroup")
-        * [AmazonSageMakerFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess")
-        * [AmazonS3FullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonS3FullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonS3FullAccess")
+   - [AmazonEC2ContainerRegistryFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess")
+   - [AmazonEC2FullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2FullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEC2FullAccess")
+   - [AWSServiceRoleForAmazonEKSNodegroup](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSServiceRoleForAmazonEKSNodegroup "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSServiceRoleForAmazonEKSNodegroup")
+   - [AmazonSageMakerFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess")
+   - [AmazonS3FullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonS3FullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonS3FullAccess")
+     For more information about attaching IAM policies to a role, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _AWS IAM User Guide_.
 
-    For more information about attaching IAM policies to a role, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _AWS IAM User Guide_.
+2. Locally configure your dependencies, as shown in the following
+   examples.
 
-2.  Locally configure your dependencies, as shown in the following
-    examples.
+   1. Install version 2 of the AWS CLI:
 
-    1. Install version 2 of the AWS CLI:
+   ```
+   # Install the latest AWS CLI v2 if it is not installed
+   !curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" !unzip awscliv2.zip
+   #Follow the instructions to install v2 on the terminal
+   !cat aws/README.md
+   ```
+   2. Install SageMaker AI and the Boto3 client:
 
-    ```
-    # Install the latest AWS CLI v2 if it is not installed
-    !curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" !unzip awscliv2.zip
-    #Follow the instructions to install v2 on the terminal
-    !cat aws/README.md
-    ```
-    2. Install SageMaker AI and the Boto3 client:
-
-    ```
-    # If already installed, update your client
-    #%pip install sagemaker pip --upgrade --quiet
-    !pip install -U sagemaker
-    !pip install -U boto
-    !pip install -U botocore
-    !pip install -U boto3
-    ```
+   ```
+   # If already installed, update your client
+   #%pip install sagemaker pip --upgrade --quiet
+   !pip install -U sagemaker
+   !pip install -U boto
+   !pip install -U botocore
+   !pip install -U boto3
+   ```
 
 ### Configure model settings and parameters
 
@@ -227,7 +226,7 @@ torch-model-archiver --model-name opt --version 1.0 --handler custom_handler.py 
 ```
 
 Once the `opt/` folder is created, download the OPT-30b model to the folder
-using the PyTorch [Download_model](https://github.com/pytorch/serve/blob/master/examples/large_models/utils/Download_model.py "https://github.com/pytorch/serve/blob/master/examples/large_models/utils/Download_model.py") tool.
+using the PyTorch [Download\_model](https://github.com/pytorch/serve/blob/master/examples/large_models/utils/Download_model.py "https://github.com/pytorch/serve/blob/master/examples/large_models/utils/Download_model.py") tool.
 
 ```
 cd opt
@@ -258,13 +257,15 @@ To deploy your model, complete the following steps:
 ```
 import boto3
 import sagemaker
-from sagemaker import Model, image_uris, serializers, deserializers
+from sagemaker.core.resources import Model
+from sagemaker.core import image_uris
+from sagemaker.core.helper.session_helper import get_execution_role, Session
 
 boto3_session=boto3.session.Session(region_name="us-west-2")
 smr = boto3.client('sagemaker-runtime-demo')
 sm = boto3.client('sagemaker')
-role = sagemaker.get_execution_role()  # execution role for the endpoint
-sess= sagemaker.session.Session(boto3_session, sagemaker_client=sm, sagemaker_runtime_client=smr)  # SageMaker AI session for interacting with different AWS APIs
+role = get_execution_role()  # execution role for the endpoint
+sess= Session(boto3_session, sagemaker_client=sm, sagemaker_runtime_client=smr)  # SageMaker AI session for interacting with different AWS APIs
 region = sess._region_name  # region name of the current SageMaker Studio Classic environment
 account = sess.account_id()  # account_id of the current SageMaker Studio Classic environment
 
@@ -309,7 +310,7 @@ model.deploy(
     initial_instance_count=1,
     instance_type=instance_type,
     endpoint_name=endpoint_name,
-    volume_size=512, # increase the size to store large model
+    volume_size_in_gb=512, # increase the size to store large model
     model_data_download_timeout=3600, # increase the timeout to download large model
     container_startup_health_check_timeout=600, # increase the timeout to load large model
 )

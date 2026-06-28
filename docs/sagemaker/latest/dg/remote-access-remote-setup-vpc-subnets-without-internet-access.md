@@ -219,6 +219,5 @@ connected Studio space. 7. Upload the tarball to Amazon S3. 8. Create an [LCC sc
      space in a private subnet launches.
 
 9. (Optional) Extend the LCC script to support per-user VS Code
-   server tarballs stored in user-specific Amazon S3 folders.
-10. (Optional) Maintain version-specific LCC scripts ([Example LCC script (LCC-install-VS Code-server-v1.100.2)](remote-access-local-ide-setup-vpc-no-internet.md#remote-access-local-ide-setup-vpc-no-internet-pre-packaged-vs-code-remote-server-and-extensions-example-lcc "remote-access-local-ide-setup-vpc-no-internet.md#remote-access-local-ide-setup-vpc-no-internet-pre-packaged-vs-code-remote-server-and-extensions-example-lcc")) that you can attach to your spaces, ensuring compatibility
-    between your local VS Code client and the remote server.
+server tarballs stored in user-specific Amazon S3 folders. 10. (Optional) Maintain version-specific LCC scripts ([Example LCC script (LCC-install-VS Code-server-v1.100.2)](remote-access-local-ide-setup-vpc-no-internet.md#remote-access-local-ide-setup-vpc-no-internet-pre-packaged-vs-code-remote-server-and-extensions-example-lcc "remote-access-local-ide-setup-vpc-no-internet.md#remote-access-local-ide-setup-vpc-no-internet-pre-packaged-vs-code-remote-server-and-extensions-example-lcc")) that you can attach to your spaces, ensuring compatibility
+between your local VS Code client and the remote server.

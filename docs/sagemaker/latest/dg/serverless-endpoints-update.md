@@ -32,7 +32,7 @@ SageMaker AI console are outlined in the following sections.
 
 ### To update the endpoint (using Boto3)
 
-The following example uses the [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html") to call the [update_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_endpoint.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_endpoint.html") method. Specify at least the following parameters when calling the method:
+The following example uses the [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html") to call the [update\_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_endpoint.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_endpoint.html") method. Specify at least the following parameters when calling the method:
 
 - For `EndpointName`, use the name of the endpoint you’re updating.
 - For `EndpointConfigName`, use the name of the endpoint configuration that you want

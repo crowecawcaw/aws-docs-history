@@ -173,10 +173,41 @@ actions and configures a list of actions.
 rule**
 
 If you want to assign all of the three built-in actions to a single rule,
-configure a Debugger built-in action list while constructing an estimator. Use the
-following template to construct the estimator, and Debugger will stop training jobs
+configure a Debugger built-in action list while constructing a ModelTrainer. Use the
+following template to construct the ModelTrainer, and Debugger will stop training jobs
 and send notifications through email and text for any rules that you use to monitor
 your training job progress.
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.debugger import Rule, rule_configs
+
+# Configure an action list object for Debugger rules
+`actions` = rule_configs.ActionList(
+    `rule_configs.StopTraining()`,
+    `rule_configs.Email("abc@abc.com")`,
+    `rule_configs.SMS("+1234567890")`
+)
+
+# Configure rules for debugging with the actions parameter
+`rules` = [
+    Rule.sagemaker(
+        base_config=rule_configs.`built_in_rule`(),         # Required
+        rule_parameters={"`paramter_key`": `value` },        # Optional
+        actions=`actions`
+    )
+]
+
+model_trainer = ModelTrainer(
+    `...`
+    rules = `rules`
+)
+
+model_trainer.train()
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.debugger import Rule, rule_configs
@@ -216,6 +247,56 @@ submit different rule job names (specify different strings for the rules'
 This example shows how to set up [StalledTrainingRule](debugger-built-in-rules.md#stalled-training "debugger-built-in-rules.md#stalled-training") to take two different actions: send an email
 to `abc@abc.com` when a training job stalls for 60
 seconds, and stop the training job if stalling for 120 seconds.
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.debugger import Rule, rule_configs
+import time
+
+base_job_name_prefix= 'smdebug-stalled-demo-' + str(int(time.time()))
+
+# Configure an action object for StopTraining
+`action_stop_training` = rule_configs.ActionList(
+    rule_configs.StopTraining()
+)
+
+# Configure an action object for Email
+`action_email` = rule_configs.ActionList(
+    rule_configs.Email("`abc@abc.com`")
+)
+
+# Configure a rule with the Email built-in action to trigger if a training job stalls for 60 seconds
+`stalled_training_job_rule_email` = Rule.sagemaker(
+        base_config=rule_configs.stalled_training_rule(),
+        rule_parameters={
+                "threshold": "`60`",
+                "training_job_name_prefix": base_job_name_prefix
+        },
+        actions=`action_email`
+)
+stalled_training_job_rule_text.name="`StalledTrainingJobRuleEmail`"
+
+# Configure a rule with the StopTraining built-in action to trigger if a training job stalls for 120 seconds
+`stalled_training_job_rule` = Rule.sagemaker(
+        base_config=rule_configs.stalled_training_rule(),
+        rule_parameters={
+                "threshold": "`120`",
+                "training_job_name_prefix": base_job_name_prefix
+        },
+        actions=`action_stop_training`
+)
+stalled_training_job_rule.name="`StalledTrainingJobRuleStopTraining`"
+
+model_trainer = ModelTrainer(
+    `...`
+    rules = [`stalled_training_job_rule_email`, `stalled_training_job_rule`]
+)
+
+model_trainer.train()
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.debugger import Rule, rule_configs

@@ -83,4 +83,4 @@ you have one or two data sources.
 
 - To let Autopilot generate the endpoint name, set `AutoGenerateEndpointName` to `True`.
 - To provide your own name for the endpoint, set `AutoGenerateEndpointName to `False` and provide a name of
-your choice in EndpointName`.
+ your choice in EndpointName`.

@@ -181,6 +181,6 @@ https://smdataparallel.s3.amazonaws.com/binary/pytorch/2.0.1/cu118/2023-12-07/sm
 - Starting from this release, documentation for the SMDDP library is fully
   available in this _Amazon SageMaker AI Developer Guide_. In favor of the
   complete developer guide for SMDDP v2 housed in the _Amazon SageMaker AI Developer
-  Guide_, documentation for the [additional reference for SMDDP v1.x](https://sagemaker.readthedocs.io/en/stable/api/training/smd_data_parallel.html "https://sagemaker.readthedocs.io/en/stable/api/training/smd_data_parallel.html") in the _SageMaker AI Python
+  Guide_, documentation for the [additional reference for SMDDP v1.x](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") in the _SageMaker AI Python
   SDK documentation_ is no longer supported. If you still need SMP
   v1.x documentation, see the following snapshot of the documentation at [SageMaker Python SDK v2.212.0 documentation](https://sagemaker.readthedocs.io/en/v2.212.0/api/training/distributed.html#the-sagemaker-distributed-data-parallel-library "https://sagemaker.readthedocs.io/en/v2.212.0/api/training/distributed.html#the-sagemaker-distributed-data-parallel-library").

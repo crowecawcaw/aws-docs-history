@@ -48,7 +48,7 @@ The following table summarizes how SageMaker AI chooses a reference execution.
 | `null` or unspecified                              | `False`                                         | None—in this case, select steps without upstream dependencies |
 
 For more information about selective execution configuration requirements, see the
-[sagemaker.workflow.selective_execution_config.SelectiveExecutionConfig](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#selective-execution-config "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#selective-execution-config") documentation.
+[sagemaker.workflow.selective\_execution\_config.SelectiveExecutionConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#selective-execution-config "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#selective-execution-config") documentation.
 
 The following discussion includes examples for the cases in which you want to specify a pipeline
 reference execution, use the latest pipeline execution as a reference, or run selective execution without a

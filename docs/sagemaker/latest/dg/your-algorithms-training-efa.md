@@ -125,6 +125,6 @@ provider: efa;ofi_rxd
 ## Running a training job with EFA
 
 Once you’ve created an EFA-enabled container, you can run a training job with EFA using a
-SageMaker AI Estimator the same way as you would with any other Docker image. For more information on
+SageMaker AI ModelTrainer the same way as you would with any other Docker image. For more information on
 registering your container and using it for training, see [Adapting Your
 Own Training Container](adapt-training-container.md#byoc-training-step5 "adapt-training-container.md#byoc-training-step5").

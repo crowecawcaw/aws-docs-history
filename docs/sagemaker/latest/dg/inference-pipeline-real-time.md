@@ -39,6 +39,31 @@ permission to pull the image. For more information, see [Troubleshoot Amazon ECR
 The following code creates and deploys a real-time inference pipeline model with
 SparkML and XGBoost models in series using the SageMaker AI SDK.
 
+SageMaker Python SDK v3
+
+```
+from sagemaker.serve import ModelBuilder
+
+sparkml_data = 's3://{}/{}/{}'.format(s3_model_bucket, s3_model_key_prefix, 'model.tar.gz')
+
+model_name = 'serial-inference-' + timestamp_prefix
+endpoint_name = 'serial-inference-ep-' + timestamp_prefix
+
+model_builder = ModelBuilder(
+    s3_model_data_url=sparkml_data,
+    role_arn=role,
+    instance_type='ml.c4.xlarge',
+    pipeline_models=[sparkml_data, xgb_model.s3_model_data_url],
+)
+endpoint = model_builder.build().deploy(
+    initial_instance_count=1,
+    instance_type='ml.c4.xlarge',
+    endpoint_name=endpoint_name
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 from sagemaker.model import Model
 from sagemaker.pipeline_model import PipelineModel
@@ -58,6 +83,60 @@ sm_model.deploy(initial_instance_count=1, instance_type='ml.c4.xlarge', endpoint
 
 The following example shows how to make real-time predictions by calling an
 inference endpoint and passing a request payload in JSON format:
+
+SageMaker Python SDK v3
+
+```
+import json
+from sagemaker.core.resources import Endpoint
+
+payload = {
+        "input": [
+            {
+                "name": "Pclass",
+                "type": "float",
+                "val": "1.0"
+            },
+            {
+                "name": "Embarked",
+                "type": "string",
+                "val": "Q"
+            },
+            {
+                "name": "Age",
+                "type": "double",
+                "val": "48.0"
+            },
+            {
+                "name": "Fare",
+                "type": "double",
+                "val": "100.67"
+            },
+            {
+                "name": "SibSp",
+                "type": "double",
+                "val": "1.0"
+            },
+            {
+                "name": "Sex",
+                "type": "string",
+                "val": "male"
+            }
+        ],
+        "output": {
+            "name": "features",
+            "type": "double",
+            "struct": "vector"
+        }
+    }
+
+endpoint = Endpoint(endpoint_name=endpoint_name)
+
+response = endpoint.invoke(body=json.dumps(payload), content_type='application/json', accept='application/json')
+print(response)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import sagemaker
@@ -109,8 +188,7 @@ predictor = Predictor(endpoint=endpoint_name, sagemaker_session=sagemaker.Sessio
 print(predictor.predict(payload))
 ```
 
-The response you get from `predictor.predict(payload)` is the model's
-inference result.
+The response you get is the model's inference result.
 
 ## Realtime inference pipeline example
 

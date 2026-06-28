@@ -5,7 +5,7 @@ Builder. For more information about Amazon SageMaker AI Model Builder, see [Crea
 
 `ModelBuilder` is a Python class that takes a framework model or a
 user-specified inference specification and converts it to a deployable model. For more
-details about the `ModelBuilder` class, see [ModelBuilder](https://sagemaker.readthedocs.io/en/stable/api/inference/model_builder.html#sagemaker.serve.builder.model_builder.ModelBuilder "https://sagemaker.readthedocs.io/en/stable/api/inference/model_builder.html#sagemaker.serve.builder.model_builder.ModelBuilder").
+details about the `ModelBuilder` class, see [ModelBuilder](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html").
 
 To deploy your MLflow model using `ModelBuilder`, provide a path to your MLflow
 artifacts in the `model_metadata["MLFLOW_MODEL_PATH"]` attribute. Read on for more
@@ -16,8 +16,8 @@ information about valid model path input formats:
 If you provide your model artifact path in the form of an MLflow run ID or MLflow model registry path, then you must also specify
 your tracking server ARN through the `model_metadata["MLFLOW_TRACKING_ARN"]` attribute.
 
-- [Model paths that require an ARN in the model_metadata](#mlflow-track-experiments-model-deployment-with-arn "#mlflow-track-experiments-model-deployment-with-arn")
-- [Model paths that do not require an ARN in the model_metadata](#mlflow-track-experiments-model-deployment-without-arn "#mlflow-track-experiments-model-deployment-without-arn")
+- [Model paths that require an ARN in the model\_metadata](#mlflow-track-experiments-model-deployment-with-arn "#mlflow-track-experiments-model-deployment-with-arn")
+- [Model paths that do not require an ARN in the model\_metadata](#mlflow-track-experiments-model-deployment-without-arn "#mlflow-track-experiments-model-deployment-without-arn")
 
 ## Model paths that require an ARN in the `model_metadata`
 
@@ -62,6 +62,34 @@ or later of the SageMaker Python SDK to use `ModelBuilder`.
 
 Use the following code example for reference. For end-to-end examples that show you how to
 deploy registered MLflow models, see [MLflow tutorials using example Jupyter notebooks](mlflow-tutorials.md "mlflow-tutorials.md").
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.serve import ModelBuilder
+from sagemaker.serve.mode.function_pointers import Mode
+from sagemaker.serve import SchemaBuilder
+
+my_schema = SchemaBuilder(
+    sample_input=`sample_input`,
+    sample_output=`sample_output`
+)
+
+model_builder = ModelBuilder(
+    mode=Mode.SAGEMAKER_ENDPOINT,
+    schema_builder=my_schema,
+    role_arn="`Your-service-role-ARN`",
+    model_metadata={
+        # both model path and tracking server ARN are required if you use an mlflow run ID or mlflow model registry path as input
+        "MLFLOW_MODEL_PATH": "`models:/sklearn-model/1`"
+        "MLFLOW_TRACKING_ARN": "`arn:aws:sagemaker:region:account-id:mlflow-tracking-server/tracking-server-name`"
+    }
+)
+model = model_builder.build()
+endpoint = model_builder.deploy(endpoint_name="`my-endpoint`", instance_type="`ml.c6i.xlarge`")
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.serve import ModelBuilder

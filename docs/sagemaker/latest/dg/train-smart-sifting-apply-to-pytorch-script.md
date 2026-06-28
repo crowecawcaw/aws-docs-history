@@ -171,40 +171,43 @@ into standardized formats that it can efficiently sift.
      `batch_transforms`.
 
 3. Create a class for implementing the SageMaker smart sifting `Loss`
-   interface. This tutorial assumes that the class is named
-   `SiftingImplementedLoss`. While setting up this class, we
-   recommend that you use the same loss function in the model training loop. Go
-   through the following substeps for creating a SageMaker smart sifting `Loss`
-   implemented class.
+interface. This tutorial assumes that the class is named
+`SiftingImplementedLoss`. While setting up this class, we
+recommend that you use the same loss function in the model training loop. Go
+through the following substeps for creating a SageMaker smart sifting `Loss`
+implemented class.
 
-   1. SageMaker smart sifting calculates a loss value for each training data sample,
-      as opposed to calculating a single loss value for a batch. To ensure
-      that SageMaker smart sifting uses the same loss calculation logic, create a
-      smart-sifting-implemented loss function using the SageMaker smart sifting
-      `Loss` module that uses your loss function and
-      calculates loss per training sample.
+    1. SageMaker smart sifting calculates a loss value for each training data sample,
+     as opposed to calculating a single loss value for a batch. To ensure
+     that SageMaker smart sifting uses the same loss calculation logic, create a
+     smart-sifting-implemented loss function using the SageMaker smart sifting
+     `Loss` module that uses your loss function and
+     calculates loss per training sample.
 
-   ###### Tip
 
-   SageMaker smart sifting algorithm runs on every data sample, not on the
-   entire batch, so you should add an initialization function to
-   set the PyTorch loss function without any reduction
-   strategy.
+    ###### Tip
 
-   ```
-   class `SiftingImplementedLoss`(Loss):
-       def __init__(self):
-           self.loss = `torch.nn.CrossEntropyLoss`(**reduction='none'**)
-   ```
+    SageMaker smart sifting algorithm runs on every data sample, not on the
+     entire batch, so you should add an initialization function to
+     set the PyTorch loss function without any reduction
+     strategy.
 
-   This is also shown in the following code example. 2. Define a loss function that accepts the
-   `original_batch` (or `transformed_batch`
-   if you have set up a batch transform in step 2) and the PyTorch
-   model. Using the specified loss function with no reduction,
-   SageMaker smart sifting runs a forward pass for each data sample to evaluate its
-   loss value.The following code is an example of a smart-sifting-implemented
-   `Loss` interface named
-   `SiftingImplementedLoss`.
+
+    ```
+    class `SiftingImplementedLoss`(Loss):
+        def __init__(self):
+            self.loss = `torch.nn.CrossEntropyLoss`(**reduction='none'**)
+    ```
+    This is also shown in the following code example.
+    2. Define a loss function that accepts the
+     `original_batch` (or `transformed_batch`
+     if you have set up a batch transform in step 2) and the PyTorch
+     model. Using the specified loss function with no reduction,
+     SageMaker smart sifting runs a forward pass for each data sample to evaluate its
+     loss value.The following code is an example of a smart-sifting-implemented
+
+`Loss` interface named
+`SiftingImplementedLoss`.
 
 ```
 from typing import Any
@@ -243,11 +246,8 @@ Before the training loop hits the actual forward pass, this sifting loss
 calculation is done during the data loading phase of fetching a batch in
 each iteration. The individual loss value is then compared to previous loss
 values, and its relative percentile is estimated per the object of
-`RelativeProbabilisticSiftConfig` you have set up in step
-
-1.
-2. Wrap the PyTroch data loader by the SageMaker AI `SiftingDataloader`
-   class.
+`RelativeProbabilisticSiftConfig` you have set up in step 1. 4. Wrap the PyTroch data loader by the SageMaker AI `SiftingDataloader`
+class.
 
 Finally, use all the SageMaker smart sifting implemented classes you configured in the
 previous steps to the SageMaker AI `SiftingDataloder` configuration

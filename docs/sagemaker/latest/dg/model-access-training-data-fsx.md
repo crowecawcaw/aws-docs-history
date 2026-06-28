@@ -73,14 +73,13 @@ The following procedures walk you through the process of setting the Amazon FSx 
 as the data source for SageMaker training jobs.
 
 Using the SageMaker Python SDK
-To properly set the Amazon FSx file system as the data source, configure the SageMaker AI
-estimator classes and `FileSystemInput` using the following
+To properly set the Amazon FSx file system as the data source, configure the SageMaker AI ModelTrainer classes and `FileSystemInput` using the following
 instruction.
 
 1. Configure a FileSystemInput class object.
 
 ```
-from sagemaker.inputs import FileSystemInput
+from sagemaker.core.inputs import FileSystemInput
 
 train_fs = FileSystemInput(
     file_system_id="`fs-0123456789abcdef0`",
@@ -93,29 +92,32 @@ train_fs = FileSystemInput(
 ###### Tip
 
 When you specify `directory_path`, make sure that you provide the
-Amazon FSx file system path starting with `MountName`. 2. Configure a SageMaker AI estimator with the VPC configuration used for the Amazon FSx file
+Amazon FSx file system path starting with `MountName`. 2. Configure a SageMaker AI ModelTrainer with the VPC configuration used for the Amazon FSx file
 system.
 
 ```
-from sagemaker.`estimator` import `Estimator`
+from sagemaker.`train` import `ModelTrainer`
+from sagemaker.train.configs import Networking
 
-estimator = `Estimator`(
+model_trainer = `ModelTrainer`(
     ...
     role="`your-iam-role-with-access-to-your-fsx`",
-    subnets=["`subnet-id`"],  # Should be the same as the subnet used for Amazon FSx
-    security_group_ids="`security-group-id`"
+    networking=Networking(
+        subnets=["`subnet-id`"],  # Should be the same as the subnet used for Amazon FSx
+        security_group_ids=["`security-group-id`"]
+    )
 )
 ```
 
 Make sure that the IAM role for the SageMaker training job has the permissions to
-access and read from Amazon FSx. 3. Launch the training job by running the estimator.fit method with the Amazon FSx
+access and read from Amazon FSx. 3. Launch the training job by running the ModelTrainer.train method with the Amazon FSx
 file system.
 
 ```
-estimator.fit(train_fs)
+model_trainer.train(train_fs)
 ```
 
-To find more code examples, see [Use File Systems as Training Inputs](https://sagemaker.readthedocs.io/en/stable/overview.html#use-file-systems-as-training-inputs "https://sagemaker.readthedocs.io/en/stable/overview.html#use-file-systems-as-training-inputs") in the _SageMaker Python SDK
+To find more code examples, see [Use File Systems as Training Inputs](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") in the _SageMaker Python SDK
 documentation_.
 
 Using the SageMaker AI CreateTrainingJob API

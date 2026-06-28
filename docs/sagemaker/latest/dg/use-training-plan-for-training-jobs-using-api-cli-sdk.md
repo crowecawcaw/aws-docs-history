@@ -63,7 +63,7 @@ aws sagemaker describe-training-job --training-job-name `training-job-name`
 
 Alternatively, you can create a training job associated with a training plan using the
 [SageMaker Python
-SDK](https://sagemaker.readthedocs.io/en/stable/v2.html "https://sagemaker.readthedocs.io/en/stable/v2.html").
+SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/").
 
 If you are using the SageMaker Python SDK from JupyterLab in Studio to create a
 training job, ensure that the execution role used by the space running your JupyterLab
@@ -72,9 +72,53 @@ required permissions to use SageMaker training plans, see [IAM for SageMaker tra
 
 The following example demonstrates how to create a SageMaker training job and associate it
 with a provided training plan using the `training_plan` attribute in the
-`Estimator` object when using the SageMaker Python SDK.
+`ModelTrainer` object when using the SageMaker Python SDK.
 
-For more information on the SageMaker Estimator, see [Use a SageMaker estimator to run a training job](docker-containers-adapt-your-own-private-registry-estimator.md "docker-containers-adapt-your-own-private-registry-estimator.md").
+For more information on the SageMaker ModelTrainer, see [Use a SageMaker ModelTrainer to run a training job](docker-containers-adapt-your-own-private-registry-estimator.md "docker-containers-adapt-your-own-private-registry-estimator.md").
+
+SageMaker Python SDK v3
+
+```
+import boto3
+from sagemaker.core.helper.session_helper import get_execution_role
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import InputData
+from sagemaker.train.configs import Compute, SourceCode
+from sagemaker.core.shapes import OutputDataConfig
+
+# Set up the session and SageMaker client
+session = boto3.Session()
+region = session.region_name
+sagemaker_session = session.client('sagemaker')
+
+# Get the execution role for the training job
+role = get_execution_role()
+
+# Define the input data configuration
+trainingInput = InputData(
+    channel_name='`training`',
+    data_source='`s3://input-path`'
+)
+
+model_trainer = ModelTrainer(
+    training_image="`123456789123.dkr.ecr.{}.amazonaws.com/image:tag`",
+    source_code=SourceCode(entry_script='train.py'),
+    role=role,
+    compute=Compute(
+        instance_type='`ml.p5.48xlarge`',
+        instance_count=`4`,
+        volume_size_in_gb=`20`,
+        training_plan_arn="`training-plan-arn`"
+    ),
+    output_data_config=OutputDataConfig(s3_output_path="`s3://output-path`")
+)
+
+# Create the training job
+model_trainer.train(input_data_config=[trainingInput])
+
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import sagemaker

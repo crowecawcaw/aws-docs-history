@@ -42,7 +42,7 @@ To add one or more Model Groups to a Collection from the **Collections** tab, co
    Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
 2. In the left navigation pane, choose the
    **Home** icon (
-   ![](images/studio/icons/house.png)
+   ![Home icon.](images/studio/icons/house.png)
    ).
 3. Choose **Models**, and then **Model
    registry**.
@@ -67,7 +67,7 @@ steps:
 1. Sign in to Studio Classic. For more information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md "gs-studio-onboard.md").
 2. In the left navigation pane, choose the
    **Home** icon (
-   ![](images/studio/icons/house.png)
+   ![Home icon.](images/studio/icons/house.png)
    ).
 3. Choose **Models**, and then **Model
    registry**.

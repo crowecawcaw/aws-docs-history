@@ -82,7 +82,7 @@ trained outside of SageMaker AI and deploy it on any of the SageMaker AI hosting
 SageMaker AI requires you to package the model in a `model.tar.gz` file and
 have a specific directory structure. Each framework has its own model structure
 (see the following question for example structures). For more information, see
-the SageMaker Python SDK documentation for [TensorFlow](https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/deploying_tensorflow_serving.html#deploying-directly-from-model-artifacts "https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/deploying_tensorflow_serving.html#deploying-directly-from-model-artifacts"), [PyTorch](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/using_pytorch.html#bring-your-own-model "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/using_pytorch.html#bring-your-own-model"), and [MXNet](https://sagemaker.readthedocs.io/en/stable/frameworks/mxnet/using_mxnet.html#deploy-endpoints-from-model-data "https://sagemaker.readthedocs.io/en/stable/frameworks/mxnet/using_mxnet.html#deploy-endpoints-from-model-data").
+the SageMaker Python SDK documentation for [TensorFlow](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html"), [PyTorch](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html"), and [MXNet](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html").
 
 While you can choose from prebuilt framework images such as TensorFlow, PyTorch, and
 MXNet to host your trained model, you can also build your own container to host
@@ -171,8 +171,8 @@ the AWS Management Console, AWS CloudFormation, and the AWS Cloud Development Ki
 There are three key entities in endpoint creation: a SageMaker AI model, a SageMaker AI endpoint configuration, and a SageMaker AI endpoint.
 The SageMaker AI model points towards the model data and image you are using. The endpoint configuration defines your production variants,
 which might include the instance type and instance count. You can then use either the
-[create_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint")
-API call or the [.deploy()](https://sagemaker.readthedocs.io/en/stable/api/inference/model.html "https://sagemaker.readthedocs.io/en/stable/api/inference/model.html") call for
+[create\_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint")
+API call or the [.deploy()](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html") call for
 SageMaker AI to create an endpoint using the metadata from your model and endpoint configuration.
 
 A: No, you can use the various AWS SDKs (see [Invoke](../APIReference/API_runtime_InvokeEndpoint.md#API_runtime_InvokeEndpoint_SeeAlso "../APIReference/API_runtime_InvokeEndpoint.md#API_runtime_InvokeEndpoint_SeeAlso")/[Create](../APIReference/API_CreateEndpoint.md#API_CreateEndpoint_SeeAlso "../APIReference/API_CreateEndpoint.md#API_CreateEndpoint_SeeAlso") for available SDKs) or even call the corresponding web APIs

@@ -22,8 +22,8 @@ If an issue arises when using Amazon SageMaker Data Wrangler, we recommend you d
 As a last resort, you can try restarting the kernel on which Data Wrangler is running.
 
 1. Save and exit the .flow file for which you want to restart the kernel.
-2. Select the \***\*Running Terminals and
-   Kernels\*\*** icon, as shown in the following
+2. Select the ****Running Terminals and
+   Kernels**** icon, as shown in the following
    image.
 
 ![The location of the Running Terminals and Kernels icon in the console.](images/studio/mohave/stop-kernel-option.png) 3. Select the **Stop** icon to the right of the .flow file for
@@ -46,8 +46,8 @@ The errors might have two root causes:
     + The Amazon EMR master security group lacks the inbound traffic rule for the security group of Amazon SageMaker Studio Classic on the port used for Presto. To resolve the issue, allow inbound traffic on port 8889.
 
 - Connection fails due to the connection type being misconfigured – You might see the following error message: `Data Wrangler couldn't create a connection to {connection_source} successfully. 
-Try connecting to {connection_source} again. For more information, see Troubleshoot. 
-If you’re still experiencing issues, contact support.`
+ Try connecting to {connection_source} again. For more information, see Troubleshoot. 
+ If you’re still experiencing issues, contact support.`
 
 Check the authentication method. The authentication method that you've specified in Data Wrangler should match the authentication method that you're using on the cluster.
 
@@ -67,10 +67,9 @@ For LDAP authentication, you must specify both a username and a password. The JD
 
 - When you're troubleshooting the LDAP configuration: We recommend making sure that the LDAP authenticator (LDAP server) is correctly configured to connect to the Amazon EMR cluster. Use the `ldapwhoami` command to help you resolve the configuration issue. The following are example commands that you can run:
 
-      + For LDAPS – `ldapwhoami -x -H ldaps://ldap-server`
-      + For LDAP – `ldapwhoami -x -H ldap://ldap-server`
-
-  Either command should return `Anonymous` if you've configured the authenticator successfully.
+  - For LDAPS – `ldapwhoami -x -H ldaps://ldap-server`
+  - For LDAP – `ldapwhoami -x -H ldap://ldap-server`
+    Either command should return `Anonymous` if you've configured the authenticator successfully.
 
 ## Troubleshooting with Salesforce
 

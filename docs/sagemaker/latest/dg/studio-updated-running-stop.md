@@ -254,37 +254,36 @@ your domain. You can view, create, and delete spaces on this page.
 
 ###### To view Studio spaces in a domain
 
-1.  Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
-2.  From the left navigation pane, expand **Admin
-    configurations** and choose **Domains**.
-3.  Choose the domain where you want to view the spaces.
-4.  On the **Domain details**, choose **Space
-    management** to open the **Spaces**
-    section.
-5.  Select the space to delete.
-6.  Choose **Delete**.
-7.  In the pop-up box titled **Delete space**, you have
-    two options:
+1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
+2. From the left navigation pane, expand **Admin
+   configurations** and choose **Domains**.
+3. Choose the domain where you want to view the spaces.
+4. On the **Domain details**, choose **Space
+   management** to open the **Spaces**
+   section.
+5. Select the space to delete.
+6. Choose **Delete**.
+7. In the pop-up box titled **Delete space**, you have
+   two options:
 
-    - If you already shut down all applications in the space, choose
-      **Yes, delete space**.
-    - If you still have applications running in the space, choose
-      **Yes, shut down all apps and delete
-      space**.
+   - If you already shut down all applications in the space, choose
+     **Yes, delete space**.
+   - If you still have applications running in the space, choose
+     **Yes, shut down all apps and delete
+     space**.
 
-8.  Enter `delete` in the delete input field to
-    confirm deletion.
-9.  To delete the space, you have two options:
+8. Enter `delete` in the delete input field to
+   confirm deletion.
+9. To delete the space, you have two options:
 
-        * If you already shut down all applications in the space, choose
-         **Delete space**.
-        * If you still have applications running in the space, choose
-         **Shut down all apps and delete
-         space**.
-
-    Before you can delete a space using the AWS CLI, you must delete the application
-    associated with it. For information about stopping your Studio
-    applications, see [Stop your Amazon SageMaker Studio application](#studio-updated-running-stop-app "#studio-updated-running-stop-app").
+   - If you already shut down all applications in the space, choose
+     **Delete space**.
+   - If you still have applications running in the space, choose
+     **Shut down all apps and delete
+     space**.
+     Before you can delete a space using the AWS CLI, you must delete the application
+     associated with it. For information about stopping your Studio
+     applications, see [Stop your Amazon SageMaker Studio application](#studio-updated-running-stop-app "#studio-updated-running-stop-app").
 
 Use the following AWS CLI command to delete a space within a domain:
 

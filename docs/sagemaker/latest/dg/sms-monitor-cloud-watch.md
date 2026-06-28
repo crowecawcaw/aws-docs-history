@@ -54,7 +54,7 @@ following to receive labeling job statuses:
 
 - `\"source\":[\"aws.sagemaker\"]`
 - `\"detail-type\":[\"SageMaker Ground Truth Labeling Job State
-Change\"]`
+ Change\"]`
 
 To configure a CloudWatch Events rule to watch for all status changes, use the following command and
 replace the placeholder text. For example, replace

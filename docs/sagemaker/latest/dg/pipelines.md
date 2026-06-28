@@ -17,7 +17,7 @@ screenshot shows the Studio visual editor for pipelines.
 ![Screenshot of the visual drag-and-drop interface for Pipelines in Studio.](images/pipelines/pipelines-studio-overview.png)
 If you prefer managing your ML workflows programmatically, the SageMaker Python SDK offers advanced orchestration
 features. For more information, see
-[Amazon SageMaker Pipelines](https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_model_building_pipeline.html "https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_model_building_pipeline.html")
+[Amazon SageMaker Pipelines](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html")
 in the SageMaker Python SDK documentation.
 
 **AWS integrations**

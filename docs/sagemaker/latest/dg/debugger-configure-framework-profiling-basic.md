@@ -7,6 +7,18 @@ system monitoring and the default framework profiling. The
 `FrameworkProfile` class in the following example code initiates the
 default framework profiling when a training job starts.
 
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.debugger import ProfilerConfig, FrameworkProfile
+
+profiler_config=ProfilerConfig(
+    framework_profile_params=FrameworkProfile()
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 from sagemaker.debugger import ProfilerConfig, FrameworkProfile
 
@@ -30,6 +42,19 @@ framework profiling, you can specify the `system_monitor_interval_millis`
 parameter explicitly with the `framework_profile_params` parameter. For
 example, to monitor every 1000 milliseconds and enable the default framework
 profiling, use the following example code.
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.debugger import ProfilerConfig, FrameworkProfile
+
+profiler_config=ProfilerConfig(
+    system_monitor_interval_millis=`1000`,
+    framework_profile_params=FrameworkProfile()
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.debugger import ProfilerConfig, FrameworkProfile

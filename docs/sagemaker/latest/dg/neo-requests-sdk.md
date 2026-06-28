@@ -17,32 +17,32 @@ The API varies based on the SageMaker AI SDK for Python version:
 
 - For version 1.x, use the [`RealTimePredictor`](https://sagemaker.readthedocs.io/en/v1.72.0/api/inference/predictors.html#sagemaker.predictor.RealTimePredictor "https://sagemaker.readthedocs.io/en/v1.72.0/api/inference/predictors.html#sagemaker.predictor.RealTimePredictor") and
   [`Predict`](https://sagemaker.readthedocs.io/en/v1.72.0/api/inference/predictors.html#sagemaker.predictor.RealTimePredictor.predict "https://sagemaker.readthedocs.io/en/v1.72.0/api/inference/predictors.html#sagemaker.predictor.RealTimePredictor.predict") API.
-- For version 2.x, use the
-  [`Predictor`](https://sagemaker.readthedocs.io/en/stable/api/inference/predictors.html#sagemaker.predictor.Predictor "https://sagemaker.readthedocs.io/en/stable/api/inference/predictors.html#sagemaker.predictor.Predictor") and
+- For version 3.x, use the
+  [`Endpoint`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html") and
   the
-  [`Predict`](https://sagemaker.readthedocs.io/en/stable/api/inference/predictors.html#sagemaker.predictor.Predictor.predict "https://sagemaker.readthedocs.io/en/stable/api/inference/predictors.html#sagemaker.predictor.Predictor.predict") API.
+  [`invoke`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") API.
 
 The following code example shows how to use these APIs to send an
 image for inference:
 
-SageMaker Python SDK v1.x
+SageMaker Python SDK v3
 
 ```
-from sagemaker.predictor import RealTimePredictor
+from sagemaker.core.resources import Endpoint
 
-endpoint = `'insert name of your endpoint here'`
+endpoint_name = `'insert name of your endpoint here'`
 
 # Read image into memory
 payload = None
 with open("image.jpg", 'rb') as f:
     payload = f.read()
 
-predictor = RealTimePredictor(endpoint=endpoint, content_type='application/x-image')
-inference_response = predictor.predict(data=payload)
-print (inference_response)
+endpoint = Endpoint(endpoint_name=endpoint_name)
+inference_response = endpoint.invoke(body=payload, content_type='application/x-image')
+print(inference_response.body.read().decode('utf-8'))
 ```
 
-SageMaker Python SDK v2.x
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.predictor import Predictor
@@ -65,12 +65,12 @@ The following code example shows how to use the SageMaker Python SDK
 API to send an image for inference:
 
 ```
-from sagemaker.predictor import Predictor
+from sagemaker.core.resources import Endpoint
 from PIL import Image
 import numpy as np
 import json
 
-endpoint = `'insert the name of your endpoint here'`
+endpoint_name = `'insert the name of your endpoint here'`
 
 # Read image into memory
 image = Image.open(input_file)
@@ -80,7 +80,7 @@ image = image / 128 - 1
 image = np.concatenate([image[np.newaxis, :, :]] * batch_size)
 body = json.dumps({"instances": image.tolist()})
 
-predictor = Predictor(endpoint)
-inference_response = predictor.predict(data=body)
+endpoint = Endpoint(endpoint_name=endpoint_name)
+inference_response = endpoint.invoke(body=body, content_type='application/json')
 print(inference_response)
 ```

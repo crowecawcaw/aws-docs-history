@@ -119,16 +119,16 @@ print(f"OutputLocation: {output_location}")
 For information about supported content types, see [Common data formats for inference](cdf-inference.md "cdf-inference.md").
 
 With the Amazon S3 output location, you can then use a
-[SageMaker Python SDK SageMaker AI Session Class](https://sagemaker.readthedocs.io/en/stable/api/utility/session.html?highlight=session "https://sagemaker.readthedocs.io/en/stable/api/utility/session.html?highlight=session")
+[SageMaker Python SDK SageMaker AI Session Class](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html")
 to read in Amazon S3 files. The following code example shows how to create a function
 (`get_ouput`) that repeatedly attempts to read a file from the Amazon S3 output location:
 
 ```
-import sagemaker
+from sagemaker.core.helper.session_helper import Session
 import urllib, time
 from botocore.exceptions import ClientError
 
-sagemaker_session = sagemaker.session.Session()
+sagemaker_session = Session()
 
 def get_output(output_location):
     output_url = urllib.parse.urlparse(output_location)

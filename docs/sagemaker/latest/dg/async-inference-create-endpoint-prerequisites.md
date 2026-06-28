@@ -147,9 +147,8 @@ console. Search for the role you created by typing in your role name in the
     ```
 
 3. **Upload your inference data (e.g., machine learning
-   model, sample data) to **Amazon S3**.**
-4. **Select a prebuilt Docker inference image or create your
-   own Inference Docker Image.**
+model, sample data) to **Amazon S3**.** 4. **Select a prebuilt Docker inference image or create your
+own Inference Docker Image.**
 
 SageMaker AI provides containers for its built-in algorithms and prebuilt Docker
 images for some of the most common machine learning frameworks, such as Apache

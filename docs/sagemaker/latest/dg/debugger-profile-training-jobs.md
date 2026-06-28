@@ -17,7 +17,7 @@ intervals so you can dive deep into the metrics at the level of an operation or 
 If you want to change the metric collection time interval, you can add a paramter for
 profiling configuration to your training job launcher. For example, if you're using the SageMaker AI
 Python SDK, you need to pass the `profiler_config` parameter when you create an
-estimator object. To learn how to adjust the resource utilization metric collection
+ModelTrainer object. To learn how to adjust the resource utilization metric collection
 interval, see [Code template for configuring a SageMaker AI estimator object with the SageMaker Debugger Python modules in the SageMaker AI Python SDK](debugger-configuration-for-profiling.md#debugger-configuration-structure-profiler "debugger-configuration-for-profiling.md#debugger-configuration-structure-profiler") and then [Configure settings for basic profiling of system resource utilization](debugger-configure-system-monitoring.md "debugger-configure-system-monitoring.md").
 
 Additionally, you can add issue detecting tools called _built-in

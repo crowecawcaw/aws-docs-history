@@ -1,10 +1,10 @@
 # Use the PyTorch framework estimators in the SageMaker Python SDK
 
 You can launch distributed training by adding the `distribution` argument to
-the SageMaker AI framework estimators, [`PyTorch`](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html#sagemaker.pytorch.estimator.PyTorch "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html#sagemaker.pytorch.estimator.PyTorch") or [`TensorFlow`](https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/sagemaker.tensorflow.html#tensorflow-estimator "https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/sagemaker.tensorflow.html#tensorflow-estimator"). For more details, choose one of the frameworks supported
+the SageMaker AI framework estimators, [`PyTorch`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") or [`TensorFlow`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html"). For more details, choose one of the frameworks supported
 by the SageMaker AI distributed data parallelism (SMDDP) library from the following selections.
 
-PyTorch
+SageMaker Python SDK v3
 The following launcher options are available for launching PyTorch distributed
 training.
 
@@ -63,27 +63,45 @@ additional MPI options as follows.
 }
 ```
 
-The following code sample shows the basic structure of a PyTorch estimator with
+The following code sample shows the basic structure of a ModelTrainer with
 distributed training options.
 
 ```
-from sagemaker.pytorch import PyTorch
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import SourceCode, Compute, InputData
+from sagemaker.core import image_uris
 
-pt_estimator = PyTorch(
-    base_job_name="`training_job_name_prefix`",
-    source_dir="`subdirectory-to-your-code`",
-    entry_point="`adapted-training-script.py`",
-    role="`SageMakerRole`",
+# Retrieve the training image for the desired PyTorch version
+training_image = image_uris.retrieve(
+    framework="pytorch",
+    region="`us-west-2`",
+    version="`2.0.1`",
     py_version="`py310`",
-    framework_version="`2.0.1`",
+    instance_type="`ml.p4d.24xlarge`",
+    image_scope="training"
+)
 
-    # For running a multi-node distributed training job, specify a value greater than 1
-    # Example: 2,3,4,..8
+source_code = SourceCode(
+    source_dir="`subdirectory-to-your-code`",
+    entry_script="`adapted-training-script.py`"
+)
+
+compute = Compute(
+    # For running a multi-node distributed training job, specify a value greater than 1
+    # Example: 2,3,4,..8
     instance_count=`2`,
 
-    # Instance types supported by the SageMaker AI data parallel library:
+    # Instance types supported by the SageMaker AI data parallel library:
     # ml.p4d.24xlarge, ml.p4de.24xlarge
-    instance_type="`ml.p4d.24xlarge`",
+    instance_type="`ml.p4d.24xlarge`"
+)
+
+pt_model_trainer = ModelTrainer(
+    training_image=training_image,
+    base_job_name="`training_job_name_prefix`",
+    source_code=source_code,
+    role="`SageMakerRole`",
+    compute=compute,
 
     # Activate distributed training with SMDDP
     distribution={ "pytorchddp": { "enabled": True } }  # mpirun, activates SMDDP AllReduce OR AllGather
@@ -91,7 +109,9 @@ pt_estimator = PyTorch(
     # distribution={ "smdistributed": { "dataparallel": { "enabled": True } } }  # mpirun, activates SMDDP AllReduce OR AllGather
 )
 
-pt_estimator.fit("`s3://bucket/path/to/training/data`")
+pt_model_trainer.train(input_data_config=[
+    InputData(channel_name="training", data_source="`s3://bucket/path/to/training/data`")
+])
 ```
 
 ###### Note
@@ -118,7 +138,7 @@ For example, the tree-structured directory should look like the following.
 
 For more information about specifying the source directory to place the
 `requirements.txt` file along with your training script and a job
-submission, see [Using third-party libraries](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/using_pytorch.html#id12 "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/using_pytorch.html#id12") in the _Amazon SageMaker AI Python
+submission, see [Using third-party libraries](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") in the _Amazon SageMaker AI Python
 SDK documentation_.
 
 ###### Considerations for activating SMDDP collective operations and using the right distributed training launcher options
@@ -140,7 +160,70 @@ SDK documentation_.
 export SMDATAPARALLEL_OPTIMIZE_SDP=true
 ```
 
-TensorFlow
+SageMaker Python SDK v2 (Legacy)
+**PyTorch**
+
+The following launcher options are available for launching PyTorch distributed
+training.
+
+- `pytorchddp` – This option runs `mpirun` and sets
+  up environment variables needed for running PyTorch distributed training on
+  SageMaker AI. To use this option, pass the following dictionary to the
+  `distribution` parameter.
+
+```
+{ "pytorchddp": { "enabled": True } }
+```
+
+- `torch_distributed` – This option runs `torchrun`
+  and sets up environment variables needed for running PyTorch distributed training on
+  SageMaker AI. To use this option, pass the following dictionary to the
+  `distribution` parameter.
+
+```
+{ "torch_distributed": { "enabled": True } }
+```
+
+- `smdistributed` – This option also runs `mpirun`
+  but with `smddprun` that sets up environment variables needed for running
+  PyTorch distributed training on SageMaker AI.
+
+```
+{ "smdistributed": { "dataparallel": { "enabled": True } } }
+```
+
+The following code sample shows the basic structure of a PyTorch estimator with
+distributed training options.
+
+```
+from sagemaker.pytorch import PyTorch
+
+pt_estimator = PyTorch(
+    base_job_name="`training_job_name_prefix`",
+    source_dir="`subdirectory-to-your-code`",
+    entry_point="`adapted-training-script.py`",
+    role="`SageMakerRole`",
+    py_version="`py310`",
+    framework_version="`2.0.1`",
+
+    # For running a multi-node distributed training job, specify a value greater than 1
+    # Example: 2,3,4,..8
+    instance_count=`2`,
+
+    # Instance types supported by the SageMaker AI data parallel library:
+    # ml.p4d.24xlarge, ml.p4de.24xlarge
+    instance_type="`ml.p4d.24xlarge`",
+
+    # Activate distributed training with SMDDP
+    distribution={ "pytorchddp": { "enabled": True } }  # mpirun, activates SMDDP AllReduce OR AllGather
+    # distribution={ "torch_distributed": { "enabled": True } }  # torchrun, activates SMDDP AllGather
+    # distribution={ "smdistributed": { "dataparallel": { "enabled": True } } }  # mpirun, activates SMDDP AllReduce OR AllGather
+)
+
+pt_estimator.fit("`s3://bucket/path/to/training/data`")
+```
+
+**TensorFlow**
 
 ###### Important
 
@@ -152,22 +235,22 @@ SMDDP library installed, see [TensorFlow (deprecated)](distributed-data-parallel
 from sagemaker.tensorflow import TensorFlow
 
 tf_estimator = TensorFlow(
-    base_job_name = "`training_job_name_prefix`",
-    entry_point="``adapted-training-script.py``",
+    base_job_name = "`training_job_name_prefix`",
+    entry_point="`adapted-training-script.py`",
     role="`SageMakerRole`",
     framework_version="`2.11.0`",
     py_version="`py38`",
 
-    # For running a multi-node distributed training job, specify a value greater than 1
+    # For running a multi-node distributed training job, specify a value greater than 1
     # Example: 2,3,4,..8
     instance_count=`2`,
 
-    # Instance types supported by the SageMaker AI data parallel library:
-    # `ml.p4d.24xlarge`, `ml.p3dn.24xlarge`, and `ml.p3.16xlarge`
+    # Instance types supported by the SageMaker AI data parallel library:
+    # ml.p4d.24xlarge, ml.p3dn.24xlarge, and ml.p3.16xlarge
     instance_type="`ml.p3.16xlarge`",
 
-    # Training using the SageMaker AI data parallel distributed training strategy
-    distribution=**{ "smdistributed": { "dataparallel": { "enabled": True } } }**
+    # Training using the SageMaker AI data parallel distributed training strategy
+    distribution={ "smdistributed": { "dataparallel": { "enabled": True } } }
 )
 
 tf_estimator.fit("`s3://bucket/path/to/training/data`")

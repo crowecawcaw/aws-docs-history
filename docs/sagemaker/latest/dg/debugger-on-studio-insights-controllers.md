@@ -68,6 +68,6 @@ You can specify values for the following fields.
   training job when you find anomalies in resource utilization.
 - Using the **Download report** button, you can download an
   aggregated profiling report by using the built-in [ProfilerReport](debugger-built-in-rules.md#profiler-report "debugger-built-in-rules.md#profiler-report") rule of SageMaker Debugger. The button is activated
-  when you add the built-in [ProfilerReport](debugger-built-in-rules.md#profiler-report "debugger-built-in-rules.md#profiler-report") rule to the estimator. For more information, see
+  when you add the built-in [ProfilerReport](debugger-built-in-rules.md#profiler-report "debugger-built-in-rules.md#profiler-report") rule to the ModelTrainer. For more information, see
   [Configure Built-in Profiler Rules](use-debugger-built-in-profiler-rules.md "use-debugger-built-in-profiler-rules.md") and [Profiling
   Report Generated Using SageMaker Debugger](debugger-profiling-report.md "debugger-profiling-report.md").

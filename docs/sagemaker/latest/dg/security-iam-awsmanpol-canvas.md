@@ -66,7 +66,7 @@ This AWS managed policy includes the following permissions.
 - `rds` – Allows principals to return information about
   provisioned Amazon RDS instances.
 - `redshift` – Allows principals to get credentials for a
-  "sagemaker_access\*" dbuser on any Amazon Redshift cluster if that user exists.
+  "sagemaker\_access\*" dbuser on any Amazon Redshift cluster if that user exists.
 - `redshift-data` – Allows principals to run queries on
   Amazon Redshift using the Amazon Redshift Data API. This only provides access to the Redshift Data APIs themselves
   and does not directly provide access to your Amazon Redshift clusters. For more

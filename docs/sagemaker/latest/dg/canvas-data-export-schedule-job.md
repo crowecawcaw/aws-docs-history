@@ -93,7 +93,7 @@ overlap. 8. Choose one of the following:
      only runs on the schedules that you specify.
 
 9. Choose **Export** after you've filled out the
-   rest of the export job settings.
+rest of the export job settings.
 
 RATE
 Use the following procedure to create a schedule with a RATE
@@ -134,7 +134,7 @@ overlap. 9. Choose one of the following:
      only runs on the schedules that you specify.
 
 10. Choose **Export** after you've filled out
-    the rest of the export job settings.
+the rest of the export job settings.
 
 Recurring
 Use the following procedure to create a schedule that runs a job on a
@@ -176,9 +176,8 @@ day:
     * 15:00
     * 20:00
 
-7. Choose **Create**.
-8. (Optional) Choose **Add another schedule** to run
-   the job on an additional schedule.
+7. Choose **Create**. 8. (Optional) Choose **Add another schedule** to run
+the job on an additional schedule.
 
 ###### Note
 
@@ -193,7 +192,7 @@ overlap. 9. Choose one of the following:
      only runs on the schedules that you specify.
 
 10. Choose **Export** after you've filled out the rest of
-    the export job settings.
+the export job settings.
 
 Specific time
 Use the following procedure to create a schedule that runs a job at
@@ -241,7 +240,7 @@ overlap. 9. Choose one of the following:
      only runs on the schedules that you specify.
 
 10. Choose **Export** after you've filled out the rest
-    of the export job settings.
+of the export job settings.
 
 You can use the SageMaker AI AWS Management Console to view the jobs that are scheduled to run. Your
 processing jobs run within Pipelines. Each processing job has its own pipeline. It runs as a

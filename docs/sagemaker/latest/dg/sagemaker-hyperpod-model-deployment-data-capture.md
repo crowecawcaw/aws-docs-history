@@ -2,11 +2,11 @@
 
 Amazon SageMaker HyperPod inference data capture enables you to record inference request and response data for model monitoring, debugging, and model improvement. Inference requests flow from the SageMaker AI endpoint to the Application Load Balancer and then to the model pod. You can enable capture independently at each level, from the outermost layer (Tier 1, SageMaker AI endpoint) to the deepest layer (Tier 3, model pod):
 
-| Data capture tiers | Tier                      | Capture point                                                                                                                                                                                                          | What is captured      | Amazon S3 path |
-| ------------------ | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | -------------- |
-| Tier 1             | SageMaker AI endpoint     | Input and output payloads, sampling, AWS KMS encryption                                                                                                                                                                | `{s3Uri}/{hash}/sme/` |
-| Tier 2             | Application Load Balancer | Access logs (request paths, client IPs, latencies)                                                                                                                                                                     | `{s3Uri}/{hash}/alb/` |
-| Tier 3             | Model pod                 | Inference input and output payloads with configurable sampling, buffering, and payload size limits. Supports AWS KMS encryption when you provide a key. Captures data closest to the model for the deepest visibility. | `{s3Uri}/{hash}/pod/` |
+Data capture tiers| Tier | Capture point | What is captured | Amazon S3 path |
+| --- | --- | --- | --- |
+| Tier 1 | SageMaker AI endpoint | Input and output payloads, sampling, AWS KMS encryption | `{s3Uri}/{hash}/sme/` |
+| Tier 2 | Application Load Balancer | Access logs (request paths, client IPs, latencies) | `{s3Uri}/{hash}/alb/` |
+| Tier 3 | Model pod | Inference input and output payloads with configurable sampling, buffering, and payload size limits. Supports AWS KMS encryption when you provide a key. Captures data closest to the model for the deepest visibility. | `{s3Uri}/{hash}/pod/` |
 
 Tier 1 captures full payloads at the SageMaker AI Runtime API boundary and requires endpoint registration. Use Tier 1 when you need compatibility with SageMaker AI Model Monitor. Tier 3 captures full payloads at the inference container with configurable buffering, sampling, and payload limits, and works without SageMaker AI endpoint registration. Use Tier 3 when you need the deepest visibility closest to the model. Enable any combination — each tier captures at a different point in the request flow.
 

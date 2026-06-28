@@ -50,10 +50,9 @@ the following steps:
     2. Select the Model Groups that you want to add. You can
      select up to 10.
 
-9. Choose **Create**.
-10. Check to make sure your Collection was created in the current
-    hierarchy. If you do not immediately see your new Collection,
-    choose **Refresh**.
+9. Choose **Create**. 10. Check to make sure your Collection was created in the current
+hierarchy. If you do not immediately see your new Collection,
+choose **Refresh**.
 
 Studio Classic
 
@@ -61,7 +60,7 @@ Studio Classic
    Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
 2. In the left navigation pane, choose the
    **Home** icon (
-   ![](images/studio/icons/house.png)
+   ![Home icon.](images/studio/icons/house.png)
    ).
 3. Choose **Models**, and then **Model
    registry**.
@@ -88,7 +87,6 @@ the following steps:
     2. Select the Model Groups that you want to add. You can
      select up to 10.
 
-9. Choose **Create**.
-10. Check to make sure your Collection was created in the current
-    hierarchy. If you do not immediately see your new Collection,
-    choose **Refresh**.
+9. Choose **Create**. 10. Check to make sure your Collection was created in the current
+hierarchy. If you do not immediately see your new Collection,
+choose **Refresh**.

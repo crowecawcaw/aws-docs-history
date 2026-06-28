@@ -36,8 +36,8 @@ The following example uses the `sagemaker:WorkteamType` condition key with the
 `StringEquals` condition operator to restrict access to a public work team. It
 accepts condition values in the following format:
 ``workforcetype`-crowd`, where
- `workforcetype`can equal`public`,
- `private`, or `vendor`.
+`workforcetype` can equal `public`,
+`private`, or `vendor`.
 
 JSON
 

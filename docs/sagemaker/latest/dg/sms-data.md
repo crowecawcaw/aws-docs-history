@@ -12,7 +12,7 @@ When you use image classification (single and multi-label), text classification 
 and multi-label), object detection, and semantic segmentation built in task types to create
 a labeling job, you can use the resulting augmented manifest file to launch a SageMaker training
 job. For a demonstration of how to use an augmented manifest to train an object detection
-machine learning model with Amazon SageMaker AI, see [object_detection_augmented_manifest_training.ipynb](https://sagemaker-examples.readthedocs.io/en/latest/ground_truth_labeling_jobs/object_detection_augmented_manifest_training/object_detection_augmented_manifest_training.html "https://sagemaker-examples.readthedocs.io/en/latest/ground_truth_labeling_jobs/object_detection_augmented_manifest_training/object_detection_augmented_manifest_training.html"). For more information, see
+machine learning model with Amazon SageMaker AI, see [object\_detection\_augmented\_manifest\_training.ipynb](https://sagemaker-examples.readthedocs.io/en/latest/ground_truth_labeling_jobs/object_detection_augmented_manifest_training/object_detection_augmented_manifest_training.html "https://sagemaker-examples.readthedocs.io/en/latest/ground_truth_labeling_jobs/object_detection_augmented_manifest_training/object_detection_augmented_manifest_training.html"). For more information, see
 [Augmented Manifest Files for Training Jobs](augmented-manifest.md "augmented-manifest.md").
 
 ###### Topics

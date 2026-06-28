@@ -9,7 +9,7 @@ transform
 the data, and then upload it to an Amazon S3 bucket.
 
 For more information about the dataset and the data transformation that the example
-performs, see the _hpo_xgboost_direct_marketing_sagemaker_APIs_ notebook
+performs, see the _hpo\_xgboost\_direct\_marketing\_sagemaker\_APIs_ notebook
 in the **Hyperparameter Tuning** section of the **SageMaker AI
 Examples** tab in your notebook instance.
 

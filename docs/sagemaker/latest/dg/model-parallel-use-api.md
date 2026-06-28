@@ -20,7 +20,7 @@ There are three use-case scenarios for running a SageMaker training job.
    parallel library in an extended or customized Docker container.
 
 In all cases, you launch your training job configuring a SageMaker `TensorFlow` or
-`PyTorch` estimator to activate the library. To learn more, see the following
+`PyTorch` ModelTrainer to activate the library. To learn more, see the following
 topics.
 
 ###### Topics

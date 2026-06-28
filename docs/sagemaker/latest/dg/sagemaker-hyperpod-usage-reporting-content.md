@@ -20,8 +20,8 @@ the usage data:
 - **ClusterName:** The EKS-orchestrated
   Hyperpod cluster name where resources were consumed.
 - **Type:** The report category (`Summary
-Utilization Report` or `Detailed Utilization
-Report`).
+ Utilization Report` or `Detailed Utilization
+ Report`).
 - **Date Generated:** When the report was
   created (e.g., `2025-04-18`).
 - **Date Range (UTC):** The timeframe covered

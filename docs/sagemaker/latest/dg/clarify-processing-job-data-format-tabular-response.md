@@ -4,7 +4,7 @@ After the SageMaker Clarify processing job receives an inference endpoint invoca
 response, it deserializes the response payload and extracts predictions from it. Use
 the analysis configuration `accept_type` parameter to specify the data
 format of the response payload. If `accept_type` is not provided, the
-SageMaker Clarify processing job will use the value of the content_type parameter as the model
+SageMaker Clarify processing job will use the value of the content\_type parameter as the model
 output format. For more information about `accept_type`, see [Analysis Configuration Files](clarify-processing-job-configure-analysis.md "clarify-processing-job-configure-analysis.md").
 
 The predictions could either consist of predicted labels for bias analysis, or
@@ -207,10 +207,10 @@ model that outputs the following:
 - Probabilities, and the selected predicted label and its
   probability.
 
-| Endpoint request payload | Endpoint response payload (string<br>representation)                                                                                                                                                                                   |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Single record            | '{"predicted_label":"dog","probability":0.6,"predicted_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]}'                                                                                                                    |
-| Two records              | '{"predicted_label":"dog","probability":0.6,"predicted_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]}\n{"predicted_label":"cat","probability":0.7,"predicted_labels":["cat","dog","fish"],"probabilities":[0.7,0.2,0.1]}' |
+| Endpoint request payload | Endpoint response payload (string<br>representation)                                                                                                                                                                                       |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Single record            | '{"predicted\_label":"dog","probability":0.6,"predicted\_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]}'                                                                                                                      |
+| Two records              | '{"predicted\_label":"dog","probability":0.6,"predicted\_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]}\n{"predicted\_label":"cat","probability":0.7,"predicted\_labels":["cat","dog","fish"],"probabilities":[0.7,0.2,0.1]}' |
 
 For the previous example, the SageMaker Clarify processing job can be configured
 in several ways to extract the predictions.
@@ -219,8 +219,8 @@ For bias analysis, the previous example can be configured as **one** of the foll
 
 - Set the `label` parameter of the
   `predictor` configuration to JMESPath expression
-  "predicted_label" to extract the predicted label.
-- Set the parameter to JMESPath expression "predicted_labels" to
+  "predicted\_label" to extract the predicted label.
+- Set the parameter to JMESPath expression "predicted\_labels" to
   extract the predicted labels. Set `probability` to
   JMESPath expression "probabilities" to extract their
   probabilities. The SageMaker Clarify job automatically determine the
@@ -271,11 +271,11 @@ outputs the predicted label.
 
 | Endpoint request payload | Endpoint response payload (string<br>representation) |
 | ------------------------ | ---------------------------------------------------- |
-| Single record            | '{"predicted_labels":[1]}'                           |
-| Two records              | '{"predicted_labels":[1,0]}'                         |
+| Single record            | '{"predicted\_labels":[1]}'                          |
+| Two records              | '{"predicted\_labels":[1,0]}'                        |
 
 Set the `label` parameter of the `predictor`
-configuration to JMESPath expression "predicted_labels", and then the
+configuration to JMESPath expression "predicted\_labels", and then the
 SageMaker Clarify processing job can extract the predicted labels for bias
 analysis.
 
@@ -300,10 +300,10 @@ a multiclass model that outputs the following:
 - Probabilities, and the selected predicted label and its
   probability.
 
-| Endpoint request payload | Endpoint response payload (string<br>representation)                                                                                                                                                                                    |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Single record            | '[{"predicted_label":"dog","probability":0.6,"predicted_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]}]'                                                                                                                   |
-| Two records              | '[{"predicted_label":"dog","probability":0.6,"predicted_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]},{"predicted_label":"cat","probability":0.7,"predicted_labels":["cat","dog","fish"],"probabilities":[0.7,0.2,0.1]}]' |
+| Endpoint request payload | Endpoint response payload (string<br>representation)                                                                                                                                                                                        |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Single record            | '[{"predicted\_label":"dog","probability":0.6,"predicted\_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]}]'                                                                                                                     |
+| Two records              | '[{"predicted\_label":"dog","probability":0.6,"predicted\_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]},{"predicted\_label":"cat","probability":0.7,"predicted\_labels":["cat","dog","fish"],"probabilities":[0.7,0.2,0.1]}]' |
 
 The SageMaker Clarify processing job can be configured in several ways to extract
 the predictions.
@@ -312,9 +312,9 @@ For bias analysis, the previous example can be configured as **one** of the foll
 
 - Set the `label` parameter of the
   `predictor` configuration to JMESPath expression
-  "[\*].predicted_label" to extract the predicted label.
+  "[\*].predicted\_label" to extract the predicted label.
 - Set the parameter to JMESPath expression
-  "[\*].predicted_labels" to extract the predicted labels. Set
+  "[\*].predicted\_labels" to extract the predicted labels. Set
   `probability` to JMESPath expression
   "[\*].probabilities" to extract their probabilities. The SageMaker Clarify
   processing job can automatically determine the predicted label

@@ -68,4 +68,4 @@ The **Create project** tab changes to display **Project details**. 8. Enter the 
      projects.
 
 9. Choose **Create project** and wait for the project to appear in the
-   **Projects** list.
+**Projects** list.

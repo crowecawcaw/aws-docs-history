@@ -60,10 +60,10 @@ are not usable in Studio Classic for the following reasons:
      incompatible versions of many packages.
 
 2. For the conda environment that you want to migrate to Studio Classic, first activate the
-   conda environment. The `default` environment is then changed when new libraries
-   are installed or removed from it. To get the exact state of the environment, export it
-   into a YAML file using the command line. The following command lines export the default
-   environment into a YAML file, creating a file called `myenv.yml`.
+conda environment. The `default` environment is then changed when new libraries
+are installed or removed from it. To get the exact state of the environment, export it
+into a YAML file using the command line. The following command lines export the default
+environment into a YAML file, creating a file called `myenv.yml`.
 
 ```
 conda activate default

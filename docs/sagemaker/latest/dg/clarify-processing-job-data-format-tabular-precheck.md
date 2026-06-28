@@ -33,7 +33,7 @@ The parameters are defined, as follows.
 - `$CLI_BINARY_FORMAT` – The format of the command line
   interface (CLI) parameter. For AWS CLI v1, this parameter should remain blank.
   For v2, this parameter should be set to `--cli-binary-format
-raw-in-base64-out`.
+ raw-in-base64-out`.
 
 ###### Note
 

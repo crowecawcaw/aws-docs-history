@@ -87,7 +87,7 @@ SAGEMAKER_IMAGE_NAME=`custom-image-name`
     ```
 
 2. To detach the image and image versions from your domain using these instructions, you
-   will need to create or update a domain configuration json file.
+will need to create or update a domain configuration json file.
 
 ###### Note
 

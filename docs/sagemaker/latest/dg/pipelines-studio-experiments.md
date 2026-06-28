@@ -4,7 +4,7 @@
 
 SageMaker Experiments is a feature provided in Studio Classic only.
 
-When you create a pipeline and specify [pipeline_experiment_config](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.pipeline.Pipeline.pipeline_experiment_config "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.pipeline.Pipeline.pipeline_experiment_config"), Pipelines creates the following SageMaker Experiments entities
+When you create a pipeline and specify [pipeline\_experiment\_config](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#sagemaker.workflow.pipeline.Pipeline.pipeline_experiment_config "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#sagemaker.workflow.pipeline.Pipeline.pipeline_experiment_config"), Pipelines creates the following SageMaker Experiments entities
 by default if they don't exist:
 
 - An experiment for the pipeline
@@ -35,7 +35,7 @@ experiment.
 **To view the runs list from the experiments list**
 
 1. In the left sidebar of Studio Classic, choose the **Home** icon (
-   ![](images/studio/icons/house.png)
+   ![](/images/sagemaker/latest/dg/images/studio/icons/house.png)
    ).
 2. Select **Experiments** from the menu.
 3. Use search bar or **Filter** icon (

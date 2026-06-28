@@ -28,7 +28,7 @@ other JVM internals that negatively affect the concurrency, throughput, and late
 the container.
 
 For an example of the misdetection, in a container configured for SageMaker AI that is
-deployed with a JVM that is based on Java8_191 and that has four available CPUs on the
+deployed with a JVM that is based on Java8\_191 and that has four available CPUs on the
 instance, run the following command to start your JVM:
 
 ```
@@ -105,6 +105,6 @@ have identified the error and failure reason you should resolve the error.
 It is also good practice to test the model deployment locally before creating an endpoint.
 
 - Use local mode in the SageMaker SDK to imitate the hosted environment by deploying the model
-  to a local endpoint. For more information, see [Local Mode](https://sagemaker.readthedocs.io/en/stable/overview.html#local-mode "https://sagemaker.readthedocs.io/en/stable/overview.html#local-mode").
+  to a local endpoint. For more information, see [Local Mode](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html").
 - Use vanilla docker commands to test the container responds to /ping and /invocations. For more
-  information, see [local_test](https://github.com/aws/amazon-sagemaker-examples/tree/main/advanced_functionality/scikit_bring_your_own/container/local_test "https://github.com/aws/amazon-sagemaker-examples/tree/main/advanced_functionality/scikit_bring_your_own/container/local_test").
+  information, see [local\_test](https://github.com/aws/amazon-sagemaker-examples/tree/main/advanced_functionality/scikit_bring_your_own/container/local_test "https://github.com/aws/amazon-sagemaker-examples/tree/main/advanced_functionality/scikit_bring_your_own/container/local_test").

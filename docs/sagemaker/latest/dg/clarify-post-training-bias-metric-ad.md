@@ -45,20 +45,19 @@ Where:
   TNd + FPd +
   FNd)
 
-      + TPd are the true positives predicted for facet
-       *d*
-      + TNd are the true negatives predicted for facet
-       *d*
-      + FPd are the false positives predicted for facet
-       *d*
-      + FNd are the false negatives predicted for facet
-       *d*
-
-  For example, suppose a model approves loans to 70 applicants from facet _a_ of 100 and rejected the other 30. 10 should not have been
-  offered the loan (FPa) and 60 were approved that should have been
-  (TPa). 20 of the rejections should have been approved
-  (FNa) and 10 were correctly rejected
-  (TNa). The accuracy for facet _a_ is as follows:
+  - TPd are the true positives predicted for facet
+    _d_
+  - TNd are the true negatives predicted for facet
+    _d_
+  - FPd are the false positives predicted for facet
+    _d_
+  - FNd are the false negatives predicted for facet
+    _d_
+    For example, suppose a model approves loans to 70 applicants from facet _a_ of 100 and rejected the other 30. 10 should not have been
+    offered the loan (FPa) and 60 were approved that should have been
+    (TPa). 20 of the rejections should have been approved
+    (FNa) and 10 were correctly rejected
+    (TNa). The accuracy for facet _a_ is as follows:
 
         ACCa = (60 +
 10)/(60 + 10 + 20 + 10) = 0.7

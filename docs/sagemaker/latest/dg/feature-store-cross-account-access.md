@@ -28,15 +28,14 @@ following:
   features within the shared feature groups, update the configuration of the shared feature
   groups, in addition to read-write permissions.
 
-      + `DescribeFeatureMetadata`: Shows the metadata for a feature within a feature
-       group
-      + `UpdateFeatureGroup`: Updates a feature group configuration
-      + `UpdateFeatureMetadata`: Updates description and parameters of a feature in
-       the feature group
-      + APIs listed in `AWSRAMPermissionSagemakerFeatureGroupReadWrite`
-
-  In the following topics you can learn how to share online store and offline feature
-  groups—there are differences between the two when it comes to sharing.
+  - `DescribeFeatureMetadata`: Shows the metadata for a feature within a feature
+    group
+  - `UpdateFeatureGroup`: Updates a feature group configuration
+  - `UpdateFeatureMetadata`: Updates description and parameters of a feature in
+    the feature group
+  - APIs listed in `AWSRAMPermissionSagemakerFeatureGroupReadWrite`
+    In the following topics you can learn how to share online store and offline feature
+    groups—there are differences between the two when it comes to sharing.
 
 ###### Topics
 

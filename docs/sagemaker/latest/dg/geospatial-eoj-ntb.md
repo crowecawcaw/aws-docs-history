@@ -18,7 +18,7 @@ import sagemaker
 import sagemaker_geospatial_map
 
 session = boto3.Session()
-execution_role = sagemaker.get_execution_role()
+execution_role = get_execution_role()
 sg_client = session.client(service_name="sagemaker-geospatial")
 ```
 
@@ -170,7 +170,7 @@ Each EOJ becomes an asset in the data catalog, as results can be grouped by the 
 The following example shows how you can export the results of an EOJ.
 
 ```
-sagemaker_session = sagemaker.Session()
+sagemaker_session = Session()
 s3_bucket_name = sagemaker_session.default_bucket()  # Replace with your own bucket if needed
 s3_bucket = session.resource("s3").Bucket(s3_bucket_name)
 prefix = "eoj_lakemead"  # Replace with the S3 prefix desired

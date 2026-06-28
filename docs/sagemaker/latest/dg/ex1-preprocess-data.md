@@ -160,7 +160,7 @@ uploads the training and validation datasets to the `data` subfolder.
 
 ```
 import sagemaker, boto3, os
-bucket = sagemaker.Session().default_bucket()
+bucket = Session().default_bucket()
 prefix = "demo-sagemaker-xgboost-adult-income-prediction"
 
 boto3.Session().resource('s3').Bucket(bucket).Object(

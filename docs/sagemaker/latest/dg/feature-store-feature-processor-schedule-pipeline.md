@@ -13,7 +13,7 @@ automatically after a source pipeline execution completes.
 
 ## Schedule based executions
 
-The Feature Processor SDK provides a [`schedule`](https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#sagemaker.feature_store.feature_processor.schedule "https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#sagemaker.feature_store.feature_processor.schedule") API to run Feature Processor pipelines on a
+The Feature Processor SDK provides a [`schedule`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html") API to run Feature Processor pipelines on a
 recurring basis with Amazon EventBridge Scheduler integration. The schedule can be specified with an
 `at`, `rate`, or `cron` expression using the [`ScheduleExpression`](../../../scheduler/latest/APIReference/API_CreateSchedule.md#scheduler-CreateSchedule-request-ScheduleExpression "../../../scheduler/latest/APIReference/API_CreateSchedule.md#scheduler-CreateSchedule-request-ScheduleExpression") parameter with the same expressions
 supported by Amazon EventBridge. The schedule API is semantically an upsert operation in that it
@@ -21,11 +21,11 @@ updates the schedule if it already exists; otherwise, it creates it. For more
 information on the EventBridge expressions and examples, see [Schedule types on EventBridge Scheduler](../../../scheduler/latest/UserGuide/schedule-types.md "../../../scheduler/latest/UserGuide/schedule-types.md")
 in the EventBridge Scheduler User Guide.
 
-The following examples use the Feature Processor [`schedule`](https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#sagemaker.feature_store.feature_processor.schedule "https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#sagemaker.feature_store.feature_processor.schedule") API, using the `at`,
+The following examples use the Feature Processor [`schedule`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html") API, using the `at`,
 `rate`, and `cron` expressions.
 
 ```
-from sagemaker.feature_store.feature_processor import schedule
+from sagemaker.mlops.feature_store.feature_processor import schedule
 pipeline_name='feature-processor-pipeline'
 
 event_bridge_schedule_arn = schedule(
@@ -51,7 +51,7 @@ documentation.
 Scheduled Feature Processor pipeline executions provide your transformation function
 with the scheduled execution time, to be used as an idempotency token or a fixed
 reference point for date range–based inputs. To disable (i.e., pause) or re-enable a
-schedule, use the `state` parameter of the [`schedule`](https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#sagemaker.feature_store.feature_processor.schedule "https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#sagemaker.feature_store.feature_processor.schedule") API with `‘DISABLED’` or
+schedule, use the `state` parameter of the [`schedule`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html") API with `‘DISABLED’` or
 `‘ENABLED’`, respectively.
 
 For information about Feature Processor, see [Feature Processor SDK data sources](feature-store-feature-processor-data-sources-sdk.md "feature-store-feature-processor-data-sources-sdk.md").
@@ -59,8 +59,8 @@ For information about Feature Processor, see [Feature Processor SDK data sources
 ## Event based executions
 
 A Feature Processing pipeline can be configured to automatically execute when an AWS
-event occurs. The Feature Processing SDK provides a [`put_trigger`](https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#sagemaker.feature_store.feature_processor.put_trigger "https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#sagemaker.feature_store.feature_processor.put_trigger") function that accepts a list of source events
-and a target pipeline. The source events must be instances of [`FeatureProcessorPipelineEvent`](https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#sagemaker.feature_store.feature_processor.FeatureProcessorPipelineEvent "https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#sagemaker.feature_store.feature_processor.FeatureProcessorPipelineEvent"), that specifies a pipeline
+event occurs. The Feature Processing SDK provides a [`put_trigger`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html") function that accepts a list of source events
+and a target pipeline. The source events must be instances of [`FeatureProcessorPipelineEvent`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html"), that specifies a pipeline
 and [execution status](../APIReference/API_DescribePipelineExecution.md#sagemaker-DescribePipelineExecution-response-PipelineExecutionStatus "../APIReference/API_DescribePipelineExecution.md#sagemaker-DescribePipelineExecution-response-PipelineExecutionStatus") events.
 
 The `put_trigger` function configures an Amazon EventBridge rule and target to route
@@ -86,11 +86,11 @@ The following example sets up:
 The `FeatureProcessorPipelineEvent` defines the trigger for when
 the status of your source pipeline (`source-pipeline`) becomes
 `Succeeded`. For information on the Feature Processor Pipeline
-event function, see [`FeatureProcessorPipelineEvent`](https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#sagemaker.feature_store.feature_processor.FeatureProcessorPipelineEvent "https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#sagemaker.feature_store.feature_processor.FeatureProcessorPipelineEvent") in the Feature Store Read the
+event function, see [`FeatureProcessorPipelineEvent`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html") in the Feature Store Read the
 Docs.
 
 ```
-from sagemaker.feature_store.feature_processor import put_trigger, to_pipeline, FeatureProcessorPipelineEvent
+from sagemaker.mlops.feature_store.feature_processor import put_trigger, to_pipeline, FeatureProcessorPipelineEvent
 
 to_pipeline(pipeline_name="target-pipeline", step=transform)
 

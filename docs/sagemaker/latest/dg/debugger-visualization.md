@@ -25,7 +25,7 @@ This video demonstrates a _model pruning_ technique that makes
 pre-trained ResNet50 and AlexNet models lighter and affordable while keeping high
 standards for model accuracy.
 
-SageMaker AI Estimator trains those algorithms supplied from the PyTorch model zoo in an AWS
+SageMaker AI ModelTrainer trains those algorithms supplied from the PyTorch model zoo in an AWS
 Deep Learning Containers with PyTorch framework, and Debugger extracts training metrics
 from the training process.
 

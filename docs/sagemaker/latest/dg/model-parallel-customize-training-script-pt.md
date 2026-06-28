@@ -37,7 +37,7 @@ script with SageMaker's model parallelism library:
 
 ###### Note
 
-For FP16 training, you need to use the [smdistributed.modelparallel.torch.model_creation()](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html") context
+For FP16 training, you need to use the [smdistributed.modelparallel.torch.model\_creation()](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html") context
 manager to wrap the model. For more information, see [FP16 Training with Model Parallelism](model-parallel-extended-features-pytorch-fp16.md "model-parallel-extended-features-pytorch-fp16.md"). 3. Wrap the optimizer with [`smdistributed.modelparallel.torch.DistributedOptimizer`](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/v1.2.0/smd_model_parallel_pytorch.html#smp.DistributedOptimizer "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/v1.2.0/smd_model_parallel_pytorch.html#smp.DistributedOptimizer").
 
 ###### Note

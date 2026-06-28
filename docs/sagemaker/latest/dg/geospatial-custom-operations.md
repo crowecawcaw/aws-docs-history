@@ -18,5 +18,5 @@ SageMaker geospatial provides a purpose-built container, `081189585635.dkr.ecr.u
 
 ###### Topics
 
-- [Overview: Run processing jobs using ScriptProcessor and a SageMaker geospatial container](geospatial-custom-operations-overview.md "geospatial-custom-operations-overview.md")
-- [Using ScriptProcessor to calculate the Normalized Difference Vegetation Index (NDVI) using Sentinel-2 satellite data](geospatial-custom-operations-procedure.md "geospatial-custom-operations-procedure.md")
+- [Overview: Run processing jobs using ProcessingJob and a SageMaker geospatial container](geospatial-custom-operations-overview.md "geospatial-custom-operations-overview.md")
+- [Using ProcessingJob to calculate the Normalized Difference Vegetation Index (NDVI) using Sentinel-2 satellite data](geospatial-custom-operations-procedure.md "geospatial-custom-operations-procedure.md")

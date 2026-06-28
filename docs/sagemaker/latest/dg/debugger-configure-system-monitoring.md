@@ -17,6 +17,18 @@ default S3 bucket URI is
 The following code example shows how to set up the `profiler_config`
 parameter with a system monitoring time interval of 1000 milliseconds.
 
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.debugger import ProfilerConfig
+
+profiler_config=ProfilerConfig(
+    system_monitor_interval_millis=`1000`
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 from sagemaker.debugger import ProfilerConfig
 

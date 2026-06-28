@@ -95,9 +95,67 @@ If you are using HyperPod recipes to launch using cluster type
 ## Launch the training job using a Jupyter Notebook
 
 You can use the following Python code to run a SageMaker training job with your recipe.
-It leverages the PyTorch estimator from the [SageMaker AI Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") to
+It leverages the PyTorch ModelTrainer from the [SageMaker AI Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") to
 submit the recipe. The following example launches the llama3-8b recipe on the SageMaker AI
 Training platform.
+
+SageMaker Python SDK v3
+
+```
+import os
+import boto3
+from sagemaker.core.debugger import TensorBoardOutputConfig
+from sagemaker.core.helper.session_helper import Session, get_execution_role
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute, InputData, OutputDataConfig
+
+sagemaker_session = Session()
+role = get_execution_role()
+
+bucket = sagemaker_session.default_bucket()
+output = os.path.join(f"s3://{bucket}", "output")
+output_path = "`<s3-URI>`"
+
+recipe_overrides = {
+    "run": {
+        "results_dir": "/opt/ml/model",
+    },
+    "exp_manager": {
+        "exp_dir": "",
+        "explicit_log_dir": "/opt/ml/output/tensorboard",
+        "checkpoint_dir": "/opt/ml/checkpoints",
+    },
+    "model": {
+        "data": {
+            "train_dir": "/opt/ml/input/data/train",
+            "val_dir": "/opt/ml/input/data/val",
+        },
+    },
+}
+
+tensorboard_output_config = TensorBoardOutputConfig(
+    s3_output_path=os.path.join(output, 'tensorboard'),
+    container_local_output_path=recipe_overrides["exp_manager"]["explicit_log_dir"]
+)
+
+model_trainer = ModelTrainer(
+    output_data_config=OutputDataConfig(s3_output_path=output_path),
+    base_job_name=f"llama-recipe",
+    role=role,
+    compute=Compute(instance_type="ml.p5.48xlarge", instance_count=1),
+    training_recipe="training/llama/hf_llama3_8b_seq8k_gpu_p5x16_pretrain",
+    recipe_overrides=recipe_overrides,
+    tensorboard_output_config=tensorboard_output_config,
+)
+
+model_trainer.train(input_data_config=[
+    InputData(channel_name="train", data_source="s3 or fsx input"),
+    InputData(channel_name="val", data_source="s3 or fsx input")
+], wait=True)
+
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import os
@@ -150,8 +208,8 @@ estimator.fit(inputs={"train": "s3 or fsx input", "val": "s3 or fsx input"}, wai
 
 ```
 
-The preceding code creates a PyTorch estimator object with the training recipe and
-then fits the model using the `fit()` method. Use the training_recipe
+The preceding code creates a ModelTrainer object with the training recipe and
+then trains the model using the `train()` method. Use the training\_recipe
 parameter to specify the recipe you want to use for training.
 
 ###### Note
@@ -165,11 +223,32 @@ example, you must append the version to the text file when you're using a Jupyte
 notebook.
 
 When you deploy the endpoint for a SageMaker training job, you must specify the image
-URI that you're using. If don't provide the image URI, the estimator uses the
+URI that you're using. If don't provide the image URI, the ModelTrainer uses the
 training image as the image for the deployment. The training images that
 SageMaker HyperPod provides don't contain the dependencies required for inference and
 deployment. The following is an example of how an inference image can be used for
 deployment:
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.serve import ModelBuilder
+from sagemaker.core import image_uris
+
+inference_image = image_uris.retrieve(framework='pytorch',region='us-west-2',version='2.0',py_version='py310',image_scope='inference', instance_type='ml.p4d.24xlarge')
+
+model_builder = ModelBuilder(
+    model=model_trainer,
+    image_uri=inference_image,
+    role_arn=role,
+    instance_type='ml.p4d.24xlarge'
+)
+model = model_builder.build()
+endpoint = model_builder.deploy(endpoint_name="my-endpoint")
+
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker import image_uris

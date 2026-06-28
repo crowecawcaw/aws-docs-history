@@ -6,7 +6,7 @@ the training script and configuring the SageMaker training job launcher.
 ###### Topics
 
 - [Step 1: Adapt your training script using the SageMaker Profiler Python modules](#profiler-prepare-training-script "#profiler-prepare-training-script")
-- [Step 2: Create a SageMaker AI framework estimator and activate SageMaker Profiler](#profiler-profilerconfig "#profiler-profilerconfig")
+- [Step 2: Create a SageMaker AI ModelTrainer and activate SageMaker Profiler](#profiler-profilerconfig "#profiler-profilerconfig")
 - [(Optional) Install the SageMaker Profiler Python package](#profiler-install-python-package "#profiler-install-python-package")
 
 ## Step 1: Adapt your training script using the SageMaker Profiler Python modules
@@ -21,7 +21,7 @@ during particular operations in each step.
 Note that the annotators extract operations from GPUs. For profiling operations in
 CPUs, you don’t need to add any additional annotations. CPU profiling is also
 activated when you specify the profiling configuration, which you’ll practice in
-[Step 2: Create a SageMaker AI framework estimator and activate SageMaker Profiler](#profiler-profilerconfig "#profiler-profilerconfig").
+[Step 2: Create a SageMaker AI ModelTrainer and activate SageMaker Profiler](#profiler-profilerconfig "#profiler-profilerconfig").
 
 ###### Note
 
@@ -54,6 +54,8 @@ You can wrap full functions with the `smprof.annotate()` context
 manager. This wrapper is recommended if you want to profile by functions instead of
 code lines. The following example script shows how to implement the context manager
 to wrap the training loop and full functions in each iteration.
+
+SageMaker Python SDK v3
 
 ```
 import smprof
@@ -90,17 +92,7 @@ for epoch in range(args.epochs):
 SMProf.stop_profiling()
 ```
 
-**Approach 2.** Use
-`smprof.annotation_begin()` and `smprof.annotation_end()`
-to annotate specific code line in functions
-
-You can also define annotations to profile specific code lines. You can set the
-exact starting point and end point of profiling at the level of individual code
-lines, not by the functions. For example, in the following script, the
-`step_annotator` is defined at the beginning of each iteration and
-ends at the end of the iteration. Meanwhile, other detailed annotators for each
-operations are defined and wrap around the target operations throughout each
-iteration.
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import smprof
@@ -146,14 +138,109 @@ for epoch in range(args.epochs):
 SMProf.stop_profiling()
 ```
 
+**Approach 2.** Use
+`smprof.annotation_begin()` and `smprof.annotation_end()`
+to annotate specific code line in functions
+
+You can also define annotations to profile specific code lines. You can set the
+exact starting point and end point of profiling at the level of individual code
+lines, not by the functions. For example, in the following script, the
+`step_annotator` is defined at the beginning of each iteration and
+ends at the end of the iteration. Meanwhile, other detailed annotators for each
+operations are defined and wrap around the target operations throughout each
+iteration.
+
+SageMaker Python SDK v3
+
+```
+import smprof
+
+SMProf = smprof.SMProfiler.instance()
+config = smprof.Config()
+config.profiler = {
+    "EnableCuda": "1",
+}
+SMProf.configure(config)
+SMProf.start_profiling()
+
+for epoch in range(args.epochs):
+    if world_size > 1:
+        sampler.set_epoch(epoch)
+    tstart = time.perf_counter()
+    for i, data in enumerate(trainloader, 0):
+        step_annotator = smprof.annotation_begin(`"step_" + str(i)`)
+
+        inputs, labels = data
+        inputs = inputs.to("cuda", non_blocking=True)
+        labels = labels.to("cuda", non_blocking=True)
+        optimizer.zero_grad()
+
+        forward_annotator = smprof.annotation_begin(`"Forward"`)
+        outputs = net(inputs)
+        smprof.annotation_end(forward_annotator)
+
+        loss_annotator = smprof.annotation_begin(`"Loss"`)
+        loss = criterion(outputs, labels)
+        smprof.annotation_end(loss_annotator)
+
+        backward_annotator = smprof.annotation_begin(`"Backward"`)
+        loss.backward()
+        smprof.annotation_end(backward_annotator)
+
+        optimizer_annotator = smprof.annotation_begin(`"Optimizer"`)
+        optimizer.step()
+        smprof.annotation_end(optimizer_annotator)
+
+        smprof.annotation_end(step_annotator)
+
+SMProf.stop_profiling()
+```
+
+SageMaker Python SDK v2 (Legacy)
+
+```
+import smprof
+
+SMProf = smprof.SMProfiler.instance()
+config = smprof.Config()
+config.profiler = {
+    "EnableCuda": "1",
+}
+SMProf.configure(config)
+SMProf.start_profiling()
+
+for epoch in range(args.epochs):
+    if world_size > 1:
+        sampler.set_epoch(epoch)
+    tstart = time.perf_counter()
+    for i, data in enumerate(trainloader, 0):
+        with smprof.annotate(`"step_"+str(i)`):
+            inputs, labels = data
+            inputs = inputs.to("cuda", non_blocking=True)
+            labels = labels.to("cuda", non_blocking=True)
+
+            optimizer.zero_grad()
+
+            with smprof.annotate(`"Forward"`):
+                outputs = net(inputs)
+            with smprof.annotate(`"Loss"`):
+                loss = criterion(outputs, labels)
+            with smprof.annotate(`"Backward"`):
+                loss.backward()
+            with smprof.annotate(`"Optimizer"`):
+                optimizer.step()
+
+SMProf.stop_profiling()
+```
+
 After annotating and setting up the profiler initiation modules, save the script
 to submit using a SageMaker training job launcher in the following Step 2. The
 sample launcher assumes that the training script is named
 `train_with_profiler_demo.py`.
 
-## Step 2: Create a SageMaker AI framework estimator and activate SageMaker Profiler
+## Step 2: Create a SageMaker AI ModelTrainer and activate SageMaker Profiler
 
-The following procedure shows how to prepare a SageMaker AI framework estimator for
+The following procedure shows how to prepare a SageMaker AI ModelTrainer for
 training using the SageMaker Python SDK.
 
 1. Set up a `profiler_config` object using the
@@ -180,23 +267,31 @@ its argument.
     	 duration in seconds for profiling on CPUs. Default is 3600
     	 seconds.
 
-2. Create a SageMaker AI framework estimator with the `profiler_config`
-   object created in the previous step. The following code shows an example of
-   creating a PyTorch estimator. If you want to create a TensorFlow estimator,
-   import `sagemaker.tensorflow.TensorFlow` instead, and specify one
-   of the [TensorFlow
-   versions](profiler-support.md#profiler-support-frameworks-tensorflow "profiler-support.md#profiler-support-frameworks-tensorflow") supported by SageMaker Profiler. For more information about
-   supported frameworks and instance types, see [SageMaker AI framework images pre-installed with SageMaker Profiler](profiler-support.md#profiler-support-frameworks "profiler-support.md#profiler-support-frameworks").
+2. Create a SageMaker AI ModelTrainer with the `profiler_config`
+object created in the previous step. The following code shows an example of
+creating a PyTorch ModelTrainer. If you want to create a TensorFlow ModelTrainer,
+import `sagemaker.tensorflow.TensorFlow` instead, and specify one
+of the [TensorFlow
+versions](profiler-support.md#profiler-support-frameworks-tensorflow "profiler-support.md#profiler-support-frameworks-tensorflow") supported by SageMaker Profiler. For more information about
+supported frameworks and instance types, see [SageMaker AI framework images pre-installed with SageMaker Profiler](profiler-support.md#profiler-support-frameworks "profiler-support.md#profiler-support-frameworks").
+
+SageMaker Python SDK v3
 
 ```
-import sagemaker
-from sagemaker.pytorch import PyTorch
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import SourceCode
+from sagemaker.core.helper.session_helper import get_execution_role
+from sagemaker.core import image_uris
 
-estimator = PyTorch(
-    framework_version="`2.0.0`",
-    role=sagemaker.get_execution_role(),
-    entry_point="`train_with_profiler_demo.py`", # your training job entry point
-    source_dir=`source_dir`, # source directory for your training script
+training_image = image_uris.retrieve(
+    framework="pytorch", region=region, version="`2.0.0`",
+    image_scope="training", instance_type=`ml.p4d.24xlarge`
+)
+
+model_trainer = ModelTrainer(
+    training_image=training_image,
+    role=get_execution_role(),
+    source_code=SourceCode(entry_script="`train_with_profiler_demo.py`", source_dir=`source_dir`), # your training job entry point
     output_path=`output_path`,
     base_job_name="`sagemaker-profiler-demo`",
     hyperparameters=`hyperparameters`, # if any
@@ -206,12 +301,49 @@ estimator = PyTorch(
 )
 ```
 
-3. Start the training job by running the `fit` method. With
+SageMaker Python SDK v2 (Legacy)
+
+```
+import smprof
+
+SMProf = smprof.SMProfiler.instance()
+config = smprof.Config()
+config.profiler = {
+    "EnableCuda": "1",
+}
+SMProf.configure(config)
+SMProf.start_profiling()
+
+for epoch in range(args.epochs):
+    if world_size > 1:
+        sampler.set_epoch(epoch)
+    tstart = time.perf_counter()
+    for i, data in enumerate(trainloader, 0):
+        with smprof.annotate(`"step_"+str(i)`):
+            inputs, labels = data
+            inputs = inputs.to("cuda", non_blocking=True)
+            labels = labels.to("cuda", non_blocking=True)
+
+            optimizer.zero_grad()
+
+            with smprof.annotate(`"Forward"`):
+                outputs = net(inputs)
+            with smprof.annotate(`"Loss"`):
+                loss = criterion(outputs, labels)
+            with smprof.annotate(`"Backward"`):
+                loss.backward()
+            with smprof.annotate(`"Optimizer"`):
+                optimizer.step()
+
+SMProf.stop_profiling()
+```
+
+3. Start the training job by running the `train` method. With
    `wait=False`, you can silence the training job logs and let
    it run in the background.
 
 ```
-estimator.fit(wait=False)
+model_trainer.train(wait=False)
 ```
 
 While running the training job or after the job has completed, you can go to the
@@ -220,6 +352,35 @@ and visualizing the saved profiles.
 
 If you want to directly access the profile data saved in the Amazon S3
 bucket, use the following script to retrieve the S3 URI.
+
+SageMaker Python SDK v3
+
+```
+import os
+# This is an ad-hoc function to get the S3 URI
+# to where the profile output data is saved
+def get_detailed_profiler_output_uri(model_trainer):
+    config_name = None
+    for processing in model_trainer.profiler_rule_configs:
+        params = processing.get("RuleParameters", dict())
+        rule = config_name = params.get("rule_to_invoke", "")
+        if rule == "DetailedProfilerProcessing":
+            config_name = processing.get("RuleConfigurationName")
+            break
+    return os.path.join(
+        model_trainer.output_path,
+        model_trainer.latest_training_job.name,
+        "rule-output",
+        config_name,
+    )
+
+print(
+    f"Profiler output S3 bucket: ",
+    get_detailed_profiler_output_uri(model_trainer)
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import os
@@ -257,8 +418,8 @@ training job**
 If you want to use SageMaker Profiler for training jobs using PyTorch or TensorFlow images
 not listed in [SageMaker AI framework images pre-installed with SageMaker Profiler](profiler-support.md#profiler-support-frameworks "profiler-support.md#profiler-support-frameworks"), create a
 `requirements.txt` file and locate it under the path you specify to
-the `source_dir` parameter of the SageMaker AI framework estimator in [Step 2](#profiler-profilerconfig "#profiler-profilerconfig"). For more information about
-setting up a `requirements.txt` file in general, see [Using third-party libraries](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/using_pytorch.html#using-third-party-libraries "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/using_pytorch.html#using-third-party-libraries") in the _SageMaker Python SDK
+the `source_dir` parameter of the SageMaker AI ModelTrainer in [Step 2](#profiler-profilerconfig "#profiler-profilerconfig"). For more information about
+setting up a `requirements.txt` file in general, see [Using third-party libraries](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") in the _SageMaker Python SDK
 documentation_. In the `requirements.txt` file, add one of
 the S3 bucket paths for the [SageMaker Profiler Python package binary files](profiler-support.md#profiler-python-package "profiler-support.md#profiler-python-package").
 

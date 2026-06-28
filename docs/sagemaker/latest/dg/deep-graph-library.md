@@ -32,7 +32,7 @@ implementations for different types models](https://docs.dgl.ai/tutorials/models
    folders. Several files may be included to support an example. Examine the README for any
    prerequisites.
 2. Run the .ipynb notebook example.
-3. Find the estimator function, and note the line where it is using an Amazon ECR container
+3. Find the ModelTrainer function, and note the line where it is using an Amazon ECR container
    for DGL and a specific instance type. You may want to update this to use a container in
    your preferred Region.
 4. Run the function to launch the instance and use the DGL container for training a graph network. Charges are incurred for launching this instance. The instance self-terminates when the training is complete.

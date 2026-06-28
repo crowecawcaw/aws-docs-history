@@ -89,11 +89,10 @@ than Team B.
   other teams.
 - **Lending and borrowing**: How idle compute is being lent by the team and if the team can borrow from other teams.
 
-      + **Percentage-based borrow limit**: The limit of idle compute that a team is allowed to borrow, expressed as a percentage of their guaranteed quota. A team can borrow up to 10,000% of allocated compute. The value you provide here is interpreted as a percentage. For example, a value of 500 will be interpreted as 500%. This percentage applies uniformly across all resource types (CPU, GPU, Memory) and instance types in the team's quota.
-      + **Absolute borrow limit**: The limit of idle compute that a team is allowed to borrow, defined as absolute resource values per instance type. This provides granular control over borrowing behavior for specific instance types. You need to specify absolute limits using the same schema as **Compute quota**, including instance count, accelerators, vCPU, memory, or accelerator partitions. You can specify absolute limits for one or more instance types in your team's quota.
-
-  For information on how these concepts are used, such as priority classes and name
-  spaces, see [Example HyperPod task governance AWS CLI commands](sagemaker-hyperpod-eks-operate-console-ui-governance-cli.md "sagemaker-hyperpod-eks-operate-console-ui-governance-cli.md").
+  - **Percentage-based borrow limit**: The limit of idle compute that a team is allowed to borrow, expressed as a percentage of their guaranteed quota. A team can borrow up to 10,000% of allocated compute. The value you provide here is interpreted as a percentage. For example, a value of 500 will be interpreted as 500%. This percentage applies uniformly across all resource types (CPU, GPU, Memory) and instance types in the team's quota.
+  - **Absolute borrow limit**: The limit of idle compute that a team is allowed to borrow, defined as absolute resource values per instance type. This provides granular control over borrowing behavior for specific instance types. You need to specify absolute limits using the same schema as **Compute quota**, including instance count, accelerators, vCPU, memory, or accelerator partitions. You can specify absolute limits for one or more instance types in your team's quota.
+    For information on how these concepts are used, such as priority classes and name
+    spaces, see [Example HyperPod task governance AWS CLI commands](sagemaker-hyperpod-eks-operate-console-ui-governance-cli.md "sagemaker-hyperpod-eks-operate-console-ui-governance-cli.md").
 
 ## Sharing idle compute resources examples
 

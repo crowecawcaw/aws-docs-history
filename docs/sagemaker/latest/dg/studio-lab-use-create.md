@@ -41,7 +41,7 @@ notebook into your file browser from an external repository, see [Use external r
 ###### To create a notebook from the Launcher
 
 1. Open the Launcher by using the keyboard shortcut `Ctrl + Shift +
-L`.
+ L`.
 
 Alternatively, you can open Launcher from the left sidebar: Choose the
 **File Browser** icon, and then choose the plus

@@ -649,10 +649,10 @@ SageMaker AI stores training output as versioned, immutable Model Packages insid
 Package Groups. Multi-turn RL uses two separate groups, which you specify when creating
 a job:
 
-| Group                                       | Purpose                  | Contents                                                                                      |
-| ------------------------------------------- | ------------------------ | --------------------------------------------------------------------------------------------- |
-| Output Model Package Group                  | Final trained model      | HuggingFace-compatible LoRA adapter weights (adapter_config.json + adapter_model.safetensors) |
-| Intermediate Checkpoint Model Package Group | Resumable training state | LoRA adapter weights + optimizer states + training step metadata                              |
+| Group                                       | Purpose                  | Contents                                                                                        |
+| ------------------------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------- |
+| Output Model Package Group                  | Final trained model      | HuggingFace-compatible LoRA adapter weights (adapter\_config.json + adapter\_model.safetensors) |
+| Intermediate Checkpoint Model Package Group | Resumable training state | LoRA adapter weights + optimizer states + training step metadata                                |
 
 **Configure both groups in your ModelPackageConfig:**
 
@@ -774,7 +774,7 @@ Specify a model checkpoint from the Output Model Package Group as
 
 **What you can change between iterations:**
 
-- Hyperparameters (learning rate, batch size, max_steps, group_size, etc.)
+- Hyperparameters (learning rate, batch size, max\_steps, group\_size, etc.)
 - Dataset (different prompts or data distribution)
 - Reward function
 - Agent configuration

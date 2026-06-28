@@ -60,7 +60,7 @@ enabled [Amazon SageMaker Studio](studio-updated.md "studio-updated.md") or [Ama
 14. Choose **Confirm**.
 15. Open the Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic Using the Amazon SageMaker AI Console](studio-launch.md#studio-launch-console "studio-launch.md#studio-launch-console").
 16. In the left navigation pane, choose the **Home** icon (
-    ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+    ![Home icon.](images/studio/icons/house.png)
     ).
 17. Choose **Data**.
 18. From the dropdown list, choose **Feature Store**.
@@ -225,7 +225,7 @@ attached to it: `AmazonS3FullAccess` and
 `AmazonSageMakerFeatureStoreAccess`.
 
 ```
-# SageMaker Python SDK version 2.x is required
+# SageMaker Python SDK version 3.x is required
 %pip install 'sagemaker>=2.0.0'
 import sagemaker
 import sys
@@ -237,15 +237,15 @@ import boto3
 import pandas as pd
 import numpy as np
 import io
-from sagemaker.session import Session
-from sagemaker import get_execution_role
+from sagemaker.core.helper.session_helper import Session
+from sagemaker.core.helper.session_helper import get_execution_role
 from botocore.exceptions import ClientError
 
 
 prefix = 'sagemaker-featurestore-introduction'
 role = get_execution_role()
 
-sagemaker_session = sagemaker.Session()
+sagemaker_session = Session()
 region = sagemaker_session.boto_region_name
 s3_bucket_name = sagemaker_session.default_bucket()
 sagemaker_client = boto_session.client(service_name='sagemaker', region_name=region)

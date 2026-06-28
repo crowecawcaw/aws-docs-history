@@ -82,41 +82,41 @@ dataset.
   calculated using the `SummarizationAccuracyConfig` parameter. The following options are
   supported: 
 
-      - `rouge_type`: the length of N-grams to be matched. The three supported values
-       are:
+        - `rouge_type`: the length of N-grams to be matched. The three supported values
+         are:
 
 
 
 
 
-      	* `ROUGE_1` matches single words (unigrams)
-      	* `ROUGE_2` matches word pairs (bigrams). This is the default
-      	 value.
-      	* `ROUGE_L` matches the longest common subsequence.  To compute the
-      	 longest common subsequence, word order is considered, but consecutiveness is not
+        	* `ROUGE_1` matches single words (unigrams)
+        	* `ROUGE_2` matches word pairs (bigrams). This is the default
+        	 value.
+        	* `ROUGE_L` matches the longest common subsequence.  To compute the
+        	 longest common subsequence, word order is considered, but consecutiveness is not
 
 
 
 
 
-      		+ For example:
+        		+ For example:
 
 
 
 
 
-      			- **model summary** = ‘It is autumn’
-      			- **reference** = ’It is once again autumn’
-      			- `Longest common subsequence(prediction, reference)=3`.
-      - `use_stemmer_for_rouge`: If `True` (default), uses
-       Porter [stemmer](https://en.wikipedia.org/wiki/Stemming "https://en.wikipedia.org/wiki/Stemming") to strip word
-       suffixes. 
+        			- **model summary** = ‘It is autumn’
+        			- **reference** = ’It is once again autumn’
+        			- `Longest common subsequence(prediction, reference)=3`.
+        - `use_stemmer_for_rouge`: If `True` (default), uses
+         Porter [stemmer](https://en.wikipedia.org/wiki/Stemming "https://en.wikipedia.org/wiki/Stemming") to strip word
+         suffixes. 
 
 
 
 
 
-      	* For example: “raining” is truncated to “rain”.
+        	* For example: “raining” is truncated to “rain”.
 
 - **Metric for Evaluation of Translation with Explicit ORdering (METEOR)
   score:**METEOR is similar to ROUGE-1, but also includes stemming and synonym
@@ -148,15 +148,15 @@ dataset.
   calculated using the `SummarizationAccuracyConfig` parameter. The following options are
   supported:
 
-      - `model_type_for_bertscore`: Name of the model to be used for scoring.
-       BERTScore currently only supports the following models:
+        - `model_type_for_bertscore`: Name of the model to be used for scoring.
+         BERTScore currently only supports the following models:
 
 
 
 
 
-      	* `"microsoft/deberta-xlarge-mnli"` (default)
-      	* `"roberta-large-mnli"`
+        	* `"microsoft/deberta-xlarge-mnli"` (default)
+        	* `"roberta-large-mnli"`
 
 ### Question answering
 
@@ -203,8 +203,8 @@ modifying its meaning.
   `0` (worst) and `1` (best). The F1 is the harmonic mean of
   precision and recall. To calculate this score, the model output and ground truth are
   normalized before comparison. Before computing F1, this evaluation removes any newline
-  characters to account for verbose answers with several distinct paragraphs. *F1
-  over words* can be evaluated on any language if you upload your own dataset.
+  characters to account for verbose answers with several distinct paragraphs. _F1
+  over words_ can be evaluated on any language if you upload your own dataset.
 
   - `F1 = 2*((precision * recall)/(precision + recall))`
 
@@ -241,7 +241,7 @@ modifying its meaning.
   - Example:
 
     - **Question**: `“``where is the
-world's largest ice sheet located today?”`
+   world's largest ice sheet located today?”`
     - **Ground truth**: “Antarctica”
     - **Generated answer**: “in South America”
 
@@ -285,20 +285,20 @@ label. All of these scores are individually averaged over the entire dataset.
   calculated using the  `ClassificationAccuracyConfig` parameter. The following options
   are supported: 
 
-      - `multiclass_average_strategy` determines how the scores are aggregated across
-       classes in the multiclass classification setting. The possible values
-       are `{'micro', 'macro', 'samples', 'weighted', 'binary'}` or
-       `None` (default=`'micro'`).  In the default case
-       ‘`micro'`, precision is calculated globally across all classes by counting
-       the total number true positives, false negatives, and false positives. For all other options,
-       see [sklearn.metrics.precision\_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html").
+        - `multiclass_average_strategy` determines how the scores are aggregated across
+         classes in the multiclass classification setting. The possible values
+         are `{'micro', 'macro', 'samples', 'weighted', 'binary'}` or
+         `None` (default=`'micro'`).  In the default case
+         ‘`micro'`, precision is calculated globally across all classes by counting
+         the total number true positives, false negatives, and false positives. For all other options,
+         see [sklearn.metrics.precision\_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html").
 
 
 
-      ###### Note
+        ###### Note
 
-      For binary classification, we recommend using the `'binary'` averaging strategy,
-       which corresponds to the classic definition of precision.
+        For binary classification, we recommend using the `'binary'` averaging strategy,
+         which corresponds to the classic definition of precision.
 
 - **Recall score:**Numerical score that ranges from
   `0` (worst) and `1` (best).
@@ -323,19 +323,19 @@ label. All of these scores are individually averaged over the entire dataset.
   calculated using the `ClassificationAccuracyConfig` parameter. The following options
   are supported: 
 
-      - `multiclass_average_strategy` determines how the scores are
-       aggregated across classes in the multiclass classification setting. The possible
-       values are `{'micro', 'macro', 'samples', 'weighted', 'binary'}` or
-       `None` (default=`'micro'`).  In the default case
-       ‘`micro'`, recall is calculated globally across all classes by
-       counting the total number true positives, false negatives, and false positives.
-       For all other options, see [sklearn.metrics.precision\_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html").
+        - `multiclass_average_strategy` determines how the scores are
+         aggregated across classes in the multiclass classification setting. The possible
+         values are `{'micro', 'macro', 'samples', 'weighted', 'binary'}` or
+         `None` (default=`'micro'`).  In the default case
+         ‘`micro'`, recall is calculated globally across all classes by
+         counting the total number true positives, false negatives, and false positives.
+         For all other options, see [sklearn.metrics.precision\_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html").
 
 
-      ###### Note
+        ###### Note
 
-      For binary classification, we recommend using the `'binary'`
-       averaging strategy, which corresponds to the classic definition of recall.
+        For binary classification, we recommend using the `'binary'`
+         averaging strategy, which corresponds to the classic definition of recall.
 
 - **Balanced classification accuracy:**Numerical score
   that ranges from `0` (worst) and `1` (best).
@@ -353,7 +353,7 @@ label. All of these scores are individually averaged over the entire dataset.
     | Tasty cake! R ecommended.        | 2                  | pound cake | 2               |
     | Terrible! Gross cake.            | 1                  | pound cake | 2               |
 
-        * **Class 1 recall**: 0
-        * **Class 2 recall**: 1
-        * **Class 3 recall**: 1
-        * **Balanced classification accuracy**: (0+1+1)/3=0.66
+          * **Class 1 recall**: 0
+          * **Class 2 recall**: 1
+          * **Class 3 recall**: 1
+          * **Balanced classification accuracy**: (0+1+1)/3=0.66

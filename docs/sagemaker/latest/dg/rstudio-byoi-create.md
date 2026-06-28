@@ -156,8 +156,7 @@ r: digest: `<digest>` size: 3066
      You can add up to 50 tags. Tags are searchable using the SageMaker AI console or
      the SageMaker AI `Search` API.
 
-8. Under **Image type**, select RStudio image.
-9. Choose **Submit**.
+8. Under **Image type**, select RStudio image. 9. Choose **Submit**.
 
 The new image is displayed in the **Custom images** list and briefly
 highlighted. After the image has been successfully created, you can choose the image name to

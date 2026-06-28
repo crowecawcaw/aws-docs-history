@@ -55,7 +55,7 @@ console, you can take this option.
 ## Option 3: Use the application launcher function in the SageMaker AI Python SDK
 
 If you are a SageMaker AI domain user and have access only to SageMaker Studio, you
-can access the SageMaker Profiler UI application through SageMaker Studio Classic by running the [`sagemaker.interactive_apps.detail_profiler_app.DetailProfilerApp`](https://sagemaker.readthedocs.io/en/stable/api/utility/interactive_apps.html#module-sagemaker.interactive_apps.detail_profiler_app "https://sagemaker.readthedocs.io/en/stable/api/utility/interactive_apps.html#module-sagemaker.interactive_apps.detail_profiler_app")
+can access the SageMaker Profiler UI application through SageMaker Studio Classic by running the [`sagemaker.interactive_apps.detail_profiler_app.DetailProfilerApp`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html")
 function.
 
 Note that SageMaker Studio Classic is the previous Studio UI experience before re:Invent

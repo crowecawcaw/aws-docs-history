@@ -18,8 +18,8 @@ processing logic and then submit jobs to run on SageMaker AI managed infrastruct
 You can create a processing job programmatically by calling the [CreateProcessingJob](../APIReference/API_CreateProcessingJob.md "../APIReference/API_CreateProcessingJob.md") API action in any language supported by SageMaker AI or by
 using the AWS CLI. For information on how this API action translates into a function in
 the language of your choice, see the [See Also](../APIReference/API_CreateProcessingJob.md#API_CreateProcessingJob_SeeAlso "../APIReference/API_CreateProcessingJob.md#API_CreateProcessingJob_SeeAlso") section of CreateProcessingJob and choose an SDK. As an example,
-for Python users, refer to the [Amazon SageMaker Processing](https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_processing.html "https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_processing.html") section of SageMaker Python SDK. Alternatively, see the full
-request syntax of [create_processing_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_processing_job.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_processing_job.html") in the AWS SDK for Python (Boto3).
+for Python users, refer to the [Amazon SageMaker Processing](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") section of SageMaker Python SDK. Alternatively, see the full
+request syntax of [create\_processing\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_processing_job.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_processing_job.html") in the AWS SDK for Python (Boto3).
 
 The following diagram shows how Amazon SageMaker AI spins up a Processing job. Amazon SageMaker AI takes your script,
 copies your data from Amazon Simple Storage Service (Amazon S3), and then pulls a processing container. The underlying

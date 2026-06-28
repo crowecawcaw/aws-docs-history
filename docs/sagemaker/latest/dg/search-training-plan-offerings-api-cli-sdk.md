@@ -192,7 +192,7 @@ to your `SearchTrainingPlanOfferings` API request.
 
 - `StartTimeAfter`: Specify the requested start time of the plan. The
   `StartTimeAfter` should be a `timestamp` or an `ISO 8601
-date/time` value in the future.
+ date/time` value in the future.
 - `EndTimeBefore`: Specify the requested end time of the plan in a
   `timestamp` or an `ISO 8601 date/time` format. The
   `EndTimeBefore` should be at least 24 hours after the start time .

@@ -21,7 +21,7 @@ from training jobs.
 The [Amazon SageMaker AI Python
 SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") is a high-level SDK focused on machine learning experimentation. The SDK
 can be used to deploy built-in or custom rules defined with the `SMDebug`
-Python library to monitor and analyze these tensors using SageMaker AI estimators.
+Python library to monitor and analyze these tensors using SageMaker AI ModelTrainers.
 
 Debugger has added operations and types to the Amazon SageMaker API that enable the platform to use
 Debugger when training a model and to manage the configuration of inputs and outputs.
@@ -57,7 +57,7 @@ by SageMaker AI (built-in rules) and one set for evaluating custom rules provide
 files.
 
 If you use the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"), you can simply use SageMaker AI high-level Debugger API
-operations with SageMaker AI Estimator API operations, without having to manually retrieve the
+operations with SageMaker AI ModelTrainer API operations, without having to manually retrieve the
 Debugger Docker images and configure the `ConfigureTrainingJob`API.
 
 If you are not using the SageMaker Python SDK, you have to retrieve a relevant pre-built
@@ -94,7 +94,7 @@ provide built-in rules for Amazon SageMaker Debugger. For account IDs, see the f
 
 Account IDs for Built-in Rules Container Images by AWS Region
 
-| Region           | account_id   |
+| Region           | account\_id  |
 | ---------------- | ------------ |
 | `af-south-1`     | 314341159256 |
 | `ap-east-1`      | 199566480951 |
@@ -137,7 +137,7 @@ sagemaker-debugger-rule-evaluator
 
 Account IDs for Custom Rules Container Images by AWS Region
 
-| Region           | account_id   |
+| Region           | account\_id  |
 | ---------------- | ------------ |
 | `af-south-1`     | 515950693465 |
 | `ap-east-1`      | 645844755771 |

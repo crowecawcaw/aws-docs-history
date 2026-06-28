@@ -1,8 +1,8 @@
-# Use a SageMaker AI estimator to run a training job
+# Use a SageMaker AI ModelTrainer to run a training job
 
-You can also use an [estimator](https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html "https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html") from the SageMaker Python SDK to handle the configuration and
+You can also use an [ModelTrainer](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") from the SageMaker Python SDK to handle the configuration and
 running of your SageMaker training job. The following code examples show how to configure
-and run an estimator using images from a private Docker registry.
+and run a ModelTrainer using images from a private Docker registry.
 
 1. Import the required libraries and dependencies, as shown in the following
    code example.
@@ -10,11 +10,13 @@ and run an estimator using images from a private Docker registry.
 ```
 import boto3
 import sagemaker
-from sagemaker.estimator import Estimator
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute
+from sagemaker.core.helper.session_helper import get_execution_role, Session
 
-session = sagemaker.Session()
+session = Session()
 
-role = sagemaker.get_execution_role()
+role = get_execution_role()
 ```
 
 2. Provide a Uniform Resource Identifier (URI) to your training image,
@@ -30,7 +32,7 @@ subnets = ["`subnet-0123456789abcdef0`", "`subnet-0123456789abcdef0`"]
 
 For more information about `security_group_ids` and
 `subnets`, see the appropriate parameter description in the
-[Estimators](https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html "https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html") section of the SageMaker Python SDK.
+[ModelTrainers](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") section of the SageMaker Python SDK.
 
 ###### Note
 
@@ -48,7 +50,7 @@ training_repository_credentials_provider_arn = "`arn:aws:lambda:us-west-2:123456
 
 For more information about using images in a Docker registry requiring
 authentication, see **Use a Docker registry that
-requires authentication for training** below. 4. Use the code examples from the previous steps to configure an estimator,
+requires authentication for training** below. 4. Use the code examples from the previous steps to configure a ModelTrainer,
 as shown in the following code example.
 
 ```
@@ -65,21 +67,20 @@ max_run_time = `1800`
 # Specify the output path for the model artifacts
 output_path = "`s3://your-output-bucket/your-output-path`"
 
-estimator = Estimator(
-    image_uri=image_uri,
+model_trainer = ModelTrainer(
+    training_image=image_uri,
     role=role,
     subnets=subnets,
     security_group_ids=security_groups,
     training_repository_access_mode=training_repository_access_mode,
     training_repository_credentials_provider_arn=training_repository_credentials_provider_arn,  # remove this line if auth is not needed
-    instance_type=instance_type,
-    instance_count=instance_count,
+    compute=Compute(instance_type=instance_type, instance_count=instance_count),
     output_path=output_path,
     max_run=max_run_time
 )
 ```
 
-5. Start your training job by calling `estimator.fit` with your
+5. Start your training job by calling `model_trainer.train` with your
    job name and input path as parameters, as shown in the following code
    example.
 
@@ -87,8 +88,8 @@ estimator = Estimator(
 input_path = "`s3://your-input-bucket/your-input-path`"
 job_name = "`your-job-name`"
 
-estimator.fit(
-    inputs=input_path,
+model_trainer.train(
+    input_data_config=input_path,
     job_name=job_name
 )
 ```

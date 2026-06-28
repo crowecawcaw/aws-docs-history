@@ -945,7 +945,7 @@ The status field can be one of several values:
   the endpoint.
 - `ReconcilingEndpoint`: The operator is creating, updating, or deleting
   endpoint resources. If the HostingDeployment remains in this state, use `kubectl
-describe` to see the reason in the `Additional` field.
+ describe` to see the reason in the `Additional` field.
 - `OutOfService`: The endpoint is not available to take incoming
   requests.
 - `Creating`: [CreateEndpoint](API_CreateEndpoint.md "API_CreateEndpoint.md") is running.

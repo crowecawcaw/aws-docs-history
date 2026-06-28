@@ -49,7 +49,7 @@ service.
 
 The SMDDP library v1.4.0 and later works as a backend of PyTorch distributed
 (torch.distributed) data parallelism (torch.parallel.DistributedDataParallel). In
-accordance with the change, the following [smdistributed APIs](https://sagemaker.readthedocs.io/en/stable/api/training/sdp_versions/latest/smd_data_parallel_pytorch.html#pytorch-api "https://sagemaker.readthedocs.io/en/stable/api/training/sdp_versions/latest/smd_data_parallel_pytorch.html#pytorch-api") for the PyTorch distributed package have been
+accordance with the change, the following [smdistributed APIs](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") for the PyTorch distributed package have been
 deprecated.
 
 - `smdistributed.dataparallel.torch.distributed` is deprecated. Use the
@@ -57,7 +57,7 @@ deprecated.
 - `smdistributed.dataparallel.torch.parallel.DistributedDataParallel` is
   deprecated. Use the [torch.nn.parallel.DistributedDataParallel](https://pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html "https://pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html") API instead.
   If you need to use the previous versions of the library (v1.3.0 or before), see the
-  [archived SageMaker AI distributed data parallelism documentation](https://sagemaker.readthedocs.io/en/stable/api/training/sdp_versions/latest.html#documentation-archive "https://sagemaker.readthedocs.io/en/stable/api/training/sdp_versions/latest.html#documentation-archive") in the _SageMaker AI
+  [archived SageMaker AI distributed data parallelism documentation](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") in the _SageMaker AI
   Python SDK documentation_.
 
 ### PyTorch Lightning
@@ -86,7 +86,7 @@ containers. For more information, see [Create your own Docker container with the
 ###### Note
 
 PyTorch Lightning and its utility libraries such as Lightning Bolts are not preinstalled
-in the PyTorch DLCs. When you construct a SageMaker AI PyTorch estimator and submit a training
+in the PyTorch DLCs. When you construct a SageMaker AI PyTorch ModelTrainer and submit a training
 job request in [Step 2](data-parallel-use-api.md#data-parallel-framework-estimator "data-parallel-use-api.md#data-parallel-framework-estimator"), you need to provide `requirements.txt` to install
 `pytorch-lightning` and `lightning-bolts` in the SageMaker AI PyTorch
 training container.
@@ -99,7 +99,7 @@ lightning-bolts
 
 For more information about specifying the source directory to place the
 `requirements.txt` file along with your training script and a job submission,
-see [Using third-party libraries](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/using_pytorch.html#id12 "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/using_pytorch.html#id12") in the _Amazon SageMaker AI
+see [Using third-party libraries](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") in the _Amazon SageMaker AI
 Python SDK documentation_.
 
 ### Hugging Face Transformers

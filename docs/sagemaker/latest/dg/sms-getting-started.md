@@ -226,12 +226,11 @@ use these steps:
      image that you created in step 1.
 
 4. Select **Preview** to preview the worker UI. The preview
-   opens in a new tab, and so if your browser blocks pop ups you may need to
-   manually enable the tab to open. When you add one or more annotations to the
-   preview and then select **Submit** you can see a preview of the
-   output data your annotation would created.
-5. After you have configured and verified your instructions, select
-   **Create** to create the labeling job.
+opens in a new tab, and so if your browser blocks pop ups you may need to
+manually enable the tab to open. When you add one or more annotations to the
+preview and then select **Submit** you can see a preview of the
+output data your annotation would created. 5. After you have configured and verified your instructions, select
+**Create** to create the labeling job.
 
 If you used a private workforce, you can navigate to the worker portal that you logged
 into in [Select Workers](#sms-getting-started-step3 "#sms-getting-started-step3") of this tutorial to see your labeling

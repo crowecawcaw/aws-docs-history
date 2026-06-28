@@ -15,7 +15,7 @@ following steps:
 
 1. Select the cell to parameterize.
 2. Choose the **Property Inspector** icon (
-   ![Black square icon representing a placeholder or empty image.](images/studio/icons/gears.png)
+   ![Property Inspector icon.](images/studio/icons/gears.png)
    ) in the right sidebar.
 3. Type `parameters` in the **Add Tag** box.
 4. Choose the **+** sign.

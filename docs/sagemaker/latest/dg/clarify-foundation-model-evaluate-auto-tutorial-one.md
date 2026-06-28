@@ -46,7 +46,7 @@ use cases, see [Instance Types Available for Use With Amazon SageMaker Studio Cl
 import sagemaker
 ```
 
-2. Download the sample `JSON Lines` dataset [crows-pairs_sample.jsonl](https://github.com/aws/fmeval/blob/main/examples/crows-pairs_sample.jsonl "https://github.com/aws/fmeval/blob/main/examples/crows-pairs_sample.jsonl"), into your current working
+2. Download the sample `JSON Lines` dataset [crows-pairs\_sample.jsonl](https://github.com/aws/fmeval/blob/main/examples/crows-pairs_sample.jsonl "https://github.com/aws/fmeval/blob/main/examples/crows-pairs_sample.jsonl"), into your current working
    directory.
 3. Check that your environment contains the sample input file using
    the following code:
@@ -62,6 +62,20 @@ print("ERROR - please make sure file exists: crows-pairs_sample.jsonl")
 
 4. Define a JumpStart model as follows:
 
+SageMaker Python SDK v3
+
+```
+from sagemaker.serve import ModelBuilder
+from sagemaker.core.jumpstart.configs import JumpStartConfig
+
+model_id, model_version, = (
+"huggingface-llm-falcon-7b-instruct-bf16",
+"*",
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 from sagemaker.jumpstart.model import JumpStartModel
 
@@ -73,6 +87,18 @@ model_id, model_version, = (
 
 5. Deploy the JumpStart model and create an endpoint as
    follows:
+
+SageMaker Python SDK v3
+
+```
+jumpstart_config = JumpStartConfig(model_id=model_id)
+model_builder = ModelBuilder.from_jumpstart_config(jumpstart_config=jumpstart_config)
+model = model_builder.build()
+endpoint = model_builder.deploy()
+endpoint_name = endpoint.endpoint_name
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 my_model = JumpStartModel(model_id=model_id)
@@ -141,6 +167,17 @@ For more information about parameters for this `Hugging
 
 To test your model, send a sample request to your model and print the
 model response as follows:
+
+SageMaker Python SDK v3
+
+```
+import json
+response = endpoint.invoke(body=json.dumps(payload), content_type="application/json")
+result = json.loads(response.body.read().decode('utf-8'))
+print(result[0]["generated_text"])
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 response = predictor.predict(payload)
@@ -238,7 +275,7 @@ The previous code example specifies the following:
      [types.py](https://github.com/huggingface/text-generation-inference/blob/v0.9.3/clients/python/text_generation/types.py#L8 "https://github.com/huggingface/text-generation-inference/blob/v0.9.3/clients/python/text_generation/types.py#L8").
 
 4. Configure your evaluation report and save it to a directory as
-   shown in the following example code:
+shown in the following example code:
 
 ```
 import os

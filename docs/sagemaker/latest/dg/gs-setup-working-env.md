@@ -97,9 +97,8 @@ notebook instance, edit the notebook instance settings.
      volume in use, create a new notebook instance with the desired size.
 
 4. At the bottom of the page, choose **Update notebook
-   instance**.
-5. When the update is complete, **Start** the notebook instance with the new
-   settings.
+instance**. 5. When the update is complete, **Start** the notebook instance with the new
+settings.
 
 For more information about updating SageMaker notebook instance settings, see [Update a Notebook
 Instance](nbi-update.md "nbi-update.md").

@@ -48,10 +48,10 @@ All data sources except for Amazon Simple Storage Service (Amazon S3) require yo
 - **Table**
   You can specify the name of the database or the data catalog in either the drop down menus or within the query. The following are example queries:
 
-- `select * from `example-data-catalog-name`.`example-database-name`.`example-table-name``– The query doesn't use anything specified in the dropdown menus of the user-interface (UI) to run. 
-It queries`example-table-name`within`example-database-name`within`example-data-catalog-name`.
-- `select * from `example-database-name`.`example-table-name``– The query uses the data catalog that you've specified in the **Data catalog** dropdown menu to run. It queries`example-table-name`within`example-database-name` within the data catalog that you've specified.
-- `select * from `example-table-name``– The query requires you to select fields for both the **Data catalog** and **Database name** dropdown menus. It queries`example-table-name` within the data catalog within the database and data catalog that you've specified.
+- `select * from `example-data-catalog-name`.`example-database-name`.`example-table-name`` – The query doesn't use anything specified in the dropdown menus of the user-interface (UI) to run.
+  It queries `example-table-name` within `example-database-name` within `example-data-catalog-name`.
+- `select * from `example-database-name`.`example-table-name`` – The query uses the data catalog that you've specified in the **Data catalog** dropdown menu to run. It queries `example-table-name` within `example-database-name` within the data catalog that you've specified.
+- `select * from `example-table-name`` – The query requires you to select fields for both the **Data catalog** and **Database name** dropdown menus. It queries `example-table-name` within the data catalog within the database and data catalog that you've specified.
   The link between Data Wrangler and the data source is a _connection_. You use the connection to import data from your data source.
 
 There are the following types of connections:
@@ -92,13 +92,12 @@ requirements:
 - A backslash, `\`, is the only valid escape character.
 - Your dataset must use one of the following delimiters:
 
-      + Comma – `,`
-      + Colon – `:`
-      + Semicolon – `;`
-      + Pipe – `|`
-      + Tab – `[TAB]`
-
-  To save space, you can import compressed CSV files.
+  - Comma – `,`
+  - Colon – `:`
+  - Semicolon – `;`
+  - Pipe – `|`
+  - Tab – `[TAB]`
+    To save space, you can import compressed CSV files.
 
 Data Wrangler gives you the ability to either import the entire dataset or sample a portion of
 it. For Amazon S3, it provides the following sampling options:
@@ -575,8 +574,8 @@ You must meet the following prerequisites to connect to an Amazon EMR cluster:
 
   Amazon EMR supports auto termination. Auto termination stops idle clusters from running and prevents you from incurring costs. The following are the releases that support auto termination:
 
-      - For 6.x releases, version 6.1.0 or later.
-      - For 5.x releases, version 5.30.0 or later.
+        - For 6.x releases, version 6.1.0 or later.
+        - For 5.x releases, version 5.30.0 or later.
 
 - ###### Amazon EMR clusters using IAM runtime roles
   - Use the following pages to set up IAM runtime roles for the
@@ -1346,8 +1345,8 @@ To add read permissions for Data Wrangler, do the following.
 5. Under **Details**, find the **Execution
    role**. Its ARN is in the following format:
    `arn:aws:iam::111122223333:role/`example-role``.
-Make a note of the SageMaker AI execution role. Within the ARN, it's everything
-after `role/`.
+   Make a note of the SageMaker AI execution role. Within the ARN, it's everything
+   after `role/`.
 6. Navigate to the [IAM console](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam").
 7. In the **Search IAM** search bar, specify the name of
    the SageMaker AI execution role.
@@ -2335,7 +2334,7 @@ before you can preview a table.
 If you're importing a dataset with columns of type
 `TIMESTAMP_TZ` or `TIMESTAMP_LTZ`, add
 `::string` to the column names of your query. For more
-information, see [How To: Unload TIMESTAMP_TZ and TIMESTAMP_LTZ data to a Parquet
+information, see [How To: Unload TIMESTAMP\_TZ and TIMESTAMP\_LTZ data to a Parquet
 file](https://community.snowflake.com/s/article/How-To-Unload-Timestamp-data-in-a-Parquet-file "https://community.snowflake.com/s/article/How-To-Unload-Timestamp-data-in-a-Parquet-file").
 
 After you select a data warehouse, database and schema, you can now write
@@ -2517,8 +2516,8 @@ which you are using Studio Classic.
 Default S3 buckets have the following naming convention:
 `sagemaker-`region`-`account
 number``. For example, if your account number is
- 111122223333 and you are using Studio Classic in `us-east-1`, your
- imported datasets are stored in `sagemaker-us-east-1-`111122223333.
+111122223333 and you are using Studio Classic in `us-east-1`, your
+imported datasets are stored in `sagemaker-us-east-1-`111122223333.
 
 Data Wrangler flows depend on this Amazon S3 dataset location, so you should not modify this
 dataset in Amazon S3 while you are using a dependent flow. If you do modify this S3 location,

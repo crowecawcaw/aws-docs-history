@@ -17,7 +17,7 @@ _Date: April 01, 2025_
 ### SMP Docker and Enroot containers
 
 The SMP library team distributes Docker containers in replacement of the SageMaker
-PyTorch framework containers. If you use the PyTorch estimator class in the SageMaker
+PyTorch framework containers. If you use the PyTorch ModelTrainer class in the SageMaker
 Python SDK and specify distribution configuration to use SMP v2, SageMaker AI automatically
 picks up the SMP Docker containers. To use this release of SMP v2, upgrade your SageMaker
 Python SDK to `v2.243.0` or later.
@@ -81,7 +81,7 @@ _Date: December 04, 2024_
 ### SMP Docker and Enroot containers
 
 The SMP library team distributes Docker and Enroot containers in replacement of
-the SageMaker PyTorch framework containers. If you use the PyTorch estimator class in the
+the SageMaker PyTorch framework containers. If you use the PyTorch ModelTrainer class in the
 SageMaker Python SDK and specify distribution configuration to use SMP v2, SageMaker
 automatically picks up the SMP Docker containers. To use this release of SMP v2,
 upgrade your SageMaker Python SDK to `v2.237.0` or later.
@@ -151,7 +151,7 @@ _Date: October 31, 2024_
 ### SMP Docker container
 
 The SMP library team distributes Docker containers in replacement of the SageMaker
-PyTorch framework containers. If you use the PyTorch estimator class in the SageMaker
+PyTorch framework containers. If you use the PyTorch ModelTrainer class in the SageMaker
 Python SDK and specify distribution configuration to use SMP v2, SageMaker AI automatically
 picks up the SMP Docker containers.
 
@@ -238,7 +238,7 @@ _Date: October 17, 2024_
 ### SMP Docker container
 
 The SMP library team distributes Docker containers in replacement of the SageMaker
-PyTorch framework containers. If you use the PyTorch estimator class in the SageMaker
+PyTorch framework containers. If you use the PyTorch ModelTrainer class in the SageMaker
 Python SDK and specify distribution configuration to use SMP v2, SageMaker AI automatically
 picks up the SMP Docker containers.
 
@@ -324,7 +324,7 @@ _Date: August 28, 2024_
 
 **Known issues**
 
-- The balanced load balancing type in the MoE configuration ([torch.sagemaker.moe.moe_config.MoEConfig](distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-moe "distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-moe")) is
+- The balanced load balancing type in the MoE configuration ([torch.sagemaker.moe.moe\_config.MoEConfig](distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-moe "distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-moe")) is
   currently incompatible with activation checkpointing.
 - With context parallelism, GPT-NeoX shows performance regression in both
   pre-training and fine-tuning.
@@ -335,7 +335,7 @@ _Date: August 28, 2024_
 ### SMP Docker container
 
 The SMP library team distributes Docker containers in replacement of the SageMaker
-PyTorch framework containers. If you use the PyTorch estimator class in the SageMaker
+PyTorch framework containers. If you use the PyTorch ModelTrainer class in the SageMaker
 Python SDK and specify distribution configuration to use SMP v2, SageMaker AI automatically
 picks up the SMP Docker containers. To use this release of SMP v2, upgrade your SageMaker
 Python SDK to v2.224.0 or later.
@@ -421,7 +421,7 @@ _Date: June 20, 2024_
 ### SMP Docker container
 
 The SMP library team distributes Docker containers in replacement of the SageMaker
-PyTorch framework containers. If you use the PyTorch estimator class in the SageMaker
+PyTorch framework containers. If you use the PyTorch ModelTrainer class in the SageMaker
 Python SDK and specify distribution configuration to use SMP v2, SageMaker AI automatically
 picks up the SMP Docker containers. To use this release of SMP v2, upgrade your SageMaker
 Python SDK to v2.224.0 or later.
@@ -475,7 +475,7 @@ _Date: May 9, 2024_
 **Bug fixes**
 
 - Fixed an `ImportError` issue when using
-  `moe_load_balancing=balanced` in [torch.sagemaker.moe.moe_config.MoEConfig](distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-moe "distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-moe") for expert
+  `moe_load_balancing=balanced` in [torch.sagemaker.moe.moe\_config.MoEConfig](distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-moe "distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-moe") for expert
   parallelism.
 - Fixed a fine-tuning issue where the [torch.sagemaker.transform](distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-transform "distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-transform") call
   raised `KeyError` when `load_state_dict_from_rank0` is
@@ -507,7 +507,7 @@ _Date: April 11, 2024_
 **SMP Docker container**
 
 The SMP library team distributes Docker containers in replacement of the SageMaker PyTorch
-framework containers. If you use the PyTorch estimator class in the SageMaker Python SDK and
+framework containers. If you use the PyTorch ModelTrainer class in the SageMaker Python SDK and
 specify distribution configuration to use SMP v2, SageMaker automatically picks up the SMP
 Docker containers. To use this release of SMP v2, upgrade your SageMaker Python SDK to
 v2.214.4 or later.
@@ -577,7 +577,7 @@ _Date: March 7, 2024_
 **SMP Docker container**
 
 The SMP library team distributes Docker containers in replacement of the SageMaker PyTorch
-framework containers. If you use the PyTorch estimator class in the SageMaker Python SDK and
+framework containers. If you use the PyTorch ModelTrainer class in the SageMaker Python SDK and
 specify distribution configuration to use SMP v2, SageMaker AI automatically picks up the SMP
 Docker containers. To use this release of SMP v2, upgrade your SageMaker Python SDK to
 v2.212.0 or later.
@@ -629,7 +629,7 @@ _Date: February 6, 2024_
 **SMP Docker container**
 
 The SMP library team distributes Docker containers in replacement of the SageMaker PyTorch
-framework containers. If you use the PyTorch estimator class in the SageMaker Python SDK and
+framework containers. If you use the PyTorch ModelTrainer class in the SageMaker Python SDK and
 specify distribution configuration to use SMP v2, SageMaker automatically picks up the SMP
 Docker containers. To use this release of SMP v2, upgrade your SageMaker Python SDK to
 v2.207.0 or later.
@@ -699,7 +699,7 @@ offerings.
   policies with FSDP.
 
   - `auto_wrap_policy =
-functools.partial(transformer_auto_wrap_policy, ...)`
+   functools.partial(transformer_auto_wrap_policy, ...)`
 
 - To use [Activation offloading](model-parallel-core-features-v2-pytorch-activation-offloading.md "model-parallel-core-features-v2-pytorch-activation-offloading.md"),
   FSDP activation checkpointing type must be [REENTRANT](https://pytorch.org/docs/stable/checkpoint.html "https://pytorch.org/docs/stable/checkpoint.html").
@@ -714,7 +714,7 @@ functools.partial(transformer_auto_wrap_policy, ...)`
 - Starting from this release, the documentation for the SageMaker model parallelism
   library is fully available in this _Amazon SageMaker AI Developer
   Guide_. In favor of this complete developer guide for SMP v2 in the
-  _Amazon SageMaker AI Developer Guide_, the [additional reference for SMP v1.x](https://sagemaker.readthedocs.io/en/stable/api/training/distributed.html#the-sagemaker-distributed-model-parallel-library "https://sagemaker.readthedocs.io/en/stable/api/training/distributed.html#the-sagemaker-distributed-model-parallel-library") in the _SageMaker Python SDK
+  _Amazon SageMaker AI Developer Guide_, the [additional reference for SMP v1.x](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") in the _SageMaker Python SDK
   documentation_ is deprecated. If you still need the documentation
   for SMP v1.x, the developer guide for SMP v1.x is available at [(Archived) SageMaker model parallelism library v1.x](model-parallel.md "model-parallel.md"), and the SMP Python library v1.x reference is
   available in the [SageMaker Python SDK v2.199.0 documentation](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel_release_notes/smd_model_parallel_change_log.html "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel_release_notes/smd_model_parallel_change_log.html").
@@ -729,7 +729,7 @@ functools.partial(transformer_auto_wrap_policy, ...)`
 **SMP Docker container**
 
 The SMP library team distributes Docker containers in replacement of the SageMaker PyTorch
-framework containers. If you use the PyTorch estimator class in the SageMaker Python SDK and
+framework containers. If you use the PyTorch ModelTrainer class in the SageMaker Python SDK and
 specify distribution configuration to use SMP v2, SageMaker AI automatically picks up the SMP
 Docker containers. To use this release of SMP v2, upgrade your SageMaker Python SDK to
 v2.207.0 or later.

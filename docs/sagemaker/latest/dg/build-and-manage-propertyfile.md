@@ -96,4 +96,4 @@ cond_lte = ConditionLessThanOrEqualTo(
 )
 ```
 
-For more in-depth examples, see _[Property File](https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_model_building_pipeline.html#property-file "https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_model_building_pipeline.html#property-file")_ in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").
+For more in-depth examples, see _[Property File](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#property-file "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#property-file")_ in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").

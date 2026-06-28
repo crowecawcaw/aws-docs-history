@@ -80,7 +80,7 @@ class LlamaFlashAttention(LlamaAttention):
         return attn_output
 ```
 
-The SMP library also provides [torch.sagemaker.nn.huggingface.llama_flashattn.LlamaFlashAttention](distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-llamaFlashAttn "distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-llamaFlashAttn"), which
+The SMP library also provides [torch.sagemaker.nn.huggingface.llama\_flashattn.LlamaFlashAttention](distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-llamaFlashAttn "distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-llamaFlashAttn"), which
 uses the [torch.sagemaker.nn.attn.FlashGroupedQueryAttention](distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-flashGroupedQueryAttn "distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-flashGroupedQueryAttn")
 API at low level. Hugging Face Transformers has a similar implementation called
 [`LlamaFlashAttention2`](https://github.com/huggingface/transformers/blob/main/src/transformers/models/llama/modeling_llama.py "https://github.com/huggingface/transformers/blob/main/src/transformers/models/llama/modeling_llama.py") from v4.36.0. The following code

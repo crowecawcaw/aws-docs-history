@@ -105,7 +105,7 @@ command in the AWS Command Line Interface to initiate the deployment.
 **How to update an endpoint**
 
 The following example shows how you can update your endpoint with a rolling deployment
-using the [update_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_endpoint.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_endpoint.html") method of the Boto3 SageMaker AI client.
+using the [update\_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_endpoint.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_endpoint.html") method of the Boto3 SageMaker AI client.
 
 To configure a rolling deployment, use the following example and fields:
 

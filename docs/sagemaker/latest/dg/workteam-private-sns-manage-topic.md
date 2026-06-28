@@ -7,6 +7,6 @@ workers' email addresses to the topic, see [Subscribing an Endpoint to an Amazon
 
 The only situation in which workers are automatically subscribed to your topic is when
 you create or import an Amazon Cognito user group at the time that you create a work team
-**_and_** you set up
+_**and**_ you set up
 the topic subscription when you create that work team. For more information about
 creating and managing your workteams with Amazon Cognito, see [Create Work Teams (Amazon Cognito Console)](sms-workforce-management-private-cognito.md#create-work-teams-cog "sms-workforce-management-private-cognito.md#create-work-teams-cog").

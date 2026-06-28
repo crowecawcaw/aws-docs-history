@@ -5,7 +5,7 @@ Spaces that can be deployed per node is constrained by AWS infrastructure limits
 
 **EBS Volume Limits per Node**
 
-Reference: [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html](../../../AWSEC2/latest/UserGuide/volume_limits.md "../../../AWSEC2/latest/UserGuide/volume_limits.md")
+Reference: [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume\_limits.html](../../../AWSEC2/latest/UserGuide/volume_limits.md "../../../AWSEC2/latest/UserGuide/volume_limits.md")
 
 EC2 nodes have a maximum number of EBS volumes that can be attached. Since each Space
 typically uses one EBS volume, this limits how many Spaces with dedicated EBS storage

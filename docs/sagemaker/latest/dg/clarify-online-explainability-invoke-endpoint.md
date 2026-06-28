@@ -10,7 +10,7 @@ To invoke an endpoint, choose one of the following options:
 
 - For instructions to use Boto3 or the AWS CLI to invoke an endpoint, see
   [Invoke models for real-time inference](realtime-endpoints-test-endpoints.md "realtime-endpoints-test-endpoints.md").
-- To use the SageMaker SDK for Python to invoke an endpoint, see the [Predictor](https://sagemaker.readthedocs.io/en/stable/api/inference/predictors.html "https://sagemaker.readthedocs.io/en/stable/api/inference/predictors.html") API.
+- To use the SageMaker SDK for Python to invoke an endpoint, see the [Predictor](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html") API.
 
 ## Request
 

@@ -26,7 +26,7 @@ stored in Amazon EFS and Amazon FSx for Lustre.
   configure the dataset for file mode by providing either an Amazon S3 prefix,
   manifest file, or augmented manifest file. You should use an S3 prefix when all your
   dataset files are located within a common S3 prefix. File mode is compatible with [SageMaker AI local
-  mode](https://sagemaker.readthedocs.io/en/stable/overview.html#local-mode "https://sagemaker.readthedocs.io/en/stable/overview.html#local-mode") (starting a SageMaker training container interactively in seconds). For
+  mode](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") (starting a SageMaker training container interactively in seconds). For
   distributed training, you can shard the dataset across multiple instances with the
   `ShardedByS3Key` option.
 - _Fast file mode_ provides file system access to an
@@ -69,7 +69,7 @@ It is another streaming mode that is largely replaced by the newer and simpler-t
 fast file mode. In pipe mode, data is pre-fetched from Amazon S3 at high concurrency and
 throughput, and streamed into a named pipe, which also known as a First-In-First-Out
 (FIFO) pipe for its behavior. Each pipe may only be read by a single process. A SageMaker AI
-specific extension to TensorFlow conveniently [integrates Pipe mode into the native TensorFlow data loader](https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/using_tf.html#training-with-pipe-mode-using-pipemodedataset "https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/using_tf.html#training-with-pipe-mode-using-pipemodedataset") for streaming text,
+specific extension to TensorFlow conveniently [integrates Pipe mode into the native TensorFlow data loader](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") for streaming text,
 TFRecords, or RecordIO file formats. Pipe mode also supports managed sharding and
 shuffling of data.
 
@@ -109,6 +109,6 @@ Availability Zone ID when running the training job.
 
 ###### Tip
 
-To learn more about how to specify your VPC configuration to SageMaker AI estimators, see
-[Use File Systems as Training Inputs](https://sagemaker.readthedocs.io/en/stable/overview.html?highlight=VPC#use-file-systems-as-training-inputs "https://sagemaker.readthedocs.io/en/stable/overview.html?highlight=VPC#use-file-systems-as-training-inputs") in the _SageMaker AI
+To learn more about how to specify your VPC configuration to SageMaker AI ModelTrainers, see
+[Use File Systems as Training Inputs](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") in the _SageMaker AI
 Python SDK documentation_.

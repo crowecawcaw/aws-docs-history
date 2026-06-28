@@ -36,7 +36,7 @@ of interest during training. You can use Debugger [built-in rules](debugger-buil
 monitor computational performance issues, such as `CPUBottleneck`,
 `LoadBalancing`, and `LowGPUUtilization`. You can specify
 these rules with [Debugger configurations](debugger-configuration-for-debugging.md "debugger-configuration-for-debugging.md")
-when you define an Amazon SageMaker Python SDK estimator. If you use AWS CLI and AWS SDK for Python (Boto3)
+when you define an Amazon SageMaker Python SDK ModelTrainer. If you use AWS CLI and AWS SDK for Python (Boto3)
 for training on SageMaker AI, you can enable Debugger as shown in [Configure SageMaker Debugger
 Using Amazon SageMaker API](debugger-createtrainingjob-api.md "debugger-createtrainingjob-api.md").
 
@@ -64,14 +64,14 @@ Training ImageNet in 1 Hour](https://arxiv.org/pdf/1706.02677.pdf "https://arxiv
 The SageMaker AI distributed data parallel library employs Message Passing Interface (MPI), a
 popular standard for managing communication between nodes in a high-performance cluster,
 and uses NVIDIA’s NCCL library for GPU-level communication. When you use the data
-parallel library with a TensorFlow or Pytorch `Estimator`, the respective
+parallel library with a TensorFlow or Pytorch `ModelTrainer`, the respective
 container sets up the MPI environment and executes the `mpirun` command to
 start jobs on the cluster nodes.
 
 You can set custom MPI operations using the `custom_mpi_options` parameter
-in the `Estimator`. Any `mpirun` flags passed in this field are
+in the `ModelTrainer`. Any `mpirun` flags passed in this field are
 added to the `mpirun` command and executed by SageMaker AI for training. For example,
-you may define the `distribution` parameter of an `Estimator`
+you may define the `distribution` parameter of an `ModelTrainer`
 using the following to use the [`NCCL_DEBUG`](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/env.html#nccl-debug "https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/env.html#nccl-debug") variable to print the NCCL version at the start
 of the program:
 
@@ -91,11 +91,11 @@ Typically, with distributed data parallelism, you would expect that the total tr
 throughput scales near-linearly with the number of GPUs. However, if you use suboptimal
 Amazon FSx storage, the training performance might slow down due to a low Amazon FSx throughput.
 
-For example, if you use the [**SCRATCH_2** deployment type of Amazon FSx file system](../../../fsx/latest/LustreGuide/performance.md#fsx-aggregate-perf "../../../fsx/latest/LustreGuide/performance.md#fsx-aggregate-perf")
+For example, if you use the [**SCRATCH\_2** deployment type of Amazon FSx file system](../../../fsx/latest/LustreGuide/performance.md#fsx-aggregate-perf "../../../fsx/latest/LustreGuide/performance.md#fsx-aggregate-perf")
 with the minimum 1.2 TiB storage capacity, the I/O throughput capacity is 240 MB/s.
 Amazon FSx storage works in a way that you can assign physical storage devices, and the more
 devices assigned, the larger throughput you get. The smallest storage increment for the
-SRATCH_2 type is 1.2 TiB, and the corresponding throughput gain is 240 MB/s.
+SRATCH\_2 type is 1.2 TiB, and the corresponding throughput gain is 240 MB/s.
 
 Assume that you have a model to train on a 4-node cluster over a 100 GB data set. With
 a given batch size that’s optimized to the cluster, assume that the model can complete

@@ -98,20 +98,20 @@ input dataset inside the `ProcessingInputs` parameter.
     }
     ```
 
-3.  Specify the configuration for the output of the processing job inside the
-    `ProcessingOutputConfig` parameter. A single
-    `ProcessingOutput` object is required in the
-    `Outputs` configuration. The following are required of the
-    output configuration:
+3. Specify the configuration for the output of the processing job inside the
+`ProcessingOutputConfig` parameter. A single
+`ProcessingOutput` object is required in the
+`Outputs` configuration. The following are required of the
+output configuration:
 
-        1. `OutputName` must be
-         `analysis_result`.
-        2. `S3Uri`must be an S3 prefix to the output
-         location.
-        3. `S3UploadMode` must be set to
-         `EndOfJob`.
+    1. `OutputName` must be
+     `analysis_result`.
+    2. `S3Uri`must be an S3 prefix to the output
+     location.
+    3. `S3UploadMode` must be set to
+     `EndOfJob`.
 
-    The following code shows an example of an output configuration.
+The following code shows an example of an output configuration.
 
 ```
 {
@@ -126,22 +126,21 @@ input dataset inside the `ProcessingInputs` parameter.
 }
 ```
 
-4.  Specify the configuration `ClusterConfig` for the resources
-    that you use in your processing job inside the
-    `ProcessingResources` parameter. The following parameters are
-    required inside the `ClusterConfig` object.
+4. Specify the configuration `ClusterConfig` for the resources
+   that you use in your processing job inside the
+   `ProcessingResources` parameter. The following parameters are
+   required inside the `ClusterConfig` object.
 
-        1. `InstanceCount` specifies the number of compute
-         instances in the cluster that runs the processing job. Specify a
-         value greater than `1` to activate distributed
-         processing.
-        2. `InstanceType` refers to the resources that runs your
-         processing job. Because SageMaker AI SHAP analysis is compute-intensive,
-         using an instance type that is optimized for compute should improve
-         runtime for analysis. The SageMaker Clarify processing job doesn't use
-         GPUs.
-
-    The following code shows an example of resource configuration.
+   1. `InstanceCount` specifies the number of compute
+      instances in the cluster that runs the processing job. Specify a
+      value greater than `1` to activate distributed
+      processing.
+   2. `InstanceType` refers to the resources that runs your
+      processing job. Because SageMaker AI SHAP analysis is compute-intensive,
+      using an instance type that is optimized for compute should improve
+      runtime for analysis. The SageMaker Clarify processing job doesn't use
+      GPUs.
+      The following code shows an example of resource configuration.
 
 ```
 {
@@ -153,26 +152,24 @@ input dataset inside the `ProcessingInputs` parameter.
 }
 ```
 
-5.  Specify the configuration of the network that you use in your processing
-    job inside the `NetworkConfig` object. The following values are
-    required in the configuration.
+5. Specify the configuration of the network that you use in your processing
+   job inside the `NetworkConfig` object. The following values are
+   required in the configuration.
 
-        1. `EnableNetworkIsolation` must be set to
-         `False` (default) so that SageMaker Clarify can invoke an
-         endpoint, if necessary, for predictions.
-        2. If the model or endpoint that you provided to the SageMaker Clarify job is
-         within an Amazon Virtual Private Cloud (Amazon VPC), then the SageMaker Clarify job must also be in the
-         same VPC. Specify the VPC using [VpcConfig](../APIReference/API_VpcConfig.md "../APIReference/API_VpcConfig.md"). Additionally, the VPC must have endpoints to
-         an Amazon S3 bucket, SageMaker AI service and SageMaker AI Runtime service.
+   1. `EnableNetworkIsolation` must be set to
+      `False` (default) so that SageMaker Clarify can invoke an
+      endpoint, if necessary, for predictions.
+   2. If the model or endpoint that you provided to the SageMaker Clarify job is
+      within an Amazon Virtual Private Cloud (Amazon VPC), then the SageMaker Clarify job must also be in the
+      same VPC. Specify the VPC using [VpcConfig](../APIReference/API_VpcConfig.md "../APIReference/API_VpcConfig.md"). Additionally, the VPC must have endpoints to
+      an Amazon S3 bucket, SageMaker AI service and SageMaker AI Runtime service.
 
-
-        If distributed processing is activated, you must also allow
-         communication between different instances in the same processing
-         job. Configure a rule for your security group that allows inbound
-         connections between members of the same security group. For more
-         information, see [Give Amazon SageMaker Clarify Jobs Access to Resources in Your Amazon VPC](clarify-vpc.md "clarify-vpc.md").
-
-    The following code gives an example of a network configuration.
+   If distributed processing is activated, you must also allow
+   communication between different instances in the same processing
+   job. Configure a rule for your security group that allows inbound
+   connections between members of the same security group. For more
+   information, see [Give Amazon SageMaker Clarify Jobs Access to Resources in Your Amazon VPC](clarify-vpc.md "clarify-vpc.md").
+   The following code gives an example of a network configuration.
 
 ```
 {
@@ -289,7 +286,7 @@ AWS SDK for Python, see [Fairness and Explainability with SageMaker Clarify usin
 S3 bucket used in the notebook must be in the same AWS Region as the notebook
 instance that accesses it.
 
-You can also configure a SageMaker Clarify processing job using the [SageMaker ClarifyProcessor](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.SageMakerClarifyProcessor "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.SageMakerClarifyProcessor") in the SageMaker Python SDK API. For more information, see
+You can also configure a SageMaker Clarify processing job using the [SageMaker ClarifyProcessor](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") in the SageMaker Python SDK API. For more information, see
 [Run SageMaker Clarify Processing Jobs for Bias Analysis and Explainability](clarify-processing-job-run.md "clarify-processing-job-run.md").
 
 ###### Topics

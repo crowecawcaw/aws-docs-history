@@ -28,11 +28,11 @@ your image.
   different scripts to run in the same container.
 
 Your entrypoint script should contain training code for your image. If you use the
-optional `source_dir` parameter inside an [estimator](https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html "https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html"), it should reference the relative Amazon S3 path to the folder
+optional `source_dir` parameter inside an [ModelTrainer](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html"), it should reference the relative Amazon S3 path to the folder
 containing your entrypoint script. You can reference multiple files using the
 `source_dir` parameter. If you do not use `source_dir`, you
 can specify the entrypoint using the `entry_point` parameter. For an example
-of a custom entrypoint script that contains an estimator, see [Bring Your Own Model with SageMaker AI Script Mode](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-script-mode/sagemaker-script-mode.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-script-mode/sagemaker-script-mode.html").
+of a custom entrypoint script that contains a ModelTrainer, see [Bring Your Own Model with SageMaker AI Script Mode](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-script-mode/sagemaker-script-mode.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-script-mode/sagemaker-script-mode.html").
 
 SageMaker AI model training supports high-performance S3 Express One Zone directory buckets as a data
 input location for file mode, fast file mode, and pipe mode. You can also use
@@ -277,7 +277,7 @@ the `S3DataSource` parameter, the following are required.
 - The [S3DataDistributionType](../APIReference/API_DataSource.md#sagemaker-Type-DataSource-S3DataSource "../APIReference/API_DataSource.md#sagemaker-Type-DataSource-S3DataSource") must be
   `FullyReplicated`.
 
-The following example has a script called custom_entrypoint.sh placed in a
+The following example has a script called custom\_entrypoint.sh placed in a
 path to an S3 bucket `s3://<bucket-name>/<bucket
  prefix>/custom_entrypoint.sh`.
 

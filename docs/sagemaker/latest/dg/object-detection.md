@@ -116,17 +116,17 @@ images. The following is an example of a .json file.
 
 Each image needs a .json file for annotation, and the .json file should have the
 same name as the corresponding image. The name of above .json file should be
-"sample_image1.json". There are four properties in the annotation .json file. The
+"sample\_image1.json". There are four properties in the annotation .json file. The
 property "file" specifies the relative path of the image file. For example, if your
 training images and corresponding .json files are stored in
-s3://`your_bucket`/train/sample_image and
-s3://`your_bucket`/train_annotation, specify the path
-for your train and train_annotation channels as
+s3://`your_bucket`/train/sample\_image and
+s3://`your_bucket`/train\_annotation, specify the path
+for your train and train\_annotation channels as
 s3://`your_bucket`/train and
-s3://`your_bucket`/train_annotation, respectively.
+s3://`your_bucket`/train\_annotation, respectively.
 
-In the .json file, the relative path for an image named sample_image1.jpg should
-be sample_image/sample_image1.jpg. The `"image_size"` property specifies
+In the .json file, the relative path for an image named sample\_image1.jpg should
+be sample\_image/sample\_image1.jpg. The `"image_size"` property specifies
 the overall image dimensions. The SageMaker AI object detection algorithm currently only
 supports 3-channel images. The `"annotations"` property specifies the
 categories and bounding boxes for objects within the image. Each object is annotated

@@ -4,6 +4,22 @@ To specify Debugger built-in rules in an estimator, you need to configure a list
 The following example code shows the basic structure of listing the Debugger built-in
 rules:
 
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.debugger import Rule, rule_configs
+
+rules=[
+    Rule.sagemaker(rule_configs.`built_in_rule_name_1`()),
+    Rule.sagemaker(rule_configs.`built_in_rule_name_2`()),
+    ...
+    Rule.sagemaker(rule_configs.`built_in_rule_name_n`()),
+    ... # You can also append more profiler rules in the ProfilerRule.sagemaker(rule_configs.*()) format.
+]
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 from sagemaker.debugger import Rule, rule_configs
 
@@ -23,6 +39,21 @@ To find the SageMaker Debugger API reference, see [`sagemaker.debugger.rule_conf
 
 For example, to inspect the overall training performance and progress of your model,
 construct a SageMaker AI estimator with the following built-in rule configuration.
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.debugger import Rule, rule_configs
+
+rules=[
+    Rule.sagemaker(rule_configs.`loss_not_decreasing`()),
+    Rule.sagemaker(rule_configs.`overfit`()),
+    Rule.sagemaker(rule_configs.`overtraining`()),
+    Rule.sagemaker(rule_configs.`stalled_training_rule`())
+]
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.debugger import Rule, rule_configs

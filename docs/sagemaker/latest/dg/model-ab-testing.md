@@ -63,7 +63,7 @@ production variants on an endpoint. The models are developed by training ML mode
 sets, different algorithms or ML frameworks, and different hyperparameters:
 
 ```
-from sagemaker.amazon.amazon_estimator import get_image_uri
+from sagemaker.core import image_uris
 
 model_name = f"DEMO-xgb-churn-pred-{datetime.now():%Y-%m-%d-%H-%M-%S}"
 model_name2 = f"DEMO-xgb-churn-pred2-{datetime.now():%Y-%m-%d-%H-%M-%S}"
@@ -93,7 +93,7 @@ sm_session.create_model(
 We now create two production variants, each with its own different model and resource requirements (instance type
 and counts). This enables you to also test models on different instance types.
 
-We set an initial_weight of 1 for both variants. This means that 50% of requests go to
+We set an initial\_weight of 1 for both variants. This means that 50% of requests go to
 `Variant1`, and the remaining 50% of requests to `Variant2`. The sum of weights
 across both variants is 2 and each variant has weight assignment of 1. This means that each variant
 receives 1/2, or 50%, of the total traffic.

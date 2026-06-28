@@ -12,7 +12,7 @@ a tabular dataset, and generating explanations for natural language processing (
 computer vision (CV), and time series (TS) problems.
 
 You can create the analysis configuration file or use the [SageMaker Python SDK](https://sagemaker.readthedocs.io/ "https://sagemaker.readthedocs.io/") to generate one for you
-with the [SageMaker ClarifyProcessor](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.SageMakerClarifyProcessor "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.SageMakerClarifyProcessor") API. Viewing the file contents can be helpful for understanding
+with the [SageMaker ClarifyProcessor](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") API. Viewing the file contents can be helpful for understanding
 the underlying configuration used by the SageMaker Clarify job.
 
 ###### Topics
@@ -46,7 +46,7 @@ parameters.
   string of the analysis configuration file schema. If a version is not
   provided, SageMaker Clarify uses the latest supported version. Currently, the only
   supported version is `1.0`.
-- dataset_type – The format of the
+- dataset\_type – The format of the
   dataset. The input dataset format can be any of the following
   values:
 
@@ -63,7 +63,7 @@ parameters.
 
     - `application/json` for JSON
 
-- dataset_uri – (Optional) The
+- dataset\_uri – (Optional) The
   uniform resource identifier (URI) of the main dataset. If you provide a
   S3 URI prefix, the SageMaker Clarify processing job recursively collects all S3
   files located under the prefix. You can provide either a S3 URI prefix
@@ -93,10 +93,10 @@ parameters.
   `application/json`, then `headers` should
   contain the following names in order:
 
-      1. feature names
-      2. label name (if `label` is specified)
-      3. predicted label name (if `predicted_label`
-       is specified)An example for
+        1. feature names
+        2. label name (if `label` is specified)
+        3. predicted label name (if `predicted_label`
+         is specified)An example for
 
   `headers` for an `application/jsonlines`
   dataset type if `label` is specified is:
@@ -145,7 +145,7 @@ parameters.
     list of labels where the ith label
     correlates to the ith record.
 
-- predicted_label – (Optional) A
+- predicted\_label – (Optional) A
   string or a zero-based integer index. If provided,
   `predicted_label` is used to locate the column containing
   the predicted label in a tabular dataset. The predicted label is used to
@@ -211,9 +211,9 @@ the value of the `dataset_type` as follows:
   `application/x-parquet`, all columns except for the
   ground truth label and predicted label columns are automatically
   assigned to be features.
-- predicted_label_dataset_uri –
+- predicted\_label\_dataset\_uri –
   (Optional)
-  Only applicable when dataset_type is `text/csv`. The S3 URI
+  Only applicable when dataset\_type is `text/csv`. The S3 URI
   for a dataset containing predicted labels used to compute post-training
   **bias metrics**. The SageMaker Clarify processing
   job will load the predictions from the provided URI instead of getting
@@ -222,7 +222,7 @@ the value of the `dataset_type` as follows:
   dataset. If the predicted label dataset or the main dataset is split
   across multiple files, an identifier column must be specified by
   `joinsource_name_or_index` to join the two datasets.
-- predicted_label_headers –
+- predicted\_label\_headers –
   (Optional) Only
   applicable when `predicted_label_dataset_uri` is specified.
   An array of strings containing the column names of the predicted label
@@ -231,7 +231,7 @@ the value of the `dataset_type` as follows:
   the identifier column to join the predicted label dataset and the main
   dataset. For more information, see the following description for the
   parameter `joinsource_name_or_index`.
-- joinsource_name_or_index –
+- joinsource\_name\_or\_index –
   (Optional) The
   name or zero-based index of the column in tabular datasets to be used as
   a identifier column while performing an inner join. This column is only
@@ -246,12 +246,12 @@ the value of the `dataset_type` as follows:
     processing job [InstanceCount](../APIReference/API_ProcessingClusterConfig.md#sagemaker-Type-ProcessingClusterConfig-InstanceCount "../APIReference/API_ProcessingClusterConfig.md#sagemaker-Type-ProcessingClusterConfig-InstanceCount") to a value greater than
     `1`.
 
-- excluded_columns – (Optional) An
+- excluded\_columns – (Optional) An
   array of names or zero-based indices of columns to be excluded from
   being sent to the model as input for predictions. Ground truth label and
   predicted label are automatically excluded already. This feature is not
   supported for time series.
-- probability_threshold –
+- probability\_threshold –
   (Optional) A floating point number above which,
   a label or object is
   selected. The default value is `0.5`. The SageMaker Clarify processing
@@ -265,12 +265,12 @@ the value of the `dataset_type` as follows:
     threshold is converted to `1`. Whereas, a score less
     than or equal to the threshold is converted to
     `0`.
-  - In computer vision explainability problems, if model_type is
+  - In computer vision explainability problems, if model\_type is
     `OBJECT_DETECTION``,
-probability_threshold` filters out objects detected
+   probability_threshold` filters out objects detected
     with confidence scores lower than the threshold value.
 
-- label_values_or_threshold –
+- label\_values\_or\_threshold –
   (Optional) Required for bias analysis.
   An array of label values or a threshold
   number, which indicate positive outcome for ground truth and predicted
@@ -307,12 +307,12 @@ probability_threshold` filters out objects detected
   information, see **Facet** in [Amazon SageMaker Clarify Terms for Bias and Fairness](clarify-detect-data-bias.md#clarify-bias-and-fairness-terms "clarify-detect-data-bias.md#clarify-bias-and-fairness-terms"). Each facet object
   includes the following fields:
 
-  - name_or_index – (Optional) The name
+  - name\_or\_index – (Optional) The name
     or zero-based index of the sensitive attribute column in a
     tabular dataset. If `facet_dataset_uri` is specified,
     then the index refers to the facet dataset instead of the main
     dataset.
-  - value_or_threshold –
+  - value\_or\_threshold –
     (Optional) Required if
     `facet` is numeric and
     `label_values_or_threshold` is applied as the
@@ -355,11 +355,11 @@ probability_threshold` filters out objects detected
       disadvantaged group has value less than or equal to
       `0.5`.
 
-- group_variable – (Optional) The name or
+- group\_variable – (Optional) The name or
   zero-based index of the column that indicates the subgroup to be used
   for the bias metric [Conditional Demographic Disparity (CDD)](clarify-data-bias-metric-cddl.md "clarify-data-bias-metric-cddl.md") or [Conditional Demographic Disparity in Predicted Labels (CDDPL)](clarify-post-training-bias-metric-cddpl.md "clarify-post-training-bias-metric-cddpl.md").
-- facet_dataset_uri – (Optional) Only
-  applicable when dataset_type is `text/csv`. The S3 URI for a
+- facet\_dataset\_uri – (Optional) Only
+  applicable when dataset\_type is `text/csv`. The S3 URI for a
   dataset containing sensitive attributes for bias analysis. You can use
   facets to understand the bias characteristics of your dataset and model
   even if your model is trained without using sensitive attributes.
@@ -372,50 +372,49 @@ files, an identifier column must be specified by
 You must use the parameter `facet` to identify each facet
 in the facet dataset.
 
-- facet_headers – (Optional) Only applicable
+- facet\_headers – (Optional) Only applicable
   when `facet_dataset_uri` is specified. An array of strings
   containing column names for the facet dataset, and optionally, the
   identifier column header to join the facet dataset and the main dataset,
   see `joinsource_name_or_index`.
-- time_series_data_config –
+- time\_series\_data\_config –
   (Optional) Specifies the configuration to use for data processing of
   a time series.
 
-      + item\_id –
-       A string or a zero-based integer index. This field is used to locate an item
-       id in the shared input dataset.
-      + timestamp –
-       A string or a zero-based integer index. This field is used to locate a
-       timestamp in the shared input dataset.
-      + dataset\_format –
-       Possible values are `columns`,
-       `item_records`, or `timestamp_records`.
-       This field is used to describe the format of a JSON dataset,
-       which is the only format supported for time series
-       explainability.
-      + target\_time\_series –
-       A JMESPath string or a zero-based integer index. This field is used to locate
-       the target time series in the shared input dataset. If this
-       parameter is a string, then all other parameters except `dataset_format`
-       must be strings or lists of strings. If this parameter is an integer, then
-       all other parameters except `dataset_format` must be integers or
-       lists of integers.
-      + related\_time\_series –
-       (Optional) An array of JMESPath expressions.
-       This field is used to locate all related time series in the shared input dataset,
-       if present.
-      + static\_covariates –
-       (Optional) An array of JMESPath expressions.
-       This field is used to locate all static covariate fields in the shared input dataset,
-       if present.
-
-  For examples, see [Time series dataset config examples](clarify-processing-job-data-format-time-series.md#clarify-processing-job-data-format-time-series-ex "clarify-processing-job-data-format-time-series.md#clarify-processing-job-data-format-time-series-ex").
+  - item\_id –
+    A string or a zero-based integer index. This field is used to locate an item
+    id in the shared input dataset.
+  - timestamp –
+    A string or a zero-based integer index. This field is used to locate a
+    timestamp in the shared input dataset.
+  - dataset\_format –
+    Possible values are `columns`,
+    `item_records`, or `timestamp_records`.
+    This field is used to describe the format of a JSON dataset,
+    which is the only format supported for time series
+    explainability.
+  - target\_time\_series –
+    A JMESPath string or a zero-based integer index. This field is used to locate
+    the target time series in the shared input dataset. If this
+    parameter is a string, then all other parameters except `dataset_format`
+    must be strings or lists of strings. If this parameter is an integer, then
+    all other parameters except `dataset_format` must be integers or
+    lists of integers.
+  - related\_time\_series –
+    (Optional) An array of JMESPath expressions.
+    This field is used to locate all related time series in the shared input dataset,
+    if present.
+  - static\_covariates –
+    (Optional) An array of JMESPath expressions.
+    This field is used to locate all static covariate fields in the shared input dataset,
+    if present.
+    For examples, see [Time series dataset config examples](clarify-processing-job-data-format-time-series.md#clarify-processing-job-data-format-time-series-ex "clarify-processing-job-data-format-time-series.md#clarify-processing-job-data-format-time-series-ex").
 
 - methods – An object containing
   one or more analysis methods and their parameters. If any method is
   omitted, it is neither used for analysis nor reported.
 
-  - pre_training_bias –
+  - pre\_training\_bias –
     Include this method if you want to compute pre-training bias
     metrics. The detailed description of the metrics can be found in
     [Pre-training Bias Metrics](clarify-measure-data-bias.md "clarify-measure-data-bias.md"). The object has
@@ -440,7 +439,7 @@ in the facet dataset.
       - `KS` for [Kolmogorov-Smirnov (KS)](clarify-data-bias-metric-kolmogorov-smirnov.md "clarify-data-bias-metric-kolmogorov-smirnov.md")
       - `CDDL` for [Conditional Demographic Disparity (CDD)](clarify-data-bias-metric-cddl.md "clarify-data-bias-metric-cddl.md")
 
-  - post_training_bias –
+  - post\_training\_bias –
     Include this method if you want to compute post-training bias
     metrics. The detailed description of the metrics can be found in
     [Post-training Data and Model Bias Metrics](clarify-measure-post-training-bias.md "clarify-measure-post-training-bias.md"). The
@@ -491,47 +490,46 @@ in the facet dataset.
         clustering the input dataset. The following are
         required of the baseline:
 
-            + The format must be the same as the dataset
-             format specified by
-             `dataset_type`.
-            + The baseline can only contain features that
-             the model can accept as input.
-            + The baseline dataset can have one or more
-             instances. The number of baseline instances
-             directly affects the synthetic dataset size and
-             job runtime.
-            + If `text_config` is specified,
-             then the baseline value of a text column is a
-             string used to replace the unit of text specified
-             by `granularity`. For example, one
-             common placeholder is "[MASK]", which is used to
-             represent a missing or unknown word or piece of
-             text.
+        - The format must be the same as the dataset
+          format specified by
+          `dataset_type`.
+        - The baseline can only contain features that
+          the model can accept as input.
+        - The baseline dataset can have one or more
+          instances. The number of baseline instances
+          directly affects the synthetic dataset size and
+          job runtime.
+        - If `text_config` is specified,
+          then the baseline value of a text column is a
+          string used to replace the unit of text specified
+          by `granularity`. For example, one
+          common placeholder is "[MASK]", which is used to
+          represent a missing or unknown word or piece of
+          text.
+          The following examples show how to set
+          in-place baseline data for different
+          `dataset_type` parameters:
 
-        The following examples show how to set
-        in-place baseline data for different
-        `dataset_type` parameters:
-
-            + If `dataset_type` is either
-             `text/csv` or
-             `application/x-parquet`, the model
-             accepts four numeric features, and the baseline
-             has two instances. In this example, if one record
-             has all zero feature values and the other record
-             has all one feature values, then baseline should
-             be set to `[[0,0,0,0],[1,1,1,1]]`,
-             without any header.
-            + If `dataset_type` is
-             `application/jsonlines`, and
-             `features` is the key to a list of four
-             numeric feature values. In addition, in this
-             example, if the baseline has one record of all
-             zero values, then `baseline` should be
-             `[{"features":[0,0,0,0]}]`.
-            + If `dataset_type` is
-             `application/json`, the
-             `baseline` dataset should have the same
-             structure and format as the input dataset.
+        - If `dataset_type` is either
+          `text/csv` or
+          `application/x-parquet`, the model
+          accepts four numeric features, and the baseline
+          has two instances. In this example, if one record
+          has all zero feature values and the other record
+          has all one feature values, then baseline should
+          be set to `[[0,0,0,0],[1,1,1,1]]`,
+          without any header.
+        - If `dataset_type` is
+          `application/jsonlines`, and
+          `features` is the key to a list of four
+          numeric feature values. In addition, in this
+          example, if the baseline has one record of all
+          zero values, then `baseline` should be
+          `[{"features":[0,0,0,0]}]`.
+        - If `dataset_type` is
+          `application/json`, the
+          `baseline` dataset should have the same
+          structure and format as the input dataset.
 
       - For **computer
         vision** problems, `baseline`
@@ -543,7 +541,7 @@ in the facet dataset.
         processing job generates a mask image of [white noise](https://en.wikipedia.org/wiki/White_noise "https://en.wikipedia.org/wiki/White_noise") at the same resolution as the
         input image.
 
-    - features_to_explain
+    - features\_to\_explain
       – (Optional) An array of strings or zero-based
       indices of feature columns to compute SHAP values for.
       If `features_to_explain` is not provided,
@@ -553,7 +551,7 @@ in the facet dataset.
       `features_to_explain` parameter is only
       supported for tabular datasets with numeric and
       categorical columns.
-    - num_clusters –
+    - num\_clusters –
       (Optional) The number of clusters that the dataset is
       divided into to compute the baseline dataset. Each
       cluster is used to compute one baseline instance. If
@@ -563,7 +561,7 @@ in the facet dataset.
       of clusters between `1` and `12`.
       The number of baseline instances directly affects the
       runtime of SHAP analysis.
-    - num_samples –
+    - num\_samples –
       (Optional) The number of samples to be used in the
       Kernel SHAP algorithm. If `num_samples` is
       not provided, the SageMaker Clarify processing job chooses the
@@ -575,7 +573,7 @@ in the facet dataset.
       SHAP values for the same job. If seed is not specified,
       then each time that the same job runs, the model may
       output slightly different SHAP values.
-    - use_logit –
+    - use\_logit –
       (Optional) A Boolean value that indicates that you want
       the logit function to be applied to the model
       predictions. Defaults to `false`. If
@@ -583,7 +581,7 @@ in the facet dataset.
       the SHAP values are calculated using the logistic
       regression coefficients, which can be interpreted as
       log-odds ratios.
-    - save_local_shap_values
+    - save\_local\_shap\_values
       – (Optional) A Boolean value that indicates that
       you want the local SHAP values of each record in the
       dataset to be included in the analysis result. Defaults
@@ -596,7 +594,7 @@ in the facet dataset.
     identifier column and the local SHAP values are saved in
     the analysis result. This way, you can map each record
     to its local SHAP values.
-    - agg_method –
+    - agg\_method –
       (Optional) The method used to aggregate the local SHAP
       values (the SHAP values for each instance) of all
       instances to the global SHAP values (the SHAP values for
@@ -604,17 +602,17 @@ in the facet dataset.
       The following methods can be used to aggregate SHAP
       values.
 
-      - mean_abs
+      - mean\_abs
         – The mean of absolute local SHAP values of
         all instances.
-      - mean_sq
+      - mean\_sq
         – The mean of squared local SHAP values of
         all instances.
       - median –
         The median of local SHAP values of all
         instances.
 
-    - text_config –
+    - text\_config –
       Required for natural language processing explainability.
       Include this configuration if you want to treat text
       columns as text and explanations should be provided for
@@ -697,7 +695,7 @@ in the facet dataset.
         `yoruba`. Enter
         `multi-language` for a mix of multiple
         languages.
-      - max_top_tokens
+      - max\_top\_tokens
         – (Optional) The maximum number of top
         tokens, based on global SHAP values. Defaults to
         `50`. It is possible for a token to
@@ -710,13 +708,13 @@ in the facet dataset.
         analysis.json file.
       - The local SHAP value of aggregation.
 
-    - image_config –
+    - image\_config –
       Required for computer vision explainability. Include
       this configuration if you have an input dataset
       consisting of images and you want to analyze them for
       explainability in a computer vision problem.
 
-      - model_type
+      - model\_type
         – The type of the model. Valid values
         include:
 
@@ -725,23 +723,23 @@ in the facet dataset.
         - `OBJECT_DETECTION` for an object
           detection model.
 
-      - max_objects
-        – Applicable only when model_type is
+      - max\_objects
+        – Applicable only when model\_type is
         `OBJECT_DETECTION`.The max
         number of objects, ordered by confidence score,
         detected by the computer vision model. Any objects
-        ranked lower than the top max_objects by
+        ranked lower than the top max\_objects by
         confidence score are filtered out. Defaults to
         `3`.
       - context
-        – Applicable only when model_type is
+        – Applicable only when model\_type is
         `OBJECT_DETECTION`. It
         indicates if the area around the bounding box of
         the detected object is masked by the baseline
         image or not. Valid values are `0` to
         mask everything, or `1` to mask
         nothing. Defaults to 1.
-      - iou_threshold
+      - iou\_threshold
         – Applicable only when
         `model_type` is
         `OBJECT_DETECTION`.The
@@ -751,14 +749,14 @@ in the facet dataset.
         large overlap between the predicted and ground
         truth detection box. Defaults to
         `0.5`.
-      - num_segments
+      - num\_segments
         – (Optional) An integer that determines the
         approximate number of segments to be labeled in
         the input image. Each segment of the image is
         considered a feature, and local SHAP values are
         computed for each segment. Defaults to
         `20`.
-      - segment_compactness – (Optional)
+      - segment\_compactness – (Optional)
         An integer that determines the shape and size of
         the image segments generated by the [scikit-image slic](https://scikit-image.org/docs/dev/api/skimage.segmentation.html#skimage.segmentation.slic "https://scikit-image.org/docs/dev/api/skimage.segmentation.html#skimage.segmentation.slic") method. Defaults to
         `5`.
@@ -771,19 +769,19 @@ in the facet dataset.
       Mandatory if the `shap` method is not
       requested. An array of feature names or indices to
       compute and plot PDP plots.
-    - top_k_features –
+    - top\_k\_features –
       (Optional) Specifies the number of top features used to
       generate PDP plots. If `features` is not
       provided, but the `shap` method is requested,
       then the SageMaker Clarify processing job chooses the top features
       based on their SHAP attributions. Defaults to
       `10`.
-    - grid_resolution
+    - grid\_resolution
       – The number of buckets to divide the range of
       numeric values into. This specifies the granularity of
       the grid for the PDP plots.
 
-  - asymmetric_shapley_value –
+  - asymmetric\_shapley\_value –
     Include this method if you want to compute explainability metrics
     for time-series forecasting models. The SageMaker Clarify processing job
     supports the asymmetric Shapley values algorithm. Asymmetric
@@ -797,93 +795,93 @@ in the facet dataset.
 
   The algorithm includes the following parameters:
 
-      - direction –
-       Available types are `chronological`,
-       `anti_chronological`, and `bidirectional`. The temporal
-       structure can be navigated in chronological or anti-chronological
-       order or both. Chronological explanations are built by iteratively
-       adding information from the first time step onward. Anti-chronological
-       explanations add information starting from the last step and moving
-       backward. The latter order may be more appropriate in the presence
-       of recency bias, such as for forecasting stock prices.
-      - granularity – The explanation
-       granularity to be used. The available granularity options are shown as
-       follows:
+        - direction –
+         Available types are `chronological`,
+         `anti_chronological`, and `bidirectional`. The temporal
+         structure can be navigated in chronological or anti-chronological
+         order or both. Chronological explanations are built by iteratively
+         adding information from the first time step onward. Anti-chronological
+         explanations add information starting from the last step and moving
+         backward. The latter order may be more appropriate in the presence
+         of recency bias, such as for forecasting stock prices.
+        - granularity – The explanation
+         granularity to be used. The available granularity options are shown as
+         follows:
 
 
 
 
-      	* timewise – `timewise`
-      	 explanations are inexpensive and provide information about specific
-      	 time steps only, such as figuring out how much the information of the
-      	 nth day in
-      	 the past contributed to the forecasting of the mth day in the future.
-      	 The resulting attributions do not explain individually static covariates
-      	 and do not differentiate between target and related time series.
-      	* fine\_grained – `fine_grained`
-      	 explanations are computationally more intensive but provide a full
-      	 breakdown of all attributions of the input variables. The method
-      	 computes approximate explanations to reduce runtime. For more information,
-      	 see the following parameter `num_samples`.
+        	* timewise – `timewise`
+        	 explanations are inexpensive and provide information about specific
+        	 time steps only, such as figuring out how much the information of the
+        	 nth day in
+        	 the past contributed to the forecasting of the mth day in the future.
+        	 The resulting attributions do not explain individually static covariates
+        	 and do not differentiate between target and related time series.
+        	* fine\_grained – `fine_grained`
+        	 explanations are computationally more intensive but provide a full
+        	 breakdown of all attributions of the input variables. The method
+        	 computes approximate explanations to reduce runtime. For more information,
+        	 see the following parameter `num_samples`.
 
 
-      	###### Note
+        	###### Note
 
-      	`fine_grained` explanations only support
-      	 `chronological` order.
-      - num\_samples – (Optional)
-       This argument is required for `fine_grained` explanations. The higher
-       the number, the more precise the approximation. This number should scale with the
-       dimensionality of the input features. A rule of thumb is to set this variable to *(1 + max(number
-       of related time series, number of static covariates))^2* if the result is not
-       too big.
-      - baseline – (Optional)
-       The baseline config to replace out-of-coalition values for the corresponding
-       datasets (also known as background data). The following snippet shows an
-       example of a baseline config:
-
-
-
-      ```
-      {
-          "related_time_series": "zero",
-          "static_covariates": {
-              `<item_id_1>`: [0, 2],
-              `<item_id_2>`: [-1, 1]
-          },
-          "target_time_series": "zero"
-      }
-      ```
+        	`fine_grained` explanations only support
+        	 `chronological` order.
+        - num\_samples – (Optional)
+         This argument is required for `fine_grained` explanations. The higher
+         the number, the more precise the approximation. This number should scale with the
+         dimensionality of the input features. A rule of thumb is to set this variable to *(1 + max(number
+         of related time series, number of static covariates))^2* if the result is not
+         too big.
+        - baseline – (Optional)
+         The baseline config to replace out-of-coalition values for the corresponding
+         datasets (also known as background data). The following snippet shows an
+         example of a baseline config:
 
 
 
-      	* For temporal data such as target time series or related time series, the
-      	 baseline value types can be one of the following values:
+        ```
+        {
+            "related_time_series": "zero",
+            "static_covariates": {
+                `<item_id_1>`: [0, 2],
+                `<item_id_2>`: [-1, 1]
+            },
+            "target_time_series": "zero"
+        }
+        ```
+
+
+
+        	* For temporal data such as target time series or related time series, the
+        	 baseline value types can be one of the following values:
 
 
 
 
-      		+ `zero` — All out-of-coalition values
-      		 are replaced with 0.0.
-      		+ `mean` — All out-of-coalition values
-      		 are replaced with the average of a time series.
-      	* For static covariates, a baseline entry should only be provided when
-      	 the model request takes static covariate values, in which case this field
-      	 is required. The baseline should be provided for every item as a list. For example,
-      	 if you have a dataset with two static covariates, your baseline config could be
-      	 the following:
+        		+ `zero` — All out-of-coalition values
+        		 are replaced with 0.0.
+        		+ `mean` — All out-of-coalition values
+        		 are replaced with the average of a time series.
+        	* For static covariates, a baseline entry should only be provided when
+        	 the model request takes static covariate values, in which case this field
+        	 is required. The baseline should be provided for every item as a list. For example,
+        	 if you have a dataset with two static covariates, your baseline config could be
+        	 the following:
 
 
 
-      	```
-      	"static_covariates": {
-      	    `<item_id_1>`: [1, 1],
-      	    `<item_id_2>`: [0, 1]
-      	}
-      	```
+        	```
+        	"static_covariates": {
+        	    `<item_id_1>`: [1, 1],
+        	    `<item_id_2>`: [0, 1]
+        	}
+        	```
 
-      	In the preceding example, `<item_id_1>`
-      	 and `<item_id_2>` are the item ids from the dataset.
+        	In the preceding example, `<item_id_1>`
+        	 and `<item_id_2>` are the item ids from the dataset.
   - report – (Optional) Use
     this object to customize the analysis report. This parameter is
     not supported for time series explanation jobs. There are three
@@ -909,9 +907,9 @@ in the facet dataset.
   labels are not provided as part of the input dataset. The following are
   parameters to be used in conjunction with `predictor`:
 
-  - model_name – The name of
+  - model\_name – The name of
     your SageMaker AI model created by the [CreateModel](../APIReference/API_CreateModel.md "../APIReference/API_CreateModel.md") API. If you specify
-    `model_name` instead of endpoint_name, the SageMaker Clarify
+    `model_name` instead of endpoint\_name, the SageMaker Clarify
     processing job creates an ephemeral endpoint with the model
     name, known as a **shadow
     endpoint**, and gets predictions from the endpoint.
@@ -919,7 +917,7 @@ in the facet dataset.
     completed. If the model is multi-model, then the
     `target_model` parameter must be specified. For
     more information about multi-model endpoints, see [Multi-model endpoints](multi-model-endpoints.md "multi-model-endpoints.md").
-  - endpoint_name_prefix –
+  - endpoint\_name\_prefix –
     (Optional) A custom name prefix for the shadow endpoint.
     Applicable if you provide `model_name` instead of
     `endpoint_name`. For example, provide
@@ -927,13 +925,13 @@ in the facet dataset.
     access to the endpoint by endpoint name. The prefix must match
     the [EndpointName](../APIReference/API_CreateEndpoint.md#sagemaker-CreateEndpoint-request-EndpointName "../APIReference/API_CreateEndpoint.md#sagemaker-CreateEndpoint-request-EndpointName") pattern, and its maximum length is
     `23`. Defaults to `sm-clarify`.
-  - initial_instance_count –
+  - initial\_instance\_count –
     Specifies the number of instances for the shadow endpoint.
-    Required if you provide model_name instead of endpoint_name. The
+    Required if you provide model\_name instead of endpoint\_name. The
     value for `initial_instance_count` can be different
     from the [InstanceCount](../APIReference/API_ProcessingClusterConfig.md#sagemaker-Type-ProcessingClusterConfig-InstanceCount "../APIReference/API_ProcessingClusterConfig.md#sagemaker-Type-ProcessingClusterConfig-InstanceCount") of the job, but we recommend a 1:1
     ratio.
-  - instance_type –
+  - instance\_type –
     Specifies the instance type for the shadow endpoint. Required if
     you provide `model_name` instead of
     `endpoint_name`. As an example,
@@ -943,7 +941,7 @@ in the facet dataset.
     efficiently, natural language processing models and computer
     vision models typically require a graphics processing unit (GPU)
     instance type.
-  - endpoint_name – The name
+  - endpoint\_name – The name
     of your SageMaker AI endpoint created by the [CreateEndpoint](../APIReference/API_CreateEndpoint.md "../APIReference/API_CreateEndpoint.md") API. If provided,
     `endpoint_name` takes precedence over the
     `model_name` parameter. Using an existing
@@ -956,19 +954,19 @@ in the facet dataset.
     not accurately reflect real-world usage. For these reasons, it's
     generally not recommended to use an existing production endpoint
     for SageMaker Clarify analysis.
-  - target_model – The
+  - target\_model – The
     string value that is passed on to the TargetModel parameter of
     the SageMaker AI [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md#RequestSyntax "../APIReference/API_runtime_InvokeEndpoint.md#RequestSyntax") API. Required if your model
-    (specified by the model_name parameter) or endpoint (specified
-    by the endpoint_name parameter) is multi-model. For more
+    (specified by the model\_name parameter) or endpoint (specified
+    by the endpoint\_name parameter) is multi-model. For more
     information about multi-model endpoints, see [Multi-model endpoints](multi-model-endpoints.md "multi-model-endpoints.md").
-  - custom_attributes –
+  - custom\_attributes –
     (Optional) A string that allows you to provide additional
     information about a request for an inference that is submitted
     to the endpoint. The string value is passed to the
     `CustomAttributes` parameter of the SageMaker AI [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md#RequestSyntax "../APIReference/API_runtime_InvokeEndpoint.md#RequestSyntax") API.
-  - content_type –
-    content_type – The model input format to be used for getting
+  - content\_type –
+    content\_type – The model input format to be used for getting
     predictions from the endpoint. If provided, it is passed to the
     `ContentType` parameter of the SageMaker AI [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md#RequestSyntax "../APIReference/API_runtime_InvokeEndpoint.md#RequestSyntax") API.
 
@@ -991,13 +989,13 @@ in the facet dataset.
       `content_type` defaults to the value of
       the `dataset_type` parameter.
 
-  - accept_type – The model
+  - accept\_type – The model
     output format to be used for getting predictions from the
     endpoint. The value for `accept_type` is passed to
     the `Accept` parameter of the SageMaker AI [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md#RequestSyntax "../APIReference/API_runtime_InvokeEndpoint.md#RequestSyntax") API.
 
     - For computer vision explainability, if
-      `model_type` is "OBJECT_DETECTION" then
+      `model_type` is "OBJECT\_DETECTION" then
       `accept_type` defaults to
       `application/json`.
     - For time series forecasting explainability, the valid value is
@@ -1010,7 +1008,7 @@ in the facet dataset.
       `accept_type` defaults to the value of
       the `content_type` parameter.
 
-  - content_template – A
+  - content\_template – A
     template string used to construct the model input from dataset
     records. The parameter `content_template` is only
     used and required if the value of the `content_type`
@@ -1036,37 +1034,36 @@ in the facet dataset.
   placeholder is `$records`, the records are replaced
   by a list of records, each with a template supplied by
   `record_template`.
-  - record_template – A
+  - record\_template – A
     template string to be used to construct each record of the model
     input from dataset instances. It is only used and required when
     `content_type` is `application/json`.
     The template string may contain one of the following:
 
-        - A placeholder `$features` parameter that is
-         substituted by an array of feature values. An additional
-         optional placeholder can substitute feature column
-         header names in `$feature_names`. This
-         optional placeholder will be substituted by an array of
-         feature names.
-        - Exactly one placeholder `$features_kvp`
-         that is substituted by the key-value pairs, feature name
-         and feature value.
-        - A feature in the `headers` configuration.
-         As an example, a feature name `A`, notated by
-         the placeholder syntax `"${A}"` will be
-         substituted by the feature value for
-         `A`.
-
-    The value for `record_template` is used with
-    `content_template` to construct the model input.
-    A configuration example showing how to construct a model input
-    using a content and record template follows.
+    - A placeholder `$features` parameter that is
+      substituted by an array of feature values. An additional
+      optional placeholder can substitute feature column
+      header names in `$feature_names`. This
+      optional placeholder will be substituted by an array of
+      feature names.
+    - Exactly one placeholder `$features_kvp`
+      that is substituted by the key-value pairs, feature name
+      and feature value.
+    - A feature in the `headers` configuration.
+      As an example, a feature name `A`, notated by
+      the placeholder syntax `"${A}"` will be
+      substituted by the feature value for
+      `A`.
+      The value for `record_template` is used with
+      `content_template` to construct the model input.
+      A configuration example showing how to construct a model input
+      using a content and record template follows.
 
   In the following code example, the headers and features are
   defined as follows.
 
-      - ``headers`:["A", "B"]`
-      - ``features`:[[0,1], [3,4]]`
+        - ``headers`:["A", "B"]`
+        - ``features`:[[0,1], [3,4]]`
 
   The example model input is as follows.
 
@@ -1081,9 +1078,9 @@ in the facet dataset.
   `record_template` parameter values to construct
   the previous example model input follows.
 
-      - `content_template: "{\"instances\": $records,
-       \"feature_names\": $feature_names}"`
-      - `record_template: "$features"`
+        - `content_template: "{\"instances\": $records,
+         \"feature_names\": $feature_names}"`
+        - `record_template: "$features"`
 
   In the following code example, the headers and features are
   defined as follows.
@@ -1099,15 +1096,15 @@ in the facet dataset.
   `record_template` parameter values to construct
   the previous example model input follows.
 
-      - `content_template: "$records"`
-      - `record_template: "$features_kvp"`
+        - `content_template: "$records"`
+        - `record_template: "$features_kvp"`
 
   An alternate code example to construct the previous example
   model input follows.
 
-      - `content_template: "$records"`
-      - `record_template: "{\"A\": \"${A}\", \"B\":
-       \"${B}\"}"`
+        - `content_template: "$records"`
+        - `record_template: "{\"A\": \"${A}\", \"B\":
+         \"${B}\"}"`
 
   In the following code example, the headers and features are
   defined as follows.
@@ -1116,12 +1113,12 @@ in the facet dataset.
   { "A": 0, "B": 1 }
   ```
 
-  The example content_template and record_template parameters
+  The example content\_template and record\_template parameters
   values to construct above: the previous example model input
   follows.
 
-      - `content_template: "$record"`
-      - `record_template: "$features_kvp"`
+        - `content_template: "$record"`
+        - `record_template: "$features_kvp"`
 
   For more examples, see [Endpoint requests for time series data](clarify-processing-job-data-format-time-series-request-jsonlines.md "clarify-processing-job-data-format-time-series-request-jsonlines.md").
   - label – (Optional) A zero-based
@@ -1131,27 +1128,26 @@ in the facet dataset.
     extracts all of the predicted labels from the model output, then
     the following apply. This feature is not supported for time series.
 
-        - The `probability` parameter is required to
-         get the corresponding probabilities (or scores) from the
-         model output.
-        - The predicted label of the highest score is
-         chosen.
+    - The `probability` parameter is required to
+      get the corresponding probabilities (or scores) from the
+      model output.
+    - The predicted label of the highest score is
+      chosen.
+      The value for `label` depends on the value of the
+      accept\_type parameter as follows.
 
-    The value for `label` depends on the value of the
-    accept_type parameter as follows.
+    - If `accept_type` is
+      `text/csv`, then
+      `label` is the index of any predicted
+      labels in the model output.
+    - If `accept_type` is
+      `application/jsonlines` or
+      `application/json`, then
+      `label` is a JMESPath expression that's
+      applied to the model output to get the predicted
+      labels.
 
-        - If `accept_type` is
-         `text/csv`, then
-         `label` is the index of any predicted
-         labels in the model output.
-        - If `accept_type` is
-         `application/jsonlines` or
-         `application/json`, then
-         `label` is a JMESPath expression that's
-         applied to the model output to get the predicted
-         labels.
-
-  - label_headers – (Optional)
+  - label\_headers – (Optional)
     An array
     of values that the label can take in the dataset. If bias
     analysis is requested, then the `probability`
@@ -1187,7 +1183,7 @@ in the facet dataset.
       expression that is used to extract the probabilities
       (scores) from the model output.
 
-  - time_series_predictor_config – (Optional)
+  - time\_series\_predictor\_config – (Optional)
     Used only for time series explainability. Used to instruct the SageMaker Clarify processor how to
     parse data correctly from the data passed as an S3 URI in `dataset_uri`.
 
@@ -1272,7 +1268,7 @@ the model output. In the example, the model is deployed to a SageMaker AI endpoi
 
 In the following example code, the parameter `content_type`
 and `accept_type` are not set. Therefore, they automatically
-use the value of the parameter dataset_type, which is
+use the value of the parameter dataset\_type, which is
 `text/csv`.
 
 ```
@@ -1514,7 +1510,7 @@ instructs the SageMaker Clarify processing job to compute all possible bias metr
 both the dataset and the model. In this example, the parameter
 `content_type` and `accept_type` are not set.
 Therefore, they are automatically set to use the value of the parameter
-dataset_type, which is `application/jsonlines`. The SageMaker Clarify
+dataset\_type, which is `application/jsonlines`. The SageMaker Clarify
 processing job uses the `content_template` parameter to compose
 the model input, by replacing the `$features` placeholder by an
 array of features.
@@ -1951,7 +1947,7 @@ dataset. The model accepts CSV data, and it outputs a single score between
 ...
 ```
 
-The model is used to create a SageMaker AI model named “your_model". The following
+The model is used to create a SageMaker AI model named “your\_model". The following
 analysis configuration shows how to run a token-wise explainability analysis
 using the model and dataset. The `text_config` parameter activates
 the NLP explainability analysis. The `granularity` parameter

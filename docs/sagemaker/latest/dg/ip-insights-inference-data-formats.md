@@ -56,7 +56,7 @@ content-type: application/jsonlines
 
 The default output of the SageMaker AI IP Insights algorithm is the
 `dot_product` between the input entity and IP address. The
-dot_product signifies how compatible the model considers the entity and IP
+dot\_product signifies how compatible the model considers the entity and IP
 address. The `dot_product` is unbounded. To make predictions
 about whether an event is anomalous, you need to set a threshold based on
 your defined distribution. For information about how to use the

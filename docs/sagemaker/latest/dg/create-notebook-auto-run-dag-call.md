@@ -15,7 +15,7 @@ Pass these notebooks into your `NotebookJobStep` instances with
 paths provided for the notebooks in `additional_dependencies` are provided from
 the root location. For information about how SageMaker AI uploads your dependent files and folders
 to Amazon S3 so you can correctly provide paths to your dependencies, see the
-description for `additional_dependencies` in [NotebookJobStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.notebook_job_step.NotebookJobStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.notebook_job_step.NotebookJobStep").
+description for `additional_dependencies` in [NotebookJobStep](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html").
 
 ```
 input_notebook = "inputs/input_notebook.ipynb"

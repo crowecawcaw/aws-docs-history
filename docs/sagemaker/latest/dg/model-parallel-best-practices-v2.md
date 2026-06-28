@@ -28,7 +28,7 @@ model.
    applicable, as shown in [Compatibility with the SMDDP library optimized for AWS infrastructure](model-parallel-core-features-v2-smddp-allgather.md "model-parallel-core-features-v2-smddp-allgather.md"). One
    exception is for tensor-parallelism-only use cases
    (`hybrid_shard_degree = 1` and `tensor_paralle_degree >
-1`).
+ 1`).
 4. If your model has more than about 60 billion parameters, we recommend
    using [Delayed parameter initialization](model-parallel-core-features-v2-delayed-param-init.md "model-parallel-core-features-v2-delayed-param-init.md").
    You can also use delayed parameter initialization to speed up the

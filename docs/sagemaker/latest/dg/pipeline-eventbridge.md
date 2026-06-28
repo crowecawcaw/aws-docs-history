@@ -60,7 +60,7 @@ The following procedure shows how to create an EventBridge rule using the EventB
 6. Select your desired Event bus.
 7. Select the target(s) to invoke when an event matches your event pattern or when the
    schedule is initiated. You can add up to 5 targets per rule. Select `SageMaker
-Pipeline` in the target dropdown list.
+ Pipeline` in the target dropdown list.
 8. Select the pipeline you want to initiate from the pipeline dropdown list.
 9. Add parameters to pass to your pipeline execution using a name and value pair.
    Parameter values can be static or dynamic. For more information on Amazon SageMaker AI Pipeline
@@ -68,7 +68,7 @@ Pipeline` in the target dropdown list.
 
    - Static values are passed to the pipeline execution every time the pipeline is
      initiated. For example, if `{"Name": "Instance_type",
-"Value": "ml.4xlarge"}` is specified in the parameter
+  "Value": "ml.4xlarge"}` is specified in the parameter
      list, then it is passed as a parameter in `StartPipelineExecutionRequest`
      every time EventBridge initiates the pipeline.
    - Dynamic values are specified using a JSON path. EventBridge parses the value from an
@@ -208,7 +208,7 @@ constructor, you can schedule
 a pipeline to run once or at a predetermined interval. A pipeline schedule
 must be of the type `at`, `rate`, or `cron`.
 This set of scheduling types is an extension of the [EventBridge scheduling options](../../../scheduler/latest/UserGuide/schedule-types.md "../../../scheduler/latest/UserGuide/schedule-types.md").
-For more information about how to use the `PipelineSchedule` class, see [sagemaker.workflow.triggers.PipelineSchedule](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#pipeline-schedule "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#pipeline-schedule").
+For more information about how to use the `PipelineSchedule` class, see [sagemaker.workflow.triggers.PipelineSchedule](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#pipeline-schedule "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#pipeline-schedule").
 The following example demonstrates how to create each scheduling type with `PipelineSchedule`.
 
 ```

@@ -450,7 +450,7 @@ Group) as `InputModelPackageArn`:
 
 **What you can change between iterations:**
 
-- Hyperparameters (learning rate, batch size, max_steps, group_size, etc.)
+- Hyperparameters (learning rate, batch size, max\_steps, group\_size, etc.)
 - Dataset (different prompts, different data distribution)
 - Reward function (different reward lambda)
 - Agent configuration

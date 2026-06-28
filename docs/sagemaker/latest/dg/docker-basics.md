@@ -13,8 +13,7 @@ information about Docker, see [Docker overview](https://docs.docker.com/engine/d
 **SageMaker AI Functions**
 
 SageMaker AI uses Docker containers in the backend to manage training and inference
-processes. SageMaker AI abstracts away from this process, so it happens automatically when an
-estimator is used. While you don't need to use Docker containers explicitly
+processes. SageMaker AI abstracts away from this process, so it happens automatically when a ModelTrainer is used. While you don't need to use Docker containers explicitly
 with SageMaker AI for most use cases, you can use Docker containers to extend and
 customize SageMaker AI functionality.
 

@@ -91,15 +91,15 @@ following parameters:
      the CodeConnections connection you created in Step 1.
 
 8. Under **ModelDeploy CodeRepository Info**, provide the
-   following parameters:
+following parameters:
 
-   - For **Branch**, enter the branch to use from your
+    * For **Branch**, enter the branch to use from your
      Git repository for pipeline activities.
-   - For **Full Repository Name**, enter the Git
+    * For **Full Repository Name**, enter the Git
      repository name in the format of `username/repository
-name` or `organization/repository
-name`.
-   - For **Code Connection ARN**, enter the ARN of
+     name` or `organization/repository
+     name`.
+    * For **Code Connection ARN**, enter the ARN of
      the CodeConnections connection you created in Step 1.
 
 9. Choose **Create Project**.

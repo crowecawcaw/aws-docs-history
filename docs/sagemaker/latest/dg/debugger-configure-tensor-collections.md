@@ -6,6 +6,19 @@ regular expressions (regex) of parameters if using Debugger-supported deep learn
 frameworks and machine learning algorithms. As shown in the following example code,
 add the built-in tensor collections you want to debug.
 
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.debugger import CollectionConfig
+
+collection_configs=[
+    CollectionConfig(name="weights"),
+    CollectionConfig(name="gradients")
+]
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 from sagemaker.debugger import CollectionConfig
 
@@ -23,6 +36,26 @@ For a full list of available Debugger built-in collections, see [Debugger Built-
 If you want to customize the built-in collections, such as changing the save
 intervals and tensor regex, use the following `CollectionConfig` template
 to adjust parameters.
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.debugger import CollectionConfig
+
+collection_configs=[
+    CollectionConfig(
+        name="`tensor_collection`",
+        parameters={
+            "`key_1`": "`value_1`",
+            "`key_2`": "`value_2`",
+            ...
+            "`key_n`": "`value_n`"
+        }
+    )
+]
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.debugger import CollectionConfig
@@ -44,6 +77,24 @@ For more information about available parameter keys, see [CollectionConfig](http
 following code example shows how you can adjust the save intervals of the "losses"
 tensor collection at different phases of training: save loss every 100 steps in
 training phase and validation loss every 10 steps in validation phase.
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.debugger import CollectionConfig
+
+collection_configs=[
+    CollectionConfig(
+        name="`losses`",
+        parameters={
+            "`train.save_interval`": "`100`",
+            "`eval.save_interval`": "`10`"
+        }
+    )
+]
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.debugger import CollectionConfig

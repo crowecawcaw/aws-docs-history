@@ -88,12 +88,11 @@ The serial inference pipeline supports the following data types for the input an
 
 - `text/csv` – the datatype for CSV strings
 
-      + The string can't have a header.
-      + Features used for the inference pipeline must be in the same order as features in the training dataset.
-      + There must be a comma delimiter between features.
-      + Records must be delimited by a newline character.
-
-  The following is an example of a validly formatted CSV string that you can provide in an inference request.
+  - The string can't have a header.
+  - Features used for the inference pipeline must be in the same order as features in the training dataset.
+  - There must be a comma delimiter between features.
+  - Records must be delimited by a newline character.
+    The following is an example of a validly formatted CSV string that you can provide in an inference request.
 
 ```
 
@@ -103,10 +102,9 @@ abc,0.0,"Doe, John",12345\ndef,1.1,"Doe, Jane",67890
 
 - `application/json` – the datatype for JSON strings
 
-      + The features used in the dataset for the inference pipeline must be in the same order as the features in the training dataset.
-      + The data must have a specific schema. You define schema as a single `instances` object that has a set of `features`. Each `features` object represents an observation.
-
-  The following is an example of a validly formatted JSON string that you can provide in an inference request.
+  - The features used in the dataset for the inference pipeline must be in the same order as the features in the training dataset.
+  - The data must have a specific schema. You define schema as a single `instances` object that has a set of `features`. Each `features` object represents an observation.
+    The following is an example of a validly formatted JSON string that you can provide in an inference request.
 
 ```
 {

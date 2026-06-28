@@ -1,7 +1,7 @@
 # Base lifecycle scripts provided by HyperPod
 
 This section walks you through every component of the basic flow of setting up Slurm
-on HyperPod in a **_top-down_**
+on HyperPod in a _**top-down**_
 approach. It starts from preparing a HyperPod cluster creation request to run
 the `CreateCluster` API, and dives deep into the hierarchical structure down
 to lifecycle scripts. Use the sample lifecycle scripts provided in the [Awsome Distributed
@@ -24,7 +24,7 @@ lifecycle scripts. The descriptions below the diagram and the procedural guide e
 how they work during the HyperPod `CreateCluster` API call.
 
 ![A detailed flow chart of HyperPod cluster creation and the structure of lifecycle scripts.](images/hyperpod-lifecycle-structure.png)
-**\*Figure:** A detailed flow chart of
+_**Figure:** A detailed flow chart of
 HyperPod cluster creation and the structure of lifecycle scripts. (1) The
 dashed arrows are directed to where the boxes are "called into" and shows the flow
 of configuration files and lifecycle scripts preparation. It starts from preparing
@@ -45,7 +45,7 @@ contains HyperPod cluster resource information such as the cluster ARN,
 instance types, and IP addresses. It is important to note that you should prepare
 the lifecycle scripts to expect the `resource_config.json` file during
 cluster creation. For more information, see the procedural guide
-below.\*
+below._
 
 The following procedural guide explains what happens during HyperPod cluster
 creation and how the base lifecycle scripts are designed.
@@ -321,10 +321,10 @@ location.
     	```
 
 3. Make sure that you upload all configuration files and setup scripts from
-   **Step 2** to the S3 bucket you provide in the
-   `CreateCluster` request in **Step
-   1**. For example, assume that your `create_cluster.json`
-   has the following.
+**Step 2** to the S3 bucket you provide in the
+`CreateCluster` request in **Step
+1**. For example, assume that your `create_cluster.json`
+has the following.
 
 ```
 "LifeCycleConfig": {

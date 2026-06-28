@@ -95,9 +95,8 @@ In the previous code example, the following applies:
      DynamoDB event sources](https://aws.amazon.com/blogs/compute/new-aws-lambda-scaling-controls-for-kinesis-and-dynamodb-event-sources/ "https://aws.amazon.com/blogs/compute/new-aws-lambda-scaling-controls-for-kinesis-and-dynamodb-event-sources/").
 
 3. Download the sample `JSON Lines` dataset, [sample-dataset.jsonl](https://github.com/aws/fmeval/blob/8da27af2f20369fd419c03d5bb0707ab24010b14/examples/xsum_sample.jsonl "https://github.com/aws/fmeval/blob/8da27af2f20369fd419c03d5bb0707ab24010b14/examples/xsum_sample.jsonl"), into your current working
-   directory.
-4. Check that your environment contains the sample input file as
-   follows:
+directory. 4. Check that your environment contains the sample input file as
+follows:
 
 ```
 import glob

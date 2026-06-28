@@ -376,7 +376,7 @@ The following example shows a complete CreateCluster request using API-driven Sl
 
 To learn more about using API-driven configuration, see [Customizing SageMaker HyperPod clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md").
 
-### Legacy configuration: provisioning_parameters.json
+### Legacy configuration: provisioning\_parameters.json
 
 ###### Note
 
@@ -384,7 +384,7 @@ The `provisioning_parameters.json` approach is the legacy method for configuring
 
 With the legacy approach, you create a Slurm configuration file named `provisioning_parameters.json` and upload it to Amazon S3 as part of your lifecycle scripts. HyperPod reads this file during cluster creation to configure Slurm nodes.
 
-#### Configuration form for provisioning_parameters.json
+#### Configuration form for provisioning\_parameters.json
 
 The following code is the Slurm configuration form you should prepare to properly
 set up Slurm nodes on your HyperPod cluster. You should complete this form
@@ -442,16 +442,16 @@ processes, see [Customizing SageMaker HyperPod clusters using lifecycle scripts]
 
 ### Comparison: API-driven vs. legacy configuration
 
-|                             |                              |                                           |
-| --------------------------- | ---------------------------- | ----------------------------------------- |
-| **Feature**                 | **API-driven (Recommended)** | **Legacy (provisioning_parameters.json)** |
-| Configuration location      | CreateCluster API request    | S3 file                                   |
-| FSx for Lustre              | Yes – Per instance group     | Yes – Cluster-wide only                   |
-| FSx for OpenZFS             | Yes – Per instance group     | No – Not supported                        |
-| Built-in validation         | Yes                          | No                                        |
-| Drift detection             | Yes – (Managed strategy)     | No                                        |
-| S3 file management          | Not required                 | Required                                  |
-| Lifecycle script complexity | Simplified                   | Full SLURM setup required                 |
+|                             |                              |                                            |
+| --------------------------- | ---------------------------- | ------------------------------------------ |
+| **Feature**                 | **API-driven (Recommended)** | **Legacy (provisioning\_parameters.json)** |
+| Configuration location      | CreateCluster API request    | S3 file                                    |
+| FSx for Lustre              | Yes – Per instance group     | Yes – Cluster-wide only                    |
+| FSx for OpenZFS             | Yes – Per instance group     | No – Not supported                         |
+| Built-in validation         | Yes                          | No                                         |
+| Drift detection             | Yes – (Managed strategy)     | No                                         |
+| S3 file management          | Not required                 | Required                                   |
+| Lifecycle script complexity | Simplified                   | Full SLURM setup required                  |
 
 ## SageMaker HyperPod DLAMI
 
@@ -522,12 +522,12 @@ The following are the methods of the AWS SDK for Python (Boto3) client for SageM
 [HyperPod API
 operations](#sagemaker-hyperpod-ref-api "#sagemaker-hyperpod-ref-api").
 
-- [batch_delete_cluster_nodes](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/batch_delete_cluster_nodes.html# "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/batch_delete_cluster_nodes.html#")
-- [create_cluster](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_cluster.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_cluster.html")
-- [delete_cluster](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/delete_cluster.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/delete_cluster.html")
-- [describe_cluster](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/describe_cluster.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/describe_cluster.html")
-- [describe_cluster_node](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/describe_cluster_node.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/describe_cluster_node.html")
-- [list_cluster_nodes](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/list_cluster_nodes.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/list_cluster_nodes.html")
-- [list_clusters](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/list_clusters.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/list_clusters.html")
-- [update_cluster](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_cluster.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_cluster.html")
-- [update_cluster_software](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_cluster_software.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_cluster_software.html")
+- [batch\_delete\_cluster\_nodes](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/batch_delete_cluster_nodes.html# "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/batch_delete_cluster_nodes.html#")
+- [create\_cluster](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_cluster.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_cluster.html")
+- [delete\_cluster](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/delete_cluster.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/delete_cluster.html")
+- [describe\_cluster](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/describe_cluster.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/describe_cluster.html")
+- [describe\_cluster\_node](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/describe_cluster_node.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/describe_cluster_node.html")
+- [list\_cluster\_nodes](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/list_cluster_nodes.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/list_cluster_nodes.html")
+- [list\_clusters](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/list_clusters.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/list_clusters.html")
+- [update\_cluster](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_cluster.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_cluster.html")
+- [update\_cluster\_software](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_cluster_software.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_cluster_software.html")

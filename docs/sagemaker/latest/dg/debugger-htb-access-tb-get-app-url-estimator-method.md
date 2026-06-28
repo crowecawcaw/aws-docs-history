@@ -1,12 +1,12 @@
-# Open TensorBoard using the `get_app_url` function as an `estimator` class method
+# Open TensorBoard using the `get_app_url` function as an `ModelTrainer` class method
 
 If you are in the process of running a training job using the
-`estimator` class of the SageMaker Python SDK and have an active object of
-the `estimator` class, you can also access the [`get_app_url` function as a class method](https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.estimator.EstimatorBase.get_app_url "https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.estimator.EstimatorBase.get_app_url") of the
-`estimator` class. Open the TensorBoard application or retrieve an
+`ModelTrainer` class of the SageMaker Python SDK and have an active object of
+the `ModelTrainer` class, you can also access the [`get_app_url` function as a class method](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") of the
+`ModelTrainer` class. Open the TensorBoard application or retrieve an
 unsigned URL by running the `get_app_url` method as follows. The
 `get_app_url` class method pulls the training job name from the
-estimator and opens the TensorBoard application with the specified job.
+ModelTrainer and opens the TensorBoard application with the specified job.
 
 ###### Note
 
@@ -28,7 +28,7 @@ unsigned URL that the `get_app_url()` method returns in the your
 environment's default web browser.
 
 ```
-estimator.get_app_url(
+model_trainer.get_app_url(
     app_type=SupportedInteractiveAppTypes.TENSORBOARD # Required.
 )
 ```
@@ -41,7 +41,7 @@ and open the TensorBoard application.
 
 ```
 print(
-    estimator.get_app_url(
+    model_trainer.get_app_url(
         app_type=SupportedInteractiveAppTypes.TENSORBOARD, # Required.
         open_in_default_web_browser=False, # Optional. Set to False to print the URL to terminal.
     )
@@ -74,7 +74,7 @@ associated with your domain.
 
 ```
 print(
-    estimator.get_app_url(
+    model_trainer.get_app_url(
         app_type=SupportedInteractiveAppTypes.TENSORBOARD, # Required
         create_presigned_domain_url=`True`,           # Reguired to be set to True for creating a presigned URL.
         domain_id="`your-domain-id`",                 # Required if creating a presigned URL (create_presigned_domain_url=True).

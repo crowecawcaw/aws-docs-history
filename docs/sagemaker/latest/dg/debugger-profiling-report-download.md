@@ -21,13 +21,13 @@ Download using SageMaker Python SDK and AWS CLI
 1. Check the current job's default S3 output base URI.
 
 ```
-estimator.output_path
+model_trainer.output_path
 ```
 
 2. Check the current job name.
 
 ```
-estimator.latest_training_job.job_name
+model_trainer.latest_training_job.job_name
 ```
 
 3. The Debugger profiling report is stored under
@@ -35,12 +35,12 @@ estimator.latest_training_job.job_name
    Configure the rule output path as follows:
 
 ```
-rule_output_path = estimator.output_path + estimator.latest_training_job.job_name + "/rule-output"
+rule_output_path = model_trainer.output_path + model_trainer.latest_training_job.job_name + "/rule-output"
 ```
 
 4. To check if the report is generated, list directories and files
    recursively under the `rule_output_path` using `aws
-s3 ls` with the `--recursive` option.
+ s3 ls` with the `--recursive` option.
 
 ```
 ! aws s3 ls {rule_output_path} --recursive
@@ -125,7 +125,7 @@ parameters, Debugger generates the report based only on the system monitoring ru
 because the Debugger parameters are not configured to save framework metrics. To
 enable framework metrics profiling and receive an extended Debugger profiling report,
 configure the `profiler_config` parameter when constructing or updating
-SageMaker AI estimators.
+SageMaker AI ModelTrainers.
 
 To learn how to configure the `profiler_config` parameter before
 starting a training job, see [Estimator configuration for framework profiling](debugger-configure-framework-profiling.md "debugger-configure-framework-profiling.md").

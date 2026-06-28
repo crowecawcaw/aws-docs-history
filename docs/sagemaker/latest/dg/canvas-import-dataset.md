@@ -83,28 +83,26 @@ data.
 
 Use the following procedure to import a tabular dataset into Canvas:
 
-1.  Open your SageMaker Canvas application.
-2.  In the left navigation pane, choose **Datasets**.
-3.  Choose **Import data**.
-4.  From the dropdown menu, choose **Tabular**.
-5.  In the popup dialog box, in the **Dataset name** field, enter a name for the dataset and choose **Create**.
-6.  On the **Create tabular dataset** page, open the **Data Source**
-    dropdown menu.
-7.  Choose your data source:
+1. Open your SageMaker Canvas application.
+2. In the left navigation pane, choose **Datasets**.
+3. Choose **Import data**.
+4. From the dropdown menu, choose **Tabular**.
+5. In the popup dialog box, in the **Dataset name** field, enter a name for the dataset and choose **Create**.
+6. On the **Create tabular dataset** page, open the **Data Source**
+   dropdown menu.
+7. Choose your data source:
 
-        * To upload files from your computer, choose **Local upload**.
-        * To import data from another source, such as an Amazon S3 bucket or a Snowflake database,
-         search for your data source in the **Search data source bar**. Then, choose
-         the tile for your desired data source.
+   - To upload files from your computer, choose **Local upload**.
+   - To import data from another source, such as an Amazon S3 bucket or a Snowflake database,
+     search for your data source in the **Search data source bar**. Then, choose
+     the tile for your desired data source.
 
+   ###### Note
 
-        ###### Note
-
-        You can only import data from the tiles that have an active connection. If you want to
-         connect to a data source that is unavailable to you, contact your administrator. If you’re
-         an administrator, see [Connect to data sources](canvas-connecting-external.md "canvas-connecting-external.md").
-
-    The following screenshot shows the **Data Source** dropdown menu.
+   You can only import data from the tiles that have an active connection. If you want to
+   connect to a data source that is unavailable to you, contact your administrator. If you’re
+   an administrator, see [Connect to data sources](canvas-connecting-external.md "canvas-connecting-external.md").
+   The following screenshot shows the **Data Source** dropdown menu.
 
 ![Screenshot showing the Data Source dropdown menu and a search for a data source in the search bar.](images/studio/canvas/import-data-choose-source.png) 8. (Optional) If you’re connecting to an Amazon Redshift or Snowflake database for the first time, a
 dialog box appears to create a connection. Fill out the dialog box with your credentials and

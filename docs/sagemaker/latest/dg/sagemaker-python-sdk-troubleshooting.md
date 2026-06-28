@@ -43,15 +43,15 @@ parameters that you're passing to a function. Use the following list to see exam
 `ValueError` exceptions and how to fix them.
 
 - `ValueError: either image_uri or algorithm_arn is required. None was
-provided`:
+ provided`:
 
-  - If you're using the `AlgorithmEstimator` function, provide
+  - If you're using the `ModelTrainer` function, provide
     the `algorithm_arn`.
-  - If you're using the `Estimator` function, provide the
+  - If you're using the `ModelTrainer` function, provide the
     `estimator_arn`.
 
 - `ValueError: Unknown input channel: train is not supported by:
-scikit-decision-trees-15423055-57b73412d2e93e9239e4e16f83298b8f`
+ scikit-decision-trees-15423055-57b73412d2e93e9239e4e16f83298b8f`
 
 You get this error when you provide an invalid input channel. An input channel
 is a data source or parameter that the model expects.
@@ -167,9 +167,8 @@ role access to the following permissions:
 - `logs:PutLogEvents` – Provides permissions to writing
   logs to Amazon CloudWatch logs during the update process.
   If your processing job needs to access resources within an Amazon Virtual Private Cloud, you must
-  specify its `security_group_ids` and `subnets` within the
-  estimator that you create. For an example of how you can access resources within a
-  Amazon VPC, see [Secure Training and Inference with VPC](https://sagemaker.readthedocs.io/en/stable/overview.html#secure-training-and-inference-with-vpc "https://sagemaker.readthedocs.io/en/stable/overview.html#secure-training-and-inference-with-vpc").
+  specify its `security_group_ids` and `subnets` within the ModelTrainer that you create. For an example of how you can access resources within a
+  Amazon VPC, see [Secure Training and Inference with VPC](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/").
 
 When you're creating a processing job, you might run into a `ValueError`, an
 `UnexpectedStatusException`, or a `botocore.exceptions.ClientError`.
@@ -185,7 +184,7 @@ ValueError: code preprocess.py wasn't found. Please make sure that the file exis
 
 The path that you've specified wasn't correct. You can specify either a relative path
 or an absolute path to your script file. For more information about specifying paths to
-your files, see [sagemaker.processing.RunArgs](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.RunArgs "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.RunArgs").
+your files, see [sagemaker.processing.RunArgs](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html").
 
 UnexpectedStatusException
 The following is an example of an `UnexpectedStatusException`:
@@ -320,7 +319,9 @@ The error indicates that the specified endpoint name does not match any existing
 
 ```
 import sagemaker
-sagemaker_session = sagemaker.Session()
+from sagemaker.core.helper.session_helper import Session
+
+sagemaker_session = Session()
 # List all endpoints
 endpoints = sagemaker_session.sagemaker_client.list_endpoints()
 print(endpoints)

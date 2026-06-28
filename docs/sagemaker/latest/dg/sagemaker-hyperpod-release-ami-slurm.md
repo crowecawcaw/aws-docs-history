@@ -62,7 +62,7 @@ Slurm v25.11
   - ec2-instance-connect version: 1.1.14-0ubuntu1.1
   - rdma-core version: 61.0-1
 
-- Slurm 25.11 (x86_64):
+- Slurm 25.11 (x86\_64):
 
   - Linux Kernel version: 6.8.0-1053-aws
   - Glibc version: 2.35
@@ -139,7 +139,7 @@ Slurm v24.11
   - ec2-instance-connect version: 1.1.14-0ubuntu1.1
   - rdma-core version: 61.0-1
 
-- Slurm 24.11 (x86_64):
+- Slurm 24.11 (x86\_64):
 
   - Linux Kernel version: 6.8.0-1053-aws
   - Glibc version: 2.35
@@ -216,7 +216,7 @@ Slurm v24.11
   - ec2-instance-connect version: 1.1.14-0ubuntu1.1
   - rdma-core version: 61.0-1
 
-- Slurm 24.11 (x86_64):
+- Slurm 24.11 (x86\_64):
 
   - Linux Kernel version: 6.8.0-1052-aws
   - Glibc version: 2.35
@@ -293,7 +293,7 @@ Slurm v24.11
   - ec2-instance-connect version: 1.1.14-0ubuntu1.1
   - rdma-core version: 60.0-1
 
-- Slurm 24.11 (x86_64):
+- Slurm 24.11 (x86\_64):
 
   - Linux Kernel version: 6.8.0-1050-aws
   - Glibc version: 2.35
@@ -370,7 +370,7 @@ Slurm v24.11
   - ec2-instance-connect version: 1.1.14-0ubuntu1.1
   - rdma-core version: 60.0-1
 
-- Slurm 24.11 (x86_64):
+- Slurm 24.11 (x86\_64):
 
   - Linux Kernel version: 6.8
   - Glibc version: 2.35
@@ -447,7 +447,7 @@ Slurm v24.11
   - ec2-instance-connect version: 1.1.14-0ubuntu1.1
   - rdma-core version: 60.0-1
 
-- Slurm 24.11 (x86_64):
+- Slurm 24.11 (x86\_64):
 
   - Linux Kernel version: 6.8
   - Glibc version: 2.35
@@ -524,7 +524,7 @@ Slurm v24.11
   - ec2-instance-connect version: 1.1.14-0ubuntu1.1
   - rdma-core version: 60.0-1
 
-- Slurm 24.11 (x86_64):
+- Slurm 24.11 (x86\_64):
 
   - Linux Kernel version: 6.8
   - Glibc version: 2.35
@@ -601,7 +601,7 @@ Slurm v24.11
   - ec2-instance-connect version: 1.1.14-0ubuntu1.1
   - rdma-core version: 60.0-1
 
-- Slurm 24.11 (x86_64):
+- Slurm 24.11 (x86\_64):
 
   - Linux Kernel version: 6.8
   - Glibc version: 2.35
@@ -676,7 +676,7 @@ Slurm (arm64)
 - ec2-instance-connect version: 1.1.14-0ubuntu1.1
 - rdma-core version: 58.amzn0-1
 
-Slurm (x86_64)
+Slurm (x86\_64)
 
 - Linux Kernel version: 6.8
 - Glibc version: 2.35
@@ -746,7 +746,7 @@ Slurm (x86_64)
   - Nvidia container toolkit:
 
     - Version command: `nvidia-container-cli
--V`
+   -V`
 
   - Nvidia-docker2:
 
@@ -808,7 +808,7 @@ SageMaker HyperPod releases the following for [Orchestrating SageMaker HyperPod 
 **New features and improvements**
 
 - Updated base AMI to `Deep Learning Base OSS Nvidia Driver GPU AMI
-(Ubuntu 22.04) 20250523` with the following key components:
+ (Ubuntu 22.04) 20250523` with the following key components:
 
   - NVIDIA Driver: 570.133.20
   - CUDA: 12.8 (default), with support for CUDA 12.4-12.6
@@ -864,17 +864,17 @@ might affect compatibility with software and configurations designed for Ubuntu
 The following table lists the component versions of the Ubuntu 22.04 AMI
 compared to the previous AMI.
 
-| Component versions of the Ubuntu 22.04 AMI compared to the previous AMI | Component     | Previous version  | Updated version |
-| ----------------------------------------------------------------------- | ------------- | ----------------- | --------------- |
-| **Ubuntu OS**                                                           | 20.04 LTS     | 22.04 LTS         |
-| **Slurm**                                                               | 24.11         | 24.11 (unchanged) |
-| **Python**                                                              | 3.8 (default) | 3.10 (default)    |
-| **Elastic Fabric Adapter (EFA) on<br>Amazon FSx**                       | Not supported | Supported         |
-| **Linux kernel**                                                        | 5.15          | 6.8               |
-| **GNU C Library<br>(glibc)**                                            | 2.31          | 2.35              |
-| **GNU Compiler Collection<br>(GCC)**                                    | 9.4.0         | 11.4.0            |
-| **libc6**                                                               | ≤ 2.31        | ≥ 2.35 supported  |
-| **Network File System<br>(NFS)**                                        | 1:1.3.4       | 1:2.6.1           |
+Component versions of the Ubuntu 22.04 AMI compared to the previous AMI| Component | Previous version | Updated version |
+| --- | --- | --- |
+| **Ubuntu OS** | 20.04 LTS | 22.04 LTS |
+| **Slurm** | 24.11 | 24.11 (unchanged) |
+| **Python** | 3.8 (default) | 3.10 (default) |
+| **Elastic Fabric Adapter (EFA) on<br>Amazon FSx** | Not supported | Supported |
+| **Linux kernel** | 5.15 | 6.8 |
+| **GNU C Library<br>(glibc)** | 2.31 | 2.35 |
+| **GNU Compiler Collection<br>(GCC)** | 9.4.0 | 11.4.0 |
+| **libc6** | ≤ 2.31 | ≥ 2.35 supported |
+| **Network File System<br>(NFS)** | 1:1.3.4 | 1:2.6.1 |
 
 ###### Note
 
@@ -910,7 +910,7 @@ Before upgrading your cluster, make sure to do the following:
 4. If you created your HyperPod cluster by copying the
    default lifecycle script from GitHub, add the following command to
    your `setup_mariadb_accounting.sh` file before upgrading
-   to Ubuntu 22. For the complete script, see [setup_mariadb_accounting.sh on GitHub](https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config/setup_mariadb_accounting.sh "https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config/setup_mariadb_accounting.sh").
+   to Ubuntu 22. For the complete script, see [setup\_mariadb\_accounting.sh on GitHub](https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config/setup_mariadb_accounting.sh "https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config/setup_mariadb_accounting.sh").
 
 ```
 apt-get -y -o DPkg::Lock::Timeout=120 update && apt-get -y -o DPkg::Lock::Timeout=120 install apg

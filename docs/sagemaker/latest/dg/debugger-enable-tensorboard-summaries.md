@@ -14,7 +14,7 @@ create scalar summaries, distributions, and histograms that you can import to Te
 
 ![An architecture diagram of the Debugger output tensor saving mechanism.](images/debugger/debugger-tensorboard-concept.png)
 You can enable this by passing `DebuggerHookConfig` and
-`TensorBoardOutputConfig` objects to an `estimator`.
+`TensorBoardOutputConfig` objects to an `ModelTrainer`.
 
 The following procedure explains how to save scalars, weights, and biases as full tensors,
 histograms, and distributions that can be visualized with TensorBoard. Debugger saves them to
@@ -32,10 +32,10 @@ Debugger output configuration objects.
    default local path `/opt/ml/output/tensors`.
 
 ```
-import sagemaker
-from sagemaker.debugger import TensorBoardOutputConfig
+from sagemaker.core.debugger import TensorBoardOutputConfig
+from sagemaker.core.helper.session_helper import Session
 
-bucket = sagemaker.Session().default_bucket()
+bucket = Session().default_bucket()
 tensorboard_output_config = TensorBoardOutputConfig(
     s3_output_path='s3://{}'.format(bucket)
 )
@@ -72,11 +72,26 @@ hook_config = DebuggerHookConfig(
 ```
 
 For more information about the Debugger configuration APIs, see the Debugger
-`CollectionConfig` and `DebuggerHookConfig` APIs in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"). 3. Construct a SageMaker AI estimator with the Debugger parameters passing the configuration
+`CollectionConfig` and `DebuggerHookConfig` APIs in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"). 3. Construct a SageMaker AI ModelTrainer with the Debugger parameters passing the configuration
 objects. The following example template shows how to create a generic SageMaker AI
-estimator. You can replace `estimator` and `Estimator` with
-other SageMaker AI frameworks' estimator parent classes and estimator classes. Available
-SageMaker AI framework estimators for this functionality are `TensorFlow`, `PyTorch`, and `MXNet`.
+ModelTrainer. Available
+ModelTrainer frameworks for this functionality are `TensorFlow`, `PyTorch`, and `MXNet`.
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.train import ModelTrainer
+
+model_trainer = ModelTrainer(
+    ...
+    # Debugger parameters
+    debugger_hook_config=hook_config,
+    tensorboard_output_config=tensorboard_output_config
+)
+model_trainer.train()
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.`estimator` import `Estimator`
@@ -90,28 +105,28 @@ estimator = `Estimator`(
 estimator.fit()
 ```
 
-The `estimator.fit()` method starts a training job, and Debugger writes
+The `model_trainer.train()` method starts a training job, and Debugger writes
 the output tensor files in real time to the Debugger S3 output path and to the
 TensorBoard S3 output path. To retrieve the output paths, use the following
-estimator methods:
+ModelTrainer methods:
 
     * For the Debugger S3 output path, use
-     `estimator.latest_job_debugger_artifacts_path()`.
+     `model_trainer.latest_job_debugger_artifacts_path()`.
     * For the TensorBoard S3 output path, use
-     `estimator.latest_job_tensorboard_artifacts_path()`.
+     `model_trainer.latest_job_tensorboard_artifacts_path()`.
 
 4. After the training has completed, check the names of saved output tensors:
 
 ```
 from smdebug.trials import create_trial
-trial = create_trial(estimator.latest_job_debugger_artifacts_path())
+trial = create_trial(model_trainer.latest_job_debugger_artifacts_path())
 trial.tensor_names()
 ```
 
 5. Check the TensorBoard output data in Amazon S3:
 
 ```
-tensorboard_output_path=estimator.latest_job_tensorboard_artifacts_path()
+tensorboard_output_path=model_trainer.latest_job_tensorboard_artifacts_path()
 print(tensorboard_output_path)
 !aws s3 ls {tensorboard_output_path}/
 ```

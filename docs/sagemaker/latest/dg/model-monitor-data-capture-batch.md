@@ -72,11 +72,11 @@ sm_client.create_transform_job(
 
 SageMaker Python SDK
 
-Import the `BatchDataCaptureConfig` class from the [sagemaker.model_monitor](https://sagemaker.readthedocs.io/en/stable/api/inference/model_monitor.html "https://sagemaker.readthedocs.io/en/stable/api/inference/model_monitor.html").
+Import the `BatchDataCaptureConfig` class from the [sagemaker.model\_monitor](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html").
 
 ```
-from sagemaker.transformer import Transformer
-from sagemaker.inputs import BatchDataCaptureConfig
+from sagemaker.core.transformer import Transformer
+from sagemaker.core.inputs import BatchDataCaptureConfig
 
 # Optional - The S3 URI of where to store captured data in S3
 data_capture_destination = "s3://`captured_data_S3_uri`"

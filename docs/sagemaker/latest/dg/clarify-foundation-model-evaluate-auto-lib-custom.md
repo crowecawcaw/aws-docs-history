@@ -229,7 +229,7 @@ properties from the FMEval `ModelRunner` class. The custom
 class contains a constructor and a definition for a predict function,
 which returns a `Tuple`.
 
-For more `ModelRunner` examples, see the [model_runner](https://github.com/aws/fmeval/tree/main/src/fmeval/model_runners "https://github.com/aws/fmeval/tree/main/src/fmeval/model_runners") section of the `fmeval`
+For more `ModelRunner` examples, see the [model\_runner](https://github.com/aws/fmeval/tree/main/src/fmeval/model_runners "https://github.com/aws/fmeval/tree/main/src/fmeval/model_runners") section of the `fmeval`
 library.
 
 The `HuggingFaceCausalLLMModelRunner` constructor contains
@@ -318,7 +318,7 @@ following definitions:
      `skip_special_tokens=True`.
 
 3. Test your `ModelRunner`. Send a sample request to your
-   model.
+model.
 
 The following example shows how to test a model using the
 `gpt2` pre-trained model from the Hugging
@@ -332,7 +332,7 @@ model = HuggingFaceCausalLLMModelRunner(model_config=hf_config)
 
 In the previous code example, `model_name` specifies the
 name of the pre-trained model. The `HFModelConfig` class is
-instantiated as hf_config with a value for the parameter
+instantiated as hf\_config with a value for the parameter
 `max_new_tokens`, and used to initialize
 `ModelRunner`.
 

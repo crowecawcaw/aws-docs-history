@@ -130,18 +130,18 @@ that the available operations depend on the data type of the column you choose. 
 you cannot create a `is greater than` operation for a column containing text
 values.
 
-| Operation                   | Supported data type | Supported feature type | Function                                                                                              |
-| --------------------------- | ------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------- |
-| Is equal to                 | Numeric, Text       | Binary, Categorical    | Filters rows where the value in \*_Column_<br>• equals the values you<br>specify.                     |
-| Is not equal to             | Numeric, Text       | Binary, Categorical    | Filters rows where the value in \*_Column_<br>• doesn't equal the values<br>you specify.              |
-| Is less than                | Numeric             | N/A                    | Filters rows where the value in \*_Column_<br>• is less than the value<br>you specify.                |
-| Is less than or equal to    | Numeric             | N/A                    | Filters rows where the value in \*_Column_<br>• is less than or equal to<br>the value you specify.    |
-| Is greater than             | Numeric             | N/A                    | Filters rows where the value in \*_Column_<br>• is greater than the value<br>you specify.             |
-| Is greater than or equal to | Numeric             | N/A                    | Filters rows where the value in \*_Column_<br>• is greater than or equal<br>to the value you specify. |
-| Is between                  | Numeric             | N/A                    | Filters rows where the value in \*_Column_<br>• is between or equal to<br>two values you specify.     |
-| Contains                    | Text                | Categorical            | Filters rows where the value in \*_Column_<br>• contains a values you<br>specify.                     |
-| Starts with                 | Text                | Categorical            | Filters rows where the value in \*_Column_<br>• begins with a value you<br>specify.                   |
-| Ends with                   | Categorical         | Categorical            | Filters rows where the value in \*_Column_<br>• ends with a value you<br>specify.                     |
+| Operation                   | Supported data type | Supported feature type | Function                                                                                             |
+| --------------------------- | ------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------- |
+| Is equal to                 | Numeric, Text       | Binary, Categorical    | Filters rows where the value in *_Column_<br>• equals the values you<br>specify.                     |
+| Is not equal to             | Numeric, Text       | Binary, Categorical    | Filters rows where the value in *_Column_<br>• doesn't equal the values<br>you specify.              |
+| Is less than                | Numeric             | N/A                    | Filters rows where the value in *_Column_<br>• is less than the value<br>you specify.                |
+| Is less than or equal to    | Numeric             | N/A                    | Filters rows where the value in *_Column_<br>• is less than or equal to<br>the value you specify.    |
+| Is greater than             | Numeric             | N/A                    | Filters rows where the value in *_Column_<br>• is greater than the value<br>you specify.             |
+| Is greater than or equal to | Numeric             | N/A                    | Filters rows where the value in *_Column_<br>• is greater than or equal<br>to the value you specify. |
+| Is between                  | Numeric             | N/A                    | Filters rows where the value in *_Column_<br>• is between or equal to<br>two values you specify.     |
+| Contains                    | Text                | Categorical            | Filters rows where the value in *_Column_<br>• contains a values you<br>specify.                     |
+| Starts with                 | Text                | Categorical            | Filters rows where the value in *_Column_<br>• begins with a value you<br>specify.                   |
+| Ends with                   | Categorical         | Categorical            | Filters rows where the value in *_Column_<br>• ends with a value you<br>specify.                     |
 
 After you set the filter operation, SageMaker Canvas updates the preview of the dataset to show you
 the filtered data.
@@ -160,7 +160,7 @@ of nested functions that you might use.
 
 - To calculate BMI, you could use the function `weight / (height ^ 2)`.
 - To classify ages, you could use the function `Case(age < 18, 'child', age <
-65, 'adult', 'senior')`.
+ 65, 'adult', 'senior')`.
 
 You can specify functions in the data preparation stage before you build your model. To use
 a function, do the following.
@@ -188,7 +188,7 @@ SageMaker Canvas supports the following operators for functions. You can use eit
 the in-line format to specify your function.
 
 | Operator              | Description                                                                                                                            | Supported data types   | Text format                               | In-line format       |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------------------------------------- | -------------------- | --- | -------- |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------------------------------------- | -------------------- |
 | Add                   | Returns the sum of the values                                                                                                          | Numeric                | Add(sales1, sales2)                       | sales1 + sales2      |
 | Subtract              | Returns the difference between the values                                                                                              | Numeric                | Subtract(sales1, sales2)                  | sales1 ‐ sales2      |
 | Multiply              | Returns the product of the values                                                                                                      | Numeric                | Multiply(sales1, sales2)                  | sales1 \<br>• sales2 |
@@ -218,21 +218,21 @@ operators in combination with standard operators in your functions. For example,
 the difference of values from the mean, you could use the function `Abs(height –
  avg(height))`. SageMaker Canvas supports the following aggregate operators.
 
-| Aggregate operator    | Description                                                  | Format                | Example                   |
-| --------------------- | ------------------------------------------------------------ | --------------------- | ------------------------- |
-| sum                   | Returns the sum of all the values in a column                | sum                   | sum(c1)                   |
-| minimum               | Returns the minimum value of a column                        | min                   | min(c2)                   |
-| maximum               | Returns the maximum value of a column                        | max                   | max(c3)                   |
-| average               | Returns the average value of a column                        | avg                   | avg(c4)                   |
-| std                   | Returns the sample standard deviation of a column            | std                   | std(c1)                   |
-| stddev                | Returns the standard deviation of the values in a column     | stddev                | stddev(c1)                |
-| variance              | Returns the unbiased variance of the values in a column      | variance              | variance(c1)              |
-| approx_count_distinct | Returns the approximate number of distinct items in a column | approx_count_distinct | approx_count_distinct(c1) |
-| count                 | Returns the number of items in a column                      | count                 | count(c1)                 |
-| first                 | Returns the first value of a column                          | first                 | first(c1)                 |
-| last                  | Returns the last value of a column                           | last                  | last(c1)                  |
-| stddev_pop            | Returns the population standard deviation of a column        | stddev_pop            | stddev_pop(c1)            |
-| variance_pop          | Returns the population variance of the values in a column    | variance_pop          | variance_pop(c1)          |
+| Aggregate operator      | Description                                                  | Format                  | Example                     |
+| ----------------------- | ------------------------------------------------------------ | ----------------------- | --------------------------- |
+| sum                     | Returns the sum of all the values in a column                | sum                     | sum(c1)                     |
+| minimum                 | Returns the minimum value of a column                        | min                     | min(c2)                     |
+| maximum                 | Returns the maximum value of a column                        | max                     | max(c3)                     |
+| average                 | Returns the average value of a column                        | avg                     | avg(c4)                     |
+| std                     | Returns the sample standard deviation of a column            | std                     | std(c1)                     |
+| stddev                  | Returns the standard deviation of the values in a column     | stddev                  | stddev(c1)                  |
+| variance                | Returns the unbiased variance of the values in a column      | variance                | variance(c1)                |
+| approx\_count\_distinct | Returns the approximate number of distinct items in a column | approx\_count\_distinct | approx\_count\_distinct(c1) |
+| count                   | Returns the number of items in a column                      | count                   | count(c1)                   |
+| first                   | Returns the first value of a column                          | first                   | first(c1)                   |
+| last                    | Returns the last value of a column                           | last                    | last(c1)                    |
+| stddev\_pop             | Returns the population standard deviation of a column        | stddev\_pop             | stddev\_pop(c1)             |
+| variance\_pop           | Returns the population variance of the values in a column    | variance\_pop           | variance\_pop(c1)           |
 
 ## Manage rows
 
@@ -356,18 +356,18 @@ that the available operations depend on the data type of the column you choose. 
 you cannot create a `is greater than` operation for a column containing text
 values.
 
-| Operation                   | Supported data type | Supported feature type | Function                                                                                              |
-| --------------------------- | ------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------- |
-| Is equal to                 | Numeric, Text       | Binary, Categorical    | Removes rows where the value in \*_Column_<br>• equals the values you<br>specify.                     |
-| Is not equal to             | Numeric, Text       | Binary, Categorical    | Removes rows where the value in \*_Column_<br>• doesn't equal the values<br>you specify.              |
-| Is less than                | Numeric             | N/A                    | Removes rows where the value in \*_Column_<br>• is less than the value<br>you specify.                |
-| Is less than or equal to    | Numeric             | N/A                    | Removes rows where the value in \*_Column_<br>• is less than or equal to<br>the value you specify.    |
-| Is greater than             | Numeric             | N/A                    | Removes rows where the value in \*_Column_<br>• is greater than the value<br>you specify.             |
-| Is greater than or equal to | Numeric             | N/A                    | Removes rows where the value in \*_Column_<br>• is greater than or equal<br>to the value you specify. |
-| Is between                  | Numeric             | N/A                    | Removes rows where the value in \*_Column_<br>• is between or equal to<br>two values you specify.     |
-| Contains                    | Text                | Categorical            | Removes rows where the value in \*_Column_<br>• contains a values you<br>specify.                     |
-| Starts with                 | Text                | Categorical            | Removes rows where the value in \*_Column_<br>• begins with a value you<br>specify.                   |
-| Ends with                   | Text                | Categorical            | Removes rows where the value in \*_Column_<br>• ends with a value you<br>specify.                     |
+| Operation                   | Supported data type | Supported feature type | Function                                                                                             |
+| --------------------------- | ------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------- |
+| Is equal to                 | Numeric, Text       | Binary, Categorical    | Removes rows where the value in *_Column_<br>• equals the values you<br>specify.                     |
+| Is not equal to             | Numeric, Text       | Binary, Categorical    | Removes rows where the value in *_Column_<br>• doesn't equal the values<br>you specify.              |
+| Is less than                | Numeric             | N/A                    | Removes rows where the value in *_Column_<br>• is less than the value<br>you specify.                |
+| Is less than or equal to    | Numeric             | N/A                    | Removes rows where the value in *_Column_<br>• is less than or equal to<br>the value you specify.    |
+| Is greater than             | Numeric             | N/A                    | Removes rows where the value in *_Column_<br>• is greater than the value<br>you specify.             |
+| Is greater than or equal to | Numeric             | N/A                    | Removes rows where the value in *_Column_<br>• is greater than or equal<br>to the value you specify. |
+| Is between                  | Numeric             | N/A                    | Removes rows where the value in *_Column_<br>• is between or equal to<br>two values you specify.     |
+| Contains                    | Text                | Categorical            | Removes rows where the value in *_Column_<br>• contains a values you<br>specify.                     |
+| Starts with                 | Text                | Categorical            | Removes rows where the value in *_Column_<br>• begins with a value you<br>specify.                   |
+| Ends with                   | Text                | Categorical            | Removes rows where the value in *_Column_<br>• ends with a value you<br>specify.                     |
 
 After removing the rows from the dataset, SageMaker Canvas adds the transform in the **Model
 recipe** section. If you remove the transform from the **Model
@@ -682,9 +682,9 @@ To upsample time series data, do the following:
    series. If you have a column representing only one time series, don't specify a value for this
    field. For example, you can have a dataset that has the columns `id` and
    `purchase`. The `id` column has the following values: `[1, 2, 2,
-1]`. The `purchase` column has the following values `[$2, $3, $4,
-$1]`. Therefore, the dataset has two time series—one time series is: `1:
-[$2, $1]`, and the other time series is `2: [$3, $4]`.
+ 1]`. The `purchase` column has the following values `[$2, $3, $4,
+ $1]`. Therefore, the dataset has two time series—one time series is: `1:
+ [$2, $1]`, and the other time series is `2: [$3, $4]`.
 
 If you don’t specify estimation methods, the default values are `Forward Fill`
 for **Non-numeric estimation** and `Linear` for **Numeric

@@ -5,7 +5,7 @@ primitive types. After administrators configure these defaults, they are automat
 passed when SageMaker Python SDK calls supported APIs. The arguments for the decorator
 function can be put inside of configuration files. This is so that you can separate
 settings that are related to the infrastructure from the code base. For more information
-about parameters and arguments for the remote function and methods, see [Remote function classes and methods specification](https://sagemaker.readthedocs.io/en/stable/remote_function/sagemaker.remote_function.html "https://sagemaker.readthedocs.io/en/stable/remote_function/sagemaker.remote_function.html").
+about parameters and arguments for the remote function and methods, see [Remote function classes and methods specification](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html").
 
 You can set infrastructure settings for the network configuration, IAM roles, Amazon S3
 folder for input, output data, and tags inside the configuration file. The configuration

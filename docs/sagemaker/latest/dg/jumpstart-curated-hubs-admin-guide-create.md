@@ -15,7 +15,7 @@ model hub.
 
 # Import the necessary Python packages
 import boto3
-from sagemaker import Session
+from sagemaker.core.helper.session_helper import Session
 from sagemaker.jumpstart.hub.hub import Hub
 ```
 

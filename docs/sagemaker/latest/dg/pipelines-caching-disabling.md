@@ -27,6 +27,35 @@ pipeline.
 Once you run it again, the following code example turns off caching for a training
 step:
 
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.workflow.pipeline_context import PipelineSession
+from sagemaker.mlops.workflow.steps import CacheConfig
+from sagemaker.mlops.workflow.pipeline import Pipeline
+
+cache_config = CacheConfig(enable_caching=False, expire_after="PT1H")
+model_trainer = ModelTrainer(..., sagemaker_session=PipelineSession())
+
+step_train = TrainingStep(
+    name="TrainAbaloneModel",
+    step_args=model_trainer.train(input_data_config=inputs),
+    cache_config=cache_config
+)
+
+# define pipeline
+pipeline = Pipeline(
+    steps=[step_train]
+)
+
+# update the pipeline
+pipeline.update()
+# or, call upsert() to update the pipeline
+# pipeline.upsert()
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 from sagemaker.workflow.pipeline_context import PipelineSession
 from sagemaker.workflow.steps import CacheConfig
@@ -67,4 +96,4 @@ pipeline.update()
 ```
 
 For more detailed code examples and a discussion about how Python SDK parameters affect
-caching, see [Caching Configuration](https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_model_building_pipeline.html#caching-configuration "https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_model_building_pipeline.html#caching-configuration") in the Amazon SageMaker Python SDK documentation.
+caching, see [Caching Configuration](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#caching-configuration "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#caching-configuration") in the Amazon SageMaker Python SDK documentation.

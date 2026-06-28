@@ -112,16 +112,16 @@ If you use the [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable
      training job status from Amazon CloudWatch.
 
 6. If using the domain in `VpcOnly` mode from an on-premises
-   network, establish private connectivity from the network of the host
-   running Studio in the browser and the target Amazon VPC. This is required
-   because the Studio UI invokes AWS endpoints using API calls with temporary
-   AWS credentials. These temporary credentials are associated with the execution role of the logged user
-   profile. If the domain is configured in `VpcOnly`
-   mode in an on-premises network, the execution role might define IAM
-   policy conditions that enforce the execution of AWS service API calls
-   only through the configured Amazon VPC endpoints.This causes API calls
-   executed from the Studio UI to fail. We recommend resolving this using
-   an [AWS Site-to-Site VPN](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md") or [AWS Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")connection.
+network, establish private connectivity from the network of the host
+running Studio in the browser and the target Amazon VPC. This is required
+because the Studio UI invokes AWS endpoints using API calls with temporary
+AWS credentials. These temporary credentials are associated with the execution role of the logged user
+profile. If the domain is configured in `VpcOnly`
+mode in an on-premises network, the execution role might define IAM
+policy conditions that enforce the execution of AWS service API calls
+only through the configured Amazon VPC endpoints.This causes API calls
+executed from the Studio UI to fail. We recommend resolving this using
+an [AWS Site-to-Site VPN](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md") or [AWS Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")connection.
 
 ###### Note
 

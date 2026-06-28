@@ -15,7 +15,7 @@ The following code example shows how you can programmatically deploy shadow vari
 
 ```
 import boto3
-from sagemaker import get_execution_role, Session
+from sagemaker.core.helper.session_helper import get_execution_role, Session
 
 aws_region = "`aws-region`"
 

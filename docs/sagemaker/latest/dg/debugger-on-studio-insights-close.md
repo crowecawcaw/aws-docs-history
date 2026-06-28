@@ -10,12 +10,12 @@ Studio Classic**
 
 1. In Studio Classic, select the **Running Instances and
    Kernels** icon (
-   ![Square icon with a white outline of a cloud on a dark blue background.](images/icons/Running_squid.png)
+   ![Running instances icon.](images/icons/Running_squid.png)
    ).
 2. Under the **RUNNING APPS** list, look for the
    **sagemaker-debugger-1.0** app. Select the
    shutdown icon (
-   ![Power button icon with a circular shape and vertical line symbol.](images/icons/Shutdown_light.png)
+   ![Shutdown icon.](images/icons/Shutdown_light.png)
    ) next to the app. The SageMaker Debugger Insights dashboards run on an
    `ml.m5.4xlarge` instance. This instance also disappears from the
    **RUNNING INSTANCES** when you shut down the

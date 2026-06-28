@@ -83,10 +83,9 @@ Follow these steps to add an instance group.
     8. Choose **Add instance group**.
 
 8. On **Quick configuration defaults**, review the default
-   settings. This section lists all the default settings for your cluster creation,
-   including all the new AWS resources that will be created during the cluster
-   creation process.
-9. Choose **Submit**.
+settings. This section lists all the default settings for your cluster creation,
+including all the new AWS resources that will be created during the cluster
+creation process. 9. Choose **Submit**.
 
 For more information, see [Getting started with SageMaker HyperPod using the SageMaker AI console](smcluster-getting-started-slurm-console.md "smcluster-getting-started-slurm-console.md").
 
@@ -163,10 +162,9 @@ Follow these steps to add an instance group.
     9. Choose **Add instance group**.
 
 8. On **Quick configuration defaults**, review the default
-   settings. This section lists all the default settings for your cluster creation,
-   including all the new AWS resources that will be created during the cluster
-   creation process.
-9. Choose **Submit**.
+settings. This section lists all the default settings for your cluster creation,
+including all the new AWS resources that will be created during the cluster
+creation process. 9. Choose **Submit**.
 
 For more information, see [Creating a SageMaker HyperPod cluster with Amazon EKS orchestration](sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md "sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md").
 

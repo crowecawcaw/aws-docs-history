@@ -63,8 +63,8 @@ specifically the ones for updating the model. Fundamentally,
 execution) in the form of graph until it is explicitly instructed to run the
 accumulated graph. The `torch_xla.core.xla_model.mark_step()`
 function facilitates the execution of the accumulated graph. The graph execution
-should be synchronized using this function **_after each model update_** and **_before printing and logging any
-variables_**. If it lacks the synchronization step,
+should be synchronized using this function _**after each model update**_ and _**before printing and logging any
+variables**_. If it lacks the synchronization step,
 the model might use stale values from memory during prints, logs, and the
 subsequent forward passes, instead of using the most recent values that have to
 be synchronized after every iteration and model update.
@@ -108,7 +108,7 @@ set up for distributed training**
 
 If the issue still persists, this is likely due to improper use of the
 `torch_xla` APIs for distributed training. Make sure that you add
-the following in your estimator to set up a cluster for distributed training
+the following in your ModelTrainer to set up a cluster for distributed training
 with SageMaker Training Compiler.
 
 ```
@@ -165,9 +165,27 @@ There are three approaches to set the `GPU_NUM_DEVICES` environment
 variable:
 
 - **Approach 1** – Use the
-  `environment` argument of the SageMaker AI estimator class. For
+  `environment` argument of the SageMaker AI ModelTrainer class. For
   example, if you use an `ml.p3.8xlarge` instance that has four
   GPUs, do the following:
+
+SageMaker Python SDK v3
+
+```
+# Using the SageMaker Python SDK's ModelTrainer
+
+model_trainer=ModelTrainer(
+    ...
+    compute=Compute(instance_type="`ml.p3.8xlarge`", instance_count=1),
+    hyperparameters={...},
+    environment={
+        ...
+        **"GPU\_NUM\_DEVICES": "`4`"** # corresponds to number of GPUs on the specified instance
+    },
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 # Using the SageMaker Python SDK's HuggingFace estimator
@@ -184,7 +202,7 @@ hf_estimator=HuggingFace(
 ```
 
 - **Approach 2** – Use the
-  `hyperparameters` argument of the SageMaker AI estimator class and
+  `hyperparameters` argument of the SageMaker AI ModelTrainer class and
   parse it in your training script.
 
   1.  To specify the number of GPUs, add a key-value pair to the
@@ -192,6 +210,25 @@ hf_estimator=HuggingFace(
 
   For example, if you use an `ml.p3.8xlarge` instance
   that has four GPUs, do the following:
+
+  SageMaker Python SDK v3
+
+  ```
+  # Using the SageMaker Python SDK's ModelTrainer
+
+  model_trainer=ModelTrainer(
+      ...
+      source_code=SourceCode(entry_script="`train.py`"),
+      compute=Compute(instance_type="`ml.p3.8xlarge`", instance_count=1),
+      hyperparameters = {
+          ...
+          **"n\_gpus": `4`** # corresponds to number of GPUs on specified instance
+      }
+  )
+  model_trainer.train()
+  ```
+
+  SageMaker Python SDK v2 (Legacy)
 
   ```
   # Using the SageMaker Python SDK's HuggingFace estimator

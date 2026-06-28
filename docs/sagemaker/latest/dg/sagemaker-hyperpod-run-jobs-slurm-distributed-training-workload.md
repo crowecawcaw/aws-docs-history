@@ -78,7 +78,7 @@ files are listed at [Supported Frameworks](distributed-data-parallel-support.md#
 ###### To install the SMDDP library on the SageMaker HyperPod DLAMI
 
 - `pip install --no-cache-dir
-https://smdataparallel.s3.amazonaws.com/binary/pytorch/`<pytorch-version>/cuXYZ/YYYY-MM-DD/smdistributed_dataparallel-X.Y.Z-cp310-cp310-linux_x86_64`.whl`
+ https://smdataparallel.s3.amazonaws.com/binary/pytorch/`<pytorch-version>/cuXYZ/YYYY-MM-DD/smdistributed_dataparallel-X.Y.Z-cp310-cp310-linux_x86_64`.whl`
 
 ###### Note
 

@@ -44,7 +44,7 @@ the amount of overlap and degrading performance.
 Activation offloading can be useful for large models with over a hundred
 billion parameters.
 
-**Configure a SageMaker PyTorch estimator**
+**Configure a SageMaker PyTorch ModelTrainer**
 
 ```
 mpi_options = {

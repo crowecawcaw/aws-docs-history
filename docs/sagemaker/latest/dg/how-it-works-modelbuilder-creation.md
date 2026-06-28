@@ -34,7 +34,7 @@ XGBoost or PyTorch, or a user-specified inference specification and converts it 
 deployable model. `ModelBuilder` provides a build function that generates the
 artifacts for deployment. The model artifact generated is specific to the model server,
 which you can also specify as one of the inputs. For more details about the
-`ModelBuilder` class, see [ModelBuilder](https://sagemaker.readthedocs.io/en/stable/api/inference/model_builder.html#sagemaker.serve.builder.model_builder.ModelBuilder "https://sagemaker.readthedocs.io/en/stable/api/inference/model_builder.html#sagemaker.serve.builder.model_builder.ModelBuilder").
+`ModelBuilder` class, see [ModelBuilder](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html").
 
 The following diagram illustrates the overall model creation workflow when you use
 `ModelBuilder`. `ModelBuilder` accepts a model or inference specification
@@ -51,7 +51,7 @@ endpoint input and output). No container is specified and no packaged dependenci
 passed—SageMaker AI automatically infers these resources when you build your model.
 
 ```
-from sagemaker.serve.builder.model_builder import ModelBuilder
+from sagemaker.serve.model_builder import ModelBuilder
 from sagemaker.serve.builder.schema_builder import SchemaBuilder
 
 model_builder = ModelBuilder(
@@ -111,7 +111,7 @@ output = "Comment la démo va-t-elle?"
 schema = SchemaBuilder(input, output)
 ```
 
-For further details about `SchemaBuilder`, see [SchemaBuilder](https://sagemaker.readthedocs.io/en/stable/api/inference/model_builder.html#sagemaker.serve.builder.schema_builder.SchemaBuilder "https://sagemaker.readthedocs.io/en/stable/api/inference/model_builder.html#sagemaker.serve.builder.schema_builder.SchemaBuilder").
+For further details about `SchemaBuilder`, see [SchemaBuilder](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html").
 
 The following code snippet outlines an example where you want to customize both serialization
 and deserialization functions at the client and server sides. You can define your
@@ -203,7 +203,7 @@ customize the `invoke` method to control how the model preprocesses and
 postprocesses incoming requests. The `invoke` method ensures that the model
 handles inference requests correctly. The following example uses
 `InferenceSpec` to generate a model with the HuggingFace pipeline. For
-further details about `InferenceSpec`, refer to the [InferenceSpec](https://sagemaker.readthedocs.io/en/stable/api/inference/model_builder.html#sagemaker.serve.spec.inference_spec.InferenceSpec "https://sagemaker.readthedocs.io/en/stable/api/inference/model_builder.html#sagemaker.serve.spec.inference_spec.InferenceSpec").
+further details about `InferenceSpec`, refer to the [InferenceSpec](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html").
 
 ```
 from sagemaker.serve.spec.inference_spec import InferenceSpec
@@ -270,6 +270,17 @@ directs SageMaker AI to deploy the model on a single `ml.c6i.xlarge` instance.
 A model constructed from `ModelBuilder` enables live
 logging during deployment as an added feature.
 
+SageMaker Python SDK v3
+
+```
+endpoint = model_builder.deploy(
+    endpoint_name="`my-endpoint`",
+    instance_type="ml.c6i.xlarge"
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 predictor = model.deploy(
     initial_instance_count=1,
@@ -285,6 +296,28 @@ and maximum bound of memory (in MB). To use this feature, you need to specify yo
 endpoint type as `EndpointType.INFERENCE_COMPONENT_BASED`. The following example requests four accelerators,
 a minimum memory size of 1024 MB, and one copy of your model to be deployed to an endpoint
 of type `EndpointType.INFERENCE_COMPONENT_BASED`.
+
+SageMaker Python SDK v3
+
+```
+resource_requirements = ResourceRequirements(
+    requests={
+        "num_accelerators": 4,
+        "memory": 1024,
+        "copies": 1,
+    },
+    limits={},
+)
+endpoint = model_builder.deploy(
+    endpoint_name="`my-endpoint`",
+    mode=Mode.SAGEMAKER_ENDPOINT,
+    endpoint_type=EndpointType.INFERENCE_COMPONENT_BASED,
+    resources=resource_requirements,
+    role_arn="`role`"
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 resource_requirements = ResourceRequirements(
@@ -348,6 +381,14 @@ xgb_local_builder = model_builder_local.build()
 
 Call the `deploy` function to deploy locally, as shown in the following snippet.
 If you specify parameters for instance type or count, these arguments are ignored.
+
+SageMaker Python SDK v3
+
+```
+local_endpoint = xgb_local_builder.deploy_local()
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 predictor_local = xgb_local_builder.deploy()

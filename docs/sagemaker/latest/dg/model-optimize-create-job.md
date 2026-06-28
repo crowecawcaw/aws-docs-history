@@ -80,8 +80,8 @@ Studio.
      **From S3** - Select this option to
      provide model artifacts from Amazon S3. For **S3
      URI**, enter the URI for the location in Amazon S3
-     where you've stored your model artifacts. 6. (Optional) For \***\*Output
-     model name\*\***, you can enter a
+     where you've stored your model artifacts. 6. (Optional) For ****Output
+     model name****, you can enter a
      custom name for the optimized model that the job creates. If
      you don't provide a name, Studio automatically generates one
      based on your selection.
@@ -142,13 +142,11 @@ provides:
      In that case, Studio selects this option for you.
 
 3. For **Output**, enter the URI of a location in Amazon S3.
-   There, SageMaker AI stores the artifacts of the optimized model that your job
-   creates.
-4. (Optional) Expand **Advanced options** for more
-   fine-grained control over settings such as the IAM role, VPC, and
-   environment variables. For more information, see _Advanced options_ below.
-5. When you're finished configuring the job, choose **Create
-   job**.
+There, SageMaker AI stores the artifacts of the optimized model that your job
+creates. 4. (Optional) Expand **Advanced options** for more
+fine-grained control over settings such as the IAM role, VPC, and
+environment variables. For more information, see _Advanced options_ below. 5. When you're finished configuring the job, choose **Create
+job**.
 
 Studio shows the job details page, which shows the job status and all
 of its settings.
@@ -267,13 +265,25 @@ decoding, or compilation. When the job completes, you deploy the model to an
 inference endpoint by using the `deploy()` method.
 
 For more information about the classes and methods used in the following examples,
-see [APIs](https://sagemaker.readthedocs.io/en/stable/api/index.html "https://sagemaker.readthedocs.io/en/stable/api/index.html") in the SageMaker AI Python SDK documentation.
+see [APIs](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") in the SageMaker AI Python SDK documentation.
 
 ###### To set up your project
 
 1. In your application code, import the necessary libraries. The following
    example imports the SDK for Python (Boto3). It also imports the classes from the SageMaker AI
    Python SDK that you use to define and work with models:
+
+SageMaker Python SDK v3
+
+```
+import boto3
+from sagemaker.serve.model_builder import ModelBuilder
+from sagemaker.serve.builder.schema_builder import SchemaBuilder
+from sagemaker.core.helper.session_helper import Session
+from pathlib import Path
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import boto3
@@ -375,6 +385,17 @@ The `optimize()` method returns a `Model` object,
 which you can use to deploy your model to an endpoint. 2. When the job completes, deploy the model. The following example uses the
 `deploy()` method:
 
+SageMaker Python SDK v3
+
+```
+endpoint = model_builder.deploy(
+    instance_type="`instance-type`",
+    accept_eula=True,
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 predictor = optimized_model.deploy(
     instance_type="`instance-type`",
@@ -386,7 +407,7 @@ In this example, replace
 `instance-type` with an ML
 instance, such as `ml.p4d.24xlarge`.
 
-The `deploy()` method returns a predictor object, which you can
+The `deploy()` method returns an `Endpoint` object, which you can
 use to send inference requests to the endpoint that hosts the model.
 
 ###### To optimize with speculative decoding using the SageMaker AI draft model
@@ -423,11 +444,19 @@ The `optimize()` method returns a `Model` object,
 which you can use to deploy your model to an endpoint. 2. When the job completes, deploy the model. The following example uses the
 `deploy()` method:
 
+SageMaker Python SDK v3
+
+```
+endpoint = model_builder.deploy(accept_eula=True)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 predictor = optimized_model.deploy(accept_eula=True)
 ```
 
-The `deploy()` method returns a predictor object, which you can
+The `deploy()` method returns an `Endpoint` object, which you can
 use to send inference requests to the endpoint that hosts the model.
 
 ###### To optimize with speculative decoding using a custom draft model
@@ -507,11 +536,19 @@ The `optimize()` method returns a `Model` object,
 which you can use to deploy your model to an endpoint. 4. When the job completes, deploy the model. The following example uses the
 `deploy()` method:
 
+SageMaker Python SDK v3
+
+```
+endpoint = model_builder.deploy(accept_eula=True)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 predictor = optimized_model.deploy(accept_eula=True)
 ```
 
-The `deploy()` method returns a predictor object, which you can
+The `deploy()` method returns an `Endpoint` object, which you can
 use to send inference requests to the endpoint that hosts the model.
 
 ###### To optimize with compilation
@@ -548,27 +585,46 @@ path to the S3 location where you store the optimized model that the job
 creates. 2. When the job completes, deploy the model. The following example uses the
 `deploy()` method:
 
+SageMaker Python SDK v3
+
+```
+endpoint = model_builder.deploy(accept_eula=True)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 predictor = optimized_model.deploy(accept_eula=True)
 ```
 
-The `deploy()` method returns a predictor object, which you can
+The `deploy()` method returns an `Endpoint` object, which you can
 use to send inference requests to the endpoint that hosts the model.
 
 ###### To test your model with an inference request
 
 - To send a test inference request to your deployed model, use the
-  `predict()` method of a predictor object. The following
+  `invoke()` method of the `Endpoint` object. The following
   example passes the `sample_input` variable that was also passed
   to the `SchemaBuilder` class in the examples to define your
   model:
+
+SageMaker Python SDK v3
+
+```
+import json
+
+response = endpoint.invoke(body=json.dumps(sample_input), content_type="application/json")
+result = json.loads(response.body.read().decode('utf-8'))
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 predictor.predict(sample_input)
 ```
 
 The sample input has the prompt, `"What is the largest planet in the
- solar system?"`. The `predict()` method returns the
+ solar system?"`. The `invoke()` method returns the
 response that the model generated, as shown by the following example:
 
 ```
@@ -798,7 +854,7 @@ You can't do the following:
 
 - Use the model in local test environments that you create with local mode.
 
-For more information about local mode, see [Local Mode](https://sagemaker.readthedocs.io/en/stable/overview.html#local-mode "https://sagemaker.readthedocs.io/en/stable/overview.html#local-mode") in the SageMaker AI Python SDK documentation.
+For more information about local mode, see [Local Mode](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") in the SageMaker AI Python SDK documentation.
 
 - Access the model container through the AWS Systems Manager Agent (SSM Agent). The SSM
   Agent provides shell-level access to your model container so that you can debug

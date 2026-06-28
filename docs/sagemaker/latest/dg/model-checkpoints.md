@@ -59,7 +59,7 @@ built-in algorithms without requiring training script changes. SageMaker AI save
 checkpoints to the default local path `'/opt/ml/checkpoints'` and copies them
 to Amazon S3.
 
-- Deep Learning Containers: [TensorFlow](https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/sagemaker.tensorflow.html "https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/sagemaker.tensorflow.html"), [PyTorch](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html"), [MXNet](https://sagemaker.readthedocs.io/en/stable/frameworks/mxnet/sagemaker.mxnet.html "https://sagemaker.readthedocs.io/en/stable/frameworks/mxnet/sagemaker.mxnet.html"), and [HuggingFace](https://sagemaker.readthedocs.io/en/stable/frameworks/huggingface/sagemaker.huggingface.html "https://sagemaker.readthedocs.io/en/stable/frameworks/huggingface/sagemaker.huggingface.html")
+- Deep Learning Containers: [TensorFlow](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html"), [PyTorch](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html"), [MXNet](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html"), and [HuggingFace](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html")
 
 ###### Note
 

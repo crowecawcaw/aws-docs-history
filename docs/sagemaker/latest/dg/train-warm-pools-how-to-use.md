@@ -29,12 +29,65 @@ v2.110.0](https://pypi.org/project/sagemaker/2.110.0/ "https://pypi.org/project/
 
 ### Create a warm pool
 
-To create a warm pool, use the SageMaker Python SDK to create an estimator with a
-`keep_alive_period_in_seconds` value greater than 0 and call
-`fit()`. When the training job completes, a warm pool is
-retained. For more information on training scripts and estimators, see [Train a Model with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/overview.html#train-a-model-with-the-sagemaker-python-sdk "https://sagemaker.readthedocs.io/en/stable/overview.html#train-a-model-with-the-sagemaker-python-sdk"). If your script does not
+To create a warm pool, use the SageMaker Python SDK to create a training job with a
+`keep_alive_period_in_seconds` value greater than 0 and start training. When the training job completes, a warm pool is
+retained. If your script does not
 create a warm pool, see [Warm pool creation](train-warm-pools.md#train-warm-pools-creation "train-warm-pools.md#train-warm-pools-creation") for possible
 explanations.
+
+SageMaker Python SDK v3
+Use the SageMaker Python SDK to create a `ModelTrainer` with a
+`keep_alive_period_in_seconds` value greater than 0 in the
+`Compute` configuration and call
+`train()`. For more information on training with the SageMaker Python SDK, see [Train a Model with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/").
+
+```
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute, SourceCode
+from sagemaker.core.helper.session_helper import Session, get_execution_role
+from sagemaker.core import image_uris
+from sagemaker.train.configs import InputData
+
+# Creates a SageMaker AI session and gets execution role
+session = Session()
+role = get_execution_role()
+
+# Retrieve the TensorFlow training image
+training_image = image_uris.retrieve(
+    framework="tensorflow", region=session.boto_region_name,
+    version="`2.2`", py_version="`py37`",
+    instance_type="`ml.g4dn.xlarge`", image_scope="training"
+)
+
+# Creates an example ModelTrainer with warm pool enabled
+model_trainer = ModelTrainer(
+    training_image=training_image,
+    source_code=SourceCode(source_dir=`'code'`, entry_script=`'my-training-script.py'`),
+    role=role,
+    compute=Compute(
+        instance_type=`'ml.g4dn.xlarge'`,
+        instance_count=`1`,
+        volume_size_in_gb=`250`,
+        keep_alive_period_in_seconds=`1800`,
+    ),
+    hyperparameters={
+        "batch-size": "`512`",
+        "epochs": "`1`",
+        "learning-rate": "`1e-3`",
+        "beta_1": "`0.9`",
+        "beta_2": "`0.999`",
+    },
+)
+
+# Starts a SageMaker training job and waits until completion
+train_data = InputData(channel_name="training", data_source=`'s3://my_bucket/my_training_data/'`)
+model_trainer.train(input_data_config=[train_data])
+```
+
+SageMaker Python SDK v2 (Legacy)
+Use the SageMaker Python SDK to create an estimator with a
+`keep_alive_period_in_seconds` value greater than 0 and call
+`fit()`. For more information on training scripts and estimators, see [Train a Model with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/overview.html#train-a-model-with-the-sagemaker-python-sdk "https://sagemaker.readthedocs.io/en/stable/overview.html#train-a-model-with-the-sagemaker-python-sdk").
 
 ```
 import sagemaker
@@ -80,6 +133,36 @@ faster than the first training job. The following code example uses a Tensorflow
 estimator. The warm pool feature can be used with any training algorithm that
 runs on Amazon SageMaker AI. For more information on which attributes need to match, see
 [Matching training jobs](train-warm-pools.md#train-warm-pools-matching-criteria "train-warm-pools.md#train-warm-pools-matching-criteria").
+
+SageMaker Python SDK v3
+
+```
+# Creates a second ModelTrainer that reuses the warm pool
+model_trainer_2 = ModelTrainer(
+    training_image=training_image,
+    source_code=SourceCode(source_dir=`'code'`, entry_script=`'my-training-script.py'`),
+    role=role,
+    compute=Compute(
+        instance_type=`'ml.g4dn.xlarge'`,
+        instance_count=`1`,
+        volume_size_in_gb=`250`,
+        keep_alive_period_in_seconds=`1800`,
+    ),
+    hyperparameters={
+        "batch-size": "`512`",
+        "epochs": "`2`",
+        "learning-rate": "`1e-3`",
+        "beta_1": "`0.9`",
+        "beta_2": "`0.999`",
+    },
+)
+
+# Starts a SageMaker training job and waits until completion
+train_data = InputData(channel_name="training", data_source=`'s3://my_bucket/my_training_data/'`)
+model_trainer_2.train(input_data_config=[train_data])
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 # Creates an example estimator

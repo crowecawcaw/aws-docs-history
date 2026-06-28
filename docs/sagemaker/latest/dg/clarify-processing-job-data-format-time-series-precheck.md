@@ -25,10 +25,10 @@ aws sagemaker-runtime invoke-endpoint \
 The parameters are defined as follows:
 
 - $ENDPOINT NAME — The name of the endpoint.
-- $CONTENT_TYPE — The MIME type of the request (model container input).
-- $ACCEPT_TYPE — The MIME type of the response (model container output).
-- $REQUEST_DATA — The requested payload string.
-- $CLI_BINARY_FORMAT — The format of the command line interface (CLI)
+- $CONTENT\_TYPE — The MIME type of the request (model container input).
+- $ACCEPT\_TYPE — The MIME type of the response (model container output).
+- $REQUEST\_DATA — The requested payload string.
+- $CLI\_BINARY\_FORMAT — The format of the command line interface (CLI)
   parameter. For AWS CLI v1, this parameter should remain blank. For v2, this
   parameter should be set to `--cli-binary-format raw-in-base64-out`.
 

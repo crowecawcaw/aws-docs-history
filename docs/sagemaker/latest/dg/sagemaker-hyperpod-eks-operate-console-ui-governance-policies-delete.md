@@ -26,26 +26,25 @@ learn how to do so using the AWS CLI, see [Delete HyperPod task governance polic
 
 ###### To delete task governance policies (console)
 
-1.  Navigate to the [Amazon SageMaker AI
-    console](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
-2.  On the left navigation pane, under **HyperPod
-    Clusters**, choose **Cluster
-    Management**.
-3.  Choose your Amazon EKS cluster listed under **SageMaker HyperPod
-    clusters**.
-4.  Choose the **Policies** tab.
-5.  To delete your **Compute allocation**
-    (`ComputeQuota`):
+1. Navigate to the [Amazon SageMaker AI
+   console](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
+2. On the left navigation pane, under **HyperPod
+   Clusters**, choose **Cluster
+   Management**.
+3. Choose your Amazon EKS cluster listed under **SageMaker HyperPod
+   clusters**.
+4. Choose the **Policies** tab.
+5. To delete your **Compute allocation**
+   (`ComputeQuota`):
 
-        1. In the **Compute allocation** section,
-         select the configuration you want to delete.
-        2. In the **Actions** dropdown menu, choose
-         **Delete**.
-        3. Follow the instructions in the UI to complete the
-         task.
-
-    The following uses the AWS CLI to delete your HyperPod task
-    governance policies.
+   1. In the **Compute allocation** section,
+      select the configuration you want to delete.
+   2. In the **Actions** dropdown menu, choose
+      **Delete**.
+   3. Follow the instructions in the UI to complete the
+      task.
+      The following uses the AWS CLI to delete your HyperPod task
+      governance policies.
 
 ###### Note
 

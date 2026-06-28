@@ -104,7 +104,7 @@ single-node and multi-node with single or multi GPU cores and Automatic
 Mixed Precision (AMP) as indicated.
 
 | Single-node/multi-node<br>single-GPU/multi-GPU |
-| ---------------------------------------------- | ----------------- | ------------- | --------- | --------------- | -------------------------------- | ------------------------------------------ |
+| ---------------------------------------------- |
 | Model                                          | Dataset           | Instance type | Precision | Sequence Length | Batch size for native frameworks | Batch size for SageMaker Training Compiler |
 | albert-base-v2                                 | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 128             | 80                               | 192                                        |
 | albert-base-v2                                 | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128             | 128                              | 332                                        |
@@ -141,7 +141,7 @@ Model Garden](https://github.com/tensorflow/models "https://github.com/tensorflo
 indicated.
 
 | Single/multi-node<br>single/multi-GPU |
-| ------------------------------------- | ------- | ------------- | --------- | -------------------------------- | ------------------------------------------ |
+| ------------------------------------- |
 | Model                                 | Dataset | Instance type | Precision | Batch size for native frameworks | Batch size for SageMaker Training Compiler |
 | ResNet152                             | food101 | g4dn.16xlarge | float16   | 128                              | 144                                        |
 | ResNet152                             | food101 | g5.4xlarge    | float16   | 128                              | 192                                        |
@@ -158,7 +158,7 @@ single-node and multi-node with single or multi GPU cores and Automatic
 Mixed Precision (AMP) as indicated.
 
 | Single-node/multi-node<br>single-GPU/multi-GPU |
-| ---------------------------------------------- | ----------------- | --------------- | --------- | --------------- | -------------------------------- | ------------------------------------------ |
+| ---------------------------------------------- |
 | Model                                          | Dataset           | Instance type   | Precision | Sequence Length | Batch size for native frameworks | Batch size for SageMaker Training Compiler |
 | albert-base-v2                                 | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 128             | 128                              | 248                                        |
 | bert-base-uncased                              | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 128             | 160                              | 288                                        |
@@ -185,7 +185,7 @@ Model Garden](https://github.com/tensorflow/models "https://github.com/tensorflo
 indicated.
 
 | Single/multi-node<br>single/multi-GPU |
-| ------------------------------------- | --------- | ------------- | --------- | -------------------------------- | ------------------------------------------ |
+| ------------------------------------- |
 | Model                                 | Dataset   | Instance type | Precision | Batch size for native frameworks | Batch size for SageMaker Training Compiler |
 | MaskRCNN-ResNet50-FPN                 | COCO-2017 | ml.g5.2xlarge | float16   | 6                                | 8                                          |
 | MaskRCNN-ResNet50-FPN                 | COCO-2017 | ml.p3.2xlarge | float16   | 4                                | 6                                          |
@@ -205,7 +205,7 @@ Tested using [Transformer models](https://github.com/huggingface/transformers "h
 Automatic Mixed Precision (AMP) as indicated.
 
 | Single/multi-node<br>single/multi-GPU |
-| ------------------------------------- | ----------------- | --------------- | --------- | -------------------------------- | ------------------------------------------ |
+| ------------------------------------- |
 | Model                                 | Dataset           | Instance type   | Precision | Batch size for native frameworks | Batch size for SageMaker Training Compiler |
 | albert-base-v2                        | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 160                              | 197                                        |
 | albert-base-v2                        | wikitext-2-raw-v1 | ml.p3.2xlarge   | float16   | 95                               | 127                                        |
@@ -244,7 +244,7 @@ Model Garden](https://github.com/tensorflow/models "https://github.com/tensorflo
 indicated.
 
 | Single-node<br>single-GPU/multi-GPU |
-| ----------------------------------- | --------- | --------------- | --------- | -------------------------------- | ------------------------------------------ |
+| ----------------------------------- |
 | Model                               | Dataset   | Instance type   | Precision | Batch size for native frameworks | Batch size for SageMaker Training Compiler |
 | DetectionTransformer-ResNet50       | COCO-2017 | ml.g4dn.2xlarge | float32   | 2                                | 4                                          |
 | DetectionTransformer-ResNet50       | COCO-2017 | ml.g5.2xlarge   | float32   | 3                                | 6                                          |
@@ -277,7 +277,7 @@ Tested using [Transformer models](https://github.com/huggingface/transformers "h
 Automatic Mixed Precision (AMP) as indicated.
 
 | Single-node<br>single-GPU/multi-GPU |
-| ----------------------------------- | ----------------- | ------------- | --------- | -------------------------------- | ------------------------------------------ |
+| ----------------------------------- |
 | Model                               | Dataset           | Instance type | Precision | Batch size for native frameworks | Batch size for SageMaker Training Compiler |
 | albert-base-v2                      | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 128                              | 112                                        |
 | albert-base-v2                      | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 128                              | 128                                        |
@@ -298,22 +298,22 @@ Automatic Mixed Precision (AMP) as indicated.
 | distilbert-base-uncased             | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 128                              | 176                                        |
 | distilbert-base-uncased             | wikitext-2-raw-v1 | p3.8xlarge    | float16   | 128                              | 160                                        |
 | distilbert-base-uncased             | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 256                              | 258                                        |
-| google_electra-small-discriminator  | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 256                              | 216                                        |
-| google_electra-small-discriminator  | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 256                              | 230                                        |
-| google_electra-small-discriminator  | wikitext-2-raw-v1 | p3.8xlarge    | float16   | 256                              | 224                                        |
-| google_electra-small-discriminator  | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 256                              | 320                                        |
+| google\_electra-small-discriminator | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 256                              | 216                                        |
+| google\_electra-small-discriminator | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 256                              | 230                                        |
+| google\_electra-small-discriminator | wikitext-2-raw-v1 | p3.8xlarge    | float16   | 256                              | 224                                        |
+| google\_electra-small-discriminator | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 256                              | 320                                        |
 | gpt2                                | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 80                               | 64                                         |
 | gpt2                                | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 80                               | 77                                         |
 | gpt2                                | wikitext-2-raw-v1 | p3.8xlarge    | float16   | 80                               | 72                                         |
 | gpt2                                | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128                              | 120                                        |
-| jplu_tf-xlm-roberta-base            | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 28                               | 24                                         |
-| jplu_tf-xlm-roberta-base            | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 32                               | 24                                         |
-| jplu_tf-xlm-roberta-base            | wikitext-2-raw-v1 | p3.8xlarge    | float16   | 32                               | 26                                         |
-| jplu_tf-xlm-roberta-base            | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 66                               | 52                                         |
-| microsoft_mpnet-base                | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 96                               | 92                                         |
-| microsoft_mpnet-base                | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 96                               | 101                                        |
-| microsoft_mpnet-base                | wikitext-2-raw-v1 | p3.8xlarge    | float16   | 96                               | 101                                        |
-| microsoft_mpnet-base                | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128                              | 152                                        |
+| jplu\_tf-xlm-roberta-base           | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 28                               | 24                                         |
+| jplu\_tf-xlm-roberta-base           | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 32                               | 24                                         |
+| jplu\_tf-xlm-roberta-base           | wikitext-2-raw-v1 | p3.8xlarge    | float16   | 32                               | 26                                         |
+| jplu\_tf-xlm-roberta-base           | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 66                               | 52                                         |
+| microsoft\_mpnet-base               | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 96                               | 92                                         |
+| microsoft\_mpnet-base               | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 96                               | 101                                        |
+| microsoft\_mpnet-base               | wikitext-2-raw-v1 | p3.8xlarge    | float16   | 96                               | 101                                        |
+| microsoft\_mpnet-base               | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128                              | 152                                        |
 | roberta-base                        | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 64                               | 72                                         |
 | roberta-base                        | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 64                               | 84                                         |
 | roberta-base                        | wikitext-2-raw-v1 | p3.8xlarge    | float16   | 64                               | 86                                         |
@@ -323,7 +323,7 @@ Tested using [TensorFlow
 Model Garden](https://github.com/tensorflow/models "https://github.com/tensorflow/models") with Automatic Mixed Precision (AMP).
 
 | Single-node<br>single-GPU/multi-GPU |
-| ----------------------------------- | --------- | --------------- | -------------------------------- | ------------------------------------------ |
+| ----------------------------------- |
 | Model                               | Dataset   | Instance type   | Batch size for native frameworks | Batch size for SageMaker Training Compiler |
 | ResNet50                            | ImageNet  | ml.g4dn.2xlarge | 192                              | 256\*                                      |
 | ResNet101                           | ImageNet  | ml.g4dn.2xlarge | 128                              | 160                                        |
@@ -353,7 +353,7 @@ Tested with `Sequence_Len=512` and Automatic Mixed Precision
 (AMP).
 
 | Single-node single-GPU    |
-| ------------------------- | --------------- | --------------- | -------------- | -------------------------------- | -------------------------------- |
+| ------------------------- |
 | Model                     | Dataset         | Instance type   | Instance count | Batch size for native frameworks | Batch size for Training Compiler |
 | albert-base-v2            | wikitext-2      | ml.g4dn.2xlarge | 1              | 14                               | 28                               |
 | ml.g5.2xlarge             | 1               | 18              | 40             |
@@ -399,7 +399,7 @@ Tested with `Sequence_Len=512` and Automatic Mixed Precision
 (AMP).
 
 | Single-node single-GPU  |
-| ----------------------- | ------------- | -------------------------------- | -------------------------------- |
+| ----------------------- |
 | Model                   | Instance type | Batch size for native frameworks | Batch size for Training Compiler |
 | albert-base-v2          | ml.p3.2xlarge | 14                               | 28                               |
 | ml.g4dn.2xlarge         | 14            | 24                               |
@@ -430,7 +430,7 @@ Tested with `Sequence_Len=512` and Automatic Mixed Precision
 (AMP).
 
 | Single-node single-GPU                                 |
-| ------------------------------------------------------ | ------------- | --------------------- | -------------------------------- |
+| ------------------------------------------------------ |
 | Model                                                  | Instance type | Batch size for native | Batch size for Training Compiler |
 | albert-base-v2                                         | ml.p3.2xlarge | 12                    | 32                               |
 | bert-base-cased                                        | ml.p3.2xlarge | 14                    | 24                               |
@@ -449,7 +449,7 @@ Tested with `Sequence_Len=512` and Automatic Mixed Precision
 | roberta-base                                           | ml.p3.2xlarge | 12                    | 20                               |
 
 | Single-node multi-GPU          |
-| ------------------------------ | ------------- | --------------------- | -------------------------------- |
+| ------------------------------ |
 | Model                          | Instance type | Batch size for native | Batch size for Training Compiler |
 | bert-base-chinese              | ml.p3.8xlarge | 16                    | 26                               |
 | bert-base-multilingual-cased   | ml.p3.8xlarge | 6                     | 16                               |
@@ -464,49 +464,49 @@ Tested with `Sequence_Len=512` and Automatic Mixed Precision
 Tested with `Sequence_Len=128` and Automatic Mixed Precision
 (AMP).
 
-| Model                              | Instance type    | Batch size for native frameworks | Batch size for Training Compiler |
-| ---------------------------------- | ---------------- | -------------------------------- | -------------------------------- |
-| albert-base-v2                     | ml.g4dn.16xlarge | 136                              | 208                              |
-| albert-base-v2                     | ml.g5.4xlarge    | 219                              | 312                              |
-| albert-base-v2                     | ml.p3.2xlarge    | 152                              | 208                              |
-| albert-base-v2                     | ml.p3.8xlarge    | 152                              | 192                              |
-| bert-base-uncased                  | ml.g4dn.16xlarge | 120                              | 101                              |
-| bert-base-uncased                  | ml.g5.4xlarge    | 184                              | 160                              |
-| bert-base-uncased                  | ml.p3.2xlarge    | 128                              | 108                              |
-| bert-large-uncased                 | ml.g4dn.16xlarge | 37                               | 28                               |
-| bert-large-uncased                 | ml.g5.4xlarge    | 64                               | 55                               |
-| bert-large-uncased                 | ml.p3.2xlarge    | 40                               | 32                               |
-| camembert-base                     | ml.g4dn.16xlarge | 96                               | 100                              |
-| camembert-base                     | ml.g5.4xlarge    | 190                              | 160                              |
-| camembert-base                     | ml.p3.2xlarge    | 129                              | 108                              |
-| camembert-base                     | ml.p3.8xlarge    | 128                              | 104                              |
-| distilbert-base-uncased            | ml.g4dn.16xlarge | 210                              | 160                              |
-| distilbert-base-uncased            | ml.g5.4xlarge    | 327                              | 288                              |
-| distilbert-base-uncased            | ml.p3.2xlarge    | 224                              | 196                              |
-| distilbert-base-uncased            | ml.p3.8xlarge    | 192                              | 182                              |
-| google_electra-small-discriminator | ml.g4dn.16xlarge | 336                              | 288                              |
-| google_electra-small-discriminator | ml.g5.4xlarge    | 504                              | 384                              |
-| google_electra-small-discriminator | ml.p3.2xlarge    | 352                              | 323                              |
-| gpt2                               | ml.g4dn.16xlarge | 89                               | 64                               |
-| gpt2                               | ml.g5.4xlarge    | 140                              | 146                              |
-| gpt2                               | ml.p3.2xlarge    | 94                               | 96                               |
-| gpt2                               | ml.p3.8xlarge    | 96                               | 88                               |
-| jplu_tf-xlm-roberta-base           | ml.g4dn.16xlarge | 52                               | 16                               |
-| jplu_tf-xlm-roberta-base           | ml.g5.4xlarge    | 64                               | 44                               |
-| microsoft_mpnet-base               | ml.g4dn.16xlarge | 120                              | 100                              |
-| microsoft_mpnet-base               | ml.g5.4xlarge    | 192                              | 160                              |
-| microsoft_mpnet-base               | ml.p3.2xlarge    | 128                              | 104                              |
-| microsoft_mpnet-base               | ml.p3.8xlarge    | 130                              | 92                               |
-| roberta-base                       | ml.g4dn.16xlarge | 108                              | 64                               |
-| roberta-base                       | ml.g5.4xlarge    | 176                              | 142                              |
-| roberta-base                       | ml.p3.2xlarge    | 118                              | 100                              |
-| roberta-base                       | ml.p3.8xlarge    | 112                              | 88                               |
+| Model                               | Instance type    | Batch size for native frameworks | Batch size for Training Compiler |
+| ----------------------------------- | ---------------- | -------------------------------- | -------------------------------- |
+| albert-base-v2                      | ml.g4dn.16xlarge | 136                              | 208                              |
+| albert-base-v2                      | ml.g5.4xlarge    | 219                              | 312                              |
+| albert-base-v2                      | ml.p3.2xlarge    | 152                              | 208                              |
+| albert-base-v2                      | ml.p3.8xlarge    | 152                              | 192                              |
+| bert-base-uncased                   | ml.g4dn.16xlarge | 120                              | 101                              |
+| bert-base-uncased                   | ml.g5.4xlarge    | 184                              | 160                              |
+| bert-base-uncased                   | ml.p3.2xlarge    | 128                              | 108                              |
+| bert-large-uncased                  | ml.g4dn.16xlarge | 37                               | 28                               |
+| bert-large-uncased                  | ml.g5.4xlarge    | 64                               | 55                               |
+| bert-large-uncased                  | ml.p3.2xlarge    | 40                               | 32                               |
+| camembert-base                      | ml.g4dn.16xlarge | 96                               | 100                              |
+| camembert-base                      | ml.g5.4xlarge    | 190                              | 160                              |
+| camembert-base                      | ml.p3.2xlarge    | 129                              | 108                              |
+| camembert-base                      | ml.p3.8xlarge    | 128                              | 104                              |
+| distilbert-base-uncased             | ml.g4dn.16xlarge | 210                              | 160                              |
+| distilbert-base-uncased             | ml.g5.4xlarge    | 327                              | 288                              |
+| distilbert-base-uncased             | ml.p3.2xlarge    | 224                              | 196                              |
+| distilbert-base-uncased             | ml.p3.8xlarge    | 192                              | 182                              |
+| google\_electra-small-discriminator | ml.g4dn.16xlarge | 336                              | 288                              |
+| google\_electra-small-discriminator | ml.g5.4xlarge    | 504                              | 384                              |
+| google\_electra-small-discriminator | ml.p3.2xlarge    | 352                              | 323                              |
+| gpt2                                | ml.g4dn.16xlarge | 89                               | 64                               |
+| gpt2                                | ml.g5.4xlarge    | 140                              | 146                              |
+| gpt2                                | ml.p3.2xlarge    | 94                               | 96                               |
+| gpt2                                | ml.p3.8xlarge    | 96                               | 88                               |
+| jplu\_tf-xlm-roberta-base           | ml.g4dn.16xlarge | 52                               | 16                               |
+| jplu\_tf-xlm-roberta-base           | ml.g5.4xlarge    | 64                               | 44                               |
+| microsoft\_mpnet-base               | ml.g4dn.16xlarge | 120                              | 100                              |
+| microsoft\_mpnet-base               | ml.g5.4xlarge    | 192                              | 160                              |
+| microsoft\_mpnet-base               | ml.p3.2xlarge    | 128                              | 104                              |
+| microsoft\_mpnet-base               | ml.p3.8xlarge    | 130                              | 92                               |
+| roberta-base                        | ml.g4dn.16xlarge | 108                              | 64                               |
+| roberta-base                        | ml.g5.4xlarge    | 176                              | 142                              |
+| roberta-base                        | ml.p3.2xlarge    | 118                              | 100                              |
+| roberta-base                        | ml.p3.8xlarge    | 112                              | 88                               |
 
 Tested with `Sequence_Len=128` and Automatic Mixed Precision
 (AMP).
 
 | Single-node single-GPU                          |
-| ----------------------------------------------- | ------------- | --------------------- | -------------------------------- |
+| ----------------------------------------------- |
 | Model                                           | Instance type | Batch size for native | Batch size for Training Compiler |
 | albert-base-v2                                  | ml.p3.2xlarge | 128                   | 128                              |
 | bart-base                                       | ml.p3.2xlarge | 12                    | 64                               |

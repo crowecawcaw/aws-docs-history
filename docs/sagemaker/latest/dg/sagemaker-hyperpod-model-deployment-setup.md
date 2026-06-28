@@ -1202,7 +1202,7 @@ aws iam attach-role-policy \
    AWS resource identifiers and generates the Helm installation command with
    the appropriate configuration parameters.
 
-Access the helm chart from [https://github.com/aws/sagemaker-hyperpod-cli/tree/main/helm_chart](https://github.com/aws/sagemaker-hyperpod-cli/tree/main/helm_chart "https://github.com/aws/sagemaker-hyperpod-cli/tree/main/helm_chart")
+Access the helm chart from [https://github.com/aws/sagemaker-hyperpod-cli/tree/main/helm\_chart](https://github.com/aws/sagemaker-hyperpod-cli/tree/main/helm_chart "https://github.com/aws/sagemaker-hyperpod-cli/tree/main/helm_chart")
 .
 
 ```

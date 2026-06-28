@@ -19,7 +19,7 @@ The following example uses the `to_pipeline` and `execute`
 APIs.
 
 ```
-from sagemaker.feature_store.feature_processor import (
+from sagemaker.mlops.feature_store.feature_processor import (
     execute, to_pipeline, describe, TransformationCode
 )
 
@@ -52,7 +52,7 @@ The following example uses the `list_pipelines` and `describe`
 APIs.
 
 ```
-from sagemaker.feature_store.feature_processor import list_pipelines, describe
+from sagemaker.mlops.feature_store.feature_processor import list_pipelines, describe
 
 feature_processor_pipelines = list_pipelines()
 

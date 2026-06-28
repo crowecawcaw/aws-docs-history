@@ -88,8 +88,24 @@ boto3.client('sagemaker').create_training_job(
 ### Opt out of metadata collection using the SageMaker Python SDK
 
 To opt out of metadata collection using the SageMaker Python SDK, set the environment
-variable `OPT_OUT_TRACKING` to `1` inside a SageMaker AI estimator as
+variable `OPT_OUT_TRACKING` to `1` inside a SageMaker AI ModelTrainer as
 shown in the following code example.
+
+SageMaker Python SDK v3
+
+```
+sagemaker.train.ModelTrainer(
+    image_uri='`path_to_container`',
+    role='`rolearn`',
+    instance_count=`1`,
+    instance_type='`ml.c5.xlarge`',
+    environment={
+        'OPT_OUT_TRACKING': '1'
+    },
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 sagemaker.estimator(
@@ -120,7 +136,7 @@ SageMaker:
 ```
 
 For more information about how to opt out of tracking account-wide, see [Configuring
-and using defaults with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/overview.html#id22 "https://sagemaker.readthedocs.io/en/stable/overview.html#id22").
+and using defaults with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/").
 
 ## Additional information
 

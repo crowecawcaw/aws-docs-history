@@ -20,6 +20,64 @@ code example, SageMaker Python SDK provides the XGBoost API as a framework. This
 functions similarly to how SageMaker AI provides other framework APIs, such as
 TensorFlow, MXNet, and PyTorch.
 
+SageMaker Python SDK v3
+
+```
+import boto3
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute, SourceCode
+from sagemaker.train.configs import InputData
+from sagemaker.core.helper.session_helper import Session, get_execution_role
+from sagemaker.core import image_uris
+
+# initialize hyperparameters
+hyperparameters = {
+        "max_depth":"5",
+        "eta":"0.2",
+        "gamma":"4",
+        "min_child_weight":"6",
+        "subsample":"0.7",
+        "verbosity":"1",
+        "objective":"reg:squarederror",
+        "num_round":"50"}
+
+# set an output path where the trained model will be saved
+bucket = Session().default_bucket()
+prefix = 'DEMO-xgboost-as-a-framework'
+output_path = 's3://{}/{}/{}/output'.format(bucket, prefix, 'abalone-xgb-framework')
+
+# retrieve the XGBoost training image
+training_image = image_uris.retrieve("xgboost", region, "`1.7-1`")
+
+# construct a SageMaker AI ModelTrainer with source code for custom training script
+source_code = SourceCode(
+    source_dir="`./src`",
+    entry_script="`your_xgboost_abalone_script.py`"
+)
+
+compute = Compute(
+    instance_type='ml.m5.2xlarge',
+    instance_count=1
+)
+
+model_trainer = ModelTrainer(
+    training_image=training_image,
+    source_code=source_code,
+    compute=compute,
+    hyperparameters=hyperparameters,
+    role=get_execution_role()
+)
+
+# define the input data channels
+train_input = InputData(channel_name="train", data_source="s3://{}/{}/{}/".format(bucket, prefix, 'train'))
+validation_input = InputData(channel_name="validation", data_source="s3://{}/{}/{}/".format(bucket, prefix, 'validation'))
+
+# execute the XGBoost training job
+model_trainer.train(input_data_config=[train_input, validation_input])
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 import boto3
 import sagemaker
@@ -76,6 +134,72 @@ parameters for built-in algorithms](sagemaker-algo-docker-registry-paths.md "sag
 `xgboost` from the full list of built-in algorithm image URIs and
 available regions.
 
+SageMaker Python SDK v3
+After specifying the XGBoost image URI, use the XGBoost container to construct
+a `ModelTrainer` and initiate a training job. This
+XGBoost built-in algorithm mode does not incorporate your own XGBoost training
+script and runs directly on the input datasets.
+
+###### Important
+
+When you retrieve the SageMaker AI XGBoost image URI, do not use
+`:latest` or `:1` for the image URI tag. You must
+specify one of the [Supported versions](xgboost.md#xgboost-supported-versions "xgboost.md#xgboost-supported-versions") to choose the SageMaker AI-managed
+XGBoost container with the native XGBoost package version that you want to
+use. To find the package version migrated into the SageMaker AI XGBoost containers,
+see [Docker Registry Paths and Example Code](../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md "../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md"). Then choose your
+AWS Region, and navigate to the **XGBoost
+(algorithm)** section.
+
+```
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute
+from sagemaker.train.configs import InputData
+from sagemaker.core.helper.session_helper import Session, get_execution_role
+from sagemaker.core import image_uris
+
+# initialize hyperparameters
+hyperparameters = {
+        "max_depth":"5",
+        "eta":"0.2",
+        "gamma":"4",
+        "min_child_weight":"6",
+        "subsample":"0.7",
+        "objective":"reg:squarederror",
+        "num_round":"50"}
+
+# set an output path where the trained model will be saved
+bucket = Session().default_bucket()
+prefix = 'DEMO-xgboost-as-a-built-in-algo'
+output_path = 's3://{}/{}/{}/output'.format(bucket, prefix, 'abalone-xgb-built-in-algo')
+
+# this line automatically looks for the XGBoost image URI and builds an XGBoost container.
+# specify the version depending on your preference.
+xgboost_container = image_uris.retrieve("xgboost", region, "`1.7-1`")
+
+# construct a SageMaker AI ModelTrainer that uses the xgboost-container
+compute = Compute(
+    instance_type='ml.m5.2xlarge',
+    instance_count=1,
+    volume_size_in_gb=5
+)
+
+model_trainer = ModelTrainer(
+    training_image=xgboost_container,
+    hyperparameters=hyperparameters,
+    role=get_execution_role(),
+    compute=compute
+)
+
+# define the input data channels
+train_input = InputData(channel_name="train", data_source="s3://{}/{}/{}/".format(bucket, prefix, 'train'))
+validation_input = InputData(channel_name="validation", data_source="s3://{}/{}/{}/".format(bucket, prefix, 'validation'))
+
+# execute the XGBoost training job
+model_trainer.train(input_data_config=[train_input, validation_input])
+```
+
+SageMaker Python SDK v2 (Legacy)
 After specifying the XGBoost image URI, use the XGBoost container to construct
 an estimator using the SageMaker AI Estimator API and initiate a training job. This
 XGBoost built-in algorithm mode does not incorporate your own XGBoost training

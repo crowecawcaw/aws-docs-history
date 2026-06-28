@@ -27,10 +27,10 @@ hook=smd.get_hook(create_if_not_exists=True)
 ```
 
 When you launch a training job in [Launch training jobs with Debugger using the SageMaker Python SDK](debugger-configuration-for-debugging.md "debugger-configuration-for-debugging.md") with any of the
-DebuggerHookConfig, TensorBoardConfig, or Rules in your estimator, SageMaker AI
+DebuggerHookConfig, TensorBoardConfig, or Rules in your ModelTrainer, SageMaker AI
 adds a JSON configuration file to your training instance that is picked up
 by the `get_hook` function. Note that if you do not include any
-of the configuration APIs in your estimator, there will be no configuration
+of the configuration APIs in your ModelTrainer, there will be no configuration
 file for the hook to find, and the function returns
 `None`.
 

@@ -27,6 +27,23 @@ Amazon Resource Name (ARN) of the new Model Group.
 
 First, import the required packages and set up the SageMaker AI Boto3 client.
 
+SageMaker Python SDK v3
+
+```
+import time
+import os
+from sagemaker.core.helper.session_helper import get_execution_role, session
+import boto3
+
+region = boto3.Session().region_name
+
+role = get_execution_role()
+
+sm_client = boto3.client('sagemaker', region_name=region)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 import time
 import os
@@ -42,6 +59,8 @@ sm_client = boto3.client('sagemaker', region_name=region)
 
 Now create the Model Group.
 
+SageMaker Python SDK v3
+
 ```
 import time
 model_package_group_name = "scikit-iris-detector-" + str(round(time.time()))
@@ -52,6 +71,21 @@ model_package_group_input_dict = {
 
 create_model_package_group_response = sm_client.create_model_package_group(**model_package_group_input_dict)
 print('ModelPackageGroup Arn : {}'.format(create_model_package_group_response['ModelPackageGroupArn']))
+```
+
+SageMaker Python SDK v2 (Legacy)
+
+```
+import time
+import os
+from sagemaker import get_execution_role, session
+import boto3
+
+region = boto3.Session().region_name
+
+role = get_execution_role()
+
+sm_client = boto3.client('sagemaker', region_name=region)
 ```
 
 ## Create a Model Group (Studio or Studio Classic)
@@ -101,7 +135,7 @@ Studio Classic
    Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
 2. In the left navigation pane, choose the
    **Home** icon (
-   ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+   ![Home icon.](images/studio/icons/house.png)
    ).
 3. Choose **Models**, and then
    **Model registry**.

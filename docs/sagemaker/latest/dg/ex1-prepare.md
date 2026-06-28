@@ -45,12 +45,12 @@ infrastructure.
    - If you opened the notebook in the JupyterLab view, on the
      **File** menu, choose **New**, and
      then choose **Notebook**. For **Select
-     Kernel**, choose **conda_python3**. This
+     Kernel**, choose **conda\_python3**. This
      preinstalled environment includes the default Anaconda installation and
      Python 3.
    - If you opened the notebook in the classic Jupyter view, on the
      **Files** tab, choose **New**, and
-     then choose **conda_python3**. This preinstalled
+     then choose **conda\_python3**. This preinstalled
      environment includes the default Anaconda installation and Python 3.
 
 3. Save the notebooks as follows:

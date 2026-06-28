@@ -193,7 +193,7 @@ post-annotation Lambda. This Lambda is generally used for [Annotation consolidat
 
 ###### Note
 
-To see an example of a post-consolidation Lambda function, see [annotation_consolidation_lambda.py](https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe/blob/master/aws_sagemaker_ground_truth_sample_lambda/annotation_consolidation_lambda.py "https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe/blob/master/aws_sagemaker_ground_truth_sample_lambda/annotation_consolidation_lambda.py") in the [aws-sagemaker-ground-truth-recipe](https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe "https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe") GitHub repository.
+To see an example of a post-consolidation Lambda function, see [annotation\_consolidation\_lambda.py](https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe/blob/master/aws_sagemaker_ground_truth_sample_lambda/annotation_consolidation_lambda.py "https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe/blob/master/aws_sagemaker_ground_truth_sample_lambda/annotation_consolidation_lambda.py") in the [aws-sagemaker-ground-truth-recipe](https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe "https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe") GitHub repository.
 
 The following code block contains the post-annotation request schema. Each
 parameter is described in the following bulleted list.
@@ -372,7 +372,7 @@ Bounding Box Payload
 
 Your post-annotation Lambda function may contain logic similar to the following
 to loop through and access all annotations contained in the request. For a full
-example, see [annotation_consolidation_lambda.py](https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe/blob/master/aws_sagemaker_ground_truth_sample_lambda/annotation_consolidation_lambda.py "https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe/blob/master/aws_sagemaker_ground_truth_sample_lambda/annotation_consolidation_lambda.py") in the [aws-sagemaker-ground-truth-recipe](https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe "https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe") GitHub repository. In this GitHub
+example, see [annotation\_consolidation\_lambda.py](https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe/blob/master/aws_sagemaker_ground_truth_sample_lambda/annotation_consolidation_lambda.py "https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe/blob/master/aws_sagemaker_ground_truth_sample_lambda/annotation_consolidation_lambda.py") in the [aws-sagemaker-ground-truth-recipe](https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe "https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe") GitHub repository. In this GitHub
 example, you must add your own annotation consolidation logic.
 
 ```

@@ -17,13 +17,13 @@ You need to specify the `training_job_name` and `region`
 parameters to log to a training job. There are two ways to specify the training job
 information:
 
-- Use the SageMaker Python SDK while the estimator is still attached to the
+- Use the SageMaker Python SDK while the ModelTrainer is still attached to the
   training job.
 
 ```
 import sagemaker
-training_job_name=estimator.latest_training_job.job_name
-region=sagemaker.Session().boto_region_name
+training_job_name=model_trainer.latest_training_job.job_name
+region=Session().boto_region_name
 ```
 
 - Pass strings directly.
@@ -43,7 +43,7 @@ enable framework profiling.
 
 - If you use SageMaker Python SDK to manipulate your training job request, pass
   the `framework_profile_params` to the
-  `profiler_config` argument of your estimator. To learn more,
+  `profiler_config` argument of your ModelTrainer. To learn more,
   see [Configure SageMaker Debugger Framework Profiling](debugger-configure-framework-profiling.md "debugger-configure-framework-profiling.md").
 - If you use Studio Classic, turn on profiling using the **Profiling** toggle button in the Debugger insights dashboard. To
   learn more, see [SageMaker Debugger Insights Dashboard Controller](debugger-on-studio-insights-controllers.md "debugger-on-studio-insights-controllers.md").

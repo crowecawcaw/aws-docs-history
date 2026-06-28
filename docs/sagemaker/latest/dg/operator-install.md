@@ -172,10 +172,10 @@ jupyter-k8s-aws-hyperpod:
 **Replace the following
 placeholders:**
 
-- <DOMAIN_NAME>: Your domain name (e.g.,
+- <DOMAIN\_NAME>: Your domain name (e.g.,
   `jupyter.example.com`)
-- <ACM_CERTIFICATE_ARN>: Your ACM certificate ARN (e.g. `arn:aws:acm:us-west-2:111122223333:certificate/12345678-1234-1234-1234-123456789012`,
-- <KMS_KEY_ARN>: Your KMS key ARN (e.g., `arn:aws:kms:us-west-2:111122223333:key/12345678-1234-1234-1234-123456789012`
+- <ACM\_CERTIFICATE\_ARN>: Your ACM certificate ARN (e.g. `arn:aws:acm:us-west-2:111122223333:certificate/12345678-1234-1234-1234-123456789012`,
+- <KMS\_KEY\_ARN>: Your KMS key ARN (e.g., `arn:aws:kms:us-west-2:111122223333:key/12345678-1234-1234-1234-123456789012`
 
 ##### Installation via AWS CLI
 

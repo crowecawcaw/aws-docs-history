@@ -6,7 +6,7 @@ previous runs within the timeout period, the step runs again. These attributes i
 artifacts, app or algorithm specification, and environment variables. The following list shows
 each pipeline step type and the attributes that, if changed, initiate a rerun of the step. For
 more information about which Python SDK parameters are used to create the following
-attributes, see [Caching Configuration](https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_model_building_pipeline.html#caching-configuration "https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_model_building_pipeline.html#caching-configuration") in the Amazon SageMaker Python SDK documentation.
+attributes, see [Caching Configuration](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#caching-configuration "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#caching-configuration") in the Amazon SageMaker Python SDK documentation.
 
 - AppSpecification
 - Environment

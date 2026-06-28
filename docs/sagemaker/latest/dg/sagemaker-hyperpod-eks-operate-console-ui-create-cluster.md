@@ -121,10 +121,10 @@ create your first HyperPod cluster with Amazon EKS orchestration.
 Specify a name for the new cluster. You can’t change the name after
 the cluster is created.
 
-For **Instance recovery**, choose \*\*Automatic
+For **Instance recovery**, choose **Automatic
 
-- \*recommended**\* or
-  **None\*\*.
+- _recommended_** or
+  **None**.
 
 ### Networking
 

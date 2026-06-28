@@ -52,10 +52,10 @@ Resources and artifacts used to train, refine, and evaluate custom models during
 the model customization process. These assets include **datasets**, which are collections of training examples
 (prompt-response pairs, domain-specific text, or labeled data) used to fine-tune a
 foundation model to learn specific behaviors, knowledge, or styles, and **evaluators**, which are mechanisms for assessing and
-improving model performance through either **_reward functions_** (code-based logic that
+improving model performance through either _**reward functions**_ (code-based logic that
 scores model outputs based on specific criteria, used in RLVR training and custom
-scorer evaluation) or **_reward
-prompts_** (natural language instructions that guide an
+scorer evaluation) or _**reward
+prompts**_ (natural language instructions that guide an
 LLM to judge the quality of model responses, used in RLAIF training and
 LLM-as-a-judge evaluation).
 

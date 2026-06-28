@@ -1,6 +1,6 @@
 # Run distributed training on a heterogeneous cluster in Amazon SageMaker AI
 
-Through the `distribution` argument of the SageMaker AI estimator class, you can
+Through the `distribution` argument of the SageMaker AI ModelTrainer class, you can
 assign a specific instance group to run distributed training. For example, assume that
 you have the following two instance groups and want to run multi-GPU training on one of
 them.
@@ -20,11 +20,47 @@ configuration.
 ###### Note
 
 Currently, only one instance group of a heterogeneous cluster can be specified to
-the distribution configuration.
+the distribution configuration. In the SageMaker AI Python SDK v3, the `Torchrun`
+distributed configuration does not accept an instance group parameter and applies to
+all instances in the training job.
 
 **With MPI**
 
-PyTorch
+SageMaker Python SDK v3
+**PyTorch**
+
+```
+from sagemaker.`train` import `ModelTrainer`
+from sagemaker.train.distributed import Torchrun
+
+# Note: In v3, Torchrun does not support scoping to a specific instance group.
+# It applies to all instances in the training job. Use instance_groups with
+# Channel/S3DataSource to control which group receives training data.
+model_trainer = `ModelTrainer`(
+    ...
+    instance_groups=[`instance_group_1`, `instance_group_2`],
+    distributed=Torchrun()
+)
+```
+
+**TensorFlow**
+
+```
+from sagemaker.`train` import `ModelTrainer`
+from sagemaker.train.distributed import Torchrun
+
+# Note: In v3, Torchrun does not support scoping to a specific instance group.
+# It applies to all instances in the training job. Use instance_groups with
+# Channel/S3DataSource to control which group receives training data.
+model_trainer = `ModelTrainer`(
+    ...
+    instance_groups=[`instance_group_1`, `instance_group_2`],
+    distributed=Torchrun()
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+**PyTorch**
 
 ```
 from sagemaker.`pytorch` import `PyTorch`
@@ -41,7 +77,7 @@ estimator = `PyTorch`(
 )
 ```
 
-TensorFlow
+**TensorFlow**
 
 ```
 from sagemaker.`tensorflow` import `TensorFlow`
@@ -60,7 +96,35 @@ estimator = `TensorFlow`(
 
 **With the SageMaker AI data parallel library**
 
-PyTorch
+SageMaker Python SDK v3
+**PyTorch**
+
+```
+from sagemaker.`train` import `ModelTrainer`
+from sagemaker.train.distributed import Torchrun
+
+model_trainer = `ModelTrainer`(
+    ...
+    instance_groups=[`instance_group_1`, `instance_group_2`],
+    distributed=Torchrun()
+)
+```
+
+**TensorFlow**
+
+```
+from sagemaker.`train` import `ModelTrainer`
+from sagemaker.train.distributed import Torchrun
+
+model_trainer = `ModelTrainer`(
+    ...
+    instance_groups=[`instance_group_1`, `instance_group_2`],
+    distributed=Torchrun()
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+**PyTorch**
 
 ```
 from sagemaker.`pytorch` import `PyTorch`
@@ -79,7 +143,7 @@ estimator = `PyTorch`(
 )
 ```
 
-TensorFlow
+**TensorFlow**
 
 ```
 from sagemaker.`tensorflow` import `TensorFlow`
@@ -108,7 +172,35 @@ Parallel Training](data-parallel.md "data-parallel.md").
 
 **With the SageMaker AI model parallel library**
 
-PyTorch
+SageMaker Python SDK v3
+**PyTorch**
+
+```
+from sagemaker.`train` import `ModelTrainer`
+from sagemaker.train.distributed import Torchrun
+
+model_trainer = `ModelTrainer`(
+    ...
+    instance_groups=[`instance_group_1`, `instance_group_2`],
+    distributed=Torchrun()
+)
+```
+
+**TensorFlow**
+
+```
+from sagemaker.`train` import `ModelTrainer`
+from sagemaker.train.distributed import Torchrun
+
+model_trainer = `ModelTrainer`(
+    ...
+    instance_groups=[`instance_group_1`, `instance_group_2`],
+    distributed=Torchrun()
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+**PyTorch**
 
 ```
 from sagemaker.`pytorch` import `PyTorch`
@@ -130,7 +222,7 @@ estimator = `PyTorch`(
 )
 ```
 
-TensorFlow
+**TensorFlow**
 
 ```
 from sagemaker.`tensorflow` import `TensorFlow`

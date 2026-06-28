@@ -160,18 +160,40 @@ dataset, configure, and test `ModelRunner`.
 
 ###### Define a JumpStart model and configure a ModelRunner
 
-1.  Provide an endpoint by doing either of the following:
+1. Provide an endpoint by doing either of the following:
 
-        * Specify the [EndpointName](../APIReference/API_runtime_InvokeEndpoint.md#API_runtime_InvokeEndpoint_RequestSyntax "../APIReference/API_runtime_InvokeEndpoint.md#API_runtime_InvokeEndpoint_RequestSyntax") to an existing JumpStart
-         endpoint, the `model_id`, and
-         `model_version`.
-        * Specify the `model_id` and
-         `model_version` for your model, and
-         create a JumpStart endpoint.
+   - Specify the [EndpointName](../APIReference/API_runtime_InvokeEndpoint.md#API_runtime_InvokeEndpoint_RequestSyntax "../APIReference/API_runtime_InvokeEndpoint.md#API_runtime_InvokeEndpoint_RequestSyntax") to an existing JumpStart
+     endpoint, the `model_id`, and
+     `model_version`.
+   - Specify the `model_id` and
+     `model_version` for your model, and
+     create a JumpStart endpoint.
+     The following code example shows how create an endpoint for a
+     [Llama 2 foundation model](https://aws.amazon.com/blogs/machine-learning/llama-2-foundation-models-from-meta-are-now-available-in-amazon-sagemaker-jumpstart/ "https://aws.amazon.com/blogs/machine-learning/llama-2-foundation-models-from-meta-are-now-available-in-amazon-sagemaker-jumpstart/") that's
+     available through JumpStart.
 
-    The following code example shows how create an endpoint for a
-    [Llama 2 foundation model](https://aws.amazon.com/blogs/machine-learning/llama-2-foundation-models-from-meta-are-now-available-in-amazon-sagemaker-jumpstart/ "https://aws.amazon.com/blogs/machine-learning/llama-2-foundation-models-from-meta-are-now-available-in-amazon-sagemaker-jumpstart/") that's
-    available through JumpStart.
+SageMaker Python SDK v3
+
+```
+import sagemaker
+import json
+from sagemaker.serve import ModelBuilder
+from sagemaker.core.jumpstart.configs import JumpStartConfig
+
+#JumpStart model and version
+model_id, model_version = "meta-textgeneration-llama-2-7b-f", "*"
+
+jumpstart_config = JumpStartConfig(model_id=model_id, accept_eula=True)
+model_builder = ModelBuilder.from_jumpstart_config(jumpstart_config=jumpstart_config)
+model = model_builder.build()
+endpoint = model_builder.deploy()
+endpoint_name = endpoint.endpoint_name
+
+# Test the endpoint to make sure it works.
+response = endpoint.invoke(body=json.dumps({"inputs": [[{"role":"user", "content": "Hello how are you?"}]]}))
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import sagemaker
@@ -521,8 +543,8 @@ following:
   before comparing them. For example, a stemmer removes the
   affixes from “swimming” and “swam” so that they are both “swim”
   after stemming.
-- Set model_type_for_bertscore to the model that you want to use
-  to calculate a [BERTScore](https://huggingface.co/spaces/evaluate-metric/bertscore "https://huggingface.co/spaces/evaluate-metric/bertscore"). You can choose [ROBERTA_MODEL](https://huggingface.co/docs/transformers/model_doc/roberta "https://huggingface.co/docs/transformers/model_doc/roberta") or the more advanced [MICROSOFT_DEBERTA_MODEL](https://github.com/microsoft/DeBERTa "https://github.com/microsoft/DeBERTa").
+- Set model\_type\_for\_bertscore to the model that you want to use
+  to calculate a [BERTScore](https://huggingface.co/spaces/evaluate-metric/bertscore "https://huggingface.co/spaces/evaluate-metric/bertscore"). You can choose [ROBERTA\_MODEL](https://huggingface.co/docs/transformers/model_doc/roberta "https://huggingface.co/docs/transformers/model_doc/roberta") or the more advanced [MICROSOFT\_DEBERTA\_MODEL](https://github.com/microsoft/DeBERTa "https://github.com/microsoft/DeBERTa").
 
 Lastly, call the `evaluate` method and pass in your desired
 parameters as shown in the following code example:
@@ -546,7 +568,7 @@ strategy to `multiclass_average_strategy`. You can choose
 `weighted`, or `binary`. The default value is
 `micro`. Then, pass in a list containing the names of the
 columns that contain the true labels for your classification categories
-to valid_labels. Lastly, call the `evaluate` method and pass
+to valid\_labels. Lastly, call the `evaluate` method and pass
 in your desired parameters as shown in the following code
 example:
 
@@ -773,7 +795,7 @@ You can also specify the following parameters:
   affixes from “swimming” and “swam” so that they are both “swim”
   after stemming.
 - Set `model_type_for_bertscore` to the model that
-  you want to use to calculate a [BERTScore](https://huggingface.co/spaces/evaluate-metric/bertscore "https://huggingface.co/spaces/evaluate-metric/bertscore"). You can choose [ROBERTA_MODEL](https://huggingface.co/docs/transformers/model_doc/roberta "https://huggingface.co/docs/transformers/model_doc/roberta") or the more advanced [MICROSOFT_DEBERTA_MODEL](https://github.com/microsoft/DeBERTa "https://github.com/microsoft/DeBERTa").
+  you want to use to calculate a [BERTScore](https://huggingface.co/spaces/evaluate-metric/bertscore "https://huggingface.co/spaces/evaluate-metric/bertscore"). You can choose [ROBERTA\_MODEL](https://huggingface.co/docs/transformers/model_doc/roberta "https://huggingface.co/docs/transformers/model_doc/roberta") or the more advanced [MICROSOFT\_DEBERTA\_MODEL](https://github.com/microsoft/DeBERTa "https://github.com/microsoft/DeBERTa").
 
 Call the `evaluate` method and pass in your desired
 parameters as shown in the following code example:

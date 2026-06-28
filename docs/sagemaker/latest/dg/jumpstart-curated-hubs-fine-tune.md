@@ -91,7 +91,7 @@ private curated hub using the SageMaker Python SDK.
 
 1. Make sure that you have the latest version (at least `2.242.0`)
    of the SageMaker Python SDK installed. For more information, see
-   [Use Version 2.x of the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/v2.html "https://sagemaker.readthedocs.io/en/stable/v2.html").
+   [Use Version 3.x of the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/").
 
 ```
 !pip install --upgrade sagemaker
@@ -101,8 +101,9 @@ private curated hub using the SageMaker Python SDK.
 
 ```
 import boto3
-from sagemaker.jumpstart.estimator import JumpStartEstimator
-from sagemaker.session import Session
+from sagemaker.train import ModelTrainer
+from sagemaker.core.jumpstart.configs import JumpStartConfig
+from sagemaker.core.helper.session_helper import Session
 ```
 
 3. Initialize a Boto3 session, a SageMaker AI client, and a SageMaker Python SDK session.
@@ -112,12 +113,12 @@ sagemaker_client = boto3.Session(region_name=`<AWS-region>`).client("sagemaker")
 sm_session = Session(sagemaker_client=sagemaker_client)
 ```
 
-4. Create a `JumpStartEstimator` and provide the JumpStart model ID, the
+4. Create a `ModelTrainer` using `from_jumpstart_config` and provide the JumpStart model ID, the
    name of your hub that contains the model reference, and your SageMaker Python SDK session.
    For a list of model IDs, see the [Built-in Algorithms with Pre-trained Models Table](https://sagemaker.readthedocs.io/en/stable/doc_utils/pretrainedmodels.html "https://sagemaker.readthedocs.io/en/stable/doc_utils/pretrainedmodels.html").
 
 Optionally, you can specify the `instance_type` and `instance_count`
-fields when creating the estimator. If you don't, the training job uses the default instance type and count for
+fields when creating the ModelTrainer. If you don't, the training job uses the default instance type and count for
 the model you're using.
 
 You can also optionally specify the `output_path` to the Amazon S3 location
@@ -128,22 +129,23 @@ in your account, named with the following format:
 
 ```
 
-estimator = JumpStartEstimator(
+jumpstart_config = JumpStartConfig(
     model_id="meta-textgeneration-llama-3-2-1b",
     hub_name=`<your-hub-name>`,
-    sagemaker_session=sm_session, # If you don't specify an existing session, a default one is created for you
     # Optional: specify your desired instance type and count for the training job
     # instance_type = "ml.g5.2xlarge"
     # instance_count = 1
+)
+model_trainer = ModelTrainer.from_jumpstart_config(jumpstart_config=jumpstart_config)
     # Optional: specify a custom S3 location to store the fine-tuned model artifacts
     # output_path: "s3://`<output-path-for-model-artifacts>`"
-)
+
 ```
 
 5. Create a dictionary with the `training` key where you specify the
    location of your fine-tuning dataset. This example points to an Amazon S3 URI. If you have
    additional considerations, such as using local mode or multiple training data channels,
-   see [JumpStartEstimator.fit()](https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.jumpstart.estimator.JumpStartEstimator.fit "https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.jumpstart.estimator.JumpStartEstimator.fit") in the SageMaker Python SDK documentation for more information.
+   see [ModelTrainer.train()](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") in the SageMaker Python SDK documentation for more information.
 
 ```
 training_input = {
@@ -151,7 +153,7 @@ training_input = {
 }
 ```
 
-6. Call the estimator's `fit()` method and pass in your training data
+6. Call the model trainer's `train()` method and pass in your training data
    and your EULA acceptance (if applicable).
 
 ###### Note
@@ -160,7 +162,7 @@ The following example sets `accept_eula=False.` You should manually
 change the value to `True` in order to accept the EULA.
 
 ```
-estimator.fit(inputs=training_input, accept_eula=False)
+model_trainer.train(input_data_config=[training_input], accept_eula=False)
 ```
 
 Your fine-tuning job should now begin.
@@ -169,5 +171,5 @@ You can check on your fine-tuning job by viewing your training jobs, either in t
 or by using the [ListTrainingJobs](../APIReference/API_ListTrainingJobs.md "../APIReference/API_ListTrainingJobs.md") API.
 
 You can access your fine-tuned model artifacts at the Amazon S3 `output_path`
-that was specified in the `JumpStartEstimator` object (either the default SageMaker AI Amazon S3 bucket
+that was specified in the `ModelTrainer` object (either the default SageMaker AI Amazon S3 bucket
 for the region, or a custom Amazon S3 path you specified, if applicable).

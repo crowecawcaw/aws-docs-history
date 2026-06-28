@@ -2,9 +2,9 @@
 
 PyTorch is an open-source machine learning framework. The `PyTorchProcessor` in the Amazon SageMaker Python SDK
 provides you with the ability to run processing jobs with PyTorch scripts. When you use the `PyTorchProcessor`, you can
-leverage an Amazon-built Docker container with a managed PyTorch environment so that you don’t need to bring your own container.
+leverage an Amazon-built Docker container with a managed PyTorch environment so that you don't need to bring your own container.
 
-The following code example shows how you can use the `PyTorchProcessor` to run your Processing job using a Docker image
+The following code example shows how you can run your Processing job using a Docker image
 provided and maintained by SageMaker AI. Note that when you run the job, you can specify a directory containing your scripts and dependencies in the
 `source_dir` argument, and you can have a `requirements.txt` file located inside your `source_dir`
 directory that specifies the dependencies for your processing script(s). SageMaker Processing installs the dependencies in `requirements.txt`
@@ -12,6 +12,41 @@ in the container for you.
 
 For the PyTorch versions supported by SageMaker AI, see the available
 [Deep Learning Container images](https://github.com/aws/deep-learning-containers/blob/master/available_images.md "https://github.com/aws/deep-learning-containers/blob/master/available_images.md").
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.resources import ProcessingJob
+from sagemaker.core.helper.session_helper import get_execution_role
+
+# Create a processing job with a PyTorch container
+processing_job = ProcessingJob.create(
+    processing_job_name='frameworkprocessor-PT',
+    role_arn=get_execution_role(),
+    app_specification={
+        "image_uri": "`pytorch-processing-image-uri`",
+        "container_entrypoint": ["python3", "/opt/ml/processing/input/code/`processing-script.py`"]
+    },
+    processing_resources={
+        "cluster_config": {"instance_count": 1, "instance_type": "ml.m5.xlarge", "volume_size_in_gb": 30}
+    },
+    processing_inputs=[
+        {"input_name": "data", "s3_input": {"s3_uri": f"`s3://{{BUCKET}}/{{S3_INPUT_PATH}}`", "local_path": "/opt/ml/processing/input", "s3_data_type": "S3Prefix", "s3_input_mode": "File"}},
+        {"input_name": "code", "s3_input": {"s3_uri": "`s3://path/to/scripts/`", "local_path": "/opt/ml/processing/input/code", "s3_data_type": "S3Prefix", "s3_input_mode": "File"}}
+    ],
+    processing_output_config={
+        "outputs": [
+            {"output_name": "data_structured", "s3_output": {"s3_uri": f"`s3://{{BUCKET}}/{{S3_OUTPUT_PATH}}`", "local_path": "/opt/ml/processing/tmp/data_structured", "s3_upload_mode": "EndOfJob"}},
+            {"output_name": "train", "s3_output": {"s3_uri": f"`s3://{{BUCKET}}/{{S3_OUTPUT_PATH}}`", "local_path": "/opt/ml/processing/output/train", "s3_upload_mode": "EndOfJob"}},
+            {"output_name": "validation", "s3_output": {"s3_uri": f"`s3://{{BUCKET}}/{{S3_OUTPUT_PATH}}`", "local_path": "/opt/ml/processing/output/val", "s3_upload_mode": "EndOfJob"}},
+            {"output_name": "test", "s3_output": {"s3_uri": f"`s3://{{BUCKET}}/{{S3_OUTPUT_PATH}}`", "local_path": "/opt/ml/processing/output/test", "s3_upload_mode": "EndOfJob"}},
+            {"output_name": "logs", "s3_output": {"s3_uri": f"`s3://{{BUCKET}}/{{S3_OUTPUT_PATH}}`", "local_path": "/opt/ml/processing/logs", "s3_upload_mode": "EndOfJob"}}
+        ]
+    }
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.pytorch.processing import PyTorchProcessor
@@ -52,4 +87,4 @@ If you have a `requirements.txt` file, it should be a list of libraries you want
 to install in the container. The path for `source_dir` can be a relative, absolute, or
 Amazon S3 URI path. However, if you use an Amazon S3 URI, then it must point to a tar.gz file. You can have
 multiple scripts in the directory you specify for `source_dir`. To learn more about
-the `PyTorchProcessor` class, see [PyTorch Estimator](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html") in the _Amazon SageMaker Python SDK_.
+the `PyTorchProcessor` class, see [PyTorch Estimator](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") in the _Amazon SageMaker Python SDK_.

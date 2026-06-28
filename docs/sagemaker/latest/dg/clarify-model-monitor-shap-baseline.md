@@ -56,7 +56,7 @@ so the explainability config is SHAPConfig, including the following:
 - `num_samples` – Number of samples to be used in the Kernel
   SHAP algorithm. This number determines the size of the generated synthetic
   dataset to compute the SHAP values.
-- agg_method – Aggregation method for global SHAP values. Following are
+- agg\_method – Aggregation method for global SHAP values. Following are
   valid values:
 
   - `mean_abs` – Mean of absolute SHAP values for all

@@ -28,9 +28,10 @@ in the following code sample:
 
 ```
 from sagemaker.model_monitor import CronExpressionGenerator
+from sagemaker.core.helper.session_helper import get_execution_role
 
 model_exp_model_monitor = ModelExplainabilityMonitor(
-   role=sagemaker.get_execution_role(),
+   role=get_execution_role(),
    ...
 )
 
@@ -57,9 +58,10 @@ in the following code sample:
 
 ```
 from sagemaker.model_monitor import CronExpressionGenerator
+from sagemaker.core.helper.session_helper import get_execution_role
 
 model_exp_model_monitor = ModelExplainabilityMonitor(
-   role=sagemaker.get_execution_role(),
+   role=get_execution_role(),
    ...
 )
 

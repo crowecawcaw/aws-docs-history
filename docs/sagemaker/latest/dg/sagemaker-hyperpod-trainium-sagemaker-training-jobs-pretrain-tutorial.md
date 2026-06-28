@@ -76,25 +76,79 @@ pip3 install --upgrade sagemaker
     `transformers` version must be `4.45.2` or
     greater.
 
-    - Append `transformers==4.45.2` to
-      `requirements.txt` in source_dir only when
-      you're using the SageMaker AI Python SDK.
-    - If you are using HyperPod recipes to launch using
-      `sm_jobs` as the cluster type, you don't have
-      to specify the transformers version.
-
-  - `Container`: The Neuron container is set automatically
-    by SageMaker AI Python SDK.
+        - Append `transformers==4.45.2` to
+         `requirements.txt` in source\_dir only when
+         you're using the SageMaker AI Python SDK.
+        - If you are using HyperPod recipes to launch using
+         `sm_jobs` as the cluster type, you don't have
+         to specify the transformers version.
+    - `Container`: The Neuron container is set automatically
+      by SageMaker AI Python SDK.
 
 ## Launch the training job with a Jupyter Notebook
 
 You can use the following Python code to run a SageMaker training job using your
-recipe. It leverages the PyTorch estimator from the [SageMaker AI Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") to
+recipe. It leverages the PyTorch ModelTrainer from the [SageMaker AI Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") to
 submit the recipe. The following example launches the llama3-8b recipe as a SageMaker AI
 Training Job.
 
 - `compiler_cache_url`: Cache to be used to save the compiled
   artifacts, such as an Amazon S3 artifact.
+
+SageMaker Python SDK v3
+
+```
+import os
+import boto3
+from sagemaker.core.debugger import TensorBoardOutputConfig
+from sagemaker.core.helper.session_helper import Session, get_execution_role
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute, InputData, OutputDataConfig
+
+sagemaker_session = Session()
+role = get_execution_role()
+
+bucket = sagemaker_session.default_bucket()
+output = os.path.join(f"s3://{bucket}", "output")
+output_path = "`<s3-URI>`"
+
+recipe_overrides = {
+    "run": {
+        "results_dir": "/opt/ml/model",
+    },
+    "exp_manager": {
+        "explicit_log_dir": "/opt/ml/output/tensorboard",
+    },
+    "data": {
+        "train_dir": "/opt/ml/input/data/train",
+    },
+    "model": {
+        "model_config": "/opt/ml/input/data/train/config.json",
+    },
+    "compiler_cache_url": "`<compiler_cache_url>`"
+}
+
+tensorboard_output_config = TensorBoardOutputConfig(
+    s3_output_path=os.path.join(output, 'tensorboard'),
+    container_local_output_path=recipe_overrides["exp_manager"]["explicit_log_dir"]
+)
+
+model_trainer = ModelTrainer(
+    output_data_config=OutputDataConfig(s3_output_path=output_path),
+    base_job_name=f"llama-trn",
+    role=role,
+    compute=Compute(instance_type="ml.trn1.32xlarge", instance_count=1),
+    training_recipe="training/llama/hf_llama3_70b_seq8k_trn1x16_pretrain",
+    recipe_overrides=recipe_overrides,
+)
+
+model_trainer.train(input_data_config=[
+    InputData(channel_name="train", data_source="your-inputs")
+], wait=True)
+
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import os
@@ -141,8 +195,8 @@ estimator.fit(inputs={"train": "your-inputs"}, wait=True)
 
 ```
 
-The preceding code creates a PyTorch estimator object with the training recipe and
-then fits the model using the `fit()` method. Use the
+The preceding code creates a ModelTrainer object with the training recipe and
+then trains the model using the `train()` method. Use the
 `training_recipe` parameter to specify the recipe you want to use for
 training.
 
@@ -150,7 +204,7 @@ training.
 
 - Update `./recipes_collection/cluster/sm_jobs.yaml`
 
-  - compiler_cache_url: The URL used to save the artifacts. It can be
+  - compiler\_cache\_url: The URL used to save the artifacts. It can be
     an Amazon S3 URL.
 
 ```

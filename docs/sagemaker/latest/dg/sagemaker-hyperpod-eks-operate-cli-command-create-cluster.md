@@ -59,10 +59,10 @@ actions.
      and use correct container images for each Region.
 
 3. Prepare a [CreateCluster](../APIReference/API_CreateCluster.md "../APIReference/API_CreateCluster.md") API request file in JSON format. For
-   `ExecutionRole`, provide the ARN of the IAM role you
-   created with the managed
-   `AmazonSageMakerClusterInstanceRolePolicy` from the section
-   [IAM role for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod").
+`ExecutionRole`, provide the ARN of the IAM role you
+created with the managed
+`AmazonSageMakerClusterInstanceRolePolicy` from the section
+[IAM role for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod").
 
 ###### Note
 

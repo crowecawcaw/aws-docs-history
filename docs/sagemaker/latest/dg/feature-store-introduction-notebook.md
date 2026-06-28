@@ -49,10 +49,30 @@ attached to it: `AmazonS3FullAccess` and
 policies to your IAM role, see [Adding policies to your IAM role](feature-store-adding-policies.md "feature-store-adding-policies.md").
 
 ```
-# SageMaker Python SDK version 2.x is required
+# SageMaker Python SDK version 3.x is required
 import sagemaker
 import sys
 ```
+
+SageMaker Python SDK v3
+
+```
+import boto3
+import pandas as pd
+import numpy as np
+import io
+from sagemaker.core.helper.session_helper import Session
+from sagemaker.core.helper.session_helper import get_execution_role
+
+prefix = 'sagemaker-featurestore-introduction'
+role = get_execution_role()
+
+sagemaker_session = Session()
+region = sagemaker_session.boto_region_name
+s3_bucket_name = sagemaker_session.default_bucket()
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import boto3
@@ -91,7 +111,7 @@ want to store them independently in a Feature Store. Our example considers data 
 
 ## Step 3: Create feature groups
 
-We first start by creating feature group names for customer_data and orders_data.
+We first start by creating feature group names for customer\_data and orders\_data.
 Following this, we create two feature groups, one for `customer_data` and
 another for `orders_data`:
 
@@ -102,8 +122,18 @@ customers_feature_group_name = 'customers-feature-group-' + strftime('%d-%H-%M-%
 orders_feature_group_name = 'orders-feature-group-' + strftime('%d-%H-%M-%S', gmtime())
 ```
 
-Instantiate a `FeatureGroup` object for `customers_data` and
-`orders_data`:
+In V3, `FeatureGroup.create()` is a classmethod that directly creates
+and returns the feature group, so no separate instantiation step is needed.
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.mlops.feature_store import FeatureGroup
+
+# No separate instantiation needed in v3; FeatureGroup.create() is called directly below
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.feature_store.feature_group import FeatureGroup
@@ -132,6 +162,17 @@ orders_data["EventTime"] = pd.Series([current_time_sec]*len(orders_data), dtype=
 
 Load feature definitions to your feature group:
 
+SageMaker Python SDK v3
+
+```
+from sagemaker.mlops.feature_store import load_feature_definitions_from_dataframe
+
+customer_feature_defs = load_feature_definitions_from_dataframe(customer_data)
+order_feature_defs = load_feature_definitions_from_dataframe(orders_data)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 customers_feature_group.load_feature_definitions(data_frame=customer_data)
 orders_feature_group.load_feature_definitions(data_frame=orders_data)
@@ -140,6 +181,38 @@ orders_feature_group.load_feature_definitions(data_frame=orders_data)
 The following calls `create` to create two feature groups,
 `customers_feature_group` and `orders_feature_group`,
 respectively:
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.mlops.feature_store import OnlineStoreConfig, OfflineStoreConfig, S3StorageConfig
+
+FeatureGroup.create(
+    feature_group_name=customers_feature_group_name,
+    feature_definitions=customer_feature_defs,
+    record_identifier_feature_name=record_identifier_feature_name,
+    event_time_feature_name="EventTime",
+    role_arn=role,
+    online_store_config=OnlineStoreConfig(enable_online_store=True),
+    offline_store_config=OfflineStoreConfig(
+        s3_storage_config=S3StorageConfig(s3_uri=f"s3://{s3_bucket_name}/{prefix}")
+    ),
+)
+
+FeatureGroup.create(
+    feature_group_name=orders_feature_group_name,
+    feature_definitions=order_feature_defs,
+    record_identifier_feature_name=record_identifier_feature_name,
+    event_time_feature_name="EventTime",
+    role_arn=role,
+    online_store_config=OnlineStoreConfig(enable_online_store=True),
+    offline_store_config=OfflineStoreConfig(
+        s3_storage_config=S3StorageConfig(s3_uri=f"s3://{s3_bucket_name}/{prefix}")
+    ),
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 customers_feature_group.create(
@@ -161,6 +234,18 @@ orders_feature_group.create(
 
 To confirm that your feature group was created, we display it by using
 `DescribeFeatureGroup` and `ListFeatureGroups` APIs:
+
+SageMaker Python SDK v3
+
+```
+customers_fg = FeatureGroup.get(feature_group_name=customers_feature_group_name)
+```
+
+```
+orders_fg = FeatureGroup.get(feature_group_name=orders_feature_group_name)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 customers_feature_group.describe()
@@ -194,6 +279,24 @@ def check_feature_group_status(feature_group):
 check_feature_group_status(customers_feature_group)
 check_feature_group_status(orders_feature_group)
 ```
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.mlops.feature_store import ingest_dataframe
+
+ingest_dataframe(
+    feature_group_name=customers_feature_group_name, data_frame=customer_data, max_workers=3, wait=True
+)
+```
+
+```
+ingest_dataframe(
+    feature_group_name=orders_feature_group_name, data_frame=orders_data, max_workers=3, wait=True
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 customers_feature_group.ingest(
@@ -246,6 +349,15 @@ print(all_records)
 ## Step 5: Clean up
 
 Here we remove the Feature Groups that we created.
+
+SageMaker Python SDK v3
+
+```
+FeatureGroup(feature_group_name=customers_feature_group_name).delete()
+FeatureGroup(feature_group_name=orders_feature_group_name).delete()
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 customers_feature_group.delete()

@@ -72,7 +72,7 @@ following code snippet shows how to activate SMP MoE for the generic model class
 `AutoModelForCausalLM` pulling an MoE transformer model
 configuration using the `from_config` method for training from
 scratch, or the `from_pretrained` method for fine-tuning. To learn
-more about the SMP `MoEConfig` class, see [torch.sagemaker.moe.moe_config.MoEConfig](distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-moe "distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-moe").
+more about the SMP `MoEConfig` class, see [torch.sagemaker.moe.moe\_config.MoEConfig](distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-moe "distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-moe").
 
 ```
 # Import the torch.sagemaker.transform API and initialize.
@@ -107,7 +107,7 @@ model = AutoModelForCausalLM.from_config(`MoEModelConfig`)
 
 As part of [Step
 2](model-parallel-use-api-v2.md#model-parallel-launch-a-training-job-v2 "model-parallel-use-api-v2.md#model-parallel-launch-a-training-job-v2"), add the following parameter to the SMP configuration dictionary
-for the SageMaker PyTorch estimator.
+for the SageMaker PyTorch ModelTrainer.
 
 ```
 {

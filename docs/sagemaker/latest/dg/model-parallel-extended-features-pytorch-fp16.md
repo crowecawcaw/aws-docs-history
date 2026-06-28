@@ -1,7 +1,6 @@
 # FP16 Training with Model Parallelism
 
-For FP16 training, apply the following modifications to your training script and
-estimator.
+For FP16 training, apply the following modifications to your training script and ModelTrainer.
 
 ###### Note
 
@@ -10,7 +9,7 @@ v1.10.0 and later.
 
 **Adapt your PyTorch training script**
 
-1. Wrap your model using the [smdistributed.modelparallel.torch.model_creation()](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#smdistributed.modelparallel.torch.model_creation "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#smdistributed.modelparallel.torch.model_creation") context
+1. Wrap your model using the [smdistributed.modelparallel.torch.model\_creation()](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#smdistributed.modelparallel.torch.model_creation "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#smdistributed.modelparallel.torch.model_creation") context
    manager.
 
 ```
@@ -69,11 +68,44 @@ optimizer = smp.DistributedOptimizer(
 )
 ```
 
-**Configure a SageMaker PyTorch estimator**
+**Configure a SageMaker PyTorch ModelTrainer**
 
 Add the FP16 parameter (`"fp16"`) to the distribution configuration for
-model parallelism when creating a SageMaker PyTorch estimator object. For a complete list of
+model parallelism when creating a SageMaker PyTorch ModelTrainer object. For a complete list of
 the configuration parameters for model parallelism, see [Parameters for `smdistributed`](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel_general.html#parameters-for-smdistributed "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel_general.html#parameters-for-smdistributed").
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import SourceCode
+
+smp_options = {
+    "enabled": True,
+    "parameters":  {
+        "microbatches":  `4`,
+        "pipeline_parallel_degree":  `2`,
+        "tensor_parallel_degree":  `2`,
+        ...,
+
+        "fp16": `True`
+    }
+}
+
+fp16_model_trainer = ModelTrainer(
+    source_code=SourceCode(entry_script="`fp16_training_script.py`"),
+    ...,
+
+    distribution={
+        "smdistributed": {"modelparallel": smp_options},
+        "mpi": {...}
+    }
+)
+
+fp16_model_trainer.train(...)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.pytorch import PyTorch

@@ -87,7 +87,7 @@ refactoring your LCCs.
   KernelGateway applications use Conda as a
   package manager.
 - The Studio JupyterLab application uses `JupyterLab
-4.0`, while Studio Classic uses `JupyterLab 3.0`. Validate
+ 4.0`, while Studio Classic uses `JupyterLab 3.0`. Validate
   that all JupyterLab extensions you use are compatible with
   `JupyterLab 4.0`. For more information about extensions, see
   [Extension

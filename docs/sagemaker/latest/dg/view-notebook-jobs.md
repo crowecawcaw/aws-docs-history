@@ -10,7 +10,7 @@ need to supply additional tags when you create the notebook job step. For detail
 The following topic gives information about the **Notebook Jobs** tab
 and how to view the details of a single notebook job. The **Notebook Jobs**
 tab (which you access by choosing the **Create a notebook job** icon (
-![](images/icons/notebook-schedule.png)
+![Notebook Jobs scheduling icon.](images/icons/notebook-schedule.png)
 ) in the Studio toolbar) shows a history of your on-demand jobs and
 all the jobs that run from the job definitions you created. This tab opens after you create
 an on-demand job, or you can just view this tab yourself to see a history of past and
@@ -24,23 +24,22 @@ job:
 - **Output files**: Displays the availability of output files. This
   column can contain one of the following:
 
-      + A download icon (
-      ![Cloud icon with downward arrow, representing download or cloud storage functionality.](images/icons/File_download.png)
-      ): The output notebook and log are available for download;
-       choose this button to download them. Note that a failed job can still generate
-       output files if the failure occurred after the files were created. In this case, it
-       is helpful to view the output notebook to identify the failure point.
-      + Links to the **Notebook** and **Output log**:
-       The notebook and output log are downloaded. Choose the links to view their
-       contents.
-      + (blank): The job was stopped by the user, or a failure occurred in the job run
-       before it could generate output files. For example, network failures could prevent
-       the job from starting.
-
-  The output notebook is the result of running all cells in the notebook, and also
-  incorporates any new or overriding parameters or environment variables you included. The
-  output log captures the details of the job run to help you troubleshoot failed
-  jobs.
+  - A download icon (
+    ![Download icon.](images/icons/File_download.png)
+    ): The output notebook and log are available for download;
+    choose this button to download them. Note that a failed job can still generate
+    output files if the failure occurred after the files were created. In this case, it
+    is helpful to view the output notebook to identify the failure point.
+  - Links to the **Notebook** and **Output log**:
+    The notebook and output log are downloaded. Choose the links to view their
+    contents.
+  - (blank): The job was stopped by the user, or a failure occurred in the job run
+    before it could generate output files. For example, network failures could prevent
+    the job from starting.
+    The output notebook is the result of running all cells in the notebook, and also
+    incorporates any new or overriding parameters or environment variables you included. The
+    output log captures the details of the job run to help you troubleshoot failed
+    jobs.
 
 - **Created at**: The time the on-demand job or scheduled job was
   created.

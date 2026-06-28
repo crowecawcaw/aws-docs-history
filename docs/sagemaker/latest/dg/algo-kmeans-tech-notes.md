@@ -122,7 +122,7 @@ string maps:
   cluster centers, add the `init_method` string and set its value
   to `random` or `k-means++`.
 
-For more information about the SageMaker AI k-means estimator, see [K-means](https://sagemaker.readthedocs.io/en/stable/algorithms/unsupervised/kmeans.html "https://sagemaker.readthedocs.io/en/stable/algorithms/unsupervised/kmeans.html") in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") documentation.
+For more information about the SageMaker AI k-means ModelTrainer, see [K-means](https://sagemaker.readthedocs.io/en/stable/algorithms/unsupervised/kmeans.html "https://sagemaker.readthedocs.io/en/stable/algorithms/unsupervised/kmeans.html") in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") documentation.
 
 You now have an initial set of cluster centers.
 
@@ -195,8 +195,7 @@ When creating a model training job, you specify the batch size in the
     ```
 
 2. Read the next mini-batch, and repeat Step 1 to recalculate the cluster
-   centers.
-3. For more information about mini-batch _k_-means, see [Web-scale k-means Clustering](https://citeseerx.ist.psu.edu/document?repid=rep1type=pdf&doi=b452a856a3e3d4d37b1de837996aa6813bedfdcf "https://citeseerx.ist.psu.edu/document?repid=rep1type=pdf&doi=b452a856a3e3d4d37b1de837996aa6813bedfdcf")).
+centers. 3. For more information about mini-batch _k_-means, see [Web-scale k-means Clustering](https://citeseerx.ist.psu.edu/document?repid=rep1type=pdf&doi=b452a856a3e3d4d37b1de837996aa6813bedfdcf "https://citeseerx.ist.psu.edu/document?repid=rep1type=pdf&doi=b452a856a3e3d4d37b1de837996aa6813bedfdcf")).
 
 ## Step 3: Reduce the Clusters from _K_ to _k_
 

@@ -25,7 +25,7 @@ feature in your script. Note that activation offloading is applicable _only_ whe
 learn more about the native PyTorch checkpoint tools for activation offloading,
 see:
 
-- [checkpoint_wrapper.py](https://github.com/pytorch/pytorch/blob/v2.0.1/torch/distributed/algorithms/_checkpoint/checkpoint_wrapper.py#L171 "https://github.com/pytorch/pytorch/blob/v2.0.1/torch/distributed/algorithms/_checkpoint/checkpoint_wrapper.py#L171") in the _PyTorch GitHub
+- [checkpoint\_wrapper.py](https://github.com/pytorch/pytorch/blob/v2.0.1/torch/distributed/algorithms/_checkpoint/checkpoint_wrapper.py#L171 "https://github.com/pytorch/pytorch/blob/v2.0.1/torch/distributed/algorithms/_checkpoint/checkpoint_wrapper.py#L171") in the _PyTorch GitHub
   repository_
 - [Activation Checkpointing](https://pytorch.org/blog/scaling-multimodal-foundation-models-in-torchmultimodal-with-pytorch-distributed/#activation-checkpointing "https://pytorch.org/blog/scaling-multimodal-foundation-models-in-torchmultimodal-with-pytorch-distributed/#activation-checkpointing") in the PyTorch blog _Scaling Multi-modal Foundation Models in TorchMultimodal with
   PyTorch Distributed_.

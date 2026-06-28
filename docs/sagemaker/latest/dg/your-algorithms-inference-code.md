@@ -76,13 +76,13 @@ sends the `SIGKILL` signal 30 seconds later.
 - SageMaker AI uses the container definition that you provided in your [`CreateModel`](../APIReference/API_CreateModel.md "../APIReference/API_CreateModel.md") request to set environment variables and
   the DNS hostname for the container as follows:
 
-   
+ 
 
-  - It sets environment variables using the
-    `ContainerDefinition.Environment` string-to-string
-    map.
-  - It sets the DNS hostname using the
-    `ContainerDefinition.ContainerHostname`.
+    + It sets environment variables using the
+     `ContainerDefinition.Environment` string-to-string
+     map.
+    + It sets the DNS hostname using the
+     `ContainerDefinition.ContainerHostname`.
 
 - If you plan to use GPU devices for model inferences (by specifying GPU-based
   ML compute instances in your
@@ -524,7 +524,7 @@ This path can be overridden by passing X-Amzn-SageMaker-Model-Invocation-Path he
 **3. Request Stream Handling**
 
 The InvokeEndpointWithBidirectionalStream API input payloads are streamed in as a
-series of PayloadParts, which is just a wrapper of a binary chunk (“Bytes”: **_<Blob>_**):
+series of PayloadParts, which is just a wrapper of a binary chunk (“Bytes”: _**<Blob>**_):
 
 ```
 {
@@ -551,7 +551,7 @@ SageMaker AI passes the input PayloadParts to Model container as WebSocket Data 
    - If `PayloadPart.DataType` does not present or `PayloadPart.DataType = BINARY`, SageMaker AI creates a Binary Data Frame
 
 3. For a sequence of PayloadParts with `PayloadPart.CompletionState =
-PARTIAL`, and terminated by a PayloadPart with
+ PARTIAL`, and terminated by a PayloadPart with
    `PayloadPart.CompletionState = COMPLETE`, SageMaker AI translates
    them into WebSocket fragmented message [RFC6455-Section-5.4: Fragmentation](https://datatracker.ietf.org/doc/html/rfc6455#section-5.4 "https://datatracker.ietf.org/doc/html/rfc6455#section-5.4"):
 

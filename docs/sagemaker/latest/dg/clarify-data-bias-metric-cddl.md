@@ -17,10 +17,15 @@ The formula for the demographic disparity for the less favored facet _d_ is as f
 
         DDd =
 nd(0)/n(0)
+-
 
-- # nd(1)/n(1)
-  PdR(y0)
-- PdA(y1)
+nd(1)/n(1)
+=
+
+PdR(y0)
+-
+
+PdA(y1)
 
 Where:
 
@@ -71,13 +76,19 @@ Where:
 - DDi =
   ni(0)/n(0)
 
-* # ni(1)/n(1)
-  PiR(y0)
-* PiA(y1)
-  is the demographic disparity for the ith subgroup.
-  The demographic disparity for a subgroup (DDi) are the
-  difference between the proportion of rejected outcomes and the proportion of
-  accepted outcomes for each subgroup.
+*
+
+ni(1)/n(1)
+=
+
+PiR(y0)
+-
+
+PiA(y1)
+is the demographic disparity for the ith subgroup.
+The demographic disparity for a subgroup (DDi) are the
+difference between the proportion of rejected outcomes and the proportion of
+accepted outcomes for each subgroup.
 
 The range of DD values for binary outcomes for the full dataset
 DDd or for its conditionalized subgroups

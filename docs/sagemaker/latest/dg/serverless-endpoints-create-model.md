@@ -27,11 +27,12 @@ following values:
 #Setup
 import boto3
 import sagemaker
+from sagemaker.core.helper.session_helper import get_execution_role
 region = boto3.Session().region_name
 client = boto3.client("sagemaker", region_name=region)
 
 #Role to give SageMaker AI permission to access AWS services.
-sagemaker_role = sagemaker.get_execution_role()
+sagemaker_role = get_execution_role()
 
 #Specify a name for the model
 model_name = "`<name-for-model>`"
@@ -68,17 +69,18 @@ following values:
 #Setup
 import boto3
 import sagemaker
+from sagemaker.core.helper.session_helper import get_execution_role
 region = boto3.Session().region_name
 client = boto3.client("sagemaker", region_name=region)
 
 #Role to give SageMaker AI permission to access AWS services.
-sagemaker_role = sagemaker.get_execution_role()
+sagemaker_role = get_execution_role()
 
 #Get model from S3
 model_url = "`s3://amzn-s3-demo-bucket/models/model.tar.gz`"
 
 #Get container image (prebuilt example)
-from sagemaker import image_uris
+from sagemaker.core import image_uris
 container = image_uris.retrieve("xgboost", region, "0.90-1")
 
 #Create model

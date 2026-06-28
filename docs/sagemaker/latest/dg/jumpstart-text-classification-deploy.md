@@ -16,7 +16,7 @@ This comparison helps you choose the right model for your specific needs.
 Text classification model names in the catalog include these components:
 
 - BERT: Bidirectional Encoder Representations from Transformers.
-- L-X_H-Y_A-Z: Model structure where:
+- L-X\_H-Y\_A-Z: Model structure where:
 
   - L-X: Number of layers (X).
   - H-Y: Hidden size (Y).

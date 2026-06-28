@@ -20,11 +20,35 @@ the rules to be triggered.
   through the `CollectionConfig` API, which requires `name`
   and `parameters` arguments.
 
-      + To find available tensor collections for `name`, see  [Debugger Built-in Tensor Collections](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#built-in-collections "https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#built-in-collections") .
-      + For a full list of adjustable `parameters`, see  [Debugger CollectionConfig API](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#configuring-collection-using-sagemaker-python-sdk "https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#configuring-collection-using-sagemaker-python-sdk").
+  - To find available tensor collections for `name`, see [Debugger Built-in Tensor Collections](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#built-in-collections "https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#built-in-collections") .
+  - For a full list of adjustable `parameters`, see [Debugger CollectionConfig API](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#configuring-collection-using-sagemaker-python-sdk "https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#configuring-collection-using-sagemaker-python-sdk").
+    For more information about the Debugger rule class, methods, and parameters, see [SageMaker AI
+    Debugger Rule class](https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html "https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html") in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").
 
-  For more information about the Debugger rule class, methods, and parameters, see [SageMaker AI
-  Debugger Rule class](https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html "https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html") in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.debugger import Rule, ProfilerRule, rule_configs, CollectionConfig
+
+rules=[
+    Rule.sagemaker(
+        base_config=rule_configs.`built_in_rule_name`(),
+        rule_parameters={
+                "`key`": "`value`"
+        },
+        collections_to_save=[
+            CollectionConfig(
+                name="`tensor_collection_name`",
+                parameters={
+                    "`key`": "`value`"
+                }
+            )
+        ]
+    )
+]
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.debugger import Rule, ProfilerRule, rule_configs, CollectionConfig

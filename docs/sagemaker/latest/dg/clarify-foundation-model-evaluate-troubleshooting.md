@@ -55,17 +55,16 @@ your quota, follow these steps:
 
 ###### Request an AWS Service Quotas increase
 
-1.  Retrieve the instance name, current quota and necessary quota from the
-    on screen error message. For example, in the following error:
+1. Retrieve the instance name, current quota and necessary quota from the
+   on screen error message. For example, in the following error:
 
-        * The instance name is `ml.g5.12xlarge`.
-        * The current quota from the number following `current
-         utilization`is `0 instances`
-        * The additional required quota from the number following
-         `request delta` is `1
-         instances`.
-
-    The sample error follows:
+   - The instance name is `ml.g5.12xlarge`.
+   - The current quota from the number following `current
+  utilization`is `0 instances`
+   - The additional required quota from the number following
+     `request delta` is `1
+  instances`.
+     The sample error follows:
 
 `ClientError: An error occurred (ResourceLimitExceeded) when
  calling the CreateEndpoint operation: The account-level service
@@ -85,10 +84,10 @@ example, using the information contained in the error message from Step
 required quota from the information given in the error message from Step
 
 1. Input the **total** of `current
-utilization` and `request delta`. In the previous
+ utilization` and `request delta`. In the previous
    example error, the `current utilization` is `0
-Instances`, and the `request delta` is `1
-Instances`. In this example, request a quota of `1`
+ Instances`, and the `request delta` is `1
+ Instances`. In this example, request a quota of `1`
    to supply the required quota.
 2. Choose **Request**.
 3. Choose **Quota request history** from the navigation

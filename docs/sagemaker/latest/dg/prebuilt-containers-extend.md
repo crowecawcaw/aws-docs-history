@@ -73,11 +73,11 @@ container through a SageMaker Notebook instance.
 
       SageMaker AI creates an IAM role named
       `AmazonSageMaker-ExecutionRole-`YYYYMMDD`T`HHmmSS``,
- such as
- `AmazonSageMaker-ExecutionRole-20190429T110788`.
- Note that the execution role naming convention uses the date
- and time when the role was created, separated by a
- `T`.
+      such as
+      `AmazonSageMaker-ExecutionRole-20190429T110788`.
+      Note that the execution role naming convention uses the date
+      and time when the role was created, separated by a
+      `T`.
 
    4. For **Root Access**, choose
       **Enable**.
@@ -93,7 +93,7 @@ container through a SageMaker Notebook instance.
 5. In the **Permissions and encryption** section, copy **the IAM role
    ARN number**, and paste it into a notepad file to save it
    temporarily. You use this IAM role ARN number later to configure a local
-   training estimator in the notebook instance. **The IAM role ARN
+   training ModelTrainer in the notebook instance. **The IAM role ARN
    number** looks like the following:
    `'arn:aws:iam::111122223333:role/service-role/AmazonSageMaker-ExecutionRole-20190429T110788'`
 6. After the status of the notebook instance changes to
@@ -102,36 +102,36 @@ container through a SageMaker Notebook instance.
 
 ### Step 2: Create and Upload the Dockerfile and Python Training Scripts
 
-1.  After JupyterLab opens, create a new folder in the home directory
-    of your JupyterLab. In the upper-left corner, choose the **New
-    Folder** icon, and then enter the folder name
-    `docker_test_folder`.
-2.  Create a `Dockerfile` text file in the `docker_test_folder` directory.
+1. After JupyterLab opens, create a new folder in the home directory
+   of your JupyterLab. In the upper-left corner, choose the **New
+   Folder** icon, and then enter the folder name
+   `docker_test_folder`.
+2. Create a `Dockerfile` text file in the `docker_test_folder` directory.
 
-    1. Choose the **New Launcher** icon (+) in the upper-left
-       corner.
-    2. In the right pane under the **Other** section, choose
-       **Text File**.
-    3. Paste the following `Dockerfile` sample code into your text
-       file.
+   1. Choose the **New Launcher** icon (+) in the upper-left
+      corner.
+   2. In the right pane under the **Other** section, choose
+      **Text File**.
+   3. Paste the following `Dockerfile` sample code into your text
+      file.
 
-    ```
-    # SageMaker PyTorch image
-    FROM 763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-training:1.5.1-cpu-py36-ubuntu16.04
+   ```
+   # SageMaker PyTorch image
+   FROM 763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-training:1.5.1-cpu-py36-ubuntu16.04
 
-    ENV PATH="/opt/ml/code:${PATH}"
+   ENV PATH="/opt/ml/code:${PATH}"
 
-    # this environment variable is used by the SageMaker PyTorch container to determine our user code directory.
-    ENV SAGEMAKER_SUBMIT_DIRECTORY /opt/ml/code
+   # this environment variable is used by the SageMaker PyTorch container to determine our user code directory.
+   ENV SAGEMAKER_SUBMIT_DIRECTORY /opt/ml/code
 
-    # /opt/ml and all subdirectories are utilized by SageMaker, use the /code subdirectory to store your user code.
-    COPY cifar10.py /opt/ml/code/cifar10.py
+   # /opt/ml and all subdirectories are utilized by SageMaker, use the /code subdirectory to store your user code.
+   COPY cifar10.py /opt/ml/code/cifar10.py
 
-    # Defines cifar10.py as script entrypoint
-    ENV SAGEMAKER_PROGRAM cifar10.py
-    ```
+   # Defines cifar10.py as script entrypoint
+   ENV SAGEMAKER_PROGRAM cifar10.py
+   ```
 
-    The Dockerfile script performs the following tasks:
+   The Dockerfile script performs the following tasks:
 
         * `FROM
          763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-training:1.5.1-cpu-py36-ubuntu16.04`
@@ -149,16 +149,17 @@ container through a SageMaker Notebook instance.
         * `ENV SAGEMAKER_PROGRAM cifar10.py`
          – Sets your `cifar10.py` training
          script as the entrypoint script.
-    4. On the left directory navigation pane, the text file name might
-       automatically be named `untitled.txt`. To rename the file,
-       right-click the file, choose **Rename**, rename the
-       file as `Dockerfile` without the `.txt` extension,
-       and then press `Ctrl+s` or `Command+s` to save the
-       file.
 
-3.  Create or upload a training script `cifar10.py` in the
-    `docker_test_folder`. You can use the following example
-    script for this exercise.
+   4. On the left directory navigation pane, the text file name might
+   automatically be named `untitled.txt`. To rename the file,
+   right-click the file, choose **Rename**, rename the
+   file as `Dockerfile` without the `.txt` extension,
+   and then press `Ctrl+s` or `Command+s` to save the
+   file.
+
+3. Create or upload a training script `cifar10.py` in the
+   `docker_test_folder`. You can use the following example
+   script for this exercise.
 
 ```
 import ast
@@ -328,7 +329,7 @@ if __name__ == '__main__':
 
 1. In the JupyterLab home directory, open a Jupyter notebook. To open
    a new notebook, choose the **New Launch** icon and then
-   choose **conda_pytorch_p39** in the
+   choose **conda\_pytorch\_p39** in the
    **Notebook** section.
 2. Run the following command in the first notebook cell to change to the
    `docker_test_folder` directory:
@@ -422,16 +423,36 @@ testloader=get_test_data_loader('/tmp/pytorch-example/cifar-10-data')
 ```
 
 3. Set `role` to the role used to create your Jupyter
-   notebook. This is used to configure your SageMaker AI Estimator.
+   notebook. This is used to configure your SageMaker AI ModelTrainer.
 
 ```
-from sagemaker import get_execution_role
+from sagemaker.core.helper.session_helper import get_execution_role
 
 role=get_execution_role()
 ```
 
 4. Paste the following example script into the notebook code cell to
-   configure a SageMaker AI Estimator using your extended container.
+   configure a SageMaker AI ModelTrainer using your extended container.
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute, SourceCode
+from sagemaker.train.configs import InputData
+
+model_trainer=ModelTrainer(
+    training_image='pytorch-extended-container-test',
+    compute=Compute(instance_type='local', instance_count=1),
+    role=role,
+    hyperparameters={'epochs': '1'}
+)
+
+train_data=InputData(channel_name='training', data_source='file:///tmp/pytorch-example/cifar-10-data')
+model_trainer.train(input_data_config=[train_data])
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.estimator import Estimator
@@ -518,9 +539,30 @@ ecr_image
 # *12-digits-of-your-account*.dkr.ecr.us-east-2.amazonaws.com/tf-2.2-test:latest
 ```
 
-3. Use the `ecr_image` retrieved from the previous step to configure a SageMaker AI estimator
-   object. The following code sample configures a SageMaker AI PyTorch
-   estimator.
+3. Use the `ecr_image` retrieved from the previous step to configure a SageMaker AI ModelTrainer
+   object. The following code sample configures a SageMaker AI PyTorch ModelTrainer.
+
+SageMaker Python SDK v3
+
+```
+import sagemaker
+
+from sagemaker.core.helper.session_helper import get_execution_role
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute
+
+model_trainer=ModelTrainer(
+    training_image=ecr_image,
+    role=get_execution_role(),
+    base_job_name='`pytorch-extended-container-test`',
+    compute=Compute(instance_count=1, instance_type='ml.p2.xlarge')
+)
+
+# start training
+model_trainer.train()
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import sagemaker

@@ -8,7 +8,7 @@ information about common errors and how to resolve them.
 Your pipeline definition might not be formatted correctly. This can result in your
 execution
 failing or your job being inaccurate. These errors can be caught when the pipeline is created or
-when an execution occurs. If your definition doesn’t validate, Pipelines returns an error message
+when an execution occurs. If your definition doesn't validate, Pipelines returns an error message
 identifying the character where the JSON file is malformed. To fix this problem, review the
 steps created using the SageMaker AI Python SDK for accuracy.
 
@@ -34,7 +34,7 @@ Each step includes the following information:
 - If the execution reuses a previous job execution, the `CacheHit` lists the
   source execution.
   You can also view the error messages and logs in the Amazon SageMaker Studio interface. For information
-  about how to see the logs in Studio, see [View the details of a pipeline run](pipelines-studio-view-execution.md "pipelines-studio-view-execution.md").
+  about how to see the logs in Studio, see [View the details of a pipeline run](pipelines-studio-view-execution.md "pipelines-studio-view-execution.md").
 
 **Missing Permissions**
 
@@ -46,7 +46,7 @@ that your permissions are properly set up, see [IAM Access Management](build-and
 **Job Execution Errors**
 
 You may run into issues when executing your steps because of issues in the scripts that define
-the functionality of your SageMaker AI jobs. Each job has a set of CloudWatch logs. To view these logs from
+the functionality of your SageMaker AI jobs. Each job has a set of CloudWatch logs. To view these logs from
 Studio, see [View the details of a pipeline run](pipelines-studio-view-execution.md "pipelines-studio-view-execution.md"). For information about using CloudWatch logs with
 SageMaker AI, see [CloudWatch Logs for Amazon SageMaker AI](logging-cloudwatch.md "logging-cloudwatch.md").
 
@@ -59,8 +59,58 @@ works as expected, see [Pass Data Between Steps](build-and-manage-propertyfile.m
 **Issues copying the script to the container in the Dockerfile**
 
 You can either copy the script to the container or pass it via the `entry_point`
-argument (of your estimator entity) or `code` argument (of your processor entity),
+argument (of your ModelTrainer entity) or `code` argument (of your processor entity),
 as demonstrated in the following code sample.
+
+SageMaker Python SDK v3
+
+```
+step_process = ProcessingStep(
+    name="PreprocessAbaloneData",
+    processor=sklearn_processor,
+    inputs = [
+        ProcessingInput(
+            input_name='dataset',
+            source=...,
+            destination="/opt/ml/processing/code",
+        )
+    ],
+    outputs=[
+        ProcessingOutput(output_name="train", source="/opt/ml/processing/train", destination = processed_data_path),
+        ProcessingOutput(output_name="validation", source="/opt/ml/processing/validation", destination = processed_data_path),
+        ProcessingOutput(output_name="test", source="/opt/ml/processing/test", destination = processed_data_path),
+    ],
+    code=os.path.join(BASE_DIR, "process.py"), ## Code is passed through an argument
+    cache_config = cache_config,
+    job_arguments = ['--input', 'arg1']
+)
+
+from sagemaker.core import image_uris
+
+sklearn_image_uri = image_uris.retrieve(
+    framework="sklearn",
+    region=region,
+    version="0.23-1",
+    instance_type=training_instance_type
+)
+
+sklearn_estimator = ModelTrainer(
+    source_code=SourceCode(entry_script=os.path.join(BASE_DIR, "train.py")), ## Code is passed through source_code
+    training_image=sklearn_image_uri,
+    instance_type=training_instance_type,
+    role=role,
+    output_path=model_path, # New
+    sagemaker_session=sagemaker_session, # New
+    instance_count=1, # New
+    base_job_name=f"{base_job_prefix}/pilot-train",
+    metric_definitions=[
+        {'Name': 'train:accuracy', 'Regex': 'accuracy_train=(.*?);'},
+        {'Name': 'validation:accuracy', 'Regex': 'accuracy_validation=(.*?);'}
+    ],
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 step_process = ProcessingStep(

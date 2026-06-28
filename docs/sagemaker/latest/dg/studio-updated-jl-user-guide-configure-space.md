@@ -44,5 +44,5 @@ following:
      which your administrator provides access.
 
 5. Choose **Run space**.
-   When you open the JupyterLab application, your space has the updated
-   configuration.
+When you open the JupyterLab application, your space has the updated
+configuration.

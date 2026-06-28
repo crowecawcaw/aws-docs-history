@@ -11,9 +11,11 @@ The formula for the demographic disparity predictions for labels of facet _d_ is
 
         DDPLd =
 n'd(0)/n'(0)
+-
 
-- n'd(1)/n'(1)
-  = PdR(y'0)
+n'd(1)/n'(1)
+= PdR(y'0)
+
 - PdA(y'1)
 
 Where:
@@ -56,14 +58,20 @@ Where:
 - DDPLi =
   n'i(0)/n(0)
 
-* # n'i(1)/n(1)
-  PiR(y'0)
-* PiA(y'1)
-  is the demographic disparity in predicted labels for the subgroup.
-  So the demographic disparity for a subgroup in predicted labels
-  (DDPLi) are the difference between the proportion of
-  predicted rejected labels and the proportion of predicted accepted labels for each
-  subgroup.
+*
+
+n'i(1)/n(1)
+=
+
+PiR(y'0)
+-
+
+PiA(y'1)
+is the demographic disparity in predicted labels for the subgroup.
+So the demographic disparity for a subgroup in predicted labels
+(DDPLi) are the difference between the proportion of
+predicted rejected labels and the proportion of predicted accepted labels for each
+subgroup.
 
 The range of DDPL values for binary, multicategory, and continuous outcomes is
 [-1,+1].

@@ -11,7 +11,7 @@ To check the latest updates and release notes of the library, see [Release notes
 ## Supported frameworks
 
 SMP v2 supports the following deep learning frameworks and available through SMP
-Docker containers and an SMP Conda channel. When you use the framework estimator classes
+Docker containers and an SMP Conda channel. When you use the ModelTrainer class
 in the SageMaker Python SDK and specify distribution configuration to use SMP v2, SageMaker AI
 automatically picks up the SMP Docker containers. To use SMP v2, we recommend that you
 always keep the SageMaker Python SDK up to date in your development environment.

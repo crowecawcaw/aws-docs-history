@@ -430,7 +430,7 @@ Expected behavior:
   Upon admission, the operator launches the additional pods required to reach the new world size.
 - When the new pods become ready, the training operator sends a special elastic event signal to training script.
 - The training job performs checkpointing, to prepare for a graceful shutdown
-  The training process periodically checks for the elastic event signal by calling **elastic_event_detected()** function. Once detected, it initiates a checkpoint.
+  The training process periodically checks for the elastic event signal by calling **elastic\_event\_detected()** function. Once detected, it initiates a checkpoint.
   After the checkpoint is successfully completed, the training process exits cleanly.
 - The training operator restarts the job with the new world size
   The operator waits for all processes to exit, then restarts the training job using the updated world size and the latest checkpoint.

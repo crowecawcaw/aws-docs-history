@@ -29,7 +29,7 @@ model training and inference, see [Use Feature Store with SDK for Python (Boto3
 
 ## Using the Amazon SageMaker Python SDK to get your data from your feature groups
 
-You can use the [Feature Store APIs](https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#dataset-builder "https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#dataset-builder") to create a dataset from your feature groups. Data scientists
+You can use the [Feature Store APIs](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html") to create a dataset from your feature groups. Data scientists
 create ML datasets for training by retrieving ML feature data from one or more feature
 groups in the offline store. Use the `create_dataset()` function to create
 the dataset. You can use the SDK to do the following:
@@ -46,8 +46,8 @@ following code to start the session.
 
 ```
 import boto3
-from sagemaker.session import Session
-from sagemaker.feature_store.feature_store import FeatureStore
+from sagemaker.core.helper.session_helper import Session
+from sagemaker.mlops.feature_store import FeatureStore
 
 region = boto3.Session().region_name
 boto_session = boto3.Session(region_name=region)
@@ -79,7 +79,7 @@ feature groups that exist within your Feature Store. For information on how to c
 feature group, see [Step 3: Create feature groups](feature-store-introduction-notebook.md#feature-store-set-up-feature-groups-introduction "feature-store-introduction-notebook.md#feature-store-set-up-feature-groups-introduction").
 
 ```
-from sagemaker.feature_store.feature_group import FeatureGroup
+from sagemaker.mlops.feature_store import FeatureGroup
 
 s3_bucket_name = "offline-store-sdk-test"
 
@@ -124,7 +124,7 @@ builder = feature_store.create_dataset(
 
 ```
 
-The [Feature Store APIs](https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#dataset-builder "https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#dataset-builder") provides you with helper methods for the
+The [Feature Store APIs](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html") provides you with helper methods for the
 `create_dataset` function. You can use them to do the following:
 
 - Create a dataset from multiple feature groups.
@@ -183,7 +183,7 @@ to configure how you're creating dataset:
   range that you specify.
 - `as_of` – Creates a dataset up to a timestamp that you
   specify. For example, if you specify `datetime(2021, 11, 28, 23, 55, 59,
-342380)` as the value, creates a dataset up to November 28th,
+ 342380)` as the value, creates a dataset up to November 28th,
 
 2021.
 

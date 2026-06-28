@@ -878,7 +878,7 @@ This policy includes the following permissions.
 - `glue` – Create, read, and delete AWS Glue partitions, tables,
   and table versions. These permissions are limited to those resources whose name starts
   with "sagemaker-". Create and read AWS Glue databases. These permissions are limited
-  to databases whose name is "default", "global_temp", or starts with "sagemaker-".
+  to databases whose name is "default", "global\_temp", or starts with "sagemaker-".
   Get user defined functions.
 - `s3` – Create, read, list, and delete Amazon S3 buckets;
   add, read, and delete objects from the buckets;

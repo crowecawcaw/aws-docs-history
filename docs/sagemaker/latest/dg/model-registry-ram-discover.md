@@ -9,55 +9,55 @@ discoverability using the AWS RAM console or Model Registry Resource Policy APIs
 
 AWS CLI
 
-1.  Create a resource share in the model owner account.
+1. Create a resource share in the model owner account.
 
-    1. The model owner attaches a resource policy to the
-       model package group using the SageMaker AI Resource Policy
-       API [put-model-package-group-policy](../../../cli/latest/reference/sagemaker/put-model-package-group-policy.md "../../../cli/latest/reference/sagemaker/put-model-package-group-policy.md"), as
-       demonstrated in the following command.
+   1. The model owner attaches a resource policy to the
+      model package group using the SageMaker AI Resource Policy
+      API [put-model-package-group-policy](../../../cli/latest/reference/sagemaker/put-model-package-group-policy.md "../../../cli/latest/reference/sagemaker/put-model-package-group-policy.md"), as
+      demonstrated in the following command.
 
-    ```
-    aws sagemaker put-model-package-group-policy
-    --model-package-group-name `<model-package-group-name>`
-    --resource-policy "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":
-    \"ExampleResourcePolicy\",\"Effect\":\"Allow\",\"Principal\":`<principal>`,
-    \"Action\":[\"sagemaker:DescribeModelPackage\",
-    \"sagemaker:ListModelPackages\",\"sagemaker:DescribeModelPackageGroup\"],
-    \"Resource\":[\"`<model-package-group-arn>`,\"
-    \"arn:aws:sagemaker:`<region>`:`<owner-account-id>`:model-package/
-    `<model-package-group-name>`/*\"]}]}"
-    ```
+   ```
+   aws sagemaker put-model-package-group-policy
+   --model-package-group-name `<model-package-group-name>`
+   --resource-policy "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":
+   \"ExampleResourcePolicy\",\"Effect\":\"Allow\",\"Principal\":`<principal>`,
+   \"Action\":[\"sagemaker:DescribeModelPackage\",
+   \"sagemaker:ListModelPackages\",\"sagemaker:DescribeModelPackageGroup\"],
+   \"Resource\":[\"`<model-package-group-arn>`,\"
+   \"arn:aws:sagemaker:`<region>`:`<owner-account-id>`:model-package/
+   `<model-package-group-name>`/*\"]}]}"
+   ```
 
-    ###### Note
+   ###### Note
 
-    Different combinations of actions can be
-    attached to the resource policy. For custom
-    policies, the permission created should be
-    promoted by the model package group owner, and
-    only entities with promoted permissions attached
-    are discoverable. Unpromotable resource shares
-    cannot be made discoverable or managed through
-    AWS RAM. 2. To check that AWS RAM created the resource share
-    ARN, use the following command:
+   Different combinations of actions can be
+   attached to the resource policy. For custom
+   policies, the permission created should be
+   promoted by the model package group owner, and
+   only entities with promoted permissions attached
+   are discoverable. Unpromotable resource shares
+   cannot be made discoverable or managed through
+   AWS RAM. 2. To check that AWS RAM created the resource share
+   ARN, use the following command:
 
-    ```
-    aws ram get-resource-share-associations --association-type `resource` --resource-arn `<model-package-group-arn>`
-    ```
+   ```
+   aws ram get-resource-share-associations --association-type `resource` --resource-arn `<model-package-group-arn>`
+   ```
 
-    The response contains the
-    `resource-share-arn` for
-    the entity. 3. To check if the attached policy permission is a
-    managed or custom policy, use the following
-    command:
+   The response contains the
+   `resource-share-arn` for
+   the entity. 3. To check if the attached policy permission is a
+   managed or custom policy, use the following
+   command:
 
-    ```
-    aws ram list-resource-share-permissions --resource-share-arn `<resource-share-arn>`
-    ```
+   ```
+   aws ram list-resource-share-permissions --resource-share-arn `<resource-share-arn>`
+   ```
 
-    The `featureSet` field can take values
-    `CREATED_FROM_POLICY` or
-    `STANDARD`, which are defined as
-    follows:
+   The `featureSet` field can take values
+   `CREATED_FROM_POLICY` or
+   `STANDARD`, which are defined as
+   follows:
 
         * `STANDARD`: The permission
          already exists.
@@ -66,25 +66,25 @@ AWS CLI
          entity to be discoverable. For more information,
          see [Promote the permission and resource share](model-registry-ram-promote.md "model-registry-ram-promote.md").
 
-2.  Accept the resource share invitation in the model consumer
-    account.
+2. Accept the resource share invitation in the model consumer
+   account.
 
-    1. The model package group consumer accepts the
-       invitation for resource share. To see all resource
-       invitations, run the following command:
+   1. The model package group consumer accepts the
+      invitation for resource share. To see all resource
+      invitations, run the following command:
 
-    ```
-    aws ram get-resource-share-invitations
-    ```
+   ```
+   aws ram get-resource-share-invitations
+   ```
 
-    Identify the requests that have status
-    `PENDING` and include the account ID of
-    the owner account. 2. Accept the resource share invitation from the
-    model owner using the following command:
+   Identify the requests that have status
+   `PENDING` and include the account ID of
+   the owner account. 2. Accept the resource share invitation from the
+   model owner using the following command:
 
-    ```
-    aws ram accept-resource-share-invitation --resource-share-invitation-arn `<resource-share-invitation-arn>`
-    ```
+   ```
+   aws ram accept-resource-share-invitation --resource-share-invitation-arn `<resource-share-invitation-arn>`
+   ```
 
 AWS RAM console
 

@@ -39,7 +39,7 @@ def main():
 
 - `wait_rank`: All ranks will wait for the rank information from the HyperpodTrainingOperator infrastructure.
 - `HPWrapper`: Python function wrapper that enables restart capabilities for a Re-executable Code Block (RCB). The implementation uses a context manager rather than a Python decorator because decorators cannot determine the number of RCBs to monitor at runtime.
-- `CudaHealthCheck`: Ensures the CUDA context for the current process is in a healthy state by synchronizing with the GPU. Uses the device specified by the LOCAL_RANK environment variable, or defaults to the main thread's CUDA device if LOCAL_RANK is not set.
+- `CudaHealthCheck`: Ensures the CUDA context for the current process is in a healthy state by synchronizing with the GPU. Uses the device specified by the LOCAL\_RANK environment variable, or defaults to the main thread's CUDA device if LOCAL\_RANK is not set.
 - `HPAgentK8sAPIFactory`: This API enables checkpointless training to query the training status of other pods in the Kubernetes training cluster. It also provides an infrastructure-level barrier that ensures all ranks successfully complete abort and restart operations before proceeding.
 - `CheckpointManager`: Manages in-memory checkpoints and peer-to-peer recovery for checkpointless fault tolerance. It has the following core responsibilities:
 
@@ -60,10 +60,9 @@ def main():
 
 - `CheckpointlessCompatibleConnector`: A PTL `CheckpointConnector` that attempts to pre-load the checkpoint file to memory, with the source path determined in this priority:
 
-      + try checkpointless recovery
-      + if checkpointless return None, fallback to parent.resume\_start()
-
-  See [the example](https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/gpt_oss/gpt_oss_120b_full_finetune.py "https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/gpt_oss/gpt_oss_120b_full_finetune.py") to add checkpointless training features to codes.
+  - try checkpointless recovery
+  - if checkpointless return None, fallback to parent.resume\_start()
+    See [the example](https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/gpt_oss/gpt_oss_120b_full_finetune.py "https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/gpt_oss/gpt_oss_120b_full_finetune.py") to add checkpointless training features to codes.
 
 **Concepts**
 
@@ -84,7 +83,7 @@ A fault controller module receives notifications when failures occur during chec
 ![This image illustrates how a fault controller module receives notifications when failure occurs during checkpointless training.](images/hyperpod/hyperpod-checkpointless-fault-controller-module.png)
 **Concept - Model redundancy**
 
-Large model training usually requires a large enough data parallel size to train models efficiently. In traditional data parallelism like PyTorch DDP and Horovod, the model is fully replicated. More advanced sharded data parallelism techniques like DeepSpeed ZeRO optimizer and FSDP also support hybrid sharding mode, which allows sharding the model/optimizer states within the sharding group and fully replicating across replication groups. NeMo also has this hybrid sharding feature through an argument num_distributed_optimizer_instances, which allows redundancy.
+Large model training usually requires a large enough data parallel size to train models efficiently. In traditional data parallelism like PyTorch DDP and Horovod, the model is fully replicated. More advanced sharded data parallelism techniques like DeepSpeed ZeRO optimizer and FSDP also support hybrid sharding mode, which allows sharding the model/optimizer states within the sharding group and fully replicating across replication groups. NeMo also has this hybrid sharding feature through an argument num\_distributed\_optimizer\_instances, which allows redundancy.
 
 However, adding redundancy indicates that the model will not be fully sharded across the entire cluster, resulting in higher device memory usage. The amount of redundant memory will vary depending on the specific model sharding techniques implemented by the user. The low-precision model weights, gradients, and activation memory will not be affected, since they are sharded through model parallelism. The high-precision master model weights/gradients and optimizer states will be affected. Adding one redundant model replica increases device memory usage by roughly the equivalent of one DCP checkpoint size.
 
@@ -133,7 +132,7 @@ The following steps outline the failure detection and checkpointless recovery pr
 
 ## API reference
 
-### wait_rank
+### wait\_rank
 
 ```
 hyperpod_checkpointless_training.inprocess.train_utils.wait_rank()
@@ -163,7 +162,7 @@ None
 The function reads the following environment variables:
 
 - **RANK** (_int_) – Current process rank (default: -1 if not set)
-- **WORLD_SIZE** (_int_) – Total number of processes in the distributed job (default: 0 if not set)
+- **WORLD\_SIZE** (_int_) – Total number of processes in the distributed job (default: 0 if not set)
 
 **Raises**
 
@@ -213,15 +212,15 @@ _This wrapper provides fault tolerance and automatic recovery capabilities by mo
 
 - **abort** (_Abort_, _optional_) – Asynchronously aborts execution when failures are detected. Default: `Compose(HPAbortTorchDistributed())`
 - **finalize** (_Finalize_, _optional_) – Rank-local finalize handler executed during restart. Default: `None`
-- **health_check** (_HealthCheck_, _optional_) – Rank-local health check executed during restart. Default: `None`
-- **hp_api_factory** (_Callable_, _optional_) – Factory function for creating a HyperPod API to interact with HyperPod. Default: `None`
-- **abort_timeout** (_float_, _optional_) – Timeout for abort call in fault controlling thread. Default: `None`
+- **health\_check** (_HealthCheck_, _optional_) – Rank-local health check executed during restart. Default: `None`
+- **hp\_api\_factory** (_Callable_, _optional_) – Factory function for creating a HyperPod API to interact with HyperPod. Default: `None`
+- **abort\_timeout** (_float_, _optional_) – Timeout for abort call in fault controlling thread. Default: `None`
 - **enabled** (_bool_, _optional_) – Enables the wrapper functionality. When `False`, the wrapper becomes a pass-through. Default: `True`
-- **trace_file_path** (_str_, _optional_) – Path to the trace file for VizTracer profiling. Default: `None`
-- **async_raise_before_abort** (_bool_, _optional_) – Enable raise before abort in fault controlling thread. Default: `True`
-- **early_abort_communicator** (_bool_, _optional_) – Abort communicator (NCCL/Gloo) before aborting dataloader. Default: `False`
-- **checkpoint_manager** (_Any_, _optional_) – Manager for handling checkpoints during recovery. Default: `None`
-- **check_memory_status** (_bool_, _optional_) – Enable memory status checking and logging. Default: `True`
+- **trace\_file\_path** (_str_, _optional_) – Path to the trace file for VizTracer profiling. Default: `None`
+- **async\_raise\_before\_abort** (_bool_, _optional_) – Enable raise before abort in fault controlling thread. Default: `True`
+- **early\_abort\_communicator** (_bool_, _optional_) – Abort communicator (NCCL/Gloo) before aborting dataloader. Default: `False`
+- **checkpoint\_manager** (_Any_, _optional_) – Manager for handling checkpoints during recovery. Default: `None`
+- **check\_memory\_status** (_bool_, _optional_) – Enable memory status checking and logging. Default: `True`
 
 **Methods**
 
@@ -284,7 +283,7 @@ This class handles the lifecycle of RCB execution, including failure detection, 
 
 **Attributes**
 
-- **step_upon_restart** (_int_) – Counter that tracks steps since the last restart, used for determining restart strategy
+- **step\_upon\_restart** (_int_) – Counter that tracks steps since the last restart, used for determining restart strategy
 
 **Methods**
 
@@ -308,7 +307,7 @@ Process exceptions from the execution function or RCB.
 
 **Parameters:**
 
-- **call_ex** (_Exception_) – Exception from the monitoring function
+- **call\_ex** (_Exception_) – Exception from the monitoring function
 
 ```
 def restart(term_ex)
@@ -318,7 +317,7 @@ Execute restart handler including finalization, garbage collection, and health c
 
 **Parameters:**
 
-- **term_ex** (_RankShouldRestart_) – Termination exception triggering the restart
+- **term\_ex** (_RankShouldRestart_) – Termination exception triggering the restart
 
 ```
 def launch(fn, *a, **kw)
@@ -381,7 +380,7 @@ Execute the CUDA health check to verify GPU context integrity.
 **Parameters:**
 
 - **state** (_HPState_) – Current HyperPod state containing rank and distributed information
-- **train_ex** (_Exception_, _optional_) – The original training exception that triggered the restart. Default: `None`
+- **train\_ex** (_Exception_, _optional_) – The original training exception that triggered the restart. Default: `None`
 
 **Returns:**
 
@@ -485,15 +484,15 @@ This class provides the core functionality for HyperPod checkpointless training 
 
 **Parameters**
 
-- **enable_checksum** (_bool_, _optional_) – Enable model state checksum validation for integrity checks during recovery. Default: `False`
-- **enable_offload** (_bool_, _optional_) – Enable checkpoint offloading from GPU to CPU memory to reduce GPU memory usage. Default: `False`
+- **enable\_checksum** (_bool_, _optional_) – Enable model state checksum validation for integrity checks during recovery. Default: `False`
+- **enable\_offload** (_bool_, _optional_) – Enable checkpoint offloading from GPU to CPU memory to reduce GPU memory usage. Default: `False`
 
 **Attributes**
 
-- **global_step** (_int_ or _None_) – Current training step associated with the saved checkpoint
-- **rng_states** (_list_ or _None_) – Stored random number generator states for deterministic recovery
-- **checksum_manager** (_MemoryChecksumManager_) – Manager for model state checksum validation
-- **parameter_update_lock** (_ParameterUpdateLock_) – Lock for coordinating parameter updates during recovery
+- **global\_step** (_int_ or _None_) – Current training step associated with the saved checkpoint
+- **rng\_states** (_list_ or _None_) – Stored random number generator states for deterministic recovery
+- **checksum\_manager** (_MemoryChecksumManager_) – Manager for model state checksum validation
+- **parameter\_update\_lock** (_ParameterUpdateLock_) – Lock for coordinating parameter updates during recovery
 
 **Methods**
 
@@ -505,7 +504,7 @@ Save NeMo model checkpoint in memory for potential checkpointless recovery.
 
 **Parameters:**
 
-- **trainer** (_pytorch_lightning.Trainer_) – PyTorch Lightning trainer instance
+- **trainer** (_pytorch\_lightning.Trainer_) – PyTorch Lightning trainer instance
 
 **Notes:**
 
@@ -533,7 +532,7 @@ Attempt checkpointless recovery by loading state from peer ranks.
 
 **Parameters:**
 
-- **trainer** (_pytorch_lightning.Trainer_) – PyTorch Lightning trainer instance
+- **trainer** (_pytorch\_lightning.Trainer_) – PyTorch Lightning trainer instance
 
 **Returns:**
 
@@ -553,8 +552,8 @@ Determine if checkpointless recovery is possible for the current failure scenari
 
 **Parameters:**
 
-- **trainer** (_pytorch_lightning.Trainer_) – PyTorch Lightning trainer instance
-- **include_checksum_verification** (_bool_, _optional_) – Whether to include checksum validation. Default: `True`
+- **trainer** (_pytorch\_lightning.Trainer_) – PyTorch Lightning trainer instance
+- **include\_checksum\_verification** (_bool_, _optional_) – Whether to include checksum validation. Default: `True`
 
 **Returns:**
 
@@ -639,14 +638,14 @@ This specialized checkpoint manager extends CheckpointManager to optimize PEFT w
 
 Inherits all parameters from **CheckpointManager**:
 
-- **enable_checksum** (_bool_, _optional_) – Enable model state checksum validation. Default: `False`
-- **enable_offload** (_bool_, _optional_) – Enable checkpoint offloading to CPU memory. Default: `False`
+- **enable\_checksum** (_bool_, _optional_) – Enable model state checksum validation. Default: `False`
+- **enable\_offload** (_bool_, _optional_) – Enable checkpoint offloading to CPU memory. Default: `False`
 
 **Additional Attributes**
 
-- **params_to_save** (_set_) – Set of parameter names that should be saved as adapter parameters
-- **base_model_weights** (_dict_ or _None_) – Cached base model weights, saved once and reused
-- **base_model_keys_to_extract** (_list_ or _None_) – Keys for extracting base model tensors during P2P transfer
+- **params\_to\_save** (_set_) – Set of parameter names that should be saved as adapter parameters
+- **base\_model\_weights** (_dict_ or _None_) – Cached base model weights, saved once and reused
+- **base\_model\_keys\_to\_extract** (_list_ or _None_) – Keys for extracting base model tensors during P2P transfer
 
 **Methods**
 
@@ -658,7 +657,7 @@ Save base model weights once, filtering out adapter parameters.
 
 **Parameters:**
 
-- **trainer** (_pytorch_lightning.Trainer_) – PyTorch Lightning trainer instance
+- **trainer** (_pytorch\_lightning.Trainer_) – PyTorch Lightning trainer instance
 
 **Notes:**
 
@@ -674,7 +673,7 @@ Save NeMo PEFT adapter model checkpoint in memory for potential checkpointless r
 
 **Parameters:**
 
-- **trainer** (_pytorch_lightning.Trainer_) – PyTorch Lightning trainer instance
+- **trainer** (_pytorch\_lightning.Trainer_) – PyTorch Lightning trainer instance
 
 **Notes:**
 
@@ -690,7 +689,7 @@ Attempt PEFT base model weights checkpointless recovery by loading state from pe
 
 **Parameters:**
 
-- **trainer** (_pytorch_lightning.Trainer_) – PyTorch Lightning trainer instance
+- **trainer** (_pytorch\_lightning.Trainer_) – PyTorch Lightning trainer instance
 
 **Returns:**
 
@@ -710,7 +709,7 @@ Attempt PEFT adapter weights checkpointless recovery by loading state from peer 
 
 **Parameters:**
 
-- **trainer** (_pytorch_lightning.Trainer_) – PyTorch Lightning trainer instance
+- **trainer** (_pytorch\_lightning.Trainer_) – PyTorch Lightning trainer instance
 
 **Returns:**
 
@@ -816,7 +815,7 @@ _Create a custom abort compose with only the specified abort instances._
 
 **Parameters:**
 
-- **abort_instances** (_Abort_) – Variable number of abort instances to include in the compose
+- **abort\_instances** (_Abort_) – Variable number of abort instances to include in the compose
 
 **Returns:**
 
@@ -834,9 +833,9 @@ Replace a specific abort component in a Compose instance with a new component.
 
 **Parameters:**
 
-- **abort_compose** (_Compose_) – The original Compose instance to modify
-- **abort_type** (_type_) – The type of abort component to replace (e.g., `HPCheckpointingAbort`)
-- **new_abort** (_Abort_) – The new abort instance to use as replacement
+- **abort\_compose** (_Compose_) – The original Compose instance to modify
+- **abort\_type** (_type_) – The type of abort component to replace (e.g., `HPCheckpointingAbort`)
+- **new\_abort** (_Abort_) – The new abort instance to use as replacement
 
 **Returns:**
 
@@ -844,7 +843,7 @@ Replace a specific abort component in a Compose instance with a new component.
 
 **Raises:**
 
-- **ValueError** – If abort_compose doesn't have 'instances' attribute
+- **ValueError** – If abort\_compose doesn't have 'instances' attribute
 
 **Example**
 
@@ -885,7 +884,7 @@ None
 
 **Attributes**
 
-- **trainer** (_pytorch_lightning.Trainer_ or _None_) – Reference to the PyTorch Lightning trainer instance
+- **trainer** (_pytorch\_lightning.Trainer_ or _None_) – Reference to the PyTorch Lightning trainer instance
 
 **Methods**
 
@@ -918,7 +917,7 @@ _Register the trainer instance for use during cleanup operations._
 
 **Parameters:**
 
-- **trainer** (_pytorch_lightning.Trainer_) – PyTorch Lightning trainer instance to register
+- **trainer** (_pytorch\_lightning.Trainer_) – PyTorch Lightning trainer instance to register
 
 **Integration with CheckpointlessCallback**
 
@@ -961,7 +960,7 @@ Inherits all parameters from **MegatronStrategy**:
 
 **Attributes**
 
-- **base_store** (_torch.distributed.TCPStore_ or _None_) – Distributed store for process group coordination
+- **base\_store** (_torch.distributed.TCPStore_ or _None_) – Distributed store for process group coordination
 
 **Methods**
 
@@ -973,7 +972,7 @@ Initialize the strategy and register fault tolerance components with the trainer
 
 **Parameters:**
 
-- **trainer** (_pytorch_lightning.Trainer_) – PyTorch Lightning trainer instance
+- **trainer** (_pytorch\_lightning.Trainer_) – PyTorch Lightning trainer instance
 
 **Setup Operations:**
 
@@ -1057,15 +1056,15 @@ This callback manages step tracking, checkpoint saving, and parameter update coo
 
 **Parameters**
 
-- **enable_inprocess** (_bool_, _optional_) – Enable in-process recovery capabilities. Default: `False`
-- **enable_checkpointless** (_bool_, _optional_) – Enable checkpointless recovery (requires `enable_inprocess=True`). Default: `False`
-- **enable_checksum** (_bool_, _optional_) – Enable model state checksum validation (requires `enable_checkpointless=True`). Default: `False`
-- **clean_tensor_hook** (_bool_, _optional_) – Clear tensor hooks from all GPU tensors during cleanup (expensive operation). Default: `False`
-- **clean_lightning_module** (_bool_, _optional_) – Enable Lightning module cleanup to free GPU memory after each restart. Default: `False`
+- **enable\_inprocess** (_bool_, _optional_) – Enable in-process recovery capabilities. Default: `False`
+- **enable\_checkpointless** (_bool_, _optional_) – Enable checkpointless recovery (requires `enable_inprocess=True`). Default: `False`
+- **enable\_checksum** (_bool_, _optional_) – Enable model state checksum validation (requires `enable_checkpointless=True`). Default: `False`
+- **clean\_tensor\_hook** (_bool_, _optional_) – Clear tensor hooks from all GPU tensors during cleanup (expensive operation). Default: `False`
+- **clean\_lightning\_module** (_bool_, _optional_) – Enable Lightning module cleanup to free GPU memory after each restart. Default: `False`
 
 **Attributes**
 
-- **tried_adapter_checkpointless** (_bool_) – Flag to track if adapter checkpointless restore has been attempted
+- **tried\_adapter\_checkpointless** (_bool_) – Flag to track if adapter checkpointless restore has been attempted
 
 **Methods**
 
@@ -1077,7 +1076,7 @@ Get the HPCallWrapper instance from the trainer for fault tolerance coordination
 
 **Parameters:**
 
-- **trainer** (_pytorch_lightning.Trainer_) – PyTorch Lightning trainer instance
+- **trainer** (_pytorch\_lightning.Trainer_) – PyTorch Lightning trainer instance
 
 **Returns:**
 
@@ -1091,10 +1090,10 @@ Called at the start of each training batch to manage step tracking and recovery.
 
 **Parameters:**
 
-- **trainer** (_pytorch_lightning.Trainer_) – PyTorch Lightning trainer instance
-- **pl_module** (_pytorch_lightning.LightningModule_) – Lightning module being trained
+- **trainer** (_pytorch\_lightning.Trainer_) – PyTorch Lightning trainer instance
+- **pl\_module** (_pytorch\_lightning.LightningModule_) – Lightning module being trained
 - **batch** – Current training batch data
-- **batch_idx** (_int_) – Index of the current batch
+- **batch\_idx** (_int_) – Index of the current batch
 - **args** – Additional positional arguments
 - **kwargs** – Additional keyword arguments
 
@@ -1106,11 +1105,11 @@ _Release parameter update lock at the end of each training batch._
 
 **Parameters:**
 
-- **trainer** (_pytorch_lightning.Trainer_) – PyTorch Lightning trainer instance
-- **pl_module** (_pytorch_lightning.LightningModule_) – Lightning module being trained
-- **outputs** (_STEP_OUTPUT_) – Training step outputs
+- **trainer** (_pytorch\_lightning.Trainer_) – PyTorch Lightning trainer instance
+- **pl\_module** (_pytorch\_lightning.LightningModule_) – Lightning module being trained
+- **outputs** (_STEP\_OUTPUT_) – Training step outputs
 - **batch** (_Any_) – Current training batch data
-- **batch_idx** (_int_) – Index of the current batch
+- **batch\_idx** (_int_) – Index of the current batch
 
 **Notes:**
 
@@ -1125,7 +1124,7 @@ _Retrieve the PEFT callback from the trainer's callback list._
 
 **Parameters:**
 
-- **trainer** (_pytorch_lightning.Trainer_) – PyTorch Lightning trainer instance
+- **trainer** (_pytorch\_lightning.Trainer_) – PyTorch Lightning trainer instance
 
 **Returns:**
 
@@ -1139,8 +1138,8 @@ _Attempt checkpointless restore for PEFT adapter parameters._
 
 **Parameters:**
 
-- **trainer** (_pytorch_lightning.Trainer_) – PyTorch Lightning trainer instance
-- **params_to_save** (_set_) – Set of parameter names to save as adapter parameters
+- **trainer** (_pytorch\_lightning.Trainer_) – PyTorch Lightning trainer instance
+- **params\_to\_save** (_set_) – Set of parameter names to save as adapter parameters
 
 **Notes:**
 
@@ -1181,8 +1180,8 @@ trainer.fit(model, datamodule=data_module)
 
 **Memory Management**
 
-- **clean_tensor_hook**: Removes tensor hooks during cleanup (expensive but thorough)
-- **clean_lightning_module**: Frees Lightning module GPU memory during restarts
+- **clean\_tensor\_hook**: Removes tensor hooks during cleanup (expensive but thorough)
+- **clean\_lightning\_module**: Frees Lightning module GPU memory during restarts
 - Both options help reduce memory footprint during fault recovery
 - Coordinates with ParameterUpdateLock for thread-safe parameter update tracking
 
@@ -1210,7 +1209,7 @@ Attempt to pre-load checkpoint with checkpointless recovery priority.
 
 **Parameters:**
 
-- **checkpoint_path** (_str_ or _None_, _optional_) – Path to disk checkpoint for fallback. Default: `None`
+- **checkpoint\_path** (_str_ or _None_, _optional_) – Path to disk checkpoint for fallback. Default: `None`
 
 ```
 resume_end()
@@ -1247,9 +1246,9 @@ Conditionally delay AutoResume setup to enable checkpointless recovery validatio
 
 **Parameters:**
 
-- **trainer** (_pytorch_lightning.Trainer_ or _lightning.fabric.Fabric_) – PyTorch Lightning trainer or Fabric instance
+- **trainer** (_pytorch\_lightning.Trainer_ or _lightning.fabric.Fabric_) – PyTorch Lightning trainer or Fabric instance
 - **model** (_optional_) – Model instance for setup. Default: `None`
-- **force_setup** (_bool_, _optional_) – If True, bypass delay and execute AutoResume setup immediately. Default: `False`
+- **force\_setup** (_bool_, _optional_) – If True, bypass delay and execute AutoResume setup immediately. Default: `False`
 
 **Example**
 

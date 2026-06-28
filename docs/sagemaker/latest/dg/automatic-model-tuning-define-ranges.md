@@ -151,7 +151,7 @@ config = {
 
 Continuing the previous example, a tuning job is created after the previous
 configuration is included in a call to the `CreateHyperParameterTuningJob` API.
-Then, autotune converts the max_depth hyperparameter in AutoParameters to the hyperparameter
+Then, autotune converts the max\_depth hyperparameter in AutoParameters to the hyperparameter
 `IntegerParameterRanges`. The following response from a
 `DescribeHyperParameterTrainingJob` API shows that the optimal
 `IntegerParameterRanges` for `max_depth` are between `2`

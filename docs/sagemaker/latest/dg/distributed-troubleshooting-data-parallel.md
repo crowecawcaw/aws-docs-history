@@ -31,7 +31,29 @@ enable SageMaker AI distributed data parallel.
 
 - If you enable all three features, SageMaker Python SDK automatically turns off
   Debugger by passing `debugger_hook_config=False`, which is equivalent
-  to the following framework `estimator` example.
+  to the following framework `ModelTrainer` example.
+
+SageMaker Python SDK v3
+
+```
+bucket=Session().default_bucket()
+base_job_name="sagemaker-checkpoint-test"
+checkpoint_in_bucket="checkpoints"
+
+# The S3 URI to store the checkpoints
+checkpoint_s3_bucket="s3://{}/{}/{}".format(bucket, base_job_name, checkpoint_in_bucket)
+
+model_trainer = ModelTrainer(
+    ...
+
+    distribution={"smdistributed": {"dataparallel": { "enabled": True }}},
+    checkpoint_s3_uri=checkpoint_s3_bucket,
+    checkpoint_local_path="/opt/ml/checkpoints",
+    debugger_hook_config=False
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 bucket=sagemaker.Session().default_bucket()
@@ -54,7 +76,7 @@ estimator = TensorFlow(
 - If you want to keep using both SageMaker AI distributed data parallel and SageMaker Debugger,
   a workaround is manually adding checkpointing functions to your training script
   instead of specifying the `checkpoint_s3_uri` and
-  `checkpoint_local_path` parameters from the estimator. For more
+  `checkpoint_local_path` parameters from the ModelTrainer. For more
   information about setting up manual checkpointing in a training script, see
   [Saving Checkpoints](distributed-troubleshooting-model-parallel.md#distributed-ts-model-parallel-checkpoints "distributed-troubleshooting-model-parallel.md#distributed-ts-model-parallel-checkpoints").
 

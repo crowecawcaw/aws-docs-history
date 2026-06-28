@@ -17,7 +17,7 @@ built-in rule, which generates a comprehensive profiling report at the end of
 the training job. This method can be called only if the current training job is
 running without both Debugger monitoring and profiling.
 
-For more information, see [estimator.enable_default_profiling](https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.estimator.Estimator.enable_default_profiling "https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.estimator.Estimator.enable_default_profiling") in the
+For more information, see [estimator.enable\_default\_profiling](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") in the
 [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").
 
 - To update system monitoring configuration, use the following:
@@ -28,4 +28,4 @@ estimator.update_profiler(
 )
 ```
 
-For more information, see [estimator.update_profiler](https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.estimator.Estimator.update_profiler "https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.estimator.Estimator.update_profiler") in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").
+For more information, see [estimator.update\_profiler](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").

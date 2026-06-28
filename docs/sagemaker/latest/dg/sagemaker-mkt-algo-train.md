@@ -128,10 +128,32 @@ information about training models in SageMaker AI, see [Train a Model with Amazo
 ## Use an Algorithm to Run a Training Job ([Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"))
 
 Use an algorithm that you created or subscribed to on AWS Marketplace to create a
-training job, create an `AlgorithmEstimator` object and specify
+training job, create an `ModelTrainer` object and specify
 either the Amazon Resource Name (ARN) or the name of the algorithm as the value
-of the `algorithm_arn` argument. Then call the `fit`
-method of the estimator. For example:
+of the `algorithm_arn` argument. Then call the `train`
+method of the ModelTrainer. For example:
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute
+
+data_path = os.path.join(DATA_DIR, 'marketplace', 'training')
+
+model_trainer = ModelTrainer(
+algorithm_name='arn:aws:sagemaker:us-east-2:012345678901:algorithm/my-algorithm',
+        role='SageMakerRole',
+        compute=Compute(instance_type='ml.c4.xlarge', instance_count=1),
+        base_job_name='test-marketplace')
+
+train_input = sagemaker_session.upload_data(
+path=data_path, key_prefix='integ-test-data/marketplace/train')
+
+model_trainer.train({'training': train_input})
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker import AlgorithmEstimator

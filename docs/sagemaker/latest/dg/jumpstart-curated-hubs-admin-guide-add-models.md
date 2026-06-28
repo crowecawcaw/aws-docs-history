@@ -7,8 +7,8 @@ reference.
 1. You can filter through the available models programmatically using the
    `hub.list_sagemaker_public_hub_models()` method. You can
    optionally filter by categories such as framework (`"framework ==
-pytorch"`), tasks such as image classification (`"task ==
-ic"`), and more. For more information about filters, see [`notebook_utils.py`](https://github.com/aws/sagemaker-python-sdk/blob/master/sagemaker-core/src/sagemaker/core/jumpstart/notebook_utils.py "https://github.com/aws/sagemaker-python-sdk/blob/master/sagemaker-core/src/sagemaker/core/jumpstart/notebook_utils.py"). The filter parameter in the
+ pytorch"`), tasks such as image classification (`"task ==
+ ic"`), and more. For more information about filters, see [`notebook_utils.py`](https://github.com/aws/sagemaker-python-sdk/blob/master/src/sagemaker/jumpstart/notebook_utils.py "https://github.com/aws/sagemaker-python-sdk/blob/master/src/sagemaker/jumpstart/notebook_utils.py"). The filter parameter in the
    `hub.list_sagemaker_public_hub_models()` method is optional.
 
 ```

@@ -84,7 +84,7 @@ with smp.delay_param_initialization(enabled=True):
 
 - If you are using a seed for deterministic results, set the seed based on
   `smp.dp_rank()` (for example, `torch.manual_seed(42 +
-smp.dp_rank())`). If you do not do this, different partitions of an
+ smp.dp_rank())`). If you do not do this, different partitions of an
   `nn.Parameter` are initialized in the same way, impacting
   convergence.
 - SageMaker’s model parallelism library uses NCCL to implement collectives needed for
@@ -112,7 +112,7 @@ smp.dp_rank())`). If you do not do this, different partitions of an
   - `smp.mp_size() * smp.rdp_size() == smp.size()`
   - `smp.pp_size() * smp.dp_size() == smp.size()`
   - `smp.pp_size() * smp.tp_size() * smp.rdp_size() ==
-smp.size()`
+   smp.size()`
 
 - Since the `smp.DistributedModel` wrapper modifies the model
   parameters when tensor parallelism is enabled, the optimizer should be created
@@ -173,15 +173,14 @@ assert tuple(distributed_linear.module.weight.shape) == (60, 60)
 - If you want to checkpoint your model and use tensor parallelism, consider the
   following:
 
-      + To avoid stalling and race conditions while saving and loading models
-       when you use tensor parallelism, make sure you call appropriate
-       functions from the following model and optimizer states inside a
-       reduced-data parallelism rank.
-      + If you are transitioning an existing pipeline parallel script and
-       enabling tensor parallel for the script, ensure that you modify any
-       `if smp.dp_rank() == 0` block used for saving and loading
-       with `if smp.rdp_rank() == 0` blocks. Otherwise, it might
-       cause your training job to stall.
-
-  For more information about checkpointing a model with tensor parallelism, see
-  [Checkpointing a distributed model](distributed-model-parallel-checkpointing-and-finetuning.md#distributed-model-parallel-checkpoint "distributed-model-parallel-checkpointing-and-finetuning.md#distributed-model-parallel-checkpoint").
+  - To avoid stalling and race conditions while saving and loading models
+    when you use tensor parallelism, make sure you call appropriate
+    functions from the following model and optimizer states inside a
+    reduced-data parallelism rank.
+  - If you are transitioning an existing pipeline parallel script and
+    enabling tensor parallel for the script, ensure that you modify any
+    `if smp.dp_rank() == 0` block used for saving and loading
+    with `if smp.rdp_rank() == 0` blocks. Otherwise, it might
+    cause your training job to stall.
+    For more information about checkpointing a model with tensor parallelism, see
+    [Checkpointing a distributed model](distributed-model-parallel-checkpointing-and-finetuning.md#distributed-model-parallel-checkpoint "distributed-model-parallel-checkpointing-and-finetuning.md#distributed-model-parallel-checkpoint").

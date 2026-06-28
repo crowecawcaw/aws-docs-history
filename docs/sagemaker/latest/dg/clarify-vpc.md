@@ -59,7 +59,7 @@ job in various ways, depending on how you create the job.
 ```
 
 - **SageMaker Python SDK**: Use the
-  `NetworkConfig` parameter of the [`SageMakerClarifyProcessor`](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html?highlight=Processor#sagemaker.clarify.SageMakerClarifyProcessor "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html?highlight=Processor#sagemaker.clarify.SageMakerClarifyProcessor") API or [`Processor`](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html?highlight=Processor#sagemaker.processing.Processor "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html?highlight=Processor#sagemaker.processing.Processor") API, as shown in the following
+  `NetworkConfig` parameter of the [`SageMakerClarifyProcessor`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") API or [`Processor`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") API, as shown in the following
   example:
 
 ```
@@ -93,7 +93,7 @@ In order to compute post-training bias metrics and explainability, the SageMaker
 job needs to get inferences from the SageMaker AI model that is specified by the
 `model_name` parameter of the [analysis configuration](clarify-configure-processing-jobs.md#clarify-processing-job-configure-analysis "clarify-configure-processing-jobs.md#clarify-processing-job-configure-analysis") for the SageMaker Clarify processing job. Alternatively,
 if you use the `SageMakerClarifyProcessor` API in the SageMaker AI Python
-SDK, the job needs to get the `model_name` specified by the [ModelConfig](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html?highlight=Processor#sagemaker.clarify.ModelConfig "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html?highlight=Processor#sagemaker.clarify.ModelConfig") class. To accomplish this, the SageMaker Clarify job creates an
+SDK, the job needs to get the `model_name` specified by the [ModelConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") class. To accomplish this, the SageMaker Clarify job creates an
 ephemeral endpoint with the model, known as a _shadow
 endpoint_, and then applies the Amazon VPC configuration of the model
 to the shadow endpoint.
@@ -121,12 +121,12 @@ You can specify the number of instances of the shadow endpoint to launch with
 the `initial_instance_count` parameter of the [analysis configuration](clarify-configure-processing-jobs.md#clarify-processing-job-configure-analysis "clarify-configure-processing-jobs.md#clarify-processing-job-configure-analysis") for the SageMaker Clarify processing job. Alternatively,
 if you use the `SageMakerClarifyProcessor` API in the SageMaker AI Python
 SDK, the job needs to get the `instance_count` specified by the
-[ModelConfig](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html?highlight=Processor#sagemaker.clarify.ModelConfig "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html?highlight=Processor#sagemaker.clarify.ModelConfig") class.
+[ModelConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") class.
 
 ###### Note
 
 Even if you only request one instance when creating the shadow endpoint,
-you need at least two subnets in the model's [ModelConfig](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html?highlight=Processor#sagemaker.clarify.ModelConfig "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html?highlight=Processor#sagemaker.clarify.ModelConfig") in distinct availability zones. Otherwise the
+you need at least two subnets in the model's [ModelConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") in distinct availability zones. Otherwise the
 shadow endpoint creation fails with the following error:
 
 **`ClientError: Error hosting endpoint
@@ -193,7 +193,7 @@ instances are specified in one of the following ways:
   `InstanceCount` is specified when you create the job with
   the [`CreateProcessingJob`](../APIReference/API_CreateProcessingJob.md "../APIReference/API_CreateProcessingJob.md") API.
 - **SageMaker Python SDK**: The
-  `instance_count` is specified when using the [SageMakerClarifyProcessor](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html?highlight=Processor#sagemaker.clarify.SageMakerClarifyProcessor "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html?highlight=Processor#sagemaker.clarify.SageMakerClarifyProcessor") API or the [Processor](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html?highlight=Processor#sagemaker.processing.Processor "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html?highlight=Processor#sagemaker.processing.Processor") API.
+  `instance_count` is specified when using the [SageMakerClarifyProcessor](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") API or the [Processor](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") API.
 
 In distributed processing, you must allow communication between the different
 instances in the same processing job. To do that, configure a rule for your

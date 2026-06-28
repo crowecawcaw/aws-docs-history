@@ -46,13 +46,13 @@ specify the type with the `index_type` parameter.
 When the k-NN algorithm finishes training, it serializes three files to prepare
 for inference.
 
-- model_algo-1: Contains the serialized index for computing the nearest
+- model\_algo-1: Contains the serialized index for computing the nearest
   neighbors.
-- model_algo-1.labels: Contains serialized labels
+- model\_algo-1.labels: Contains serialized labels
   (np.float32
   binary format) for computing the predicted label based on
   the query result from the index.
-- model_algo-1.json: Contains the JSON-formatted model metadata which stores
+- model\_algo-1.json: Contains the JSON-formatted model metadata which stores
   the `k` and `predictor_type` hyper-parameters from
   training for inference along with other relevant state.
 

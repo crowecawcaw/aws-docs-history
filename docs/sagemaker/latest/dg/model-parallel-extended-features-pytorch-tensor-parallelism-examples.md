@@ -2,7 +2,7 @@
 
 In this section, you learn:
 
-- How to configure a SageMaker PyTorch estimator and the SageMaker model parallelism
+- How to configure a SageMaker PyTorch ModelTrainer and the SageMaker model parallelism
   option to use tensor parallelism.
 - How to adapt your training script using the
   extended `smdistributed.modelparallel` modules for tensor
@@ -21,8 +21,7 @@ In this section, you learn:
 The following is an example of a distributed training option to activate
 tensor parallelism alone, without pipeline parallelism. Configure the
 `mpi_options` and `smp_options` dictionaries to
-specify distributed training options to the SageMaker `PyTorch`
-estimator.
+specify distributed training options to the SageMaker `PyTorch` ModelTrainer.
 
 ###### Note
 
@@ -30,7 +29,62 @@ Extended memory-saving features are available through Deep Learning
 Containers for PyTorch, which implements the SageMaker model parallelism library
 v1.6.0 or later.
 
-**Configure a SageMaker PyTorch estimator**
+**Configure a SageMaker PyTorch ModelTrainer**
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.train.configs import SourceCode, Compute, InputData
+from sagemaker.core import image_uris
+
+mpi_options = {
+    "enabled" : True,
+    "processes_per_host" : 8,               # 8 processes
+    "custom_mpi_options" : "--mca btl_vader_single_copy_mechanism none "
+}
+               
+smp_options = {
+    "enabled":True,
+    "parameters": {
+        "pipeline_parallel_degree": 1,    # alias for "partitions"
+        "placement_strategy": "cluster",
+        **"tensor\_parallel\_degree": 4**,      # tp over 4 devices
+        "ddp": True
+    }
+}
+              
+# Retrieve the training image for the desired PyTorch version
+training_image = image_uris.retrieve(
+    framework="pytorch",
+    region="`us-west-2`",
+    version='1.13.1',
+    py_version='py36',
+    instance_type='`ml.p3.16xlarge`',
+    image_scope="training"
+)
+
+smp_model_trainer = ModelTrainer(
+    training_image=training_image,
+    source_code=SourceCode(entry_script='`your_training_script.py`'),
+    role=role,
+    compute=Compute(
+        instance_type='`ml.p3.16xlarge`',
+        instance_count=1
+    ),
+    sagemaker_session=sagemaker_session,
+    distribution={
+        "smdistributed": {"modelparallel": smp_options},
+        "mpi": mpi_options
+    },
+    base_job_name="`SMD-MP-demo`",
+)
+
+smp_model_trainer.train(input_data_config=[
+    InputData(channel_name="training", data_source='`s3://my_bucket/my_training_data/`')
+])
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 mpi_options = {
@@ -167,7 +221,7 @@ The following is an example of a distributed training option that enables
 tensor parallelism combined with pipeline parallelism. Set up the
 `mpi_options` and `smp_options` parameters to specify
 model parallel options with tensor parallelism when you configure a SageMaker
-`PyTorch` estimator.
+`PyTorch` ModelTrainer.
 
 ###### Note
 
@@ -175,7 +229,60 @@ Extended memory-saving features are available through Deep Learning
 Containers for PyTorch, which implements the SageMaker model parallelism library
 v1.6.0 or later.
 
-**Configure a SageMaker PyTorch estimator**
+**Configure a SageMaker PyTorch ModelTrainer**
+
+SageMaker Python SDK v3
+
+```
+mpi_options = {
+    "enabled" : True,
+    "processes_per_host" : 8,               # 8 processes
+    "custom_mpi_options" : "--mca btl_vader_single_copy_mechanism none "
+}
+               
+smp_options = {
+    "enabled":True,
+    "parameters": {
+    "microbatches": 4,
+        `"pipeline_parallel_degree": 2`,    # alias for "partitions"
+        "placement_strategy": "cluster",
+        `"tensor_parallel_degree": 2`,      # tp over 2 devices
+        "ddp": True
+    }
+}
+              
+# Retrieve the training image for the desired PyTorch version
+training_image = image_uris.retrieve(
+    framework="pytorch",
+    region="`us-west-2`",
+    version='1.13.1',
+    py_version='py36',
+    instance_type='`ml.p3.16xlarge`',
+    image_scope="training"
+)
+
+smp_model_trainer = ModelTrainer(
+    training_image=training_image,
+    source_code=SourceCode(entry_script='`your_training_script.py`'),
+    role=role,
+    compute=Compute(
+        instance_type='`ml.p3.16xlarge`',
+        instance_count=1
+    ),
+    sagemaker_session=sagemaker_session,
+    distribution={
+        "smdistributed": {"modelparallel": smp_options},
+        "mpi": mpi_options
+    },
+    base_job_name="`SMD-MP-demo`",
+)
+
+smp_model_trainer.train(input_data_config=[
+    InputData(channel_name="training", data_source='`s3://my_bucket/my_training_data/`')
+])
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 mpi_options = {

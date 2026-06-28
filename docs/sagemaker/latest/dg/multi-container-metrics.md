@@ -11,7 +11,7 @@ namespace includes memory and CPU utilization metrics.
 
 The following table lists the per-container metrics for multi-container endpoints with
 direct invocation. All the metrics use the [`EndpointName, VariantName,
-ContainerName`] dimension, which filters metrics at a specific endpoint, for a
+ ContainerName`] dimension, which filters metrics at a specific endpoint, for a
 specific variant and corresponding to a specific container. These metrics share the same
 metric names as in those for inference pipelines, but at a per-container level
 [`EndpointName, VariantName, ContainerName`].

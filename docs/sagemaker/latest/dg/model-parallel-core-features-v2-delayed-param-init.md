@@ -20,7 +20,7 @@ parameters in it, not including the parameters of any child module. Note that th
 behavior _differs_ from the native PyTorch v2.0.1 which
 has a bug causing the parameters to be initialized multiple times.
 
-SMP v2 provides the [torch.sagemaker.delayed_param.DelayedParamIniter](distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-delayed-param-init "distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-delayed-param-init") API for
+SMP v2 provides the [torch.sagemaker.delayed\_param.DelayedParamIniter](distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-delayed-param-init "distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-delayed-param-init") API for
 applying delayed parameter initialization.
 
 The following code snippets show how to apply the

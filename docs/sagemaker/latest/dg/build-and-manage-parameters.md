@@ -64,6 +64,6 @@ execution = pipeline.start(
 ```
 
 You can manipulate parameters with SageMaker Python SDK functions like `sagemaker.workflow.functions.Join`. For more information on parameters,
-see [SageMaker Pipelines Parameters](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#parameters "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#parameters").
+see [SageMaker Pipelines Parameters](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#parameters "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#parameters").
 
-For known limitations of Pipelines Parameters, see _[Limitations - Parameterization](https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_model_building_pipeline.html#parameterization "https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_model_building_pipeline.html#parameterization")_ in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").
+For known limitations of Pipelines Parameters, see _[Limitations - Parameterization](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#parameterization "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#parameterization")_ in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").

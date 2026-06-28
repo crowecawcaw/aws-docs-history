@@ -44,5 +44,5 @@ following:
 - **Prompt**: `Berlin is the capital of`
 - **Expected answer**: `Germany`.
 - **Generated text**: `Germany, and is also its most
-populous city`
+ populous city`
 - **Factual knowledge evaluation**: 1

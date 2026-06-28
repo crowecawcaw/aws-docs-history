@@ -86,8 +86,7 @@ If you selected **Custom instance settings**, do the following:
     2. Under **Instance count**, enter the number of instances.
 
 3. In **Enter 'deploy' to confirm deployment** text box, enter
-   `deploy`.
-4. Choose **Deploy shadow variant**.
+`deploy`. 4. Choose **Deploy shadow variant**.
 
 Your SageMaker AI Inference endpoint is now using the shadow variant as your production variant, and your production
 variant has been removed from the endpoint.

@@ -29,7 +29,7 @@ compiling with Neo versus a baseline.
 
 To run your Neo-compiled model, install the [Deep Learning Runtime
 (DLR)](https://github.com/neo-ai/neo-ai-dlr "https://github.com/neo-ai/neo-ai-dlr") on your device. DLR is a compact, common runtime for deep
-learning models and decision tree models. On x86_64 CPU targets running Linux,
+learning models and decision tree models. On x86\_64 CPU targets running Linux,
 you can install the latest release of the DLR package using the following
 `pip` command:
 

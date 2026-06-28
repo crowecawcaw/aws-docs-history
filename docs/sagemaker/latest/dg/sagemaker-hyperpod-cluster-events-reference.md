@@ -294,15 +294,15 @@ Amazon EKS.
 The following events are emitted only for HyperPod clusters orchestrated with
 Slurm.
 
-| Event                             | Description                                                                                                       |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| Provisioning parameters found     | Found provisioning_parameters.json in LifeCycleScript S3 Path<br>for controller group <instance-group-name>       |
-| Provisioning parameters not found | No provisioning_parameters.json found in LifeCycleScript S3<br>Path for controller group<br><instance-group-name> |
-| Slurm munge key created           | Successfully created and stored munge key                                                                         |
-| Slurm drift validation passed     | Slurm configuration drift validation passed                                                                       |
-| Slurm drift detected              | Slurm configuration drift detected:<br><drift-details>                                                            |
-| Slurm cluster rollback completed  | Cluster creation failed: controller and login nodes did not<br>become ready within the expected time              |
-| Slurm reconfiguration succeeded   | Slurm was reconfigured successfully. Slurm config updated to<br>match desired state                               |
+| Event                             | Description                                                                                                        |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Provisioning parameters found     | Found provisioning\_parameters.json in LifeCycleScript S3 Path<br>for controller group <instance-group-name>       |
+| Provisioning parameters not found | No provisioning\_parameters.json found in LifeCycleScript S3<br>Path for controller group<br><instance-group-name> |
+| Slurm munge key created           | Successfully created and stored munge key                                                                          |
+| Slurm drift validation passed     | Slurm configuration drift validation passed                                                                        |
+| Slurm drift detected              | Slurm configuration drift detected:<br><drift-details>                                                             |
+| Slurm cluster rollback completed  | Cluster creation failed: controller and login nodes did not<br>become ready within the expected time               |
+| Slurm reconfiguration succeeded   | Slurm was reconfigured successfully. Slurm config updated to<br>match desired state                                |
 
 ## EventBridge integration
 

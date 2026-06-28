@@ -149,8 +149,8 @@ def pandas(transactions_df):
 ## Continuous executions and automatic retries using event based triggers
 
 ```
-from sagemaker.feature_store.feature_processor import put_trigger, to_pipeline, FeatureProcessorPipelineEvent
-from sagemaker.feature_store.feature_processor import FeatureProcessorPipelineExecutionStatus
+from sagemaker.mlops.feature_store.feature_processor import put_trigger, to_pipeline, FeatureProcessorPipelineEvent
+from sagemaker.mlops.feature_store.feature_processor import FeatureProcessorPipelineExecutionStatus
 
 streaming_pipeline_name = "`target-pipeline`"
 

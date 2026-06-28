@@ -82,7 +82,7 @@ a combination of sharded data parallelism and tensor parallelism.
 ## How to apply sharded data parallelism to your training job
 
 To get started with sharded data parallelism, apply required modifications to your
-training script, and set up the SageMaker PyTorch estimator with the
+training script, and set up the SageMaker PyTorch ModelTrainer with the
 sharded-data-parallelism-specific parameters. Also consider to take reference values
 and example notebooks as a starting point.
 
@@ -119,14 +119,13 @@ class Module(torch.nn.Module):
         return y
 ```
 
-### Set up the SageMaker PyTorch estimator
+### Set up the SageMaker PyTorch ModelTrainer
 
-When configuring a SageMaker PyTorch estimator in [Step 2: Launch a Training Job Using the SageMaker Python SDK](model-parallel-sm-sdk.md "model-parallel-sm-sdk.md"), add the parameters for sharded data
+When configuring a SageMaker PyTorch ModelTrainer in [Step 2: Launch a Training Job Using the SageMaker Python SDK](model-parallel-sm-sdk.md "model-parallel-sm-sdk.md"), add the parameters for sharded data
 parallelism.
 
 To turn on sharded data parallelism, add the
-`sharded_data_parallel_degree` parameter to the SageMaker PyTorch
-Estimator. This parameter specifies the number of GPUs over which the training
+`sharded_data_parallel_degree` parameter to the SageMaker PyTorch ModelTrainer. This parameter specifies the number of GPUs over which the training
 state is sharded. The value for `sharded_data_parallel_degree` must
 be an integer between one and the data parallelism degree and must evenly divide
 the data parallelism degree. Note that the library automatically detects the
@@ -168,6 +167,68 @@ parameters are available for configuring sharded data parallelism.
 
 The following code shows an example of how to configure sharded data
 parallelism.
+
+SageMaker Python SDK v3
+
+```
+import sagemaker
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import SourceCode, Compute, InputData
+from sagemaker.core import image_uris
+from sagemaker.core.helper.session_helper import get_execution_role
+
+smp_options = {
+    "enabled": True,
+    "parameters": {
+        # "pipeline_parallel_degree": 1,    # Optional, default is 1
+        # "tensor_parallel_degree": 1,      # Optional, default is 1
+        "ddp": True,
+        # parameters for sharded data parallelism
+        "sharded_data_parallel_degree": `2`,              # Add this to activate sharded data parallelism
+        "sdp_reduce_bucket_size": int(`5e8`),             # Optional
+        "sdp_param_persistence_threshold": int(`1e6`),    # Optional
+        "sdp_max_live_parameters": int(`1e9`),            # Optional
+        "sdp_hierarchical_allgather": `True`,             # Optional
+        "sdp_gradient_clipping": `1.0`                    # Optional
+    }
+}
+
+mpi_options = {
+    "enabled" : True,                      # Required
+    "processes_per_host" : `8`               # Required
+}
+
+# Retrieve the training image for the desired PyTorch version
+training_image = image_uris.retrieve(
+    framework="pytorch",
+    region="`us-west-2`",
+    version='`1.13.1`',
+    py_version='py3',
+    instance_type='`ml.p3.16xlarge`',
+    image_scope="training"
+)
+
+smp_model_trainer = ModelTrainer(
+    training_image=training_image,
+    source_code=SourceCode(entry_script="`your_training_script.py`"),
+    role=get_execution_role(),
+    compute=Compute(
+        instance_type='`ml.p3.16xlarge`',
+        instance_count=`1`
+    ),
+    distribution={
+        "smdistributed": {"modelparallel": smp_options},
+        "mpi": mpi_options
+    },
+    base_job_name="`sharded-data-parallel-job`"
+)
+
+smp_model_trainer.train(input_data_config=[
+    InputData(channel_name="training", data_source='`s3://my_bucket/my_training_data/`')
+])
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import sagemaker
@@ -292,9 +353,69 @@ and falls back to NCCL otherwise. To force the library to always use NCCL, speci
 `"nccl"` to the `"ddp_dist_backend"` configuration
 parameter.
 
-The following code example shows how to set up a PyTorch estimator using the
+The following code example shows how to set up a PyTorch ModelTrainer using the
 sharded data parallelism with the `"ddp_dist_backend"` parameter, which
 is set to `"auto"` by default and, therefore, optional to add.
+
+SageMaker Python SDK v3
+
+```
+import sagemaker
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import SourceCode, Compute, InputData
+from sagemaker.core import image_uris
+from sagemaker.core.helper.session_helper import get_execution_role
+
+smp_options = {
+    "enabled":True,
+    "parameters": {
+        "partitions": 1,
+        "ddp": True,
+        "sharded_data_parallel_degree": `64`
+        "bf16": True,
+        **"ddp\_dist\_backend": "`auto`" # Specify "nccl" to force to use NCCL.**
+    }
+}
+
+mpi_options = {
+    "enabled" : True,                      # Required
+    "processes_per_host" : 8               # Required
+}
+
+# Retrieve the training image for the desired PyTorch version
+training_image = image_uris.retrieve(
+    framework="pytorch",
+    region="`us-west-2`",
+    version='`1.13.1`',
+    py_version='py3',
+    instance_type='`ml.p4d.24xlarge`',
+    image_scope="training"
+)
+
+smd_mp_model_trainer = ModelTrainer(
+    training_image=training_image,
+    source_code=SourceCode(
+        source_dir="`location_to_your_script`",
+        entry_script="`your_training_script.py`"
+    ),
+    role=get_execution_role(),
+    compute=Compute(
+        instance_type='`ml.p4d.24xlarge`',
+        instance_count=`8`
+    ),
+    distribution={
+        "smdistributed": {"modelparallel": smp_options},
+        "mpi": mpi_options
+    },
+    base_job_name="`sharded-data-parallel-demo`",
+)
+
+smd_mp_model_trainer.train(input_data_config=[
+    InputData(channel_name="training", data_source='s3://my_bucket/my_training_data/')
+])
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import sagemaker
@@ -413,7 +534,62 @@ gain.
 
 The following code shows how you can configure the environment variables by
 appending them to `mpi_options` in the distribution parameter for the
-PyTorch estimator.
+PyTorch ModelTrainer.
+
+SageMaker Python SDK v3
+
+```
+import sagemaker
+from sagemaker.train import ModelTrainer
+from sagemaker.core.helper.session_helper import get_execution_role
+
+smp_options = {
+    .... # All modelparallel configuration options go here
+}
+
+mpi_options = {
+    "enabled" : True,                      # Required
+    "processes_per_host" : 8               # Required
+}
+
+**# Use the following two lines to tune values of the environment variables for buffer
+mpioptions += " -x SMDDP\_AG\_SCRATCH\_BUFFER\_SIZE\_BYTES=`8192`"
+mpioptions += " -x SMDDP\_AG\_SORT\_BUFFER\_SIZE\_BYTES=`8192`"**
+
+# Retrieve the training image for the desired PyTorch version
+training_image = image_uris.retrieve(
+    framework="pytorch",
+    region="`us-west-2`",
+    version='`1.13.1`',
+    py_version='py3',
+    instance_type='`ml.p4d.24xlarge`',
+    image_scope="training"
+)
+
+smd_mp_model_trainer = ModelTrainer(
+    training_image=training_image,
+    source_code=SourceCode(
+        source_dir="`location_to_your_script`",
+        entry_script="`your_training_script.py`"
+    ),
+    role=get_execution_role(),
+    compute=Compute(
+        instance_type='`ml.p4d.24xlarge`',
+        instance_count=`8`
+    ),
+    distribution={
+        "smdistributed": {"modelparallel": smp_options},
+        "mpi": mpi_options
+    },
+    base_job_name="`sharded-data-parallel-demo-with-tuning`",
+)
+
+smd_mp_model_trainer.train(input_data_config=[
+    InputData(channel_name="training", data_source='`s3://my_bucket/my_training_data/`')
+])
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import sagemaker
@@ -638,8 +814,7 @@ differently.
 To use sharded data parallelism with tensor parallelism, you need to set both
 `sharded_data_parallel_degree` and
 `tensor_parallel_degree` in the configuration for
-`distribution` while creating an object of the SageMaker PyTorch
-estimator class.
+`distribution` while creating an object of the SageMaker PyTorch ModelTrainer class.
 
 You also need to activate `prescaled_batch`. This means that,
 instead of each GPU reading its own batch of data, each tensor parallel group
@@ -652,8 +827,65 @@ prescaled batch, see [Prescaled Batch](https://sagemaker.readthedocs.io/en/v2.19
 documentation_. See also the example training script [`train_gpt_simple.py`](https://github.com/aws/amazon-sagemaker-examples/blob/main/training/distributed_training/pytorch/model_parallel/gpt2/train_gpt_simple.py#L164 "https://github.com/aws/amazon-sagemaker-examples/blob/main/training/distributed_training/pytorch/model_parallel/gpt2/train_gpt_simple.py#L164") for GPT-2 in the
 _SageMaker AI Examples GitHub repository_.
 
-The following code snippet shows an example of creating a PyTorch estimator
+The following code snippet shows an example of creating a PyTorch ModelTrainer
 object based on the aforementioned scenario in [Example 2](#model-parallel-extended-features-pytorch-sharded-data-parallelism-with-tensor-parallelism-ex2 "#model-parallel-extended-features-pytorch-sharded-data-parallelism-with-tensor-parallelism-ex2").
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.train.configs import SourceCode, Compute
+from sagemaker.core import image_uris
+
+mpi_options = "-verbose --mca orte_base_help_aggregate 0 "
+smp_parameters = {
+    "ddp": True,
+    "fp16": True,
+    "prescaled_batch": True,
+    "sharded_data_parallel_degree": `4`,
+    "tensor_parallel_degree": `4`
+}
+
+# Retrieve the training image for the desired PyTorch version
+training_image = image_uris.retrieve(
+    framework="pytorch",
+    region="`us-west-2`",
+    version="`1.13.1`",
+    py_version="py3",
+    instance_type="`ml.p4d.24xlarge`",
+    image_scope="training"
+)
+
+pytorch_model_trainer = ModelTrainer(
+    training_image=training_image,
+    source_code=SourceCode(
+        source_dir="`source_directory_of_your_code`",
+        entry_script="`your_training_script.py`"
+    ),
+    role=`role`,
+    compute=Compute(
+        instance_type="`ml.p4d.24xlarge`",
+        instance_count=`4`,
+        volume_size_in_gb=200
+    ),
+    sagemaker_session=sagemaker_session,
+    distribution={
+        "smdistributed": {
+            "modelparallel": {
+                "enabled": True,
+                "parameters": smp_parameters,
+            }
+        },
+        "mpi": {
+            "enabled": True,
+            "processes_per_host": 8,
+            "custom_mpi_options": mpi_options,
+        },
+    },
+    output_path=`s3_output_location`
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 mpi_options = "-verbose --mca orte_base_help_aggregate 0 "
@@ -704,17 +936,16 @@ data parallelism.
   following items are what you might need to consider for using sharded data
   parallelism with tensor parallelism.
 
-      + When using sharded data parallelism with tensor parallelism, the
-       embedding layers are also automatically distributed across the
-       tensor parallel group. In other words, the
-       `distribute_embedding` parameter is automatically set
-       to `True`. For more information about tensor parallelism,
-       see [Tensor Parallelism](model-parallel-extended-features-pytorch-tensor-parallelism.md "model-parallel-extended-features-pytorch-tensor-parallelism.md").
-      + Note that sharded data parallelism with tensor parallelism
-       currently uses the NCCL collectives as the backend of the
-       distributed training strategy.
-
-  To learn more, see the [Sharded data parallelism with tensor parallelism](#model-parallel-extended-features-pytorch-sharded-data-parallelism-with-tensor-parallelism "#model-parallel-extended-features-pytorch-sharded-data-parallelism-with-tensor-parallelism") section.
+  - When using sharded data parallelism with tensor parallelism, the
+    embedding layers are also automatically distributed across the
+    tensor parallel group. In other words, the
+    `distribute_embedding` parameter is automatically set
+    to `True`. For more information about tensor parallelism,
+    see [Tensor Parallelism](model-parallel-extended-features-pytorch-tensor-parallelism.md "model-parallel-extended-features-pytorch-tensor-parallelism.md").
+  - Note that sharded data parallelism with tensor parallelism
+    currently uses the NCCL collectives as the backend of the
+    distributed training strategy.
+    To learn more, see the [Sharded data parallelism with tensor parallelism](#model-parallel-extended-features-pytorch-sharded-data-parallelism-with-tensor-parallelism "#model-parallel-extended-features-pytorch-sharded-data-parallelism-with-tensor-parallelism") section.
 
 - Sharded data parallelism currently is not compatible with [pipeline parallelism](model-parallel-intro.md#model-parallel-intro-pp "model-parallel-intro.md#model-parallel-intro-pp") or [optimizer state sharding](model-parallel-extended-features-pytorch-optimizer-state-sharding.md "model-parallel-extended-features-pytorch-optimizer-state-sharding.md"). To activate sharded data parallelism,
   turn off optimizer state sharding and set the pipeline parallel degree to
@@ -743,5 +974,5 @@ data parallelism.
   don't need to use utility APIs for gradient clipping, such as [`torch.nn.utils.clip_grad_norm_()`](https://pytorch.org/docs/stable/generated/torch.nn.utils.clip_grad_norm_.html "https://pytorch.org/docs/stable/generated/torch.nn.utils.clip_grad_norm_.html"). To adjust
   the threshold value for gradient clipping, you can set it through the
   `sdp_gradient_clipping` parameter for the distribution
-  parameter configuration when you construct the SageMaker PyTorch estimator, as
+  parameter configuration when you construct the SageMaker PyTorch ModelTrainer, as
   shown in the [How to apply sharded data parallelism to your training job](#model-parallel-extended-features-pytorch-sharded-data-parallelism-how-to-use "#model-parallel-extended-features-pytorch-sharded-data-parallelism-how-to-use") section.

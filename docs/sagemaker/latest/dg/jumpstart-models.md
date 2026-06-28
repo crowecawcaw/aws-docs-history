@@ -12,7 +12,7 @@ and deploy your model in a few steps. The description section describes what you
 the model, the expected types of inputs and outputs, and the data type needed for fine-tuning
 your model.
 
-You can also programmatically utilize models with the [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/overview.html#use-prebuilt-models-with-sagemaker-jumpstart "https://sagemaker.readthedocs.io/en/stable/overview.html#use-prebuilt-models-with-sagemaker-jumpstart"). For a list of all available models, see the [JumpStart
+You can also programmatically utilize models with the [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/"). For a list of all available models, see the [JumpStart
 Available Model Table](https://sagemaker.readthedocs.io/en/v2.132.0/doc_utils/pretrainedmodels.html "https://sagemaker.readthedocs.io/en/v2.132.0/doc_utils/pretrainedmodels.html").
 
 The list of problem types and links to their example Jupyter notebooks are summarized in the

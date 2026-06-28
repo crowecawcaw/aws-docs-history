@@ -30,7 +30,7 @@ default experience: Studio or Studio Classic.
    in the field, then choose **Delete**.
 8. Open the Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
 9. In the left navigation pane, choose the **Home** icon (
-   ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+   ![Home icon.](images/studio/icons/house.png)
    ).
 10. Choose **Data**.
 11. From the dropdown list, choose **Feature Store**.
@@ -49,12 +49,12 @@ the AWS SDK for Python (Boto3). It assumes that you've set up Feature Store and 
 information about getting started, see [Introduction to Feature Store example notebook](feature-store-introduction-notebook.md "feature-store-introduction-notebook.md").
 
 ```
-import sagemaker
-from sagemaker.feature_store.feature_group import FeatureGroup
+from sagemaker.core.helper.session_helper import Session
+from sagemaker.mlops.feature_store import FeatureGroup
 
-sagemaker_session = sagemaker.Session()
+sagemaker_session = Session()
 fg_name = '`your-feature-group-name`'
 
-my_fg = FeatureGroup(name=fg_name, sagemaker_session=sagemaker_session)
+my_fg = FeatureGroup(feature_group_name=fg_name)
 my_fg.delete()
 ```

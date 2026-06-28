@@ -78,7 +78,7 @@ new default values, and reset your default values for your notebook jobs.
      **System Defaults** panel to the **User
      Preferences** panel, and update the fields. 4. If you updated the default values, choose the **Save User
      Settings** icon (
-     ![Icon showing a document or file with a question mark symbol.](images/icons/Notebook_save.png)
+     ![Save User Settings icon.](images/icons/Notebook_save.png)
      ) in the top right corner. Closing the editor does not
      save the changes.
 
@@ -110,6 +110,6 @@ new default values, and reset your default values for your notebook jobs.
      Defaults** panel. 3. To restore your current default settings copy the content from the
      **System Defaults** panel to the **User
      Preferences** panel. 4. Choose the **Save User Settings** icon (
-     ![](images/icons/Notebook_save.png)
+     ![Save User Settings icon.](images/icons/Notebook_save.png)
      ) in the top right corner. Closing the editor does not
      save the changes.

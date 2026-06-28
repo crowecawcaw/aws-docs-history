@@ -129,8 +129,8 @@ open-ended generation, the semantic robustness evaluation measures the dissimila
 model generations between original input and perturbed input. This dissimilarity is measured
 using the following strategies:
 
-- **\*[Word error
-  rate](https://huggingface.co/spaces/evaluate-metric/wer "https://huggingface.co/spaces/evaluate-metric/wer")** (WER):\* Measures the syntactic difference between
+- _**[Word error
+  rate](https://huggingface.co/spaces/evaluate-metric/wer "https://huggingface.co/spaces/evaluate-metric/wer")** (WER):_ Measures the syntactic difference between
   the two generations by computing the percentage of words that must be changed to convert
   the first generations into the second generation. For more information on the
   computation of WER, see the [HuggingFace article on Word
@@ -153,11 +153,11 @@ using the following strategies:
     compared to generation 1, the BSD score differs to account for the semantic meaning.
 
     - **gen1 (original input)**: `"It is pouring
-down today"`
+   down today"`
     - **gen2 (perturbed input 1)**: `"It is my
-birthday today"`
+   birthday today"`
     - **gen3 (perturbed input 2)** : `"It is very
-rainy today"`
+   rainy today"`
     - `WER(gen1, gen2)=WER(gen2, gen3)=0.4`
     - `BERTScore(gen1, gen2)=0.67`
     - `BERTScore(gen1, gen3)=0.92`

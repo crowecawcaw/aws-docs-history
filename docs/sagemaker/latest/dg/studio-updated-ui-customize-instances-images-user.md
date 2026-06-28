@@ -44,11 +44,10 @@ AWS Regions.
      **Image**.
 
 10. (Optional) Choose **+ Add new rule** to add more
-    rules.
-11. Once you have reviewed your changes, choose
-    **Submit**.
-    Once completed, you will see a green banner containing a success message at
-    the top of the page.
+rules. 11. Once you have reviewed your changes, choose
+**Submit**.
+Once completed, you will see a green banner containing a success message at
+the top of the page.
 
 ###### Note
 

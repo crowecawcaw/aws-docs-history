@@ -132,7 +132,7 @@ Guide_.
 ###### Note
 
 VPC endpoint policies aren't supported for Federal Information Processing Standard
-(FIPS) SageMaker AI runtime endpoints for [runtime_InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md").
+(FIPS) SageMaker AI runtime endpoints for [runtime\_InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md").
 
 The following example VPC endpoint policy specifies that all users who have access to
 the VPC interface endpoint are allowed to invoke the SageMaker AI hosted endpoint named

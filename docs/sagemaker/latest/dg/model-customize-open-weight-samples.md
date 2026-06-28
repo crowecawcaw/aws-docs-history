@@ -120,7 +120,7 @@ Source Data: [https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/
 
 **Input Dataset**
 
-Source: [https://huggingface.co/datasets/rajpurkar/squad_v2/blob/main/squad_v2/train-00000-of-00001.parquet](https://huggingface.co/datasets/rajpurkar/squad_v2/blob/main/squad_v2/train-00000-of-00001.parquet "https://huggingface.co/datasets/rajpurkar/squad_v2/blob/main/squad_v2/train-00000-of-00001.parquet")
+Source: [https://huggingface.co/datasets/rajpurkar/squad\_v2/blob/main/squad\_v2/train-00000-of-00001.parquet](https://huggingface.co/datasets/rajpurkar/squad_v2/blob/main/squad_v2/train-00000-of-00001.parquet "https://huggingface.co/datasets/rajpurkar/squad_v2/blob/main/squad_v2/train-00000-of-00001.parquet")
 
 **One Sample**
 
@@ -336,7 +336,7 @@ Source: [https://huggingface.co/datasets/open-r1/codeforces](https://huggingface
 
 **Reward Function**
 
-Reward Function: [https://github.com/volcengine/verl/tree/main/verl/utils/reward_score/prime_code](https://github.com/volcengine/verl/tree/main/verl/utils/reward_score/prime_code "https://github.com/volcengine/verl/tree/main/verl/utils/reward_score/prime_code")
+Reward Function: [https://github.com/volcengine/verl/tree/main/verl/utils/reward\_score/prime\_code](https://github.com/volcengine/verl/tree/main/verl/utils/reward_score/prime_code "https://github.com/volcengine/verl/tree/main/verl/utils/reward_score/prime_code")
 
 ## RLVR - Math Answer
 
@@ -366,7 +366,7 @@ Source: Cleaned gsm8k dataset [https://huggingface.co/datasets/thesven/gsm8k-rea
 
 **Reward Calculation**
 
-Reward Function: [https://github.com/volcengine/verl/blob/main/verl/utils/reward_score/gsm8k.py](https://github.com/volcengine/verl/blob/main/verl/utils/reward_score/gsm8k.py "https://github.com/volcengine/verl/blob/main/verl/utils/reward_score/gsm8k.py")
+Reward Function: [https://github.com/volcengine/verl/blob/main/verl/utils/reward\_score/gsm8k.py](https://github.com/volcengine/verl/blob/main/verl/utils/reward_score/gsm8k.py "https://github.com/volcengine/verl/blob/main/verl/utils/reward_score/gsm8k.py")
 
 ## RLVR - Custom Lambda
 

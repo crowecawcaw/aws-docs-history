@@ -44,21 +44,20 @@ involved:
 - Assumable roles (Also referred to as _Service Access
   Roles_):
 
-      + These are the IAM roles that SageMaker AI's execution role can assume to
-       perform operations related to managing EMR Serverless applications.
-       These roles define the permissions and access policies required when
-       listing, connecting to, or managing EMR Serverless applications. They
-       are typically used in cross-account scenarios, where the EMR Serverless
-       applications are located in a different AWS account than the SageMaker AI
-       domain. Having a dedicated IAM role for your EMR Serverless
-       applications helps to follow the principle of least privilege and
-       ensures that Amazon EMR has only the required permissions to run your jobs
-       while protecting other resources in your AWS account.
-
-  By understanding and configuring these roles correctly, you can ensure that SageMaker
-  Studio has the necessary permissions to interact with EMR Serverless applications,
-  regardless of whether they are deployed in the same account or across different
-  accounts.
+  - These are the IAM roles that SageMaker AI's execution role can assume to
+    perform operations related to managing EMR Serverless applications.
+    These roles define the permissions and access policies required when
+    listing, connecting to, or managing EMR Serverless applications. They
+    are typically used in cross-account scenarios, where the EMR Serverless
+    applications are located in a different AWS account than the SageMaker AI
+    domain. Having a dedicated IAM role for your EMR Serverless
+    applications helps to follow the principle of least privilege and
+    ensures that Amazon EMR has only the required permissions to run your jobs
+    while protecting other resources in your AWS account.
+    By understanding and configuring these roles correctly, you can ensure that SageMaker
+    Studio has the necessary permissions to interact with EMR Serverless applications,
+    regardless of whether they are deployed in the same account or across different
+    accounts.
 
 ## Single account
 
@@ -172,7 +171,7 @@ either:
      role to an existing domain or user profile.When creating the role, choose the **Run Studio
 
 EMR Serverless Applications** option in **What ML
-activities will users perform?\*\* Then, provide the name of
+activities will users perform?** Then, provide the name of
 your Amazon S3 bucket and the job runtime execution role you want your
 EMR Serverless application to use (step 2).
 
@@ -313,7 +312,7 @@ applications are deployed in different AWS accounts.
 
 ![The diagram shows roles and permissions needed to list and connect EMR Serverless applications from Studio when Studio and the applications are in different AWS accounts.](images/studio/emr/studio-notebooks-emr-serverless-permissions-setup-crossaccount.png)
 
-For more information about creating a role on an AWS account, see [https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md")
+For more information about creating a role on an AWS account, see [https://docs.aws.amazon.com/IAM/latest/UserGuide/id\_roles\_create\_for-user.html](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md")
 Creating an IAM role (console).
 
 Before you get started:
@@ -676,43 +675,42 @@ print(json.dumps(resp, indent=2))
   passing the required EMR Serverless application runtime role to the
   service.
 
-      + `EMRServerlessListApplications`: Allows the
-       ListApplications action on all EMR Serverless resources in the
-       specified region and AWS account.
-      + `EMRServerlessPassRole`: Allows passing the specified
-       runtime role(s) in the provided AWS account, but only when the
-       role is being passed to the `emr-serverless.amazonaws.com
-       service`.
-      + `EMRServerlessCreateApplicationAction`: Allows the
-       CreateApplication and TagResource actions on EMR Serverless
-       resources in he specified region and AWS account. However, it
-       requires that the resources being created or tagged have specific
-       tag keys (`sagemaker:domain-arn`,
-       `sagemaker:user-profile-arn`, and
-       `sagemaker:space-arn`) present with non-null
-       values.
-      + `EMRServerlessDenyTaggingAction`: The TagResource and
-       UntagResource actions on EMR Serverless resources in the specified
-       region and AWS account if the resources do not have any of the
-       specified tag keys (`sagemaker:domain-arn`,
-       `sagemaker:user-profile-arn`, and
-       `sagemaker:space-arn`) set.
-      + `EMRServerlessActions`: Allows various actions
-       (`StartApplication`, `StopApplication`,
-       `GetApplication`, `DeleteApplication`,
-       `AccessLivyEndpoints`, and
-       `GetDashboardForJobRun`) on EMR Serverless
-       resources, but only if the resources have the specified tag keys
-       (`sagemaker:domain-arn`,
-       `sagemaker:user-profile-arn`, and
-       `sagemaker:space-arn`) set with non-null
-       values.
-
-  The IAM policy defined in the provided JSON document grants those
-  permissions, but limits that access to the presence of specific SageMaker AI tags on
-  the EMR Serverless applications to ensure that only Amazon EMR Serverless
-  resources associated with a particular SageMaker AI domain, user profile, and space
-  can be managed.
+  - `EMRServerlessListApplications`: Allows the
+    ListApplications action on all EMR Serverless resources in the
+    specified region and AWS account.
+  - `EMRServerlessPassRole`: Allows passing the specified
+    runtime role(s) in the provided AWS account, but only when the
+    role is being passed to the `emr-serverless.amazonaws.com
+   service`.
+  - `EMRServerlessCreateApplicationAction`: Allows the
+    CreateApplication and TagResource actions on EMR Serverless
+    resources in he specified region and AWS account. However, it
+    requires that the resources being created or tagged have specific
+    tag keys (`sagemaker:domain-arn`,
+    `sagemaker:user-profile-arn`, and
+    `sagemaker:space-arn`) present with non-null
+    values.
+  - `EMRServerlessDenyTaggingAction`: The TagResource and
+    UntagResource actions on EMR Serverless resources in the specified
+    region and AWS account if the resources do not have any of the
+    specified tag keys (`sagemaker:domain-arn`,
+    `sagemaker:user-profile-arn`, and
+    `sagemaker:space-arn`) set.
+  - `EMRServerlessActions`: Allows various actions
+    (`StartApplication`, `StopApplication`,
+    `GetApplication`, `DeleteApplication`,
+    `AccessLivyEndpoints`, and
+    `GetDashboardForJobRun`) on EMR Serverless
+    resources, but only if the resources have the specified tag keys
+    (`sagemaker:domain-arn`,
+    `sagemaker:user-profile-arn`, and
+    `sagemaker:space-arn`) set with non-null
+    values.
+    The IAM policy defined in the provided JSON document grants those
+    permissions, but limits that access to the presence of specific SageMaker AI tags on
+    the EMR Serverless applications to ensure that only Amazon EMR Serverless
+    resources associated with a particular SageMaker AI domain, user profile, and space
+    can be managed.
 
 JSON
 

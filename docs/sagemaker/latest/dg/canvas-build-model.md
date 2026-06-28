@@ -79,8 +79,8 @@ build type.
 
 | Limit                                                                             | Numeric and categorical prediction                             | Time series forecasting | Image prediction | Text prediction |
 | --------------------------------------------------------------------------------- | -------------------------------------------------------------- | ----------------------- | ---------------- | --------------- |
-| \*_Quick build_<br>• time                                                         | 2‐20 minutes                                                   | 2‐20 minutes            | 15‐30 minutes    | 15‐30 minutes   |
-| \*_Standard build_<br>• time                                                      | 2‐4 hours                                                      | 2‐4 hours               | 2‐5 hours        | 2‐5 hours       |
+| *_Quick build_<br>• time                                                          | 2‐20 minutes                                                   | 2‐20 minutes            | 15‐30 minutes    | 15‐30 minutes   |
+| *_Standard build_<br>• time                                                       | 2‐4 hours                                                      | 2‐4 hours               | 2‐5 hours        | 2‐5 hours       |
 | Downsample size (the reduced size of a large dataset after Canvas downsamples)    | 5 GB                                                           | 30 GB                   | N/A              | N/A             |
 | Minimum number of entries (rows) for **Quick<br>builds**                          | 2 category: 500 rows<br>3+ category, numeric, time series: N/A | N/A                     | N/A              | N/A             |
 | Minimum number of entries (rows, images, or documents) for<br>**Standard builds** | 250                                                            | 50                      | 50               | N/A             |

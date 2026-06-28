@@ -30,7 +30,7 @@ contains the following information:
 The following examples illustrates what the heatmaps look like on few samples from [Oxford-IIIT Pet Dataset](https://www.robots.ox.ac.uk/~vgg/data/pets/ "https://www.robots.ox.ac.uk/~vgg/data/pets/"). The
 heatmap image displays color gradients that indicate the relative importance of different
 features within the image. The red color represents regions with greater importance in
-predicting the "predicted_label" of the input image compared to the features represented by
+predicting the "predicted\_label" of the input image compared to the features represented by
 the blue color.
 
 | Input Image                  | Heatmap Image                                                                                       |

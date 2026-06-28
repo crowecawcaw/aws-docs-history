@@ -11,8 +11,8 @@ For a list of the available Deep Learning Containers images, see [Available Deep
 with security patches.
 
 To use the Hugging Face Deep Learning Containers with the SageMaker Python SDK for training, see the [Hugging
-Face SageMaker AI Estimator](https://sagemaker.readthedocs.io/en/stable/frameworks/huggingface/index.html "https://sagemaker.readthedocs.io/en/stable/frameworks/huggingface/index.html"). With the Hugging Face Estimator, you can use the Hugging Face
-models as you would any other SageMaker AI Estimator. However, using the SageMaker Python SDK is optional.
+Face SageMaker AI ModelTrainer](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html"). With the Hugging Face ModelTrainer, you can use the Hugging Face
+models as you would any other SageMaker AI ModelTrainer. However, using the SageMaker Python SDK is optional.
 You can also orchestrate your use of the Hugging Face Deep Learning Containers with the AWS CLI and
 AWS SDK for Python (Boto3).
 
@@ -31,26 +31,25 @@ Metrics (SageMaker Python SDK)](training-metrics.md#define-train-metrics-sdk "tr
 and as a Pandas `DataFrame` using the [TrainingJobAnalytics](https://sagemaker.readthedocs.io/en/stable/api/training/analytics.html#sagemaker.analytics.TrainingJobAnalytics "https://sagemaker.readthedocs.io/en/stable/api/training/analytics.html#sagemaker.analytics.TrainingJobAnalytics") method. After your model is trained and fine-tuned, you can
 use it like any other model to run inference jobs.
 
-### How to run training with the Hugging Face estimator
+### How to run training with the Hugging Face ModelTrainer
 
-You can implement the Hugging Face Estimator for training jobs using the SageMaker AI Python
+You can implement the Hugging Face ModelTrainer for training jobs using the SageMaker AI Python
 SDK. The SageMaker Python SDK is an open source library for training and deploying machine
-learning models on SageMaker AI. For more information on the Hugging Face Estimator, see the [SageMaker AI
-Python SDK documentation.](https://sagemaker.readthedocs.io/en/stable/frameworks/huggingface/index.html "https://sagemaker.readthedocs.io/en/stable/frameworks/huggingface/index.html")
+learning models on SageMaker AI. For more information on the Hugging Face ModelTrainer, see the [SageMaker AI
+Python SDK documentation.](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html")
 
-With the SageMaker Python SDK, you can run training jobs using the Hugging Face Estimator in
+With the SageMaker Python SDK, you can run training jobs using the Hugging Face ModelTrainer in
 the following environments:
 
 - [Amazon SageMaker Studio Classic](studio.md "studio.md"): Studio Classic is the first fully integrated development
   environment (IDE) for machine learning (ML). Studio Classic provides a single, web-based
   visual interface where you can perform all ML development steps required to:
 
-      + prepare
-      + build
-      + train and tune
-      + deploy and manage models
-
-  For information on using Jupyter Notebooks in Studio Classic, see [Use Amazon SageMaker Studio Classic Notebooks](notebooks.md "notebooks.md").
+  - prepare
+  - build
+  - train and tune
+  - deploy and manage models
+    For information on using Jupyter Notebooks in Studio Classic, see [Use Amazon SageMaker Studio Classic Notebooks](notebooks.md "notebooks.md").
 
 - [SageMaker
   Notebook Instances](nbi.md "nbi.md"): An Amazon SageMaker notebook instance is a machine learning (ML)
@@ -86,13 +85,11 @@ model that you trained, or deploy a pre-trained Hugging Face model.
 - **Run inference with your trained model:** You have two
   options for running inference with your own trained model:
 
-      + Run inference with a model that you trained using an existing Hugging Face model
-       with the SageMaker AI Hugging Face Deep Learning Containers.
-      + Bring your own existing Hugging Face model and deploy it using SageMaker AI.
-
-  When you run inference with a model that you trained with the SageMaker AI Hugging Face
-  Estimator, you can deploy the model immediately after training completes. You can also
-  upload the trained model to an Amazon S3 bucket and ingest it when running inference later.
+  - Run inference with a model that you trained using an existing Hugging Face model
+    with the SageMaker AI Hugging Face Deep Learning Containers.
+  - Bring your own existing Hugging Face model and deploy it using SageMaker AI.
+    When you run inference with a model that you trained with the SageMaker AI Hugging Face ModelTrainer, you can deploy the model immediately after training completes. You can also
+    upload the trained model to an Amazon S3 bucket and ingest it when running inference later.
 
 If you bring your own existing Hugging Face model, you must upload the trained model
 to an Amazon S3 bucket. You then ingest that bucket when running inference as shown in [Deploy your Hugging Face Transformers for inference example](https://github.com/huggingface/notebooks/blob/main/sagemaker/10_deploy_model_from_s3/deploy_transformer_model_from_s3.ipynb "https://github.com/huggingface/notebooks/blob/main/sagemaker/10_deploy_model_from_s3/deploy_transformer_model_from_s3.ipynb").

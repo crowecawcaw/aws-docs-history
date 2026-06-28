@@ -74,27 +74,26 @@ SageMakerRepository:
             Branch: main
 ```
 
-3.  Add a launch constraint. A launch constraint designates an IAM role that Service Catalog
-    assumes when a user launches a product. For information, see [Step 6: Add a
-    Launch Constraint to Assign an IAM Role](../../../servicecatalog/latest/adminguide/getstarted-launchconstraint.md "../../../servicecatalog/latest/adminguide/getstarted-launchconstraint.md").
-4.  Provision the product on [https://console.aws.amazon.com/servicecatalog/](https://console.aws.amazon.com/servicecatalog/ "https://console.aws.amazon.com/servicecatalog/") to test the template. If you are
-    satisfied with your template, continue to the next step to make the template available in
-    Studio (or Studio Classic).
-5.  Grant access to the Service Catalog portfolio that you created in step 1 to your Studio (or
-    Studio Classic) execution role. Use either the domain execution role or a user role that has
-    Studio (or Studio Classic) access. For information about adding a role to the portfolio,
-    see [Step 7: Grant End Users
-    Access to the Portfolio](../../../servicecatalog/latest/adminguide/getstarted-deploy.md "../../../servicecatalog/latest/adminguide/getstarted-deploy.md").
-6.  To make your project template available in your **Organization
-    templates** list in Studio (or Studio Classic), create a tag with the
-    following key and value to the Service Catalog product you created in step 2.
+3. Add a launch constraint. A launch constraint designates an IAM role that Service Catalog
+   assumes when a user launches a product. For information, see [Step 6: Add a
+   Launch Constraint to Assign an IAM Role](../../../servicecatalog/latest/adminguide/getstarted-launchconstraint.md "../../../servicecatalog/latest/adminguide/getstarted-launchconstraint.md").
+4. Provision the product on [https://console.aws.amazon.com/servicecatalog/](https://console.aws.amazon.com/servicecatalog/ "https://console.aws.amazon.com/servicecatalog/") to test the template. If you are
+   satisfied with your template, continue to the next step to make the template available in
+   Studio (or Studio Classic).
+5. Grant access to the Service Catalog portfolio that you created in step 1 to your Studio (or
+   Studio Classic) execution role. Use either the domain execution role or a user role that has
+   Studio (or Studio Classic) access. For information about adding a role to the portfolio,
+   see [Step 7: Grant End Users
+   Access to the Portfolio](../../../servicecatalog/latest/adminguide/getstarted-deploy.md "../../../servicecatalog/latest/adminguide/getstarted-deploy.md").
+6. To make your project template available in your **Organization
+   templates** list in Studio (or Studio Classic), create a tag with the
+   following key and value to the Service Catalog product you created in step 2.
 
-        * **key**: `sagemaker:studio-visibility`
-        * **value**: `true`
-
-    After you complete these steps, Studio (or Studio Classic) users in your organization can
-    create a project with the template you created by following the steps in [Create a MLOps Project using Amazon SageMaker Studio or Studio Classic](sagemaker-projects-create.md "sagemaker-projects-create.md") and choosing
-    **Organization templates** when you choose a template.
+   - **key**: `sagemaker:studio-visibility`
+   - **value**: `true`
+     After you complete these steps, Studio (or Studio Classic) users in your organization can
+     create a project with the template you created by following the steps in [Create a MLOps Project using Amazon SageMaker Studio or Studio Classic](sagemaker-projects-create.md "sagemaker-projects-create.md") and choosing
+     **Organization templates** when you choose a template.
 
 ## Using a template from an Amazon S3 bucket
 

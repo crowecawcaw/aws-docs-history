@@ -25,8 +25,8 @@ following:
 - Tenants with consistent naming across locations. For example, if an input data Amazon S3
   URI for a tenant is
   `s3://your-input-s3-bucket/`example-tenant``,
-the Amazon FSx directory for that same tenant should be
-`/fsx-train/train/`example-tenant`` and the
+ the Amazon FSx directory for that same tenant should be
+ `/fsx-train/train/`example-tenant`` and the
   output data Amazon S3 URI should be
   `s3://your-output-s3-bucket/`example-tenant``.
 - A SageMaker AI job creation role. You can create a SageMaker AI job creation role using Amazon SageMaker AI
@@ -95,10 +95,12 @@ SageMaker AI to call
 
 ```
 import boto3
-import sagemaker
 
-from sagemaker.estimator import Estimator
-from sagemaker.inputs import TrainingInput
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import InputData, CheckpointConfig
+from sagemaker.core.helper.session_helper import Session
+from sagemaker.core.shapes import OutputDataConfig
+from sagemaker.train.configs import Compute
 ```
 
 2. Set up an AWS STS and SageMaker AI client to use the tenant-labeled session tags. You can
@@ -130,7 +132,7 @@ sagemaker_client = boto3.client(
     aws_secret_access_key=credentials['SecretAccessKey'],
     aws_session_token=credentials['SessionToken']
 )
-sagemaker_session = sagemaker.Session(sagemaker_client=sagemaker_client)
+sagemaker_session = Session(sagemaker_client=sagemaker_client)
 ```
 
 When appending the tags `"tenant-id=example-tenant"` to the job creation
@@ -169,35 +171,35 @@ JSON
 
 ```
 
-3. Define an estimator to create a training job using the SageMaker Python SDK. Set
+3. Define a ModelTrainer to create a training job using the SageMaker Python SDK. Set
    `enable_session_tag_chaining` to `True` to allow your SageMaker AI
    training execution role to retrieve the tags from your job creation role.
 
 ```
 # Specify your training input
-trainingInput = TrainingInput(
-    s3_data=`'s3://<your-input-bucket>/example-tenant'`,
-    distribution='ShardedByS3Key',
-    s3_data_type='S3Prefix'
+trainingInput = InputData(
+    channel_name='`training`',
+    data_source=`'s3://<your-input-bucket>/example-tenant'`
 )
 
 # Specify your training job execution role
 execution_role_arn = `"arn:aws:iam::<account-id>:role/<your-training-job-execution-role>"`
 
-# Define your esimator with session tag chaining enabled
-estimator = Estimator(
-    image_uri=`"<your-training-image-uri>"`,
+# Define your model trainer with session tag chaining enabled
+model_trainer = ModelTrainer(
+    training_image=`"<your-training-image-uri>"`,
     role=execution_role_arn,
-    instance_count=1,
-    instance_type='ml.m4.xlarge',
-    volume_size=20,
-    max_run=3600,
+    compute=Compute(
+        instance_type='ml.m4.xlarge',
+        instance_count=1,
+        volume_size_in_gb=20
+    ),
     sagemaker_session=sagemaker_session,
-    output_path=`"s3://<your-output-bucket>/example-tenant"`,
-    enable_session_tag_chaining=`True`
+    output_data_config=OutputDataConfig(s3_output_path=`"s3://<your-output-bucket>/example-tenant"`),
+    tags=[{"Key": "sagemaker:EnableSessionTagChaining", "Value": "true"}]
 )
 
-estimator.fit(inputs=trainingInput, job_name=`"abac-demo"`)
+model_trainer.train(input_data_config=[trainingInput])
 ```
 
 SageMaker AI can only read tags provided in the training job request and does not add any tags

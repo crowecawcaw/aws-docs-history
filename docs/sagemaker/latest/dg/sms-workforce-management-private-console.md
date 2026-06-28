@@ -67,7 +67,7 @@ managing the Amazon SNS topic.
 
 ## Add or Remove Workers
 
-A *work team* is a group of workers within your workforce to whom you
+A _work team_ is a group of workers within your workforce to whom you
 can assign jobs. A worker can be added to more than one work team. Once a worker has been
 added to a work team, that worker can be disabled or removed.
 

@@ -4,15 +4,15 @@
 
 Use the Benchmark Evaluation type to evaluate the quality of your model across standardized benchmark datasets including popular datasets like MMLU and BBH.
 
-| Benchmark     | Custom Dataset Supported | Modalities | Description                                                                                                                       | Metrics     | Strategy | Subtask available |
-| ------------- | ------------------------ | ---------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------- | -------- | ----------------- |
-| mmlu          | No                       | Text       | Multi-task Language Understanding – Tests knowledge across 57 subjects.                                                           | accuracy    | zs_cot   | Yes               |
-| mmlu_pro      | No                       | Text       | MMLU – Professional Subset – Focuses on professional domains such as law, medicine, accounting, and engineering.                  | accuracy    | zs_cot   | No                |
-| bbh           | No                       | Text       | Advanced Reasoning Tasks – A collection of challenging problems that test higher-level cognitive and problem-solving skills.      | accuracy    | fs_cot   | Yes               |
-| gpqa          | No                       | Text       | General Physics Question Answering – Assesses comprehension of physics concepts and related problem-solving abilities.            | accuracy    | zs_cot   | No                |
-| math          | No                       | Text       | Mathematical Problem Solving – Measures mathematical reasoning across topics including algebra, calculus, and word problems.      | exact_match | zs_cot   | Yes               |
-| strong_reject | No                       | Text       | Quality-Control Task – Tests the model's ability to detect and reject inappropriate, harmful, or incorrect content.               | deflection  | zs       | Yes               |
-| ifeval        | No                       | Text       | Instruction-Following Evaluation – Gauges how accurately a model follows given instructions and completes tasks to specification. | accuracy    | zs       | No                |
+| Benchmark      | Custom Dataset Supported | Modalities | Description                                                                                                                       | Metrics      | Strategy | Subtask available |
+| -------------- | ------------------------ | ---------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------- | ----------------- |
+| mmlu           | No                       | Text       | Multi-task Language Understanding – Tests knowledge across 57 subjects.                                                           | accuracy     | zs\_cot  | Yes               |
+| mmlu\_pro      | No                       | Text       | MMLU – Professional Subset – Focuses on professional domains such as law, medicine, accounting, and engineering.                  | accuracy     | zs\_cot  | No                |
+| bbh            | No                       | Text       | Advanced Reasoning Tasks – A collection of challenging problems that test higher-level cognitive and problem-solving skills.      | accuracy     | fs\_cot  | Yes               |
+| gpqa           | No                       | Text       | General Physics Question Answering – Assesses comprehension of physics concepts and related problem-solving abilities.            | accuracy     | zs\_cot  | No                |
+| math           | No                       | Text       | Mathematical Problem Solving – Measures mathematical reasoning across topics including algebra, calculus, and word problems.      | exact\_match | zs\_cot  | Yes               |
+| strong\_reject | No                       | Text       | Quality-Control Task – Tests the model's ability to detect and reject inappropriate, harmful, or incorrect content.               | deflection   | zs       | Yes               |
+| ifeval         | No                       | Text       | Instruction-Following Evaluation – Gauges how accurately a model follows given instructions and completes tasks to specification. | accuracy     | zs       | No                |
 
 For more information on BYOD formats, see [Supported Dataset Formats for Bring-Your-Own-Dataset (BYOD) Tasks](model-customize-evaluation-dataset-formats.md "model-customize-evaluation-dataset-formats.md").
 
@@ -196,7 +196,7 @@ evaluate_base_model=False
 execution = evaluator.evaluate()
 ```
 
-For more information on evaluation job submission through SageMaker Python SDK, see: [https://sagemaker.readthedocs.io/en/stable/model_customization/evaluation.html](https://sagemaker.readthedocs.io/en/stable/model_customization/evaluation.html "https://sagemaker.readthedocs.io/en/stable/model_customization/evaluation.html")
+For more information on evaluation job submission through SageMaker Python SDK, see: [https://sagemaker.readthedocs.io/en/stable/model\_customization/evaluation.html](https://sagemaker.readthedocs.io/en/stable/model_customization/evaluation.html "https://sagemaker.readthedocs.io/en/stable/model_customization/evaluation.html")
 
 ## Large Language Model as a Judge (LLMAJ) evaluation
 
@@ -241,7 +241,7 @@ evaluator = LLMAsJudgeEvaluator(
 execution = evaluator.evaluate()
 ```
 
-For more information on evaluation job submission through SageMaker Python SDK, see: [https://sagemaker.readthedocs.io/en/stable/model_customization/evaluation.html](https://sagemaker.readthedocs.io/en/stable/model_customization/evaluation.html "https://sagemaker.readthedocs.io/en/stable/model_customization/evaluation.html")
+For more information on evaluation job submission through SageMaker Python SDK, see: [https://sagemaker.readthedocs.io/en/stable/model\_customization/evaluation.html](https://sagemaker.readthedocs.io/en/stable/model_customization/evaluation.html "https://sagemaker.readthedocs.io/en/stable/model_customization/evaluation.html")
 
 ### Submit a custom metrics LLMAJ job
 

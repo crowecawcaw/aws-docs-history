@@ -63,13 +63,13 @@ training to resume quickly after failures by maintaining cached data batches in 
 
 **Parameters**
 
-- **cache_dir** (str, optional) – Directory path for storing cached data batches. Default: "/dev/shm/pdl_cache"
-- **prefetch_length** (int, optional) – Number of batches to prefetch ahead during training. Default: 10
-- **val_prefetch_length** (int, optional) – Number of batches to prefetch ahead during validation. Default: 10
-- **lookback_length** (int, optional) – Number of previously used batches to keep in cache for potential reuse. Default: 2
-- **checkpoint_frequency** (int, optional) – Frequency of model checkpointing steps. Used for cache performance optimization. Default: None
-- **model_parallel_group** (object, optional) – Process group for model parallelism. If None, will be created automatically. Default: None
-- **enable_batch_encryption** (bool, optional) – Whether to enable encryption for cached batch data. Default: False
+- **cache\_dir** (str, optional) – Directory path for storing cached data batches. Default: "/dev/shm/pdl\_cache"
+- **prefetch\_length** (int, optional) – Number of batches to prefetch ahead during training. Default: 10
+- **val\_prefetch\_length** (int, optional) – Number of batches to prefetch ahead during validation. Default: 10
+- **lookback\_length** (int, optional) – Number of previously used batches to keep in cache for potential reuse. Default: 2
+- **checkpoint\_frequency** (int, optional) – Frequency of model checkpointing steps. Used for cache performance optimization. Default: None
+- **model\_parallel\_group** (object, optional) – Process group for model parallelism. If None, will be created automatically. Default: None
+- **enable\_batch\_encryption** (bool, optional) – Whether to enable encryption for cached batch data. Default: False
 
 **Methods**
 
@@ -88,14 +88,14 @@ Creates and returns a configured MMAP dataloader instance.
 
 **Parameters**
 
-- **dataloader_init_callable** (Callable) – Function to initialize the underlying dataloader
-- **parallel_state_util** (object) – Utility for managing parallel state across processes
+- **dataloader\_init\_callable** (Callable) – Function to initialize the underlying dataloader
+- **parallel\_state\_util** (object) – Utility for managing parallel state across processes
 - **step** (int) – The data step to resume from during training
-- **is_data_loading_rank** (Callable) – Function that returns True if current rank should load data
-- **create_model_parallel_group_callable** (Callable) – Function to create model parallel process group
+- **is\_data\_loading\_rank** (Callable) – Function that returns True if current rank should load data
+- **create\_model\_parallel\_group\_callable** (Callable) – Function to create model parallel process group
 - **name** (str, optional) – Name identifier for the dataloader. Default: "Train"
-- **is_val** (bool, optional) – Whether this is a validation dataloader. Default: False
-- **cached_len** (int, optional) – Length of cached data if resuming from existing cache. Default: 0
+- **is\_val** (bool, optional) – Whether this is a validation dataloader. Default: False
+- **cached\_len** (int, optional) – Length of cached data if resuming from existing cache. Default: 0
 
 Returns `CacheResumePrefetchedDataLoader` or `CacheResumeReadDataLoader` – Configured
 MMAP dataloader instance
@@ -149,17 +149,17 @@ This class wraps an existing PyTorch Lightning DataModule and enhances it with M
 
 Parameters
 
-data_module (pl.LightningDataModule)
+data\_module (pl.LightningDataModule)
 The underlying DataModule to wrap (e.g., LLMDataModule)
 
-mmap_config (MMAPConfig)
+mmap\_config (MMAPConfig)
 The MMAP configuration object that defines caching behavior and parameters
 
 `parallel_state_util` (MegatronParallelStateUtil, optional)
 Utility for managing parallel state across distributed processes. Default: MegatronParallelStateUtil()
 
 `is_data_loading_rank` (Callable, optional)
-Function that returns True if the current rank should load data. If None, defaults to parallel_state_util.is_tp_0. Default: None
+Function that returns True if the current rank should load data. If None, defaults to parallel\_state\_util.is\_tp\_0. Default: None
 
 **Attributes**
 
@@ -222,7 +222,7 @@ load_checkpoint(checkpoint)
 Load checkpoint information to resume training from a specific step.
 
 checkpoint (dict)
-Checkpoint dictionary containing 'global_step' key
+Checkpoint dictionary containing 'global\_step' key
 
 ```
 get_underlying_data_module()

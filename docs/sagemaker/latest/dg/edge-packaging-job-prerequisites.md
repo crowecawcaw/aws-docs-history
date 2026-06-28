@@ -27,13 +27,13 @@ Use one of the following methods to get your IAM ARN:
 
 
     ```
-    import sagemaker
+    from sagemaker.core.helper.session_helper import Session, get_execution_role
 
     # Initialize SageMaker Session object so you can interact with AWS resources
-    sess = sagemaker.Session()
+    sess = Session()
 
     # Get the role ARN
-    role = sagemaker.get_execution_role()
+    role = get_execution_role()
 
     print(role)
     >> arn:aws:iam::`<your-aws-account-id>`:role/`<your-role-name>`
@@ -41,7 +41,7 @@ Use one of the following methods to get your IAM ARN:
 
     For more information about using the SageMaker Python SDK,
      see the [SageMaker AI
-     Python SDK API](https://sagemaker.readthedocs.io/en/stable/index.html "https://sagemaker.readthedocs.io/en/stable/index.html").
+     Python SDK API](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/").
     * **Using the AWS Identity and Access Management (IAM)
      console**
 

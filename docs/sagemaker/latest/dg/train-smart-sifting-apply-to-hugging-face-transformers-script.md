@@ -8,7 +8,7 @@ There are two ways to implement the SageMaker smart sifting into the Transformer
 If you use one of the DLCs for PyTorch with the SageMaker smart sifting package installed,
 note that you need to install the `transformers` library. You can
 install additional packages by [extending the DLCs](prebuilt-containers-extend.md "prebuilt-containers-extend.md") or passing `requirements.txt` to the
-training job launcher class for PyTorch ([`sagemaker.pytorch.PyTorch`](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html")) in the SageMaker AI Python
+training job launcher class for PyTorch ([`sagemaker.pytorch.PyTorch`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html")) in the SageMaker AI Python
 SDK.
 
 ## Simple setup
@@ -67,7 +67,7 @@ was -1
 
 To address this, the `enable_sifting` function provides an optional
 `set_epochs` parameter. This enables training with epochs, using
-the number of epochs provided by [num_train_epochs argument](https://huggingface.co/docs/transformers/main_classes/trainer#transformers.TrainingArguments.num_train_epochs(float, "https://huggingface.co/docs/transformers/main_classes/trainer#transformers.TrainingArguments.num_train_epochs(float,") of the `Trainer` class, and
+the number of epochs provided by [num\_train\_epochs argument](https://huggingface.co/docs/transformers/main_classes/trainer#transformers.TrainingArguments.num_train_epochs(float, "https://huggingface.co/docs/transformers/main_classes/trainer#transformers.TrainingArguments.num_train_epochs(float,") of the `Trainer` class, and
 sets `max_steps` to the maximum system integer, allowing training to
 progress until the specified epochs have completed.
 

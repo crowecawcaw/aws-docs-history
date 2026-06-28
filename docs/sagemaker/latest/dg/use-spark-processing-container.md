@@ -7,7 +7,7 @@ run a Amazon SageMaker Processing job using Apache Spark.
 
 With the [Amazon SageMaker Python SDK](https://github.com/aws/sagemaker-python-sdk#installing-the-sagemaker-python-sdk "https://github.com/aws/sagemaker-python-sdk#installing-the-sagemaker-python-sdk"), you can easily apply data transformations and extract
 features (feature engineering) using the Spark framework. For information about using
-the SageMaker Python SDK to run Spark processing jobs, see [Data Processing with Spark](https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_processing.html#data-processing-with-spark "https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_processing.html#data-processing-with-spark") in the [Amazon SageMaker Python
+the SageMaker Python SDK to run Spark processing jobs, see [Data Processing with Spark](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html#data-processing-with-spark "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html#data-processing-with-spark") in the [Amazon SageMaker Python
 SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/").
 
 A code repository that contains the source code and Dockerfiles for the
@@ -21,6 +21,31 @@ number of instances vs. time to completion.
 
 The following code example shows how to run a processing job that invokes
 your PySpark script `preprocess.py`.
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.spark.processing import PySparkProcessor
+
+spark_processor = PySparkProcessor(
+    base_job_name="spark-preprocessor",
+    framework_version="2.4",
+    role=role,
+    instance_count=2,
+    instance_type="ml.m5.xlarge",
+    max_runtime_in_seconds=1200,
+)
+
+spark_processor.run(
+    submit_app="preprocess.py",
+    arguments=['s3_input_bucket', bucket,
+               's3_input_key_prefix', input_prefix,
+               's3_output_bucket', bucket,
+               's3_output_key_prefix', output_prefix],
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.spark.processing import PySparkProcessor

@@ -93,9 +93,9 @@ curl "$EMR_MASTER_IP:8998/sessions"
    `your.emr.master.ip` with the Master Public DNS name for the
    Amazon EMR instance.
 7. Choose **Create configuration**.
-8. On the **Create notebook** page, choose \*\*Network
+8. On the **Create notebook** page, choose **Network
 
-- optional\*\*.
+- optional**.
 
 9. Choose the VPC and subnet where the Amazon EMR instance is located.
 10. Choose the security group used by the Amazon EMR master node.

@@ -1,5 +1,7 @@
 # Using topology-aware scheduling in Amazon SageMaker HyperPod task governance
 
+## Overview
+
 Topology-aware scheduling in Amazon SageMaker HyperPod task governance
 optimizes the training efficiency of distributed machine learning workloads by placing pods based on the physical network topology of your Amazon EC2 instances.
 By considering the hierarchical structure of AWS infrastructure, including Availability Zones, network blocks, and physical racks, topology-aware scheduling ensures
@@ -26,12 +28,13 @@ Topology-aware scheduling supports the following instance types:
 - ml.trn1n.32xlarge
 - ml.trn2.48xlarge
 - ml.trn2u.48xlarge
-  Topology-aware scheduling integrates with your existing HyperPod workflows while providing flexible
-  topology preferences through both kubectl YAML files and the HyperPod CLI.
-  HyperPod task governance automatically configures cluster nodes with topology labels and works with HyperPod task governance policies and resource borrowing mechanisms,
-  ensuring that topology-aware scheduling doesn't disrupt your current operational processes. With built-in support for both preferred and required topology specifications,
-  you can fine-tune workload placement to match your specific performance requirements while maintaining the flexibility to fall back to standard
-  scheduling when topology constraints cannot be satisfied.
+
+Topology-aware scheduling integrates with your existing HyperPod workflows while providing flexible
+topology preferences through both kubectl YAML files and the HyperPod CLI.
+HyperPod task governance automatically configures cluster nodes with topology labels and works with HyperPod task governance policies and resource borrowing mechanisms,
+ensuring that topology-aware scheduling doesn't disrupt your current operational processes. With built-in support for both preferred and required topology specifications,
+you can fine-tune workload placement to match your specific performance requirements while maintaining the flexibility to fall back to standard
+scheduling when topology constraints cannot be satisfied.
 
 By leveraging topology-aware labels in HyperPod, you can enhance their machine learning workloads through intelligent pod placement that
 considers the physical network infrastructure. HyperPod task governance automatically optimizes pod scheduling based on the hierarchical data
@@ -46,13 +49,15 @@ The following are labels for the available topology network layers that HyperPod
 - topology.k8s.aws/network-node-layer-2
 - topology.k8s.aws/network-node-layer-3
 - topology.k8s.aws/ultraserver-id
-  To use topology-aware scheduling, include the following labels in your YAML file:
+
+To use topology-aware scheduling, include the following labels in your YAML file:
 
 - kueue.x-k8s.io/podset-required-topology - indicates that this job must have the required pods and that all pods in the nodes must be scheduled within the same topology layer.
 - kueue.x-k8s.io/podset-preferred-topology - indicates that this job must have the pods, but that scheduling pods within the same topology layer is preferred but not required.
   HyperPod task governance will try to schedule the pods within one layer before trying the next topology layer.
-  If resources don’t share the same topology label, the job will be suspended. The job will be in the waitlist.
-  Once Kueue sees that there are enough resources, it will admit and run the job.
+
+If resources don’t share the same topology label, the job will be suspended. The job will be in the waitlist.
+Once Kueue sees that there are enough resources, it will admit and run the job.
 
 The following example demonstrates how to use the labels in your YAML files:
 
@@ -96,7 +101,7 @@ The following table explains the new parameters you can use in the kubectl YAML 
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | kueue.x-k8s.io/queue-name     | The name of the queue to use to run the job. The format of this queue-name must be `hyperpod-ns-`team-name`-localqueue`.                                                                                                                                                                                                                                                                                                                                                                                  |
 | kueue.x-k8s.io/priority-class | Lets you specify a priority for pod scheduling. This specification is optional.                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| annotations                   | Contains the topology annotation that you attach to the job. Available topologies are _kueue.x-k8s.io/podset-required-topology_<br>and \*kueue.x-k8s.io/podset-preferred-topology.<br>• You can use either an annotation or nodeSelector, but not both at the same time.                                                                                                                                                                                                                                  |
+| annotations                   | Contains the topology annotation that you attach to the job. Available topologies are _kueue.x-k8s.io/podset-required-topology_<br>and *kueue.x-k8s.io/podset-preferred-topology.<br>• You can use either an annotation or nodeSelector, but not both at the same time.                                                                                                                                                                                                                                   |
 | nodeSelector                  | Specifies the network layer that represents the layer of Amazon EC2 instance placement. Use either this field or an annotation,<br>but not both at the same time. In your YAML file, you can also use the nodeSelector parameter to choose the exact layer for your pods.<br>To get the value of your label, use the [DescribeInstanceTopology](../../../AWSEC2/latest/APIReference/API_DescribeInstanceTopology.md "../../../AWSEC2/latest/APIReference/API_DescribeInstanceTopology.md") API operation. |
 
 You can also use the HyperPod CLI to run your job and use topology aware scheduling. For more information about the HyperPod CLI, see
@@ -184,10 +189,36 @@ Follow these steps to see them in the interface that you’re using.
 1. In SageMaker Studio, navigate to your cluster.
 2. In the Tasks view, choose the options menu in the Name column, then choose **Manage columns**.
 3. Select **Requested topology** and **Topology constraint** to add the columns to see the topology information in the list of Kubernetes pods.
-   **AWS Management Console**
 
-4. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
-5. Under **HyperPod clusters**, choose **Cluster management**.
-6. Choose the **Tasks** tab, then choose the gear icon.
-7. Under instance attributes, toggle **Requested topology** and **Topology constraint**.
-8. Choose **Confirm** to see the topology information in the table.
+**AWS Management Console**
+
+1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
+2. Under **HyperPod clusters**, choose **Cluster management**.
+3. Choose the **Tasks** tab, then choose the gear icon.
+4. Under instance attributes, toggle **Requested topology** and **Topology constraint**.
+5. Choose **Confirm** to see the topology information in the table.
+
+## Topology-aware scheduling with Karpenter
+
+Topology-aware scheduling (TAS) is not supported with Karpenter autoscaling. TAS is enabled
+by default in HyperPod task governance. If you plan to use Karpenter for node provisioning,
+disable TAS by following these steps:
+
+1. Edit the Kueue configuration to disable the TAS feature gate:
+
+```
+kubectl edit configmap kueue-manager-config -n kueue-system
+```
+
+In the configuration, change `TopologyAwareScheduling: true` to
+`TopologyAwareScheduling: false`. 2. Restart the Kueue controller to apply the change:
+
+```
+kubectl rollout restart deployment kueue-controller-manager -n kueue-system
+```
+
+The controller restart takes approximately 20 seconds. After the restart, Kueue
+automatically re-evaluates stuck workloads. You do not need to delete and resubmit jobs.
+
+To re-enable TAS, reverse these steps by setting
+`TopologyAwareScheduling` back to `true` and restarting the controller.

@@ -48,16 +48,14 @@ apply the security group settings to shared spaces created in the domain.
      Amazon VPC and subnets. You must use a subnet that does not have direct internet access in
      **VPC only** mode. Internet access is disabled by default.
 
-2. Choose the Amazon VPC.
-3. Choose one or more subnets. If you don't choose any subnets, SageMaker AI uses all the subnets
-   in the Amazon VPC. We recommend that you use multiple subnets that are not created in
-   constrained Availability Zones. Using subnets in these constrained Availability Zones can
-   result in insufficient capacity errors and longer application creation times. For more
-   information about constrained Availability Zones, see [Constrained Availability Zones](../../../global-infrastructure/latest/regions/aws-availability-zones.md#constrained-zones "../../../global-infrastructure/latest/regions/aws-availability-zones.md#constrained-zones") in the _AWS Regions and Availability
-   Zones User Guide_.
-4. Choose the security groups. If you chose **Public internet only**,
-   this step is optional. If you chose **VPC only**, this step is
-   required.
+2. Choose the Amazon VPC. 3. Choose one or more subnets. If you don't choose any subnets, SageMaker AI uses all the subnets
+in the Amazon VPC. We recommend that you use multiple subnets that are not created in
+constrained Availability Zones. Using subnets in these constrained Availability Zones can
+result in insufficient capacity errors and longer application creation times. For more
+information about constrained Availability Zones, see [Constrained Availability Zones](../../../global-infrastructure/latest/regions/aws-availability-zones.md#constrained-zones "../../../global-infrastructure/latest/regions/aws-availability-zones.md#constrained-zones") in the _AWS Regions and Availability
+Zones User Guide_. 4. Choose the security groups. If you chose **Public internet only**,
+this step is optional. If you chose **VPC only**, this step is
+required.
 
 ###### Note
 

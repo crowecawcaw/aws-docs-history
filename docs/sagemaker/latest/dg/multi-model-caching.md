@@ -7,7 +7,7 @@ out of memory or disk space to accommodate a newly targeted model.
 
 You can change the caching behavior of a multi-model endpoint and explicitly enable or
 disable model caching by setting the parameter `ModelCacheSetting` when you call
-[create_model](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model").
+[create\_model](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model").
 
 We recommend setting the value of the `ModelCacheSetting` parameter to
 `Disabled` for use cases that do not benefit from model caching. For example,

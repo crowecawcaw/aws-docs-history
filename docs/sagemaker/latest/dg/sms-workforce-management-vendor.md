@@ -33,28 +33,27 @@ vendors.
 
 ###### To subscribe to a vendor workforce
 
-1.  Open the SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
-2.  Choose the appropriate page in the SageMaker AI console.
+1. Open the SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
+2. Choose the appropriate page in the SageMaker AI console.
 
-    - For Ground Truth labeling jobs, choose **Labeling workforces**,
-      choose **Vendor**, and then choose **Find data
-      labeling services**.
-    - For Amazon A2I human review workflows, choose **Human review
-      workforces**, choose **Vendor**, and then
-      choose **Find human review services**.
+   - For Ground Truth labeling jobs, choose **Labeling workforces**,
+     choose **Vendor**, and then choose **Find data
+     labeling services**.
+   - For Amazon A2I human review workflows, choose **Human review
+     workforces**, choose **Vendor**, and then
+     choose **Find human review services**.
 
-3.  The console opens the AWS Marketplace with:
+3. The console opens the AWS Marketplace with:
 
-        * data labeling services category selected for Ground Truth
-        * human review services category selected for Amazon A2I
+   - data labeling services category selected for Ground Truth
+   - human review services category selected for Amazon A2I
+     Here you see a list of the vendor services available for this service.
 
-    Here you see a list of the vendor services available for this service.
-
-4.  Choose a vendor. The AWS Marketplace shows detailed information about the data labeling
-    or human review service. Use this information to determine if the vendor meets your
-    requirements for your task.
-5.  If the vendor meets your requirements, choose **Continue to
-    subscribe**.
-6.  Review the details of the subscription. If you agree to the terms, choose
-    **Subscribe** to complete your subscription to the
-    service.
+4. Choose a vendor. The AWS Marketplace shows detailed information about the data labeling
+   or human review service. Use this information to determine if the vendor meets your
+   requirements for your task.
+5. If the vendor meets your requirements, choose **Continue to
+   subscribe**.
+6. Review the details of the subscription. If you agree to the terms, choose
+   **Subscribe** to complete your subscription to the
+   service.

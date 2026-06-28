@@ -441,7 +441,7 @@ client and the SageMaker Runtime client using the [SageMaker AI boto3 client](ht
 
 ```
 import boto3
-from sagemaker import get_execution_role
+from sagemaker.core.helper.session_helper import get_execution_role
 
 sm_client = boto3.client(service_name='sagemaker')
 runtime_sm_client = boto3.client(service_name='sagemaker-runtime')
@@ -614,7 +614,7 @@ ContentType=content_type,
 Body=payload)
 
 #Parse results
-result = json.loads(response['Body'].read().decode())['output']
+result = json.loads(response['Body'].read().decode('utf-8'))['output']
 result
 ```
 

@@ -163,7 +163,7 @@ attached lifecycle configuration from the SageMaker AI console.
    **Instance type**, and a **Start-up
    script**. If there is no default lifecycle configuration, the
    **Start-up script** value defaults to `No
-script`. Otherwise, the **Start-up script** value is
+ script`. Otherwise, the **Start-up script** value is
    your default lifecycle configuration. After you select a lifecycle
    configuration, you can view the entire script.
 7. Click **Select**.

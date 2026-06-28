@@ -37,14 +37,18 @@ the underlying MXNet framework for the container has reached end-of-maintenance.
 ## AWS Deep Learning Containers (DLC) support policy
 
 AWS Deep Learning Containers are a set of Docker images for training and serving deep
-learning models. To view available images, see [Available Deep Learning Containers Images](https://aws.github.io/deep-learning-containers/reference/available_images/ "https://aws.github.io/deep-learning-containers/reference/available_images/").
+learning models. To view available images, see [Available Deep Learning Containers Images](https://github.com/aws/deep-learning-containers/blob/master/available_images.md "https://github.com/aws/deep-learning-containers/blob/master/available_images.md") in the Deep Learning Containers
+GitHub repository.
 
 DLCs hit their end of patch date 365 days after their GitHub release date. Patch
 updates for DLCs are not “in-place” updates. You must delete the existing image on your
 instance and pull the latest container image without terminating your instance. For more
-information, see [Framework Support Policy](https://aws.github.io/deep-learning-containers/reference/support_policy/ "https://aws.github.io/deep-learning-containers/reference/support_policy/").
+information, see [Framework Support
+Policy](../../../deep-learning-containers/latest/devguide/support-policy.md "../../../deep-learning-containers/latest/devguide/support-policy.md") in the _AWS Deep Learning Containers
+Developer Guide_.
 
-Reference the [AWS Deep Learning Containers Framework Support Policy table](https://aws.github.io/deep-learning-containers/reference/support_policy/ "https://aws.github.io/deep-learning-containers/reference/support_policy/") to check which
+Reference the [AWS
+Deep Learning Containers Framework Support Policy table](https://aws.amazon.com/releasenotes/dlc-support-policy/ "https://aws.amazon.com/releasenotes/dlc-support-policy/") to check which
 frameworks and versions are actively supported for AWS DLCs. You can reference the
 framework associated with a DLC in the support policy table for any images that are not
 explicitly listed. For example, you can reference **PyTorch** in the
@@ -65,13 +69,13 @@ serving machine learning workloads with environments optimized for common framew
 such as XGBoost and Scikit Learn. To view available SageMaker AI ML Framework Containers,
 see [Docker Registry Paths and Example Code](../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md "../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md"). Navigate to the AWS Region of your
 choice, and browse images with the **(algorithm)** tag.
-SageMaker AI ML Framework Containers also adhere to the [AWS Deep Learning Containers framework support policy](https://aws.github.io/deep-learning-containers/reference/support_policy/ "https://aws.github.io/deep-learning-containers/reference/support_policy/").
+SageMaker AI ML Framework Containers also adhere to the [AWS Deep Learning Containers framework support policy](../../../deep-learning-containers/latest/devguide/support-policy.md "../../../deep-learning-containers/latest/devguide/support-policy.md").
 
 To retrieve the latest image version for XGBoost 1.7-1 in framework mode, use the
 following SageMaker Python SDK commands:
 
 ```
-from sagemaker import image_uris
+from sagemaker.core import image_uris
 image_uris.retrieve(framework='xgboost',region='us-east-1',version='3.0-5')
 ```
 
@@ -89,13 +93,6 @@ image_uris.retrieve(framework='xgboost',region='us-east-1',version='3.0-5')
 | Scikit-Learn | 1.0-1           | 04/07/2022 | 04/07/2023    |
 | Scikit-Learn | 0.23-1          | 3/6/2023   | 06/02/2021    |
 | Scikit-Learn | 0.20-1          | >4 years   | Not supported |
-
-###### Note
-
-Scikit-Learn 1.4-2 is available in both Python 3.10 (`1.4-2`) and
-Python 3.12 (`1.4-2-py312`) image variants. The Python 3.12 image does
-not include [ml-io](https://github.com/awslabs/ml-io "https://github.com/awslabs/ml-io"). Customers
-using mlio should continue using the 1.4-2 (Python 3.10) image.
 
 ## SageMaker AI Built-in Algorithm Container support policy
 

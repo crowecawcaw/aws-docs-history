@@ -91,24 +91,24 @@ them to your selected endpoints.
 
 Set on the endpoint configuration via `CreateEndpointConfig`:
 
-| MetricsConfig parameters          | Parameter | Type | Required                         | Default                                                         | Description |
-| --------------------------------- | --------- | ---- | -------------------------------- | --------------------------------------------------------------- | ----------- |
-| `EnableDetailedObservability`     | Boolean   | No   | `false` (existing), `true` (new) | Enables OTel-based metric collection                            |
-| `EnableEnhancedMetrics`           | Boolean   | No   | `false`                          | Enables instance-level dimensions for legacy CloudWatch metrics |
-| `MetricPublishFrequencyInSeconds` | Integer   | No   | `60`                             | Scrape interval. Valid: 10, 30, 60, 120, 180, 240, 300          |
+MetricsConfig parameters| Parameter | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| `EnableDetailedObservability` | Boolean | No | `false` (existing), `true` (new) | Enables OTel-based metric collection |
+| `EnableEnhancedMetrics` | Boolean | No | `false` | Enables instance-level dimensions for legacy CloudWatch metrics |
+| `MetricPublishFrequencyInSeconds` | Integer | No | `60` | Scrape interval. Valid: 10, 30, 60, 120, 180, 240, 300 |
 
 ## Relationship to enhanced metrics
 
 `EnableDetailedObservability` and `EnableEnhancedMetrics` are
 separate features that can coexist on the same endpoint:
 
-| Enhanced metrics vs. detailed observability | Feature                                                                      | `EnableEnhancedMetrics`                                                                                                                                                                                                                                                                                                                                                                         | `EnableDetailedObservability` |
-| ------------------------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| Purpose                                     | Instance-level and container-level dimensions for legacy CloudWatch metrics  | Full OTel-based metric collection with PromQL support                                                                                                                                                                                                                                                                                                                                           |
-| Metrics store                               | CloudWatch classic metrics (namespace/dimension model)                       | OpenTelemetry metrics (label-based, PromQL-queryable)                                                                                                                                                                                                                                                                                                                                           |
-| Query language                              | CloudWatch Metrics API                                                       | PromQL                                                                                                                                                                                                                                                                                                                                                                                          |
-| GPU metrics                                 | `GPUUtilization` (with InstanceId, ContainerId,<br>AcceleratorId dimensions) | `DCGM_FI_DEV_GPU_UTIL` (GPU utilization %),<br>`DCGM_FI_DEV_MEM_COPY_UTIL` (memory copy utilization %),<br>`DCGM_FI_DEV_GPU_TEMP` (GPU temperature),<br>`DCGM_FI_DEV_MEMORY_TEMP` (memory temperature),<br>`DCGM_FI_DEV_FB_FREE` (framebuffer memory free),<br>`DCGM_FI_DEV_FB_USED` (framebuffer memory used),<br>`DCGM_FI_DEV_SM_ACTIVE` (streaming multiprocessor active %)<br>— all per-GPU |
-| Token metrics                               | Not available                                                                | TTFT, ITL, KV cache, queue depth, TPS                                                                                                                                                                                                                                                                                                                                                           |
+Enhanced metrics vs. detailed observability| Feature | `EnableEnhancedMetrics` | `EnableDetailedObservability` |
+| --- | --- | --- |
+| Purpose | Instance-level and container-level dimensions for legacy CloudWatch metrics | Full OTel-based metric collection with PromQL support |
+| Metrics store | CloudWatch classic metrics (namespace/dimension model) | OpenTelemetry metrics (label-based, PromQL-queryable) |
+| Query language | CloudWatch Metrics API | PromQL |
+| GPU metrics | `GPUUtilization` (with InstanceId, ContainerId,<br>AcceleratorId dimensions) | `DCGM_FI_DEV_GPU_UTIL` (GPU utilization %),<br>`DCGM_FI_DEV_MEM_COPY_UTIL` (memory copy utilization %),<br>`DCGM_FI_DEV_GPU_TEMP` (GPU temperature),<br>`DCGM_FI_DEV_MEMORY_TEMP` (memory temperature),<br>`DCGM_FI_DEV_FB_FREE` (framebuffer memory free),<br>`DCGM_FI_DEV_FB_USED` (framebuffer memory used),<br>`DCGM_FI_DEV_SM_ACTIVE` (streaming multiprocessor active %)<br>— all per-GPU |
+| Token metrics | Not available | TTFT, ITL, KV cache, queue depth, TPS |
 
 Both flags can be enabled simultaneously. They publish to different metric stores and
 do not conflict.
@@ -185,9 +185,9 @@ aws cloudwatch get-otel-enrichment-status
 
 Every metric is automatically tagged with AWS resource context:
 
-| Enrichment attributes | Attribute                       | Description                                               | Example |
-| --------------------- | ------------------------------- | --------------------------------------------------------- | ------- |
-| `@aws.account`        | AWS account ID                  | `123456789012`                                            |
-| `@aws.region`         | AWS Region                      | `us-west-2`                                               |
-| `cloud.resource_id`   | Full resource ARN               | `arn:aws:sagemaker:us-west-2:123456789012:endpoint/my-ep` |
-| Resource tags         | Tags from AWS Resource Explorer | `env=production, team=ml`                                 |
+Enrichment attributes| Attribute | Description | Example |
+| --- | --- | --- |
+| `@aws.account` | AWS account ID | `123456789012` |
+| `@aws.region` | AWS Region | `us-west-2` |
+| `cloud.resource_id` | Full resource ARN | `arn:aws:sagemaker:us-west-2:123456789012:endpoint/my-ep` |
+| Resource tags | Tags from AWS Resource Explorer | `env=production, team=ml` |

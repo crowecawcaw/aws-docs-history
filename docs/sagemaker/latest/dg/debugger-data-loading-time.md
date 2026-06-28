@@ -61,7 +61,7 @@ method:
      call duration.
 
 - `pt_analysis.analyze_batchtime(start_timestamp, end_timestamp,
-select_events=[".*"], select_dimensions=[".*"])`
+ select_events=[".*"], select_dimensions=[".*"])`
 
 Debugger collects the start and end times of all the GetNext calls. You can find
 the amount of time spent by the training script on one batch of data. Within the

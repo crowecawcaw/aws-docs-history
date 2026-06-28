@@ -71,7 +71,7 @@ requests using SDK for Python (Boto3) and the AWS CLI to delete the human review
 
 AWS SDK for Python (Boto3)
 The following request example uses the SDK for Python (Boto3) to delete the human
-review workflow. For more information, see [delete_flow_definition](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.delete_flow_definition "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.delete_flow_definition") in the _AWS SDK for Python (Boto) API Reference_.
+review workflow. For more information, see [delete\_flow\_definition](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.delete_flow_definition "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.delete_flow_definition") in the _AWS SDK for Python (Boto) API Reference_.
 
 ```
 import boto3

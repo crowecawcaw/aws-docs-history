@@ -883,8 +883,8 @@ The following example uses the `sagemaker:WorkteamType` condition
 key with the `StringEquals` condition operator to restrict access to
 a public work team. It accepts condition values in the following format:
 ``workforcetype`-crowd`, where
- `workforcetype`can equal`public`,
- `private`, or `vendor`.
+`workforcetype` can equal `public`,
+`private`, or `vendor`.
 
 JSON
 
@@ -961,7 +961,7 @@ JSON
 ### Enforce encryption of input data
 
 The following policy restricts a user to specify a AWS KMS key to encrypt input
-data using the `sagemaker:VolumeKmsKeyArn` condition key when
+data using the `sagemaker:VolumeKmsKey` condition key when
 creating:
 
 - training

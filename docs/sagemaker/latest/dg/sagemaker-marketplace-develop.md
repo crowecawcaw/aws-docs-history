@@ -31,7 +31,7 @@ algorithm.
 
 For information about developing algorithms in SageMaker AI and packaging them as
 containers, see [Docker containers for training and deploying models](docker-containers.md "docker-containers.md"). For a complete example of how to create
-an algorithm container, see the sample notebook at [https://sagemaker-examples.readthedocs.io/en/latest/advanced_functionality/scikit_bring_your_own/scikit_bring_your_own.html](https://sagemaker-examples.readthedocs.io/en/latest/advanced_functionality/scikit_bring_your_own/scikit_bring_your_own.html "https://sagemaker-examples.readthedocs.io/en/latest/advanced_functionality/scikit_bring_your_own/scikit_bring_your_own.html").
+an algorithm container, see the sample notebook at [https://sagemaker-examples.readthedocs.io/en/latest/advanced\_functionality/scikit\_bring\_your\_own/scikit\_bring\_your\_own.html](https://sagemaker-examples.readthedocs.io/en/latest/advanced_functionality/scikit_bring_your_own/scikit_bring_your_own.html "https://sagemaker-examples.readthedocs.io/en/latest/advanced_functionality/scikit_bring_your_own/scikit_bring_your_own.html").
 You can also find the sample notebook in a SageMaker notebook instance. The notebook
 is in the **Advanced Functionality** section, and is named
 `scikit_bring_your_own.ipynb`.
@@ -61,7 +61,7 @@ resulting model artifacts are available in the `ModelArtifacts` field
 in the response to a call to the [DescribeTrainingJob](../APIReference/API_DescribeTrainingJob.md "../APIReference/API_DescribeTrainingJob.md") operation. For information about how to develop
 a SageMaker AI model container, see [Containers with custom inference code](your-algorithms-inference-main.md "your-algorithms-inference-main.md"). For a complete example of
 how to create a model container from a model trained outside of SageMaker AI, see the
-sample notebook at [https://sagemaker-examples.readthedocs.io/en/latest/advanced_functionality/xgboost_bring_your_own_model/xgboost_bring_your_own_model.html](https://sagemaker-examples.readthedocs.io/en/latest/advanced_functionality/xgboost_bring_your_own_model/xgboost_bring_your_own_model.html "https://sagemaker-examples.readthedocs.io/en/latest/advanced_functionality/xgboost_bring_your_own_model/xgboost_bring_your_own_model.html").
+sample notebook at [https://sagemaker-examples.readthedocs.io/en/latest/advanced\_functionality/xgboost\_bring\_your\_own\_model/xgboost\_bring\_your\_own\_model.html](https://sagemaker-examples.readthedocs.io/en/latest/advanced_functionality/xgboost_bring_your_own_model/xgboost_bring_your_own_model.html "https://sagemaker-examples.readthedocs.io/en/latest/advanced_functionality/xgboost_bring_your_own_model/xgboost_bring_your_own_model.html").
 
 Always thoroughly test your models before you create model packages to publish
 on AWS Marketplace.

@@ -3,7 +3,7 @@
 The following Jupyter notebooks and added information show how to use your own algorithms
 or pretrained models from an Amazon SageMaker notebook instance. For links to the GitHub
 repositories with the prebuilt Dockerfiles for the TensorFlow, MXNet, Chainer, and PyTorch
-frameworks and instructions on using the AWS SDK for Python (Boto3) estimators to run your own training
+frameworks and instructions on using the AWS SDK for Python (Boto3) ModelTrainers to run your own training
 algorithms on SageMaker AI Learner and your own models on SageMaker AI hosting, see [Prebuilt SageMaker AI Docker images for deep learning](pre-built-containers-frameworks-deep-learning.md "pre-built-containers-frameworks-deep-learning.md")
 
 ## Setup
@@ -24,8 +24,8 @@ To learn how to host models trained in Scikit-learn for making predictions in Sa
 injecting them into first-party k-means and XGBoost containers, see the following sample
 notebooks.
 
-- [kmeans_bring_your_own_model](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/kmeans_bring_your_own_model "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/kmeans_bring_your_own_model")
-- [xgboost_bring_your_own_model](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/xgboost_bring_your_own_model "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/xgboost_bring_your_own_model")
+- [kmeans\_bring\_your\_own\_model](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/kmeans_bring_your_own_model "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/kmeans_bring_your_own_model")
+- [xgboost\_bring\_your\_own\_model](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/xgboost_bring_your_own_model "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/xgboost_bring_your_own_model")
 
 ## Package TensorFlow and Scikit-learn models for use in SageMaker AI
 
@@ -34,8 +34,8 @@ scikit-learn frameworks for training and deployment in the SageMaker AI environm
 following notebooks. They show you how to build, register, and deploy your own Docker
 containers using Dockerfiles.
 
-- [tensorflow_bring_your_own](https://github.com/aws/amazon-sagemaker-examples/blob/main/advanced_functionality/tensorflow_iris_byom/tensorflow_BYOM_iris.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/advanced_functionality/tensorflow_iris_byom/tensorflow_BYOM_iris.ipynb")
-- [scikit_bring_your_own](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/scikit_bring_your_own "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/scikit_bring_your_own")
+- [tensorflow\_bring\_your\_own](https://github.com/aws/amazon-sagemaker-examples/blob/main/advanced_functionality/tensorflow_iris_byom/tensorflow_BYOM_iris.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/advanced_functionality/tensorflow_iris_byom/tensorflow_BYOM_iris.ipynb")
+- [scikit\_bring\_your\_own](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/scikit_bring_your_own "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/scikit_bring_your_own")
 
 ## Train and deploy a neural network on SageMaker AI
 
@@ -44,8 +44,8 @@ create an endpoint from the trained model and deploy it on SageMaker AI, see the
 notebooks. The MXNet model is trained to recognize handwritten numbers from the MNIST
 dataset. The TensorFlow model is trained to classify irises.
 
-- [mxnet_mnist_byom](https://sagemaker.readthedocs.io/en/stable/frameworks/mxnet/using_mxnet.html "https://sagemaker.readthedocs.io/en/stable/frameworks/mxnet/using_mxnet.html")
-- [tensorflow_BYOM_iris](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/tensorflow_iris_byom/tensorflow_BYOM_iris.ipynb "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/tensorflow_iris_byom/tensorflow_BYOM_iris.ipynb")
+- [mxnet\_mnist\_byom](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html")
+- [tensorflow\_BYOM\_iris](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/tensorflow_iris_byom/tensorflow_BYOM_iris.ipynb "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/tensorflow_iris_byom/tensorflow_BYOM_iris.ipynb")
 
 ## Training using pipe mode
 
@@ -55,7 +55,7 @@ algorithm, see the following notebook. In pipe mode, the input data is transferr
 the algorithm while it is training. This can decrease training time compared to using
 file mode.
 
-- [pipe_bring_your_own](https://github.com/aws/amazon-sagemaker-examples/blob/0efd885ef2a5c04929d10c5272681f4ca17dac17/advanced_functionality/pipe_bring_your_own/pipe_bring_your_own.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/0efd885ef2a5c04929d10c5272681f4ca17dac17/advanced_functionality/pipe_bring_your_own/pipe_bring_your_own.ipynb")
+- [pipe\_bring\_your\_own](https://github.com/aws/amazon-sagemaker-examples/blob/0efd885ef2a5c04929d10c5272681f4ca17dac17/advanced_functionality/pipe_bring_your_own/pipe_bring_your_own.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/0efd885ef2a5c04929d10c5272681f4ca17dac17/advanced_functionality/pipe_bring_your_own/pipe_bring_your_own.ipynb")
 
 ## Bring your own R model
 
@@ -72,7 +72,7 @@ To learn how to extend a prebuilt SageMaker AI PyTorch container image when you 
 additional functional requirements for your algorithm or model that the prebuilt Docker
 image doesn't support, see the following notebook.
 
-- [BERTtopic_extending_container](https://github.com/aws/amazon-sagemaker-examples/blob/0efd885ef2a5c04929d10c5272681f4ca17dac17/advanced_functionality/pytorch_extend_container_train_deploy_bertopic/BERTtopic_extending_container.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/0efd885ef2a5c04929d10c5272681f4ca17dac17/advanced_functionality/pytorch_extend_container_train_deploy_bertopic/BERTtopic_extending_container.ipynb")
+- [BERTtopic\_extending\_container](https://github.com/aws/amazon-sagemaker-examples/blob/0efd885ef2a5c04929d10c5272681f4ca17dac17/advanced_functionality/pytorch_extend_container_train_deploy_bertopic/BERTtopic_extending_container.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/0efd885ef2a5c04929d10c5272681f4ca17dac17/advanced_functionality/pytorch_extend_container_train_deploy_bertopic/BERTtopic_extending_container.ipynb")
 
 For more information about extending a container, see [Extend a Pre-built
 Container](prebuilt-containers-extend.md "prebuilt-containers-extend.md").
@@ -88,4 +88,4 @@ library tools, you can set a `smdebug` trial object that calls the training
 job and debugging information, check the training and Debugger rule status, and retrieve
 tensors saved in an Amazon S3 bucket to analyze training issues.
 
-- [build_your_own_container_with_debugger](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/build_your_own_container_with_debugger/debugger_byoc.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/build_your_own_container_with_debugger/debugger_byoc.html")
+- [build\_your\_own\_container\_with\_debugger](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/build_your_own_container_with_debugger/debugger_byoc.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/build_your_own_container_with_debugger/debugger_byoc.html")

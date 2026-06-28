@@ -51,7 +51,7 @@ SageMaker's model parallelism library:
    number of microbatches.
 4. Seed the random operations in the data pipeline using
    `smp.dp_rank()`, e.g., `shuffle(ds,
-seed=smp.dp_rank())` to ensure consistency of data samples across
+ seed=smp.dp_rank())` to ensure consistency of data samples across
    GPUs that hold different model partitions.
 5. Put the forward and backward logic in a step function and decorate it with
    `smp.step`.

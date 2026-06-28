@@ -14,7 +14,7 @@ a small subset of data. Other common use cases include:
   SageMaker AI runs as an underlying training job) to either run on demand or on a schedule. SageMaker Notebook
   Jobs provides an intuitive user interface so you can schedule your jobs right from JupyterLab by
   choosing the Notebook Jobs widget (
-  ![Blue icon of a calendar with a checkmark, representing a scheduled task or event.](images/icons/notebook-schedule.png)
+  ![Notebook Jobs scheduling icon.](images/icons/notebook-schedule.png)
   ) in your notebook. You can also schedule your jobs using the SageMaker AI Python
   SDK, which offers the flexibility of scheduling multiple notebook jobs in a pipeline workflow.
   You can run multiple notebooks in parallel, and parameterize cells in your notebooks to

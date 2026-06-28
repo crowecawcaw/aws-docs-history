@@ -205,7 +205,7 @@ available in `prometheusTrigger`:
   cached and used to serve HPA requests. Default: true.
 - `serverAddress` (Required, String) - The
   address of the AMP server. Must use the format:
-  <https://aps-workspaces.<region>.amazonaws.com/workspaces/<workspace_id>
+  <https://aps-workspaces.<region>.amazonaws.com/workspaces/<workspace\_id>
 - `query` (Required, String) - The PromQL query
   used for the metric. Must return a scalar value.
 - `targetValue` (Required, Float) - The target

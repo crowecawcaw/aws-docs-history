@@ -25,7 +25,7 @@ the following class members and function.
   class named `CustomDataSource`.
 
 ```
-from sagemaker.feature_store.feature_processor import PySparkDataSource
+from sagemaker.mlops.feature_store.feature_processor import PySparkDataSource
 from pyspark.sql import DataFrame
 
 class CustomDataSource(PySparkDataSource):

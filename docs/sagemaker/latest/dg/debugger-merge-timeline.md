@@ -59,14 +59,13 @@ The `MergedTimeline` API operation passes the following parameters:
 
 - `path` (str) – Specify a root folder
   (`/profiler-output`) that contains system and framework profiling
-  trace files. You can locate the `profiler-output` using the SageMaker AI
-  estimator classmethod or the TrainingJob object. For example,
-  `estimator.latest_job_profiler_artifacts_path()` or
+  trace files. You can locate the `profiler-output` using the SageMaker AI ModelTrainer classmethod or the TrainingJob object. For example,
+  `model_trainer.latest_job_profiler_artifacts_path()` or
   `tj.profiler_s3_output_path`.
 - `file_suffix_filter` (list) – Specify a list of file suffix
   filters to merge timelines. Available suffiex filters are
   `["model_timeline.json", 
-"pythontimeline.json", "trace.json.gz"].` If this parameter is not
+ "pythontimeline.json", "trace.json.gz"].` If this parameter is not
   manually specified, all of the trace files are merged by default.
 - `output_directory` (str) – Specify a path to save the merged
   timeline JSON file. The default is to the directory specified for the

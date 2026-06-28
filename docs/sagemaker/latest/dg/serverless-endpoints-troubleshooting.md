@@ -28,7 +28,7 @@ To fix this issue, you can try to add read, write, and execute permissions for
 following steps to complete this process:
 
 1. In the Dockerfile you used to build your container, add the following command: `RUN chmod
-o+rwX `<file or directory name>``
+ o+rwX `<file or directory name>``
 2. Rebuild the container.
 3. Upload the new container image to Amazon ECR.
 4. Try to create or update the serverless endpoint again.

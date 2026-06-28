@@ -79,8 +79,8 @@ If you run into a notification saying mentioning that your disk space is full or
 attempting to open a file, you can remove files, directories, libraries, or environments to
 increase space. For more information on managing your libraries and environments, see [Manage your environment](studio-lab-use-manage.md "studio-lab-use-manage.md").
 
-\***\*Project runtime is in safe mode**
-notification\*\*
+****Project runtime is in safe mode**
+notification**
 
 If you run into a notification that **Project runtime is in safe mode**,
 you must free up some disk space to resume using the Studio Lab project runtime. Follow the

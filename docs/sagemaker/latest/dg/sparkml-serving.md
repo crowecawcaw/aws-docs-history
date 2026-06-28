@@ -9,4 +9,4 @@ For information about using the SparkML Serving container to deploy models to Sa
 [SageMaker Spark
 ML Container GitHub repository](https://github.com/aws/sagemaker-sparkml-serving-container "https://github.com/aws/sagemaker-sparkml-serving-container"). For information about the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable")
 SparkML Serving model and predictors, see the [SparkML Serving
-Model and Predictor API documentation](https://sagemaker.readthedocs.io/en/stable/sagemaker.sparkml.html "https://sagemaker.readthedocs.io/en/stable/sagemaker.sparkml.html").
+Model and Predictor API documentation](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html").

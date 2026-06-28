@@ -41,6 +41,47 @@ use the `rules_configs` API operation to call the built-in rules.
 To find a full list of Debugger built-in rules and default parameter values, see
 [List of Debugger built-in rules](debugger-built-in-rules.md "debugger-built-in-rules.md").
 
+SageMaker Python SDK v3
+
+```
+import boto3
+import sagemaker
+from sagemaker.train import ModelTrainer
+from sagemaker.core.debugger import Rule, CollectionConfig, rule_configs
+from sagemaker.core.helper.session_helper import get_execution_role
+**built\_in\_rules**=[
+            Rule.sagemaker(rule_configs.vanishing_gradient()),
+            Rule.sagemaker(rule_configs.loss_not_decreasing())
+]
+
+from sagemaker.core import image_uris
+from sagemaker.train.configs import SourceCode, Compute
+
+training_image = image_uris.retrieve(
+    framework="tensorflow",
+    region=boto3.Session().region_name,
+    version="`2.9.0`",
+    py_version="`py39`",
+    instance_type="`ml.p3.2xlarge`",
+    image_scope="training"
+)
+
+# construct a SageMaker AI ModelTrainer with the Debugger built-in rules
+sagemaker_model_trainer=ModelTrainer(
+    training_image=training_image,
+    source_code=SourceCode(entry_script='directory/to/your_training_script.py'),
+    role=get_execution_role(),
+    base_job_name='debugger-built-in-rules-demo',
+    compute=Compute(instance_type="`ml.p3.2xlarge`", instance_count=1),
+
+    **# debugger-specific arguments below**
+    **rules=built\_in\_rules**
+)
+sagemaker_model_trainer.train()
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 import sagemaker
 from sagemaker.tensorflow import TensorFlow
@@ -86,6 +127,68 @@ In this example, the `stalled_training_rule` collects the `losses`
 tensor collection from a training job at every 50 steps and an evaluation stage at every
 10 steps. If the training process starts stalling and not collecting tensor outputs for
 120 seconds, the `stalled_training_rule` stops the training job.
+
+SageMaker Python SDK v3
+
+```
+import boto3
+import time
+import sagemaker
+from sagemaker.train import ModelTrainer
+from sagemaker.core.debugger import Rule, CollectionConfig, rule_configs
+from sagemaker.core.helper.session_helper import get_execution_role
+
+# call the built-in rules and modify the CollectionConfig parameters
+
+base_job_name_prefix= 'smdebug-stalled-demo-' + str(int(time.time()))
+
+**built\_in\_rules\_modified**=[
+    Rule.sagemaker(
+        base_config=rule_configs.stalled_training_rule(),
+        rule_parameters={
+                'threshold': '120',
+                'training_job_name_prefix': base_job_name_prefix,
+                'stop_training_on_fire' : 'True'
+        },
+        collections_to_save=[
+            CollectionConfig(
+                name="losses",
+                parameters={
+                      "train.save_interval": "50",
+                      "eval.save_interval": "10"
+                }
+            )
+        ]
+    )
+]
+
+from sagemaker.core import image_uris
+from sagemaker.train.configs import SourceCode, Compute
+
+training_image = image_uris.retrieve(
+    framework="tensorflow",
+    region=boto3.Session().region_name,
+    version="`2.9.0`",
+    py_version="`py39`",
+    instance_type="`ml.p3.2xlarge`",
+    image_scope="training"
+)
+
+# construct a SageMaker AI ModelTrainer with the modified Debugger built-in rule
+sagemaker_model_trainer=ModelTrainer(
+    training_image=training_image,
+    source_code=SourceCode(entry_script='directory/to/your_training_script.py'),
+    role=get_execution_role(),
+    base_job_name=base_job_name_prefix,
+    compute=Compute(instance_type="`ml.p3.2xlarge`", instance_count=1),
+
+    # debugger-specific arguments below
+    **rules=built\_in\_rules\_modified**
+)
+sagemaker_model_trainer.train()
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import sagemaker

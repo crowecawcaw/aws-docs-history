@@ -50,7 +50,7 @@ By enabling Karpenter-based autoscaling with HyperPod, you have access to:
   continuous provisioning by setting `--node-provisioning-mode` to
   `Continuous` when creating your SageMaker HyperPod cluster. For more
   information, see [Continuous provisioning for enhanced cluster operations on Amazon EKS](sagemaker-hyperpod-scaling-eks.md "sagemaker-hyperpod-scaling-eks.md").
-- Health Monitoring Agent version 1.0.742.0_1.0.241.0 or above installed.
+- Health Monitoring Agent version 1.0.742.0\_1.0.241.0 or above installed.
   Required for HyperPod cluster operations and monitoring. The agent must
   be configured before enabling Karpenter autoscaling to ensure proper cluster
   health reporting and node lifecycle management. For more information, see [Health Monitoring System](sagemaker-hyperpod-eks-resiliency-health-monitoring-agent.md "sagemaker-hyperpod-eks-resiliency-health-monitoring-agent.md").

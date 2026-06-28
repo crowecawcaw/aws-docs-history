@@ -27,9 +27,9 @@ For example, the following are valid `cron` expressions:
 For example, the following are valid `cron` expressions:
 
 - Every 12 hours, starting at 5 PM UTC: `cron(0 17/12 ? * *
-*)`
+ *)`
 - Every two hours, starting at 12 AM UTC: `cron(0 0/2 ? * *
-*)`
+ *)`
 
 ###### Notes
 

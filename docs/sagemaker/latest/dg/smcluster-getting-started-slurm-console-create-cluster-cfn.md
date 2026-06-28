@@ -15,8 +15,8 @@ templates.
 
 Follow these steps.
 
-1. \*Instead of choosing
-   **Submit\***, choose **Download
+1. _Instead of choosing
+   **Submit**_, choose **Download
    CloudFormation template parameters** at the end of the tutorial in
    [Getting started with SageMaker HyperPod using the SageMaker AI console](smcluster-getting-started-slurm-console.md "smcluster-getting-started-slurm-console.md"). The tutorial
    contains important configuration information you will need to create your

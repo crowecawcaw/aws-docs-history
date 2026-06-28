@@ -24,5 +24,5 @@ the following:
 ###### Note
 
 After you finish preparing your training script, you can run a SageMaker training job
-using the SageMaker AI framework estimator classes. For more information, see the previous
+using the SageMaker AI ModelTrainer class. For more information, see the previous
 topic at [Enable SageMaker Training Compiler](training-compiler-enable.md "training-compiler-enable.md").

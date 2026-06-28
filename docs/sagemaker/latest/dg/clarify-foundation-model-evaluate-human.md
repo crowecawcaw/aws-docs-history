@@ -413,281 +413,263 @@ previously deployed to an endpoint.
 
 ###### To set up an evaluation job
 
-1.  On the Model evaluation home page, choose **Evaluate a model**
-2.  Specify job details.
+1. On the Model evaluation home page, choose **Evaluate a model**
+2. Specify job details.
 
-    1. Enter the **Evaluation name** of your model
-       evaluation. This name helps you identify your model evaluation
-       job after it is submitted.
-    2. Enter a **Description** to add more context
-       to the name.
-    3. Choose **Next**.
+   1. Enter the **Evaluation name** of your model
+      evaluation. This name helps you identify your model evaluation
+      job after it is submitted.
+   2. Enter a **Description** to add more context
+      to the name.
+   3. Choose **Next**.
 
-3.  Set up evaluation
+3. Set up evaluation
 
-        1. Under **Choose an evaluation type**, select
-         the radio button next to **Human**.
-        2. Under **Choose the model(s) you want to
-         evaluate**, choose **Add model
-         to evaluation**. You can evaluate up to two models
-         for each evaluation.
+   1. Under **Choose an evaluation type**, select
+      the radio button next to **Human**.
+   2. Under **Choose the model(s) you want to
+      evaluate**, choose **Add model
+      to evaluation**. You can evaluate up to two models
+      for each evaluation.
 
+      1. To use a pre-trained JumpStart model, choose
+         **Pre-trained**
+         **JumpStart foundation
+         model**. If you want to use a JumpStart
+         model that you have previously deployed to an endpoint,
+         choose **Endpoints with JumpStart
+         foundation models.**
+      2. If the model requires a legal agreement, select the
+         check box to confirm that you agree.
+      3. If you want to add another model, repeat the previous
+         step.
 
+   3. To change how the model behave during inference choose,
+      **Set parameters**.
 
+   Set parameters contains a list of inference parameters that
+   affect the degree of randomness in your model's output, the
+   length of your model's output, and what words the model will
+   choose next. 4. Next, select an **Task type**. You can select
+   any of the following:
 
-        	1. To use a pre-trained JumpStart model, choose
-        	 **Pre-trained**
-        	**JumpStart foundation
-        	 model**. If you want to use a JumpStart
-        	 model that you have previously deployed to an endpoint,
-        	 choose **Endpoints with JumpStart
-        	 foundation models.**
-        	2. If the model requires a legal agreement, select the
-        	 check box to confirm that you agree.
-        	3. If you want to add another model, repeat the previous
-        	 step.
-        3. To change how the model behave during inference choose,
-         **Set parameters**.
+        * **Text Summarization**
+        * **Question Answering
+         (Q&A)**
+        * **Text classification**
+        * **Open-ended Generation**
+        * **Custom**
 
+   5. In the **Evaluation metrics** section, choose
+   an **Evaluation dimension** and enter
+   additional context about the dimension in the text box under
+   **Description**. You can choose from the
+   following dimensions:
 
-        Set parameters contains a list of inference parameters that
-         affect the degree of randomness in your model's output, the
-         length of your model's output, and what words the model will
-         choose next.
-        4. Next, select an **Task type**. You can select
-         any of the following:
-
-
-
-
-        	* **Text Summarization**
-        	* **Question Answering
-        	 (Q&A)**
-        	* **Text classification**
-        	* **Open-ended Generation**
-        	* **Custom**
-        5. In the **Evaluation metrics** section, choose
-         an **Evaluation dimension** and enter
-         additional context about the dimension in the text box under
-         **Description**. You can choose from the
-         following dimensions:
-
-
-
-
-        	* **Fluency** – Measures the
-        	 linguistic quality of a generated text.
-        	* **Coherence** – Measures the
-        	 organization and structure of a generated text.
-        	* **Toxicity** – Measures the
-        	 harmfulness of a generated text.
-        	* **Accuracy**– Indicates the
-        	 accuracy of a generated text.
-        	* A custom evaluation dimension that you can define the
-        	 name and description of for your work team.
+        * **Fluency** – Measures the
+         linguistic quality of a generated text.
+        * **Coherence** – Measures the
+         organization and structure of a generated text.
+        * **Toxicity** – Measures the
+         harmfulness of a generated text.
+        * **Accuracy**– Indicates the
+         accuracy of a generated text.
+        * A custom evaluation dimension that you can define the
+         name and description of for your work team.
 
 
-        	To add a custom evaluation dimension, do the
-        	 following:
+        To add a custom evaluation dimension, do the
+         following:
 
 
 
 
-        		+ Choose **Add an evaluation
-        		 dimension**.
-        		+ In the text box containing **Provide
-        		 evaluation dimension**, input the name of
-        		 your custom dimension.
-        		+ In the text box containing **Provide
-        		 description for this evaluation
-        		 dimension**, input a description so that
-        		 your work team understands how to evaluate your
-        		 custom dimension.
-        Under each of these metrics are reporting metrics that you can
-         choose from the **Choose a metric type** down
-         arrow. If you have two models to evaluate, you can choose either
-         comparative or individual reporting metrics. If you have one
-         model to evaluate, you can choose only individual reporting
-         metrics. You can choose the following reporting metrics types
-         for each of the above metrics.
+        	+ Choose **Add an evaluation
+        	 dimension**.
+        	+ In the text box containing **Provide
+        	 evaluation dimension**, input the name of
+        	 your custom dimension.
+        	+ In the text box containing **Provide
+        	 description for this evaluation
+        	 dimension**, input a description so that
+        	 your work team understands how to evaluate your
+        	 custom dimension.
+
+   Under each of these metrics are reporting metrics that you can
+   choose from the **Choose a metric type** down
+   arrow. If you have two models to evaluate, you can choose either
+   comparative or individual reporting metrics. If you have one
+   model to evaluate, you can choose only individual reporting
+   metrics. You can choose the following reporting metrics types
+   for each of the above metrics.
+
+        * (Comparative) **Likert scale - comparison**  – A human evaluator will indicate
+         their preference between two responses on a 5-point
+         Likert scale according to your instructions. The results
+         in the final report will be shown as a histogram of
+         preference strength ratings from the evaluators over
+         your whole dataset. Define the important points of the
+         5-point scale in your instructions so that your
+         evaluators know how to rate the responses according to
+         your expectations. In the JSON output saved in Amazon S3 this choice is represented as `ComparisonLikertScale` the key value pair `"evaluationResults":"ComparisonLikertScale"`.
+        * (Comparative) **Choice buttons**
+         – Allows a human evaluator to indicate their one
+         preferred response over another response. Evaluators
+         indicate their preference between two responses
+         according to your instructions using radio buttons. The
+         results in the final report will be shown as a
+         percentage of responses that workers preferred for each
+         model. Explain your evaluation method clearly in your
+         instructions. In the JSON output saved in Amazon S3 this choice is represented as `ComparisonChoice` the key value pair `"evaluationResults":"ComparisonChoice"`.
+        * (Comparative) **Ordinal Rank**
+         – Allows a human evaluator to rank their
+         preferred responses to a prompt in order, starting at
+         `1`, according to your instructions. The
+         results in the final report will be shown as a histogram
+         of the rankings from the evaluators over the whole
+         dataset. Define the what a rank of `1` means
+         in your instructions. In the JSON output saved in Amazon S3 this choice is represented as `ComparisonRank` the key value pair `"evaluationResults":"ComparisonRank"`.
+        * (Individual) **Thumbs up/down**
+         – Allows a human evaluator to rate each response
+         from a model as acceptable or unacceptable according to
+         your instructions. The results in the final report will
+         be shown as a percentage of the total number of ratings
+         by evaluators that received a thumbs up rating for each
+         model. You may use this rating method for an evaluation
+         one or more models. If you use this in an evaluation
+         that contains two models, a thumbs up or down will be
+         presented to your work team for each model response and
+         the final report will show the aggregated results for
+         each model individually. Define what is acceptable as a
+         thumbs up or thumbs down rating in your
+         instructions. In the JSON output saved in Amazon S3 this choice is represented as `ThumbsUpDown` the key value pair `"evaluationResults":"ThumbsUpDown"`.
+        * (Individual) **Likert scale -
+         individual** – Allows a human
+         evaluator to indicate how strongly they approve of the
+         model response based on your instructions on a 5-point
+         Likert scale. The results in the final report will be
+         shown as a histogram of the 5-point ratings from the
+         evaluators over your whole dataset. You may use this
+         scale for an evaluation containing one or more models.
+         If you select this rating method in an evaluation that
+         contains more than one model, a 5-point Likert scale
+         will be presented to your work team for each model
+         response and the final report will show the aggregated
+         results for each model individually. Define the
+         important points on the 5-point scale in your
+         instructions so that your evaluators know how to rate
+         the responses according to your expectations. In the JSON output saved in Amazon S3 this choice is represented as `IndividualLikertScale` the key value pair `"evaluationResults":"IndividualLikertScale"`.
+
+   6. Choose a **Prompt dataset**. This dataset is
+   required and will be used by your human work team to evaluate
+   responses from your model. Provide the S3 URI to an Amazon S3 bucket
+   that contains your prompt dataset in the text box under
+   **S3 URI for your input dataset file**. Your dataset must be in
+   `jsonlines` format and contain the following keys
+   to identify which parts of your dataset the UI will use to
+   evaluate your model:
+
+        * `prompt` – The request that you want
+         your model to generate a response to.
+        * (Optional) `category` – - The
+         category labels for your prompt. The
+         `category` key is used to categorize your
+         prompts so you can filter your evaluation results later
+         by category for a deeper understanding of the evaluation
+         results. It does not participate in the evaluation
+         itself, and workers do not see it on the evaluation
+         UI.
+        * (Optional) `referenceResponse` – The
+         reference answer for your human evaluators. The
+         reference answer is not rated by your workers, but can
+         be used to understand what responses are acceptable or
+         unacceptable, based on your instructions.
+        * (Optional) `responses` – Used to
+         specify inferences from a model outside of SageMaker AI or
+         outside of AWS.
+
+
+        This object *requires* two additional key value pairs
+         `"modelIdentifier` which is a string that
+         identifies the model, and `"text"` which is
+         the model's inference.
+
+
+        If you specify a `"responses"` key in any
+         input of the of custom prompt dataset it must be specified
+         in all inputs.
+        * The following `json` code example shows the accepted key-value pairs in a custom prompt dataset. The **Bring your own inference** check box must be checked if a responses key is provided. If checked, the `responses` key must always be specified in each prompt. The following example could be used in a question and answer scenario.
 
 
 
+        ```
+        {
+            "prompt": {
+                "text": "Aurillac is the capital of"
+            },
+            "category": "Capitals",
+            "referenceResponse": {
+                "text": "Cantal"
+            },
+            "responses": [
+                // All responses must come from a single model. If specified it must be present in all JSON objects. modelIdentifier and text are then also required.
+                {
+                    "modelIdentifier": `"meta-textgeneration-llama-codellama-7b"`,
+                    "text": `"The capital of Aurillac is Cantal."`
+                }
+            ]
+        }
+        ```
 
-        	* (Comparative) **Likert scale - comparison**  – A human evaluator will indicate
-        	 their preference between two responses on a 5-point
-        	 Likert scale according to your instructions. The results
-        	 in the final report will be shown as a histogram of
-        	 preference strength ratings from the evaluators over
-        	 your whole dataset. Define the important points of the
-        	 5-point scale in your instructions so that your
-        	 evaluators know how to rate the responses according to
-        	 your expectations. In the JSON output saved in Amazon S3 this choice is represented as `ComparisonLikertScale` the key value pair `"evaluationResults":"ComparisonLikertScale"`.
-        	* (Comparative) **Choice buttons**
-        	 – Allows a human evaluator to indicate their one
-        	 preferred response over another response. Evaluators
-        	 indicate their preference between two responses
-        	 according to your instructions using radio buttons. The
-        	 results in the final report will be shown as a
-        	 percentage of responses that workers preferred for each
-        	 model. Explain your evaluation method clearly in your
-        	 instructions. In the JSON output saved in Amazon S3 this choice is represented as `ComparisonChoice` the key value pair `"evaluationResults":"ComparisonChoice"`.
-        	* (Comparative) **Ordinal Rank**
-        	 – Allows a human evaluator to rank their
-        	 preferred responses to a prompt in order, starting at
-        	 `1`, according to your instructions. The
-        	 results in the final report will be shown as a histogram
-        	 of the rankings from the evaluators over the whole
-        	 dataset. Define the what a rank of `1` means
-        	 in your instructions. In the JSON output saved in Amazon S3 this choice is represented as `ComparisonRank` the key value pair `"evaluationResults":"ComparisonRank"`.
-        	* (Individual) **Thumbs up/down**
-        	 – Allows a human evaluator to rate each response
-        	 from a model as acceptable or unacceptable according to
-        	 your instructions. The results in the final report will
-        	 be shown as a percentage of the total number of ratings
-        	 by evaluators that received a thumbs up rating for each
-        	 model. You may use this rating method for an evaluation
-        	 one or more models. If you use this in an evaluation
-        	 that contains two models, a thumbs up or down will be
-        	 presented to your work team for each model response and
-        	 the final report will show the aggregated results for
-        	 each model individually. Define what is acceptable as a
-        	 thumbs up or thumbs down rating in your
-        	 instructions. In the JSON output saved in Amazon S3 this choice is represented as `ThumbsUpDown` the key value pair `"evaluationResults":"ThumbsUpDown"`.
-        	* (Individual) **Likert scale -
-        	 individual** – Allows a human
-        	 evaluator to indicate how strongly they approve of the
-        	 model response based on your instructions on a 5-point
-        	 Likert scale. The results in the final report will be
-        	 shown as a histogram of the 5-point ratings from the
-        	 evaluators over your whole dataset. You may use this
-        	 scale for an evaluation containing one or more models.
-        	 If you select this rating method in an evaluation that
-        	 contains more than one model, a 5-point Likert scale
-        	 will be presented to your work team for each model
-        	 response and the final report will show the aggregated
-        	 results for each model individually. Define the
-        	 important points on the 5-point scale in your
-        	 instructions so that your evaluators know how to rate
-        	 the responses according to your expectations. In the JSON output saved in Amazon S3 this choice is represented as `IndividualLikertScale` the key value pair `"evaluationResults":"IndividualLikertScale"`.
-        6. Choose a **Prompt dataset**. This dataset is
-         required and will be used by your human work team to evaluate
-         responses from your model. Provide the S3 URI to an Amazon S3 bucket
-         that contains your prompt dataset in the text box under
-         **S3 URI for your input dataset file**. Your dataset must be in
-         `jsonlines` format and contain the following keys
-         to identify which parts of your dataset the UI will use to
-         evaluate your model:
+   7. Input an S3 bucket location where you want to save the output evaluation results in the text box under **Choose an S3 location to save your evaluation results**. The output file written to this S3 location will be in `JSON` format, ending in the extension,`.json`. 8. ###### Note
 
+   If you want to include bring your own inference data in
+   the model evaluation job, you can only use a single
+   model.
 
+   (Optional) Choose the check box under **Bring your
+   own inference** to indicate that your prompt
+   dataset contains the `responses` key. If you specify
+   the `responses` key as part of
+   _any_ prompts it must be present in all
+   of them. 9. Configure your processor in the **Processor
+   configuration** section using the following
+   parameters:
 
+        * Use **Instance count** to specify the
+         number of compute instances to use to run your model. If
+         you use more than `1` instance, your model
+         will run in parallel instances.
+        * Use **Instance type** to choose the
+         kind of compute instance you want to use to run your
+         model. AWS has general compute instances and instances
+         that are optimized for computing and memory. For more
+         information about instance types, see [Instance Types Available for Use With Amazon SageMaker Studio Classic Notebooks](notebooks-available-instance-types.md "notebooks-available-instance-types.md")
+         .
+        * If you want SageMaker AI to use your own AWS Key Management Service (AWS KMS)
+         encryption key instead of the default AWS managed
+         service key, toggle to select **On**
+         under **Volume KMS key**, and input the
+         AWS KMS key. SageMaker AI will use your AWS KMS key to encrypt data
+         on the storage volume. For more information about keys,
+         see [AWS Key Management Service](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
+        * If you want SageMaker AI to use your own AWS Key Management Service (AWS KMS)
+         encryption key instead of the default AWS managed
+         service key, toggle to select **On**
+         under **Output KMS key** and input the
+         AWS KMS key. SageMaker AI will use your AWS KMS key to encrypt the
+         processing job output.
+        * Use an IAM role to specify the access and
+         permissions for the default processor. Input the IAM
+         role that you set up in the section **Set up your IAM role** in
+         this **Run a human
+         evaluation** section.
 
-        	* `prompt` – The request that you want
-        	 your model to generate a response to.
-        	* (Optional) `category` – - The
-        	 category labels for your prompt. The
-        	 `category` key is used to categorize your
-        	 prompts so you can filter your evaluation results later
-        	 by category for a deeper understanding of the evaluation
-        	 results. It does not participate in the evaluation
-        	 itself, and workers do not see it on the evaluation
-        	 UI.
-        	* (Optional) `referenceResponse` – The
-        	 reference answer for your human evaluators. The
-        	 reference answer is not rated by your workers, but can
-        	 be used to understand what responses are acceptable or
-        	 unacceptable, based on your instructions.
-        	* (Optional) `responses` – Used to
-        	 specify inferences from a model outside of SageMaker AI or
-        	 outside of AWS.
-
-
-        	This object *requires* two additional key value pairs
-        	 `"modelIdentifier` which is a string that
-        	 identifies the model, and `"text"` which is
-        	 the model's inference.
-
-
-        	If you specify a `"responses"` key in any
-        	 input of the of custom prompt dataset it must be specified
-        	 in all inputs.
-        	* The following `json` code example shows the accepted key-value pairs in a custom prompt dataset. The **Bring your own inference** check box must be checked if a responses key is provided. If checked, the `responses` key must always be specified in each prompt. The following example could be used in a question and answer scenario.
-
-
-
-        	```
-        	{
-        	    "prompt": {
-        	        "text": "Aurillac is the capital of"
-        	    },
-        	    "category": "Capitals",
-        	    "referenceResponse": {
-        	        "text": "Cantal"
-        	    },
-        	    "responses": [
-        	        // All responses must come from a single model. If specified it must be present in all JSON objects. modelIdentifier and text are then also required.
-        	        {
-        	            "modelIdentifier": `"meta-textgeneration-llama-codellama-7b"`,
-        	            "text": `"The capital of Aurillac is Cantal."`
-        	        }
-        	    ]
-        	}
-        	```
-        7. Input an S3 bucket location where you want to save the output evaluation results in the text box under **Choose an S3 location to save your evaluation results**. The output file written to this S3 location will be in `JSON` format, ending in the extension,`.json`.
-        8. ###### Note
-
-        If you want to include bring your own inference data in
-         the model evaluation job, you can only use a single
-         model.
-
-
-        (Optional) Choose the check box under **Bring your
-         own inference** to indicate that your prompt
-         dataset contains the `responses` key. If you specify
-         the `responses` key as part of
-         *any* prompts it must be present in all
-         of them.
-        9. Configure your processor in the **Processor
-         configuration** section using the following
-         parameters:
-
-
-
-
-        	* Use **Instance count** to specify the
-        	 number of compute instances to use to run your model. If
-        	 you use more than `1` instance, your model
-        	 will run in parallel instances.
-        	* Use **Instance type** to choose the
-        	 kind of compute instance you want to use to run your
-        	 model. AWS has general compute instances and instances
-        	 that are optimized for computing and memory. For more
-        	 information about instance types, see [Instance Types Available for Use With Amazon SageMaker Studio Classic Notebooks](notebooks-available-instance-types.md "notebooks-available-instance-types.md")
-        	 .
-        	* If you want SageMaker AI to use your own AWS Key Management Service (AWS KMS)
-        	 encryption key instead of the default AWS managed
-        	 service key, toggle to select **On**
-        	 under **Volume KMS key**, and input the
-        	 AWS KMS key. SageMaker AI will use your AWS KMS key to encrypt data
-        	 on the storage volume. For more information about keys,
-        	 see [AWS Key Management Service](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
-        	* If you want SageMaker AI to use your own AWS Key Management Service (AWS KMS)
-        	 encryption key instead of the default AWS managed
-        	 service key, toggle to select **On**
-        	 under **Output KMS key** and input the
-        	 AWS KMS key. SageMaker AI will use your AWS KMS key to encrypt the
-        	 processing job output.
-        	* Use an IAM role to specify the access and
-        	 permissions for the default processor. Input the IAM
-        	 role that you set up in the section **Set up your IAM role** in
-        	 this **Run a human
-        	 evaluation** section.
-        10. After you specify your model and criteria, select
-         **Next**.
-
-    Your work team consists of the people that are evaluating your model. After
-    your work team is created, it persists indefinitely and you cannot change its
-    attributes. The following shows how to get started with your work team.
+   10. After you specify your model and criteria, select
+   **Next**.
+   Your work team consists of the people that are evaluating your model. After
+   your work team is created, it persists indefinitely and you cannot change its
+   attributes. The following shows how to get started with your work team.
 
 ###### Set up your work team
 
@@ -742,9 +724,9 @@ The following also displays:
     * The URL to your **Private worker portal** is also available.
 
 3. Select your model evaluation under **Name** to view a
-   summary of your evaluation.
+summary of your evaluation.
 
-   - The summary gives information about the status of the job,
+    * The summary gives information about the status of the job,
      what kind of evaluation task you ran on which model, and when it
      ran. Following the summary, the human evaluation scores are
      sorted and summarized by metric.

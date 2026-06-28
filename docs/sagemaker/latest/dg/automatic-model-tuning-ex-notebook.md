@@ -23,7 +23,7 @@ Anaconda installation and Python3.
    name. The Jupyter notebook server page appears:
 
 ![Example Jupyter notebook server page.](images/notebook-dashboard.png) 3. To create a notebook, choose **Files**, **New**,
-and **conda_python3**. . 4. Name the notebook.
+and **conda\_python3**. . 4. Name the notebook.
 
 ## Next Step
 

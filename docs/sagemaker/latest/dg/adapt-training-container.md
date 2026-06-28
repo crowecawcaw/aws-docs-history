@@ -28,11 +28,11 @@ Toolkit](https://github.com/aws/sagemaker-training-toolkit "https://github.com/a
 
       SageMaker AI creates an IAM role named
       `AmazonSageMaker-ExecutionRole-`YYYYMMDD`T`HHmmSS``.
- For example,
- `AmazonSageMaker-ExecutionRole-20190429T110788`.
- Note that the execution role naming convention uses the date and
- time at which the role was created, separated by a
- `T`.
+      For example,
+      `AmazonSageMaker-ExecutionRole-20190429T110788`.
+      Note that the execution role naming convention uses the date and
+      time at which the role was created, separated by a
+      `T`.
 
    4. For **Root Access**, choose
       **Enable**.
@@ -49,7 +49,7 @@ Toolkit](https://github.com/aws/sagemaker-training-toolkit "https://github.com/a
 6. In the **Permissions and encryption** section, copy
    **the IAM role ARN number**, and paste it into a notepad
    file to save it temporarily. You use this IAM role ARN number later to
-   configure a local training estimator in the notebook instance. **The
+   configure a local training ModelTrainer in the notebook instance. **The
    IAM role ARN number** looks like the following:
    `'arn:aws:iam::111122223333:role/service-role/AmazonSageMaker-ExecutionRole-20190429T110788'`
 7. After the status of the notebook instance changes to
@@ -58,34 +58,34 @@ Toolkit](https://github.com/aws/sagemaker-training-toolkit "https://github.com/a
 
 ## Step 2: Create and upload the Dockerfile and Python training scripts
 
-1.  After JupyterLab opens, create a new folder in the home directory of your
-    JupyterLab. In the upper-left corner, choose the **New Folder**
-    icon, and then enter the folder name `docker_test_folder`.
-2.  Create a `Dockerfile` text file in the
-    `docker_test_folder` directory.
+1. After JupyterLab opens, create a new folder in the home directory of your
+   JupyterLab. In the upper-left corner, choose the **New Folder**
+   icon, and then enter the folder name `docker_test_folder`.
+2. Create a `Dockerfile` text file in the
+   `docker_test_folder` directory.
 
-    1. Choose the **New Launcher** icon (+) in the
-       upper-left corner.
-    2. In the right pane under the **Other** section, choose
-       **Text File**.
-    3. Paste the following `Dockerfile` sample code into your text
-       file.
+   1. Choose the **New Launcher** icon (+) in the
+      upper-left corner.
+   2. In the right pane under the **Other** section, choose
+      **Text File**.
+   3. Paste the following `Dockerfile` sample code into your text
+      file.
 
-    ```
-    #Download an open source TensorFlow Docker image
-    FROM tensorflow/tensorflow:latest-gpu-jupyter
+   ```
+   #Download an open source TensorFlow Docker image
+   FROM tensorflow/tensorflow:latest-gpu-jupyter
 
-    # Install sagemaker-training toolkit that contains the common functionality necessary to create a container compatible with SageMaker AI and the Python SDK.
-    RUN pip3 install sagemaker-training
+   # Install sagemaker-training toolkit that contains the common functionality necessary to create a container compatible with SageMaker AI and the Python SDK.
+   RUN pip3 install sagemaker-training
 
-    # Copies the training code inside the container
-    COPY train.py /opt/ml/code/train.py
+   # Copies the training code inside the container
+   COPY train.py /opt/ml/code/train.py
 
-    # Defines train.py as script entrypoint
-    ENV SAGEMAKER_PROGRAM train.py
-    ```
+   # Defines train.py as script entrypoint
+   ENV SAGEMAKER_PROGRAM train.py
+   ```
 
-    The Dockerfile script performs the following tasks:
+   The Dockerfile script performs the following tasks:
 
         * `FROM tensorflow/tensorflow:latest-gpu-jupyter`
          – Downloads the latest TensorFlow Docker base image. You
@@ -107,17 +107,18 @@ Toolkit](https://github.com/aws/sagemaker-training-toolkit "https://github.com/a
          `/opt/ml/code` folder of the container.
          This is the only environmental variable that you must specify
          when you build your own container.
-    4. On the left directory navigation pane, the text file name might
-       automatically be named `untitled.txt`. To rename the file,
-       right-click the file, choose **Rename**, rename the
-       file as `Dockerfile` without the `.txt` extension,
-       and then press `Ctrl+s` or `Command+s` to save the
-       file.
 
-3.  Upload a training script `train.py` to the
-    `docker_test_folder`. You can use the following example script to
-    create a model that reads handwritten digits trained on the [MNIST dataset](https://en.wikipedia.org/wiki/MNIST_database "https://en.wikipedia.org/wiki/MNIST_database") for
-    this exercise.
+   4. On the left directory navigation pane, the text file name might
+   automatically be named `untitled.txt`. To rename the file,
+   right-click the file, choose **Rename**, rename the
+   file as `Dockerfile` without the `.txt` extension,
+   and then press `Ctrl+s` or `Command+s` to save the
+   file.
+
+3. Upload a training script `train.py` to the
+   `docker_test_folder`. You can use the following example script to
+   create a model that reads handwritten digits trained on the [MNIST dataset](https://en.wikipedia.org/wiki/MNIST_database "https://en.wikipedia.org/wiki/MNIST_database") for
+   this exercise.
 
 ```
 import tensorflow as tf
@@ -150,7 +151,7 @@ tf.saved_model.save(model, model_save_dir)
 
 1. In the JupyterLab home directory, open a Jupyter notebook. To open a new
    notebook, choose the **New Launch** icon and then choose the
-   latest version of **conda_tensorflow2** in the
+   latest version of **conda\_tensorflow2** in the
    **Notebook** section.
 2. Run the following command in the first notebook cell to change to the
    `docker_test_folder` directory:
@@ -201,10 +202,28 @@ command:
 
 1. To test the container locally in the notebook instance, open a Jupyter
    notebook. Choose **New Launcher** and choose the latest version
-   of **conda_tensorflow2** in the
+   of **conda\_tensorflow2** in the
    **Notebook** section.
 2. Paste the following example script into the notebook code cell to configure a
-   SageMaker AI Estimator.
+   SageMaker AI ModelTrainer.
+
+SageMaker Python SDK v3
+
+```
+import sagemaker
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute
+from sagemaker.core.helper.session_helper import get_execution_role
+
+model_trainer = ModelTrainer(training_image='`tf-custom-container-test`',
+                      role=`get_execution_role()`,
+                      compute=Compute(instance_count=`1`,
+                                      instance_type=`'local'`))
+
+model_trainer.train()
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import sagemaker
@@ -218,7 +237,7 @@ estimator = Estimator(image_uri='`tf-custom-container-test`',
 estimator.fit()
 ```
 
-In the preceding code example, `sagemaker.get_execution_role()` is
+In the preceding code example, `get_execution_role()` is
 specified to the `role` argument to automatically retrieve the role
 set up for the SageMaker AI session. You can also replace it with the string value of
 **the IAM role ARN number** you used when you configured
@@ -313,8 +332,7 @@ byoc_image_uri
 # 111122223333.dkr.ecr.us-east-2.amazonaws.com/sagemaker-byoc-test:latest
 ```
 
-3. Use the `ecr_image` retrieved from the previous step to configure a
-   SageMaker AI estimator object. The following code sample configures a SageMaker AI estimator
+3. Use the `ecr_image` retrieved from the previous step to configure a SageMaker AI ModelTrainer object. The following code sample configures a SageMaker AI ModelTrainer
    with the `byoc_image_uri` and initiates a training job on an Amazon EC2
    instance.
 
@@ -322,18 +340,19 @@ SageMaker Python SDK v1
 
 ```
 import sagemaker
-from sagemaker import get_execution_role
-from sagemaker.estimator import Estimator
+from sagemaker.core.helper.session_helper import get_execution_role
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute
 
-estimator = Estimator(image_uri=byoc_image_uri,
+model_trainer = ModelTrainer(training_image=byoc_image_uri,
                       role=get_execution_role(),
-                      base_job_name='tf-custom-container-test-job',
-                      instance_count=1,
-                      instance_type='ml.g4dn.xlarge')
+                      compute=Compute(
+                          instance_count=1,
+                          instance_type='ml.g4dn.xlarge'),
+                      base_job_name='tf-custom-container-test-job')
 
 #train your model
-estimator.fit()
-
+model_trainer.train()
 
 ```
 
@@ -341,17 +360,19 @@ SageMaker Python SDK v2
 
 ```
 import sagemaker
-from sagemaker import get_execution_role
-from sagemaker.estimator import Estimator
+from sagemaker.core.helper.session_helper import get_execution_role
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute
 
-estimator = Estimator(image_uri=byoc_image_uri,
+model_trainer = ModelTrainer(training_image=byoc_image_uri,
                       role=get_execution_role(),
-                      base_job_name='tf-custom-container-test-job',
-                      instance_count=1,
-                      instance_type='ml.g4dn.xlarge')
+                      compute=Compute(
+                          instance_count=1,
+                          instance_type='ml.g4dn.xlarge'),
+                      base_job_name='tf-custom-container-test-job')
 
 #train your model
-estimator.fit()
+model_trainer.train()
 
 ```
 
@@ -366,14 +387,24 @@ estimator.fit()
 ```
 import boto3
 import sagemaker
+import json
 
 #obtain image uris
-from sagemaker import image_uris
+from sagemaker.core import image_uris
+from sagemaker.serve import ModelBuilder
+
 container = image_uris.retrieve(framework='tensorflow',region='us-west-2',version='2.11.0',
                     image_scope='inference',instance_type='ml.g4dn.xlarge')
 
 #create the model entity, endpoint configuration and endpoint
-predictor = estimator.deploy(1,instance_type='ml.g4dn.xlarge',image_uri=container)
+model_builder = ModelBuilder(
+    image_uri=container,
+    s3_model_data_url=model_trainer.model_data,
+    role_arn=get_execution_role(),
+    instance_type='ml.g4dn.xlarge'
+)
+model = model_builder.build()
+endpoint = model_builder.deploy()
 ```
 
 Test your model using a sample handwritten digit from the MNIST dataset using the following
@@ -402,10 +433,10 @@ Convert the test handwritten digit into a form that TensorFlow can ingest and
 make a test prediction.
 
 ```
-from sagemaker.serializers import JSONSerializer
+import json
 data = {"instances": example_image.tolist()}
-predictor.serializer=JSONSerializer() #update the predictor to use the JSONSerializer
-predictor.predict(data) #make the prediction
+response = endpoint.invoke(body=json.dumps(data))
+result = json.loads(response.body.read().decode('utf-8')) #make the prediction
 ```
 
 For a full example that shows how to test a custom container locally and push it to an

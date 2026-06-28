@@ -51,9 +51,9 @@ you:
      traffic from the Studio instance's security group.
 
 4. To access your interactive applications on EMR Serverless and run workloads
-   submitted from your JupyterLab notebooks in SageMaker Studio, you must assign
-   specific permissions and roles. Refer to the [Set up the permissions to enable listing and launching Amazon EMR applications from SageMaker Studio](studio-emr-serverless-permissions.md "studio-emr-serverless-permissions.md") section for details on
-   the necessary roles and permissions.
+submitted from your JupyterLab notebooks in SageMaker Studio, you must assign
+specific permissions and roles. Refer to the [Set up the permissions to enable listing and launching Amazon EMR applications from SageMaker Studio](studio-emr-serverless-permissions.md "studio-emr-serverless-permissions.md") section for details on
+the necessary roles and permissions.
 
 ###### List of topics
 

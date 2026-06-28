@@ -91,7 +91,7 @@ After you have completed adapting your training script, proceed to [Launching di
 
 ###### Note
 
-When you construct a SageMaker AI PyTorch estimator and submit a training job request in [Launching distributed training jobs with SMDDP using the SageMaker Python SDK](data-parallel-use-api.md "data-parallel-use-api.md"), you need to provide `requirements.txt` to
+When you construct a SageMaker AI PyTorch ModelTrainer and submit a training job request in [Launching distributed training jobs with SMDDP using the SageMaker Python SDK](data-parallel-use-api.md "data-parallel-use-api.md"), you need to provide `requirements.txt` to
 install `pytorch-lightning` and `lightning-bolts` in the SageMaker AI
 PyTorch training container.
 

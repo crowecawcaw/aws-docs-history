@@ -45,7 +45,7 @@ You might be asked to solve a CAPTCHA puzzle. For more information on CAPTCHA, s
      **Verify**.
 
 5. After the runtime is running, select **Open project** to open the
-   project runtime environment in a new browser tab.
+project runtime environment in a new browser tab.
 
 ## Stop your project runtime
 

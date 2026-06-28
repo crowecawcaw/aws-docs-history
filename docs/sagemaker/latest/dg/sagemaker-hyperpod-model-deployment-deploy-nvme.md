@@ -19,11 +19,11 @@ your instance type.
 You can choose from the following approaches based on your storage
 requirements:
 
-| NVMe deployment approaches | #                                    | Approach                                                                                                                                                                                                                                             | Description |
-| -------------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 1                          | Kubernetes volume (no fallback)      | Use when model weights exist on NVMe on every node. Simplest<br>setup with no Amazon S3, Amazon FSx, PV/PVC, or initContainers<br>required.                                                                                                          |
-| 2                          | Kubernetes volume with fallback      | Use when the model might not exist on NVMe on every node. You<br>provide a custom `initContainer` that checks NVMe first<br>and downloads from Amazon S3 using IRSA credentials if the model is<br>missing.                                          |
-| 3                          | Amazon S3 with prefetch and fallback | Use when you want to stage model weights to<br>RAM for pod startup. You provide a custom<br>`initContainer` that checks NVMe first and falls back to<br>copying from the operator-provisioned Amazon S3 mount if the model is not<br>cached locally. |
+NVMe deployment approaches| # | Approach | Description |
+| --- | --- | --- |
+| 1 | Kubernetes volume (no fallback) | Use when model weights exist on NVMe on every node. Simplest<br>setup with no Amazon S3, Amazon FSx, PV/PVC, or initContainers<br>required. |
+| 2 | Kubernetes volume with fallback | Use when the model might not exist on NVMe on every node. You<br>provide a custom `initContainer` that checks NVMe first<br>and downloads from Amazon S3 using IRSA credentials if the model is<br>missing. |
+| 3 | Amazon S3 with prefetch and fallback | Use when you want to stage model weights to<br>RAM for pod startup. You provide a custom<br>`initContainer` that checks NVMe first and falls back to<br>copying from the operator-provisioned Amazon S3 mount if the model is not<br>cached locally. |
 
 ## Prerequisites
 
@@ -613,14 +613,14 @@ met:
 
 - The ServiceAccount does not exist in the namespace —
   `serviceAccountName "X" not found in namespace
-"Y"`
+ "Y"`
 - The ServiceAccount is missing the required label —
   `serviceAccountName "X" is not labeled as user-assignable
-(requires label
-sagemaker.amazonaws.com/user-assignable=true)`
+ (requires label
+ sagemaker.amazonaws.com/user-assignable=true)`
 - The ServiceAccount is the operator's system ServiceAccount —
   `serviceAccountName must not reference the operator's service
-account`
+ account`
 
 ###### Note
 
@@ -823,13 +823,13 @@ The operator manages several internal volumes that cannot be overridden via
 `kubernetes.volumes`. Using any of these names results in a
 `KubernetesVolumeValidationFailed` condition.
 
-| Reserved volume names | #                                  | Name                                                          | Purpose |
-| --------------------- | ---------------------------------- | ------------------------------------------------------------- | ------- |
-| 1                     | `shm`                              | Shared memory (`/dev/shm`) for inter-process<br>communication |
-| 2                     | `model-weights-copy`               | RAM-backed emptyDir used when<br>`prefetchEnabled: true`      |
-| 3                     | `parallel-copy-configmap`          | ConfigMap for parallel copy script (prefetch)                 |
-| 4                     | `lmcache-config`                   | LMCache configuration volume                                  |
-| 5                     | `gated-model-downloader-configmap` | ConfigMap for gated model download script                     |
+Reserved volume names| # | Name | Purpose |
+| --- | --- | --- |
+| 1 | `shm` | Shared memory (`/dev/shm`) for inter-process<br>communication |
+| 2 | `model-weights-copy` | RAM-backed emptyDir used when<br>`prefetchEnabled: true` |
+| 3 | `parallel-copy-configmap` | ConfigMap for parallel copy script (prefetch) |
+| 4 | `lmcache-config` | LMCache configuration volume |
+| 5 | `gated-model-downloader-configmap` | ConfigMap for gated model download script |
 
 ## Things to remember
 

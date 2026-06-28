@@ -65,13 +65,7 @@ models and then choose **Save**. 9. After adding your model, under **Actions**, 
 **Edit**. 10. For **Memory size**, choose the memory size you want in GB.
 
 ![Screenshot of the memory size option in the console.](images/serverless-endpoints-endpoint-config-2.png) 11. For **Max Concurrency**, enter your desired maximum concurrent
-invocations for the endpoint. The maximum value you can enter is 200 and the minimum is
-
-1.
-2. (Optional) To use Provisioned Concurrency, enter the desired number of concurrent invocations in the
-   **Provisioned Concurrency setting** field. The number of provisioned concurrent invocations
-   must be less than or equal to the number of maximum concurrent invocations.
-3. Choose **Save**.
-4. (Optional) For **Tags**, enter key-value pairs if you want to create
-   metadata for your endpoint configuration.
-5. Choose **Create endpoint configuration**.
+invocations for the endpoint. The maximum value you can enter is 200 and the minimum is 1. 12. (Optional) To use Provisioned Concurrency, enter the desired number of concurrent invocations in the
+**Provisioned Concurrency setting** field. The number of provisioned concurrent invocations
+must be less than or equal to the number of maximum concurrent invocations. 13. Choose **Save**. 14. (Optional) For **Tags**, enter key-value pairs if you want to create
+metadata for your endpoint configuration. 15. Choose **Create endpoint configuration**.

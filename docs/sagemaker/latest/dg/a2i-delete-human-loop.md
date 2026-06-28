@@ -82,7 +82,7 @@ select **Stop**. When the status changes to
 AWS SDK for Python (Boto3)
 The following example uses the SDK for Python (Boto3) to describe the human
 loop named `example-human-loop`. For more
-information, see [describe_human_loop](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.describe_human_loop "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.describe_human_loop") in the _AWS SDK for Python (Boto) API Reference_.
+information, see [describe\_human\_loop](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.describe_human_loop "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.describe_human_loop") in the _AWS SDK for Python (Boto) API Reference_.
 
 ```
 import boto3
@@ -110,7 +110,7 @@ information, see [describe-human-loop](../../../cli/latest/reference/sagemaker-a
 AWS SDK for Python (Boto3)
 The following example uses the SDK for Python (Boto3) to delete the human loop
 named `example-human-loop`. For more
-information, see [delete_human_loop](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.delete_human_loop "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.delete_human_loop") in the _AWS SDK for Python (Boto) API Reference_.
+information, see [delete\_human\_loop](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.delete_human_loop "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.delete_human_loop") in the _AWS SDK for Python (Boto) API Reference_.
 
 ```
 import boto3
@@ -136,7 +136,7 @@ to delete it.
 AWS SDK for Python (Boto3)
 The following example uses the SDK for Python (Boto3) to describe the human
 loop named `example-human-loop`. For more
-information, see [stop_human_loop](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.stop_human_loop "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.stop_human_loop") in the _AWS SDK for Python (Boto) API Reference_.
+information, see [stop\_human\_loop](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.stop_human_loop "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.stop_human_loop") in the _AWS SDK for Python (Boto) API Reference_.
 
 ```
 import boto3

@@ -1,5 +1,14 @@
 # Resources for using Chainer with Amazon SageMaker AI
 
+###### Important
+
+**Deprecation notice:** Chainer is not supported in
+SageMaker Python SDK v3. If you are currently using Chainer, continue using SageMaker
+Python SDK v2. For new projects, consider using PyTorch or TensorFlow with the unified
+`ModelTrainer` class. See
+[SageMaker Python SDK
+documentation](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") for migration guidance.
+
 You can use SageMaker AI to train and deploy a model using custom Chainer code. The SageMaker AI Python
 SDK Chainer estimators and models and the SageMaker AI open-source Chainer container make writing a
 Chainer script and running it in SageMaker AI easier. The following section

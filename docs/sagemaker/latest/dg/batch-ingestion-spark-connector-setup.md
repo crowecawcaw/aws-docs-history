@@ -47,7 +47,7 @@ For information about using the different ingestion methods, see [Example imple
 
 The Feature Store Spark SDK is available in the [Amazon SageMaker Feature Store Spark SDK Maven central repository](https://mvnrepository.com/artifact/software.amazon.sagemaker.featurestore/sagemaker-feature-store-spark-sdk "https://mvnrepository.com/artifact/software.amazon.sagemaker.featurestore/sagemaker-feature-store-spark-sdk") for Scala users.
 
-\***\*Requirements\*\***
+****Requirements****
 
 - Spark >= 3.0.0 and <= 3.3.0
 - `iceberg-spark-runtime` >= 0.14.0
@@ -83,7 +83,7 @@ using Spark 3.1, you must declare the following in your project’s `POM.xml`:
 The Feature Store Spark SDK is available in the open-source [Amazon SageMaker Feature Store Spark GitHub
 repository](https://github.com/aws/sagemaker-feature-store-spark "https://github.com/aws/sagemaker-feature-store-spark").
 
-\***\*Requirements\*\***
+****Requirements****
 
 - Spark >= 3.0.0 and <= 3.3.0
 - Amazon EMR >= 6.1.0 (only if you are using Amazon EMR)
@@ -129,7 +129,7 @@ sudo -E pip3 install sagemaker-feature-store-pyspark-`3.1` --no-binary :all: --v
 
 ###### Note
 
-If you want to install the dependent JARs automatically to SPARK_HOME, do not use the
+If you want to install the dependent JARs automatically to SPARK\_HOME, do not use the
 bootstrap step.
 
 **Installation on a SageMaker notebook instance**

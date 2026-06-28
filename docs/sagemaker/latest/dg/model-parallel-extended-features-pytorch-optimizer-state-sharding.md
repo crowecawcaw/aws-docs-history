@@ -41,7 +41,7 @@ The degree of data parallelism is calculated by `(processes_per_host *
 `smp.dp_size()` function handles the sizing in the
 background.
 
-**Configure a SageMaker PyTorch estimator**
+**Configure a SageMaker PyTorch ModelTrainer**
 
 ```
 mpi_options = {

@@ -119,6 +119,79 @@ A processing step requires a processor, a Python script that defines the
 processing code, outputs for processing, and job arguments. The following example
 shows how to create a `ProcessingStep` definition.
 
+**SageMaker Python SDK v3:**
+
+```
+from sagemaker.core.processing import Processor, ProcessingInput, ProcessingOutput
+
+processor = Processor(
+    image_uri='`sklearn-processing-image-uri`',
+    role=`<role>`,
+    instance_type='ml.m5.xlarge',
+    instance_count=1
+)
+```
+
+```
+from sagemaker.mlops.workflow.steps import ProcessingStep
+
+inputs = [
+    ProcessingInput(source=`<input_data>`, destination="/opt/ml/processing/input"),
+]
+
+outputs = [
+    ProcessingOutput(output_name="train", source="/opt/ml/processing/train"),
+    ProcessingOutput(output_name="validation", source="/opt/ml/processing/validation"),
+    ProcessingOutput(output_name="test", source="/opt/ml/processing/test")
+]
+
+step_process = ProcessingStep(
+    name="AbaloneProcess",
+    step_args = processor.run(inputs=inputs, outputs=outputs,
+        code="abalone/preprocessing.py")
+)
+```
+
+**Pass runtime parameters**
+
+The following example shows how to pass runtime parameters from a PySpark
+processor to a `ProcessingStep`.
+
+```
+from sagemaker.core.workflow.pipeline_context import PipelineSession
+from sagemaker.core.processing import Processor, ProcessingInput, ProcessingOutput
+from sagemaker.mlops.workflow.steps import ProcessingStep
+
+pipeline_session = PipelineSession()
+
+pyspark_processor = Processor(
+    image_uri='`pyspark-processing-image-uri`',
+    role=`<role>`,
+    instance_type='ml.m5.xlarge',
+    instance_count=1,
+    sagemaker_session=pipeline_session,
+)
+
+step_args = pyspark_processor.run(
+    inputs=[ProcessingInput(source=`<input_data>`, destination="/opt/ml/processing/input"),],
+    outputs=[
+        ProcessingOutput(output_name="train", source="/opt/ml/processing/train"),
+        ProcessingOutput(output_name="validation", source="/opt/ml/processing/validation"),
+        ProcessingOutput(output_name="test", source="/opt/ml/processing/test")
+    ],
+    code="preprocess.py",
+    arguments=None,
+)
+
+
+step_process = ProcessingStep(
+    name="AbaloneProcess",
+    step_args=step_args,
+)
+```
+
+**SageMaker Python SDK v2 (Legacy):**
+
 ```
 from sagemaker.sklearn.processing import SKLearnProcessor
 
@@ -197,7 +270,7 @@ You use a training step to create a training job to train a model. For more info
 on training jobs, see [Train a
 Model with Amazon SageMaker AI](how-it-works-training.md "how-it-works-training.md").
 
-A training step requires an estimator, as well as training and validation data
+A training step requires a ModelTrainer, as well as training and validation data
 inputs.
 
 Pipeline Designer
@@ -225,6 +298,51 @@ following:
 SageMaker Python SDK
 The following example shows how to create a `TrainingStep` definition.
 For more information about training step requirements, see the [sagemaker.workflow.steps.TrainingStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.steps.TrainingStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.steps.TrainingStep") documentation.
+
+**SageMaker Python SDK v3:**
+
+```
+from sagemaker.core.workflow.pipeline_context import PipelineSession
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import InputData, Compute
+from sagemaker.mlops.workflow.steps import TrainingStep
+from sagemaker.core import image_uris
+
+pipeline_session = PipelineSession()
+
+training_image = image_uris.retrieve("xgboost", region, "1.7-1")
+
+model_trainer = ModelTrainer(
+    training_image=training_image,
+    role=role,
+    compute=Compute(instance_type="ml.m5.xlarge", instance_count=1),
+    hyperparameters={...}
+)
+
+step_args = model_trainer.train(
+    input_data_config=[
+        InputData(
+            channel_name="train",
+            data_source=step_process.properties.ProcessingOutputConfig.Outputs[
+                "train"
+            ].S3Output.S3Uri,
+        ),
+        InputData(
+            channel_name="validation",
+            data_source=step_process.properties.ProcessingOutputConfig.Outputs[
+                "validation"
+            ].S3Output.S3Uri,
+        )
+    ]
+)
+
+step_train = TrainingStep(
+    name="TrainAbaloneModel",
+    step_args=step_args,
+)
+```
+
+**SageMaker Python SDK v2 (Legacy):**
 
 ```
 from sagemaker.workflow.pipeline_context import PipelineSession
@@ -274,7 +392,7 @@ jobs by specifying the `warm_start_config` parameter of the
 `HyperparameterTuner`. For more information on hyperparameter tuning and
 warm start, see [Run a Warm Start Hyperparameter Tuning Job](automatic-model-tuning-warm-start.md "automatic-model-tuning-warm-start.md").
 
-You use the [get_top_model_s3_uri](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.steps.TuningStep.get_top_model_s3_uri "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.steps.TuningStep.get_top_model_s3_uri") method of the [sagemaker.workflow.steps.TuningStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.steps.TuningStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.steps.TuningStep") class to get the model artifact from
+You use the [get\_top\_model\_s3\_uri](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.steps.TuningStep.get_top_model_s3_uri "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.steps.TuningStep.get_top_model_s3_uri") method of the [sagemaker.workflow.steps.TuningStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.steps.TuningStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.steps.TuningStep") class to get the model artifact from
 one of the top-performing model versions. For a notebook that shows how to use a
 tuning step in a SageMaker AI pipeline, see [sagemaker-pipelines-tuning-step.ipynb](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-pipelines/tabular/tuning-step/sagemaker-pipelines-tuning-step.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-pipelines/tabular/tuning-step/sagemaker-pipelines-tuning-step.ipynb").
 
@@ -413,7 +531,7 @@ best_model = step_automl.get_best_auto_ml_model(`role=<role>`)
 For more information, see the [AutoML](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.automl_step.AutoMLStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.automl_step.AutoMLStep") step in the SageMaker Python SDK.
 
 Use a `ModelStep` to create or register a SageMaker AI model. For more information
-on `ModelStep` requirements, see the [sagemaker.workflow.model_step.ModelStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.model_step.ModelStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.model_step.ModelStep") documentation.
+on `ModelStep` requirements, see the [sagemaker.workflow.model\_step.ModelStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.model_step.ModelStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.model_step.ModelStep") documentation.
 
 ### Create a model
 
@@ -423,6 +541,29 @@ to create the model. For more information about SageMaker AI models, see [Train 
 Model with Amazon SageMaker AI](how-it-works-training.md "how-it-works-training.md").
 
 The following example shows how to create a `ModelStep` definition.
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.workflow.pipeline_context import PipelineSession
+from sagemaker.core.resources import Model
+from sagemaker.mlops.workflow.model_step import ModelStep
+
+step_train = TrainingStep(...)
+model = Model(
+    image_uri=pytorch_estimator.training_image_uri(),
+    model_data=step_train.properties.ModelArtifacts.S3ModelArtifacts,
+    sagemaker_session=PipelineSession(),
+    role=role,
+)
+
+step_model_create = ModelStep(
+   name="MyModelCreationStep",
+   step_args=model.create(instance_type="ml.m5.xlarge"),
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.workflow.pipeline_context import PipelineSession
@@ -453,6 +594,65 @@ about how to register a model, see [Model Registration Deployment with Model Reg
 
 The following example shows how to create a `ModelStep` that registers a
 `PipelineModel`.
+
+SageMaker Python SDK v3
+
+```
+import time
+
+from sagemaker.core.workflow.pipeline_context import PipelineSession
+from sagemaker.core.resources import Model
+from sagemaker.core import image_uris
+
+pipeline_session = PipelineSession()
+
+code_location = 's3://{0}/{1}/code'.format(`bucket_name`, prefix)
+
+sklearn_model = SKLearnModel(
+   model_data=processing_step.properties.ProcessingOutputConfig.Outputs['model'].S3Output.S3Uri,
+   entry_point='inference.py',
+   source_dir='sklearn_source_dir/',
+   code_location=code_location,
+   framework_version='1.0-1',
+   role=role,
+   sagemaker_session=pipeline_session,
+   py_version='py3'
+)
+
+xgboost_model = XGBoostModel(
+   model_data=training_step.properties.ModelArtifacts.S3ModelArtifacts,
+   entry_point='inference.py',
+   source_dir='xgboost_source_dir/',
+   code_location=code_location,
+   framework_version='0.90-2',
+   py_version='py3',
+   sagemaker_session=pipeline_session,
+   role=role
+)
+
+from sagemaker.mlops.workflow.model_step import ModelStep
+from sagemaker.core.pipeline_model import PipelineModel
+
+pipeline_model = PipelineModel(
+   models=[sklearn_model, xgboost_model],
+   role=role,sagemaker_session=pipeline_session,
+)
+
+register_model_step_args = pipeline_model.register(
+    content_types=["application/json"],
+   response_types=["application/json"],
+   inference_instances=["ml.t2.medium", "ml.m5.xlarge"],
+   transform_instances=["ml.m5.xlarge"],
+   model_package_group_name='sipgroup',
+)
+
+step_model_registration = ModelStep(
+   name="AbaloneRegisterModel",
+   step_args=register_model_step_args,
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import time
@@ -572,7 +772,7 @@ following:
    added.
 7. In the right sidebar, complete the forms in the **Setting**
    and **Details** tabs. For information about the fields in these
-   tabs, see [sagemaker.workflow.step_collections.RegisterModel](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.step_collections.RegisterModel "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.step_collections.RegisterModel").
+   tabs, see [sagemaker.workflow.step\_collections.RegisterModel](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.step_collections.RegisterModel "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.step_collections.RegisterModel").
 8. If the canvas includes any step that immediately precedes the
    **Register model** step you added, click and drag the cursor
    from the step to the **Register model** step to create an
@@ -595,7 +795,7 @@ You use a `RegisterModel` step to register a [sagemaker.model.Model](https://sag
 composed of a linear sequence of containers that process inference requests.
 
 For more information about how to register a model, see [Model Registration Deployment with Model Registry](model-registry.md "model-registry.md"). For more information on
-`RegisterModel` step requirements, see the [sagemaker.workflow.step_collections.RegisterModel](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.step_collections.RegisterModel "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.step_collections.RegisterModel") documentation.
+`RegisterModel` step requirements, see the [sagemaker.workflow.step\_collections.RegisterModel](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.step_collections.RegisterModel "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.step_collections.RegisterModel") documentation.
 
 The following example shows how to create a `RegisterModel` step that
 registers a `PipelineModel`.
@@ -732,6 +932,24 @@ editor, do the following:
    create an edge.
 
 SageMaker Python SDK
+**SageMaker Python SDK v3:**
+
+```
+from sagemaker.core.workflow.pipeline_context import PipelineSession
+
+from sagemaker.core.transformer import Transformer
+from sagemaker.train.configs import TransformInput
+from sagemaker.mlops.workflow.steps import TransformStep
+
+transformer = Transformer(..., sagemaker_session=PipelineSession())
+
+step_transform = TransformStep(
+    name="AbaloneTransform",
+    step_args=transformer.transform(data="s3://`amzn-s3-demo-bucket/my-data`"),
+)
+```
+
+**SageMaker Python SDK v2 (Legacy):**
 
 ```
 from sagemaker.workflow.pipeline_context import PipelineSession
@@ -771,7 +989,7 @@ following:
    added.
 7. In the right sidebar, complete the forms in the **Setting**
    and **Details** tabs. For information about the fields in these
-   tabs, see [sagemaker.workflow.condition_step.ConditionStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.condition_step.ConditionStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.condition_step.ConditionStep").
+   tabs, see [sagemaker.workflow.condition\_step.ConditionStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.condition_step.ConditionStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.condition_step.ConditionStep").
 8. If the canvas includes any step that immediately precedes the
    **Condition** step you added, click and drag the cursor from
    the step to the **Condition** step to create an edge.
@@ -790,6 +1008,32 @@ definition.
 - A condition step can't use identical steps in both branches. If you need the
   same step functionality in both branches, duplicate the step and give it a
   different name.
+
+**SageMaker Python SDK v3:**
+
+```
+from sagemaker.core.workflow.conditions import ConditionLessThanOrEqualTo
+from sagemaker.mlops.workflow.condition_step import ConditionStep
+from sagemaker.core.workflow.functions import JsonGet
+
+cond_lte = ConditionLessThanOrEqualTo(
+    left=JsonGet(
+        step_name=step_eval.name,
+        property_file=evaluation_report,
+        json_path="regression_metrics.mse.value"
+    ),
+    right=6.0
+)
+
+step_cond = ConditionStep(
+    name="AbaloneMSECond",
+    conditions=[cond_lte],
+    if_steps=[step_register, step_create_model, step_transform],
+    else_steps=[]
+)
+```
+
+**SageMaker Python SDK v2 (Legacy):**
 
 ```
 from sagemaker.workflow.conditions import ConditionLessThanOrEqualTo
@@ -813,7 +1057,7 @@ step_cond = ConditionStep(
 )
 ```
 
-For more information on `ConditionStep` requirements, see the [sagemaker.workflow.condition_step.ConditionStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#conditionstep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#conditionstep") API reference. For more
+For more information on `ConditionStep` requirements, see the [sagemaker.workflow.condition\_step.ConditionStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#conditionstep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#conditionstep") API reference. For more
 information on supported conditions, see _[Amazon SageMaker Pipelines - Conditions](https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_model_building_pipeline.html#conditions "https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_model_building_pipeline.html#conditions")_ in the SageMaker AI Python SDK documentation.
 
 Use a `Callback` step to add additional processes and AWS services into
@@ -835,7 +1079,7 @@ runs, the following procedure occurs:
 
 - The API call causes Pipelines to either continue the pipeline process or fail the
   process.
-  For more information on `Callback` step requirements, see the [sagemaker.workflow.callback_step.CallbackStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.callback_step.CallbackStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.callback_step.CallbackStep") documentation. For a complete
+  For more information on `Callback` step requirements, see the [sagemaker.workflow.callback\_step.CallbackStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.callback_step.CallbackStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.callback_step.CallbackStep") documentation. For a complete
   solution, see [Extend SageMaker Pipelines to include custom steps using callback steps](https://aws.amazon.com/blogs/machine-learning/extend-amazon-sagemaker-pipelines-to-include-custom-steps-using-callback-steps/ "https://aws.amazon.com/blogs/machine-learning/extend-amazon-sagemaker-pipelines-to-include-custom-steps-using-callback-steps/").
 
 ###### Important
@@ -845,6 +1089,41 @@ Amazon SageMaker Studio Classic v3.6.2. You must update Studio Classic before yo
 step or the pipeline DAG doesn't display. To update Studio Classic, see [Shut Down and Update Amazon SageMaker Studio Classic](studio-tasks-update-studio.md "studio-tasks-update-studio.md").
 
 The following sample shows an implementation of the preceding procedure.
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.mlops.workflow.callback_step import CallbackStep
+
+step_callback = CallbackStep(
+    name="MyCallbackStep",
+    sqs_queue_url="https://sqs.us-east-2.amazonaws.com/012345678901/MyCallbackQueue",
+    inputs={...},
+    outputs=[...]
+)
+
+callback_handler_code = '
+    import boto3
+    import json
+
+    def handler(event, context):
+        sagemaker_client=boto3.client("sagemaker")
+
+        for record in event["Records"]:
+            payload=json.loads(record["body"])
+            token=payload["token"]
+
+            # Custom processing
+
+            # Call SageMaker AI to complete the step
+            sagemaker_client.send_pipeline_execution_step_success(
+                CallbackToken=token,
+                OutputParameters={...}
+            )
+'
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.workflow.callback_step import CallbackStep
@@ -925,7 +1204,7 @@ Lambda steps were introduced in Amazon SageMaker Python SDK v2.51.0 and Amazon S
 You must update Studio Classic before you use a Lambda step or the pipeline DAG doesn't
 display. To update Studio Classic, see [Shut Down and Update Amazon SageMaker Studio Classic](studio-tasks-update-studio.md "studio-tasks-update-studio.md").
 
-SageMaker AI provides the [sagemaker.lambda_helper.Lambda](https://sagemaker.readthedocs.io/en/stable/api/utility/lambda_helper.html "https://sagemaker.readthedocs.io/en/stable/api/utility/lambda_helper.html") class to create, update, invoke, and delete Lambda
+SageMaker AI provides the [sagemaker.lambda\_helper.Lambda](https://sagemaker.readthedocs.io/en/stable/api/utility/lambda_helper.html "https://sagemaker.readthedocs.io/en/stable/api/utility/lambda_helper.html") class to create, update, invoke, and delete Lambda
 functions. `Lambda` has the following signature.
 
 ```
@@ -944,7 +1223,7 @@ Lambda(
 )
 ```
 
-The [sagemaker.workflow.lambda_step.LambdaStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.lambda_step.LambdaStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.lambda_step.LambdaStep") class has a `lambda_func`
+The [sagemaker.workflow.lambda\_step.LambdaStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.lambda_step.LambdaStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.lambda_step.LambdaStep") class has a `lambda_func`
 argument of type `Lambda`. To invoke an existing Lambda function, the only
 requirement is to supply the Amazon Resource Name (ARN) of the function to
 `function_arn`. If you don't supply a value for `function_arn`, you
@@ -958,6 +1237,29 @@ be uploaded
 - `script` – The path of the Lambda function script file
   The following example shows how to create a `Lambda` step definition that
   invokes an existing Lambda function.
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.mlops.workflow.lambda_step import LambdaStep
+from sagemaker.lambda_helper import Lambda
+
+step_lambda = LambdaStep(
+    name="ProcessingLambda",
+    lambda_func=Lambda(
+        function_arn="arn:aws:lambda:us-west-2:012345678910:function:split-dataset-lambda"
+    ),
+    inputs={
+        s3_bucket = s3_bucket,
+        data_file = data_file
+    },
+    outputs=[
+        "train_file", "test_file"
+    ]
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.workflow.lambda_step import LambdaStep
@@ -1112,6 +1414,53 @@ SDK for Python_. For an Amazon SageMaker Studio Classic notebook that shows how 
 
 ###### Example Create a `ClarifyCheck` step for data bias check
 
+SageMaker Python SDK v3
+
+```
+from sagemaker.workflow.check_job_config import CheckJobConfig
+from sagemaker.mlops.workflow.clarify_check_step import DataBiasCheckConfig, ClarifyCheckStep
+from sagemaker.workflow.execution_variables import ExecutionVariables
+from sagemaker.core.clarify import DataConfig, BiasConfig
+from sagemaker.core.workflow.functions import Join
+
+check_job_config = CheckJobConfig(
+    role=role,
+    instance_count=1,
+    instance_type="`ml.c5.xlarge`",
+    volume_size_in_gb=`120`,
+    sagemaker_session=sagemaker_session,
+)
+
+data_bias_data_config = DataConfig(
+    s3_data_input_path=step_process.properties.ProcessingOutputConfig.Outputs["train"].S3Output.S3Uri,
+    s3_output_path=Join(on='/', values=['s3:/', your_bucket, base_job_prefix, ExecutionVariables.PIPELINE_EXECUTION_ID, '`databiascheckstep`']),
+    label=0,
+    dataset_type="`text/csv`",
+    s3_analysis_config_output_path=data_bias_analysis_cfg_output_path,
+)
+
+data_bias_config = BiasConfig(
+    label_values_or_threshold=[`15.0`], facet_name=[`8`], facet_values_or_threshold=[[`0.5`]]
+)
+
+data_bias_check_config = DataBiasCheckConfig(
+    data_config=data_bias_data_config,
+    data_bias_config=data_bias_config,
+)
+
+data_bias_check_step = ClarifyCheckStep(
+    name="`DataBiasCheckStep`",
+    clarify_check_config=data_bias_check_config,
+    check_job_config=check_job_config,
+    skip_check=False,
+    register_new_baseline=False,
+    supplied_baseline_constraints="`s3://sagemaker-us-west-2-111122223333/baseline/analysis.json`",
+    model_package_group_name="`MyModelPackageGroup`"
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 from sagemaker.workflow.check_job_config import CheckJobConfig
 from sagemaker.workflow.clarify_check_step import DataBiasCheckConfig, ClarifyCheckStep
@@ -1229,6 +1578,43 @@ SDK for Python_. For an Amazon SageMaker Studio Classic notebook that shows how 
 
 ###### Example Create a `QualityCheck` step for data quality check
 
+SageMaker Python SDK v3
+
+```
+from sagemaker.workflow.check_job_config import CheckJobConfig
+from sagemaker.mlops.workflow.quality_check_step import DataQualityCheckConfig, QualityCheckStep
+from sagemaker.workflow.execution_variables import ExecutionVariables
+from sagemaker.core.model_monitor.dataset_format import DatasetFormat
+from sagemaker.core.workflow.functions import Join
+
+check_job_config = CheckJobConfig(
+    role=role,
+    instance_count=1,
+    instance_type="`ml.c5.xlarge`",
+    volume_size_in_gb=`120`,
+    sagemaker_session=sagemaker_session,
+)
+
+data_quality_check_config = DataQualityCheckConfig(
+    baseline_dataset=step_process.properties.ProcessingOutputConfig.Outputs["`train`"].S3Output.S3Uri,
+    dataset_format=DatasetFormat.csv(header=False, output_columns_position="START"),
+    output_s3_uri=Join(on='/', values=['s3:/', your_bucket, base_job_prefix, ExecutionVariables.PIPELINE_EXECUTION_ID, 'dataqualitycheckstep'])
+)
+
+data_quality_check_step = QualityCheckStep(
+    name="DataQualityCheckStep",
+    skip_check=False,
+    register_new_baseline=False,
+    quality_check_config=data_quality_check_config,
+    check_job_config=check_job_config,
+    supplied_baseline_statistics="s3://`sagemaker-us-west-2-555555555555/baseline/statistics.json`",
+    supplied_baseline_constraints="s3://`sagemaker-us-west-2-555555555555/baseline/constraints.json`",
+    model_package_group_name="`MyModelPackageGroup`"
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 from sagemaker.workflow.check_job_config import CheckJobConfig
 from sagemaker.workflow.quality_check_step import DataQualityCheckConfig, QualityCheckStep
@@ -1311,7 +1697,7 @@ To add an EMR step to your pipeline, do the following:
 - In the canvas, choose the **Process data** step you added.
 - In the right sidebar, under mode, choose **EMR (managed)**.
 - In the right sidebar, complete the forms in the **Setting and
-  Details** tabs. For information about the fields in these tabs, see [sagemaker.workflow.fail_step.EMRstep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.emr_step.EMRStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.emr_step.EMRStep").
+  Details** tabs. For information about the fields in these tabs, see [sagemaker.workflow.fail\_step.EMRstep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.emr_step.EMRStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.emr_step.EMRStep").
   **Launch a new job on a running Amazon EMR cluster**
 
 To launch a new job on a running Amazon EMR cluster, pass the cluster ID as a string to the
@@ -1510,7 +1896,7 @@ To add a Fail step to your pipeline, do the following:
 6. In the canvas, choose the **Fail** step you added.
 7. In the right sidebar, complete the forms in the **Setting**
    and **Details** tabs. For information about the fields in these
-   tabs, see [sagemaker.workflow.fail_step.FailStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.fail_step.FailStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.fail_step.FailStep").
+   tabs, see [sagemaker.workflow.fail\_step.FailStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.fail_step.FailStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.fail_step.FailStep").
 8. If the canvas includes any step that immediately precedes the
    **Fail** step you added, click and drag the cursor from the
    step to the **Fail** step to create an edge.

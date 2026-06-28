@@ -51,6 +51,22 @@ to experiment and see. To switch from file mode to fast file mode (and back), ju
 remove) the `input_mode='FastFile'` parameter while defining your input channel
 using the SageMaker Python SDK:
 
+SageMaker Python SDK v3
+
+```
+from sagemaker.train.configs import InputData, OutputDataConfig, CheckpointConfig
+from sagemaker.core.shapes import Channel, DataSource, S3DataSource
+Channel(
+    channel_name="training",
+    data_source=DataSource(
+        s3_data_source=S3DataSource(s3_data_type="S3Prefix", s3_uri=S3_INPUT_FOLDER)
+    ),
+    input_mode='FastFile',
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 sagemaker.inputs.TrainingInput(S3_INPUT_FOLDER,  input_mode = 'FastFile')
 ```

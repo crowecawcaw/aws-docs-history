@@ -5,7 +5,7 @@ different models on a SageMaker AI endpoint. You can host up to 15
 different inference containers on a single endpoint. By using direct invocation, you can
 send a request to a specific inference container hosted on a multi-container endpoint.
 
-To invoke a multi-container endpoint with direct invocation, call [invoke_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.invoke_endpoint "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.invoke_endpoint") as you would invoke any other endpoint, and specify which
+To invoke a multi-container endpoint with direct invocation, call [invoke\_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.invoke_endpoint "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.invoke_endpoint") as you would invoke any other endpoint, and specify which
 container you want to invoke by using the `TargetContainerHostname`
 parameter.
 

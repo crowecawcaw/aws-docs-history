@@ -1,11 +1,11 @@
-# Using `ScriptProcessor` to calculate the Normalized Difference Vegetation Index (NDVI) using Sentinel-2 satellite data
+# Using `ProcessingJob` to calculate the Normalized Difference Vegetation Index (NDVI) using Sentinel-2 satellite data
 
 The
 following code samples show you how to calculate the normalized
 difference vegetation index of a specific geographical area using the purpose-built
 geospatial image within a Studio Classic notebook and run a large-scale workload with Amazon SageMaker Processing
 using
-[`ScriptProcessor`](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.ScriptProcessor "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.ScriptProcessor") from the SageMaker AI
+[`ProcessingJob`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") from the SageMaker AI
 Python
 SDK.
 
@@ -17,7 +17,7 @@ You can follow along with this demo in your own notebook instance by copying and
 pasting the following code snippets:
 
 1. [Use
-   search_raster_data_collection to query a specific area of
+   search\_raster\_data\_collection to query a specific area of
    interest (AOI) over a given a time range using a specific raster data
    collection, Sentinel-2.](#geospatial-custom-operations-procedure-search "#geospatial-custom-operations-procedure-search")
 2. [Create a manifest file
@@ -26,7 +26,7 @@ pasting the following code snippets:
 3. [Write a data processing Python
    script calculating the NDVI.](#geospatial-custom-operations-script-mode "#geospatial-custom-operations-script-mode")
 4. [Create a
-   ScriptProcessor instance and start the Amazon SageMaker Processing
+   ProcessingJob instance and start the Amazon SageMaker Processing
    job](#geospatial-custom-operations-create "#geospatial-custom-operations-create").
 5. [Visualizing the results of
    your processing job](#geospatial-custom-operations-visual "#geospatial-custom-operations-visual").
@@ -195,10 +195,11 @@ of the execution role that is associated with your Studio Classic notebook
 instance:
 
 ```
-sm_session = sagemaker.session.Session()
+from sagemaker.core.helper.session_helper import Session, get_execution_role
+sm_session = Session()
 s3 = boto3.resource('s3')
 # Gets the default excution role associated with the notebook
-execution_role_arn = sagemaker.get_execution_role()
+execution_role_arn = get_execution_role()
 
 # Gets the default bucket associated with the notebook
 s3_bucket = sm_session.default_bucket()
@@ -228,7 +229,7 @@ manifest files will be created.
 [{'prefix': 's3://sagemaker-us-west-2-111122223333/script-processor-input-manifest/'}]
 ```
 
-All the response elements from the search_raster_data_collection response are not
+All the response elements from the search\_raster\_data\_collection response are not
 needed to run the processing job.
 
 The following code snippet removes the unnecessary elements
@@ -303,15 +304,15 @@ following can be useful when you write your own script for a processing job:
 - In your processing job container, the local paths inside the container
   must begin with `/opt/ml/processing/`. In this example,
   `input_data_path = '/opt/ml/processing/input_data/'` and `processed_data_path =
-'/opt/ml/processing/output_data/'` are specified in that
+ '/opt/ml/processing/output_data/'` are specified in that
   way.
 - With Amazon SageMaker Processing,
   a
   script that a processing job runs can upload your
   processed data directly to Amazon S3. To do so, make sure that the execution role
-  associated with your `ScriptProcessor` instance has the necessary
+  associated with your `ProcessingJob` instance has the necessary
   requirements to access the S3 bucket. You can also specify an outputs
-  parameter when you run your processing job. To learn more, see the [`.run()` API operation](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.ScriptProcessor.run "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.ScriptProcessor.run") in the
+  parameter when you run your processing job. To learn more, see the [`.run()` API operation](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") in the
   _Amazon SageMaker Python SDK_. In this code example, the
   results of the data processing are uploaded directly to Amazon S3.
 - To manage the size of the Amazon EBScontainer attached to your processing jobuse the
@@ -377,18 +378,18 @@ if __name__ == "__main__":
 You now have a script that can calculate the NDVI. Next, you can create an
 instance of the ScriptProcessor and run your Processing job.
 
-## Creating an instance of the `ScriptProcessor` class
+## Creating an instance of the `ProcessingJob` class
 
-This demo uses the [ScriptProcessor](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.ScriptProcessor "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.ScriptProcessor") class that is available via the Amazon SageMaker Python SDK.
+This demo uses the [ScriptProcessor](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") class that is available via the Amazon SageMaker Python SDK.
 First, you need to create an instance of the class, and then you can start your
 Processing job by using the `.run()` method.
 
 ```
-from sagemaker.processing import ScriptProcessor, ProcessingInput, ProcessingOutput
+from sagemaker.core.processing import Processor, ProcessingInput, ProcessingOutput
 
 image_uri = `'081189585635.dkr.ecr.us-west-2.amazonaws.com/sagemaker-geospatial-v1-0:latest'`
 
-processor = ScriptProcessor(
+processor = Processor(
 	command=['python3'],
 	image_uri=image_uri,
 	role=execution_role_arn,
@@ -400,7 +401,7 @@ processor = ScriptProcessor(
 print('Starting processing job.')
 ```
 
-When you start your Processing job, you need to specify a [`ProcessingInput`](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.ProcessingInput "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.ProcessingInput") object. In that object, you specify
+When you start your Processing job, you need to specify a [`ProcessingInput`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") object. In that object, you specify
 the following:
 
 - The path to the manifest file that you created in step 2,
@@ -434,7 +435,7 @@ processor.run(
 )
 ```
 
-The following code example uses the [`.describe()` method](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.ProcessingJob.describe "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.ProcessingJob.describe") to get details of your Processing
+The following code example uses the [`.describe()` method](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") to get details of your Processing
 job.
 
 ```
@@ -481,4 +482,4 @@ on it. An NDVI value near 1 indicates lots of vegetation is present, and values 
 
 ![A satellite image of northern Iowa with the NDVI overlaid on top.](images/ndvi-iowa.png)
 
-This completes the demo of using `ScriptProcessor`.
+This completes the demo of using `ProcessingJob`.

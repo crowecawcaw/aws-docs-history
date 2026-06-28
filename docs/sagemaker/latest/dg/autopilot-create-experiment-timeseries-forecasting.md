@@ -90,49 +90,40 @@ forecasting, you must provide the following values:
 - An `AutoMLProblemTypeConfig` of type `TimeSeriesForecastingJobConfig` to configure the settings of your
   time-series forecasting job. In particular, you must specify:
 
-      + The **frequency** of predictions, which refers to
-       the desired granularity (hourly, daily, monthly, etc) of your forecast.
+  - The **frequency** of predictions, which refers to
+    the desired granularity (hourly, daily, monthly, etc) of your forecast.
 
+  Valid intervals are an integer followed by `Y` (Year), `M`
+  (Month), `W` (Week), `D` (Day), `H` (Hour), and
+  `min` (Minute). For example, `1D` indicates every day and
+  `15min` indicates every 15 minutes. The value of a frequency must not
+  overlap with the next larger frequency. For example, you must use a frequency of
+  `1H` instead of `60min`.
 
-      Valid intervals are an integer followed by `Y` (Year), `M`
-       (Month), `W` (Week), `D` (Day), `H` (Hour), and
-       `min` (Minute). For example, `1D` indicates every day and
-       `15min` indicates every 15 minutes. The value of a frequency must not
-       overlap with the next larger frequency. For example, you must use a frequency of
-       `1H` instead of `60min`.
+  The valid values for each frequency are the following:
 
+        - Minute - 1-59
+        - Hour - 1-23
+        - Day - 1-6
+        - Week - 1-4
+        - Month - 1-11
+        - Year - 1
+  - The **horizon** of predictions in your forecast,
+    which refers to the number of time-steps that the model predicts. The forecast horizon
+    is also called the prediction length. The maximum forecast horizon is the lesser of
+    500 time-steps or 1/4 of the time-steps in the dataset.
+  - A [TimeSeriesConfig](../APIReference/API_TimeSeriesConfig.md "../APIReference/API_TimeSeriesConfig.md") in which you define the schema of your dataset to map the
+    column headers to your forecast by specifying:
 
-      The valid values for each frequency are the following:
-
-
-
-
-      	- Minute - 1-59
-      	- Hour - 1-23
-      	- Day - 1-6
-      	- Week - 1-4
-      	- Month - 1-11
-      	- Year - 1
-      + The **horizon** of predictions in your forecast,
-       which refers to the number of time-steps that the model predicts. The forecast horizon
-       is also called the prediction length. The maximum forecast horizon is the lesser of
-       500 time-steps or 1/4 of the time-steps in the dataset.
-      + A [TimeSeriesConfig](../APIReference/API_TimeSeriesConfig.md "../APIReference/API_TimeSeriesConfig.md") in which you define the schema of your dataset to map the
-       column headers to your forecast by specifying:
-
-
-
-
-      	- A `TargetAttributeName`: The column that contains historical data
-      	 of the target field to forecast.
-      	- A `TimestampAttributeName`: The column that contains a point in
-      	 time at which the target value of a given item is recorded.
-      	- A `ItemIdentifierAttributeName`: The column that contains the item
-      	 identifiers for which you want to predict the target value.
-
-  The following is an example of those request parameters. In this example, you are
-  setting up a daily forecast for the expected quantity or level of demand of specific items
-  over a period of 20 days.
+    - A `TargetAttributeName`: The column that contains historical data
+      of the target field to forecast.
+    - A `TimestampAttributeName`: The column that contains a point in
+      time at which the target value of a given item is recorded.
+    - A `ItemIdentifierAttributeName`: The column that contains the item
+      identifiers for which you want to predict the target value.
+      The following is an example of those request parameters. In this example, you are
+      setting up a daily forecast for the expected quantity or level of demand of specific items
+      over a period of 20 days.
 
 ```
 "AutoMLProblemTypeConfig": {

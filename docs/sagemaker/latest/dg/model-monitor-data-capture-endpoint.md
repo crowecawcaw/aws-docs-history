@@ -13,7 +13,7 @@ configuration, and create an HTTPS endpoint.
 The steps required to turn on data capture are similar whether you use the
 AWS SDK for Python (Boto) or the SageMaker Python SDK. If you use the AWS SDK, define the [DataCaptureConfig](../APIReference/API_DataCaptureConfig.md "../APIReference/API_DataCaptureConfig.md") dictionary, along with required fields, within the
 [CreateEndpointConfig](../APIReference/API_CreateEndpointConfig.md "../APIReference/API_CreateEndpointConfig.md") method to turn on data capture. If you use the
-SageMaker Python SDK, import the [DataCaptureConfig](https://sagemaker.readthedocs.io/en/stable/api/inference/model_monitor.html#sagemaker.model_monitor.data_capture_config.DataCaptureConfig "https://sagemaker.readthedocs.io/en/stable/api/inference/model_monitor.html#sagemaker.model_monitor.data_capture_config.DataCaptureConfig") Class and initialize an instance from this class.
+SageMaker Python SDK, import the [DataCaptureConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") Class and initialize an instance from this class.
 Then, pass this object to the `DataCaptureConfig` parameter in the
 `sagemaker.model.Model.deploy()` method.
 
@@ -112,7 +112,7 @@ For more information about other endpoint configuration options,
 see the [CreateEndpointConfig](../APIReference/API_CreateEndpointConfig.md "../APIReference/API_CreateEndpointConfig.md") API in the [Amazon SageMaker AI Service API Reference Guide](../APIReference/API_Operations_Amazon_SageMaker_Service.md "../APIReference/API_Operations_Amazon_SageMaker_Service.md").
 
 SageMaker Python SDK
-Import the `DataCaptureConfig` Class from [sagemaker.model_monitor](https://sagemaker.readthedocs.io/en/stable/api/inference/model_monitor.html "https://sagemaker.readthedocs.io/en/stable/api/inference/model_monitor.html") module. Enable data capture by
+Import the `DataCaptureConfig` Class from [sagemaker.model\_monitor](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") module. Enable data capture by
 setting `EnableCapture` to the boolean value
 `True`.
 
@@ -126,7 +126,7 @@ Optionally provide arguments for the following parameters:
   to store captured data. If you do not provide one, SageMaker AI will
   store captured data in
   `"s3://<default-session-bucket>/
-model-monitor/data-capture"`.
+ model-monitor/data-capture"`.
 
 ```
 from sagemaker.model_monitor import DataCaptureConfig
@@ -200,7 +200,7 @@ print("EndpointName =", endpoint_name)
 ```
 
 Deploy your model to a real-time, HTTPS endpoint with the Model
-object’s built-in `deploy()` method. Provide the name of
+object's built-in `deploy()` method. Provide the name of
 the Amazon EC2 instance type to deploy this model to in the
 `instance_type` field along with the initial number
 of instances to run the endpoint on for the
@@ -226,13 +226,24 @@ model.deploy(
 
 ## View Captured Data
 
-Create a predictor object from the SageMaker Python SDK [Predictor](https://sagemaker.readthedocs.io/en/stable/api/inference/predictors.html "https://sagemaker.readthedocs.io/en/stable/api/inference/predictors.html") Class. You will use the object returned by the
-`Predictor` Class to invoke your endpoint in a future step.
+Create an `Endpoint` object from the SageMaker Python SDK. You will use
+the `Endpoint` object to invoke your endpoint in a future step.
 Provide the name of your endpoint (defined earlier as
-`endpoint_name`), along with serializer and deserializer objects for
-the serializer and deserializer, respectively. For information about serializer
-types, see the [Serializers](https://sagemaker.readthedocs.io/en/stable/api/inference/serializers.html "https://sagemaker.readthedocs.io/en/stable/api/inference/serializers.html") Class in the [SageMaker AI Python
-SDK](https://sagemaker.readthedocs.io/en/stable/index.html "https://sagemaker.readthedocs.io/en/stable/index.html").
+`endpoint_name`).
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.resources import Endpoint
+
+endpoint = Endpoint(endpoint_name=endpoint_name)
+
+# Example
+#from sagemaker.core.resources import Endpoint
+#endpoint = Endpoint(endpoint_name=endpoint_name)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.predictor import Predictor
@@ -261,14 +272,45 @@ contains labels for each input.
 The first few lines of the with statement first opens the validation set CSV
 file, then splits each row within the file by the comma character
 `","`, and then stores the two returned objects into a label and
-input_cols variables. For each row, the input (`input_cols`) is
-passed to the predictor variable's (`predictor`) objects built-in
-method `Predictor.predict()`.
+input\_cols variables. For each row, the input (`input_cols`) is
+passed to the endpoint variable's (`endpoint`) built-in
+method `invoke()`.
 
 Suppose the model returns a probability. Probabilities range between integer
 values of 0 and 1.0. If the probability returned by the model is greater than
 80% (0.8) we assign the prediction an integer value label of 1. Otherwise, we
 assign the prediction an integer value label of 0.
+
+SageMaker Python SDK v3
+
+```
+from time import sleep
+
+validate_dataset = "validation_with_predictions.csv"
+
+# Cut off threshold of 80%
+cutoff = 0.8
+
+limit = 200  # Need at least 200 samples to compute standard deviations
+i = 0
+with open(f"test_data/{validate_dataset}", "w") as validation_file:
+    validation_file.write("probability,prediction,label\n")  # CSV header
+    with open("test_data/validation.csv", "r") as f:
+        for row in f:
+            (label, input_cols) = row.split(",", 1)
+            probability = float(endpoint.invoke(input_cols))
+            prediction = "1" if probability > cutoff else "0"
+            baseline_file.write(f"{probability},{prediction},{label}\n")
+            i += 1
+            if i > limit:
+                break
+            print(".", end="", flush=True)
+            sleep(0.5)
+print()
+print("Done!")
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from time import sleep

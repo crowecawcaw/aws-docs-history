@@ -6,7 +6,7 @@ available input formats for the SageMaker AI k-nearest-neighbor algorithm.
 
 ## CSV Data Format
 
-content-type: text/csv; label_size=1
+content-type: text/csv; label\_size=1
 
 ```
 4,1.2,1.3,9.6,20.3

@@ -23,14 +23,14 @@ for your account in a Region.
   how to build a model with this dataset, see the [SageMaker Canvas workshop page](https://catalog.us-east-1.prod.workshops.aws/workshops/80ba0ea5-7cf9-4b8c-9d3f-1cd988b6c071/en-US/zzz-legacy/1-use-cases/5-hcls "https://catalog.us-east-1.prod.workshops.aws/workshops/80ba0ea5-7cf9-4b8c-9d3f-1cd988b6c071/en-US/zzz-legacy/1-use-cases/5-hcls"). This dataset was obtained from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/diabetes+130-us+hospitals+for+years+1999-2008 "https://archive.ics.uci.edu/ml/datasets/diabetes+130-us+hospitals+for+years+1999-2008").
 - **canvas-sample-housing.csv:** This dataset
   contains data on the characteristics tied to a given housing price. You can
-  use this dataset to predict housing prices. Use the **median_house_value** column as the target column, and use the
+  use this dataset to predict housing prices. Use the **median\_house\_value** column as the target column, and use the
   numeric prediction model type with this dataset. To learn more about
   building a model with this dataset, see the [SageMaker Canvas workshop page](https://catalog.us-east-1.prod.workshops.aws/workshops/80ba0ea5-7cf9-4b8c-9d3f-1cd988b6c071/en-US/zzz-legacy/1-use-cases/2-real-estate "https://catalog.us-east-1.prod.workshops.aws/workshops/80ba0ea5-7cf9-4b8c-9d3f-1cd988b6c071/en-US/zzz-legacy/1-use-cases/2-real-estate"). This is the California housing dataset
   obtained from the [StatLib repository](https://www.dcc.fc.up.pt/~ltorgo/Regression/cal_housing.html "https://www.dcc.fc.up.pt/~ltorgo/Regression/cal_housing.html").
 - **canvas-sample-loans.csv:** This dataset
   contains complete loan data for all loans issued from 2007–2011, including
   the current loan status and latest payment information. You can use this
-  dataset to predict whether a customer will repay a loan. Use the **loan_status** column as the target column, and use
+  dataset to predict whether a customer will repay a loan. Use the **loan\_status** column as the target column, and use
   the 3+ category prediction model type with this dataset. To learn more about
   how to build a model with this dataset, see the [SageMaker Canvas workshop page](https://catalog.us-east-1.prod.workshops.aws/workshops/80ba0ea5-7cf9-4b8c-9d3f-1cd988b6c071/en-US/zzz-legacy/1-use-cases/4-finserv "https://catalog.us-east-1.prod.workshops.aws/workshops/80ba0ea5-7cf9-4b8c-9d3f-1cd988b6c071/en-US/zzz-legacy/1-use-cases/4-finserv"). This data uses the LendingClub data
   obtained from [Kaggle](https://www.kaggle.com/datasets/wordsforthewise/lending-club "https://www.kaggle.com/datasets/wordsforthewise/lending-club").

@@ -140,7 +140,7 @@ In this section, learn how to enable remote debugging when starting or updating 
 training job in Amazon SageMaker AI.
 
 SageMaker Python SDK
-Using the estimator class in the SageMaker Python SDK, you can turn remote
+Using the ModelTrainer class in the SageMaker Python SDK, you can turn remote
 debugging on or off using the `enable_remote_debug` parameter or
 the `enable_remote_debug()` and
 `disable_remote_debug()` methods.
@@ -153,6 +153,32 @@ To enable remote debugging when you create a new training job, set the
 default value is `False`, so if you don’t set this parameter at
 all, or you explicitly set it to `False`, remote debugging
 functionality is disabled.
+
+SageMaker Python SDK v3SageMaker Python SDK v2 (Legacy)SageMaker Python SDK v3
+
+```
+from sagemaker.core.helper.session_helper import Session
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute
+
+session = Session()
+
+model_trainer = ModelTrainer(
+    ...,
+    sagemaker_session=session,
+    training_image="`<your_image_uri>`", #must be owned by your organization or Amazon DLCs
+    role=`role`,
+    compute=Compute(
+        instance_type="`ml.m5.xlarge`",
+        instance_count=`1`,
+    ),
+    output_path=`output_path`,
+    max_run=`1800`,
+    enable_remote_debug=`True`
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import sagemaker
@@ -175,10 +201,22 @@ estimator = sagemaker.estimator.Estimator(
 **To enable remote debugging by updating a training
 job**
 
-Using the following estimator class methods, you can enable or disable
+Using the following ModelTrainer class methods, you can enable or disable
 remote debugging while a training job is running when the
 `SecondaryStatus` of the job is `Downloading` or
 `Training`.
+
+SageMaker Python SDK v3SageMaker Python SDK v2 (Legacy)SageMaker Python SDK v3
+
+```
+# Enable RemoteDebug
+model_trainer.enable_remote_debug()
+
+# Disable RemoteDebug
+model_trainer.disable_remote_debug()
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 # Enable RemoteDebug
@@ -195,6 +233,8 @@ training job**
 To enable remote debugging when you create a new training job, set the
 value for the `EnableRemoteDebug` key to `True` in the
 `RemoteDebugConfig` parameter.
+
+SageMaker Python SDK v3SageMaker Python SDK v2 (Legacy)SageMaker Python SDK v3
 
 ```
 import boto3
@@ -225,6 +265,19 @@ sm.create_training_job(
  "EnableRemoteDebug": `True`
  }**
 )
+```
+
+SageMaker Python SDK v2 (Legacy)
+
+```
+import boto3
+
+session = boto3.session.Session()
+region = session.region_name
+sm = boto3.Session(region_name=region).client("sagemaker")
+
+# Describe the job status
+sm.describe_training_job(TrainingJobName=`job_name`)
 ```
 
 **To enable remote debugging by updating a training
@@ -331,19 +384,44 @@ SageMaker Python SDK
 To check the `SecondaryStatus` of a training job, run the
 following SageMaker Python SDK code.
 
+SageMaker Python SDK v3SageMaker Python SDK v2 (Legacy)SageMaker Python SDK v3
+
 ```
 import sagemaker
+from sagemaker.core.helper.session_helper import Session
 
-session = sagemaker.Session()
+session = Session()
 
 # Describe the job status
 training_job_info = session.describe_training_job(`job_name`)
 print(training_job_info)
 ```
 
+SageMaker Python SDK v2 (Legacy)
+
+```
+import sagemaker
+
+session = sagemaker.Session()
+
+estimator = sagemaker.estimator.Estimator(
+    ...,
+    sagemaker_session=session,
+    image_uri="`<your_image_uri>`", #must be owned by your organization or Amazon DLCs
+    role=`role`,
+    instance_type="`ml.m5.xlarge`",
+    instance_count=`1`,
+    output_path=`output_path`,
+    max_run=`1800`,
+    enable_remote_debug=`True`
+)
+```
+
 AWS SDK for Python (Boto3)
 To check the `SecondaryStatus` of a training job, run the
 following SDK for Python (Boto3) code.
+
+SageMaker Python SDK v3SageMaker Python SDK v2 (Legacy)SageMaker Python SDK v3
 
 ```
 import boto3
@@ -354,6 +432,39 @@ sm = boto3.Session(region_name=region).client("sagemaker")
 
 # Describe the job status
 sm.describe_training_job(TrainingJobName=`job_name`)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
+```
+import boto3
+
+sm = boto3.Session(region_name=region).client("sagemaker")
+
+# Start a training job
+sm.create_training_job(
+    ...,
+    TrainingJobName=`job_name`,
+    AlgorithmSpecification={
+        // Specify a training Docker container image URI
+        // (Deep Learning Container or your own training container) to TrainingImage.
+        "TrainingImage": "`<your_image_uri>`",
+        "TrainingInputMode": "`File`"
+    },
+    RoleArn=`iam_role_arn`,
+    OutputDataConfig=`output_path`,
+    ResourceConfig={
+        "InstanceType": "`ml.m5.xlarge`",
+        "InstanceCount": `1`,
+        "VolumeSizeInGB": `30`
+    },
+    StoppingCondition={
+        "MaxRuntimeInSeconds": `86400`
+    },
+    **RemoteDebugConfig={
+ "EnableRemoteDebug": `True`
+ }**
+)
 ```
 
 AWS Command Line Interface (CLI)

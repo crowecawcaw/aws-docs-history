@@ -11,28 +11,27 @@ tabs:
   see all of the manual and automatic batch prediction jobs for this model. You can filter
   the jobs by configuration name. For each job, you can see the following fields:
 
-      + **Status** – The current status
-       of your batch prediction job. If the status is **Failed** or **Partially failed**, you can hover over the
-       status to view a more detailed error message to help you troubleshoot.
-      + **Input dataset** – The name of your Canvas input
-       dataset, including the dataset version.
-      + **Prediction type** – Whether the
-       prediction job was automatic or manual.
-      + **Rows** – The number of rows predicted.
-      + **Configuration name** – The name of the batch prediction job configuration.
-      + **QuickSight** – Describes whether you've sent the batch predictions to Quick.
-      + **Created** – The creation time of the batch prediction job.
-
-  If you choose the **More options**
-  icon (
-  ![](images/studio/canvas/more-options-icon.png)
-  ), you can choose **View
-  details**, **Preview prediction**,
-  **Download prediction**, or **Send to Quick**. If you
-  choose **View details**, a page opens that shows you the full details
-  of the batch prediction job, including the status, the input and output data configurations, information
-  about the instances used to complete the job and access to the Amazon CloudWatch logs. The page looks like the following
-  screenshot.
+  - **Status** – The current status
+    of your batch prediction job. If the status is **Failed** or **Partially failed**, you can hover over the
+    status to view a more detailed error message to help you troubleshoot.
+  - **Input dataset** – The name of your Canvas input
+    dataset, including the dataset version.
+  - **Prediction type** – Whether the
+    prediction job was automatic or manual.
+  - **Rows** – The number of rows predicted.
+  - **Configuration name** – The name of the batch prediction job configuration.
+  - **QuickSight** – Describes whether you've sent the batch predictions to Quick.
+  - **Created** – The creation time of the batch prediction job.
+    If you choose the **More options**
+    icon (
+    ![](images/studio/canvas/more-options-icon.png)
+    ), you can choose **View
+    details**, **Preview prediction**,
+    **Download prediction**, or **Send to Quick**. If you
+    choose **View details**, a page opens that shows you the full details
+    of the batch prediction job, including the status, the input and output data configurations, information
+    about the instances used to complete the job and access to the Amazon CloudWatch logs. The page looks like the following
+    screenshot.
 
 ![Batch prediction job details page showing all of the additional details about a job.](images/studio/canvas/canvas-view-batch-prediction-job-details.png)
 

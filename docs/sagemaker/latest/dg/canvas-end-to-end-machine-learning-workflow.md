@@ -90,7 +90,7 @@ We can use the insights from the report to predict the fare amount. By specifyin
 **Regression** as the problem type, the report will analyze the
 dataset's suitability for predicting continuous values like fare prices. The report
 should reveal that features like **year** and
-**hour_of_day** have low predictive power for the chosen target
+**hour\_of\_day** have low predictive power for the chosen target
 variable, providing you with valuable insights.
 
 Use the following procedure to get a Data Quality and Insights report on a 50,000 row
@@ -108,7 +108,7 @@ sample from the dataset.
 5. Choose **Create**.
 
 You can review the Data Quality and Insights report on a sample of your data. The
-report indicates that the **year** and **hour_of_day**
+report indicates that the **year** and **hour\_of\_day**
 features are not predictive of the target variable, **Fare
 amount**.
 
@@ -118,14 +118,14 @@ it.
 ## Drop year and hour of day
 
 We're using insights from the report to drop the **year** and
-**hour_of_day** columns to streamline the feature space and
+**hour\_of\_day** columns to streamline the feature space and
 potentially improve model performance.
 
 Amazon SageMaker Canvas provides a user-friendly interface and tools to perform such data
 transformations.
 
 Use the following procedure to drop the **year** and
-**hour_of_day** columns from the NYC taxi dataset using the Data
+**hour\_of\_day** columns from the NYC taxi dataset using the Data
 Wrangler tool in Amazon SageMaker Canvas.
 
 1. Choose the icon next to **Data types**.
@@ -134,7 +134,7 @@ Wrangler tool in Amazon SageMaker Canvas.
 4. Choose **Manage columns**.
 5. Choose **Drop column**.
 6. For **Columns to drop**, select the **year**
-   and **hour_of_day** columns.
+   and **hour\_of\_day** columns.
 7. Choose **Preview** to view how your transform changes your
    data.
 8. Choose **Add**.

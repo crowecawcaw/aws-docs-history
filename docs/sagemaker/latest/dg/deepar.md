@@ -60,12 +60,12 @@ By default, the DeepAR model determines the input format from the file extension
 (`.json`, `.json.gz`, or `.parquet`) in the
 specified input path. If the path does not end in one of these extensions, you must
 explicitly specify the format in the SDK for Python. Use the `content_type`
-parameter of the [s3_input](https://sagemaker.readthedocs.io/en/stable/session.html#sagemaker.session.s3_input "https://sagemaker.readthedocs.io/en/stable/session.html#sagemaker.session.s3_input") class.
+parameter of the [InputData](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") class.
 
 The records in your input files should contain the following fields:
 
 - `start`—A string with the format `YYYY-MM-DD
-HH:MM:SS`. The start timestamp can't contain time zone
+ HH:MM:SS`. The start timestamp can't contain time zone
   information.
 - `target`—An array of floating-point values or integers that
   represent the time series. You can encode missing values as `null`
@@ -183,10 +183,10 @@ test data as follows:
 
 ![RMSE Formula: Sqrt(1/nT(Sum[i,t](y-hat(i,t)-y(i,t))^2)).](images/deepar-1.png)
 
-_y\*\*i_,_t_
+_y\**i_,_t_
 is the true value of time series _i_ at the time
 _t_.
-_ŷ\*\*i_,_t_
+_ŷ\**i_,_t_
 is the mean prediction. The sum is over all _n_ time series in the
 test set and over the last Τ time points for each time series, where Τ
 corresponds to the forecast horizon. You specify the length of the forecast horizon by
@@ -199,7 +199,7 @@ is defined as follows:
 
 ![Weighted quantile loss equation.](images/deepar-2.png)
 
-_q\*\*i_,_t_(τ)
+_q\**i_,_t_(τ)
 is the τ-quantile of the distribution that the model predicts. To specify which
 quantiles to calculate loss for, set the `test_quantiles` hyperparameter. In
 addition to these, the average of the prescribed quantile losses is reported as part of

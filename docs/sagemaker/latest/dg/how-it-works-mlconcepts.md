@@ -70,11 +70,11 @@ both training and evaluating the model, as follows:
      [Data and model quality monitoring with Amazon SageMaker Model Monitor](model-monitor.md "model-monitor.md").
 
 3. **Deploy the model** – You traditionally
-   re-engineer a model before you integrate it with your application and deploy it.
-   With SageMaker AI hosting services, you can deploy your model independently, which decouples
-   it from your application code. For more information, see [Deploy models for inference](deploy-model.md "deploy-model.md").
-   Machine learning is a continuous cycle. After deploying a model, you monitor the
-   inferences, collect more high-quality data, and evaluate the model to identify drift. You
-   then increase the accuracy of your inferences by updating your training data to include the
-   newly collected high-quality data. As more example data becomes available, you continue
-   retraining your model to increase accuracy.
+re-engineer a model before you integrate it with your application and deploy it.
+With SageMaker AI hosting services, you can deploy your model independently, which decouples
+it from your application code. For more information, see [Deploy models for inference](deploy-model.md "deploy-model.md").
+Machine learning is a continuous cycle. After deploying a model, you monitor the
+inferences, collect more high-quality data, and evaluate the model to identify drift. You
+then increase the accuracy of your inferences by updating your training data to include the
+newly collected high-quality data. As more example data becomes available, you continue
+retraining your model to increase accuracy.

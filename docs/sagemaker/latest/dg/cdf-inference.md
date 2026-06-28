@@ -276,7 +276,7 @@ representations, separated by newline characters:
 ### CSV request format
 
 **Content type:** text/CSV;
-label_size=0
+label\_size=0
 
 ###### Note
 

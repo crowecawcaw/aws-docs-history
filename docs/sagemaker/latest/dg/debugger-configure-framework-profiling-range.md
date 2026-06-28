@@ -11,6 +11,18 @@ With the following example configuration, Debugger monitors the entire
 training job every 500 milliseconds (the default monitoring) and profiles a
 target step range from step 5 to step 15 (for 10 steps).
 
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.debugger import ProfilerConfig, FrameworkProfile
+
+profiler_config=ProfilerConfig(
+    framework_profile_params=FrameworkProfile(start_step=`5`, num_steps=`10`)
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 from sagemaker.debugger import ProfilerConfig, FrameworkProfile
 
@@ -22,6 +34,19 @@ profiler_config=ProfilerConfig(
 With the following example configuration, Debugger monitors the entire
 training job every 1000 milliseconds and profiles a target step range from
 step 5 to step 15 (for 10 steps).
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.core.debugger import ProfilerConfig, FrameworkProfile
+
+profiler_config=ProfilerConfig(
+    system_monitor_interval_millis=`1000`,
+    framework_profile_params=FrameworkProfile(start_step=`5`, num_steps=`10`)
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.debugger import ProfilerConfig, FrameworkProfile
@@ -38,6 +63,19 @@ With the following example configuration, Debugger monitors the entire
 training job every 500 milliseconds (the default monitoring) and profiles a
 target time range from the current Unix time for 600 seconds.
 
+SageMaker Python SDK v3
+
+```
+import time
+from sagemaker.core.debugger import ProfilerConfig, FrameworkProfile
+
+profiler_config=ProfilerConfig(
+    framework_profile_params=FrameworkProfile(start_unix_time=int(`time.time()`), duration=`600`)
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 import time
 from sagemaker.debugger import ProfilerConfig, FrameworkProfile
@@ -50,6 +88,20 @@ profiler_config=ProfilerConfig(
 With the following example configuration, Debugger monitors the entire
 training job every 1000 milliseconds and profiles a target time range from
 the current Unix time for 600 seconds.
+
+SageMaker Python SDK v3
+
+```
+import time
+from sagemaker.core.debugger import ProfilerConfig, FrameworkProfile
+
+profiler_config=ProfilerConfig(
+    system_monitor_interval_millis=`1000`,
+    framework_profile_params=FrameworkProfile(start_unix_time=int(`time.time()`), duration=`600`)
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import time

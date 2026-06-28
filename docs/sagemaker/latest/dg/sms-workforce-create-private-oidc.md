@@ -240,42 +240,42 @@ curl --request POST \
   --data 'redirect_uri=https://example.labeling.sagemaker.aws/oauth2/idpresponse'
 ```
 
-6.  This step depends on the type of `access_token` your IdP returns, a
-    plain text access token or a JWT access token.
+6. This step depends on the type of `access_token` your IdP returns, a
+   plain text access token or a JWT access token.
 
-    - If your IdP does not support JWT access tokens,
-      `access_token` may be plain text (for example, a UUID).
-      The response you see may look similar to the following. In this case,
-      move to step 7.
+   - If your IdP does not support JWT access tokens,
+     `access_token` may be plain text (for example, a UUID).
+     The response you see may look similar to the following. In this case,
+     move to step 7.
 
-    ```
-    {
-      "access_token":"179c144b-fccb-4d96-a28f-eea060f39c13",
-      "token_type":"Bearer",
-      "expires_in":3600,
-      "refresh_token":"ef43e52e-9b4f-410c-8d4c-d5c5ee57631a",
-      "scope":"openid"
-    }
-    ```
-    - If your IdP supports JWT access tokens, step 5 should generate an
-      access token in JWT format. For example, the response may look similar
-      to the following:
+   ```
+   {
+     "access_token":"179c144b-fccb-4d96-a28f-eea060f39c13",
+     "token_type":"Bearer",
+     "expires_in":3600,
+     "refresh_token":"ef43e52e-9b4f-410c-8d4c-d5c5ee57631a",
+     "scope":"openid"
+   }
+   ```
+   - If your IdP supports JWT access tokens, step 5 should generate an
+     access token in JWT format. For example, the response may look similar
+     to the following:
 
-    ```
-    {
-        "access_token":"eyJh...JV_adQssw5c",
-        "refresh_token":"i6mapTIAVSp2oJkgUnCACKKfZxt_H5MBLiqcybBBd04",
-        "refresh_token_expires_in":6327,
-        "scope":"openid",
-        "id_token":"eyJ0eXAiOiJK9...-rDaQzUHl6cQQWNiDpWOl_lxXjQEvQ"
-    }
-    ```
+   ```
+   {
+       "access_token":"eyJh...JV_adQssw5c",
+       "refresh_token":"i6mapTIAVSp2oJkgUnCACKKfZxt_H5MBLiqcybBBd04",
+       "refresh_token_expires_in":6327,
+       "scope":"openid",
+       "id_token":"eyJ0eXAiOiJK9...-rDaQzUHl6cQQWNiDpWOl_lxXjQEvQ"
+   }
+   ```
 
-    Copy the JWT and decode it. You can use python script or a third party
-    website to decode it. For example, you can go to the website [https://jwt.io/](https://jwt.io/ "https://jwt.io/") and paste the JWT into the
-    **Encoded** box to decode it.
+   Copy the JWT and decode it. You can use python script or a third party
+   website to decode it. For example, you can go to the website [https://jwt.io/](https://jwt.io/ "https://jwt.io/") and paste the JWT into the
+   **Encoded** box to decode it.
 
-    Make sure the decoded response contains the following:
+   Make sure the decoded response contains the following:
 
         + The **Required** SageMaker AI claims in the table
          found in [Send Required and Optional Claims to Ground Truth and Amazon A2I](#sms-workforce-create-private-oidc-configure-idp "#sms-workforce-create-private-oidc-configure-idp"). If it does not, you must reconfigure your OIDC IdP to
@@ -283,8 +283,8 @@ curl --request POST \
         + The [Issuer](../APIReference/API_OidcConfig.md#sagemaker-Type-OidcConfig-Issuer "../APIReference/API_OidcConfig.md#sagemaker-Type-OidcConfig-Issuer") you specified when you set up the
          IdP workforce.
 
-7.  In a terminal and enter the following command after making required
-    modifications listed below:
+7. In a terminal and enter the following command after making required
+   modifications listed below:
 
 ```
 curl -X POST -H 'Authorization: Bearer `{ACCESS TOKEN}`' -d '' -k -v `{USERINFO ENDPOINT}`

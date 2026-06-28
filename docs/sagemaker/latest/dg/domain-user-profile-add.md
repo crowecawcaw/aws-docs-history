@@ -38,42 +38,40 @@ role** dialog box opens:
      `AmazonSageMaker-ExecutionPolicy`, with the [AmazonSageMakerFullAccess](https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess "https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess") policy attached.
 
 9. (Optional) Add tags to the user profile. All resources that the user profile creates
-   will have a domain ARN tag and a user profile ARN tag. The domain ARN tag is
-   based on domain ID, while the user profile ARN tag is based on the user profile
-   name.
-10. Choose **Next**.
-11. In the **SageMaker Studio** section, you have the option to choose
-    between the newer and classic version of Studio as your default experience.
+will have a domain ARN tag and a user profile ARN tag. The domain ARN tag is
+based on domain ID, while the user profile ARN tag is based on the user profile
+name. 10. Choose **Next**. 11. In the **SageMaker Studio** section, you have the option to choose
+between the newer and classic version of Studio as your default experience.
 
-    - If you choose **SageMaker Studio** (recommended) as your
-      default experience, the Studio Classic IDE has default settings. For information on the
-      default settings, see [Default settings](onboard-quick-start.md#onboard-quick-start-defaults "onboard-quick-start.md#onboard-quick-start-defaults").
+    * If you choose **SageMaker Studio** (recommended) as your
+     default experience, the Studio Classic IDE has default settings. For information on the
+     default settings, see [Default settings](onboard-quick-start.md#onboard-quick-start-defaults "onboard-quick-start.md#onboard-quick-start-defaults").
+
 
     For information on Studio, see [Amazon SageMaker Studio](studio-updated.md "studio-updated.md").
-    - If you choose **Studio Classic** as your default experience, you
-      can choose to enable or disable notebook resource sharing. Notebook resources
-      include artifacts such as cell output and Git repositories. For more information on
-      Notebook resources, see [Share and Use an Amazon SageMaker Studio Classic Notebook](notebooks-sharing.md "notebooks-sharing.md").
+    * If you choose **Studio Classic** as your default experience, you
+     can choose to enable or disable notebook resource sharing. Notebook resources
+     include artifacts such as cell output and Git repositories. For more information on
+     Notebook resources, see [Share and Use an Amazon SageMaker Studio Classic Notebook](notebooks-sharing.md "notebooks-sharing.md").
 
 12. Under **SageMaker Canvas** , you can configure your SageMaker Canvas settings. For the
-    instructions and configuration details for onboarding, see [Getting started with using Amazon SageMaker Canvas](canvas-getting-started.md "canvas-getting-started.md").
+instructions and configuration details for onboarding, see [Getting started with using Amazon SageMaker Canvas](canvas-getting-started.md "canvas-getting-started.md").
 
     1. For the **Canvas base permissions configuration**, select
-       whether to establish the minimum required permissions to use the SageMaker Canvas
-       application.
+     whether to establish the minimum required permissions to use the SageMaker Canvas
+     application.
 
 13. Under **RStudio**, if RStudio license, select whether you want to
-    create the user with one of the following authorizations:
+create the user with one of the following authorizations:
 
-    - Unauthorized
-    - RStudio Admin
-    - RStudio User
+    * Unauthorized
+    * RStudio Admin
+    * RStudio User
 
-14. Choose **Next**.
-15. In the **Customize Studio UI** page you can customize the
-    viewable applications and machine learning (ML) tools displayed in Studio. This
-    customization only hides the applications and ML tools in the left navigation pane in
-    Studio. For information on the Studio UI, see [Amazon SageMaker Studio UI overview](studio-updated-ui.md "studio-updated-ui.md").
+14. Choose **Next**. 15. In the **Customize Studio UI** page you can customize the
+viewable applications and machine learning (ML) tools displayed in Studio. This
+customization only hides the applications and ML tools in the left navigation pane in
+Studio. For information on the Studio UI, see [Amazon SageMaker Studio UI overview](studio-updated-ui.md "studio-updated-ui.md").
 
 For information about the applications, see [Applications supported in Amazon SageMaker Studio](studio-updated-apps.md "studio-updated-apps.md").
 

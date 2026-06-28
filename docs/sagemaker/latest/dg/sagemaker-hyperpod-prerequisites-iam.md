@@ -37,17 +37,16 @@ users_ and _data scientist users_.
   training. They use the open-source orchestrator or the SageMaker HyperPod CLI to submit
   and manage training jobs.
 
-      + Assume and use the IAM Role provided by cluster admin users.
-      + Interact with the open-source orchestrator CLIs supported by SageMaker HyperPod
-       (Slurm or Kubernetes) or the SageMaker HyperPod CLI to check clusters capacity,
-       connect to cluster, and submit workloads.
-
-  Set up IAM roles for cluster admins by attaching the right permissions or policies to
-  operate SageMaker HyperPod clusters. Cluster admins also should create IAM roles to provide to
-  SageMaker HyperPod resources to assume to run and communicate with necessary AWS resources, such
-  as Amazon S3, Amazon CloudWatch, and AWS Systems Manager (SSM). Finally, the AWS account admin or the cluster
-  admins should grant scientists permissions to access the SageMaker HyperPod clusters and run ML
-  workloads.
+  - Assume and use the IAM Role provided by cluster admin users.
+  - Interact with the open-source orchestrator CLIs supported by SageMaker HyperPod
+    (Slurm or Kubernetes) or the SageMaker HyperPod CLI to check clusters capacity,
+    connect to cluster, and submit workloads.
+    Set up IAM roles for cluster admins by attaching the right permissions or policies to
+    operate SageMaker HyperPod clusters. Cluster admins also should create IAM roles to provide to
+    SageMaker HyperPod resources to assume to run and communicate with necessary AWS resources, such
+    as Amazon S3, Amazon CloudWatch, and AWS Systems Manager (SSM). Finally, the AWS account admin or the cluster
+    admins should grant scientists permissions to access the SageMaker HyperPod clusters and run ML
+    workloads.
 
 Depending on which orchestrator you choose, permissions needed for the cluster admin and
 scientists may vary. You can also control the scope of permissions for various actions in

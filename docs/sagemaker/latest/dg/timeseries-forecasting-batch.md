@@ -139,10 +139,10 @@ The following example uses **AWS SDK for Python
 (boto3)** to make predictions in batches.
 
 ```
-import sagemaker
+from sagemaker.core.helper.session_helper import Session
 import boto3
 
-session = sagemaker.session.Session()
+session = Session()
 
 sm_client = boto3.client('sagemaker', region_name='`us-west-2`')
 role = '`arn:aws:iam::1234567890:role/sagemaker-execution-role`'

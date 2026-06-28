@@ -139,7 +139,7 @@ at the user profile level for individual users.
 
 The following values are available:
 
-USER_IDENTITY
+USER\_IDENTITY
 
 The session name of the execution role corresponds to the user's identity. For
 IAM domains, the session name is the IAM session name used to generate the

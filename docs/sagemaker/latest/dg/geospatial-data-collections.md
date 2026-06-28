@@ -31,7 +31,7 @@ import json
 
 ## SageMaker Geospatial Capabilities is currently only avaialable in US-WEST-2
 session = boto3.Session(region_name='us-west-2')
-execution_role = sagemaker.get_execution_role()
+execution_role = get_execution_role()
 
 ## Creates a SageMaker Geospatial client instance
 geospatial_client = session.client(service_name="sagemaker-geospatial")
@@ -70,26 +70,26 @@ Image band information from the USGS Landsat 8 and Sentinel-2 data collections a
 
 USGS Landsat
 
-| Band name  | Wave length range (nm) | Units                  | Valid range  | Fill value      | Spatial resolution     |
-| ---------- | ---------------------- | ---------------------- | ------------ | --------------- | ---------------------- |
-| coastal    | 435<br>• 451           | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
-| blue       | 452<br>• 512           | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
-| green      | 533<br>• 590           | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
-| red        | 636<br>• 673           | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
-| nir        | 851<br>• 879           | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
-| swir16     | 1566<br>• 1651         | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
-| swir22     | 2107<br>• 2294         | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
-| qa_aerosol | NA                     | Bit Index              | 0<br>• 255   | 1               | 30m                    |
-| qa_pixel   | NA                     | Bit Index              | 1<br>• 65455 | 1 (bit 0)       | 30m                    |
-| qa_radsat  | NA                     | Bit Index              | 1<br>• 65455 | NA              | 30m                    |
-| t          | 10600<br>• 11190       | Scaled Kelvin          | 1<br>• 65455 | 0 (No Data)     | 30m (scaled from 100m) |
-| atran      | NA                     | Unitless               | 0<br>• 10000 | -9999 (No Data) | 30m                    |
-| cdist      | NA                     | Kilometers             | 0<br>• 24000 | -9999 (No Data) | 30m                    |
-| drad       | NA                     | W/(m^2 sr µm)/DN       | 0<br>• 28000 | -9999 (No Data) | 30m                    |
-| urad       | NA                     | W/(m^2 sr µm)/DN       | 0<br>• 28000 | -9999 (No Data) | 30m                    |
-| trad       | NA                     | W/(m^2 sr µm)/DN       | 0<br>• 28000 | -9999 (No Data) | 30m                    |
-| emis       | NA                     | Emissivity coefficient | 1<br>• 10000 | -9999 (No Data) | 30m                    |
-| emsd       | NA                     | Emissivity coefficient | 1<br>• 10000 | -9999 (No Data) | 30m                    |
+| Band name   | Wave length range (nm) | Units                  | Valid range  | Fill value      | Spatial resolution     |
+| ----------- | ---------------------- | ---------------------- | ------------ | --------------- | ---------------------- |
+| coastal     | 435<br>• 451           | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
+| blue        | 452<br>• 512           | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
+| green       | 533<br>• 590           | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
+| red         | 636<br>• 673           | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
+| nir         | 851<br>• 879           | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
+| swir16      | 1566<br>• 1651         | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
+| swir22      | 2107<br>• 2294         | Unitless               | 1<br>• 65455 | 0 (No Data)     | 30m                    |
+| qa\_aerosol | NA                     | Bit Index              | 0<br>• 255   | 1               | 30m                    |
+| qa\_pixel   | NA                     | Bit Index              | 1<br>• 65455 | 1 (bit 0)       | 30m                    |
+| qa\_radsat  | NA                     | Bit Index              | 1<br>• 65455 | NA              | 30m                    |
+| t           | 10600<br>• 11190       | Scaled Kelvin          | 1<br>• 65455 | 0 (No Data)     | 30m (scaled from 100m) |
+| atran       | NA                     | Unitless               | 0<br>• 10000 | -9999 (No Data) | 30m                    |
+| cdist       | NA                     | Kilometers             | 0<br>• 24000 | -9999 (No Data) | 30m                    |
+| drad        | NA                     | W/(m^2 sr µm)/DN       | 0<br>• 28000 | -9999 (No Data) | 30m                    |
+| urad        | NA                     | W/(m^2 sr µm)/DN       | 0<br>• 28000 | -9999 (No Data) | 30m                    |
+| trad        | NA                     | W/(m^2 sr µm)/DN       | 0<br>• 28000 | -9999 (No Data) | 30m                    |
+| emis        | NA                     | Emissivity coefficient | 1<br>• 10000 | -9999 (No Data) | 30m                    |
+| emsd        | NA                     | Emissivity coefficient | 1<br>• 10000 | -9999 (No Data) | 30m                    |
 
 Sentinel-2
 

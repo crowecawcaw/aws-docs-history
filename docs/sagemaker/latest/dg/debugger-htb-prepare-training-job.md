@@ -1,7 +1,7 @@
 # Prepare a training job to collect TensorBoard output data
 
 A typical training job for machine learning in SageMaker AI consists of two main steps:
-preparing a training script and configuring a SageMaker AI estimator object of the SageMaker AI Python
+preparing a training script and configuring a SageMaker AI ModelTrainer (formerly estimator in PySDK v2) object of the SageMaker AI Python
 SDK. In this section, you'll learn about the required changes to collect
 TensorBoard-compatible data from SageMaker training jobs.
 
@@ -17,6 +17,11 @@ profiles for individual users to access the TensorBoard on SageMaker AI. For mor
 information, see
 [Add user profiles](domain-user-profile-add.md "domain-user-profile-add.md").
 
+- Amazon EFS must be enabled on your domain. TensorBoard requires an Amazon EFS
+  file system to function. For domains created through quick setup after
+  June 1, 2026, EFS is not created by default during domain creation. To
+  enable EFS after domain creation, see [Amazon EFS creation
+  and auto-mounting in Amazon SageMaker Studio](studio-updated-automount.md "studio-updated-automount.md").
 - Amazon EFS must be enabled on your domain. TensorBoard requires an Amazon EFS
   file system to function. For domains created through quick setup after
   June 1, 2026, EFS is not created by default during domain creation. To
@@ -69,15 +74,25 @@ callback in transformers.
 ###### Tip
 
 You can also use a different container local output path. However, in
-[Step 2: Create a SageMaker training estimator object with the TensorBoard output configuration](#debugger-htb-prepare-training-job-2 "#debugger-htb-prepare-training-job-2"), you must map
+[Step 2: Create a SageMaker training ModelTrainer object with the TensorBoard output configuration](#debugger-htb-prepare-training-job-2 "#debugger-htb-prepare-training-job-2"), you must map
 the paths correctly for SageMaker AI to successfully search the local path and
 save the TensorBoard data to the S3 output bucket.
 
 - For guidance on modifying training scripts using the SageMaker Debugger Python
   library, see [Adapting your training script to register a hook](debugger-modify-script.md "debugger-modify-script.md").
 
-## Step 2: Create a SageMaker training estimator object with the TensorBoard output configuration
+## Step 2: Create a SageMaker training ModelTrainer object with the TensorBoard output configuration
 
+SageMaker Python SDK v3
+Use the `sagemaker.debugger.TensorBoardOutputConfig` while configuring
+a SageMaker AI ModelTrainer. This configuration API maps the S3 bucket you specify
+for saving TensorBoard data with the local path in the training container
+(`/opt/ml/output/tensorboard`). Pass the object of the module to the
+`tensorboard_output_config` parameter of the ModelTrainer class. The
+following code snippet shows an example of preparing a TensorFlow ModelTrainer with the
+TensorBoard output configuration parameter.
+
+SageMaker Python SDK v2 (Legacy)
 Use the `sagemaker.debugger.TensorBoardOutputConfig` while configuring
 a SageMaker AI framework estimator. This configuration API maps the S3 bucket you specify
 for saving TensorBoard data with the local path in the training container
@@ -98,6 +113,43 @@ of the [CreateTrainingJob](../APIReference/API_CreateTrainingJob.md "../APIRefer
   "S3OutputPath": "`s3_output_bucket`"
 }
 ```
+
+SageMaker Python SDK v3
+
+```
+import os
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import SourceCode
+from sagemaker.core.debugger import TensorBoardOutputConfig
+from sagemaker.train.configs import Compute
+
+# Set variables for training job information,
+# such as s3_out_bucket and other unique tags.
+...
+
+LOG_DIR="/opt/ml/output/tensorboard"
+
+output_path = os.path.join(
+    "`s3_output_bucket`", "`sagemaker-output`", "`date_str`", "`your-training_job_name`"
+)
+
+**tensorboard\_output\_config = TensorBoardOutputConfig(
+ s3\_output\_path=os.path.join(output\_path, '`tensorboard`'),
+ container\_local\_output\_path=LOG\_DIR
+)**
+
+model_trainer = ModelTrainer(
+    source_code=SourceCode(entry_script="`train.py`", source_dir="`src`"),
+    role=`role`,
+    training_image=`image_uri`,
+    compute=Compute(instance_count=`1`, instance_type="`ml.c5.xlarge`"),
+    base_job_name="`your-training_job_name`",
+    **tensorboard\_output\_config=`tensorboard_output_config`,**
+    hyperparameters=`hyperparameters`
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 from sagemaker.tensorflow import TensorFlow

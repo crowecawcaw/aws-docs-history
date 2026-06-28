@@ -203,7 +203,8 @@ specified, the training job fails.
 There are a few considerations to be aware of when training SageMaker AI XGBoost with
 Dask. Be sure to split your data into smaller files. Dask reads each Parquet
 file as a partition. There is a Dask worker for every GPU. As a result, the
-number of files should be greater than the total number of GPUs (instance count \* number of GPUs per instance). Having a very large number of files can also
+number of files should be greater than the total number of GPUs (instance count
+\* number of GPUs per instance). Having a very large number of files can also
 degrade performance. For more information, see [Dask Best
 Practices](https://docs.dask.org/en/stable/best-practices.html "https://docs.dask.org/en/stable/best-practices.html").
 

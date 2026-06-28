@@ -12,7 +12,7 @@ recommendations and sample notebooks for LightGBM.
 
 SageMaker AI LightGBM currently supports single-instance and multi-instance CPU training. For
 multi-instance CPU training (distributed training), specify an
-`instance_count` greater than 1 when you define your Estimator. For more
+`instance_count` greater than 1 when you define your ModelTrainer. For more
 information on distributed training with LightGBM, see [Amazon SageMaker AI LightGBM Distributed training using Dask](https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_applying_machine_learning/sagemaker_lightgbm_distributed_training_dask/sagemaker-lightgbm-distributed-training-dask.html "https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_applying_machine_learning/sagemaker_lightgbm_distributed_training_dask/sagemaker-lightgbm-distributed-training-dask.html").
 
 LightGBM is a memory-bound (as opposed to compute-bound) algorithm. So, a

@@ -37,13 +37,24 @@ to build the model. Finally, you use the `deploy()` method to deploy it
 to an inference endpoint.
 
 For more information about the classes and methods used in the following examples,
-see [APIs](https://sagemaker.readthedocs.io/en/stable/api/index.html "https://sagemaker.readthedocs.io/en/stable/api/index.html") in the SageMaker AI Python SDK documentation.
+see [APIs](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") in the SageMaker AI Python SDK documentation.
 
 ###### To set up your project
 
 1. In your application code, import the necessary libraries. The following
    example imports the SDK for Python (Boto3). It also imports the modules from the SageMaker AI
    Python SDK that you use to define and work with models:
+
+SageMaker Python SDK v3
+
+```
+import boto3
+from sagemaker.serve.model_builder import ModelBuilder
+from sagemaker.serve.builder.schema_builder import SchemaBuilder
+from sagemaker.core.helper.session_helper import Session
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 import boto3
@@ -163,20 +174,39 @@ optimized_model = model_builder.build()
 
 The `.build()` method returns a deployable `Model`
 instance. 3. Deploy your model to an inference endpoint. The following example uses the
-`.deploy()` method of the `Model` instance:
+`.deploy()` method of the `ModelBuilder` instance:
+
+SageMaker Python SDK v3
+
+```
+endpoint = model_builder.deploy(accept_eula=True)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 predictor = optimized_model.deploy(accept_eula=True)
 ```
 
-The `deploy()` method returns a `Predictor`
-instance, which you can use to send inference requests to the model.
+The `deploy()` method returns an `Endpoint`
+object, which you can use to send inference requests to the model.
 
 ###### To test your model with an inference request
 
 - After you deploy your model to an inference endpoint, test the model's
   predictions. The following example sends an inference request by using the
-  `Predictor` instance:
+  `Endpoint` object:
+
+SageMaker Python SDK v3
+
+```
+import json
+
+response = endpoint.invoke(body=json.dumps(sample_input), content_type="application/json")
+result = json.loads(response.body.read().decode('utf-8'))
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 predictor.predict(sample_input)

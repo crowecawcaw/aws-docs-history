@@ -57,18 +57,13 @@ is requested, such as when
   ![Equation in text-form: S_n,n=2,...,N](images/rcf5.jpg)
   :
 
-      + Pick a uniform random number
-      ![Equation in text-form: \xi \in [0,1]](images/rcf6.jpg)
-      + If
-      ![Equation in text-form: \xi \less 1/n](images/rcf7.jpg)
+  - Pick a uniform random number
+    ![Equation in text-form: \xi \in [0,1]](images/rcf6.jpg)
+  - If
+    ![Equation in text-form: \xi \less 1/n](images/rcf7.jpg)
 
-
-
-
-
-
-      	- Set
-      	![Equation in text-form: X=S_n](images/rcf8.jpg)
+    - Set
+      ![Equation in text-form: X=S_n](images/rcf8.jpg)
 
 - Return
   ![Equation in text-form: X](images/rcf9.jpg)

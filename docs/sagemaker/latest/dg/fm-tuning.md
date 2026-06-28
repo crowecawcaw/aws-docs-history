@@ -48,22 +48,22 @@ method is `normal`, then only `sigma` parameters are tunable.
 If the initialization method is `constant`, then only `value`
 parameters are tunable. These dependencies are listed in the following table.
 
-| Parameter Name       | Parameter Type           | Recommended Ranges             | Dependency                 |
-| -------------------- | ------------------------ | ------------------------------ | -------------------------- |
-| `bias_init_scale`    | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | bias_init_method==uniform  |
-| `bias_init_sigma`    | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | bias_init_method==normal   |
-| `bias_init_value`    | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | bias_init_method==constant |
-| `bias_lr`            | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | None                       |
-| `bias_wd`            | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | None                       |
-| `epoch`              | IntegerParameterRange    | MinValue: 1, MaxValue: 1000    | None                       |
-| `factors_init_scale` | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | bias_init_method==uniform  |
-| `factors_init_sigma` | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | bias_init_method==normal   |
-| `factors_init_value` | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | bias_init_method==constant |
-| `factors_lr`         | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | None                       |
-| `factors_wd`         | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512] | None                       |
-| `linear_init_scale`  | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | bias_init_method==uniform  |
-| `linear_init_sigma`  | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | bias_init_method==normal   |
-| `linear_init_value`  | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | bias_init_method==constant |
-| `linear_lr`          | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | None                       |
-| `linear_wd`          | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | None                       |
-| `mini_batch_size`    | IntegerParameterRange    | MinValue: 100, MaxValue: 10000 | None                       |
+| Parameter Name       | Parameter Type           | Recommended Ranges             | Dependency                   |
+| -------------------- | ------------------------ | ------------------------------ | ---------------------------- |
+| `bias_init_scale`    | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | bias\_init\_method==uniform  |
+| `bias_init_sigma`    | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | bias\_init\_method==normal   |
+| `bias_init_value`    | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | bias\_init\_method==constant |
+| `bias_lr`            | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | None                         |
+| `bias_wd`            | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | None                         |
+| `epoch`              | IntegerParameterRange    | MinValue: 1, MaxValue: 1000    | None                         |
+| `factors_init_scale` | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | bias\_init\_method==uniform  |
+| `factors_init_sigma` | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | bias\_init\_method==normal   |
+| `factors_init_value` | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | bias\_init\_method==constant |
+| `factors_lr`         | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | None                         |
+| `factors_wd`         | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512] | None                         |
+| `linear_init_scale`  | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | bias\_init\_method==uniform  |
+| `linear_init_sigma`  | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | bias\_init\_method==normal   |
+| `linear_init_value`  | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | bias\_init\_method==constant |
+| `linear_lr`          | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | None                         |
+| `linear_wd`          | ContinuousParameterRange | MinValue: 1e-8, MaxValue: 512  | None                         |
+| `mini_batch_size`    | IntegerParameterRange    | MinValue: 100, MaxValue: 10000 | None                         |

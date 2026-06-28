@@ -56,10 +56,10 @@ The `RLEstimator` requires the following information as parameters.
      also be visualized in CloudWatch and in SageMaker AI notebooks.
 
 6. **Visualize training metrics and output**—After a training job that uses an
-   RL model completes, you can view the metrics you defined in the training jobs in
-   CloudWatch,. You can also plot the metrics in a notebook by using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable")
-   analytics library. Visualizing metrics helps you understand how the performance
-   of the model as measured by the reward improves over time.
+RL model completes, you can view the metrics you defined in the training jobs in
+CloudWatch,. You can also plot the metrics in a notebook by using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable")
+analytics library. Visualizing metrics helps you understand how the performance
+of the model as measured by the reward improves over time.
 
 ###### Note
 
@@ -69,4 +69,4 @@ in the checkpoint channel. In local mode, use the local directory. In SageMaker 
 training mode, you need to upload the data to S3 first. 8. **Deploy RL models**—Finally, deploy the
 trained model on an endpoint hosted on SageMaker AI containers or on an edge device by
 using AWS IoT Greengrass.
-For more information on RL with SageMaker AI, see [Using RL with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/using_rl.html "https://sagemaker.readthedocs.io/en/stable/using_rl.html").
+For more information on RL with SageMaker AI, see [Using RL with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html").

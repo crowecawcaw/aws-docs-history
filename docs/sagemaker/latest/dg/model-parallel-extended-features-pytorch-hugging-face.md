@@ -12,7 +12,7 @@ support for the following Hugging Face Transformer models:
 
 ###### Note
 
-For any other Transformers models, you need to use the [smdistributed.modelparallel.torch.tp_register_with_module()](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch_tensor_parallel.html#smdistributed.modelparallel.torch.tp_register_with_module "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch_tensor_parallel.html#smdistributed.modelparallel.torch.tp_register_with_module") API to
+For any other Transformers models, you need to use the [smdistributed.modelparallel.torch.tp\_register\_with\_module()](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch_tensor_parallel.html#smdistributed.modelparallel.torch.tp_register_with_module "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch_tensor_parallel.html#smdistributed.modelparallel.torch.tp_register_with_module") API to
 apply tensor parallelism.
 
 ###### Note
@@ -26,7 +26,7 @@ model parallelism library v1.7.0 and later. For more information, see the [SageM
 For the Hugging Face transformer models supported by the library out of the
 box, you don't need to manually implement hooks to translate Transformer APIs to
 `smdistributed` transformer layers. You can activate tensor
-parallelism by using the context manager [smdistributed.modelparallel.torch.tensor_parallelism()](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch_tensor_parallel.html#smdistributed.modelparallel.torch.tensor_parallelism "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch_tensor_parallel.html#smdistributed.modelparallel.torch.tensor_parallelism") and wrapping
+parallelism by using the context manager [smdistributed.modelparallel.torch.tensor\_parallelism()](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch_tensor_parallel.html#smdistributed.modelparallel.torch.tensor_parallelism "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch_tensor_parallel.html#smdistributed.modelparallel.torch.tensor_parallelism") and wrapping
 the model by [smdistributed.modelparallel.torch.DistributedModel()](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#smdistributed.modelparallel.torch.DistributedModel "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#smdistributed.modelparallel.torch.DistributedModel"). You don't
 need to manually register hooks for tensor parallelism using the
 `smp.tp_register` API.
@@ -36,22 +36,22 @@ Transformers and `smdistributed.modelparallel` can be accessed as
 follows.
 
 - `smdistributed.modelparallel.torch.nn.huggingface.gpt2.translate_state_dict_to_hf_gpt2(state_dict,
-max_seq_len=None)`
+ max_seq_len=None)`
 - `smdistributed.modelparallel.torch.nn.huggingface.gpt2.translate_hf_state_dict_to_smdistributed_gpt2(state_dict)`
 - `smdistributed.modelparallel.torch.nn.huggingface.bert.translate_state_dict_to_hf_bert(state_dict,
-max_seq_len=None)`
+ max_seq_len=None)`
 - `smdistributed.modelparallel.torch.nn.huggingface.bert.translate_hf_state_dict_to_smdistributed_bert(state_dict)`
 - `smdistributed.modelparallel.torch.nn.huggingface.roberta.translate_state_dict_to_hf_roberta(state_dict,
-max_seq_len=None)`
+ max_seq_len=None)`
 - `smdistributed.modelparallel.torch.nn.huggingface.roberta.translate_hf_state_dict_to_smdistributed_roberta(state_dict)`
 - `smdistributed.modelparallel.torch.nn.huggingface.gptj.translate_state_dict_to_hf_gptj(state_dict,
-max_seq_len=None)` (Available in the SageMaker model parallelism
+ max_seq_len=None)` (Available in the SageMaker model parallelism
   library v1.8.0 and later)
 - `smdistributed.modelparallel.torch.nn.huggingface.gptj.translate_hf_gptj_state_dict_to_smdistributed_gptj`
   (Available in the SageMaker model parallelism library v1.8.0 and
   later)
 - `smdistributed.modelparallel.torch.nn.huggingface.gptneo.translate_state_dict_to_hf_gptneo(state_dict,
-max_seq_len=None)` (Available in the SageMaker model parallelism
+ max_seq_len=None)` (Available in the SageMaker model parallelism
   library v1.10.0 and later)
 - `smdistributed.modelparallel.torch.nn.huggingface.gptneo.translate_hf_state_dict_to_smdistributed_gptneo(state_dict)`
   (Available in the SageMaker model parallelism library v1.10.0 and

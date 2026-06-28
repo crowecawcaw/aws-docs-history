@@ -24,7 +24,7 @@ page.
 
 ## Use SageMaker Debugger built-in profiler rules with their default parameter settings
 
-To add SageMaker Debugger built-in rules in your estimator, you need to configure a
+To add SageMaker Debugger built-in rules in your ModelTrainer, you need to configure a
 `rules` list object. The following example code shows the basic structure
 of listing the SageMaker Debugger built-in rules.
 
@@ -39,7 +39,7 @@ rules=[
     ... # You can also append more debugging rules in the Rule.sagemaker(rule_configs.*()) format.
 ]
 
-estimator=Estimator(
+model_trainer=ModelTrainer(
     ...
     rules=rules
 )
@@ -52,7 +52,7 @@ your training job, add the [`ProfilerReport`](debugger-built-in-profiler-rules.m
 all built-in rules under the [Debugger ProfilerRule](debugger-built-in-profiler-rules.md#debugger-built-in-profiler-rules-ProfilerRule "debugger-built-in-profiler-rules.md#debugger-built-in-profiler-rules-ProfilerRule")
 `ProfilerRule` family. Furthermore, this rule generates an aggregated
 profiling report. For more information, see [Profiling Report Generated Using SageMaker Debugger](debugger-profiling-report.md "debugger-profiling-report.md"). You can use the following
-code to add the profiling report rule to your training estimator.
+code to add the profiling report rule to your training ModelTrainer.
 
 ```
 from sagemaker.debugger import Rule, rule_configs

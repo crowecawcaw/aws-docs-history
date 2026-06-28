@@ -106,7 +106,7 @@ The following restrictions apply to all warm start tuning jobs:
 
 ## Warm Start Tuning Sample Notebook
 
-For a sample notebook that shows how to use warm start tuning, see [https://github.com/awslabs/amazon-sagemaker-examples/blob/master/hyperparameter_tuning/image_classification_warmstart/hpo_image_classification_warmstart.ipynb](https://github.com/awslabs/amazon-sagemaker-examples/blob/master/hyperparameter_tuning/image_classification_warmstart/hpo_image_classification_warmstart.ipynb "https://github.com/awslabs/amazon-sagemaker-examples/blob/master/hyperparameter_tuning/image_classification_warmstart/hpo_image_classification_warmstart.ipynb").
+For a sample notebook that shows how to use warm start tuning, see [https://github.com/awslabs/amazon-sagemaker-examples/blob/master/hyperparameter\_tuning/image\_classification\_warmstart/hpo\_image\_classification\_warmstart.ipynb](https://github.com/awslabs/amazon-sagemaker-examples/blob/master/hyperparameter_tuning/image_classification_warmstart/hpo_image_classification_warmstart.ipynb "https://github.com/awslabs/amazon-sagemaker-examples/blob/master/hyperparameter_tuning/image_classification_warmstart/hpo_image_classification_warmstart.ipynb").
 
 ## Create a Warm Start Tuning Job
 
@@ -151,6 +151,17 @@ smclient.create_hyper_parameter_tuning_job(HyperParameterTuningJobName = 'MyWarm
 
 To use the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") to run a warm start tuning job, you:
 
+SageMaker Python SDK v3
+
+- Specify the parent jobs and the warm start type by using a
+  `WarmStartConfig` object.
+- Pass the `WarmStartConfig` object as the value of the
+  `warm_start_config` argument of a [HyperparameterTuner](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") object.
+- Call the `tune` method of the `HyperparameterTuner`
+  object.
+
+SageMaker Python SDK v2 (Legacy)
+
 - Specify the parent jobs and the warm start type by using a
   `WarmStartConfig` object.
 - Pass the `WarmStartConfig` object as the value of the
@@ -173,6 +184,18 @@ hyperparameter_ranges = {'learning_rate': ContinuousParameter(0.0, 0.1),
 The following code configures the warm start tuning job by creating a
 `WarmStartConfig` object.
 
+SageMaker Python SDK v3
+
+```
+from sagemaker.train.tuner import WarmStartTypes
+from sagemaker.core.shapes import HyperParameterTuningJobWarmStartConfig
+
+parent_tuning_job_name = "MyParentTuningJob"
+warm_start_config = HyperParameterTuningJobWarmStartConfig(warm_start_type=WarmStartTypes.IDENTICAL_DATA_AND_ALGORITHM, parents=[parent_tuning_job_name])
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 from sagemaker.tuner import WarmStartConfig,WarmStartTypes
 
@@ -182,8 +205,35 @@ warm_start_config = WarmStartConfig(warm_start_type=WarmStartTypes.IDENTICAL_DAT
 
 Now set the values for static hyperparameters, which are hyperparameters that keep the
 same value for every training job that the warm start tuning job launches. In the
-following code, `imageclassification` is an estimator that was created
+following code, `imageclassification` is a ModelTrainer that was created
 previously.
+
+SageMaker Python SDK v3
+
+```
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute
+
+imageclassification = ModelTrainer(
+    training_image=training_image,
+    role=role,
+    hyperparameters={
+        'num_layers': '18',
+        'image_shape': '3,224,224',
+        'num_classes': '257',
+        'num_training_samples': '15420',
+        'mini_batch_size': '128',
+        'epochs': '30',
+        'optimizer': 'sgd',
+        'top_k': '2',
+        'precision_dtype': 'float32',
+        'augmentation_type': 'crop',
+    },
+    compute=Compute(instance_type='ml.p3.8xlarge', instance_count=1),
+)
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 imageclassification.set_hyperparameters(num_layers=18,
@@ -202,6 +252,21 @@ Now create the `HyperparameterTuner` object and pass the
 `WarmStartConfig` object that you previously created as the
 `warm_start_config` argument.
 
+SageMaker Python SDK v3
+
+```
+tuner_warm_start = HyperparameterTuner(model_trainer=imageclassification,
+                            objective_metric_name='validation:accuracy',
+                            hyperparameter_ranges=hyperparameter_ranges,
+                            objective_type='Maximize',
+                            max_jobs=10,
+                            max_parallel_jobs=2,
+                            base_tuning_job_name='warmstart',
+                            warm_start_config=warm_start_config)
+```
+
+SageMaker Python SDK v2 (Legacy)
+
 ```
 tuner_warm_start = HyperparameterTuner(imageclassification,
                             'validation:accuracy',
@@ -213,8 +278,17 @@ tuner_warm_start = HyperparameterTuner(imageclassification,
                             warm_start_config=warm_start_config)
 ```
 
-Finally, call the `fit` method of the `HyperparameterTuner`
+Finally, call the `tune` or `fit` method of the `HyperparameterTuner`
 object to launch the warm start tuning job.
+
+SageMaker Python SDK v3
+
+```
+tuner_warm_start.tune(
+        {'train': s3_input_train, 'validation': s3_input_validation})
+```
+
+SageMaker Python SDK v2 (Legacy)
 
 ```
 tuner_warm_start.fit(

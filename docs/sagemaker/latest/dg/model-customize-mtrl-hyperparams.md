@@ -2,36 +2,36 @@
 
 The following table lists all configurable hyperparameters for multi-turn RL training jobs. Recipe defaults are included below.
 
-| Category            | Params                  | Default              | Choice                                                                                                          | Explanation                                                                                                 |
-| ------------------- | ----------------------- | -------------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| Batch               | global_batch_size       | 128                  | {32, 64, 128}                                                                                                   | Number of unique prompts per training step.                                                                 |
-| Batch               | group_size              | 8                    | [2, 32]                                                                                                         | Rollouts per prompt used to compute group-based advantages (GRPO / RLOO).                                   |
-| RL                  | advantage_method        | group_based          | monte_carlo, group_based, group_based_per_turn, rloo, reinforce_pp, reinforce_pp_baseline, opo, grpo_passk, gpg | Method for computing advantages for rollouts.                                                               |
-| RL                  | loss_fn                 | ppo                  | importance_sampling, ppo, cispo                                                                                 | RL loss formulation.                                                                                        |
-| RL                  | clip_low_threshold      | 0.8                  | [0, 1]                                                                                                          | Lower bound for clipping the policy probability ratio π_new/π_old in the PPO-style surrogate loss.          |
-| RL                  | clip_high_threshold     | 1.2                  | [1, 10]                                                                                                         | Upper bound for clipping the policy probability ratio in the loss.                                          |
-| sampling_params     | temperature             | 1                    | [0, 2]                                                                                                          | Sampling temperature applied to logits before sampling.                                                     |
-| sampling_params     | sampling_top_p          | 1                    | [0, 1]                                                                                                          | Nucleus-sampling cutoff. Samples only from the smallest set of tokens whose cumulative probability ≥ top_p. |
-| sampling_params     | sampling_max_tokens     | 4096                 | [512, 8192]                                                                                                     | Max tokens the model can generate per turn during rollout.                                                  |
-| val_sampling_params | sampling_max_tokens     | 4096                 | [512, 8192]                                                                                                     | Max tokens the model can generate per turn during evaluation.                                               |
-| val_metrics_config  | pass_k_values           | [1, 2, 4, 8, 16, 32] | n/a                                                                                                             | List of k values for computing pass@k metrics.                                                              |
-| val_metrics_config  | success_threshold       | 1                    | n/a                                                                                                             | Reward threshold for counting a rollout as "successful".                                                    |
-| Schedule            | max_epochs              | 1                    | [1, 30]                                                                                                         | Total passes over the data.                                                                                 |
-| Schedule            | max_steps               | 50                   | [1, 1000]                                                                                                       | Total training iterations.                                                                                  |
-| Schedule            | val_every               | 10                   | [0, 100]                                                                                                        | Eval interval (steps).                                                                                      |
-| Model               | model_name_or_path      | required             |                                                                                                                 | Model to fine-tune (e.g., "GPT-OSS-20B").                                                                   |
-| Model               | lora_rank               | 32                   | [16,64]                                                                                                         | The rank of LoRA adapter that controls adapter capacity.                                                    |
-| Model               | lora_alpha              | 64                   | [16,128]                                                                                                        | LoRA scaling factor. Effective update magnitude ∝ alpha / rank.                                             |
-| Model               | learning_rate           | 4.00E-05             | (0, 1e-2]                                                                                                       | Adam learning rate.                                                                                         |
-| Model               | adam_beta1              | 0.9                  | [0, 0.999999]                                                                                                   | Exponential decay rate for the running average of the gradient (first moment) in Adam.                      |
-| Model               | adam_beta2              | 0.95                 | [0, 0.999999]                                                                                                   | Exponential decay rate for the running average of the squared gradient (second moment) in Adam.             |
-| Model               | adam_eps                | 1.00E-08             | [1e-16, 1e-2]                                                                                                   | Small constant added to the denominator for numerical stability in Adam's update rule.                      |
-| Model               | adam_weight_decay       | 0                    | [0, 1]                                                                                                          | Decoupled weight-decay coefficient (AdamW-style).                                                           |
-| Model               | adam_grad_clip_norm     | 1                    | [0, 100]                                                                                                        | Maximum global gradient norm.                                                                               |
-| Rollout             | rollout_max_concurrency | 96                   | [32, 96]                                                                                                        | The max in-flight rollout processes can happen in parallel.                                                 |
-| Rollout             | rollout_timeout         | 600                  | [300, 86400]                                                                                                    | Failure handling: time after which we treat as the rollout failure.                                         |
-| Rollout             | rollout_max_retries     | 3                    | [1, 10]                                                                                                         | Number of retry attempts for failed rollouts.                                                               |
-| async_config        | max_steps_off_policy    | 3                    | [0, 10]                                                                                                         | Staleness threshold in asynchronous training. When 0, it is synchronous training.                           |
+| Category              | Params                    | Default              | Choice                                                                                                                   | Explanation                                                                                                  |
+| --------------------- | ------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| Batch                 | global\_batch\_size       | 128                  | {32, 64, 128}                                                                                                            | Number of unique prompts per training step.                                                                  |
+| Batch                 | group\_size               | 8                    | [2, 32]                                                                                                                  | Rollouts per prompt used to compute group-based advantages (GRPO / RLOO).                                    |
+| RL                    | advantage\_method         | group\_based         | monte\_carlo, group\_based, group\_based\_per\_turn, rloo, reinforce\_pp, reinforce\_pp\_baseline, opo, grpo\_passk, gpg | Method for computing advantages for rollouts.                                                                |
+| RL                    | loss\_fn                  | ppo                  | importance\_sampling, ppo, cispo                                                                                         | RL loss formulation.                                                                                         |
+| RL                    | clip\_low\_threshold      | 0.8                  | [0, 1]                                                                                                                   | Lower bound for clipping the policy probability ratio π\_new/π\_old in the PPO-style surrogate loss.         |
+| RL                    | clip\_high\_threshold     | 1.2                  | [1, 10]                                                                                                                  | Upper bound for clipping the policy probability ratio in the loss.                                           |
+| sampling\_params      | temperature               | 1                    | [0, 2]                                                                                                                   | Sampling temperature applied to logits before sampling.                                                      |
+| sampling\_params      | sampling\_top\_p          | 1                    | [0, 1]                                                                                                                   | Nucleus-sampling cutoff. Samples only from the smallest set of tokens whose cumulative probability ≥ top\_p. |
+| sampling\_params      | sampling\_max\_tokens     | 4096                 | [512, 8192]                                                                                                              | Max tokens the model can generate per turn during rollout.                                                   |
+| val\_sampling\_params | sampling\_max\_tokens     | 4096                 | [512, 8192]                                                                                                              | Max tokens the model can generate per turn during evaluation.                                                |
+| val\_metrics\_config  | pass\_k\_values           | [1, 2, 4, 8, 16, 32] | n/a                                                                                                                      | List of k values for computing pass@k metrics.                                                               |
+| val\_metrics\_config  | success\_threshold        | 1                    | n/a                                                                                                                      | Reward threshold for counting a rollout as "successful".                                                     |
+| Schedule              | max\_epochs               | 1                    | [1, 30]                                                                                                                  | Total passes over the data.                                                                                  |
+| Schedule              | max\_steps                | 50                   | [1, 1000]                                                                                                                | Total training iterations.                                                                                   |
+| Schedule              | val\_every                | 10                   | [0, 100]                                                                                                                 | Eval interval (steps).                                                                                       |
+| Model                 | model\_name\_or\_path     | required             |                                                                                                                          | Model to fine-tune (e.g., "GPT-OSS-20B").                                                                    |
+| Model                 | lora\_rank                | 32                   | [16,64]                                                                                                                  | The rank of LoRA adapter that controls adapter capacity.                                                     |
+| Model                 | lora\_alpha               | 64                   | [16,128]                                                                                                                 | LoRA scaling factor. Effective update magnitude ∝ alpha / rank.                                              |
+| Model                 | learning\_rate            | 4.00E-05             | (0, 1e-2]                                                                                                                | Adam learning rate.                                                                                          |
+| Model                 | adam\_beta1               | 0.9                  | [0, 0.999999]                                                                                                            | Exponential decay rate for the running average of the gradient (first moment) in Adam.                       |
+| Model                 | adam\_beta2               | 0.95                 | [0, 0.999999]                                                                                                            | Exponential decay rate for the running average of the squared gradient (second moment) in Adam.              |
+| Model                 | adam\_eps                 | 1.00E-08             | [1e-16, 1e-2]                                                                                                            | Small constant added to the denominator for numerical stability in Adam's update rule.                       |
+| Model                 | adam\_weight\_decay       | 0                    | [0, 1]                                                                                                                   | Decoupled weight-decay coefficient (AdamW-style).                                                            |
+| Model                 | adam\_grad\_clip\_norm    | 1                    | [0, 100]                                                                                                                 | Maximum global gradient norm.                                                                                |
+| Rollout               | rollout\_max\_concurrency | 96                   | [32, 96]                                                                                                                 | The max in-flight rollout processes can happen in parallel.                                                  |
+| Rollout               | rollout\_timeout          | 600                  | [300, 86400]                                                                                                             | Failure handling: time after which we treat as the rollout failure.                                          |
+| Rollout               | rollout\_max\_retries     | 3                    | [1, 10]                                                                                                                  | Number of retry attempts for failed rollouts.                                                                |
+| async\_config         | max\_steps\_off\_policy   | 3                    | [0, 10]                                                                                                                  | Staleness threshold in asynchronous training. When 0, it is synchronous training.                            |
 
 ## Best practices for tuning hyperparameters
 
@@ -167,32 +167,32 @@ handles slow or failed rollouts.
   still plateaus — double both together (64/128) to add capacity
   while preserving the same effective learning rate.
 - **temperature = 1.0,
-  sampling_top_p = 1.0 for training.** For RL training you
+  sampling\_top\_p = 1.0 for training.** For RL training you
   want diversity across rollouts within a group so that the group
   baseline has signal. Temperature 1.0 is a good default. For
   evaluation, use temperature = 0.0 (greedy decoding) so that eval
   curves are deterministic and comparable across runs.
-- **pass_k_values.** Pass@1 is the
-  headline evaluation metric. Pass@G (where G = group_size) is a useful
+- **pass\_k\_values.** Pass@1 is the
+  headline evaluation metric. Pass@G (where G = group\_size) is a useful
   sanity check: if pass@G is very high, most prompts are too easy; if
   pass@G is very low, most prompts are too hard and the group signal is
   sparse.
-- **max_steps and max_epochs.**
+- **max\_steps and max\_epochs.**
   `max_steps = 50` for screening (enough to see whether the
   curve is moving), 100 for production. CISPO collapse tends to appear
   between steps 40–80. `max_epochs = 1` is the
   default; multiple epochs re-use the same prompts with fresh rollouts,
   which can help if the prompt set is small but risks overfitting to a
   narrow prompt distribution.
-- **adam_beta2 = 0.95.** Lower than the
+- **adam\_beta2 = 0.95.** Lower than the
   SFT default of 0.999. In RL, gradient statistics are non-stationary,
   so the optimizer needs to track recent gradient variance more
   aggressively.
-- **weight_decay = 0.0.** LoRA already
+- **weight\_decay = 0.0.** LoRA already
   constrains updates via low-rank parameterization. Adding weight decay
   compounds the regularization in ways that have not been
   well-characterized for RL fine-tuning.
-- **adam_grad_clip_norm = 1.0.** Caps the
+- **adam\_grad\_clip\_norm = 1.0.** Caps the
   global gradient norm. If collapse correlates with large pre-clip
   spikes, drop to 0.5. If the norm sits at exactly 1.0 for many steps
   and reward is flat, the clip may be the bottleneck — raise to

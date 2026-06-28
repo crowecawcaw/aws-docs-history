@@ -14,7 +14,7 @@ and AWS Lambda.
 
 This example notebook runs a training job that has a vanishing gradient
 issue. The Debugger [VanishingGradient](debugger-built-in-rules.md#vanishing-gradient "debugger-built-in-rules.md#vanishing-gradient") built-in rule is used while
-constructing the SageMaker AI TensorFlow estimator. When the Debugger rule detects the
+constructing the SageMaker AI TensorFlow ModelTrainer. When the Debugger rule detects the
 issue, the training job is terminated.
 
 - [Detect Stalled Training and Invoke Actions Using SageMaker Debugger Rule](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/tensorflow_action_on_rule/detect_stalled_training_job_and_actions.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/tensorflow_action_on_rule/detect_stalled_training_job_and_actions.html")

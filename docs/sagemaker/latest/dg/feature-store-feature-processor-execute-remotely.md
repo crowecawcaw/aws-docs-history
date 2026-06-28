@@ -11,7 +11,7 @@ The following is a usage example of the `@remote` decorator along with the
 ```
 from sagemaker.remote_function.spark_config import SparkConfig
 from sagemaker.remote_function import remote
-from sagemaker.feature_store.feature_processor import CSVDataSource, feature_processor
+from sagemaker.mlops.feature_store.feature_processor import CSVDataSource, feature_processor
 
 CSV_DATA_SOURCE = CSVDataSource('s3://bucket/prefix-to-csv/')
 OUTPUT_FG = 'arn:aws:sagemaker:us-east-1:123456789012:feature-group/feature-group'

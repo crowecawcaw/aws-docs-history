@@ -19,7 +19,7 @@ If you have your own labeled dataset, you can substitute it in the notebook. The
 **Supported data formats:**
 
 - **CSV format:** Two columns: `text` and `label`
-- **Label formats:** "positive"/"negative", "LABEL_0"/"LABEL_1", "True"/"False", or "0"/"1"
+- **Label formats:** "positive"/"negative", "LABEL\_0"/"LABEL\_1", "True"/"False", or "0"/"1"
 - **Unsupervised:** Single `text` column for confidence analysis
 
 ## Set up your evaluation environment

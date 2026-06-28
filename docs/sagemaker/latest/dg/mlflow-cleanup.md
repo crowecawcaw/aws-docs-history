@@ -114,5 +114,5 @@ Version](model-registry-delete-model-version.md "model-registry-delete-model-ver
 
 You can use the MLflow SDK to delete experiments or runs.
 
-- [mlflow.delete_experiment](https://mlflow.org/docs/latest/python_api/mlflow.html?highlight=delete_experiment#mlflow.delete_experiment "https://mlflow.org/docs/latest/python_api/mlflow.html?highlight=delete_experiment#mlflow.delete_experiment")
-- [mlflow.delete_run](https://mlflow.org/docs/latest/python_api/mlflow.html?highlight=delete_experiment#mlflow.delete_run "https://mlflow.org/docs/latest/python_api/mlflow.html?highlight=delete_experiment#mlflow.delete_run")
+- [mlflow.delete\_experiment](https://mlflow.org/docs/latest/python_api/mlflow.html?highlight=delete_experiment#mlflow.delete_experiment "https://mlflow.org/docs/latest/python_api/mlflow.html?highlight=delete_experiment#mlflow.delete_experiment")
+- [mlflow.delete\_run](https://mlflow.org/docs/latest/python_api/mlflow.html?highlight=delete_experiment#mlflow.delete_run "https://mlflow.org/docs/latest/python_api/mlflow.html?highlight=delete_experiment#mlflow.delete_run")

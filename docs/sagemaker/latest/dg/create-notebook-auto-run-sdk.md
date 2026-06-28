@@ -30,7 +30,7 @@ following instructions describe both methods.
 ###### To schedule a notebook job, complete the following basic steps:
 
 1. Create a `NotebookJobStep` instance. For details about
-   `NotebookJobStep` parameters, see [sagemaker.workflow.steps.NotebookJobStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.notebook_job_step.NotebookJobStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.notebook_job_step.NotebookJobStep"). At minimum, you can provide the
+   `NotebookJobStep` parameters, see [sagemaker.workflow.steps.NotebookJobStep](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html"). At minimum, you can provide the
    following arguments as shown in the following code snippet:
 
 ###### Important

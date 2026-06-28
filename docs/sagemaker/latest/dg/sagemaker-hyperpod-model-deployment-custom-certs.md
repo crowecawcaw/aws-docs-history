@@ -421,8 +421,8 @@ working as expected.
   initial deployment.
 - **Certificate validation fails.** Verify the
   ACM certificate is in the `ISSUED` state: `aws acm
-describe-certificate --certificate-arn <arn> --region
-<region>`. Verify the `domainName` matches a
+ describe-certificate --certificate-arn <arn> --region
+ <region>`. Verify the `domainName` matches a
   domain or SAN in the certificate. For wildcard certificates
   (`*.example.com`), use a specific subdomain like
   `api.example.com`.

@@ -116,7 +116,7 @@ SageMaker AI console. SageMaker Canvas saves duplicates of your input datasets, 
 and output data to the Region’s default SageMaker AI S3 bucket for your account. The naming
 pattern for this bucket is
 `s3://sagemaker-`{Region}`-`{your-account-id}``,
- and SageMaker Canvas stores data in the `Canvas/` folder.
+and SageMaker Canvas stores data in the `Canvas/` folder.
 
 1. Turn on **Enable notebook resource sharing**.
 2. For **S3 location for shareable notebook resources**, leave the
@@ -166,7 +166,7 @@ the same KMS key for your Amazon S3 bucket and your domain.
 
 A: The default Amazon S3 bucket follows the naming pattern
 `s3://sagemaker-`{Region}`-`{your-account-id}``.
- The `Canvas/` folder in this bucket stores your SageMaker Canvas application
+The `Canvas/` folder in this bucket stores your SageMaker Canvas application
 data.
 
 A: No, SageMaker AI creates this bucket for you.

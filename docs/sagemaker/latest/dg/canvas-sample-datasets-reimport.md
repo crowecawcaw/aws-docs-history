@@ -11,7 +11,7 @@ so you can always access them later.
 If you used the default Amazon S3 bucket, the bucket name follows the pattern
 `sagemaker-`{region}`-`{account
 ID}``. You can find the sample datasets in the directory
- path `Canvas/sample_dataset`.
+path `Canvas/sample_dataset`.
 
 If you delete a sample dataset from your SageMaker Canvas application and want to access
 the sample dataset again, use the following procedure.
@@ -23,7 +23,7 @@ the sample dataset again, use the following procedure.
    If using the default SageMaker AI-created Amazon S3 bucket, it follows the naming pattern `sagemaker-`{region}`-`{account
    ID}``.
 4. Select the **Canvas** folder.
-5. Select the **sample_dataset** folder, which contains all
+5. Select the **sample\_dataset** folder, which contains all
    of the sample datasets for SageMaker Canvas.
 6. Select the dataset you want to import, and then choose **Import
    data**.

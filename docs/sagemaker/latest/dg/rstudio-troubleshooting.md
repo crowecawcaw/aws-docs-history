@@ -39,7 +39,7 @@ AWS CloudWatch console.
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. Select `Logs` from the left side. From the dropdown menu, select `Log
-groups`.
+ groups`.
 3. On the `Log groups` screen, search for `aws/sagemaker/studio`. Select the Log group.
 4. On the `aws/sagemaker/studio` `Log group` screen, navigate to the `Log streams` tab.
 5. To find the logs for your domain, search `Log streams` using the following

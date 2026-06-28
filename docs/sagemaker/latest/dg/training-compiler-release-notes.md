@@ -54,15 +54,14 @@ To find a complete list of the prebuilt containers with Amazon SageMaker Trainin
   `tf.keras.optimizers.legacy`. You might encounter job failure due
   to the breaking change when you do the following.
 
-      + Load checkpoints from an old optimizer. We recommend you to switch to
-       use the legacy optimizers.
-      + Use TensorFlow v1. We recommend you to migrate to TensorFlow v2, or
-       switch to the legacy optimizers if you need to continue using TensorFlow
-       v1.
-
-  For more detailed list of breaking changes from the optimizer changes, see the
-  [official TensorFlow v2.11.0 release notes](https://github.com/tensorflow/tensorflow/releases/tag/v2.11.0 "https://github.com/tensorflow/tensorflow/releases/tag/v2.11.0") in the TensorFlow GitHub
-  repository.
+  - Load checkpoints from an old optimizer. We recommend you to switch to
+    use the legacy optimizers.
+  - Use TensorFlow v1. We recommend you to migrate to TensorFlow v2, or
+    switch to the legacy optimizers if you need to continue using TensorFlow
+    v1.
+    For more detailed list of breaking changes from the optimizer changes, see the
+    [official TensorFlow v2.11.0 release notes](https://github.com/tensorflow/tensorflow/releases/tag/v2.11.0 "https://github.com/tensorflow/tensorflow/releases/tag/v2.11.0") in the TensorFlow GitHub
+    repository.
 
 ###### Migration to AWS Deep Learning Containers
 

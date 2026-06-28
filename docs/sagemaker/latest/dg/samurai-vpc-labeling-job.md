@@ -36,7 +36,7 @@ Review the following prerequisites before you create a Ground Truth labeling job
     an IAM execution role with required permissions. If you do not require
     fine-tuned permissions for your use case, we recommend you use the IAM managed
     policies described in [Grant General Permissions To Get Started Using Ground Truth](sms-security-permission.md#sms-security-permissions-get-started "sms-security-permission.md#sms-security-permissions-get-started").
-  - Allow your VPC to have access to the `sagemaker-labeling-data-`region``and`sm-bxcb-`region`-saved-task-states` S3 buckets.
+  - Allow your VPC to have access to the `sagemaker-labeling-data-`region`` and `sm-bxcb-`region`-saved-task-states` S3 buckets.
     These are system owned regionalized S3 buckets that are
     accessed from worker portal when worker is working on a task. We use these buckets to interact with system managed data.
 

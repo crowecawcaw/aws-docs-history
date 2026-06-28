@@ -42,44 +42,43 @@ groups but are not searchable for feature groups made discoverable to you.
 You can use the console or the Amazon SageMaker Feature Store API to find your feature groups. The
 instructions for using Feature Store through the console depends on if you have enabled [Amazon SageMaker Studio](studio-updated.md "studio-updated.md") or [Amazon SageMaker Studio Classic](studio.md "studio.md") as your default experience.
 
-1.  Open the Studio console by following the instructions in [Launch Amazon SageMaker Studio](studio-updated-launch.md "studio-updated-launch.md").
-2.  Choose **Data** in the left navigation pane to expand
-    the dropdown list.
-3.  From the dropdown list, choose **Feature Store**.
-4.  (Optional) To view your feature groups, choose **My
-    account**. To view shared feature groups, choose
-    **Cross account**.
-5.  Under the **Feature Group Catalog** tab, choose
-    **My account** to view your feature groups.
-6.  Under the **Feature Group Catalog** tab, choose
-    **Cross account** to view feature groups that
-    others made discoverable to you. Under **Created by**,
-    you can view the resource owner account ID.
-7.  You can search for your feature groups in the
-    **Search** dropdown list:
+1. Open the Studio console by following the instructions in [Launch Amazon SageMaker Studio](studio-updated-launch.md "studio-updated-launch.md").
+2. Choose **Data** in the left navigation pane to expand
+   the dropdown list.
+3. From the dropdown list, choose **Feature Store**.
+4. (Optional) To view your feature groups, choose **My
+   account**. To view shared feature groups, choose
+   **Cross account**.
+5. Under the **Feature Group Catalog** tab, choose
+   **My account** to view your feature groups.
+6. Under the **Feature Group Catalog** tab, choose
+   **Cross account** to view feature groups that
+   others made discoverable to you. Under **Created by**,
+   you can view the resource owner account ID.
+7. You can search for your feature groups in the
+   **Search** dropdown list:
 
-        * (Optional) To filter your search, choose the filter icon next
-         to the **Search** dropdown list. You can use
-         filters to specify parameters or date ranges in your search
-         results. If you search for a parameter, specify both its key and
-         value. To find your feature groups, you can specify time ranges,
-         clear (deselect) columns that you don't want to query, choose
-         stores to search, or search by status.
-        * For shared resources, you can only edit feature group metadata
-         or feature definitions if you have the proper access permission
-         granted from the resource owner account. The discoverability
-         permission alone won't allow you to edit metadata or feature
-         definitions. For more information about granting access
-         permissions, see [Enabling cross account access](feature-store-cross-account-access.md "feature-store-cross-account-access.md").
+   - (Optional) To filter your search, choose the filter icon next
+     to the **Search** dropdown list. You can use
+     filters to specify parameters or date ranges in your search
+     results. If you search for a parameter, specify both its key and
+     value. To find your feature groups, you can specify time ranges,
+     clear (deselect) columns that you don't want to query, choose
+     stores to search, or search by status.
+   - For shared resources, you can only edit feature group metadata
+     or feature definitions if you have the proper access permission
+     granted from the resource owner account. The discoverability
+     permission alone won't allow you to edit metadata or feature
+     definitions. For more information about granting access
+     permissions, see [Enabling cross account access](feature-store-cross-account-access.md "feature-store-cross-account-access.md").
+     Use the latest version of Amazon SageMaker Studio Classic to get the most recent version of the
+     search functionality if you are accessing Feature Store through the Studio Classic
+     application. For information about updating Studio Classic, see [Shut Down and Update Amazon SageMaker Studio Classic](studio-tasks-update-studio.md "studio-tasks-update-studio.md").
 
-    Use the latest version of Amazon SageMaker Studio Classic to get the most recent version of the
-    search functionality if you are accessing Feature Store through the Studio Classic
-    application. For information about updating Studio Classic, see [Shut Down and Update Amazon SageMaker Studio Classic](studio-tasks-update-studio.md "studio-tasks-update-studio.md").
-
-8.  Open the Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
-9.  Choose the **Home** icon (
-    ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
-    ) in the left navigation pane.
+8. Open the Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
+9. Choose the **Home** icon (
+   ![Black square icon representing a placeholder or empty image.](images/studio/icons/house.png)
+   ) in the left navigation pane.
 10. Choose **Data**.
 11. From the dropdown list, choose **Feature Store**.
 12. (Optional) To view your feature groups, choose **My
@@ -94,26 +93,25 @@ instructions for using Feature Store through the console depends on if you have 
 15. You can search for your feature groups in the
     **Search** dropdown list:
 
-        * (Optional) To filter your search, choose the filter icon next
-         to the **Search** dropdown list. You can use
-         filters to specify parameters or date ranges in your search
-         results. If you search for a parameter, specify both its key and
-         value. To find your feature groups more easily, you can specify
-         time ranges, clear (deselect) columns that you don't want to
-         query, choose stores to search, or search by status.
-        * For shared resources, you can only edit feature group metadata
-         or feature definitions if you have the proper access permission
-         granted from the resource owner account. The discoverability
-         permission alone won't allow you to edit metadata or feature
-         definitions. For more
-         information
-         about granting access permissions, see [Enabling cross account access](feature-store-cross-account-access.md "feature-store-cross-account-access.md").
-
-    The code in this section uses the [`Search`](../APIReference/API_Search.md "../APIReference/API_Search.md") operation in the AWS SDK for Python (Boto3) to run the
-    search query to find feature groups. For information about the other languages
-    to submit a query, see [See
-    Also](../APIReference/API_Search.md#API_Search_SeeAlso "../APIReference/API_Search.md#API_Search_SeeAlso") in the _Amazon SageMaker API
-    Reference_.
+    - (Optional) To filter your search, choose the filter icon next
+      to the **Search** dropdown list. You can use
+      filters to specify parameters or date ranges in your search
+      results. If you search for a parameter, specify both its key and
+      value. To find your feature groups more easily, you can specify
+      time ranges, clear (deselect) columns that you don't want to
+      query, choose stores to search, or search by status.
+    - For shared resources, you can only edit feature group metadata
+      or feature definitions if you have the proper access permission
+      granted from the resource owner account. The discoverability
+      permission alone won't allow you to edit metadata or feature
+      definitions. For more
+      information
+      about granting access permissions, see [Enabling cross account access](feature-store-cross-account-access.md "feature-store-cross-account-access.md").
+      The code in this section uses the [`Search`](../APIReference/API_Search.md "../APIReference/API_Search.md") operation in the AWS SDK for Python (Boto3) to run the
+      search query to find feature groups. For information about the other languages
+      to submit a query, see [See
+      Also](../APIReference/API_Search.md#API_Search_SeeAlso "../APIReference/API_Search.md#API_Search_SeeAlso") in the _Amazon SageMaker API
+      Reference_.
 
 For more Feature Store examples and resources, see [Amazon SageMaker Feature Store resources](feature-store-resources.md "feature-store-resources.md").
 

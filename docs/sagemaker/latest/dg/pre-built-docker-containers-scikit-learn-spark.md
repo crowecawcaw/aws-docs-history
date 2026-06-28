@@ -24,19 +24,19 @@ aws \
 
 The following table contains links to the GitHub repositories with the source code for
 the scikit-learn and Spark ML containers. The table also contains links to instructions
-that show how use these containers with Python SDK estimators to run your own training
+that show how use these containers with Python SDK ModelTrainers to run your own training
 algorithms and hosting your own models.
 
-| Library      | Prebuilt Docker Image Source Code                                                                                                                                   | Instructions                                                                                                                                                                             |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| scikit-learn | [SageMaker AI Scikit-learn Containers](https://github.com/aws/sagemaker-scikit-learn-container "https://github.com/aws/sagemaker-scikit-learn-container")           | [Using Scikit-learn with the Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/using_sklearn.html "https://sagemaker.readthedocs.io/en/stable/using_sklearn.html") |
-| Spark ML     | [SageMaker AI Spark ML Serving Containers](https://github.com/aws/sagemaker-sparkml-serving-container "https://github.com/aws/sagemaker-sparkml-serving-container") | [SparkML Python SDK Documentation](https://sagemaker.readthedocs.io/en/stable/sagemaker.sparkml.html "https://sagemaker.readthedocs.io/en/stable/sagemaker.sparkml.html")                |
+| Library      | Prebuilt Docker Image Source Code                                                                                                                                   | Instructions                                                                                                                                                                                         |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| scikit-learn | [SageMaker AI Scikit-learn Containers](https://github.com/aws/sagemaker-scikit-learn-container "https://github.com/aws/sagemaker-scikit-learn-container")           | [Using Scikit-learn with the Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") |
+| Spark ML     | [SageMaker AI Spark ML Serving Containers](https://github.com/aws/sagemaker-sparkml-serving-container "https://github.com/aws/sagemaker-sparkml-serving-container") | [SparkML Python SDK Documentation](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html")                          |
 
 For more information and links to github repositories, see [Resources for using Scikit-learn with Amazon SageMaker AI](sklearn.md "sklearn.md") and [Resources for using SparkML Serving with Amazon SageMaker AI](sparkml-serving.md "sparkml-serving.md").
 
 ## Specifying the Prebuilt Images Manually
 
-If you are not using the SageMaker Python SDK and one of its estimators to manage the
+If you are not using the SageMaker Python SDK and one of its ModelTrainers to manage the
 container, you have to retrieve the relevant prebuilt container manually. The SageMaker AI
 prebuilt Docker images are stored in Amazon Elastic Container Registry (Amazon ECR). You can push or pull them using
 their fullname registry addresses. SageMaker AI uses the following Docker Image URL patterns for

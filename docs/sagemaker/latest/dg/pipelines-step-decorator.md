@@ -15,7 +15,7 @@ documentation for details about how to [setup
 the environment](train-remote-decorator.md#train-remote-decorator-env "train-remote-decorator.md#train-remote-decorator-env") and [use
 a configuration file](train-remote-decorator-config.md "train-remote-decorator-config.md") to
 set defaults. For more information about the `@step` decorator, see
-[sagemaker.workflow.function_step.step](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.function_step.step "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.function_step.step").
+[sagemaker.workflow.function\_step.step](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.function_step.step "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.function_step.step").
 
 To view to sample notebooks that demonstrate the use of `@step` decorator, see
 [@step
