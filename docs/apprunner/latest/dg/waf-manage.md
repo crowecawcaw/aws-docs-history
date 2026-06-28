@@ -57,10 +57,9 @@ ACLs.
     	2. Select the required web ACL.
 
 6. Choose **Next** if you're creating a new service or **Save changes** if you're updating an existing service.
-   The selected web ACL is associated with your App Runner service.
-7. To verify the web ACL association, choose the **Configuration** tab of your service and go to **Configure
-   service**. Scroll to **Web application firewall** under **Security** to view the details of the web ACL
-   associated with your service.
+The selected web ACL is associated with your App Runner service. 7. To verify the web ACL association, choose the **Configuration** tab of your service and go to **Configure
+service**. Scroll to **Web application firewall** under **Security** to view the details of the web ACL
+associated with your service.
 
 ###### Note
 

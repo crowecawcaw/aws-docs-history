@@ -128,7 +128,7 @@ to a .NET runtime service.
 ###### Note
 
 - Run following command to create a simple .NET 6 web app: `dotnet new web
---name HelloWorldDotNetApp -f net6.0`
+ --name HelloWorldDotNetApp -f net6.0`
 - Add the `apprunner.yaml` to the created .NET 6 web app.
 
 ###### Example HelloWorldDotNetApp

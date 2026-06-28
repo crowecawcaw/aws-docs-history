@@ -10,12 +10,12 @@ App Runner will end the support for **Go 1.18** on December 1, 2025. For recomme
 
 This topic lists the full details for the Go runtime versions that App Runner supports.
 
-| Supported runtime versions — original App Runner build | Runtime name | **Minor versions** | **Included packages** |
-| ------------------------------------------------------ | ------------ | ------------------ | --------------------- |
-| Go 1 (go1)                                             | 1.18.10      |                    |
-| 1.18.9                                                 |              |
-| 1.18.8                                                 |              |
-| 1.18.7                                                 |              |
+Supported runtime versions — original App Runner build| Runtime name | **Minor versions** | **Included packages** |
+| --- | --- | --- |
+| Go 1 (go1) | 1.18.10 | |
+| 1.18.9 | |
+| 1.18.8 | |
+| 1.18.7 | |
 
 ###### Note
 

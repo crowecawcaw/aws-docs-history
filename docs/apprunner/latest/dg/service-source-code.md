@@ -309,43 +309,43 @@ application.
 This build process uses a Docker multi-stage build. The general process steps are the
 following:
 
-1.  Build stage — Start a docker build process
-    that executes `pre-build` and `build` commands
-    on top of the App Runner build images.
+1. Build stage — Start a docker build process
+   that executes `pre-build` and `build` commands
+   on top of the App Runner build images.
 
-    1. Copy the application source code to the `/app`
-       directory.
+   1. Copy the application source code to the `/app`
+      directory.
 
-    ###### Note
+   ###### Note
 
-    This `/app` directory is designated as the working
-    directory in every stage of the Docker build. 2. Run `pre-build` commands.
+   This `/app` directory is designated as the working
+   directory in every stage of the Docker build. 2. Run `pre-build` commands.
 
-    The`pre-build` commands are optional. They can only be
-    specified in the `apprunner.yaml` configuration
-    file. 3. Run the `build` commands.
+   The`pre-build` commands are optional. They can only be
+   specified in the `apprunner.yaml` configuration
+   file. 3. Run the `build` commands.
 
-    The `build` commands are required. They can be specified in
-    the App Runner console, the App Runner API, or in the
-    `apprunner.yaml` configuration file.
+   The `build` commands are required. They can be specified in
+   the App Runner console, the App Runner API, or in the
+   `apprunner.yaml` configuration file.
 
-2.  Packaging stage — Generates the final
-    customer container image, which is also based on the App Runner run image.
+2. Packaging stage — Generates the final
+   customer container image, which is also based on the App Runner run image.
 
-    1. Copy the `/app` directory from the prior **Build stage** to the new Run image. This includes your
-       application source code and the build artifacts from the prior stage.
-    2. Run the `pre-run` commands. If you need to modify the runtime image
-       outside of the `/app` directory by using the `build`
-       commands, add the same or required commands to this segment of the
-       `apprunner.yaml` configuration file.
+   1. Copy the `/app` directory from the prior **Build stage** to the new Run image. This includes your
+      application source code and the build artifacts from the prior stage.
+   2. Run the `pre-run` commands. If you need to modify the runtime image
+      outside of the `/app` directory by using the `build`
+      commands, add the same or required commands to this segment of the
+      `apprunner.yaml` configuration file.
 
-    This is a new parameter that was introduced to support the
-    revised App Runner build.
+   This is a new parameter that was introduced to support the
+   revised App Runner build.
 
-    The `pre-run` commands are optional. They can only be specified in
-    the `apprunner.yaml` configuration file.
+   The `pre-run` commands are optional. They can only be specified in
+   the `apprunner.yaml` configuration file.
 
-    ###### Notes
+   ###### Notes
 
         * The `pre-run` commands are only supported by the
          revised build. Do not add them to the configuration file if your
@@ -354,16 +354,16 @@ following:
          `/app` directory with the `build` commands,
          then you don’t need to specify `pre-run` commands.
 
-3.  Post-build stage — This stage resumes from
-    the _Build stage_ and runs `post-build`
-    commands.
+3. Post-build stage — This stage resumes from
+   the _Build stage_ and runs `post-build`
+   commands.
 
-    1. Run the `post-build` commands inside the
-       `/app` directory.
+   1. Run the `post-build` commands inside the
+      `/app` directory.
 
-    The `post-build` commands are optional. They can only be
-    specified in the `apprunner.yaml` configuration
-    file.
+   The `post-build` commands are optional. They can only be
+   specified in the `apprunner.yaml` configuration
+   file.
 
 After the build completes, App Runner then deploys the Run image to run your web service in
 a container.

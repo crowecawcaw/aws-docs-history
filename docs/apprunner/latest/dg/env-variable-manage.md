@@ -18,33 +18,33 @@ can add environment variables.
 
 ###### To add environment variable
 
-1.  Open the [App Runner console](https://console.aws.amazon.com/apprunner "https://console.aws.amazon.com/apprunner"), and in the **Regions** list, select your AWS Region.
-2.  Based on whether you're creating or updating a service, perform one of the following steps:
+1. Open the [App Runner console](https://console.aws.amazon.com/apprunner "https://console.aws.amazon.com/apprunner"), and in the **Regions** list, select your AWS Region.
+2. Based on whether you're creating or updating a service, perform one of the following steps:
 
-    - If you're creating a new service, choose **Create an App Runner service** and go to **Configure
-      Service**.
-    - If you're updating an existing service, select the service that you want to update and go to the **Configuration** tab of
-      the service.
+   - If you're creating a new service, choose **Create an App Runner service** and go to **Configure
+     Service**.
+   - If you're updating an existing service, select the service that you want to update and go to the **Configuration** tab of
+     the service.
 
-3.  Go to **Environment variables - optional** under **Service settings**.
-4.  Choose any of the following options based on your requirement:
+3. Go to **Environment variables - optional** under **Service settings**.
+4. Choose any of the following options based on your requirement:
 
-    - Choose **Plain Text** from the **Environment variable source** and enter its key-value pairs under
-      **Environment variable name** and **Environment variable value**, respectively.
+   - Choose **Plain Text** from the **Environment variable source** and enter its key-value pairs under
+     **Environment variable name** and **Environment variable value**, respectively.
 
-    ###### Note
+   ###### Note
 
-    Choose **Plain Text** if you want to reference non-sensitive data. This data isn't encrypted and is visible to others in
-    the App Runner service configuration and application logs.
-    - Choose **Secrets Manager** from the **Environment variable source** to reference the secret that's stored in
-      AWS Secrets Manager as environment variable in your service. Provide the environment variable name and Amazon Resource Name (ARN) of the secret that you're referencing under
-      **Environment variable name** and **Environment variable
-      value** respectively.
-    - Choose **SSM Parameter Store** from the **Environment variable source** to reference the parameter
-      stored in SSM Parameter Store as environment variable in your service. Provide the environment variable name and ARN of the parameter that
-      you're referencing under **Environment variable name** and **Environment variable value** respectively.
+   Choose **Plain Text** if you want to reference non-sensitive data. This data isn't encrypted and is visible to others in
+   the App Runner service configuration and application logs.
+   - Choose **Secrets Manager** from the **Environment variable source** to reference the secret that's stored in
+     AWS Secrets Manager as environment variable in your service. Provide the environment variable name and Amazon Resource Name (ARN) of the secret that you're referencing under
+     **Environment variable name** and **Environment variable
+     value** respectively.
+   - Choose **SSM Parameter Store** from the **Environment variable source** to reference the parameter
+     stored in SSM Parameter Store as environment variable in your service. Provide the environment variable name and ARN of the parameter that
+     you're referencing under **Environment variable name** and **Environment variable value** respectively.
 
-    ###### Note
+   ###### Note
 
         + You cannot assign `PORT` as a name for an environment variable when creating or updating your App Runner service.
          It's a reserved environment variable for App Runner service.
@@ -53,10 +53,10 @@ can add environment variables.
         + Make sure that parameter that you're referencing to is in the same account as the service that you're launching or updating.
          Currently, you can't reference SSM Parameter Store parameter across accounts.
 
-5.  Choose **Add environment variable** to reference to another environment variable.
-6.  Expand **IAM policy templates** to view and copy the IAM policy templates provided for the AWS Secrets Manager and SSM Parameter
-    Store. You only need to do this if you didn't yet update the IAM policy of your instance role with the required permissions. For more information,
-    see [Permissions](env-variable.md#env-variable.sensitivedata.permissions "env-variable.md#env-variable.sensitivedata.permissions").
+5. Choose **Add environment variable** to reference to another environment variable.
+6. Expand **IAM policy templates** to view and copy the IAM policy templates provided for the AWS Secrets Manager and SSM Parameter
+   Store. You only need to do this if you didn't yet update the IAM policy of your instance role with the required permissions. For more information,
+   see [Permissions](env-variable.md#env-variable.sensitivedata.permissions "env-variable.md#env-variable.sensitivedata.permissions").
 
 ### Removing environment variable
 

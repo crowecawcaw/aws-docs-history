@@ -11,15 +11,15 @@ For recommendations and more information, see [End of support for managed runtim
 
 This topic lists the full details for the Ruby runtime versions that App Runner supports.
 
-| Supported runtime versions — original App Runner build | Runtime name  | **Minor versions** | **Included packages** |
-| ------------------------------------------------------ | ------------- | ------------------ | --------------------- |
-| Ruby 3.1 (ruby31)                                      | 3.1.7         | SQLite 3.50.2      |
-| 3.1.7                                                  | SQLite 3.50.1 |
-| 3.1.7                                                  | SQLite 3.50.0 |
-| 3.1.6                                                  | SQLite 3.49.1 |
-| 3.1.4                                                  | SQLite 3.46.0 |
-| 3.1.3                                                  | SQLite 3.41.0 |
-| 3.1.2                                                  | SQLite 3.39.4 |
+Supported runtime versions — original App Runner build| Runtime name | **Minor versions** | **Included packages** |
+| --- | --- | --- |
+| Ruby 3.1 (ruby31) | 3.1.7 | SQLite 3.50.2 |
+| 3.1.7 | SQLite 3.50.1 |
+| 3.1.7 | SQLite 3.50.0 |
+| 3.1.6 | SQLite 3.49.1 |
+| 3.1.4 | SQLite 3.46.0 |
+| 3.1.3 | SQLite 3.41.0 |
+| 3.1.2 | SQLite 3.39.4 |
 
 ###### Note
 

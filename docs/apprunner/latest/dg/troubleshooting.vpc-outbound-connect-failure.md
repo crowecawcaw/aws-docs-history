@@ -33,27 +33,24 @@ correct this configuration:
      gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") in the Amazon VPC User Guide.
 
 2. Verify that the security group ingress and egress rules for the VPC Connector are correct. From the App Runner console left navigation pane, select
-   **Network configuration** > **Outgoing traffic**. Select the VPC Connector from the list.
-   The next page lists the **Security groups** that you can select to inspect.
-3. Verify that the security group inbound and outbound rules are correct for the RDS
-   instance or other downstream service that you’re attempting connection to. For more
-   information, see the service guide for the downstream service to which your App Runner application
-   is trying to connect.
-4. To confirm that there isn’t some other type of network setup issue outside of your App Runner configurations, try connecting to the RDS or downstream
-   service outside of App Runner:
+**Network configuration** > **Outgoing traffic**. Select the VPC Connector from the list.
+The next page lists the **Security groups** that you can select to inspect. 3. Verify that the security group inbound and outbound rules are correct for the RDS
+instance or other downstream service that you’re attempting connection to. For more
+information, see the service guide for the downstream service to which your App Runner application
+is trying to connect. 4. To confirm that there isn’t some other type of network setup issue outside of your App Runner configurations, try connecting to the RDS or downstream
+service outside of App Runner:
 
-   1. From an Amazon EC2 instance in the same VPC, try connecting to the RDS instance or
-      service.
-   2. If you’re trying to connect to a service VPC endpoint, verify connectivity by
-      accessing the same endpoint from an EC2 instance in the same VPC.
+    1. From an Amazon EC2 instance in the same VPC, try connecting to the RDS instance or
+     service.
+    2. If you’re trying to connect to a service VPC endpoint, verify connectivity by
+     accessing the same endpoint from an EC2 instance in the same VPC.
 
 5. If either of the connection tests in _Step 4_ fail, more than likely there’s an issue outside of your App Runner
-   configurations with another resource in your AWSaccount. Contact AWS Support for assistance to further isolate and fix the issue with your other
-   network configurations.
-6. If you successfully connect to the RDS instance or downstream service by doing the
-   instructions in _Step 4_, then proceed with the instructions in this
-   step. We’ll check if traffic is entering the ENI by enabling and inspecting the Hyperplane
-   ENI flow logs.
+configurations with another resource in your AWSaccount. Contact AWS Support for assistance to further isolate and fix the issue with your other
+network configurations. 6. If you successfully connect to the RDS instance or downstream service by doing the
+instructions in _Step 4_, then proceed with the instructions in this
+step. We’ll check if traffic is entering the ENI by enabling and inspecting the Hyperplane
+ENI flow logs.
 
 ###### Note
 
@@ -106,4 +103,4 @@ remain available for further investigation.
     Enter the App Runner ENI as the source, and the RDS ENI as the destination.
 
 7. If you're unable to narrow down the issue further, or if you’re still unable to connect to the RDS or downstream service after completing the prior
-   steps, we advise that you contact AWS Support for further assistance.
+steps, we advise that you contact AWS Support for further assistance.

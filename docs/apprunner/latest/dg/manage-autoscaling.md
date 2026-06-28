@@ -200,90 +200,84 @@ You can do any of the following from the **Auto scaling revisions** page:
 
 ###### To manage auto scaling revisions in your account
 
-1.  Open the [App Runner console](https://console.aws.amazon.com/apprunner "https://console.aws.amazon.com/apprunner"), and in the **Regions** list, select your AWS Region.
-2.  In the navigation pane, choose **Auto scaling configurations**. The console displays a list of auto scaling
-    configurations in your account. The prior set of procedures in the section includes a screen image of this page.
-3.  Now you can drill down into a specific auto scaling configuration to view and manage all of its revisions. In the **Auto scaling
-    configurations** pane, under the **Configuration name** column, choose an auto scaling configurations name.
-    Select the actual name, rather than the radio button. This will navigate you to a list of all the revisions for that configuration on the
-    **Auto scaling revisions** page.
-4.  You can now do any of the following.
+1. Open the [App Runner console](https://console.aws.amazon.com/apprunner "https://console.aws.amazon.com/apprunner"), and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Auto scaling configurations**. The console displays a list of auto scaling
+   configurations in your account. The prior set of procedures in the section includes a screen image of this page.
+3. Now you can drill down into a specific auto scaling configuration to view and manage all of its revisions. In the **Auto scaling
+   configurations** pane, under the **Configuration name** column, choose an auto scaling configurations name.
+   Select the actual name, rather than the radio button. This will navigate you to a list of all the revisions for that configuration on the
+   **Auto scaling revisions** page.
+4. You can now do any of the following.
 
-    - **To create a new revision for an existing auto scaling configuration**, follow these steps.
+   - **To create a new revision for an existing auto scaling configuration**, follow these steps.
 
-      1. On the **Auto scaling revisions** page, select **Create revision**.
+     1. On the **Auto scaling revisions** page, select **Create revision**.
 
-      The **Create revision** page displays. 2. Enter values for **Concurrency**, **Minimum size**, and **Maximum
-      size**. 3. (Optional) If you'd like to add tags, select **Auto new tag**. Then on the fields that appear enter a
-      **Name** and a **Value** (optional). 4. Select **Create**.
+     The **Create revision** page displays. 2. Enter values for **Concurrency**, **Minimum size**, and **Maximum
+     size**. 3. (Optional) If you'd like to add tags, select **Auto new tag**. Then on the fields that appear enter a
+     **Name** and a **Value** (optional). 4. Select **Create**.
 
-    - **To delete the whole auto scaling configuration, including all of the associated revisions**, follow
-      these steps.
+   - **To delete the whole auto scaling configuration, including all of the associated revisions**, follow
+     these steps.
 
-      1. Select **Delete configuration** on the top right of the page.
-      2. To proceed with the deletion, select **Delete** on the confirmation dialogue. Otherwise, select
-         **Cancel**.
+     1. Select **Delete configuration** on the top right of the page.
+     2. To proceed with the deletion, select **Delete** on the confirmation dialogue. Otherwise, select
+        **Cancel**.
 
-      ###### Note
+     ###### Note
 
-      App Runner validates that your deletion choice is not set as a default or is currently in use by any active services.
+     App Runner validates that your deletion choice is not set as a default or is currently in use by any active services.
 
-    - **To set an auto scaling revision as the default**, follow these steps.
+   - **To set an auto scaling revision as the default**, follow these steps.
 
-      1. Select the radio button next to the revision that you need to set as the default.
-      2. Select **Set as default** from the **Actions** menu.
+     1. Select the radio button next to the revision that you need to set as the default.
+     2. Select **Set as default** from the **Actions** menu.
 
-      ###### Note
+     ###### Note
 
-          + When you set an auto scaling configuration as default, it automatically gets assigned as the default configuration to the
-           new services you create in future.
-          + The new default designation doesn't affect the associations that were previously set for existing services.
+           + When you set an auto scaling configuration as default, it automatically gets assigned as the default configuration to the
+            new services you create in future.
+           + The new default designation doesn't affect the associations that were previously set for existing services.
 
-    - **To view the configuration details for a revision**, follow these steps.
+   - **To view the configuration details for a revision**, follow these steps.
 
-      1. Select the radio button next to the revision.
+     1. Select the radio button next to the revision.
 
-      The configuration details for the revision, including the ARN, displays in the lower split panel. Refer to the screen image
-      at the end of this procedure.
+     The configuration details for the revision, including the ARN, displays in the lower split panel. Refer to the screen image
+     at the end of this procedure.
 
-    - **To view a list of the services associated to a revision**, follow these steps.
+   - **To view a list of the services associated to a revision**, follow these steps.
 
-      1. Select the radio button next to the revision.
+     1. Select the radio button next to the revision.
 
-      The **Services** panel, displays in the lower split panel, beneath the revision configuration details. The
-      panel lists all of the services that use this auto scaling configuration revision. Refer to the screen image at the end of this
-      procedure.
+     The **Services** panel, displays in the lower split panel, beneath the revision configuration details. The
+     panel lists all of the services that use this auto scaling configuration revision. Refer to the screen image at the end of this
+     procedure.
 
-    - **To change the revision for a listed service**, follow these steps.
+   - **To change the revision for a listed service**, follow these steps.
 
-          1. Select the radio button next to the revision, if you haven't done so already.
+     1. Select the radio button next to the revision, if you haven't done so already.
 
+     The **Services** panel, displays in the lower split panel, beneath the revision configuration details. The
+     panel lists all of the services that use this auto scaling configuration revision. Refer to the screen image at the end of this
+     procedure. 2. On the **Services** panel, select the radio button next to the service that you want to modify. Then select
+     **Change revisions.** 3. The **Change ASC revision** panel displays. Choose from the available revisions in the drop-down. Only the
+     revisions of the auto scaling configuration you chose earlier are available. If you need to change to a different auto scaling
+     configuration, follow the procedures under the prior section [Manage auto scaling for a service](#manage-autoscaling.manage "#manage-autoscaling.manage").
 
-          The **Services** panel, displays in the lower split panel, beneath the revision configuration details. The
-           panel lists all of the services that use this auto scaling configuration revision. Refer to the screen image at the end of this
-           procedure.
-          2. On the **Services** panel, select the radio button next to the service that you want to modify. Then select
-           **Change revisions.**
-          3. The **Change ASC revision** panel displays. Choose from the available revisions in the drop-down. Only the
-           revisions of the auto scaling configuration you chose earlier are available. If you need to change to a different auto scaling
-           configuration, follow the procedures under the prior section [Manage auto scaling for a service](#manage-autoscaling.manage "#manage-autoscaling.manage").
+     Select **Update** to proceed with the change. Otherwise select **Cancel**.
 
+     ###### Note
 
-          Select **Update** to proceed with the change. Otherwise select **Cancel**.
+     When you change a revision that's associated to a service, your service is re-deployed.
 
+     You must select refresh on this panel to see the updated associations.
 
-          ###### Note
-
-          When you change a revision that's associated to a service, your service is re-deployed.
-
-          You must select refresh on this panel to see the updated associations.
-
-          To see the ongoing activity and the status for the service redeployment, use the panel breadcrumbs to navigate to **App Runner**
-          **>**
-          **Services**, select the service, then view the **Logs** tab from the
-           **Service overview** panel.
-
-      ![App Runner Auto scaling revisions page with split panel beneath that displays the services associated the selected revision.](images/asc-revisions-services.png)
+     To see the ongoing activity and the status for the service redeployment, use the panel breadcrumbs to navigate to **App Runner**
+     **>**
+     **Services**, select the service, then view the **Logs** tab from the
+     **Service overview** panel.
+     ![App Runner Auto scaling revisions page with split panel beneath that displays the services associated the selected revision.](images/asc-revisions-services.png)
 
 App Runner API or AWS CLI
 Use the following App Runner API actions to manage your auto scaling configuration resources.

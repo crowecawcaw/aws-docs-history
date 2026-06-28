@@ -77,22 +77,19 @@ can navigate within the App Runner console.
 - AWS WAF returns a `WAFNonexistentItemException` error when you call one of the following AWS WAF APIs for an App Runner service which is in an
   invalid state:
 
-      + `AssociateWebACL`
-      + `DisassociateWebACL`
-      + `GetWebACLForResource`
+  - `AssociateWebACL`
+  - `DisassociateWebACL`
+  - `GetWebACLForResource`
+    The invalid states for your App Runner service include:
 
-  The invalid states for your App Runner service include:
+  - `CREATE_FAILED`
+  - `DELETE_FAILED`
+  - `DELETED`
+  - `OPERATION_IN_PROGRESS`
 
-      + `CREATE_FAILED`
-      + `DELETE_FAILED`
-      + `DELETED`
-      + `OPERATION_IN_PROGRESS`
+  ###### Note
 
-
-
-      ###### Note
-
-      `OPERATION_IN_PROGRESS` state is invalid only if your App Runner service is being deleted.
+  `OPERATION_IN_PROGRESS` state is invalid only if your App Runner service is being deleted.
 
 - Your request might result in a payload that is larger than the limits of what AWS WAF can inspect. For more information about how AWS WAF handles
   oversize requests from App Runner, see [Oversize request component handling](../../../waf/latest/developerguide/waf-rule-statement-oversize-handling.md "../../../waf/latest/developerguide/waf-rule-statement-oversize-handling.md") in

@@ -72,14 +72,13 @@ The section starts with the `build:` key, and has the following subkeys:
 - `commands` – _Required._ Specifies the commands that App Runner runs during
   various build phases. Includes the following subkeys:
 
-      + `pre-build` – *Optional.* The commands that App Runner runs before the build. For example, install
-       **npm** dependencies or test libraries.
-      + `build` – *Required.* The commands that App Runner runs to build your application. For example, use
-       **pipenv**.
-      + `post-build` – *Optional.* The commands that App Runner runs after the build. For example, use Maven to package
-       build artifacts into a JAR or WAR file, or run a test.
-
-  Syntax
+  - `pre-build` – _Optional._ The commands that App Runner runs before the build. For example, install
+    **npm** dependencies or test libraries.
+  - `build` – _Required._ The commands that App Runner runs to build your application. For example, use
+    **pipenv**.
+  - `post-build` – _Optional._ The commands that App Runner runs after the build. For example, use Maven to package
+    build artifacts into a JAR or WAR file, or run a test.
+    Syntax
 
 ```
 build:
@@ -180,7 +179,7 @@ run:
 ```
 
 - `pre-run` – _Optional._
-  **_[Revised build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail") usage only_**. Specifies the commands that App Runner runs
+  _**[Revised build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail") usage only**_. Specifies the commands that App Runner runs
   after copying your application from the build image to the run image. You can enter commands here to the modify the run image outside the
   `/app` directory. For example, if you need to install additional global dependencies that reside outside of the
   `/app` directory, enter the required commands in this sub-section to do so. For more information about the App Runner build process,
@@ -216,13 +215,12 @@ run:
 
 - `network` – _Optional._ Specifies the port that your application listens to. It includes the following:
 
-      + `port` – *Optional.* If specified, this is the port number that your application listens to. The default
-       is `8080`.
-      + `env` – *Optional.* If specified, App Runner passes the port number to the container in this environment
-       variable, in addition to (not instead of) passing the same port number in the default environment variable, `PORT`. In other words, if
-       you specify `env`, App Runner passes the port number in two environment variables.
-
-  Syntax
+  - `port` – _Optional._ If specified, this is the port number that your application listens to. The default
+    is `8080`.
+  - `env` – _Optional._ If specified, App Runner passes the port number to the container in this environment
+    variable, in addition to (not instead of) passing the same port number in the default environment variable, `PORT`. In other words, if
+    you specify `env`, App Runner passes the port number in two environment variables.
+    Syntax
 
 ```
 run:

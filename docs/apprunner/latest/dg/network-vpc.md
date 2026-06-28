@@ -173,10 +173,8 @@ subnets.
      that you select are configured for dual-stack in the VPC Console.
 
 8. (Optional) For **Security group**, select the security groups
-   to associate with the endpoint network interfaces.
-9. (Optional) To add a tag, choose **Add new tag** and enter the
-   tag key and the tag value.
-10. Choose **Add**.
+to associate with the endpoint network interfaces. 9. (Optional) To add a tag, choose **Add new tag** and enter the
+tag key and the tag value. 10. Choose **Add**.
 
 The details of the VPC connector you created appear under **VPC
 connector**. 11. Choose **Next** to review your configuration, and then choose

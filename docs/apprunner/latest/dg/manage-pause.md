@@ -48,7 +48,7 @@ on a paused service. The equivalent console operations are similarly allowed or 
 
 ###### Actions you _can_ perform on a paused service
 
-- _`List_`and`Describe*` actions* – Actions that only read information.
+- _`List*` and `Describe*` actions_ – Actions that only read information.
 - _`DeleteService`_ – You can always delete a service.
 - _`TagResource`, `UntagResource`_ – Tags are associated with a service, but aren't part of its
   definition and don't affect its runtime behavior.

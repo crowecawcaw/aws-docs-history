@@ -253,8 +253,8 @@ You can update the VPC Ingress Connection resource. The VPC Ingress Connection m
 in one of the following states to be updated:
 
 - AVAILABLE
-- FAILED_CREATION
-- FAILED_UPDATE
+- FAILED\_CREATION
+- FAILED\_UPDATE
 
 The following is an example of updating a VPC Ingress Connection resource.
 

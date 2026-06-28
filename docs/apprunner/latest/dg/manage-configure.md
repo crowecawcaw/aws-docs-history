@@ -32,8 +32,8 @@ limitations.
 
   You can also update the following ARNs of separate configuration resources associated with the service:
 
-      - `AutoScalingConfigurationArn`
-      - `VpcConnectorArn`
+        - `AutoScalingConfigurationArn`
+        - `VpcConnectorArn`
   - _Cannot be updated_ – You can't change the `ServiceName` and `EncryptionConfiguration`
     parameters that are available in the [CreateService](../api/API_CreateService.md "../api/API_CreateService.md") action. They can't be changed after
     they're created. The [UpdateService](../api/API_UpdateService.md "../api/API_UpdateService.md") action doesn't include these parameters.
