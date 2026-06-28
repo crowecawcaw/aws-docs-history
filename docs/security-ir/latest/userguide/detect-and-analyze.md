@@ -15,7 +15,7 @@ _Amazon GuardDuty_
 
 To enable GuardDuty across your organization, please see the `Setting up GuardDuty` section of the [Amazon GuardDuty User Guide](../../../guardduty/latest/ug/guardduty_settingup.md#guardduty_enable-gd "../../../guardduty/latest/ug/guardduty_settingup.md#guardduty_enable-gd").
 
-We highly recommend that you enable GuardDuty in all supported AWS Regions. This enables GuardDuty to generate
+AWS highly recommends that you enable GuardDuty in all supported AWS Regions. This enables GuardDuty to generate
 findings about unauthorized or unusual activity even in regions that you are not actively using. For more information,
 reference
 [Amazon GuardDuty Regions and endpoints](../../../guardduty/latest/ug/guardduty_regions.md "../../../guardduty/latest/ug/guardduty_regions.md")
@@ -83,7 +83,7 @@ Windows
 - Windows Server 2012 R2
 - Windows Server 2016, 2019, 2022
 
-To use EC2 Triage, you must deploy the **Containment with EC2 Triage** CloudFormation template to your accounts. For more information, see [Working with CloudFormation StackSets](working-with-stacksets.md "working-with-stacksets.md"). The target Amazon EC2 instances must have [SSM Agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md") installed and running, and must be online and managed by AWS Systems Manager. For setup information, see [Setting up Systems Manager for Amazon EC2 instances](../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md "../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md").
+To use EC2 Triage, you must deploy the **Containment with EC2 Triage** CloudFormation template to your accounts. For more information, see [Deploy containment and EC2 Triage roles](working-with-stacksets.md "working-with-stacksets.md"). The target Amazon EC2 instances must have [SSM Agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md") installed and running, and must be online and managed by AWS Systems Manager. For setup information, see [Setting up Systems Manager for Amazon EC2 instances](../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md "../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md").
 
 **Communicate**
 

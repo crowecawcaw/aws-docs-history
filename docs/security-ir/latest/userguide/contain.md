@@ -1,16 +1,84 @@
 # Contain
 
-AWS Security Incident Response partners with you to contain events. You can configure the service to take proactive containment actions in your account in response to security findings. You can also perform containment yourself or in partnership with your third party relationships by using the [SSM documents](../../../systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.md") described in [Supported Containment Actions.](supported-containment-actions.md "supported-containment-actions.md")
+When AWS Security Incident Response identifies an active threat in your environment, containment is the
+immediate priority: stop the threat actor from causing further damage while preserving
+evidence for investigation. The service runs containment through reversible, automated
+actions that isolate compromised resources without destroying them. To enable these
+capabilities, you must first configure the required permissions and preferences. See
+[Deploy containment and EC2 Triage roles](working-with-stacksets.md "working-with-stacksets.md").
 
-###### Important
+## Containment decision-making
 
-AWS Security Incident Response does not enable containment capabilities by default.
+An essential part of containment is deciding whether to shut down a system, isolate a
+resource from the network, revoke access, or end sessions. AWS Security Incident Response provides the
+containment strategy, informs you of potential impact, and guides you on implementing
+the solution only after you have considered and agreed to the risks involved.
 
-Two steps are required to enable proactive containment capabilities:
+These decisions become easier when you have predetermined strategies and procedures.
+The service uses a combination of your containment preferences (configured during
+onboarding), the nature of the threat, and real-time analysis to determine the
+appropriate response.
 
-1. **Grant the necessary permissions** to the service using IAM roles. You can create these roles individually per account or across your entire organization by working with AWS CloudFormation stacksets, which create the required roles.
-2. **Define your containment preferences** per account or across your organization to authorize proactive containment actions. Account-level preferences supersede organization-level preferences. This may be done by creating an AWS Support Case (Technical: Security Incident Response Service/Other). The available containment preferences are:
+## Supported containment actions
 
-   - **Approval Required (default):** Do not perform proactive containment of any resource without explicit authorization on a case-by-case basis.
-   - **Contain Confirmed:** Perform proactive containment of a resource confirmed to be compromised.
-   - **Contain Suspected:** Perform proactive containment of a resource with a high likelihood of having been compromised, based on analysis performed by AWS Security Incident Response Engineering.
+AWS Security Incident Response runs containment actions on your behalf to reduce the time a threat
+actor has to cause damage. All supported containment actions are reversible. The service
+can restore the resource to its pre-containment state after the incident is resolved.
+The containment actions map to three resource types:
+
+**Amazon EC2 containment**
+(`AWSSupport-ContainEC2Instance`) performs a reversible network containment of
+an Amazon Elastic Compute Cloud (Amazon EC2) instance. The instance stays running and intact, but the automation isolates it
+from new network activity and prevents it from communicating with resources inside or
+outside your Amazon VPC by replacing the instance's security groups with a restrictive
+containment security group. Existing tracked connections aren't shut down as a result of
+changing security groups. Only future traffic is blocked.
+
+**IAM containment**
+(`AWSSupport-ContainIAMPrincipal`) performs a reversible containment of an
+AWS Identity and Access Management (IAM) user or role. The principal remains in IAM, but the automation isolates it from
+communicating with resources in your account by attaching a deny-all policy. This
+effectively revokes the principal's ability to take actions while preserving it for
+forensic review.
+
+**Amazon S3 containment**
+(`AWSSupport-ContainS3Resource`) performs a reversible containment of an Amazon Simple Storage Service (Amazon S3)
+bucket. Objects remain in the bucket, but the automation isolates the bucket or object by
+modifying its access policies to deny all external access.
+
+## Developing your containment strategy
+
+Consider containment strategies for each major event type that
+fit within your risk appetite. Document clear criteria to help with decision-making during
+an event. Criteria to consider include the following:
+
+- Potential damage to resources
+- Preservation of evidence and regulatory requirements
+- Service unavailability (for example, network connectivity or services
+  provided to external parties)
+- Time and resources needed to implement the strategy
+- Effectiveness of the strategy (partial versus full containment)
+- Permanence of the solution (reversible versus irreversible)
+- Duration of the solution (emergency workaround, temporary workaround, or
+  permanent solution)
+
+Apply security controls that lower risk and allow time to define and implement a more
+effective containment strategy.
+
+## Staged containment approach
+
+AWS Security Incident Response uses a staged approach to achieve efficient and effective containment,
+involving short-term and long-term strategies based on the resource type. Short-term
+containment focuses on immediately stopping the active threat (isolating a network,
+revoking credentials), while long-term containment addresses the root cause to prevent
+recurrence after the immediate danger passes.
+
+## How containment relates to the incident lifecycle
+
+Containment sits between detection/analysis and eradication in the incident lifecycle.
+After automated triage identifies a confirmed or suspected threat and a case is created,
+the service determines whether containment action is warranted based on your preferences
+and the severity of the event. After a resource is contained, AWS Security Incident Response engineers
+continue the investigation, share findings with you, and guide you through eradication
+and recovery. After the incident is fully resolved, the containment actions are reversed
+and normal operations resume.

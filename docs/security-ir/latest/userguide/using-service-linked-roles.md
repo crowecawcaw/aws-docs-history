@@ -6,7 +6,7 @@ roles for AWS Security Incident Response**
 ###### Topics
 
 - [AWS SLR: AWSServiceRoleForSecurityIncidentResponse](#AWSServiceRoleForSecurityIncidentResponse "#AWSServiceRoleForSecurityIncidentResponse")
-- [AWS SLR: AWSServiceRoleForSecurityIncidentResponse_Triage](#AWSServiceRoleForSecurityIncidentResponse_Triage "#AWSServiceRoleForSecurityIncidentResponse_Triage")
+- [AWS SLR: AWSServiceRoleForSecurityIncidentResponse\_Triage](#AWSServiceRoleForSecurityIncidentResponse_Triage "#AWSServiceRoleForSecurityIncidentResponse_Triage")
 - [Supported regions for AWS Security Incident Response service-linked roles](#sir-slr-regions "#sir-slr-regions")
 
 **Supports service-linked
@@ -67,15 +67,15 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 to create, edit, or delete a service-linked role. For more information, see
 [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
 
-## AWS SLR: AWSServiceRoleForSecurityIncidentResponse_Triage
+## AWS SLR: AWSServiceRoleForSecurityIncidentResponse\_Triage
 
-AWS Security Incident Response uses the service-linked role (SLR) named AWSServiceRoleForSecurityIncidentResponse_Triage
+AWS Security Incident Response uses the service-linked role (SLR) named AWSServiceRoleForSecurityIncidentResponse\_Triage
 – AWS Security Incident Response policy to continuously monitor your environment for security threats,
 tune security services to reduce alert noise, and gather information to investigate potential incidents.
 
 ### Permissions
 
-The AWSServiceRoleForSecurityIncidentResponse_Triage service-linked role trusts the following service
+The AWSServiceRoleForSecurityIncidentResponse\_Triage service-linked role trusts the following service
 to assume the role:
 
 - `triage.security-ir.amazonaws.com`

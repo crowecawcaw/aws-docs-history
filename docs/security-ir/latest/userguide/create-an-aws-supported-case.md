@@ -10,7 +10,7 @@ Demo/simulation-cases are closing after a period of 90 days.
 ###### Note
 
 AWS Security Incident Response engineers will respond to your case within 15 minutes. Response time is for a first response
-from AWS Security Incident Response engineers. We will make every reasonable effort to respond to your initial request within
+from AWS Security Incident Response engineers. AWS Security Incident Response makes every reasonable effort to respond to your initial request within
 this time frame. This response time does not apply to subsequent responses.
 
 ###### Note

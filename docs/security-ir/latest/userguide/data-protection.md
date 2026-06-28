@@ -39,7 +39,7 @@ when you work with AWS Support or other AWS services using the
 console, API, AWS Command Line Interface, or AWS SDKs. Any data that you enter tags
 or free-form text fields used for names might be used for billing or
 diagnostic logs. If you provide a URL to an external server, we
-**_strongly_**
+_**strongly**_
 recommend that you do not include credentials information in the
 URL to validate your request to that server.
 

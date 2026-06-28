@@ -4,4 +4,4 @@
 
 ###### Note
 
-We are continuously improving the OU association user experience to make the process more intuitive and self-explanatory.
+AWS Security Incident Response is continuously improving the OU association user experience to make the process more intuitive and self-explanatory.

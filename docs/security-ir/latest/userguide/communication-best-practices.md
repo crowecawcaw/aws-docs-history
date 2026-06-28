@@ -10,4 +10,4 @@ Effective communication accelerates incident resolution. Follow these practices 
 
 ###### Important
 
-If AWS Security Incident Response engineers don't receive a response to critical information requests within 5 business days, we work toward case closure. You can reopen a case if new information becomes available.
+If AWS Security Incident Response engineers don't receive a response to critical information requests within 5 business days, the team works toward case closure. You can reopen a case if new information becomes available.

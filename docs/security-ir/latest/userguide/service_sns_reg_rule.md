@@ -52,8 +52,5 @@ Patterns](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbrid
     	 more information, see [Granting permissions to
     	 the dead-letter queue](../../../eventbridge/latest/userguide/eb-rule-dlq.md#eb-dlq-perms "../../../eventbridge/latest/userguide/eb-rule-dlq.md#eb-dlq-perms") in the *Amazon EventBridge User Guide*.
 
-15. Choose **Next**.
-16. (Optional) Enter one or more tags for the rule. For more information, see [Amazon EventBridge tags](../../../eventbridge/latest/userguide/eb-tagging.md "../../../eventbridge/latest/userguide/eb-tagging.md")
-    in the _Amazon EventBridge User Guide_.
-17. Choose **Next**.
-18. Review the details of the rule and choose **Create rule**.
+15. Choose **Next**. 16. (Optional) Enter one or more tags for the rule. For more information, see [Amazon EventBridge tags](../../../eventbridge/latest/userguide/eb-tagging.md "../../../eventbridge/latest/userguide/eb-tagging.md")
+in the _Amazon EventBridge User Guide_. 17. Choose **Next**. 18. Review the details of the rule and choose **Create rule**.

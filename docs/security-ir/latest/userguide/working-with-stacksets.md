@@ -1,9 +1,8 @@
-# Working with CloudFormation StackSets
+# Deploy containment and EC2 Triage roles
 
-For specific instructions on how to create a StackSet with service-managed permissions, see [Create CloudFormation StackSets with service-managed permissions](../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-associate-stackset-with-org.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-associate-stackset-with-org.md") in the _AWS CloudFormation User Guide_.
+AWS Security Incident Response doesn't enable containment by default. To allow the service to take containment actions on your behalf during a security incident, you must deploy AWS Identity and Access Management roles to each account in your organization where you want containment capabilities. The recommended approach is to use AWS CloudFormation StackSets with service-managed permissions, which automatically deploys the roles to all current and future accounts in your organization.
 
-AWS Security Incident Response provides two CloudFormation templates. Both templates create the same two AWS Identity and Access Management roles, `AWSSecurityIncidentResponseContainment` and `AWSSecurityIncidentResponseContainmentExecution`. The **Containment with EC2 Triage** template adds the `AWSSecurityIncidentResponseInvestigationPolicy` to the `AWSSecurityIncidentResponseContainment` role, which grants additional permissions for EC2 Triage. Choose the template that matches your security requirements:
+###### Topics
 
-- [Containment only](containment-only-template.md "containment-only-template.md"): Creates the minimum required permissions for containment actions.
-- [Containment with EC2 Triage](containment-with-ec2-triage-template.md "containment-with-ec2-triage-template.md"): Includes all containment permissions plus additional permissions for EC2 Triage. This template enables AWS Security Incident Response to execute AWS Systems Manager Run Command on your Amazon Elastic Compute Cloud instances during security investigations.
-  For more information about EC2 Triage, see [Detect and Analyze](detect-and-analyze.md "detect-and-analyze.md").
+- [Deploy the IAM roles with a StackSet](deploy-iam-roles-stackset.md "deploy-iam-roles-stackset.md")
+- [Select a CloudFormation template for your containment roles](cloudformation-templates.md "cloudformation-templates.md")

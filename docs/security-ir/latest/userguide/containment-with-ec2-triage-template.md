@@ -1,6 +1,14 @@
 # Containment with EC2 Triage
 
-This template creates the containment roles with additional permissions for EC2 Triage functionality. Use this template if you require AWS Security Incident Response to execute Systems Manager Run Command on Amazon EC2 instances during security investigations.
+Use this template if you want both containment capabilities and the ability for AWS Security Incident Response engineers to investigate running instances during an incident.
+
+This template creates everything included in the containment-only template and adds the `AWSSecurityIncidentResponseInvestigationPolicy` to the `AWSSecurityIncidentResponseContainment` role. This policy grants the following permissions:
+
+- Describe Amazon EC2 instances and their status
+- Retrieve instance profile information
+- Verify Systems Manager Agent connectivity on target instances
+- Execute `ssm:SendCommand` to run investigative commands on instances
+  EC2 Triage allows AWS Security Incident Response engineers to collect volatile forensic data from running Amazon EC2 instances during an active security incident. This data can include running processes, network connections, logged-in users, and other operating system artifacts that would be lost if the instance were terminated or stopped.
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'

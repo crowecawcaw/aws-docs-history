@@ -1,6 +1,12 @@
 # Containment only
 
-This template creates the minimum required roles for containment actions. Use this template if you do not require EC2 Triage functionality.
+Use this template if you want the service to isolate compromised resources during an incident but don't need forensic data collection from running instances.
+
+This template creates two IAM roles:
+
+- `AWSSecurityIncidentResponseContainment` – Assumed by AWS Security Incident Response to initiate containment automation workflows through AWS Systems Manager.
+- `AWSSecurityIncidentResponseContainmentExecution` – Assumed by AWS Systems Manager to execute the containment actions on your resources.
+  These roles enable three containment actions: isolating Amazon EC2 instances from network traffic, revoking IAM principal access, and restricting Amazon S3 bucket access.
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
