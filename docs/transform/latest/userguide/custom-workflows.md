@@ -249,7 +249,7 @@ This section describes advanced features and configuration options for AWS Trans
 
 You can customize CLI behavior using environment variables.
 
-**ATX_SHELL_TIMEOUT**
+**ATX\_SHELL\_TIMEOUT**
 
 Override the default timeout for shell commands (900 seconds/15 minutes).
 
@@ -259,7 +259,7 @@ export ATX_SHELL_TIMEOUT=1800  # 30 minutes
 
 This is useful for large codebases or long-running build processes.
 
-**ATX_DISABLE_UPDATE_CHECK**
+**ATX\_DISABLE\_UPDATE\_CHECK**
 
 Disable automatic version checks and update notifications during command execution.
 

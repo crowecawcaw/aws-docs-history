@@ -125,9 +125,7 @@ Configure IAM Identity Center to use an external enterprise identity provider, a
     3. Choose an existing key or create a new one.
     4. Choose **Submit** to apply your changes, and then choose **Enable AWS Transform**.Choose **View profile** to view the configuration. The Web application URL is used by your users to access the AWS Transform unified web experience.
 
-5. Select **Users** in the navigation pane and select **Assign users or groups**.
-6. Search for the name of the user or groups you want to authorize to use AWS Transform. The search references users and groups propagated from your identity provider.
-7. Select a group or user, select **Done**, and then, **Assign**. These users are authorized to use the AWS Transform unified web interface.
+5. Select **Users** in the navigation pane and select **Assign users or groups**. 6. Search for the name of the user or groups you want to authorize to use AWS Transform. The search references users and groups propagated from your identity provider. 7. Select a group or user, select **Done**, and then, **Assign**. These users are authorized to use the AWS Transform unified web interface.
 
 ## Using third-party identity providers
 
@@ -147,7 +145,7 @@ encrypted and secured:
 Stored User Information
 
 AWS Transform stores basic user profile information upon first login, including display
-name, email address, username (preferred_username), and a unique user identifier. This
+name, email address, username (preferred\_username), and a unique user identifier. This
 information is encrypted using either a customer-owned KMS key or a service-owned key,
 depending on the customer's AWS Transform profile configuration. The data is stored in AWS Transform's authentication database and is only collected during the initial login session.
 This populates the search results when inviting other users to a workspace.

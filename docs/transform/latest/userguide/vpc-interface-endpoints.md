@@ -40,11 +40,11 @@ endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpo
 
 AWS Transform supports the following VPC endpoint services:
 
-| Service name    | Endpoint                                  | Note                                                                                                                                                                                                                                    |
-| --------------- | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Control plane   | `com.amazonaws.`region`.transform`        |                                                                                                                                                                                                                                         |
-| Agentic API     | `com.amazonaws.`region`.transform-agents` |                                                                                                                                                                                                                                         |
-| Web application | `com.amazonaws.`region`.api.transform`    | Required for the AWS Transform web application. This endpoint \*_must_<br>• have private DNS enabled (the<br>\*Enable DNS name<br>• option) so that<br>`api.transform.`region`.on.aws` resolves to<br>a private IP address in your VPC. |
+| Service name    | Endpoint                                  | Note                                                                                                                                                                                                                                  |
+| --------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Control plane   | `com.amazonaws.`region`.transform`        |                                                                                                                                                                                                                                       |
+| Agentic API     | `com.amazonaws.`region`.transform-agents` |                                                                                                                                                                                                                                       |
+| Web application | `com.amazonaws.`region`.api.transform`    | Required for the AWS Transform web application. This endpoint *_must_<br>• have private DNS enabled (the<br>*Enable DNS name<br>• option) so that<br>`api.transform.`region`.on.aws` resolves to<br>a private IP address in your VPC. |
 
 Replace `region` with the AWS Region where your AWS Transform
 profile is installed, for example,

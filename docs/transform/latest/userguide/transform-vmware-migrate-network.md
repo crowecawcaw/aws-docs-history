@@ -147,7 +147,7 @@ CIDR-based rules are also used when source configurations are not symmetric.
 Choose one of the following security group mapping strategies:
 
 - **MAP:** Translates security rules from your source environment to AWS security groups and rules. Use this option for migrations using static IP addressing.
-- **MAP_DHCP (Translate with DHCP support):** Translates security rules from your source environment with DHCP compatibility. DHCP assigns IP addresses dynamically from the subnet's CIDR range. As a result, cross-VPC egress rules are widened to match the full destination subnet CIDR. A narrower CIDR would block DHCP-assigned IPs that fall outside that range — review these rules post-migration.
+- **MAP\_DHCP (Translate with DHCP support):** Translates security rules from your source environment with DHCP compatibility. DHCP assigns IP addresses dynamically from the subnet's CIDR range. As a result, cross-VPC egress rules are widened to match the full destination subnet CIDR. A narrower CIDR would block DHCP-assigned IPs that fall outside that range — review these rules post-migration.
 
 Use this option for DHCP support with cross-VPC Transit Gateway communication. Also works with static IPs, but might produce broader rules than MAP.
 
@@ -155,7 +155,7 @@ Use this option for DHCP support with cross-VPC Transit Gateway communication. A
 
 ###### Note
 
-Your mapping strategy determines your IP assignment options. MAP supports static IP only. MAP_DHCP and SKIP support both static and DHCP.
+Your mapping strategy determines your IP assignment options. MAP supports static IP only. MAP\_DHCP and SKIP support both static and DHCP.
 
 ### IP migration approaches
 
@@ -219,10 +219,9 @@ Security group rules that exactly match the old VPC CIDR are updated automatical
 - **Rename:** Change the name of a VPC to align with your organization's naming conventions for cost allocation, compliance tracking, and operational standards.
 - **Resize:** Change the prefix length of a VPC CIDR to expand or reduce the IP address range.
 
-      + **Prefix length decrease** (more IPs, for example /20 to /16): Subnets still fit within the larger range. No subnet changes needed.
-      + **Prefix length increase** (fewer IPs, for example /16 to /20): Subnets that fall outside the new range must be resized first using the subnet resize operation.
-
-  Security group rules that exactly match the old VPC CIDR are updated automatically. Rules that partially overlap or don't match the old CIDR are not changed — review these rules after resizing.
+  - **Prefix length decrease** (more IPs, for example /20 to /16): Subnets still fit within the larger range. No subnet changes needed.
+  - **Prefix length increase** (fewer IPs, for example /16 to /20): Subnets that fall outside the new range must be resized first using the subnet resize operation.
+    Security group rules that exactly match the old VPC CIDR are updated automatically. Rules that partially overlap or don't match the old CIDR are not changed — review these rules after resizing.
 
 Resize requirements:
 

@@ -146,27 +146,21 @@ Navigate to **User settings**, **Personal access tokens**. Select **Custom defin
 
 #### Store the PAT in AWS Secrets Manager
 
-1.  Open the AWS Secrets Manager console.
-2.  Choose **Store a new secret**.
-3.  For **Secret type**, choose **Other type of secret**.
-4.  Add key-value pairs based on your provider and hosting type:
+1. Open the AWS Secrets Manager console.
+2. Choose **Store a new secret**.
+3. For **Secret type**, choose **Other type of secret**.
+4. Add key-value pairs based on your provider and hosting type:
 
-        * **Cloud-hosted providers** — Add a key named `token` with your PAT as the value.
+   - **Cloud-hosted providers** — Add a key named `token` with your PAT as the value.
 
+     - For Azure DevOps with a specific organization, also add a key named `organization` with your organization name.
+     - For Bitbucket app passwords (ATBB), also add a key named `username` with your Bitbucket username. For Bitbucket account API tokens (ATAT), add a key named `email` with your Bitbucket email address.
 
+   - **Self-hosted and custom DNS/URL providers** — Add the following keys: `host` (your server URL, for example `https://github.mycompany.com`), `provider_type` (`github`, `gitlab`, `bitbucket`, or `ado`), and `token` (your PAT).
 
-
-        	+ For Azure DevOps with a specific organization, also add a key named `organization` with your organization name.
-        	+ For Bitbucket app passwords (ATBB), also add a key named `username` with your Bitbucket username. For Bitbucket account API tokens (ATAT), add a key named `email` with your Bitbucket email address.
-        * **Self-hosted and custom DNS/URL providers** — Add the following keys: `host` (your server URL, for example `https://github.mycompany.com`), `provider_type` (`github`, `gitlab`, `bitbucket`, or `ado`), and `token` (your PAT).
-
-
-
-
-        	+ For Azure DevOps with a specific organization, also add a key named `organization` with your organization name.
-        	+ For Bitbucket app passwords (ATBB), also add a key named `username` with your Bitbucket username. For Bitbucket account API tokens (ATAT), add a key named `email` with your Bitbucket email address.
-
-    The following example shows how a secret looks in AWS Secrets Manager for a GitHub cloud-hosted provider:
+     - For Azure DevOps with a specific organization, also add a key named `organization` with your organization name.
+     - For Bitbucket app passwords (ATBB), also add a key named `username` with your Bitbucket username. For Bitbucket account API tokens (ATAT), add a key named `email` with your Bitbucket email address.
+       The following example shows how a secret looks in AWS Secrets Manager for a GitHub cloud-hosted provider:
 
 ```
 {
@@ -541,7 +535,7 @@ AWS Transform uses AWS DMS Schema Conversion enhanced with generative AI to:
 **May require human review:**
 
 - Complex stored procedures with advanced T-SQL
-- SQL Server-specific functions (GETUTCDATE, SUSER_SNAME, etc.)
+- SQL Server-specific functions (GETUTCDATE, SUSER\_SNAME, etc.)
 - Computed columns with complex expressions
 - Full-text search indexes
 - XML data type operations

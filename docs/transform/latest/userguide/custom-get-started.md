@@ -202,7 +202,7 @@ Example log output showing region source:
 }
 ```
 
-The `regionSource` field shows where the region was derived from (e.g., "aws-config (profile: default)", "AWS_REGION", "default").
+The `regionSource` field shows where the region was derived from (e.g., "aws-config (profile: default)", "AWS\_REGION", "default").
 
 ###### Important
 

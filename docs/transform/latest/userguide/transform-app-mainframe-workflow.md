@@ -568,7 +568,7 @@ WIP,Work in progress
 SWOT,"Strengths, Weaknesses, Opportunities and Threats"
 ```
 
-- **pdf_config.json**: You can leverage
+- **pdf\_config.json**: You can leverage
   this optional configuration file to generate PDF documents which align
   with their company’s formats and standards, including headers, footers,
   logos, and customized information. A sample
@@ -712,9 +712,8 @@ business logic extraction.
      batch jobs are grouped together, while all other programs are
      categorized as *Unassigned*.
 
-3. Choose **Continue**.
-4. Once AWS Transform extracts business logic it stores the results in an Amazon S3 bucket
-   in JSON format so that you can view them online.
+3. Choose **Continue**. 4. Once AWS Transform extracts business logic it stores the results in an Amazon S3 bucket
+in JSON format so that you can view them online.
 
 ###### Note
 
@@ -915,7 +914,7 @@ reforge.zip
 └──tokenizer_map.json
 ```
 
-- **maven_project** contains the reforged source
+- **maven\_project** contains the reforged source
   code.
 
   - Files that have been refactored but whose compilation was not
@@ -934,7 +933,7 @@ with the reforged files only if the reforging process is successful. Otherwise, 
 
 - **reforge.log** contains logs that you can use
   to diagnose job failures or provide to AWS support in case of an issue.
-- **tokenizer_map.json** contains a mapping of token IDs to your data,
+- **tokenizer\_map.json** contains a mapping of token IDs to your data,
   such as file paths and class/method names, that are tokenized in the logs for privacy protection. You can provide this file to AWS support in case of an issue.
 
 ### Plan your modernized applications testing

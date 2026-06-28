@@ -22,6 +22,9 @@ environment to AWS.
 - AI-driven generation of migration plans, including application grouping and
   suggested migration waves.
 - Rehosting your servers to run natively on Amazon EC2.
+- Localized web application interface, allowing you to use AWS Transform for VMware
+  migrations in your preferred language. For more information, see
+  [Language settings](transform-environment.md#transform-environment-language "transform-environment.md#transform-environment-language").
 
 AWS Transform supports migrating Windows and Linux servers of supported operating systems.
 For the full list of supported operating systems, see [Supported operating

@@ -7,19 +7,19 @@ connector setup page](transform-vmware-connect-target-account.md#transform-vmwar
 
 ## June 2026
 
+- AWS Transform for VMware migrations now supports localization. You can change the display
+  language of the web application when working with VMware migration workflows. [Learn
+  more about language settings](transform-environment.md#transform-environment-language "transform-environment.md#transform-environment-language").
 - AWS Transform now allows you to configure your replication settings and launch settings for
   your migration. You can set the configuration per your target account or across specific
   source servers. [Learn
   more about replication and launch settings](transform-vmware-migrate-servers.md#transform-vmware-ms-prereqs-and-defaults "transform-vmware-migrate-servers.md#transform-vmware-ms-prereqs-and-defaults").
 - AWS Transform now allows you to attach existing Elastic Network Interfaces (ENIs) to your
-  launch template for your migration. AWS Transform displays all existing ENIs found in your target
-  account, and you can tag them so that they are available for use through the launch
-  configuration when instances are launched. [Learn
+  launch template. You can tag ENIs in your target account so they are available for use
+  when instances are launched. [Learn
   more about network resource tagging](transform-vmware-migrate-servers.md#transform-vmware-ms-resource-tagging "transform-vmware-migrate-servers.md#transform-vmware-ms-resource-tagging").
 - AWS Transform for VMware migrations now supports all AWS commercial regions as migration
-  targets, excluding Middle East (Bahrain) and Middle East (UAE). A migration target region
-  is the AWS Region where migrated resources are deployed, including landing zones, network
-  infrastructure, and server rehosting. [Learn
+  targets, excluding Middle East (Bahrain) and Middle East (UAE). [Learn
   more about supported target regions](transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions "transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions").
 
 ## May 2026
@@ -36,13 +36,10 @@ connector setup page](transform-vmware-connect-target-account.md#transform-vmwar
 
 - Added landing zone creation directly within migration workflows. AWS Transform checks for an
   existing foundation, recommends Organizational Unit (OU) structures and target accounts, and
-  offers fully automated deployment or Infrastructure as Code (IaC) output (CloudFormation, AWS CDK, or
+  offers automated deployment or Infrastructure as Code (IaC) output (CloudFormation, AWS CDK, or
   Landing Zone Accelerator (LZA) formats). [Learn more about landing
   zone creation](transform-vmware-landing-zone.md "transform-vmware-landing-zone.md").
-- Added support for DHCP with security group mapping during network migration. If you have
-  DHCP-enabled migration workloads, you can now ensure your security rules remain valid after
-  migration. This applies to both in-VPC security group referencing and cross-VPC and
-  cross-account outbound rules via Transit Gateway. [Learn
+- Added support for DHCP with security group mapping during network migration. [Learn
   more about security group creation](transform-vmware-migrate-network.md#transform-vmware-security-group-association "transform-vmware-migrate-network.md#transform-vmware-security-group-association").
 
 ## March 2026

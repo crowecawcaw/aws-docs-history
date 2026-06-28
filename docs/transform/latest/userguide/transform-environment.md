@@ -17,13 +17,12 @@ Here's what you see when you open AWS Transform.
   choose one of the icons to choose what view is shown to the right of the
   view control pane. Hover over each icon for a tool tip explaining the view. The give standard views, from top to bottom, are:
 
-      + **Job Plan**
-      + **Dashboard**
-      + **Approvals**
-      + **Artifacts**
-      + **Worklog**
-
-  Some workflows provide additional views.
+  - **Job Plan**
+  - **Dashboard**
+  - **Approvals**
+  - **Artifacts**
+  - **Worklog**
+    Some workflows provide additional views.
 
 When you are working in a job plan, the views are:
 
@@ -51,6 +50,37 @@ Users with read-only permissions are unable to send messages in the chat.
 
   - Uploading data files
   - Reviewing information and plans provided by AWS Transform
+
+## Language settings
+
+AWS Transform supports localization for select workflows. You can change the display language
+of the web application by choosing the **Settings** icon in the top right
+corner and selecting your preferred language from the **Language** menu.
+
+The following languages are supported:
+
+- English (US)
+- English (UK)
+- Deutsch (German)
+- Español (Spanish)
+- Français (French)
+- 日本語 (Japanese)
+- Bahasa Indonesia (Indonesian)
+- Italiano (Italian)
+- Português (Portuguese)
+- 한국어 (Korean)
+- 中文 (简体) (Chinese Simplified)
+- 中文 (繁體) (Chinese Traditional)
+- Türkçe (Turkish)
+
+The following workflows support localization:
+
+- [VMware migration](transform-app-vmware.md "transform-app-vmware.md")
+
+###### Note
+
+Other AWS Transform workflows are currently available in English only. Localization support
+for additional workflows may be added in future updates.
 
 ## Start your project
 

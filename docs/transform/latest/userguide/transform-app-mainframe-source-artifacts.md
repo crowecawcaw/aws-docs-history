@@ -39,29 +39,29 @@ classifies it for you.
 
 The following table lists common file extensions for mainframe source artifacts.
 
-| Mainframe source code file extensions | Language/Type      | Common extensions                              | Description |
-| ------------------------------------- | ------------------ | ---------------------------------------------- | ----------- |
-| COBOL                                 | .cbl, .cob, .cobol | COBOL source programs                          |
-| JCL                                   | .jcl               | Job Control Language scripts                   |
-| Assembler                             | .asm               | Assembler language programs                    |
-| PL/I                                  | .pl1               | PL/I language programs                         |
-| CICS Definition                       | .csd               | CICS system definition (CSD)                   |
-| Natural                               | .nat               | Natural programs                               |
-| REXX                                  | .rex, .rexx        | REXX scripts                                   |
-| Easytrieve                            | .ezt               | Easytrieve report programs                     |
-| Copybooks                             | .cpy               | COBOL copybooks                                |
-| BMS                                   | .bms               | Basic Mapping Support (BMS)                    |
-| PL/I copybooks                        | .pl1_copy          | PL/I copybooks                                 |
-| Db2 DCLGEN                            | .dcl               | Db2 declarations generator                     |
-| Db2 definition                        | .sql, .ddl         | Db2 database definitions                       |
-| IMS definition                        | .ims               | IMS resource definition data set (IMS Stage 1) |
-| MFS                                   | .mfs               | IMS MFS (Message Format Service)               |
-| PSB                                   | .psb               | IMS PSB (Program Specification Block)          |
-| DBD                                   | .dbd               | IMS Database Definitions                       |
-| JCL Proc                              | .prc, .proc        | JCL Procedure libraries                        |
-| JCL Includes                          | .inc               | JCL Include files                              |
-| Macros                                | .mac               | Assembler macros                               |
-| Control Cards                         | .ctl               | JCL Utility control cards                      |
+Mainframe source code file extensions| Language/Type | Common extensions | Description |
+| --- | --- | --- |
+| COBOL | .cbl, .cob, .cobol | COBOL source programs |
+| JCL | .jcl | Job Control Language scripts |
+| Assembler | .asm | Assembler language programs |
+| PL/I | .pl1 | PL/I language programs |
+| CICS Definition | .csd | CICS system definition (CSD) |
+| Natural | .nat | Natural programs |
+| REXX | .rex, .rexx | REXX scripts |
+| Easytrieve | .ezt | Easytrieve report programs |
+| Copybooks | .cpy | COBOL copybooks |
+| BMS | .bms | Basic Mapping Support (BMS) |
+| PL/I copybooks | .pl1\_copy | PL/I copybooks |
+| Db2 DCLGEN | .dcl | Db2 declarations generator |
+| Db2 definition | .sql, .ddl | Db2 database definitions |
+| IMS definition | .ims | IMS resource definition data set (IMS Stage 1) |
+| MFS | .mfs | IMS MFS (Message Format Service) |
+| PSB | .psb | IMS PSB (Program Specification Block) |
+| DBD | .dbd | IMS Database Definitions |
+| JCL Proc | .prc, .proc | JCL Procedure libraries |
+| JCL Includes | .inc | JCL Include files |
+| Macros | .mac | Assembler macros |
+| Control Cards | .ctl | JCL Utility control cards |
 
 ## Collection methods
 

@@ -19,14 +19,14 @@ Remember this password - there is no password recovery mechanism.
 - SSH access is disabled by default. Users can use preconfigured `enablessh` and
   `disablessh` aliases to enable/disable SSH access to the
   discovery tool VM. Users can SSH into the VM via `ssh
-discovery@<VM-IP>` after enabling SSH access. Users are
+ discovery@<VM-IP>` after enabling SSH access. Users are
   encouraged to keep SSH access disabled most of the times and enable it only
   while actively required. Password change is enforced when running
   `enablessh`.
 - To access the discovery tool data directory at
   `/home/ec2-user/.local/share/DiscoveryTool`, we recommend
   switching to `ec2-user` by running `sudo su
-ec2-user`.
+ ec2-user`.
 
 ## Configure Kerberos authentication
 

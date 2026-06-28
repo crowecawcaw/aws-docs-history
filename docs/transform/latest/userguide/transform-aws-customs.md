@@ -15,66 +15,98 @@ AWS-managed transformations have the following characteristics:
 
 ## Available AWS-Managed Transformations
 
-The following AWS-managed transformations are currently available:
+The following catalog lists the AWS-managed transformations that are currently available, grouped by use case. Each table shows the transformation name, the language or stack it applies to, and its status. To find a transformation quickly, use the search box at the top of this page to search by name, language, or use case.
 
-**Language Version Upgrades:**
-
-- `AWS/java-version-upgrade` - Upgrade Java applications using any build system from any source JDK version to any target JDK version with comprehensive dependency modernization including Jakarta EE migration, database drivers,
-  ORM frameworks, and Spring ecosystem updates. You can specify your desired target JDK version either through interactive chat with the agent, or by passing an additionalPlanContext configuration parameter.
-- `AWS/python-version-upgrade` - Migrate Python projects from Python 3.8/3.9 to Python 3.11/3.12/3.13, ensuring compatibility with the latest Python features, security updates, and runtime while maintaining functionality and performance.
-  You can specify your desired target Python version either through interactive chat with the agent, or by passing an additionalPlanContext configuration parameter.
-- `AWS/nodejs-version-upgrade` - Upgrade NodeJS applications from any source NodeJS version to any target NodeJS version. You can specify your desired target NodeJS version either
-  through interactive chat with the agent, or by passing an additionalPlanContext configuration parameter.
-
-**AWS SDK Migrations:**
-
-- `AWS/java-aws-sdk-v1-to-v2` - Upgrade the AWS SDK from V1 to V2 for Java projects using Maven or Gradle.
-- `AWS/python-boto2-to-boto3` - Migrate Python applications from boto2 to boto3, based on the official AWS migration documentation.
-- `AWS/nodejs-aws-sdk-v2-to-v3` - Upgrade Node.js applications from AWS SDK for JavaScript v2 to v3 to leverage modular architecture, first-class TypeScript support, middleware stack, and improved performance while ensuring all AWS service interactions continue to function correctly, without modifying the underlying Node.js version.
-
-**GenAI Model Migrations:**
-
-- To use this transformation, specify `AWS/mke-genai-model-migration` as the transformation name. The transformation assesses your generative AI workloads and produces a migration plan. It helps you move from third-party model providers to . The transformation scans your codebase to identify every AI SDK and model in use. The agent gathers migration requirements through interactive questions. Then it maps models to equivalents with transparent cost comparisons and production-ready code changes. Supports migrations from OpenAI, Google Gemini, direct Anthropic SDK usage, and open-source models through LiteLLM or Ollama. Handles direct SDK integrations and framework-wrapped patterns including LangChain, LlamaIndex, CrewAI, LangGraph, and multi-provider routing layers. The transformation preserves your application architecture while swapping only the model layer. Includes intelligent cost optimization with tiered model routing recommendations and prompt caching analysis. The transformation uses model lifecycle awareness to exclude models within 90 days of end-of-life from all recommendations. For some workloads, it recommends 's OpenAI-compatible endpoints as a zero-code-change migration path.
-
-**Analysis:**
-
-- `AWS/comprehensive-codebase-analysis` - This transformation performs deep static analysis of codebases to
-  generate hierarchical, cross-referenced documentation covering all aspects of the system. It combines behavioral analysis, architectural
-  documentation, and business intelligence extraction to create a comprehensive knowledge base organized for maximum usability and navigation.
-  The transformation places special emphasis on technical debt analysis, providing prominent, actionable insights on outdated components and
-  maintenance concerns at the root level.
-- `AWS/java-performance-optimization` - Optimize Java application performance by analyzing JFR profiling data to detect CPU/memory hotspots and anti-patterns, then applying targeted code fixes to reduce resource usage and improve efficiency. For instructions on collecting JFR data, see [https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/run.htm](https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/run.htm "https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/run.htm").
-
-**Early Access Transformations**
+This catalog is the canonical list of AWS-managed transformations. The Kiro Power, the agent plugin, the VS Code plugin, and the CLI all run the same transformations. To list the transformations available in your registry, run `atx custom def list`.
 
 ###### Note
 
-Early access transformations are functional but might be frequently updated based on customer
-feedback.
+Transformations marked **Early access** are functional but might be updated frequently based on customer feedback.
 
-- `AWS/early-access-java-x86-to-graviton` - [Early Access] Validates Java application compatibility with Arm64 architecture for running on
-  AWS Graviton Processors. Identifies and resolves Arm64 incompatibilities by updating dependencies, detecting architecture-specific code patterns,
-  and recompiling native libraries when source code is available. Makes targeted code modifications necessary for Arm64 support, such as architecture detection, and native library loading,
-  but does not perform general code refactoring. Maintains current Java version and JDK distribution and validates compatibility through build and test execution.
-  For optimal results, run in an Arm64-based environment.
+### Runtime upgrades
 
-###### Note
+Upgrade a language or runtime to a newer version, or change the runtime distribution.
 
-Many modern Java applications are already Arm64-compatible.
+| Transformation                      | Language / stack        | Status              | Description                                                                                                                                                                                                                                                                                                                 |
+| ----------------------------------- | ----------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AWS/java-version-upgrade`          | Java                    | Generally available | Upgrade Java applications using any build system from any source JDK version to any target JDK version, with dependency modernization including Jakarta EE migration, database drivers, ORM frameworks, and Spring ecosystem updates. Specify the target JDK version in chat or with the `additionalPlanContext` parameter. |
+| `AWS/python-version-upgrade`        | Python                  | Generally available | Migrate Python projects from Python 3.8 or 3.9 to Python 3.11, 3.12, or 3.13 while maintaining functionality and performance. Specify the target Python version in chat or with the `additionalPlanContext` parameter.                                                                                                      |
+| `AWS/nodejs-version-upgrade`        | Node.js                 | Generally available | Upgrade Node.js applications from any source Node.js version to any target Node.js version. Specify the target version in chat or with the `additionalPlanContext` parameter.                                                                                                                                               |
+| `AWS/lambda-nodejs-runtime-upgrade` | Node.js (Lambda)        | Early access        | Upgrade AWS Lambda functions from older Node.js runtimes (nodejs4.3 through nodejs22.x) to nodejs24.x, addressing breaking changes in the Lambda Runtime Interface Client (RIC) and the Node.js 24 language runtime.                                                                                                        |
+| `AWS/oracle-java-to-corretto`       | Java (JDK distribution) | Early access        | Migrate Java projects from Oracle JDK to Amazon Corretto. Replaces Oracle-specific internal APIs with standard Java equivalents, updates build configurations (Maven and Gradle) and container base images, removes commercial JVM flags, and generates a licensing report.                                                 |
 
-- `AWS/early-access-angular-to-react-migration` - [Early Access] Transform an Angular application to React.
-- `AWS/vue.js-version-upgrade` - [Early Access] An early-access transformation for major version upgrades from Vue.js 2 to Vue.js 3 to modernize components, state management, routing, and global APIs to Vue.js 3 patterns. Minor or patch updates are outside the scope.
-- `AWS/angular-version-upgrade` - [Early Access] This is an early-access transformation to transform an older Angular application to a target Angular version by upgrading components, services, templates, and routing to modern Angular patterns.
-- `AWS/early-access-log4j-to-slf4j-migration` - [Early Access] This transformation migrates Java applications from Log4j (1.x/2.x) to SLF4J with Logback backend. Handles source code, dependency management (Maven/Gradle), and logging configuration files. Validates via compile, test, and residual import scan.
-- `AWS/agentic-readiness-analysis` - [Early Access] This is an early-access transformation that evaluates whether systems are ready to be safely called by AI agents - covering APIs, identity, state management, human-in-the-loop, and observability.
-- `AWS/modernization-readiness-analysis` - [Early Access] This is an early-access transformation that scans portfolios for cloud-native maturity gaps and maps findings to AWS modernization pathways.
-- `AWS/portfolio-agentic-readiness-analysis` - [Early Access] This is an early-access transformation that aggregates individual Agentic Readiness Analysis reports across a portfolio of applications, identifying cross-cutting blockers, shared remediation patterns, and organizational readiness gaps. Produces prioritized recommendations mapped to AWS programs, workshops, and enablement resources tailored to each portfolio's agentic adoption journey.
-- `AWS/portfolio-modernization-readiness-analysis` - [Early Access] This is an early-access transformation that aggregates individual Modernization Analysis reports across a portfolio of applications, producing a consolidated modernization roadmap with prioritized migration waves, recommended modernization pathways, and AWS program recommendations including workshops and enablement resources tailored to each portfolio's modernization needs.
-- `AWS/oracle-java-to-corretto` - [Early Access] This is an early-access transformation that migrates Java projects from Oracle JDK to Amazon Corretto. Replaces Oracle-specific internal APIs (sun.\*, com.sun.\*, com.oracle.\*) with standard Java equivalents, updates build configurations (Maven/Gradle), replaces container base images (Oracle, eclipse-temurin, openjdk, adoptopenjdk) with amazoncorretto, updates CI workflow distribution fields, removes commercial JVM flags, fixes annotation-processor JDK incompatibilities (Lombok), handles Alpine-to-Amazon-Linux package translation, and generates a LICENSING_REPORT.md with cost savings.
-- `AWS/oracle-service-bus-to-aws` - [Early Access] This is an early-access transformation that migrates Oracle Service Bus (OSB) and BPEL process configurations to AWS-native serverless architecture by generating a deployable CDK TypeScript project with API Gateway, Lambda, and Step Functions from OSB proxy/pipeline/business service XML definitions.
-- `AWS/JBoss-to-Spring-Boot` - [Early Access] This is an early-access transformation that migrates Java EE/Jakarta EE enterprise applications running on JBoss EAP or WildFly application servers to Spring Boot, eliminating application server dependencies, modernizing to a cloud-native containerized deployment model, and improving developer productivity, deployment velocity, and resource efficiency.
-- `AWS/datadog-monitors-to-cloudwatch-alarms` - [Early Access] This is an early-access transformation that migrates DataDog Metric Monitors (metric alert, query alert) tracking AWS service metrics (aws.\* prefix) and custom metrics (Metric Streams or IAM Role polling integration) to native CloudWatch Alarms as infrastructure-as-code. Classifies monitors into Standard, Metrics Insights (MI), or Metric Math alarms. Generates CloudFormation YAML, CDK TypeScript, and/or Terraform HCL. Supports JSON exports, Terraform config (.tf), state (.tfstate), and plan (.tfplan) inputs. Handles ANOMALY_DETECTION_BAND, arithmetic expressions, MI SQL fleet monitoring, and .as_count() simplification. Detects DataDog integration type (Metric Streams vs IAM Role polling) and resolves custom metric names via CloudWatch list-metrics inventory.
-- `AWS/spring-boot-version-upgrade` - [Early Access] This is an early-access transformation to transform an older Spring Boot application to a target Spring Boot version by upgrading build files and starters, properties, Jackson 3 packages, Spring Security 7 DSL, testing infrastructure, and observability dependencies to modern Spring Boot patterns.
+### SDK migrations
+
+Migrate between major versions of an AWS SDK.
+
+| Transformation                | Language / stack | Status              | Description                                                                                                                                                                                     |
+| ----------------------------- | ---------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AWS/java-aws-sdk-v1-to-v2`   | Java             | Generally available | Upgrade the AWS SDK from v1 to v2 for Java projects using Maven or Gradle.                                                                                                                      |
+| `AWS/python-boto2-to-boto3`   | Python           | Generally available | Migrate Python applications from boto2 to boto3, based on the official AWS migration documentation.                                                                                             |
+| `AWS/nodejs-aws-sdk-v2-to-v3` | Node.js          | Generally available | Upgrade Node.js applications from the AWS SDK for JavaScript v2 to v3 for modular architecture, first-class TypeScript support, and improved performance, without changing the Node.js version. |
+
+### Framework upgrades and migrations
+
+Upgrade a framework to a newer version, or migrate to a different framework.
+
+| Transformation                                | Language / stack                       | Status       | Description                                                                                                                                                                                                                  |
+| --------------------------------------------- | -------------------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AWS/spring-boot-version-upgrade`             | Java / Spring Boot                     | Early access | Upgrade an older Spring Boot application to a target Spring Boot version, including build files and starters, properties, Jackson 3 packages, Spring Security 7 DSL, testing infrastructure, and observability dependencies. |
+| `AWS/JBoss-to-Spring-Boot`                    | Java (JBoss or WildFly to Spring Boot) | Early access | Migrate Java EE or Jakarta EE enterprise applications running on JBoss EAP or WildFly to Spring Boot, eliminating application server dependencies for a cloud-native, containerized deployment model.                        |
+| `AWS/early-access-angular-to-react-migration` | Angular to React                       | Early access | Transform an Angular application to React.                                                                                                                                                                                   |
+| `AWS/angular-version-upgrade`                 | Angular                                | Early access | Upgrade an older Angular application to a target Angular version, including components, services, templates, and routing.                                                                                                    |
+| `AWS/vue.js-version-upgrade`                  | Vue.js                                 | Early access | Perform a major version upgrade from Vue.js 2 to Vue.js 3, modernizing components, state management, routing, and global APIs. Minor and patch updates are outside the scope.                                                |
+
+### GenAI and model migrations
+
+Migrate generative AI workloads to .
+
+| Transformation                              | Language / stack        | Status       | Description                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------------------------------- | ----------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AWS/GenAI-to-Bedrock-Migration-Assessment` | Generative AI workloads | Early access | Assess generative AI workloads for migration from third-party providers (OpenAI, Google Gemini, Anthropic direct, and open-source models) to . Discovers SDK usage and models, clarifies requirements, designs a model mapping, estimates cost and risk, and generates assessment artifacts. Assessment-only; does not modify source code. Also covers agentic frameworks such as CrewAI, LangGraph, and Strands. |
+
+### Language-to-language migrations
+
+Translate a codebase from one programming language to another.
+
+| Transformation                | Language / stack | Status       | Description                                                                                                                                                                                                                                                                            |
+| ----------------------------- | ---------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AWS/vba-to-python-migration` | VBA to Python    | Early access | Migrate Excel VBA macros, modules, UserForms, and embedded logic to equivalent Python scripts and modules, using openpyxl, pandas, tkinter or PyQt6, and standard libraries. Target language is Python 3.8 or later. Use when converting .bas, .cls, .frm, or .xlsm-embedded VBA code. |
+
+### Database migrations
+
+No database-specific AWS-managed transformations are currently available. To modernize Microsoft SQL Server databases and their associated .NET applications to Amazon Aurora PostgreSQL, see [SQL Server modernization](sql-server-modernization.md "sql-server-modernization.md").
+
+### Observability
+
+Modernize logging and monitoring to AWS-native services.
+
+| Transformation                              | Language / stack                    | Status       | Description                                                                                                                                                                                                                                  |
+| ------------------------------------------- | ----------------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AWS/early-access-log4j-to-slf4j-migration` | Java (logging)                      | Early access | Migrate Java applications from Log4j (1.x or 2.x) to SLF4J with a Logback backend. Handles source code, dependency management (Maven and Gradle), and logging configuration files, and validates by compile, test, and residual import scan. |
+| `AWS/datadog-monitors-to-cloudwatch-alarms` | Infrastructure as code / monitoring | Early access | Migrate DataDog metric monitors that track AWS service metrics and custom metrics to native CloudWatch alarms as infrastructure as code. Generates CloudFormation YAML, CDK TypeScript, and Terraform HCL.                                   |
+
+### Architecture
+
+Re-architect, re-platform, or optimize applications for AWS.
+
+| Transformation                          | Language / stack                 | Status              | Description                                                                                                                                                                                                                                                                                                                                                                              |
+| --------------------------------------- | -------------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AWS/java-performance-optimization`     | Java (performance)               | Generally available | Optimize Java application performance by analyzing JFR profiling data to detect CPU and memory hotspots and anti-patterns, then applying targeted code fixes. For instructions on collecting JFR data, see [the JFR runtime guide](https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/run.htm "https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/run.htm"). |
+| `AWS/early-access-java-x86-to-graviton` | Java (Arm64 / Graviton)          | Early access        | Validate Java application compatibility with the Arm64 architecture for AWS Graviton processors, and resolve incompatibilities by updating dependencies, detecting architecture-specific code patterns, and recompiling native libraries when source code is available. Many modern Java applications are already Arm64-compatible.                                                      |
+| `AWS/oracle-service-bus-to-aws`         | Java / integration to serverless | Early access        | Migrate Oracle Service Bus (OSB) and BPEL process configurations to an AWS-native serverless architecture, generating a deployable CDK TypeScript project with Amazon API Gateway, AWS Lambda, and AWS Step Functions.                                                                                                                                                                   |
+
+### Codebase analysis
+
+Analyze codebases and portfolios to plan modernization. These transformations produce reports and do not modify your code.
+
+| Transformation                                   | Language / stack   | Status              | Description                                                                                                                                                                                                                              |
+| ------------------------------------------------ | ------------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AWS/comprehensive-codebase-analysis`            | Multiple languages | Generally available | Perform deep static analysis of a codebase to generate hierarchical, cross-referenced documentation that combines behavioral analysis, architectural documentation, and business intelligence, with emphasis on technical debt insights. |
+| `AWS/agentic-readiness-analysis`                 | Multiple languages | Early access        | Evaluate whether systems are ready to be safely called by AI agents, covering APIs, identity, state management, human-in-the-loop, and observability.                                                                                    |
+| `AWS/modernization-readiness-analysis`           | Multiple languages | Early access        | Scan portfolios for cloud-native maturity gaps and map findings to AWS modernization pathways.                                                                                                                                           |
+| `AWS/portfolio-agentic-readiness-analysis`       | Portfolio          | Early access        | Aggregate individual agentic readiness analysis reports across a portfolio of applications to identify cross-cutting blockers, shared remediation patterns, and prioritized recommendations.                                             |
+| `AWS/portfolio-modernization-readiness-analysis` | Portfolio          | Early access        | Aggregate individual modernization analysis reports across a portfolio into a consolidated roadmap with prioritized migration waves and recommended modernization pathways.                                                              |
 
 ## Customizing AWS-Managed Transformations
 

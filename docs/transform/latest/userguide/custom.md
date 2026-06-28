@@ -160,7 +160,7 @@ Here are a few of the commands you can use with custom transformations. The comp
 
   - **Shows help menu.**
   - Each command also includes a help menu, for example, `atx custom
-def exec --help`.
+   def exec --help`.
 
 - `atx --version` | `atx -v`
 

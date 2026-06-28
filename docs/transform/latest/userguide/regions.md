@@ -28,6 +28,7 @@ see [Regions that are enabled by default](../../../glossary/latest/reference/glo
 - Europe (London)
 - Asia Pacific (Seoul)
 - Canada (Central)
+- South America (São Paulo) - Mainframe modernization agents only
 
 The workspace in which you create a job determines the AWS Region of the job. To
 create a job in a different Region, you must use a different workspace that is in your

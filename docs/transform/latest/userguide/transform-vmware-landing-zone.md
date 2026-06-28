@@ -349,7 +349,7 @@ All landing zone resources receive the following tags:
 If your migration is part of the AWS Migration Acceleration Program
 (MAP 2.0), you can include the required MAP tag: Key:
 `map-migrated` Value: `migMPE_ID` (where
-MPE_ID is your Migration Portfolio Evaluation identifier). The MAP tag
+MPE\_ID is your Migration Portfolio Evaluation identifier). The MAP tag
 is requested during the connector setup phase. AWS Transform
 applies these tags during landing zone deployment.
 

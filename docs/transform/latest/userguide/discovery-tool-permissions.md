@@ -143,7 +143,7 @@ system:
 | Linux     | SSH      | Regular user for connection data. Passwordless sudo recommended for process-level details (PID and process name).                  |
 | Linux     | SNMPv2   | A read-only community string with access to the TCP MIB (tcpConnState, tcpConnectionProcess) and Host Resources MIB (hrSWRunName). |
 | Linux     | SNMPv3   | A USM user with read access to the same MIBs as SNMPv2. Supports noAuthNoPriv, authNoPriv, and authPriv security levels.           |
-| Windows   | WinRM    | WMI read access to the `root\StandardCIMV2` namespace (MSFT_NetTCPConnection class).                                               |
+| Windows   | WinRM    | WMI read access to the `root\StandardCIMV2` namespace (MSFT\_NetTCPConnection class).                                              |
 
 ## Quick reference: Minimum permissions by use case
 

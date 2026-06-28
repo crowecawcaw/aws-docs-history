@@ -25,12 +25,12 @@ To enable or disable Web Forms to Blazor UI porting, check or clear the Transfor
 
 Your Web Forms project is converted to a Blazor project with server-side hosting. The following project and file changes are made during transformation:
 
-| File transformation mapping | From             | To                                                        | Description |
-| --------------------------- | ---------------- | --------------------------------------------------------- | ----------- |
-| \*.aspx, \*.ascx            | \*.razor         | .aspx pages and .ascx custom controls become .razor files |
-| Web.config                  | appsettings.json | Web.config settings become appsettings.json settings      |
-| Global.asax                 | Program.cs       | Global.asax code becomes Program.cs code                  |
-| \*.master                   | \*layout.razor   | Master files become layout.razor files                    |
+File transformation mapping| From | To | Description |
+| --- | --- | --- |
+| \*.aspx, \*.ascx | \*.razor | .aspx pages and .ascx custom controls become .razor files |
+| Web.config | appsettings.json | Web.config settings become appsettings.json settings |
+| Global.asax | Program.cs | Global.asax code becomes Program.cs code |
+| \*.master | \*layout.razor | Master files become layout.razor files |
 
 ### Post-transformation project structure
 

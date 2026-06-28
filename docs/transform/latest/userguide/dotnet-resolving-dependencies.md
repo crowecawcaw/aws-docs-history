@@ -13,12 +13,11 @@ The Missing Package Dependencies can be updated in two ways:
   the search box. This table includes the following details about the missing
   packages:
 
-      + Name
-      + Associated repositories
-      + Framework version status
-      + Core version status
-
-  To resolve the missing package dependencies, [Upload the missing packages](#upload-missing-packages "#upload-missing-packages").
+  - Name
+  - Associated repositories
+  - Framework version status
+  - Core version status
+    To resolve the missing package dependencies, [Upload the missing packages](#upload-missing-packages "#upload-missing-packages").
 
 ## Upload the missing packages
 
@@ -30,16 +29,11 @@ To use the Windows PowerShell script:
     2. Run the script locally with an active connection to the repositories that contain the missing package dependency files.
     3. This script allows you to download the missing package dependencies to your local environment.
 
-2. The script will create a single zip file for you to upload which includes all of the dependencies in one archive. You can also upload individual `.nupkg` or zip files for each dependency.
-3. Select **Upload package files.**
-4. In the **Upload dependency files** modal, select **Choose files** and browse to the location of the compressed missing package files on your device.
-5. Select **Upload**.
-6. AWS Transform validates the files you uploaded. During validation, you cannot make any updates. AWS Transform reports the validation status above the _Missing package dependencies_ table.
-7. AWS Transform also updates the status columns in the _Missing package dependencies_ table from _Missing_ to _Resolved_. If a package fails validation, its status becomes _Invalid_. For invalid files do the following:
+2. The script will create a single zip file for you to upload which includes all of the dependencies in one archive. You can also upload individual `.nupkg` or zip files for each dependency. 3. Select **Upload package files.** 4. In the **Upload dependency files** modal, select **Choose files** and browse to the location of the compressed missing package files on your device. 5. Select **Upload**. 6. AWS Transform validates the files you uploaded. During validation, you cannot make any updates. AWS Transform reports the validation status above the _Missing package dependencies_ table. 7. AWS Transform also updates the status columns in the _Missing package dependencies_ table from _Missing_ to _Resolved_. If a package fails validation, its status becomes _Invalid_. For invalid files do the following:
 
-   1. In the _Missing package dependencies_ table, select the invalid package using the check box.
-   2. Select **Remove uploaded file**.
-   3. This changes its status back to _Missing_.
+    1. In the *Missing package dependencies* table, select the invalid package using the check box.
+    2. Select **Remove uploaded file**.
+    3. This changes its status back to *Missing*.
 
 8. After you have uploaded the missing packages and resolved the package dependencies, select **Proceed to review**.
 

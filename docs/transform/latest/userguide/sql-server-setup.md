@@ -34,11 +34,11 @@ GRANT VIEW ANY DEFINITION TO [atx_user];
 
 Repeat the database-specific commands (USE, CREATE USER, GRANT) for each database you want to modernize.
 
-The db_datareader role is only necessary for data migration, not for schema conversion alone.
+The db\_datareader role is only necessary for data migration, not for schema conversion alone.
 
-- The db_datareader role grants read access to all tables in the database
+- The db\_datareader role grants read access to all tables in the database
 - This role is required ONLY when performing data migration.
-- For schema conversion only (without data migration), the db_datareader role is NOT required
+- For schema conversion only (without data migration), the db\_datareader role is NOT required
 - The other permissions (VIEW DEFINITION, VIEW DATABASE STATE, etc.) are sufficient for schema conversion
 
 ### Step 2: Store credentials in AWS Secrets Manager
@@ -51,7 +51,7 @@ Store your database credentials securely in AWS Secrets Manager. Skip this step 
 
    - **Secret type:** Credentials for other database
    - **Database**: Microsoft SQL Server
-   - **Username**: atx_user (or your chosen username)
+   - **Username**: atx\_user (or your chosen username)
    - **Password**: The password you created
    - **Server name**: Your SQL Server endpoint
    - **Database name**: Your database name

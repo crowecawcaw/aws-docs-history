@@ -85,42 +85,42 @@ The discovery tool gathers comprehensive data across VMware, Hyper-V, OS metrics
 
 This table describes the VMware virtual machine information collected by the discovery tool:
 
-| Name                                   | Type    | Category       | Sample Value                                      |
-| -------------------------------------- | ------- | -------------- | ------------------------------------------------- |
-| vm_name                                | String  | VM Info        | "w2k22-snmpd-v2-en-us-mssql-2022-testcase4-1"     |
-| vm_id                                  | String  | VM Info        | "vm-30920"                                        |
-| vm_uuid                                | String  | VM Info        | "4201ecf8-cc44-ee7e-01da-34dfb2acf6c0"            |
-| powerstate                             | String  | VM Info        | "poweredOn"                                       |
-| host                                   | String  | VM Info        | "esxi-70-node1.testlab.local"                     |
-| primary_ip_address                     | String  | VM Info        | "192.168.0.52"                                    |
-| cpus                                   | Integer | VM Info        | 2                                                 |
-| memory                                 | Integer | VM Info        | 4096                                              |
-| total_disk_capacity_mib                | Integer | VM Info        | 32768                                             |
-| os_according_to_the_configuration_file | String  | VM Info        | "Microsoft Windows Server 2016 or later (64-bit)" |
-| max_cpu_usage_pct_dec                  | Float   | VM Performance | 79.33                                             |
-| avg_cpu_usage_pct_dec                  | Float   | VM Performance | 45.06                                             |
-| max_ram_usage_pct_dec                  | Float   | VM Performance | 63.99                                             |
-| avg_ram_utl_pct_dec                    | Float   | VM Performance | 29.27                                             |
+| Name                                        | Type    | Category       | Sample Value                                      |
+| ------------------------------------------- | ------- | -------------- | ------------------------------------------------- |
+| vm\_name                                    | String  | VM Info        | "w2k22-snmpd-v2-en-us-mssql-2022-testcase4-1"     |
+| vm\_id                                      | String  | VM Info        | "vm-30920"                                        |
+| vm\_uuid                                    | String  | VM Info        | "4201ecf8-cc44-ee7e-01da-34dfb2acf6c0"            |
+| powerstate                                  | String  | VM Info        | "poweredOn"                                       |
+| host                                        | String  | VM Info        | "esxi-70-node1.testlab.local"                     |
+| primary\_ip\_address                        | String  | VM Info        | "192.168.0.52"                                    |
+| cpus                                        | Integer | VM Info        | 2                                                 |
+| memory                                      | Integer | VM Info        | 4096                                              |
+| total\_disk\_capacity\_mib                  | Integer | VM Info        | 32768                                             |
+| os\_according\_to\_the\_configuration\_file | String  | VM Info        | "Microsoft Windows Server 2016 or later (64-bit)" |
+| max\_cpu\_usage\_pct\_dec                   | Float   | VM Performance | 79.33                                             |
+| avg\_cpu\_usage\_pct\_dec                   | Float   | VM Performance | 45.06                                             |
+| max\_ram\_usage\_pct\_dec                   | Float   | VM Performance | 63.99                                             |
+| avg\_ram\_utl\_pct\_dec                     | Float   | VM Performance | 29.27                                             |
 
 #### Hyper-V data collection
 
 This table describes the Hyper-V virtual machine information collected by the discovery tool:
 
-| Name             | Type    | Category | Sample Value                           |
-| ---------------- | ------- | -------- | -------------------------------------- |
-| vm_name          | String  | VM Info  | "win2022-hyperv-test-01"               |
-| vm_id            | String  | VM Info  | "a1b2c3d4-e5f6-7890-abcd-ef1234567890" |
-| powerstate       | String  | VM Info  | "Running"                              |
-| cpus             | Integer | VM Info  | 4                                      |
-| memory_mb        | Integer | VM Info  | 8192                                   |
-| disk_paths       | String  | Disk     | "C:\\VMs\\disk1.vhdx"                  |
-| disk_size_gb     | Float   | Disk     | 127.0                                  |
-| network_adapters | String  | Network  | "00:15:5D:01:02:03"                    |
-| ip_addresses     | String  | Network  | "10.0.1.50"                            |
-| host_name        | String  | Host     | "hyperv-host-01.example.com"           |
-| host_os_version  | String  | Host     | "Windows Server 2022 Datacenter"       |
-| cluster_name     | String  | Host     | "FailoverCluster01"                    |
-| hypervisor       | String  | VM Info  | "Hyper-V"                              |
+| Name              | Type    | Category | Sample Value                           |
+| ----------------- | ------- | -------- | -------------------------------------- |
+| vm\_name          | String  | VM Info  | "win2022-hyperv-test-01"               |
+| vm\_id            | String  | VM Info  | "a1b2c3d4-e5f6-7890-abcd-ef1234567890" |
+| powerstate        | String  | VM Info  | "Running"                              |
+| cpus              | Integer | VM Info  | 4                                      |
+| memory\_mb        | Integer | VM Info  | 8192                                   |
+| disk\_paths       | String  | Disk     | "C:\\VMs\\disk1.vhdx"                  |
+| disk\_size\_gb    | Float   | Disk     | 127.0                                  |
+| network\_adapters | String  | Network  | "00:15:5D:01:02:03"                    |
+| ip\_addresses     | String  | Network  | "10.0.1.50"                            |
+| host\_name        | String  | Host     | "hyperv-host-01.example.com"           |
+| host\_os\_version | String  | Host     | "Windows Server 2022 Datacenter"       |
+| cluster\_name     | String  | Host     | "FailoverCluster01"                    |
+| hypervisor        | String  | VM Info  | "Hyper-V"                              |
 
 #### Imported server data
 
@@ -132,148 +132,148 @@ Imported servers are not auto-discovered. They are imported through a CSV file. 
 
 The discovery tool collects OS-level metrics from servers through SSH (Linux) and WinRM (Windows). Data is collected across six sub-modules and exported into six CSV files.
 
-#### Server inventory (server_inventory.csv)
+#### Server inventory (server\_inventory.csv)
 
 Combines server provisioning (hardware and OS configuration) with aggregated storage performance. Collected every 24 hours.
 
-| Name                            | Type    | Category            | Sample Value                           |
-| ------------------------------- | ------- | ------------------- | -------------------------------------- |
-| server_id                       | String  | Server Info         | "vm-web-server-01"                     |
-| server_name                     | String  | Server Info         | "web-server-01"                        |
-| resource_type                   | String  | Server Info         | "virtual_machine"                      |
-| power_state                     | String  | Server Info         | "Running"                              |
-| os_type                         | String  | Server Info         | "Linux"                                |
-| os_name                         | String  | Server Info         | "Amazon Linux"                         |
-| os_version                      | String  | Server Info         | "2023"                                 |
-| primary_hostname                | String  | Server Info         | "web-server-01.example.com"            |
-| primary_ip_address              | String  | Server Info         | "10.0.2.101"                           |
-| netmask                         | String  | Server Info         | "255.255.255.0"                        |
-| total_num_network_cards         | Integer | Server Info         | 2                                      |
-| total_num_disks                 | Integer | Server Info         | 1                                      |
-| cpu_count                       | Integer | Server Info         | 4                                      |
-| total_memory_gb                 | Float   | Server Info         | 15.88                                  |
-| server_uuid                     | String  | Server Info         | "4201ecf8-cc44-ee7e-01da-34dfb2acf6c0" |
-| smbios_uuid                     | String  | Server Info         | "4201ecf8-cc44-ee7e-01da-34dfb2acf6c0" |
-| cluster_name                    | String  | Server Info         | "production-cluster-01"                |
-| hypervisor_object_id            | String  | Server Info         | "vm-30920"                             |
-| hypervisor_type                 | String  | Server Info         | "VMware"                               |
-| hypervisor_version              | String  | Server Info         | "8.0.0"                                |
-| hypervisor_hostname             | String  | Server Info         | "esxi-node1.example.com"               |
-| hypervisor_host_id              | String  | Server Info         | "host-1234"                            |
-| hypervisor_id                   | String  | Server Info         | "4201ecf8-cc44-ee7e-01da-34dfb2acf6c0" |
-| disk_read_iops_avg              | Float   | Storage Performance | 12.5                                   |
-| disk_read_iops_peak             | Float   | Storage Performance | 245.0                                  |
-| disk_write_iops_avg             | Float   | Storage Performance | 8.3                                    |
-| disk_write_iops_peak            | Float   | Storage Performance | 180.0                                  |
-| disk_total_iops_avg             | Float   | Storage Performance | 20.8                                   |
-| disk_total_iops_peak            | Float   | Storage Performance | 425.0                                  |
-| disk_read_throughput_avg_mbps   | Float   | Storage Performance | 1.2                                    |
-| disk_read_throughput_peak_mbps  | Float   | Storage Performance | 24.5                                   |
-| disk_write_throughput_avg_mbps  | Float   | Storage Performance | 0.8                                    |
-| disk_write_throughput_peak_mbps | Float   | Storage Performance | 18.0                                   |
-| disk_total_throughput_avg_mbps  | Float   | Storage Performance | 2.0                                    |
-| disk_total_throughput_peak_mbps | Float   | Storage Performance | 42.5                                   |
+| Name                                | Type    | Category            | Sample Value                           |
+| ----------------------------------- | ------- | ------------------- | -------------------------------------- |
+| server\_id                          | String  | Server Info         | "vm-web-server-01"                     |
+| server\_name                        | String  | Server Info         | "web-server-01"                        |
+| resource\_type                      | String  | Server Info         | "virtual\_machine"                     |
+| power\_state                        | String  | Server Info         | "Running"                              |
+| os\_type                            | String  | Server Info         | "Linux"                                |
+| os\_name                            | String  | Server Info         | "Amazon Linux"                         |
+| os\_version                         | String  | Server Info         | "2023"                                 |
+| primary\_hostname                   | String  | Server Info         | "web-server-01.example.com"            |
+| primary\_ip\_address                | String  | Server Info         | "10.0.2.101"                           |
+| netmask                             | String  | Server Info         | "255.255.255.0"                        |
+| total\_num\_network\_cards          | Integer | Server Info         | 2                                      |
+| total\_num\_disks                   | Integer | Server Info         | 1                                      |
+| cpu\_count                          | Integer | Server Info         | 4                                      |
+| total\_memory\_gb                   | Float   | Server Info         | 15.88                                  |
+| server\_uuid                        | String  | Server Info         | "4201ecf8-cc44-ee7e-01da-34dfb2acf6c0" |
+| smbios\_uuid                        | String  | Server Info         | "4201ecf8-cc44-ee7e-01da-34dfb2acf6c0" |
+| cluster\_name                       | String  | Server Info         | "production-cluster-01"                |
+| hypervisor\_object\_id              | String  | Server Info         | "vm-30920"                             |
+| hypervisor\_type                    | String  | Server Info         | "VMware"                               |
+| hypervisor\_version                 | String  | Server Info         | "8.0.0"                                |
+| hypervisor\_hostname                | String  | Server Info         | "esxi-node1.example.com"               |
+| hypervisor\_host\_id                | String  | Server Info         | "host-1234"                            |
+| hypervisor\_id                      | String  | Server Info         | "4201ecf8-cc44-ee7e-01da-34dfb2acf6c0" |
+| disk\_read\_iops\_avg               | Float   | Storage Performance | 12.5                                   |
+| disk\_read\_iops\_peak              | Float   | Storage Performance | 245.0                                  |
+| disk\_write\_iops\_avg              | Float   | Storage Performance | 8.3                                    |
+| disk\_write\_iops\_peak             | Float   | Storage Performance | 180.0                                  |
+| disk\_total\_iops\_avg              | Float   | Storage Performance | 20.8                                   |
+| disk\_total\_iops\_peak             | Float   | Storage Performance | 425.0                                  |
+| disk\_read\_throughput\_avg\_mbps   | Float   | Storage Performance | 1.2                                    |
+| disk\_read\_throughput\_peak\_mbps  | Float   | Storage Performance | 24.5                                   |
+| disk\_write\_throughput\_avg\_mbps  | Float   | Storage Performance | 0.8                                    |
+| disk\_write\_throughput\_peak\_mbps | Float   | Storage Performance | 18.0                                   |
+| disk\_total\_throughput\_avg\_mbps  | Float   | Storage Performance | 2.0                                    |
+| disk\_total\_throughput\_peak\_mbps | Float   | Storage Performance | 42.5                                   |
 
-#### Server performance metrics (server_performance_metrics.csv)
+#### Server performance metrics (server\_performance\_metrics.csv)
 
 CPU, memory, and network throughput utilization. Sampled every 10 minutes, aggregated over 30 days.
 
-| Name                        | Type    | Category    | Sample Value       |
-| --------------------------- | ------- | ----------- | ------------------ |
-| server_id                   | String  | Server Info | "vm-web-server-01" |
-| data_source                 | String  | Server Info | "OS"               |
-| cpu_utilization_avg_pct     | Float   | CPU         | 45.06              |
-| cpu_utilization_peak_pct    | Float   | CPU         | 79.33              |
-| cpu_count                   | Integer | CPU         | 4                  |
-| memory_total_gb             | Float   | Memory      | 15.88              |
-| memory_utilization_avg_pct  | Float   | Memory      | 29.27              |
-| memory_utilization_peak_pct | Float   | Memory      | 63.99              |
-| network_in_avg_mbps         | Float   | Network     | 0.52               |
-| network_in_peak_mbps        | Float   | Network     | 12.3               |
-| network_out_avg_mbps        | Float   | Network     | 0.31               |
-| network_out_peak_mbps       | Float   | Network     | 8.7                |
-| network_total_avg_mbps      | Float   | Network     | 0.83               |
-| network_total_peak_mbps     | Float   | Network     | 21.0               |
+| Name                           | Type    | Category    | Sample Value       |
+| ------------------------------ | ------- | ----------- | ------------------ |
+| server\_id                     | String  | Server Info | "vm-web-server-01" |
+| data\_source                   | String  | Server Info | "OS"               |
+| cpu\_utilization\_avg\_pct     | Float   | CPU         | 45.06              |
+| cpu\_utilization\_peak\_pct    | Float   | CPU         | 79.33              |
+| cpu\_count                     | Integer | CPU         | 4                  |
+| memory\_total\_gb              | Float   | Memory      | 15.88              |
+| memory\_utilization\_avg\_pct  | Float   | Memory      | 29.27              |
+| memory\_utilization\_peak\_pct | Float   | Memory      | 63.99              |
+| network\_in\_avg\_mbps         | Float   | Network     | 0.52               |
+| network\_in\_peak\_mbps        | Float   | Network     | 12.3               |
+| network\_out\_avg\_mbps        | Float   | Network     | 0.31               |
+| network\_out\_peak\_mbps       | Float   | Network     | 8.7                |
+| network\_total\_avg\_mbps      | Float   | Network     | 0.83               |
+| network\_total\_peak\_mbps     | Float   | Network     | 21.0               |
 
-#### Storage performance (server_storage_performance.csv)
+#### Storage performance (server\_storage\_performance.csv)
 
 Per-volume disk I/O and space utilization. Sampled every 10 minutes, aggregated over 30 days.
 
-| Name                            | Type   | Category        | Sample Value       |
-| ------------------------------- | ------ | --------------- | ------------------ |
-| server_id                       | String | Server Info     | "vm-web-server-01" |
-| data_source                     | String | Server Info     | "OS"               |
-| disk_volume_id                  | String | Volume Info     | "/dev/nvme0n1p1"   |
-| disk_mount_point                | String | Volume Info     | "/"                |
-| file_system                     | String | Volume Info     | "xfs"              |
-| disk_total_gb                   | Float  | Disk Space      | 30.0               |
-| disk_used_gb                    | Float  | Disk Space      | 12.5               |
-| disk_free_gb                    | Float  | Disk Space      | 17.5               |
-| disk_read_iops_avg              | Float  | Disk I/O        | 12.5               |
-| disk_read_iops_peak             | Float  | Disk I/O        | 245.0              |
-| disk_write_iops_avg             | Float  | Disk I/O        | 8.3                |
-| disk_write_iops_peak            | Float  | Disk I/O        | 180.0              |
-| disk_total_iops_avg             | Float  | Disk I/O        | 20.8               |
-| disk_total_iops_peak            | Float  | Disk I/O        | 425.0              |
-| disk_read_throughput_avg_mbps   | Float  | Disk Throughput | 1.2                |
-| disk_read_throughput_peak_mbps  | Float  | Disk Throughput | 24.5               |
-| disk_write_throughput_avg_mbps  | Float  | Disk Throughput | 0.8                |
-| disk_write_throughput_peak_mbps | Float  | Disk Throughput | 18.0               |
-| disk_total_throughput_avg_mbps  | Float  | Disk Throughput | 2.0                |
-| disk_total_throughput_peak_mbps | Float  | Disk Throughput | 42.5               |
+| Name                                | Type   | Category        | Sample Value       |
+| ----------------------------------- | ------ | --------------- | ------------------ |
+| server\_id                          | String | Server Info     | "vm-web-server-01" |
+| data\_source                        | String | Server Info     | "OS"               |
+| disk\_volume\_id                    | String | Volume Info     | "/dev/nvme0n1p1"   |
+| disk\_mount\_point                  | String | Volume Info     | "/"                |
+| file\_system                        | String | Volume Info     | "xfs"              |
+| disk\_total\_gb                     | Float  | Disk Space      | 30.0               |
+| disk\_used\_gb                      | Float  | Disk Space      | 12.5               |
+| disk\_free\_gb                      | Float  | Disk Space      | 17.5               |
+| disk\_read\_iops\_avg               | Float  | Disk I/O        | 12.5               |
+| disk\_read\_iops\_peak              | Float  | Disk I/O        | 245.0              |
+| disk\_write\_iops\_avg              | Float  | Disk I/O        | 8.3                |
+| disk\_write\_iops\_peak             | Float  | Disk I/O        | 180.0              |
+| disk\_total\_iops\_avg              | Float  | Disk I/O        | 20.8               |
+| disk\_total\_iops\_peak             | Float  | Disk I/O        | 425.0              |
+| disk\_read\_throughput\_avg\_mbps   | Float  | Disk Throughput | 1.2                |
+| disk\_read\_throughput\_peak\_mbps  | Float  | Disk Throughput | 24.5               |
+| disk\_write\_throughput\_avg\_mbps  | Float  | Disk Throughput | 0.8                |
+| disk\_write\_throughput\_peak\_mbps | Float  | Disk Throughput | 18.0               |
+| disk\_total\_throughput\_avg\_mbps  | Float  | Disk Throughput | 2.0                |
+| disk\_total\_throughput\_peak\_mbps | Float  | Disk Throughput | 42.5               |
 
-#### Storage configuration (storage_config.csv)
+#### Storage configuration (storage\_config.csv)
 
 Physical disk hardware details. Collected every 24 hours.
 
-| Name                | Type   | Category    | Sample Value         |
-| ------------------- | ------ | ----------- | -------------------- |
-| server_id           | String | Server Info | "vm-web-server-01"   |
-| disk_controller_id  | String | Disk Info   | "/dev/sda"           |
-| vmdk_vhd_file_name  | String | Disk Info   | "web-server-01.vmdk" |
-| disk_volume_type    | String | Disk Info   | "Virtual"            |
-| disk_provisioned_gb | Float  | Disk Info   | 30.0                 |
-| disk_device_type    | String | Disk Info   | "SCSI HDD"           |
-| disk_interface_type | String | Disk Info   | "SCSI"               |
-| disk_protocol       | String | Disk Info   | "LSI Logic SAS"      |
+| Name                  | Type   | Category    | Sample Value         |
+| --------------------- | ------ | ----------- | -------------------- |
+| server\_id            | String | Server Info | "vm-web-server-01"   |
+| disk\_controller\_id  | String | Disk Info   | "/dev/sda"           |
+| vmdk\_vhd\_file\_name | String | Disk Info   | "web-server-01.vmdk" |
+| disk\_volume\_type    | String | Disk Info   | "Virtual"            |
+| disk\_provisioned\_gb | Float  | Disk Info   | 30.0                 |
+| disk\_device\_type    | String | Disk Info   | "SCSI HDD"           |
+| disk\_interface\_type | String | Disk Info   | "SCSI"               |
+| disk\_protocol        | String | Disk Info   | "LSI Logic SAS"      |
 
-#### Network interfaces (network_interfaces.csv)
+#### Network interfaces (network\_interfaces.csv)
 
 Network adapter configuration. Collected every 24 hours.
 
-| Name                 | Type    | Category       | Sample Value               |
-| -------------------- | ------- | -------------- | -------------------------- |
-| server_id            | String  | Server Info    | "vm-web-server-01"         |
-| interface_name       | String  | Interface Info | "eth0"                     |
-| interface_index      | Integer | Interface Info | 2                          |
-| mac_address          | String  | Interface Info | "0A:1B:2C:3D:4E:5F"        |
-| adapter_type         | String  | Interface Info | "vmxnet3"                  |
-| virtual_network_name | String  | Interface Info | "VM Network"               |
-| virtual_network_id   | String  | Interface Info | "dvportgroup-1234"         |
-| virtual_switch       | String  | Interface Info | "vSwitch0"                 |
-| ipv4_address         | String  | IP Config      | "10.0.2.101"               |
-| ipv4_subnet_mask     | String  | IP Config      | "255.255.255.0"            |
-| ipv4_gateway         | String  | IP Config      | "10.0.2.1"                 |
-| ipv6_address         | String  | IP Config      | "fe80::a1b:2cff:fe3d:4e5f" |
-| ipv6_prefix_length   | Integer | IP Config      | 64                         |
-| ipv6_gateway         | String  | IP Config      | "fe80::1"                  |
-| dns_servers          | String  | IP Config      | "10.0.0.2"                 |
-| dhcp_enabled         | Boolean | IP Config      | false                      |
-| interface_status     | String  | Interface Info | "Up"                       |
-| vlan_id              | Integer | Interface Info | 100                        |
-| is_primary           | Boolean | Interface Info | true                       |
+| Name                   | Type    | Category       | Sample Value               |
+| ---------------------- | ------- | -------------- | -------------------------- |
+| server\_id             | String  | Server Info    | "vm-web-server-01"         |
+| interface\_name        | String  | Interface Info | "eth0"                     |
+| interface\_index       | Integer | Interface Info | 2                          |
+| mac\_address           | String  | Interface Info | "0A:1B:2C:3D:4E:5F"        |
+| adapter\_type          | String  | Interface Info | "vmxnet3"                  |
+| virtual\_network\_name | String  | Interface Info | "VM Network"               |
+| virtual\_network\_id   | String  | Interface Info | "dvportgroup-1234"         |
+| virtual\_switch        | String  | Interface Info | "vSwitch0"                 |
+| ipv4\_address          | String  | IP Config      | "10.0.2.101"               |
+| ipv4\_subnet\_mask     | String  | IP Config      | "255.255.255.0"            |
+| ipv4\_gateway          | String  | IP Config      | "10.0.2.1"                 |
+| ipv6\_address          | String  | IP Config      | "fe80::a1b:2cff:fe3d:4e5f" |
+| ipv6\_prefix\_length   | Integer | IP Config      | 64                         |
+| ipv6\_gateway          | String  | IP Config      | "fe80::1"                  |
+| dns\_servers           | String  | IP Config      | "10.0.0.2"                 |
+| dhcp\_enabled          | Boolean | IP Config      | false                      |
+| interface\_status      | String  | Interface Info | "Up"                       |
+| vlan\_id               | Integer | Interface Info | 100                        |
+| is\_primary            | Boolean | Interface Info | true                       |
 
-#### Running processes (process_metrics.csv)
+#### Running processes (process\_metrics.csv)
 
 Snapshot of running processes. Collected every hour, deduplicated over 30 days.
 
-| Name                 | Type    | Category     | Sample Value        |
-| -------------------- | ------- | ------------ | ------------------- |
-| server_id            | String  | Server Info  | "vm-web-server-01"  |
-| process_name         | String  | Process Info | "sshd"              |
-| process_id           | Integer | Process Info | 1234                |
-| process_command_line | String  | Process Info | "/usr/sbin/sshd -D" |
-| process_user         | String  | Process Info | "root"              |
+| Name                   | Type    | Category     | Sample Value        |
+| ---------------------- | ------- | ------------ | ------------------- |
+| server\_id             | String  | Server Info  | "vm-web-server-01"  |
+| process\_name          | String  | Process Info | "sshd"              |
+| process\_id            | Integer | Process Info | 1234                |
+| process\_command\_line | String  | Process Info | "/usr/sbin/sshd -D" |
+| process\_user          | String  | Process Info | "root"              |
 
 ### Network collection
 
@@ -284,7 +284,7 @@ This module collects network data for servers from all configured sources, inclu
 #### Network data collection
 
 The Network collection module captures TCP IPv4 connections in ESTABLISHED or
-TIME_WAIT state between servers in your discovered inventory. A connection
+TIME\_WAIT state between servers in your discovered inventory. A connection
 appears in the output only when both the source and target IP addresses belong
 to servers that the discovery tool has discovered or that you have imported.
 Connections to or from IP addresses outside your inventory — such as
@@ -299,7 +299,7 @@ These data points are collected for each connection:
 
 - Source IP, port, process ID, and process name
 - Target IP, port, process ID, and process name
-- State (ESTABLISHED and TIME_WAIT)
+- State (ESTABLISHED and TIME\_WAIT)
 - Transport protocol (TCP)
 - IP version (IPv4)
 - Count (number of times this unique connection was observed)
@@ -343,7 +343,7 @@ The Database collection module gathers SQL Server component information. This ta
 
 | Name                 | Type    | Category      | Sample Value                                     |
 | -------------------- | ------- | ------------- | ------------------------------------------------ |
-| Engine Type          | String  | Component     | sql_server                                       |
+| Engine Type          | String  | Component     | sql\_server                                      |
 | Is Engine Component  | Boolean | Component     | Y                                                |
 | Status               | String  | Service       | Running, Stopped, StartPending                   |
 | Version              | String  | Service       | 2015.131.5026.0                                  |

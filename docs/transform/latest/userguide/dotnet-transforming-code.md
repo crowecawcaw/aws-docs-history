@@ -26,30 +26,29 @@ In the top right corner, you can see the job status, which has one of the follow
 
 The _Dashboard_ includes:
 
-1.  The transformation _Job details_ section, which lists the default
-    settings and details of the transformation job, including:
+1. The transformation _Job details_ section, which lists the default
+   settings and details of the transformation job, including:
 
-    1. _Target branch destination_
-       To transform your code, AWS Transform creates a new branch for the transformed code in your code repo.
-    2. _Target .NET version_, .NET 8.0 or .NET 10
-    3. The AWS Transform _job ID._
-    4. The job settings:
+   1. _Target branch destination_
+      To transform your code, AWS Transform creates a new branch for the transformed code in your code repo.
+   2. _Target .NET version_, .NET 8.0 or .NET 10
+   3. The AWS Transform _job ID._
+   4. The job settings:
 
-       1. Exclude .NET standard projects
+      1. Exclude .NET standard projects
 
-2.  The _Transformation summary_ section contains:
+2. The _Transformation summary_ section contains:
 
-        1. The number of repositories selected for transformation
-        2. The number of projects to be transformed
-        3. The total lines of codes in these repositories and projects
-
-    After the transformation starts, pie charts appear in the _Repository
-    status_, _Package status_, and _Unit test
-    status_ sections displaying progress in real time. The _Unit test
-    status_ shows the status of unit tests located in your repositories that
-    AWS Transforms runs after transformation to test the transformed code. AWS Transform shares the
-    executed test results, along with individual test name for customers to review the list of
-    unit tests passed and failed.
+   1. The number of repositories selected for transformation
+   2. The number of projects to be transformed
+   3. The total lines of codes in these repositories and projects
+      After the transformation starts, pie charts appear in the _Repository
+      status_, _Package status_, and _Unit test
+      status_ sections displaying progress in real time. The _Unit test
+      status_ shows the status of unit tests located in your repositories that
+      AWS Transforms runs after transformation to test the transformed code. AWS Transform shares the
+      executed test results, along with individual test name for customers to review the list of
+      unit tests passed and failed.
 
 ###### Note
 

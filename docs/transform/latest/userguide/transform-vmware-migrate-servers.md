@@ -201,14 +201,13 @@ missing tags before continuing. The following tags are required:
   the list and select any untagged resources you want to add. For each
   resource you select, AWS Transform applies the relevant tag:
 
-      + `CreatedBy: AWSTransform` or
-       `CreatedFor: AWSTransform`, depending on the
-       resource type.
-      + `ATWorkspace: <workspace_id>` is applied
-       to all selected resources.
-
-  VPCs and subnets created by the AWS Transform network migration agent
-  are automatically tagged.
+  - `CreatedBy: AWSTransform` or
+    `CreatedFor: AWSTransform`, depending on the
+    resource type.
+  - `ATWorkspace: <workspace_id>` is applied
+    to all selected resources.
+    VPCs and subnets created by the AWS Transform network migration agent
+    are automatically tagged.
 
 - In addition to VPCs and subnets, AWS Transform also displays all
   existing Elastic Network Interfaces (ENIs) found in your target

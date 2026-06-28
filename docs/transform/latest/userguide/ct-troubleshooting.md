@@ -12,17 +12,17 @@ directory that contains repositories as subdirectories (for example,
 `/home/user/repos/my-app`). The scanner looks for child directories that
 contain a `.git` folder.
 
-SETUP_REQUIRED error
+SETUP\_REQUIRED error
 The source exists in your account but credentials are not configured on this
 machine. Run `atx ct source add --name `name`` to
 configure credentials locally.
 
-AUTH_REQUIRED error
+AUTH\_REQUIRED error
 No valid token found for the source. Verify your token is correct and has the
 required scopes. For GitHub, ensure the token has `repo` scope. For GitLab,
 ensure `api` scope.
 
-INVALID_INPUT error
+INVALID\_INPUT error
 Verify you are using the correct analysis type name. Valid values are:
 `tech-debt-quick`, `tech-debt-comprehensive`,
 `security`, `agentic-readiness`,
@@ -40,3 +40,9 @@ Verify your IAM user or role has the required AWS CloudFormation, IAM, and Amazo
 permissions listed in the Security agent setup section of
 [How AWS Transform continuous modernization works](continuous-modernization.md#ct-how-it-works "continuous-modernization.md#ct-how-it-works"). Check the status with
 `atx ct setup security-agent --status`.
+
+Continuous modernization not visible in the web application
+If continuous modernization does not appear after you sign in to the AWS Transform web
+application, sign in with the IAM credentials of the AWS account where AWS Transform is enabled
+instead of AWS IAM Identity Center. For steps, see
+[AWS Transform web application (Optional)](ct-working-with.md#ct-web-application "ct-working-with.md#ct-web-application").

@@ -41,6 +41,7 @@ The following table describes what Regions your requests may be routed to depend
 | Asia Pacific (Sydney) (ap-southeast-2) | Asia Pacific (Sydney) (ap-southeast-2)Asia Pacific (Melbourne) (ap-southeast-4)                                                                                                                                                                                                                                |
 | Europe (London) (eu-west-2)            | Europe (Frankfurt) (eu-central-1)Europe (Stockholm) (eu-north-1)Europe (Milan) (eu-south-1)Europe (Spain) (eu-south-2)Europe (Ireland) (eu-west-1)Europe (London) (eu-west-2)Europe (Paris) (eu-west-3)                                                                                                        |
 | Canada (Central) (ca-central-1)        | Commercial AWS Regions + Canada (Central) (ca-central-1)                                                                                                                                                                                                                                                       |
+| South America (São Paulo) (sa-east-1)  | Commercial AWS Regions + South America (São Paulo) (sa-east-1)                                                                                                                                                                                                                                                 |
 
 For a complete list of Regions where you can use AWS Transform, see
 [Supported Regions for AWS Transform](regions.md "regions.md").
@@ -66,6 +67,7 @@ request originated.
 | Asia Pacific (Seoul) (ap-northeast-2)  | Europe (Frankfurt) (eu-central-1) |
 | Asia Pacific (Mumbai) (ap-south-1)     | Europe (Frankfurt) (eu-central-1) |
 | Canada (Central) (ca-central-1)        | Europe (Frankfurt) (eu-central-1) |
+| South America (São Paulo) (sa-east-1)  | Europe (Frankfurt) (eu-central-1) |
 
 This setting is enabled by default. An account administrator can modify this setting. Disabling this feature results in the loss of access to
 features that require AWS Transform to retrieve knowledge from other regions. This might result in less accurate responses.

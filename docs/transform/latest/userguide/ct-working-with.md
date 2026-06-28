@@ -166,14 +166,27 @@ To use the AWS Transform web application:
 
 1. Visit `https://aws.amazon.com/transform/` and sign in using
    AWS IAM Identity Center credentials.
-2. Open the left navigation menu and choose **continuous
+2. If continuous modernization does not appear after you sign in, sign in with
+   IAM credentials instead. To enable IAM credentials sign-in:
+
+   1. In the AWS Management Console, open AWS Transform and choose
+      **Settings**.
+   2. In the **Access AWS Transform with IAM credentials**
+      section, enable IAM credentials access.
+   3. On the same settings page, copy the sign-in link shown under
+      **Web application URL (with IAM)**.
+   4. Paste the sign-in URL into the same browser window where the AWS
+      Management Console is open. This ensures the web application uses the AWS credentials
+      from that account.
+
+3. Open the left navigation menu and choose **continuous
    modernization**. The Dashboard displays summary statistics including sources,
    repositories, total findings by severity, and analysis types.
-3. Use the **Analyses**,
+4. Use the **Analyses**,
    **Findings**, and
    **Remediations** tabs to view detailed
    results.
-4. Chat with AWS Transform directly from the web application to ask questions about
+5. Chat with AWS Transform directly from the web application to ask questions about
    your analyses, findings, or remediations.
 
 The web application is designed for enterprise-scale operations where you need

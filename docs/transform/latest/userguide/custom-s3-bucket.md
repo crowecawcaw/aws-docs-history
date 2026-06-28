@@ -42,7 +42,7 @@ The following are not supported:
 - SSE-KMS with an AWS-managed KMS key (for example, `aws/s3`)
 - SSE-C
 - DSSE-KMS
-- Asymmetric KMS keys or KMS keys with a key spec other than SYMMETRIC_DEFAULT
+- Asymmetric KMS keys or KMS keys with a key spec other than SYMMETRIC\_DEFAULT
 
 ###### Warning
 
