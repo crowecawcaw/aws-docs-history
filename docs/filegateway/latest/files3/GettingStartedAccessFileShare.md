@@ -5,31 +5,28 @@ map it to your Amazon S3 bucket.
 
 ###### To mount a file share and map it to an Amazon S3 bucket
 
-1.  If you are using a Microsoft Windows client, we recommend that you [create an SMB
-    file share](create-smb-file-share.md "create-smb-file-share.md") and access it using an SMB client that is already
-    installed on Windows client. If you use NFS, turn on Services for NFS in
-    Windows.
-2.  Mount your NFS file share:
+1. If you are using a Microsoft Windows client, we recommend that you [create an SMB
+   file share](create-smb-file-share.md "create-smb-file-share.md") and access it using an SMB client that is already
+   installed on Windows client. If you use NFS, turn on Services for NFS in
+   Windows.
+2. Mount your NFS file share:
 
-        * For Linux clients, type the following command at the command
-         prompt.
+   - For Linux clients, type the following command at the command
+     prompt.
 
+   `sudo mount -t nfs -o nolock,hard
+  `[GatewayVMIPAddress]`:/`[FileShareName]`
+ `[ClientMountPath]``
+   - For Windows clients, type the following command at the command prompt
+     (**cmd.exe**).
 
-        `sudo mount -t nfs -o nolock,hard
-         `[GatewayVMIPAddress]`:/`[FileShareName]`
-        `[ClientMountPath]``
-        * For Windows clients, type the following command at the command prompt
-         (**cmd.exe**).
-
-
-        `mount –o nolock -o mtype=hard
-         `[GatewayVMIPAddress]`:/`[FileShareName]`
-        `[WindowsDriveLetter]``
-
-    For example, suppose that on a Windows client your VM's IP address is
-    123.123.1.2 and your file share name name is `test-fileshare`.
-    Suppose also that you want to map to drive T. In this case, your command looks
-    like the following.
+   `mount –o nolock -o mtype=hard
+  `[GatewayVMIPAddress]`:/`[FileShareName]`
+ `[WindowsDriveLetter]``
+   For example, suppose that on a Windows client your VM's IP address is
+   123.123.1.2 and your file share name name is `test-fileshare`.
+   Suppose also that you want to map to drive T. In this case, your command looks
+   like the following.
 
 `mount -o nolock -o mtype=hard 123.123.1.2:/test-fileshare
  T:`

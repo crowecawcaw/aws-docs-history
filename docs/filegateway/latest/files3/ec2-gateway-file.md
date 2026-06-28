@@ -46,12 +46,12 @@ cause problems when you start or stop File Gateway; for example, you can lose
 data from the cache. Monitor the `CachePercentDirty` Amazon CloudWatch metric,
 and only start or stop your system when that parameter is `0`. To
 learn more about monitoring metrics for your gateway, see [Storage
-Gateway metrics and dimensions](../../../AmazonCloudWatch/latest/monitoring/awssg-metricscollected.md "../../../AmazonCloudWatch/latest/monitoring/awssg-metricscollected.md") in the CloudWatch documentation. 5. In the **Key pair (login)** section, for \*\*Key pair name
+Gateway metrics and dimensions](../../../AmazonCloudWatch/latest/monitoring/awssg-metricscollected.md "../../../AmazonCloudWatch/latest/monitoring/awssg-metricscollected.md") in the CloudWatch documentation. 5. In the **Key pair (login)** section, for **Key pair name
 
-- \*required*\*\*, select the key pair you want to use
+- _required_**, select the key pair you want to use
   to securely connect to your instance. You can create a new key pair if necessary.
-  For more information, see [Create a key pair](../../../AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.md#create-a-key-pair "../../../AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.md#create-a-key-pair") in the *Amazon Elastic Compute Cloud User Guide for Linux
-  Instances\*.
+  For more information, see [Create a key pair](../../../AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.md#create-a-key-pair "../../../AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.md#create-a-key-pair") in the _Amazon Elastic Compute Cloud User Guide for Linux
+  Instances_.
 
 6. In the **Network settings** section, review the preconfigured
    settings and choose **Edit** to make changes to the following

@@ -177,9 +177,9 @@ SMB file shares have the following restrictions:
 1. When the same client attempts to mount both an Active Directory and Guest
    access SMB file share the following error message is displayed:
    `Multiple connections to a server or shared resource by the same
-user, using more than one user name, are not allowed. Disconnect all
-previous connections to the server or shared resource and try
-again.`
+ user, using more than one user name, are not allowed. Disconnect all
+ previous connections to the server or shared resource and try
+ again.`
 2. A Windows user cannot remain connected to two Guest Access SMB file
    shares, and may be disconnected when a new Guest Access connection is
    established.
@@ -214,9 +214,9 @@ If you can't upload files into your S3 bucket, do the following:
 3. If your File Gateway uses SSE-KMS or DSSE-KMS for encryption, make sure
    the IAM role associated with the file share includes
    _kms:Encrypt_, _kms:Decrypt_,
-   \*kms:ReEncrypt\**,
-   *kms:GenerateDataKey*, and
-   *kms:DescribeKey\* permissions. For more information,
+   _kms:ReEncrypt\*_,
+   _kms:GenerateDataKey_, and
+   _kms:DescribeKey_ permissions. For more information,
    see [Using
    Identity-Based Policies (IAM Policies) for Storage
    Gateway](using-identity-based-policies.md "using-identity-based-policies.md").
@@ -347,14 +347,14 @@ You can refresh the cache using the Storage Gateway console and the AWS Command 
 - To refresh the cache using the AWS CLI:
 
   1.  Run the command `aws storagegateway
-list-file-shares`
+   list-file-shares`
   2.  Copy the Amazon Resource Number (ARN) of the file share with the
       cache that you want to refresh.
   3.  Run the `refresh-cache` command with your ARN as the
       value for `--file-share-arn`:
 
   `aws storagegateway refresh-cache --file-share-arn
- arn:aws:storagegateway:eu-west-1:12345678910:share/share-FFDEE12`
+   arn:aws:storagegateway:eu-west-1:12345678910:share/share-FFDEE12`
 
 To automate the `RefreshCache` operation, see [How can I automate the RefreshCache operation on Storage Gateway?](https://aws.amazon.com/premiumsupport/knowledge-center/storage-gateway-automate-refreshcache/ "https://aws.amazon.com/premiumsupport/knowledge-center/storage-gateway-automate-refreshcache/")
 

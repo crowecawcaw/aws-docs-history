@@ -57,7 +57,7 @@ To use the Storage Gateway Console, do the following:
      choose **Windows Access Control List**.
 
 5. (Optional) Add an admin user to the [AdminUsersList](../../../storagegateway/latest/APIReference/API_CreateSMBFileShare.md#StorageGateway-CreateSMBFileShare-request-AdminUserList "../../../storagegateway/latest/APIReference/API_CreateSMBFileShare.md#StorageGateway-CreateSMBFileShare-request-AdminUserList"), if you want the admin user to have privileges to
-   update ACLs on all files and folders in the file share.
+update ACLs on all files and folders in the file share.
 
 ###### Note
 

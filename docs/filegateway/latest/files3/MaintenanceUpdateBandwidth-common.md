@@ -87,8 +87,8 @@ following information:
      the succeeding interval.
 
 5. (Optional) Repeat the previous step as necessary until your
-   bandwidth-rate-limit schedule is complete. If you need to delete an interval
-   from your schedule, choose **Remove**.
+bandwidth-rate-limit schedule is complete. If you need to delete an interval
+from your schedule, choose **Remove**.
 
 ###### Important
 

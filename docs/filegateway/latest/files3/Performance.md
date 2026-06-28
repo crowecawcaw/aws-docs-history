@@ -44,7 +44,7 @@ The following tables show example S3 File Gateway configurations.
 ### S3 File Gateway performance on Linux clients
 
 | Example Configurations                                                                                                                                  | Protocol                                          | Write throughput (file sizes 1 GB) | Cache hit read throughput | Cache miss read throughput |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ---------------------------------- | ------------------------- | -------------------------- | ---------------------- |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ---------------------------------- | ------------------------- | -------------------------- |
 | Root disk: 80 GB, io1 SSD, 4,000 IOPS<br>Cache disk: 512 GiB cache, io1, 1,500 provisioned IOPS<br>Minimum network performance: 10 Gbps<br>CPU: 16 vCPU | RAM: 32 GB<br>NFS protocol recommended for Linux  | NFSv3<br>• 1 thread                | 110 MiB/sec (0.92 Gbps)   | 590 MiB/sec (4.9 Gbps)     | 310 MiB/sec (2.6 Gbps) |
 | NFSv3<br>• 8 threads                                                                                                                                    | 160 MiB/sec (1.3 Gbps)                            | 590 MiB/sec (4.9 Gbps)             | 335 MiB/sec (2.8 Gbps)    |
 | NFSv4<br>• 1 thread                                                                                                                                     | 130 MiB/sec (1.1 Gbps)                            | 590 MiB/sec (4.9 Gbps)             | 295 MiB/sec (2.5 Gbps)    |
@@ -67,7 +67,7 @@ The following tables show example S3 File Gateway configurations.
 ### File Gateway performance on Windows clients
 
 | Example Configurations                                                                                                                                  | Protocol                                            | Write throughput (file sizes 1 GB) | Cache hit read throughput | Cache miss read throughput |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ---------------------------------- | ------------------------- | -------------------------- | --------------------- |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ---------------------------------- | ------------------------- | -------------------------- |
 | Root disk: 80 GB, io1 SSD, 4,000 IOPS<br>Cache disk: 512 GiB cache, io1, 1,500 provisioned IOPS<br>Minimum network performance: 10 Gbps<br>CPU: 16 vCPU | RAM: 32 GB<br>SMB protocol recommended for Windows  | SMBV3<br>• 1 thread                | 150 MiB/sec (1.3 Gbps)    | 180 MiB/sec (1.5 Gbps)     | 20 MiB/sec (0.2 Gbps) |
 | SMBV3<br>• 8 threads                                                                                                                                    | 190 MiB/sec (1.6 Gbps)                              | 335 MiB/sec (2.8 Gbps)             | 195 MiB/sec (1.6 Gbps)    |
 | NFSv3<br>• 1 thread                                                                                                                                     | 95 MiB/sec (0.8 Gbps)                               | 130 MiB/sec (1.1 Gbps)             | 20 MiB/sec (0.2 Gbps)     |
@@ -110,11 +110,11 @@ the following consequences:
 The following table lists recommended virtual hardware configurations for gateways
 that manage multiple file shares:
 
-| File Shares Per Gateway | Recommended Gateway Capacity Setting | Recommended vCPU Cores                                   | Recommended RAM | Recommended Root Disk Size |
-| ----------------------- | ------------------------------------ | -------------------------------------------------------- | --------------- | -------------------------- |
-| 1-10                    | Small                                | 4 (EC2 instance type \*_m4.xlarge_<br>• or<br>greater)   | 16 GiB          | 80 GiB                     |
-| 10-20                   | Medium                               | 8 (EC2 instance type \*_m4.2xlarge_<br>• or<br>greater)  | 32 GiB          | 160 GiB                    |
-| 20+                     | Large                                | 16 (EC2 instance type \*_m4.4xlarge_<br>• or<br>greater) | 64 GiB          | 240 GiB                    |
+| File Shares Per Gateway | Recommended Gateway Capacity Setting | Recommended vCPU Cores                                  | Recommended RAM | Recommended Root Disk Size |
+| ----------------------- | ------------------------------------ | ------------------------------------------------------- | --------------- | -------------------------- |
+| 1-10                    | Small                                | 4 (EC2 instance type *_m4.xlarge_<br>• or<br>greater)   | 16 GiB          | 80 GiB                     |
+| 10-20                   | Medium                               | 8 (EC2 instance type *_m4.2xlarge_<br>• or<br>greater)  | 32 GiB          | 160 GiB                    |
+| 20+                     | Large                                | 16 (EC2 instance type *_m4.4xlarge_<br>• or<br>greater) | 64 GiB          | 240 GiB                    |
 
 In addition to the virtual hardware configurations recommended above, we recommend the
 following best practices for configuring and maintaining Storage Gateway appliances that manage

@@ -31,7 +31,7 @@ topic.
 
 In these cases, you can forcibly delete the file share by using the AWS Management Console or the
 `DeleteFileShare` API operation. This operation stops the data upload
-process. When it does, the file share enters the FORCE_DELETING status. To forcibly
+process. When it does, the file share enters the FORCE\_DELETING status. To forcibly
 delete a file share using the Storage Gateway console, see the procedure following.
 
 ###### To forcibly delete a file share

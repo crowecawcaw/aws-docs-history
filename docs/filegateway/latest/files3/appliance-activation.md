@@ -33,10 +33,8 @@ For activation only, the following must be true:
      for inbound traffic.
 
 2. Choose **Hardware** from the navigation menu on the left side
-   of the page.
-3. Choose **Activate appliance**.
-4. For **IP Address**, enter the IP address that you configured
-   for your hardware appliance, then choose **Connect**.
+of the page. 3. Choose **Activate appliance**. 4. For **IP Address**, enter the IP address that you configured
+for your hardware appliance, then choose **Connect**.
 
 For more information about configuring the IP address, see [Configuring
 network parameters](appliance-configure-network.md "appliance-configure-network.md"). 5. For **Name**, enter a name for your hardware appliance. Names can

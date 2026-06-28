@@ -22,7 +22,6 @@ _Amazon EC2 User Guide._
 | Test network connectivity                   | [Testing your gateway's network connectivity](EC2_MaintenanceTestGatewayConnectivity-fgw.md "EC2_MaintenanceTestGatewayConnectivity-fgw.md")                   |
 | View a system resource check                | [Viewing your gateway system resource status](EC2_system-resource-check-fgw.md "EC2_system-resource-check-fgw.md").                                            |
 | Run Storage Gateway console commands        | [Running Storage Gateway commands on the local console for an Amazon EC2 gateway](EC2_MaintenanceGatewayConsole-fgw.md "EC2_MaintenanceGatewayConsole-fgw.md") |
-
-To shut down the gateway, enter `0`.
+| To shut down the gateway, enter `0`.        |
 
 To exit the configuration session, enter `X`.

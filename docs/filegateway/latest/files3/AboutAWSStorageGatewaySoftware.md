@@ -17,9 +17,9 @@ Use the following links to download source code for certain open-source software
 components that are included with AWS Storage Gateway software:
 
 - For Storage Gateway appliances deployed on VMware ESXi: [sources.tar](https://s3.amazonaws.com/aws-storage-gateway-terms/sources.tar "https://s3.amazonaws.com/aws-storage-gateway-terms/sources.tar")
-- For Storage Gateway appliances deployed on Microsoft Hyper-V: [sources_hyperv.tar](https://s3.amazonaws.com/aws-storage-gateway-terms/sources_hyperv.tar "https://s3.amazonaws.com/aws-storage-gateway-terms/sources_hyperv.tar")
+- For Storage Gateway appliances deployed on Microsoft Hyper-V: [sources\_hyperv.tar](https://s3.amazonaws.com/aws-storage-gateway-terms/sources_hyperv.tar "https://s3.amazonaws.com/aws-storage-gateway-terms/sources_hyperv.tar")
 - For Storage Gateway appliances deployed on Linux Kernel-based Virtual Machine (KVM):
-  [sources_KVM.tar](https://s3.amazonaws.com/aws-storage-gateway-terms/sources_KVM.tar "https://s3.amazonaws.com/aws-storage-gateway-terms/sources_KVM.tar")
+  [sources\_KVM.tar](https://s3.amazonaws.com/aws-storage-gateway-terms/sources_KVM.tar "https://s3.amazonaws.com/aws-storage-gateway-terms/sources_KVM.tar")
 
 This product includes software developed by the OpenSSL project for use in the OpenSSL
 Toolkit ([http://www.openssl.org/](http://www.openssl.org/ "http://www.openssl.org/")). For the

@@ -30,8 +30,8 @@ how to grant access and permissions for file shares and Amazon S3 buckets:
 
 If your File Gateway uses SSE-KMS or DSSE-KMS for encryption, make sure the IAM
 role associated with the file share includes _kms:Encrypt_,
-_kms:Decrypt_, \*kms:ReEncrypt\**,
-*kms:GenerateDataKey*, and
-*kms:DescribeKey\* permissions. For more information, see
+_kms:Decrypt_, _kms:ReEncrypt\*_,
+_kms:GenerateDataKey_, and
+_kms:DescribeKey_ permissions. For more information, see
 [Using
 Identity-Based Policies (IAM Policies) for Storage Gateway](using-identity-based-policies.md "using-identity-based-policies.md").

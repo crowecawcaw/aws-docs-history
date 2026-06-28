@@ -12,30 +12,29 @@ have significant cost implications. For more information, see [Avoiding unantici
 
 ###### To create an NFS file share with customized settings
 
-1.  Open the AWS Storage Gateway console at [https://console.aws.amazon.com/storagegateway/home/](https://console.aws.amazon.com/storagegateway/home/ "https://console.aws.amazon.com/storagegateway/home/")
-    and choose **File shares** from the left navigation
-    pane.
-2.  Choose **Create file share**.
-3.  Choose **Customize configuration**. You can ignore the other
-    fields on this page for now. You will be prompted to configure gateway,
-    protocol, and storage settings in subsequent steps.
-4.  For **Gateway**, choose the Amazon S3 File Gateway for your new file
-    share for from the dropdown list.
-5.  For **CloudWatch log group**, choose one of the following
-    from the dropdown list:
+1. Open the AWS Storage Gateway console at [https://console.aws.amazon.com/storagegateway/home/](https://console.aws.amazon.com/storagegateway/home/ "https://console.aws.amazon.com/storagegateway/home/")
+   and choose **File shares** from the left navigation
+   pane.
+2. Choose **Create file share**.
+3. Choose **Customize configuration**. You can ignore the other
+   fields on this page for now. You will be prompted to configure gateway,
+   protocol, and storage settings in subsequent steps.
+4. For **Gateway**, choose the Amazon S3 File Gateway for your new file
+   share for from the dropdown list.
+5. For **CloudWatch log group**, choose one of the following
+   from the dropdown list:
 
-        * To turn off logging for this file share, choose **Disable
-         logging**.
-        * To automatically create a new log group for this file share, choose
-         **Created by Storage Gateway**.
-        * To send health and resource notifications for this file share to an
-         existing log group, choose the desired group from the list.
+   - To turn off logging for this file share, choose **Disable
+     logging**.
+   - To automatically create a new log group for this file share, choose
+     **Created by Storage Gateway**.
+   - To send health and resource notifications for this file share to an
+     existing log group, choose the desired group from the list.
+     For more information about audit logs, see [Understanding S3 File Gateway audit logs](monitoring-file-gateway.md#audit-logs "monitoring-file-gateway.md#audit-logs").
 
-    For more information about audit logs, see [Understanding S3 File Gateway audit logs](monitoring-file-gateway.md#audit-logs "monitoring-file-gateway.md#audit-logs").
-
-6.  (Optional) Under **Tags - Optional**, choose **Add
-    new tag**, then enter a **Key** and
-    **Value** for your file share.
+6. (Optional) Under **Tags - Optional**, choose **Add
+   new tag**, then enter a **Key** and
+   **Value** for your file share.
 
 A tag is a case-sensitive key-value pair that helps you categorize your
 Storage Gateway resources. Adding tags can make filtering and searching for your file
@@ -105,88 +104,91 @@ prefixes](../../../AmazonS3/latest/userguide/using-prefixes.md "../../../AmazonS
     * After the file share is created, the prefix can't be modified or
      deleted.
 
-9.  For **Region**, choose the AWS Region where the S3 endpoint
-    for your bucket is located from the dropdown list. This field appears only when
-    you specify an access point or a bucket in another account for **S3
-    bucket**.
-10. For **Storage class for new objects**, choose a storage class
-    from the dropdown list. For more information about storage classes, see [Using
-    storage classes with a File Gateway](storage-classes.md#ia-file-gateway "storage-classes.md#ia-file-gateway").
-11. For **IAM Role**, do one of the following to configure an IAM
-    role for your file share:
+9. For **Region**, choose the AWS Region where the S3 endpoint
+for your bucket is located from the dropdown list. This field appears only when
+you specify an access point or a bucket in another account for **S3
+bucket**. 10. For **Storage class for new objects**, choose a storage class
+from the dropdown list. For more information about storage classes, see [Using
+storage classes with a File Gateway](storage-classes.md#ia-file-gateway "storage-classes.md#ia-file-gateway"). 11. For **IAM Role**, do one of the following to configure an IAM
+role for your file share:
 
-        * To automatically create a new IAM role with the necessary permissions
-         for your file share to work properly, choose **Created by
-         Storage Gateway** from the dropdown list.
-        * To use an existing IAM role, choose the role name from the dropdown
-         list.
-        * To create a new IAM role, choose **Create a role**.
-         For further instructions, see [Creating
-         a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the
-         AWS Identity and Access Management User Guide.
+    * To automatically create a new IAM role with the necessary permissions
+     for your file share to work properly, choose **Created by
+     Storage Gateway** from the dropdown list.
+    * To use an existing IAM role, choose the role name from the dropdown
+     list.
+    * To create a new IAM role, choose **Create a role**.
+     For further instructions, see [Creating
+     a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the
+     AWS Identity and Access Management User Guide.
 
-    For more information about how IAM roles control access between your file
-    share and S3 bucket, see [Granting
-    access to an Amazon S3 bucket](add-file-share.md#grant-access-s3 "add-file-share.md#grant-access-s3").
-
-12. For **Private link**, do the following only if you need to
-    configure your file share to communicate with AWS using a private endpoint in
-    a Virtual Private Cloud (VPC). Otherwise, skip this step. For more information,
-    see [What is AWS
-    PrivateLink?](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md") in the AWS PrivateLink Guide.
+For more information about how IAM roles control access between your file
+share and S3 bucket, see [Granting
+access to an Amazon S3 bucket](add-file-share.md#grant-access-s3 "add-file-share.md#grant-access-s3"). 12. For **Private link**, do the following only if you need to
+configure your file share to communicate with AWS using a private endpoint in
+a Virtual Private Cloud (VPC). Otherwise, skip this step. For more information,
+see [What is AWS
+PrivateLink?](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md") in the AWS PrivateLink Guide.
 
     1. Select **Use VPC endpoint**.
     2. For **Identify VPC endpoint by**, do one of the
-       following:
+     following:
 
-       - Select **VPC endpoint ID**, then choose the
-         endpoint that you want to use from the **VPC
-         endpoint** dropdown list.
-       - Select **DNS name**, then enter the
-         **DNS name** for the endpoint that you want
-         to use.
+
+
+
+    	* Select **VPC endpoint ID**, then choose the
+    	 endpoint that you want to use from the **VPC
+    	 endpoint** dropdown list.
+    	* Select **DNS name**, then enter the
+    	 **DNS name** for the endpoint that you want
+    	 to use.
 
 13. For **Encryption**, choose the type of server-side encryption
-    that the file share will use for the data that it stores in Amazon S3:
+that the file share will use for the data that it stores in Amazon S3:
 
-    - To use server-side encryption managed with Amazon S3 (SSE-S3), choose
-      **S3-Managed Keys (SSE-S3)**.
+    * To use server-side encryption managed with Amazon S3 (SSE-S3), choose
+     **S3-Managed Keys (SSE-S3)**.
+
 
     For more information, see [Using
-    server-side encryption with Amazon S3 managed keys](../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md "../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md") in the
-    _Amazon Simple Storage Service User Guide_.
-    - To use server-side encryption managed with AWS Key Management
-      Service (SSE-KMS), choose **KMS-Managed Keys
-      (SSE-KMS)**. For **Primary KMS key**,
-      choose an existing AWS KMS key, or choose **Create a new KMS
-      key** to create a new KMS key in the AWS Key Management
-      Service (AWS KMS) console.
+     server-side encryption with Amazon S3 managed keys](../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md "../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md") in the
+     *Amazon Simple Storage Service User Guide*.
+    * To use server-side encryption managed with AWS Key Management
+     Service (SSE-KMS), choose **KMS-Managed Keys
+     (SSE-KMS)**. For **Primary KMS key**,
+     choose an existing AWS KMS key, or choose **Create a new KMS
+     key** to create a new KMS key in the AWS Key Management
+     Service (AWS KMS) console.
+
 
     For more information about AWS KMS, see [What is AWS Key
-    Management Service?](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") in the _AWS Key Management Service Developer
-    Guide_.
-    - To use dual-layer server-side encryption managed with AWS Key
-      Management Service (DSSE-KMS), choose **Dual-layer server-side
-      encryption with AWS Key Management Service keys (DSSE-KMS)**. For
-      **Primary KMS key**, choose an existing AWS KMS
-      key, or choose **Create a new KMS key** to create a new
-      KMS key in the AWS Key Management Service (AWS KMS) console.
+     Management Service?](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") in the *AWS Key Management Service Developer
+     Guide*.
+    * To use dual-layer server-side encryption managed with AWS Key
+     Management Service (DSSE-KMS), choose **Dual-layer server-side
+     encryption with AWS Key Management Service keys (DSSE-KMS)**. For
+     **Primary KMS key**, choose an existing AWS KMS
+     key, or choose **Create a new KMS key** to create a new
+     KMS key in the AWS Key Management Service (AWS KMS) console.
+
 
     For more information about DSSE-KMS, see [Using
-    dual-layer server-side encryption with AWS KMS keys](../../../AmazonS3/latest/userguide/UsingDSSEncryption.md "../../../AmazonS3/latest/userguide/UsingDSSEncryption.md") in the
-    _Amazon Simple Storage Service User Guide_.
+     dual-layer server-side encryption with AWS KMS keys](../../../AmazonS3/latest/userguide/UsingDSSEncryption.md "../../../AmazonS3/latest/userguide/UsingDSSEncryption.md") in the
+     *Amazon Simple Storage Service User Guide*.
+
 
     ###### Note
 
     There are additional charges for using DSSE-KMS and AWS KMS keys.
-    For more information, see [AWS KMS
-    pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
+     For more information, see [AWS KMS
+     pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
 
     To specify an AWS KMS key with an alias that is not listed or to use
-    an AWS KMS key from a different AWS account, you must use the
-    AWS Command Line Interface. Asymmetric KMS keys are not supported. For more
-    information, see [CreateNFSFileShare](../../../storagegateway/latest/APIReference/API_CreateMFSFileShare.md "../../../storagegateway/latest/APIReference/API_CreateMFSFileShare.md") in the _AWS Storage Gateway API
-    Reference_.
+     an AWS KMS key from a different AWS account, you must use the
+     AWS Command Line Interface. Asymmetric KMS keys are not supported. For more
+     information, see [CreateNFSFileShare](../../../storagegateway/latest/APIReference/API_CreateMFSFileShare.md "../../../storagegateway/latest/APIReference/API_CreateMFSFileShare.md") in the *AWS Storage Gateway API
+     Reference*.
 
 ###### Important
 
@@ -254,19 +256,19 @@ client on your network can mount to the file share. 20. For **Access type**, sel
 
 21. For **Access level**, choose one of the following:
 
-    - **Root squash (default)**: Access for the remote
-      superuser (root) is mapped to UID (65534) and GID (65534).
-    - **All squash**: All user access is mapped to User ID
-      (UID) (65534) and Group ID (GID) (65534).
-    - **No root squash**: The remote superuser (root)
-      receives access as root.
+    * **Root squash (default)**: Access for the remote
+     superuser (root) is mapped to UID (65534) and GID (65534).
+    * **All squash**: All user access is mapped to User ID
+     (UID) (65534) and Group ID (GID) (65534).
+    * **No root squash**: The remote superuser (root)
+     receives access as root.
 
 22. (Optional) For **Automated cache refresh from S3**, choose
-    **Set cache refresh interval**, then set the time in
-    **Minutes** or **Days** to refresh the
-    file share's cache using Time To Live (TTL). TTL is the length of time since the
-    last refresh. After the TTL interval has elapsed, accessing a directory causes
-    the File Gateway to refresh that directory's contents from the Amazon S3 bucket.
+**Set cache refresh interval**, then set the time in
+**Minutes** or **Days** to refresh the
+file share's cache using Time To Live (TTL). TTL is the length of time since the
+last refresh. After the TTL interval has elapsed, accessing a directory causes
+the File Gateway to refresh that directory's contents from the Amazon S3 bucket.
 
 ###### Note
 

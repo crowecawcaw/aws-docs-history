@@ -148,16 +148,12 @@ or making web requests to the new gateway VM's IP address (described below).
      a message confirming successful migration.
 
 11. Wait for the gateway status to show as **Running** in the
-    AWS Storage Gateway console. Depending on available bandwidth, this can take up to 10
-    minutes.
-12. Stop the new Storage Gateway VM.
-13. Detach the old gateway's root disk, whose volume ID you noted previously, from
-    the new gateway.
-14. Start the new Storage Gateway VM.
-15. If your gateway was joined to an Active Directory domain, re-join the domain.
-    For instructions, see
-    [Using Active
-    Directory to authenticate users](enable-ad-settings.md "enable-ad-settings.md").
+AWS Storage Gateway console. Depending on available bandwidth, this can take up to 10
+minutes. 12. Stop the new Storage Gateway VM. 13. Detach the old gateway's root disk, whose volume ID you noted previously, from
+the new gateway. 14. Start the new Storage Gateway VM. 15. If your gateway was joined to an Active Directory domain, re-join the domain.
+For instructions, see
+[Using Active
+Directory to authenticate users](enable-ad-settings.md "enable-ad-settings.md").
 
 ###### Note
 
@@ -178,32 +174,32 @@ for your hypervisor.
 
 ###### To set up a replacement S3 File Gateway instance with empty cache disk and new Gateway ID:
 
-1.  Stop any applications that are writing to the existing S3 File Gateway. Verify that the `CachePercentDirty` metric
-    on the **Monitoring** tab is `0` before you set up
-    file shares on the new gateway.
-2.  Use the AWS Command Line Interface (AWS CLI) to gather and save the configuration information
-    about your existing S3 File Gateway and file shares by doing the
-    following:
+1. Stop any applications that are writing to the existing S3 File Gateway. Verify that the `CachePercentDirty` metric
+   on the **Monitoring** tab is `0` before you set up
+   file shares on the new gateway.
+2. Use the AWS Command Line Interface (AWS CLI) to gather and save the configuration information
+   about your existing S3 File Gateway and file shares by doing the
+   following:
 
-    1. Save the gateway configuration information for the S3 File Gateway.
+   1. Save the gateway configuration information for the S3 File Gateway.
 
-    ```
-    aws storagegateway describe-gateway-information --gateway-arn "arn:aws:storagegateway:`us-east-2`:`123456789012`:gateway/**sgw-12A3456B**"
-    ```
+   ```
+   aws storagegateway describe-gateway-information --gateway-arn "arn:aws:storagegateway:`us-east-2`:`123456789012`:gateway/**sgw-12A3456B**"
+   ```
 
-    This command outputs a JSON block that contains metadata about the
-    gateway, such as its name, network interfaces, configured time zone, and
-    its state (whether the gateway is running). 2. Save the Server Message Block (SMB) settings of the S3 File Gateway.
+   This command outputs a JSON block that contains metadata about the
+   gateway, such as its name, network interfaces, configured time zone, and
+   its state (whether the gateway is running). 2. Save the Server Message Block (SMB) settings of the S3 File Gateway.
 
-    ```
-    aws storagegateway describe-smb-settings --gateway-arn "arn:aws:storagegateway:`us-east-2`:`123456789012`:gateway/`sgw-12A3456B`"
-    ```
+   ```
+   aws storagegateway describe-smb-settings --gateway-arn "arn:aws:storagegateway:`us-east-2`:`123456789012`:gateway/`sgw-12A3456B`"
+   ```
 
-    This command outputs a JSON block that contains metadata about the SMB
-    file share, such as its domain name, Microsoft Active Directory status,
-    whether the guest password is set, and the type of security
-    strategy. 3. Save file share information for each SMB and Network File System (NFS)
-    file share of the S3 File Gateway:
+   This command outputs a JSON block that contains metadata about the SMB
+   file share, such as its domain name, Microsoft Active Directory status,
+   whether the guest password is set, and the type of security
+   strategy. 3. Save file share information for each SMB and Network File System (NFS)
+   file share of the S3 File Gateway:
 
         * Use the following command for SMB file shares.
 
@@ -232,17 +228,17 @@ for your hypervisor.
          S3 File Gateway, and the path used
          by the NFS client to identify the mount point.
 
-3.  Create a new S3 File Gateway with the same settings and
-    configuration as the old gateway. If necessary, refer to the information you
-    saved in Step 2.
-4.  Create new file shares for the new gateway with the same settings and
-    configuration as the file shares that were configured on the old gateway. If
-    necessary, refer to the information you saved in Step 2.
-5.  Confirm that your new gateway is working correctly, then remap/cut-over your
-    clients from the old file shares to the new file shares in the manner that best
-    suits your environment.
-6.  Confirm that your new gateway is working correctly, then delete the old
-    gateway from the Storage Gateway console.
+3. Create a new S3 File Gateway with the same settings and
+   configuration as the old gateway. If necessary, refer to the information you
+   saved in Step 2.
+4. Create new file shares for the new gateway with the same settings and
+   configuration as the file shares that were configured on the old gateway. If
+   necessary, refer to the information you saved in Step 2.
+5. Confirm that your new gateway is working correctly, then remap/cut-over your
+   clients from the old file shares to the new file shares in the manner that best
+   suits your environment.
+6. Confirm that your new gateway is working correctly, then delete the old
+   gateway from the Storage Gateway console.
 
 ###### Important
 
