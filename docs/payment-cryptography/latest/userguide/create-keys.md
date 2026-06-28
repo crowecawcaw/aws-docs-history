@@ -127,7 +127,7 @@ Example output:
 ###### Example
 
 HMAC keys are used for generating or verifying hash message authentication codes (HMAC). With HMAC keys,
-the hash type is assigned at the time of key creation (such as HMAC_SHA224 and HMAC_SHA512) and cannot be modified.
+the hash type is assigned at the time of key creation (such as HMAC\_SHA224 and HMAC\_SHA512) and cannot be modified.
 
 ```
 `$` `aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=HMAC_SHA512,KeyUsage=TR31_M7_HMAC_KEY,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Generate = true,Verify = true}'`

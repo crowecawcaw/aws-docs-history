@@ -67,7 +67,7 @@ deletion, and the service deletes the key.
 ###### Example
 
 In this example, a key is requested to be deleted. Besides the basic key information,
-two relevant fields are that key state has been changed to DELETE_PENDING and
+two relevant fields are that key state has been changed to DELETE\_PENDING and
 deletePendingTimestamp represents when the key is currently scheduled to delete.
 
 ```
@@ -116,7 +116,7 @@ In this example, a pending deletion is cancelled. Once completed successfully, a
 will no longer be deleted per the previous schedule. The response contains the basic key
 information; additionally, two relevant fields have changed - `KeyState` and
 `deletePendingTimestamp`. `KeyState` is returned to a value of
-CREATE_COMPLETE, while `DeletePendingTimestamp` is removed.
+CREATE\_COMPLETE, while `DeletePendingTimestamp` is removed.
 
 ```
 `$` `aws payment-cryptography restore-key --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/kwapwa6qaifllw2h`

@@ -154,9 +154,9 @@ from step 4 for `key-material`, and the leaf certificate from step 3 for
 
 6. ###### **Use imported key for cryptographic operations or subsequent import**
 
-If the imported KeyUsage was TR31_K0_KEY_ENCRYPTION_KEY, you can use this key for
+If the imported KeyUsage was TR31\_K0\_KEY\_ENCRYPTION\_KEY, you can use this key for
 subsequent key imports using TR-31. For other key types (such as
-TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY), you can use the key directly for cryptographic
+TR31\_D0\_SYMMETRIC\_DATA\_ENCRYPTION\_KEY), you can use the key directly for cryptographic
 operations.
 
 ### Import keys using asymmetric techniques (ECDH)
@@ -347,9 +347,9 @@ from step 4 for `key-material`, and the leaf certificate from step 3 for
 
 8. ###### **Use imported key for cryptographic operations or subsequent import**
 
-If the imported KeyUsage was TR31_K0_KEY_ENCRYPTION_KEY, you can use this key for
+If the imported KeyUsage was TR31\_K0\_KEY\_ENCRYPTION\_KEY, you can use this key for
 subsequent key imports using TR-31. For other key types (such as
-TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY), you can use the key directly for cryptographic
+TR31\_D0\_SYMMETRIC\_DATA\_ENCRYPTION\_KEY), you can use the key directly for cryptographic
 operations.
 
 ### Import keys using asymmetric techniques (RSA Unwrap)
@@ -400,7 +400,7 @@ Many HSMs and related systems support exporting keys using RSA wrap. Specify the
 public key from step 1 as the encryption cert (`WrappingKeyCertificate`).
 If you need the chain of trust, use the `WrappingKeyCertificateChain` from
 step 1. When exporting the key from your HSM, specify the format as RSA, with Padding
-Mode = PKCS#1 v2.2 OAEP (with SHA 256 or SHA 512). 4. ###### **Call **import-key\*\*\*\*
+Mode = PKCS#1 v2.2 OAEP (with SHA 256 or SHA 512). 4. ###### **Call **import-key****
 
 Call the **import-key** API with a
 `KeyMaterialType` of `KeyMaterial`. You need the
@@ -558,7 +558,7 @@ output from the source platform for `WrappedKeyBlock`.
 
 All certificates imported must be at least as strong as their issuing(predecessor) certificate in the chain.
 This means that a
-RSA_2048 CA can only be used to protect a RSA_2048 leaf certificate and an ECC certificate must be protected by
+RSA\_2048 CA can only be used to protect a RSA\_2048 leaf certificate and an ECC certificate must be protected by
 another ECC certificate of equivalent strength. An ECC P384 certificate can only be issued by a P384 or P521 CA. All
 certificates must be unexpired at the time of import.
 
@@ -620,7 +620,7 @@ Use the following command to import the root certificate:
 
 You can now import a public key. As TR-34 and ECDH rely on passing the leaf certificate at run-time,
 this option is only used when encrypting data using a public key from another system. KeyUsage will be
-set to TR31_D1_ASYMMETRIC_KEY_FOR_DATA_ENCRYPTION.
+set to TR31\_D1\_ASYMMETRIC\_KEY\_FOR\_DATA\_ENCRYPTION.
 
 ###### Example
 

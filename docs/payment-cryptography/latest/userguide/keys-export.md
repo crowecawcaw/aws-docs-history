@@ -539,7 +539,7 @@ exported. However, you might want to modify or append those values before sendin
 receiving system. Here are some common scenarios:
 
 - When exporting a key to a payment terminal, set its exportability to `Not
-Exportable` because terminals typically only import keys and shouldn't export
+ Exportable` because terminals typically only import keys and shouldn't export
   them.
 - When you need to pass associated key metadata to the receiving system, use TR-31
   optional headers to cryptographically bind the metadata to the key instead of creating a
@@ -556,7 +556,7 @@ Here's an example of exporting a BDK key (for instance, to a KIF) with these
 specifications:
 
 - Key version: 02
-- KeyExportability: NON_EXPORTABLE
+- KeyExportability: NON\_EXPORTABLE
 - KeySetID: 00ABCDEFAB (00 indicates TDES key, ABCDEFABCD is the initial key)
 
 Because we don't specify key modes of use, this key inherits the mode of use from

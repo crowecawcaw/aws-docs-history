@@ -7,7 +7,7 @@ you create a [CVK](terminology.md#terms.cvk "terminology.md#terms.cvk") double-l
 
 ###### Note
 
-CVV, CVV2 and iCVV all use similar if not identical algorithms but vary the input data. All use the same key type TR31_C0_CARD_VERIFICATION_KEY
+CVV, CVV2 and iCVV all use similar if not identical algorithms but vary the input data. All use the same key type TR31\_C0\_CARD\_VERIFICATION\_KEY
 but it is recommended to use separate keys for each purpose. These can be distinguished using aliases and/or tags as in the example below.
 
 ## Create the key

@@ -12,7 +12,7 @@ For more information, see [GenerateMacEmvPinChange](../DataAPIReference/API_Gene
 
 ## Generate EMV MAC and encrypted PIN for PIN change
 
-This operation requires two keys: an EMV integrity key (KeyUsage: TR31_E2_EMV_MKEY_INTEGRITY) for MAC generation and an EMV confidentiality key (KeyUsage: TR31_E4_EMV_MKEY_CONFIDENTIALITY) for PIN encryption.
+This operation requires two keys: an EMV integrity key (KeyUsage: TR31\_E2\_EMV\_MKEY\_INTEGRITY) for MAC generation and an EMV confidentiality key (KeyUsage: TR31\_E4\_EMV\_MKEY\_CONFIDENTIALITY) for PIN encryption.
 The typical flow is that a backend process will generate an EMV PIN change script, which includes both the MAC for the issuer script
 and the encrypted new PIN. The command and encrypted PIN are then sent to the card to update the offline PIN.
 Sending the command to the card is outside the scope of AWS Payment Cryptography.
@@ -27,10 +27,10 @@ New PIN PEK Identifier
 The key used to encrypt the new PIN before it's passed to this API.
 
 Secure Messaging Integrity Key
-The EMV integrity key (KeyUsage: TR31_E2_EMV_MKEY_INTEGRITY) used for MAC generation.
+The EMV integrity key (KeyUsage: TR31\_E2\_EMV\_MKEY\_INTEGRITY) used for MAC generation.
 
 Secure Messaging Confidentiality Key
-The EMV confidentiality key (KeyUsage: TR31_E4_EMV_MKEY_CONFIDENTIALITY) used for PIN encryption.
+The EMV confidentiality key (KeyUsage: TR31\_E4\_EMV\_MKEY\_CONFIDENTIALITY) used for PIN encryption.
 
 MajorKeyDerivationMode
 EMV defines Mode A, B, or C. Mode A is the most common and AWS Payment Cryptography currently supports mode A or mode B.
@@ -51,7 +51,7 @@ PinBlockLengthPosition
 Specifies where the PIN block length is encoded. Typically set to NONE. Check your card scheme specifications if you're not sure.
 
 PinBlockPaddingType
-Specifies the padding type for the PIN block. Typically set to NO_PADDING. Check your card scheme specifications if you're not sure.
+Specifies the padding type for the PIN block. Typically set to NO\_PADDING. Check your card scheme specifications if you're not sure.
 
 ###### Example
 

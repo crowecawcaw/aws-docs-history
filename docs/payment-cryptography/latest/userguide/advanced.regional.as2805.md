@@ -38,13 +38,13 @@ KEK are exchanged infrequently and are validated using KCV.
 AS2805 uses the concept of key variants rather than key blocks to ensure keys are only used for the intended (and sole) purpose. The following is how AWS Payment Cryptography
 maps between variants and keyblocks when importing, exporting or performing other cryptographic functions with keys.
 
-| AS2805 Key Type                       | AWS Payment Cryptography Key Type                                                                                     |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| TERMINAL_MAJOR_KEY_VARIANT_00         | TR31_K0_KEY_ENCRYPTION_KEY                                                                                            |
-| PIN_ENCRYPTION_KEY_VARIANT_28         | TR31_P0_PIN_ENCRYPTION_KEY                                                                                            |
-| MESSAGE_AUTHENTICATION_KEY_VARIANT_24 | TR31_M0_ISO_16609_MAC_KEY                                                                                             |
-| DATA_ENCRYPTION_KEY_VARIANT_22        | TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY                                                                                 |
-| VARIANT_MASK_82,VARIANT_MASK_82C0     | Options available as part of KEK validation process. These key types are ephemeral and are not stored by the service. |
+| AS2805 Key Type                           | AWS Payment Cryptography Key Type                                                                                     |
+| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| TERMINAL\_MAJOR\_KEY\_VARIANT\_00         | TR31\_K0\_KEY\_ENCRYPTION\_KEY                                                                                        |
+| PIN\_ENCRYPTION\_KEY\_VARIANT\_28         | TR31\_P0\_PIN\_ENCRYPTION\_KEY                                                                                        |
+| MESSAGE\_AUTHENTICATION\_KEY\_VARIANT\_24 | TR31\_M0\_ISO\_16609\_MAC\_KEY                                                                                        |
+| DATA\_ENCRYPTION\_KEY\_VARIANT\_22        | TR31\_D0\_SYMMETRIC\_DATA\_ENCRYPTION\_KEY                                                                            |
+| VARIANT\_MASK\_82,VARIANT\_MASK\_82C0     | Options available as part of KEK validation process. These key types are ephemeral and are not stored by the service. |
 
 Given two nodes, node1 and node2, the following examples
 are from the perspective of node1. AWS Payment Cryptography supports APIs from both sides of the process.

@@ -7,13 +7,13 @@ The primary inputs are the encryption key used to encrypt the data, the plaintex
 the length of the key in the case of `RSA`. Symmetric key inputs (TDES, AES, DUKPT, EMV) should be padded in cases where the input data does not meet these requirements. The following table shows the maximum length of plaintext for each type of key and the padding type that you define in `EncryptionAttributes`
 for RSA keys.
 
-| Padding type  | RSA_2048 | RSA_3072 | RSA_4096 |
-| ------------- | -------- | -------- | -------- |
-| `OAEP SHA1`   | 428      | 684      | 940      |
-| `OAEP SHA256` | 380      | 636      | 892      |
-| `OAEP SHA512` | 252      | 508      | 764      |
-| `PKCS1`       | 488      | 744      | 1000     |
-| `None`        | 488      | 744      | 1000     |
+| Padding type  | RSA\_2048 | RSA\_3072 | RSA\_4096 |
+| ------------- | --------- | --------- | --------- |
+| `OAEP SHA1`   | 428       | 684       | 940       |
+| `OAEP SHA256` | 380       | 636       | 892       |
+| `OAEP SHA512` | 252       | 508       | 764       |
+| `PKCS1`       | 488       | 744       | 1000      |
+| `None`        | 488       | 744       | 1000      |
 
 The primary outputs include the encrypted data as ciphertext in hexBinary format and the checksum value for the encryption key. For details on all available options, please consult the API Guide for [Encrypt](../DataAPIReference/API_EncryptData.md "../DataAPIReference/API_EncryptData.md").
 

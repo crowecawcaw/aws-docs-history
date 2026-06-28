@@ -135,7 +135,7 @@ entered the wrong CVV2 at checkout.
 `Card validation data verification failed.`
 ```
 
-The service returns an HTTP response of 400 with the message "Card validation data verification failed" and a reason of INVALID_VALIDATION_DATA.
+The service returns an HTTP response of 400 with the message "Card validation data verification failed" and a reason of INVALID\_VALIDATION\_DATA.
 
 ## Step 5: (Optional) Clean up
 

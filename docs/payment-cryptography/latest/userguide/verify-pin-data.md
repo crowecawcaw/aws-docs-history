@@ -43,7 +43,7 @@ If AWS Payment Cryptography is able to validate the pin, an http/200 is returned
 
 In this example, we will attempt to validate a PIN for a given PAN but it will fail due to the pin being incorrect.
 
-When using SDKs, this appears as {"Message":"Pin block verification failed.","Reason":"INVALID_PIN"}
+When using SDKs, this appears as {"Message":"Pin block verification failed.","Reason":"INVALID\_PIN"}
 
 ```
 `$` `aws payment-cryptography-data verify-pin-data --verification-key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/37y2tsl45p5zjbh2 --encryption-key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/ivi5ksfsuplneuyt --primary-account-number 171234567890123 --pin-block-format ISO_FORMAT_0 --verification-attributes VisaPin="{PinVerificationKeyIndex=1,VerificationValue=9999}" --encrypted-pin-block AC17DC148BDA645E`

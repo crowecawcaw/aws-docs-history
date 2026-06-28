@@ -12,9 +12,9 @@ In order to generate a random pin and the [PVV](terminology.md#terms.pvv "termin
 for generating the PVV and a [Pin Encryption Key](terminology.md#terms.pek "terminology.md#terms.pek") for encrypting the pin. The pin itself is randomly generated securely inside the service
 and is not related to either key cryptographically.
 
-The PGK must be a key of algorithm TDES_2KEY based on the PVV algorithm itself. A PEK can be TDES_2KEY, TDES_3KEY or AES_128. In this case, since the PEK is
-intended for internal use within your system, AES_128 would be a good choice. If a PEK is used for interchange with other systems (e.g. card networks, acquirers, ATMs) or
-are being moved as part of a migration, TDES_2KEY may be the more appropriate choice for compatibility reasons.
+The PGK must be a key of algorithm TDES\_2KEY based on the PVV algorithm itself. A PEK can be TDES\_2KEY, TDES\_3KEY or AES\_128. In this case, since the PEK is
+intended for internal use within your system, AES\_128 would be a good choice. If a PEK is used for interchange with other systems (e.g. card networks, acquirers, ATMs) or
+are being moved as part of a migration, TDES\_2KEY may be the more appropriate choice for compatibility reasons.
 
 ### Create the PEK
 

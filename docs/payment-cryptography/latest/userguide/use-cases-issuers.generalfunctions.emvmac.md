@@ -70,8 +70,8 @@ Message data includes the APDU header and command. While this can vary by implem
 by ATC (0007) and then ARQC of the previous transaction (999E57FD0F47CACE). The service does not validate the contents of this field.
 
 Session Key Derivation Mode
-This field defines how the session key is generated. EMV_COMMON_SESSION_KEY is generally used for the new implementations,
-while EMV2000 | AMEX | MASTERCARD_SESSION_KEY | VISA may be used as well.
+This field defines how the session key is generated. EMV\_COMMON\_SESSION\_KEY is generally used for the new implementations,
+while EMV2000 | AMEX | MASTERCARD\_SESSION\_KEY | VISA may be used as well.
 
 MajorKeyDerivationMode
 EMV Defines Mode A, B or C. Mode A is the most common and AWS Payment Cryptography currently supports mode A or mode B.
