@@ -15,56 +15,55 @@ console.
 
 ###### To edit the tags for a resource
 
-1.  Open the Security Lake console at [https://console.aws.amazon.com/securitylake/](https://console.aws.amazon.com/securitylake/ "https://console.aws.amazon.com/securitylake/").
-2.  Depending on the type of resource whose tags you want to edit, do one of the
-    following:
+1. Open the Security Lake console at [https://console.aws.amazon.com/securitylake/](https://console.aws.amazon.com/securitylake/ "https://console.aws.amazon.com/securitylake/").
+2. Depending on the type of resource whose tags you want to edit, do one of the
+   following:
 
-    - For a data lake configuration, choose
-      **Regions** in the navigation pane.
-      Then, in the **Regions** table, select the
-      Region.
-    - For a subscriber, choose **Subscribers**
-      in the navigation pane. Then, in the **My
-      subscribers** table, select the
-      subscriber.
+   - For a data lake configuration, choose
+     **Regions** in the navigation pane.
+     Then, in the **Regions** table, select the
+     Region.
+   - For a subscriber, choose **Subscribers**
+     in the navigation pane. Then, in the **My
+     subscribers** table, select the
+     subscriber.
 
-    If the subscriber doesn't appear in the table, use the
-    AWS Region selector in the upper-right corner of the page
-    to select the Region where you created the subscriber. The
-    table lists existing subscribers only for the current
-    Region.
+   If the subscriber doesn't appear in the table, use the
+   AWS Region selector in the upper-right corner of the page
+   to select the Region where you created the subscriber. The
+   table lists existing subscribers only for the current
+   Region.
 
-3.  Choose **Edit**.
-4.  Expand the **Tags** section. The **Tags** section
-    lists all the tags that are currently assigned to the
-    resource.
-5.  Do any of the following:
+3. Choose **Edit**.
+4. Expand the **Tags** section. The **Tags** section
+   lists all the tags that are currently assigned to the
+   resource.
+5. Do any of the following:
 
-        * To add a tag value to an existing tag key, enter the value in the
-         **Value** box next to the tag
-         key.
-        * To change an existing tag key, choose **Remove** next to the tag.
-         Then choose **Add new tag**. In the
-         **Key** box that appears, enter the new
-         tag key. Optionally enter an associated tag value in the
-         **Value** box.
-        * To change an existing tag value, choose
-         **X** in the **Value**
-         box that contains the value. Then enter the new tag value in
-         the **Value** box.
-        * To remove an existing tag value, choose
-         **X** in the **Value**
-         box that contains the value.
-        * To remove an existing tag (both the tag key and tag
-         value), choose **Remove** next to the
-         tag.
+   - To add a tag value to an existing tag key, enter the value in the
+     **Value** box next to the tag
+     key.
+   - To change an existing tag key, choose **Remove** next to the tag.
+     Then choose **Add new tag**. In the
+     **Key** box that appears, enter the new
+     tag key. Optionally enter an associated tag value in the
+     **Value** box.
+   - To change an existing tag value, choose
+     **X** in the **Value**
+     box that contains the value. Then enter the new tag value in
+     the **Value** box.
+   - To remove an existing tag value, choose
+     **X** in the **Value**
+     box that contains the value.
+   - To remove an existing tag (both the tag key and tag
+     value), choose **Remove** next to the
+     tag.
+     A resource can have as many as 50 tags. A tag key can contain as
+     many as 128 characters. A tag value can contain as many as 256
+     characters. The characters can be letters, numbers, spaces, or the
+     following symbols: \_ . : / = + - @
 
-    A resource can have as many as 50 tags. A tag key can contain as
-    many as 128 characters. A tag value can contain as many as 256
-    characters. The characters can be letters, numbers, spaces, or the
-    following symbols: \_ . : / = + - @
-
-6.  When you finish editing the tags, choose **Save**.
+6. When you finish editing the tags, choose **Save**.
 
 API
 When you edit a tag for a resource programmatically, you overwrite the

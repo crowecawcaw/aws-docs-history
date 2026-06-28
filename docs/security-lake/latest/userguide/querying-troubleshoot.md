@@ -20,7 +20,7 @@ To resolve the error, follow these steps:
 3. From the navigation pane, choose **Functions**, and select the function from
    the following list depending on the source version:
 
-   - `Source version 1 (OCSF 1.0.0-rc.2)` – **SecurityLake_Glue_Partition_Updater_Lambda\_`≪region>`**
+   - `Source version 1 (OCSF 1.0.0-rc.2)` – **SecurityLake\_Glue\_Partition\_Updater\_Lambda\_`≪region>`**
      function.
    - `Source version 2 (OCSF 1.1.0)` –
      **AmazonSecurityLakeMetastoreManager\_`≪region>`**

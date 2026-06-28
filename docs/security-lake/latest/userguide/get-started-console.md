@@ -65,11 +65,10 @@ which Regions to ingest data from. 7. For **Select accounts**, perform the follo
      see [Editing new account configuration in console](multi-account-management.md#security-lake-new-account-auto-enable "multi-account-management.md#security-lake-new-account-auto-enable").
 
 8. For **Service access**, create a new IAM role
-   or use an existing IAM role that gives Security Lake permission to
-   collect data from your sources and add them to your data lake. One
-   role is used across all Regions in which you enable
-   Security Lake.
-9. Choose **Next**.
+or use an existing IAM role that gives Security Lake permission to
+collect data from your sources and add them to your data lake. One
+role is used across all Regions in which you enable
+Security Lake. 9. Choose **Next**.
 
 ## Step 2: Define storage settings and rollup Regions (optional)
 

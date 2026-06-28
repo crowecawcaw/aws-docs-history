@@ -15,21 +15,19 @@
   services that you use in multiple Regions is reduced.
 - When you enable Security Lake for the first time in any Region, it creates the following service-linked roles for your account:
 
-      + [AWSServiceRoleForSecurityLake](slr-permissions.md "slr-permissions.md"):
-       This role includes the
-       permissions to call other AWS services on your behalf and operate the security
-       data lake. If you enable Security Lake as the [delegated Security Lake administrator](multi-account-management.md#delegated-admin-important "multi-account-management.md#delegated-admin-important"), Security Lake creates the
-       [service-linked role](using-service-linked-roles.md "using-service-linked-roles.md")
-       in each member account in the organization.
-      + [AWSServiceRoleForSecurityLakeResourceManagement](slr-permissions.md "slr-permissions.md"): Security Lake
-       uses this role to perform ongoing monitoring and performance improvements, which can potentially reduce latency and costs. This service-linked role
-       trusts the `resource-management.securitylake.amazonaws.com` service to assume the role. Enabling this service role
-       will also grant it access to Lake Formation.
+  - [AWSServiceRoleForSecurityLake](slr-permissions.md "slr-permissions.md"):
+    This role includes the
+    permissions to call other AWS services on your behalf and operate the security
+    data lake. If you enable Security Lake as the [delegated Security Lake administrator](multi-account-management.md#delegated-admin-important "multi-account-management.md#delegated-admin-important"), Security Lake creates the
+    [service-linked role](using-service-linked-roles.md "using-service-linked-roles.md")
+    in each member account in the organization.
+  - [AWSServiceRoleForSecurityLakeResourceManagement](slr-permissions.md "slr-permissions.md"): Security Lake
+    uses this role to perform ongoing monitoring and performance improvements, which can potentially reduce latency and costs. This service-linked role
+    trusts the `resource-management.securitylake.amazonaws.com` service to assume the role. Enabling this service role
+    will also grant it access to Lake Formation.
 
-
-      For information about how this impacts the existing accounts that enabled Security Lake before April 17, 2025,
-       see [Update for existing accounts](multi-account-management.md#security-lake-existing-account-resource-management-slr "multi-account-management.md#security-lake-existing-account-resource-management-slr").
-
+  For information about how this impacts the existing accounts that enabled Security Lake before April 17, 2025,
+  see [Update for existing accounts](multi-account-management.md#security-lake-existing-account-resource-management-slr "multi-account-management.md#security-lake-existing-account-resource-management-slr").
   For information about how service-linked roles work, see [Using service-linked role permissions](../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md "../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md") in the
   _IAM User Guide_.
 

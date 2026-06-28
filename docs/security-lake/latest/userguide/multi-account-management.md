@@ -135,10 +135,9 @@ Console
 
 1. Open the Security Lake console at [https://console.aws.amazon.com/securitylake/](https://console.aws.amazon.com/securitylake/ "https://console.aws.amazon.com/securitylake/").
 
-Sign in using the credentials of the management account for your organization. 2. _ If Security Lake is not yet enabled, select **Get
+Sign in using the credentials of the management account for your organization. 2. * If Security Lake is not yet enabled, select **Get
 Started**, and then designate the delegated Security Lake administrator on the **Enable
-Security Lake** page.
-_ If Security Lake is already enabled, designate the delegated Security Lake administrator on the **Settings**
+Security Lake** page. * If Security Lake is already enabled, designate the delegated Security Lake administrator on the **Settings**
 page. 3. Under **Delegate administration to another
 account**, enter the 12-digit AWS account ID of your Log Archive account.
 

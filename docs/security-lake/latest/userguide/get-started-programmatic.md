@@ -130,19 +130,18 @@ configuration settings that you want:
 - To specify retention settings for your data, use the
   `lifecycleConfiguration` parameters:
 
-      + For `transitions`, specify the total number of
-       days (`days`) that you want to store S3 objects
-       in a particular Amazon S3 storage class
-       (`storageClass`).
-      + For `expiration`, specify the total number of
-       days that you want to store objects in Amazon S3, using any
-       storage class, after objects are created. When this
-       retention period ends, objects expire and Amazon S3 deletes
-       them.
-
-  Security Lake applies the specified retention settings to the Region
-  that you specify in the `region` field of the
-  `configurations` object.
+  - For `transitions`, specify the total number of
+    days (`days`) that you want to store S3 objects
+    in a particular Amazon S3 storage class
+    (`storageClass`).
+  - For `expiration`, specify the total number of
+    days that you want to store objects in Amazon S3, using any
+    storage class, after objects are created. When this
+    retention period ends, objects expire and Amazon S3 deletes
+    them.
+    Security Lake applies the specified retention settings to the Region
+    that you specify in the `region` field of the
+    `configurations` object.
 
 For example, the following command creates a data lake with `ap-northeast-2` as a rollup Region.
 The `us-east-1` Region will contribute data to the `ap-northeast-2` Region. This example also establishes a

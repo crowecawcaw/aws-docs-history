@@ -97,23 +97,22 @@ the subscriber:
   data. You must provide both the principal and external ID. If you want to keep one of these values the
   same, pass in the current value.
 
-      + **Updating only external
-       ID** – This action removes the previous
-       AWS RAM resource share and creates a new resource share for
-       the subscriber. The subscriber must accept the new resource
-       share by following step 1 in [Setting up cross-account table sharing (subscriber step)](create-query-subscriber-procedures.md#grant-query-access-subscriber "create-query-subscriber-procedures.md#grant-query-access-subscriber"). The resource
-       link to the shared tables remains as is, so the subscriber doesn't
-       have to create a new resource link.
-      + **Updating only
-       principal** – This action removes the
-       previous AWS RAM resource share so the previous principal can't consume the log
-       and event sources. Security Lake creates a new resource
-       share. Using the credentials of the new principal, the subscriber must accept the new resource share and
-       create a resource link to the shared tables. This gives the
-       new principal access to the shared resources. For
-       instructions, see steps 1 and 2 in [Setting up cross-account table sharing (subscriber step)](create-query-subscriber-procedures.md#grant-query-access-subscriber "create-query-subscriber-procedures.md#grant-query-access-subscriber").
-
-  To update the external ID _and_ principal, follow steps 1 and 2 in [Setting up cross-account table sharing (subscriber step)](create-query-subscriber-procedures.md#grant-query-access-subscriber "create-query-subscriber-procedures.md#grant-query-access-subscriber").
+  - **Updating only external
+    ID** – This action removes the previous
+    AWS RAM resource share and creates a new resource share for
+    the subscriber. The subscriber must accept the new resource
+    share by following step 1 in [Setting up cross-account table sharing (subscriber step)](create-query-subscriber-procedures.md#grant-query-access-subscriber "create-query-subscriber-procedures.md#grant-query-access-subscriber"). The resource
+    link to the shared tables remains as is, so the subscriber doesn't
+    have to create a new resource link.
+  - **Updating only
+    principal** – This action removes the
+    previous AWS RAM resource share so the previous principal can't consume the log
+    and event sources. Security Lake creates a new resource
+    share. Using the credentials of the new principal, the subscriber must accept the new resource share and
+    create a resource link to the shared tables. This gives the
+    new principal access to the shared resources. For
+    instructions, see steps 1 and 2 in [Setting up cross-account table sharing (subscriber step)](create-query-subscriber-procedures.md#grant-query-access-subscriber "create-query-subscriber-procedures.md#grant-query-access-subscriber").
+    To update the external ID _and_ principal, follow steps 1 and 2 in [Setting up cross-account table sharing (subscriber step)](create-query-subscriber-procedures.md#grant-query-access-subscriber "create-query-subscriber-procedures.md#grant-query-access-subscriber").
 
 - For `sources`, remove existing sources or specify sources that you want to add. If
   you remove a source, no further action is required from your end. If

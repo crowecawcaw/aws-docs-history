@@ -85,40 +85,39 @@ a subscriber with query access, Security Lake creates a new resource share. For 
 
 The subscriber should follow these steps to consume data from your Lake Formation tables:
 
-1.  **Accept the resource share** – The
-    subscriber must accept the resource share that has the `resourceShareArn` and
-    `resourceShareName` that's generated when you create or edit the subscriber. Choose one of the following
-    access methods:
+1. **Accept the resource share** – The
+   subscriber must accept the resource share that has the `resourceShareArn` and
+   `resourceShareName` that's generated when you create or edit the subscriber. Choose one of the following
+   access methods:
 
-        * For console and AWS CLI, see
-         [Accepting a resource
-         share invitation from AWS RAM](../../../lake-formation/latest/dg/accepting-ram-invite.md "../../../lake-formation/latest/dg/accepting-ram-invite.md").
-        * For API, invoke the [GetResourceShareInvitations](../../../ram/latest/APIReference/API_GetResourceShareInvitations.md "../../../ram/latest/APIReference/API_GetResourceShareInvitations.md") API. Filter by `resourceShareArn` and
-         `resourceShareName` to find the correct resource share. Accept the invitation with the
-         [AcceptResourceShareInvitation](../../../ram/latest/APIReference/API_AcceptResourceShareInvitation.md "../../../ram/latest/APIReference/API_AcceptResourceShareInvitation.md") API.
+   - For console and AWS CLI, see
+     [Accepting a resource
+     share invitation from AWS RAM](../../../lake-formation/latest/dg/accepting-ram-invite.md "../../../lake-formation/latest/dg/accepting-ram-invite.md").
+   - For API, invoke the [GetResourceShareInvitations](../../../ram/latest/APIReference/API_GetResourceShareInvitations.md "../../../ram/latest/APIReference/API_GetResourceShareInvitations.md") API. Filter by `resourceShareArn` and
+     `resourceShareName` to find the correct resource share. Accept the invitation with the
+     [AcceptResourceShareInvitation](../../../ram/latest/APIReference/API_AcceptResourceShareInvitation.md "../../../ram/latest/APIReference/API_AcceptResourceShareInvitation.md") API.
+     The resource share invitation expires in 12 hours, so you must validate
+     and accept the invitation within 12 hours. If the invitation expires, you
+     continue to see it in a `PENDING` state, but accepting it
+     won't give you access to the shared resources. When more than 12 hours have
+     passed, delete the Lake Formation subscriber and recreate the
+     subscriber to get a new resource share invitation.
 
-    The resource share invitation expires in 12 hours, so you must validate
-    and accept the invitation within 12 hours. If the invitation expires, you
-    continue to see it in a `PENDING` state, but accepting it
-    won't give you access to the shared resources. When more than 12 hours have
-    passed, delete the Lake Formation subscriber and recreate the
-    subscriber to get a new resource share invitation.
+2. **Create a resource link to the shared database**
+   – The subscriber must create a resource link to the shared Lake Formation database in either AWS Lake Formation (if using the console) or AWS Glue (if using API/AWS CLI). This resource link points the subscriber's account to the shared database. Choose one of the following access methods:
 
-2.  **Create a resource link to the shared database**
-    – The subscriber must create a resource link to the shared Lake Formation database in either AWS Lake Formation (if using the console) or AWS Glue (if using API/AWS CLI). This resource link points the subscriber's account to the shared database. Choose one of the following access methods:
+   - For console and AWS CLI, see
+     [see Creating a resource link to a shared Data Catalog database.](../../../lake-formation/latest/dg/create-resource-link-database.md "../../../lake-formation/latest/dg/create-resource-link-database.md") in the _AWS Lake Formation Developer Guide_.
+   - We recommend that subscribers also create
+     a unique database with the [CreateDatabase](../../../glue/latest/webapi/API_CreateDatabase.md "../../../glue/latest/webapi/API_CreateDatabase.md") API
+     to store resource link tables.
 
-    - For console and AWS CLI, see
-      [see Creating a resource link to a shared Data Catalog database.](../../../lake-formation/latest/dg/create-resource-link-database.md "../../../lake-formation/latest/dg/create-resource-link-database.md") in the _AWS Lake Formation Developer Guide_.
-    - We recommend that subscribers also create
-      a unique database with the [CreateDatabase](../../../glue/latest/webapi/API_CreateDatabase.md "../../../glue/latest/webapi/API_CreateDatabase.md") API
-      to store resource link tables.
-
-3.  **Query the shared tables** –
-    Services like Amazon Athena can refer to the tables directly, and new data that
-    Security Lake collects is automatically available to query. Queries run in the
-    subscriber's AWS account, and costs incurred from queries are billed to the
-    subscriber. You can control read access to resources in your own Security Lake
-    account.
+3. **Query the shared tables** –
+   Services like Amazon Athena can refer to the tables directly, and new data that
+   Security Lake collects is automatically available to query. Queries run in the
+   subscriber's AWS account, and costs incurred from queries are billed to the
+   subscriber. You can control read access to resources in your own Security Lake
+   account.
 
 For more information about granting cross-account permissions, see [Cross-account data sharing in Lake Formation](../../../lake-formation/latest/dg/cross-account-permissions.md "../../../lake-formation/latest/dg/cross-account-permissions.md") in the
 _AWS Lake Formation Developer Guide_.

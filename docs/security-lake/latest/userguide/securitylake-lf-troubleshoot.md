@@ -21,7 +21,7 @@ To resolve the error, review your Lake Formation permissions. The IAM role that'
 **Create table** permissions for the Security Lake database. For more information, see [Granting database permissions using the Lake Formation console and the named resource method](../../../lake-formation/latest/dg/granting-database-permissions.md "../../../lake-formation/latest/dg/granting-database-permissions.md")
 in the _AWS Lake Formation Developer Guide_.
 
-## SYNTAX_ERROR: line 1:8: SELECT \* not allowed from relation that has no columns
+## SYNTAX\_ERROR: line 1:8: SELECT \* not allowed from relation that has no columns
 
 You may receive this error when querying a source table for the first time in
 Lake Formation.

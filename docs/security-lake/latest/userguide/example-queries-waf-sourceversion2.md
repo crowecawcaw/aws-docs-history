@@ -23,7 +23,7 @@ AND activity_name = 'Post'
 LIMIT 25
 ```
 
-**Requests which matched a firewall type MANAGED_RULE_GROUP over the past 7 days**
+**Requests which matched a firewall type MANAGED\_RULE\_GROUP over the past 7 days**
 
 ```
 SELECT

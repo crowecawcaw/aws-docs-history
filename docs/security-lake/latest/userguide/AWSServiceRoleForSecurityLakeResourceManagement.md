@@ -143,7 +143,7 @@ service-linked role using AWS CLI, you must also grant it Lake Formation table-l
 permissions (ALTER, DESCRIBE) to all tables on the Security Lake Glue
 database to manage table metadata and access data. If Glue tables in any
 region reference S3 buckets from previous Security Lake enablement, you must
-temporarily allow DATA_LOCATION_ACCESS permissions to the service-linked
+temporarily allow DATA\_LOCATION\_ACCESS permissions to the service-linked
 role to allow Security Lake to remediate this situation.
 
 You also have to grant Lake Formation permissions to the `AWSServiceRoleForSecurityLakeResourceManagement` service-linked role for your account.

@@ -47,7 +47,7 @@ the following:
      destinations](prereqs-creating-subscriber.md#iam-role-subscriber "prereqs-creating-subscriber.md#iam-role-subscriber").
 
 10. (Optional) For **Tags**, enter as many as 50 tags
-    to assign to the subscriber.
+to assign to the subscriber.
 
 A _tag_ is a label that you can
 define and assign to certain types of AWS resources. Each tag
