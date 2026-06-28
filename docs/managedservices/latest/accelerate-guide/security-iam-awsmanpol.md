@@ -17,11 +17,11 @@ _IAM User Guide_.
 
 For a table of changes, see [Accelerate updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates").
 
-## AWS managed policy: AWSManagedServices_AlarmManagerPermissionsBoundary
+## AWS managed policy: AWSManagedServices\_AlarmManagerPermissionsBoundary
 
 AWS Managed Services (AMS) uses the `AWSManagedServices_AlarmManagerPermissionsBoundary` AWS managed policy.
-This AWS-managed policy is used in the AWSManagedServices_AlarmManager_ServiceRolePolicy to restrict permissions of
-IAM roles created by AWSServiceRoleForManagedServices_AlarmManager.
+This AWS-managed policy is used in the AWSManagedServices\_AlarmManager\_ServiceRolePolicy to restrict permissions of
+IAM roles created by AWSServiceRoleForManagedServices\_AlarmManager.
 
 This policy grants IAM roles created as part of [How Alarm Manager works](acc-mem-tag-alarms.md#acc-mem-how-tag-alarms-work "acc-mem-tag-alarms.md#acc-mem-how-tag-alarms-work"),
 permissions to perform operations like AWS Config evaluation, AWS Config read to fetch Alarm Manager configuration, and creation of necessary Amazon CloudWatch alarms.
@@ -49,7 +49,7 @@ This policy includes the following permissions.
 
 You can download the policy file in this ZIP: [RecommendedPermissionBoundary.zip](samples/RecommendedPermissionBoundary.zip.md "samples/RecommendedPermissionBoundary.zip.md").
 
-## AWS managed policy: AWSManagedServices_DetectiveControlsConfig_ServiceRolePolicy
+## AWS managed policy: AWSManagedServices\_DetectiveControlsConfig\_ServiceRolePolicy
 
 AWS Managed Services (AMS) uses the `AWSManagedServices_DetectiveControlsConfig_ServiceRolePolicy` AWS managed policy.
 This AWS-managed policy is attached to the
@@ -60,7 +60,7 @@ For updates to the `AWSServiceRoleForManagedServices_DetectiveControlsConfig` se
 
 The policy allows the service-linked role to complete actions for you.
 
-You can attach the AWSManagedServices_DetectiveControlsConfig_ServiceRolePolicy policy to your IAM entities.
+You can attach the AWSManagedServices\_DetectiveControlsConfig\_ServiceRolePolicy policy to your IAM entities.
 
 For more information, see [Using service-linked roles for AMS Accelerate](using-service-linked-roles.md "using-service-linked-roles.md").
 
@@ -72,7 +72,7 @@ This policy has the following permissions to allow AWS Managed Services Detectiv
 - `AWS Config` – Allows AMS Detective Controls to create AMS config rules, configure an aggregator and tag resources.
 - `Amazon S3` – allows AMS Detective Controls to manage its s3 buckets.
 
-You can download the JSON policy file in this ZIP: [DetectiveControlsConfig_ServiceRolePolicy.zip](samples/DetectiveControlsConfig_ServiceRolePolicy.zip.md "samples/DetectiveControlsConfig_ServiceRolePolicy.zip.md").
+You can download the JSON policy file in this ZIP: [DetectiveControlsConfig\_ServiceRolePolicy.zip](samples/DetectiveControlsConfig_ServiceRolePolicy.zip.md "samples/DetectiveControlsConfig_ServiceRolePolicy.zip.md").
 
 ## AWS managed policy: AWSManagedServicesDeploymentToolkitPolicy
 
@@ -97,7 +97,7 @@ This policy has the following permissions to allow AWS Managed Services Detectiv
 You can download the JSON policy file in this ZIP:
 [AWSManagedServicesDeploymentToolkitPolicy.zip](samples/AWSManagedServices_DeploymentToolkitPolicy.zip.md "samples/AWSManagedServices_DeploymentToolkitPolicy.zip.md").
 
-## AWS managed policy: AWSManagedServices_EventsServiceRolePolicy
+## AWS managed policy: AWSManagedServices\_EventsServiceRolePolicy
 
 AWS Managed Services (AMS) uses the `AWSManagedServices_EventsServiceRolePolicy` AWS managed policy.
 This AWS-managed policy is attached to the
@@ -117,7 +117,7 @@ This policy has the following permissions to allow Amazon EventBridge to deliver
 
 You can download the JSON policy file in this ZIP: [EventsServiceRolePolicy.zip](samples/EventsServiceRolePolicy.zip.md "samples/EventsServiceRolePolicy.zip.md").
 
-## AWS managed policy: AWSManagedServices_ContactsServiceRolePolicy
+## AWS managed policy: AWSManagedServices\_ContactsServiceRolePolicy
 
 AWS Managed Services (AMS) uses the `AWSManagedServices_ContactsServiceRolePolicy` AWS managed policy.
 This AWS-managed policy is attached to the

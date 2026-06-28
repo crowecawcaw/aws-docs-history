@@ -76,20 +76,20 @@ AWS::EC2::VPNConnection
 
   Both options provide the following fields:
 
-      - **AlarmName**: Specify the name of the alarm you want to create for the resource. This field has all of the same rules as
-       specified in the
-       [PutMetricAlarm](../../../AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.md "../../../AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.md") documentation; however, since the
-       alarm name must be unique in a Region, the Alarm Manager has one additional requirement: you must specify the unique identifier pseudoparameter in the
-       name of the alarm (otherwise, Alarm Manager appends the unique identifier of the resource to the front of the alarm name). For example, for the
-       **AWS::EC2::Instance** resource type, you must specify `${EC2::InstanceId}` in the alarm name, or it's implicitly added
-       at the start of the alarm name. For the list of identifiers, see [Accelerate Configuration profile: pseudoparameter substitution](acc-mem-config-doc-sub.md "acc-mem-config-doc-sub.md").
+        - **AlarmName**: Specify the name of the alarm you want to create for the resource. This field has all of the same rules as
+         specified in the
+         [PutMetricAlarm](../../../AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.md "../../../AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.md") documentation; however, since the
+         alarm name must be unique in a Region, the Alarm Manager has one additional requirement: you must specify the unique identifier pseudoparameter in the
+         name of the alarm (otherwise, Alarm Manager appends the unique identifier of the resource to the front of the alarm name). For example, for the
+         **AWS::EC2::Instance** resource type, you must specify `${EC2::InstanceId}` in the alarm name, or it's implicitly added
+         at the start of the alarm name. For the list of identifiers, see [Accelerate Configuration profile: pseudoparameter substitution](acc-mem-config-doc-sub.md "acc-mem-config-doc-sub.md").
 
 
-      All other fields are as specified in the
-       [PutMetricAlarm](../../../AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.md "../../../AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.md") or the
-       [PutCompositeAlarm](../../../AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.md "../../../AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.md") documentation.
-      - **AlarmRule**: Specify which other alarms are to be evaluated to determine this composite alarm's state. For each alarm
-       that you reference, they have to be either exist in CloudWatch or specified in Alarm Manager configuration profile in your account.
+        All other fields are as specified in the
+         [PutMetricAlarm](../../../AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.md "../../../AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.md") or the
+         [PutCompositeAlarm](../../../AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.md "../../../AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.md") documentation.
+        - **AlarmRule**: Specify which other alarms are to be evaluated to determine this composite alarm's state. For each alarm
+         that you reference, they have to be either exist in CloudWatch or specified in Alarm Manager configuration profile in your account.
 
 ###### Important
 

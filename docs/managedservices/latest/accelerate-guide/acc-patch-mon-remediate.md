@@ -55,13 +55,13 @@ The following is the Patch Maintenance Window advanced notice event schema:
 
 The following table describes the Patch Maintenance Window advance notice event schema:
 
-| Patch notification details | Property name                                                     | Description                                                                                                 | Sample values |
-| -------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------- |
-| State                      | The state of the patching maintenance window                      | PREEMPTIVE<br>• The patching window scheduled to begin soon                                                 |
-| Status                     | The status of the patching maintenance window                     | SUCCESS<br>• All instances were patch without failure<br>FAILED – At least one instance has failed to patch |
-| StartTime                  | The start time, in ISO format, of the patching maintenance window | 2021-02-03T22:14:05.814308                                                                                  |
-| WindowArn                  | The unique identifier of the Patching Maintenance Window          | arn:aws:ssm:us-east-1: 123456789012:maintenancewindow/mw-00000001235                                        |
-| Results                    | The list of instances that are targeted by the patch window       | InstanceId – the instance ID of the targeted instance                                                       |
+Patch notification details| Property name | Description | Sample values |
+| --- | --- | --- |
+| State | The state of the patching maintenance window | PREEMPTIVE<br>• The patching window scheduled to begin soon |
+| Status | The status of the patching maintenance window | SUCCESS<br>• All instances were patch without failure<br>FAILED – At least one instance has failed to patch |
+| StartTime | The start time, in ISO format, of the patching maintenance window | 2021-02-03T22:14:05.814308 |
+| WindowArn | The unique identifier of the Patching Maintenance Window | arn:aws:ssm:us-east-1: 123456789012:maintenancewindow/mw-00000001235 |
+| Results | The list of instances that are targeted by the patch window | InstanceId – the instance ID of the targeted instance |
 
 The following is the Patch Maintenance Window end event schema:
 
@@ -91,15 +91,15 @@ The following is the Patch Maintenance Window end event schema:
 
 The following table describes the Patch Maintenance Window end event schema:
 
-| Patch window end details | Property name                                                                      | Description                                                                                                                                                                                                                                                 | Sample values |
-| ------------------------ | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| State                    | The state of the patching maintenance window                                       | COMPLETED – The patching window is finished                                                                                                                                                                                                                 |
-| Status                   | The status of the patching maintenance window                                      | SUCCESS – All instances were patch without failure<br>FAILED – At least one instance has failed to patch                                                                                                                                                    |
-| StartTime                | The start time, in ISO format, of the patching maintenance window                  | 2021-02-03T22:14:05.814308                                                                                                                                                                                                                                  |
-| EndTime                  | The end time, in ISO format, of the patching maintenance window                    | 2021-02-03T23:14:05.814308                                                                                                                                                                                                                                  |
-| WindowArn                | The unique identifier of the patching maintenance window.                          | arn:aws:ssm:us-east-1: 123456789012:maintenancewindow/mw-00000001235                                                                                                                                                                                        |
-| WindowExecutionId        | The window execution ID, which can be seen from the SSM Maintenance Window Console | e32088eb-c05f-4c63-b766-6866e163c818                                                                                                                                                                                                                        |
-| Results                  | The list of instances that will be targeted by the patch window                    | InstanceId – the instance ID targeted<br>status – the instance patch status<br>missing_critical_patch_count<br>• the count of critical patches missing on the instance<br>missing_total_patch_count<br>• the count of total patches missing on the instance |
+Patch window end details| Property name | Description | Sample values |
+| --- | --- | --- |
+| State | The state of the patching maintenance window | COMPLETED – The patching window is finished |
+| Status | The status of the patching maintenance window | SUCCESS – All instances were patch without failure<br>FAILED – At least one instance has failed to patch |
+| StartTime | The start time, in ISO format, of the patching maintenance window | 2021-02-03T22:14:05.814308 |
+| EndTime | The end time, in ISO format, of the patching maintenance window | 2021-02-03T23:14:05.814308 |
+| WindowArn | The unique identifier of the patching maintenance window. | arn:aws:ssm:us-east-1: 123456789012:maintenancewindow/mw-00000001235 |
+| WindowExecutionId | The window execution ID, which can be seen from the SSM Maintenance Window Console | e32088eb-c05f-4c63-b766-6866e163c818 |
+| Results | The list of instances that will be targeted by the patch window | InstanceId – the instance ID targeted<br>status – the instance patch status<br>missing\_critical\_patch\_count<br>• the count of critical patches missing on the instance<br>missing\_total\_patch\_count<br>• the count of total patches missing on the instance |
 
 You can use the CloudWatch Events event to trigger a CloudWatch rule that notifies you when a Patching Maintenance Window
 advance notice is sent. To do this, configure the CloudWatch rule with the following configuration:

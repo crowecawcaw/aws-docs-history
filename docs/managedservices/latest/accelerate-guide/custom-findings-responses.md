@@ -3,7 +3,7 @@
 You can choose how you want AMS Accelerate to respond to some findings (non-compliant Config rules). You can configure AMS to respond to findings it by remediating the finding,
 asking for your approval to remediate, or just reporting to you in your next Monthly Business Review (MBR). You can change the default responses for
 AMS Accelerate Config rules. To see the rules, go to [Configuration Compliance > Table of rules](acc-sec-compliance.md "acc-sec-compliance.md")
-or download the rules table as a ZIP file [ams_config_rules.zip](samples/ams_config_rules.zip.md "samples/ams_config_rules.zip.md").
+or download the rules table as a ZIP file [ams\_config\_rules.zip](samples/ams_config_rules.zip.md "samples/ams_config_rules.zip.md").
 
 Changing default responses helps you to increase the security and compliance state of your account by allowing more findings to be remediated. When you remediate more findings,
 you have fewer cases that need to wait for a manual review and approval. The extensive library of AMS remediation runbooks constantly fixes non-compliant

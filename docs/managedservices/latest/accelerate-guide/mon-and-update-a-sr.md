@@ -24,9 +24,6 @@ If there are many cases in the dashboard, you can use the **Filter** option:
      under the Technical Support Case Type along with any service-specific cases.
     * **Status**: Use this to filter cases by status by selecting a specific status from the list.
 
-3. To check the latest status, refresh the page.
-4. If there are so many correspondences that they do not all appear on the page, choose **Load More**.
-5. To provide an update to the case status, choose **Reply**, enter the new correspondence, and then choose **Submit**.
-6. To close out the case after it has been resolved to your satisfaction, choose **Close case**.
+3. To check the latest status, refresh the page. 4. If there are so many correspondences that they do not all appear on the page, choose **Load More**. 5. To provide an update to the case status, choose **Reply**, enter the new correspondence, and then choose **Submit**. 6. To close out the case after it has been resolved to your satisfaction, choose **Close case**.
 
 Be sure to rate the service through the 1-5 star rating to let AMS know how we're doing.

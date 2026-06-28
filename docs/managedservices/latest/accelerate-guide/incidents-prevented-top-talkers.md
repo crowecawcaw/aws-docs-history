@@ -10,17 +10,17 @@
 The Incidents Prevented report lists the Amazon CloudWatch alarms that were automatically remediated, preventing a possible incident.
 To learn more, see [Auto remediation](auto-remediation.md "auto-remediation.md"). The following table lists the information included in this report:
 
-| **Field Name**              | **Definition**                                      |
-| --------------------------- | --------------------------------------------------- |
-| execution_start_time_utc    | Date in which the automation was executed           |
-| customer_name               | Account customer name                               |
-| account_name                | The name of the account                             |
-| AwsAccountId                | The ID of the AWS account                           |
-| document_name               | The name of the SSM document or automation executed |
-| duration_in_minutes         | The length of the automation in minutes             |
-| Region                      | AWS Region where the resource is located            |
-| automation_execution_id     | The ID of the execution                             |
-| automation_execution_status | The status of the execution                         |
+| **Field Name**                | **Definition**                                      |
+| ----------------------------- | --------------------------------------------------- |
+| execution\_start\_time\_utc   | Date in which the automation was executed           |
+| customer\_name                | Account customer name                               |
+| account\_name                 | The name of the account                             |
+| AwsAccountId                  | The ID of the AWS account                           |
+| document\_name                | The name of the SSM document or automation executed |
+| duration\_in\_minutes         | The length of the automation in minutes             |
+| Region                        | AWS Region where the resource is located            |
+| automation\_execution\_id     | The ID of the execution                             |
+| automation\_execution\_status | The status of the execution                         |
 
 ## Monitoring Top Talkers report
 

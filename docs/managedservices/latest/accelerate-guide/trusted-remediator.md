@@ -54,15 +54,14 @@ The following are terms that are useful to know when you use Trusted Remediator 
   provided by AWS. Trusted Advisor, Security Hub CSPM, and Compute Optimizer inspect your AWS environment and provide
   recommendations based on best practices in the following six categories:
 
-      + Cost optimization
-      + Performance
-      + Security
-      + Fault tolerance
-      + Operational excellence
-      + Service limits
-
-  For more information, see [AWS Trusted Advisor](../../../awssupport/latest/user/trusted-advisor.md "../../../awssupport/latest/user/trusted-advisor.md"), [AWS Security Hub](../../../securityhub/latest/userguide/what-are-securityhub-services.md "../../../securityhub/latest/userguide/what-are-securityhub-services.md") ,
-  and [AWS Compute Optimizer](../../../compute-optimizer.md "../../../compute-optimizer.md").
+  - Cost optimization
+  - Performance
+  - Security
+  - Fault tolerance
+  - Operational excellence
+  - Service limits
+    For more information, see [AWS Trusted Advisor](../../../awssupport/latest/user/trusted-advisor.md "../../../awssupport/latest/user/trusted-advisor.md"), [AWS Security Hub](../../../securityhub/latest/userguide/what-are-securityhub-services.md "../../../securityhub/latest/userguide/what-are-securityhub-services.md") ,
+    and [AWS Compute Optimizer](../../../compute-optimizer.md "../../../compute-optimizer.md").
 
 - **Trusted Remediator:** An AMS remediation solution for [Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor/ "https://aws.amazon.com/premiumsupport/technology/trusted-advisor/") checks, [AWS Security Hub CSPM](https://aws.amazon.com/aws.amazon.com/security-hub/ "https://aws.amazon.com/aws.amazon.com/security-hub/") recommendations,
   and [AWS Compute Optimizer](https://aws.amazon.com/compute-optimizer/ "https://aws.amazon.com/compute-optimizer/") recommendations.

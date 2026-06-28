@@ -31,7 +31,7 @@ The AWS Lambda functions deployed by AMS don't communicate with resources in you
 
 _Resources:_
 
-- arn:aws:s3:::ams-a<account_id>-alarmmanager-<region>
+- arn:aws:s3:::ams-a<account\_id>-alarmmanager-<region>
 
 The Amazon Simple Storage Service buckets used by the AMS Alarm Manager system use Amazon-managed encryption keys (SSE-S3) instead of customer-managed KMS keys (SSE-KMS). Implementing customer-managed keys requires you to grant AMS explicit permissions to use your KMS keys through key policies. This introduces additional operational complexity and risk. Using this control provides strong encryption at rest while avoiding additional costs and operational complexity for you.
 
@@ -39,7 +39,7 @@ If you modify key policies, rotate keys improperly, or accidentally delete or di
 
 _Resources:_
 
-- arn:aws:s3:::ams-a<account_id>-cloudtrail-log-<region>-audit
+- arn:aws:s3:::ams-a<account\_id>-cloudtrail-log-<region>-audit
 
 The AWS CloudTrail audit logging bucket cannot use AWS KMS encryption due to AWS service limitations. S3 buckets that serve as server access logging destinations must not have KMS key encryption enabled. For more information, see [Configuring default encryption](../../../AmazonS3/latest/userguide/default-bucket-encryption.md "../../../AmazonS3/latest/userguide/default-bucket-encryption.md") and [Troubleshoot server access logging](../../../AmazonS3/latest/userguide/troubleshooting-server-access-logging.md "../../../AmazonS3/latest/userguide/troubleshooting-server-access-logging.md") in the _Amazon Simple Storage Service User Guide_. Enabling AWS KMS encryption on logging destination buckets can cause logging failures and create operational issues. This bucket uses Amazon S3-managed encryption (SSE-S3) instead. This provides encryption at rest while maintaining compatibility with S3 server access logging functionality.
 
@@ -49,13 +49,13 @@ _Resources:_
 
 - KMS Key: alias/ams/patchreporting
 
-The inline policy contains "Resource": ["\*"] in a KMS key policy, which is a resource-based policy attached to a specific KMS key (ams_ssm_inventory_bucket_kms_key). Key policies are inherently scoped to the individual key, and using \* in the Resource element is standard AWS practice since the policy scope is already constrained by the key itself. For more information, see [Creating a key policy](../../../kms/latest/developerguide/key-policy-overview.md "../../../kms/latest/developerguide/key-policy-overview.md") and [Default key policy](../../../kms/latest/developerguide/key-policy-default.md "../../../kms/latest/developerguide/key-policy-default.md") in the _AWS KMS keys Developer Guide_. This configuration poses no security risk as access is limited to a single KMS key, not all keys in the account.
+The inline policy contains "Resource": ["\*"] in a KMS key policy, which is a resource-based policy attached to a specific KMS key (ams\_ssm\_inventory\_bucket\_kms\_key). Key policies are inherently scoped to the individual key, and using \* in the Resource element is standard AWS practice since the policy scope is already constrained by the key itself. For more information, see [Creating a key policy](../../../kms/latest/developerguide/key-policy-overview.md "../../../kms/latest/developerguide/key-policy-overview.md") and [Default key policy](../../../kms/latest/developerguide/key-policy-default.md "../../../kms/latest/developerguide/key-policy-default.md") in the _AWS KMS keys Developer Guide_. This configuration poses no security risk as access is limited to a single KMS key, not all keys in the account.
 
 ## S3.9 - S3 general purpose buckets should have server access logging enabled
 
 _Resources:_
 
-- ams-config-recorder-bucket-<account_id>-audit
+- ams-config-recorder-bucket-<account\_id>-audit
 
 These S3 buckets are access logging destination buckets for AWS Config Recorder buckets. S3 recommends against setting up access logging on these buckets as it will generate an infinite loops of logging, driving up cost unnecessarily. AWS Security Hub instead recommends that resources in this scenario should have findings suppressed.
 

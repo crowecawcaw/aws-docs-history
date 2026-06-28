@@ -54,6 +54,6 @@ an appropriate plan to increase coverage, where possible, and to reduce the risk
 | Resource Type  | Type of the resource. Resources are supported by AWS Backup (Aurora, DocumentDB, DynamoDB, EBS, EC2, EFS, FSx, RDS, and S3) |
 | Resource ARN   | ARN of the resource                                                                                                         |
 | Resource ID    | ID of the resource                                                                                                          |
-| Coverage       | Indicates if the resource is covered or not ("COVERED" or "NOT_COVERED")                                                    |
+| Coverage       | Indicates if the resource is covered or not ("COVERED" or "NOT\_COVERED")                                                   |
 | # of resources | Number of supported resources in the account                                                                                |
-| perc_coverage  | Percentage of supported resources with a backup executed in the last 30 days.                                               |
+| perc\_coverage | Percentage of supported resources with a backup executed in the last 30 days.                                               |

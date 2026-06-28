@@ -14,7 +14,7 @@ You need to grant access to AMS
 processes and to your Cloud Architect. You do this by creating a CloudFormation stack for
 each role. See
 [The template to create AMS roles](acc-onb-roles.md "acc-onb-roles.md") and then
-[Create aws_managedservices_onboarding_role with CloudFormation for Accelerate](acc-onb-create-roles-with-cf.md "acc-onb-create-roles-with-cf.md").
+[Create aws\_managedservices\_onboarding\_role with CloudFormation for Accelerate](acc-onb-create-roles-with-cf.md "acc-onb-create-roles-with-cf.md").
 For more details see
 [Access management in AMS Accelerate](acc-access.md "acc-access.md").
 

@@ -43,7 +43,7 @@ This SLR grants Amazon S3 permissions to create and manage the deployment bucket
 asset bundles, into the account for component deployments. This SLR grants CloudFormation permissions to deploy the CloudFormation stack that defines the deployment buckets.
 For details or to download the policy, see
 
-[AWSManagedServices_DeploymentToolkitPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-DeploymentToolkitPolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-DeploymentToolkitPolicy").
+[AWSManagedServices\_DeploymentToolkitPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-DeploymentToolkitPolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-DeploymentToolkitPolicy").
 
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see
@@ -95,21 +95,21 @@ service-linked role. For more information, see [Deleting a service-linked role](
 
 ## Detective controls service-linked role for AMS Accelerate
 
-AMS Accelerate uses the service-linked role (SLR) named **AWSServiceRoleForManagedServices_DetectiveControlsConfig** – AWS Managed Services uses this service-linked role to deploy config-recorder, config rules and S3 bucket detective controls..
+AMS Accelerate uses the service-linked role (SLR) named **AWSServiceRoleForManagedServices\_DetectiveControlsConfig** – AWS Managed Services uses this service-linked role to deploy config-recorder, config rules and S3 bucket detective controls..
 
-Attached to the **AWSServiceRoleForManagedServices_DetectiveControlsConfig** service-linked role is the following managed policy:
-[AWSManagedServices_DetectiveControlsConfig_ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-DetectiveControlsConfig "security-iam-awsmanpol.md#security-iam-awsmanpol-DetectiveControlsConfig").
+Attached to the **AWSServiceRoleForManagedServices\_DetectiveControlsConfig** service-linked role is the following managed policy:
+[AWSManagedServices\_DetectiveControlsConfig\_ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-DetectiveControlsConfig "security-iam-awsmanpol.md#security-iam-awsmanpol-DetectiveControlsConfig").
 For updates to this policy, see [Accelerate updates to AWS managed policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").
 
 ### Permissions for detective controls SLR for AMS Accelerate
 
-The AWSServiceRoleForManagedServices_DetectiveControlsConfig service-linked role trusts the following services to assume the role:
+The AWSServiceRoleForManagedServices\_DetectiveControlsConfig service-linked role trusts the following services to assume the role:
 
 - `detectivecontrols.managedservices.amazonaws.com`
 
 Attached to this role is the
 `AWSManagedServices_DetectiveControlsConfig_ServiceRolePolicy` AWS managed policy
-(see [AWS managed policy: AWSManagedServices_DetectiveControlsConfig_ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-DetectiveControlsConfig "security-iam-awsmanpol.md#security-iam-awsmanpol-DetectiveControlsConfig")
+(see [AWS managed policy: AWSManagedServices\_DetectiveControlsConfig\_ServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-DetectiveControlsConfig "security-iam-awsmanpol.md#security-iam-awsmanpol-DetectiveControlsConfig")
 The service uses the role to create configure AMS Detective Controls in your account, which requires deployment of resources like s3 buckets, config rules and an aggregator.
 You must configure permissions to allow an IAM entity (such as a user, group, or role) to create, edit, or delete a service-linked role.
 For more information, see
@@ -124,7 +124,7 @@ creates the service-linked role for you.
 ###### Important
 
 This service-linked role can appear in your account if you were using the
-AMS Accelerate service before June 09, 2022, when it began supporting service-linked roles then AMS Accelerate created the AWSServiceRoleForManagedServices_DetectiveControlsConfig role in your account.
+AMS Accelerate service before June 09, 2022, when it began supporting service-linked roles then AMS Accelerate created the AWSServiceRoleForManagedServices\_DetectiveControlsConfig role in your account.
 To learn more, see
 [A new role appeared in my IAM account](../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared "../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared").
 
@@ -133,14 +133,14 @@ When you Onboard to AMS, AMS Accelerate creates the service-linked role for you 
 
 ### Editing a detective controls SLR for AMS Accelerate
 
-AMS Accelerate does not allow you to edit the AWSServiceRoleForManagedServices_DetectiveControlsConfig service-linked role. After you
+AMS Accelerate does not allow you to edit the AWSServiceRoleForManagedServices\_DetectiveControlsConfig service-linked role. After you
 create a service-linked role, you cannot change the name of the role because various entities
 might reference the role. However, you can edit the description of the role using IAM. For more information, see
 [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
 ### Deleting a detective controls SLR for AMS Accelerate
 
-You don't need to manually delete the AWSServiceRoleForManagedServices_DetectiveControlsConfig role. When you Offboard from AMS in the AWS Management Console, the AWS CLI, or the AWS API, AMS Accelerate
+You don't need to manually delete the AWSServiceRoleForManagedServices\_DetectiveControlsConfig role. When you Offboard from AMS in the AWS Management Console, the AWS CLI, or the AWS API, AMS Accelerate
 cleans up the resources and deletes the service-linked role for you.
 
 You can also use the IAM console, the AWS CLI or the AWS API to manually delete the service-linked role. To do this, you must first manually clean
@@ -151,39 +151,39 @@ up the resources for your service-linked role and then you can manually delete i
 If the AMS Accelerate service is using the role when you try to delete the resources, then the deletion might fail. If that happens, wait for a few minutes and try the
 operation again.
 
-**To delete AMS Accelerate resources used by the AWSServiceRoleForManagedServices_DetectiveControlsConfig service-linked role**
+**To delete AMS Accelerate resources used by the AWSServiceRoleForManagedServices\_DetectiveControlsConfig service-linked role**
 
 Delete `ams-detective-controls-config-recorder`, `ams-detective-controls-config-rules-cdk` and `ams-detective-controls-infrastructure-cdk`
 stacks from all Regions your account was onboarded to in AMS (you might have to manually empty the S3 buckets first).
 
 **To manually delete the service-linked role using IAM**
 
-Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForManagedServices_DetectiveControlsConfig
+Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForManagedServices\_DetectiveControlsConfig
 service-linked role. For more information, see
 [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
 ## Amazon EventBridge rule service-linked role for AMS Accelerate
 
-AMS Accelerate uses the service-linked role (SLR) named **AWSServiceRoleForManagedServices_Events**. This role trusts one of the AWS Managed Services service principals (events.managedservices.amazonaws.com) to assume the role for you.
+AMS Accelerate uses the service-linked role (SLR) named **AWSServiceRoleForManagedServices\_Events**. This role trusts one of the AWS Managed Services service principals (events.managedservices.amazonaws.com) to assume the role for you.
 The service uses the role to create Amazon EventBridge managed rule. This rule is the infrastructure required in your AWS account to deliver alarm state change
 information from your account to AWS Managed Services.
 
 ### Permissions for EventBridge SLR for AMS Accelerate
 
-The AWSServiceRoleForManagedServices_Events service-linked role trusts the following services to assume the role:
+The AWSServiceRoleForManagedServices\_Events service-linked role trusts the following services to assume the role:
 
 - `events.managedservices.amazonaws.com`
 
 Attached to this role is the `AWSManagedServices_EventsServiceRolePolicy` AWS managed policy
-(see [AWS managed policy: AWSManagedServices_EventsServiceRolePolicy](security-iam-awsmanpol.md#EventsServiceRolePolicy "security-iam-awsmanpol.md#EventsServiceRolePolicy")).
+(see [AWS managed policy: AWSManagedServices\_EventsServiceRolePolicy](security-iam-awsmanpol.md#EventsServiceRolePolicy "security-iam-awsmanpol.md#EventsServiceRolePolicy")).
 The service uses the role to deliver alarm state change information from your account to AMS.
 You must configure permissions to allow an IAM entity (such as a user, group, or role) to create, edit, or delete a service-linked role.
 For more information, see
 [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions")
 in the _AWS Identity and Access Management User Guide_.
 
-You can download the JSON AWSManagedServices_EventsServiceRolePolicy in this ZIP: [EventsServiceRolePolicy.zip](samples/EventsServiceRolePolicy.zip.md "samples/EventsServiceRolePolicy.zip.md").
+You can download the JSON AWSManagedServices\_EventsServiceRolePolicy in this ZIP: [EventsServiceRolePolicy.zip](samples/EventsServiceRolePolicy.zip.md "samples/EventsServiceRolePolicy.zip.md").
 
 ### Creating an EventBridge SLR for AMS Accelerate
 
@@ -193,7 +193,7 @@ creates the service-linked role for you.
 ###### Important
 
 This service-linked role can appear in your account if you were using the
-AMS Accelerate service before February 7, 2023, when it began supporting service-linked roles then AMS Accelerate created the AWSServiceRoleForManagedServices_Events role in your account.
+AMS Accelerate service before February 7, 2023, when it began supporting service-linked roles then AMS Accelerate created the AWSServiceRoleForManagedServices\_Events role in your account.
 To learn more, see
 [A new role appeared in my IAM account](../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared "../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared").
 
@@ -202,7 +202,7 @@ When you Onboard to AMS, AMS Accelerate creates the service-linked role for you 
 
 ### Editing an EventBridge SLR for AMS Accelerate
 
-AMS Accelerate does not allow you to edit the AWSServiceRoleForManagedServices_Events service-linked role. After you
+AMS Accelerate does not allow you to edit the AWSServiceRoleForManagedServices\_Events service-linked role. After you
 create a service-linked role, you cannot change the name of the role because various entities
 might reference the role. However, you can edit the description of the role using IAM. For more information, see
 [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role")
@@ -210,7 +210,7 @@ in the _IAM User Guide_.
 
 ### Deleting an EventBridge SLR for AMS Accelerate
 
-You don't need to manually delete the AWSServiceRoleForManagedServices_Events role. When you Offboard from AMS in the AWS Management Console, the AWS CLI, or the AWS API, AMS Accelerate
+You don't need to manually delete the AWSServiceRoleForManagedServices\_Events role. When you Offboard from AMS in the AWS Management Console, the AWS CLI, or the AWS API, AMS Accelerate
 cleans up the resources and deletes the service-linked role for you.
 
 You can also use the IAM console, the AWS CLI or the AWS API to manually delete the service-linked role. To do this, you must first manually clean
@@ -221,33 +221,33 @@ up the resources for your service-linked role and then you can manually delete i
 If the AMS Accelerate service is using the role when you try to delete the resources, then the deletion might fail. If that happens, wait for a few minutes and try the
 operation again.
 
-**To delete AMS Accelerate resources used by the AWSServiceRoleForManagedServices_Events service-linked role**
+**To delete AMS Accelerate resources used by the AWSServiceRoleForManagedServices\_Events service-linked role**
 
 **To manually delete the service-linked role using IAM**
 
-Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForManagedServices_Events service-linked role. For more information, see
+Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForManagedServices\_Events service-linked role. For more information, see
 [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
 ## Contacts service-linked role for AMS Accelerate
 
-AMS Accelerate uses the service-linked role (SLR) named **AWSServiceRoleForManagedServices_Contacts** – This role facilitates automated notifications when incidents occur by allowing the service to read the existing tags of the affected
+AMS Accelerate uses the service-linked role (SLR) named **AWSServiceRoleForManagedServices\_Contacts** – This role facilitates automated notifications when incidents occur by allowing the service to read the existing tags of the affected
 resource and retrieve the configured email of the appropriate point of contact.
 
 This is the only service that uses this service-linked role.
 
-Attached to the **AWSServiceRoleForManagedServices_Contacts** service-linked role is the following managed policy:
-[AWSManagedServices_ContactsServiceRolePolicy](security-iam-awsmanpol.md#ContactsServiceManagedPolicy "security-iam-awsmanpol.md#ContactsServiceManagedPolicy").
+Attached to the **AWSServiceRoleForManagedServices\_Contacts** service-linked role is the following managed policy:
+[AWSManagedServices\_ContactsServiceRolePolicy](security-iam-awsmanpol.md#ContactsServiceManagedPolicy "security-iam-awsmanpol.md#ContactsServiceManagedPolicy").
 For updates to this policy, see [Accelerate updates to AWS managed policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").
 
 ### Permissions for Contacts SLR for AMS Accelerate
 
-The AWSServiceRoleForManagedServices_Contacts service-linked role trusts the following services to assume the role:
+The AWSServiceRoleForManagedServices\_Contacts service-linked role trusts the following services to assume the role:
 
 - `contacts-service.managedservices.amazonaws.com`
 
 Attached to this role is the `AWSManagedServices_ContactsServiceRolePolicy` AWS managed policy
-(see [AWS managed policy: AWSManagedServices_ContactsServiceRolePolicy](security-iam-awsmanpol.md#ContactsServiceManagedPolicy "security-iam-awsmanpol.md#ContactsServiceManagedPolicy")).
+(see [AWS managed policy: AWSManagedServices\_ContactsServiceRolePolicy](security-iam-awsmanpol.md#ContactsServiceManagedPolicy "security-iam-awsmanpol.md#ContactsServiceManagedPolicy")).
 The service uses the role to read the tags on any AWS resource and find the email contained in the tag, of the appropriate point of contact
 for when incidents occur. This role facilitates automated notifications when incidents occur by allowing AMS to read that tag on an affected
 resource and retrieve the email. For more information, see
@@ -259,11 +259,11 @@ in the _AWS Identity and Access Management_ User Guide.
 Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. AMS uses tags to provide you
 with administration services. Tags are not intended to be used for private or sensitive data.
 
-The role permissions policy named AWSManagedServices_ContactsServiceRolePolicy allows AMS Accelerate to complete the following actions on the specified resources:
+The role permissions policy named AWSManagedServices\_ContactsServiceRolePolicy allows AMS Accelerate to complete the following actions on the specified resources:
 
 - Action: Allows the Contacts Service to read the tags specifically set up to contain the email for AMS to send incident notifications on any AWS resource.
 
-You can download the JSON AWSManagedServices_ContactsServiceRolePolicy in this ZIP: [ContactsServicePolicy.zip](samples/ContactsServicePolicy.zip.md "samples/ContactsServicePolicy.zip.md").
+You can download the JSON AWSManagedServices\_ContactsServiceRolePolicy in this ZIP: [ContactsServicePolicy.zip](samples/ContactsServicePolicy.zip.md "samples/ContactsServicePolicy.zip.md").
 
 ### Creating a Contacts SLR for AMS Accelerate
 
@@ -273,7 +273,7 @@ creates the service-linked role for you.
 ###### Important
 
 This service-linked role can appear in your account if you were using the AMS Accelerate service before February 16, 2023, when it began supporting
-service-linked roles then AMS Accelerate created the AWSServiceRoleForManagedServices_Contacts role in your account. To learn more, see
+service-linked roles then AMS Accelerate created the AWSServiceRoleForManagedServices\_Contacts role in your account. To learn more, see
 [A new role appeared in my IAM account](../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared "../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared").
 
 If you delete this service-linked role, and then need to create it again, you can use the same process to recreate the role in your account.
@@ -281,14 +281,14 @@ When you Onboard to AMS, AMS Accelerate creates the service-linked role for you 
 
 ### Editing a Contacts SLR for AMS Accelerate
 
-AMS Accelerate does not allow you to edit the AWSServiceRoleForManagedServices_Contacts service-linked role. After you create a service-linked role, you cannot change
+AMS Accelerate does not allow you to edit the AWSServiceRoleForManagedServices\_Contacts service-linked role. After you create a service-linked role, you cannot change
 the name of the role because various entities might reference the role. However, you can edit the description of the role using IAM. For more information, see
 [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role")
 in the _IAM User Guide_.
 
 ### Deleting a Contacts SLR for AMS Accelerate
 
-You don't need to manually delete the AWSServiceRoleForManagedServices_Contacts role. When you Offboard from AMS in the AWS Management Console, the AWS CLI, or the AWS API, AMS Accelerate
+You don't need to manually delete the AWSServiceRoleForManagedServices\_Contacts role. When you Offboard from AMS in the AWS Management Console, the AWS CLI, or the AWS API, AMS Accelerate
 cleans up the resources and deletes the service-linked role for you.
 
 You can also use the IAM console, the AWS CLI or the AWS API to manually delete the service-linked role. To do this, you must first manually clean
@@ -299,11 +299,11 @@ up the resources for your service-linked role and then you can manually delete i
 If the AMS Accelerate service is using the role when you try to delete the resources, then the deletion might fail. If that happens, wait for a
 few minutes and try the operation again.
 
-**To delete AMS Accelerate resources used by the AWSServiceRoleForManagedServices_Contacts service-linked role**
+**To delete AMS Accelerate resources used by the AWSServiceRoleForManagedServices\_Contacts service-linked role**
 
 **To manually delete the service-linked role using IAM**
 
-Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForManagedServices_Contacts service-linked role. For more information, see
+Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForManagedServices\_Contacts service-linked role. For more information, see
 [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 

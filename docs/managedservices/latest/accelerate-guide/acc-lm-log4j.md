@@ -18,7 +18,7 @@ The document is shared to all the Regions onboarded to Accelerate,. To access th
    The AWSManagedServices-GatherLog4jInformation document gathers the following parameters:
 
 - **InstanceId**: (Required) ID of your EC2 instance.
-- **S3Bucket**: (Optional) The S3 pre-signed URL or S3 URI (s3://BUCKET_NAME) to upload the results to.
+- **S3Bucket**: (Optional) The S3 pre-signed URL or S3 URI (s3://BUCKET\_NAME) to upload the results to.
 - **AutomationAssumeRole**: (Required) The ARN of the role that allows the autoomation to perform actions on your behalf.
   It's a best practice to run this document using rate control. You can set the rate control parameter to be the **InstanceId**, and assign either a
   list of instances to it, or apply a tag-key combination to target all EC2 instances that have a certain tag. AWS Managed Services also recommends that you provide

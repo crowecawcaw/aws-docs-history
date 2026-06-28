@@ -79,6 +79,5 @@ and **Conditional** for **execution-mode**:
     * `CreateSnapshot=false`, `MinimumUnattachedDays=10` for both of the above
 
 8. Choose **Save** to update the value, and then choose **Save new version** to apply the changes. You must choose
-   **Save new version** for Trusted Remediator to recognize the change.
-9. Make sure that your Amazon EBS volumes don't have a tag with the key`TR-DAvU99Dc4C-Execution-Mode`. This tag key overrides the default execution-mode
-   for that EBS Volume.
+**Save new version** for Trusted Remediator to recognize the change. 9. Make sure that your Amazon EBS volumes don't have a tag with the key`TR-DAvU99Dc4C-Execution-Mode`. This tag key overrides the default execution-mode
+for that EBS Volume.

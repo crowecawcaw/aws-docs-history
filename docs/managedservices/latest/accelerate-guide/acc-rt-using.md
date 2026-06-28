@@ -405,7 +405,7 @@ resources, the Resource Tagger tags may be identified as drift by Terraform.
 
 You can configure Terraform to ignore all Resource Tagger tags using the
 **lifecycle** configuration block, or the
-**ignore_tags** global configuration block. For more information, see the
+**ignore\_tags** global configuration block. For more information, see the
 Terraform documentation on Resource Tagging at [Resource Tagging](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/guides/resource-tagging "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/guides/resource-tagging").
 
 The following example shows how to create a global configuration to ignore all tags that begin with the Resource Tagger tag prefix `ams:rt:`:

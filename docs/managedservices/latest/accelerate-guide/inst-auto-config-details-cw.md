@@ -16,20 +16,20 @@ Additional detail on the CloudWatch configuration.
 
   - Windows:
 
-    - AWS Systems Manager SSM Agent (CPU_Usage)
-    - CloudWatch Agent (CPU_Usage)
+    - AWS Systems Manager SSM Agent (CPU\_Usage)
+    - CloudWatch Agent (CPU\_Usage)
     - Disk space utilization for all disks (% free space)
     - Memory (% committed bytes in use)
 
   - Linux:
 
-    - AWS Systems Manager SSM Agent (CPU_Usage)
-    - CloudWatch Agent (CPU_Usage)
-    - CPU (cpu_usage_idle, cpu_usage_iowait, cpu_usage_user, cpu_usage_system)
-    - Disk (used_percent, inodes_used, inodes_total)
-    - Diskio (io_time, write_bytes, read_bytes, writes, reads)
-    - Mem (mem_used_percent)
-    - Swap (swap_used_percent)
+    - AWS Systems Manager SSM Agent (CPU\_Usage)
+    - CloudWatch Agent (CPU\_Usage)
+    - CPU (cpu\_usage\_idle, cpu\_usage\_iowait, cpu\_usage\_user, cpu\_usage\_system)
+    - Disk (used\_percent, inodes\_used, inodes\_total)
+    - Diskio (io\_time, write\_bytes, read\_bytes, writes, reads)
+    - Mem (mem\_used\_percent)
+    - Swap (swap\_used\_percent)
 
 - Logs collected:
 
