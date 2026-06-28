@@ -53,5 +53,4 @@ KMS key. 7. Specify the KMS key ID for the queue. For more information, see [Key
      (ARN).
 
 8. (Optional) For **Data key reuse period**, specify a value between
-   1 minute and 24 hours. The default is 5 minutes. For more information, see [Understanding the data key reuse period](sqs-key-management.md#sqs-how-does-the-data-key-reuse-period-work "sqs-key-management.md#sqs-how-does-the-data-key-reuse-period-work").
-9. When you finish configuring SSE-KMS, choose **Save**.
+1 minute and 24 hours. The default is 5 minutes. For more information, see [Understanding the data key reuse period](sqs-key-management.md#sqs-how-does-the-data-key-reuse-period-work "sqs-key-management.md#sqs-how-does-the-data-key-reuse-period-work"). 9. When you finish configuring SSE-KMS, choose **Save**.

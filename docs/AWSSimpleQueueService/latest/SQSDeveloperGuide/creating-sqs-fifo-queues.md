@@ -69,9 +69,9 @@ following parameters:
     [Amazon SQS message quotas](quotas-messages.md "quotas-messages.md").
 
 6. (Optional) Define an **Access policy**. The [access
-   policy](sqs-creating-custom-policies-access-policy-examples.md "sqs-creating-custom-policies-access-policy-examples.md") defines the accounts, users, and roles that can access the
-   queue. The access policy also defines the actions (such as [`SendMessage`](../APIReference/API_SendMessage.md "../APIReference/API_SendMessage.md"), [`ReceiveMessage`](../APIReference/API_ReceiveMessage.md "../APIReference/API_ReceiveMessage.md"), or [`DeleteMessage`](../APIReference/API_DeleteMessage.md "../APIReference/API_DeleteMessage.md")) that the users can access. The
-   default policy allows only the queue owner to send and receive messages.
+policy](sqs-creating-custom-policies-access-policy-examples.md "sqs-creating-custom-policies-access-policy-examples.md") defines the accounts, users, and roles that can access the
+queue. The access policy also defines the actions (such as [`SendMessage`](../APIReference/API_SendMessage.md "../APIReference/API_SendMessage.md"), [`ReceiveMessage`](../APIReference/API_ReceiveMessage.md "../APIReference/API_ReceiveMessage.md"), or [`DeleteMessage`](../APIReference/API_DeleteMessage.md "../APIReference/API_DeleteMessage.md")) that the users can access. The
+default policy allows only the queue owner to send and receive messages.
 
 To define the access policy, do one of the following:
 
@@ -84,13 +84,12 @@ To define the access policy, do one of the following:
      principal (account, user, or role) can perform.
 
 7. For **Redrive allow policy**, choose
-   **Enabled**. Select one of the following: **Allow
-   all**, **By queue**, or **Deny
-   all**. When choosing **By queue**, specify a list
-   of up to 10 source queues by the Amazon Resource Name (ARN).
-8. Amazon SQS provides managed server-side encryption by default. To choose an
-   encryption key type, or to disable Amazon SQS managed server-side encryption, expand
-   **Encryption**. For more on encryption key types, see [Configuring server-side encryption for a queue using SQS-managed encryption keys](sqs-configure-sqs-sse-queue.md "sqs-configure-sqs-sse-queue.md") and [Configuring server-side encryption for a queue using the Amazon SQS console](sqs-configure-sse-existing-queue.md "sqs-configure-sse-existing-queue.md").
+**Enabled**. Select one of the following: **Allow
+all**, **By queue**, or **Deny
+all**. When choosing **By queue**, specify a list
+of up to 10 source queues by the Amazon Resource Name (ARN). 8. Amazon SQS provides managed server-side encryption by default. To choose an
+encryption key type, or to disable Amazon SQS managed server-side encryption, expand
+**Encryption**. For more on encryption key types, see [Configuring server-side encryption for a queue using SQS-managed encryption keys](sqs-configure-sqs-sse-queue.md "sqs-configure-sqs-sse-queue.md") and [Configuring server-side encryption for a queue using the Amazon SQS console](sqs-configure-sse-existing-queue.md "sqs-configure-sse-existing-queue.md").
 
 ###### Note
 

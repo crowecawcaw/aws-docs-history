@@ -104,63 +104,49 @@ follows:
 Use the following steps to configure minimum permissions for a dead-letter queue
 (DLQ) redrive:
 
-1.  Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2.  In the navigation pane, select **Policies**.
-3.  Create a new [**policy**](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") and add the following permissions. Attach the
-    policy to the IAM [user](../../../IAM/latest/UserGuide/id_users.md "../../../IAM/latest/UserGuide/id_users.md") or [role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md")
-    that will perform the redrive operation.
+1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane, select **Policies**.
+3. Create a new [**policy**](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") and add the following permissions. Attach the
+   policy to the IAM [user](../../../IAM/latest/UserGuide/id_users.md "../../../IAM/latest/UserGuide/id_users.md") or [role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md")
+   that will perform the redrive operation.
 
-        * Permissions for the DLQ (source queue):
+   - Permissions for the DLQ (source queue):
 
+     - `sqs:StartMessageMoveTask`
+     - `sqs:CancelMessageMoveTask`
+     - `sqs:ListMessageMoveTasks`
+     - `sqs:ReceiveMessage`
+     - `sqs:DeleteMessage`
+     - `sqs:GetQueueAttributes`
+     - `sqs:ListDeadLetterSourceQueues`
+     - Specify the **Resource ARN** of
+       the DLQ (source queue) (for example,
+       "arn:aws:sqs:`<DLQ_region>`:`<DLQ_accountId>`:`<DLQ_name>`").
 
+   - Permissions for destination queue:
 
+     - `sqs:SendMessage`
+     - Specify the `Resource ARN` of the destination queue
+       (for example,
+       "arn:aws:sqs:`<DestQueue_region>:<DestQueue_accountId>:<DestQueue_name>`").
 
-        	+ `sqs:StartMessageMoveTask`
-        	+ `sqs:CancelMessageMoveTask`
-        	+ `sqs:ListMessageMoveTasks`
-        	+ `sqs:ReceiveMessage`
-        	+ `sqs:DeleteMessage`
-        	+ `sqs:GetQueueAttributes`
-        	+ `sqs:ListDeadLetterSourceQueues`
-        	+ Specify the **Resource ARN** of
-        	 the DLQ (source queue) (for example,
-        	 "arn:aws:sqs:`<DLQ_region>`:`<DLQ_accountId>`:`<DLQ_name>`").
-        * Permissions for destination queue:
+   - Permissions for KMS keys:
 
+     - `kms:Decrypt` (Needed to decrypt messages in the
+       DLQ.)
+     - `kms:GenerateDataKey` (Needed to encrypt messages
+       in the destination queue.)
 
+       - `Resource` ARNs:
 
-
-        	+ `sqs:SendMessage`
-        	+ Specify the `Resource ARN` of the destination queue
-        	 (for example,
-        	 "arn:aws:sqs:`<DestQueue_region>:<DestQueue_accountId>:<DestQueue_name>`").
-        * Permissions for KMS keys:
-
-
-
-
-        	+ `kms:Decrypt` (Needed to decrypt messages in the
-        	 DLQ.)
-        	+ `kms:GenerateDataKey` (Needed to encrypt messages
-        	 in the destination queue.)
-
-
-
-
-        		- `Resource` ARNs:
-
-
-
-
-        			* The ARN of the KMS key used to encrypt
-        			 messages in the **DLQ** (source queue) (for example,
-        			 "arn:aws:kms:`<region>`:`<accountId>`:key/`<SourceQueueKeyId>`").
-        			* The ARN of the KMS key used to encrypt
-        			 messages in the **destination
-        			 queue** (for example,
-        			 "arn:aws:kms:`<region>`:`<accountId>`:key/`<DestinationQueueKeyId>`").
-
-    Your access policy should resemble the following:
+         - The ARN of the KMS key used to encrypt
+           messages in the **DLQ** (source queue) (for example,
+           "arn:aws:kms:`<region>`:`<accountId>`:key/`<SourceQueueKeyId>`").
+         - The ARN of the KMS key used to encrypt
+           messages in the **destination
+           queue** (for example,
+           "arn:aws:kms:`<region>`:`<accountId>`:key/`<DestinationQueueKeyId>`").
+           Your access policy should resemble the following:
 
 JSON
 
@@ -219,37 +205,31 @@ standard, **unencrypted** dead-letter queue (DLQ).
 Required minimum permissions are to _receive_,
 _delete_ and _get_ attributes from the dead-letter queue, and _send_ attributes to the source queue.
 
-1.  Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2.  In the navigation pane, select **Policies**.
-3.  Create a new [**policy**](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") and add the following permissions. Attach the
-    policy to the IAM [user](../../../IAM/latest/UserGuide/id_users.md "../../../IAM/latest/UserGuide/id_users.md") or [role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md")
-    that will perform the redrive operation.
+1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane, select **Policies**.
+3. Create a new [**policy**](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") and add the following permissions. Attach the
+   policy to the IAM [user](../../../IAM/latest/UserGuide/id_users.md "../../../IAM/latest/UserGuide/id_users.md") or [role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md")
+   that will perform the redrive operation.
 
-        * Permissions for the DLQ (source queue):
+   - Permissions for the DLQ (source queue):
 
+     - `sqs:StartMessageMoveTask`
+     - `sqs:CancelMessageMoveTask`
+     - `sqs:ListMessageMoveTasks`
+     - `sqs:ReceiveMessage`
+     - `sqs:DeleteMessage`
+     - `sqs:ListDeadLetterSourceQueues`
+     - Specify the **Resource ARN** of
+       the DLQ (source queue) (for example,
+       "arn:aws:sqs:`<DLQ_region>`:`<DLQ_accountId>`:`<DLQ_name>`").
 
+   - Permissions for destination queue:
 
-
-        	+ `sqs:StartMessageMoveTask`
-        	+ `sqs:CancelMessageMoveTask`
-        	+ `sqs:ListMessageMoveTasks`
-        	+ `sqs:ReceiveMessage`
-        	+ `sqs:DeleteMessage`
-        	+ `sqs:ListDeadLetterSourceQueues`
-        	+ Specify the **Resource ARN** of
-        	 the DLQ (source queue) (for example,
-        	 "arn:aws:sqs:`<DLQ_region>`:`<DLQ_accountId>`:`<DLQ_name>`").
-        * Permissions for destination queue:
-
-
-
-
-        	+ `sqs:SendMessage`
-        	+ Specify the `Resource ARN` of the destination queue
-        	 (for example,
-        	 "arn:aws:sqs:`<DestQueue_region>:<DestQueue_accountId>:<DestQueue_name>`").
-
-    Your access policy should resemble the following:
+     - `sqs:SendMessage`
+     - Specify the `Resource ARN` of the destination queue
+       (for example,
+       "arn:aws:sqs:`<DestQueue_region>:<DestQueue_accountId>:<DestQueue_name>`").
+       Your access policy should resemble the following:
 
 JSON
 

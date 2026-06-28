@@ -157,12 +157,12 @@ The logical data type `Binary` uses the
 
 4. Encode the attribute value.
 
-   1. For the `String` transport type, encode the
-      attribute value: the length (4 bytes) and the UTF-8 bytes of the
-      value.
-   2. For the `Binary` transport type, encode the
-      attribute value: the length (4 bytes) and the raw bytes of the
-      value.
+    1. For the `String` transport type, encode the
+     attribute value: the length (4 bytes) and the UTF-8 bytes of the
+     value.
+    2. For the `Binary` transport type, encode the
+     attribute value: the length (4 bytes) and the raw bytes of the
+     value.
 
 ## Amazon SQS message system attributes
 

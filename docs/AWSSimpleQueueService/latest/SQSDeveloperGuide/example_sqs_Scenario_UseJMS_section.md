@@ -17,8 +17,8 @@ The following examples work with standard Amazon SQS queues and include:
 - Sending a text message.
 - Receiving messages synchronously.
 - Receiving messages asynchronously.
-- Receiving messages using CLIENT_ACKNOWLEDGE mode.
-- Receiving messages using the UNORDERED_ACKNOWLEDGE mode.
+- Receiving messages using CLIENT\_ACKNOWLEDGE mode.
+- Receiving messages using the UNORDERED\_ACKNOWLEDGE mode.
 - Using Spring to inject dependencies.
 - A utility class that provides common methods used by the other examples.
   For more information on using JMS with Amazon SQS, see the [Amazon SQS Developer Guide](sqs-java-message-service-jms-client.md "sqs-java-message-service-jms-client.md").
@@ -215,7 +215,7 @@ Receiving messages asynchronously.
 
 ```
 
-Receiving messages using CLIENT_ACKNOWLEDGE mode.
+Receiving messages using CLIENT\_ACKNOWLEDGE mode.
 
 ```
     /**
@@ -323,7 +323,7 @@ Receiving messages using CLIENT_ACKNOWLEDGE mode.
 
 ```
 
-Receiving messages using the UNORDERED_ACKNOWLEDGE mode.
+Receiving messages using the UNORDERED\_ACKNOWLEDGE mode.
 
 ```
     /**

@@ -106,7 +106,7 @@ target_link_libraries(${PROJECT_NAME}
 
 ```
 
-Code for the hello_sqs.cpp source file.
+Code for the hello\_sqs.cpp source file.
 
 ```
 #include <aws/core/Aws.h>

@@ -86,8 +86,8 @@ The stack for this tutorial includes the following resources:
    names.**, and then choose **Create**.
 
 CloudFormation begins to create the stack and displays the
-**CREATE_IN_PROGRESS** status. When the process is complete, CloudFormation
-displays the **CREATE_COMPLETE** status.
+**CREATE\_IN\_PROGRESS** status. When the process is complete, CloudFormation
+displays the **CREATE\_COMPLETE** status.
 
 ## Step 3: Confirm that your EC2 instance isn't publicly accessible
 

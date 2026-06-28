@@ -27,5 +27,5 @@ queue](sqs-using-purge-queue.md "sqs-using-purge-queue.md").
 Choose the appropriate method to delete your queue based on your needs:
 
 - AWS CLI: `aws sqs
-delete-queue`
+ delete-queue`
 - AWS API: `DeleteQueue`

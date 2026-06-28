@@ -60,7 +60,7 @@ showing:
     * Receive count
 
 5. To delete messages, choose the ones you want to remove and select
-   **Delete**.
+**Delete**.
 
 Confirm deletion in the **Delete Messages**
 dialog box by selecting **Delete**.

@@ -38,23 +38,28 @@ configured to use the selected queue as a source, including:
 
 4. View more pipe details or create a new pipe, if desired:
 
-   - **To access more details about a pipe:**
+    * **To access more details about a pipe:**
 
-   Choose the pipe name.
 
-   This launches the **Pipe details** page of the EventBridge
-   console.
-   - **To create a new pipe:**
+    Choose the pipe name.
 
-   Choose **Connect Amazon SQS queue to pipe**.
 
-   This launches the **Create pipe** page of the EventBridge
-   console, with the Amazon SQS queue specified as the pipe source. For more
-   information, see [Creating an EventBridge
-   pipe](../../../eventbridge/latest/userguide/eb-pipes-create.md "../../../eventbridge/latest/userguide/eb-pipes-create.md") in the _Amazon EventBridge User Guide_.
+    This launches the **Pipe details** page of the EventBridge
+     console.
+    * **To create a new pipe:**
 
-   ###### Important
 
-   A message on an Amazon SQS queue is read by a single pipe and then deleted from the queue after being processed,
-   _whether or not the message matches the filter you can configured for that pipe_. Proceed with caution when configuring multiple pipes
-   to use the same queue as their source.
+    Choose **Connect Amazon SQS queue to pipe**.
+
+
+    This launches the **Create pipe** page of the EventBridge
+     console, with the Amazon SQS queue specified as the pipe source. For more
+     information, see [Creating an EventBridge
+     pipe](../../../eventbridge/latest/userguide/eb-pipes-create.md "../../../eventbridge/latest/userguide/eb-pipes-create.md") in the *Amazon EventBridge User Guide*.
+
+
+    ###### Important
+
+    A message on an Amazon SQS queue is read by a single pipe and then deleted from the queue after being processed,
+     *whether or not the message matches the filter you can configured for that pipe*. Proceed with caution when configuring multiple pipes
+     to use the same queue as their source.
