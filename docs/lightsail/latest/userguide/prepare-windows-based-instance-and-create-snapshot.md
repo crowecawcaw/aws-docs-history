@@ -67,8 +67,7 @@ Resource names:
     * Can include alphanumeric characters, numbers, periods, dashes, and
      underscores.
 
-6. Choose **Create**.
-7. At the prompt, choose **Create snapshot** again to confirm.
+6. Choose **Create**. 7. At the prompt, choose **Create snapshot** again to confirm.
 
 The snapshot process takes a few minutes to complete. 8. After the snapshot is created, choose **Start** at the top of the
 instance management page to start your instance again.
@@ -99,7 +98,7 @@ The browser-based RDP window opens, as shown in the following example:
      **Ec2LaunchSettings**.
 
 4. In the Administrator Password section, choose **Random (Retrieve from
-   console)**, then choose **Shutdown with Sysprep**.
+console)**, then choose **Shutdown with Sysprep**.
 
 ![The Ec2 Launch Settings application on Windows Server 2016 instances.](images/amazon-lightsail-ec2launchsettings.png) 5. Choose **Yes** to confirm that you want to run Sysprep and shut down
 the instance.
@@ -131,9 +130,8 @@ Resource names:
     * Can include alphanumeric characters, numbers, periods, dashes, and
      underscores.
 
-4. Choose **Create**.
-5. At the prompt, choose **Create snapshot** to confirm that you
-   prepared the instance for the snapshot.
+4. Choose **Create**. 5. At the prompt, choose **Create snapshot** to confirm that you
+prepared the instance for the snapshot.
 
 The snapshot process takes a few minutes to complete. 6. After the snapshot is created, choose **Start** at the top of the
 instance management page to start your instance again.

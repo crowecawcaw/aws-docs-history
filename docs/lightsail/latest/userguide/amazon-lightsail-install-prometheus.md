@@ -103,7 +103,7 @@ Lightsail instance.
 
 ![Select download filters for Prometheus](images/amazon-lightsail-prometheus-download-filters.png) 3. Choose or right-click the **Prometheus** download link that
 appears, and copy the link address to a text file on your computer. Do the same
-for the **node_exporter** download link that appears. You will
+for the **node\_exporter** download link that appears. You will
 use both copied addresses later in this procedure.
 
 ![Copy download link for Prometheus](images/amazon-lightsail-prometheus-copy-download-link.png) 4. Connect to your Lightsail instance using SSH. 5. Enter the following command to change directories to your home
@@ -443,7 +443,7 @@ WantedBy=multi-user.target
 ###### Note
 
 These instructions disable default machine metrics for Node Exporter. For
-a complete list of metrics available for Ubuntu, see the [Prometheus node_exporter man page](http://manpages.ubuntu.com/manpages/focal/man1/prometheus-node-exporter.1.html "http://manpages.ubuntu.com/manpages/focal/man1/prometheus-node-exporter.1.html") in the _Ubuntu
+a complete list of metrics available for Ubuntu, see the [Prometheus node\_exporter man page](http://manpages.ubuntu.com/manpages/focal/man1/prometheus-node-exporter.1.html "http://manpages.ubuntu.com/manpages/focal/man1/prometheus-node-exporter.1.html") in the _Ubuntu
 documentation_. 5. Press the **Esc** key to exit insert mode, and type
 **:wq!** to save your changes and quit Vim. 6. Enter the following command to reload the `systemd` process.
 
@@ -491,7 +491,7 @@ sudo vim /etc/prometheus/prometheus.yml
 
 3. Press the **I** key to enter insert mode in Vim.
 4. Add the following lines of text into the file, below the existing `-
-targets: ["`<ip_addr>`:9090"]`
+ targets: ["`<ip_addr>`:9090"]`
    parameter.
 
 ```
@@ -518,9 +518,8 @@ Note the following:
      address that's attached to your Lightsail instance.
 
 5. Press the **Esc** key to exit insert mode, and type
-   **:wq!** to save your changes and quit Vim.
-6. Enter the following command to restart the Prometheus service so that the
-   changes to the configuration file can take effect.
+**:wq!** to save your changes and quit Vim. 6. Enter the following command to restart the Prometheus service so that the
+changes to the configuration file can take effect.
 
 ```
 sudo systemctl restart prometheus
@@ -553,7 +552,7 @@ following example.
 ![Targets menu option on the Prometheus dashboard](images/amazon-lightsail-prometheus-dashboard-targets.png)
 
 On the next screen, you should see two targets. The first target is for the
-**node_exporter** metrics collector job, and the second target is
+**node\_exporter** metrics collector job, and the second target is
 for the **prometheus** job.
 
 ![Targets on the Prometheus dashboard](images/amazon-lightsail-prometheus-dashboard-targets2.png)

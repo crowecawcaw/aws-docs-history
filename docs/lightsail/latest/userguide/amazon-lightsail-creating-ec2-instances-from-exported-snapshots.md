@@ -66,15 +66,15 @@ page:
   more information, see [CloudFormation
   stacks for Lightsail](amazon-lightsail-cloudformation-stacks.md "amazon-lightsail-cloudformation-stacks.md")
 
-      - ec2:DescribeAvailabilityZones
-      - ec2:DescribeSubnets
-      - ec2:DescribeRouteTables
-      - ec2:DescribeInternetGateways
-      - ec2:DescribeVpcs
-      - cloudformation:CreateStack
-      - cloudformation:ValidateTemplate
-      - iam:CreateServiceLinkedRole
-      - iam:PutRolePolicy
+        - ec2:DescribeAvailabilityZones
+        - ec2:DescribeSubnets
+        - ec2:DescribeRouteTables
+        - ec2:DescribeInternetGateways
+        - ec2:DescribeVpcs
+        - cloudformation:CreateStack
+        - cloudformation:ValidateTemplate
+        - iam:CreateServiceLinkedRole
+        - iam:PutRolePolicy
   - The following permissions are required if the user will configure ports in the
     security group for the EC2 instance:
 
@@ -207,29 +207,32 @@ following options:
      your EC2 instance when it launches.
 
 5. On the **Connection security** section of the page, determine how you
-   connected to the source Lightsail instance. This ensures that you get the correct SSH
-   key to connect to your new EC2 instance. You may have connected to the source Lightsail
-   instance using one of the following methods:
+connected to the source Lightsail instance. This ensures that you get the correct SSH
+key to connect to your new EC2 instance. You may have connected to the source Lightsail
+instance using one of the following methods:
 
-   1. **Using the default Lightsail key pair for the source
-      instance’s region** — Download and use the unique default Lightsail key
-      for that AWS Region to connect to your EC2 instance.
+    1. **Using the default Lightsail key pair for the source
+     instance’s region** — Download and use the unique default Lightsail key
+     for that AWS Region to connect to your EC2 instance.
 
-   ###### Note
 
-   The default Lightsail key pair is always used on Windows Server instances in
-   Lightsail. 2. **Using your own key pair** — Locate the private key
-   and use it to connect to your EC2 instance.
+    ###### Note
 
-   ###### Note
+    The default Lightsail key pair is always used on Windows Server instances in
+     Lightsail.
+    2. **Using your own key pair** — Locate the private key
+     and use it to connect to your EC2 instance.
 
-   Lightsail does not store your personal private keys. Therefore; the option to
-   download your private key is not provided. If you are unable to locate your private
-   key, then you will not be able to connect to your EC2 instance.
+
+    ###### Note
+
+    Lightsail does not store your personal private keys. Therefore; the option to
+     download your private key is not provided. If you are unable to locate your private
+     key, then you will not be able to connect to your EC2 instance.
 
 6. On the **Storage resources** section of the page, confirm that the
-   EBS volumes being created match the system disk and any attached block storage disks for
-   the source Lightsail instance.
+EBS volumes being created match the system disk and any attached block storage disks for
+the source Lightsail instance.
 
 ![Storage resources on the Create an Amazon EC2 instance page.](images/amazon-lightsail-create-an-ec2-instance-storage-resources.png) 7. Review the important details about creating resources outside of Lightsail. 8. If you agree to create the instance in Amazon EC2, choose **Create resources in
 EC2**.

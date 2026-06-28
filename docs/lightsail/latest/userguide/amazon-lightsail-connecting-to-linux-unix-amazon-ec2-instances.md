@@ -155,9 +155,8 @@ Lightsail instance:
     * cPanel & WHM instances: `centos`
 
 5. Under the **Connection** section in the left navigation pane, expand
-   **SSH**, and then choose **Auth**.
-6. Choose **Browse** to navigate to the .PPK file that you created in
-   the previous section of this guide, and then choose **Open**.
+**SSH**, and then choose **Auth**. 6. Choose **Browse** to navigate to the .PPK file that you created in
+the previous section of this guide, and then choose **Open**.
 
 ![PuTTY authentication parameters.](images/amazon-lightsail-putty-authentication-parameters.png) 7. Choose **Open** to connect to your instance, and then choose
 **Yes** to trust this connection in the future.

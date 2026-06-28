@@ -198,7 +198,7 @@ sudo /opt/bitnami/bncert-tool
     ![Message confirming the bncert tool is installed](images/run-bncert-tool-success.png)
 
 2. Enter the following command to download the `bncert` run file to your
-   instance.
+instance.
 
 ```
 wget -O bncert-linux-x64.run https://downloads.bitnami.com/files/bncert/latest/bncert-linux-x64.run

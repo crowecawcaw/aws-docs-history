@@ -49,7 +49,7 @@ dropdown menu:
      world.
 
 8. Choose **Save** to save the change. Otherwise, choose
-   **Cancel**.
+**Cancel**.
 
 The **Bucket access permission** setting of the bucket has the
 following effects on individual object access permissions:

@@ -52,9 +52,8 @@ data transfer allowance. 6. Enter a name for your instance. Resource names:
     * Can include alphanumeric characters, numbers, periods, dashes, and
      underscores.
 
-7. Choose **Create instance**.
-8. To view the test blog post, go to the instance management page and copy the public IPv4 address shown in the upper-right corner of the page.
-   Paste the address into the address field of an internet-connected web browser. The browser displays the test blog post.
+7. Choose **Create instance**. 8. To view the test blog post, go to the instance management page and copy the public IPv4 address shown in the upper-right corner of the page.
+Paste the address into the address field of an internet-connected web browser. The browser displays the test blog post.
 
 ## Step 3: Configure your WordPress instance
 
@@ -116,16 +115,14 @@ domain registrar. Choose **Use this domain** to go to the next step. 3. For **Co
      **Use third-party DNS** to go to the next step.
 
 4. For **Create a static IP address**, enter a name for your static IP
-   address and then choose **Create static IP**.
-5. For **Manage domain assignments**, choose **Add
-   assignment**, choose a domain type, and then choose
-   **Add**. Choose **Continue** to go to the next
-   step.
-6. For **Create an SSL/TLS certificate**, choose your domains and
-   subdomains, enter an email address, select **I authorize Lightsail to
-   configure a Let's Encrypt certificate on my instance**, and choose
-   **Create certificate**. We start to configure the Lightsail
-   resources.
+address and then choose **Create static IP**. 5. For **Manage domain assignments**, choose **Add
+assignment**, choose a domain type, and then choose
+**Add**. Choose **Continue** to go to the next
+step. 6. For **Create an SSL/TLS certificate**, choose your domains and
+subdomains, enter an email address, select **I authorize Lightsail to
+configure a Let's Encrypt certificate on my instance**, and choose
+**Create certificate**. We start to configure the Lightsail
+resources.
 
 While setup is in progress, do not stop or make changes to your instance.
 It can take up to 15 minutes to configure your instance. You can view the progress for

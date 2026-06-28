@@ -22,7 +22,7 @@ Before you begin this tutorial, make sure you have the following.
 1. The AWS CLI. If you need to install it, follow the [AWS CLI installation guide](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md"). You can also [use AWS CloudShell](amazon-lightsail-cloudshell.md "amazon-lightsail-cloudshell.md"), which includes
    the AWS CLI.
 2. Configured your AWS CLI with appropriate credentials. Run `aws
-configure` if you haven't set up your credentials yet.
+ configure` if you haven't set up your credentials yet.
 3. Basic familiarity with command line interfaces and SSH concepts.
 4. [Sufficient permissions](security_iam_service-with-iam.md "security_iam_service-with-iam.md") to
    create and manage Lightsail resources in your AWS account.

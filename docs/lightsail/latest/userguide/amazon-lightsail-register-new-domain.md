@@ -117,10 +117,9 @@ For more information, see the following topics:
     * [Domains that you can register with Amazon Route 53](../../../Route53/latest/DeveloperGuide/registrar-tld-list.md#registrar-tld-list-index-generic "../../../Route53/latest/DeveloperGuide/registrar-tld-list.md#registrar-tld-list-index-generic")
 
 7. Choose **Register domain** to continue. The **DNS
-   zones** and **Summary** sections show information about the
-   domain’s DNS zone, pricing, and renewal schedule.
-8. You must accept the [Amazon Route 53 domain
-   name registration agreement](https://aws.amazon.com/route53/domain-registration-agreement/ "https://aws.amazon.com/route53/domain-registration-agreement/") before you can register your domain.
+zones** and **Summary** sections show information about the
+domain’s DNS zone, pricing, and renewal schedule. 8. You must accept the [Amazon Route 53 domain
+name registration agreement](https://aws.amazon.com/route53/domain-registration-agreement/ "https://aws.amazon.com/route53/domain-registration-agreement/") before you can register your domain.
 
 ### Verify the domain contact information
 

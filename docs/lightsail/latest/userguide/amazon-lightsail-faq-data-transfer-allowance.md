@@ -84,7 +84,7 @@ Amazon Lightsail API Reference.
   fees.
 - Example 3 – You create two sets of instance
   bundles: set A with two $5 USD per month instance bundles (bundleId
-  `nano_3_0`) and set B with three $7 USD per month instance bundles
+ `nano_3_0`) and set B with three $7 USD per month instance bundles
   (bundleId `micro_3_0`), both in the US West (Oregon) Region. In aggregate,
   this gives you 2 TB of data transfer allowance for set A, and 6 TB of data transfer
   allowance for set B. If you transfer 3 TB of data to the Internet through set A
@@ -94,9 +94,9 @@ Amazon Lightsail API Reference.
   TB.
 - Example 4 – You have consumed 600 GB of the
   total 1 TB data transfer allowance for your $3.50 USD per month IPv6 instance bundle
-  (bundleId `nano_ipv6_3_0`) within the first 20 days of the billing month. You
-  decide to switch the networking type of your instance to dual-stack (bundleId
-  `nano_3_0` charged at $5 USD per month price) on the 21st day. Your data
+ (bundleId `nano_ipv6_3_0`) within the first 20 days of the billing month. You
+ decide to switch the networking type of your instance to dual-stack (bundleId
+ `nano_3_0` charged at $5 USD per month price) on the 21st day. Your data
   transfer utilization for the month will not reset, and will remain at 600 GB, with 400
   GB allowance left. During the remainder of the billing month, if you send 500 GB of data
   to the Internet, you will accrue data transfer OUT overage charges for 100 GB.

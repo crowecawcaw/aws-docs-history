@@ -165,7 +165,7 @@ You should see one of the following responses:
      again. Continue to the step 8 of this procedure.
 
 3. Enter the following command to download the bncert run file to your
-   instance.
+instance.
 
 ```
 wget -O bncert-linux-x64.run https://downloads.bitnami.com/files/bncert/latest/bncert-linux-x64.run

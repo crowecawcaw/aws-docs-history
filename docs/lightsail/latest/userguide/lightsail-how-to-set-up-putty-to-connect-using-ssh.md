@@ -77,8 +77,8 @@ use:
      you're ready to upload your public key file to Lightsail.
 
 6. If you downloaded the private key, or you created a new private key in Lightsail,
-   then make sure to save the `.pem` key file somewhere you can easily find
-   it.
+then make sure to save the `.pem` key file somewhere you can easily find
+it.
 
 We also recommend that you set permissions for the file so that no one else can read
 it.

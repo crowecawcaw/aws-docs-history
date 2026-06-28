@@ -23,7 +23,7 @@ If your instance is truly under-provisioned, and you cannot lower its CPU utiliz
 then you can mitigate burst capacity consumption by adding more processing power. You do this
 by creating a snapshot of your instance, and then creating a new instance from the snapshot
 using a larger Lightsail instance plan. For example, use the Linux or Unix-based $24 USD per
-month plan on your new instance instead of the Linux or Unix-based $12 USD per month plan used
+ month plan on your new instance instead of the Linux or Unix-based $12 USD per month plan used
 on the previous instance. When your new instance is up and running, make changes to your
 workload's DNS as necessary to swap the old instance with the new one. Delete your old
 under-provisioned instance after traffic starts routing to your new instance. For more

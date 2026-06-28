@@ -11,12 +11,12 @@ provided you with your user name and password.
 
 The following example error occurs when the `mateojackson` IAM user tries
 to access the Lightsail console but does not have
-`lightsail:`\*`` (full-access) permissions.
+`lightsail:`*`` (full-access) permissions.
 
 ![Unauthorized access error message in the Lightsail console.](images/amazon-lightsail-unauthorized-error-message.png)
 
 In this case, Mateo asks his administrator to update his policies to allow him to access
-the Lightsail console using the `lightsail:`\*``
+the Lightsail console using the `lightsail:`*``
 (full-access) permissions.
 
 ## I am not authorized to perform iam:PassRole

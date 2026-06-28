@@ -10,7 +10,7 @@ ecommerce).
 Lightsail has several Linux/Unix-based or Windows-based operating systems to choose
 from.
 
-\***\*Windows Server 2022\*\***
+****Windows Server 2022****
 
 Lightsail running Windows Server is a fast and dependable environment for
 deploying applications using the Microsoft Web Platform. With Lightsail, you can run
@@ -25,7 +25,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 Learn more about [Windows Server
 2022](https://aws.amazon.com/marketplace/pp/prodview-dq4sxno5vuy7m "https://aws.amazon.com/marketplace/pp/prodview-dq4sxno5vuy7m").
 
-\***\*Windows Server 2019\*\***
+****Windows Server 2019****
 
 Lightsail running Windows Server is a fast and dependable environment for
 deploying applications using the Microsoft Web Platform. Lightsail enables you to run
@@ -39,7 +39,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 
 Learn more about [Windows Server 2019](https://aws.amazon.com/marketplace/pp/B07QZ4XZ8F "https://aws.amazon.com/marketplace/pp/B07QZ4XZ8F").
 
-\***\*Windows Server 2016\*\***
+****Windows Server 2016****
 
 Lightsail running Windows Server is a fast and dependable environment for
 deploying applications using the Microsoft Web Platform. Lightsail enables you to run
@@ -53,7 +53,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 
 Learn more about [Windows Server 2016](https://aws.amazon.com/marketplace/pp/B01M7SJEU7 "https://aws.amazon.com/marketplace/pp/B01M7SJEU7").
 
-\***\*Amazon Linux 2023\*\***
+****Amazon Linux 2023****
 
 Amazon Linux 2023 (AL2023) is the next generation of Amazon Linux, ideal for general purpose
 workloads on AWS. AL2023 will be supported for five years after it is generally
@@ -69,7 +69,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 
 Learn more about [Amazon Linux 2023](https://aws.amazon.com/linux/amazon-linux-2023/ "https://aws.amazon.com/linux/amazon-linux-2023/").
 
-\***\*Amazon Linux 2\*\***
+****Amazon Linux 2****
 
 ###### Important
 
@@ -87,7 +87,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 
 Learn more about [Amazon Linux 2](https://aws.amazon.com/amazon-linux-2 "https://aws.amazon.com/amazon-linux-2").
 
-\***\*AlmaLinux OS 9\*\***
+****AlmaLinux OS 9****
 
 AlmaLinux OS 9 is an open source, community owned and governed, forever-free
 enterprise Linux distribution, focused on long-term stability, providing a robust
@@ -99,7 +99,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 Learn more about [AlmaLinux OS
 9](https://aws.amazon.com/marketplace/pp/prodview-ykmb6re2rcouy "https://aws.amazon.com/marketplace/pp/prodview-ykmb6re2rcouy").
 
-\***\*CentOS Stream 9\*\***
+****CentOS Stream 9****
 
 CentOS Stream 9 is the next major release of the CentOS Stream distribution. CentOS
 Stream 9 is a continuously delivered distribution that tracks just ahead of Red Hat
@@ -112,7 +112,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 
 Learn more at the [_CentOS Stream_](https://www.centos.org/centos-stream/ "https://www.centos.org/centos-stream/") website.
 
-\***\*Debian 11, 12, and 13\*\***
+****Debian 11, 12, and 13****
 
 ###### Important
 
@@ -129,7 +129,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 
 Learn more at the [_Debian_](https://www.debian.org/doc/ "https://www.debian.org/doc/") website.
 
-\***\*FreeBSD 14 and 15\*\***
+****FreeBSD 14 and 15****
 
 FreeBSD is an operating system used to power servers, desktops, and embedded
 systems. Derived from BSD, the version of UNIX developed at the University of
@@ -145,7 +145,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 
 Learn more at the [_FreeBSD_](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/ "https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/") website.
 
-\***\*openSUSE 15 and 16\*\***
+****openSUSE 15 and 16****
 
 ###### Important
 
@@ -173,7 +173,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 
 Learn more at the [_openSUSE_](https://www.opensuse.org/ "https://www.opensuse.org/") website.
 
-\***\*Ubuntu 22 and 24\*\***
+****Ubuntu 22 and 24****
 
 Ubuntu Server is a Debian-based Linux operating system used for virtual servers. A
 default installation of Ubuntu contains a wide range of software that includes
@@ -194,7 +194,7 @@ Learn more at the [_Ubuntu_](https://help.ubuntu.com/community/CommunityHelpWiki
 
 The following database applications are available in Lightsail:
 
-\***\*SQL Server 2022 Express\*\***
+****SQL Server 2022 Express****
 
 SQL Server Express is a relational database management system that is free to
 download, distribute, and use. It comprises a database specifically targeted for
@@ -206,7 +206,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 Learn more about [SQL Server 2022
 Express](https://aws.amazon.com/marketplace/pp/prodview-c2jz4lr4h2yc6 "https://aws.amazon.com/marketplace/pp/prodview-c2jz4lr4h2yc6").
 
-\***\*SQL Server 2019 Express\*\***
+****SQL Server 2019 Express****
 
 SQL Server Express is a relational database management system that is free to
 download, distribute, and use. It comprises a database specifically targeted for
@@ -218,7 +218,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 Learn more about [SQL Server 2019
 Express](https://aws.amazon.com/marketplace/pp/prodview-xbikutlmywslu "https://aws.amazon.com/marketplace/pp/prodview-xbikutlmywslu").
 
-\***\*SQL Server 2016 Express\*\***
+****SQL Server 2016 Express****
 
 ###### Important
 
@@ -240,7 +240,7 @@ Server 2016 Express](https://aws.amazon.com/marketplace/pp/B01MAZHH98 "https://a
 The following content management system (CMS) applications are available in
 Lightsail:
 
-\***\*WordPress\*\***
+****WordPress****
 
 The WordPress blueprint provides a complete production environment with PHP, MariaDB, phpMyAdmin,
 and WordPress. This blueprint supports Lightsail’s guided workflow for configuring HTTPS
@@ -256,7 +256,7 @@ Lightsail instances launched from WordPress will have Instance Metadata Service 
 Learn more about the [WordPress
 stack](https://wordpress.org/ "https://wordpress.org/") at the _WordPress_ website.
 
-\***\*WordPress certified by Bitnami\*\***
+****WordPress certified by Bitnami****
 
 Bitnami WordPress is a preconfigured, ready-to-use image for running WordPress on
 Lightsail. WordPress is a popular web publishing platform for building blogs and
@@ -273,7 +273,7 @@ WordPress themes. WordPress is in full compliance with the standards of the [_Wo
 Learn more about [WordPress](https://bitnami.com/stack/wordpress "https://bitnami.com/stack/wordpress")
 at the _Bitnami_ website.
 
-\***\*WordPress Multisite\*\***
+****WordPress Multisite****
 
 The WordPress Multisite blueprint provides a complete production environment with PHP, MariaDB, phpMyAdmin, and WordPress.
 Lightsail packages blueprints to be secure and up-to-date using industry best practices.
@@ -286,7 +286,7 @@ Lightsail instances launched from WordPress Multisite will have Instance Metadat
 Learn more about [WordPress
 Multisite](https://developer.wordpress.org/advanced-administration/multisite/ "https://developer.wordpress.org/advanced-administration/multisite/") at the _WordPress_ website.
 
-\***\*WordPress Multisite certified by Bitnami\*\***
+****WordPress Multisite certified by Bitnami****
 
 WordPress Multisite enables administrators to host and manage multiple websites from
 the same WordPress instance. These websites can all have unique domain names and can be
@@ -302,7 +302,7 @@ overall control to a central administrator.
 
 Learn more about [WordPress Multisite](https://bitnami.com/stack/wordpress-multisite "https://bitnami.com/stack/wordpress-multisite") at the _Bitnami_ website.
 
-\***\*cPanel & WebHost Manager (WHM)\*\***
+****cPanel & WebHost Manager (WHM)****
 
 cPanel & WHM is a suite of tools built for Linux OS that gives you the ability
 to automate web hosting tasks by using a simple graphical user interface. Its goal is to
@@ -313,7 +313,7 @@ customers.
 
 Learn more about [cPanel & WHM](https://cpanel.net/products/cpanel-whm-features/ "https://cpanel.net/products/cpanel-whm-features/") at the _cPanel_ website.
 
-\***\*PrestaShop packaged by Bitnami\*\***
+****PrestaShop packaged by Bitnami****
 
 PrestaShop is one of the most prolific ecommerce solutions in the world. It is free
 and open source software, with a community of over 1 million active members. It is
@@ -328,7 +328,7 @@ integration with Amazon, eBay, Facebook and more.
 Learn more about [_PrestaShop_](https://prestashop.com "https://prestashop.com") at the _PrestaShop_
 website.
 
-\***\*Ghost packaged by Bitnami\*\***
+****Ghost packaged by Bitnami****
 
 Ghost is a publishing platform that is suitable for everything from personal blogs
 to major news websites. Built on Node.js, its modern technology stack makes it versatile
@@ -340,7 +340,7 @@ while maintaining ease of use for content creators.
 Learn more about [Bitnami Ghost](https://bitnami.com/stack/ghost "https://bitnami.com/stack/ghost")
 at the _Bitnami_ website.
 
-\***\*Joomla! packaged by Bitnami\*\***
+****Joomla! packaged by Bitnami****
 
 Bitnami Joomla! is a preconfigured, ready-to-use image for running Joomla! on
 Lightsail. Joomla! is a CMS that you can use to build a variety of websites or
@@ -360,7 +360,7 @@ special URLs, and more.
 Learn more about [Joomla!](https://bitnami.com/stack/joomla "https://bitnami.com/stack/joomla") at
 the _Bitnami_ website.
 
-\***\*Drupal packaged by Bitnami\*\***
+****Drupal packaged by Bitnami****
 
 Bitnami Drupal is a preconfigured, ready-to-use image for running Drupal on
 Lightsail. Drupal is a content management platform that helps users easily publish,
@@ -382,7 +382,7 @@ _Bitnami_ website.
 Lightsail has multiple application stacks and servers for a wide variety of development
 projects. Each image uses Linux/Unix as the base operating system.
 
-\***\*OpenClaw\*\***
+****OpenClaw****
 
 OpenClaw is an open-source autonomous AI agent (formerly Clawdbot/Moltbot).
 It runs continuously in the background on your own server, connecting to messaging
@@ -398,7 +398,7 @@ Lightsail instances launched from OpenClaw will have Instance Metadata Service V
 Learn more about [OpenClaw](https://openclaw.ai "https://openclaw.ai")
 at the _OpenClaw_ website.
 
-\***\*LAMP stack (PHP 8) packaged by Bitnami\*\***
+****LAMP stack (PHP 8) packaged by Bitnami****
 
 The Bitnami LAMP stack simplifies the development and deployment of PHP
 applications. It includes ready-to-run versions of Apache, MySQL, PHP, and phpMyAdmin,
@@ -415,7 +415,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 Learn more about the [Bitnami LAMP
 stack](https://bitnami.com/stack/lamp "https://bitnami.com/stack/lamp") at the _Bitnami_ website.
 
-\***\*LAMP\*\***
+****LAMP****
 
 The LAMP blueprint provides a complete production environment with PHP, Apache, and MariaDB on Linux.
 This blueprint also includes phpMyAdmin, PHP core modules, and Composer.
@@ -425,7 +425,7 @@ Lightsail instances launched from LAMP will have Instance Metadata Service Versi
 
 [Launch and configure a LAMP instance](amazon-lightsail-launch-and-configure-lamp.md "amazon-lightsail-launch-and-configure-lamp.md")
 
-\***\*Django packaged by Bitnami\*\***
+****Django packaged by Bitnami****
 
 Django is a high-level Python Web framework that encourages rapid development and
 clean, pragmatic design. Python is a dynamic object-oriented programming language that
@@ -436,7 +436,7 @@ ready-to-run versions of Python, Django, MySQL, and Apache.
 Learn more about the [Bitnami Django
 stack](https://bitnami.com/stack/django "https://bitnami.com/stack/django") at the _Bitnami_ website.
 
-\***\*Node.js packaged by Bitnami\*\***
+****Node.js packaged by Bitnami****
 
 Bitnami Node.js is a preconfigured, ready-to-use image for running Node.js on
 Lightsail. Node.js is a platform built on Chrome's JavaScript runtime for easily
@@ -449,7 +449,7 @@ data-intensive, real-time applications.
 Learn more about the [Node.js
 stack](https://bitnami.com/stack/nodejs "https://bitnami.com/stack/nodejs") at the _Bitnami_ website.
 
-\***\*Node.js\*\***
+****Node.js****
 
 The Node.js blueprint provides a complete production environment with MariaDB and Node.js.
 Lightsail packages blueprints to be secure and up-to-date using industry best practices.
@@ -462,7 +462,7 @@ Lightsail instances launched from Node.js will have Instance Metadata Service Ve
 Learn more about the [Node.js
 stack](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs "https://nodejs.org/en/learn/getting-started/introduction-to-nodejs") at the _Node.js_ website.
 
-\***\*MEAN stack packaged by Bitnami\*\***
+****MEAN stack packaged by Bitnami****
 
 Bitnami MEAN stack provides a complete development environment for MongoDB and
 Node.js that you can deploy in one click. It includes the latest stable release of
@@ -473,7 +473,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 Learn more about the [MEAN stack](https://bitnami.com/stack/mean "https://bitnami.com/stack/mean")
 at the _Bitnami_ website.
 
-\***\*GitLab CE Packaged by Bitnami\*\***
+****GitLab CE Packaged by Bitnami****
 
 Bitnami GitLab Community Edition (CE) is a preconfigured, ready-to-use image for
 running GitLab on Lightsail. GitLab is self-hosted Git management software that is
@@ -489,7 +489,7 @@ installation to different servers easily.
 Learn more about the [GitLab
 stack](https://bitnami.com/stack/gitlab "https://bitnami.com/stack/gitlab") at the _Bitnami_ website.
 
-\***\*Nginx (LEMP stack) packaged by Bitnami\*\***
+****Nginx (LEMP stack) packaged by Bitnami****
 
 Bitnami NGINX Stack provides a complete PHP, MySQL, and NGINX development
 environment that you can launch in one click. It also bundles phpMyAdmin, SQLite,
@@ -503,7 +503,7 @@ stack is also known as LEMP (Linux, NGINX, MySQL, and PHP).
 Learn more about the [NGINX
 stack](https://bitnami.com/stack/nginx "https://bitnami.com/stack/nginx") at the _Bitnami_ website.
 
-\***\*Nginx\*\***
+****Nginx****
 
 The Nginx blueprint provides a complete production environment with PHP, MariaDB, phpMyAdmin, and NGINX.
 Lightsail packages blueprints to be secure and up-to-date using industry best practices.
@@ -518,8 +518,8 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 Learn more about the [NGINX
 stack](https://nginx.org/en/ "https://nginx.org/en/") at the _NGINX_ website.
 
-\***\*Plesk Hosting Stack on Ubuntu**, **Plesk Hosting Stack on
-Ubuntu (BYOL)\*\***
+****Plesk Hosting Stack on Ubuntu**, **Plesk Hosting Stack on
+Ubuntu (BYOL)****
 
 ###### Important
 
@@ -546,7 +546,7 @@ configure Plesk](set-up-and-configure-plesk-stack-on-lightsail.md "set-up-and-co
 
 Learn more about the [Plesk stack](https://docs.plesk.com/en-US/current/administrator-guide/about-plesk.70559/ "https://docs.plesk.com/en-US/current/administrator-guide/about-plesk.70559/") at the _Plesk_ website.
 
-\***\*Ruby on Rails\*\***
+****Ruby on Rails****
 
 The Ruby on Rails blueprint comes pre-configured with Rails on Amazon Linux 2023, eliminating the need for manual framework installation and setup. The Ruby on Rails blueprint enables you to deploy a robust, scalable, and cost-effective solution for building modern web applications on Lightsail.
 

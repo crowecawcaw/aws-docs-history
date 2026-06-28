@@ -75,8 +75,7 @@ used by your instance. There are two possibilities:
 
     ![Custom key pair used for a Lightsail instance](images/amazon-lightsail-custom-key-pair.png)
 
-3. On the Lightsail home page, choose your user or role on the top navigation menu.
-4. Choose **Account** in the dropdown menu.
+3. On the Lightsail home page, choose your user or role on the top navigation menu. 4. Choose **Account** in the dropdown menu.
 
 ![Lightsail account tab](images/amazon-lightsail-console-account-menu.png)
 

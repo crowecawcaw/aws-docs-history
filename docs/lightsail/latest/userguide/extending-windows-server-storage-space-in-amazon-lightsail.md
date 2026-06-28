@@ -31,11 +31,9 @@ options:
      choose **Start**, then choose **Windows Administrative
      Tools**.
 
-4. Choose **Computer Management**.
-5. In the left pane of the Computer Management console, choose **Disk
-   Management**.
-6. On the **Actions** menu, choose **Rescan
-   Disks**.
+4. Choose **Computer Management**. 5. In the left pane of the Computer Management console, choose **Disk
+Management**. 6. On the **Actions** menu, choose **Rescan
+Disks**.
 
 You may see unallocated space associated with a disk. Extend the active volume on the
 disk to use the unallocated space.

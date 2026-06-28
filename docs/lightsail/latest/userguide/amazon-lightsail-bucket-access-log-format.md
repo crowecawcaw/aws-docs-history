@@ -140,7 +140,7 @@ The operation listed here is declared as
 `SOAP.`operation``,
  `REST.`HTTP_method.resource_type``,
 `WEBSITE.`HTTP_method.resource_type``, or
- `BATCH.DELETE.OBJECT`.
+`BATCH.DELETE.OBJECT`.
 
 Example entry
 
@@ -417,7 +417,7 @@ The operation listed here is declared as
 `SOAP.`operation``,
  `REST.`HTTP_method.resource_type``,
 `WEBSITE.`HTTP_method.resource_type``, or
- `BATCH.DELETE.OBJECT`.
+`BATCH.DELETE.OBJECT`.
 
 Example entry
 

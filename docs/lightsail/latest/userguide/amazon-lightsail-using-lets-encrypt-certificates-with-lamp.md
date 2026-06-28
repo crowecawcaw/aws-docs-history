@@ -379,14 +379,14 @@ structures.
     ```
 
 3. Enter the following commands individually to create links to your Let’s Encrypt
-   certificate files in the apache2 server directory. Refer to the **Important** block at the beginning of this tutorial for information about the
-   different distributions and file structures.
+certificate files in the apache2 server directory. Refer to the **Important** block at the beginning of this tutorial for information about the
+different distributions and file structures.
 
 ###### Note
 
 If you closed your browser-based SSH terminal window since setting the `DOMAIN`
-variable in Step 3, run `DOMAIN=`example.com``again,
- replacing`example.com` with your domain.
+variable in Step 3, run `DOMAIN=`example.com`` again,
+replacing `example.com` with your domain.
 
     * For Debian Linux distributions
 
@@ -430,7 +430,7 @@ variable in Step 3, run `DOMAIN=`example.com``again,
     ```
 
 4. Enter the following command to start the underlying LAMP stack services that you had
-   stopped earlier:
+stopped earlier:
 
 ```
 sudo /opt/bitnami/ctlscript.sh start

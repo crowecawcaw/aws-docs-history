@@ -60,7 +60,7 @@ hourly price, up to the maximum monthly service price. Maximum monthly service p
 calculated by multiplying the base price of the power of your service with the scale of your
 service. For example, a service of Micro power and scale of 2 will cost a maximum of
 $10\*2=$20/month. The least expensive Lightsail container service starts at $0.0094
-USD/hour ($7 USD/month). Additional data transfer charges may apply for usage above the
+ USD/hour ($7 USD/month). Additional data transfer charges may apply for usage above the
 free-quota of 500 GB per month for each service. For more information, see
 [Will I be charged for data transfer in and out of the container service?](amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-will-i-be-charged-for-data-transfer-in-out "amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-will-i-be-charged-for-data-transfer-in-out").
 
@@ -71,7 +71,7 @@ disabled state. If you delete your Lightsail container service before the end of
 month, we charge you a prorated cost based on the total number of hours that you used your
 Lightsail container service. For example, if you use your Lightsail container service
 with a power of Micro and scale of 1 for 100 hours in a month, you will be charged $1.34
-($0.0134\*100)
+ ($0.0134\*100)
 
 ## What is the difference between stopping and deleting my container service?
 

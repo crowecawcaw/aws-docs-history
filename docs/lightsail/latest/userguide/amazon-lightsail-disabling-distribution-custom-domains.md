@@ -29,8 +29,8 @@ currently attached to your distribution, if any. 5. Choose one of the following 
      distribution, and remove all of its associated domains.
 
 6. Your request to disable custom domains is submitted, and the status of your
-   distribution is changed to **In progress**. After a while, the status of
-   your distribution changes to **Enabled**.
+distribution is changed to **In progress**. After a while, the status of
+your distribution changes to **Enabled**.
 
 After you disable custom domains, your distribution accepts traffic only for the default
 domain that is associated with your distribution when you first create it (e.g.,

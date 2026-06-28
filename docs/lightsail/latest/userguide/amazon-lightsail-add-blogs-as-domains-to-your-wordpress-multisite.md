@@ -133,7 +133,7 @@ sudo vim /opt/bitnami/wordpress/wp-config.php
 
 4. Press **I** to enter insert mode in Vim.
 5. Add the following line of text below the `define('WP_ALLOW_MULTISITE',
-true);` line of text.
+ true);` line of text.
 
 ```
 define('COOKIE_DOMAIN', $_SERVER['HTTP_HOST']);

@@ -71,13 +71,18 @@ Resource names:
     * Can include alphanumeric characters, periods, dashes, and underscores.
 
 8. (Optional) Choose **Add new tag** to add a tag to your instance. Repeat this step as needed to add additional tags. For
-   more information on tag usage, see [Tags](amazon-lightsail-tags.md "amazon-lightsail-tags.md").
+more information on tag usage, see [Tags](amazon-lightsail-tags.md "amazon-lightsail-tags.md").
 
-   1. For **Key**, enter a tag key.
+    1. For **Key**, enter a tag key.
 
-   ![A tag with only the tag key specified in the Lightsail create instance workflow.](images/amazon-lightsail-instance-key-name-only-tags.png) 2. (Optional) For **Value**, enter a tag value.
 
-   ![A tag with the tag key and tag value specified in the Lightsail create instance workflow.](images/amazon-lightsail-instance-key-name-and-value-tags.png)
+
+    ![A tag with only the tag key specified in the Lightsail create instance workflow.](images/amazon-lightsail-instance-key-name-only-tags.png)
+    2. (Optional) For **Value**, enter a tag value.
+
+
+
+    ![A tag with the tag key and tag value specified in the Lightsail create instance workflow.](images/amazon-lightsail-instance-key-name-and-value-tags.png)
 
 9. Choose **Create instance**.
 
@@ -146,6 +151,23 @@ blog_, and then choose **Open**. 6. Choose **Upload file and import**.
 
 Accept the rest of the defaults, and then choose **Submit**.
 
+## Step 5: Attach a static IP address
+
+The default public IP address attached to your instance changes every time you stop and
+start the instance. Create a static IP address and attach it to your instance to keep a
+consistent address for your domain.
+
+For instructions, see [Create a static IP
+and attach it to an instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
+
+## Step 6: Enable HTTPS on your WordPress instance
+
+After attaching a static IP and pointing your domain to it, enable HTTPS to secure your
+WordPress site with an SSL/TLS certificate.
+
+For instructions, see [Enable
+HTTPS on your WordPress instance](amazon-lightsail-enabling-https-on-wordpress.md "amazon-lightsail-enabling-https-on-wordpress.md").
+
 ## Next steps
 
 You can verify that everything worked by choosing your blog (next to the Home icon), and
@@ -156,5 +178,4 @@ Here are some next steps:
 
 - [Configure automatic snapshots for your new Lightsail instance](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md")
 - Customize your new blog's appearance and/or install some WordPress plugins
-- [Enable HTTPS on your WordPress instance using Quick Setup](amazon-lightsail-enabling-https-on-wordpress.md "amazon-lightsail-enabling-https-on-wordpress.md")
 - [Delete any old snapshots](amazon-lightsail-deleting-snapshots.md "amazon-lightsail-deleting-snapshots.md") associated with your old instance to save on future charges

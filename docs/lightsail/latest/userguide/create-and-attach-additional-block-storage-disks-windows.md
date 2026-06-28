@@ -39,22 +39,27 @@ Resource names:
 
 6. Choose one of the following options to add tags to your disk:
 
-   - **Add key-only tags** or **Manage tags**
+    * **Add key-only tags** or **Manage tags**
      (if tags have already been added). Enter your new tag into the tag key text box, and
      press **Enter**. Choose **Save** when you’re done
      entering your tags to add them, or choose **Cancel** to not add
      them.
 
-   ![Key-only tags in the Lightsail console.](images/amazon-lightsail-key-only-tags.png)
-   - **Create a key-value tag**, then enter a key into the
+
+
+    ![Key-only tags in the Lightsail console.](images/amazon-lightsail-key-only-tags.png)
+    * **Create a key-value tag**, then enter a key into the
      **Key** text box, and a value into the **Value**
      text box. Choose **Save** when you’re done entering your tags, or
      choose **Cancel** to not add them.
 
-   Key-value tags can only be added one at a time before saving. To add more than one
-   key-value tag, repeat the previous steps.
 
-   ![Key-value tags in the Lightsail console.](images/amazon-lightsail-key-value-tag.png)
+    Key-value tags can only be added one at a time before saving. To add more than one
+     key-value tag, repeat the previous steps.
+
+
+
+    ![Key-value tags in the Lightsail console.](images/amazon-lightsail-key-value-tag.png)
 
 ###### Note
 

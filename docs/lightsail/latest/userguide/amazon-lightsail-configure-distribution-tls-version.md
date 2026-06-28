@@ -17,10 +17,10 @@ versions.
 
 Lightsail distributions can be configured with the following TLS protocols:
 
-- (Recommended) TLSv1.2_2021
-- TLSv1.2_2019
-- TLSv1.2_2018
-- TLSv1.1_2016
+- (Recommended) TLSv1.2\_2021
+- TLSv1.2\_2019
+- TLSv1.2\_2018
+- TLSv1.1\_2016
 
 ## Prerequisites
 

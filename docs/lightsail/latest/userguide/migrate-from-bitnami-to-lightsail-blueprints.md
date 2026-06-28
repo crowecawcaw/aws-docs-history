@@ -92,9 +92,8 @@ Resource names:
     * Must start and end with an alphanumeric character.
     * Can include alphanumeric characters, periods, dashes, and underscores.
 
-7. Optionally, add tags to help organize your resources.
-8. Choose **Create instance** and wait for the instance to reach a
-   running state.
+7. Optionally, add tags to help organize your resources. 8. Choose **Create instance** and wait for the instance to reach a
+running state.
 
 ## Step 3: Configure your new instance
 
@@ -190,4 +189,4 @@ workflow](amazon-lightsail-enabling-https-on-wordpress.md "amazon-lightsail-enab
 Once you have verified the migration is successful and DNS has fully propagated:
 
 1. Take a final [snapshot of the old instance](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md") for backup.
-2. Delete the old Bitnami instance to stop incurring charges.
+2. Delete the old instance to stop incurring charges.

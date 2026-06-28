@@ -114,7 +114,7 @@ container service](amazon-lightsail-changing-container-service-capacity.md "amaz
 The monthly price of your container service is calculated by multiplying the price of
 its power with the number of its compute nodes (the scale of your service). For example, a
 service with a medium power, which has a price of $40 USD, and a scale of 3 compute nodes,
-will cost $120 USD per month. You are charged for your container service whether it's
+ will cost $120 USD per month. You are charged for your container service whether it's
 enabled or disabled, and whether it has a deployment or not. You must delete your container
 service to stop being charged for it.
 
@@ -250,12 +250,12 @@ custom domains for your container services](amazon-lightsail-enabling-container-
 
 All container services also have a private domain that is formatted as
 ``<ServiceName>`.service.local`, in which
- `<ServiceName>`is the name of your container service. Use
- the private domain to access your container service from another one of your Lightsail
- resources in the same AWS Region as your service. The private domain is the only way to
- access your container service if you don't specify a public endpoint in the deployment of
- your service. A default domain is generated for your container service even if you don't
- specify a public endpoint, but it will show a`404 No Such Service` error message
+`<ServiceName>` is the name of your container service. Use
+the private domain to access your container service from another one of your Lightsail
+resources in the same AWS Region as your service. The private domain is the only way to
+access your container service if you don't specify a public endpoint in the deployment of
+your service. A default domain is generated for your container service even if you don't
+specify a public endpoint, but it will show a `404 No Such Service` error message
 when you try to browse to it.
 
 To access a specific container using the private domain of your container service, you

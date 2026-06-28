@@ -80,7 +80,7 @@ threshold. If you choose a **less than** comparison operator, the alarm
 will be in an `OK` state when the metric is greater than the specified
 threshold.
 
-- **INSUFFICIENT_DATA** — The alarm has just
+- **INSUFFICIENT\_DATA** — The alarm has just
   started, the metric is not available, or there is not enough metric data available for the
   alarm to determine the alarm state.
 
@@ -296,7 +296,7 @@ configured an alarm to treat missing data points as:
 - **Ignore** — The alarm would maintain the
   current state.
 - **Missing** — The alarm would be in an
-  INSUFFICIENT_DATA state.
+  INSUFFICIENT\_DATA state.
 
 ### Graph D
 

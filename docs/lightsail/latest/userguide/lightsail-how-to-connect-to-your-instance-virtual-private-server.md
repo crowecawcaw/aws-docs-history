@@ -15,30 +15,23 @@ Windows-based instance](connect-to-your-windows-based-instance-using-amazon-ligh
 
 ###### To connect to your Linux or Unix instance
 
-1.  Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
-2.  Access the browser-based SSH client for the instance that you want to connect to by
-    using any of the following:
+1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
+2. Access the browser-based SSH client for the instance that you want to connect to by
+   using any of the following:
 
-        * Choose the quick connect icon, as shown in the following example.
+   - Choose the quick connect icon, as shown in the following example.
 
+   ![Open the browser-based SSH client with quick connect.](images/amazon-lightsail-quick-connect-to-your-instance-button.png)
+   - Choose the actions menu icon (⋮), then choose
+     **Connect**.
 
+   ![Open the browser-based SSH client with the actions menu.](images/amazon-linux-2023-instance-home-connect.png)
+   - Choose the name of the instance, and on the **Connect** tab, choose
+     **Connect using SSH**.
 
-        ![Open the browser-based SSH client with quick connect.](images/amazon-lightsail-quick-connect-to-your-instance-button.png)
-        * Choose the actions menu icon (⋮), then choose
-         **Connect**.
-
-
-
-        ![Open the browser-based SSH client with the actions menu.](images/amazon-linux-2023-instance-home-connect.png)
-        * Choose the name of the instance, and on the **Connect** tab, choose
-         **Connect using SSH**.
-
-
-
-        ![Open the browser-based SSH client through the Connect tab.](images/amazon-lightsail-connect-using-ssh-button.png)
-
-    You can start interacting with your instance when the browser-based SSH client opens,
-    and a terminal screen is displayed as shown in the following example:
+   ![Open the browser-based SSH client through the Connect tab.](images/amazon-lightsail-connect-using-ssh-button.png)
+   You can start interacting with your instance when the browser-based SSH client opens,
+   and a terminal screen is displayed as shown in the following example:
 
 ![Browser-based SSH client in Lightsail.](images/amazon-lightsail-web-based-ssh-terminal.png)
 

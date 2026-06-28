@@ -26,19 +26,19 @@ The following table outlines the performance baselines for dual-stack instance p
 Lightsail. While the price for an IPv6-only plan is different, the performance baselines
 are the same.
 
-| Instance plan                                                 | vCPUs | Memory | Storage  | Performance baseline |
-| ------------------------------------------------------------- | ----- | ------ | -------- | -------------------- |
-| **Linux or Unix $5\*<br>• and **Windows $9.50\*\*             | 2     | 512 MB | 20 GB    | 5%                   |
-| **Linux or Unix $7\*<br>• and **Windows $14\*\*               | 2     | 1 GB   | 40 GB    | 10%                  |
-| **Linux or Unix $12\*<br>• and **Windows $22\*\*              | 2     | 2 GB   | 60 GB    | 20%                  |
-| **Linux or Unix $24\*<br>• and **Windows $44\*\*              | 2     | 4 GB   | 80 GB    | 20%                  |
-| **Linux or Unix $44\*<br>• and **Windows $74\*\*              | 2     | 8 GB   | 160 GB   | 30%                  |
-| **Linux or Unix $84\*<br>• and **Windows $124\*\*             | 4     | 16 GB  | 320 GB   | 40%                  |
-| **Linux or Unix $164\*<br>• and **Windows $244\*\*            | 8     | 32 GB  | 640 GB   | 40%                  |
-| \<br>• **Linux or Unix $384\*<br>• and **Windows $574\*\*     | 16    | 64 GB  | 1,280 GB | 40%                  |
-| \<br>• **Linux or Unix $884\*<br>• and **Windows $1,254\*\*   | 32    | 128 GB | 1,280 GB | 40%                  |
-| \<br>• **Linux or Unix $1,324\*<br>• and **Windows $1,884\*\* | 48    | 192 GB | 1,280 GB | 40%                  |
-| \<br>• **Linux or Unix $1,764\*<br>• and **Windows $2,504\*\* | 64    | 256 GB | 1,280 GB | 40%                  |
+| Instance plan                                              | vCPUs | Memory | Storage  | Performance baseline |
+| ---------------------------------------------------------- | ----- | ------ | -------- | -------------------- |
+| **Linux or Unix $5*<br>• and **Windows $9.50**             | 2     | 512 MB | 20 GB    | 5%                   |
+| **Linux or Unix $7*<br>• and **Windows $14**               | 2     | 1 GB   | 40 GB    | 10%                  |
+| **Linux or Unix $12*<br>• and **Windows $22**              | 2     | 2 GB   | 60 GB    | 20%                  |
+| **Linux or Unix $24*<br>• and **Windows $44**              | 2     | 4 GB   | 80 GB    | 20%                  |
+| **Linux or Unix $44*<br>• and **Windows $74**              | 2     | 8 GB   | 160 GB   | 30%                  |
+| **Linux or Unix $84*<br>• and **Windows $124**             | 4     | 16 GB  | 320 GB   | 40%                  |
+| **Linux or Unix $164*<br>• and **Windows $244**            | 8     | 32 GB  | 640 GB   | 40%                  |
+| \<br>• **Linux or Unix $384*<br>• and **Windows $574**     | 16    | 64 GB  | 1,280 GB | 40%                  |
+| \<br>• **Linux or Unix $884*<br>• and **Windows $1,254**   | 32    | 128 GB | 1,280 GB | 40%                  |
+| \<br>• **Linux or Unix $1,324*<br>• and **Windows $1,884** | 48    | 192 GB | 1,280 GB | 40%                  |
+| \<br>• **Linux or Unix $1,764*<br>• and **Windows $2,504** | 64    | 256 GB | 1,280 GB | 40%                  |
 
 |                                                                                             |
 | ------------------------------------------------------------------------------------------- |
@@ -71,12 +71,12 @@ The following table outlines the performance baselines for Lightsail instances t
 were created prior to **June 29, 2023**. These performance
 baselines are per vCPU.
 
-| Instance plan                                      | vCPUs | Memory | Storage | Performance baseline |
-| -------------------------------------------------- | ----- | ------ | ------- | -------------------- |
-| **Linux or Unix $5\*<br>• and **Windows $9.50\*\*  | 1     | 512 MB | 20 GB   | 5%                   |
-| **Linux or Unix $7\*<br>• and **Windows $14\*\*    | 1     | 1 GB   | 40 GB   | 10%                  |
-| **Linux or Unix $12\*<br>• and **Windows $22\*\*   | 1     | 2 GB   | 60 GB   | 20%                  |
-| **Linux or Unix $24\*<br>• and **Windows $44\*\*   | 2     | 4 GB   | 80 GB   | 20%                  |
-| **Linux or Unix $44\*<br>• and **Windows $74\*\*   | 2     | 8 GB   | 160 GB  | 30%                  |
-| **Linux or Unix $84\*<br>• and **Windows $124\*\*  | 4     | 16 GB  | 320 GB  | 22.5%                |
-| **Linux or Unix $164\*<br>• and **Windows $244\*\* | 8     | 32 GB  | 640 GB  | 17%                  |
+| Instance plan                                   | vCPUs | Memory | Storage | Performance baseline |
+| ----------------------------------------------- | ----- | ------ | ------- | -------------------- |
+| **Linux or Unix $5*<br>• and **Windows $9.50**  | 1     | 512 MB | 20 GB   | 5%                   |
+| **Linux or Unix $7*<br>• and **Windows $14**    | 1     | 1 GB   | 40 GB   | 10%                  |
+| **Linux or Unix $12*<br>• and **Windows $22**   | 1     | 2 GB   | 60 GB   | 20%                  |
+| **Linux or Unix $24*<br>• and **Windows $44**   | 2     | 4 GB   | 80 GB   | 20%                  |
+| **Linux or Unix $44*<br>• and **Windows $74**   | 2     | 8 GB   | 160 GB  | 30%                  |
+| **Linux or Unix $84*<br>• and **Windows $124**  | 4     | 16 GB  | 320 GB  | 22.5%                |
+| **Linux or Unix $164*<br>• and **Windows $244** | 8     | 32 GB  | 640 GB  | 17%                  |

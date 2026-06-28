@@ -50,13 +50,18 @@ Resource names:
      underscores.
 
 8. (Optional) Choose **Add new tag** to add a tag to your instance. Repeat this step as needed to add additional tags. For
-   more information on tag usage, see [Tags](amazon-lightsail-tags.md "amazon-lightsail-tags.md").
+more information on tag usage, see [Tags](amazon-lightsail-tags.md "amazon-lightsail-tags.md").
 
-   1. For **Key**, enter a tag key.
+    1. For **Key**, enter a tag key.
 
-   ![A tag with only the tag key specified in the Lightsail create instance workflow.](images/amazon-lightsail-instance-key-name-only-tags.png) 2. (Optional) For **Value**, enter a tag value.
 
-   ![A tag with the tag key and tag value specified in the Lightsail create instance workflow.](images/amazon-lightsail-instance-key-name-and-value-tags.png)
+
+    ![A tag with only the tag key specified in the Lightsail create instance workflow.](images/amazon-lightsail-instance-key-name-only-tags.png)
+    2. (Optional) For **Value**, enter a tag value.
+
+
+
+    ![A tag with the tag key and tag value specified in the Lightsail create instance workflow.](images/amazon-lightsail-instance-key-name-and-value-tags.png)
 
 9. Choose **Create instance**.
 

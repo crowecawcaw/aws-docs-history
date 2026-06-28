@@ -143,7 +143,7 @@ that is used by your instance:
     ```
 
 2. If you haven't already connected to the instance using SSH, you see a response
-   like the following:
+like the following:
 
 ```
 The authenticity of host 'ec2-198-51-100-1.compute-1.amazonaws.com (10.254.142.33)'

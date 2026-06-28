@@ -96,10 +96,9 @@ rule**. 11. Complete one of the following steps:
      number in the **Port Range** text box.
 
 12. In the **Source** text box, add the private IP address of your
-    WordPress instance. You must enter the IP addresses in CIDR notation, which means that you
-    must append `/32`. For example, to allow `192.0.2.0`, enter
-    `192.0.2.0/32`.
-13. Choose **Save rules**.
+WordPress instance. You must enter the IP addresses in CIDR notation, which means that you
+must append `/32`. For example, to allow `192.0.2.0`, enter
+`192.0.2.0/32`. 13. Choose **Save rules**.
 
 ![Inbound rules detail screenshot of the Amazon RDS console.](images/wp-aurora-add-security-group-rule.png)
 

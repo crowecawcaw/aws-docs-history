@@ -254,13 +254,13 @@ specify cookie names:
 
 For example, suppose that a viewer's request for an object includes a cookie named
 `userid_`member-number``. Where each of your users has
- a unique value for `member-number` (`userid*123`,
- `userid_124`, `userid_125`, etc.). You want your distribution to cache
- a separate version of the content for each member. You could accomplish this by forwarding all
- cookies to your origin, but the viewer requests include some cookies that you don't want your
- distribution to cache. You could specify the following value as a cookie name, which causes
- your distribution to forward all of the cookies that begin with `userid*`to your
- origin:`userid\_\*`
+a unique value for `member-number` (`userid_123`,
+`userid_124`, `userid_125`, etc.). You want your distribution to cache
+a separate version of the content for each member. You could accomplish this by forwarding all
+cookies to your origin, but the viewer requests include some cookies that you don't want your
+distribution to cache. You could specify the following value as a cookie name, which causes
+your distribution to forward all of the cookies that begin with `userid_` to your
+origin: `userid_*`
 
 **Query string forwarding**
 

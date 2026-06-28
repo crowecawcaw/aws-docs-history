@@ -146,7 +146,7 @@ the Lightsail instances.
 **Configuration recommendations before using a Lightsail load
 balancer**
 
-- Get the [Redmine_S3
+- Get the [Redmine\_S3
   plugin](http://www.redmine.org/plugins/redmine_s3 "http://www.redmine.org/plugins/redmine_s3") to store the attachments on Amazon S3 instead of on the local file
   system.
 - Separate the database to a different instance.

@@ -189,12 +189,12 @@ HTTP, but serves content to users using HTTPS.
 
 All container services also have a private domain that is formatted as
 ``<ServiceName>`.service.local`, in which
- `<ServiceName>`is the name of your container service. Use
- the private domain to access your container service from another one of your Lightsail
- resources in the same AWS Region as your service. The private domain is the only way to
- access your container service if you don't specify a public endpoint in the deployment of
- your service. A default domain is generated for your container service even if you don't
- specify a public endpoint, but it will show a`404 No Such Service` error message
+`<ServiceName>` is the name of your container service. Use
+the private domain to access your container service from another one of your Lightsail
+resources in the same AWS Region as your service. The private domain is the only way to
+access your container service if you don't specify a public endpoint in the deployment of
+your service. A default domain is generated for your container service even if you don't
+specify a public endpoint, but it will show a `404 No Such Service` error message
 when you try to browse to it.
 
 To access a specific container using the private domain of your container service, you
@@ -325,17 +325,14 @@ versions, if any. 5. Choose one of the following options:
     ![Container service deployment form in the Lightsail console](images/container-service-deployment-form.png)
 
 6. Enter the parameters of your deployment. For more information about the deployment
-   parameters that you can specify, see the [Deployment
-   parameters](#creating-container-deployments-parameters "#creating-container-deployments-parameters") section earlier in this guide.
-7. Choose **Add container entry** to add more than one container entry
-   to your deployment. You can have up to 10 container entries in your deployment.
-8. Choose the container entry of your deployment to serve as the public endpoint
-   container service. This includes specifying the HTTP or HTTPS port, the health check path
-   on the selected container entry, and advanced health check settings. For more information,
-   see [Public endpoint
-   parameters](#creating-deployments-public-endpoint "#creating-deployments-public-endpoint") earlier in this guide.
-9. When you're done entering the parameters of your deployment, choose **Save and
-   deploy** to create the deployment on your container service.
+parameters that you can specify, see the [Deployment
+parameters](#creating-container-deployments-parameters "#creating-container-deployments-parameters") section earlier in this guide. 7. Choose **Add container entry** to add more than one container entry
+to your deployment. You can have up to 10 container entries in your deployment. 8. Choose the container entry of your deployment to serve as the public endpoint
+container service. This includes specifying the HTTP or HTTPS port, the health check path
+on the selected container entry, and advanced health check settings. For more information,
+see [Public endpoint
+parameters](#creating-deployments-public-endpoint "#creating-deployments-public-endpoint") earlier in this guide. 9. When you're done entering the parameters of your deployment, choose **Save and
+deploy** to create the deployment on your container service.
 
 The status of your container service changes to **Deploying** while
 your deployment is being crated. After a few moments, the status of your container service

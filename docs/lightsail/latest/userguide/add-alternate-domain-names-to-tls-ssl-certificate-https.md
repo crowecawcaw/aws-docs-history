@@ -34,8 +34,7 @@ Resource names:
      underscores.
 
 7. Enter your primary domain (`www.example.com`), and up to 9 alternate
-   domains or subdomains.
-8. Choose **Create certificate**.
+domains or subdomains. 8. Choose **Create certificate**.
 
 Once created, you have 72 hours to verify that you own your domain.
 

@@ -105,10 +105,9 @@ container image, and paste it into your Dockerfile:
     ```
 
 4. Open a command prompt or terminal window and change the directory to the folder in
-   which you are storing your Dockerfile.
-5. Enter the following command to build your container image using the Dockerfile in the
-   folder. This command builds a new Docker container image named
-   `mystaticwebsite`.
+which you are storing your Dockerfile. 5. Enter the following command to build your container image using the Dockerfile in the
+folder. This command builds a new Docker container image named
+`mystaticwebsite`.
 
 ```
 docker build -t mystaticwebsite .
@@ -136,7 +135,7 @@ Complete the following steps to run the new container image you created.
 1. In a command prompt or terminal window, enter the following command to run the
    container image that you built in the previous [Step 2: Create a
    Dockerfile and build a container image](#create-container-image-create-dockerfile "#create-container-image-create-dockerfile") section of this guide. The `-p
-8080:80` option maps the exposed port 80 on the container to port 8080 on your
+ 8080:80` option maps the exposed port 80 on the container to port 8080 on your
    local machine. The `-d` option specifies that the container should run in
    detached mode.
 

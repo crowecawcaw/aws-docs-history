@@ -30,7 +30,7 @@ Resource names:
      underscores.
 
 7. Enter your primary domain (`www.example.com`), and up to 9 alternate
-   domains or subdomains.
+domains or subdomains.
 
 For more information, see [Add
 alternate domains and subdomains to your SSL/TLS certificate](add-alternate-domain-names-to-tls-ssl-certificate-https.md "add-alternate-domain-names-to-tls-ssl-certificate-https.md") 8. Choose **Create certificate**.

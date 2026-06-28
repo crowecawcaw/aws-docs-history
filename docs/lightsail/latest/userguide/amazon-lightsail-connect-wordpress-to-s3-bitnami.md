@@ -204,7 +204,7 @@ nano /opt/bitnami/wordpress/wp-config.php
 ```
 
 5. Enter the following text above the `/* That's all, stop editing! Happy blogging.
-*/` text.
+ */` text.
 
 Be sure to replace `AccessKeyID` with the access key ID and
 `SecretAccessKey` with the secret access key of the IAM user

@@ -263,20 +263,20 @@ Examples:
 
 3. If you:
 
-   - **Activated the Amazon ECR image puller
+    * **Activated the Amazon ECR image puller
      role** — Wait at least 30 seconds after getting
      the previous response. Then, continue to the next step to get the
      principal ARN of the Amazon ECR image puller IAM role for your
      container service.
-   - **Deactivated the Amazon ECR image puller
+    * **Deactivated the Amazon ECR image puller
      role** — If you previously added the Amazon ECR image
      puller IAM role principal ARN to the permissions policy of your
      Amazon ECR private repository, you should remove that permissions policy
      from your repository. For more information, see [Deleting a private repository policy statement](../../../AmazonECR/latest/userguide/delete-repository-policy.md "../../../AmazonECR/latest/userguide/delete-repository-policy.md") in the
-     _Amazon ECR User Guide_.
+     *Amazon ECR User Guide*.
 
 4. Enter the following command to get the principal ARN of the Amazon ECR image
-   puller IAM role for your container service.
+puller IAM role for your container service.
 
 ```
 aws lightsail get-container-services --service-name `ContainerServiceName` --region `AwsRegionCode`

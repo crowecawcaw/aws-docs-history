@@ -47,31 +47,24 @@ view the original default administrator password as shown in the following examp
 Use the following procedure to connect to your Windows Server instance using the
 browser-based RDP client in the Lightsail console.
 
-1.  Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
-2.  Access the browser-based RDP client for the instance that you want to connect to by
-    using one of the following steps:
+1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
+2. Access the browser-based RDP client for the instance that you want to connect to by
+   using one of the following steps:
 
-        * Choose the browser-based RDP client icon, as shown in the following
-         example.
+   - Choose the browser-based RDP client icon, as shown in the following
+     example.
 
+   ![Open the browser-based RDP client with quick connect.](images/connect-to-windows-instance-using-rdp-connection-shortcut.png)
+   - Choose the actions menu icon (⋮), then choose **Connect**
+     as shown in the following example.
 
+   ![Open the browser-based RDP client with the actions menu.](images/amazon-lightsail-windows-server-2022-instance-home-connect.png)
+   - Choose the name of the instance, and on the **Connect** tab,
+     choose **Connect using RDP**.
 
-        ![Open the browser-based RDP client with quick connect.](images/connect-to-windows-instance-using-rdp-connection-shortcut.png)
-        * Choose the actions menu icon (⋮), then choose **Connect**
-         as shown in the following example.
-
-
-
-        ![Open the browser-based RDP client with the actions menu.](images/amazon-lightsail-windows-server-2022-instance-home-connect.png)
-        * Choose the name of the instance, and on the **Connect** tab,
-         choose **Connect using RDP**.
-
-
-
-        ![Open the browser-based RDP client through the Connect tab.](images/amazon-lightsail-connect-using-rdp-button.png)
-
-    You can start interacting with your instance when the browser-based RDP client opens,
-    and a Windows desktop is displayed as shown in the following example.
+   ![Open the browser-based RDP client through the Connect tab.](images/amazon-lightsail-connect-using-rdp-button.png)
+   You can start interacting with your instance when the browser-based RDP client opens,
+   and a Windows desktop is displayed as shown in the following example.
 
 ![Browser-based RDP client in Lightsail.](images/amazon-lightsail-web-based-rdp-client.png)
 

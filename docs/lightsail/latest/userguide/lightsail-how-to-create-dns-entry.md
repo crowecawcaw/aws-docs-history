@@ -216,7 +216,7 @@ ownership of your domain to a service provider.
     The input text doesn't need to be enclosed with quotes.
 
 3. When you're done adding the record, choose the **Save** icon to save
-   your changes.
+your changes.
 
 The record is added to the DNS zone. Repeat the above steps to add multiple records to
 your domain's DNS zone.

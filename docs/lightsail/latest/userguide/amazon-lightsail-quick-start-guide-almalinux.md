@@ -55,9 +55,9 @@ instance in another location. 4. Choose the Linux platform. 5. Choose **Operatin
      Snapshots**. For more information, see [Configure automatic snapshots for Lightsail instances and disks](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md").
 
 7. Choose your instance plan. You can choose whether your instance uses
-   dual-stack (IPv4 and IPv6), or IPv6-only networking. The AlmaLinux blueprint
-   supports both dual-stack and IPv6-only bundles. To learn more about IPv6-only
-   networking, see [Configure IPv6-only networking for Lightsail instances](amazon-lightsail-ipv6-only-plans.md "amazon-lightsail-ipv6-only-plans.md").
+dual-stack (IPv4 and IPv6), or IPv6-only networking. The AlmaLinux blueprint
+supports both dual-stack and IPv6-only bundles. To learn more about IPv6-only
+networking, see [Configure IPv6-only networking for Lightsail instances](amazon-lightsail-ipv6-only-plans.md "amazon-lightsail-ipv6-only-plans.md").
 
 ![The instance plan picker in the Lightsail console.](images/lightsail-almalinux-qs-guide-02.png) 8. Enter a name for your instance.
 

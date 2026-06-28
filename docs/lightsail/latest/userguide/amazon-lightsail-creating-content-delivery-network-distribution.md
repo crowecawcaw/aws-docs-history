@@ -31,49 +31,48 @@ distributions](amazon-lightsail-content-delivery-network-distributions.md "amazo
 Complete the following prerequisites before you get started with creating a
 distribution:
 
-1.  Complete one of the following, depending on whether you want to use an instance,
-    container service, or a bucket with your distribution.
+1. Complete one of the following, depending on whether you want to use an instance,
+   container service, or a bucket with your distribution.
 
-    - **Create a Lightsail instance to host your
-      content.** The instance serves as the origin of your distribution. The
-      origin stores the original, definitive version of your content. For more information,
-      see [Create an instance](how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md "how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md").
+   - **Create a Lightsail instance to host your
+     content.** The instance serves as the origin of your distribution. The
+     origin stores the original, definitive version of your content. For more information,
+     see [Create an instance](how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md "how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md").
 
-          1. **For IPv4-only and dual-stack instances**, attach
-           a Lightsail static IP to your instance. Your instance's default public IPv4
-           address changes if you stop and start your instance, which will break the
-           connection between your distribution and your origin instance. A static IP does not
-           change if you stop and start your instance. For more information, see [Create a static IP and attach it to an
-           instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
-          2. **For IPv6-only instances**, a static IP is not
-           required. The IPv6 address persists when you stop and start your instance. It's
-           released only when you delete your instance, or disable IPv6 for your instance.
-           You cannot get the IPv6 address back after you perform either of those
-           actions.
+     1. **For IPv4-only and dual-stack instances**, attach
+        a Lightsail static IP to your instance. Your instance's default public IPv4
+        address changes if you stop and start your instance, which will break the
+        connection between your distribution and your origin instance. A static IP does not
+        change if you stop and start your instance. For more information, see [Create a static IP and attach it to an
+        instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
+     2. **For IPv6-only instances**, a static IP is not
+        required. The IPv6 address persists when you stop and start your instance. It's
+        released only when you delete your instance, or disable IPv6 for your instance.
+        You cannot get the IPv6 address back after you perform either of those
+        actions.
+        **Upload your content and files to your instance.**
+        Your files, also known as _objects_, typically include web pages,
+        images, and media files, but can be anything that can be served over HTTP.
 
-      **Upload your content and files to your instance.**
-      Your files, also known as _objects_, typically include web pages,
-      images, and media files, but can be anything that can be served over HTTP.
+   - **Create a Lightsail container service to host your website
+     or web application.** The container service serves as the origin of your
+     distribution. The origin stores the original, definitive version of your content. For
+     more information, see [Creating Amazon Lightsail container services](amazon-lightsail-creating-container-services.md "amazon-lightsail-creating-container-services.md").
+   - **Create a Lightsail bucket to store your static
+     content.** The bucket serves as the origin of your distribution. The origin
+     stores the original, definitive version of your content. For more information, see
+     [Create a bucket](amazon-lightsail-creating-buckets.md "amazon-lightsail-creating-buckets.md").
 
-    - **Create a Lightsail container service to host your website
-      or web application.** The container service serves as the origin of your
-      distribution. The origin stores the original, definitive version of your content. For
-      more information, see [Creating Amazon Lightsail container services](amazon-lightsail-creating-container-services.md "amazon-lightsail-creating-container-services.md").
-    - **Create a Lightsail bucket to store your static
-      content.** The bucket serves as the origin of your distribution. The origin
-      stores the original, definitive version of your content. For more information, see
-      [Create a bucket](amazon-lightsail-creating-buckets.md "amazon-lightsail-creating-buckets.md").
+   Upload files to your bucket using the Lightsail console, AWS Command Line Interface (AWS CLI), and
+   AWS APIs. For more information about uploading files, see [Upload files to a
+   bucket](amazon-lightsail-uploading-files-to-a-bucket.md "amazon-lightsail-uploading-files-to-a-bucket.md").
 
-    Upload files to your bucket using the Lightsail console, AWS Command Line Interface (AWS CLI), and
-    AWS APIs. For more information about uploading files, see [Upload files to a
-    bucket](amazon-lightsail-uploading-files-to-a-bucket.md "amazon-lightsail-uploading-files-to-a-bucket.md").
-
-2.  (Optional) Create a Lightsail load balancer if your website requires fault
-    tolerance. Then attach multiple copies of your instance to your load balancer. You can
-    configure your load balancer (with one or more instances attached to it) as the origin of
-    your distribution, instead of configuring your instance as the origin. For more
-    information, see [Create a load
-    balancer and attach instances to it](create-lightsail-load-balancer-and-attach-lightsail-instances.md "create-lightsail-load-balancer-and-attach-lightsail-instances.md").
+2. (Optional) Create a Lightsail load balancer if your website requires fault
+   tolerance. Then attach multiple copies of your instance to your load balancer. You can
+   configure your load balancer (with one or more instances attached to it) as the origin of
+   your distribution, instead of configuring your instance as the origin. For more
+   information, see [Create a load
+   balancer and attach instances to it](create-lightsail-load-balancer-and-attach-lightsail-instances.md "create-lightsail-load-balancer-and-attach-lightsail-instances.md").
 
 ## Origin resource
 
@@ -403,13 +402,13 @@ cookie names:
 
 For example, suppose that a viewer's request for an object includes a cookie named
 `userid_`member-number``. Where each of your users has
- a unique value for `member-number` (`userid*123`,
- `userid_124`, `userid_125`, etc.). You want your distribution to cache
- a separate version of the content for each member. You could accomplish this by forwarding all
- cookies to your origin, but the viewer requests include some cookies that you don't want your
- distribution to cache. You could specify the following value as a cookie name, which causes
- your distribution to forward all of the cookies that begin with `userid*`to your
- origin:`userid\_\*`
+a unique value for `member-number` (`userid_123`,
+`userid_124`, `userid_125`, etc.). You want your distribution to cache
+a separate version of the content for each member. You could accomplish this by forwarding all
+cookies to your origin, but the viewer requests include some cookies that you don't want your
+distribution to cache. You could specify the following value as a cookie name, which causes
+your distribution to forward all of the cookies that begin with `userid_` to your
+origin: `userid_*`
 
 **Query string forwarding**
 
@@ -530,8 +529,7 @@ Resource names:
     * Can include alphanumeric characters, numbers, periods, dashes, and
      underscores.
 
-14. Review the cost of your distribution.
-15. Choose **Create distribution**.
+14. Review the cost of your distribution. 15. Choose **Create distribution**.
 
 Your distribution is created after a few moments.
 

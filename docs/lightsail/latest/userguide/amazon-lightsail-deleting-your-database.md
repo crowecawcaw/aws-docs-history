@@ -27,8 +27,7 @@ Resource names:
     * Can include alphanumeric characters, numbers, periods, dashes, and
      underscores.
 
-6. Choose **Delete database**.
-7. Choose **Yes, delete** to confirm the deletion.
+6. Choose **Delete database**. 7. Choose **Yes, delete** to confirm the deletion.
 
 ![Creating a database snapshot before deleting a database](images/amazon-lightsail-delete-database-with-snapshot.png)
 

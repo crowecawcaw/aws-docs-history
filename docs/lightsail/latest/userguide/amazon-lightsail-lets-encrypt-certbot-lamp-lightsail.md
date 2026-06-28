@@ -288,8 +288,8 @@ sudo sed \
 ###### Note
 
 If you closed your browser-based SSH terminal window since setting the `DOMAIN`
-variable in Step 3, run `DOMAIN=`example.com``again,
- replacing`example.com` with your domain. 3. Enter the following command to restart apache2:
+variable in Step 3, run `DOMAIN=`example.com`` again,
+replacing `example.com` with your domain. 3. Enter the following command to restart apache2:
 
 ```
 sudo systemctl restart apache2

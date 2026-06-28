@@ -79,7 +79,7 @@ address and some AWS resources**. 7. Choose the **Alias** toggle to enable alias
      (i.e., DNS name) of your Lightsail load balancer.
 
 9. For **Routing Policy**, choose **Simple routing**,
-   and disable the **Evaluate target health** toggle.
+and disable the **Evaluate target health** toggle.
 
 Lightsail already performs health checks on your load balancer. For more
 information, see [Health

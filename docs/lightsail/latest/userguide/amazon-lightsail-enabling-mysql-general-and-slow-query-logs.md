@@ -37,7 +37,7 @@ In the command, replace:
     * `Region` with the AWS Region of your database.
 
 3. Enter the following command to update the `slow_query_log` parameter to a
-   value of `1`, which is true, or enabled.
+value of `1`, which is true, or enabled.
 
 ```
 aws lightsail update-relational-database-parameters --region `Region` --relational-database-name `DatabaseName` --parameters "parameterName=slow_query_log,parameterValue=1,applyMethod=pending-reboot"
@@ -49,8 +49,8 @@ In the command, replace:
     * `Region`with the AWS Region of your database.
 
 4. Enter the following command to update the `log_output` parameter to a value
-   of `FILE`, which writes the log data to a system file and enables it to be
-   displayed in the Lightsail console.
+of `FILE`, which writes the log data to a system file and enables it to be
+displayed in the Lightsail console.
 
 ```
 aws lightsail update-relational-database-parameters --region `Region` --relational-database-name `DatabaseName` --parameters "parameterName=log_output,parameterValue=FILE,applyMethod=pending-reboot"
@@ -62,7 +62,7 @@ In the command, replace:
     * `Region` with the AWS Region of your database.
 
 5. Enter the following command to reboot the database and make the changes
-   effective.
+effective.
 
 ```
 aws lightsail reboot-relational-database --region `Region` --relational-database-name `DatabaseName`

@@ -97,7 +97,7 @@ For more information about using MySQL Workbench, see the [MySQL Workbench Manua
     * **Default Schema** — Keep this text box blank.
 
 4. Choose **Test connection** to determine if the client can establish a
-   connection with your database.
+connection with your database.
 
 If the connection is successful, a prompt similar to the following example displays.
 After you read the information, choose **OK** to close it.

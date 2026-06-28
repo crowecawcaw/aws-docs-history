@@ -231,7 +231,7 @@ You should see one of the following responses:
      again. Continue to the step 8 of this procedure.
 
 3. Enter the following command to download the bncert run file to your
-   instance.
+instance.
 
 ```
 wget -O bncert-linux-x64.run https://downloads.bitnami.com/files/bncert/latest/bncert-linux-x64.run
@@ -310,7 +310,7 @@ Your selections should look like the following example.
 ![Website redirection options](images/bncert-enable-disable-redirection.png) 10. The changes that are going to be made are listed. Type `Y` and
 press **Enter** to confirm and continue.
 
-![Confirming the changes](images/bncert-confirm-changes.png) 11. Enter your email address to associate with your Let's Encrypt certificate and
+![Confirming the changes](/images/lightsail/latest/userguide/images/bncert-confirm-changes.png) 11. Enter your email address to associate with your Let's Encrypt certificate and
 press **Enter**.
 
 ![Associating your email address with your Let's Encrypt certificate](images/bncert-email-address.png) 12. Review the Let's Encrypt Subscriber Agreement. Type `Y` and press
@@ -322,7 +322,7 @@ The actions are performed to enable HTTPS on your instance, including
 requesting the certificate and configuring the redirections you
 specified.
 
-![Actions being performed](images/bncert-performing-actions.png)
+![Actions being performed](/images/lightsail/latest/userguide/images/bncert-performing-actions.png)
 
 Your certificate is successfully issued and validated, and the redirections
 are successfully configured on your instance if you see a message similar to the

@@ -36,30 +36,29 @@ created.
 - When you change the automatic snapshot time for a resource, it is typically effective
   immediately, except under the following conditions:
 
-      + If an automatic snapshot has been created for the current day, and you change the
-       snapshot time to a later time of day, then the new snapshot time will be effective the
-       following day. This ensures that two snapshots are not created for the current
-       day.
-      + If an automatic snapshot has not yet been created for the current day, and you
-       change the snapshot time to an earlier time of day, then the new snapshot time will be
-       effective the following day. Also, a snapshot is automatically created at the
-       previously set time for the current day. This ensures that a snapshot is created for
-       the current day.
-      + If an automatic snapshot has not yet been created for the current day, and you
-       change the snapshot time to a time that is within 30 minutes from your current time,
-       then the new snapshot time will be effective the following day. Also, a snapshot is
-       automatically created at the previously set time for the current day. This ensures
-       that a snapshot is created for the current day, because 30 minutes is required between
-       your current time and the new snapshot time that you specify.
-      + If an automatic snapshot is scheduled to be created within 30 minutes from your
-       current time and you change the snapshot time, then the new snapshot time will be
-       effective the following day. Also, a snapshot is automatically created at the
-       previously set time for the current day. This ensures that a snapshot is created for
-       the current day, because 30 minutes is required between your current time and the new
-       snapshot time that you specify.
-
-  When any of these conditions are true, a message displays in the Lightsail console
-  to notify you that the new snapshot time may take up to 24 hours to take effect.
+  - If an automatic snapshot has been created for the current day, and you change the
+    snapshot time to a later time of day, then the new snapshot time will be effective the
+    following day. This ensures that two snapshots are not created for the current
+    day.
+  - If an automatic snapshot has not yet been created for the current day, and you
+    change the snapshot time to an earlier time of day, then the new snapshot time will be
+    effective the following day. Also, a snapshot is automatically created at the
+    previously set time for the current day. This ensures that a snapshot is created for
+    the current day.
+  - If an automatic snapshot has not yet been created for the current day, and you
+    change the snapshot time to a time that is within 30 minutes from your current time,
+    then the new snapshot time will be effective the following day. Also, a snapshot is
+    automatically created at the previously set time for the current day. This ensures
+    that a snapshot is created for the current day, because 30 minutes is required between
+    your current time and the new snapshot time that you specify.
+  - If an automatic snapshot is scheduled to be created within 30 minutes from your
+    current time and you change the snapshot time, then the new snapshot time will be
+    effective the following day. Also, a snapshot is automatically created at the
+    previously set time for the current day. This ensures that a snapshot is created for
+    the current day, because 30 minutes is required between your current time and the new
+    snapshot time that you specify.
+    When any of these conditions are true, a message displays in the Lightsail console
+    to notify you that the new snapshot time may take up to 24 hours to take effect.
 
 ## Default automatic snapshot times for AWS Regions
 

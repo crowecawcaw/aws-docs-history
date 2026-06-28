@@ -34,30 +34,29 @@ Lightsail console](#delete-bucket-using-lightsail-console "#delete-bucket-using-
 Complete the following procedure to delete your bucket using the Lightsail
 console.
 
-1.  Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
-2.  In the left navigation pane, choose **Storage**.
-3.  Choose the name of the bucket that you want to delete.
-4.  Choose the ellipsis (⋮) icon in the tab menu, then choose
-    **Delete**.
-5.  Choose **Delete bucket**.
-6.  In the prompt that appears, confirm if your bucket meets any of the following
-    conditions:
+1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
+2. In the left navigation pane, choose **Storage**.
+3. Choose the name of the bucket that you want to delete.
+4. Choose the ellipsis (⋮) icon in the tab menu, then choose
+   **Delete**.
+5. Choose **Delete bucket**.
+6. In the prompt that appears, confirm if your bucket meets any of the following
+   conditions:
 
-        * Contains an object
-        * Has access keys
-        * Is attached to an instance
-        * Is the origin of a distribution
+   - Contains an object
+   - Has access keys
+   - Is attached to an instance
+   - Is the origin of a distribution
+     If it has any of those conditions, then you must choose to force delete the
+     bucket.
 
-    If it has any of those conditions, then you must choose to force delete the
-    bucket.
+7. Choose one of the following options:
 
-7.  Choose one of the following options:
-
-    - Choose **Force delete** to delete your bucket even if it has any
-      of the conditions listed in step 6 of this procedure.
-    - Choose **Yes, delete** to delete your bucket when it doesn't have
-      any of the conditions listed in step 6 of this procedure.
-    - Choose **No, cancel** to cancel deletion.
+   - Choose **Force delete** to delete your bucket even if it has any
+     of the conditions listed in step 6 of this procedure.
+   - Choose **Yes, delete** to delete your bucket when it doesn't have
+     any of the conditions listed in step 6 of this procedure.
+   - Choose **No, cancel** to cancel deletion.
 
 ## Delete your bucket using the AWS CLI
 
@@ -70,30 +69,26 @@ You must install the AWS CLI and configure it for Lightsail and Amazon S3 before
 with this procedure. For more information, see [Configure the AWS CLI to work with
 Lightsail](lightsail-how-to-set-up-and-configure-aws-cli.md "lightsail-how-to-set-up-and-configure-aws-cli.md").
 
-1.  Open a Command Prompt or Terminal window.
-2.  In the command prompt or terminal window, enter one of the following commands:
+1. Open a Command Prompt or Terminal window.
+2. In the command prompt or terminal window, enter one of the following commands:
 
-        * Enter the following command to delete a bucket that doesn't have the conditions
-         listed in the [Force deleting a
-         bucket](#force-delete-bucket "#force-delete-bucket") section of this guide.
+   - Enter the following command to delete a bucket that doesn't have the conditions
+     listed in the [Force deleting a
+     bucket](#force-delete-bucket "#force-delete-bucket") section of this guide.
 
+   ```
+   aws lightsail delete-bucket --bucket-name `BucketName`
+   ```
+   - Enter the following command to force delete a bucket that has the conditions
+     listed in the [Force deleting a
+     bucket](#force-delete-bucket "#force-delete-bucket") section of this guide.
 
+   ```
+   aws lightsail delete-bucket --bucket-name `BucketName` --force-delete
+   ```
 
-        ```
-        aws lightsail delete-bucket --bucket-name `BucketName`
-        ```
-        * Enter the following command to force delete a bucket that has the conditions
-         listed in the [Force deleting a
-         bucket](#force-delete-bucket "#force-delete-bucket") section of this guide.
-
-
-
-        ```
-        aws lightsail delete-bucket --bucket-name `BucketName` --force-delete
-        ```
-
-    In the commands, replace `BucketName` with the name of the
-    bucket you want to delete.
+In the commands, replace `BucketName` with the name of the
+bucket you want to delete.
 
 Example:
 
@@ -143,62 +138,55 @@ to your bucket:
      cross-account access for a bucket in Amazon Lightsail](amazon-lightsail-configuring-bucket-cross-account-access.md "amazon-lightsail-configuring-bucket-cross-account-access.md")
 
 5. Learn how to enable access logging for your bucket, and how to use access logs to audit
-   the security of your bucket. For more information, see the following guides.
+the security of your bucket. For more information, see the following guides.
 
-   - [Access logging for buckets in the
+    * [Access logging for buckets in the
      Amazon Lightsail object storage service](amazon-lightsail-bucket-access-logs.md "amazon-lightsail-bucket-access-logs.md")
-   - [Access log format for a bucket in
+    * [Access log format for a bucket in
      the Amazon Lightsail object storage service](amazon-lightsail-bucket-access-log-format.md "amazon-lightsail-bucket-access-log-format.md")
-   - [Enabling access logging for a
+    * [Enabling access logging for a
      bucket in the Amazon Lightsail object storage service](amazon-lightsail-enabling-bucket-access-logs.md "amazon-lightsail-enabling-bucket-access-logs.md")
-   - [Using access logs for a bucket in
+    * [Using access logs for a bucket in
      Amazon Lightsail to identify requests](amazon-lightsail-using-bucket-access-logs.md "amazon-lightsail-using-bucket-access-logs.md")
 
 6. Create an IAM policy that grants a user the ability to manage a bucket in Lightsail.
-   For more information, see [IAM
-   policy to manage buckets in Amazon Lightsail](amazon-lightsail-bucket-management-policies.md "amazon-lightsail-bucket-management-policies.md").
-7. Learn about the way that objects in your bucket are labeled and identified. For more
-   information, see [Understanding object key names in Amazon Lightsail](understanding-bucket-object-key-names-in-amazon-lightsail.md "understanding-bucket-object-key-names-in-amazon-lightsail.md").
-8. Learn how to upload files and manage objects in your buckets. For more information, see
-   the following guides.
+For more information, see [IAM
+policy to manage buckets in Amazon Lightsail](amazon-lightsail-bucket-management-policies.md "amazon-lightsail-bucket-management-policies.md"). 7. Learn about the way that objects in your bucket are labeled and identified. For more
+information, see [Understanding object key names in Amazon Lightsail](understanding-bucket-object-key-names-in-amazon-lightsail.md "understanding-bucket-object-key-names-in-amazon-lightsail.md"). 8. Learn how to upload files and manage objects in your buckets. For more information, see
+the following guides.
 
-   - [Uploading files to a
+    * [Uploading files to a
      bucket in Amazon Lightsail](amazon-lightsail-uploading-files-to-a-bucket.md "amazon-lightsail-uploading-files-to-a-bucket.md")
-   - [Uploading files to a bucket in Amazon Lightsail using multipart upload](amazon-lightsail-uploading-files-to-a-bucket-using-multipart-upload.md "amazon-lightsail-uploading-files-to-a-bucket-using-multipart-upload.md")
-   - [Viewing objects in a
+    * [Uploading files to a bucket in Amazon Lightsail using multipart upload](amazon-lightsail-uploading-files-to-a-bucket-using-multipart-upload.md "amazon-lightsail-uploading-files-to-a-bucket-using-multipart-upload.md")
+    * [Viewing objects in a
      bucket in Amazon Lightsail](amazon-lightsail-viewing-objects-in-a-bucket.md "amazon-lightsail-viewing-objects-in-a-bucket.md")
-   - [Copying or moving
+    * [Copying or moving
      objects in a bucket in Amazon Lightsail](amazon-lightsail-copying-moving-bucket-objects.md "amazon-lightsail-copying-moving-bucket-objects.md")
-   - [Downloading objects from
+    * [Downloading objects from
      a bucket in Amazon Lightsail](amazon-lightsail-downloading-bucket-objects.md "amazon-lightsail-downloading-bucket-objects.md")
-   - [Filtering objects in a
+    * [Filtering objects in a
      bucket in Amazon Lightsail](amazon-lightsail-filtering-bucket-objects.md "amazon-lightsail-filtering-bucket-objects.md")
-   - [Tagging objects in a bucket
+    * [Tagging objects in a bucket
      in Amazon Lightsail](amazon-lightsail-tagging-bucket-objects.md "amazon-lightsail-tagging-bucket-objects.md")
-   - [Deleting objects in a
+    * [Deleting objects in a
      bucket in Amazon Lightsail](amazon-lightsail-deleting-bucket-objects.md "amazon-lightsail-deleting-bucket-objects.md")
 
 9. Enable object versioning to preserve, retrieve, and restore every version of every
-   object stored in your bucket. For more information, see [Enabling and suspending
-   object versioning in a bucket in Amazon Lightsail](amazon-lightsail-managing-bucket-object-versioning.md "amazon-lightsail-managing-bucket-object-versioning.md").
-10. After enabling object versioning, you can restore previous versions of objects in your
-    bucket. For more information, see [Restoring previous versions of
-    objects in a bucket in Amazon Lightsail](amazon-lightsail-restoring-bucket-object-versions.md "amazon-lightsail-restoring-bucket-object-versions.md").
-11. Monitor the utilization of your bucket. For more information, see [Viewing metrics for your bucket in
-    Amazon Lightsail](amazon-lightsail-viewing-bucket-metrics.md "amazon-lightsail-viewing-bucket-metrics.md").
-12. Configure an alarm for bucket metrics to be notified when the utilization of your bucket
-    crosses a threshold. For more information, see [Creating bucket metric alarms in
-    Amazon Lightsail](amazon-lightsail-adding-bucket-metric-alarms.md "amazon-lightsail-adding-bucket-metric-alarms.md").
-13. Change the storage plan of your bucket if it's running low on storage and network
-    transfer. For more information, see [Changing the plan of your bucket in Amazon Lightsail](amazon-lightsail-changing-bucket-plans.md "amazon-lightsail-changing-bucket-plans.md").
-14. Learn how to connect your bucket to other resources. For more information, see the
-    following tutorials.
+object stored in your bucket. For more information, see [Enabling and suspending
+object versioning in a bucket in Amazon Lightsail](amazon-lightsail-managing-bucket-object-versioning.md "amazon-lightsail-managing-bucket-object-versioning.md"). 10. After enabling object versioning, you can restore previous versions of objects in your
+bucket. For more information, see [Restoring previous versions of
+objects in a bucket in Amazon Lightsail](amazon-lightsail-restoring-bucket-object-versions.md "amazon-lightsail-restoring-bucket-object-versions.md"). 11. Monitor the utilization of your bucket. For more information, see [Viewing metrics for your bucket in
+Amazon Lightsail](amazon-lightsail-viewing-bucket-metrics.md "amazon-lightsail-viewing-bucket-metrics.md"). 12. Configure an alarm for bucket metrics to be notified when the utilization of your bucket
+crosses a threshold. For more information, see [Creating bucket metric alarms in
+Amazon Lightsail](amazon-lightsail-adding-bucket-metric-alarms.md "amazon-lightsail-adding-bucket-metric-alarms.md"). 13. Change the storage plan of your bucket if it's running low on storage and network
+transfer. For more information, see [Changing the plan of your bucket in Amazon Lightsail](amazon-lightsail-changing-bucket-plans.md "amazon-lightsail-changing-bucket-plans.md"). 14. Learn how to connect your bucket to other resources. For more information, see the
+following tutorials.
 
-    - [Tutorial:
-      Connecting a WordPress instance to an Amazon Lightsail bucket](amazon-lightsail-connecting-buckets-to-wordpress.md "amazon-lightsail-connecting-buckets-to-wordpress.md")
-    - [Tutorial: Using an
-      Amazon Lightsail bucket with a Lightsail content delivery network
-      distribution](amazon-lightsail-using-distributions-with-buckets.md "amazon-lightsail-using-distributions-with-buckets.md")
+    * [Tutorial:
+     Connecting a WordPress instance to an Amazon Lightsail bucket](amazon-lightsail-connecting-buckets-to-wordpress.md "amazon-lightsail-connecting-buckets-to-wordpress.md")
+    * [Tutorial: Using an
+     Amazon Lightsail bucket with a Lightsail content delivery network
+     distribution](amazon-lightsail-using-distributions-with-buckets.md "amazon-lightsail-using-distributions-with-buckets.md")
 
 15. Delete your bucket if you're no longer using it. For more information, see [Deleting buckets in
-    Amazon Lightsail](amazon-lightsail-deleting-buckets.md "amazon-lightsail-deleting-buckets.md").
+Amazon Lightsail](amazon-lightsail-deleting-buckets.md "amazon-lightsail-deleting-buckets.md").

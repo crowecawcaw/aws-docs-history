@@ -107,7 +107,7 @@ between the sustainable and burstable zones. If your system only occasionally mo
 burstable zone, you should be fine continuing to use the instance that you’re running.
 However, if you see your instance spending a considerable amount of time in the burstable
 zone, you might want to switch to a larger plan for your instance (use the $12 USD/month plan
-instead of the $5 USD/month plan). You can switch to a larger plan by creating a new snapshot
+ instead of the $5 USD/month plan). You can switch to a larger plan by creating a new snapshot
 of your instance, and then creating a new instance from the snapshot.
 
 ## View instance metrics in the Lightsail console

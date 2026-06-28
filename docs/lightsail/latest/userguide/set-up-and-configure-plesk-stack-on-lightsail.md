@@ -67,11 +67,11 @@ Resource names:
     * Can include alphanumeric characters, numbers, periods, dashes, and underscores.
 
 8. (Optional) Choose **Add new tag** to add a tag to your instance. Repeat this step as needed to add additional tags. For more
-   information on tag usage, such as for billing and resource organization, see
-   [Tags](amazon-lightsail-tags.md "amazon-lightsail-tags.md").
+information on tag usage, such as for billing and resource organization, see
+[Tags](amazon-lightsail-tags.md "amazon-lightsail-tags.md").
 
-   - For **Key**, enter a tag key.
-   - (Optional) For **Value**, enter a tag value.
+    * For **Key**, enter a tag key.
+    * (Optional) For **Value**, enter a tag value.
 
 9. Choose **Create instance**.
 

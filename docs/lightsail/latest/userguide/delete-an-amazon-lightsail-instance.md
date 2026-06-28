@@ -32,7 +32,7 @@ automatic snapshot. For more information, see the following documentation:
 2. Choose the **Delete** button, then choose **Delete
    instance**.
 
-![Delete an instance from the Lightsail console instance management page.](images/amazon-lightsail-delete-instance-button.png) 3. Select the checkbox, then enter **_Confirm_** into
+![Delete an instance from the Lightsail console instance management page.](images/amazon-lightsail-delete-instance-button.png) 3. Select the checkbox, then enter _**Confirm**_ into
 the input field to acknowledge that you want to delete the instance. 4. Choose **Delete instance** to confirm the deletion.
 
 ## Delete an instance using the AWS CLI

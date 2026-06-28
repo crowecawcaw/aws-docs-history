@@ -9,8 +9,8 @@ Topics about data transfer in Lightsail have been relocated to [Data transfer in
 Lightsail plans are billed on an on-demand hourly rate, so you pay only for what you
 use. For every Lightsail plan you use, we charge you the fixed hourly price, up to the
 maximum monthly plan cost. The least expensive Lightsail plan starts at $0.0067 USD/hour
-($5 USD/month). Lightsail plans that include a Windows Server license start at $0.0127
-USD/hour ($9.50 USD/month).
+ ($5 USD/month). Lightsail plans that include a Windows Server license start at $0.0127
+ USD/hour ($9.50 USD/month).
 
 ## When am I getting charged for a plan?
 
@@ -25,7 +25,7 @@ instance plan for 100 hours in a month, you will be charged 46 cents (100\*0.004
 
 Yes. Whether you're an existing or new AWS customer, you get 750 hours of free usage
 of the $5 USD Lightsail plan for free. You also can try Lightsail plans that include a
-Windows Server license for free using the $9.50 USD Windows plan. You can use your 750 hours
+ Windows Server license for free using the $9.50 USD Windows plan. You can use your 750 hours
 of usage across as many instances as you like. For example, you can run a single Lightsail
 instance for a whole month, or 10 Lightsail instances for 75 hours. The free trial offer
 is only applicable to usage within the first calendar month from when you sign up to use
@@ -102,8 +102,8 @@ charged $0.40 USD per 1 million DNS queries.
 ## What do Lightsail snapshots cost?
 
 Lightsail snapshots (manual and automatic) cost $0.05 USD/GB-month to store. This
-means that if you create a snapshot of an instance that is using 28 GB of space, and keep it
-for a month, you pay $1.40 USD for the month.
+ means that if you create a snapshot of an instance that is using 28 GB of space, and keep it
+ for a month, you pay $1.40 USD for the month.
 
 When you take multiple, successive snapshots of the same instance, Lightsail
 automatically cost-optimizes your snapshots. For each new snapshot you take, you're charged

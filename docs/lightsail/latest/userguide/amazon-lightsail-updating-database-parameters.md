@@ -84,11 +84,11 @@ The result displays the following information for each database parameter:
      operation and the `parameter name` parameter.
 
 4. Find the parameter you want to change, and make note of the parameter name, allowed
-   values, and apply method. We recommend copying the parameter name to your clipboard to
-   avoid entering it incorrectly. To do that, highlight the parameter name and press
-   **Ctrl+C** if you’re using Windows, or **Cmd+C** if
-   you’re using macOS, to copy it to your clipboard. Then, press **Ctrl+V**
-   or **Cmd+V** as appropriate to paste it.
+values, and apply method. We recommend copying the parameter name to your clipboard to
+avoid entering it incorrectly. To do that, highlight the parameter name and press
+**Ctrl+C** if you’re using Windows, or **Cmd+C** if
+you’re using macOS, to copy it to your clipboard. Then, press **Ctrl+V**
+or **Cmd+V** as appropriate to paste it.
 
 After you identify the name of the parameter that you want to modify, continue to the
 next section of this guide to change the parameter to your desired value.

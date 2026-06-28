@@ -122,7 +122,7 @@ instances.
    to.
 
 ![Choose the browser based SSH client](images/managing-keys-on-instance-06.png) 4. After you're connected, enter the following command to edit the
-_authorized_keys_ file using the text editor of your choice. The
+_authorized\_keys_ file using the text editor of your choice. The
 following steps use Vim for demonstration purposes.
 
 ```
@@ -159,7 +159,7 @@ a user from connecting to an instance using an old key pair. Do this after you s
 connect to the instance using the new key pair.
 
 1. Connect to your instance using SSH.
-2. Enter the following command to edit the _authorized_keys_ file
+2. Enter the following command to edit the _authorized\_keys_ file
    using the text editor of your choice. The following steps use Vim for demonstration
    purposes.
 

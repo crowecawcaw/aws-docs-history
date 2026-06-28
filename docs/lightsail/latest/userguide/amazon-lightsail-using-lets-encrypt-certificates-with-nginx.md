@@ -282,8 +282,8 @@ You should see a result similar to the following:
 ###### Note
 
 If you closed your browser-based SSH terminal window since setting the `DOMAIN`
-variable in Step 3, run `DOMAIN=`example.com``again,
- replacing`example.com` with your domain.
+variable in Step 3, run `DOMAIN=`example.com`` again,
+replacing `example.com` with your domain.
 
 ```
 sudo sed \

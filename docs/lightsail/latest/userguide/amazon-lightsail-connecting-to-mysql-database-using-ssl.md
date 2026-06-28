@@ -51,40 +51,18 @@ The following list shows the TLS support for MySQL versions:
 
 Complete the following steps to connect to your MySQL database using SSL.
 
-1.  Open a Terminal or Command Prompt window.
-2.  Enter one of the following commands depending on the version of your MySQL
-    database:
+1. Open a Terminal or Command Prompt window.
+2. Enter one of the following commands depending on the version of your MySQL
+   database:
 
-    - Enter the following command to connect to a database that is MySQL 5.7 or
-      later.
+   - Enter the following command to connect to a database that is MySQL 5.7 or
+     later.
 
-    ```
-    mysql -h `DatabaseEndpoint` --ssl-ca=`/path/to/certificate/rds-combined-ca-bundle.pem` --ssl-mode=VERIFY_IDENTITY -u `UserName` -p
-    ```
+   ```
+   mysql -h `DatabaseEndpoint` --ssl-ca=`/path/to/certificate/rds-combined-ca-bundle.pem` --ssl-mode=VERIFY_IDENTITY -u `UserName` -p
+   ```
 
-    In the command, replace:
-
-        + `DatabaseEndpoint` with the endpoint of your
-         database.
-        + `/path/to/certificate/rds-combined-ca-bundle.pem`
-         with the local path where you downloaded and saved the certificate for your
-         database.
-        + `UserName` with the user name of your
-         database.
-
-    **Example:**
-
-    ```
-    mysql -h `ls-1c51a7c70a4fb55e542829a4e4e0d735ba42.czowadgeezqi.us-west-2.rds.amazonaws.com` --ssl-ca=`/home/ec2-user/rds-combined-ca-bundle.pem` --ssl-mode=VERIFY_IDENTITY -u `dbmasteruser` -p
-    ```
-    - Enter the following command to connect to a database that is MySQL 6.7 or
-      earlier.
-
-    ```
-    mysql -h `DatabaseEndpoint` --ssl-ca=`/path/to/certificate/rds-combined-ca-bundle.pem` --ssl-verify-server-cert -u `UserName` -p
-    ```
-
-    In the command, replace:
+   In the command, replace:
 
         + `DatabaseEndpoint` with the endpoint of your
          database.
@@ -94,14 +72,36 @@ Complete the following steps to connect to your MySQL database using SSL.
         + `UserName` with the user name of your
          database.
 
-    **Example:**
+   **Example:**
 
-    ```
-    mysql -h `ls-1c51a7c70a4fb55e542829a4e4e0d735ba42.czowadgeezqi.us-west-2.rds.amazonaws.com` --ssl-ca=`/home/ec2-user/rds-combined-ca-bundle.pem` --ssl-verify-server-cert -u `dbmasteruser` -p
-    ```
+   ```
+   mysql -h `ls-1c51a7c70a4fb55e542829a4e4e0d735ba42.czowadgeezqi.us-west-2.rds.amazonaws.com` --ssl-ca=`/home/ec2-user/rds-combined-ca-bundle.pem` --ssl-mode=VERIFY_IDENTITY -u `dbmasteruser` -p
+   ```
+   - Enter the following command to connect to a database that is MySQL 6.7 or
+     earlier.
 
-3.  Type the password for the database user you specified in the previous command when
-    prompted, and press **Enter**.
+   ```
+   mysql -h `DatabaseEndpoint` --ssl-ca=`/path/to/certificate/rds-combined-ca-bundle.pem` --ssl-verify-server-cert -u `UserName` -p
+   ```
+
+   In the command, replace:
+
+        + `DatabaseEndpoint` with the endpoint of your
+         database.
+        + `/path/to/certificate/rds-combined-ca-bundle.pem`
+         with the local path where you downloaded and saved the certificate for your
+         database.
+        + `UserName` with the user name of your
+         database.
+
+   **Example:**
+
+   ```
+   mysql -h `ls-1c51a7c70a4fb55e542829a4e4e0d735ba42.czowadgeezqi.us-west-2.rds.amazonaws.com` --ssl-ca=`/home/ec2-user/rds-combined-ca-bundle.pem` --ssl-verify-server-cert -u `dbmasteruser` -p
+   ```
+
+3. Type the password for the database user you specified in the previous command when
+   prompted, and press **Enter**.
 
 You should see a result similar to the following example:
 

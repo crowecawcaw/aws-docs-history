@@ -42,9 +42,9 @@ created by Lightsail begin with “Lightsail-stack” and have a description of
 “CloudFormation stack used to create Amazon EC2 resources” as shown in the following
 screenshot.
 
-Stacks with a **CREATE_IN_PROGRESS** status are in the process of
+Stacks with a **CREATE\_IN\_PROGRESS** status are in the process of
 creating Amazon EC2 resources from your exported Lightsail snapshots. Stacks with a
-**CREATE_COMPLETED** status have completed the process of creating Amazon EC2
+**CREATE\_COMPLETED** status have completed the process of creating Amazon EC2
 resources. To view the resources created by a stack, choose the checkbox next to the stack
 name, and then choose the **Resources** tab.
 

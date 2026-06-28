@@ -92,13 +92,13 @@ sudo nano /var/www/wp-config.php
    `DB_PASSWORD`, and `DB_HOST`.
 4. Modify the following values:
 
-   - **DB_USER** — Edit this to match the user name of
+   - **DB\_USER** — Edit this to match the user name of
      your MySQL managed database. The default primary user name for Lightsail managed
      databases is `dbmasteruser`.
-   - **DB_PASSWORD** — Edit this to match the strong
+   - **DB\_PASSWORD** — Edit this to match the strong
      password of your MySQL managed database. For more information, see [Manage your database
      password](amazon-lightsail-managing-database-password.md "amazon-lightsail-managing-database-password.md").
-   - **DB_HOST** — Edit this to match the endpoint of your
+   - **DB\_HOST** — Edit this to match the endpoint of your
      MySQL managed database. Be sure to add the `:3306` port number at the end
      of the host address. For example
      `ls-abc123exampleE67890.czowadgeezqi.us-west-2.rds.amazonaws.com:3306`.

@@ -53,7 +53,7 @@ You might have reached your quota for the number of disks you can create. Or you
 might have created too many big disks (the total size of disk storage can't exceed 20
 TB) in your AWS account. For more information, see [Block storage disks](elastic-block-storage-and-ssd-disks-in-amazon-lightsail.md "elastic-block-storage-and-ssd-disks-in-amazon-lightsail.md").
 
-\*Actual error message:**\*You've reached the maximum size
+*Actual error message:***You've reached the maximum size
 limit of all disks in this account.** or **You've reached the limit
 of disks in this account.**
 

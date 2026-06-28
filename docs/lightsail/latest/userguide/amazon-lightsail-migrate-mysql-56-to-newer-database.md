@@ -107,7 +107,7 @@ MySQL Workbench:
     ![Saving MySQL Workbench preferences](images/mysql-workbench-preferences-save.png)
 
 2. Choose **Data Export** in the **Navigator**
-   pane
+pane
 
 ![MySQL Workbench data export option](images/mysql-workbench-data-export.png) 3. In the **Data Export** tab that appears, add a check mark next to the
 tables that you wish to export.

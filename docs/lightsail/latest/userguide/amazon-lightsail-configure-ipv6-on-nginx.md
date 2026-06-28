@@ -66,7 +66,7 @@ You will see a response similar to one of the following examples:
     ![IPv6 configured on the instance.](images/lightsail-nginx-ssh-curl-result-configured.png)
 
 4. Enter the following command to open the nginx.conf configuration file using
-   Vim.
+Vim.
 
 ```
 sudo vim /opt/bitnami/nginx/conf/nginx.conf

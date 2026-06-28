@@ -60,7 +60,7 @@ permissions. 6. Choose one of the following options:
      have access to your objects.
 
 7. Choose **Save** to save the change. Otherwise, choose
-   **Cancel**.
+**Cancel**.
 
 The following changes are implemented depending on which bucket access permission you
 change to:

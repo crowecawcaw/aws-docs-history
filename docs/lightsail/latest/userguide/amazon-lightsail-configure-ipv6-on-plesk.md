@@ -54,9 +54,8 @@ You will see a response similar to one of the following examples:
 
     ![IPv6 configured on the instance.](images/lightsail-plesk-ssh-ip-addr-ipv6-configured.png)
 
-4. Toggle back to the Lightsail console.
-5. In the **Instances** section of the Lightsail home page, choose the
-   actions menu (⋮) for the Plesk instance, and choose **Reboot**.
+4. Toggle back to the Lightsail console. 5. In the **Instances** section of the Lightsail home page, choose the
+actions menu (⋮) for the Plesk instance, and choose **Reboot**.
 
 ![Instance reboot option on the Lightsail home page.](images/lightsail-plesk-instance-reboot.png)
 
