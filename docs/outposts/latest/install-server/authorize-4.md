@@ -177,4 +177,4 @@ Note the following about the provisioning process:
     * You don’t need to re-authorize the Outposts server after it is activated.
 
 8. After you make a successful connection, you can disconnect your laptop from the
-   server.
+server.

@@ -12,9 +12,7 @@ Outposts server.
 
 **Parameters**
 
-This command takes an optional connection index. The valid values are 0 and
-
-1.
+This command takes an optional connection index. The valid values are 0 and 1.
 
 ###### Example output: Successful connection
 

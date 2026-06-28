@@ -16,10 +16,10 @@ This command takes a variable assignment statement,
 `variable`=`value`. For
 example:
 
-- AWS_ACCESS_KEY_ID=`access-key-id`
-- AWS_SECRET_ACCESS_KEY=`secret-access-key`
-- AWS_SESSION_TOKEN=`session-token`
-- AWS_DEFAULT_REGION=`server-parent-Region`
+- AWS\_ACCESS\_KEY\_ID=`access-key-id`
+- AWS\_SECRET\_ACCESS\_KEY=`secret-access-key`
+- AWS\_SESSION\_TOKEN=`session-token`
+- AWS\_DEFAULT\_REGION=`server-parent-Region`
 
 ###### Example output: Successful credential import
 

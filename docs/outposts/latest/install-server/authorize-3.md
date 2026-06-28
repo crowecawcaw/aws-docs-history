@@ -185,8 +185,8 @@ checksum: `0xB2A945RE``
      the parent Region.
 
 5. Use **describe-resolve** to determine if the Outposts server can reach a DNS
-   resolver and resolve the IP address of the Outpost configuration endpoint in the Region.
-   Requires at least one link with an IP configuration.
+resolver and resolve the IP address of the Outpost configuration endpoint in the Region.
+Requires at least one link with an IP configuration.
 
 ```
 `Outpost>``describe-resolve`
@@ -236,8 +236,8 @@ checksum: `0xB2A945RE``
      with the parent Region.
 
 5. Use **describe-reachability** to determine if the Outposts server can reach
-   the Outpost configuration endpoint in the Region. Requires a working DNS configuration,
-   which you can determine by using **describe-resolve**.
+the Outpost configuration endpoint in the Region. Requires a working DNS configuration,
+which you can determine by using **describe-resolve**.
 
 ```
 `Outpost>``describe-reachability``---
