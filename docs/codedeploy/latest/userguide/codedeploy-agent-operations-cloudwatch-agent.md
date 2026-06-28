@@ -14,10 +14,9 @@ Before you begin, complete the following tasks:
 - Install the CloudWatch agent. For more information, see [Installing the CloudWatch agent](../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.md "../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.md").
 - Add the following permissions to the CodeDeploy IAM instance profile:
 
-      + CloudWatchLogsFullAccess
-      + CloudWatchAgentServerPolicy
-
-  For more information on the CodeDeploy instance profile, see [Step 4: Create an IAM instance profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md") of [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md").
+  - CloudWatchLogsFullAccess
+  - CloudWatchAgentServerPolicy
+    For more information on the CodeDeploy instance profile, see [Step 4: Create an IAM instance profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md") of [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md").
 
 ## Configure the CloudWatch agent to collect CodeDeploy logs
 
@@ -65,7 +64,7 @@ editing a configuration file.
 
 1. Run the wizard, as described in [Run the CloudWatch agent configuration wizard](../../../AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file-wizard.md#cloudwatch-agent-running-wizard "../../../AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file-wizard.md#cloudwatch-agent-running-wizard").
 2. In the wizard, when asked `Do you want to monitor any customized log
-files?` enter `1`.
+ files?` enter `1`.
 3. Specify the CodeDeploy log file, as follows:
 
    1. For `Log file path` enter the path r the CodeDeploy agent log file, for

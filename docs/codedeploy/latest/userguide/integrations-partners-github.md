@@ -98,13 +98,11 @@ GitHub**. 7. Do one of the following:
      application. Continue to step 10.
 
 8. If you are not already signed in to GitHub, follow the instructions on the
-   **Sign in** page to sign in with the GitHub account to
-   which you want to link the application.
-9. Choose **Authorize application**. GitHub gives CodeDeploy
-   permission to interact with GitHub on behalf of the signed-in GitHub account
-   for the selected application.
-10. If you do not want to create a deployment, choose
-    **Cancel**.
+**Sign in** page to sign in with the GitHub account to
+which you want to link the application. 9. Choose **Authorize application**. GitHub gives CodeDeploy
+permission to interact with GitHub on behalf of the signed-in GitHub account
+for the selected application. 10. If you do not want to create a deployment, choose
+**Cancel**.
 
 ###### To revoke permission for CodeDeploy to interact with GitHub
 

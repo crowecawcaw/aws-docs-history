@@ -11,13 +11,12 @@ To follow along in this tutorial:
 - If you create your Auto Scaling group with a launch template, you must add the
   following permissions:
 
-      + `ec2:RunInstances`
-      + `ec2:CreateTags`
-      + `iam:PassRole`
-
-  For more information, see [Step 2: Create a service
-  role](getting-started-create-service-role.md "getting-started-create-service-role.md"), [Creating a
-  launch template for an Auto Scaling group](../../../autoscaling/ec2/userguide/create-launch-template.md "../../../autoscaling/ec2/userguide/create-launch-template.md"), and [Launch template support](../../../autoscaling/ec2/userguide/ec2-auto-scaling-launch-template-permissions.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-launch-template-permissions.md") in the _Amazon EC2 Auto Scaling User Guide_.
+  - `ec2:RunInstances`
+  - `ec2:CreateTags`
+  - `iam:PassRole`
+    For more information, see [Step 2: Create a service
+    role](getting-started-create-service-role.md "getting-started-create-service-role.md"), [Creating a
+    launch template for an Auto Scaling group](../../../autoscaling/ec2/userguide/create-launch-template.md "../../../autoscaling/ec2/userguide/create-launch-template.md"), and [Launch template support](../../../autoscaling/ec2/userguide/ec2-auto-scaling-launch-template-permissions.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-launch-template-permissions.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 - Create and use a revision that is compatible with an Ubuntu Server instance and
   CodeDeploy. For your revision, you can do one of the following:
@@ -28,9 +27,8 @@ To follow along in this tutorial:
 - Create a Security Group named `CodeDeployDemo-AS-SG` with
   the following **Inbound rule**:
 
-      + Type: HTTP
-      + Source: Anywhere
-
-  This is required to view your application and verify deployment success. For
-  information on how to create a Security Group, see [Creating a security group](../../../AWSEC2/latest/UserGuide/working-with-security-groups.md#creating-security-group "../../../AWSEC2/latest/UserGuide/working-with-security-groups.md#creating-security-group") in the _Amazon EC2 user
-  guide_.
+  - Type: HTTP
+  - Source: Anywhere
+    This is required to view your application and verify deployment success. For
+    information on how to create a Security Group, see [Creating a security group](../../../AWSEC2/latest/UserGuide/working-with-security-groups.md#creating-security-group "../../../AWSEC2/latest/UserGuide/working-with-security-groups.md#creating-security-group") in the _Amazon EC2 user
+    guide_.

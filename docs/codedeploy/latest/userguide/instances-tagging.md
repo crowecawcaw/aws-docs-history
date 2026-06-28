@@ -40,9 +40,9 @@ instances for a deployment group.
 
 You can specify a single tag in a single tag group:
 
-| Tag group 1 | Key            | Value |
-| ----------- | -------------- | ----- |
-| Name        | AppVersion-ABC |
+Tag group 1| Key | Value |
+| --- | --- |
+| Name | AppVersion-ABC |
 
 Each instance that is tagged with `Name=AppVersion-ABC` is part of the
 deployment group, even if it has other tags applied.
@@ -71,11 +71,11 @@ JSON structure:
 
 You can also specify multiple tags in a single tag group:
 
-| Tag group 1 | Key   | Value |
-| ----------- | ----- | ----- |
-| Region      | North |
-| Region      | South |
-| Region      | East  |
+Tag group 1| Key | Value |
+| --- | --- |
+| Region | North |
+| Region | South |
+| Region | East |
 
 An instance that is tagged with any of these three tags is part of the deployment group,
 even if it has other tags applied. If, for example, you had other instances tagged with
@@ -118,17 +118,17 @@ specify the criteria for instances in a deployment group. When you use multiple 
 a deployment group, only instances that are identified by all the tag groups are included in
 the deployment group.
 
-| Tag group 1 | Key            | Value |
-| ----------- | -------------- | ----- |
-| Name        | AppVersion-ABC |
+Tag group 1| Key | Value |
+| --- | --- |
+| Name | AppVersion-ABC |
 
-| Tag group 2 | Key   | Value |
-| ----------- | ----- | ----- |
-| Region      | North |
+Tag group 2| Key | Value |
+| --- | --- |
+| Region | North |
 
-| Tag group 3 | Key       | Value |
-| ----------- | --------- | ----- |
-| Type        | t2.medium |
+Tag group 3| Key | Value |
+| --- | --- |
+| Type | t2.medium |
 
 You might have instances in many regions and of various instance types tagged with
 `Name=AppVersion-ABC`. In this example, only the instances also tagged with
@@ -173,21 +173,21 @@ JSON structure:
 When you use multiple tag groups with multiple tags in one or more group, an instance must
 match at least one of the tags in each of the groups.
 
-| Tag group 1 | Key     | Value |
-| ----------- | ------- | ----- |
-| Environment | Beta    |
+Tag group 1| Key | Value |
+| --- | --- |
+| Environment | Beta |
 | Environment | Staging |
 
-| Tag group 2 | Key   | Value |
-| ----------- | ----- | ----- |
-| Region      | North |
-| Region      | South |
-| Region      | East  |
+Tag group 2| Key | Value |
+| --- | --- |
+| Region | North |
+| Region | South |
+| Region | East |
 
-| Tag group 3 | Key       | Value |
-| ----------- | --------- | ----- |
-| Type        | t2.medium |
-| Type        | t2.large  |
+Tag group 3| Key | Value |
+| --- | --- |
+| Type | t2.medium |
+| Type | t2.large |
 
 In this example, to be included in the deployment group, an instance must be tagged with
 (1) `Environment=Beta` or `Environment=Staging`, with (2)

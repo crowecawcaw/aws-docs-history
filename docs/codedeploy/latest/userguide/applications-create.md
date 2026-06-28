@@ -17,30 +17,27 @@ deployment. CodeDeploy supports two types of deployments:
 - **Blue/green deployment**: The behavior of your deployment depends on which
   compute platform you use:
 
-      + **Blue/green on an EC2/On-Premises compute platform**:
-       The instances in a deployment group (the original environment) are replaced by a different set of instances (the replacement environment) using these steps:
+  - **Blue/green on an EC2/On-Premises compute platform**:
+    The instances in a deployment group (the original environment) are replaced by a different set of instances (the replacement environment) using these steps:
 
+    - Instances are provisioned for the replacement environment.
+    - The latest application revision is installed on the replacement instances.
+    - An optional wait time occurs for activities such as application testing and system
+      verification.
+    - Instances in the replacement environment are registered with one or more Elastic Load Balancing load
+      balancers, causing traffic to be rerouted to them. Instances in the original
+      environment are deregistered and can be terminated or kept running for other
+      uses.
 
+  ###### Note
 
-
-      	- Instances are provisioned for the replacement environment.
-      	- The latest application revision is installed on the replacement instances.
-      	- An optional wait time occurs for activities such as application testing and system
-      	 verification.
-      	- Instances in the replacement environment are registered with one or more Elastic Load Balancing load
-      	 balancers, causing traffic to be rerouted to them. Instances in the original
-      	 environment are deregistered and can be terminated or kept running for other
-      	 uses.
-      ###### Note
-
-      If you use an EC2/On-Premises compute platform, be aware that blue/green deployments work with Amazon EC2 instances only.
-      + **Blue/green on an AWS Lambda or Amazon ECS compute platform**: Traffic is shifted in increments according to a **canary**, **linear**, or **all-at-once** deployment configuration.
-      + **Blue/green deployments through CloudFormation**: Traffic is shifted from your current resources to your updated resources as part of an CloudFormation stack update. Currently, only ECS blue/green deployments are supported.
-
-  For more information about blue/green deployments, see [Overview of a blue/green deployment](welcome.md#welcome-deployment-overview-blue-green "welcome.md#welcome-deployment-overview-blue-green").
-  When you use the CodeDeploy console to create an application, you configure its first
-  deployment group at the same time. When you use the AWS CLI to create an application, you
-  create its first deployment group in a separate step.
+  If you use an EC2/On-Premises compute platform, be aware that blue/green deployments work with Amazon EC2 instances only.
+  - **Blue/green on an AWS Lambda or Amazon ECS compute platform**: Traffic is shifted in increments according to a **canary**, **linear**, or **all-at-once** deployment configuration.
+  - **Blue/green deployments through CloudFormation**: Traffic is shifted from your current resources to your updated resources as part of an CloudFormation stack update. Currently, only ECS blue/green deployments are supported.
+    For more information about blue/green deployments, see [Overview of a blue/green deployment](welcome.md#welcome-deployment-overview-blue-green "welcome.md#welcome-deployment-overview-blue-green").
+    When you use the CodeDeploy console to create an application, you configure its first
+    deployment group at the same time. When you use the AWS CLI to create an application, you
+    create its first deployment group in a separate step.
 
 To view a list of applications already registered to your AWS account, see [View application details with CodeDeploy](applications-view-details.md "applications-view-details.md"). For
 information about using an CloudFormation template to create an application, see [CloudFormation templates for CodeDeploy reference](reference-cloudformation-templates.md "reference-cloudformation-templates.md").

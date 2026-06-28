@@ -7,11 +7,11 @@ First, starting with version 1.0.1.854 of the CodeDeploy agent, you can view the
 in a `.version` file on the instance. The following table shows the location and
 sample version string for each of the supported operating systems.
 
-| Operating system                                 | File location                               | Sample agent_version string |
-| ------------------------------------------------ | ------------------------------------------- | --------------------------- |
-| Amazon Linux and Red Hat Enterprise Linux (RHEL) | `/opt/codedeploy-agent/.version`            | OFFICIAL_1.0.1.854_rpm      |
-| Ubuntu Server                                    | `/opt/codedeploy-agent/.version`            | OFFICIAL_1.0.1.854_deb      |
-| Windows Server                                   | `C:\ProgramData\Amazon\CodeDeploy\.version` | OFFICIAL_1.0.1.854_msi      |
+| Operating system                                 | File location                               | Sample agent\_version string |
+| ------------------------------------------------ | ------------------------------------------- | ---------------------------- |
+| Amazon Linux and Red Hat Enterprise Linux (RHEL) | `/opt/codedeploy-agent/.version`            | OFFICIAL\_1.0.1.854\_rpm     |
+| Ubuntu Server                                    | `/opt/codedeploy-agent/.version`            | OFFICIAL\_1.0.1.854\_deb     |
+| Windows Server                                   | `C:\ProgramData\Amazon\CodeDeploy\.version` | OFFICIAL\_1.0.1.854\_msi     |
 
 Second, you can run a command on an instance to determine the version of the CodeDeploy
 agent.

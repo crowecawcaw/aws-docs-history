@@ -131,7 +131,7 @@ the **I acknowledge that CloudFormation might create IAM resources** box, and
 then choose **Create**.
 
 After CloudFormation has created the stack and launched the Amazon EC2 instances, in the CloudFormation
-console, **CREATE_COMPLETE** will be displayed in the
+console, **CREATE\_COMPLETE** will be displayed in the
 **Status** column. This process can take several minutes.
 
 To verify the CodeDeploy agent is running on the Amazon EC2 instances, see [Managing CodeDeploy agent operations](codedeploy-agent-operations.md "codedeploy-agent-operations.md"), and

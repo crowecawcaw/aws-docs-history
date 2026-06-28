@@ -138,7 +138,7 @@ locations:
   `/opt/codedeploy-agent/bin`.
 - On Windows Server: `C:\ProgramData\Amazon\CodeDeploy\bin`.
 
-  **Basic Command Syntax**
+**Basic Command Syntax**
 
 ```
 codedeploy-local [options]

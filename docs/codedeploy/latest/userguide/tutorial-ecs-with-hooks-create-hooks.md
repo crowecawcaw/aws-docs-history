@@ -15,25 +15,24 @@ function permission to write to CloudWatch Logs and set the status of a CodeDepl
 
 ###### To create an IAM role
 
-1.  Open the IAM console at
-    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2.  From the navigation pane, choose **Roles**, and then choose
-    **Create role**.
-3.  Create a role with the following properties:
+1. Open the IAM console at
+   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. From the navigation pane, choose **Roles**, and then choose
+   **Create role**.
+3. Create a role with the following properties:
 
-        * **Trusted entity**: **AWS Lambda**.
-        * **Permissions**: **AWSLambdaBasicExecutionRole**.
-         This grants your Lambda function permission to write to CloudWatch Logs.
-        * **Role name**:
-         **`lambda-cli-hook-role`**.
+   - **Trusted entity**: **AWS Lambda**.
+   - **Permissions**: **AWSLambdaBasicExecutionRole**.
+     This grants your Lambda function permission to write to CloudWatch Logs.
+   - **Role name**:
+     **`lambda-cli-hook-role`**.
+     For more information, see [Create an AWS Lambda execution role](../../../lambda/latest/dg/with-userapp.md#with-userapp-walkthrough-custom-events-create-iam-role "../../../lambda/latest/dg/with-userapp.md#with-userapp-walkthrough-custom-events-create-iam-role").
 
-    For more information, see [Create an AWS Lambda execution role](../../../lambda/latest/dg/with-userapp.md#with-userapp-walkthrough-custom-events-create-iam-role "../../../lambda/latest/dg/with-userapp.md#with-userapp-walkthrough-custom-events-create-iam-role").
-
-4.  Attach the permission `codedeploy:PutLifecycleEventHookExecutionStatus` to
-    the role you created. This grants your Lambda functions permission to set the status of a
-    CodeDeploy lifecycle hook during a deployment. For more information, see [Adding IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console") in the _AWS Identity and Access Management User
-    Guide_ and [PutLifecycleEventHookExecutionStatus](../APIReference/API_PutLifecycleEventHookExecutionStatus.md "../APIReference/API_PutLifecycleEventHookExecutionStatus.md") in the _CodeDeploy API
-    Reference_.
+4. Attach the permission `codedeploy:PutLifecycleEventHookExecutionStatus` to
+   the role you created. This grants your Lambda functions permission to set the status of a
+   CodeDeploy lifecycle hook during a deployment. For more information, see [Adding IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console") in the _AWS Identity and Access Management User
+   Guide_ and [PutLifecycleEventHookExecutionStatus](../APIReference/API_PutLifecycleEventHookExecutionStatus.md "../APIReference/API_PutLifecycleEventHookExecutionStatus.md") in the _CodeDeploy API
+   Reference_.
 
 ###### To create an `AfterAllowTestTraffic` hook Lambda function
 

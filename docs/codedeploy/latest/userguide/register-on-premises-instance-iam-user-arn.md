@@ -22,7 +22,7 @@ CodeDeploy mostly on your own, using static IAM user credentials for authenticat
 - [Step 3: Get the IAM user credentials](#register-on-premises-instance-iam-user-arn-3 "#register-on-premises-instance-iam-user-arn-3")
 - [Step 4: Add a configuration file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4")
 - [Step 5: Install and configure the AWS CLI](#register-on-premises-instance-iam-user-arn-5 "#register-on-premises-instance-iam-user-arn-5")
-- [Step 6: Set the AWS_REGION environment variable (Ubuntu Server and RHEL only)](#register-on-premises-instance-iam-user-arn-6 "#register-on-premises-instance-iam-user-arn-6")
+- [Step 6: Set the AWS\_REGION environment variable (Ubuntu Server and RHEL only)](#register-on-premises-instance-iam-user-arn-6 "#register-on-premises-instance-iam-user-arn-6")
 - [Step 7: Install the CodeDeploy agent](#register-on-premises-instance-iam-user-arn-7 "#register-on-premises-instance-iam-user-arn-7")
 - [Step 8: Register the on-premises instance with CodeDeploy](#register-on-premises-instance-iam-user-arn-8 "#register-on-premises-instance-iam-user-arn-8")
 - [Step 9: Tag the on-premises instance](#register-on-premises-instance-iam-user-arn-9 "#register-on-premises-instance-iam-user-arn-9")
@@ -443,7 +443,7 @@ These access permissions can be assigned to either the IAM user you created in
 user. To assign these permissions to an IAM user, follow the instructions in [Step 1: Create an IAM user for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1"), using these access
 permissions instead of the ones in that step.
 
-## Step 6: Set the AWS_REGION environment variable (Ubuntu Server and RHEL only)
+## Step 6: Set the AWS\_REGION environment variable (Ubuntu Server and RHEL only)
 
 If you are not running Ubuntu Server or RHEL on your on-premises instance, skip this step
 and go directly to [Step 7: Install the CodeDeploy agent](#register-on-premises-instance-iam-user-arn-7 "#register-on-premises-instance-iam-user-arn-7").

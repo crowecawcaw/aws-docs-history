@@ -24,7 +24,7 @@ Sign in with the same user that you set up in [Getting started with CodeDeploy](
      **Amazon ECS**.
 
 3. On the **Deployments** tab, choose **Create
-   deployment**.
+deployment**.
 
 ###### Note
 
@@ -45,10 +45,9 @@ located:
      information about creating an AppSpec file, see [Add an application specification file to a revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md").
 
 6. (Optional) In **Deployment description**, enter a description
-   for this deployment.
-7. (Optional) In **Rollback configuration overrides**, you can
-   specify different automatic rollback options for this deployment than were
-   specified for the deployment group, if any.
+for this deployment. 7. (Optional) In **Rollback configuration overrides**, you can
+specify different automatic rollback options for this deployment than were
+specified for the deployment group, if any.
 
 For information about rollbacks in CodeDeploy, see [Redeployments and deployment rollbacks](deployment-steps-lambda.md#deployment-rollback-lambda "deployment-steps-lambda.md#deployment-rollback-lambda") and [Redeploy and roll back a deployment with CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
 

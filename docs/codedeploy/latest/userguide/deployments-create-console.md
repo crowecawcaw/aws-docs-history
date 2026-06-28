@@ -24,7 +24,7 @@ Sign in with the same user that you set up in [Getting started with CodeDeploy](
      **EC2/On-Premises**.
 
 3. On the **Deployments** tab, choose **Create
-   deployment**.
+deployment**.
 
 ###### Note
 
@@ -42,11 +42,10 @@ revision is stored in:
      to step 6.
 
 6. (Optional) In **Deployment description**, enter a description
-   for this deployment.
-7. (Optional) Expand **Override deployment configuration** to
-   choose a deployment configuration to control how traffic is shifted to the Amazon EC2
-   or on-premises server that is different from the one specified in the deployment
-   group.
+for this deployment. 7. (Optional) Expand **Override deployment configuration** to
+choose a deployment configuration to control how traffic is shifted to the Amazon EC2
+or on-premises server that is different from the one specified in the deployment
+group.
 
 For more information, see [Working with deployment configurations in CodeDeploy](deployment-configurations.md "deployment-configurations.md"). 8. 1. Select **Don't fail the deployment if the ApplicationStop
 lifecycle event fails** if you want a deployment to an
@@ -54,17 +53,25 @@ instance to succeed if the `ApplicationStop` lifecycle event
 fails. 2. Expand **Additional deployment behavior settings** to
 specify how CodeDeploy handles files in a deployment target location that
 weren't part of the previous successful deployment.
-Choose from the following:
-_ **Fail the deployment** — An error is
-reported and the deployment status is changed to
-`Failed`.
-_ **Overwrite the content** — If a file
-of the same name exists in the target location, the version from
-the application revision replaces it. \* **Retain the content** — If a file of
-the same name exists in the target location, the file is kept
-and the version in the application revision is not copied to the
-instance.
-For more information, see [Rollback behavior with existing content](deployments-rollback-and-redeploy.md#deployments-rollback-and-redeploy-content-options "deployments-rollback-and-redeploy.md#deployments-rollback-and-redeploy-content-options"). 9. (Optional) In **Rollback configuration overrides**, you can
+
+    Choose from the following:
+
+
+
+
+    	* **Fail the deployment** — An error is
+    	 reported and the deployment status is changed to
+    	 `Failed`.
+    	* **Overwrite the content** — If a file
+    	 of the same name exists in the target location, the version from
+    	 the application revision replaces it.
+    	* **Retain the content** — If a file of
+    	 the same name exists in the target location, the file is kept
+    	 and the version in the application revision is not copied to the
+    	 instance.
+    For more information, see [Rollback behavior with existing content](deployments-rollback-and-redeploy.md#deployments-rollback-and-redeploy-content-options "deployments-rollback-and-redeploy.md#deployments-rollback-and-redeploy-content-options").
+
+9. (Optional) In **Rollback configuration overrides**, you can
 specify different automatic rollback options for this deployment than were
 specified for the deployment group, if any.
 

@@ -262,7 +262,7 @@ As you configure the AWS CLI (for example, by calling the **aws
 configure** command), be sure to specify the secret key ID and secret access
 key of an IAM user that has, at minimum, the permissions described in [IAM session ARN registration prerequisites](#register-on-premises-instance-iam-session-arn-prerequisites "#register-on-premises-instance-iam-session-arn-prerequisites").
 
-**Set the AWS_REGION Environment Variable (Ubuntu Server and RHEL
+**Set the AWS\_REGION Environment Variable (Ubuntu Server and RHEL
 Only)**
 
 If you are not running Ubuntu Server or RHEL on your on-premises instance, skip this step

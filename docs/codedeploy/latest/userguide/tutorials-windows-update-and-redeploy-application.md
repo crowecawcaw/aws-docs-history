@@ -91,7 +91,7 @@ You've modified and redeployed your site!
 ###### Note
 
 Sign in with the same user that you set up in [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md"). 2. On the navigation pane, choose **Applications**. 3. In the **Applications** list, choose
-**HelloWorld_App**. 4. In the **Deployments** tab, choose **Create
+**HelloWorld\_App**. 4. In the **Deployments** tab, choose **Create
 deployment**.
 
     1. In the **Deployment group** list, choose

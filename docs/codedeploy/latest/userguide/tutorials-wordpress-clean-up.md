@@ -118,7 +118,7 @@ To delete the `WordPress_App` application from CodeDeploy:
 ###### Note
 
 Sign in with the same user that you set up in [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md"). 2. In the navigation pane, expand **Deploy**, then choose **Applications**. 3. In the list of applications, choose
-**WordPress_App**. 4. On the **Application details** page, choose **Delete
+**WordPress\_App**. 4. On the **Application details** page, choose **Delete
 application**. 5. When prompted, enter the name of the application to confirm you want to delete it, and
 then choose **Delete**.
 

@@ -64,7 +64,7 @@ configuration**, and then do the following:
     5. Choose **Create deployment configuration**.
 
 12. (Optional) In **Advanced**, configure any options you want to
-    include in the deployment, such as Amazon SNS notification triggers, Amazon CloudWatch alarms,
-    or automatic rollbacks.
+include in the deployment, such as Amazon SNS notification triggers, Amazon CloudWatch alarms,
+or automatic rollbacks.
 
 For more information, see [Configure advanced options for a deployment group](deployment-groups-configure-advanced-options.md "deployment-groups-configure-advanced-options.md"). 13. Choose **Create deployment group**.

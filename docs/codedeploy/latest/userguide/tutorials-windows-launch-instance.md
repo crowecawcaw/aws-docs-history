@@ -77,7 +77,7 @@ Security Groups associated with i-1234567890abcdef0
 
 4. Under **Security groups**, choose the security group for your Amazon EC2 instance. It might be named
    `launch-wizard-`N`. The
-`N`` in the name is a
+ `N`` in the name is a
    number assigned to your security group when your instance was created.
 
 Choose the **Inbound** tab. If the security group for your instance is configured correctly, you should see a rule with the following values:
@@ -88,5 +88,5 @@ Choose the **Inbound** tab. If the security group for your instance is configure
     * **Source**: 0.0.0.0/0
 
 5. If you do not see a rule with these values, use the
-   procedures in [Adding Rules to a Security Group](../../../AWSEC2/latest/UserGuide/using-network-security.md#adding-security-group-rule "../../../AWSEC2/latest/UserGuide/using-network-security.md#adding-security-group-rule") to add them to a new
-   security rule.
+procedures in [Adding Rules to a Security Group](../../../AWSEC2/latest/UserGuide/using-network-security.md#adding-security-group-rule "../../../AWSEC2/latest/UserGuide/using-network-security.md#adding-security-group-rule") to add them to a new
+security rule.

@@ -302,8 +302,8 @@ Possible reasons for these failures include:
 
 - The CodeDeploy agent finds the
   ``deployment-group-id`_last_successful_install`
-file in the correct location, but the location listed in the
-``deployment-group-id`_last_successful_install`
+ file in the correct location, but the location listed in the
+ ``deployment-group-id`_last_successful_install`
   file does not exist.
 
 **On Amazon Linux, Ubuntu Server, and RHEL instances**, this
@@ -316,7 +316,7 @@ the
 folder.
 
 - In the location listed in the
-  ``deployment-group-id`\_last_successful_install`
+  ``deployment-group-id`_last_successful_install`
   file, either the AppSpec file is invalid or the scripts do not run
   successfully.
 - The script contains an error that cannot be corrected, so it never runs
@@ -392,22 +392,18 @@ might receive an error similar to `The overall deployment failed because too man
 - The CodeDeploy agent might not be installed or running on the instance. To determine if
   the CodeDeploy agent is running:
 
-      + For Amazon Linux RHEL or Ubuntu server, run the following:
+  - For Amazon Linux RHEL or Ubuntu server, run the following:
 
+  ```
+  systemctl status codedeploy-agent
+  ```
+  - For Windows, run the following:
 
+  ```
+  powershell.exe -Command Get-Service -Name CodeDeployagent
+  ```
 
-      ```
-      systemctl status codedeploy-agent
-      ```
-      + For Windows, run the following:
-
-
-
-      ```
-      powershell.exe -Command Get-Service -Name CodeDeployagent
-      ```
-
-  If the CodeDeploy agent is not installed or running, see [Verify the CodeDeploy agent is running](codedeploy-agent-operations-verify.md "codedeploy-agent-operations-verify.md").
+If the CodeDeploy agent is not installed or running, see [Verify the CodeDeploy agent is running](codedeploy-agent-operations-verify.md "codedeploy-agent-operations-verify.md").
 
 Your instance might not be able to reach the CodeDeploy or Amazon S3 public endpoint using
 port 443. Try one of the following:
@@ -424,8 +420,8 @@ port 443. Try one of the following:
   setting in the CodeDeploy agent configuration file. For more information, see [CodeDeploy agent configuration reference](reference-agent-configuration.md "reference-agent-configuration.md").
 - The date and time signature of your deployment instance might not match the date and
   time signature of your deployment request. Look for an error similar to `Cannot
-reach InstanceService: Aws::CodeDeployCommand::Errors::InvalidSignatureException -
-Signature expired` in your CodeDeploy agent log file. If you see this error, follow
+ reach InstanceService: Aws::CodeDeployCommand::Errors::InvalidSignatureException -
+ Signature expired` in your CodeDeploy agent log file. If you see this error, follow
   the steps in [Troubleshooting “InvalidSignatureException – Signature expired: [time] is now earlier than [time]” deployment errors](troubleshooting-ec2-instances.md#troubleshooting-instance-time-failures "troubleshooting-ec2-instances.md#troubleshooting-instance-time-failures"). For more information, see
   [View log data for CodeDeploy EC2/On-Premises deployments](deployments-view-logs.md "deployments-view-logs.md").
 - The CodeDeploy agent might stop running because an instance is running low on memory or
@@ -438,14 +434,13 @@ Signature expired` in your CodeDeploy agent log file. If you see this error, fol
   or it might have an IAM instance profile attached that does not have the required
   permissions.
 
-      + If an IAM instance profile is not attached to your instance, create one with
-       the required permissions and then attach it.
-      + If an IAM instance profile is already attached to your instance, make sure it
-       has the required permissions.
-
-  After you confirm your attached instance profile is configured with the required
-  permissions, restart your instance. For more information, see [Step 4: Create an IAM instance profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md") and [IAM Roles for
-  Amazon EC2](../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-EC2.md "../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-EC2.md") in the _Amazon EC2 User Guide_.
+  - If an IAM instance profile is not attached to your instance, create one with
+    the required permissions and then attach it.
+  - If an IAM instance profile is already attached to your instance, make sure it
+    has the required permissions.
+    After you confirm your attached instance profile is configured with the required
+    permissions, restart your instance. For more information, see [Step 4: Create an IAM instance profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md") and [IAM Roles for
+    Amazon EC2](../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-EC2.md "../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-EC2.md") in the _Amazon EC2 User Guide_.
 
 ## Windows PowerShell scripts fail to use the 64-bit version of Windows PowerShell by default
 

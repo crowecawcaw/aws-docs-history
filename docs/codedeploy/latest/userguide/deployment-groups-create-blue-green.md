@@ -64,43 +64,43 @@ access to your target instance. 7. In **Deployment type** choose
      For more information, see [Enabling termination deployments during Auto Scaling scale-in events](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors-hook-enable "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors-hook-enable").
 
 9. In **Agent configuration with Systems Manager**, specify how you would
-   like to install and update the CodeDeploy agent on the instances in your deployment
-   group. For more information on the CodeDeploy agent, see [Working with the CodeDeploy agent](../../../en_us/codedeploy/latest/userguide/codedeploy-agent.md "../../../en_us/codedeploy/latest/userguide/codedeploy-agent.md"). For more information about
-   Systems Manager, see [What is Systems Manager?](../../../systems-manager/latest/userguide/what-is-systems-manager.md "../../../systems-manager/latest/userguide/what-is-systems-manager.md")
+like to install and update the CodeDeploy agent on the instances in your deployment
+group. For more information on the CodeDeploy agent, see [Working with the CodeDeploy agent](../../../en_us/codedeploy/latest/userguide/codedeploy-agent.md "../../../en_us/codedeploy/latest/userguide/codedeploy-agent.md"). For more information about
+Systems Manager, see [What is Systems Manager?](../../../systems-manager/latest/userguide/what-is-systems-manager.md "../../../systems-manager/latest/userguide/what-is-systems-manager.md")
 
-   1. **Never**: Skip configuring the CodeDeploy installation
-      with Systems Manager. Instances must have the agent installed to be used in
-      deployments, so only choose this option if you will install the CodeDeploy
-      agent another way.
-   2. **Only once**: Systems Manager will install the CodeDeploy agent
-      once on every instance in your deployment group.
-   3. **Now and schedule updates**: Systems Manager will create an
-      association with State Manager that installs the CodeDeploy agent on the
-      schedule you configure. For more information about State Manager and
-      associations, see [About State Manager](../../../systems-manager/latest/userguide/sysman-state-about.md "../../../systems-manager/latest/userguide/sysman-state-about.md").
+    1. **Never**: Skip configuring the CodeDeploy installation
+     with Systems Manager. Instances must have the agent installed to be used in
+     deployments, so only choose this option if you will install the CodeDeploy
+     agent another way.
+    2. **Only once**: Systems Manager will install the CodeDeploy agent
+     once on every instance in your deployment group.
+    3. **Now and schedule updates**: Systems Manager will create an
+     association with State Manager that installs the CodeDeploy agent on the
+     schedule you configure. For more information about State Manager and
+     associations, see [About State Manager](../../../systems-manager/latest/userguide/sysman-state-about.md "../../../systems-manager/latest/userguide/sysman-state-about.md").
 
 10. Depending on your choice in step 8, do one of the following:
 
-    - If you chose **Automatically copy Amazon EC2 Auto Scaling group**:
-      In **Amazon EC2 Auto Scaling group**, choose or enter the name of the
-      Amazon EC2 Auto Scaling group you want to use as a template for the Amazon EC2 Auto Scaling group that
-      is created for the instances in your replacement environment. The number
-      of currently healthy instances in the Amazon EC2 Auto Scaling group you select is
-      created in your replacement environment.
-    - If you chose **Manually provision instances**: Select
-      **Amazon EC2 Auto Scaling groups**, **Amazon EC2 Auto Scaling
-      intances**, or both to specify instances to add to this
-      deployment group. Enter Amazon EC2 Auto Scaling tag values or Amazon EC2 Auto Scaling group names to
-      identify the instances in your original environment (that is, the
-      instances you want to replace or that are running the current
-      application revision).
+    * If you chose **Automatically copy Amazon EC2 Auto Scaling group**:
+     In **Amazon EC2 Auto Scaling group**, choose or enter the name of the
+     Amazon EC2 Auto Scaling group you want to use as a template for the Amazon EC2 Auto Scaling group that
+     is created for the instances in your replacement environment. The number
+     of currently healthy instances in the Amazon EC2 Auto Scaling group you select is
+     created in your replacement environment.
+    * If you chose **Manually provision instances**: Select
+     **Amazon EC2 Auto Scaling groups**, **Amazon EC2 Auto Scaling
+     intances**, or both to specify instances to add to this
+     deployment group. Enter Amazon EC2 Auto Scaling tag values or Amazon EC2 Auto Scaling group names to
+     identify the instances in your original environment (that is, the
+     instances you want to replace or that are running the current
+     application revision).
 
 11. In **Load balancer**, select **Enable load
-    balancing**, and then from the lists, select the Classic Load Balancers, Application Load Balancer
-    target groups, and Network Load Balancer target groups that you want to register your
-    replacement Amazon EC2 instances with. Each replacement instance will be registered
-    with _all_ the selected Classic Load Balancers and target groups. You can
-    select up to 10 Classic Load Balancers and 10 target groups, for a total of 20 items.
+balancing**, and then from the lists, select the Classic Load Balancers, Application Load Balancer
+target groups, and Network Load Balancer target groups that you want to register your
+replacement Amazon EC2 instances with. Each replacement instance will be registered
+with _all_ the selected Classic Load Balancers and target groups. You can
+select up to 10 Classic Load Balancers and 10 target groups, for a total of 20 items.
 
 Traffic will be rerouted from the original to the replacement instances
 according to your chosen **Traffic rerouting** and

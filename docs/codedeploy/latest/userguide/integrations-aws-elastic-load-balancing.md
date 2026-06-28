@@ -168,10 +168,10 @@ In the `common_functions.sh` script:
      file.
 
 7. Bundle your application's source code, the
-   `appspec.yml`, and the deployment
-   lifecycle event scripts into an application revision, and then upload the
-   revision. Deploy the revision to the Amazon EC2 instances. During the deployment,
-   the deployment lifecycle event scripts will deregister the Amazon EC2 instance
-   with the load balancer, wait for the connection to drain, and then
-   re-register the Amazon EC2 instance with the load balancer after the deployment
-   is complete.
+`appspec.yml`, and the deployment
+lifecycle event scripts into an application revision, and then upload the
+revision. Deploy the revision to the Amazon EC2 instances. During the deployment,
+the deployment lifecycle event scripts will deregister the Amazon EC2 instance
+with the load balancer, wait for the connection to drain, and then
+re-register the Amazon EC2 instance with the load balancer after the deployment
+is complete.

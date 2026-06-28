@@ -59,7 +59,7 @@ your deployment group, but the deployment couldn't finish before the wait time e
   to **Reroute traffic immediately** and redeploy. For more information,
   see [Create a deployment group for an Amazon ECS deployment (console)](deployment-groups-create-ecs.md "deployment-groups-create-ecs.md").
 - Redeploy and then run the [`aws deploy
-continue-deployment`](../../../cli/latest/reference/deploy/continue-deployment.md "../../../cli/latest/reference/deploy/continue-deployment.md") AWS CLI command with the
+ continue-deployment`](../../../cli/latest/reference/deploy/continue-deployment.md "../../../cli/latest/reference/deploy/continue-deployment.md") AWS CLI command with the
   `--deployment-wait-type` option set to `READY_WAIT`. Make sure to
   run this command _before_ the time specified in **Specify when
   to reroute traffic** expires.

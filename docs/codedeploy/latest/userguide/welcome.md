@@ -151,27 +151,24 @@ AWS Lambda and Amazon ECS deployments cannot use an in-place deployment type.
 - **Blue/green deployment**: The behavior of your deployment depends on which
   compute platform you use:
 
-      + **Blue/green on an EC2/On-Premises compute platform**:
-       The instances in a deployment group (the original environment) are replaced by a different set of instances (the replacement environment) using these steps:
+  - **Blue/green on an EC2/On-Premises compute platform**:
+    The instances in a deployment group (the original environment) are replaced by a different set of instances (the replacement environment) using these steps:
 
+    - Instances are provisioned for the replacement environment.
+    - The latest application revision is installed on the replacement instances.
+    - An optional wait time occurs for activities such as application testing and system
+      verification.
+    - Instances in the replacement environment are registered with one or more Elastic Load Balancing load
+      balancers, causing traffic to be rerouted to them. Instances in the original
+      environment are deregistered and can be terminated or kept running for other
+      uses.
 
+  ###### Note
 
-
-      	- Instances are provisioned for the replacement environment.
-      	- The latest application revision is installed on the replacement instances.
-      	- An optional wait time occurs for activities such as application testing and system
-      	 verification.
-      	- Instances in the replacement environment are registered with one or more Elastic Load Balancing load
-      	 balancers, causing traffic to be rerouted to them. Instances in the original
-      	 environment are deregistered and can be terminated or kept running for other
-      	 uses.
-      ###### Note
-
-      If you use an EC2/On-Premises compute platform, be aware that blue/green deployments work with Amazon EC2 instances only.
-      + **Blue/green on an AWS Lambda or Amazon ECS compute platform**: Traffic is shifted in increments according to a **canary**, **linear**, or **all-at-once** deployment configuration.
-      + **Blue/green deployments through CloudFormation**: Traffic is shifted from your current resources to your updated resources as part of an CloudFormation stack update. Currently, only ECS blue/green deployments are supported.
-
-  For more information about blue/green deployments, see [Overview of a blue/green deployment](#welcome-deployment-overview-blue-green "#welcome-deployment-overview-blue-green").
+  If you use an EC2/On-Premises compute platform, be aware that blue/green deployments work with Amazon EC2 instances only.
+  - **Blue/green on an AWS Lambda or Amazon ECS compute platform**: Traffic is shifted in increments according to a **canary**, **linear**, or **all-at-once** deployment configuration.
+  - **Blue/green deployments through CloudFormation**: Traffic is shifted from your current resources to your updated resources as part of an CloudFormation stack update. Currently, only ECS blue/green deployments are supported.
+    For more information about blue/green deployments, see [Overview of a blue/green deployment](#welcome-deployment-overview-blue-green "#welcome-deployment-overview-blue-green").
 
 ###### Note
 

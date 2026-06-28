@@ -30,15 +30,14 @@ Amazon S3, only to operations specific to CodeDeploy.
   CodeDeploy.
 - `AWSCodeDeployRole`: Allows CodeDeploy to:
 
-      + read the tags on your instances or identify your Amazon EC2 instances
-       by Amazon EC2 Auto Scaling group names
-      + read, create, update, and delete Amazon EC2 Auto Scaling groups, lifecycle hooks,
-       scaling policies, and warm pool features
-      + publish information to Amazon SNS topics
-      + retrieve information about Amazon CloudWatch alarms
-      + read and update resources in the Elastic Load Balancing service
-
-  The policy contains the following code:
+  - read the tags on your instances or identify your Amazon EC2 instances
+    by Amazon EC2 Auto Scaling group names
+  - read, create, update, and delete Amazon EC2 Auto Scaling groups, lifecycle hooks,
+    scaling policies, and warm pool features
+  - publish information to Amazon SNS topics
+  - retrieve information about Amazon CloudWatch alarms
+  - read and update resources in the Elastic Load Balancing service
+    The policy contains the following code:
 
 JSON
 
@@ -163,16 +162,15 @@ role types that act on behalf of CodeDeploy:
   determine which AWS resources the service can access and the actions it can perform with
   those resources. For CodeDeploy, a service role is used for the following:
 
-      + To read either the tags applied to the instances or the Amazon EC2 Auto Scaling group names
-       associated with the instances. This enables CodeDeploy to identify instances to which it
-       can deploy applications.
-      + To perform operations on instances, Amazon EC2 Auto Scaling groups, and Elastic Load Balancing load balancers.
-      + To publish information to Amazon SNS topics so that notifications can be sent when
-       specified deployment or instance events occur.
-      + To retrieve information about CloudWatch alarms to set up alarm monitoring for
-       deployments.
-
-  For more information, see [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md").
+  - To read either the tags applied to the instances or the Amazon EC2 Auto Scaling group names
+    associated with the instances. This enables CodeDeploy to identify instances to which it
+    can deploy applications.
+  - To perform operations on instances, Amazon EC2 Auto Scaling groups, and Elastic Load Balancing load balancers.
+  - To publish information to Amazon SNS topics so that notifications can be sent when
+    specified deployment or instance events occur.
+  - To retrieve information about CloudWatch alarms to set up alarm monitoring for
+    deployments.
+    For more information, see [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md").
 
 You can also create custom IAM policies to grant permissions for CodeDeploy
 actions and resources. You attach these custom policies to IAM roles, and then you

@@ -122,16 +122,15 @@ instead.
   entered with a string. If not specified, any existing labels applied to the original
   file or directory/folder structure remain unchanged after the copy operation.
 
-      + `user` – Optional. The SELinux user.
-      + `type` – Optional. The SELinux type name.
-      + `range` – Optional. The SELinux range specifier. This has no
-       effect unless Multi-Level Security (MLS) and Multi-Category Security (MCS) are
-       enabled on the machine. If not enabled, `range` defaults to
-       `s0`.
-
-  Specify `context` with a string (for example, `user:
+  - `user` – Optional. The SELinux user.
+  - `type` – Optional. The SELinux type name.
+  - `range` – Optional. The SELinux range specifier. This has no
+    effect unless Multi-Level Security (MLS) and Multi-Category Security (MCS) are
+    enabled on the machine. If not enabled, `range` defaults to
+    `s0`.
+    Specify `context` with a string (for example, `user:
  unconfined_u`). Each `context` is specified on a seperate
-  line.
+    line.
 
 - `type` – Optional. The types of objects to which to apply the
   specified permissions. `type` is a string that can be set to

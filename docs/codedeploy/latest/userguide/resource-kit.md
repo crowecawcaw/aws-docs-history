@@ -67,7 +67,7 @@ The following table lists the files in the CodeDeploy Resource Kit.
 | File                                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `LATEST_VERSION`                           | A file used by update mechanisms like Amazon EC2 Systems Manager to determine the latest version<br>of the CodeDeploy agent.                                                                                                                                                                                                                                                                                                                                                                                 |
-| `VERSION`                                  | \*_The auto-update mechanism was removed in CodeDeploy agent<br>version 1.1.0 and this file is no longer used._<br>• A file used by CodeDeploy<br>agents to update themselves as they are running on instances.                                                                                                                                                                                                                                                                                              |
+| `VERSION`                                  | **The auto-update mechanism was removed in CodeDeploy agent<br>version 1.1.0 and this file is no longer used.*<br>• A file used by CodeDeploy<br>agents to update themselves as they are running on instances.                                                                                                                                                                                                                                                                                               |
 | `codedeploy-agent.noarch.rpm`              | The CodeDeploy agent for Amazon Linux and Red Hat Enterprise Linux (RHEL). There may be several files with<br>the same base file name, but different versions (such as<br>`-1.0-0`).                                                                                                                                                                                                                                                                                                                         |
 | `codedeploy-agent_all.deb`                 | The CodeDeploy agent for Ubuntu Server. There may be several files with the same base<br>file name, but different versions (such as `_1.0-0`).                                                                                                                                                                                                                                                                                                                                                               |
 | `codedeploy-agent.msi`                     | The CodeDeploy agent for Windows Server. There may be several files with the same base file<br>name, but different versions (such as `-1.0-0`).                                                                                                                                                                                                                                                                                                                                                              |
@@ -89,8 +89,10 @@ The files in each bucket are designed to work with resources in the correspondin
 region.
 
 - ```
-  aws s3 ls --recursive s3://aws-codedeploy-us-east-2 --region us-east-2
+
   ```
+
+aws s3 ls --recursive s3://aws-codedeploy-us-east-2 --region us-east-2
 
 ````
 * ```
@@ -98,8 +100,10 @@ aws s3 ls --recursive s3://aws-codedeploy-us-east-1 --region us-east-1
 ````
 
 - ```
-  aws s3 ls --recursive s3://aws-codedeploy-us-west-1 --region us-west-1
+
   ```
+
+aws s3 ls --recursive s3://aws-codedeploy-us-west-1 --region us-west-1
 
 ````
 * ```
@@ -107,8 +111,10 @@ aws s3 ls --recursive s3://aws-codedeploy-us-west-2 --region us-west-2
 ````
 
 - ```
-  aws s3 ls --recursive s3://aws-codedeploy-ca-central-1 --region ca-central-1
+
   ```
+
+aws s3 ls --recursive s3://aws-codedeploy-ca-central-1 --region ca-central-1
 
 ````
 * ```
@@ -116,8 +122,10 @@ aws s3 ls --recursive s3://aws-codedeploy-eu-west-1 --region eu-west-1
 ````
 
 - ```
-  aws s3 ls --recursive s3://aws-codedeploy-eu-west-2 --region eu-west-2
+
   ```
+
+aws s3 ls --recursive s3://aws-codedeploy-eu-west-2 --region eu-west-2
 
 ````
 * ```
@@ -125,8 +133,10 @@ aws s3 ls --recursive s3://aws-codedeploy-eu-west-3 --region eu-west-3
 ````
 
 - ```
-  aws s3 ls --recursive s3://aws-codedeploy-eu-central-1 --region eu-central-1
+
   ```
+
+aws s3 ls --recursive s3://aws-codedeploy-eu-central-1 --region eu-central-1
 
 ````
 * ```
@@ -134,8 +144,10 @@ aws s3 ls --recursive s3://aws-codedeploy-il-central-1 --region il-central-1
 ````
 
 - ```
-  aws s3 ls --recursive s3://aws-codedeploy-ap-east-1 --region ap-east-1
+
   ```
+
+aws s3 ls --recursive s3://aws-codedeploy-ap-east-1 --region ap-east-1
 
 ````
 * ```
@@ -143,8 +155,10 @@ aws s3 ls --recursive s3://aws-codedeploy-ap-northeast-1 --region ap-northeast-1
 ````
 
 - ```
-  aws s3 ls --recursive s3://aws-codedeploy-ap-northeast-2 --region ap-northeast-2
+
   ```
+
+aws s3 ls --recursive s3://aws-codedeploy-ap-northeast-2 --region ap-northeast-2
 
 ````
 * ```
@@ -152,8 +166,10 @@ aws s3 ls --recursive s3://aws-codedeploy-ap-southeast-1 --region ap-southeast-1
 ````
 
 - ```
-  aws s3 ls --recursive s3://aws-codedeploy-ap-southeast-2 --region ap-southeast-2
+
   ```
+
+aws s3 ls --recursive s3://aws-codedeploy-ap-southeast-2 --region ap-southeast-2
 
 ````
 * ```
@@ -161,8 +177,10 @@ aws s3 ls --recursive s3://aws-codedeploy-ap-southeast-4 --region ap-southeast-4
 ````
 
 - ```
-  aws s3 ls --recursive s3://aws-codedeploy-ap-southeast-5 --region ap-southeast-5
+
   ```
+
+aws s3 ls --recursive s3://aws-codedeploy-ap-southeast-5 --region ap-southeast-5
 
 ````
 * ```
@@ -170,8 +188,10 @@ aws s3 ls --recursive s3://aws-codedeploy-ap-southeast-6 --region ap-southeast-6
 ````
 
 - ```
-  aws s3 ls --recursive s3://aws-codedeploy-ap-southeast-7 --region ap-southeast-7
+
   ```
+
+aws s3 ls --recursive s3://aws-codedeploy-ap-southeast-7 --region ap-southeast-7
 
 ````
 * ```
@@ -179,8 +199,10 @@ aws s3 ls --recursive s3://aws-codedeploy-ap-east-2 --region ap-east-2
 ````
 
 - ```
-  aws s3 ls --recursive s3://aws-codedeploy-mx-central-1 --region mx-central-1
+
   ```
+
+aws s3 ls --recursive s3://aws-codedeploy-mx-central-1 --region mx-central-1
 
 ````
 * ```
@@ -188,8 +210,10 @@ aws s3 ls --recursive s3://aws-codedeploy-ap-south-1 --region ap-south-1
 ````
 
 - ```
-  aws s3 ls --recursive s3://aws-codedeploy-sa-east-1 --region sa-east-1
+
   ```
+
+aws s3 ls --recursive s3://aws-codedeploy-sa-east-1 --region sa-east-1
 
 ````
 
@@ -216,8 +240,10 @@ aws s3 cp s3://aws-codedeploy-us-east-2/samples/latest/SampleApp_Linux.zip . --r
 ````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-us-east-1/samples/latest/SampleApp_Linux.zip . --region us-east-1
+
   ```
+
+aws s3 cp s3://aws-codedeploy-us-east-1/samples/latest/SampleApp_Linux.zip . --region us-east-1
 
 ````
 * ```
@@ -225,8 +251,10 @@ aws s3 cp s3://aws-codedeploy-us-west-1/samples/latest/SampleApp_Linux.zip . --r
 ````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-us-west-2/samples/latest/SampleApp_Linux.zip . --region us-west-2
+
   ```
+
+aws s3 cp s3://aws-codedeploy-us-west-2/samples/latest/SampleApp_Linux.zip . --region us-west-2
 
 ````
 * ```
@@ -234,8 +262,10 @@ aws s3 cp s3://aws-codedeploy-ca-central-1/samples/latest/SampleApp_Linux.zip . 
 ````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-eu-west-1/samples/latest/SampleApp_Linux.zip . --region eu-west-1
+
   ```
+
+aws s3 cp s3://aws-codedeploy-eu-west-1/samples/latest/SampleApp_Linux.zip . --region eu-west-1
 
 ````
 * ```
@@ -243,8 +273,10 @@ aws s3 cp s3://aws-codedeploy-eu-west-2/samples/latest/SampleApp_Linux.zip . --r
 ````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-eu-west-3/samples/latest/SampleApp_Linux.zip . --region eu-west-3
+
   ```
+
+aws s3 cp s3://aws-codedeploy-eu-west-3/samples/latest/SampleApp_Linux.zip . --region eu-west-3
 
 ````
 * ```
@@ -252,8 +284,10 @@ aws s3 cp s3://aws-codedeploy-eu-central-1/samples/latest/SampleApp_Linux.zip . 
 ````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-il-central-1/samples/latest/SampleApp_Linux.zip . --region il-central-1
+
   ```
+
+aws s3 cp s3://aws-codedeploy-il-central-1/samples/latest/SampleApp_Linux.zip . --region il-central-1
 
 ````
 * ```
@@ -261,8 +295,10 @@ aws s3 cp s3://aws-codedeploy-ap-east-1/samples/latest/SampleApp_Linux.zip . --r
 ````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-ap-northeast-1/samples/latest/SampleApp_Linux.zip . --region ap-northeast-1
+
   ```
+
+aws s3 cp s3://aws-codedeploy-ap-northeast-1/samples/latest/SampleApp_Linux.zip . --region ap-northeast-1
 
 ````
 * ```
@@ -270,8 +306,10 @@ aws s3 cp s3://aws-codedeploy-ap-northeast-2/samples/latest/SampleApp_Linux.zip 
 ````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-ap-southeast-1/samples/latest/SampleApp_Linux.zip . --region ap-southeast-1
+
   ```
+
+aws s3 cp s3://aws-codedeploy-ap-southeast-1/samples/latest/SampleApp_Linux.zip . --region ap-southeast-1
 
 ````
 * ```
@@ -279,8 +317,10 @@ aws s3 cp s3://aws-codedeploy-ap-southeast-2/samples/latest/SampleApp_Linux.zip 
 ````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-ap-southeast-4/samples/latest/SampleApp_Linux.zip . --region ap-southeast-4
+
   ```
+
+aws s3 cp s3://aws-codedeploy-ap-southeast-4/samples/latest/SampleApp_Linux.zip . --region ap-southeast-4
 
 ````
 * ```
@@ -288,8 +328,10 @@ aws s3 cp s3://aws-codedeploy-ap-southeast-5/samples/latest/SampleApp_Linux.zip 
 ````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-ap-southeast-6/samples/latest/SampleApp_Linux.zip . --region ap-southeast-6
+
   ```
+
+aws s3 cp s3://aws-codedeploy-ap-southeast-6/samples/latest/SampleApp_Linux.zip . --region ap-southeast-6
 
 ````
 * ```
@@ -297,8 +339,10 @@ aws s3 cp s3://aws-codedeploy-ap-southeast-7/samples/latest/SampleApp_Linux.zip 
 ````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-ap-east-2/samples/latest/SampleApp_Linux.zip . --region ap-east-2
+
   ```
+
+aws s3 cp s3://aws-codedeploy-ap-east-2/samples/latest/SampleApp_Linux.zip . --region ap-east-2
 
 ````
 * ```
@@ -306,8 +350,10 @@ aws s3 cp s3://aws-codedeploy-mx-central-1/samples/latest/SampleApp_Linux.zip . 
 ````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-ap-south-1/samples/latest/SampleApp_Linux.zip . --region ap-south-1
+
   ```
+
+aws s3 cp s3://aws-codedeploy-ap-south-1/samples/latest/SampleApp_Linux.zip . --region ap-south-1
 
 ````
 * ```
@@ -317,8 +363,10 @@ aws s3 cp s3://aws-codedeploy-sa-east-1/samples/latest/SampleApp_Linux.zip . --r
 To download all of the files, use one of the following commands for your region:
 
 - ```
-  aws s3 cp --recursive s3://aws-codedeploy-us-east-2 . --region us-east-2
+
   ```
+
+aws s3 cp --recursive s3://aws-codedeploy-us-east-2 . --region us-east-2
 
 ````
 * ```
@@ -326,8 +374,10 @@ aws s3 cp --recursive s3://aws-codedeploy-us-east-1 . --region us-east-1
 ````
 
 - ```
-  aws s3 cp --recursive s3://aws-codedeploy-us-west-1 . --region us-west-1
+
   ```
+
+aws s3 cp --recursive s3://aws-codedeploy-us-west-1 . --region us-west-1
 
 ````
 * ```
@@ -335,8 +385,10 @@ aws s3 cp --recursive s3://aws-codedeploy-us-west-2 . --region us-west-2
 ````
 
 - ```
-  aws s3 cp --recursive s3://aws-codedeploy-ca-central-1 . --region ca-central-1
+
   ```
+
+aws s3 cp --recursive s3://aws-codedeploy-ca-central-1 . --region ca-central-1
 
 ````
 * ```
@@ -344,8 +396,10 @@ aws s3 cp --recursive s3://aws-codedeploy-eu-west-1 . --region eu-west-1
 ````
 
 - ```
-  aws s3 cp --recursive s3://aws-codedeploy-eu-west-2 . --region eu-west-2
+
   ```
+
+aws s3 cp --recursive s3://aws-codedeploy-eu-west-2 . --region eu-west-2
 
 ````
 * ```
@@ -353,8 +407,10 @@ aws s3 cp --recursive s3://aws-codedeploy-eu-west-3 . --region eu-west-3
 ````
 
 - ```
-  aws s3 cp --recursive s3://aws-codedeploy-eu-central-1 . --region eu-central-1
+
   ```
+
+aws s3 cp --recursive s3://aws-codedeploy-eu-central-1 . --region eu-central-1
 
 ````
 * ```
@@ -362,8 +418,10 @@ aws s3 cp --recursive s3://aws-codedeploy-il-central-1 . --region il-central-1
 ````
 
 - ```
-  aws s3 cp --recursive s3://aws-codedeploy-ap-east-1 . --region ap-east-1
+
   ```
+
+aws s3 cp --recursive s3://aws-codedeploy-ap-east-1 . --region ap-east-1
 
 ````
 * ```
@@ -371,8 +429,10 @@ aws s3 cp --recursive s3://aws-codedeploy-ap-northeast-1 . --region ap-northeast
 ````
 
 - ```
-  aws s3 cp --recursive s3://aws-codedeploy-ap-northeast-2 . --region ap-northeast-2
+
   ```
+
+aws s3 cp --recursive s3://aws-codedeploy-ap-northeast-2 . --region ap-northeast-2
 
 ````
 * ```
@@ -380,8 +440,10 @@ aws s3 cp --recursive s3://aws-codedeploy-ap-southeast-1 . --region ap-southeast
 ````
 
 - ```
-  aws s3 cp --recursive s3://aws-codedeploy-ap-southeast-2 . --region ap-southeast-2
+
   ```
+
+aws s3 cp --recursive s3://aws-codedeploy-ap-southeast-2 . --region ap-southeast-2
 
 ````
 * ```
@@ -389,8 +451,10 @@ aws s3 cp --recursive s3://aws-codedeploy-ap-southeast-4 . --region ap-southeast
 ````
 
 - ```
-  aws s3 cp --recursive s3://aws-codedeploy-ap-southeast-5 . --region ap-southeast-5
+
   ```
+
+aws s3 cp --recursive s3://aws-codedeploy-ap-southeast-5 . --region ap-southeast-5
 
 ````
 * ```
@@ -398,8 +462,10 @@ aws s3 cp --recursive s3://aws-codedeploy-ap-southeast-6 . --region ap-southeast
 ````
 
 - ```
-  aws s3 cp --recursive s3://aws-codedeploy-ap-southeast-7 . --region ap-southeast-7
+
   ```
+
+aws s3 cp --recursive s3://aws-codedeploy-ap-southeast-7 . --region ap-southeast-7
 
 ````
 * ```
@@ -407,8 +473,10 @@ aws s3 cp --recursive s3://aws-codedeploy-ap-east-2 . --region ap-east-2
 ````
 
 - ```
-  aws s3 cp --recursive s3://aws-codedeploy-mx-central-1 . --region mx-central-1
+
   ```
+
+aws s3 cp --recursive s3://aws-codedeploy-mx-central-1 . --region mx-central-1
 
 ````
 * ```
@@ -416,8 +484,10 @@ aws s3 cp --recursive s3://aws-codedeploy-ap-south-1 . --region ap-south-1
 ````
 
 - ```
-  aws s3 cp --recursive s3://aws-codedeploy-sa-east-1 . --region sa-east-1
+
   ```
+
+aws s3 cp --recursive s3://aws-codedeploy-sa-east-1 . --region sa-east-1
 
 ```
 

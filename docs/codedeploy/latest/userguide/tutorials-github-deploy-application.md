@@ -54,7 +54,7 @@ repository:
      the target repository and GitHub user or organization name.
 
 8. In the **Commit ID** box, enter the ID of the commit associated
-   with the push of your application revision to GitHub.
+with the push of your application revision to GitHub.
 
 If you are unsure of the value to enter:
 
@@ -104,58 +104,55 @@ CodeDeploy permission to interact with GitHub on behalf of your GitHub user acco
      account**, and then choose **Connect to GitHub**.
      Continue to step 8.
 
-8.  Follow the instructions on the **Sign in** page to sign in with
-    your GitHub user name or email and password.
-9.  On the **Authorize application** page, choose **Authorize
-    application**.
-10. On the CodeDeploy **Create deployment** page, choose
-    **Cancel**.
-11. Call the **create-deployment** command to deploy the revision from
-    your GitHub repository to the instance, where:
+8. Follow the instructions on the **Sign in** page to sign in with
+your GitHub user name or email and password. 9. On the **Authorize application** page, choose **Authorize
+application**. 10. On the CodeDeploy **Create deployment** page, choose
+**Cancel**. 11. Call the **create-deployment** command to deploy the revision from
+your GitHub repository to the instance, where:
 
-        * `repository` is your GitHub account name, followed by a
-         forward-slash (`/`), followed by the name of your repository
-         (`CodeDeployGitHubDemo`), for example,
-         `MyGitHubUserName/CodeDeployGitHubDemo`.
+    * `repository` is your GitHub account name, followed by a
+     forward-slash (`/`), followed by the name of your repository
+     (`CodeDeployGitHubDemo`), for example,
+     `MyGitHubUserName/CodeDeployGitHubDemo`.
 
 
-        If you are unsure of the value to use, or if you want to specify a different
-         repository:
+    If you are unsure of the value to use, or if you want to specify a different
+     repository:
 
 
 
-        	1. In a separate web browser tab, go to your [GitHub dashboard](https://github.com/dashboard "https://github.com/dashboard").
-        	2. In **Your repositories**, hover your mouse pointer over the
-        	 target repository name. A tooltip appears, displaying the GitHub user or
-        	 organization name, followed by a forward slash (`/`), followed by the
-        	 name of the repository. This is the value to use.
+    	1. In a separate web browser tab, go to your [GitHub dashboard](https://github.com/dashboard "https://github.com/dashboard").
+    	2. In **Your repositories**, hover your mouse pointer over the
+    	 target repository name. A tooltip appears, displaying the GitHub user or
+    	 organization name, followed by a forward slash (`/`), followed by the
+    	 name of the repository. This is the value to use.
 
 
-        	###### Note
+    	###### Note
 
-        	If the target repository name does not appear in **Your
-        	 repositories**, use the **Search GitHub** box to
-        	 find the target repository and corresponding GitHub user or organization
-        	 name.
-        * `commit-id` is the commit associated with the version
-         of the application revision you pushed to your repository (for example,
-         `f835159a...528eb76f`).
-
-
-        If you are unsure of the value to use:
+    	If the target repository name does not appear in **Your
+    	 repositories**, use the **Search GitHub** box to
+    	 find the target repository and corresponding GitHub user or organization
+    	 name.
+    * `commit-id` is the commit associated with the version
+     of the application revision you pushed to your repository (for example,
+     `f835159a...528eb76f`).
 
 
+    If you are unsure of the value to use:
 
-        	1. In a separate web browser tab, go to your [GitHub dashboard](https://github.com/dashboard "https://github.com/dashboard").
-        	2. In **Your repositories**, choose
-        	 **CodeDeployGitHubDemo**.
-        	3. In the list of commits, find the commit ID associated with the push of your
-        	 application revision to GitHub. This ID is typically 40 characters in length and
-        	 consists of both letters and numbers. (Do not use the shorter version of the
-        	 commit ID, which is typically the first 10 characters of the longer version.)
-        	 Use this value.
 
-    If you are working on a local Linux, macOS, or Unix machine:
+
+    	1. In a separate web browser tab, go to your [GitHub dashboard](https://github.com/dashboard "https://github.com/dashboard").
+    	2. In **Your repositories**, choose
+    	 **CodeDeployGitHubDemo**.
+    	3. In the list of commits, find the commit ID associated with the push of your
+    	 application revision to GitHub. This ID is typically 40 characters in length and
+    	 consists of both letters and numbers. (Do not use the shorter version of the
+    	 commit ID, which is typically the first 10 characters of the longer version.)
+    	 Use this value.
+
+If you are working on a local Linux, macOS, or Unix machine:
 
 ```
 aws deploy create-deployment \

@@ -19,7 +19,7 @@ about an application revision stored in an Amazon S3 bucket.
 
    - If the **Link** field value ends in
      `?versionId=`versionId``,
-add `&etag=` and the ETag to the end of the
+     add `&etag=` and the ETag to the end of the
      **Link** field value.
    - If the **Link** field value does not specify a
      version ID, add `?etag=` and the ETag to the

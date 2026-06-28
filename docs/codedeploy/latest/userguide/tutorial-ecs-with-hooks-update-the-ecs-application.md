@@ -17,6 +17,6 @@ definition. You create the new revision and add a minor update to it by adding a
 7. Choose the **JSON** tab. Make a note of the value for
    `taskDefinitionArn`. Its format is
    `arn:aws:ecs:`aws-region`:
-`account-id`:task-definition/`task-definition-family`:
-`task-definition-revision``. This is the ARN of your
+ `account-id`:task-definition/`task-definition-family`:
+ `task-definition-revision``. This is the ARN of your
    updated task definition.

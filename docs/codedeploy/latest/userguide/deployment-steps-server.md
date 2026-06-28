@@ -74,25 +74,21 @@ You can also specify the following options:
      deployment fails or an alarm threshold is met.
 
 3. Specify a deployment configuration to indicate to how many instances your
-   application revisions should be simultaneously deployed and to describe the success and
-   failure conditions for the deployment. For more information, see [View Deployment Configuration Details](deployment-configurations-view-details.md "deployment-configurations-view-details.md").
-4. Upload an application revision to Amazon S3 or GitHub. In addition to the files you want
-   to deploy and any scripts you want to run during the deployment, you must include an
-   _application specification file_ (AppSpec file). This file contains
-   deployment instructions, such as where to copy the files onto each instance and when to
-   run deployment scripts. For more information, see [Working with application revisions for CodeDeploy](application-revisions.md "application-revisions.md").
-5. Deploy your application revision to the deployment group. The CodeDeploy agent on each
-   instance in the deployment group copies your application revision from Amazon S3 or GitHub to
-   the instance. The CodeDeploy agent then unbundles the revision, and using the
-   AppSpec file, copies the files into the specified locations and executes any
-   deployment scripts. For more information, see [Create a deployment with CodeDeploy](deployments-create.md "deployments-create.md").
-6. Check the deployment results. For more information, see [Monitoring deployments in CodeDeploy](monitoring.md "monitoring.md").
-7. Redeploy a revision. You might want to do this if you need to fix a bug in the
-   source content, or run the deployment scripts in a different order, or address a failed
-   deployment. To do this, rebundle your revised source content, any deployment scripts,
-   and the AppSpec file into a new revision, and then upload the revision to the Amazon S3
-   bucket or GitHub repository. Then execute a new deployment to the same deployment group
-   with the new revision. For more information, see [Create a deployment with CodeDeploy](deployments-create.md "deployments-create.md").
+application revisions should be simultaneously deployed and to describe the success and
+failure conditions for the deployment. For more information, see [View Deployment Configuration Details](deployment-configurations-view-details.md "deployment-configurations-view-details.md"). 4. Upload an application revision to Amazon S3 or GitHub. In addition to the files you want
+to deploy and any scripts you want to run during the deployment, you must include an
+_application specification file_ (AppSpec file). This file contains
+deployment instructions, such as where to copy the files onto each instance and when to
+run deployment scripts. For more information, see [Working with application revisions for CodeDeploy](application-revisions.md "application-revisions.md"). 5. Deploy your application revision to the deployment group. The CodeDeploy agent on each
+instance in the deployment group copies your application revision from Amazon S3 or GitHub to
+the instance. The CodeDeploy agent then unbundles the revision, and using the
+AppSpec file, copies the files into the specified locations and executes any
+deployment scripts. For more information, see [Create a deployment with CodeDeploy](deployments-create.md "deployments-create.md"). 6. Check the deployment results. For more information, see [Monitoring deployments in CodeDeploy](monitoring.md "monitoring.md"). 7. Redeploy a revision. You might want to do this if you need to fix a bug in the
+source content, or run the deployment scripts in a different order, or address a failed
+deployment. To do this, rebundle your revised source content, any deployment scripts,
+and the AppSpec file into a new revision, and then upload the revision to the Amazon S3
+bucket or GitHub repository. Then execute a new deployment to the same deployment group
+with the new revision. For more information, see [Create a deployment with CodeDeploy](deployments-create.md "deployments-create.md").
 
 ## Setting up instances
 

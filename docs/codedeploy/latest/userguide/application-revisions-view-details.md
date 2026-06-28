@@ -34,7 +34,8 @@ choose **View details**.
 
 ## View application revision details (CLI)
 
-To use the AWS CLI to view an application revision, call either the \***\*get-application-revision\*\*** command or the \***\*list-application-revisions\*\***
+To use the AWS CLI to view an application revision, call either the ****get-application-revision**** command or the
+****list-application-revisions****
 command.
 
 ###### Note

@@ -96,7 +96,7 @@ Sign in to the AWS Management Console and open the CodeDeploy console at [https:
 ###### Note
 
 Sign in with the same user that you set up in [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md"). 3. In the navigation pane, expand **Deploy**, then choose **Applications**. 4. In the list of applications, choose
-**WordPress_App**. 5. On the **Deployment groups** tab, choose **Create
+**WordPress\_App**. 5. On the **Deployment groups** tab, choose **Create
 deployment group**. 6. In **Deployment group name**, enter
 `WordPress_DepGroup`. 7. Under **Deployment type**, choose **In-place
 deployment**. 8. In **Environment configuration**, select **Amazon EC2
@@ -135,13 +135,10 @@ To get the location:
      paste the **Link** field value.
 
 17. If a message appears in the **File type** list stating the file
-    type could not be detected, choose **.zip**.
-18. (Optional) Type a comment in the **Deployment description** box.
-19. Expand **Deployment group overrides**, and from
-    **Deployment configuration**, choose
-    **CodeDeployDefault.OneAtATime**.
-20. Choose **Start deployment**. Information about your newly created
-    deployment appears on the **Deployments** page.
+type could not be detected, choose **.zip**. 18. (Optional) Type a comment in the **Deployment description** box. 19. Expand **Deployment group overrides**, and from
+**Deployment configuration**, choose
+**CodeDeployDefault.OneAtATime**. 20. Choose **Start deployment**. Information about your newly created
+deployment appears on the **Deployments** page.
 
 ## Monitor and troubleshoot your deployment
 

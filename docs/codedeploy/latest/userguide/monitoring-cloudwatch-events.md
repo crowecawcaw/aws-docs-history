@@ -11,8 +11,8 @@ select the following types of targets when using CloudWatch Events as part of yo
 - Kinesis streams
 - Amazon SQS queues
 - Built-in targets (`EC2 CreateSnapshot API call`, `EC2 RebootInstances
-API call`, `EC2 StopInstances API call` , and `EC2
-TerminateInstances API call`)
+ API call`, `EC2 StopInstances API call` , and `EC2
+ TerminateInstances API call`)
 - Amazon SNS topics
   The following are some use cases:
 

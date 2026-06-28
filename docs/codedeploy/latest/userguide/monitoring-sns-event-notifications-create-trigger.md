@@ -233,18 +233,17 @@ parameter values in a plain-text editor.
 aws deploy get-deployment-group --application-name `application` --deployment-group-name `deployment-group`
 ```
 
-2.  Delete the following from the output:
+2. Delete the following from the output:
 
-        * At the beginning of the output, delete `{
-         "deploymentGroupInfo":`.
-        * At the end of the output, delete `}`.
-        * Delete the row containing
-         `deploymentGroupId`.
-        * Delete the row containing
-         `deploymentGroupName`.
-
-    The contents of your text file should now look similar to the
-    following:
+   - At the beginning of the output, delete `{
+  "deploymentGroupInfo":`.
+   - At the end of the output, delete `}`.
+   - Delete the row containing
+     `deploymentGroupId`.
+   - Delete the row containing
+     `deploymentGroupName`.
+     The contents of your text file should now look similar to the
+     following:
 
 ```
 {

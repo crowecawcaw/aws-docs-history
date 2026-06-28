@@ -59,26 +59,26 @@ provide instances for your replacement environment:
 
 11. Depending on your choice in step 10, do one of the following:
 
-    - If you chose **Automatically copy Amazon EC2 Auto Scaling group**:
-      In **Amazon EC2 Auto Scaling group**, choose or enter the name of the
-      Amazon EC2 Auto Scaling group you want to use as a template for the Amazon EC2 Auto Scaling group for
-      the instances in your replacement environment. The number of currently
-      healthy instances in the Amazon EC2 Auto Scaling group you choose is created in your
-      replacement environment.
-    - If you chose **Manually provision instances**: Enable
-      **Amazon EC2 Auto Scaling groups**, **Amazon EC2
-      instances**, or both to specify instances to add to this
-      deployment group. Enter Amazon EC2 tag values or Amazon EC2 Auto Scaling group names to
-      identify the instances in your original environment (that is, the
-      instances you want to replace or that are running the current
-      application revision).
+    * If you chose **Automatically copy Amazon EC2 Auto Scaling group**:
+     In **Amazon EC2 Auto Scaling group**, choose or enter the name of the
+     Amazon EC2 Auto Scaling group you want to use as a template for the Amazon EC2 Auto Scaling group for
+     the instances in your replacement environment. The number of currently
+     healthy instances in the Amazon EC2 Auto Scaling group you choose is created in your
+     replacement environment.
+    * If you chose **Manually provision instances**: Enable
+     **Amazon EC2 Auto Scaling groups**, **Amazon EC2
+     instances**, or both to specify instances to add to this
+     deployment group. Enter Amazon EC2 tag values or Amazon EC2 Auto Scaling group names to
+     identify the instances in your original environment (that is, the
+     instances you want to replace or that are running the current
+     application revision).
 
 12. In **Load balancer**, select **Enable load
-    balancing**, and then from the lists, select the Classic Load Balancers, Application Load Balancer
-    target groups, and Network Load Balancer target groups that you want to register your
-    replacement Amazon EC2 instances with. Each replacement instance will be registered
-    with _all_ the selected Classic Load Balancers and target groups. You can
-    select up to 10 Classic Load Balancers and 10 target groups, for a total of 20 items.
+balancing**, and then from the lists, select the Classic Load Balancers, Application Load Balancer
+target groups, and Network Load Balancer target groups that you want to register your
+replacement Amazon EC2 instances with. Each replacement instance will be registered
+with _all_ the selected Classic Load Balancers and target groups. You can
+select up to 10 Classic Load Balancers and 10 target groups, for a total of 20 items.
 
 Traffic will be rerouted from the original to the replacement instances
 according to your chosen **Traffic rerouting** and

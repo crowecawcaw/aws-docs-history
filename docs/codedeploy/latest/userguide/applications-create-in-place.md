@@ -87,16 +87,15 @@ following:
      group, see [Tagging Instances for Deployments](instances-tagging.md "instances-tagging.md").
 
 12. In **Deployment settings**, choose a deployment configuration
-    to control the rate your application is deployed to instances, such as one at a
-    time or all at once. For more information about deployment configurations, see
-    [Working with deployment configurations in CodeDeploy](deployment-configurations.md "deployment-configurations.md").
-13. (Optional) In **Load balancer**, select **Enable load
-    balancing**, and then from the lists, select the Classic Load Balancers, Application Load Balancer
-    target groups, and Network Load Balancer target groups to manage traffic to the instances during
-    the CodeDeploy deployment. You can select up to 10 Classic Load Balancers and 10 target groups, for a
-    total of 20 items. Make sure that the Amazon EC2 instances that you want to deploy to
-    are registered with the selected load balancers (Classic Load Balancers) or target groups (Application Load Balancers and
-    Network Load Balancers).
+to control the rate your application is deployed to instances, such as one at a
+time or all at once. For more information about deployment configurations, see
+[Working with deployment configurations in CodeDeploy](deployment-configurations.md "deployment-configurations.md"). 13. (Optional) In **Load balancer**, select **Enable load
+balancing**, and then from the lists, select the Classic Load Balancers, Application Load Balancer
+target groups, and Network Load Balancer target groups to manage traffic to the instances during
+the CodeDeploy deployment. You can select up to 10 Classic Load Balancers and 10 target groups, for a
+total of 20 items. Make sure that the Amazon EC2 instances that you want to deploy to
+are registered with the selected load balancers (Classic Load Balancers) or target groups (Application Load Balancers and
+Network Load Balancers).
 
 During a deployment, the original instances are deregistered from the selected
 load balancers and target groups to prevent traffic from being routed

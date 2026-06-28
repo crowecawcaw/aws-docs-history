@@ -92,32 +92,31 @@ access to your target instance. 7. In **Deployment type**, choose
      group, see [Tagging Instances for Deployments](instances-tagging.md "instances-tagging.md").
 
 9. In **Agent configuration with Systems Manager**, specify how you would
-   like to install and update the CodeDeploy agent on the instances in your deployment
-   group. For more information on the CodeDeploy agent, see [Working with the CodeDeploy agent](../../../en_us/codedeploy/latest/userguide/codedeploy-agent.md "../../../en_us/codedeploy/latest/userguide/codedeploy-agent.md"). For more information about
-   Systems Manager, see [What is Systems Manager?](../../../systems-manager/latest/userguide/what-is-systems-manager.md "../../../systems-manager/latest/userguide/what-is-systems-manager.md")
+like to install and update the CodeDeploy agent on the instances in your deployment
+group. For more information on the CodeDeploy agent, see [Working with the CodeDeploy agent](../../../en_us/codedeploy/latest/userguide/codedeploy-agent.md "../../../en_us/codedeploy/latest/userguide/codedeploy-agent.md"). For more information about
+Systems Manager, see [What is Systems Manager?](../../../systems-manager/latest/userguide/what-is-systems-manager.md "../../../systems-manager/latest/userguide/what-is-systems-manager.md")
 
-   1. **Never**: Skip configuring the CodeDeploy installation
-      with Systems Manager. Instances must have the agent installed to be used in
-      deployments, so only choose this option if you will install the CodeDeploy
-      agent another way.
-   2. **Only once**: Systems Manager will install the CodeDeploy agent
-      once on every instance in your deployment group.
-   3. **Now and schedule updates**: Systems Manager will create an
-      association with State Manager that installs the CodeDeploy agent on the
-      schedule you configure. For more information about State Manager and
-      associations, see [About State Manager](../../../systems-manager/latest/userguide/sysman-state-about.md "../../../systems-manager/latest/userguide/sysman-state-about.md").
+    1. **Never**: Skip configuring the CodeDeploy installation
+     with Systems Manager. Instances must have the agent installed to be used in
+     deployments, so only choose this option if you will install the CodeDeploy
+     agent another way.
+    2. **Only once**: Systems Manager will install the CodeDeploy agent
+     once on every instance in your deployment group.
+    3. **Now and schedule updates**: Systems Manager will create an
+     association with State Manager that installs the CodeDeploy agent on the
+     schedule you configure. For more information about State Manager and
+     associations, see [About State Manager](../../../systems-manager/latest/userguide/sysman-state-about.md "../../../systems-manager/latest/userguide/sysman-state-about.md").
 
 10. In **Deployment configuration**, choose a deployment
-    configuration to control the rate at which instances are deployed to, such as
-    one at a time or all at once. For more information about deployment
-    configurations, see [Working with deployment configurations in CodeDeploy](deployment-configurations.md "deployment-configurations.md").
-11. (Optional) In **Load balancer**, select **Enable load
-    balancing**, and then from the lists, select the Classic Load Balancers, Application Load Balancer
-    target groups, and Network Load Balancer target groups to manage traffic to the instances during
-    the CodeDeploy deployment. You can select up to 10 Classic Load Balancers and 10 target groups, for a
-    total of 20 items. Make sure that the Amazon EC2 instances that you want to deploy to
-    are registered with the selected load balancers (Classic Load Balancers) or target groups
-    (Application Load Balancers and Network Load Balancers).
+configuration to control the rate at which instances are deployed to, such as
+one at a time or all at once. For more information about deployment
+configurations, see [Working with deployment configurations in CodeDeploy](deployment-configurations.md "deployment-configurations.md"). 11. (Optional) In **Load balancer**, select **Enable load
+balancing**, and then from the lists, select the Classic Load Balancers, Application Load Balancer
+target groups, and Network Load Balancer target groups to manage traffic to the instances during
+the CodeDeploy deployment. You can select up to 10 Classic Load Balancers and 10 target groups, for a
+total of 20 items. Make sure that the Amazon EC2 instances that you want to deploy to
+are registered with the selected load balancers (Classic Load Balancers) or target groups
+(Application Load Balancers and Network Load Balancers).
 
 During a deployment, the original instances are deregistered from the selected
 load balancers and target groups to prevent traffic from being routed to these

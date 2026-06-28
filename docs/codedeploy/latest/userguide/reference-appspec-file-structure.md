@@ -24,7 +24,7 @@ hooks:
 
 In this structure:
 
-\***\*version\*\***
+****version****
 
 This section specifies the version of the AppSpec file. Do not change this
 value. It is required. Currently, the only allowed value is
@@ -32,13 +32,13 @@ value. It is required. Currently, the only allowed value is
 
 Specify **version** with a string.
 
-\***\*resources\*\***
+****resources****
 
 This section specifies information about Amazon ECS application to deploy.
 
 For more information, see [AppSpec 'resources' section for Amazon ECS deployments](reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs "reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs").
 
-\***\*hooks\*\***
+****hooks****
 
 This section specifies Lambda functions to run at specific deployment lifecycle
 event hooks to validate the deployment.
@@ -63,7 +63,7 @@ hooks:
 
 In this structure:
 
-\***\*version\*\***
+****version****
 
 This section specifies the version of the AppSpec file. Do not change this
 value. It is required. Currently, the only allowed value is
@@ -71,13 +71,13 @@ value. It is required. Currently, the only allowed value is
 
 Specify **version** with a string.
 
-\***\*resources\*\***
+****resources****
 
 This section specifies information about the Lambda function to deploy.
 
 For more information, see [AppSpec 'resources' section (Amazon ECS and AWS Lambda deployments only)](reference-appspec-file-structure-resources.md "reference-appspec-file-structure-resources.md").
 
-\***\*hooks\*\***
+****hooks****
 
 This section specifies Lambda functions to run at specific deployment lifecycle
 events to validate the deployment.
@@ -99,7 +99,7 @@ hooks:
 
 In this structure:
 
-\***\*version\*\***
+****version****
 
 This section specifies the version of the AppSpec file. Do not change this
 value. It is required. Currently, the only allowed value is
@@ -107,7 +107,7 @@ value. It is required. Currently, the only allowed value is
 
 Specify **version** with a string.
 
-\***\*os\*\***
+****os****
 
 This section specifies the operating system value of the instance to which you
 deploy. It is required. The following values can be specified:
@@ -119,14 +119,14 @@ deploy. It is required. The following values can be specified:
 
 Specify **os** with a string.
 
-\***\*files\*\***
+****files****
 
 This section specifies the names of files that should be copied to the instance
 during the deployment's **Install** event.
 
 For more information, see [AppSpec 'files' section (EC2/On-Premises deployments only)](reference-appspec-file-structure-files.md "reference-appspec-file-structure-files.md").
 
-\***\*permissions\*\***
+****permissions****
 
 This section specifies how special permissions, if any, should be applied to the
 files in the `files` section as they are being copied over to the instance.
@@ -135,7 +135,7 @@ only.
 
 For more information see, [AppSpec 'permissions' section (EC2/On-Premises deployments only)](reference-appspec-file-structure-permissions.md "reference-appspec-file-structure-permissions.md").
 
-\***\*hooks\*\***
+****hooks****
 
 This section specifies scripts to run at specific deployment lifecycle events
 during the deployment.

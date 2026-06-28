@@ -5,22 +5,21 @@ the AWS CLI or the CodeDeploy console to get more information about on-premises 
 
 ###### To get information about multiple on-premises instances (CLI)
 
-1.  For a list of on-premises instance names, call the
-    [list-on-premises-instances](../../../cli/latest/reference/deploy/list-on-premises-instances.md "../../../cli/latest/reference/deploy/list-on-premises-instances.md") command, specifying:
+1. For a list of on-premises instance names, call the
+   [list-on-premises-instances](../../../cli/latest/reference/deploy/list-on-premises-instances.md "../../../cli/latest/reference/deploy/list-on-premises-instances.md") command, specifying:
 
-        * Whether to get information about all registered or deregistered on-premises
-         instances (with the `--registration-status` option and
-         `Registered` or `Deregistered`, respectively). If you omit
-         this, then both registered and deregistered on-premises instance names are
-         returned.
-        * Whether to get information only about on-premises instances tagged with specific
-         on-premises instance tags (with the `--tag-filters` option). For each
-         on-premises instance tag, specify the `Key`, `Value`, and
-         `Type` (which should always be `KEY_AND_VALUE`). Separate
-         multiple on-premises instance tags with spaces between each `Key`,
-         `Value`, and `Type` triplet.
-
-    For example:
+   - Whether to get information about all registered or deregistered on-premises
+     instances (with the `--registration-status` option and
+     `Registered` or `Deregistered`, respectively). If you omit
+     this, then both registered and deregistered on-premises instance names are
+     returned.
+   - Whether to get information only about on-premises instances tagged with specific
+     on-premises instance tags (with the `--tag-filters` option). For each
+     on-premises instance tag, specify the `Key`, `Value`, and
+     `Type` (which should always be `KEY_AND_VALUE`). Separate
+     multiple on-premises instance tags with spaces between each `Key`,
+     `Value`, and `Type` triplet.
+     For example:
 
 ```
 aws deploy list-on-premises-instances --registration-status Registered --tag-filters Key=Name,Value=CodeDeployDemo-OnPrem,Type=KEY_AND_VALUE Key=Name,Value=CodeDeployDemo-OnPrem-Beta,Type=KEY_AND_VALUE

@@ -189,46 +189,42 @@ identify the lifecycle hooks that must be deleted manually.
 If you receive a “Heartbeat Timeout” error message, you can determine if leftover
 lifecycle hooks are the cause and resolve the problem by doing the following:
 
-1.  Do one of the following:
+1. Do one of the following:
 
-        * Call the [delete-deployment-group](../../../cli/latest/reference/deploy/delete-deployment-group.md "../../../cli/latest/reference/deploy/delete-deployment-group.md") command to delete the deployment
-         group associated with the Auto Scaling group that is causing the heartbeat timeout.
-        * Call the [update-deployment-group](../../../cli/latest/reference/deploy/update-deployment-group.md "../../../cli/latest/reference/deploy/update-deployment-group.md") command with a non-null empty
-         list of Auto Scaling group names to detach all CodeDeploy-managed Auto Scaling lifecycle hooks.
+   - Call the [delete-deployment-group](../../../cli/latest/reference/deploy/delete-deployment-group.md "../../../cli/latest/reference/deploy/delete-deployment-group.md") command to delete the deployment
+     group associated with the Auto Scaling group that is causing the heartbeat timeout.
+   - Call the [update-deployment-group](../../../cli/latest/reference/deploy/update-deployment-group.md "../../../cli/latest/reference/deploy/update-deployment-group.md") command with a non-null empty
+     list of Auto Scaling group names to detach all CodeDeploy-managed Auto Scaling lifecycle hooks.
 
+   For example, enter the following AWS CLI command:
 
-        For example, enter the following AWS CLI command:
+   `aws deploy update-deployment-group --application-name my-example-app
+  --current-deployment-group-name my-deployment-group
+  --auto-scaling-groups`
 
+   As another example, if you are using the CodeDeploy API with Java, call
+   `UpdateDeploymentGroup` and set `autoScalingGroups` to
+   `new ArrayList<String>()`. This sets `autoScalingGroups`
+   to an empty list and removes the existing list. Do not use `null`, which
+   is the default, because this leaves `autoScalingGroups` as-is, which is
+   not what you want.
+   Examine the output of the call. If the output contains a
+   `hooksNotCleanedUp` structure with a list of Amazon EC2 Auto Scaling lifecycle hooks,
+   there are leftover lifecycle hooks.
 
-        `aws deploy update-deployment-group --application-name my-example-app
-         --current-deployment-group-name my-deployment-group
-         --auto-scaling-groups`
+2. Call the [describe-lifecycle-hooks](../../../cli/latest/reference/autoscaling/describe-lifecycle-hooks.md "../../../cli/latest/reference/autoscaling/describe-lifecycle-hooks.md") command, specifying the name of the Amazon EC2 Auto Scaling group
+   associated with the EC2 instances that failed to launch. In the output, look for
+   any of the following:
 
+   - Amazon EC2 Auto Scaling lifecycle hook names that correspond to the
+     `hooksNotCleanedUp` structure you identified in step 1.
+   - Amazon EC2 Auto Scaling lifecycle hook names that contain the name of the deployment group
+     associated with the Auto Scaling group that's failing.
+   - Amazon EC2 Auto Scaling lifecycle hook names that may have caused the heartbeat timeout for the
+     CodeDeploy deployment.
 
-        As another example, if you are using the CodeDeploy API with Java, call
-         `UpdateDeploymentGroup` and set `autoScalingGroups` to
-         `new ArrayList<String>()`. This sets `autoScalingGroups`
-         to an empty list and removes the existing list. Do not use `null`, which
-         is the default, because this leaves `autoScalingGroups` as-is, which is
-         not what you want.
-
-    Examine the output of the call. If the output contains a
-    `hooksNotCleanedUp` structure with a list of Amazon EC2 Auto Scaling lifecycle hooks,
-    there are leftover lifecycle hooks.
-
-2.  Call the [describe-lifecycle-hooks](../../../cli/latest/reference/autoscaling/describe-lifecycle-hooks.md "../../../cli/latest/reference/autoscaling/describe-lifecycle-hooks.md") command, specifying the name of the Amazon EC2 Auto Scaling group
-    associated with the EC2 instances that failed to launch. In the output, look for
-    any of the following:
-
-    - Amazon EC2 Auto Scaling lifecycle hook names that correspond to the
-      `hooksNotCleanedUp` structure you identified in step 1.
-    - Amazon EC2 Auto Scaling lifecycle hook names that contain the name of the deployment group
-      associated with the Auto Scaling group that's failing.
-    - Amazon EC2 Auto Scaling lifecycle hook names that may have caused the heartbeat timeout for the
-      CodeDeploy deployment.
-
-3.  If a hook falls into one of the categories listed in step 2, call the [delete-lifecycle-hook](../../../cli/latest/reference/autoscaling/delete-lifecycle-hook.md "../../../cli/latest/reference/autoscaling/delete-lifecycle-hook.md") command to delete it. Specify the Amazon EC2 Auto Scaling group and
-    lifecycle hook in the call.
+3. If a hook falls into one of the categories listed in step 2, call the [delete-lifecycle-hook](../../../cli/latest/reference/autoscaling/delete-lifecycle-hook.md "../../../cli/latest/reference/autoscaling/delete-lifecycle-hook.md") command to delete it. Specify the Amazon EC2 Auto Scaling group and
+   lifecycle hook in the call.
 
 ###### Important
 
@@ -427,7 +423,7 @@ After running this command, the following occurs:
      `InService` state. The new instance does not include software.
 
 5. Wait for the EC2 instance to enter the `InService` state. To
-   verify its state, use the following command:
+verify its state, use the following command:
 
 `aws autoscaling describe-auto-scaling-groups --auto-scaling-group-names
  `ASG_NAME` --query
@@ -449,7 +445,7 @@ After running this command, the following occurs:
     2. CodeDeploy reregisters the Auto Scaling group with the deployment group.
 
 7. Create a fleet-wide deployment with the Amazon S3 or GitHub revision that you know is
-   healthy and want to use.
+healthy and want to use.
 
 For example, if the revision is a .zip file in an Amazon S3 bucket called
 `my-revision-bucket` with an object key of `httpd_app.zip`,
@@ -543,38 +539,38 @@ with the instance is not sending traffic to this host without software.
     	 software.
 
 5. Wait for the EC2 instance to enter the `InService` state. To
-   verify its state:
+verify its state:
 
-   1. Open the Amazon EC2 console at
-      [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-   2. In the navigation pane, choose **Auto Scaling Groups**.
-   3. Choose your Auto Scaling group.
-   4. In the content pane, choose the **Instance Management**
-      tab.
-   5. Under **Instances**, make sure that the
-      **Lifecycle** column indicates **InService**
-      next to the instance.
+    1. Open the Amazon EC2 console at
+     [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+    2. In the navigation pane, choose **Auto Scaling Groups**.
+    3. Choose your Auto Scaling group.
+    4. In the content pane, choose the **Instance Management**
+     tab.
+    5. Under **Instances**, make sure that the
+     **Lifecycle** column indicates **InService**
+     next to the instance.
 
 6. Re-register the Auto Scaling group with the CodeDeploy deployment group using the same method you
-   used to remove it:
+used to remove it:
 
-   1. Open the CodeDeploy console at
-      [https://console.aws.amazon.com/codedeploy/](https://console.aws.amazon.com/codedeploy/ "https://console.aws.amazon.com/codedeploy/").
-   2. Choose the appropriate Region.
-   3. In the navigation pane, choose **Applications**.
-   4. Choose the name of your CodeDeploy application.
-   5. Choose the name of your CodeDeploy deployment group.
-   6. Choose **Edit**.
-   7. In **Environment configuration**, select **Amazon EC2 Auto Scaling
-      groups** and select your Auto Scaling group from the list.
-   8. Under **Amazon EC2 instances** or **On-premises
-      instances**, find the tag you added and remove it.
-   9. Deselect the check box next to **Amazon EC2 instances** or
-      **On-premises instances**.
-   10. Choose **Save changes**.This configuration re-installs the lifecycle hook into the Auto Scaling group.
+    1. Open the CodeDeploy console at
+     [https://console.aws.amazon.com/codedeploy/](https://console.aws.amazon.com/codedeploy/ "https://console.aws.amazon.com/codedeploy/").
+    2. Choose the appropriate Region.
+    3. In the navigation pane, choose **Applications**.
+    4. Choose the name of your CodeDeploy application.
+    5. Choose the name of your CodeDeploy deployment group.
+    6. Choose **Edit**.
+    7. In **Environment configuration**, select **Amazon EC2 Auto Scaling
+     groups** and select your Auto Scaling group from the list.
+    8. Under **Amazon EC2 instances** or **On-premises
+     instances**, find the tag you added and remove it.
+    9. Deselect the check box next to **Amazon EC2 instances** or
+     **On-premises instances**.
+    10. Choose **Save changes**.This configuration re-installs the lifecycle hook into the Auto Scaling group.
 
 7. Create a fleet-wide deployment with the Amazon S3 or GitHub revision that you know is
-   healthy and want to use.
+healthy and want to use.
 
 For example, if the revision is a .zip file in an Amazon S3 bucket called
 `my-revision-bucket` with an object key of

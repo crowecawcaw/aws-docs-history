@@ -37,113 +37,131 @@ following:
     * **AWS Lambda**
     * **Amazon ECS**
 
-6.  Do one of the following:
+6. Do one of the following:
 
-    - If you chose **EC2/On-premises**:
+    * If you chose **EC2/On-premises**:
 
-      1. Under **Minimum healthy hosts**, specify the
-         number or percentage of instances that must remain available at
-         any time during a deployment. For more information about how
-         CodeDeploy monitors and evaluates instance health during a
-         deployment, see [Instance Health](instances-health.md "instances-health.md").
-      2. (Optional) Under **Zonal configuration**,
-         select **Enable zonal configuration** to have
-         CodeDeploy deploy your application to one [Availability Zone](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#concepts-availability-zones "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#concepts-availability-zones") at a time, within an AWS
-         Region. By deploying to one Availability Zone at a time, you can
-         expose your deployment to a progressively larger audience as
-         confidence in the deployment's performance and viability grows.
-         If you don't enable a zonal configuration, CodeDeploy deploys your
-         application to a random selection of hosts across a
-         Region.
 
-      If you enable the zonal configuration feature, note the
-      following:
 
-          + The zonal configuration feature is only supported with
-           in-place deployments to Amazon EC2 instances. (Blue/green
-           deployments and on-premises instances are not
-           supported.) For more information about in-place
-           deployments, see [Deployment type](primary-components.md#primary-components-deployment-type "primary-components.md#primary-components-deployment-type").
-          + The zonal configuration feature is not supported with
-           [predefined deployment configurations](deployment-configurations.md#deployment-configurations-predefined "deployment-configurations.md#deployment-configurations-predefined"). To use
-           a zonal configuration, you must create a custom
-           deployment configuration, as described here.
-          + If CodeDeploy needs to roll back a deployment, CodeDeploy will
-           perform the rollback operations on random hosts. (CodeDeploy
-           will not roll back one zone at a time, as you might
-           expect.) This rollback behavior was chosen for
-           performance reasons. For more information about
-           rollbacks, see [Redeploy and roll back a deployment with CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
-      3. If you selected the **Enable zonal
-         configuration** check box, optionally specify the
-         following options:
 
-         - (Optional) In **Monitor duration**,
-           specify the period of time, in seconds, that CodeDeploy must
-           wait after completing a deployment to an Availability
-           Zone. CodeDeploy will wait this amount of time before
-           starting a deployment to the next Availability Zone.
-           Consider adding a monitor duration to give the
-           deployment some time to prove itself (or 'bake') in one
-           Availability Zone before it is released in the next
-           zone. If you don't specify a monitor duration, then
-           CodeDeploy starts deploying to the next Availability Zone
-           immediately. For more information about how the
-           **Monitor duration** setting works,
-           see [About the minimum number of healthy instances per Availability Zone](instances-health.md#minimum-healthy-hosts-az "instances-health.md#minimum-healthy-hosts-az").
-         - (Optional) Select **Add a monitor duration for
-           the first zone** to set a monitor duration
-           that only applies to the first Availability Zone. You
-           might set this option if you want to allow extra bake
-           time for the first Availability Zone. If you don't
-           specify a value in **Add a first zone monitor
-           duration**, then CodeDeploy uses the
-           **Monitor duration** value for the
-           first Availability Zone.
-         - (Optional) Under **Minimum healthy hosts per
-           zone**, specify the number or percentage of
-           instances that must remain available per Availability
-           Zone during a deployment. Choose
-           **FLEET_PERCENT** to specify a
-           percentage, or **HOST_COUNT** to
-           specify a number. This field works in conjunction with
-           the **Minimum healthy hosts** field.
-           For more information, see [About the minimum number of healthy instances per Availability Zone](instances-health.md#minimum-healthy-hosts-az "instances-health.md#minimum-healthy-hosts-az").
+    	1. Under **Minimum healthy hosts**, specify the
+    	 number or percentage of instances that must remain available at
+    	 any time during a deployment. For more information about how
+    	 CodeDeploy monitors and evaluates instance health during a
+    	 deployment, see [Instance Health](instances-health.md "instances-health.md").
+    	2. (Optional) Under **Zonal configuration**,
+    	 select **Enable zonal configuration** to have
+    	 CodeDeploy deploy your application to one [Availability Zone](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#concepts-availability-zones "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md#concepts-availability-zones") at a time, within an AWS
+    	 Region. By deploying to one Availability Zone at a time, you can
+    	 expose your deployment to a progressively larger audience as
+    	 confidence in the deployment's performance and viability grows.
+    	 If you don't enable a zonal configuration, CodeDeploy deploys your
+    	 application to a random selection of hosts across a
+    	 Region.
 
-         If you don't specify a value under **Minimum
-         healthy hosts per zone**, then CodeDeploy uses a
-         default value of `0` percent.
 
-    - If you chose **AWS Lambda** or
-      **Amazon ECS**:
+    	If you enable the zonal configuration feature, note the
+    	 following:
 
-      1. For **Type**, choose
-         **Linear** or
-         **Canary**.
-      2. In the **Step** and
-         **Interval** fields, do one of the
-         following:
 
-         - If you chose **Canary**, for
-           **Step**, enter a percentage of
-           traffic, between 1 and 99, to be shifted. This is the
-           percentage of traffic that is shifted in the first
-           increment. The remaining traffic is shifted after the
-           selected interval in the second increment.
 
-         For **Interval**, enter the number of
-         minutes between the first and second traffic
-         shift.
-         - If you chose **Linear**, for
-           **Step**, enter a percentage of
-           traffic, between 1 and 99, to be shifted. This is the
-           percentage of traffic that is shifted at the start of
-           each interval.
 
-         For **Interval**, enter the number of
-         minutes between each incremental shift.
+    		+ The zonal configuration feature is only supported with
+    		 in-place deployments to Amazon EC2 instances. (Blue/green
+    		 deployments and on-premises instances are not
+    		 supported.) For more information about in-place
+    		 deployments, see [Deployment type](primary-components.md#primary-components-deployment-type "primary-components.md#primary-components-deployment-type").
+    		+ The zonal configuration feature is not supported with
+    		 [predefined deployment configurations](deployment-configurations.md#deployment-configurations-predefined "deployment-configurations.md#deployment-configurations-predefined"). To use
+    		 a zonal configuration, you must create a custom
+    		 deployment configuration, as described here.
+    		+ If CodeDeploy needs to roll back a deployment, CodeDeploy will
+    		 perform the rollback operations on random hosts. (CodeDeploy
+    		 will not roll back one zone at a time, as you might
+    		 expect.) This rollback behavior was chosen for
+    		 performance reasons. For more information about
+    		 rollbacks, see [Redeploy and roll back a deployment with CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
+    	3. If you selected the **Enable zonal
+    	 configuration** check box, optionally specify the
+    	 following options:
 
-7.  Choose **Create deployment configuration**.
+
+
+
+    		+ (Optional) In **Monitor duration**,
+    		 specify the period of time, in seconds, that CodeDeploy must
+    		 wait after completing a deployment to an Availability
+    		 Zone. CodeDeploy will wait this amount of time before
+    		 starting a deployment to the next Availability Zone.
+    		 Consider adding a monitor duration to give the
+    		 deployment some time to prove itself (or 'bake') in one
+    		 Availability Zone before it is released in the next
+    		 zone. If you don't specify a monitor duration, then
+    		 CodeDeploy starts deploying to the next Availability Zone
+    		 immediately. For more information about how the
+    		 **Monitor duration** setting works,
+    		 see [About the minimum number of healthy instances per Availability Zone](instances-health.md#minimum-healthy-hosts-az "instances-health.md#minimum-healthy-hosts-az").
+    		+ (Optional) Select **Add a monitor duration for
+    		 the first zone** to set a monitor duration
+    		 that only applies to the first Availability Zone. You
+    		 might set this option if you want to allow extra bake
+    		 time for the first Availability Zone. If you don't
+    		 specify a value in **Add a first zone monitor
+    		 duration**, then CodeDeploy uses the
+    		 **Monitor duration** value for the
+    		 first Availability Zone.
+    		+ (Optional) Under **Minimum healthy hosts per
+    		 zone**, specify the number or percentage of
+    		 instances that must remain available per Availability
+    		 Zone during a deployment. Choose
+    		 **FLEET\_PERCENT** to specify a
+    		 percentage, or **HOST\_COUNT** to
+    		 specify a number. This field works in conjunction with
+    		 the **Minimum healthy hosts** field.
+    		 For more information, see [About the minimum number of healthy instances per Availability Zone](instances-health.md#minimum-healthy-hosts-az "instances-health.md#minimum-healthy-hosts-az").
+
+
+    		If you don't specify a value under **Minimum
+    		 healthy hosts per zone**, then CodeDeploy uses a
+    		 default value of `0` percent.
+    * If you chose **AWS Lambda** or
+     **Amazon ECS**:
+
+
+
+
+    	1. For **Type**, choose
+    	 **Linear** or
+    	 **Canary**.
+    	2. In the **Step** and
+    	 **Interval** fields, do one of the
+    	 following:
+
+
+
+
+    		+ If you chose **Canary**, for
+    		 **Step**, enter a percentage of
+    		 traffic, between 1 and 99, to be shifted. This is the
+    		 percentage of traffic that is shifted in the first
+    		 increment. The remaining traffic is shifted after the
+    		 selected interval in the second increment.
+
+
+    		For **Interval**, enter the number of
+    		 minutes between the first and second traffic
+    		 shift.
+    		+ If you chose **Linear**, for
+    		 **Step**, enter a percentage of
+    		 traffic, between 1 and 99, to be shifted. This is the
+    		 percentage of traffic that is shifted at the start of
+    		 each interval.
+
+
+    		For **Interval**, enter the number of
+    		 minutes between each incremental shift.
+
+7. Choose **Create deployment configuration**.
 
 You now have a deployment configuration that you can associate with a
 deployment group.

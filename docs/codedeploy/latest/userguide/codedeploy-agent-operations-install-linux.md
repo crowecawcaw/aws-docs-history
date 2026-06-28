@@ -64,8 +64,10 @@ chmod +x ./install
 To install the latest version of the CodeDeploy agent:
 
 - ```
-  sudo ./install auto
+
   ```
+
+sudo ./install auto
 
 ```
 To install a specific version of the CodeDeploy agent:

@@ -82,7 +82,7 @@ Sign in to the AWS Management Console and open the CodeDeploy console at [https:
 
 ###### Note
 
-Sign in with the same user that you set up in [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md"). 3. In the navigation pane, expand **Deploy**, then choose **Applications**. 4. Choose **HelloWorld_App**. 5. On the **Deployment groups** tab, choose **Create
+Sign in with the same user that you set up in [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md"). 3. In the navigation pane, expand **Deploy**, then choose **Applications**. 4. Choose **HelloWorld\_App**. 5. On the **Deployment groups** tab, choose **Create
 deployment group**. 6. In **Deployment group name**, enter
 `HelloWorld_DepGroup`. 7. In **Service Role**, choose the name of the service role. 8. In **Deployment type**, choose
 **In-place**. 9. In **Environment configuration**, select **Amazon EC2
@@ -91,7 +91,7 @@ defaults. 11. In **Key**, enter `Name`. 12. In **Value**, enter
 `CodeDeployDemo`. 13. In **Deployment configuration**, choose
 **CodeDeployDefault.OneAtATime**. 14. In **Load Balancer**, clear **Enable load
 balancing**. 15. Choose **Create deployment group**. 16. Choose **Create deployment**. 17. In **Deployment group**, choose
-**HelloWorld_DepGroup** 18. In **Revision type**, choose **My application is stored in
+**HelloWorld\_DepGroup** 18. In **Revision type**, choose **My application is stored in
 Amazon S3**, and then in **Revision location**, enter the
 location of the sample Hello World application revision you previously uploaded to Amazon S3.
 To get the location:
@@ -107,10 +107,8 @@ To get the location:
     5. Return to the CodeDeploy console, and in **Revision Location**,
      paste the **Link** field value.
 
-19. For **Revision file type**, choose **.zip**.
-20. (Optional) Enter a comment in **Deployment description**.
-21. Choose **Create deployment**. Information about your newly created
-    deployment appears on the **Deployments** page.
+19. For **Revision file type**, choose **.zip**. 20. (Optional) Enter a comment in **Deployment description**. 21. Choose **Create deployment**. Information about your newly created
+deployment appears on the **Deployments** page.
 
 ## Monitor and troubleshoot your deployment
 

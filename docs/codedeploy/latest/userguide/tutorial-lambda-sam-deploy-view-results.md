@@ -76,8 +76,8 @@ validate your deployment. You can use the CloudWatch Logs console to view your v
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. From the navigation pane, choose **Logs**.
 3. From the list of log groups, choose
-   **/aws/lambda/CodeDeployHook_beforeAllowTraffic** or
-   **/aws/lambda/CodeDeployHook_afterAllowTraffic**.
+   **/aws/lambda/CodeDeployHook\_beforeAllowTraffic** or
+   **/aws/lambda/CodeDeployHook\_afterAllowTraffic**.
 4. Choose the log stream. You should see only one.
 5. Expand the events to see their details.
 

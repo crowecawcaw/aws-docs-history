@@ -19,10 +19,10 @@ functions.
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. From the navigation pane, choose **Logs**.
 3. From the list of log groups, choose the button next to
-   **/aws/lambda/CodeDeployHook_beforeAllowTraffic**.
+   **/aws/lambda/CodeDeployHook\_beforeAllowTraffic**.
 4. From **Actions**, choose **Delete log group**, and
    then choose **Yes, Delete**.
 5. From the list of log groups, choose the button next to
-   **/aws/lambda/CodeDeployHook_afterAllowTraffic**.
+   **/aws/lambda/CodeDeployHook\_afterAllowTraffic**.
 6. From **Actions**, choose **Delete log group**, and
    then choose **Yes, Delete**.

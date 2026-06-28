@@ -248,14 +248,12 @@ tag**.
      `CodeDeployDemo`.Choose **Next**.
 
 22. Review your Auto Scaling group information on the **Review**
-    page, then choose **Create Auto Scaling group**.
-23. In the navigation bar, with **Auto Scaling Groups** selected,
-    choose `CodeDeployDemo-AS-Group`, and then choose
-    the **Instance Management** tab. Do not proceed until the
-    value of **InService** appears in the
-    **Lifecycle** column and the value of
-    **Healthy** appears in the **Health
-    Status** column.
-24. Install the CodeDeploy agent by following the steps in [Install
-    the CodeDeploy agent](codedeploy-agent-operations-install.md "codedeploy-agent-operations-install.md") and using the `Name=CodeDeployDemo`
-    instance tags.
+page, then choose **Create Auto Scaling group**. 23. In the navigation bar, with **Auto Scaling Groups** selected,
+choose `CodeDeployDemo-AS-Group`, and then choose
+the **Instance Management** tab. Do not proceed until the
+value of **InService** appears in the
+**Lifecycle** column and the value of
+**Healthy** appears in the **Health
+Status** column. 24. Install the CodeDeploy agent by following the steps in [Install
+the CodeDeploy agent](codedeploy-agent-operations-install.md "codedeploy-agent-operations-install.md") and using the `Name=CodeDeployDemo`
+instance tags.

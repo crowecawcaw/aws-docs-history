@@ -199,7 +199,8 @@ instances that are stuck in a perpetual pending state.
 - Optionally, a set of on-premises instance tags (with the `--tags` option)
   that CodeDeploy will use to identify the set of Amazon EC2 instances to which to deploy. Specify
   each tag with
-  `Key=`tag-key`,Value=`tag-value``(for example,`Key=Name,Value=Beta Key=Name,Value=WestRegion`). If this option
+  `Key=`tag-key`,Value=`tag-value``
+  (for example, `Key=Name,Value=Beta Key=Name,Value=WestRegion`). If this option
   is not specified, no tags will be registered. To register tags later, call the
   [add-tags-to-on-premises-instances](../../../cli/latest/reference/deploy/add-tags-to-on-premises-instances.md "../../../cli/latest/reference/deploy/add-tags-to-on-premises-instances.md") command.
 - Optionally, the AWS region where the on-premises instance will be registered with

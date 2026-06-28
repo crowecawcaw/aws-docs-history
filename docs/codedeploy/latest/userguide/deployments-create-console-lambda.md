@@ -23,7 +23,7 @@ Sign in with the same user that you set up in [Getting started with CodeDeploy](
      **AWS Lambda**.
 
 3. On the **Deployments** tab, choose **Create
-   deployment**.
+deployment**.
 
 ###### Note
 
@@ -44,10 +44,9 @@ located:
      information about creating an AppSpec file, see [Add an application specification file to a revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md").
 
 6. (Optional) In **Deployment description**, enter a description
-   for this deployment.
-7. (Optional) Expand **Deployment group overrides** to choose a
-   deployment configuration to control how traffic is shifted to the Lambda function
-   version that is different from the one specified in the deployment group.
+for this deployment. 7. (Optional) Expand **Deployment group overrides** to choose a
+deployment configuration to control how traffic is shifted to the Lambda function
+version that is different from the one specified in the deployment group.
 
 For more information, see [Deployment configurations on an AWS Lambda compute platform](deployment-configurations.md#deployment-configuration-lambda "deployment-configurations.md#deployment-configuration-lambda"). 8. (Optional) In **Rollback configuration overrides**, you can
 specify different automatic rollback options for this deployment than were

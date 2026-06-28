@@ -39,17 +39,16 @@ Git.
 wget https://github.com/WordPress/WordPress/archive/master.zip
 ```
 
-2.  Call the **unzip**, **mkdir**, **cp**,
-    and **rm** commands to:
+2. Call the **unzip**, **mkdir**, **cp**,
+   and **rm** commands to:
 
-        * Unpack the `master` .zip file into the
-         `/tmp/WordPress_Temp` directory (folder).
-        * Copy its unzipped contents to the `/tmp/WordPress`
-         destination folder.
-        * Delete the temporary `/tmp/WordPress_Temp` folder
-         and `master` file.
-
-    Run the commands one at a time:
+   - Unpack the `master` .zip file into the
+     `/tmp/WordPress_Temp` directory (folder).
+   - Copy its unzipped contents to the `/tmp/WordPress`
+     destination folder.
+   - Delete the temporary `/tmp/WordPress_Temp` folder
+     and `master` file.
+     Run the commands one at a time:
 
 ```
 unzip master -d /tmp/WordPress_Temp

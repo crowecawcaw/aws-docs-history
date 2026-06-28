@@ -15,27 +15,26 @@ the code changes on the Amazon EC2 instance.
 To see the effects of the code change, finish setting up the WordPress site so that you
 have a fully functional installation.
 
-1.  Type your site's URL into your web browser. The URL is the public DNS address of the
-    Amazon EC2 instance plus a `/WordPress` extension. For this example WordPress site
-    (and example Amazon EC2 instance public DNS address), the URL is
-    `http://ec2-01-234-567-890.compute-1.amazonaws.com/WordPress`.
-2.  If you haven't set up the site yet, the WordPress default welcome page appears. Choose
-    **Let's go!**.
-3.  To use the default MySQL database, on the database configuration page, type the
-    following values:
+1. Type your site's URL into your web browser. The URL is the public DNS address of the
+   Amazon EC2 instance plus a `/WordPress` extension. For this example WordPress site
+   (and example Amazon EC2 instance public DNS address), the URL is
+   `http://ec2-01-234-567-890.compute-1.amazonaws.com/WordPress`.
+2. If you haven't set up the site yet, the WordPress default welcome page appears. Choose
+   **Let's go!**.
+3. To use the default MySQL database, on the database configuration page, type the
+   following values:
 
-        * **Database Name**: `test`
-        * **User Name**: `root`
-        * **Password**: Leave blank.
-        * **Database Host**:
-         `localhost`
-        * **Table Prefix**: `wp_`
+   - **Database Name**: `test`
+   - **User Name**: `root`
+   - **Password**: Leave blank.
+   - **Database Host**:
+     `localhost`
+   - **Table Prefix**: `wp_`
+     Choose **Submit** to set up the database.
 
-    Choose **Submit** to set up the database.
-
-4.  Continue the site setup. On the **Welcome** page, fill in any values
-    you want, and choose **Install WordPress**. When the installation is
-    complete, you can sign in to your dashboard.
+4. Continue the site setup. On the **Welcome** page, fill in any values
+   you want, and choose **Install WordPress**. When the installation is
+   complete, you can sign in to your dashboard.
 
 ###### Important
 
@@ -126,7 +125,7 @@ changed, congratulations! You have successfully modified and redeployed your sit
 ###### Note
 
 Sign in with the same user that you set up in [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md"). 2. In the navigation pane, expand **Deploy**, then choose **Applications**. 3. In the list of applications, choose
-**WordPress_App**. 4. On the **Deployment groups** tab, choose
+**WordPress\_App**. 4. On the **Deployment groups** tab, choose
 `WordPress_DepGroup`. 5. Choose **Create deployment**. 6. On the **Create deployment** page:
 
     1. In **Deployment group**, choose

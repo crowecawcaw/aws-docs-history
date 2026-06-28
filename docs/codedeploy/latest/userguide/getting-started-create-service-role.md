@@ -269,8 +269,8 @@ Do one of the following:
     Do not use a comma after the last endpoint in the list.
 
 2. From the same directory, call the **create-role** command to create a
-   service role named `CodeDeployServiceRole` based on the information
-   in the text file you just created:
+service role named `CodeDeployServiceRole` based on the information
+in the text file you just created:
 
 ```
 aws iam create-role --role-name CodeDeployServiceRole --assume-role-policy-document file://CodeDeployDemo-Trust.json

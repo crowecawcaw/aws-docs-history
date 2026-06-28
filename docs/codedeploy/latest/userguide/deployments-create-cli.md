@@ -2,27 +2,27 @@
 
 To use the AWS CLI to deploy a revision to the EC2/On-Premises compute platform:
 
-1.  After you have prepared the instances, created the application, and pushed the
-    revision, do one of the following:
+1. After you have prepared the instances, created the application, and pushed the
+   revision, do one of the following:
 
-    - If you want to deploy a revision from an Amazon S3 bucket, continue to step
-      2 now.
-    - If you want to deploy a revision from a GitHub repository, first
-      complete the steps in [Connect a CodeDeploy application to a GitHub repository](deployments-create-cli-github.md "deployments-create-cli-github.md"), and then continue
-      to step 2.
+   - If you want to deploy a revision from an Amazon S3 bucket, continue to step
+     2 now.
+   - If you want to deploy a revision from a GitHub repository, first
+     complete the steps in [Connect a CodeDeploy application to a GitHub repository](deployments-create-cli-github.md "deployments-create-cli-github.md"), and then continue
+     to step 2.
 
-2.  Call the [create-deployment](../../../cli/latest/reference/deploy/create-deployment.md "../../../cli/latest/reference/deploy/create-deployment.md") command, specifying:
+2. Call the [create-deployment](../../../cli/latest/reference/deploy/create-deployment.md "../../../cli/latest/reference/deploy/create-deployment.md") command, specifying:
 
-    - `--application-name`: An application name. To view a list
-      of application names, call the [list-applications](../../../cli/latest/reference/deploy/list-applications.md "../../../cli/latest/reference/deploy/list-applications.md")
-      command.
-    - `--deployment-group-name`: An Amazon EC2 deployment group name.
-      To view a list of deployment group names, call the
-      [list-deployment-groups](../../../cli/latest/reference/deploy/list-deployment-groups.md "../../../cli/latest/reference/deploy/list-deployment-groups.md") command.
-    - `--revision`: Information about the revision to be
-      deployed:
+   - `--application-name`: An application name. To view a list
+     of application names, call the [list-applications](../../../cli/latest/reference/deploy/list-applications.md "../../../cli/latest/reference/deploy/list-applications.md")
+     command.
+   - `--deployment-group-name`: An Amazon EC2 deployment group name.
+     To view a list of deployment group names, call the
+     [list-deployment-groups](../../../cli/latest/reference/deploy/list-deployment-groups.md "../../../cli/latest/reference/deploy/list-deployment-groups.md") command.
+   - `--revision`: Information about the revision to be
+     deployed:
 
-    For revisions stored in Amazon S3:
+   For revisions stored in Amazon S3:
 
         + `s3Location`: The Amazon S3 bucket name that contains
          the revision.
@@ -43,7 +43,7 @@ To use the AWS CLI to deploy a revision to the EC2/On-Premises compute platform:
          the revision. (If the ETag is not specified, CodeDeploy skips object
          validation.)
 
-    For revisions stored in GitHub:
+   For revisions stored in GitHub:
 
         + `gitHubLocation --> repository`: The GitHub user
          or group name assigned to the repository that contains the
@@ -51,28 +51,28 @@ To use the AWS CLI to deploy a revision to the EC2/On-Premises compute platform:
          by the repository name.
         + `gitHubLocation --> commitId`: The commit ID for
          the revision.
-    - `--deployment-config-name`: (Optional) The name of a
-      deployment configuration to use. To view a list of deployment
-      configurations, call the [list-deployment-configs](../../../cli/latest/reference/deploy/list-deployment-configs.md "../../../cli/latest/reference/deploy/list-deployment-configs.md") command.
-      (If not specified, CodeDeploy uses a specific default deployment
-      configuration.)
-    - `--ignore-application-stop-failures |
---no-ignore-application-stop-failures`: (Optional) Whether you
-      want the deployment to an instance to continue to the
-      `BeforeInstall` deployment lifecycle event if the
-      `ApplicationStop` deployment lifecycle event fails.
-    - `--description`: (Optional) A description for the
-      deployment.
-    - `--file-exists-behavior`: (Optional) As part of the
-      deployment process, the CodeDeploy agent removes from each instance all
-      the files installed by the most recent deployment. Choose what happens
-      when files that weren’t part of a previous deployment appear in target
-      deployment locations.
-    - `--target-instances`: For blue/green deployments,
-      information about the instances that belong to the replacement
-      environment in a blue/green deployment, including the names of one or
-      more Amazon EC2 Auto Scaling groups, or the tag filter key, type, and value used to
-      identify Amazon EC2 instances.
+   - `--deployment-config-name`: (Optional) The name of a
+     deployment configuration to use. To view a list of deployment
+     configurations, call the [list-deployment-configs](../../../cli/latest/reference/deploy/list-deployment-configs.md "../../../cli/latest/reference/deploy/list-deployment-configs.md") command.
+     (If not specified, CodeDeploy uses a specific default deployment
+     configuration.)
+   - `--ignore-application-stop-failures |
+  --no-ignore-application-stop-failures`: (Optional) Whether you
+     want the deployment to an instance to continue to the
+     `BeforeInstall` deployment lifecycle event if the
+     `ApplicationStop` deployment lifecycle event fails.
+   - `--description`: (Optional) A description for the
+     deployment.
+   - `--file-exists-behavior`: (Optional) As part of the
+     deployment process, the CodeDeploy agent removes from each instance all
+     the files installed by the most recent deployment. Choose what happens
+     when files that weren’t part of a previous deployment appear in target
+     deployment locations.
+   - `--target-instances`: For blue/green deployments,
+     information about the instances that belong to the replacement
+     environment in a blue/green deployment, including the names of one or
+     more Amazon EC2 Auto Scaling groups, or the tag filter key, type, and value used to
+     identify Amazon EC2 instances.
 
 ###### Note
 

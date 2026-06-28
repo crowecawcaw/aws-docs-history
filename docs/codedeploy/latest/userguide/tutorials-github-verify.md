@@ -24,8 +24,8 @@ the next step.
 4. If **Succeeded** appears in the **Status** column,
    you can now verify the deployment through your web browser. Our sample revision deploys a
    single web page to the instance. If you're deploying to an Amazon EC2 instance, in your web
-   browser, go to `http://`public-dns``for the instance
-(for example,`http://ec2-01-234-567-890.compute-1.amazonaws.com`).
+   browser, go to `http://`public-dns`` for the instance
+   (for example, `http://ec2-01-234-567-890.compute-1.amazonaws.com`).
 5. If you can see the web page, then congratulations! Now that you've successfully used
    AWS CodeDeploy to deploy a revision from GitHub, you can skip ahead to [Step 8: Clean up](tutorials-github-clean-up.md "tutorials-github-clean-up.md").
 
@@ -50,7 +50,8 @@ aws deploy get-deployment --deployment-id `deployment-id` --query "deploymentInf
 4. If **Succeeded** is returned, you can now try verifying the
    deployment through your web browser. Our sample revision is a single web page deployed to
    the instance. If you're deploying to an Amazon EC2 instance, you can view this page in your web
-   browser by going to `http://`public-dns``for the
-Amazon EC2 instance (for example,`http://ec2-01-234-567-890.compute-1.amazonaws.com`).
+   browser by going to `http://`public-dns`` for the
+   Amazon EC2 instance (for example,
+   `http://ec2-01-234-567-890.compute-1.amazonaws.com`).
 5. If you can see the web page, then congratulations! You have successfully used
    AWS CodeDeploy to deploy from your GitHub repository.
