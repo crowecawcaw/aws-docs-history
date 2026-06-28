@@ -86,7 +86,7 @@ At the prompts, provide the values as highlighted in the image:
 ![Deploys the custom idp solution using the AWS SAM template](images/aws-sam-template-deploy.png) 5. Open [AWS CloudFormation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"), and check the
 **Status** column for the **transfer-family-custom-idp-solution** stack.
 
-Successful status is CREATE_COMPLETE 6. Select the **stack** and review the **Outputs** tab. We will need this information in future
+Successful status is CREATE\_COMPLETE 6. Select the **stack** and review the **Outputs** tab. We will need this information in future
 tasks.
 In this task, you will create an AWS Transfer Family server which will use the custom IdP solution
 deployed in the previous task.
@@ -127,8 +127,8 @@ deployed in the previous task.
     	![Choosing an identity provider option 2](images/choose-an-identity-provider-option-2.png)
 
 4. At the **Choose an endpoint** screen, confirm
-   Endpoint configuration as **Publicly accessible,** then
-   choose **Next**.
+Endpoint configuration as **Publicly accessible,** then
+choose **Next**.
 
 ![Choosing an endpoint](images/choose-an-endpoint.png) 5. For **Choose a domain**, select the AWS Storage
 Service to use **Amazon S3** and choose **Next**.
@@ -179,17 +179,17 @@ See Step 3 for bucket name.
 
 ![Setting up policy permissions](images/set-role-permissions.png) 9. In the **Review and create** screen, provide the name of the
 policy as _transfer-family-custom-idp-user-policy_ and then choose
-**Create policy\***.* 10. In the navigation pane, choose Roles, then select on Create role. 11. Confirm that *AWS Service* is selected as **Trusted entity type** and select *Transfer\*
+**Create policy***.* 10. In the navigation pane, choose Roles, then select on Create role. 11. Confirm that _AWS Service_ is selected as **Trusted entity type** and select _Transfer_
 for **Use case** and choose **Next.**
 
 ![Setting up role permissions](images/select-trusted-entity.png) 12. In the Add Permissions screen, search and select
-_transfer-family-custom-idp-user-policy_ and choose **Next\***.\*
+_transfer-family-custom-idp-user-policy_ and choose **Next***.*
 
 ![Add permissions to the policy](images/add-permissions-the-role.png) 13. In the Name, review and create screen, provide the Role name as
 _transfer-family-custom-idp-user-role and_ select
-**Create role\***.* 14. Select the **View role** button to view the details
+**Create role***.* 14. Select the **View role** button to view the details
 of the IAM role and copy the ARN in your text editor. For example,
-*arn:aws:iam::ACCOUNTNUMBER:role/transfer-family-custom-idp-user-role\*.
+_arn:aws:iam::ACCOUNTNUMBER:role/transfer-family-custom-idp-user-role_.
 In this task, you will create an Amazon Cognito user pool and client which will be used as an IdP
 for AWS Transfer Family Server created in the previous task.
 
@@ -221,7 +221,7 @@ aws cognito-idp create-user-pool \
 ```
 
 2. Copy and save the **user pool id** (format:
-   region_xxxxxxxxxxxxx) from the command output.
+   region\_xxxxxxxxxxxxx) from the command output.
 
 ![Copy your user pool id](images/cloudshell-user-pool-id.png) 3. In the same command line, paste the following command with your newly created user
 pool id to create an Amazon Cognito user pool client for the user pool created above.
@@ -245,7 +245,7 @@ We will use the user pool ID and Client ID to configure the identity provider fo
 Transfer Family Server. 5. Paste the following commands to create a new user named John in the Cognito User Pool
 created above.
 
-Update USER_POOL_ID from previous step and choose a password of your choice.
+Update USER\_POOL\_ID from previous step and choose a password of your choice.
 
 Create a user named John:
 
@@ -265,7 +265,7 @@ configure Amazon Cognito as a custom identity provider for the AWS Transfer Fami
 
 1. Open [Amazon DynamoDB,](https://console.aws.amazon.com/dynamodbv2/ "https://console.aws.amazon.com/dynamodbv2/") choose
    **Tables** from the navigation on the left hand side, then select the
-   **transfer-family-custom-idp-solution_identity_providers**
+   **transfer-family-custom-idp-solution\_identity\_providers**
    table.
 
 ![Choose AWS Transfer Family table](images/amazon-dynamodb-console.png) 2. Select **Explore table items** and then select **Create
@@ -281,7 +281,7 @@ created in the previous task.
 { "provider": { "S": "CognitoIDP" }, "config": { "M": { "cognito_client_id": { "S": "`YOUR_OWN_CLIENT_ID`" } } }, "module": { "S": "cognito" }
 ```
 
-![Update the cognito_client_id in DynamoDB JSON](images/create-item-json-view.png) 4. Select **Create item**. 5. Now, select the **transfer-family-custom-idp-solution_users** table, then select
+![Update the cognito_client_id in DynamoDB JSON](images/create-item-json-view.png) 4. Select **Create item**. 5. Now, select the **transfer-family-custom-idp-solution\_users** table, then select
 **Create item**. 6. In the Create item screen, select JSON View, then paste the following into the
 record.
 
