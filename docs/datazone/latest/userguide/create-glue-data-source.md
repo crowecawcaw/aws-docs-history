@@ -76,9 +76,8 @@ source.
     * **Run on demand** – You can manually initiate
      data source runs.
 
-15. Choose **Next**.
-16. Review your data source configuration and choose
-    **Create**.
+15. Choose **Next**. 16. Review your data source configuration and choose
+**Create**.
 
 ###### Note
 

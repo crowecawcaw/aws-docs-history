@@ -54,64 +54,64 @@ minimum permissions.
 
 ###### Enable built-in blueprints in an Amazon DataZone domain
 
-1.  Navigate to the Amazon DataZone console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and sign in with your
-    account credentials.
-2.  Choose **View domains** and choose the domain where you want
-    to enable one or more built-in blueprints.
-3.  On the domain details page, navigate to the **Blueprints**
-    tab.
-4.  From the **Blueprints** list, choose either the
-    **DefaultDataLake** or the
-    **DefaultDataWarehouse**, or the **Amazon
-    SageMaker** blueprint.
-5.  On the chosen blueprint's details page, choose **Enable in this
-    account**.
-6.  On the Permissions and resources page, specify the following:
+1. Navigate to the Amazon DataZone console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and sign in with your
+   account credentials.
+2. Choose **View domains** and choose the domain where you want
+   to enable one or more built-in blueprints.
+3. On the domain details page, navigate to the **Blueprints**
+   tab.
+4. From the **Blueprints** list, choose either the
+   **DefaultDataLake** or the
+   **DefaultDataWarehouse**, or the **Amazon
+   SageMaker** blueprint.
+5. On the chosen blueprint's details page, choose **Enable in this
+   account**.
+6. On the Permissions and resources page, specify the following:
 
-    - If you're enabling the **DefaultDataLake** blueprint,
-      for **Glue Manage Access role**, specify a new or
-      existing service role that grants Amazon DataZone authorization to ingest and
-      manage access to tables in AWS Glue and AWS Lake Formation.
-    - If you're enabling the **DefaultDataWarehouse**
-      blueprint, for **Redshift Manage Access role**, specify
-      a new or existing service role that grants Amazon DataZone authorization to
-      ingest and manage access to datashares, tables and views in Amazon
-      Redshift.
-    - If you're enabling the **Amazon SageMaker**
-      blueprint, for **SageMaker Manage Access role**,
-      specify a new or existing service role that grants Amazon DataZone
-      permissions to publish Amazon SageMaker data to the catalog. It also
-      gives Amazon DataZone permissions to grant access or revoke access to Amazon
-      SageMaker published assets in the catalog.
+   - If you're enabling the **DefaultDataLake** blueprint,
+     for **Glue Manage Access role**, specify a new or
+     existing service role that grants Amazon DataZone authorization to ingest and
+     manage access to tables in AWS Glue and AWS Lake Formation.
+   - If you're enabling the **DefaultDataWarehouse**
+     blueprint, for **Redshift Manage Access role**, specify
+     a new or existing service role that grants Amazon DataZone authorization to
+     ingest and manage access to datashares, tables and views in Amazon
+     Redshift.
+   - If you're enabling the **Amazon SageMaker**
+     blueprint, for **SageMaker Manage Access role**,
+     specify a new or existing service role that grants Amazon DataZone
+     permissions to publish Amazon SageMaker data to the catalog. It also
+     gives Amazon DataZone permissions to grant access or revoke access to Amazon
+     SageMaker published assets in the catalog.
 
-    ###### Important
+   ###### Important
 
-    When you're enabling the **Amazon SageMaker**
-    blueprint, Amazon DataZone checks whether the following IAM roles for
-    Amazon DataZone exist in the current account and region. If these roles
-    do not exist, Amazon DataZone automatically creates them.
+   When you're enabling the **Amazon SageMaker**
+   blueprint, Amazon DataZone checks whether the following IAM roles for
+   Amazon DataZone exist in the current account and region. If these roles
+   do not exist, Amazon DataZone automatically creates them.
 
         + AmazonDataZoneGlueAccess-<region>-<domainId>
         + AmazonDataZoneRedshiftAccess-<region>-<domainId>
-    - For **Provisioning role**, specify a new or existing
-      service role that grants Amazon DataZone authorization to create and
-      configure environment resources using AWS CloudFormation in the
-      environment account and region.
-    - If you're enabling the **Amazon SageMaker**
-      blueprint, for the **Amazon S3 bucket for SageMaker-Glue data
-      source**, specify an Amazon S3 bucket that is to be used by
-      all SageMaker environments in the AWS account. The bucket prefix that
-      you specify must be one of the following:
+   - For **Provisioning role**, specify a new or existing
+     service role that grants Amazon DataZone authorization to create and
+     configure environment resources using AWS CloudFormation in the
+     environment account and region.
+   - If you're enabling the **Amazon SageMaker**
+     blueprint, for the **Amazon S3 bucket for SageMaker-Glue data
+     source**, specify an Amazon S3 bucket that is to be used by
+     all SageMaker environments in the AWS account. The bucket prefix that
+     you specify must be one of the following:
 
-      - amazon-datazone\*
-      - datazone-sagemaker\*
-      - sagemaker-datazone\*
-      - DataZone-Sagemaker\*
-      - Sagemaker-DataZone\*
-      - DataZone-SageMaker\*
-      - SageMaker-DataZone\*
+     - amazon-datazone\*
+     - datazone-sagemaker\*
+     - sagemaker-datazone\*
+     - DataZone-Sagemaker\*
+     - Sagemaker-DataZone\*
+     - DataZone-SageMaker\*
+     - SageMaker-DataZone\*
 
-7.  Choose **Enable blueprint**.
+7. Choose **Enable blueprint**.
 
 Once you enable the chosen blueprint(s), you can control which projects can use the
 blueprint(s) in your account to create environment profiles. You can do this by
@@ -166,7 +166,7 @@ credentials to the cluster.
    - Select the AWS secret ARN that holds the credentials to the selected
      Amazon Redshift cluster or the Amazon Redshift Serverless workgroup. The
      AWS secret must be tagged with the `AmazonDataZoneDomain :
-[Domain_ID]` tag in order to be eligible for use within a
+  [Domain_ID]` tag in order to be eligible for use within a
      parameter set.
 
      - If you do not have an existing AWS secret, you can also

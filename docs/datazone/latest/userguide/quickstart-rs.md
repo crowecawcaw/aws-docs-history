@@ -88,9 +88,9 @@ fields:
      domain**.
 
 3. Once the domain is successfully created, choose this domain, and on the domain's
-   summary page, note the **Data portal URL** for this domain. You can use
-   this URL to access your Amazon DataZone data portal in order to complete the rest of the
-   steps in this workflow.
+summary page, note the **Data portal URL** for this domain. You can use
+this URL to access your Amazon DataZone data portal in order to complete the rest of the
+steps in this workflow.
 
 ###### Note
 
@@ -117,26 +117,26 @@ workflow.
 The following section describes the steps of creating an environment in this
 workflow.
 
-1.  Once you complete Step 2, in the Amazon DataZone data portal, choose the
-    `SalesDataPublishingProject` project that you created in the previous step,
-    then choose the **Environments** tab, and then choose **Create
-    environment**.
-2.  On the **Create environment** page, specify the following and then
-    choose **Create environment**.
+1. Once you complete Step 2, in the Amazon DataZone data portal, choose the
+   `SalesDataPublishingProject` project that you created in the previous step,
+   then choose the **Environments** tab, and then choose **Create
+   environment**.
+2. On the **Create environment** page, specify the following and then
+   choose **Create environment**.
 
-    - **Name** - specify the name for the environment. For this
-      walkthrough, you can call it `Default data warehouse environment`.
-    - **Description** - specify a description for the
-      environment.
-    - **Environment profile** - choose the
-      **DataWarehouseProfile** environment profile.
-    - Provide the name of your Amazon Redshift cluster, database name, and the secret
-      ARN for the Amazon Redshift cluster where your data is stored.
+   - **Name** - specify the name for the environment. For this
+     walkthrough, you can call it `Default data warehouse environment`.
+   - **Description** - specify a description for the
+     environment.
+   - **Environment profile** - choose the
+     **DataWarehouseProfile** environment profile.
+   - Provide the name of your Amazon Redshift cluster, database name, and the secret
+     ARN for the Amazon Redshift cluster where your data is stored.
 
-    ###### Note
+   ###### Note
 
-    Make sure that your secret in AWS Secrets Manager includes the following
-    tags (key/value):
+   Make sure that your secret in AWS Secrets Manager includes the following
+   tags (key/value):
 
         + For Amazon Redshift cluster - datazone.rs.cluster:
          <cluster\_name:database name>
@@ -147,8 +147,8 @@ workflow.
         + AmazonDataZoneProject: <projectID>
         + AmazonDataZoneDomain: <domainID>For more information, see [Storing database credentials in AWS Secrets Manager](../../../redshift/latest/mgmt/data-api-access.md#data-api-secrets "../../../redshift/latest/mgmt/data-api-access.md#data-api-secrets").
 
-    The database user you provide in the AWS Secrets Manager must have super
-    user permissions.
+   The database user you provide in the AWS Secrets Manager must have super
+   user permissions.
 
 ## Step 4 - Produce data for publishing
 
@@ -182,7 +182,7 @@ UNION ALL SELECT 46781887, 24, 30.4, 54, 62, 13, 18, 29, 24, 52, 223, 4561
 
 ```
 
-Make sure that the **mkt_sls_table** table is successfully created.
+Make sure that the **mkt\_sls\_table** table is successfully created.
 Now you have a data asset that can be published into the Amazon DataZone catalog.
 
 ## Step 5 - Gather metadata from Amazon Redshift
@@ -235,26 +235,26 @@ this workflow.
 The following section describes the steps of creating an environment for data analysis
 in this workflow.
 
-1.  Once you complete Step 7, in the Amazon DataZone data portal, choose the
-    `MarketingDataAnalysisProject` project that you created in the previous
-    step, then choose the **Environments** tab, and then choose
-    **Add environment**.
-2.  On the **Create environment** page, specify the following and then
-    choose **Create environment**.
+1. Once you complete Step 7, in the Amazon DataZone data portal, choose the
+   `MarketingDataAnalysisProject` project that you created in the previous
+   step, then choose the **Environments** tab, and then choose
+   **Add environment**.
+2. On the **Create environment** page, specify the following and then
+   choose **Create environment**.
 
-    - **Name** - specify the name for the environment. For this
-      walkthrough, you can call it `Default data warehouse environment`.
-    - **Description** - specify a description for the
-      environment.
-    - **Environment profile** - choose
-      **DataWarehouseProfile** environment profile.
-    - Provide the name of your Amazon Redshift cluster, database name, and the secret
-      ARN for the Amazon Redshift cluster where your data is stored.
+   - **Name** - specify the name for the environment. For this
+     walkthrough, you can call it `Default data warehouse environment`.
+   - **Description** - specify a description for the
+     environment.
+   - **Environment profile** - choose
+     **DataWarehouseProfile** environment profile.
+   - Provide the name of your Amazon Redshift cluster, database name, and the secret
+     ARN for the Amazon Redshift cluster where your data is stored.
 
-    ###### Note
+   ###### Note
 
-    Make sure that your secret in AWS Secrets Manager includes the following
-    tags (key/value):
+   Make sure that your secret in AWS Secrets Manager includes the following
+   tags (key/value):
 
         + For Amazon Redshift cluster - datazone.rs.cluster:
          <cluster\_name:database name>
@@ -265,9 +265,9 @@ in this workflow.
         + AmazonDataZoneProject: <projectID>
         + AmazonDataZoneDomain: <domainID>For more information, see [Storing database credentials in AWS Secrets Manager](../../../redshift/latest/mgmt/data-api-access.md#data-api-secrets "../../../redshift/latest/mgmt/data-api-access.md#data-api-secrets").
 
-    The database user you provide in the AWS Secrets Manager must have super
-    user permissions.
-    - For this walkthrough, keep the rest of the fields unchanged.
+   The database user you provide in the AWS Secrets Manager must have super
+   user permissions.
+   - For this walkthrough, keep the rest of the fields unchanged.
 
 ## Step 9 - Search the data catalog and subscribe to data
 

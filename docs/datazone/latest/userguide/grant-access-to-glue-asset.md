@@ -36,10 +36,9 @@ following conditions must be met.
   to publish the AWS Glue Data Catalog table must have the following Lake
   Formation permissions:
 
-      + `DESCRIBE` and `DESCRIBE GRANTABLE` permissions
-       on the AWS Glue database that contains the published table.
-      + `DESCRIBE`, `SELECT`, `DESCRIBE
-       GRANTABLE`, `SELECT GRANTABLE` permissions in Lake
-       Formation on the published table itself.
-
-  For more information, see [Granting and revoking permissions on catalog resources](../../../lake-formation/latest/dg/granting-catalog-permissions.md "../../../lake-formation/latest/dg/granting-catalog-permissions.md") in the _AWS Lake Formation Developer Guide_.
+  - `DESCRIBE` and `DESCRIBE GRANTABLE` permissions
+    on the AWS Glue database that contains the published table.
+  - `DESCRIBE`, `SELECT`, `DESCRIBE
+   GRANTABLE`, `SELECT GRANTABLE` permissions in Lake
+    Formation on the published table itself.
+    For more information, see [Granting and revoking permissions on catalog resources](../../../lake-formation/latest/dg/granting-catalog-permissions.md "../../../lake-formation/latest/dg/granting-catalog-permissions.md") in the _AWS Lake Formation Developer Guide_.

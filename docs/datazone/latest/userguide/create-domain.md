@@ -35,7 +35,7 @@ Complete the following procedure to create an Amazon DataZone domain.
      Once the domain is created this name cannot be changed.
    - **Description** - (optional) specify a domain
      description.
-   - \***\*Data encryption\*\*** - your
+   - ****Data encryption**** - your
      Amazon DataZone domain, metadata, and reporting data is encrypted by the
      AWS Key Management Service (KMS) using a key specific to your
      Amazon DataZone. Use this field to specify whether you want to use an AWS

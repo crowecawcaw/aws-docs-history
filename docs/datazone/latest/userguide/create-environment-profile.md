@@ -10,29 +10,29 @@ environments.
 
 ###### To create an environment profile
 
-1.  Navigate to the Amazon DataZone data portal using the data portal URL and log in
-    using your SSO or AWS credentials. If you’re an Amazon DataZone administrator, you
-    can obtain the data portal URL by accessing the Amazon DataZone console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") in the AWS account where
-    the Amazon DataZone domain was created.
-2.  Within the data portal, choose **Browse projects** and select
-    the project in which you want to create the environment profile.
-3.  Navigate to the **Environments** tab within the project, then
-    choose **Create environment profile**.
-4.  Configure the following fields:
+1. Navigate to the Amazon DataZone data portal using the data portal URL and log in
+   using your SSO or AWS credentials. If you’re an Amazon DataZone administrator, you
+   can obtain the data portal URL by accessing the Amazon DataZone console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") in the AWS account where
+   the Amazon DataZone domain was created.
+2. Within the data portal, choose **Browse projects** and select
+   the project in which you want to create the environment profile.
+3. Navigate to the **Environments** tab within the project, then
+   choose **Create environment profile**.
+4. Configure the following fields:
 
-    - **Name** – The name for your environment
-      profile.
-    - **Description** – (Optional) A description for
-      your environment profile.
-    - **Owner Project** - The project where the profile is
-      being created is selected by default in this field.
-    - **Blueprint** – The blueprint for which this
-      profile is created. You can choose one of the default Amazon DataZone
-      blueprints (Data Lake or Data
-      Warehouse).
+   - **Name** – The name for your environment
+     profile.
+   - **Description** – (Optional) A description for
+     your environment profile.
+   - **Owner Project** - The project where the profile is
+     being created is selected by default in this field.
+   - **Blueprint** – The blueprint for which this
+     profile is created. You can choose one of the default Amazon DataZone
+     blueprints (Data Lake or Data
+     Warehouse).
 
-    If you specified the Data Warehouse blueprint, do the
-    following:
+   If you specified the Data Warehouse blueprint, do the
+   following:
 
         + Provide a parameter set. To select an existing parameter set
          choose the option **Choose a parameter set**.
@@ -123,7 +123,7 @@ environments.
         		 Environments cannot be used to publish any data at
         		 all.
 
-    If you specified the Data Lake blueprint, do the following:
+   If you specified the Data Lake blueprint, do the following:
 
         + In the **AWS account parameters** section,
          specify the AWS account number and the AWS account region
@@ -146,4 +146,4 @@ environments.
          publishing from only the default publishing database that is
          created with the environment.
 
-5.  Choose **Create environment profile**.
+5. Choose **Create environment profile**.

@@ -54,7 +54,7 @@ management console on your behalf.
 ###### Note
 
 For best practices information on configuring permissions to allow creation of
-service roles, see [https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md").
+service roles, see [https://docs.aws.amazon.com/IAM/latest/UserGuide/id\_roles\_create\_for-service.html](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md").
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **Users** or **User
@@ -121,7 +121,7 @@ simplified role creation available during blueprint configuration, you must also
 ###### Note
 
 For best practices information on configuring permissions to allow creation of
-service roles, see [https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md").
+service roles, see [https://docs.aws.amazon.com/IAM/latest/UserGuide/id\_roles\_create\_for-service.html](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md").
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **Users** or **User

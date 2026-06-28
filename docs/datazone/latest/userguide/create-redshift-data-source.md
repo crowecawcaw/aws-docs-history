@@ -16,70 +16,69 @@ request subscriptions to these assets.
 
 ###### To add an Amazon Redshift data source
 
-1.  Navigate to the Amazon DataZone data portal URL and sign in using single sign-on
-    (SSO) or your AWS credentials. If you’re an Amazon DataZone administrator, you can
-    navigate to the Amazon DataZone console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and sign in with the
-    AWS account where the domain was created, then choose **Open data
-    portal**.
-2.  Choose **Select project** from the top navigation pane and
-    select the project to which you want to add the data source.
-3.  Navigate to the **Data** tab for the project.
-4.  Choose **Data sources** from the left navigation pane, then
-    choose **Create data source.**
-5.  Configure the following fields:
+1. Navigate to the Amazon DataZone data portal URL and sign in using single sign-on
+   (SSO) or your AWS credentials. If you’re an Amazon DataZone administrator, you can
+   navigate to the Amazon DataZone console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and sign in with the
+   AWS account where the domain was created, then choose **Open data
+   portal**.
+2. Choose **Select project** from the top navigation pane and
+   select the project to which you want to add the data source.
+3. Navigate to the **Data** tab for the project.
+4. Choose **Data sources** from the left navigation pane, then
+   choose **Create data source.**
+5. Configure the following fields:
 
-    - **Name** – The data source name.
-    - **Description** – The data source
-      description.
+   - **Name** – The data source name.
+   - **Description** – The data source
+     description.
 
-6.  Under **Data source type**, choose
-    **Amazon Redshift**.
-7.  Under **Select an environment**, specify an environment in
-    which to publish the Amazon Redshift tables.
-8.  Depending on the environment you select, Amazon DataZone will automatically apply
-    the Amazon Redshift credentials and other parameters directly from the
-    environment or give you the option to choose your own.
+6. Under **Data source type**, choose
+   **Amazon Redshift**.
+7. Under **Select an environment**, specify an environment in
+   which to publish the Amazon Redshift tables.
+8. Depending on the environment you select, Amazon DataZone will automatically apply
+   the Amazon Redshift credentials and other parameters directly from the
+   environment or give you the option to choose your own.
 
-    - If you have selected an environment that only allows publishing from
-      environment’s default Amazon Redshift schema, then Amazon DataZone will
-      automatically apply the Amazon Redshift credentials and other parameters
-      including the Amazon Redshift cluster or workgroup name, AWS secret,
-      database name, and schema name. You cannot edit these auto-populated
-      parameters.
-    - If you select an environment that does not allow to publish any data,
-      you will not be able to proceed with data source creation.
-    - If you select an environment that allows publishing data from any
-      schema, you will see the option to either use the credentials and other
-      Amazon Redshift parameters from the environment or to enter your own
-      credentials/parameters.
+   - If you have selected an environment that only allows publishing from
+     environment’s default Amazon Redshift schema, then Amazon DataZone will
+     automatically apply the Amazon Redshift credentials and other parameters
+     including the Amazon Redshift cluster or workgroup name, AWS secret,
+     database name, and schema name. You cannot edit these auto-populated
+     parameters.
+   - If you select an environment that does not allow to publish any data,
+     you will not be able to proceed with data source creation.
+   - If you select an environment that allows publishing data from any
+     schema, you will see the option to either use the credentials and other
+     Amazon Redshift parameters from the environment or to enter your own
+     credentials/parameters.
 
-9.  If you choose to use your own credentials to create the data source, provide
-    the following details:
+9. If you choose to use your own credentials to create the data source, provide
+   the following details:
 
-    - Under **Provide Amazon Redshift credentials**, choose
-      whether to use a provisioned Amazon Redshift cluster or an Amazon
-      Redshift Serverless workspace as your data source.
-    - Depending on your selection in the step above, choose your Amazon
-      Redshift cluster or workspace from the dropdown menu, then choose the
-      secret in AWS Secrets Manager to use for authentication. You can
-      choose an existing secret or create a new one.
-    - In order for the existing secret to appear in the drop down, make sure
-      that your secret in AWS Secrets Manager includes the following tags
-      (key/value):
+   - Under **Provide Amazon Redshift credentials**, choose
+     whether to use a provisioned Amazon Redshift cluster or an Amazon
+     Redshift Serverless workspace as your data source.
+   - Depending on your selection in the step above, choose your Amazon
+     Redshift cluster or workspace from the dropdown menu, then choose the
+     secret in AWS Secrets Manager to use for authentication. You can
+     choose an existing secret or create a new one.
+   - In order for the existing secret to appear in the drop down, make sure
+     that your secret in AWS Secrets Manager includes the following tags
+     (key/value):
 
-          + AmazonDataZoneProject: <projectID>
-          + AmazonDataZoneDomain: <domainID>
+     - AmazonDataZoneProject: <projectID>
+     - AmazonDataZoneDomain: <domainID>
+       If you choose to create a new secret, then the secret is automatically
+       tagged with the tags referenced above and no extra steps are needed. For
+       more information, see [Storing
+       database credentials in AWS Secrets Manager](../../../redshift/latest/mgmt/data-api-access.md#data-api-secrets "../../../redshift/latest/mgmt/data-api-access.md#data-api-secrets").
 
-      If you choose to create a new secret, then the secret is automatically
-      tagged with the tags referenced above and no extra steps are needed. For
-      more information, see [Storing
-      database credentials in AWS Secrets Manager](../../../redshift/latest/mgmt/data-api-access.md#data-api-secrets "../../../redshift/latest/mgmt/data-api-access.md#data-api-secrets").
-
-    Amazon Redshift users in the AWS secret provided for creating the
-    data source must have `SELECT` permissions on the tables that
-    are to be published. If you want Amazon DataZone to also manage the
-    subscriptions (access) on your behalf, the database users in the AWS
-    secret must also have the following permissions:
+   Amazon Redshift users in the AWS secret provided for creating the
+   data source must have `SELECT` permissions on the tables that
+   are to be published. If you want Amazon DataZone to also manage the
+   subscriptions (access) on your behalf, the database users in the AWS
+   secret must also have the following permissions:
 
         + `CREATE DATASHARE`
         + `ALTER DATASHARE`
@@ -108,9 +107,8 @@ source.
     * **Run on demand** – You can manually initiate
      data source runs.
 
-16. Choose **Next**.
-17. Review your data source configuration and choose
-    **Create**.
+16. Choose **Next**. 17. Review your data source configuration and choose
+**Create**.
 
 ###### Note
 

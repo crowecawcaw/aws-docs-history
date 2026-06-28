@@ -22,7 +22,7 @@ necessary Lake Formation permissions to the [AmazonDataZoneGlueAccess-<region>-<
   - `Describe` and `Describe grantable` permissions
     on the database where the tables exist
   - `Describe`, `Select`, `Describe
-Grantable`, `Select Grantable` permissions on the
+   Grantable`, `Select Grantable` permissions on the
     all the tables in the above database that you want DataZone to manage
     access on your behalf.
 

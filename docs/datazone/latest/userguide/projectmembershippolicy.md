@@ -54,10 +54,12 @@ project.
 - Users {U3, G2} cannot be added to the project under Domain Unit 4 even
   with All Users and All Groups being in the membership pool at Domain Unit
 
-4.  **Scenario 5** - Users {U1, G1} can be added to
-    Project 5 as they part of the intersection of membership pools between Root Domain
-    and Domain Unit 5. No user/group can be added to Project 6 as the intersection of
-    the three membership pools is empty.
+4.
+
+**Scenario 5** - Users {U1, G1} can be added to
+Project 5 as they part of the intersection of membership pools between Root Domain
+and Domain Unit 5. No user/group can be added to Project 6 as the intersection of
+the three membership pools is empty.
 
 ![Project membership policy in the hierarchy of domain units](images/scenario5.png)
 **Scenario 6** - The intersection across all three

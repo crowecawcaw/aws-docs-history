@@ -43,9 +43,9 @@ complex technical naming conventions.
 As you search through your data, you might need to locate specific technical assets to
 support your use cases. With the ability to search for technical identifiers, you can
 retrieve assets with accuracy, saving time and streamlining the discovery process. For
-instance, a query like "customer_id" returns columns or tables with the exact
+instance, a query like "customer\_id" returns columns or tables with the exact
 identifier, while a partial query such as "sales\_" can identify related assets like
-sales_summary and sales_data_2024. This enhancement ensures data consumers can
+sales\_summary and sales\_data\_2024. This enhancement ensures data consumers can
 efficiently find the assets they need, enhancing productivity.
 
 ###### To search for assets in the catalog

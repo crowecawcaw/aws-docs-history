@@ -106,10 +106,10 @@ fields:
     * Choose **Create domain**.
 
 3. Once the domain is successfully created, choose this domain, and on the domain's
-   summary page, note the **Data portal URL** for this domain. You can use
-   this URL to access your Amazon DataZone data portal in order to complete the rest of the
-   steps in this workflow. You can also navigate to the data portal by choosing
-   **Open data portal**.
+summary page, note the **Data portal URL** for this domain. You can use
+this URL to access your Amazon DataZone data portal in order to complete the rest of the
+steps in this workflow. You can also navigate to the data portal by choosing
+**Open data portal**.
 
 ###### Note
 
@@ -189,7 +189,7 @@ UNION ALL SELECT 46781887, 24, 30.4, 54, 62, 13, 18, 29, 24, 52, 223, 4561
 
 ```
 
-Make sure that the **mkt_sls_table** table is successfully created
+Make sure that the **mkt\_sls\_table** table is successfully created
 in the **Tables and views** section on the left-hand side. Now you have
 a data asset that can be published into the Amazon DataZone catalog.
 

@@ -117,13 +117,13 @@ same `sourceIdentifier`. The following are examples of
 - For jobs:
 
   - For job nodes imported using open-lineage run events,
-    <jobs_namespace>.<job_name> is used as
+    <jobs\_namespace>.<job\_name> is used as
     sourceIdentifier.
 
 - For job runs:
 
   - For job run nodes imported using open-lineage run events,
-    <jobs_namespace>.<job_name>/<run_id> is used as
+    <jobs\_namespace>.<job\_name>/<run\_id> is used as
     sourceIdentifier.
 
 For assets created using `createAsset` API, the

@@ -40,9 +40,9 @@ Amazon DataZone may create for projects in your domain, along with the default n
 Deleting a domain does not delete any of these AWS resources in your AWS
 accounts.
 
-- IAM roles: datazone_usr\_<environmentId>.
-- Glue databases: (1) <environmentName>\_pub_db-\*, (2)
-  <environmentName>\_sub_db-\*. If there was already an existing database
+- IAM roles: datazone\_usr\_<environmentId>.
+- Glue databases: (1) <environmentName>\_pub\_db-\*, (2)
+  <environmentName>\_sub\_db-\*. If there was already an existing database
   of this name, Amazon DataZone will add the environment ID.
 - Athena workgroups: <environmentName>-\*. If there was already an
   existing workgroup of this name, Amazon DataZone will add the environment

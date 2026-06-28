@@ -65,14 +65,14 @@ You can see the following databases in the **Database**
 dropdown:
 
 - A publishing database
-  (``{environmentname}`\_pub_db`).
+  (``{environmentname}`_pub_db`).
   The purpose of this database is to provide you with an environment where
   you can produce new data within the context of your project and then be
   able to publish this data into the Amazon DataZone catalog. Project owners
   and contributors have read and write access to this database. Project
   viewers have only read access to this database.
 - A subscription database
-  (``{environmentname}`\_sub_db`).
+  (``{environmentname}`_sub_db`).
   The purpose of this database is to share with you the data to which you
   have subscribed as a project member in the Amazon DataZone catalog, and to
   enable you to query that data.
