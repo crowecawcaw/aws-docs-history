@@ -4,9 +4,17 @@ Deploy the Customer 360 solution in 5 phases using the provided CDK stacks.
 
 ## Prerequisites
 
-**AWS account requirements**: \* Admin access or equivalent permissions \* Quick Suite Enterprise subscription \* Bedrock model access (Claude 3.5 Sonnet) \* Service quotas for S3, Glue, Athena, Aurora
+**AWS account requirements**:
+\* Admin access or equivalent permissions
+\* Quick Suite Enterprise subscription
+\* Bedrock model access (Claude 3.5 Sonnet)
+\* Service quotas for S3, Glue, Athena, Aurora
 
-**Local environment**: \* AWS CLI configured \* Node.js 18+ installed \* Python 3.9+ installed \* CDK CLI: `npm install -g aws-cdk`
+**Local environment**:
+\* AWS CLI configured
+\* Node.js 18+ installed
+\* Python 3.9+ installed
+\* CDK CLI: `npm install -g aws-cdk`
 
 ## Deployment phases
 

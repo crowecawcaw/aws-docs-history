@@ -64,7 +64,7 @@ The model is trained on a synthetic dataset generated from realistic fleet patte
 - 721,024 records across 50 vehicles over 6 months
 - Normal driving patterns with seasonal temperature effects (Gay-Lussac’s law), city-specific climate variation (Dallas, Atlanta, Chicago, Phoenix, Seattle), rear tire load differential, and natural tread wear
 - Injected anomalies: slow leaks (8%), punctures (4%), valve failures (3%), overinflation (2%)
-- Features: pressure, temperature, delta_pressure, delta_temp
+- Features: pressure, temperature, delta\_pressure, delta\_temp
 - Model: SageMaker Random Cut Forest (unsupervised anomaly detection), trained on normal data only
 
 The training dataset can be regenerated with `scripts/generate_training_data.py` and the model retrained with `scripts/train_model.py` in the [source repository](https://github.com/aws-solutions-library-samples/guidance-for-automotive-data-platform-on-aws "https://github.com/aws-solutions-library-samples/guidance-for-automotive-data-platform-on-aws").

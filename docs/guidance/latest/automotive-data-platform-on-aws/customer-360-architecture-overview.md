@@ -34,11 +34,14 @@ The solution uses 11 datasets:
 **Core datasets**:
 
 1. customers (500K records) - Customer master data
-2. customer_health (500K records) - Health scores and NPS
+2. customer\_health (500K records) - Health scores and NPS
 3. interactions (1.4M records) - Customer touchpoints
-4. service_records (900K records) - Service history
+4. service\_records (900K records) - Service history
 5. cases (500K records) - Support cases
 
-**Aggregated metrics**: 6. monthly_kpis - NPS and health scores by month 7. operational_kpis - Service quality metrics 8. issue_categories - Issue breakdown by type 9. revenue_streams - Revenue by stream 10. revenue_trends - Revenue changes 11. at_risk_revenue - Revenue at risk by segment
+**Aggregated metrics**: 6. monthly\_kpis - NPS and health scores by month 7. operational\_kpis - Service quality metrics 8. issue\_categories - Issue breakdown by type 9. revenue\_streams - Revenue by stream 10. revenue\_trends - Revenue changes 11. at\_risk\_revenue - Revenue at risk by segment
 
-**Key metrics**: \* NPS: 52 → 42 (declining 1.5% monthly) \* Health Score: 65 → 56 (declining 1.5% monthly) \* Battery Issues: 15% → 40% (increasing 2% monthly)
+**Key metrics**:
+\* NPS: 52 → 42 (declining 1.5% monthly)
+\* Health Score: 65 → 56 (declining 1.5% monthly)
+\* Battery Issues: 15% → 40% (increasing 2% monthly)

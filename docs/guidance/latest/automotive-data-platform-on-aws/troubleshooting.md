@@ -41,7 +41,7 @@ aws glue start-crawler --name cx-analytics-crawler
 
 ### Athena Query Failures
 
-**Symptom**: "HIVE_PARTITION_SCHEMA_MISMATCH" error
+**Symptom**: "HIVE\_PARTITION\_SCHEMA\_MISMATCH" error
 
 **Solution**: Drop and recreate table
 

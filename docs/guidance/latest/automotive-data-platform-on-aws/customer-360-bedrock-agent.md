@@ -8,7 +8,12 @@ The knowledge base stores remediation playbooks as vector embeddings for semanti
 
 ### Aurora PostgreSQL with pgvector
 
-**Cluster configuration**: \* Engine: Aurora PostgreSQL 15.4 \* Instance: db.r6g.large (Graviton3) \* Scaling: Serverless v2 (0.5-2 ACUs) \* Multi-AZ: Enabled \* Encryption: KMS at rest, TLS in transit
+**Cluster configuration**:
+\* Engine: Aurora PostgreSQL 15.4
+\* Instance: db.r6g.large (Graviton3)
+\* Scaling: Serverless v2 (0.5-2 ACUs)
+\* Multi-AZ: Enabled
+\* Encryption: KMS at rest, TLS in transit
 
 **Vector table schema**:
 
@@ -27,11 +32,26 @@ USING hnsw (embedding vector_cosine_ops);
 
 ### Knowledge base content
 
-**Battery remediation playbook**: \* Supplier batch defects \* Thermal management issues \* BMS failures \* Charging problems \* Success rates and timelines
+**Battery remediation playbook**:
+\* Supplier batch defects
+\* Thermal management issues
+\* BMS failures
+\* Charging problems
+\* Success rates and timelines
 
-**Customer churn analysis playbook**: \* Churn risk factors \* Retention strategies by segment \* Proactive engagement tactics \* Win-back campaigns \* ROI calculations
+**Customer churn analysis playbook**:
+\* Churn risk factors
+\* Retention strategies by segment
+\* Proactive engagement tactics
+\* Win-back campaigns
+\* ROI calculations
 
-**Analytics metadata guide**: \* Data schema and tables \* KPI calculations \* Metric thresholds \* Query examples \* Dashboard interpretation
+**Analytics metadata guide**:
+\* Data schema and tables
+\* KPI calculations
+\* Metric thresholds
+\* Query examples
+\* Dashboard interpretation
 
 ### Document format
 
@@ -306,9 +326,18 @@ revenue impact and clear remediation path.
 
 ### Knowledge base optimization
 
-**Document quality**: \* Use clear section headers \* Include specific metrics \* Add real-world examples \* Update regularly \* Remove outdated information
+**Document quality**:
+\* Use clear section headers
+\* Include specific metrics
+\* Add real-world examples
+\* Update regularly
+\* Remove outdated information
 
-**Chunking strategy**: \* 500 tokens per chunk \* 50 token overlap \* Keep related info together \* Use markdown structure
+**Chunking strategy**:
+\* 500 tokens per chunk
+\* 50 token overlap
+\* Keep related info together
+\* Use markdown structure
 
 ### Cost optimization
 
@@ -328,8 +357,19 @@ revenue impact and clear remediation path.
 
 **Cost optimization tips**:
 
-**Aurora Serverless**: \* Auto-pause after 5 minutes idle \* Min ACU: 0.5, Max: 2 \* Use read replicas only if needed
+**Aurora Serverless**:
+\* Auto-pause after 5 minutes idle
+\* Min ACU: 0.5, Max: 2
+\* Use read replicas only if needed
 
-**Bedrock costs**: \* Input tokens: ~$0.003 per 1K \* Output tokens: ~$0.015 per 1K \* Embeddings: ~$0.0001 per 1K \* Optimize prompt length
+**Bedrock costs**:
+\* Input tokens: ~$0.003 per 1K
+\* Output tokens: ~$0.015 per 1K
+\* Embeddings: ~$0.0001 per 1K
+\* Optimize prompt length
 
-**Athena costs**: \* $5 per TB scanned \* Use partitioned tables \* Leverage views \* Set result limits
+**Athena costs**:
+\* $5 per TB scanned
+\* Use partitioned tables
+\* Leverage views
+\* Set result limits

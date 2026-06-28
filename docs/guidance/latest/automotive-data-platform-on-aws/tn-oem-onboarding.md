@@ -58,9 +58,7 @@ Then select the data encoding format: JSON, Protocol Buffers (Protobuf), Apache 
     * **API Key** — Static key passed as a header.
     * **Basic Auth** — Username and password.
 
-3. **Sample data** — Paste a sample telemetry JSON payload from the OEM’s API, an optional sample event payload, and an optional data dictionary. For Protobuf-encoded OEMs, upload the `.proto` schema file instead.
-4. **Signal mapping** — The wizard calls the Data Processing API to auto-detect field mappings between the OEM’s payload and the signal catalog. Each detected mapping shows the OEM field name, the matched canonical field, and the suggested unit conversion. You can review, adjust, or add mappings before proceeding.
-5. **Deploy** — The wizard generates the transform manifest, uploads it to Amazon S3, and registers the data source configuration. The OEMTelemetryProcessor picks up the new manifest automatically — no Flink restart required.
+3. **Sample data** — Paste a sample telemetry JSON payload from the OEM’s API, an optional sample event payload, and an optional data dictionary. For Protobuf-encoded OEMs, upload the `.proto` schema file instead. 4. **Signal mapping** — The wizard calls the Data Processing API to auto-detect field mappings between the OEM’s payload and the signal catalog. Each detected mapping shows the OEM field name, the matched canonical field, and the suggested unit conversion. You can review, adjust, or add mappings before proceeding. 5. **Deploy** — The wizard generates the transform manifest, uploads it to Amazon S3, and registers the data source configuration. The OEMTelemetryProcessor picks up the new manifest automatically — no Flink restart required.
 
 **Option C: Manual creation** — Write the manifest JSON by hand and upload directly to S3:
 
@@ -71,11 +69,11 @@ aws s3 cp acme-motors-transform.json \
 
 Regardless of which option you use, each mapping specifies:
 
-- **source_signal** — The OEM’s field name (for human reference)
-- **cms_field** — The canonical `json_field` from the signal catalog (for example, `speed`, `odometer`, `lat`)
-- **source_path** — A JSONPath-like expression to extract the value from the OEM’s nested JSON structure
-- **unit_conversion** — An optional conversion function to apply (for example, `mps_to_mph` if the OEM reports speed in meters per second)
-- **data_type** — The expected output type (`float`, `boolean`, `string`)
+- **source\_signal** — The OEM’s field name (for human reference)
+- **cms\_field** — The canonical `json_field` from the signal catalog (for example, `speed`, `odometer`, `lat`)
+- **source\_path** — A JSONPath-like expression to extract the value from the OEM’s nested JSON structure
+- **unit\_conversion** — An optional conversion function to apply (for example, `mps_to_mph` if the OEM reports speed in meters per second)
+- **data\_type** — The expected output type (`float`, `boolean`, `string`)
 
 The manifest also defines how to extract the vehicle identifier from the OEM’s payload and how to parse timestamps.
 

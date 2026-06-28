@@ -23,13 +23,29 @@ Quick Suite dashboards visualize customer sentiment, NPS scores, and quality iss
 
 ### Dashboard components
 
-**Executive summary**: \* Current NPS score with trend indicator \* Customer health score distribution \* Total at-risk revenue \* Month-over-month changes
+**Executive summary**:
+\* Current NPS score with trend indicator
+\* Customer health score distribution
+\* Total at-risk revenue
+\* Month-over-month changes
 
-**Sentiment analysis**: \* Sentiment trend over 12 months \* Breakdown by channel (mobile, dealer, contact center, in-vehicle) \* Top issues driving negative sentiment \* Correlation with service quality
+**Sentiment analysis**:
+\* Sentiment trend over 12 months
+\* Breakdown by channel (mobile, dealer, contact center, in-vehicle)
+\* Top issues driving negative sentiment
+\* Correlation with service quality
 
-**Quality issues**: \* Issue category breakdown (battery, software, connectivity) \* Battery issue trend (15% → 40%) \* Geographic distribution \* Vehicle model comparison
+**Quality issues**:
+\* Issue category breakdown (battery, software, connectivity)
+\* Battery issue trend (15% → 40%)
+\* Geographic distribution
+\* Vehicle model comparison
 
-**Revenue impact**: \* Revenue by stream (sales, service, subscriptions) \* At-risk revenue by segment \* Churn impact on lifetime value \* Recovery opportunity sizing
+**Revenue impact**:
+\* Revenue by stream (sales, service, subscriptions)
+\* At-risk revenue by segment
+\* Churn impact on lifetime value
+\* Recovery opportunity sizing
 
 ### Creating datasets
 
@@ -37,20 +53,28 @@ Quick Suite datasets connect to Athena views:
 
 **Pre-built datasets**:
 
-1. kpi_trends - Monthly NPS and health scores
-2. sentiment_analysis - Sentiment by channel
-3. issue_categories - Issue breakdown
-4. revenue_streams - Revenue by stream
-5. at_risk_revenue - Revenue at risk
-6. customer_segments - Segment analysis
-7. service_quality - Operational metrics
-8. churn_analysis - Churn risk factors
+1. kpi\_trends - Monthly NPS and health scores
+2. sentiment\_analysis - Sentiment by channel
+3. issue\_categories - Issue breakdown
+4. revenue\_streams - Revenue by stream
+5. at\_risk\_revenue - Revenue at risk
+6. customer\_segments - Segment analysis
+7. service\_quality - Operational metrics
+8. churn\_analysis - Churn risk factors
 
 ### Dashboard features
 
-**Interactive elements**: \* Drill-down to underlying data \* Filters for time range, segment, model, region \* Parameters for dynamic thresholds \* Actions to navigate or link to external systems
+**Interactive elements**:
+\* Drill-down to underlying data
+\* Filters for time range, segment, model, region
+\* Parameters for dynamic thresholds
+\* Actions to navigate or link to external systems
 
-**AI-powered insights**: \* Anomaly detection for unusual patterns \* Forecasting future trends \* Natural language queries \* Auto-generated narrative summaries
+**AI-powered insights**:
+\* Anomaly detection for unusual patterns
+\* Forecasting future trends
+\* Natural language queries
+\* Auto-generated narrative summaries
 
 ### Using the AI chat agent
 
@@ -80,14 +104,14 @@ This workflow monitors sentiment daily and triggers remediation when critical is
    - Query customer sentiment data from Athena
    - Analyze trends and identify critical issues
    - Generate three agent responses with different perspectives
-   - Output: agent_response_41, agent_response_42, agent_response_43
+   - Output: agent\_response\_41, agent\_response\_42, agent\_response\_43
 
 2. **Criticality Check** (Code Block - Step 4.4)
 
    - Combine all agent responses
    - Check for "critical" sentiment indicators
    - Identify needed workflows (Battery Replacement, BMS Repair, Thermal Management)
-   - Output: tasks_to_create list with workflow details
+   - Output: tasks\_to\_create list with workflow details
 
 3. **Loop Through Critical Items** (Step 4.5)
 
@@ -104,7 +128,7 @@ This workflow monitors sentiment daily and triggers remediation when critical is
 
    - Create case in Task Center
    - Case Type: Customer Sentiment
-   - Store case_id for tracking
+   - Store case\_id for tracking
 
 6. **Create Approval Tasks** (Step 4.9)
 
@@ -256,9 +280,17 @@ Return:
 
 ### Best practices
 
-**Workflow design**: \* Keep focused on single process \* Use clear naming conventions \* Add error handling \* Include retry logic
+**Workflow design**:
+\* Keep focused on single process
+\* Use clear naming conventions
+\* Add error handling
+\* Include retry logic
 
-**Agent prompts**: \* Be specific about requirements \* Include expected output format \* Reference knowledge base \* Iterate based on quality
+**Agent prompts**:
+\* Be specific about requirements
+\* Include expected output format
+\* Reference knowledge base
+\* Iterate based on quality
 
 ## Creating approval flows with Quick Flows
 
@@ -349,7 +381,11 @@ Quick Suite workflows integrate with collaboration tools.
 
 ### Slack integration
 
-**Capabilities**: \* Real-time notifications for critical issues \* One-click approval buttons \* Thread-based discussions \* Status updates posted automatically
+**Capabilities**:
+\* Real-time notifications for critical issues
+\* One-click approval buttons
+\* Thread-based discussions
+\* Status updates posted automatically
 
 **Message template**:
 
@@ -367,11 +403,19 @@ Quick Suite workflows integrate with collaboration tools.
 
 ### Jira integration
 
-**Capabilities**: \* Automatic ticket creation \* Bi-directional status sync \* Custom fields from workflow data \* Links back to Quick Suite reports
+**Capabilities**:
+\* Automatic ticket creation
+\* Bi-directional status sync
+\* Custom fields from workflow data
+\* Links back to Quick Suite reports
 
 ### Email notifications
 
-**Capabilities**: \* Executive summaries on schedule \* Approval requests with links \* Digest emails for multiple issues \* Customizable templates
+**Capabilities**:
+\* Executive summaries on schedule
+\* Approval requests with links
+\* Digest emails for multiple issues
+\* Customizable templates
 
 ## Measuring effectiveness
 
@@ -381,14 +425,30 @@ Track metrics to optimize workflows and demonstrate value.
 
 ### Automation metrics
 
-**Workflow performance**: \* Time from detection to action: Target < 1 hour \* Completion rate: Target > 95% \* False positive rate: Target < 5% \* Manual intervention: Target < 20%
+**Workflow performance**:
+\* Time from detection to action: Target < 1 hour
+\* Completion rate: Target > 95%
+\* False positive rate: Target < 5%
+\* Manual intervention: Target < 20%
 
 ### Business impact metrics
 
-**Customer outcomes**: \* Issues resolved proactively \* Customer satisfaction improvement \* Churn reduction vs baseline \* Response time improvement
+**Customer outcomes**:
+\* Issues resolved proactively
+\* Customer satisfaction improvement
+\* Churn reduction vs baseline
+\* Response time improvement
 
-**Financial impact**: \* Revenue protected monthly \* Cost savings from automation \* Campaign ROI \* Service program effectiveness
+**Financial impact**:
+\* Revenue protected monthly
+\* Cost savings from automation
+\* Campaign ROI
+\* Service program effectiveness
 
 ### Approval metrics
 
-**Approval efficiency**: \* Average response time: Target < 4 hours \* Approval rate by workflow type \* Escalation frequency: Target < 10% \* Approver engagement
+**Approval efficiency**:
+\* Average response time: Target < 4 hours
+\* Approval rate by workflow type
+\* Escalation frequency: Target < 10%
+\* Approver engagement

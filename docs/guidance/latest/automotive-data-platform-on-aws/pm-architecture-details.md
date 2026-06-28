@@ -31,7 +31,7 @@ Amazon API Gateway provides real-time access to prediction data and alert histor
 **Data Schema**:
 
 - Vehicle identifier (AAID)
-- Tire position (front_left, front_right, rear_left, rear_right)
+- Tire position (front\_left, front\_right, rear\_left, rear\_right)
 - Tire pressure (PSI)
 - Tire temperature (Fahrenheit)
 - Event timestamp
@@ -330,16 +330,16 @@ def process_predictions(raw_predictions):
 
 **Severity Classification**:
 
-- Critical: time_to_80_psi < 3 days
-- High: time_to_80_psi 3-7 days
-- Medium: time_to_80_psi 7-14 days
-- Low: time_to_80_psi > 14 days
+- Critical: time\_to\_80\_psi < 3 days
+- High: time\_to\_80\_psi 3-7 days
+- Medium: time\_to\_80\_psi 7-14 days
+- Low: time\_to\_80\_psi > 14 days
 
 **Output**:
 
 - Destination: S3 bucket `mmt-predictive-maintenance-processed-predictions-{account-id}`
 - Format: CSV with headers
-- Columns: AAID, tire_position, anomaly_score, is_anomaly, time_to_80_psi, severity, leak_rate
+- Columns: AAID, tire\_position, anomaly\_score, is\_anomaly, time\_to\_80\_psi, severity, leak\_rate
 - Triggers: S3 event notification to alerts Lambda
 
 ## Filtering Approach
@@ -394,14 +394,14 @@ The filtering approach uses a stepwise filter-based algorithm to identify gradua
 
 4. **Detect Leaks**
 
-   - Leak detected if: leak_rate < -0.5 PSI/day
+   - Leak detected if: leak\_rate < -0.5 PSI/day
    - Gradual leak: -0.5 to -2 PSI/day
    - Fast leak: < -2 PSI/day
 
 5. **Estimate Time to Critical**
 
-   - Current pressure - 80 PSI = pressure_delta
-   - time_to_critical = pressure_delta / abs(leak_rate)
+   - Current pressure - 80 PSI = pressure\_delta
+   - time\_to\_critical = pressure\_delta / abs(leak\_rate)
    - Adjust for confidence interval
 
 ### Filtering and Aggregation

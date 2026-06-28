@@ -28,9 +28,16 @@ The solution processes data through the following stages:
 
 Two independent pipelines process the data:
 
-**Machine Learning Pipeline:** \* ML ETL prepares features from historical data \* Training pipeline updates models weekly using Amazon SageMaker \* Inference pipeline runs batch predictions on new data \* Anomaly scores are generated for each vehicle/tire combination
+**Machine Learning Pipeline:**
+\* ML ETL prepares features from historical data
+\* Training pipeline updates models weekly using Amazon SageMaker
+\* Inference pipeline runs batch predictions on new data
+\* Anomaly scores are generated for each vehicle/tire combination
 
-**Filter-Based Pipeline:** \* Statistical filters analyze pressure trends \* Leak rates are calculated using time-series analysis \* Alerts are generated when thresholds are exceeded
+**Filter-Based Pipeline:**
+\* Statistical filters analyze pressure trends
+\* Leak rates are calculated using time-series analysis
+\* Alerts are generated when thresholds are exceeded
 
 ### Stage 3: Alert Consolidation
 
