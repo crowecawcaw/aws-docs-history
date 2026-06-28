@@ -45,7 +45,7 @@ Short-term API keys still require the caller’s IAM principal to hold `aws-exte
 
 ## Credential precedence and region resolution
 
-The Anthropic SDK’s Claude Platform on AWS client resolves credentials and region using a defined precedence order. Argument names follow each language’s conventions: camelCase for TypeScript and PHP, snake_case for Python and Ruby, PascalCase for Go, and property or builder patterns for C# and Java.
+The Anthropic SDK’s Claude Platform on AWS client resolves credentials and region using a defined precedence order. Argument names follow each language’s conventions: camelCase for TypeScript and PHP, snake\_case for Python and Ruby, PascalCase for Go, and property or builder patterns for C# and Java.
 
 For the authoritative precedence order, supported environment variables, and constructor arguments for each SDK, see [Claude on AWS setup](https://platform.claude.com/docs/en/api/claude-on-aws "https://platform.claude.com/docs/en/api/claude-on-aws") in the Anthropic documentation. In general, explicit constructor arguments take precedence over environment variables, and `ANTHROPIC_AWS_API_KEY` takes precedence over the default AWS credential provider chain. Region is required; unlike `AnthropicBedrock` (which falls back to `us-east-1`), the Claude on AWS client throws if no region is supplied by the constructor or by `AWS_REGION` / `AWS_DEFAULT_REGION`.
 
