@@ -153,7 +153,7 @@ The policy includes the following key action namespaces:
 - `logs` ‐ Allows CodeBuild to generate build logs. Without this permission,
   CodeBuild will fail to start.
 - `proton` ‐ Allows a CodeBuild Provisioning command to call `aws
-proton notify-resource-deployment-status-change` for updating the IaaC outputs for
+ proton notify-resource-deployment-status-change` for updating the IaaC outputs for
   a given AWS Proton resource.
 
 For more information, see [AWSProtonCodeBuildProvisioningBasicAccess](../../../aws-managed-policy/latest/reference/AWSProtonCodeBuildProvisioningBasicAccess.md "../../../aws-managed-policy/latest/reference/AWSProtonCodeBuildProvisioningBasicAccess.md").

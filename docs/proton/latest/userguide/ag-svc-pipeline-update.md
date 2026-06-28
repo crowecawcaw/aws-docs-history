@@ -174,7 +174,7 @@ Cancel a service pipeline deployment using the console as shown in the following
    cancellation.
 
 AWS CLI
-Cancel an IN_PROGRESS service pipeline deployment update to minor version 2 as shown in the following CLI example commands
+Cancel an IN\_PROGRESS service pipeline deployment update to minor version 2 as shown in the following CLI example commands
 and responses.
 
 A wait condition is included in the template used for this example so that the cancellation starts before the update deployment succeeds.

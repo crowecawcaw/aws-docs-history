@@ -165,7 +165,7 @@ Cancel a service instance deployment using the console as shown in the following
    cancellation.
 
 AWS CLI
-Cancel an IN_PROGRESS service instance deployment update to new minor version 2 as shown in the following CLI example
+Cancel an IN\_PROGRESS service instance deployment update to new minor version 2 as shown in the following CLI example
 commands and responses.
 
 A wait condition is included in the template used for this example so that the cancellation starts before the update deployment succeeds.

@@ -174,21 +174,19 @@ The response is as follows.
 }
 ```
 
-2.  ###### Create your template sync configuration with AWS CLI by providing the following:
-
-        * The template that you want to sync to. After you have created the template
-         sync configuration, you can still create new versions from it manually in the
-         console or with the AWS CLI.
-        * The template name.
-        * The template type.
-        * The linked repository that you want to sync from.
-        * The linked repository provider.
-        * The branch where the template bundle is located.
-        * (Optional) The path to the directory containing your template bundle. By
-         default, AWS Proton looks for the first directory that matches your template
-         name.
-
-    Run the following command.
+2. ###### Create your template sync configuration with AWS CLI by providing the following:
+   - The template that you want to sync to. After you have created the template
+     sync configuration, you can still create new versions from it manually in the
+     console or with the AWS CLI.
+   - The template name.
+   - The template type.
+   - The linked repository that you want to sync from.
+   - The linked repository provider.
+   - The branch where the template bundle is located.
+   - (Optional) The path to the directory containing your template bundle. By
+     default, AWS Proton looks for the first directory that matches your template
+     name.
+     Run the following command.
 
 ```
 `$` `aws proton create-template-sync-config \

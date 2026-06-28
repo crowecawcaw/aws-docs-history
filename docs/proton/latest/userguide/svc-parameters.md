@@ -43,7 +43,7 @@ parameter's name in the AWS Proton parameter namespace.
   `service.name`, `service_instance.name`, and `environment.name`.
 - Output parameters – Read outputs of other resources by referencing
   `environment.outputs.`output-name`` or
-`service_instance.components.default.outputs.`output-name``.
+ `service_instance.components.default.outputs.`output-name``.
 
 ## Example service IaC file with parameters
 

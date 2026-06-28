@@ -35,43 +35,44 @@ AWS Management Console
 
 ###### Use the console to register and publish a new environment template.
 
-1.  In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose **Environment templates**.
-2.  Choose **Create environment template**.
-3.  In the **Create environment template** page, in the **Template options** section, choose one of the two
-    available template options.
+1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose **Environment templates**.
+2. Choose **Create environment template**.
+3. In the **Create environment template** page, in the **Template options** section, choose one of the two
+   available template options.
 
-    - **Create a template for provisioning new environments**.
-    - **Create a template to use provisioned infrastructure that you manage**.
+   - **Create a template for provisioning new environments**.
+   - **Create a template to use provisioned infrastructure that you manage**.
 
-4.  If you chose **Create a template for provisioning new environments**, in the **Template bundle source**
-    section, choose one of the three available template bundle source options. To learn more about requirements and prerequisites for syncing
-    templates, see [Template sync configurations](ag-template-sync-configs.md "ag-template-sync-configs.md").
+4. If you chose **Create a template for provisioning new environments**, in the **Template bundle source**
+   section, choose one of the three available template bundle source options. To learn more about requirements and prerequisites for syncing
+   templates, see [Template sync configurations](ag-template-sync-configs.md "ag-template-sync-configs.md").
 
-    - **Use one of our sample template bundles**.
-    - **Use your own template bundle**.
-    - **[Sync templates from Git](ag-template-sync-configs.md "ag-template-sync-configs.md")**.
+   - **Use one of our sample template bundles**.
+   - **Use your own template bundle**.
+   - **[Sync templates from Git](ag-template-sync-configs.md "ag-template-sync-configs.md")**.
 
-5.  ###### Provide a path to a template bundle.
-    1. If you chose **Use one of our sample template bundles**:
+5. ###### Provide a path to a template bundle.
+   1. If you chose **Use one of our sample template bundles**:
 
-    In the **Sample template bundle** section, select a sample template bundle. 2. If you chose **Sync templates from Git**, in the **Source code** section:
+   In the **Sample template bundle** section, select a sample template bundle. 2. If you chose **Sync templates from Git**, in the **Source code** section:
 
         1. Select the repository for your template sync configuration.
         2. Enter the name of the repository branch to sync from.
         3. (Optional) Enter name of a directory to limit the search for your template bundle.
-    3. Otherwise, in the **S3 bundle location** section, provide a path to your template bundle.
 
-6.  In the **Template details** section.
+   3. Otherwise, in the **S3 bundle location** section, provide a path to your template bundle.
 
-    1. Enter a **Template name**.
-    2. (Optional) Enter a **Template display name**.
-    3. (Optional) Enter a **Template description** for the environment template.
+6. In the **Template details** section.
 
-7.  (Optional) Check the check box for **Customize encryption settings (advanced)** in the **Encryption
-    settings** section to provide your own encryption key.
-8.  (Optional) In the **Tags** section, choose **Add new tag** and enter a key and value to create a
-    customer managed tag.
-9.  Choose **Create Environment template**.
+   1. Enter a **Template name**.
+   2. (Optional) Enter a **Template display name**.
+   3. (Optional) Enter a **Template description** for the environment template.
+
+7. (Optional) Check the check box for **Customize encryption settings (advanced)** in the **Encryption
+   settings** section to provide your own encryption key.
+8. (Optional) In the **Tags** section, choose **Add new tag** and enter a key and value to create a
+   customer managed tag.
+9. Choose **Create Environment template**.
 
 You're now on a new page that displays the status and details for your new environment template. These details include a list of AWS and
 customer managed tags. AWS Proton automatically generates AWS managed tags for you when you create AWS Proton resources. For more information,

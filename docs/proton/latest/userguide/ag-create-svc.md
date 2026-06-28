@@ -69,15 +69,10 @@ name**. 5. (Optional) Enter a description for the service. 6. ###### In the **Se
     3. For **Branch name**, choose the name of your source code repository branch from the list.
 
 7. (Optional) In the **Tags** section, choose **Add new tag** and enter a key and value to create a
-   customer managed tag.
-8. Choose **Next**.
-9. In the **Configure custom settings** page, in the **Service instances** section, in the **New
-   instance** section. You must enter values for the `required` parameters. You can enter values for the
-   `optional` parameters or use the defaults when given.
-10. In the **Pipeline inputs** section, you must enter values for the `required` parameters. You can enter values
-    for the `optional` parameters or use the defaults when given.
-11. Choose **Next** and review your inputs.
-12. Choose **Create**.
+customer managed tag. 8. Choose **Next**. 9. In the **Configure custom settings** page, in the **Service instances** section, in the **New
+instance** section. You must enter values for the `required` parameters. You can enter values for the
+`optional` parameters or use the defaults when given. 10. In the **Pipeline inputs** section, you must enter values for the `required` parameters. You can enter values
+for the `optional` parameters or use the defaults when given. 11. Choose **Next** and review your inputs. 12. Choose **Create**.
 
 View the service details and status, as well as the AWS managed tags and customer managed tags for your service. 13. In the navigation pane, choose **Services**.
 

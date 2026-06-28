@@ -368,7 +368,7 @@ as shown in the following steps.
    then **Cancelled** to complete the cancellation.
 
 AWS CLI
-Use the AWS Proton AWS CLI to cancel an IN_PROGRESS environment
+Use the AWS Proton AWS CLI to cancel an IN\_PROGRESS environment
 update deployment to a new minor version 2.
 
 A wait condition is included in the template used for this example so that the

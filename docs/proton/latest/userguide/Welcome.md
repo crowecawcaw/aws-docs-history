@@ -70,7 +70,7 @@ As an **Administrator**, you create and register a **Service Template**
 with AWS Proton, which defines the related infrastructure, monitoring, and CI/CD resources as well as compatible **Environment
 Templates**.
 
-![Number 4 icon.](/images/proton/latest/userguide/images/label-four.png)
+![Number 4 icon.](images/label-four.png)
 As a **Developer**, you select a registered **Service Template** and
 provide a link to your **Source code** repository.
 

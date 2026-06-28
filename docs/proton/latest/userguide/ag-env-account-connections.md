@@ -164,8 +164,8 @@ in. 4. In the **Request to connect** page:
     4. Choose **Request to connect**.
 
 5. Your request shows as pending in the **Environment connections sent to
-   a management account** table and a modal lets you know how to accept
-   the request from the management account.
+a management account** table and a modal lets you know how to accept
+the request from the management account.
 
 ###### Accept or reject an environment account connection request.
 

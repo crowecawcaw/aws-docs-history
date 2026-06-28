@@ -21,11 +21,10 @@ If you want to use the AWS CLI to run AWS Proton APIs, verify that you have inst
 
 - (Optional) To provision pipelines:
 
-      + For [AWS-managed provisioning](ag-works-prov-methods.md#ag-works-prov-methods-direct "ag-works-prov-methods.md#ag-works-prov-methods-direct") and [CodeBuild-based provisioning](ag-works-prov-methods.md#ag-works-prov-methods-codebuild "ag-works-prov-methods.md#ag-works-prov-methods-codebuild"), set up [pipeline roles](#setting-up-pr-role "#setting-up-pr-role").
-      + For [self-managed provisioning](ag-works-prov-methods.md#ag-works-prov-methods-self "ag-works-prov-methods.md#ag-works-prov-methods-self"), set up a [pipeline
-       repository](#setting-up-pr-repo "#setting-up-pr-repo").
-
-  For more information about provisioning methods, see [How AWS-managed provisioning works](ag-works-prov-methods.md#ag-works-prov-methods-direct "ag-works-prov-methods.md#ag-works-prov-methods-direct").
+  - For [AWS-managed provisioning](ag-works-prov-methods.md#ag-works-prov-methods-direct "ag-works-prov-methods.md#ag-works-prov-methods-direct") and [CodeBuild-based provisioning](ag-works-prov-methods.md#ag-works-prov-methods-codebuild "ag-works-prov-methods.md#ag-works-prov-methods-codebuild"), set up [pipeline roles](#setting-up-pr-role "#setting-up-pr-role").
+  - For [self-managed provisioning](ag-works-prov-methods.md#ag-works-prov-methods-self "ag-works-prov-methods.md#ag-works-prov-methods-self"), set up a [pipeline
+    repository](#setting-up-pr-repo "#setting-up-pr-repo").
+    For more information about provisioning methods, see [How AWS-managed provisioning works](ag-works-prov-methods.md#ag-works-prov-methods-direct "ag-works-prov-methods.md#ag-works-prov-methods-direct").
 
 ## Setting up an Amazon S3 bucket
 
@@ -69,33 +68,33 @@ pipelines and you configure them once in your account settings.
 
 ###### To create pipeline service roles using the console
 
-1.  Open the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/").
-2.  In the navigation pane, choose **Settings**, and then choose **Account settings**.
-3.  In the **Account CI/CD settings** page, choose **Configure**.
-4.  Do one of the following:
+1. Open the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/").
+2. In the navigation pane, choose **Settings**, and then choose **Account settings**.
+3. In the **Account CI/CD settings** page, choose **Configure**.
+4. Do one of the following:
 
-    - To have AWS Proton create a pipeline service role for you
+   - To have AWS Proton create a pipeline service role for you
 
-    [To enable AWS-managed provisioning of pipelines] In the **Configure account settings** page, in the
-    **AWS-managed provisioning pipeline role** section:
+   [To enable AWS-managed provisioning of pipelines] In the **Configure account settings** page, in the
+   **AWS-managed provisioning pipeline role** section:
 
         1. Select **New service role**.
         2. Enter a name for the role, for example, `myProtonPipelineServiceRole`.
         3. Check the check box to agree to create an AWS Proton role with administrative privileges in your account.[To enable CodeBuild-based provisioning of pipelines] In the **Configure account settings** page, in the **CodeBuild
 
-    pipeline role** section, choose **Existing service role**, and choose the service role that you created in the
-    **CloudFormation pipeline role\*\* section. Or, if you did not assign a CloudFormation pipeline role, repeat the previous three steps
-    to create a new service role.
-    - To choose existing pipeline service roles
+   pipeline role** section, choose **Existing service role**, and choose the service role that you created in the
+   **CloudFormation pipeline role** section. Or, if you did not assign a CloudFormation pipeline role, repeat the previous three steps
+   to create a new service role.
+   - To choose existing pipeline service roles
 
-    [To enable AWS-managed provisioning of pipelines] In the **Configure account settings** page, in the
-    **AWS-managed provisioning pipeline role** section, choose **Existing service role**, and choose a service role in your
-    AWS account.
+   [To enable AWS-managed provisioning of pipelines] In the **Configure account settings** page, in the
+   **AWS-managed provisioning pipeline role** section, choose **Existing service role**, and choose a service role in your
+   AWS account.
 
-    [To enable CodeBuild provisioning of pipelines] In the **Configure account settings** page, in the **CodeBuild
-    pipeline provisioning role** section, choose **Existing service role**, and choose a service role in your AWS account.
+   [To enable CodeBuild provisioning of pipelines] In the **Configure account settings** page, in the **CodeBuild
+   pipeline provisioning role** section, choose **Existing service role**, and choose a service role in your AWS account.
 
-5.  Choose **Save changes**.
+5. Choose **Save changes**.
 
 Your new pipeline service role is displayed on the **Account settings** page.
 

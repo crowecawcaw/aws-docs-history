@@ -44,7 +44,7 @@ In the navigation pane, choose **Environment templates**.
 
    1. Enter the template name as `fargate-env`.
    2. Enter the environment template display name as `My Fargate
-Environment`.
+  Environment`.
    3. (Optional) Enter a description for the environment template.
 
 8. (Optional) In the **Tags** section, choose **Add new
@@ -89,7 +89,7 @@ details.
    1. Enter the service template name as
       `backend-fargate-svc`.
    2. Enter the service template display name as `My Fargate
-Service`.
+  Service`.
    3. (Optional) Enter a description for the service template.
 
 8. In the **Compatible environment templates** section.
