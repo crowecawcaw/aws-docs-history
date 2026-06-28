@@ -49,9 +49,9 @@ execution strategy, SimpleDB discards all the records not belonging to
 A composite attribute provides a more efficient way to handle this query, too.
 You can combine the `user_id` and `bill_time` values into a
 composite value, and then query for items with that value. The way you combine must
-depend on your data. In our example, bill_time may be a single string or may be
+depend on your data. In our example, bill\_time may be a single string or may be
 missing, and the `user_id` attribute is a single four character string.
-We combine them by concatenating their texts; but if bill_time is missing, the
+We combine them by concatenating their texts; but if bill\_time is missing, the
 missing data propagates and the concatenation is also missing. The following query
 would efficiently seek the billing times for a user by querying only that composite
 attribute.

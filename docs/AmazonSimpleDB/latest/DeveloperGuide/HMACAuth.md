@@ -74,12 +74,12 @@ should move to signature version 2 immediately.
 
 ###### To create the signature
 
-1.  Create the canonicalized query string that you need later in this
-    procedure:
+1. Create the canonicalized query string that you need later in this
+   procedure:
 
-    1. Sort the UTF-8 query string components by parameter name with natural byte ordering.
+   1. Sort the UTF-8 query string components by parameter name with natural byte ordering.
 
-    The parameters can come from the GET URI or from the POST body (when `Content-Type` is `application/x-www-form-urlencoded` ). 2. URL encode the parameter name and values according to the following rules:
+   The parameters can come from the GET URI or from the POST body (when `Content-Type` is `application/x-www-form-urlencoded` ). 2. URL encode the parameter name and values according to the following rules:
 
         * Do not URL encode any of the unreserved characters that RFC 3986 defines.
          These unreserved characters are A-Z, a-z, 0-9, hyphen ( - ), underscore ( \_ ), period ( . ), and tilde ( ~ ).
@@ -87,15 +87,15 @@ should move to signature version 2 immediately.
         * Percent encode extended UTF-8 characters in the form %XY%ZA....
         * Percent encode the space character as %20 (and not +, as common encoding schemes do).
 
-    ###### Note
+   ###### Note
 
-    Currently all AWS service parameter names use unreserved characters,
-    so you don't need to encode them. However, you might want to include
-    code to handle parameter names that use reserved characters, for
-    possible future use. 3. Separate the encoded parameter names from their encoded values with the equals sign ( = ) (ASCII character 61), even if the parameter value is empty. 4. Separate the name-value pairs with an ampersand ( & ) (ASCII character 38).
+   Currently all AWS service parameter names use unreserved characters,
+   so you don't need to encode them. However, you might want to include
+   code to handle parameter names that use reserved characters, for
+   possible future use. 3. Separate the encoded parameter names from their encoded values with the equals sign ( = ) (ASCII character 61), even if the parameter value is empty. 4. Separate the name-value pairs with an ampersand ( & ) (ASCII character 38).
 
-2.  Create the string to sign according to the following pseudo-grammar (the
-    `"\n"` represents an ASCII newline character).
+2. Create the string to sign according to the following pseudo-grammar (the
+   `"\n"` represents an ASCII newline character).
 
 ```
 StringToSign = HTTPVerb + "\n" +

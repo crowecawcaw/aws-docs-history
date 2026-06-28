@@ -11,7 +11,7 @@ command rather than expecting immediate completion.
 
 ## Consider Domain Lifecycle Management
 
-Domain deletion is blocked while any export for that domain is in PENDING or IN_PROGRESS
+Domain deletion is blocked while any export for that domain is in PENDING or IN\_PROGRESS
 status. If you plan to delete a domain, ensure all exports have completed (SUCCEEDED or
 FAILED status) before attempting deletion. You can use the `list-exports`
 command with a domain filter to check for active exports.

@@ -15,7 +15,7 @@ The `exportDataCutoffTime` represents when domain processing begins, not when th
 ## Response Elements
 
 | Name                   | Description                                                                                                 |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------- | ------------- | ----------- | -------- |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------- |
 | `exportArn`            | The unique Amazon Resource Name (ARN) of the export.                                                        |
 | `clientToken`          | The client token used to create the export.                                                                 |
 | `exportStatus`         | The current state of the export. Valid values: `PENDING`                                                    | `IN_PROGRESS` | `SUCCEEDED` | `FAILED` |

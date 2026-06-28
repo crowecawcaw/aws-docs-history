@@ -13,7 +13,7 @@ If the export fails mid-process, no automatic cleanup occurs. Partial data may r
 ## Request Parameters
 
 | Name             | Description                                                                                                                                                                                                                    | Required |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | --- |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
 | `clientToken`    | A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon SimpleDB ignores the request, but does not return an error.<br>Type: String | Yes      |
 | `domainName`     | The name of the Amazon SimpleDB domain to export.<br>Type: String                                                                                                                                                              | Yes      |
 | `s3Bucket`       | The name of the Amazon S3 bucket where the exported data will be stored.<br>Type: String                                                                                                                                       | Yes      |

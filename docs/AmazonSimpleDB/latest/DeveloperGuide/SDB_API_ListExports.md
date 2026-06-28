@@ -15,7 +15,7 @@ Lists all exports created in an AWS account. Results are paginated and can be fi
 ## Response Elements
 
 | Name                             | Description                                                                                           |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------- | ----------- | -------- |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | `exportSummaries`                | A list of export summaries.                                                                           |
 | `exportSummaries[].exportArn`    | The unique Amazon Resource Name (ARN) of the export.                                                  |
 | `exportSummaries[].exportStatus` | The current state of the export. Valid values: `PENDING`                                              | `IN_PROGRESS` | `SUCCEEDED` | `FAILED` |

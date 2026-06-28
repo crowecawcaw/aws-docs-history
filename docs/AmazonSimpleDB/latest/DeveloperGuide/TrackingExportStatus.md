@@ -31,7 +31,7 @@ PENDING
 
 The export request has been received and is queued for processing.
 
-IN_PROGRESS
+IN\_PROGRESS
 
 The export is actively being processed and data is being written to Amazon S3.
 

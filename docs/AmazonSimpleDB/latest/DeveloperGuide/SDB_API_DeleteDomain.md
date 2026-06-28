@@ -14,7 +14,7 @@ error response.
 
 ###### Important
 
-Domain deletion is blocked while any export for that domain is in PENDING or IN_PROGRESS
+Domain deletion is blocked while any export for that domain is in PENDING or IN\_PROGRESS
 status. Ensure all exports have completed (SUCCEEDED or FAILED status) before attempting to
 delete a domain. You can use the `ListExports` operation to check for active exports.
 
