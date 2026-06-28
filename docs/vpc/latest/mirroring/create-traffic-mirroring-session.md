@@ -55,8 +55,7 @@ first [accept the resource share](tm-share-accept.md "tm-share-accept.md"). 13. 
      see [Step 2: Create the traffic mirror filter](traffic-mirroring-getting-started.md#step-create-traffic-mirroring-filters "traffic-mirroring-getting-started.md#step-create-traffic-mirroring-filters").
 
 14. (Optional) For each tag to add, choose **Add new tag** and enter the tag key
-    and tag value.
-15. If you're modifying a session, choose **Modify**. If you're creating a session, choose **Create**.
+and tag value. 15. If you're modifying a session, choose **Modify**. If you're creating a session, choose **Create**.
 
 ###### To create a traffic mirror session using the AWS CLI
 
