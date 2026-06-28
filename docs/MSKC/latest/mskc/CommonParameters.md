@@ -18,8 +18,8 @@ Required: Conditional
 
 **X-Amz-Credential**
 
-The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string ("aws4_request"). The value is expressed in the following format:
-_access_key_/_YYYYMMDD_/_region_/_service_/aws4_request.
+The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string ("aws4\_request"). The value is expressed in the following format:
+_access\_key_/_YYYYMMDD_/_region_/_service_/aws4\_request.
 
 For more information, see [Create a signed AWS API request](../../../IAM/latest/UserGuide/reference_sigv-create-signed-request.md "../../../IAM/latest/UserGuide/reference_sigv-create-signed-request.md") in the _IAM User Guide_.
 
