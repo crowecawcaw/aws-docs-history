@@ -22,12 +22,12 @@ That takes you to the AWS Console and your AWS Marketplace seller account. 4. Do
 
 5. Select the following checkboxes:
 
-   - Under **Cloud admin IAM role**, choose **Assign PartnerCentralRoleForCloudAdmin-###
+    * Under **Cloud admin IAM role**, choose **Assign PartnerCentralRoleForCloudAdmin-###
      role to the AWS Partner Central alliance lead and all active cloud admin users**.
-   - Under **Alliance team IAM role**, choose **Assign PartnerCentralRoleForAlliance-###
+    * Under **Alliance team IAM role**, choose **Assign PartnerCentralRoleForAlliance-###
      role to all active AWS Partner Central alliance team users**.
-   - Under **ACE IAM role**, choose **Assign PartnerCentralRoleForAce-###
+    * Under **ACE IAM role**, choose **Assign PartnerCentralRoleForAce-###
      role to the AWS Partner Central ACE managers and users.**.
 
 6. Choose **Next**, then choose **Link accounts**.
-   Success messages appear when the linking process finishes.
+Success messages appear when the linking process finishes.

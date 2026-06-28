@@ -17,7 +17,7 @@ AWS Partner Network
 Salesforce.com (SFDC)?**
 
 Use the sample code file
-[S3_Authentication.cls](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/S3_Authentication.cls "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/S3_Authentication.cls")
+[S3\_Authentication.cls](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/S3_Authentication.cls "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/S3_Authentication.cls")
 to authenticate the Amazon S3 from SFDC.
 
 **Q: How do I upload the file from the AWS
@@ -33,7 +33,7 @@ aws s3 cp example.json s3://awsexamplebucket/opportunity- inbound/filename.json 
 ```
 
 The sample code file
-[Sample_AceOutboundBatch.cls](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/Sample_AceOutboundBatch.cls "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/Sample_AceOutboundBatch.cls")
+[Sample\_AceOutboundBatch.cls](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/Sample_AceOutboundBatch.cls "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/Sample_AceOutboundBatch.cls")
 contains code to upload the data file from SFDC.
 
 **Q: Who owns the Amazon S3 bucket?**

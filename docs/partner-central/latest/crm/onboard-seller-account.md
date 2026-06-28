@@ -19,7 +19,7 @@ the same prefix for the named credentials related to the AWS seller account.
 | **Field**                             | **Value**                                           |
 | ------------------------------------- | --------------------------------------------------- |
 | **Label**                             | AWS SELLER CATALOG                                  |
-| **Name**                              | AWS_SELLER_CATALOG\_`unique_account_prefix`         |
+| **Name**                              | AWS\_SELLER\_CATALOG\_`unique_account_prefix`       |
 | **URL**                               | https://catalog.marketplace.us-east-1.amazonaws.com |
 | **Identity type**                     | Named Principal                                     |
 | **Authentication protocol**           | AWS signature version 4                             |
@@ -39,12 +39,12 @@ the same prefix for the named credentials related to the AWS seller account.
    in the following table. Use the values in the table below to replace the corresponding values
    in **Step 3** above
 
-| **Named Credential Label** | **Named Credential Name**                     | **API endpoint**                                                                                                                                                          | **AWS Region** | **AWS service** |
-| -------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | --------------- |
-| AWS SELLER Amazon S3       | AWS_SELLER_S3\_`unique_account_prefix`        | [https://s3.amazonaws.com/](https://s3.amazonaws.com/ "https://s3.amazonaws.com/")                                                                                        | us-east-1      | s3              |
-| AWS SELLER AWS STS         | AWS_SELLER_STS\_`unique_account_prefix`       | [https://sts.us-east-1.amazonaws.com/](https://sts.us-east-1.amazonaws.com/ "https://sts.us-east-1.amazonaws.com/")                                                       | us-east-1      | sts             |
-| AWS SELLER Amazon SQS      | AWS_SELLER_SQS\_`unique_account_prefix`       | [https://sqs.us-east-1.amazonaws.com/](https://sqs.us-east-1.amazonaws.com/ "https://sqs.us-east-1.amazonaws.com/")                                                       | us-east-1      | sqs             |
-| AWS SELLER AGREEMENT       | AWS_SELLER_AGREEMENT\_`unique_account_prefix` | [https://agreement-marketplace.us-east-1.amazonaws.com/](https://agreement-marketplace.us-east-1.amazonaws.com/ "https://agreement-marketplace.us-east-1.amazonaws.com/") | us-east-1      | aws-marketplace |
+| **Named Credential Label** | **Named Credential Name**                       | **API endpoint**                                                                                                                                                          | **AWS Region** | **AWS service** |
+| -------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | --------------- |
+| AWS SELLER Amazon S3       | AWS\_SELLER\_S3\_`unique_account_prefix`        | [https://s3.amazonaws.com/](https://s3.amazonaws.com/ "https://s3.amazonaws.com/")                                                                                        | us-east-1      | s3              |
+| AWS SELLER AWS STS         | AWS\_SELLER\_STS\_`unique_account_prefix`       | [https://sts.us-east-1.amazonaws.com/](https://sts.us-east-1.amazonaws.com/ "https://sts.us-east-1.amazonaws.com/")                                                       | us-east-1      | sts             |
+| AWS SELLER Amazon SQS      | AWS\_SELLER\_SQS\_`unique_account_prefix`       | [https://sqs.us-east-1.amazonaws.com/](https://sqs.us-east-1.amazonaws.com/ "https://sqs.us-east-1.amazonaws.com/")                                                       | us-east-1      | sqs             |
+| AWS SELLER AGREEMENT       | AWS\_SELLER\_AGREEMENT\_`unique_account_prefix` | [https://agreement-marketplace.us-east-1.amazonaws.com/](https://agreement-marketplace.us-east-1.amazonaws.com/ "https://agreement-marketplace.us-east-1.amazonaws.com/") | us-east-1      | aws-marketplace |
 
 Repeat the above steps for each AWS Seller account you want added to the AWS Marketplace
 integration.

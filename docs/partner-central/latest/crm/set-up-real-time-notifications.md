@@ -28,20 +28,22 @@ The **New Connected App** page appears. 4. Do the following:
      in the Salesforce documentation.
 
 5. Select the **Enable OAuth Settings** checkbox, then
-   do the following:
+do the following:
 
-   1. Select the **Enable for Device Flow** checkbox. You can ignore the resulting callback URL.
-   2. Under **Available OAuth Scopes**, select **Manage user data via
-      APIs** and use the **Add** button to move the scope to the list of selected scopes.
-   3. Select the following checkboxes:
+    1. Select the **Enable for Device Flow** checkbox. You can ignore the resulting callback URL.
+    2. Under **Available OAuth Scopes**, select **Manage user data via
+     APIs** and use the **Add** button to move the scope to the list of selected scopes.
+    3. Select the following checkboxes:
 
-      - **Require Proof Key for Code Exchange (PKCE) Extension for Supported Authorization Flows**
-      - **Require Secret for Web Server Flow**
-      - **Require Secret for Refresh Token Flow**
-      - **Enable Client Credentials Flow**
 
-   4. On the message that appears after you select **Enable Client Credentials Flow**, choose **OK**.
-   5. Scroll to the bottom of the page and choose **Save**.
+
+
+    	* **Require Proof Key for Code Exchange (PKCE) Extension for Supported Authorization Flows**
+    	* **Require Secret for Web Server Flow**
+    	* **Require Secret for Refresh Token Flow**
+    	* **Enable Client Credentials Flow**
+    4. On the message that appears after you select **Enable Client Credentials Flow**, choose **OK**.
+    5. Scroll to the bottom of the page and choose **Save**.
 
 6. Choose **Continue**, then choose **Manage Consumer Details**.
 
@@ -100,22 +102,14 @@ You deploy each template separately, and you follow the same steps for both.
     * Partner Central API integration: [https://servicecatalogconnector.s3.amazonaws.com/APIDestinationCFT\_PCAPI.json](https://servicecatalogconnector.s3.amazonaws.com/APIDestinationCFT_PCAPI.json "https://servicecatalogconnector.s3.amazonaws.com/APIDestinationCFT_PCAPI.json")
     * (Optional) AWS Marketplace integration: [https://servicecatalogconnector.s3.amazonaws.com/APIDestinationCFT\_AWSMP.json](https://servicecatalogconnector.s3.amazonaws.com/APIDestinationCFT_AWSMP.json "https://servicecatalogconnector.s3.amazonaws.com/APIDestinationCFT_AWSMP.json")
 
-2.  In the AWS Console, sign in to your AWS Marketplace seller account and ensure it runs in the **N. Virginia**. EventBridge only operates in that Region.
-3.  Still in the console, search on `cloudformation`, then open the CloudFormation console.
-4.  On the **Stacks** page, choose **Create stack**.
-5.  Select the **Choose an existing template** and **Upload a template file** radio buttons.
-6.  Select **Choose file** to open the downloaded template, then choose **Next**.
-7.  On the **Specify stack details** page, enter the following:
+2. In the AWS Console, sign in to your AWS Marketplace seller account and ensure it runs in the **N. Virginia**. EventBridge only operates in that Region. 3. Still in the console, search on `cloudformation`, then open the CloudFormation console. 4. On the **Stacks** page, choose **Create stack**. 5. Select the **Choose an existing template** and **Upload a template file** radio buttons. 6. Select **Choose file** to open the downloaded template, then choose **Next**. 7. On the **Specify stack details** page, enter the following:
 
-        * **Stack name** – enter a name for the stack.
-        * **Client ID** – Enter the consumer key you noted when creating the connected app.
-        * **Client Secret** – Enter the consumer secret you noted when you created the connected app.
-        * **Domain URL** – Use the following format: `https://`domain_URL`.`
+    * **Stack name** – enter a name for the stack.
+    * **Client ID** – Enter the consumer key you noted when creating the connected app.
+    * **Client Secret** – Enter the consumer secret you noted when you created the connected app.
+    * **Domain URL** – Use the following format: `https://`domain_URL`.`
 
-    When finished, choose **Next**.
-
-8.  On the **Configure stack options** page, scroll to the end, select the **I acknowledge that AWS CloudFormation might create IAM resources** checkbox, then choose **Next**.
-9.  Choose **Submit**.
+When finished, choose **Next**. 8. On the **Configure stack options** page, scroll to the end, select the **I acknowledge that AWS CloudFormation might create IAM resources** checkbox, then choose **Next**. 9. Choose **Submit**.
 
 When deployed successfully, the templates create the API Destination, Connection, Event Rules, and Dead Letter Queue.
 
@@ -177,24 +171,34 @@ The **Create API destination** page appears. 3. Enter the following information:
      `https://`my-salesforce-domain-name`.my.salesforce.com/services/data/v58.0/sobjects/`event-api-name``.
     4. For **HTTP method**, select **POST**.
 
-4.  Under **Connection configuration**, select **Create a new connection**, then do the following:
+4. Under **Connection configuration**, select **Create a new connection**, then do the following:
 
     1. Enter a name and optional description.
     2. For **Destination type**, choose **Other**.
     3. Choose **OAuth Client Credentials**.
     4. For **Authorization endpoint**, accept the prepopulated endpoint.
 
+
     —OR—
+
 
     if you use a production organization, replace the populated endpoint with this URL:
 
-    `https://`my-salesforce-domain-name`.my.salesforce.com/services/oauth2/token` 5. For **HTTP method**, select **POST**. 6. For **Client ID**, enter the consumer key from the connected app in Salesforce. 7. For **Client secret**, enter the consumer secret from the connected app in Salesforce. 8. Add the following OAuth values:
 
-        * **Parameter**: Body field
-        * **Key**: grant\_type
-        * **Value**: client\_credentials
+    `https://`my-salesforce-domain-name`.my.salesforce.com/services/oauth2/token`
+    5. For **HTTP method**, select **POST**.
+    6. For **Client ID**, enter the consumer key from the connected app in Salesforce.
+    7. For **Client secret**, enter the consumer secret from the connected app in Salesforce.
+    8. Add the following OAuth values:
 
-5.  Choose **Create**.
+
+
+
+    	* **Parameter**: Body field
+    	* **Key**: grant\_type
+    	* **Value**: client\_credentials
+
+5. Choose **Create**.
 
 ###### Note
 

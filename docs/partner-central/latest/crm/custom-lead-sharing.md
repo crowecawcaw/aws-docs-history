@@ -58,8 +58,8 @@ custom integration with the following functionalities.
 - Use the sample codes below for Lambda and Salesforce REST API to
   validate and update CRM records.
 
-  - **Lambda for validating files**: [ace_read_s3.py](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/ace_read_s3.py "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/ace_read_s3.py").
-  - **Salesforce REST API**: [Apex_Sample_REST_API_Code.cls](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/Apex_Sample_REST_API_Code.cls "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/Apex_Sample_REST_API_Code.cls").
+  - **Lambda for validating files**: [ace\_read\_s3.py](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/ace_read_s3.py "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/ace_read_s3.py").
+  - **Salesforce REST API**: [Apex\_Sample\_REST\_API\_Code.cls](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/Apex_Sample_REST_API_Code.cls "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/Apex_Sample_REST_API_Code.cls").
 
 - If you use a CRM system other than Salesforce, you must
   provide code specific to your system to update your data.
@@ -125,10 +125,10 @@ custom integration with the following functionalities.
 
      - **For authenticating an S3
        bucket**:
-       [S3_Authentication.cls](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/S3_Authentication.cls "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/S3_Authentication.cls")
+       [S3\_Authentication.cls](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/S3_Authentication.cls "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/S3_Authentication.cls")
      - **For uploading files to an S3
        bucket**:
-       [Sample_AceOutboundBatch.cls](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/Sample_AceOutboundBatch.cls "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/Sample_AceOutboundBatch.cls")
+       [Sample\_AceOutboundBatch.cls](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/Sample_AceOutboundBatch.cls "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/Sample_AceOutboundBatch.cls")
 
    - **NOTE:**
      Files must not exceed 1 MB in size, and duplicate files

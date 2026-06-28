@@ -8,7 +8,7 @@ old and new models, refer to the following [aws-samples/partner-crm-integration-
 
 - **Opportunity-FieldsAndStandardValues-DiffWithPrevVersion-V14.3.xlsx**
 - **Opportunity-Fields.xlsx**
-- **Opportunity\_-_StandardValues.xlsx**
+- **Opportunity\_-\_StandardValues.xlsx**
 
 ## Prerequisites
 

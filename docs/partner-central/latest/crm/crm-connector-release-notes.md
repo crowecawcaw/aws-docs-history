@@ -260,7 +260,7 @@ improvements.
 - Fixed `ReviewStatus` field from changing to null on
   an approved opportunity after updating an allowed field.
 - Implemented new field mapping for `Next Step
-History` to accommodate larger data volumes and
+ History` to accommodate larger data volumes and
   prevent sync failures.
 - Resolved ACE opportunity activation flow issues by implementing
   proper update logic for `APN CRM Unique Identifier` field

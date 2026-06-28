@@ -103,38 +103,38 @@ status before proceeding. See [this section](https://catalog.us-east-1.prod.work
 
 The following table lists the validation rules and their expected status.
 
-| Validation rules status                    | Rule name                                    | Error location | Status |
-| ------------------------------------------ | -------------------------------------------- | -------------- | ------ |
-| `ACEOpp_PreventUpdatesWhenPOSubmitted`     | Top of Page                                  | Deactivate     |
-| `ACEOppNew_CustomerBusinessProblemLength`  | Customer business problem (legacy field)     | Deactivate     |
-| `ACEOppNew_CustomerBusinessProblemNew`     | Customer business problem                    | Deactivate     |
-| `ACEOppNew_MandatoryclosedLostReason`      | Closed lost reason                           | Active         |
-| `ACEOppNew_MandatorycompetitiveTrackingOt` | Competitive tracking other                   | Active         |
-| `ACEOppNew_MandatorycontractEndDate`       | Contract end date                            | Active         |
-| `ACEOppNew_MandatorycontractStartDate`     | Contract start date                          | Active         |
-| `ACEOppNew_MandatorycustomerCompanyName`   | Customer company name                        | Active         |
-| `ACEOppNew_MandatorycustomerSoftwareVal`   | Customer software value                      | Active         |
-| `ACEOppNew_MandatorycustomerSoftwareValue` | Customer software value currency             | Active         |
-| `ACEOppNew_MandatorycustomerWebsite`       | Customer website                             | Active         |
-| `ACEOppNew_MandatoryIndustryOther`         | Industry other                               | Deactivate     |
-| `ACEOppNew_MandatoryisMarketingDevelopmen` | Is marketing development funded              | Active         |
-| `ACEOppNew_MandatoryIsOppFromMarketingAct` | Is opportunity from marketing activity       | Active         |
-| `ACEOppNew_MandatoryNullawsSFCampaignName` | AWS Salesforce campaign name                 | Active         |
-| `ACEOppNew_MandatoryNULLisMarketingDev`    | Is marketing development funded (null check) | Active         |
-| `ACEOppNew_MandatoryNullmarketingChannel`  | Marketing activity channel                   | Active         |
-| `ACEOppNew_MandatoryNullmarketingusecase`  | Marketing activity use case                  | Active         |
-| `ACEOppNew_MandatoryotherSolutionOffered`  | Other solution offered                       | Active         |
-| `ACEOppNew_MandatoryparentOppId`           | Parent opportunity ID                        | Deactivate     |
-| `ACEOppNew_MandatorypartnerAcceptanceStat` | Partner acceptance status                    | Deactivate     |
-| `ACEOppNew_MandatoryprocurementType`       | Procurement type                             | Active         |
-| `ACEOppNew_MandatoryrejectionReason`       | Rejection reason                             | Active         |
-| `ACEOppNew_MandatorySalesActivities`       | Sales activities                             | Active         |
-| `ACEOppNew_MandatorySolutionOffered`       | Solution offered                             | Deactivate     |
-| `ACEOppNew_MandatoryState`                 | State                                        | Deactivate     |
-| `ACEOppNew_PostalCode`                     | Top of Page (postal code)                    | Deactivate     |
-| `ACEOppNew_PreventUpdatesWhenPOSubmitted`  | Top of Page (prevent updates)                | Deactivate     |
-| `ACEOppNew_RequireFieldsForAWSReferral`    | Top of Page (AWS Referral required fields)   | Active         |
-| `ACEOppNew_TargetCloseDate`                | Top of Page (target close date)              | Active         |
+Validation rules status| Rule name | Error location | Status |
+| --- | --- | --- |
+| `ACEOpp_PreventUpdatesWhenPOSubmitted` | Top of Page | Deactivate |
+| `ACEOppNew_CustomerBusinessProblemLength` | Customer business problem (legacy field) | Deactivate |
+| `ACEOppNew_CustomerBusinessProblemNew` | Customer business problem | Deactivate |
+| `ACEOppNew_MandatoryclosedLostReason` | Closed lost reason | Active |
+| `ACEOppNew_MandatorycompetitiveTrackingOt` | Competitive tracking other | Active |
+| `ACEOppNew_MandatorycontractEndDate` | Contract end date | Active |
+| `ACEOppNew_MandatorycontractStartDate` | Contract start date | Active |
+| `ACEOppNew_MandatorycustomerCompanyName` | Customer company name | Active |
+| `ACEOppNew_MandatorycustomerSoftwareVal` | Customer software value | Active |
+| `ACEOppNew_MandatorycustomerSoftwareValue` | Customer software value currency | Active |
+| `ACEOppNew_MandatorycustomerWebsite` | Customer website | Active |
+| `ACEOppNew_MandatoryIndustryOther` | Industry other | Deactivate |
+| `ACEOppNew_MandatoryisMarketingDevelopmen` | Is marketing development funded | Active |
+| `ACEOppNew_MandatoryIsOppFromMarketingAct` | Is opportunity from marketing activity | Active |
+| `ACEOppNew_MandatoryNullawsSFCampaignName` | AWS Salesforce campaign name | Active |
+| `ACEOppNew_MandatoryNULLisMarketingDev` | Is marketing development funded (null check) | Active |
+| `ACEOppNew_MandatoryNullmarketingChannel` | Marketing activity channel | Active |
+| `ACEOppNew_MandatoryNullmarketingusecase` | Marketing activity use case | Active |
+| `ACEOppNew_MandatoryotherSolutionOffered` | Other solution offered | Active |
+| `ACEOppNew_MandatoryparentOppId` | Parent opportunity ID | Deactivate |
+| `ACEOppNew_MandatorypartnerAcceptanceStat` | Partner acceptance status | Deactivate |
+| `ACEOppNew_MandatoryprocurementType` | Procurement type | Active |
+| `ACEOppNew_MandatoryrejectionReason` | Rejection reason | Active |
+| `ACEOppNew_MandatorySalesActivities` | Sales activities | Active |
+| `ACEOppNew_MandatorySolutionOffered` | Solution offered | Deactivate |
+| `ACEOppNew_MandatoryState` | State | Deactivate |
+| `ACEOppNew_PostalCode` | Top of Page (postal code) | Deactivate |
+| `ACEOppNew_PreventUpdatesWhenPOSubmitted` | Top of Page (prevent updates) | Deactivate |
+| `ACEOppNew_RequireFieldsForAWSReferral` | Top of Page (AWS Referral required fields) | Active |
+| `ACEOppNew_TargetCloseDate` | Top of Page (target close date) | Active |
 
 ## Deactivate legacy ACE custom flows
 
