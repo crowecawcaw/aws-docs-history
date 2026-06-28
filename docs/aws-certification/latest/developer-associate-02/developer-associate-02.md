@@ -10,6 +10,7 @@ The AWS Certified Developer - Associate (DVA-C02) exam is intended for individua
 - [Target Candidate Description](#developer-associate-02-target "#developer-associate-02-target")
 - [Exam Content](#developer-associate-02-exam-content "#developer-associate-02-exam-content")
 - [Content outline](#developer-associate-02-domains "#developer-associate-02-domains")
+- [Emerging topics](#developer-associate-02-emerging-topics "#developer-associate-02-emerging-topics")
 - [Service References](#dva-service-references "#dva-service-references")
 - [Content Domain 1: Development with AWS Services](developer-associate-02-domain1.md "developer-associate-02-domain1.md")
 - [Content Domain 2: Security](developer-associate-02-domain2.md "developer-associate-02-domain2.md")
@@ -81,6 +82,10 @@ Unanswered questions are scored as incorrect; there is no penalty for guessing. 
 
 The exam includes 15 unscored questions that do not affect your score. AWS collects information about performance on these unscored questions to evaluate these questions for future use as scored questions. These unscored questions are not identified on the exam.
 
+### Exam duration
+
+You will have 130 minutes to complete your exam.
+
 ### Exam results
 
 The AWS Certified Developer - Associate (DVA-C02) exam has a pass or fail designation. The exam is scored against a minimum standard established by AWS professionals who follow certification industry best practices and guidelines.
@@ -101,6 +106,21 @@ The exam has the following content domains and weightings:
 - [Content Domain 2: Security (26% of scored content)](developer-associate-02-domain2.md "developer-associate-02-domain2.md")
 - [Content Domain 3: Deployment (24% of scored content)](developer-associate-02-domain3.md "developer-associate-02-domain3.md")
 - [Content Domain 4: Troubleshooting and Optimization (18% of scored content)](developer-associate-02-domain4.md "developer-associate-02-domain4.md")
+
+## Emerging topics
+
+In addition to questions based on the content outline of this guide, you might also encounter questions about emerging technologies and practices that are becoming increasingly relevant to the Developer - Associate role. These topics represent evolving areas of competence and might appear as pretest questions on your exam.
+
+Questions on these emerging topics are included to evaluate new content and will not affect your exam score. These pretest questions help us ensure that our certifications remain current with evolving AWS technologies and best practices.
+
+These items may focus on the following skills:
+
+- Using AI-assisted development tools to generate, review, and optimize code (for example, spec-driven code generation, automated code reviews, intelligent code completion, refactoring suggestions, security scanning)
+- Identifying and mitigating security risks associated with using and integrating AI services into application development (for example, by using data privacy controls, implementing access management, controlling AI model inputs and outputs, securing AI agent interactions, preventing sensitive content from appearing in logs)
+- Using AWS AI tools to generate tests and automate repetitive testing workflows (for example, automated test execution, test result analysis, regression testing automation, test coverage)
+- Using AWS AI tools to support continuous integration and continuous delivery (CI/CD) workflows (for example, automated deployment approvals, environment provisioning, post-deployment validation)
+- Using AWS AI tools to analyze errors and to generate troubleshooting suggestions
+- Using AWS AI tools to identify optimization opportunities (for example, performance bottleneck detection, resource usage optimization, code efficiency improvement)
 
 ## Service References
 
