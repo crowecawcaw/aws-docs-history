@@ -20,17 +20,16 @@ Before using AWS IoT SiteWise, the following must be completed:
 - The IAM role must have the following write permissions for
   AWS IoT TwinMaker:
 
-      + `CreateEntity`
-      + `UpdateEntity`
-      + `DeleteEntity`
-      + `CreateComponentType`
-      + `UpdateComponentType`
-      + `DeleteComponentType`
-      + `ListEntities`
-      + `GetEntity`
-      + `ListComponentTypes`
-
-  Use the following IAM role as a template for the required role:
+  - `CreateEntity`
+  - `UpdateEntity`
+  - `DeleteEntity`
+  - `CreateComponentType`
+  - `UpdateComponentType`
+  - `DeleteComponentType`
+  - `ListEntities`
+  - `GetEntity`
+  - `ListComponentTypes`
+    Use the following IAM role as a template for the required role:
 
 ```
 

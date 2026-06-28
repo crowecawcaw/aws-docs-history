@@ -49,10 +49,9 @@ by choosing Athena resources for the following fields:
     * Choose a **Athena workGroup**.
 
 7. Once you have selected the Athena resources you want to use as the data source, choose which
-   columns from the table you want to include.
-8. Select an **External ID column name**. Select a column from the
-   previous step to serve as the external ID column. The external Id is the id that's used
-   to represent an Athena asset and map it to an AWS IoT TwinMaker entity.
+columns from the table you want to include. 8. Select an **External ID column name**. Select a column from the
+previous step to serve as the external ID column. The external Id is the id that's used
+to represent an Athena asset and map it to an AWS IoT TwinMaker entity.
 
 ![The Athena Data Connector console page lets you choose your datasource, database, table name, and columns.](images/CreateComponentType-AthenaDataConnector.png) 9. **(Optional)** Add AWS tags to these resources,
 so you can group and organize them. 10. Choose **Create component type** to finish creating

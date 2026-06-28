@@ -28,13 +28,12 @@ AWS IoT SiteWise.
 - Each property in the asset model is a new property in the component type,
   with one of the following naming patterns:
 
-      + **Custom workspace -**
-      `Property_`propertyId``
-      + **Default workspace -**
-      ``propertyId``
-
-  The property name in AWS IoT SiteWise is stored as
-  the `displayName` in the property definition.
+  - **Custom workspace -**
+    `Property_`propertyId``
+  - **Default workspace -**
+    `propertyId`
+    The property name in AWS IoT SiteWise is stored as
+    the `displayName` in the property definition.
 
 - Each hierarchy in the asset model is a new property of type
   `LIST` and the `nestedType` is

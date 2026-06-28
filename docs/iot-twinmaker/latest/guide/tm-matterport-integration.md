@@ -141,24 +141,23 @@ Use the following procedure to store your Matterport credentials in AWS Secrets 
 You need the **Client Secret** created from the procedure in the [Generate and record your Matterport credentials](#tm-matterport-integration-sdk-key "#tm-matterport-integration-sdk-key") topic to continue with the
 Matterport integration.
 
-1.  Log in to the AWS Secrets Manager console.
-2.  Navigate to the **Secrets** page and select
-    **Store a new secret**.
-3.  For the **Secret type**, select **Other type of
-    secret**.
-4.  In the **Key/value pairs** section, add in the following key-value pairs, with your Matterport credentials as the values:
+1. Log in to the AWS Secrets Manager console.
+2. Navigate to the **Secrets** page and select
+   **Store a new secret**.
+3. For the **Secret type**, select **Other type of
+   secret**.
+4. In the **Key/value pairs** section, add in the following key-value pairs, with your Matterport credentials as the values:
 
-        * Create a key-value pair, with **Key:**
-        `application_key`, and **Value:**
-        `<your Matterport credentials>`.
-        * Create a key-value pair, with **Key:**
-        `client_id`, and **Value:**
-        `<your Matterport credentials>`.
-        * Create a key-value pair, with **Key:**
-        `client_secret`, and **Value:**
-        `<your Matterport credentials>`.
-
-    When completed, you should have a configuration similar to the following example:
+   - Create a key-value pair, with **Key:**
+     `application_key`, and **Value:**
+     `<your Matterport credentials>`.
+   - Create a key-value pair, with **Key:**
+     `client_id`, and **Value:**
+     `<your Matterport credentials>`.
+   - Create a key-value pair, with **Key:**
+     `client_secret`, and **Value:**
+     `<your Matterport credentials>`.
+     When completed, you should have a configuration similar to the following example:
 
 ![The required key-value pairs that list the Matterport credentials used in the integration process.](images/tm-mp-key-value-step.png) 5. For the **Encryption key**, you can leave the default encryption key
 `aws/secretsmanager` selected. 6. Choose **Next** to move on to the **Configure secret**
