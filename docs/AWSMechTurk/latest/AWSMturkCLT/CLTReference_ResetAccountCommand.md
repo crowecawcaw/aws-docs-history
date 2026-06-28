@@ -18,7 +18,7 @@ The following table describes the arguments for the `resetAccount` command.
 
 | Name            | Description                                                                                                                                                                                   | Required |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `-force`        | Specifies \*not<br>• to prompt for manual confirmation before performing the operation.<br>Only advanced developers should use this argument.<br>Example: `-force`                            | No       |
+| `-force`        | Specifies *not<br>• to prompt for manual confirmation before performing the operation.<br>Only advanced developers should use this argument.<br>Example: `-force`                             | No       |
 | `‑help` or `‑h` | Displays the help for this operation.<br>Example: `-help`                                                                                                                                     | No       |
 | `-sandbox`      | Runs this command in the Amazon Mechanical Turk sandbox. This argument takes precedence<br>even if you specify the production web site in your `mturk.properties` file.<br>Example:`-sandbox` | No       |
 

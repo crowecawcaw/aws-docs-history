@@ -6,8 +6,8 @@
 
 # _Amazon Mechanical Turk_ Command Line Reference
 
-This is the \*_Amazon Mechanical Turk_ Command Line
-Reference\*. This guide provides descriptions and samples and other resources
+This is the _*Amazon Mechanical Turk* Command Line
+Reference_. This guide provides descriptions and samples and other resources
 related to the Amazon Mechanical Turk command line interface. The major sections of this
 guide are described in the following table.
 
