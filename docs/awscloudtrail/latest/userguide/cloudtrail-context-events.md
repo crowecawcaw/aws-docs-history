@@ -170,30 +170,30 @@ The following AWS services support IAM global condition keys for enriched events
 The following table lists the supported IAM global condition keys for CloudTrail enriched
 events, with example values:
 
-| Global Condition Keys and Sample Values | Key                                               | Example value |
-| --------------------------------------- | ------------------------------------------------- | ------------- |
-| `aws:FederatedProvider`                 | "`IdP`"                                           |
-| `aws:TokenIssueTime`                    | "`123456789`"                                     |
-| `aws:MultiFactorAuthAge`                | "99"                                              |
-| `aws:MultiFactorAuthPresent`            | "`true`"                                          |
-| `aws:SourceIdentity`                    | "`UserName`"                                      |
-| `aws:PrincipalAccount`                  | "111122223333"                                    |
-| `aws:PrincipalArn`                      | "arn:aws:iam::`555555555555:role/myRole`"         |
-| `aws:PrincipalIsAWSService`             | "`false`"                                         |
-| `aws:PrincipalOrgI`D                    | "`o-rganization`"                                 |
-| `aws:PrincipalOrgPaths`                 | ["`o-rganization/path-of-org`"]                   |
-| `aws:PrincipalServiceName`              | "`cloudtrail.amazonaws.com`"                      |
-| `aws:PrincipalServiceNamesList`         | ["`cloudtrail.amazonaws.com","s3.amazonaws.com`"] |
-| `aws:PrincipalType`                     | "`AssumedRole`"                                   |
-| `aws:userid`                            | "`userid`"                                        |
-| `aws:username`                          | "`username`"                                      |
-| `aws:RequestedRegion`                   | `us-east-2`"                                      |
-| `aws:SecureTransport`                   | "`true`"                                          |
-| `aws:ViaAWSService`                     | "`false`"                                         |
-| `aws:CurrentTime`                       | "`2025-04-30 15:30:00`"                           |
-| `aws:EpochTime`                         | "`1746049800`"                                    |
-| `aws:SourceAccount`                     | "`111111111111`"                                  |
-| `aws:SourceOrgID`                       | "`o-rganization`"                                 |
+Global Condition Keys and Sample Values| Key | Example value |
+| --- | --- |
+| `aws:FederatedProvider` | "`IdP`" |
+| `aws:TokenIssueTime` | "`123456789`" |
+| `aws:MultiFactorAuthAge` | "99" |
+| `aws:MultiFactorAuthPresent` | "`true`" |
+| `aws:SourceIdentity` | "`UserName`" |
+| `aws:PrincipalAccount` | "111122223333" |
+| `aws:PrincipalArn` | "arn:aws:iam::`555555555555:role/myRole`" |
+| `aws:PrincipalIsAWSService` | "`false`" |
+| `aws:PrincipalOrgI`D | "`o-rganization`" |
+| `aws:PrincipalOrgPaths` | ["`o-rganization/path-of-org`"] |
+| `aws:PrincipalServiceName` | "`cloudtrail.amazonaws.com`" |
+| `aws:PrincipalServiceNamesList` | ["`cloudtrail.amazonaws.com","s3.amazonaws.com`"] |
+| `aws:PrincipalType` | "`AssumedRole`" |
+| `aws:userid` | "`userid`" |
+| `aws:username` | "`username`" |
+| `aws:RequestedRegion` | `us-east-2`" |
+| `aws:SecureTransport` | "`true`" |
+| `aws:ViaAWSService` | "`false`" |
+| `aws:CurrentTime` | "`2025-04-30 15:30:00`" |
+| `aws:EpochTime` | "`1746049800`" |
+| `aws:SourceAccount` | "`111111111111`" |
+| `aws:SourceOrgID` | "`o-rganization`" |
 
 ## Event examples
 

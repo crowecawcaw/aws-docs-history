@@ -92,7 +92,7 @@ log group opens. Follow this procedure to create an alarm.
    3. For **Statistic**, keep the default,
       `Sum`.
    4. For **Period**, keep the default, `5
-minutes`.
+  minutes`.
    5. In **Conditions**, for **Threshold
       type**, choose **Static**.
    6. For **Whenever `metric_name`
@@ -126,7 +126,7 @@ minutes`.
    friendly name for the alarm, and a description. For this example, enter
    `Security group configuration changes` for the
    name, and `Raises alarms if security group configuration changes
-occur` for the description. Choose
+ occur` for the description. Choose
    **Next**.
 6. On the **Preview and create** page, review your choices.
    Choose **Edit** to make changes, or choose **Create
@@ -196,7 +196,7 @@ trail log group opens. Follow this procedure to create an alarm.
    3. For **Statistic**, keep the default,
       `Sum`.
    4. For **Period**, keep the default, `5
-minutes`.
+  minutes`.
    5. In **Conditions**, for **Threshold
       type**, choose **Static**.
    6. For **Whenever `metric_name`
@@ -231,7 +231,7 @@ minutes`.
    friendly name for the alarm, and a description. For this example, enter
    `Console sign-in failures` for the name, and
    `Raises alarms if more than 3 console sign-in failures occur
-in 5 minutes` for the description. Choose
+ in 5 minutes` for the description. Choose
    **Next**.
 6. On the **Preview and create** page, review your choices.
    Choose **Edit** to make changes, or choose **Create
@@ -299,7 +299,7 @@ trail log group opens. Follow this procedure to create an alarm.
    3. For **Statistic**, keep the default,
       `Sum`.
    4. For **Period**, keep the default, `5
-minutes`.
+  minutes`.
    5. In **Conditions**, for **Threshold
       type**, choose **Static**.
    6. For **Whenever `metric_name`

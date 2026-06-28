@@ -346,7 +346,7 @@ return.
 ```
 
 3. To use the edited file as input, use the syntax `--cli-input-json
-file://``<filename>`, as in the
+ file://``<filename>`, as in the
    following example:
 
 ```

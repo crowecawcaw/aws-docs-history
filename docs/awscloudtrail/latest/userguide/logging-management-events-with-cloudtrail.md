@@ -156,111 +156,112 @@ Use the following procedure to update the management event settings for an exist
 
 ### Updating the management event settings for an existing event data store
 
-1.  Sign in to the AWS Management Console and open the CloudTrail console at
-    [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/ "https://console.aws.amazon.com/cloudtrail/").
-2.  Open the **Event data stores** page of the CloudTrail console and
-    choose the event data store name.
-3.  For **Management events**, choose
-    **Edit** and then configure the following settings:
+1. Sign in to the AWS Management Console and open the CloudTrail console at
+   [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/ "https://console.aws.amazon.com/cloudtrail/").
+2. Open the **Event data stores** page of the CloudTrail console and
+   choose the event data store name.
+3. For **Management events**, choose
+   **Edit** and then configure the following settings:
 
-    1.  Choose between **Simple event collection**
-        or **Advanced event collection**:
+   1. Choose between **Simple event collection**
+      or **Advanced event collection**:
 
-        - Choose **Simple event collection** if you want to log all events, log only read events, or log only write events.
-          You can choose also to exclude AWS Key Management Service and Amazon RDS Data API management events.
-        - Choose **Advanced event collection** if you want to include or exclude management events based on the values of advanced event selector fields, including the `eventName`,
-          `eventType`, `eventSource`, and `userIdentity.arn` fields.
+      - Choose **Simple event collection** if you want to log all events, log only read events, or log only write events.
+        You can choose also to exclude AWS Key Management Service and Amazon RDS Data API management events.
+      - Choose **Advanced event collection** if you want to include or exclude management events based on the values of advanced event selector fields, including the `eventName`,
+        `eventType`, `eventSource`, and `userIdentity.arn` fields.
 
-    2.  If you selected **Simple event collection**,
-        choose whether you want to log all events, log only read events, or log only write events.
-        You can also choose to exclude AWS KMS and Amazon RDS management events.
-    3.  If you selected **Advanced event collection**, make the following selections:
+   2. If you selected **Simple event collection**,
+      choose whether you want to log all events, log only read events, or log only write events.
+      You can also choose to exclude AWS KMS and Amazon RDS management events.
+   3. If you selected **Advanced event collection**, make the following selections:
 
-        1. In **Log selector template**, choose a predefined template, or **Custom** to
-           build a custom configuration based on advanced event selector field values.
+      1. In **Log selector template**, choose a predefined template, or **Custom** to
+         build a custom configuration based on advanced event selector field values.
 
-        You can choose from the following predefined
-        templates:
+      You can choose from the following predefined
+      templates:
 
-            * **Log all events** –
-             Choose this template to log all events.
-            * **Log only read events** –
-             Choose this template to log only read events.
-             Read-only events are events that do not change the
-             state of a resource, such as `Get*` or `Describe*`
-             events.
-            * **Log only write events** – Choose this template to log only write events.
-             Write events add, change, or delete resources, attributes, or artifacts,
-             such as `Put*`, `Delete*`, or `Write*` events.
-            * **Log only AWS Management Console events** –
-             Choose this template to log only events originating from the AWS Management Console.
-            * **Exclude AWS service initiated events** – Choose this template to exclude
-             AWS service events, which have an `eventType` of `AwsServiceEvent`,
-             and events initiated with AWS service-linked roles (SLRs).
-        2. (Optional) In **Selector name**, enter a name to identify your selector. The selector name is a
-           descriptive name for an advanced event selector, such as "Log management events from AWS Management Console sessions". The selector name is listed as `Name` in the
-           advanced event selector and is viewable if you expand the
-           **JSON view**.
-        3. If you chose **Custom**, in **Advanced event selectors** build an expression based on advanced event selector
-           field values.
+           * **Log all events** –
+            Choose this template to log all events.
+           * **Log only read events** –
+            Choose this template to log only read events.
+            Read-only events are events that do not change the
+            state of a resource, such as `Get*` or `Describe*`
+            events.
+           * **Log only write events** – Choose this template to log only write events.
+            Write events add, change, or delete resources, attributes, or artifacts,
+            such as `Put*`, `Delete*`, or `Write*` events.
+           * **Log only AWS Management Console events** –
+            Choose this template to log only events originating from the AWS Management Console.
+           * **Exclude AWS service initiated events** – Choose this template to exclude
+            AWS service events, which have an `eventType` of `AwsServiceEvent`,
+            and events initiated with AWS service-linked roles (SLRs).
 
-        ###### Note
+      2. (Optional) In **Selector name**, enter a name to identify your selector. The selector name is a
+      descriptive name for an advanced event selector, such as "Log management events from AWS Management Console sessions". The selector name is listed as `Name` in the
+      advanced event selector and is viewable if you expand the
+      **JSON view**. 3. If you chose **Custom**, in **Advanced event selectors** build an expression based on advanced event selector
+      field values.
 
-        Selectors don't support the use of wildcards like `*` . To match multiple values with a single condition,
-        you may use `StartsWith`, `EndsWith`, `NotStartsWith`, or `NotEndsWith` to explicitly match the beginning or end of the event field.
+      ###### Note
 
-            1. Choose from the following fields.
+      Selectors don't support the use of wildcards like `*` . To match multiple values with a single condition,
+      you may use `StartsWith`, `EndsWith`, `NotStartsWith`, or `NotEndsWith` to explicitly match the beginning or end of the event field.
 
-
+           1. Choose from the following fields.
 
 
-            	* **`readOnly`** – `readOnly` can
-            	 be set to **equals** a value of `true` or
-            	 `false`. When it is set to `false`, the event data store logs
-            	 Write-only management events. Read-only management events are events that do not change the
-            	 state of a resource, such as `Get*` or `Describe*` events.
-            	 Write events add, change, or delete resources, attributes, or artifacts, such as
-            	 `Put*`, `Delete*`, or `Write*` events. To log
-            	 both **Read** and **Write** events, don't add a
-            	 `readOnly` selector.
-            	* **`eventName`** – `eventName`
-            	 can use any operator. You can use it to include or exclude any management event, such as `CreateAccessPoint` or
-            	 `GetAccessPoint`.
-            	* **`userIdentity.arn`** – Include or exclude events for actions taken by specific IAM identities. For more information, see [CloudTrail userIdentity element](cloudtrail-event-reference-user-identity.md "cloudtrail-event-reference-user-identity.md").
-            	* **`sessionCredentialFromConsole`** – Include or exclude events originating from an AWS Management Console session. This field can be set to **equals** or **not equals** with a value of
-            	 `true`.
-            	* **`eventSource`** –
-            	 You can use it to include or exclude specific event sources. The `eventSource` is typically a short form of the service name
-            	 without spaces plus `.amazonaws.com`. For example, you could set `eventSource` **equals** to
-            	 `ec2.amazonaws.com` to log only Amazon EC2 management events.
-            	* **`eventType`** – The [eventType](cloudtrail-event-reference-record-contents.md#ct-event-type "cloudtrail-event-reference-record-contents.md#ct-event-type") to include or exclude. For example, you can set this field to
-            	 **not equals** `AwsServiceEvent` to exclude [AWS service events](non-api-aws-service-events.md "non-api-aws-service-events.md").
-            2. For each field, choose **+ Condition** to
-             add as many conditions as you need, up to a maximum of 500
-             specified values for all conditions.
 
 
-            For information about how CloudTrail evaluates multiple conditions, see
-             [How CloudTrail evaluates multiple conditions for a field](filtering-data-events.md#filtering-data-events-conditions "filtering-data-events.md#filtering-data-events-conditions").
+           	* **`readOnly`** – `readOnly` can
+           	 be set to **equals** a value of `true` or
+           	 `false`. When it is set to `false`, the event data store logs
+           	 Write-only management events. Read-only management events are events that do not change the
+           	 state of a resource, such as `Get*` or `Describe*` events.
+           	 Write events add, change, or delete resources, attributes, or artifacts, such as
+           	 `Put*`, `Delete*`, or `Write*` events. To log
+           	 both **Read** and **Write** events, don't add a
+           	 `readOnly` selector.
+           	* **`eventName`** – `eventName`
+           	 can use any operator. You can use it to include or exclude any management event, such as `CreateAccessPoint` or
+           	 `GetAccessPoint`.
+           	* **`userIdentity.arn`** – Include or exclude events for actions taken by specific IAM identities. For more information, see [CloudTrail userIdentity element](cloudtrail-event-reference-user-identity.md "cloudtrail-event-reference-user-identity.md").
+           	* **`sessionCredentialFromConsole`** – Include or exclude events originating from an AWS Management Console session. This field can be set to **equals** or **not equals** with a value of
+           	 `true`.
+           	* **`eventSource`** –
+           	 You can use it to include or exclude specific event sources. The `eventSource` is typically a short form of the service name
+           	 without spaces plus `.amazonaws.com`. For example, you could set `eventSource` **equals** to
+           	 `ec2.amazonaws.com` to log only Amazon EC2 management events.
+           	* **`eventType`** – The [eventType](cloudtrail-event-reference-record-contents.md#ct-event-type "cloudtrail-event-reference-record-contents.md#ct-event-type") to include or exclude. For example, you can set this field to
+           	 **not equals** `AwsServiceEvent` to exclude [AWS service events](non-api-aws-service-events.md "non-api-aws-service-events.md").
+           2. For each field, choose **+ Condition** to
+            add as many conditions as you need, up to a maximum of 500
+            specified values for all conditions.
 
 
-            ###### Note
+           For information about how CloudTrail evaluates multiple conditions, see
+            [How CloudTrail evaluates multiple conditions for a field](filtering-data-events.md#filtering-data-events-conditions "filtering-data-events.md#filtering-data-events-conditions").
 
-            You can have a maximum of 500 values for all selectors on
-             an event data store. This includes arrays of multiple values for a
-             selector such as `eventName`. If you have single
-             values for all selectors, you can have a maximum of 500
-             conditions added to a selector.
-            3. Choose **+ Field** to add additional fields
-             as required. To avoid errors, do not set conflicting or
-             duplicate values for fields.
-        4. Optionally, expand **JSON view** to see your
-           advanced event selectors as a JSON block.
 
-    4.  Choose **Enable Insights events capture** to enable Insights. To enable Insights, you need to set up a [destination event data store](query-event-data-store-insights.md#query-event-data-store-insights-procedure "query-event-data-store-insights.md#query-event-data-store-insights-procedure")
-        to collect Insights events based upon the management event activity in this event data store.
+           ###### Note
 
-    If you choose to enable Insights, do the following.
+           You can have a maximum of 500 values for all selectors on
+            an event data store. This includes arrays of multiple values for a
+            selector such as `eventName`. If you have single
+            values for all selectors, you can have a maximum of 500
+            conditions added to a selector.
+           3. Choose **+ Field** to add additional fields
+            as required. To avoid errors, do not set conflicting or
+            duplicate values for fields.
+
+      4. Optionally, expand **JSON view** to see your
+      advanced event selectors as a JSON block.
+
+   4. Choose **Enable Insights events capture** to enable Insights. To enable Insights, you need to set up a [destination event data store](query-event-data-store-insights.md#query-event-data-store-insights-procedure "query-event-data-store-insights.md#query-event-data-store-insights-procedure")
+      to collect Insights events based upon the management event activity in this event data store.
+
+   If you choose to enable Insights, do the following.
 
         1. Choose the destination event store that will log Insights events. The destination event data store will collect Insights events
          based upon the management event activity in this event data store. For information about how to
@@ -272,7 +273,7 @@ Use the following procedure to update the management event settings for an exist
          **Read** or **Write** management events to
          log Insights events for **API error rate**.
 
-4.  Choose **Save changes** when you are finished.
+4. Choose **Save changes** when you are finished.
 
 ## Logging management events with the AWS CLI
 

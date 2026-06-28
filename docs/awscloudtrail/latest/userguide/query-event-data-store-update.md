@@ -13,83 +13,80 @@ see [Update an event data store with the AWS CLI](lake-cli-update-eds.md "lake-c
 
 ###### To update an event data store
 
-1.  Sign in to the AWS Management Console and open the CloudTrail console at
-    [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/ "https://console.aws.amazon.com/cloudtrail/").
-2.  In the navigation pane, under **Lake**, choose **Event data stores**.
-3.  Choose the event data store that you want to update. This action opens the
-    event data store's details page.
-4.  In **General details**, choose **Edit**
-    to change the following settings:
+1. Sign in to the AWS Management Console and open the CloudTrail console at
+   [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/ "https://console.aws.amazon.com/cloudtrail/").
+2. In the navigation pane, under **Lake**, choose **Event data stores**.
+3. Choose the event data store that you want to update. This action opens the
+   event data store's details page.
+4. In **General details**, choose **Edit**
+   to change the following settings:
 
-        * **Event data store name**
-         -
-         Change the name that identifies your event data store.
-        * **[Pricing
-         option](cloudtrail-lake-concepts.md#eds-pricing-tier "cloudtrail-lake-concepts.md#eds-pricing-tier")**- For event data stores using
-         the **Seven-year retention pricing** option, you
-         can choose to use **One-year extendable retention pricing**
-         instead. We recommend one-year extendable retention pricing for
-         event data stores that ingest less than 25 TB of event data on a
-         monthly basis. We also recommend one-year extendable retention
-         pricing if you're seeking a flexible retention period of up to
-         10 years. For more information, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/") and [Managing CloudTrail Lake costs](cloudtrail-lake-manage-costs.md "cloudtrail-lake-manage-costs.md").
+   - **Event data store name**
+   *
 
+   Change the name that identifies your event data store.
+   - **[Pricing
+     option](cloudtrail-lake-concepts.md#eds-pricing-tier "cloudtrail-lake-concepts.md#eds-pricing-tier")**- For event data stores using
+     the **Seven-year retention pricing** option, you
+     can choose to use **One-year extendable retention pricing**
+     instead. We recommend one-year extendable retention pricing for
+     event data stores that ingest less than 25 TB of event data on a
+     monthly basis. We also recommend one-year extendable retention
+     pricing if you're seeking a flexible retention period of up to
+     10 years. For more information, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/") and [Managing CloudTrail Lake costs](cloudtrail-lake-manage-costs.md "cloudtrail-lake-manage-costs.md").
 
-        ###### Note
+   ###### Note
 
-        You can't change the pricing option for event data stores
-         that use **One-year extendable retention pricing**. If
-         you want to use
-         **Seven-year retention pricing**, [stop ingestion](query-eds-stop-ingestion.md "query-eds-stop-ingestion.md")
-         on your current event data store. Then create a new event
-         data store with the
-         **Seven-year retention pricing**
-         option.
-        * **Retention period** - Change the retention period for the event data store. The retention period determines
-         how long event data is kept in the event data store. Retention periods can be between 7 days and 3,653 days (about 10 years) for the **One-year extendable retention pricing** option,
-        or between 7 days and 2,557 days (about seven years) for the **Seven-year retention pricing** option.
+   You can't change the pricing option for event data stores
+   that use **One-year extendable retention pricing**. If
+   you want to use
+   **Seven-year retention pricing**, [stop ingestion](query-eds-stop-ingestion.md "query-eds-stop-ingestion.md")
+   on your current event data store. Then create a new event
+   data store with the
+   **Seven-year retention pricing**
+   option.
+   - **Retention period** - Change the retention period for the event data store. The retention period determines
+     how long event data is kept in the event data store. Retention periods can be between 7 days and 3,653 days (about 10 years) for the **One-year extendable retention pricing** option,
+     or between 7 days and 2,557 days (about seven years) for the **Seven-year retention pricing** option.
 
+   ###### Note
 
-        ###### Note
+   If you decrease the retention period of an event data store, CloudTrail will remove any events with
+   an `eventTime` older than the new retention period. For example, if the previous retention period was 365 days and you decrease it to 100 days,
+   CloudTrail will remove events with an `eventTime` older than 100 days.
+   - **Encryption** - To encrypt your event data
+     store using your own KMS key, choose **Use my own
+     AWS KMS key**. By default, all events in an
+     event data store are encrypted by CloudTrail. Using your own KMS key
+     incurs AWS KMS costs for encryption and decryption.
 
-        If you decrease the retention period of an event data store, CloudTrail will remove any events with
-         an `eventTime` older than the new retention period. For example, if the previous retention period was 365 days and you decrease it to 100 days,
-         CloudTrail will remove events with an `eventTime` older than 100 days.
-        * **Encryption** - To encrypt your event data
-         store using your own KMS key, choose **Use my own
-         AWS KMS key**. By default, all events in an
-         event data store are encrypted by CloudTrail. Using your own KMS key
-         incurs AWS KMS costs for encryption and decryption.
+   ###### Note
 
+   After you associate an event data store with a KMS key,
+   the KMS key can't be removed or changed.
+   - To include only events that are logged in the current
+     AWS Region, choose **Include on the current region in
+     my event data store**. If you don't choose this
+     option, your event data store includes events from all
+     Regions.
+   - To have your event data store collect events from all accounts in
+     an AWS Organizations organization, choose **Enable for all accounts
+     in my organization**. This option is only available if
+     you're signed in with the management account for your organization, and the **Event
+     type** for the event data store is **CloudTrail
+     events** or **Configuration items**.
+     Choose **Save changes** when you're finished.
 
-        ###### Note
-
-        After you associate an event data store with a KMS key,
-         the KMS key can't be removed or changed.
-        * To include only events that are logged in the current
-         AWS Region, choose **Include on the current region in
-         my event data store**. If you don't choose this
-         option, your event data store includes events from all
-         Regions.
-        * To have your event data store collect events from all accounts in
-         an AWS Organizations organization, choose **Enable for all accounts
-         in my organization**. This option is only available if
-         you're signed in with the management account for your organization, and the **Event
-         type** for the event data store is **CloudTrail
-         events** or **Configuration items**.
-
-    Choose **Save changes** when you're finished.
-
-5.  In **Lake query federation**, choose
-    **Edit** to enable or disable Lake query federation.
-    [Enabling Lake query
-    federation](query-enable-federation.md "query-enable-federation.md") lets you view the metadata for your event data store
-    in the AWS Glue [Data
-    Catalog](../../../glue/latest/dg/components-overview.md#data-catalog-intro "../../../glue/latest/dg/components-overview.md#data-catalog-intro") and run SQL queries on the event data using Amazon Athena.
-    [Disabling Lake query
-    federation](query-disable-federation.md "query-disable-federation.md") disables the integration with AWS Glue, AWS Lake Formation, and Amazon Athena.
-    After disabling Lake query federation, you can no longer query your data in Athena.
-    No CloudTrail Lake data is deleted when you disable federation and you can continue to run queries in CloudTrail Lake.
+5. In **Lake query federation**, choose
+   **Edit** to enable or disable Lake query federation.
+   [Enabling Lake query
+   federation](query-enable-federation.md "query-enable-federation.md") lets you view the metadata for your event data store
+   in the AWS Glue [Data
+   Catalog](../../../glue/latest/dg/components-overview.md#data-catalog-intro "../../../glue/latest/dg/components-overview.md#data-catalog-intro") and run SQL queries on the event data using Amazon Athena.
+   [Disabling Lake query
+   federation](query-disable-federation.md "query-disable-federation.md") disables the integration with AWS Glue, AWS Lake Formation, and Amazon Athena.
+   After disabling Lake query federation, you can no longer query your data in Athena.
+   No CloudTrail Lake data is deleted when you disable federation and you can continue to run queries in CloudTrail Lake.
 
 To enable federation, do the following:
 

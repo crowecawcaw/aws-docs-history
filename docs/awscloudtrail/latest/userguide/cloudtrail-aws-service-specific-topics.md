@@ -63,7 +63,7 @@ From the EventBridge console:
   events](cloudtrail-event-reference-aws-console-sign-in-events.md "cloudtrail-event-reference-aws-console-sign-in-events.md"). To record events with a detail-type
   of `AWS Console Sign In via CloudTrail`, you must have a trail that is currently logging management events.
 - Choose the `AWS Insight via
-CloudTrail` detail-type to deliver Insights events. To record events with a detail-type value of `AWS Insight via CloudTrail`, you must have a trail that is currently logging Insights events.
+ CloudTrail` detail-type to deliver Insights events. To record events with a detail-type value of `AWS Insight via CloudTrail`, you must have a trail that is currently logging Insights events.
   For information about logging Insights events, see [Working with CloudTrail Insights](logging-insights-events-with-cloudtrail.md "logging-insights-events-with-cloudtrail.md").
 
 For more information about how to create a trail, see [Creating a trail with the CloudTrail console](cloudtrail-create-a-trail-using-the-console-first-time.md "cloudtrail-create-a-trail-using-the-console-first-time.md").

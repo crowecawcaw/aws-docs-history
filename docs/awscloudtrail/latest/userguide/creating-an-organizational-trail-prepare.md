@@ -15,7 +15,7 @@ creation.
 - The user or role that creates the
   organization trail in the management or delegated administrator account must
   have sufficient permissions to create an organization trail. You must at least
-  apply either the **AWSCloudTrail_FullAccess**
+  apply either the **AWSCloudTrail\_FullAccess**
   policy, or an equivalent policy, to that role or user. You must also have
   sufficient permissions in IAM and Organizations to create the service-linked role and
   enable trusted access. If you choose to create a new S3 bucket for an
@@ -26,7 +26,7 @@ creation.
 
 ###### Note
 
-You shouldn't share the **AWSCloudTrail_FullAccess** policy broadly
+You shouldn't share the **AWSCloudTrail\_FullAccess** policy broadly
 across your AWS account. Instead, you should restrict it to AWS account
 administrators due to the highly sensitive nature of the information
 collected by CloudTrail. Users with this role have the ability to turn off or

@@ -47,7 +47,7 @@ aws cloudtrail put-event-configuration --region us-east-1 --trail `TrailName` \
 ]'
 ```
 
-### Example: API_ACTIVITY aggregated event
+### Example: API\_ACTIVITY aggregated event
 
 The following shows an example of an aggregated event for the `API_ACTIVITY` template:
 
@@ -106,7 +106,7 @@ The following shows an example of an aggregated event for the `API_ACTIVITY` tem
 }
 ```
 
-### Example: RESOURCE_ACCESS aggregated event
+### Example: RESOURCE\_ACCESS aggregated event
 
 The following shows an example of an aggregated event for the `RESOURCE_ACCESS` template:
 

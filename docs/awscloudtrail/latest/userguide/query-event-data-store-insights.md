@@ -87,20 +87,19 @@ The following are the available options:
     	+ **Maximum retention period:** 2,557 days
 
 6. Specify a retention period for the event data store in days. Retention periods can be between 7 days and 3,653 days (about 10 years) for the **One-year extendable retention pricing** option,
-   or between 7 days and 2,557 days (about seven years) for the **Seven-year retention pricing** option. The event data store retains
-   event data for the specified number of days.
-7. (Optional) To enable encryption using AWS Key Management Service, choose **Use my
-   own AWS KMS key**. Choose **New** to have
-   an AWS KMS key created for you, or choose **Existing**
-   to use an existing KMS key. In **Enter KMS alias**,
-   specify an alias, in the format
-   `alias/``MyAliasName`. Using your
-   own KMS key requires that you edit your KMS key policy to
-   allow your event data store to be encrypted and decrypted. For more information, see [Configure AWS KMS key policies for CloudTrail](create-kms-key-policy-for-cloudtrail.md "create-kms-key-policy-for-cloudtrail.md"). CloudTrail also
-   supports AWS KMS multi-Region keys. For more information about multi-Region
-   keys, see [Using
-   multi-Region keys](../../../kms/latest/developerguide/multi-region-keys-overview.md "../../../kms/latest/developerguide/multi-region-keys-overview.md") in the _AWS Key Management Service Developer
-   Guide_.
+or between 7 days and 2,557 days (about seven years) for the **Seven-year retention pricing** option. The event data store retains
+event data for the specified number of days. 7. (Optional) To enable encryption using AWS Key Management Service, choose **Use my
+own AWS KMS key**. Choose **New** to have
+an AWS KMS key created for you, or choose **Existing**
+to use an existing KMS key. In **Enter KMS alias**,
+specify an alias, in the format
+`alias/``MyAliasName`. Using your
+own KMS key requires that you edit your KMS key policy to
+allow your event data store to be encrypted and decrypted. For more information, see [Configure AWS KMS key policies for CloudTrail](create-kms-key-policy-for-cloudtrail.md "create-kms-key-policy-for-cloudtrail.md"). CloudTrail also
+supports AWS KMS multi-Region keys. For more information about multi-Region
+keys, see [Using
+multi-Region keys](../../../kms/latest/developerguide/multi-region-keys-overview.md "../../../kms/latest/developerguide/multi-region-keys-overview.md") in the _AWS Key Management Service Developer
+Guide_.
 
 Using your own KMS key incurs AWS KMS costs for encryption and decryption.
 After you associate an event data store with a KMS key, the KMS key
@@ -125,9 +124,9 @@ To enable Lake query federation, choose **Enable** and then do the following:
     3. If you are using an existing role, choose the role you want to use. The role must exist in your account.
 
 9. (Optional) Choose **Enable resource policy** to add a resource-based policy to your event data store.
-   Resource-based policies allow you to control which principals can perform actions on your event data store.
-   For example, you can add a resource based policy that allows the root users in other accounts to query this event data store and view the query results. For example policies, see
-   [Resource-based policy examples for event data stores](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds").
+Resource-based policies allow you to control which principals can perform actions on your event data store.
+For example, you can add a resource based policy that allows the root users in other accounts to query this event data store and view the query results. For example policies, see
+[Resource-based policy examples for event data stores](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds").
 
 A resource-based policy includes one or more statements. Each statement in
 the policy defines the [principals](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") that are allowed or denied access
@@ -183,16 +182,13 @@ Insights events**. 13. In **CloudTrail Insights events**, do the following.
     	4. Repeat the previous two steps (ii and iii) to add any additional
     	 Insights types you want to receive.
 
-14. Choose **Next** to review your choices.
-15. On the **Review and create** page, review your choices.
-    Choose **Edit** to make changes to a section. When you're
-    ready to create the event data store, choose **Create event data
-    store**.
-16. The new event data store is visible in the **Event data
-    stores** table on the **Event data stores** page.
-17. If you did not choose a source event data store in step 10, follow the steps in
-    [To create a source event data store that enables Insights events](#query-event-data-store-cloudtrail-insights "#query-event-data-store-cloudtrail-insights")
-    to create a source event data store.
+14. Choose **Next** to review your choices. 15. On the **Review and create** page, review your choices.
+Choose **Edit** to make changes to a section. When you're
+ready to create the event data store, choose **Create event data
+store**. 16. The new event data store is visible in the **Event data
+stores** table on the **Event data stores** page. 17. If you did not choose a source event data store in step 10, follow the steps in
+[To create a source event data store that enables Insights events](#query-event-data-store-cloudtrail-insights "#query-event-data-store-cloudtrail-insights")
+to create a source event data store.
 
 ## To create a source event data store that enables Insights events
 
@@ -230,7 +226,7 @@ The following are the available options:
     	+ **Maximum retention period:** 2,557 days
 
 6. Specify a retention period for the event data store. Retention periods can be between 7 days and 3,653 days (about 10 years) for the **One-year extendable retention pricing** option,
-   or between 7 days and 2,557 days (about seven years) for the **Seven-year retention pricing** option.
+or between 7 days and 2,557 days (about seven years) for the **Seven-year retention pricing** option.
 
 CloudTrail Lake determines whether to retain an event by checking if the `eventTime`
 of the event is within the specified retention period. For example, if you specify a retention period
@@ -271,9 +267,9 @@ To enable Lake query federation, choose **Enable** and then do the following:
     3. If you are using an existing role, choose the role you want to use. The role must exist in your account.
 
 9. (Optional) Choose **Enable resource policy** to add a resource-based policy to your event data store.
-   Resource-based policies allow you to control which principals can perform actions on your event data store.
-   For example, you can add a resource based policy that allows the root users in other accounts to query this event data store and view the query results. For example policies, see
-   [Resource-based policy examples for event data stores](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds").
+Resource-based policies allow you to control which principals can perform actions on your event data store.
+For example, you can add a resource based policy that allows the root users in other accounts to query this event data store and view the query results. For example policies, see
+[Resource-based policy examples for event data stores](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds").
 
 A resource-based policy includes one or more statements. Each statement in
 the policy defines the [principals](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") that are allowed or denied access
@@ -321,114 +317,115 @@ created.
     2. Leave **Ingest events** selected.
 
 16. Choose between **Simple event collection**
-    or **Advanced event collection**:
+or **Advanced event collection**:
 
-    - Choose **Simple event collection** if you want to log all events, log only read events, or log only write events.
-      You can choose also to exclude AWS Key Management Service and Amazon RDS Data API events.
-    - Choose **Advanced event collection** if you want to include or exclude management events based on the values of advanced event selector fields, including the `eventName`,
-      `eventType`, `eventSource`, `sessionCredentialFromConsole`, and `userIdentity.arn` fields.
+    * Choose **Simple event collection** if you want to log all events, log only read events, or log only write events.
+     You can choose also to exclude AWS Key Management Service and Amazon RDS Data API events.
+    * Choose **Advanced event collection** if you want to include or exclude management events based on the values of advanced event selector fields, including the `eventName`,
+     `eventType`, `eventSource`, `sessionCredentialFromConsole`, and `userIdentity.arn` fields.
 
 17. If you selected **Simple event collection**,
-    choose whether you want to log all events, log only read events, or log only write events.
-    You can also choose to exclude AWS KMS and Amazon RDS Data API events.
-18. If you selected **Advanced event collection**,
-    make the following selections:
+choose whether you want to log all events, log only read events, or log only write events.
+You can also choose to exclude AWS KMS and Amazon RDS Data API events. 18. If you selected **Advanced event collection**,
+make the following selections:
 
-    1.  In **Log selector template**, choose a predefined template, or choose **Custom** to
-        write your own event collection conditions based on the values of advanced event selector fields.
+    1. In **Log selector template**, choose a predefined template, or choose **Custom** to
+     write your own event collection conditions based on the values of advanced event selector fields.
+
 
     You can choose from the following predefined
-    templates:
+     templates:
 
-        * **Log all events** –
-         Choose this template to log all events.
-        * **Log only read events** –
-         Choose this template to log only read events.
-         Read-only events are events that do not change the
-         state of a resource, such as `Get*` or `Describe*`
-         events.
-        * **Log only write events** – Choose this template to log only write events.
-         Write events add, change, or delete resources, attributes, or artifacts,
-         such as `Put*`, `Delete*`, or `Write*` events.
-        * **Log only AWS Management Console events** –
-         Choose this template to log only events originating from the AWS Management Console.
-        * **Exclude AWS service initiated events** – Choose this template to exclude
-         AWS service events, which have an `eventType` of `AwsServiceEvent`,
-         and events initiated with AWS service-linked roles (SLRs).
-    2.  (Optional) In **Selector name**, enter a name to identify your selector. The selector name is a
-        descriptive name for an advanced event selector, such as "Log management events from AWS Management Console sessions". The selector name is listed as `Name` in the
-        advanced event selector and is viewable if you expand the
-        **JSON view**.
-    3.  If you chose **Custom**, in **Advanced event selectors** build an expression based on advanced event selector
-        field values.
+
+
+
+    	* **Log all events** –
+    	 Choose this template to log all events.
+    	* **Log only read events** –
+    	 Choose this template to log only read events.
+    	 Read-only events are events that do not change the
+    	 state of a resource, such as `Get*` or `Describe*`
+    	 events.
+    	* **Log only write events** – Choose this template to log only write events.
+    	 Write events add, change, or delete resources, attributes, or artifacts,
+    	 such as `Put*`, `Delete*`, or `Write*` events.
+    	* **Log only AWS Management Console events** –
+    	 Choose this template to log only events originating from the AWS Management Console.
+    	* **Exclude AWS service initiated events** – Choose this template to exclude
+    	 AWS service events, which have an `eventType` of `AwsServiceEvent`,
+    	 and events initiated with AWS service-linked roles (SLRs).
+    2. (Optional) In **Selector name**, enter a name to identify your selector. The selector name is a
+     descriptive name for an advanced event selector, such as "Log management events from AWS Management Console sessions". The selector name is listed as `Name` in the
+     advanced event selector and is viewable if you expand the
+     **JSON view**.
+    3. If you chose **Custom**, in **Advanced event selectors** build an expression based on advanced event selector
+     field values.
+
 
     ###### Note
 
     Selectors don't support the use of wildcards like `*` . To match multiple values with a single condition,
-    you may use `StartsWith`, `EndsWith`, `NotStartsWith`, or `NotEndsWith` to explicitly match the beginning or end of the event field.
-
-        1. Choose from the following fields.
+     you may use `StartsWith`, `EndsWith`, `NotStartsWith`, or `NotEndsWith` to explicitly match the beginning or end of the event field.
 
 
+    	1. Choose from the following fields.
 
 
-        	* **`readOnly`** – `readOnly` can
-        	 be set to **equals** a value of `true` or
-        	 `false`. When it is set to `false`, the event data store logs
-        	 Write-only management events. Read-only management events are events that do not change the
-        	 state of a resource, such as `Get*` or `Describe*` events.
-        	 Write events add, change, or delete resources, attributes, or artifacts, such as
-        	 `Put*`, `Delete*`, or `Write*` events. To log
-        	 both **Read** and **Write** events, don't add a
-        	 `readOnly` selector.
-        	* **`eventName`** – `eventName`
-        	 can use any operator. You can use it to include or exclude any management event, such as `CreateAccessPoint` or
-        	 `GetAccessPoint`.
-        	* **`userIdentity.arn`** – Include or exclude events for actions taken by specific IAM identities. For more information, see [CloudTrail userIdentity element](cloudtrail-event-reference-user-identity.md "cloudtrail-event-reference-user-identity.md").
-        	* **`sessionCredentialFromConsole`** – Include or exclude events originating from an AWS Management Console session. This field can be set to **equals** or **not equals** with a value of
-        	 `true`.
-        	* **`eventSource`** –
-        	 You can use it to include or exclude specific event sources. The `eventSource` is typically a short form of the service name
-        	 without spaces plus `.amazonaws.com`. For example, you could set `eventSource` **equals** to
-        	 `ec2.amazonaws.com` to log only Amazon EC2 management events.
-        	* **`eventType`** – The [eventType](cloudtrail-event-reference-record-contents.md#ct-event-type "cloudtrail-event-reference-record-contents.md#ct-event-type") to include or exclude. For example, you can set this field to
-        	 **not equals** `AwsServiceEvent` to exclude [AWS service events](non-api-aws-service-events.md "non-api-aws-service-events.md").
-        2. For each field, choose **+ Condition** to
-         add as many conditions as you need, up to a maximum of 500
-         specified values for all conditions.
 
 
-        For information about how CloudTrail evaluates multiple conditions, see
-         [How CloudTrail evaluates multiple conditions for a field](filtering-data-events.md#filtering-data-events-conditions "filtering-data-events.md#filtering-data-events-conditions").
+    		* **`readOnly`** – `readOnly` can
+    		 be set to **equals** a value of `true` or
+    		 `false`. When it is set to `false`, the event data store logs
+    		 Write-only management events. Read-only management events are events that do not change the
+    		 state of a resource, such as `Get*` or `Describe*` events.
+    		 Write events add, change, or delete resources, attributes, or artifacts, such as
+    		 `Put*`, `Delete*`, or `Write*` events. To log
+    		 both **Read** and **Write** events, don't add a
+    		 `readOnly` selector.
+    		* **`eventName`** – `eventName`
+    		 can use any operator. You can use it to include or exclude any management event, such as `CreateAccessPoint` or
+    		 `GetAccessPoint`.
+    		* **`userIdentity.arn`** – Include or exclude events for actions taken by specific IAM identities. For more information, see [CloudTrail userIdentity element](cloudtrail-event-reference-user-identity.md "cloudtrail-event-reference-user-identity.md").
+    		* **`sessionCredentialFromConsole`** – Include or exclude events originating from an AWS Management Console session. This field can be set to **equals** or **not equals** with a value of
+    		 `true`.
+    		* **`eventSource`** –
+    		 You can use it to include or exclude specific event sources. The `eventSource` is typically a short form of the service name
+    		 without spaces plus `.amazonaws.com`. For example, you could set `eventSource` **equals** to
+    		 `ec2.amazonaws.com` to log only Amazon EC2 management events.
+    		* **`eventType`** – The [eventType](cloudtrail-event-reference-record-contents.md#ct-event-type "cloudtrail-event-reference-record-contents.md#ct-event-type") to include or exclude. For example, you can set this field to
+    		 **not equals** `AwsServiceEvent` to exclude [AWS service events](non-api-aws-service-events.md "non-api-aws-service-events.md").
+    	2. For each field, choose **+ Condition** to
+    	 add as many conditions as you need, up to a maximum of 500
+    	 specified values for all conditions.
 
 
-        ###### Note
+    	For information about how CloudTrail evaluates multiple conditions, see
+    	 [How CloudTrail evaluates multiple conditions for a field](filtering-data-events.md#filtering-data-events-conditions "filtering-data-events.md#filtering-data-events-conditions").
 
-        You can have a maximum of 500 values for all selectors on
-         an event data store. This includes arrays of multiple values for a
-         selector such as `eventName`. If you have single
-         values for all selectors, you can have a maximum of 500
-         conditions added to a selector.
-        3. Choose **+ Field** to add additional fields
-         as required. To avoid errors, do not set conflicting or
-         duplicate values for fields.
-    4.  Optionally, expand **JSON view** to see your
-        advanced event selectors as a JSON block.
 
-19. Choose **Enable Insights events capture**.
-20. Choose the destination event store that will log Insights events. The destination event data store will collect Insights events
-    based upon the management event activity in this event data store. For information about how to
-    create the destination event data store, see [To create a destination event data store that logs Insights events](#query-event-data-store-insights-procedure "#query-event-data-store-insights-procedure").
-21. Choose the Insights types. You can choose
-    **API call rate**, **API error rate**,
-    or both. You must be logging **Write** management events to
-    log Insights events for **API call rate**. You must be logging
-    **Read** or **Write** management events to
-    log Insights events for **API error rate**.
-22. Choose **Next** to enrich your events by adding resource tag keys and IAM global condition keys.
-23. In **Enrich events**, add up
-    to 50 resource tag keys and 50 IAM global condition keys to provide additional
-    metadata about your events. This helps you categorize and group related events.
+    	###### Note
+
+    	You can have a maximum of 500 values for all selectors on
+    	 an event data store. This includes arrays of multiple values for a
+    	 selector such as `eventName`. If you have single
+    	 values for all selectors, you can have a maximum of 500
+    	 conditions added to a selector.
+    	3. Choose **+ Field** to add additional fields
+    	 as required. To avoid errors, do not set conflicting or
+    	 duplicate values for fields.
+    4. Optionally, expand **JSON view** to see your
+     advanced event selectors as a JSON block.
+
+19. Choose **Enable Insights events capture**. 20. Choose the destination event store that will log Insights events. The destination event data store will collect Insights events
+based upon the management event activity in this event data store. For information about how to
+create the destination event data store, see [To create a destination event data store that logs Insights events](#query-event-data-store-insights-procedure "#query-event-data-store-insights-procedure"). 21. Choose the Insights types. You can choose
+**API call rate**, **API error rate**,
+or both. You must be logging **Write** management events to
+log Insights events for **API call rate**. You must be logging
+**Read** or **Write** management events to
+log Insights events for **API error rate**. 22. Choose **Next** to enrich your events by adding resource tag keys and IAM global condition keys. 23. In **Enrich events**, add up
+to 50 resource tag keys and 50 IAM global condition keys to provide additional
+metadata about your events. This helps you categorize and group related events.
 
 If you add resource tag keys, CloudTrail will include the selected tag keys associated with the resources that were involved in the API call. API events related to deleted resources will not have resource tags.
 

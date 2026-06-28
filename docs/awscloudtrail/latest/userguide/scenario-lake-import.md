@@ -37,7 +37,7 @@ The following are the available options:
     	+ **Maximum retention period:** 2,557 days
 
 6. Specify a retention period for the event data store. Retention periods can be between 7 days and 3,653 days (about 10 years) for the **One-year extendable retention pricing** option,
-   or between 7 days and 2,557 days (about seven years) for the **Seven-year retention pricing** option.
+or between 7 days and 2,557 days (about seven years) for the **Seven-year retention pricing** option.
 
 CloudTrail Lake determines whether to retain an event by checking if the `eventTime`
 of the event is within the specified retention period. For example, if you specify a retention period
@@ -94,9 +94,9 @@ To enable Lake query federation, choose **Enable** and then do the following:
     3. If you are using an existing role, choose the role you want to use. The role must exist in your account.
 
 9. (Optional) Choose **Enable resource policy** to add a resource-based policy to your event data store.
-   Resource-based policies allow you to control which principals can perform actions on your event data store.
-   For example, you can add a resource based policy that allows the root users in other accounts to query this event data store and view the query results. For example policies, see
-   [Resource-based policy examples for event data stores](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds").
+Resource-based policies allow you to control which principals can perform actions on your event data store.
+For example, you can add a resource based policy that allows the root users in other accounts to query this event data store and view the query results. For example policies, see
+[Resource-based policy examples for event data stores](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds").
 
 A resource-based policy includes one or more statements. Each statement in
 the policy defines the [principals](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") that are allowed or denied access

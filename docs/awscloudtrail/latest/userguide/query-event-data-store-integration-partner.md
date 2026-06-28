@@ -76,23 +76,22 @@ If you do not create a resource policy for the channel, only the channel owner c
      principal in the policy.
 
 7. (Optional) In the **Tags** area, you can add up to 50 tag
-   key and value pairs to help you identify, sort, and control access to your
-   event data store and channel. For more information about how to use IAM
-   policies to authorize access to an event data store based on tags, see [Examples: Denying access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For
-   more information about how you can use tags in AWS, see [Tagging
-   AWS resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md") in the
-   _AWS General Reference_.
-8. When you are ready to create the new integration, choose **Add
-   integration**. There is no review page. CloudTrail creates the
-   integration, but you must provide the channel Amazon Resource Name (ARN) to the partner application. Instructions for providing the channel ARN
-   to the partner application are found on the partner documentation website.
-   For more information, choose the **Learn more**
-   link for the partner on the **Available sources** tab of the **Integrations** page to open the partner's page in
-   AWS Marketplace.
-   To finish the setup for your
-   integration, provide the channel ARN to the partner or source application. Depending upon the integration type, either you,
-   the partner, or the application runs the `PutAuditEvents` API to deliver activity events to the event data store for your
-   AWS account. After your activity events are delivered, you can use CloudTrail Lake to search,
-   query, and analyze the data that is logged from your applications. Your event data includes fields that match CloudTrail
-   event payload, such as `eventVersion`, `eventSource`, and
-   `userIdentity`.
+key and value pairs to help you identify, sort, and control access to your
+event data store and channel. For more information about how to use IAM
+policies to authorize access to an event data store based on tags, see [Examples: Denying access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For
+more information about how you can use tags in AWS, see [Tagging
+AWS resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md") in the
+_AWS General Reference_. 8. When you are ready to create the new integration, choose **Add
+integration**. There is no review page. CloudTrail creates the
+integration, but you must provide the channel Amazon Resource Name (ARN) to the partner application. Instructions for providing the channel ARN
+to the partner application are found on the partner documentation website.
+For more information, choose the **Learn more**
+link for the partner on the **Available sources** tab of the **Integrations** page to open the partner's page in
+AWS Marketplace.
+To finish the setup for your
+integration, provide the channel ARN to the partner or source application. Depending upon the integration type, either you,
+the partner, or the application runs the `PutAuditEvents` API to deliver activity events to the event data store for your
+AWS account. After your activity events are delivered, you can use CloudTrail Lake to search,
+query, and analyze the data that is logged from your applications. Your event data includes fields that match CloudTrail
+event payload, such as `eventVersion`, `eventSource`, and
+`userIdentity`.

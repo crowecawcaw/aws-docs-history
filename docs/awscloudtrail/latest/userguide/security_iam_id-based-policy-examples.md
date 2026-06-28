@@ -352,7 +352,7 @@ role that CloudTrail uses. For more information, see [Granting permission to vie
 
 The following AWS managed policies are available for CloudTrail:
 
-- [**AWSCloudTrail_FullAccess**](../../../aws-managed-policy/latest/reference/AWSCloudTrail_FullAccess.md "../../../aws-managed-policy/latest/reference/AWSCloudTrail_FullAccess.md") – This policy provides
+- [**AWSCloudTrail\_FullAccess**](../../../aws-managed-policy/latest/reference/AWSCloudTrail_FullAccess.md "../../../aws-managed-policy/latest/reference/AWSCloudTrail_FullAccess.md") – This policy provides
   full access to CloudTrail actions on CloudTrail resources, such as trails, event data stores, and channels. This policy provides the required permissions to create, update, and
   delete CloudTrail trails, event data stores, and channels.
 
@@ -361,13 +361,13 @@ or an Amazon SNS topic. For information about managed policies for other AWS ser
 
 ###### Note
 
-The **AWSCloudTrail_FullAccess**
+The **AWSCloudTrail\_FullAccess**
 policy isn't intended to be shared broadly across your AWS account. Users with this role can
 turn off or reconfigure the most sensitive and important auditing functions in their AWS accounts.
 For this reason, you must only apply this policy to account administrators. You must closely
 control and monitor use of this policy.
 
-- [**AWSCloudTrail_ReadOnlyAccess**](../../../aws-managed-policy/latest/reference/AWSCloudTrail_ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSCloudTrail_ReadOnlyAccess.md") – This policy grants
+- [**AWSCloudTrail\_ReadOnlyAccess**](../../../aws-managed-policy/latest/reference/AWSCloudTrail_ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSCloudTrail_ReadOnlyAccess.md") – This policy grants
   permissions to view the CloudTrail console, including recent events and event history.
   This policy also allows you to view existing trails, event data stores, and channels. Roles and
   users with this policy can [download the event history](view-cloudtrail-events-console.md#downloading-events "view-cloudtrail-events-console.md#downloading-events"), but they can't
@@ -460,7 +460,7 @@ and [Examples: Creating and applying policies for actions on specific trails](#g
 
 The following example shows a policy that grants read-only access to CloudTrail trails. This is
 equivalent to the managed policy
-**AWSCloudTrail_ReadOnlyAccess**. It grants users
+**AWSCloudTrail\_ReadOnlyAccess**. It grants users
 permission to see trail information, but not to create or update trails.
 
 JSON
@@ -518,14 +518,14 @@ off. For the list of CloudTrail actions, see the [AWS CloudTrail API Reference](
 ### Full access
 
 The following example shows a policy that grants full access to CloudTrail. This is equivalent
-to the managed policy **AWSCloudTrail_FullAccess**. It grants users the
+to the managed policy **AWSCloudTrail\_FullAccess**. It grants users the
 permission to perform all CloudTrail actions. It also lets users log data events in Amazon S3 and
 AWS Lambda, manage files in Amazon S3 buckets, manage how CloudWatch Logs monitors CloudTrail log events, and manage
 Amazon SNS topics in the account that the user is associated with.
 
 ###### Important
 
-The **AWSCloudTrail_FullAccess** policy or equivalent
+The **AWSCloudTrail\_FullAccess** policy or equivalent
 permissions are not intended to be shared broadly across your AWS account. Users with this
 role or equivalent access have the ability to disable or reconfigure the most sensitive and
 important auditing functions in their AWS accounts. For this reason, this policy should be

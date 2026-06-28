@@ -69,8 +69,8 @@ for these S3 objects are available in Amazon EventBridge. For more information, 
   - [Enabling aggregations for data events using the console](aggregating-data-events.md#aggregating-data-events-console "aggregating-data-events.md#aggregating-data-events-console")
   - [Enabling aggregations for data events using the AWS CLI](aggregating-data-events.md#aggregating-data-events-cli "aggregating-data-events.md#aggregating-data-events-cli")
 
-    - [Example: API_ACTIVITY aggregated event](aggregating-data-events.md#aggregating-data-events-api-activity-example "aggregating-data-events.md#aggregating-data-events-api-activity-example")
-    - [Example: RESOURCE_ACCESS aggregated event](aggregating-data-events.md#aggregating-data-events-resource-access-example "aggregating-data-events.md#aggregating-data-events-resource-access-example")
+    - [Example: API\_ACTIVITY aggregated event](aggregating-data-events.md#aggregating-data-events-api-activity-example "aggregating-data-events.md#aggregating-data-events-api-activity-example")
+    - [Example: RESOURCE\_ACCESS aggregated event](aggregating-data-events.md#aggregating-data-events-resource-access-example "aggregating-data-events.md#aggregating-data-events-resource-access-example")
 
 - [Logging data events for AWS Config compliance](logging-data-events-with-cloudtrail.md#config-data-events-best-practices "logging-data-events-with-cloudtrail.md#config-data-events-best-practices")
 - [Logging data events with the AWS SDKs](logging-data-events-with-cloudtrail.md#logging-data-events-with-the-AWS-SDKs "logging-data-events-with-cloudtrail.md#logging-data-events-with-the-AWS-SDKs")
@@ -524,10 +524,9 @@ templates:
      and events initiated with AWS service-linked roles (SLRs).
 
 8. (Optional) In **Selector name**, enter a name to identify your selector. The selector name is a
-   descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets". The selector name is listed as `Name` in the
-   advanced event selector and is viewable if you expand the
-   **JSON view**.
-9. If you selected **Custom**, in **Advanced event selectors** build an expression based on the values of advanced event selector fields.
+descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets". The selector name is listed as `Name` in the
+advanced event selector and is viewable if you expand the
+**JSON view**. 9. If you selected **Custom**, in **Advanced event selectors** build an expression based on the values of advanced event selector fields.
 
 ###### Note
 
@@ -618,10 +617,9 @@ you may use `StartsWith`, `EndsWith`, `NotStartsWith`, or `NotEndsWith` to expli
      ARN not equal the same value in another selector.
 
 10. To add another resource type on which to log data events, choose
-    **Add data event type**. Repeat steps 6 through
-    this step to configure advanced event selectors for another resource type.
-11. After you've reviewed and verified your choices, choose
-    **Save changes**.
+**Add data event type**. Repeat steps 6 through
+this step to configure advanced event selectors for another resource type. 11. After you've reviewed and verified your choices, choose
+**Save changes**.
 
 In the AWS Management Console, if your trail is using advanced event selectors, you can
 choose from predefined templates that log all data events on a selected
@@ -783,10 +781,9 @@ you may use `StartsWith`, `EndsWith`, `NotStartsWith`, or `NotEndsWith` to expli
      ARN not equal the same value in another selector.
 
 8. To add another resource type on which to log data events, choose
-   **Add data event type**. Repeat steps 4 through
-   this step to configure advanced event selectors for the resource type.
-9. After you've reviewed and verified your choices, choose
-   **Save changes**.
+**Add data event type**. Repeat steps 4 through
+this step to configure advanced event selectors for the resource type. 9. After you've reviewed and verified your choices, choose
+**Save changes**.
 
 Use the following procedure to update an existing trail to log data events using basic event selectors.
 
@@ -858,75 +855,79 @@ for logging data events. 3. For **Data events**, choose
      **X**.
 
 5. To add another resource type on which to log data events, choose
-   **Add data event type**.
-6. For Lambda functions:
+**Add data event type**. 6. For Lambda functions:
 
-   1. For **Data event source**, choose
-      **Lambda**.
-   2. In **Lambda function**, choose **All
-      regions** to log all Lambda functions, or
-      **Input function as ARN** to log data
-      events on a specific function.
+    1. For **Data event source**, choose
+     **Lambda**.
+    2. In **Lambda function**, choose **All
+     regions** to log all Lambda functions, or
+     **Input function as ARN** to log data
+     events on a specific function.
 
-   To log data events for all Lambda functions in your AWS
-   account, select **Log all current and future
-   functions**. This setting takes precedence over
-   individual settings you configure for individual functions. All
-   functions are logged, even if all functions are not
-   displayed.
 
-   ###### Note
+    To log data events for all Lambda functions in your AWS
+     account, select **Log all current and future
+     functions**. This setting takes precedence over
+     individual settings you configure for individual functions. All
+     functions are logged, even if all functions are not
+     displayed.
 
-   If you
-   are creating a trail for all Regions, this selection enables
-   data event logging for all functions currently in your AWS
-   account, and any Lambda functions you might create in any
-   Region after you finish creating the trail. If you are
-   creating a trail for a single Region (done by using the
-   AWS CLI), this selection enables data event logging for all
-   functions currently in that Region in your AWS account,
-   and any Lambda functions you might create in that Region
-   after you finish creating the trail. It does not enable data
-   event logging for Lambda functions created in other
-   Regions.
 
-   Logging data events for all functions also enables logging
-   of data event activity performed by any user or role in your
-   AWS account, even if that activity is performed on a
-   function that belongs to another AWS account. 3. If you choose **Input function as ARN**,
-   enter the ARN of a Lambda function.
+    ###### Note
 
-   ###### Note
+    If you
+     are creating a trail for all Regions, this selection enables
+     data event logging for all functions currently in your AWS
+     account, and any Lambda functions you might create in any
+     Region after you finish creating the trail. If you are
+     creating a trail for a single Region (done by using the
+     AWS CLI), this selection enables data event logging for all
+     functions currently in that Region in your AWS account,
+     and any Lambda functions you might create in that Region
+     after you finish creating the trail. It does not enable data
+     event logging for Lambda functions created in other
+     Regions.
 
-   If you have more than 15,000 Lambda functions in your
-   account, you cannot view or select all functions in the CloudTrail
-   console when creating a trail. You can still select the
-   option to log all functions, even if they are not displayed.
-   If you want to log data events for specific functions, you
-   can manually add a function if you know its ARN. You can
-   also finish creating the trail in the console, and then use
-   the AWS CLI and the **put-event-selectors**
-   command to configure data event logging for specific Lambda
-   functions. For more information, see [Managing trails with the AWS CLI](cloudtrail-additional-cli-commands.md "cloudtrail-additional-cli-commands.md").
+    Logging data events for all functions also enables logging
+     of data event activity performed by any user or role in your
+     AWS account, even if that activity is performed on a
+     function that belongs to another AWS account.
+    3. If you choose **Input function as ARN**,
+     enter the ARN of a Lambda function.
+
+
+    ###### Note
+
+    If you have more than 15,000 Lambda functions in your
+     account, you cannot view or select all functions in the CloudTrail
+     console when creating a trail. You can still select the
+     option to log all functions, even if they are not displayed.
+     If you want to log data events for specific functions, you
+     can manually add a function if you know its ARN. You can
+     also finish creating the trail in the console, and then use
+     the AWS CLI and the **put-event-selectors**
+     command to configure data event logging for specific Lambda
+     functions. For more information, see [Managing trails with the AWS CLI](cloudtrail-additional-cli-commands.md "cloudtrail-additional-cli-commands.md").
 
 7. To add another resource type on which to log data events, choose
-   **Add data event type**.
-8. For DynamoDB tables:
+**Add data event type**. 8. For DynamoDB tables:
 
-   1. For **Data event source**, choose
-      **DynamoDB**.
-   2. In **DynamoDB table selection**, choose
-      **Browse** to select a table, or paste in
-      the ARN of a DynamoDB table to which you have access. A DynamoDB table
-      ARN uses the following format:
+    1. For **Data event source**, choose
+     **DynamoDB**.
+    2. In **DynamoDB table selection**, choose
+     **Browse** to select a table, or paste in
+     the ARN of a DynamoDB table to which you have access. A DynamoDB table
+     ARN uses the following format:
 
-   ```
-   arn:`partition`:dynamodb:`region`:`account_ID`:table/`table_name`
-   ```
 
-   To add another table, choose **Add row**, and
-   browse for a table or paste in the ARN of a table to which you
-   have access.
+
+    ```
+    arn:`partition`:dynamodb:`region`:`account_ID`:table/`table_name`
+    ```
+
+    To add another table, choose **Add row**, and
+     browse for a table or paste in the ARN of a table to which you
+     have access.
 
 9. Choose **Save changes**.
 
@@ -954,15 +955,14 @@ You can configure your trails to log management and data events using the AWS CL
 - If your trail uses basic event selectors, you can only log the following
   resource types:
 
-      + `AWS::DynamoDB::Table`
-      + `AWS::Lambda::Function`
-      + `AWS::S3::Object`
-
-  To log additional resource types, you'll need to use advanced event
-  selectors. To convert a trail to advanced event selectors, run the **get-event-selectors** command to confirm the
-  current event selectors, and then configure the advanced event selectors
-  to match the coverage of the previous event selectors, then add
-  selectors for any resource types for which you want to log data events.
+  - `AWS::DynamoDB::Table`
+  - `AWS::Lambda::Function`
+  - `AWS::S3::Object`
+    To log additional resource types, you'll need to use advanced event
+    selectors. To convert a trail to advanced event selectors, run the **get-event-selectors** command to confirm the
+    current event selectors, and then configure the advanced event selectors
+    to match the coverage of the previous event selectors, then add
+    selectors for any resource types for which you want to log data events.
 
 - You can use advanced event selectors to filter based
   on the value of the [supported advanced event selector fields](filtering-data-events.md "filtering-data-events.md")supported advanced event selector fields, giving you the ability to log only the

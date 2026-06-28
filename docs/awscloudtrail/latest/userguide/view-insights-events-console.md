@@ -221,17 +221,16 @@ information** area of the graph:
      unusual activity.
 
 3. Choose the **Attributions** tab to view information about the
-   user identities, user agents, and on API call rate Insights events, error codes
-   correlated with unusual and baseline activity. A maximum of five user
-   identities, five user agents, and five error codes are shown in tables on the
-   **Attributions** tab, sorted by an average of the count of
-   activity, in descending order from highest to lowest.
-4. On the **CloudTrail events** tab, view related events that CloudTrail
-   analyzed to determine that unusual activity occurred. By default, a filter is
-   already applied for the Insights event name, which is also the name of the
-   related API. The **CloudTrail events** tab shows CloudTrail management or data
-   events related to the subject API that occurred between the start time (minus
-   one minute) and end time (plus one minute) of the Insights event.
+user identities, user agents, and on API call rate Insights events, error codes
+correlated with unusual and baseline activity. A maximum of five user
+identities, five user agents, and five error codes are shown in tables on the
+**Attributions** tab, sorted by an average of the count of
+activity, in descending order from highest to lowest. 4. On the **CloudTrail events** tab, view related events that CloudTrail
+analyzed to determine that unusual activity occurred. By default, a filter is
+already applied for the Insights event name, which is also the name of the
+related API. The **CloudTrail events** tab shows CloudTrail management or data
+events related to the subject API that occurred between the start time (minus
+one minute) and end time (plus one minute) of the Insights event.
 
 As you select other Insights events in the graph, the events shown in the
 **CloudTrail events** table change. These events help you perform

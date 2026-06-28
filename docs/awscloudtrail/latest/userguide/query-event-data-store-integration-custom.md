@@ -55,23 +55,21 @@ If you do not create a resource policy for the channel, only the channel owner c
      principal in the resource policy for the channel.
 
 7. (Optional) In the **Tags** area, you can add up to 50 tag
-   key and value pairs to help you identify, sort, and control access to your
-   event data store and channel. For more information about how to use IAM
-   policies to authorize access to an event data store based on tags, see [Examples: Denying access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For
-   more information about how you can use tags in AWS, see [Tagging
-   your AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md") in the
-   _AWS General Reference_.
-8. When you are ready to create the new integration, choose **Add
-   integration**. There is no review page. CloudTrail creates the
-   integration, but to integrate your custom events, you must specify the
-   channel ARN in a [`PutAuditEvents`](../../../awscloudtraildata/latest/APIReference/API_PutAuditEvents.md "../../../awscloudtraildata/latest/APIReference/API_PutAuditEvents.md") request.
-9. Call the `PutAuditEvents` API to ingest your activity events
-   into CloudTrail. You can add up
-   to 100 activity events (or up to 1 MB) per `PutAuditEvents` request. You'll need the channel ARN that you created in preceding steps,
-   the payload of events that you want CloudTrail to add, and the external ID (if specified for your resource policy). Be sure that there is
-   no sensitive or personally-identifying information in event payload before
-   ingesting it into CloudTrail. Events that you ingest into CloudTrail must follow the
-   [CloudTrail Lake integrations event schema](query-integration-event-schema.md "query-integration-event-schema.md").
+key and value pairs to help you identify, sort, and control access to your
+event data store and channel. For more information about how to use IAM
+policies to authorize access to an event data store based on tags, see [Examples: Denying access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For
+more information about how you can use tags in AWS, see [Tagging
+your AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md") in the
+_AWS General Reference_. 8. When you are ready to create the new integration, choose **Add
+integration**. There is no review page. CloudTrail creates the
+integration, but to integrate your custom events, you must specify the
+channel ARN in a [`PutAuditEvents`](../../../awscloudtraildata/latest/APIReference/API_PutAuditEvents.md "../../../awscloudtraildata/latest/APIReference/API_PutAuditEvents.md") request. 9. Call the `PutAuditEvents` API to ingest your activity events
+into CloudTrail. You can add up
+to 100 activity events (or up to 1 MB) per `PutAuditEvents` request. You'll need the channel ARN that you created in preceding steps,
+the payload of events that you want CloudTrail to add, and the external ID (if specified for your resource policy). Be sure that there is
+no sensitive or personally-identifying information in event payload before
+ingesting it into CloudTrail. Events that you ingest into CloudTrail must follow the
+[CloudTrail Lake integrations event schema](query-integration-event-schema.md "query-integration-event-schema.md").
 
 ###### Tip
 

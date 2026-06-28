@@ -57,7 +57,7 @@ The following are the available options:
     	+ **Maximum retention period:** 2,557 days
 
 6. Specify a retention period for the event data store. Retention periods can be between 7 days and 3,653 days (about 10 years) for the **One-year extendable retention pricing** option,
-   or between 7 days and 2,557 days (about seven years) for the **Seven-year retention pricing** option.
+or between 7 days and 2,557 days (about seven years) for the **Seven-year retention pricing** option.
 
 CloudTrail Lake determines whether to retain an event by checking if the `eventTime`
 of the event is within the specified retention period. For example, if you specify a retention period
@@ -98,9 +98,9 @@ To enable Lake query federation, choose **Enable** and then do the following:
     3. If you are using an existing role, choose the role you want to use. The role must exist in your account.
 
 9. (Optional) Choose **Enable resource policy** to add a resource-based policy to your event data store.
-   Resource-based policies allow you to control which principals can perform actions on your event data store.
-   For example, you can add a resource based policy that allows the root users in other accounts to query this event data store and view the query results. For example policies, see
-   [Resource-based policy examples for event data stores](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds").
+Resource-based policies allow you to control which principals can perform actions on your event data store.
+For example, you can add a resource based policy that allows the root users in other accounts to query this event data store and view the query results. For example policies, see
+[Resource-based policy examples for event data stores](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds").
 
 A resource-based policy includes one or more statements. Each statement in
 the policy defines the [principals](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") that are allowed or denied access
@@ -175,18 +175,15 @@ If you do not create a resource policy for the channel, only the channel owner c
      account** to specify each AWS account ID to add as a
      principal in the policy.
 
-16. Choose **Next** to review your choices.
-17. On the **Review and create** page, review your choices.
-    Choose **Edit** to make changes to a section. When you're
-    ready to create the event data store, choose **Create event data
-    store**.
-18. The new event data store is visible in the **Event data
-    stores** table on the **Event data stores** page.
-19. Provide the channel Amazon Resource Name (ARN) to the partner application. Instructions for providing the channel ARN
-    to the partner application are found on the partner documentation website.
-    For more information, choose the **Learn more**
-    link for the partner on the **Available sources** tab of the **Integrations** page to open the partner's page in
-    AWS Marketplace.
+16. Choose **Next** to review your choices. 17. On the **Review and create** page, review your choices.
+Choose **Edit** to make changes to a section. When you're
+ready to create the event data store, choose **Create event data
+store**. 18. The new event data store is visible in the **Event data
+stores** table on the **Event data stores** page. 19. Provide the channel Amazon Resource Name (ARN) to the partner application. Instructions for providing the channel ARN
+to the partner application are found on the partner documentation website.
+For more information, choose the **Learn more**
+link for the partner on the **Available sources** tab of the **Integrations** page to open the partner's page in
+AWS Marketplace.
 
 The event data store starts
 ingesting partner events into CloudTrail through the integration's channel when you, the partner, or the partner applications calls the `PutAuditEvents` API on the channel.

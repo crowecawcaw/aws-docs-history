@@ -53,7 +53,7 @@ The following are the available options:
     	+ **Maximum retention period:** 2,557 days
 
 6. Specify a retention period for the event data store. Retention periods can be between 7 days and 3,653 days (about 10 years) for the **One-year extendable retention pricing** option,
-   or between 7 days and 2,557 days (about seven years) for the **Seven-year retention pricing** option.
+or between 7 days and 2,557 days (about seven years) for the **Seven-year retention pricing** option.
 
 CloudTrail Lake determines whether to retain an event by checking if the `eventTime`
 of the event is within the specified retention period. For example, if you specify a retention period
@@ -106,9 +106,9 @@ To enable Lake query federation, choose **Enable** and then do the following:
     3. If you are using an existing role, choose the role you want to use. The role must exist in your account.
 
 9. (Optional) Choose **Enable resource policy** to add a resource-based policy to your event data store.
-   Resource-based policies allow you to control which principals can perform actions on your event data store.
-   For example, you can add a resource based policy that allows the root users in other accounts to query this event data store and view the query results. For example policies, see
-   [Resource-based policy examples for event data stores](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds").
+Resource-based policies allow you to control which principals can perform actions on your event data store.
+For example, you can add a resource based policy that allows the root users in other accounts to query this event data store and view the query results. For example policies, see
+[Resource-based policy examples for event data stores](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds").
 
 A resource-based policy includes one or more statements. Each statement in
 the policy defines the [principals](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") that are allowed or denied access
@@ -170,318 +170,342 @@ created.
      when it's created.
 
 17. If your event data store includes management events, you can choose from
-    the following options. For more information about management events, see [Logging management events](logging-management-events-with-cloudtrail.md "logging-management-events-with-cloudtrail.md").
+the following options. For more information about management events, see [Logging management events](logging-management-events-with-cloudtrail.md "logging-management-events-with-cloudtrail.md").
 
-    1.  Choose between **Simple event collection**
-        or **Advanced event collection**:
-
-        - Choose **Simple event collection** if you want to log all events, log only read events, or log only write events.
-          You can choose also to exclude AWS Key Management Service and Amazon RDS Data API events.
-        - Choose **Advanced event collection** if you want to include or exclude management events based on the values of advanced event selector fields, including the `eventName`,
-          `eventType`, `eventSource`, `sessionCredentialFromConsole`, and `userIdentity.arn` fields.
-
-    2.  If you selected **Simple event collection**,
-        choose whether you want to log all events, log only read events, or log only write events.
-        You can also choose to exclude AWS KMS and Amazon RDS Data API events.
-    3.  If you selected **Advanced event collection**, make the following selections:
-
-        1. In **Log selector template**, choose a predefined template, or **Custom** to
-           build a custom configuration based on advanced event selector field values.
-
-        You can choose from the following predefined
-        templates:
-
-            * **Log all events** –
-             Choose this template to log all events.
-            * **Log only read events** –
-             Choose this template to log only read events.
-             Read-only events are events that do not change the
-             state of a resource, such as `Get*` or `Describe*`
-             events.
-            * **Log only write events** – Choose this template to log only write events.
-             Write events add, change, or delete resources, attributes, or artifacts,
-             such as `Put*`, `Delete*`, or `Write*` events.
-            * **Log only AWS Management Console events** –
-             Choose this template to log only events originating from the AWS Management Console.
-            * **Exclude AWS service initiated events** – Choose this template to exclude
-             AWS service events, which have an `eventType` of `AwsServiceEvent`,
-             and events initiated with AWS service-linked roles (SLRs).
-        2. (Optional) In **Selector name**, enter a name to identify your selector. The selector name is a
-           descriptive name for an advanced event selector, such as "Log management events from AWS Management Console sessions". The selector name is listed as `Name` in the
-           advanced event selector and is viewable if you expand the
-           **JSON view**.
-        3. If you chose **Custom**, in **Advanced event selectors** build an expression based on advanced event selector
-           field values.
-
-        ###### Note
-
-        Selectors don't support the use of wildcards like `*` . To match multiple values with a single condition,
-        you may use `StartsWith`, `EndsWith`, `NotStartsWith`, or `NotEndsWith` to explicitly match the beginning or end of the event field.
-
-            1. Choose from the following fields.
+    1. Choose between **Simple event collection**
+     or **Advanced event collection**:
 
 
 
 
-            	* **`readOnly`** – `readOnly` can
-            	 be set to **equals** a value of `true` or
-            	 `false`. When it is set to `false`, the event data store logs
-            	 Write-only management events. Read-only management events are events that do not change the
-            	 state of a resource, such as `Get*` or `Describe*` events.
-            	 Write events add, change, or delete resources, attributes, or artifacts, such as
-            	 `Put*`, `Delete*`, or `Write*` events. To log
-            	 both **Read** and **Write** events, don't add a
-            	 `readOnly` selector.
-            	* **`eventName`** – `eventName`
-            	 can use any operator. You can use it to include or exclude any management event, such as `CreateAccessPoint` or
-            	 `GetAccessPoint`.
-            	* **`userIdentity.arn`** – Include or exclude events for actions taken by specific IAM identities. For more information, see [CloudTrail userIdentity element](cloudtrail-event-reference-user-identity.md "cloudtrail-event-reference-user-identity.md").
-            	* **`sessionCredentialFromConsole`** – Include or exclude events originating from an AWS Management Console session. This field can be set to **equals** or **not equals** with a value of
-            	 `true`.
-            	* **`eventSource`** –
-            	 You can use it to include or exclude specific event sources. The `eventSource` is typically a short form of the service name
-            	 without spaces plus `.amazonaws.com`. For example, you could set `eventSource` **equals** to
-            	 `ec2.amazonaws.com` to log only Amazon EC2 management events.
-            	* **`eventType`** – The [eventType](cloudtrail-event-reference-record-contents.md#ct-event-type "cloudtrail-event-reference-record-contents.md#ct-event-type") to include or exclude. For example, you can set this field to
-            	 **not equals** `AwsServiceEvent` to exclude [AWS service events](non-api-aws-service-events.md "non-api-aws-service-events.md").
-            2. For each field, choose **+ Condition** to
-             add as many conditions as you need, up to a maximum of 500
-             specified values for all conditions.
+    	* Choose **Simple event collection** if you want to log all events, log only read events, or log only write events.
+    	 You can choose also to exclude AWS Key Management Service and Amazon RDS Data API events.
+    	* Choose **Advanced event collection** if you want to include or exclude management events based on the values of advanced event selector fields, including the `eventName`,
+    	 `eventType`, `eventSource`, `sessionCredentialFromConsole`, and `userIdentity.arn` fields.
+    2. If you selected **Simple event collection**,
+     choose whether you want to log all events, log only read events, or log only write events.
+     You can also choose to exclude AWS KMS and Amazon RDS Data API events.
+    3. If you selected **Advanced event collection**, make the following selections:
 
 
-            For information about how CloudTrail evaluates multiple conditions, see
-             [How CloudTrail evaluates multiple conditions for a field](filtering-data-events.md#filtering-data-events-conditions "filtering-data-events.md#filtering-data-events-conditions").
+    	1. In **Log selector template**, choose a predefined template, or **Custom** to
+    	 build a custom configuration based on advanced event selector field values.
 
 
-            ###### Note
+    	You can choose from the following predefined
+    	 templates:
 
-            You can have a maximum of 500 values for all selectors on
-             an event data store. This includes arrays of multiple values for a
-             selector such as `eventName`. If you have single
-             values for all selectors, you can have a maximum of 500
-             conditions added to a selector.
-            3. Choose **+ Field** to add additional fields
-             as required. To avoid errors, do not set conflicting or
-             duplicate values for fields.
-        4. Optionally, expand **JSON view** to see your
-           advanced event selectors as a JSON block.
 
-    4.  Choose **Enable Insights events capture** to enable Insights. To enable Insights, you need to set up a [destination event data store](query-event-data-store-insights.md#query-event-data-store-insights-procedure "query-event-data-store-insights.md#query-event-data-store-insights-procedure")
-        to collect Insights events based upon the management event activity in this event data store.
+
+
+    		* **Log all events** –
+    		 Choose this template to log all events.
+    		* **Log only read events** –
+    		 Choose this template to log only read events.
+    		 Read-only events are events that do not change the
+    		 state of a resource, such as `Get*` or `Describe*`
+    		 events.
+    		* **Log only write events** – Choose this template to log only write events.
+    		 Write events add, change, or delete resources, attributes, or artifacts,
+    		 such as `Put*`, `Delete*`, or `Write*` events.
+    		* **Log only AWS Management Console events** –
+    		 Choose this template to log only events originating from the AWS Management Console.
+    		* **Exclude AWS service initiated events** – Choose this template to exclude
+    		 AWS service events, which have an `eventType` of `AwsServiceEvent`,
+    		 and events initiated with AWS service-linked roles (SLRs).
+    	2. (Optional) In **Selector name**, enter a name to identify your selector. The selector name is a
+    	 descriptive name for an advanced event selector, such as "Log management events from AWS Management Console sessions". The selector name is listed as `Name` in the
+    	 advanced event selector and is viewable if you expand the
+    	 **JSON view**.
+    	3. If you chose **Custom**, in **Advanced event selectors** build an expression based on advanced event selector
+    	 field values.
+
+
+    	###### Note
+
+    	Selectors don't support the use of wildcards like `*` . To match multiple values with a single condition,
+    	 you may use `StartsWith`, `EndsWith`, `NotStartsWith`, or `NotEndsWith` to explicitly match the beginning or end of the event field.
+
+
+    		1. Choose from the following fields.
+
+
+
+
+    			* **`readOnly`** – `readOnly` can
+    			 be set to **equals** a value of `true` or
+    			 `false`. When it is set to `false`, the event data store logs
+    			 Write-only management events. Read-only management events are events that do not change the
+    			 state of a resource, such as `Get*` or `Describe*` events.
+    			 Write events add, change, or delete resources, attributes, or artifacts, such as
+    			 `Put*`, `Delete*`, or `Write*` events. To log
+    			 both **Read** and **Write** events, don't add a
+    			 `readOnly` selector.
+    			* **`eventName`** – `eventName`
+    			 can use any operator. You can use it to include or exclude any management event, such as `CreateAccessPoint` or
+    			 `GetAccessPoint`.
+    			* **`userIdentity.arn`** – Include or exclude events for actions taken by specific IAM identities. For more information, see [CloudTrail userIdentity element](cloudtrail-event-reference-user-identity.md "cloudtrail-event-reference-user-identity.md").
+    			* **`sessionCredentialFromConsole`** – Include or exclude events originating from an AWS Management Console session. This field can be set to **equals** or **not equals** with a value of
+    			 `true`.
+    			* **`eventSource`** –
+    			 You can use it to include or exclude specific event sources. The `eventSource` is typically a short form of the service name
+    			 without spaces plus `.amazonaws.com`. For example, you could set `eventSource` **equals** to
+    			 `ec2.amazonaws.com` to log only Amazon EC2 management events.
+    			* **`eventType`** – The [eventType](cloudtrail-event-reference-record-contents.md#ct-event-type "cloudtrail-event-reference-record-contents.md#ct-event-type") to include or exclude. For example, you can set this field to
+    			 **not equals** `AwsServiceEvent` to exclude [AWS service events](non-api-aws-service-events.md "non-api-aws-service-events.md").
+    		2. For each field, choose **+ Condition** to
+    		 add as many conditions as you need, up to a maximum of 500
+    		 specified values for all conditions.
+
+
+    		For information about how CloudTrail evaluates multiple conditions, see
+    		 [How CloudTrail evaluates multiple conditions for a field](filtering-data-events.md#filtering-data-events-conditions "filtering-data-events.md#filtering-data-events-conditions").
+
+
+    		###### Note
+
+    		You can have a maximum of 500 values for all selectors on
+    		 an event data store. This includes arrays of multiple values for a
+    		 selector such as `eventName`. If you have single
+    		 values for all selectors, you can have a maximum of 500
+    		 conditions added to a selector.
+    		3. Choose **+ Field** to add additional fields
+    		 as required. To avoid errors, do not set conflicting or
+    		 duplicate values for fields.
+    	4. Optionally, expand **JSON view** to see your
+    	 advanced event selectors as a JSON block.
+    4. Choose **Enable Insights events capture** to enable Insights. To enable Insights, you need to set up a [destination event data store](query-event-data-store-insights.md#query-event-data-store-insights-procedure "query-event-data-store-insights.md#query-event-data-store-insights-procedure")
+     to collect Insights events based upon the management event activity in this event data store.
+
 
     If you choose to enable Insights, do the following.
 
-        1. Choose the destination event store that will log Insights events. The destination event data store will collect Insights events
-         based upon the management event activity in this event data store. For information about how to
-         create the destination event data store, see [To create a destination event data store that logs Insights events](query-event-data-store-insights.md#query-event-data-store-insights-procedure "query-event-data-store-insights.md#query-event-data-store-insights-procedure").
-        2. Choose the Insights types. You can choose
-         **API call rate**, **API error rate**,
-         or both. You must be logging **Write** management events to
-         log Insights events for **API call rate**. You must be logging
-         **Read** or **Write** management events to
-         log Insights events for **API error rate**.
+
+    	1. Choose the destination event store that will log Insights events. The destination event data store will collect Insights events
+    	 based upon the management event activity in this event data store. For information about how to
+    	 create the destination event data store, see [To create a destination event data store that logs Insights events](query-event-data-store-insights.md#query-event-data-store-insights-procedure "query-event-data-store-insights.md#query-event-data-store-insights-procedure").
+    	2. Choose the Insights types. You can choose
+    	 **API call rate**, **API error rate**,
+    	 or both. You must be logging **Write** management events to
+    	 log Insights events for **API call rate**. You must be logging
+    	 **Read** or **Write** management events to
+    	 log Insights events for **API error rate**.
 
 18. To include data events in your event data store, do the following.
 
-    1.  Choose a resource type. This is the AWS service and resource
-        on which data events are logged.
-    2.  In **Log selector template**, choose a predefined template, or choose **Custom** to
-        define your own event collection conditions based on the values of advanced event selector fields.
+    1. Choose a resource type. This is the AWS service and resource
+     on which data events are logged.
+    2. In **Log selector template**, choose a predefined template, or choose **Custom** to
+     define your own event collection conditions based on the values of advanced event selector fields.
+
 
     You can choose from the following predefined
-    templates:
+     templates:
 
-        * **Log all events** –
-         Choose this template to log all events.
-        * **Log only read events** –
-         Choose this template to log only read events.
-         Read-only events are events that do not change the
-         state of a resource, such as `Get*` or `Describe*`
-         events.
-        * **Log only write events** – Choose this template to log only write events.
-         Write events add, change, or delete resources, attributes, or artifacts,
-         such as `Put*`, `Delete*`, or `Write*` events.
-        * **Log only AWS Management Console events** –
-         Choose this template to log only events originating from the AWS Management Console.
-        * **Exclude AWS service initiated events** – Choose this template to exclude
-         AWS service events, which have an `eventType` of `AwsServiceEvent`,
-         and events initiated with AWS service-linked roles (SLRs).
-    3.  (Optional) In **Selector name**, enter a name to identify your selector. The selector name is a
-        descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets". The selector name is listed as `Name` in the
-        advanced event selector and is viewable if you expand the
-        **JSON view**.
-    4.  If you selected **Custom**, in **Advanced event selectors** build an expression based on the values of advanced event selector fields.
+
+
+
+    	* **Log all events** –
+    	 Choose this template to log all events.
+    	* **Log only read events** –
+    	 Choose this template to log only read events.
+    	 Read-only events are events that do not change the
+    	 state of a resource, such as `Get*` or `Describe*`
+    	 events.
+    	* **Log only write events** – Choose this template to log only write events.
+    	 Write events add, change, or delete resources, attributes, or artifacts,
+    	 such as `Put*`, `Delete*`, or `Write*` events.
+    	* **Log only AWS Management Console events** –
+    	 Choose this template to log only events originating from the AWS Management Console.
+    	* **Exclude AWS service initiated events** – Choose this template to exclude
+    	 AWS service events, which have an `eventType` of `AwsServiceEvent`,
+    	 and events initiated with AWS service-linked roles (SLRs).
+    3. (Optional) In **Selector name**, enter a name to identify your selector. The selector name is a
+     descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets". The selector name is listed as `Name` in the
+     advanced event selector and is viewable if you expand the
+     **JSON view**.
+    4. If you selected **Custom**, in **Advanced event selectors** build an expression based on the values of advanced event selector fields.
+
 
     ###### Note
 
     Selectors don't support the use of wildcards like `*` . To match multiple values with a single condition,
-    you may use `StartsWith`, `EndsWith`, `NotStartsWith`, or `NotEndsWith` to explicitly match the beginning or end of the event field.
-
-        1. Choose from the following fields.
+     you may use `StartsWith`, `EndsWith`, `NotStartsWith`, or `NotEndsWith` to explicitly match the beginning or end of the event field.
 
 
+    	1. Choose from the following fields.
 
 
-        	* **`readOnly`**
-        	 - `readOnly` can be set to
-        	 **equals** a value of
-        	 `true` or `false`. Read-only
-        	 data events are events that do not change the state of a
-        	 resource, such as `Get*` or
-        	 `Describe*` events. Write events add,
-        	 change, or delete resources, attributes, or artifacts,
-        	 such as `Put*`, `Delete*`, or
-        	 `Write*` events. To log both
-        	 `read` and `write` events,
-        	 don't add a `readOnly` selector.
-        	* **`eventName`** -
-        	 `eventName` can use any operator. You can
-        	 use it to include or exclude any data event logged to
-        	 CloudTrail, such as `PutBucket`,
-        	 `GetItem`, or
-        	 `GetSnapshotBlock`.
-        	* **`eventSource`** – The event source to include or exclude. This field can use any operator.
-        	* **eventType** – The event type to include or exclude. For example, you can set this field to
-        	 **not equals** `AwsServiceEvent` to exclude
-        	 [AWS service events](non-api-aws-service-events.md "non-api-aws-service-events.md"). For a list of event types,
-        	 see [eventType](cloudtrail-event-reference-record-contents.md#ct-event-type "cloudtrail-event-reference-record-contents.md#ct-event-type") in
-        	 [CloudTrail record contents for management, data, and network activity events](cloudtrail-event-reference-record-contents.md "cloudtrail-event-reference-record-contents.md").
-        	* **sessionCredentialFromConsole** – Include or exclude events originating from an AWS Management Console session. This field can be set to **equals** or **not equals** with a value of
-        	 `true`.
-        	* **userIdentity.arn** – Include or exclude events for actions taken by specific IAM identities. For more information, see [CloudTrail userIdentity element](cloudtrail-event-reference-user-identity.md "cloudtrail-event-reference-user-identity.md").
-        	* **`resources.ARN`** - You can use
-        	 any operator with `resources.ARN`, but if you
-        	 use **equals** or
-        	 **does not equal**, the value must
-        	 exactly match the ARN of a valid resource of the type
-        	 you've specified in the template as the value of
-        	 `resources.type`.
 
 
-        	###### Note
+    		* **`readOnly`**
+    		 - `readOnly` can be set to
+    		 **equals** a value of
+    		 `true` or `false`. Read-only
+    		 data events are events that do not change the state of a
+    		 resource, such as `Get*` or
+    		 `Describe*` events. Write events add,
+    		 change, or delete resources, attributes, or artifacts,
+    		 such as `Put*`, `Delete*`, or
+    		 `Write*` events. To log both
+    		 `read` and `write` events,
+    		 don't add a `readOnly` selector.
+    		* **`eventName`** -
+    		 `eventName` can use any operator. You can
+    		 use it to include or exclude any data event logged to
+    		 CloudTrail, such as `PutBucket`,
+    		 `GetItem`, or
+    		 `GetSnapshotBlock`.
+    		* **`eventSource`** – The event source to include or exclude. This field can use any operator.
+    		* **eventType** – The event type to include or exclude. For example, you can set this field to
+    		 **not equals** `AwsServiceEvent` to exclude
+    		 [AWS service events](non-api-aws-service-events.md "non-api-aws-service-events.md"). For a list of event types,
+    		 see [eventType](cloudtrail-event-reference-record-contents.md#ct-event-type "cloudtrail-event-reference-record-contents.md#ct-event-type") in
+    		 [CloudTrail record contents for management, data, and network activity events](cloudtrail-event-reference-record-contents.md "cloudtrail-event-reference-record-contents.md").
+    		* **sessionCredentialFromConsole** – Include or exclude events originating from an AWS Management Console session. This field can be set to **equals** or **not equals** with a value of
+    		 `true`.
+    		* **userIdentity.arn** – Include or exclude events for actions taken by specific IAM identities. For more information, see [CloudTrail userIdentity element](cloudtrail-event-reference-user-identity.md "cloudtrail-event-reference-user-identity.md").
+    		* **`resources.ARN`** - You can use
+    		 any operator with `resources.ARN`, but if you
+    		 use **equals** or
+    		 **does not equal**, the value must
+    		 exactly match the ARN of a valid resource of the type
+    		 you've specified in the template as the value of
+    		 `resources.type`.
 
-        	You can't use the `resources.ARN` field to filter resource types that do not have ARNs.
+
+    		###### Note
+
+    		You can't use the `resources.ARN` field to filter resource types that do not have ARNs.
 
 
-        	For more information about the ARN formats of data event
-        	 resources, see [Actions, resources, and condition
-        	 keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md") in the *Service Authorization Reference*.
-        2. For each field, choose **+ Condition** to
-         add as many conditions as you need, up to a maximum of 500
-         specified values for all conditions. For example, to exclude
-         data events for two S3 buckets from data events that are logged
-         on your event data store, you can set the field to
-         **resources.ARN**, set the operator for
-         **does not start with**, and then paste in
-         an S3 bucket ARN for which you do
-         not want to log events.
+    		For more information about the ARN formats of data event
+    		 resources, see [Actions, resources, and condition
+    		 keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md") in the *Service Authorization Reference*.
+    	2. For each field, choose **+ Condition** to
+    	 add as many conditions as you need, up to a maximum of 500
+    	 specified values for all conditions. For example, to exclude
+    	 data events for two S3 buckets from data events that are logged
+    	 on your event data store, you can set the field to
+    	 **resources.ARN**, set the operator for
+    	 **does not start with**, and then paste in
+    	 an S3 bucket ARN for which you do
+    	 not want to log events.
 
 
-        To add the second S3 bucket, choose **+
-         Condition**, and then repeat the preceding
-         instruction, pasting in the ARN for or browsing for a different
-         bucket.
+    	To add the second S3 bucket, choose **+
+    	 Condition**, and then repeat the preceding
+    	 instruction, pasting in the ARN for or browsing for a different
+    	 bucket.
 
 
-        For information about how CloudTrail evaluates multiple conditions, see
-         [How CloudTrail evaluates multiple conditions for a field](filtering-data-events.md#filtering-data-events-conditions "filtering-data-events.md#filtering-data-events-conditions").
+    	For information about how CloudTrail evaluates multiple conditions, see
+    	 [How CloudTrail evaluates multiple conditions for a field](filtering-data-events.md#filtering-data-events-conditions "filtering-data-events.md#filtering-data-events-conditions").
 
 
-        ###### Note
+    	###### Note
 
-        You can have a maximum of 500 values for all selectors on
-         an event data store. This includes arrays of multiple values for a
-         selector such as `eventName`. If you have single
-         values for all selectors, you can have a maximum of 500
-         conditions added to a selector.
-        3. Choose **+ Field** to add additional fields
-         as required. To avoid errors, do not set conflicting or
-         duplicate values for fields. For example, do not specify an ARN
-         in one selector to be equal to a value, then specify that the
-         ARN not equal the same value in another selector.
-    5.  Optionally, expand **JSON view** to see your
-        advanced event selectors as a JSON block.
-    6.  To add another resource type on which to log data events, choose **Add data event type**.
-        Repeat steps a through this step to configure advanced event selectors for the resource type.
+    	You can have a maximum of 500 values for all selectors on
+    	 an event data store. This includes arrays of multiple values for a
+    	 selector such as `eventName`. If you have single
+    	 values for all selectors, you can have a maximum of 500
+    	 conditions added to a selector.
+    	3. Choose **+ Field** to add additional fields
+    	 as required. To avoid errors, do not set conflicting or
+    	 duplicate values for fields. For example, do not specify an ARN
+    	 in one selector to be equal to a value, then specify that the
+    	 ARN not equal the same value in another selector.
+    5. Optionally, expand **JSON view** to see your
+     advanced event selectors as a JSON block.
+    6. To add another resource type on which to log data events, choose **Add data event type**.
+     Repeat steps a through this step to configure advanced event selectors for the resource type.
 
 19. To include network activity events in your event data store, do the following.
 
-    1.  From **Network activity event source**, choose the source for network activity events.
-    2.  In **Log selector template**, choose a template.
-        You can choose to log all network activity events, log all network activity access denied events, or choose **Custom** to
-        build a custom log selector to filter on multiple fields, such as `eventName` and `vpcEndpointId`.
-    3.  (Optional) Enter a name to identify the selector. The selector name is listed as **Name** in the advanced event selector and is viewable if you expand the
-        **JSON view**.
-    4.  In **Advanced event
-        selectors** build expressions by choosing values for **Field**,
-        **Operator**, and **Value**. You can skip this step if you are using a predefined log template.
+    1. From **Network activity event source**, choose the source for network activity events.
+    2. In **Log selector template**, choose a template.
+     You can choose to log all network activity events, log all network activity access denied events, or choose **Custom** to
+     build a custom log selector to filter on multiple fields, such as `eventName` and `vpcEndpointId`.
+    3. (Optional) Enter a name to identify the selector. The selector name is listed as **Name** in the advanced event selector and is viewable if you expand the
+     **JSON view**.
+    4. In **Advanced event
+     selectors** build expressions by choosing values for **Field**,
+     **Operator**, and **Value**. You can skip this step if you are using a predefined log template.
 
-        1. For excluding or including network activity
-           events, you can choose from the following fields in the console.
 
-           - **`eventName`** – You can use any operator with `eventName`.
-             You can use it to include or exclude any event, such as `CreateKey`.
-           - **`errorCode`** – You can use it to filter on an error code. Currently, the only supported `errorCode` is `VpceAccessDenied`.
-           - **`vpcEndpointId`** – Identifies the VPC endpoint that the operation passed through. You can use
-             any operator with `vpcEndpointId`.
+    	1. For excluding or including network activity
+    	 events, you can choose from the following fields in the console.
 
-        2. For each field, choose **+ Condition** to add as many conditions as you need, up to a maximum of 500 specified values for all conditions.
-        3. Choose **+ Field** to add additional fields as required. To avoid errors, do not set conflicting or duplicate values for fields.
 
-    5.  To add another event source for which you want to log network activity events, choose **Add
-        network activity event selector**.
-    6.  Optionally, expand **JSON view** to see your
-        advanced event selectors as a JSON block.
+
+
+    		* **`eventName`** – You can use any operator with `eventName`.
+    		 You can use it to include or exclude any event, such as `CreateKey`.
+    		* **`errorCode`** – You can use it to filter on an error code. Currently, the only supported `errorCode` is `VpceAccessDenied`.
+    		* **`vpcEndpointId`** – Identifies the VPC endpoint that the operation passed through. You can use
+    		 any operator with `vpcEndpointId`.
+    	2. For each field, choose **+ Condition** to add as many conditions as you need, up to a maximum of 500 specified values for all conditions.
+    	3. Choose **+ Field** to add additional fields as required. To avoid errors, do not set conflicting or duplicate values for fields.
+    5. To add another event source for which you want to log network activity events, choose **Add
+     network activity event selector**.
+    6. Optionally, expand **JSON view** to see your
+     advanced event selectors as a JSON block.
 
 20. To copy existing trail events to your event data store, do the
-    following.
+following.
 
-    1.  Choose the trail that you want to copy. By default, CloudTrail only
-        copies CloudTrail events contained in the S3 bucket's
-        `CloudTrail` prefix and the prefixes inside the
-        `CloudTrail` prefix, and does not check prefixes for
-        other AWS services. If you want to copy CloudTrail events contained in
-        another prefix, choose **Enter S3 URI**, and then
-        choose **Browse S3** to browse to the prefix. If
-        the source S3 bucket for the trail uses a KMS key for data
-        encryption, ensure that the KMS key policy allows CloudTrail to decrypt
-        the data. If your source S3 bucket uses multiple KMS keys, you
-        must update each key's policy to allow CloudTrail to decrypt the data in
-        the bucket. For more information about updating the KMS key
-        policy, see [KMS key policy for decrypting data in the source S3 bucket](cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-kms "cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-kms").
-    2.  Choose the time range for
-        copying the events. CloudTrail checks the prefix and log file name to verify the name contains a date between the chosen start and end date before attempting to copy trail events. You can choose a **Relative range** or an
-        **Absolute range**. To avoid duplicating events between the source trail and destination event data store, choose a time range that is earlier than the creation of the event data store.
+    1. Choose the trail that you want to copy. By default, CloudTrail only
+     copies CloudTrail events contained in the S3 bucket's
+     `CloudTrail` prefix and the prefixes inside the
+     `CloudTrail` prefix, and does not check prefixes for
+     other AWS services. If you want to copy CloudTrail events contained in
+     another prefix, choose **Enter S3 URI**, and then
+     choose **Browse S3** to browse to the prefix. If
+     the source S3 bucket for the trail uses a KMS key for data
+     encryption, ensure that the KMS key policy allows CloudTrail to decrypt
+     the data. If your source S3 bucket uses multiple KMS keys, you
+     must update each key's policy to allow CloudTrail to decrypt the data in
+     the bucket. For more information about updating the KMS key
+     policy, see [KMS key policy for decrypting data in the source S3 bucket](cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-kms "cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-kms").
+    2. Choose the time range for
+     copying the events. CloudTrail checks the prefix and log file name to verify the name contains a date between the chosen start and end date before attempting to copy trail events. You can choose a **Relative range** or an
+     **Absolute range**. To avoid duplicating events between the source trail and destination event data store, choose a time range that is earlier than the creation of the event data store.
+
 
     ###### Note
 
     CloudTrail only copies trail events that have an `eventTime` within the event data store’s retention period.
-    For example, if an event data store’s retention period is 90 days, then CloudTrail will not copy any trail events with an `eventTime` older than 90 days.
+     For example, if an event data store’s retention period is 90 days, then CloudTrail will not copy any trail events with an `eventTime` older than 90 days.
 
-        * If you choose **Relative range**, you can
-         choose to copy events logged in the last 6 months, 1 year, 2 years, 7 years, or a custom range. CloudTrail copies the events logged within the chosen time period.
-        * If you choose **Absolute range**, you can choose a specific start and end date. CloudTrail copies the events that occurred between the chosen
-         start and end dates.
-    3.  For **Permissions**, choose from the following
-        IAM role options. If you choose an existing IAM role, verify
-        that the IAM role policy provides the necessary permissions. For
-        more information about updating the IAM role permissions, see
-        [IAM permissions for copying trail events](cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-iam "cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-iam").
 
-        - Choose **Create a new role
-          (recommended)** to create a new IAM role. For
-          **Enter IAM role name**, enter a name
-          for the role. CloudTrail automatically creates the necessary
-          permissions for this new role.
-        - Choose **Use a custom IAM role ARN** to use
-          a custom IAM role that is not listed. For **Enter
-          IAM role ARN**, enter the IAM ARN.
-        - Choose an existing IAM role from the drop-down list.
 
-21. Choose **Next** to enrich your events by adding resource tag keys and IAM global condition keys.
-22. In **Enrich events**, add up
-    to 50 resource tag keys and 50 IAM global condition keys to provide additional
-    metadata about your events. This helps you categorize and group related events.
+
+    	* If you choose **Relative range**, you can
+    	 choose to copy events logged in the last 6 months, 1 year, 2 years, 7 years, or a custom range. CloudTrail copies the events logged within the chosen time period.
+    	* If you choose **Absolute range**, you can choose a specific start and end date. CloudTrail copies the events that occurred between the chosen
+    	 start and end dates.
+    3. For **Permissions**, choose from the following
+     IAM role options. If you choose an existing IAM role, verify
+     that the IAM role policy provides the necessary permissions. For
+     more information about updating the IAM role permissions, see
+     [IAM permissions for copying trail events](cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-iam "cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-iam").
+
+
+
+
+    	* Choose **Create a new role
+    	 (recommended)** to create a new IAM role. For
+    	 **Enter IAM role name**, enter a name
+    	 for the role. CloudTrail automatically creates the necessary
+    	 permissions for this new role.
+    	* Choose **Use a custom IAM role ARN** to use
+    	 a custom IAM role that is not listed. For **Enter
+    	 IAM role ARN**, enter the IAM ARN.
+    	* Choose an existing IAM role from the drop-down list.
+
+21. Choose **Next** to enrich your events by adding resource tag keys and IAM global condition keys. 22. In **Enrich events**, add up
+to 50 resource tag keys and 50 IAM global condition keys to provide additional
+metadata about your events. This helps you categorize and group related events.
 
 If you add resource tag keys, CloudTrail will include the selected tag keys associated with the resources that were involved in the API call. API events related to deleted resources will not have resource tags.
 

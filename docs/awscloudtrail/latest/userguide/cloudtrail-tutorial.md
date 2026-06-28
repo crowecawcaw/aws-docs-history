@@ -27,7 +27,7 @@ information, see [Granting permission to view and configure Amazon CloudWatch Lo
 
 The following AWS managed policies are available for CloudTrail:
 
-- [**AWSCloudTrail_FullAccess**](../../../aws-managed-policy/latest/reference/AWSCloudTrail_FullAccess.md "../../../aws-managed-policy/latest/reference/AWSCloudTrail_FullAccess.md") – This policy
+- [**AWSCloudTrail\_FullAccess**](../../../aws-managed-policy/latest/reference/AWSCloudTrail_FullAccess.md "../../../aws-managed-policy/latest/reference/AWSCloudTrail_FullAccess.md") – This policy
   provides full access to CloudTrail actions on CloudTrail resources, such as trails, event data stores, and
   channels. This policy provides the required permissions to create, update, and delete CloudTrail
   trails, event data stores, and channels.
@@ -41,13 +41,13 @@ Managed Policy Reference Guide_](../../../aws-managed-policy/latest/reference/ab
 
 ###### Note
 
-The **AWSCloudTrail_FullAccess** policy
+The **AWSCloudTrail\_FullAccess** policy
 isn't intended to be shared broadly across your AWS account. Users with this role can turn
 off or reconfigure the most sensitive and important auditing functions in their
 AWS accounts. For this reason, you must only apply this policy to account administrators.
 You must closely control and monitor use of this policy.
 
-- [**AWSCloudTrail_ReadOnlyAccess**](../../../aws-managed-policy/latest/reference/AWSCloudTrail_ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSCloudTrail_ReadOnlyAccess.md") – This
+- [**AWSCloudTrail\_ReadOnlyAccess**](../../../aws-managed-policy/latest/reference/AWSCloudTrail_ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSCloudTrail_ReadOnlyAccess.md") – This
   policy grants permissions to view the CloudTrail console, including recent events and event history.
   This policy also allows you to view existing trails, event data stores, and channels. Roles
   and users with this policy can [download the event history](view-cloudtrail-events-console.md#downloading-events "view-cloudtrail-events-console.md#downloading-events"), but they can't create or update trails, event data

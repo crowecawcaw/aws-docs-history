@@ -175,8 +175,7 @@ recommended.
 6. Add a new block for a condition, `aws:SourceAccount`, as shown in
    the following example. The value of `aws:SourceAccount` is the ID of
    the account that owns the CloudTrail trail. This example restricts access to the SNS
-   topic to only those users who can sign in to the AWS account
-7.
+   topic to only those users who can sign in to the AWS account 123456789012.
 
 ```
     {

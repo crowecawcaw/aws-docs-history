@@ -290,7 +290,7 @@ authentication](../../../IAM/latest/UserGuide/id_credentials_mfa.md "../../../IA
     session. The value that appears depends on the
     `sessionIssuer` identity `type`. The
     following table shows the relationship between `sessionIssuer
-type` and `userName`:
+   type` and `userName`:
 
   | `sessionIssuer` type  | `userName`                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                |
   | --------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

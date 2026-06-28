@@ -238,10 +238,10 @@ after a certain amount of time has passed.
 Lifecycle configuration on multi-factor authentication (MFA)-enabled buckets is
 not supported.
 
-**Limit access to the AWSCloudTrail_FullAccess
+**Limit access to the AWSCloudTrail\_FullAccess
 policy**
 
-Users with the [AWSCloudTrail_FullAccess](security_iam_id-based-policy-examples.md#grant-custom-permissions-for-cloudtrail-users-full-access "security_iam_id-based-policy-examples.md#grant-custom-permissions-for-cloudtrail-users-full-access") policy have the ability to disable or reconfigure
+Users with the [AWSCloudTrail\_FullAccess](security_iam_id-based-policy-examples.md#grant-custom-permissions-for-cloudtrail-users-full-access "security_iam_id-based-policy-examples.md#grant-custom-permissions-for-cloudtrail-users-full-access") policy have the ability to disable or reconfigure
 the most sensitive and important auditing functions in their AWS accounts. This policy
 is not intended to be shared or applied broadly to IAM identities in your AWS
 account. Limit application of this policy to as few individuals as possible, those you

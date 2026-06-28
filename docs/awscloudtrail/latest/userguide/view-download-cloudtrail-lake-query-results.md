@@ -54,10 +54,10 @@ All Buckets
 
 When you save query results, CloudTrail delivers two types of files to your Amazon S3 bucket.
 
-- A sign file in JSON format that you can use to validate the query result files. The sign file is named result_sign.json.
+- A sign file in JSON format that you can use to validate the query result files. The sign file is named result\_sign.json.
   For more information about the sign file, see [CloudTrail sign file structure](cloudtrail-query-results-validation.md#cloudtrail-results-file-validation-sign-file-structure "cloudtrail-query-results-validation.md#cloudtrail-results-file-validation-sign-file-structure").
 - One or more query result files in CSV format, which contain the results from the query. The number of query result files delivered is dependent upon the total size of the query results.
-  The maximum file size for a query result file is 1 TB. Each query result file is named result\_`number`.csv.gz. For example, if the total size of the query results was 2 TB, you would have two query result files, result_1.csv.gz and result_2.csv.gz.
+  The maximum file size for a query result file is 1 TB. Each query result file is named result\_`number`.csv.gz. For example, if the total size of the query results was 2 TB, you would have two query result files, result\_1.csv.gz and result\_2.csv.gz.
 
 CloudTrail query result and sign files are Amazon S3 objects. You can use the S3
 console, the AWS Command Line Interface (CLI), or the S3 API to retrieve query result and sign files.

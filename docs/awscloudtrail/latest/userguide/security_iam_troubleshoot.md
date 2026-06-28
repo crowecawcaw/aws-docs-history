@@ -37,8 +37,8 @@ with your sign-in credentials.
 The following example error occurs when the `mateojackson` IAM user
 tries to use the console to view details about a trail but doesn't have either the
 appropriate CloudTrail managed policy
-(**AWSCloudTrail_FullAccess** or
-**AWSCloudTrail_ReadOnlyAccess**) or the
+(**AWSCloudTrail\_FullAccess** or
+**AWSCloudTrail\_ReadOnlyAccess**) or the
 equivalent permissions applied to his account.
 
 ```
@@ -48,7 +48,7 @@ User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: 
 In this case, Mateo asks his administrator to update his policies to allow him to access trail information and status in the console.
 
 If you sign in with an IAM user or role that has the
-**AWSCloudTrail_FullAccess** managed policy or its
+**AWSCloudTrail\_FullAccess** managed policy or its
 equivalent permissions, and you can't configure AWS Config or Amazon CloudWatch Logs integration with a
 trail, you might be missing the required permissions for integration with those
 services. For more information, see [Granting permission to view AWS Config information on the CloudTrail console](security_iam_id-based-policy-examples.md#grant-aws-config-permissions-for-cloudtrail-users "security_iam_id-based-policy-examples.md#grant-aws-config-permissions-for-cloudtrail-users") and [Granting permission to view and configure Amazon CloudWatch Logs information on the CloudTrail console](security_iam_id-based-policy-examples.md#grant-cloudwatch-permissions-for-cloudtrail-users "security_iam_id-based-policy-examples.md#grant-cloudwatch-permissions-for-cloudtrail-users").

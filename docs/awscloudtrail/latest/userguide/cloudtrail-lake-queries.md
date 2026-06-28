@@ -17,12 +17,12 @@ see [CloudTrail Lake SQL constraints](query-limitations.md "query-limitations.md
 
 An unbounded query (such as `SELECT * FROM
  `edsID``) scans all data in your event data store. To
- help control costs, we recommend that you constrain queries by adding starting and
- ending `eventTime` time stamps to queries. The following is an example that
- searches for all events in a specified event data store where the event time is after
- (`>`) January 5, 2023 at 1:51 p.m. and before (`<`) January
- 19, 2023 at 1:51 p.m. Because an event data store has a minimum retention period of
- seven days, the minimum time span between starting and ending `eventTime`
+help control costs, we recommend that you constrain queries by adding starting and
+ending `eventTime` time stamps to queries. The following is an example that
+searches for all events in a specified event data store where the event time is after
+(`>`) January 5, 2023 at 1:51 p.m. and before (`<`) January
+19, 2023 at 1:51 p.m. Because an event data store has a minimum retention period of
+seven days, the minimum time span between starting and ending `eventTime`
 values is also seven days.
 
 ```

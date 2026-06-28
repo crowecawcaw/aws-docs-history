@@ -118,8 +118,8 @@ example](#policy-cwl-org "#policy-cwl-org") and [Creating a trail for an organiz
     3. From the **Permissions** tab, expand the policy to view its contents.
 
 2. You can specify another role, but you must attach the required role policy
-   to the existing role if you want to use it to send events to CloudWatch Logs. For more
-   information, see [Role policy document for CloudTrail to use CloudWatch Logs for monitoring](cloudtrail-required-policy-for-cloudwatch-logs.md "cloudtrail-required-policy-for-cloudwatch-logs.md").
+to the existing role if you want to use it to send events to CloudWatch Logs. For more
+information, see [Role policy document for CloudTrail to use CloudWatch Logs for monitoring](cloudtrail-required-policy-for-cloudwatch-logs.md "cloudtrail-required-policy-for-cloudwatch-logs.md").
 
 ### Viewing events in the CloudWatch console
 

@@ -259,7 +259,7 @@ Take these steps to switch to advanced event selectors:
      For more information, see [Updating an existing trail to log data events with advanced event selectors using the console](logging-data-events-with-cloudtrail.md#logging-data-events-with-the-cloudtrail-console-adv "logging-data-events-with-cloudtrail.md#logging-data-events-with-the-cloudtrail-console-adv").
 
 4. In **Network activity events**, choose
-   **Edit**.
+**Edit**.
 
 To log network activity events, take the following steps:
 

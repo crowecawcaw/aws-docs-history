@@ -91,8 +91,8 @@ information about manually editing the key policy, see [Configure AWS KMS key po
      programmatically. For more information, see [Getting started with Amazon SNS](../../../sns/latest/dg/sns-getting-started.md "../../../sns/latest/dg/sns-getting-started.md") in the *Amazon Simple Notification Service Developer Guide*.
 
 8. Optionally, configure CloudTrail to send log files to CloudWatch Logs by choosing
-   **Enabled** in **CloudWatch Logs**. For more
-   information, see [Sending events to CloudWatch Logs](send-cloudtrail-events-to-cloudwatch-logs.md "send-cloudtrail-events-to-cloudwatch-logs.md").
+**Enabled** in **CloudWatch Logs**. For more
+information, see [Sending events to CloudWatch Logs](send-cloudtrail-events-to-cloudwatch-logs.md "send-cloudtrail-events-to-cloudwatch-logs.md").
 
 ###### Note
 
@@ -123,48 +123,50 @@ or `UpdateTrail` API operations.
      that exists in your current account.
 
 9. For **Tags**, you can add up to 50 tag key pairs to help
-   you identify, sort, and control access to your trail. Tags can help you
-   identify both your CloudTrail trails and the Amazon S3 buckets that contain CloudTrail log files. You can then use resource groups for your
-   CloudTrail resources. For more information, see [AWS Resource Groups](../../../ARG/latest/userguide/resource-groups.md "../../../ARG/latest/userguide/resource-groups.md") and [Tags](cloudtrail-concepts.md#cloudtrail-concepts-tags "cloudtrail-concepts.md#cloudtrail-concepts-tags").
-10. On the **Choose log events** page, choose the event types
-    that you want to log. For **Management events**, do the
-    following.
+you identify, sort, and control access to your trail. Tags can help you
+identify both your CloudTrail trails and the Amazon S3 buckets that contain CloudTrail log files. You can then use resource groups for your
+CloudTrail resources. For more information, see [AWS Resource Groups](../../../ARG/latest/userguide/resource-groups.md "../../../ARG/latest/userguide/resource-groups.md") and [Tags](cloudtrail-concepts.md#cloudtrail-concepts-tags "cloudtrail-concepts.md#cloudtrail-concepts-tags"). 10. On the **Choose log events** page, choose the event types
+that you want to log. For **Management events**, do the
+following.
 
     1. For **API activity**, choose if you want your trail
-       to log **Read** events, **Write**
-       events, or both. For more information, see [Management events](logging-management-events-with-cloudtrail.md#logging-management-events "logging-management-events-with-cloudtrail.md#logging-management-events").
+     to log **Read** events, **Write**
+     events, or both. For more information, see [Management events](logging-management-events-with-cloudtrail.md#logging-management-events "logging-management-events-with-cloudtrail.md#logging-management-events").
     2. Choose **Exclude AWS KMS events** to filter AWS Key Management Service
-       (AWS KMS) events out of your trail. The default setting is to include all
-       AWS KMS events.
+     (AWS KMS) events out of your trail. The default setting is to include all
+     AWS KMS events.
+
 
     The option to log or exclude AWS KMS events is available only if you log
-    management events on your trail. If you choose not to log management
-    events, AWS KMS events are not logged, and you cannot change AWS KMS event
-    logging settings.
+     management events on your trail. If you choose not to log management
+     events, AWS KMS events are not logged, and you cannot change AWS KMS event
+     logging settings.
+
 
     AWS KMS actions such as `Encrypt`, `Decrypt`, and
-    `GenerateDataKey` typically generate a large volume (more
-    than 99%) of events. These actions are now logged as
-    **Read** events. Low-volume, relevant AWS KMS actions
-    such as `Disable`, `Delete`, and
-    `ScheduleKey` (which typically account for less than 0.5%
-    of AWS KMS event volume) are logged as **Write**
-    events.
+     `GenerateDataKey` typically generate a large volume (more
+     than 99%) of events. These actions are now logged as
+     **Read** events. Low-volume, relevant AWS KMS actions
+     such as `Disable`, `Delete`, and
+     `ScheduleKey` (which typically account for less than 0.5%
+     of AWS KMS event volume) are logged as **Write**
+     events.
+
 
     To exclude high-volume events like `Encrypt`,
-    `Decrypt`, and `GenerateDataKey`, but still
-    log relevant events such as `Disable`, `Delete`
-    and `ScheduleKey`, choose to log **Write**
-    management events, and clear the check box for **Exclude AWS KMS
-    events**. 3. Choose **Exclude Amazon RDS Data API events** to filter
-    Amazon Relational Database Service Data API events out of your trail. The default setting is to
-    include all Amazon RDS Data API events. For more information about Amazon RDS Data
-    API events, see [Logging Data API calls with AWS CloudTrail](../../../AmazonRDS/latest/AuroraUserGuide/logging-using-cloudtrail-data-api.md "../../../AmazonRDS/latest/AuroraUserGuide/logging-using-cloudtrail-data-api.md") in
-    the _Amazon RDS User Guide for Aurora_.
+     `Decrypt`, and `GenerateDataKey`, but still
+     log relevant events such as `Disable`, `Delete`
+     and `ScheduleKey`, choose to log **Write**
+     management events, and clear the check box for **Exclude AWS KMS
+     events**.
+    3. Choose **Exclude Amazon RDS Data API events** to filter
+     Amazon Relational Database Service Data API events out of your trail. The default setting is to
+     include all Amazon RDS Data API events. For more information about Amazon RDS Data
+     API events, see [Logging Data API calls with AWS CloudTrail](../../../AmazonRDS/latest/AuroraUserGuide/logging-using-cloudtrail-data-api.md "../../../AmazonRDS/latest/AuroraUserGuide/logging-using-cloudtrail-data-api.md") in
+     the *Amazon RDS User Guide for Aurora*.
 
 11. To log data events, choose **Data events**. Additional
-    charges apply for logging data events. For more information, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
-12. ###### Important
+charges apply for logging data events. For more information, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/"). 12. ###### Important
 
 Steps 12-16 are for configuring data events using advanced event
 selectors, which is the default. Advanced event selectors let you configure
@@ -320,11 +322,10 @@ you may use `StartsWith`, `EndsWith`, `NotStartsWith`, or `NotEndsWith` to expli
      ARN not equal the same value in another selector.
 
 16. To add resource type on which to log data events, choose **Add
-    data event type**. Repeat steps 12 through this step to configure
-    advanced event selectors for the resource type.
-17. To log network activity events, choose **Network activity events**.
-    Network activity events enable VPC endpoint owners to record AWS API calls made using their VPC endpoints from a private VPC to the AWS service.
-    Additional charges apply for logging data events. For more information, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+data event type**. Repeat steps 12 through this step to configure
+advanced event selectors for the resource type. 17. To log network activity events, choose **Network activity events**.
+Network activity events enable VPC endpoint owners to record AWS API calls made using their VPC endpoints from a private VPC to the AWS service.
+Additional charges apply for logging data events. For more information, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
 
 To log network activity events, do the following:
 
@@ -358,7 +359,7 @@ To log network activity events, do the following:
      advanced event selectors as a JSON block.
 
 18. Choose **Insights events** if you want your trail to log
-    CloudTrail Insights events.
+CloudTrail Insights events.
 
 In **Event type**, select **Insights
 events**. In **Insights events**, choose

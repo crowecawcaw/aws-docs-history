@@ -80,8 +80,7 @@ When you create the role, do the following:
     By default, the **AmazonS3ReadOnlyAccess** policy grants
      retrieval and list rights to all Amazon S3 buckets within your account.
 
-2. [Create an access policy](#cloudtrail-sharing-logs-third-party "#cloudtrail-sharing-logs-third-party") that grants read-only access to the third-party account you want to share the log files with.
-3. Instruct the third-party account to [assume a role](#cloudtrail-sharing-logs-assume-role "#cloudtrail-sharing-logs-assume-role") to retrieve the log files.
+2. [Create an access policy](#cloudtrail-sharing-logs-third-party "#cloudtrail-sharing-logs-third-party") that grants read-only access to the third-party account you want to share the log files with. 3. Instruct the third-party account to [assume a role](#cloudtrail-sharing-logs-assume-role "#cloudtrail-sharing-logs-assume-role") to retrieve the log files.
 
 The following sections provide more detail about these steps.
 

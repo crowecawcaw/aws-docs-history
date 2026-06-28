@@ -46,16 +46,15 @@ logging both `read` and `write` management events.
   events, of which 270,000 are `read` management events and 30,000 are
   `write` management events.
 
-      + The `write` management events are analyzed twice, once for the API
-       call rate and once for the API error rate (30,000 \* 2=60,000).
-      + The `read` management events are analyzed once for the API error
-       rate (270,000 \*1=270,000).
-      + The total management events analyzed is 330,000 (60,000 + 270,000). You will
-       incur costs for analyzing 330,000 management events for this trail. You will be
-       charged separately if you enable Insights for another trail or an event data
-       store.
-
-  **Example 2 – Enable Insights on management events for two trails**
+  - The `write` management events are analyzed twice, once for the API
+    call rate and once for the API error rate (30,000 \* 2=60,000).
+  - The `read` management events are analyzed once for the API error
+    rate (270,000 \*1=270,000).
+  - The total management events analyzed is 330,000 (60,000 + 270,000). You will
+    incur costs for analyzing 330,000 management events for this trail. You will be
+    charged separately if you enable Insights for another trail or an event data
+    store.
+    **Example 2 – Enable Insights on management events for two trails**
 
 In this next example, you enable Insights on two trails logging management events, trail A and trail B. You choose to
 enable API call rate Insights only on trail A and API error rate Insights only on trail B.

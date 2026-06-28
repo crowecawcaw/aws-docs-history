@@ -117,80 +117,85 @@ following.
      you configure the subscription to use an Amazon SQS queue to handle
      notifications programmatically. For more information, see [Getting started with Amazon SNS](../../../sns/latest/dg/sns-getting-started.md "../../../sns/latest/dg/sns-getting-started.md") in the *Amazon Simple Notification Service Developer Guide*.
 
-8.  Optionally, configure CloudTrail to send log files to CloudWatch Logs by choosing
-    **Enabled** in **CloudWatch Logs**. For more
-    information, see [Sending events to CloudWatch Logs](send-cloudtrail-events-to-cloudwatch-logs.md "send-cloudtrail-events-to-cloudwatch-logs.md").
+8. Optionally, configure CloudTrail to send log files to CloudWatch Logs by choosing
+**Enabled** in **CloudWatch Logs**. For more
+information, see [Sending events to CloudWatch Logs](send-cloudtrail-events-to-cloudwatch-logs.md "send-cloudtrail-events-to-cloudwatch-logs.md").
 
     1. If you enable integration with CloudWatch Logs, choose
-       **New** to create a new log group, or
-       **Existing** to use an existing one. If you
-       choose **New**, CloudTrail specifies a name for the new
-       log group for you, or you can type a name.
+     **New** to create a new log group, or
+     **Existing** to use an existing one. If you
+     choose **New**, CloudTrail specifies a name for the new
+     log group for you, or you can type a name.
     2. If you choose **Existing**, choose a log group
-       from the drop-down list.
+     from the drop-down list.
     3. Choose **New** to create a new IAM role for
-       permissions to send logs to CloudWatch Logs. Choose
-       **Existing** to choose an existing IAM role
-       from the drop-down list. The policy statement for the new or
-       existing role is displayed when you expand **Policy
-       document**. For more information about this role, see
-       [Role policy document for CloudTrail to use CloudWatch Logs for monitoring](cloudtrail-required-policy-for-cloudwatch-logs.md "cloudtrail-required-policy-for-cloudwatch-logs.md").
+     permissions to send logs to CloudWatch Logs. Choose
+     **Existing** to choose an existing IAM role
+     from the drop-down list. The policy statement for the new or
+     existing role is displayed when you expand **Policy
+     document**. For more information about this role, see
+     [Role policy document for CloudTrail to use CloudWatch Logs for monitoring](cloudtrail-required-policy-for-cloudwatch-logs.md "cloudtrail-required-policy-for-cloudwatch-logs.md").
+
 
     ###### Note
 
-        * When you configure a trail, you can choose an S3 bucket and
-         SNS topic that belong to another account. However, if you want
-         CloudTrail to deliver events to a CloudWatch Logs log group, you must choose a
-         log group that exists in your current account.
-        * Only the management account can configure
-         a CloudWatch Logs log group for an organization trail using the console. The delegated administrator can configure a CloudWatch Logs
-         log group using the AWS CLI or CloudTrail `CreateTrail` or `UpdateTrail` API operations.
 
-9.  For **Tags**, you can add up to 50 tag key pairs to help
-    you identify, sort, and control access to your trail. Tags can help you identify both your CloudTrail trails and
-    the Amazon S3 buckets that contain CloudTrail log files. You can then use resource
-    groups for your CloudTrail resources. For more information, see [AWS Resource Groups](../../../ARG/latest/userguide/resource-groups.md "../../../ARG/latest/userguide/resource-groups.md") and [Tags](cloudtrail-concepts.md#cloudtrail-concepts-tags "cloudtrail-concepts.md#cloudtrail-concepts-tags").
-10. On the **Choose log events** page, choose the event types
-    that you want to log. For **Management events**, do the
-    following.
+
+    	* When you configure a trail, you can choose an S3 bucket and
+    	 SNS topic that belong to another account. However, if you want
+    	 CloudTrail to deliver events to a CloudWatch Logs log group, you must choose a
+    	 log group that exists in your current account.
+    	* Only the management account can configure
+    	 a CloudWatch Logs log group for an organization trail using the console. The delegated administrator can configure a CloudWatch Logs
+    	 log group using the AWS CLI or CloudTrail `CreateTrail` or `UpdateTrail` API operations.
+
+9. For **Tags**, you can add up to 50 tag key pairs to help
+you identify, sort, and control access to your trail. Tags can help you identify both your CloudTrail trails and
+the Amazon S3 buckets that contain CloudTrail log files. You can then use resource
+groups for your CloudTrail resources. For more information, see [AWS Resource Groups](../../../ARG/latest/userguide/resource-groups.md "../../../ARG/latest/userguide/resource-groups.md") and [Tags](cloudtrail-concepts.md#cloudtrail-concepts-tags "cloudtrail-concepts.md#cloudtrail-concepts-tags"). 10. On the **Choose log events** page, choose the event types
+that you want to log. For **Management events**, do the
+following.
 
     1. For **API activity**, choose if you want your
-       trail to log **Read** events,
-       **Write** events, or both. For more
-       information, see [Management events](logging-management-events-with-cloudtrail.md#logging-management-events "logging-management-events-with-cloudtrail.md#logging-management-events").
+     trail to log **Read** events,
+     **Write** events, or both. For more
+     information, see [Management events](logging-management-events-with-cloudtrail.md#logging-management-events "logging-management-events-with-cloudtrail.md#logging-management-events").
     2. Choose **Exclude AWS KMS events** to filter
-       AWS Key Management Service (AWS KMS) events out of your trail. The default setting is
-       to include all AWS KMS events.
+     AWS Key Management Service (AWS KMS) events out of your trail. The default setting is
+     to include all AWS KMS events.
+
 
     The option to log or exclude AWS KMS events is available only if you
-    log management events on your trail. If you choose not to log
-    management events, AWS KMS events are not logged, and you cannot
-    change AWS KMS event logging settings.
+     log management events on your trail. If you choose not to log
+     management events, AWS KMS events are not logged, and you cannot
+     change AWS KMS event logging settings.
+
 
     AWS KMS actions such as `Encrypt`, `Decrypt`,
-    and `GenerateDataKey` typically generate a large volume
-    (more than 99%) of events. These actions are now logged as
-    **Read** events. Low-volume, relevant AWS KMS
-    actions such as `Disable`, `Delete`, and
-    `ScheduleKey` (which typically account for less than
-    0.5% of AWS KMS event volume) are logged as **Write**
-    events.
+     and `GenerateDataKey` typically generate a large volume
+     (more than 99%) of events. These actions are now logged as
+     **Read** events. Low-volume, relevant AWS KMS
+     actions such as `Disable`, `Delete`, and
+     `ScheduleKey` (which typically account for less than
+     0.5% of AWS KMS event volume) are logged as **Write**
+     events.
+
 
     To exclude high-volume events like `Encrypt`,
-    `Decrypt`, and `GenerateDataKey`, but
-    still log relevant events such as `Disable`,
-    `Delete` and `ScheduleKey`, choose to log
-    **Write** management events, and clear the
-    check box for **Exclude AWS KMS events**. 3. Choose **Exclude Amazon RDS Data API events** to
-    filter Amazon Relational Database Service Data API events out of your trail. The default
-    setting is to include all Amazon RDS Data API events. For more
-    information about Amazon RDS Data API events, see [Logging Data API calls with
-    AWS CloudTrail](../../../AmazonRDS/latest/AuroraUserGuide/logging-using-cloudtrail-data-api.md "../../../AmazonRDS/latest/AuroraUserGuide/logging-using-cloudtrail-data-api.md") in the _Amazon RDS User Guide for
-    Aurora_.
+     `Decrypt`, and `GenerateDataKey`, but
+     still log relevant events such as `Disable`,
+     `Delete` and `ScheduleKey`, choose to log
+     **Write** management events, and clear the
+     check box for **Exclude AWS KMS events**.
+    3. Choose **Exclude Amazon RDS Data API events** to
+     filter Amazon Relational Database Service Data API events out of your trail. The default
+     setting is to include all Amazon RDS Data API events. For more
+     information about Amazon RDS Data API events, see [Logging Data API calls with
+     AWS CloudTrail](../../../AmazonRDS/latest/AuroraUserGuide/logging-using-cloudtrail-data-api.md "../../../AmazonRDS/latest/AuroraUserGuide/logging-using-cloudtrail-data-api.md") in the *Amazon RDS User Guide for
+     Aurora*.
 
 11. To log data events, choose **Data events**. Additional
-    charges apply for logging data events. For more information, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
-12. ###### Important
+charges apply for logging data events. For more information, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/"). 12. ###### Important
 
 Steps 12-16 are for configuring data events using advanced event
 selectors, which is the default. Advanced event selectors let you configure
@@ -343,13 +348,12 @@ you may use `StartsWith`, `EndsWith`, `NotStartsWith`, or `NotEndsWith` to expli
      ARN not equal the same value in another selector.
 
 16. To add another resource type on which to log data events, choose **Add
-    data event type**. Repeat steps 12 through this step to configure
-    advanced event selectors for the resource type.
-17. To enable aggregation on data events, choose one or more aggregation templates. These templates define how your data events will be summarized. You can choose from the following templates:
+data event type**. Repeat steps 12 through this step to configure
+advanced event selectors for the resource type. 17. To enable aggregation on data events, choose one or more aggregation templates. These templates define how your data events will be summarized. You can choose from the following templates:
 
-    1.  **API Activity** to get 5-minute summaries of your data events based on the API calls made. Use this to understand your API usage patterns, including frequency, callers, and source.
-    2.  **Resource Access** to get the activity patterns on your AWS resources. Use this to understand how your AWS resources are being accessed, how many times they are being accessed in the 5-minute window, who is accessing the resource, and what actions are being performed.
-    3.  **User Actions** to get activity patterns based on IAM principals making API calls in your account.###### Note
+    1. **API Activity** to get 5-minute summaries of your data events based on the API calls made. Use this to understand your API usage patterns, including frequency, callers, and source.
+    2. **Resource Access** to get the activity patterns on your AWS resources. Use this to understand how your AWS resources are being accessed, how many times they are being accessed in the 5-minute window, who is accessing the resource, and what actions are being performed.
+    3. **User Actions** to get activity patterns based on IAM principals making API calls in your account.###### Note
 
 Aggregations apply to all data events collected in your trail. 18. To log network activity events, choose **Network activity events**.
 Network activity events enable VPC endpoint owners to record AWS API calls made using their VPC endpoints from a private VPC to the AWS service. Additional charges apply
@@ -387,7 +391,7 @@ To log network activity events, do the following:
      advanced event selectors as a JSON block.
 
 19. Choose **Insights events** if you want your trail to log CloudTrail
-    Insights events.
+Insights events.
 
 In **Event type**, select **Insights
 events**. You must be logging **Write** management events to

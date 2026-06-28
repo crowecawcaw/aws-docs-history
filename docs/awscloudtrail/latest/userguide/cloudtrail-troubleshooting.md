@@ -103,7 +103,7 @@ To check whether a trail's SNS topic policy has an authorization failure:
 
 - From the CloudTrail console, check the trail's details page. If there's an
   authorization failure, the details page includes a warning `SNS
-authorization failed` and indicates to fix the SNS topic
+ authorization failed` and indicates to fix the SNS topic
   policy.
 - From the AWS CLI, run the [get-trail-status](../../../cli/latest/reference/cloudtrail/get-trail-status.md "../../../cli/latest/reference/cloudtrail/get-trail-status.md") command. If there's an
   authorization failure, the command output includes the
