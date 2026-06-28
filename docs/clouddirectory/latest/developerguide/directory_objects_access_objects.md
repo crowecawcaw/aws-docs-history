@@ -103,7 +103,7 @@ following ranges:
 - **LAST -** Returns attribute values up to the end
   of the index, including the missing values. The end attribute value is
   optional.
-- **LAST_BEFORE_MISSING_VALUES -** Returns attribute
+- **LAST\_BEFORE\_MISSING\_VALUES -** Returns attribute
   values up to the end of index, excluding missing values.
 - **INCLUSIVE -** Includes the attribute value being
   specified.
@@ -131,11 +131,11 @@ that object and the directory root (`000`) represent the complete
 path and would be expressed in the output. The following table shows requests and
 responses from queries made to specific leaf node objects in the hierarchy.
 
-| Example queries on objects                                 | Request                                                                                                                                                                                                                                                                     | Response |
-| ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `004, PageToken: null, MaxResults: 1`                      | `[{/group/a/c], [000, 001, 002, 004]}], PageToken:<br>null`                                                                                                                                                                                                                 |
-| `005, PageToken: null, MaxResults: 2`                      | `[{/group/a/d, [000, 001, 002, 005]}, { /group/b/e, [000, 001, 003,<br>005]}], PageToken: null`NoteIn this example, object `005` has both nodes<br>`002` and `003` as parents. Also,<br>since `MaxResults` is 2, both paths display objects in a<br>list.                   |
-| `005, PageToken: null, MaxResults: 1`                      | `[{/group/a/d, [000, 001, 002, 005]}], PageToken:<br><encrypted_next_token>`                                                                                                                                                                                                |
+Example queries on objects| Request | Response |
+| --- | --- |
+| `004, PageToken: null, MaxResults: 1` | `[{/group/a/c], [000, 001, 002, 004]}], PageToken:<br>null` |
+| `005, PageToken: null, MaxResults: 2` | `[{/group/a/d, [000, 001, 002, 005]}, { /group/b/e, [000, 001, 003,<br>005]}], PageToken: null`NoteIn this example, object `005` has both nodes<br>`002` and `003` as parents. Also,<br>since `MaxResults` is 2, both paths display objects in a<br>list. |
+| `005, PageToken: null, MaxResults: 1` | `[{/group/a/d, [000, 001, 002, 005]}], PageToken:<br><encrypted_next_token>` |
 | `005, PageToken: <encrypted_next_token>, MaxResults:<br>1` | `[{/group/b/e, [000, 001, 003, 005]}], PageToken: null`NoteIn this example, object `005` has both nodes<br>`002` and `003` as parents. Also,<br>since `MaxResults` is 1, multiple paginated calls with page<br>tokens will be made to get all paths with a list of objects. |
-| `006, PageToken: null, MaxResults: 1`                      | `[{/group/b/f, [000, 001, 003, 006]}], PageToken:<br>null`                                                                                                                                                                                                                  |
-| `007, PageToken: null, MaxResults: 1`                      | `[{/group/a/index, [000, 001, 002, 007]}], PageToken:<br>null`                                                                                                                                                                                                              |
+| `006, PageToken: null, MaxResults: 1` | `[{/group/b/f, [000, 001, 003, 006]}], PageToken:<br>null` |
+| `007, PageToken: null, MaxResults: 1` | `[{/group/a/index, [000, 001, 002, 007]}], PageToken:<br>null` |

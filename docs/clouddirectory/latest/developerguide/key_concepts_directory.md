@@ -70,14 +70,14 @@ type POLICY ensures that the object has policy capabilities.
 Policy facets inherit two attributes in addition to any attributes you add to the
 definition:
 
-- **policy_type** (String, Required) – This is an
+- **policy\_type** (String, Required) – This is an
   identifier you can provide to distinguish between different policy uses. If your
   policies logically fall into clear categories, we encourage setting the policy type
   attribute appropriately. The `LookupPolicy` API returns the policy type of
   attached policies (see [`PolicyAttachment`](../APIReference/API_PolicyAttachment.md "../APIReference/API_PolicyAttachment.md")). This allows easy filtering of the
-  specific policy type that you are looking for. It also allows you to use policy_type
+  specific policy type that you are looking for. It also allows you to use policy\_type
   to decide how the document should be processed or interpreted.
-- **policy_document** (Binary, Required) – You can
+- **policy\_document** (Binary, Required) – You can
   store application specific data in this attribute, such as permission grants
   associated with the policy. You can also store application-related data in normal
   attributes on your facet, if you prefer.

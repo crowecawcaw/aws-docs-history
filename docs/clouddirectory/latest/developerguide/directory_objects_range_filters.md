@@ -46,7 +46,7 @@ a position on their own.
   When used for the end point, this matches all possible values that follow the start
   point, including missing values. When used for the start point, no values in the
   domain will match the range.
-- **LAST_BEFORE_MISSING_VALUES -** This mode is only
+- **LAST\_BEFORE\_MISSING\_VALUES -** This mode is only
   useful for optional attributes where the value may be omitted (see [Missing values](#directory_objects_range_filters_missingvalues "#directory_objects_range_filters_missingvalues")). It
   corresponds to the point between the missing values and the actual domain values. When
   used for the end point, this matches all non-missing domain values that follow the
@@ -93,7 +93,7 @@ Example: `StartValue=“Jo”, StartMode=INCLUSIVE, EndValue=“Jp”, EndMode=E
 **Filtering for Greater Than a value**
 
 Specify the value for StartValue with EXCLUSIVE mode, and LAST as the EndMode (or
-LAST_BEFORE_MISSING_VALUES to exclude missing values, if applicable).
+LAST\_BEFORE\_MISSING\_VALUES to exclude missing values, if applicable).
 
 Example: `StartValue=127, StartMode=EXCLUSIVE, EndValue=null,
  EndMode=LAST`
@@ -112,6 +112,6 @@ index, the index link is still present, but moved to the end of the set of links
 attributes are all present before returning links where one or more are missing. This is
 roughly similar to a relational database NULL value, with these values ordered after
 non-NULL values. You can specify whether a range includes these missing values or not by
-choosing the LAST or LAST_BEFORE_MISSING_VALUES modes. For example, you provide a filter
+choosing the LAST or LAST\_BEFORE\_MISSING\_VALUES modes. For example, you provide a filter
 to a ListIndex call to return just the missing values in an index by filtering with the
 range [LAST\_BEFORE\_MISSING\_VALUES to LAST].

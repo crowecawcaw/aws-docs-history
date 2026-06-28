@@ -127,7 +127,7 @@ succeed. In either case, should the batch operation exceed the limit, then the o
 will fail and a `LimitExceededException` will be thrown.
 
 The correct way to calculate the number of objects that are included within a batch is
-to include both the actual node or leaf_node objects and if using a path based approach to
+to include both the actual node or leaf\_node objects and if using a path based approach to
 iterate your directory tree, you also need to include each path that is iterated on, within
 the batch. For example, as shown in the following illustration of a basic directory tree, to
 read an attribute value for the object `003`, the total read count of

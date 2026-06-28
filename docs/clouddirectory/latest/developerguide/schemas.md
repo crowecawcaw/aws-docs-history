@@ -8,7 +8,7 @@ handle changes to the schema over time. More specifically, a schema defines the
 following:
 
 - One or more types of facets that may be mapped to objects within a directory (such as
-  Person, Organization_Person)
+  Person, Organization\_Person)
 - Attributes that may be mapped to objects within a directory (such as Name, Description).
   Attributes can be required or made optional on various types of facets, and are defined
   within the context of a facet.
