@@ -1,4 +1,4 @@
-# Managing RDS_X$ views for Oracle DB instances
+# Managing RDS\_X$ views for Oracle DB instances
 
 You might need to access `SYS.X$` fixed tables, which are only accessible
 by `SYS`. To create `SYS.RDS_X$` views on eligible `X$`
@@ -24,12 +24,12 @@ aren’t described in the Oracle Database documentation. We recommend that you t
 specific views in your non-production database and only create views in your production
 database under the guidance of Oracle Support.
 
-## List X$ fixed tables eligible for use in RDS_X$ views
+## List X$ fixed tables eligible for use in RDS\_X$ views
 
-To list X$ tables that are eligible for use in `RDS_X$` views, use the
-RDS procedure `rdsadmin.rdsadmin_util.list_allowed_sys_x$_views`. This
-procedure accepts no parameters. The following statements lists all eligible
-`X$` tables (sample output included).
+To list X$ tables that are eligible for use in `RDS_X$`views, use the
+ RDS procedure`rdsadmin.rdsadmin_util.list_allowed_sys_x$_views`. This
+ procedure accepts no parameters. The following statements lists all eligible
+ `X$` tables (sample output included).
 
 ```
 SQL> SET SERVEROUTPUT ON
@@ -57,7 +57,7 @@ The list of eligible `X$` tables can change over time. To make sure
 that your list of eligible `X$` fixed tables is current, rerun
 `list_allowed_sys_x$_views` periodically.
 
-## Creating SYS.RDS_X$ views
+## Creating SYS.RDS\_X$ views
 
 To create an `RDS_X$` view on an eligible `X$` table, use
 the RDS procedure `rdsadmin.rdsadmin_util.create_sys_x$_view`. You can only
@@ -109,7 +109,7 @@ upgrade. RDS for Oracle drops and recreates the `RDS_X$` views on
 grant privileges to database users as needed on the corresponding
 `RDS_X$` views.
 
-## Listing SYS.RDS_X$ views
+## Listing SYS.RDS\_X$ views
 
 To list existing `RDS_X$` views, use the RDS procedure
 `rdsadmin.rdsadmin_util.list_created_sys_x$_views`. The procedure lists
@@ -133,7 +133,7 @@ X$KCBWBPD                      VALID
 3 rows selected.
 ```
 
-## Dropping RDS_X$ views
+## Dropping RDS\_X$ views
 
 To drop a `SYS.RDS_X$` view, use the RDS procedure
 `rdsadmin.rdsadmin_util.drop_sys_x$_view`. You can only drop views listed

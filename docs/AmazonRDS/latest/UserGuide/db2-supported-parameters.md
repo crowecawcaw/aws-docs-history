@@ -2,7 +2,7 @@
 
 Amazon RDS for Db2 uses three types of parameters: database manager configuration parameters,
 registry variables, and database configuration parameters. You can manage the first two
-types through parameter groups and the last type through the [rdsadmin.update_db_param](db2-sp-managing-databases.md#db2-sp-update-db-param "db2-sp-managing-databases.md#db2-sp-update-db-param") stored
+types through parameter groups and the last type through the [rdsadmin.update\_db\_param](db2-sp-managing-databases.md#db2-sp-update-db-param "db2-sp-managing-databases.md#db2-sp-update-db-param") stored
 procedure.
 
 By default, an RDS for Db2 DB instance uses a DB parameter group that is specific to a Db2
@@ -240,7 +240,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 
 2. Change the database configuration parameters by calling the
    `rdsadmin.update_db_param` stored procedure. For more
-   information, see [rdsadmin.update_db_param](db2-sp-managing-databases.md#db2-sp-update-db-param "db2-sp-managing-databases.md#db2-sp-update-db-param").
+   information, see [rdsadmin.update\_db\_param](db2-sp-managing-databases.md#db2-sp-update-db-param "db2-sp-managing-databases.md#db2-sp-update-db-param").
 
 ```
 db2 "call rdsadmin.update_db_param(

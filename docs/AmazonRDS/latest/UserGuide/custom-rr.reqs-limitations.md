@@ -43,7 +43,7 @@ rds-custom!oracle-do-not-delete-`DB_resource_id`-`uuid`-dg
 - Don't change the `DB_UNIQUE_NAME` for the primary DB instance.
   Changing the name causes any restore operation to become stuck.
 - Don't specify the clause `STANDBYS=NONE` in a `CREATE
-PLUGGABLE DATABASE` command in an RDS Custom CDB. This way, if a
+ PLUGGABLE DATABASE` command in an RDS Custom CDB. This way, if a
   failover occurs, your standby CDB contains all PDBs.
 
 ## General limitations for RDS Custom for Oracle replication

@@ -132,21 +132,20 @@ ready to restore your Db2 database to your RDS for Db2 DB instance.
 
 ###### To restore your Db2 database from your Amazon S3 bucket to your RDS for Db2 DB instance
 
-1.  Connect to your RDS for Db2 DB instance. For more information, see [Connecting to your Db2 DB instance](USER_ConnectToDb2DBInstance.md "USER_ConnectToDb2DBInstance.md").
-2.  (Optional) To ensure that your database is configured with the optimal
-    settings, check the values for the following parameters by calling [rdsadmin.show_configuration](db2-sp-managing-databases.md#db2-sp-show-configuration "db2-sp-managing-databases.md#db2-sp-show-configuration"):
+1. Connect to your RDS for Db2 DB instance. For more information, see [Connecting to your Db2 DB instance](USER_ConnectToDb2DBInstance.md "USER_ConnectToDb2DBInstance.md").
+2. (Optional) To ensure that your database is configured with the optimal
+   settings, check the values for the following parameters by calling [rdsadmin.show\_configuration](db2-sp-managing-databases.md#db2-sp-show-configuration "db2-sp-managing-databases.md#db2-sp-show-configuration"):
 
-        * `RESTORE_DATABASE_NUM_BUFFERS`
-        * `RESTORE_DATABASE_PARALLELISM`
-        * `RESTORE_DATABASE_NUM_MULTI_PATHS`
-        * `USE_STREAMING_RESTORE`
+   - `RESTORE_DATABASE_NUM_BUFFERS`
+   - `RESTORE_DATABASE_PARALLELISM`
+   - `RESTORE_DATABASE_NUM_MULTI_PATHS`
+   - `USE_STREAMING_RESTORE`
+     Use [rdsadmin.set\_configuration](db2-sp-managing-databases.md#db2-sp-set-configuration "db2-sp-managing-databases.md#db2-sp-set-configuration") to modify these values as
+     needed. Properly configuring these parameters can significantly improve
+     performance when restoring databases with large volumes of data. For most
+     migration scenarios, we recommend setting `USE_STREAMING_RESTORE` to
+     `TRUE` because it reduces storage requirements and can improve
+     restoration speed.
 
-    Use [rdsadmin.set_configuration](db2-sp-managing-databases.md#db2-sp-set-configuration "db2-sp-managing-databases.md#db2-sp-set-configuration") to modify these values as
-    needed. Properly configuring these parameters can significantly improve
-    performance when restoring databases with large volumes of data. For most
-    migration scenarios, we recommend setting `USE_STREAMING_RESTORE` to
-    `TRUE` because it reduces storage requirements and can improve
-    restoration speed.
-
-3.  Restore your database by calling `rdsadmin.restore_database`. For
-    more information, see [rdsadmin.restore_database](db2-sp-managing-databases.md#db2-sp-restore-database "db2-sp-managing-databases.md#db2-sp-restore-database").
+3. Restore your database by calling `rdsadmin.restore_database`. For
+   more information, see [rdsadmin.restore\_database](db2-sp-managing-databases.md#db2-sp-restore-database "db2-sp-managing-databases.md#db2-sp-restore-database").

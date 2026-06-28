@@ -396,7 +396,7 @@ website](http://www.microsoft.com/en-us/search/Results.aspx?q=sql%20server%20man
    following:
 
    1. For **Data source**, choose `SQL Server
-Native Client 11.0`.
+  Native Client 11.0`.
 
    ###### Note
 
@@ -412,7 +412,7 @@ Native Client 11.0`.
    following:
 
    1. For **Destination**, choose `SQL Server
-Native Client 11.0`.
+  Native Client 11.0`.
 
    ###### Note
 

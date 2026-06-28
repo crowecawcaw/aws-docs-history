@@ -83,7 +83,7 @@ The `autovacuum_max_workers` parameter setting can also increase numbers of the
 the internal counter mechanism, and thus the limit can be reached more quickly than with a single
 autovacuum worker process. As the cost limit is reached more quickly, the cost delay is put to effect more
 frequently, resulting in more `Timeout:VacuumDelay` wait events.
-For more information, see [autovacuum_max_workers](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MAX-WORKERS "https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MAX-WORKERS")
+For more information, see [autovacuum\_max\_workers](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MAX-WORKERS "https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MAX-WORKERS")
 in the PostgreSQL documentation.
 
 Large objects, such as 500GB or larger, also raise this wait event because it

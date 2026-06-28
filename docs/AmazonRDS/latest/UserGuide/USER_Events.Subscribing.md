@@ -22,10 +22,10 @@ and then **myDBInstance1**.
 The following table explains the result when you specify or don't specify **`Resources` to
 include**.
 
-| Resources to include | Description                                                                                        | Example                                                                                                                                                 |
-| -------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Specified            | RDS notifies you about all events for the specified resource only.                                 | If your **Source type\*<br>• is **Instances\*<br>• and your resource is<br>**myDBInstance1**, RDS notifies you about all events for myDBInstance1 only. |
-| Not specified        | RDS notifies you about the events for the specified source type for all your Amazon RDS resources. | If your **Source type\*<br>• is **Instances\*\*, RDS notifies you about all instance-related<br>events in your account.                                 |
+| Resources to include | Description                                                                                        | Example                                                                                                                                               |
+| -------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Specified            | RDS notifies you about all events for the specified resource only.                                 | If your *_Source type_<br>• is *_Instances_<br>• and your resource is<br>**myDBInstance1**, RDS notifies you about all events for myDBInstance1 only. |
+| Not specified        | RDS notifies you about the events for the specified source type for all your Amazon RDS resources. | If your *_Source type_<br>• is **Instances**, RDS notifies you about all instance-related<br>events in your account.                                  |
 
 An Amazon SNS topic subscriber receives every message published to the topic by default.
 To receive only a subset of the messages, the subscriber must assign a filter policy to
@@ -35,48 +35,40 @@ _Amazon Simple Notification Service Developer Guide_
 
 ###### To subscribe to RDS event notification
 
-1.  Sign in to the AWS Management Console and open the Amazon RDS console at
-    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2.  In navigation pane, choose **Event subscriptions**.
-3.  In the **Event subscriptions** pane, choose **Create event
-    subscription**.
-4.  Enter your subscription details as follows:
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In navigation pane, choose **Event subscriptions**.
+3. In the **Event subscriptions** pane, choose **Create event
+   subscription**.
+4. Enter your subscription details as follows:
 
-        1. For **Name**, enter a name for the event notification
-         subscription.
-        2. For **Send notifications to**, do one of the following:
+   1. For **Name**, enter a name for the event notification
+      subscription.
+   2. For **Send notifications to**, do one of the following:
 
+      - Choose **New email topic**. Enter a name
+        for your email topic and a list of recipients. We recommend
+        that you configure the events subscriptions to the same
+        email address as your primary account contact. The
+        recommendations, service events, and personal health
+        messages are sent using different channels. The
+        subscriptions to the same email address ensures that all the
+        messages are consolidated in one location.
+      - Choose **Amazon Resource Name (ARN)**. Then choose existing Amazon SNS ARN for an Amazon SNS
+        topic.
 
+      If you want to use a topic that has been enabled for server-side encryption (SSE), grant Amazon RDS the necessary
+      permissions to access the AWS KMS key. For more information, see [Enable compatibility between
+      event sources from AWS services and encrypted topics](../../../sns/latest/dg/sns-key-management.md#compatibility-with-aws-services "../../../sns/latest/dg/sns-key-management.md#compatibility-with-aws-services") in the
+      _Amazon Simple Notification Service Developer Guide_.
 
+   3. For **Source type**, choose a source type. For example, choose **Instances** or **Parameter groups**.
+   4. Choose the event categories and resources that you want to receive event notifications for.
 
-        	* Choose **New email topic**. Enter a name
-        	 for your email topic and a list of recipients. We recommend
-        	 that you configure the events subscriptions to the same
-        	 email address as your primary account contact. The
-        	 recommendations, service events, and personal health
-        	 messages are sent using different channels. The
-        	 subscriptions to the same email address ensures that all the
-        	 messages are consolidated in one location.
-        	* Choose **Amazon Resource Name (ARN)**. Then choose existing Amazon SNS ARN for an Amazon SNS
-        	 topic.
+   The following example configures event notifications for the DB instance named `testinst`.
 
-
-        	If you want to use a topic that has been enabled for server-side encryption (SSE), grant Amazon RDS the necessary
-        	 permissions to access the AWS KMS key. For more information, see  [Enable compatibility between
-        	 event sources from AWS services and encrypted topics](../../../sns/latest/dg/sns-key-management.md#compatibility-with-aws-services "../../../sns/latest/dg/sns-key-management.md#compatibility-with-aws-services") in the
-        	 *Amazon Simple Notification Service Developer Guide*.
-        3. For **Source type**, choose a source type. For example, choose **Instances** or **Parameter groups**.
-        4. Choose the event categories and resources that you want to receive event notifications for.
-
-
-        The following example configures event notifications for the DB instance named `testinst`.
-
-
-
-        ![The source type field.](images/event-source.png)
-        5. Choose **Create**.
-
-    The Amazon RDS console indicates that the subscription is being created.
+   ![The source type field.](images/event-source.png) 5. Choose **Create**.
+   The Amazon RDS console indicates that the subscription is being created.
 
 ![List DB event notification subscriptions.](images/EventNotification-Create2.png)
 To subscribe to RDS event notification, use the AWS CLI [`create-event-subscription`](../../../cli/latest/reference/rds/create-event-subscription.md "../../../cli/latest/reference/rds/create-event-subscription.md")

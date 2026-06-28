@@ -28,12 +28,13 @@ To view details about a CEV by using the AWS CLI, run the [describe-db-engine-ve
 The following options are required:
 
 - `--engine `engine-type``, where
-`engine-type`is`custom-oracle-ee`,
-`custom-oracle-se2`, `custom-oracle-ee-cdb`, or
-`custom-oracle-se2-cdb`
+  `engine-type` is `custom-oracle-ee`,
+  `custom-oracle-se2`, `custom-oracle-ee-cdb`, or
+  `custom-oracle-se2-cdb`
 - `--engine-version
- `major-engine-version`.`customized_string``The following example creates a non-CDB CEV that uses Enterprise Edition. The CEV
- name`19.my_cev1` starts with the major engine version number, which is
+ `major-engine-version`.`customized_string``
+  The following example creates a non-CDB CEV that uses Enterprise Edition. The CEV
+  name `19.my_cev1` starts with the major engine version number, which is
   required.
 
 ###### Example

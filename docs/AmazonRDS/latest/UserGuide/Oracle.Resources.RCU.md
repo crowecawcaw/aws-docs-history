@@ -41,8 +41,8 @@ have been verified to install correctly:
 
 - Analytics (ACTIVITIES)
 - Audit Services (IAU)
-- Audit Services Append (IAU_APPEND)
-- Audit Services Viewer (IAU_VIEWER)
+- Audit Services Append (IAU\_APPEND)
+- Audit Services Viewer (IAU\_VIEWER)
 - Discussions (DISCUSSIONS)
 - Metadata Services (MDS)
 - Oracle Business Intelligence (BIPLATFORM)

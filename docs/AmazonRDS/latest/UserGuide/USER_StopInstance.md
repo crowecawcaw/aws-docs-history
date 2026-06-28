@@ -118,16 +118,15 @@ When in a stopped state, your DB instance has the following characteristics:
 
 - Your stopped DB instance retains the following:
 
-      + Instance ID
-      + Domain Name Server (DNS) endpoint
-      + Parameter group
-      + Security group
-      + Option group
-      + Amazon S3 transaction logs (necessary for a point-in-time
-       restore)
-
-  When you restart a DB instance, it has the same configuration as when you
-  stopped it.
+  - Instance ID
+  - Domain Name Server (DNS) endpoint
+  - Parameter group
+  - Security group
+  - Option group
+  - Amazon S3 transaction logs (necessary for a point-in-time
+    restore)
+    When you restart a DB instance, it has the same configuration as when you
+    stopped it.
 
 - Any storage volumes remain attached to the DB instance, and their data is kept.
   RDS deletes any data stored in the RAM of the DB instance.

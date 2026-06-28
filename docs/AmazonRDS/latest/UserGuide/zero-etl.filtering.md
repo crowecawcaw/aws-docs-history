@@ -51,7 +51,7 @@ Each filter has the following elements:
 
 If you select an RDS for PostgreSQL source database, you must specify at least one
 data filter pattern. At minimum, the pattern must include a single database
-(``database-name`._._`) for replication to
+(``database-name`.*.*`) for replication to
 the target data warehouse.
 
 The following image shows the structure of RDS for MySQL data filters in the

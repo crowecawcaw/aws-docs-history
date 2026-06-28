@@ -24,26 +24,25 @@ Amazon RDS on AWS Outposts supports the following DB instance classes:
 
 - Memory optimized DB instance classes
 
-      + db.r7i.48xlarge
-      + db.r7i.24xlarge
-      + db.r7i.16xlarge
-      + db.r7i.12xlarge
-      + db.r7i.8xlarge
-      + db.r7i.4xlarge
-      + db.r7i.2xlarge
-      + db.r7i.xlarge
-      + db.r7i.large
-      + db.r5.24xlarge
-      + db.r5.16xlarge
-      + db.r5.12xlarge
-      + db.r5.8xlarge
-      + db.r5.4xlarge
-      + db.r5.2xlarge
-      + db.r5.xlarge
-      + db.r5.large
-
-  Depending on how you've configured your Outpost, you might not have all of these classes available. For example, if you
-  haven't purchased the db.r5 classes for your Outpost, you can't use them with RDS on Outposts.
+  - db.r7i.48xlarge
+  - db.r7i.24xlarge
+  - db.r7i.16xlarge
+  - db.r7i.12xlarge
+  - db.r7i.8xlarge
+  - db.r7i.4xlarge
+  - db.r7i.2xlarge
+  - db.r7i.xlarge
+  - db.r7i.large
+  - db.r5.24xlarge
+  - db.r5.16xlarge
+  - db.r5.12xlarge
+  - db.r5.8xlarge
+  - db.r5.4xlarge
+  - db.r5.2xlarge
+  - db.r5.xlarge
+  - db.r5.large
+    Depending on how you've configured your Outpost, you might not have all of these classes available. For example, if you
+    haven't purchased the db.r5 classes for your Outpost, you can't use them with RDS on Outposts.
 
 Only general purpose SSD storage is supported for RDS on Outposts DB instances. For more
 information about DB instance classes, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").

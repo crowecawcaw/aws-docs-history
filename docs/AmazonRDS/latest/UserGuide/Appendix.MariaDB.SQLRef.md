@@ -12,7 +12,7 @@ of the stored procedures, except for `mysql.rds_start_replication_until` and
 Additionally, the following system stored procedures are supported only for Amazon RDS DB
 instances running MariaDB:
 
-- [mysql.rds_replica_status](mysql_rds_replica_status.md "mysql_rds_replica_status.md")
-- [mysql.rds_set_external_master_gtid](mysql_rds_set_external_master_gtid.md "mysql_rds_set_external_master_gtid.md")
-- [mysql.rds_kill_query_id](mysql_rds_kill_query_id.md "mysql_rds_kill_query_id.md")
-- [mysql.rds_execute_operation](mysql_rds_execute_operation.md "mysql_rds_execute_operation.md")
+- [mysql.rds\_replica\_status](mysql_rds_replica_status.md "mysql_rds_replica_status.md")
+- [mysql.rds\_set\_external\_master\_gtid](mysql_rds_set_external_master_gtid.md "mysql_rds_set_external_master_gtid.md")
+- [mysql.rds\_kill\_query\_id](mysql_rds_kill_query_id.md "mysql_rds_kill_query_id.md")
+- [mysql.rds\_execute\_operation](mysql_rds_execute_operation.md "mysql_rds_execute_operation.md")

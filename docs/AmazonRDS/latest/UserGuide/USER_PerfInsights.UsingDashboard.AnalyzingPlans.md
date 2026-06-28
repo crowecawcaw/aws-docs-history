@@ -16,13 +16,13 @@ You can use the Amazon RDS Performance Insights dashboard to know which plans co
 
 For example, the top SQL statements at a given time might be using the plans shown in the following table.
 
-| Top SQL                                                | Plan   |
-| ------------------------------------------------------ | ------ |
-| SELECT SUM(amount_sold) FROM sales WHERE prod_id = 10  | Plan A |
-| SELECT SUM(amount_sold) FROM sales WHERE prod_id = 521 | Plan B |
-| SELECT SUM(s_total) FROM sales WHERE region = 10       | Plan A |
-| SELECT \<br>• FROM emp WHERE emp_id = 1000             | Plan C |
-| SELECT SUM(amount_sold) FROM sales WHERE prod_id = 72  | Plan A |
+| Top SQL                                                  | Plan   |
+| -------------------------------------------------------- | ------ |
+| SELECT SUM(amount\_sold) FROM sales WHERE prod\_id = 10  | Plan A |
+| SELECT SUM(amount\_sold) FROM sales WHERE prod\_id = 521 | Plan B |
+| SELECT SUM(s\_total) FROM sales WHERE region = 10        | Plan A |
+| SELECT \<br>• FROM emp WHERE emp\_id = 1000              | Plan C |
+| SELECT SUM(amount\_sold) FROM sales WHERE prod\_id = 72  | Plan A |
 
 With the plan feature of Performance Insights, you can do the following:
 

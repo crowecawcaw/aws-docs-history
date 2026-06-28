@@ -1,4 +1,4 @@
-# LWLock:lock_manager (LWLock:lockmanager)
+# LWLock:lock\_manager (LWLock:lockmanager)
 
 This event occurs when the RDS for PostgreSQL engine maintains the shared lock's
 memory area to allocate, check, and deallocate a lock when a fast path lock isn't possible.

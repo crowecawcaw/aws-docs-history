@@ -136,8 +136,8 @@ The following limitations apply to RDS for Oracle at the CDB level:
 - You can’t connect to a CDB. You always connect to the tenant database
   (PDB) rather than the CDB. Specify the endpoint for the PDB just as for a
   non-CDB. The only difference is that you specify
-  _pdb_name_ for the database name, where
-  _pdb_name_ is the name you chose for your PDB.
+  _pdb\_name_ for the database name, where
+  _pdb\_name_ is the name you chose for your PDB.
 - You can't convert a CDB in the multi-tenant configuration to a CDB in the
   single-tenant configuration. Conversion to the multi-tenant configuration is
   one-way and irreversible.

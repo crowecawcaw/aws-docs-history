@@ -1,4 +1,4 @@
-# Functions of postgres_get_av_diag() in RDS for PostgreSQL
+# Functions of postgres\_get\_av\_diag() in RDS for PostgreSQL
 
 The `postgres_get_av_diag()` function retrieves diagnostic information about
 autovacuum processes that are blocking or lagging behind in a RDS for PostgreSQL database. The query
@@ -45,14 +45,14 @@ Specifies the name of the database where applicable and supported. This is the
 database in which the activity is ongoing and blocking or will block the autovacuum.
 This is the database you are required to connect to and take action.
 
-**blocker_identifier**
+**blocker\_identifier**
 
 Specifies the identifier of the activity that is blocking or will block the
 autovacuum. The identifier can be a process ID along with a SQL statement, a prepared
 transaction, an IP address of a read replica, and the name of the replication slot,
 either logical or physical.
 
-**wait_event**
+**wait\_event**
 
 Specifies the [wait
 event](PostgreSQL.Tuning.md "PostgreSQL.Tuning.md")
@@ -62,7 +62,7 @@ blockers:
 - Active statement
 - Idle in transaction
 
-**autovacum_lagging_by**
+**autovacum\_lagging\_by**
 
 Specifies the number of transactions that autovacuum is lagging behind in its
 backlog work per category.
@@ -73,6 +73,6 @@ Specifies suggestions to resolve the blocker. These instructions include the nam
 the database in which the activity exists where applicable, the Process ID (PID) of the
 session where applicable, and the action to be taken.
 
-**suggested_action**
+**suggested\_action**
 
 Suggests the action that needs to be taken to resolve the blocker.

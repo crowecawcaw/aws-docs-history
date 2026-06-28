@@ -225,8 +225,8 @@ documentation.
     	 and the path for the SSL certificate private key.
 
 8. Set a password for the APEX `admin` user. To do this, use SQL\*Plus
-   to connect to your DB instance as the master user, and then run the following
-   commands.
+to connect to your DB instance as the master user, and then run the following
+commands.
 
 ```
 EXEC rdsadmin.rdsadmin_util.grant_apex_admin_role;
@@ -422,8 +422,8 @@ documentation.
      (`/home/apexuser/apex/images`).
 
 7. Set a password for the Oracle APEX `admin` user. To do
-   this, use SQL\*Plus to connect to your DB instance as the master user, and then run
-   the following commands.
+this, use SQL\*Plus to connect to your DB instance as the master user, and then run
+the following commands.
 
 ```
 EXEC rdsadmin.rdsadmin_util.grant_apex_admin_role;

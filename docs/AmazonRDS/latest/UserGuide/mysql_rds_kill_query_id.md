@@ -1,4 +1,4 @@
-# mysql.rds_kill_query_id
+# mysql.rds\_kill\_query\_id
 
 Ends a query running against the MariaDB server in order to terminate long-running or
 problematic queries. You can identify the query ID and effectively stop a specific query

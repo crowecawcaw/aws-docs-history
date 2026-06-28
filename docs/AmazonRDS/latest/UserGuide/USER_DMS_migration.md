@@ -78,11 +78,11 @@ type of replication and the size of the source database.
 
   Please follow the following basic prerequisites for your source database:
 
-      - [Using MySQL or MariaDB as a source](../../../dms/latest/userguide/dm-data-providers-source-mysql.md "../../../dms/latest/userguide/dm-data-providers-source-mysql.md")
+        - [Using MySQL or MariaDB as a source](../../../dms/latest/userguide/dm-data-providers-source-mysql.md "../../../dms/latest/userguide/dm-data-providers-source-mysql.md")
 
   Please follow the following basic prerequisites for your target database:
 
-      - [Using MySQL or MariaDB as a target](../../../dms/latest/userguide/dm-data-providers-target-mysql.md "../../../dms/latest/userguide/dm-data-providers-target-mysql.md")
+        - [Using MySQL or MariaDB as a target](../../../dms/latest/userguide/dm-data-providers-target-mysql.md "../../../dms/latest/userguide/dm-data-providers-target-mysql.md")
 
   Additionally when migrating from a MySQL source database, your RDS account must have the Replication Admin role.
   You must also have the proper privileges applied for that role.
@@ -90,11 +90,11 @@ type of replication and the size of the source database.
 
   Please follow the following prerequisites for your source database:
 
-      - [Using PostgreSQL as a source](../../../dms/latest/userguide/dm-data-providers-source-postgresql.md "../../../dms/latest/userguide/dm-data-providers-source-postgresql.md")
+        - [Using PostgreSQL as a source](../../../dms/latest/userguide/dm-data-providers-source-postgresql.md "../../../dms/latest/userguide/dm-data-providers-source-postgresql.md")
 
   Please follow the following prerequisites for your target database:
 
-      - [Using PostgreSQL as a target](../../../dms/latest/userguide/dm-data-providers-target-postgresql.md "../../../dms/latest/userguide/dm-data-providers-target-postgresql.md")
+        - [Using PostgreSQL as a target](../../../dms/latest/userguide/dm-data-providers-target-postgresql.md "../../../dms/latest/userguide/dm-data-providers-target-postgresql.md")
 
   ###### Note
 

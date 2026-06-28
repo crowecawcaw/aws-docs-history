@@ -1,4 +1,4 @@
-# Optimize CPUs for RDS for SQL Server license-included instances
+# Optimize CPUs for RDS for SQL Server instances
 
 With RDS for SQL Server, you can use Optimize CPU by specifying processor features to configure the vCPU
 count on your DB instance while maintaining the same memory and IOPS. You can achieve desired memory-to-CPU
@@ -78,8 +78,8 @@ Changing the vCPU count can have implications for the licensing fee cost associa
 
 The following limitations apply when using Optimize CPU:
 
-- Optimize CPU is supported with Enterprise, Standard, and Web Editions only.
-- Optimize CPU is available on select instances. See [DB instance classes that support Optimize CPU](SQLServer.Concepts.General.OptimizeCPU.Support.md "SQLServer.Concepts.General.OptimizeCPU.Support.md").
+- Optimize CPU supports the following editions: Enterprise, Standard, and Web (License Included), and Enterprise, Standard, and Developer (Bring Your Own Media). Supported instance families include m7i, r7i, m8i, r8i, m8a, r8a, and x2m.
+- Optimize CPU offers different valid core settings depending on the instance class. For more details, see [DB instance classes that support Optimize CPU](SQLServer.Concepts.General.OptimizeCPU.Support.md "SQLServer.Concepts.General.OptimizeCPU.Support.md").
 - Customizing the number of CPU cores is supported on instance sizes of `2xlarge` and above.
   With these instance types, the minimum number of vCPCU supported for Optimize CPU is 4.
 - Optimize CPU allows only 1 thread per core since Hyper-Threading is disabled for

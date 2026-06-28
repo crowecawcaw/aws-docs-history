@@ -26,7 +26,7 @@ For information about setting Oracle environment variables, see [SQL\*Plus envir
 also see the Oracle installation guide for your operating system. 2. Append `$ORACLE_HOME/lib` to the
 `LD_LIBRARY_PATH` environment variable.
 
-The following is an example that sets the LD_LIBRARY_PATH environment
+The following is an example that sets the LD\_LIBRARY\_PATH environment
 variable.
 
 ```
@@ -44,7 +44,7 @@ prompt>mkdir $ORACLE_HOME/ssl_wallet
 ```
 
 4. Download the certificate bundle .pem file that works for all AWS Regions and
-   put the file in the ssl_wallet directory. For information, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md") .
+   put the file in the ssl\_wallet directory. For information, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md") .
 5. In the `$ORACLE_HOME/network/admin` directory, modify
    or create the `tnsnames.ora` file and include the following
    entry.

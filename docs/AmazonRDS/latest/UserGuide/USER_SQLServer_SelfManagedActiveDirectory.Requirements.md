@@ -69,13 +69,12 @@ Make sure that you have met the following requirements for an AD domain service 
   A domain service account is a user account in your self-managed AD that has been delegated permission to perform certain tasks.
 - The domain service account needs to be delegated the following permissions in the Organizational Unit (OU) that you're joining your RDS for SQL Server DB instance to:
 
-      + Validated ability to write to the DNS host name
-      + Validated ability to write to the service principal name
-      + Create and delete computer objects
-
-  These represent the minimum set of permissions that are required to join computer objects to your self-managed AD.
-  For more information, see [Errors
-  when attempting to join computers to a domain](https://learn.microsoft.com/en-US/troubleshoot/windows-server/identity/access-denied-when-joining-computers "https://learn.microsoft.com/en-US/troubleshoot/windows-server/identity/access-denied-when-joining-computers") in the Microsoft Windows Server documentation.
+  - Validated ability to write to the DNS host name
+  - Validated ability to write to the service principal name
+  - Create and delete computer objects
+    These represent the minimum set of permissions that are required to join computer objects to your self-managed AD.
+    For more information, see [Errors
+    when attempting to join computers to a domain](https://learn.microsoft.com/en-US/troubleshoot/windows-server/identity/access-denied-when-joining-computers "https://learn.microsoft.com/en-US/troubleshoot/windows-server/identity/access-denied-when-joining-computers") in the Microsoft Windows Server documentation.
 
 - To use Kerberos authentication, you need to provide Service Principal Names (SPNs) and
   DNS permissions to your AD domain service account:

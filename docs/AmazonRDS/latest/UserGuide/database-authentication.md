@@ -117,7 +117,7 @@ specific DB engine, see the following:
 - [Using Kerberos authentication for Amazon RDS for MySQL](mysql-kerberos.md "mysql-kerberos.md")
 - [Configuring Kerberos authentication for Amazon RDS for Oracle](oracle-kerberos.md "oracle-kerberos.md")
 - [Using Kerberos authentication with Amazon RDS for PostgreSQL](postgresql-kerberos.md "postgresql-kerberos.md")
-- [Using Kerberos authentication for Amazon RDS for Db2](db2-kerberos.md "db2-kerberos.md")
+- [Working with AWS Managed Active Directory with RDS for Db2](db2-managed-active-directory.md "db2-managed-active-directory.md")
   .
 
 ###### Note

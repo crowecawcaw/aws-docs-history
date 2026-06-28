@@ -282,13 +282,12 @@ between AWS Regions:
   replica from a source Amazon RDS DB instance only when it isn't a read replica of another
   Amazon RDS DB instance:
 
-      + RDS for Db2
-      + RDS for SQL Server
-      + RDS for Oracle
-      + RDS for PostgreSQL versions lower than 14.1
-
-  This limitation doesn't apply to DB instances running RDS for PostgreSQL version 14.1 and
-  higher, RDS for MariaDB, and RDS for MySQL.
+  - RDS for Db2
+  - RDS for SQL Server
+  - RDS for Oracle
+  - RDS for PostgreSQL versions lower than 14.1
+    This limitation doesn't apply to DB instances running RDS for PostgreSQL version 14.1 and
+    higher, RDS for MariaDB, and RDS for MySQL.
 
 - You can expect to see a higher level of lag time for any read replica that is
   in a different AWS Region than the source instance. This lag time comes from

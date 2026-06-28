@@ -54,20 +54,20 @@ configure a Multi-AZ deployment and enable backups.
 
 4. When the read replica **Status** shows **Available**, upgrade the read replica to MySQL 8.0:
 
-   1. In the console, choose **Databases**, and then choose the read replica that
-      you just created.
-   2. Choose **Modify**.
-   3. For **DB engine version**, choose the MySQL 8.0 version to upgrade to,
-      and then choose **Continue**.
-   4. For **Scheduling of modifications**, choose **Apply immediately**.
-   5. Choose **Modify DB instance** to start the upgrade.
+    1. In the console, choose **Databases**, and then choose the read replica that
+     you just created.
+    2. Choose **Modify**.
+    3. For **DB engine version**, choose the MySQL 8.0 version to upgrade to,
+     and then choose **Continue**.
+    4. For **Scheduling of modifications**, choose **Apply immediately**.
+    5. Choose **Modify DB instance** to start the upgrade.
 
 5. When the upgrade is complete and **Status** shows
-   **Available**, verify that the upgraded read replica is
-   up-to-date with the source MySQL 5.7 DB instance. To verify, connect to the read
-   replica and run the `SHOW REPLICA STATUS` command. If the
-   `Seconds_Behind_Master` field is `0`, then replication
-   is up-to-date.
+**Available**, verify that the upgraded read replica is
+up-to-date with the source MySQL 5.7 DB instance. To verify, connect to the read
+replica and run the `SHOW REPLICA STATUS` command. If the
+`Seconds_Behind_Master` field is `0`, then replication
+is up-to-date.
 
 ###### Note
 
@@ -131,4 +131,4 @@ following procedure.
     5. Choose **Promote Read Replica**.
 
 9. You now have an upgraded version of your MySQL database. At this point, you
-   can direct your applications to the new MySQL 8.0 DB instance.
+can direct your applications to the new MySQL 8.0 DB instance.

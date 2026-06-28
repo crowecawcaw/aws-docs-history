@@ -12,23 +12,23 @@ parameters, usage notes, and examples.
 
 ###### Stored procedures
 
-- [rdsadmin.create_role](#db2-sp-create-role "#db2-sp-create-role")
-- [rdsadmin.grant_role](#db2-sp-grant-role "#db2-sp-grant-role")
-- [rdsadmin.revoke_role](#db2-sp-revoke-role "#db2-sp-revoke-role")
-- [rdsadmin.drop_role](#db2-sp-drop-role "#db2-sp-drop-role")
-- [rdsadmin.add_user](#db2-sp-add-user "#db2-sp-add-user")
-- [rdsadmin.change_password](#db2-sp-change-password "#db2-sp-change-password")
-- [rdsadmin.list_users](#db2-sp-list-users "#db2-sp-list-users")
-- [rdsadmin.remove_user](#db2-sp-remove-user "#db2-sp-remove-user")
-- [rdsadmin.add_groups](#db2-sp-add-groups "#db2-sp-add-groups")
-- [rdsadmin.remove_groups](#db2-sp-remove-groups "#db2-sp-remove-groups")
-- [rdsadmin.dbadm_grant](#db2-sp-dbadm-grant "#db2-sp-dbadm-grant")
-- [rdsadmin.dbadm_revoke](#db2-sp-dbadm-revoke "#db2-sp-dbadm-revoke")
-- [rdsadmin.set_sid_group_mapping](#db2-sp-set-sid-group-mapping "#db2-sp-set-sid-group-mapping")
-- [rdsadmin.list_sid_group_mapping](#db2-sp-list-sid-group-mapping "#db2-sp-list-sid-group-mapping")
-- [rdsadmin.remove_sid_group_mapping](#db2-sp-remove-sid-group-mapping "#db2-sp-remove-sid-group-mapping")
+- [rdsadmin.create\_role](#db2-sp-create-role "#db2-sp-create-role")
+- [rdsadmin.grant\_role](#db2-sp-grant-role "#db2-sp-grant-role")
+- [rdsadmin.revoke\_role](#db2-sp-revoke-role "#db2-sp-revoke-role")
+- [rdsadmin.drop\_role](#db2-sp-drop-role "#db2-sp-drop-role")
+- [rdsadmin.add\_user](#db2-sp-add-user "#db2-sp-add-user")
+- [rdsadmin.change\_password](#db2-sp-change-password "#db2-sp-change-password")
+- [rdsadmin.list\_users](#db2-sp-list-users "#db2-sp-list-users")
+- [rdsadmin.remove\_user](#db2-sp-remove-user "#db2-sp-remove-user")
+- [rdsadmin.add\_groups](#db2-sp-add-groups "#db2-sp-add-groups")
+- [rdsadmin.remove\_groups](#db2-sp-remove-groups "#db2-sp-remove-groups")
+- [rdsadmin.dbadm\_grant](#db2-sp-dbadm-grant "#db2-sp-dbadm-grant")
+- [rdsadmin.dbadm\_revoke](#db2-sp-dbadm-revoke "#db2-sp-dbadm-revoke")
+- [rdsadmin.set\_sid\_group\_mapping](#db2-sp-set-sid-group-mapping "#db2-sp-set-sid-group-mapping")
+- [rdsadmin.list\_sid\_group\_mapping](#db2-sp-list-sid-group-mapping "#db2-sp-list-sid-group-mapping")
+- [rdsadmin.remove\_sid\_group\_mapping](#db2-sp-remove-sid-group-mapping "#db2-sp-remove-sid-group-mapping")
 
-## rdsadmin.create_role
+## rdsadmin.create\_role
 
 Creates a role.
 
@@ -56,7 +56,7 @@ The name of the role that you want to create. The data type is
 
 ### Usage notes
 
-For information about checking the status of creating a role, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of creating a role, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 
@@ -69,7 +69,7 @@ db2 "call rdsadmin.create_role(
     'MY_ROLE')"
 ```
 
-## rdsadmin.grant_role
+## rdsadmin.grant\_role
 
 Assigns a role to a role, user, or group.
 
@@ -128,7 +128,7 @@ default is `N`.
 
 ### Usage notes
 
-For information about checking the status of assigning a role, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of assigning a role, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 
@@ -164,7 +164,7 @@ db2 "call rdsadmin.grant_role(
     'PUBLIC')"
 ```
 
-## rdsadmin.revoke_role
+## rdsadmin.revoke\_role
 
 Revokes a role from a role, user, or group.
 
@@ -214,7 +214,7 @@ with your own information.
 
 ### Usage notes
 
-For information about checking the status of revoking a role, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of revoking a role, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 
@@ -247,7 +247,7 @@ db2 "call rdsadmin.revoke_role(
     'PUBLIC')"
 ```
 
-## rdsadmin.drop_role
+## rdsadmin.drop\_role
 
 Drops a role.
 
@@ -283,7 +283,7 @@ The name of the role that you want to drop. The data type is
 
 ### Usage notes
 
-For information about checking the status of dropping a role, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of dropping a role, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 
@@ -297,7 +297,7 @@ db2 "call rdsadmin.drop_role(
     'ROLE_TEST')"
 ```
 
-## rdsadmin.add_user
+## rdsadmin.add\_user
 
 Adds a user to an authorization list.
 
@@ -342,7 +342,7 @@ create a group by itself.
 The maximum number of users that you can add by calling
 `rdsadmin.add_user` is 5,000.
 
-For information about checking the status of adding a user, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of adding a user, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 
@@ -357,7 +357,7 @@ db2 "call rdsadmin.add_user(
     'sales,inside_sales')"
 ```
 
-## rdsadmin.change_password
+## rdsadmin.change\_password
 
 Changes a user's password.
 
@@ -384,7 +384,7 @@ A new password for the user. The data type is
 
 ### Usage notes
 
-For information about checking the status of changing a password, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of changing a password, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 
@@ -396,7 +396,7 @@ db2 "call rdsadmin.change_password(
     '*******')"
 ```
 
-## rdsadmin.list_users
+## rdsadmin.list\_users
 
 Lists users on an authorization list.
 
@@ -408,9 +408,9 @@ db2 "call rdsadmin.list_users()"
 
 ### Usage notes
 
-For information about checking the status of listing users, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of listing users, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
-## rdsadmin.remove_user
+## rdsadmin.remove\_user
 
 Removes user from authorization list.
 
@@ -430,7 +430,7 @@ A user's username. The data type is `varchar`.
 
 ### Usage notes
 
-For information about checking the status of removing a user, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of removing a user, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 
@@ -441,7 +441,7 @@ databases in RDS for Db2 DB instances.
 db2 "call rdsadmin.remove_user('jorge_souza')"
 ```
 
-## rdsadmin.add_groups
+## rdsadmin.add\_groups
 
 Adds groups to a user.
 
@@ -469,7 +469,7 @@ The name of a group that you want to add the user to. The data type is
 ### Usage notes
 
 You can add one or more groups to a user by separating the group names with
-commas. For information about checking the status of adding groups, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+commas. For information about checking the status of adding groups, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 
@@ -482,7 +482,7 @@ db2 "call rdsadmin.add_groups(
     'direct_sales,b2b_sales')"
 ```
 
-## rdsadmin.remove_groups
+## rdsadmin.remove\_groups
 
 Removes groups from a user.
 
@@ -512,7 +512,7 @@ type is `varchar`.
 You can remove one or more groups from a user by separating the group names with
 commas.
 
-For information about checking the status of removing groups, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of removing groups, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 
@@ -525,7 +525,7 @@ db2 "call rdsadmin.remove_groups(
     'direct_sales,b2b_sales')"
 ```
 
-## rdsadmin.dbadm_grant
+## rdsadmin.dbadm\_grant
 
 Grants `DBADM`, `ACCESSCTRL`, or `DATAACCESS`
 authorization to a role, user, or group.
@@ -582,7 +582,7 @@ with your own information.
 The role to receive access must exist.
 
 For information about checking the status of granting database admin access, see
-[rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+[rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 
@@ -629,7 +629,7 @@ db2 "call rdsadmin.dbadm_grant(
     'USER user1, user2, GROUP group1, group2')"
 ```
 
-## rdsadmin.dbadm_revoke
+## rdsadmin.dbadm\_revoke
 
 Revokes `DBADM`, `ACCESSCTRL`, or `DATAACCESS`
 authorization from a role, user, or group.
@@ -684,7 +684,7 @@ with your own information.
 ### Usage notes
 
 For information about checking the status of revoking database admin access, see
-[rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+[rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 
@@ -731,7 +731,7 @@ db2 "call rdsadmin.dbadm_revoke(
     'USER user1, user2, GROUP group1, group2')"
 ```
 
-## rdsadmin.set_sid_group_mapping
+## rdsadmin.set\_sid\_group\_mapping
 
 Creates a mapping between a security ID (SID) and the corresponding Active Directory
 group.
@@ -773,7 +773,7 @@ mapping, this stored procedure fails.
 
 For information about how to find the SID for a group, see [Step 8: Retrieve the Active Directory group SID in PowerShell](db2-kerberos-setting-up.md#db2-kerberos-setting-up-retrieve-ad-group-sid "db2-kerberos-setting-up.md#db2-kerberos-setting-up-retrieve-ad-group-sid").
 
-For information about checking the status of creating a mapping, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of creating a mapping, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 
@@ -786,7 +786,7 @@ db2 "call rdsadmin.set_sid_group_mapping(
     'my_group')"
 ```
 
-## rdsadmin.list_sid_group_mapping
+## rdsadmin.list\_sid\_group\_mapping
 
 Lists all security ID (SID) and Active Directory group mappings configured on the DB
 instance.
@@ -799,9 +799,9 @@ db2 "call rdsadmin.list_sid_group_mapping()"
 
 ### Usage notes
 
-For information about checking the status of listing mappings, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of listing mappings, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
-## rdsadmin.remove_sid_group_mapping
+## rdsadmin.remove\_sid\_group\_mapping
 
 Removes a security ID (SID) and its corresponding Active Directory group mapping from
 a DB instance.
@@ -833,7 +833,7 @@ The security ID (SID). The data type is `varchar`.
 
 For information about how to find the SID for a group, see [Step 8: Retrieve the Active Directory group SID in PowerShell](db2-kerberos-setting-up.md#db2-kerberos-setting-up-retrieve-ad-group-sid "db2-kerberos-setting-up.md#db2-kerberos-setting-up-retrieve-ad-group-sid").
 
-For information about checking the status of removing mappings, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of removing mappings, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 

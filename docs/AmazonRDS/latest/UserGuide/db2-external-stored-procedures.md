@@ -29,30 +29,30 @@ calls:
 
 - \_sysctl
 - acct
-- afs_syscall
+- afs\_syscall
 - bpf
 - capset
 - chown
 - chroot
-- create_module
-- delete_module
-- fanotify_init
-- fanotify_mark
-- finit_module
+- create\_module
+- delete\_module
+- fanotify\_init
+- fanotify\_mark
+- finit\_module
 - fsconfig
 - fsopen
 - fspick
-- get_kernel_syms
+- get\_kernel\_syms
 - getpmsg
-- init_module
+- init\_module
 - mount
-- move_mount
+- move\_mount
 - nfsservctl
-- open_by_handle_at
-- open_tree
-- pivot_root
+- open\_by\_handle\_at
+- open\_tree
+- pivot\_root
 - putpmsg
-- query_module
+- query\_module
 - quotactl
 - reboot
 - security
@@ -96,7 +96,7 @@ documentation.
 You can create and modify a custom parameter group by using the AWS Management Console, the
 AWS CLI, or the Amazon RDS API.
 
-###### To configure the db2_alternate_authz_behaviour parameter in a custom parameter group
+###### To configure the db2\_alternate\_authz\_behaviour parameter in a custom parameter group
 
 1. If you want to use a different custom DB parameter group than
    the one your DB instance is using, create a new DB parameter
@@ -110,7 +110,7 @@ AWS CLI, or the Amazon RDS API.
    custom parameter group. For more information about modifying a
    parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
-###### To configure the db2_alternate_authz_behaviour parameter in a custom parameter group
+###### To configure the db2\_alternate\_authz\_behaviour parameter in a custom parameter group
 
 1. If you want to use a different custom DB parameter group than
    the one your DB instance is using, create a custom parameter
@@ -192,7 +192,7 @@ aws rds modify-db-parameter-group ^
     --parameters "ParameterName='db2_alternate_authz_behaviour',ParameterValue='EXTERNAL_ROUTINE_DBADM',ApplyMethod=immediate"
 ```
 
-###### To configure the db2_alternate_authz_behaviour parameter in a custom parameter group
+###### To configure the db2\_alternate\_authz\_behaviour parameter in a custom parameter group
 
 1. If you want to use a different custom DB parameter group than
    the one your DB instance is using, create a new DB parameter

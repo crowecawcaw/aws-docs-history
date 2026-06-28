@@ -29,10 +29,10 @@ parameters.
 | `attribute`    | varchar2  | `'REPEAT_INTERVAL'`,`'SCHEDULE_NAME'`                                                                                                                                                         | –       | Yes      | Attribute to modify.<br>To modify the repeat interval for the job, specify<br>`'REPEAT_INTERVAL'`.<br>To modify the schedule name for the job, specify<br>`'SCHEDULE_NAME'`. |
 | `value`        | varchar2  | A valid schedule interval or schedule name, depending on<br>attribute used.                                                                                                                   | –       | Yes      | The new value of the attribute.                                                                                                                                              |
 
-## Modifying DBMS_SCHEDULER jobs
+## Modifying DBMS\_SCHEDULER jobs
 
 To modify certain components of Oracle Scheduler, use the Oracle procedure
-`dbms_scheduler.set_attribute`. For more information, see [DBMS_SCHEDULER](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html") and [SET_ATTRIBUTE procedure](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html") in the Oracle documentation.
+`dbms_scheduler.set_attribute`. For more information, see [DBMS\_SCHEDULER](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html") and [SET\_ATTRIBUTE procedure](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html") in the Oracle documentation.
 
 When working with Amazon RDS DB instances, prepend the schema name `SYS` to
 the object name. The following example sets the resource plan attribute for the
@@ -147,7 +147,7 @@ END;
 
 To modify the time zone for Oracle Scheduler, you can use the Oracle procedure
 `dbms_scheduler.set_scheduler_attribute`. For more information about
-the `dbms_scheduler` package, see [DBMS_SCHEDULER](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html") and [SET_SCHEDULER_ATTRIBUTE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html#GUID-2AB97BF7-7154-4E6C-933F-B2659B18A907 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html#GUID-2AB97BF7-7154-4E6C-933F-B2659B18A907") in the Oracle documentation.
+the `dbms_scheduler` package, see [DBMS\_SCHEDULER](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html") and [SET\_SCHEDULER\_ATTRIBUTE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html#GUID-2AB97BF7-7154-4E6C-933F-B2659B18A907 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SCHEDULER.html#GUID-2AB97BF7-7154-4E6C-933F-B2659B18A907") in the Oracle documentation.
 
 ###### To modify the current time zone setting
 

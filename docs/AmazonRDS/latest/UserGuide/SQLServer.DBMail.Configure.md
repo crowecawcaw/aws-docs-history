@@ -14,7 +14,7 @@ permission on the stored procedures in the `msdb` database.
 
 ## Creating the Database Mail profile
 
-To create the Database Mail profile, you use the [sysmail_add_profile_sp](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-profile-sp-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-profile-sp-transact-sql") stored procedure. The following example creates a profile named
+To create the Database Mail profile, you use the [sysmail\_add\_profile\_sp](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-profile-sp-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-profile-sp-transact-sql") stored procedure. The following example creates a profile named
 `Notifications`.
 
 ###### To create the profile
@@ -33,7 +33,7 @@ GO
 
 ## Creating the Database Mail account
 
-To create the Database Mail account, you use the [sysmail_add_account_sp](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-account-sp-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-account-sp-transact-sql") stored procedure. The following example creates an account named `SES` on an RDS for SQL Server DB instance
+To create the Database Mail account, you use the [sysmail\_add\_account\_sp](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-account-sp-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-account-sp-transact-sql") stored procedure. The following example creates an account named `SES` on an RDS for SQL Server DB instance
 in a private VPC, using Amazon Simple Email Service.
 
 Using Amazon SES requires the following parameters:
@@ -74,7 +74,7 @@ Specify credentials other than the prompts shown here as a security best practic
 
 ## Adding the Database Mail account to the Database Mail profile
 
-To add the Database Mail account to the Database Mail profile, you use the [sysmail_add_profileaccount_sp](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-profileaccount-sp-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-profileaccount-sp-transact-sql") stored procedure. The following example adds the `SES` account to the
+To add the Database Mail account to the Database Mail profile, you use the [sysmail\_add\_profileaccount\_sp](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-profileaccount-sp-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-profileaccount-sp-transact-sql") stored procedure. The following example adds the `SES` account to the
 `Notifications` profile.
 
 ###### To add the account to the profile
@@ -94,7 +94,7 @@ GO
 
 ## Adding users to the Database Mail profile
 
-To grant permission for an `msdb` database principal to use a Database Mail profile, you use the [sysmail_add_principalprofile_sp](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-principalprofile-sp-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-principalprofile-sp-transact-sql") stored procedure. A _principal_ is an entity that can
+To grant permission for an `msdb` database principal to use a Database Mail profile, you use the [sysmail\_add\_principalprofile\_sp](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-principalprofile-sp-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-principalprofile-sp-transact-sql") stored procedure. A _principal_ is an entity that can
 request SQL Server resources. The database principal must map to a SQL Server authentication user, a Windows Authentication
 user, or a Windows Authentication group.
 

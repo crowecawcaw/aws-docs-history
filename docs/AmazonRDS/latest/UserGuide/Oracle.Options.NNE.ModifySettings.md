@@ -1,4 +1,4 @@
-# Modifying NATIVE_NETWORK_ENCRYPTION option settings
+# Modifying NATIVE\_NETWORK\_ENCRYPTION option settings
 
 After you enable the `NATIVE_NETWORK_ENCRYPTION` option, you can modify its
 settings. Currently, you can modify `NATIVE_NETWORK_ENCRYPTION` option
@@ -13,16 +13,16 @@ aws rds add-option-to-option-group \
 ```
 
 To learn how to modify option settings using the CLI, see [AWS CLI](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.ModifyOption.CLI "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.ModifyOption.CLI"). For more
-information about each setting, see [NATIVE_NETWORK_ENCRYPTION option settings](Oracle.Options.NNE.Options.md "Oracle.Options.NNE.Options.md").
+information about each setting, see [NATIVE\_NETWORK\_ENCRYPTION option settings](Oracle.Options.NNE.Options.md "Oracle.Options.NNE.Options.md").
 
 ###### Topics
 
-- [Modifying CRYPTO_CHECKSUM\_\* values](#Oracle.Options.NNE.ModifySettings.checksum "#Oracle.Options.NNE.ModifySettings.checksum")
-- [Modifying ALLOW_WEAK_CRYPTO\* settings](#Oracle.Options.NNE.ModifySettings.encryption "#Oracle.Options.NNE.ModifySettings.encryption")
+- [Modifying CRYPTO\_CHECKSUM\_\* values](#Oracle.Options.NNE.ModifySettings.checksum "#Oracle.Options.NNE.ModifySettings.checksum")
+- [Modifying ALLOW\_WEAK\_CRYPTO\* settings](#Oracle.Options.NNE.ModifySettings.encryption "#Oracle.Options.NNE.ModifySettings.encryption")
 
-## Modifying CRYPTO_CHECKSUM\_\* values
+## Modifying CRYPTO\_CHECKSUM\_\* values
 
-If you modify **NATIVE_NETWORK_ENCRYPTION** option settings, make
+If you modify **NATIVE\_NETWORK\_ENCRYPTION** option settings, make
 sure that the following option settings have at least one common cipher:
 
 - `SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER`
@@ -43,7 +43,7 @@ its default setting to `SHA1,MD5`. In this case, make sure you set
 `SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT` to `SHA1` or `MD5`. These
 algorithms aren't included in the default values for `SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT`.
 
-## Modifying ALLOW_WEAK_CRYPTO\* settings
+## Modifying ALLOW\_WEAK\_CRYPTO\* settings
 
 To set the `SQLNET.ALLOW_WEAK_CRYPTO*` options from the default value to `FALSE`,
 make sure that the following conditions are met:

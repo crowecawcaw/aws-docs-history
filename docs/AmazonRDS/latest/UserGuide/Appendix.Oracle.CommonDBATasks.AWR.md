@@ -59,7 +59,7 @@ You typically use the following parameters when managing AWR and ADDM with the
 | `dbid`           | `NUMBER`   | —       | No       | A valid database identifier (DBID) shown in the<br>`DBA_HIST_DATABASE_INSTANCE` view for Oracle.<br>If this parameter is not specified, RDS uses the current<br>DBID, which is shown in the `V$DATABASE.DBID`<br>view. |
 
 You typically use the following parameters when managing ASH with the
-rdsadmin_diagnostic_util package.
+rdsadmin\_diagnostic\_util package.
 
 | Parameter      | Data type  | Default | Required | Description                                                                                                                                                                                                                |
 | -------------- | ---------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -159,7 +159,7 @@ The following example generates an ASH report that includes the data from 14
 minutes ago until the current time. The name of the output file uses the format
 `ashrpt`begin_time``end_time`.txt`,
  where ``begin_time`and
-`end_time``use the format
+`end_time`` use the format
 `YYYYMMDDHH24MISS`. You can access the file through the
 console.
 

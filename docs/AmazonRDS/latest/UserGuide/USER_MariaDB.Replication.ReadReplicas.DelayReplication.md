@@ -9,7 +9,7 @@ the disaster quickly:
 - Stop replication to the read replica before the change that caused the disaster
   is sent to it.
 
-To stop replication, use the [mysql.rds_stop_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") stored procedure.
+To stop replication, use the [mysql.rds\_stop\_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") stored procedure.
 
 - Promote the read replica to be the new source DB instance by using the
   instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md "USER_ReadRepl.Promote.md").
@@ -32,14 +32,14 @@ To stop replication, use the [mysql.rds_stop_replication](mysql-stored-proc-repl
 ## Configuring delayed replication during read replica creation
 
 To configure delayed replication for any future read replica created from a DB
-instance, run the [mysql.rds_set_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration") stored procedure with the
+instance, run the [mysql.rds\_set\_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration") stored procedure with the
 `target delay` parameter.
 
 ###### To configure delayed replication during read replica creation
 
 1. Using a MariaDB client, connect to the MariaDB DB instance to be the source for
    read replicas as the master user.
-2. Run the [mysql.rds_set_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration") stored procedure with the `target delay` parameter.
+2. Run the [mysql.rds\_set\_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration") stored procedure with the `target delay` parameter.
 
 For example, run the following stored procedure to specify that replication
 is delayed by at least one hour (3,600 seconds) for any read replica
@@ -57,15 +57,15 @@ specified number of seconds.
 
 ## Modifying delayed replication for an existing read replica
 
-To modify delayed replication for an existing read replica, run the [mysql.rds_set_source_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay") stored procedure.
+To modify delayed replication for an existing read replica, run the [mysql.rds\_set\_source\_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay") stored procedure.
 
 ###### To modify delayed replication for an existing read replica
 
 1. Using a MariaDB client, connect to the read replica as the master
    user.
-2. Use the [mysql.rds_stop_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") stored
+2. Use the [mysql.rds\_stop\_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") stored
    procedure to stop replication.
-3. Run the [mysql.rds_set_source_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay") stored procedure.
+3. Run the [mysql.rds\_set\_source\_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay") stored procedure.
 
 For example, run the following stored procedure to specify that replication
 to the read replica is delayed by at least one hour (3600
@@ -75,7 +75,7 @@ seconds).
 call mysql.rds_set_source_delay(3600);
 ```
 
-4. Use the [mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") stored
+4. Use the [mysql.rds\_start\_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") stored
    procedure to start replication.
 
 ## Promoting a read replica

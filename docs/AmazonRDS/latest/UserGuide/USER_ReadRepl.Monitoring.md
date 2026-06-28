@@ -51,10 +51,10 @@ maintain and process the large number of logs during recovery.
   only) – Replication has stopped because of a customer-initiated
   request.
 - **replication stop point set** (MySQL
-  only) – A customer-initiated stop point was set using the [mysql.rds_start_replication_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until") stored procedure and the
+  only) – A customer-initiated stop point was set using the [mysql.rds\_start\_replication\_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until") stored procedure and the
   replication is in progress.
 - **replication stop point reached** (MySQL
-  only) – A customer-initiated stop point was set using the [mysql.rds_start_replication_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until") stored procedure and
+  only) – A customer-initiated stop point was set using the [mysql.rds\_start\_replication\_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until") stored procedure and
   replication is stopped because the stop point was reached.
   You can see where a DB instance is being replicated and if so, check its replication status. On
   the **Databases** page in the RDS console, it shows
@@ -100,7 +100,7 @@ replication is currently not active. `ReplicaLag = -1` is equivalent to
 For Oracle, the `ReplicaLag` metric is the sum of the `Apply
  Lag` value and the difference between the current time and the apply lag's
 `DATUM_TIME` value. The `DATUM_TIME` value is the last time
-the read replica received data from its source DB instance. For more information, see [V$DATAGUARD_STATS](https://docs.oracle.com/database/121/REFRN/GUID-B346DD88-3F5E-4F16-9DEE-2FDE62B1ABF7.htm#REFRN30413 "https://docs.oracle.com/database/121/REFRN/GUID-B346DD88-3F5E-4F16-9DEE-2FDE62B1ABF7.htm#REFRN30413") in the Oracle documentation.
+the read replica received data from its source DB instance. For more information, see [V$DATAGUARD\_STATS](https://docs.oracle.com/database/121/REFRN/GUID-B346DD88-3F5E-4F16-9DEE-2FDE62B1ABF7.htm#REFRN30413 "https://docs.oracle.com/database/121/REFRN/GUID-B346DD88-3F5E-4F16-9DEE-2FDE62B1ABF7.htm#REFRN30413") in the Oracle documentation.
 
 For SQL Server, the `ReplicaLag` metric is the maximum lag of databases
 that have fallen behind, in seconds. For example, if you have two databases that lag 5
@@ -111,7 +111,7 @@ seconds and 10 seconds, respectively, then `ReplicaLag` is 10 seconds. The
 SELECT MAX(secondary_lag_seconds) max_lag FROM sys.dm_hadr_database_replica_states;
 ```
 
-For more information, see [secondary_lag_seconds](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-hadr-database-replica-states-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-hadr-database-replica-states-transact-sql") in the Microsoft documentation.
+For more information, see [secondary\_lag\_seconds](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-hadr-database-replica-states-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-hadr-database-replica-states-transact-sql") in the Microsoft documentation.
 
 `ReplicaLag` returns `-1` if RDS can't determine the lag,
 such as during replica setup, or when the read replica is in the `error`

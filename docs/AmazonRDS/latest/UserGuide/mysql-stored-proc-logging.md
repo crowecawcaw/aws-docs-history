@@ -4,10 +4,10 @@ The following stored procedures rotate MySQL logs to backup tables. For more inf
 
 ###### Topics
 
-- [mysql.rds_rotate_general_log](#mysql_rds_rotate_general_log "#mysql_rds_rotate_general_log")
-- [mysql.rds_rotate_slow_log](#mysql_rds_rotate_slow_log "#mysql_rds_rotate_slow_log")
+- [mysql.rds\_rotate\_general\_log](#mysql_rds_rotate_general_log "#mysql_rds_rotate_general_log")
+- [mysql.rds\_rotate\_slow\_log](#mysql_rds_rotate_slow_log "#mysql_rds_rotate_slow_log")
 
-## mysql.rds_rotate_general_log
+## mysql.rds\_rotate\_general\_log
 
 Rotates the `mysql.general_log` table to a backup table.
 
@@ -30,7 +30,7 @@ backup log table if needed. The backup log table for the
 
 You can run this procedure only when the `log_output` parameter is set to `TABLE`.
 
-## mysql.rds_rotate_slow_log
+## mysql.rds\_rotate\_slow\_log
 
 Rotates the `mysql.slow_log` table to a backup table.
 

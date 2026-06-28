@@ -123,7 +123,7 @@ configure database activity streams as follows:
 
 1. (Optional) Create a database audit specification with the `CREATE DATABASE AUDIT SPECIFICATION` command and link it to `RDS_DAS_AUDIT` server audit.
 2. (Optional) Modify the server audit specification with the `ALTER SERVER AUDIT
-SPECIFICATION` command and define the policies.
+ SPECIFICATION` command and define the policies.
 3. Activate the database and server audit policies. For example:
 
 `ALTER DATABASE AUDIT SPECIFICATION [<Your database specification>] WITH (STATE=ON)`

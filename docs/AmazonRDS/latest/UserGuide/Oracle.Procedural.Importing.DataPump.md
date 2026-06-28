@@ -57,12 +57,11 @@ damage the Oracle data dictionary and affect the stability of your database.
 
 - When loading large amounts of data, do the following:
 
-      1. Transfer the dump file to the target RDS for Oracle DB instance.
-      2. Take a DB snapshot of your instance.
-      3. Test the import to verify that it succeeds.
-
-  If database components are invalidated, you can delete the DB instance and re-create it from the DB snapshot. The restored DB
-  instance includes any dump files staged on the DB instance when you took the DB snapshot.
+  1.  Transfer the dump file to the target RDS for Oracle DB instance.
+  2.  Take a DB snapshot of your instance.
+  3.  Test the import to verify that it succeeds.
+      If database components are invalidated, you can delete the DB instance and re-create it from the DB snapshot. The restored DB
+      instance includes any dump files staged on the DB instance when you took the DB snapshot.
 
 - Don't import dump files that were created using the Oracle Data Pump export parameters `TRANSPORT_TABLESPACES`,
   `TRANSPORTABLE`, or `TRANSPORT_FULL_CHECK`. RDS for Oracle DB instances don't support importing these dump
@@ -70,15 +69,14 @@ damage the Oracle data dictionary and affect the stability of your database.
 - Don't import dump files that contain Oracle Scheduler objects in `SYS`, `SYSTEM`, `RDSADMIN`,
   `RDSSEC`, and `RDS_DATAGUARD`, and belong to the following categories:
 
-      + Jobs
-      + Programs
-      + Schedules
-      + Chains
-      + Rules
-      + Evaluation contexts
-      + Rule sets
-
-  RDS for Oracle DB instances don't support importing these dump files.
+  - Jobs
+  - Programs
+  - Schedules
+  - Chains
+  - Rules
+  - Evaluation contexts
+  - Rule sets
+    RDS for Oracle DB instances don't support importing these dump files.
 
 - To exclude unsupported Oracle Scheduler objects, use additional directives during the Data Pump export. If you use
   `DBMS_DATAPUMP`, you can add an additional `METADATA_FILTER` before the
@@ -101,7 +99,7 @@ DBMS_DATAPUMP.METADATA_FILTER(
 ```
 
 If you use `expdp`, create a parameter file that contains the `exclude` directive shown in the following
-example. Then use `PARFILE=`parameter_file``with your`expdp` command.
+example. Then use `PARFILE=`parameter_file`` with your `expdp` command.
 
 ```
 exclude=procobj:"IN
@@ -118,7 +116,7 @@ exclude=procobj:"IN
 
 The following import process uses Oracle Data Pump and an Amazon S3 bucket. The steps are as follows:
 
-1. Export data on the source database using the Oracle [DBMS_DATAPUMP](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DATAPUMP.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DATAPUMP.html") package.
+1. Export data on the source database using the Oracle [DBMS\_DATAPUMP](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DATAPUMP.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DATAPUMP.html") package.
 2. Place the dump file in an Amazon S3 bucket.
 3. Download the dump file from the Amazon S3 bucket to the `DATA_PUMP_DIR` directory on the target RDS for Oracle DB instance.
 4. Import the data from the copied dump file into the RDS for Oracle DB instance using the package `DBMS_DATAPUMP`.
@@ -127,10 +125,10 @@ The following import process uses Oracle Data Pump and an Amazon S3 bucket. The 
 
 - [Requirements for Importing data with Oracle Data Pump and an Amazon S3 bucket](#Oracle.Procedural.Importing.DataPumpS3.requirements "#Oracle.Procedural.Importing.DataPumpS3.requirements")
 - [Step 1: Grant privileges to the database user on the RDS for Oracle target DB instance](#Oracle.Procedural.Importing.DataPumpS3.Step1 "#Oracle.Procedural.Importing.DataPumpS3.Step1")
-- [Step 2: Export data into a dump file using DBMS_DATAPUMP](#Oracle.Procedural.Importing.DataPumpS3.Step2 "#Oracle.Procedural.Importing.DataPumpS3.Step2")
+- [Step 2: Export data into a dump file using DBMS\_DATAPUMP](#Oracle.Procedural.Importing.DataPumpS3.Step2 "#Oracle.Procedural.Importing.DataPumpS3.Step2")
 - [Step 3: Upload the dump file to your Amazon S3 bucket](#Oracle.Procedural.Importing.DataPumpS3.Step3 "#Oracle.Procedural.Importing.DataPumpS3.Step3")
 - [Step 4: Download the dump file from your Amazon S3 bucket to your target DB instance](#Oracle.Procedural.Importing.DataPumpS3.Step4 "#Oracle.Procedural.Importing.DataPumpS3.Step4")
-- [Step 5: Import your dump file into your target DB instance using DBMS_DATAPUMP](#Oracle.Procedural.Importing.DataPumpS3.Step5 "#Oracle.Procedural.Importing.DataPumpS3.Step5")
+- [Step 5: Import your dump file into your target DB instance using DBMS\_DATAPUMP](#Oracle.Procedural.Importing.DataPumpS3.Step5 "#Oracle.Procedural.Importing.DataPumpS3.Step5")
 - [Step 6: Clean up](#Oracle.Procedural.Importing.DataPumpS3.Step6 "#Oracle.Procedural.Importing.DataPumpS3.Step6")
 
 ### Requirements for Importing data with Oracle Data Pump and an Amazon S3 bucket
@@ -156,7 +154,7 @@ into multiple dump files so that you do not exceed the 5 TB limit for individual
 This process imports a dump file into the `DATA_PUMP_DIR` directory, a preconfigured directory on all Oracle DB instances.
 This directory is located on the same storage volume as your data files. When you import the dump file, the existing Oracle data files use
 more space. Thus, you should make sure that your DB instance can accommodate that additional use of space. The imported dump file is not
-automatically deleted or purged from the `DATA_PUMP_DIR` directory. To remove the imported dump file, use [UTL_FILE.FREMOVE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-09B09C2A-2C21-4F70-BF04-D0EEA7B59CAF "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-09B09C2A-2C21-4F70-BF04-D0EEA7B59CAF"), found on the Oracle website.
+automatically deleted or purged from the `DATA_PUMP_DIR` directory. To remove the imported dump file, use [UTL\_FILE.FREMOVE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-09B09C2A-2C21-4F70-BF04-D0EEA7B59CAF "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-09B09C2A-2C21-4F70-BF04-D0EEA7B59CAF"), found on the Oracle website.
 
 ### Step 1: Grant privileges to the database user on the RDS for Oracle target DB instance
 
@@ -188,7 +186,7 @@ Specify a password other than the prompt shown here as a security best practice.
 The preceding statements grant the new user the `CREATE SESSION` privilege and the `RESOURCE` role. You might
 need additional privileges and roles depending on the database objects that you import.
 
-### Step 2: Export data into a dump file using DBMS_DATAPUMP
+### Step 2: Export data into a dump file using DBMS\_DATAPUMP
 
 To create a dump file, use the `DBMS_DATAPUMP` package.
 
@@ -266,7 +264,7 @@ The `SELECT` statement returns the ID of the task in a `VARCHAR2` data type. For
 
 Perform this step using the Amazon RDS procedure `rdsadmin.rdsadmin_s3_tasks.download_from_s3`. When you download a file to a
 directory, the procedure `download_from_s3` skips the download if an identically named file already exists in the directory. To
-remove a file from the download directory, use [UTL_FILE.FREMOVE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-09B09C2A-2C21-4F70-BF04-D0EEA7B59CAF "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-09B09C2A-2C21-4F70-BF04-D0EEA7B59CAF"), found on the Oracle website.
+remove a file from the download directory, use [UTL\_FILE.FREMOVE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-09B09C2A-2C21-4F70-BF04-D0EEA7B59CAF "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-09B09C2A-2C21-4F70-BF04-D0EEA7B59CAF"), found on the Oracle website.
 
 ###### To download your dump file
 
@@ -285,7 +283,7 @@ AS TASK_ID FROM DUAL;
 
 The `SELECT` statement returns the ID of the task in a `VARCHAR2` data type. For more information, see [Downloading files from an Amazon S3 bucket to an Oracle DB instance](oracle-s3-integration.using.md#oracle-s3-integration.using.download "oracle-s3-integration.using.md#oracle-s3-integration.using.download").
 
-### Step 5: Import your dump file into your target DB instance using DBMS_DATAPUMP
+### Step 5: Import your dump file into your target DB instance using DBMS\_DATAPUMP
 
 Use `DBMS_DATAPUMP` to import the schema into your RDS for Oracle DB instance. Additional options such as `METADATA_REMAP`
 might be required.
@@ -357,7 +355,7 @@ Common errors include:
 - `ORA-31634`: Job already exists. A Data Pump job with the same name already exists, often because a
   previous job left an orphaned master table. Query `DBA_DATAPUMP_JOBS` to find jobs in the
   `NOT RUNNING` state, drop the leftover master table (for example, `DROP TABLE
-`job_name`;`), or specify a unique `job_name` in your
+ `job_name`;`), or specify a unique `job_name` in your
   `DBMS_DATAPUMP.OPEN` call.
 
 To re-run an import that partially failed, add `TABLE_EXISTS_ACTION => 'REPLACE'` to your import parameters to overwrite existing objects.
@@ -389,11 +387,11 @@ EXEC UTL_FILE.FREMOVE('DATA_PUMP_DIR','sample.dmp');
 
 ## Importing data with Oracle Data Pump and a database link
 
-The following import process uses Oracle Data Pump and the Oracle [DBMS_FILE_TRANSFER](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_FILE_TRANSFER.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_FILE_TRANSFER.html") package. The
+The following import process uses Oracle Data Pump and the Oracle [DBMS\_FILE\_TRANSFER](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_FILE_TRANSFER.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_FILE_TRANSFER.html") package. The
 steps are as follows:
 
 1. Connect to a source Oracle database, which can be an on-premises database, Amazon EC2 instance, or an RDS for Oracle DB instance.
-2. Export data using the [DBMS_DATAPUMP](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DATAPUMP.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DATAPUMP.html") package.
+2. Export data using the [DBMS\_DATAPUMP](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DATAPUMP.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DATAPUMP.html") package.
 3. Use `DBMS_FILE_TRANSFER.PUT_FILE` to copy the dump file from the Oracle database to the `DATA_PUMP_DIR`
    directory on the target RDS for Oracle DB instance that is connected using a database link.
 4. Import the data from the copied dump file into the RDS for Oracle DB instance using the `DBMS_DATAPUMP` package.
@@ -405,10 +403,10 @@ The import process using Oracle Data Pump and the `DBMS_FILE_TRANSFER` package h
 - [Requirements for importing data with Oracle Data Pump and a database link](#Oracle.Procedural.Importing.DataPumpDBLink.requirements "#Oracle.Procedural.Importing.DataPumpDBLink.requirements")
 - [Step 1: Grant privileges to the user on the RDS for Oracle target DB instance](#Oracle.Procedural.Importing.DataPumpDBLink.Step1 "#Oracle.Procedural.Importing.DataPumpDBLink.Step1")
 - [Step 2: Grant privileges to the user on the source database](#Oracle.Procedural.Importing.DataPumpDBLink.Step2 "#Oracle.Procedural.Importing.DataPumpDBLink.Step2")
-- [Step 3: Create a dump file using DBMS_DATAPUMP](#Oracle.Procedural.Importing.DataPumpDBLink.Step3 "#Oracle.Procedural.Importing.DataPumpDBLink.Step3")
+- [Step 3: Create a dump file using DBMS\_DATAPUMP](#Oracle.Procedural.Importing.DataPumpDBLink.Step3 "#Oracle.Procedural.Importing.DataPumpDBLink.Step3")
 - [Step 4: Create a database link to the target DB instance](#Oracle.Procedural.Importing.DataPumpDBLink.Step4 "#Oracle.Procedural.Importing.DataPumpDBLink.Step4")
-- [Step 5: Copy the exported dump file to the target DB instance using DBMS_FILE_TRANSFER](#Oracle.Procedural.Importing.DataPumpDBLink.Step5 "#Oracle.Procedural.Importing.DataPumpDBLink.Step5")
-- [Step 6: Import the data file to the target DB instance using DBMS_DATAPUMP](#Oracle.Procedural.Importing.DataPumpDBLink.Step6 "#Oracle.Procedural.Importing.DataPumpDBLink.Step6")
+- [Step 5: Copy the exported dump file to the target DB instance using DBMS\_FILE\_TRANSFER](#Oracle.Procedural.Importing.DataPumpDBLink.Step5 "#Oracle.Procedural.Importing.DataPumpDBLink.Step5")
+- [Step 6: Import the data file to the target DB instance using DBMS\_DATAPUMP](#Oracle.Procedural.Importing.DataPumpDBLink.Step6 "#Oracle.Procedural.Importing.DataPumpDBLink.Step6")
 - [Step 7: Clean up](#Oracle.Procedural.Importing.DataPumpDBLink.Step7 "#Oracle.Procedural.Importing.DataPumpDBLink.Step7")
 
 ### Requirements for importing data with Oracle Data Pump and a database link
@@ -426,7 +424,7 @@ This process imports a dump file into the `DATA_PUMP_DIR` directory, a preconfig
 instances. This directory is located on the same storage volume as your data files. When you import the dump file, the existing Oracle
 data files use more space. Thus, you should make sure that your DB instance can accommodate that additional use of space. The imported
 dump file is not automatically deleted or purged from the `DATA_PUMP_DIR` directory. To remove the imported dump file, use
-[UTL_FILE.FREMOVE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-09B09C2A-2C21-4F70-BF04-D0EEA7B59CAF "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-09B09C2A-2C21-4F70-BF04-D0EEA7B59CAF"), found on the Oracle website.
+[UTL\_FILE.FREMOVE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-09B09C2A-2C21-4F70-BF04-D0EEA7B59CAF "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-09B09C2A-2C21-4F70-BF04-D0EEA7B59CAF"), found on the Oracle website.
 
 ### Step 1: Grant privileges to the user on the RDS for Oracle target DB instance
 
@@ -486,7 +484,7 @@ GRANT EXECUTE ON DBMS_FILE_TRANSFER TO export_user;
 
 Specify a password other than the prompt shown here as a security best practice.
 
-### Step 3: Create a dump file using DBMS_DATAPUMP
+### Step 3: Create a dump file using DBMS\_DATAPUMP
 
 To create a dump file, do the following:
 
@@ -566,10 +564,10 @@ CREATE DATABASE LINK to_rds
          (PORT=`<listener port>`))(CONNECT_DATA=(SID=`<remote SID>`)))';
 ```
 
-### Step 5: Copy the exported dump file to the target DB instance using DBMS_FILE_TRANSFER
+### Step 5: Copy the exported dump file to the target DB instance using DBMS\_FILE\_TRANSFER
 
 Use `DBMS_FILE_TRANSFER` to copy the dump file from the source database instance to the target DB instance. The following
-script copies a dump file named sample.dmp from the source instance to a target database link named _to_rds_ (created
+script copies a dump file named sample.dmp from the source instance to a target database link named _to\_rds_ (created
 in the previous step).
 
 ```
@@ -584,9 +582,9 @@ END;
 /
 ```
 
-### Step 6: Import the data file to the target DB instance using DBMS_DATAPUMP
+### Step 6: Import the data file to the target DB instance using DBMS\_DATAPUMP
 
-Use Oracle Data Pump to import the schema in the DB instance. Additional options such as METADATA_REMAP might be required.
+Use Oracle Data Pump to import the schema in the DB instance. Additional options such as METADATA\_REMAP might be required.
 
 Connect to the DB instance with the Amazon RDS master user account to perform the import.
 

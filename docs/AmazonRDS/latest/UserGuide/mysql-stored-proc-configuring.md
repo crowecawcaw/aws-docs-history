@@ -4,10 +4,10 @@ The following stored procedures set and show configuration parameters, such as f
 
 ###### Topics
 
-- [mysql.rds_set_configuration](#mysql_rds_set_configuration "#mysql_rds_set_configuration")
-- [mysql.rds_show_configuration](#mysql_rds_show_configuration "#mysql_rds_show_configuration")
+- [mysql.rds\_set\_configuration](#mysql_rds_set_configuration "#mysql_rds_set_configuration")
+- [mysql.rds\_show\_configuration](#mysql_rds_show_configuration "#mysql_rds_show_configuration")
 
-## mysql.rds_set_configuration
+## mysql.rds\_set\_configuration
 
 Specifies the number of hours to retain binary logs or the number of seconds to delay replication.
 
@@ -79,8 +79,8 @@ disaster. If a table is dropped accidentally, you can use delayed replication to
 quickly recover it. The default value of `target delay` is
 `0` (don't delay replication).
 
-When you use this parameter, it runs [mysql.rds_set_source_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay") and applies CHANGE primary TO
-MASTER_DELAY = input value. If successful, the procedure saves the `source
+When you use this parameter, it runs [mysql.rds\_set\_source\_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay") and applies CHANGE primary TO
+MASTER\_DELAY = input value. If successful, the procedure saves the `source
  delay` parameter to the `mysql.rds_configuration`
 table.
 
@@ -105,15 +105,15 @@ environments to delay replication. For example, when replication is delayed, you
 to the time just before a disaster. If a table is dropped accidentally, you can use delayed replication to recover it
 quickly. The default value of `target delay` is `0` (don't delay replication).
 
-For disaster recovery, you can use this configuration parameter with the [mysql.rds_start_replication_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until") stored procedure or
-the [mysql.rds_start_replication_until_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid")
+For disaster recovery, you can use this configuration parameter with the [mysql.rds\_start\_replication\_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until") stored procedure or
+the [mysql.rds\_start\_replication\_until\_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid")
 stored procedure. To roll forward changes to a delayed read replica to the time just before a disaster, you can run the
 `mysql.rds_set_configuration` procedure with this parameter set. After the
 `mysql.rds_start_replication_until` or `mysql.rds_start_replication_until_gtid` procedure
 stops replication, you can promote the read replica to be the new primary DB instance by using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md "USER_ReadRepl.Promote.md").
 
 To use the `mysql.rds_rds_start_replication_until_gtid` procedure, GTID-based replication must be enabled.
-To skip a specific GTID-based transaction that is known to cause disaster, you can use the [mysql.rds_skip_transaction_with_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored
+To skip a specific GTID-based transaction that is known to cause disaster, you can use the [mysql.rds\_skip\_transaction\_with\_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored
 procedure. For more information about working with GTID-based replication, see [Using GTID-based replication](mysql-replication-gtid.md "mysql-replication-gtid.md").
 
 To specify the number of seconds for Amazon RDS to delay replication to a read replica, use the
@@ -124,7 +124,7 @@ The following example specifies that replication is delayed by at least one hour
 
 The limit for the `target delay` parameter is one day (86400 seconds).
 
-## mysql.rds_show_configuration
+## mysql.rds\_show\_configuration
 
 The number of hours that binary logs are retained.
 

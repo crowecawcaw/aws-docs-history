@@ -26,16 +26,15 @@ Coordinator**. 3. Open the context (right-click) menu for **Local DTC** and choo
 
 6. Make sure that the correct authentication mode is chosen:
 
-   - **Mutual Authentication Required** – The
+    * **Mutual Authentication Required** – The
      client machine is joined to the same domain as other nodes
      participating in distributed transaction, or there is a trust
      relationship configured between domains.
-   - **No Authentication Required** – All other
+    * **No Authentication Required** – All other
      cases.
 
-7. Choose **OK** to save your changes.
-8. If prompted to restart the service, choose
-   **Yes**.
+7. Choose **OK** to save your changes. 8. If prompted to restart the service, choose
+**Yes**.
 
 ###### To enable MSDTC firewall rules
 

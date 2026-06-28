@@ -25,7 +25,7 @@ When using BYOM, make you sure that you meet the following additional requiremen
 
 - Use one of the following supported editions: SQL Server 2022 or 2019 Enterprise, Standard, or Developer edition.
 - Grant the SQL Server sysadmin (SA) server role privilege to `NT
-AUTHORITY\SYSTEM`.
+ AUTHORITY\SYSTEM`.
 - Open TCP port 1433 and UDP port 1434 to allow SSM connections.
 
 ## Limitations of BYOM for RDS Custom for SQL Server

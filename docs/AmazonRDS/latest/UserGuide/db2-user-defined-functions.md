@@ -5,11 +5,11 @@ running the Db2 engine.
 
 ###### Topics
 
-- [rdsadmin.get_task_status](#db2-udf-get-task-status "#db2-udf-get-task-status")
-- [rdsadmin.list_databases](#db2-udf-list-databases "#db2-udf-list-databases")
-- [rdsadmin.list_modifiable_db_params](#db2-udf-list-modi-db-params "#db2-udf-list-modi-db-params")
+- [rdsadmin.get\_task\_status](#db2-udf-get-task-status "#db2-udf-get-task-status")
+- [rdsadmin.list\_databases](#db2-udf-list-databases "#db2-udf-list-databases")
+- [rdsadmin.list\_modifiable\_db\_params](#db2-udf-list-modi-db-params "#db2-udf-list-modi-db-params")
 
-## rdsadmin.get_task_status
+## rdsadmin.get\_task\_status
 
 Returns the status of a task.
 
@@ -230,7 +230,7 @@ native restore, this column includes information about the error.
 ### Response examples
 
 The following response example shows that a database called `TESTJP`
-was successfully created. For more information, see the [rdsadmin.create_database](db2-sp-managing-databases.md#db2-sp-create-database "db2-sp-managing-databases.md#db2-sp-create-database") stored procedure.
+was successfully created. For more information, see the [rdsadmin.create\_database](db2-sp-managing-databases.md#db2-sp-create-database "db2-sp-managing-databases.md#db2-sp-create-database") stored procedure.
 
 ```
 `1 SUCCESS CREATE_DATABASE RDSDB 2023-10-24-18.32.44.962689 2023-10-24-18.34.50.038523 1 TESTJP { "CODESET" : "IBM-437", "TERRITORY" : "JP", "COLLATION" : "SYSTEM", "AUTOCONFIGURE_CMD" : "", "PAGESIZE" : 4096 }
@@ -240,7 +240,7 @@ was successfully created. For more information, see the [rdsadmin.create_databas
 ```
 
 The following response example explains why dropping a database failed. For more
-information, see the [rdsadmin.drop_database](db2-sp-managing-databases.md#db2-sp-drop-database "db2-sp-managing-databases.md#db2-sp-drop-database") stored procedure.
+information, see the [rdsadmin.drop\_database](db2-sp-managing-databases.md#db2-sp-drop-database "db2-sp-managing-databases.md#db2-sp-drop-database") stored procedure.
 
 ```
 1 ERROR DROP_DATABASE RDSDB 2023-10-10-16.33.03.744122 2023-10-10-16.33.30.143797 - 2023-10-10-16.33.30.098857 Task execution has started.
@@ -250,7 +250,7 @@ Only database created using rdsadmin.create_database can be dropped
 ```
 
 The following response example shows the successful restoration of a database. For
-more information, see the [rdsadmin.restore_database](db2-sp-managing-databases.md#db2-sp-restore-database "db2-sp-managing-databases.md#db2-sp-restore-database") stored
+more information, see the [rdsadmin.restore\_database](db2-sp-managing-databases.md#db2-sp-restore-database "db2-sp-managing-databases.md#db2-sp-restore-database") stored
 procedure.
 
 ```
@@ -264,7 +264,7 @@ procedure.
 2023-11-06-18.33.13.891356 Task Completed Successfully
 ```
 
-## rdsadmin.list_databases
+## rdsadmin.list\_databases
 
 Returns a list of all databases running on an RDS for Db2 DB instance.
 
@@ -280,7 +280,7 @@ This user-defined function doesn't specify whether databases are in an activated
 or deactivated state.
 
 If you don't see your databases in the list, call the
-[rdsadmin.get_task_status](#db2-udf-get-task-status "#db2-udf-get-task-status") user-defined function and look for error
+[rdsadmin.get\_task\_status](#db2-udf-get-task-status "#db2-udf-get-task-status") user-defined function and look for error
 messages.
 
 ### Response
@@ -322,7 +322,7 @@ Displays the status of the archive log copy.
 
 UPLOADING : indicates that archive log files are being uploaded to S3.
 
-CONFIGURATION_ERROR : indicates that there is a configuration issue requiring your attention.
+CONFIGURATION\_ERROR : indicates that there is a configuration issue requiring your attention.
 
 To view detailed error look at RDS Event Messages for you Db Instance. The Event Messages can be viewed at [Viewing Amazon RDS events.](USER_ListEvents.md "USER_ListEvents.md")
 
@@ -341,7 +341,7 @@ CODEP           2026-01-14-19.42.42.508476 106EEF95-6E30-4FFF-85AE-B044352DF095 
 ...
 ```
 
-## rdsadmin.list_modifiable_db_params
+## rdsadmin.list\_modifiable\_db\_params
 
 Returns a list of all the modifiable database configuration parameters.
 
@@ -353,7 +353,7 @@ db2 "select * from table(rdsadmin.list_modifiable_db_params())"
 
 ### Usage notes
 
-This user-defined function displays a selected lists of modifiable database parameters. These parameters can be updated using the stored procedure [rdsadmin.update_db_param](db2-sp-managing-databases.md#db2-sp-update-db-param "db2-sp-managing-databases.md#db2-sp-update-db-param").
+This user-defined function displays a selected lists of modifiable database parameters. These parameters can be updated using the stored procedure [rdsadmin.update\_db\_param](db2-sp-managing-databases.md#db2-sp-update-db-param "db2-sp-managing-databases.md#db2-sp-update-db-param").
 
 Any database parameter not included in this list has been restricted and cannot be modified.
 

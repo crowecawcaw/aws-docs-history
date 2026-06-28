@@ -3,110 +3,103 @@
 We recommend the following process when performing a major version upgrade on
 an Amazon RDS for PostgreSQL database:
 
-1.  **Have a version-compatible parameter
-    group ready** – If you are using a
-    custom parameter group, you have two options. You can
-    specify a default parameter group for the new DB engine
-    version. Or you can create your own custom parameter group
-    for the new DB engine version. For more information, see
-    [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md") and
-    [Working with DB cluster parameter groups for Multi-AZ DB clusters](USER_WorkingWithDBClusterParamGroups.md "USER_WorkingWithDBClusterParamGroups.md").
-2.  **Check for unsupported database
-    classes** – Check that your
-    database's instance class is compatible with the
-    PostgreSQL version you are upgrading to. For more
-    information, see [Supported DB engines for DB instance classes](Concepts.DBInstanceClass.Support.md "Concepts.DBInstanceClass.Support.md").
-3.  **Check for unsupported
-    usage:**
+1. **Have a version-compatible parameter
+   group ready** – If you are using a
+   custom parameter group, you have two options. You can
+   specify a default parameter group for the new DB engine
+   version. Or you can create your own custom parameter group
+   for the new DB engine version. For more information, see
+   [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md") and
+   [Working with DB cluster parameter groups for Multi-AZ DB clusters](USER_WorkingWithDBClusterParamGroups.md "USER_WorkingWithDBClusterParamGroups.md").
+2. **Check for unsupported database
+   classes** – Check that your
+   database's instance class is compatible with the
+   PostgreSQL version you are upgrading to. For more
+   information, see [Supported DB engines for DB instance classes](Concepts.DBInstanceClass.Support.md "Concepts.DBInstanceClass.Support.md").
+3. **Check for unsupported
+   usage:**
 
-    - **Prepared
-      transactions** – Commit or roll
-      back all open prepared transactions before
-      attempting an upgrade.
+   - **Prepared
+     transactions** – Commit or roll
+     back all open prepared transactions before
+     attempting an upgrade.
 
-    You can use the following query to verify that
-    there are no open prepared transactions on your
-    database.
+   You can use the following query to verify that
+   there are no open prepared transactions on your
+   database.
 
-    ```
-    SELECT count(*) FROM pg_catalog.pg_prepared_xacts;
-    ```
-    - **Reg\* data
-      types** – Remove all uses of the
-      \*reg\** data types before
-      attempting an upgrade. Except for
-      `regtype` and `regclass`,
-      you can't upgrade the *reg\*\*
-      data types. The `pg_upgrade` utility
-      can't persist this data type, which is used by
-      Amazon RDS to do the upgrade.
+   ```
+   SELECT count(*) FROM pg_catalog.pg_prepared_xacts;
+   ```
+   - **Reg\* data
+     types** – Remove all uses of the
+     _reg\*_ data types before
+     attempting an upgrade. Except for
+     `regtype` and `regclass`,
+     you can't upgrade the _reg\*_
+     data types. The `pg_upgrade` utility
+     can't persist this data type, which is used by
+     Amazon RDS to do the upgrade.
 
-    To verify that there are no uses of
-    unsupported \*reg\*\* data types,
-    use the following query for each database.
+   To verify that there are no uses of
+   unsupported _reg\*_ data types,
+   use the following query for each database.
 
-    ```
+   ```
 
-    SELECT count(*) FROM pg_catalog.pg_class c, pg_catalog.pg_namespace n, pg_catalog.pg_attribute a
-      WHERE c.oid = a.attrelid
-          AND NOT a.attisdropped
-          AND a.atttypid IN ('pg_catalog.regproc'::pg_catalog.regtype,
-                             'pg_catalog.regprocedure'::pg_catalog.regtype,
-                             'pg_catalog.regoper'::pg_catalog.regtype,
-                             'pg_catalog.regoperator'::pg_catalog.regtype,
-                             'pg_catalog.regconfig'::pg_catalog.regtype,
-                             'pg_catalog.regdictionary'::pg_catalog.regtype)
-          AND c.relnamespace = n.oid
-          AND n.nspname NOT IN ('pg_catalog', 'information_schema');
+   SELECT count(*) FROM pg_catalog.pg_class c, pg_catalog.pg_namespace n, pg_catalog.pg_attribute a
+     WHERE c.oid = a.attrelid
+         AND NOT a.attisdropped
+         AND a.atttypid IN ('pg_catalog.regproc'::pg_catalog.regtype,
+                            'pg_catalog.regprocedure'::pg_catalog.regtype,
+                            'pg_catalog.regoper'::pg_catalog.regtype,
+                            'pg_catalog.regoperator'::pg_catalog.regtype,
+                            'pg_catalog.regconfig'::pg_catalog.regtype,
+                            'pg_catalog.regdictionary'::pg_catalog.regtype)
+         AND c.relnamespace = n.oid
+         AND n.nspname NOT IN ('pg_catalog', 'information_schema');
 
-    ```
+   ```
 
-4.  **Check for invalid
-    databases:**
+4. **Check for invalid
+   databases:**
 
-        * Ensure there are no invalid databases. The
-         `datconnlimit` column in the
-         `pg_database` catalog includes a value
-         of `-2` to mark databases as invalid
-         that were interrupted during a `DROP
-         DATABASE` operation.
+   - Ensure there are no invalid databases. The
+     `datconnlimit` column in the
+     `pg_database` catalog includes a value
+     of `-2` to mark databases as invalid
+     that were interrupted during a `DROP
+  DATABASE` operation.
 
+   Use the following query to check for invalid
+   databases:
 
-        Use the following query to check for invalid
-         databases:
+   ```
+   SELECT datname FROM pg_database WHERE datconnlimit = - 2;
+   ```
+   - The previous query returns invalid database
+     names. You can use `DROP DATABASE
+  `invalid_db_name`;`
+     to drop invalid databases. You can also use the
+     following command to drop invalid
+     databases:
 
+   ```
+   SELECT 'DROP DATABASE ' || quote_ident(datname) || ';' FROM pg_database WHERE datconnlimit = -2 \gexec
+   ```
 
-
-        ```
-        SELECT datname FROM pg_database WHERE datconnlimit = - 2;
-        ```
-        * The previous query returns invalid database
-         names. You can use `DROP DATABASE
-         `invalid_db_name`;`
-         to drop invalid databases. You can also use the
-         following command to drop invalid
-         databases:
-
-
-
-        ```
-        SELECT 'DROP DATABASE ' || quote_ident(datname) || ';' FROM pg_database WHERE datconnlimit = -2 \gexec
-        ```
-
-    For more information about invalid databases, see [Understanding the behavior of autovacuum with
-    invalid databases](appendix.postgresql.commondbatasks.autovacuumbehavior.md "appendix.postgresql.commondbatasks.autovacuumbehavior.md").
-
-5.  **Handle logical replication
-    slots** – An upgrade can't
-    occur if the database has any logical replication slots.
-    Logical replication slots are typically used for AWS DMS
-    migration and for replicating tables from the database to
-    data lakes, BI tools, and other targets. Before upgrading,
-    make sure that you know the purpose of any logical
-    replication slots that are in use, and confirm that
-    it's okay to delete them. If the logical replication
-    slots are still being used, you shouldn't delete them,
-    and you can't proceed with the upgrade.
+For more information about invalid databases, see [Understanding the behavior of autovacuum with
+invalid databases](appendix.postgresql.commondbatasks.autovacuumbehavior.md "appendix.postgresql.commondbatasks.autovacuumbehavior.md"). 5. **Handle logical replication
+slots** – An upgrade can't
+occur if the database has any logical replication slots.
+Logical replication slots are typically used for AWS DMS
+migration and for replicating tables from the database to
+data lakes, BI tools, and other targets. Before upgrading,
+make sure that you know the purpose of any logical
+replication slots that are in use, and confirm that
+it's okay to delete them. If the logical replication
+slots are still being used, you shouldn't delete them,
+and you can't proceed with the upgrade.
 
 If the logical replication slots aren't needed, you can
 delete them using the following SQL:
@@ -147,7 +140,7 @@ read replica only after the upgrade completes by modifying
 the read replica. For more information about read replicas,
 see [Working with read replicas for Amazon RDS for PostgreSQL](USER_PostgreSQL.Replication.ReadReplicas.md "USER_PostgreSQL.Replication.ReadReplicas.md"). 7. **Handle large objects** – In PostgreSQL, large objects (also known as BLOBs) are used to store and manage large binary objects (like files, images, videos, etc.) that are larger than the maximum size allowed for regular column data types. For more information see [PostgreSQL Large Objects documentation](https://www.postgresql.org/docs/current/largeobjects.html "https://www.postgresql.org/docs/current/largeobjects.html").
 
-An upgrade can run out of memory and fail if there are millions of large objects and the instance cannot handle them during an upgrade. The PostgreSQL major version upgrade process comprises of two broad phases: dumping the schema via pg_dump and restoring it through pg_restore. If your database has millions of large objects you need to ensure your instance has sufficient memory to handle the pg_dump and pg_restore during an upgrade and scale it to a larger instance type.
+An upgrade can run out of memory and fail if there are millions of large objects and the instance cannot handle them during an upgrade. The PostgreSQL major version upgrade process comprises of two broad phases: dumping the schema via pg\_dump and restoring it through pg\_restore. If your database has millions of large objects you need to ensure your instance has sufficient memory to handle the pg\_dump and pg\_restore during an upgrade and scale it to a larger instance type.
 
 Before you begin an upgrade, check if your database is having any large objects. The catalog `pg_largeobject_metadata` holds metadata associated with large objects. The actual large object data is stored in `pg_largeobject`. Use the following query to check for the number of large objects:
 
@@ -386,18 +379,17 @@ reasons:
      folder.
 
 16. **Upgrade your production
-    database** – When the dry-run major
-    version upgrade is successful, you should be able to upgrade
-    your production database with confidence. For more
-    information, see [Manually upgrading the engine version](USER_UpgradeDBInstance.Upgrading.md#USER_UpgradeDBInstance.Upgrading.Manual "USER_UpgradeDBInstance.Upgrading.md#USER_UpgradeDBInstance.Upgrading.Manual").
-17. Run the `ANALYZE` operation to refresh the
-    `pg_statistic` table. You should do this
-    for every database on all your PostgreSQL databases.
-    Optimizer statistics aren't transferred during a major
-    version upgrade, so you need to regenerate all statistics to
-    avoid performance issues. Run the command without any
-    parameters to generate statistics for all regular tables in
-    the current database, as follows:
+database** – When the dry-run major
+version upgrade is successful, you should be able to upgrade
+your production database with confidence. For more
+information, see [Manually upgrading the engine version](USER_UpgradeDBInstance.Upgrading.md#USER_UpgradeDBInstance.Upgrading.Manual "USER_UpgradeDBInstance.Upgrading.md#USER_UpgradeDBInstance.Upgrading.Manual"). 17. Run the `ANALYZE` operation to refresh the
+`pg_statistic` table. You should do this
+for every database on all your PostgreSQL databases.
+Optimizer statistics aren't transferred during a major
+version upgrade, so you need to regenerate all statistics to
+avoid performance issues. Run the command without any
+parameters to generate statistics for all regular tables in
+the current database, as follows:
 
 ```
 ANALYZE VERBOSE;

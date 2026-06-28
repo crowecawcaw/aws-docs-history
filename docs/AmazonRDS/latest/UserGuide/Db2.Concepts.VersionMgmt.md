@@ -69,6 +69,6 @@ Major version upgrade through API or console is not currently supported.
 This capability will be available in a near future release.
 
 To manually perform a major version upgrade from RDS Db2 v11.5.9 to RDS Db2 v12.1.4,
-perform a full OFFLINE backup using the [rdsadmin.backup_database](db2-sp-managing-databases.md#db2-sp-backup-database "db2-sp-managing-databases.md#db2-sp-backup-database") stored procedure,
+perform a full OFFLINE backup using the [rdsadmin.backup\_database](db2-sp-managing-databases.md#db2-sp-backup-database "db2-sp-managing-databases.md#db2-sp-backup-database") stored procedure,
 then restore it to an existing RDS for Db2 v12.1.4 instance using
-the [rdsadmin.restore_database](db2-sp-managing-databases.md#db2-sp-restore-database "db2-sp-managing-databases.md#db2-sp-restore-database") stored procedure.
+the [rdsadmin.restore\_database](db2-sp-managing-databases.md#db2-sp-restore-database "db2-sp-managing-databases.md#db2-sp-restore-database") stored procedure.

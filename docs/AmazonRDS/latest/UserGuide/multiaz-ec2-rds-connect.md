@@ -131,7 +131,8 @@ associated with the database.
 For a compute resource to be listed, the following conditions must apply:
 
 - The name of the security group associated with the compute resource matches the pattern
-  `ec2-rds-`n`(where`n`` is a number).
+  `ec2-rds-`n`(where
+`n`` is a number).
 - The security group associated with the compute resource has an outbound rule
   with the port range set to the port that the RDS
   database uses.
@@ -140,7 +141,8 @@ For a compute resource to be listed, the following conditions must apply:
   RDS database.
 - The name of the security group associated with the RDS
   database matches the
-  pattern `rds-ec2-`n`(where`n`` is a number).
+  pattern `rds-ec2-`n`(where
+`n`` is a number).
 - The security group associated with the RDS
   database has an inbound
   rule with the port range set to the port that the RDS

@@ -83,7 +83,7 @@ Users with the `rds_superuser` role have EXECUTE privileges on
 `pg_wal_replay_pause()` and `pg_wal_replay_resume()`. If other
 database users need access to these functions, you must grant them the
 `rds_superuser` role. For more information about the
-`rds_superuser` role, see [Understanding the rds_superuser role](Appendix.PostgreSQL.CommonDBATasks.Roles.rds_superuser.md "Appendix.PostgreSQL.CommonDBATasks.Roles.rds_superuser.md").
+`rds_superuser` role, see [Understanding the rds\_superuser role](Appendix.PostgreSQL.CommonDBATasks.Roles.rds_superuser.md "Appendix.PostgreSQL.CommonDBATasks.Roles.rds_superuser.md").
 
 Access to other functions like `pg_is_wal_replay_paused()` and
 `pg_get_wal_replay_pause_state()` doesn't require the
@@ -93,12 +93,12 @@ You can use the following recovery target parameters to precisely control the po
 time to which the delayed replica is recovered. These parameters are static and require
 a database reboot to apply changes:
 
-- recovery_target
-- recovery_target_lsn
-- recovery_target_name
-- recovery_target_time
-- recovery_target_xid
-- recovery_target_inclusive
+- recovery\_target
+- recovery\_target\_lsn
+- recovery\_target\_name
+- recovery\_target\_time
+- recovery\_target\_xid
+- recovery\_target\_inclusive
 
 ###### Important
 

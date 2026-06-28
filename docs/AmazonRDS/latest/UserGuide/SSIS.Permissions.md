@@ -1,15 +1,15 @@
 # Administrative permissions on SSISDB
 
 When the instance is created or modified with the SSIS option, the result is an SSISDB
-database with the ssis_admin and ssis_logreader roles granted to the master user. The
+database with the ssis\_admin and ssis\_logreader roles granted to the master user. The
 master user has the following privileges in SSISDB:
 
-- alter on ssis_admin role
-- alter on ssis_logreader role
+- alter on ssis\_admin role
+- alter on ssis\_logreader role
 - alter any user
   Because the master user is a SQL-authenticated user, you can't use the master user for
   executing SSIS packages. The master user can use these privileges to create new SSISDB
-  users and add them to the ssis_admin and ssis_logreader roles. Doing this is useful for
+  users and add them to the ssis\_admin and ssis\_logreader roles. Doing this is useful for
   giving access to your domain users for using SSIS.
 
 ## Setting up a Windows-authenticated user for SSIS

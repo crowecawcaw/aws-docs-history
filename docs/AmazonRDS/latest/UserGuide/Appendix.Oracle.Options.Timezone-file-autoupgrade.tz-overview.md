@@ -35,7 +35,7 @@ error by using either of the following techniques:
   your source database, and then import it into the new database.
 - Use AWS DMS or logical replication to migrate your data.
 
-## Automatic updates using the TIMEZONE_FILE_AUTOUPGRADE option
+## Automatic updates using the TIMEZONE\_FILE\_AUTOUPGRADE option
 
 When the option group attached to your RDS for Oracle DB instance includes the
 `TIMEZONE_FILE_AUTOUPGRADE` option, RDS updates your time zone files

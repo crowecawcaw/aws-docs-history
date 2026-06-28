@@ -37,7 +37,7 @@ The following limitations apply to copying a DB snapshot for RDS Custom for SQL 
     DB instance stored in the RDS Custom managed S3 bucket in your account, the
     DB snapshot copy succeeds asynchronously. However, SQL Server features
     dependent on SMK such as TDE enabled databases run into issues. For more
-    information, see [Troubleshooting PENDING_RECOVERY state for TDE enabled databases in RDS Custom for SQL Server](custom-troubleshooting-sqlserver.md#custom-troubleshooting-sqlserver.pending_recovery "custom-troubleshooting-sqlserver.md#custom-troubleshooting-sqlserver.pending_recovery").
+    information, see [Troubleshooting PENDING\_RECOVERY state for TDE enabled databases in RDS Custom for SQL Server](custom-troubleshooting-sqlserver.md#custom-troubleshooting-sqlserver.pending_recovery "custom-troubleshooting-sqlserver.md#custom-troubleshooting-sqlserver.pending_recovery").
 
 - Copying DB snapshots within the same AWS Region is currently not
   supported.

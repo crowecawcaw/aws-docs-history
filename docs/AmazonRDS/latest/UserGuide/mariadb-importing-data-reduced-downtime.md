@@ -62,12 +62,11 @@ considerations:
   running. You can schedule a maintenance window for these operations.
 - Exclude the following schemas from the dump file:
 
-      + `sys`
-      + `performance_schema`
-      + `information_schema`
-
-  The `mysqldump` and `mariadb-dump` utilities exclude
-  these schemas by default.
+  - `sys`
+  - `performance_schema`
+  - `information_schema`
+    The `mysqldump` and `mariadb-dump` utilities exclude
+    these schemas by default.
 
 - If you need to migrate users and privileges, consider using a tool that
   generates the data control language (DCL) for recreating them, such as the
@@ -101,7 +100,7 @@ binlog-format=mixed
 
 For more information, see [Setting the Replication Source Configuration](https://mariadb.com/docs/server/ha-and-performance/standard-replication/setting-up-replication "https://mariadb.com/docs/server/ha-and-performance/standard-replication/setting-up-replication") in the MariaDB
 documentation. 2. For replication with a Multi-AZ DB cluster, enable `gtid_strict_mode`. For
-more information, see [gtid_strict_mode](https://mariadb.com/docs/server/ha-and-performance/standard-replication/gtid#gtid_strict_mode "https://mariadb.com/docs/server/ha-and-performance/standard-replication/gtid#gtid_strict_mode") in the MariaDB documentation.
+more information, see [gtid\_strict\_mode](https://mariadb.com/docs/server/ha-and-performance/standard-replication/gtid#gtid_strict_mode "https://mariadb.com/docs/server/ha-and-performance/standard-replication/gtid#gtid_strict_mode") in the MariaDB documentation.
 
 Enabling `gtid_strict_mode` isn't required for replication with
 a DB instance. 3. Restart the `mariadb` service.
@@ -254,10 +253,10 @@ On Windows, run the command window as an administrator.
     ```
 
 2. If the external instance you are using is MariaDB version 10.0.24 or
-   higher, use GTID-based replication. Run `SHOW MASTER STATUS` on
-   the external MariaDB instance to get the binary log file name and position,
-   and then convert them to a GTID by running `BINLOG_GTID_POS` on
-   the external MariaDB instance.
+higher, use GTID-based replication. Run `SHOW MASTER STATUS` on
+the external MariaDB instance to get the binary log file name and position,
+and then convert them to a GTID by running `BINLOG_GTID_POS` on
+the external MariaDB instance.
 
 ```
 SELECT BINLOG_GTID_POS('`binary_log_file_name`', `binary_log_file_position`);
@@ -484,7 +483,7 @@ into the Amazon RDS DB instance.
      interpretation of the data file contents.
 
 8. Run a simple `SELECT` query against one or two of the tables in
-   the imported database to verify that the import was successful.
+the imported database to verify that the import was successful.
 
 If you no longer need the Amazon EC2 instance used in this procedure, terminate the EC2
 instance to reduce your AWS resource usage. To terminate an EC2 instance, see
@@ -503,9 +502,9 @@ The permissions required to start replication on an Amazon RDS database are rest
 aren't available to your Amazon RDS master user. Because of this, use the appropriate Amazon RDS
 stored procedure:
 
-- [mysql.rds_set_external_master](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master")
-- [mysql.rds_set_external_master_gtid](mysql_rds_set_external_master_gtid.md "mysql_rds_set_external_master_gtid.md") to configure
-  replication and [mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") to start replication
+- [mysql.rds\_set\_external\_master](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master")
+- [mysql.rds\_set\_external\_master\_gtid](mysql_rds_set_external_master_gtid.md "mysql_rds_set_external_master_gtid.md") to configure
+  replication and [mysql.rds\_start\_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") to start replication
 
 ### To start replication
 
@@ -587,7 +586,7 @@ have the GTID from which to start replication from Step 2 in Task 1 [when you
 created a backup copy of your existing database](#mariadb-importing-data-reduced-downtime-create-backup "#mariadb-importing-data-reduced-downtime-create-backup"). 5. Make the Amazon RDS database the replica. If the external instance isn't
 MariaDB 10.0.24 or higher, connect to the Amazon RDS database as the master user
 and identify the source database as the source replication instance by using
-the [mysql.rds_set_external_master](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master") stored
+the [mysql.rds\_set\_external\_master](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master") stored
 procedure.
 
 If you have a SQL format backup file, use the master log file name and
@@ -607,7 +606,7 @@ best practice.
 
 If the external instance is MariaDB 10.0.24 or higher, connect to the
 Amazon RDS database as the master user and identify the source database as the
-source replication instance by using the [mysql.rds_set_external_master_gtid](mysql_rds_set_external_master_gtid.md "mysql_rds_set_external_master_gtid.md") stored procedure.
+source replication instance by using the [mysql.rds\_set\_external\_master\_gtid](mysql_rds_set_external_master_gtid.md "mysql_rds_set_external_master_gtid.md") stored procedure.
 Use the GTID that you determined in Step 2 in Task 1 [when you
 created a backup copy of your existing database](#mariadb-importing-data-reduced-downtime-create-backup "#mariadb-importing-data-reduced-downtime-create-backup"). The following
 command is an example:
@@ -625,7 +624,7 @@ isn't currently supported.
 
 Specify credentials other than the prompts shown here as a security
 best practice. 6. On the Amazon RDS database, to start replication, run the following command
-that uses the [mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") stored procedure:
+that uses the [mysql.rds\_start\_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") stored procedure:
 
 ```
 CALL mysql.rds_start_replication;
@@ -633,12 +632,12 @@ CALL mysql.rds_start_replication;
 
 7. On the Amazon RDS database, to determine when the replica is up-to-date with
    the source replication instance, run the [SHOW REPLICA STATUS](https://dev.mysql.com/doc/refman/8.0/en/show-replica-status.html "https://dev.mysql.com/doc/refman/8.0/en/show-replica-status.html") command. The results of the `SHOW
-REPLICA STATUS` command include the
+ REPLICA STATUS` command include the
    `Seconds_Behind_Master` field. When the
    `Seconds_Behind_Master` field returns 0, then the replica is
    up-to-date with the source replication instance.
 
-For a MariaDB 10.5, 10.6, 10.11, 11.4, or 11.8 DB instance, use the [mysql.rds_replica_status](mysql_rds_replica_status.md "mysql_rds_replica_status.md") stored procedure instead of
+For a MariaDB 10.5, 10.6, 10.11, 11.4, or 11.8 DB instance, use the [mysql.rds\_replica\_status](mysql_rds_replica_status.md "mysql_rds_replica_status.md") stored procedure instead of
 running the MySQL command. 8. After the Amazon RDS database is up-to-date, turn on automated backups so you
 can restore that database if needed. You can turn on or modify automated
 backups for your Amazon RDS database by using the [Amazon RDS console](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/"). For more information, see [Introduction to backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md").
@@ -663,20 +662,20 @@ now update your live application to use the Amazon RDS instance.
 SHOW REPLICA STATUS;
 ```
 
-For a MariaDB 10.5, 10.6, 10.11, 11.4, or 11.8 DB instance, use the [mysql.rds_replica_status](mysql_rds_replica_status.md "mysql_rds_replica_status.md") procedure instead of running
+For a MariaDB 10.5, 10.6, 10.11, 11.4, or 11.8 DB instance, use the [mysql.rds\_replica\_status](mysql_rds_replica_status.md "mysql_rds_replica_status.md") procedure instead of running
 the MySQL command. 3. Close all connections to the source when their transactions
 complete. 4. Update your application to use the Amazon RDS database. This update typically
 involves changing the connection settings to identify the hostname and port
 of the Amazon RDS database, the user account and password to connect with, and
 the database to use. 5. Connect to the DB instance. 6. Stop replication for the Amazon RDS instance by running the following command
-that uses the [mysql.rds_stop_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") stored procedure:
+that uses the [mysql.rds\_stop\_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") stored procedure:
 
 ```
 CALL mysql.rds_stop_replication;
 ```
 
 7. Reset the replication configuration so this instance is no longer
-   identified as a replica by running the following command that uses the [mysql.rds_reset_external_master](mysql-stored-proc-replicating.md#mysql_rds_reset_external_master "mysql-stored-proc-replicating.md#mysql_rds_reset_external_master") stored procedure
+   identified as a replica by running the following command that uses the [mysql.rds\_reset\_external\_master](mysql-stored-proc-replicating.md#mysql_rds_reset_external_master "mysql-stored-proc-replicating.md#mysql_rds_reset_external_master") stored procedure
    on your Amazon RDS database:
 
 ```

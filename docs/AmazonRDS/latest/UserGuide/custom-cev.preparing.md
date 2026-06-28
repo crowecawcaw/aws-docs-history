@@ -113,13 +113,13 @@ patches.
    Agreement.
 9. Choose the .zip file that corresponds to your database release:
 
-| Database release and edition | Zip files                                        | SHA-256 hash                                                                                                                                                                                 |
-| ---------------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 19c EE and SE2               | **V982063-01.zip**                               | `BA8329C757133DA313ED3B6D7F86C5AC42CD9970A28BF2E6233F3235233AA8D8`                                                                                                                           |
-| 18c EE and SE2               | **V978967-01.zip**                               | `C96A4FD768787AF98272008833FE10B172691CF84E42816B138C12D4DE63AB96`                                                                                                                           |
-| 12.2.0.1 EE and SE2          | **V839960-01.zip**                               | `96ED97D21F15C1AC0CCE3749DA6C3DAC7059BB60672D76B008103FC754D22DDE`                                                                                                                           |
-| 12.1.0.2 EE                  | **V46095-01_1of2.zip**<br>**V46095-01_2of2.zip** | `31FDC2AF41687B4E547A3A18F796424D8C1AF36406D2160F65B0AF6A9CD47355`<br>for V46095-01_1of2.zip<br>`03DA14F5E875304B28F0F3BB02AF0EC33227885B99C9865DF70749D1E220ACCD`<br>for V46095-01_2of2.zip |
-| 12.1.0.2 SE2                 | **V77388-01_1of2.zip**<br>**V77388-01_2of2.zip** | `73873369753230F5A0921F95ACEADB591388CB06ED72A7F3AEA7BCBCEA2403BC`<br>for V77388-01_1of2.zip<br>`2492E1BE1E3E3531DA83D0843C09C08E435AC8CEFD9A00C0DF56BE4F15CEEBF3`<br>for V77388-01_2of2.zip |
+| Database release and edition | Zip files                                          | SHA-256 hash                                                                                                                                                                                   |
+| ---------------------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 19c EE and SE2               | **V982063-01.zip**                                 | `BA8329C757133DA313ED3B6D7F86C5AC42CD9970A28BF2E6233F3235233AA8D8`                                                                                                                             |
+| 18c EE and SE2               | **V978967-01.zip**                                 | `C96A4FD768787AF98272008833FE10B172691CF84E42816B138C12D4DE63AB96`                                                                                                                             |
+| 12.2.0.1 EE and SE2          | **V839960-01.zip**                                 | `96ED97D21F15C1AC0CCE3749DA6C3DAC7059BB60672D76B008103FC754D22DDE`                                                                                                                             |
+| 12.1.0.2 EE                  | **V46095-01\_1of2.zip**<br>**V46095-01\_2of2.zip** | `31FDC2AF41687B4E547A3A18F796424D8C1AF36406D2160F65B0AF6A9CD47355`<br>for V46095-01\_1of2.zip<br>`03DA14F5E875304B28F0F3BB02AF0EC33227885B99C9865DF70749D1E220ACCD`<br>for V46095-01\_2of2.zip |
+| 12.1.0.2 SE2                 | **V77388-01\_1of2.zip**<br>**V77388-01\_2of2.zip** | `73873369753230F5A0921F95ACEADB591388CB06ED72A7F3AEA7BCBCEA2403BC`<br>for V77388-01\_1of2.zip<br>`2492E1BE1E3E3531DA83D0843C09C08E435AC8CEFD9A00C0DF56BE4F15CEEBF3`<br>for V77388-01\_2of2.zip |
 
 10. Download your desired Oracle patches from `updates.oracle.com` or
     `support.oracle.com` to your local system. You can find the URLs for
@@ -138,7 +138,7 @@ Examples in this section use the following placeholders:
 
 - `install-or-patch-file.zip` –
   Oracle installation media file. For example,
-  p32126828_190000_Linux-x86-64.zip is a patch.
+  p32126828\_190000\_Linux-x86-64.zip is a patch.
 - `amzn-s3-demo-destination-bucket`
   – Your Amazon S3 bucket designated for your uploaded installation
   files.
@@ -170,8 +170,8 @@ permissions:
 
 1. Identify the S3 bucket reserved by RDS Custom. The bucket name has the format
    `do-not-delete-rds-custom-`account`-`region`-`string``.
-For example, the bucket might be named
-`do-not-delete-rds-custom-`123456789012`-`us-east-1`-`abc123EXAMPLE``.
+ For example, the bucket might be named
+ `do-not-delete-rds-custom-`123456789012`-`us-east-1`-`abc123EXAMPLE``.
 2. Make sure that the following permission is appended to your S3 bucket policy.
    Replace
    `do-not-delete-rds-custom-`123456789012`-`us-east-1`-`abc123EXAMPLE``

@@ -65,13 +65,10 @@ properties.
     ![The Driver properties tab in the Edit Driver window in DBeaver.](images/dbeaver-driver-properties-tab.png)
 
 5. In the **Connect to a database** window, choose **Test
-   Connection**. If you don't have a DB2 JBDC driver installed on your
-   computer, then the driver automatically downloads.
-6. Choose **OK**.
-7. Choose **Finish**.
-8. In the **Database Navigation** tab, choose the name of the
-   database. You can now explore objects.
-   You are now ready to run SQL commands.
+Connection**. If you don't have a DB2 JBDC driver installed on your
+computer, then the driver automatically downloads. 6. Choose **OK**. 7. Choose **Finish**. 8. In the **Database Navigation** tab, choose the name of the
+database. You can now explore objects.
+You are now ready to run SQL commands.
 
 ###### To run SQL commands and view the results
 

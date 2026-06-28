@@ -81,9 +81,9 @@ a read replica (mydb2).
 The following image shows an example of a blue/green deployment of the production environment from step 1.
 While creating the blue/green deployment, RDS copies the complete topology and configuration of the
 primary DB instance to create the green environment. The copied DB instance names are appended
-with `-green-`random-characters``. The staging environment in 
- the image contains a Multi-AZ DB instance deployment (mydb1-green-`_abc123_`) 
- and a read replica (mydb2-green-`_abc123_`).
+with `-green-`random-characters``. The staging environment in
+the image contains a Multi-AZ DB instance deployment (mydb1-green-`*abc123*`)
+and a read replica (mydb2-green-`*abc123*`).
 
 ![Blue-green deployment.](images/blue-green-deployment.png)
 
@@ -123,9 +123,9 @@ assigned to the newly switched over production environment, requiring no changes
 application. As a result, your production traffic now flows to the new production
 environment. The DB instances in the previous blue environment are renamed by appending
 `-old`n`to the current name, where
-`n``is a number. For example, assume the name of
- the DB instance in the blue environment is`mydb1`. After switchover, the DB instance name
- will be `mydb1-old1`.
+`n`` is a number. For example, assume the name of
+the DB instance in the blue environment is `mydb1`. After switchover, the DB instance name
+will be `mydb1-old1`.
 
 In the example in the image, the following changes occur during switchover:
 
@@ -137,7 +137,7 @@ In the example in the image, the following changes occur during switchover:
     * The blue environment read replica named `mydb2` becomes `mydb2-old1`.
 
 6. If you no longer need a blue/green deployment, you can delete it. For instructions, see
-   [Deleting a blue/green deployment in Amazon RDS](blue-green-deployments-deleting.md "blue-green-deployments-deleting.md").
+[Deleting a blue/green deployment in Amazon RDS](blue-green-deployments-deleting.md "blue-green-deployments-deleting.md").
 
 After switchover, the previous production environment isn't deleted so that you can use it for regression
 testing, if necessary.

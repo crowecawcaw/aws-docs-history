@@ -98,7 +98,7 @@ db2look -d `database_name` -e -l -a -f -wlm -cor -createdb -printdbcfg -o db2loo
    db2 connect to rdsadmin user `master_username` using `master_password`
    ```
    3. Create a buffer pool by calling `rdsadmin.create_bufferpool`.
-      For more information, see [rdsadmin.create_bufferpool](db2-sp-managing-buffer-pools.md#db2-sp-create-buffer-pool "db2-sp-managing-buffer-pools.md#db2-sp-create-buffer-pool").
+      For more information, see [rdsadmin.create\_bufferpool](db2-sp-managing-buffer-pools.md#db2-sp-create-buffer-pool "db2-sp-managing-buffer-pools.md#db2-sp-create-buffer-pool").
 
    ```
    db2 "call rdsadmin.create_bufferpool(
@@ -112,7 +112,7 @@ db2look -d `database_name` -e -l -a -f -wlm -cor -createdb -printdbcfg -o db2loo
        `block_size`)"
    ```
    4. Create a tablespace by calling `rdsadmin.create_tablespace`.
-      For more information, see [rdsadmin.create_tablespace](db2-sp-managing-tablespaces.md#db2-sp-create-tablespace "db2-sp-managing-tablespaces.md#db2-sp-create-tablespace").
+      For more information, see [rdsadmin.create\_tablespace](db2-sp-managing-tablespaces.md#db2-sp-create-tablespace "db2-sp-managing-tablespaces.md#db2-sp-create-tablespace").
 
    ```
    db2 "call rdsadmin.create_tablespace(

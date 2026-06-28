@@ -60,7 +60,7 @@ log activities that occur on your PostgreSQL DB instance. These include the foll
 - The PostgreSQL Audit (pgAudit) extension can be installed and configured to capture
   activities at the session level or at the object level. For more information, see [Using pgAudit to log database activity](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md").
 - The `log_fdw` extension makes it possible for you to access the database
-  engine log using SQL. For more information, see [Using the log_fdw extension to access the DB log using SQL](CHAP_PostgreSQL.Extensions.log_fdw.md "CHAP_PostgreSQL.Extensions.log_fdw.md").
+  engine log using SQL. For more information, see [Using the log\_fdw extension to access the DB log using SQL](CHAP_PostgreSQL.Extensions.log_fdw.md "CHAP_PostgreSQL.Extensions.log_fdw.md").
 - The `pg_stat_statements` library is specified as the default for the
   `shared_preload_libraries` parameter in RDS for PostgreSQL version 10 and higher.
   It's this library that you can use to analyze running queries. Be sure that

@@ -193,7 +193,7 @@ log group. The following table summarizes the requirements for RDS for Oracle to
 to Amazon CloudWatch Logs.
 
 | Log name                    | Requirement                                                                                 | Default |
-| --------------------------- | ------------------------------------------------------------------------------------------- | ------- | --------------- | ------------------------- | ------ |
+| --------------------------- | ------------------------------------------------------------------------------------------- | ------- |
 | Alert log                   | None. You can't disable this log.                                                           | Enabled |
 | Trace log                   | Set the `trace_enabled` parameter to `TRUE` or leave it set at<br>the default.              | `TRUE`  |
 | Audit log                   | Set the `audit_trail` parameter to any of the following allowed<br>values:<br>```<br>{ none | os      | db [, extended] | xml [, extended] }<br>``` | `none` |
@@ -202,14 +202,14 @@ to Amazon CloudWatch Logs.
 
 This Oracle Management Agent log consists of the log groups shown in the following table.
 
-| Log name           | CloudWatch log group    |
-| ------------------ | ----------------------- |
-| emctl.log          | oemagent-emctl          |
-| emdctlj.log        | oemagent-emdctlj        |
-| gcagent.log        | oemagent-gcagent        |
-| gcagent_errors.log | oemagent-gcagent-errors |
-| emagent.nohup      | oemagent-emagent-nohup  |
-| secure.log         | oemagent-secure         |
+| Log name            | CloudWatch log group    |
+| ------------------- | ----------------------- |
+| emctl.log           | oemagent-emctl          |
+| emdctlj.log         | oemagent-emdctlj        |
+| gcagent.log         | oemagent-gcagent        |
+| gcagent\_errors.log | oemagent-gcagent-errors |
+| emagent.nohup       | oemagent-emagent-nohup  |
+| secure.log          | oemagent-secure         |
 
 For more information, see [Locating Management Agent Log and Trace Files](https://docs.oracle.com/en/enterprise-manager/cloud-control/enterprise-manager-cloud-control/13.4/emadm/locating-management-agent-log-and-trace-files1.html#GUID-9C710D78-6AA4-42E4-83CD-47B5FF4892DF "https://docs.oracle.com/en/enterprise-manager/cloud-control/enterprise-manager-cloud-control/13.4/emadm/locating-management-agent-log-and-trace-files1.html#GUID-9C710D78-6AA4-42E4-83CD-47B5FF4892DF") in the Oracle documentation.
 

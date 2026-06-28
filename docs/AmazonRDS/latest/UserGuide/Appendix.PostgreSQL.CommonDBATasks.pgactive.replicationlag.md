@@ -47,25 +47,25 @@ active
 Set up alerts when active is false, which indicates that the slot isn't currently in
 use (the subscriber instance has disconnected from the publisher).
 
-pending_wal_decoding
+pending\_wal\_decoding
 
 In PostgreSQL's logical replication, WAL files are stored in binary format. The
 publisher must decode these WAL changes and convert them into logical changes (such as
 insert, update, or delete operations).
 
-The metric pending_wal_decoding shows the number of WAL files waiting to be decoded
+The metric pending\_wal\_decoding shows the number of WAL files waiting to be decoded
 on the publisher side.
 
 This number can increase due to these factors:
 
 - When the subscriber isn't connected, active status will be false and
-  pending_wal_decoding will increase
+  pending\_wal\_decoding will increase
 - The slot is active, but the publisher can't keep up with the volume of WAL
   changes
 
-pending_wal_to_apply
+pending\_wal\_to\_apply
 
-The metric pending_wal_apply indicates the number of WAL files waiting to be applied
+The metric pending\_wal\_apply indicates the number of WAL files waiting to be applied
 on the subscriber side.
 
 Several factors can prevent the subscriber from applying changes and potentially

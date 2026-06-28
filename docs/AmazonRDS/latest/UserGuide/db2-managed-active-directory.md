@@ -1,4 +1,4 @@
-# Using Kerberos authentication for Amazon RDS for Db2
+# Working with AWS Managed Active Directory with RDS for Db2
 
 You can use Kerberos authentication to authenticate users when they connect
 to your Amazon RDS for Db2 DB instance. In this configuration, your DB instance works with
@@ -83,12 +83,12 @@ instance, do the following tasks:
      from the directory security group.
 
 4. Configure your Db2 client, and verify that traffic can flow between the client
-   host and Directory Service for the following ports:
+host and Directory Service for the following ports:
 
-   - TCP/UDP port 53 – DNS
-   - TCP 88 – Kerberos authentication
-   - TCP 389 – LDAP
-   - TCP 464 – Kerberos authentication
+    * TCP/UDP port 53 – DNS
+    * TCP 88 – Kerberos authentication
+    * TCP 389 – LDAP
+    * TCP 464 – Kerberos authentication
 
 ## Managing a DB instance in a domain
 

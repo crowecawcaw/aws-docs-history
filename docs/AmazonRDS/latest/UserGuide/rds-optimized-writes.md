@@ -76,29 +76,28 @@ during database creation:
   - RDS Optimized Writes is supported for RDS for MySQL databases that use
     the following DB instance classes:
 
-        - db.m8g
-        - db.m8gd
-        - db.m7i
-        - db.m7g
-        - db.m6g
-        - db.m6gd
-        - db.m6i
-        - db.m5
-        - db.m5d
-        - db.r8g
-        - db.r8gd
-        - db.r7i
-        - db.r7g
-        - db.r6g
-        - db.r6gd
-        - db.r6i
-        - db.r5
-        - db.r5b
-        - db.r5d
-        - db.x2idn
-        - db.x2iedn
-
-    For information about DB instance classes, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+    - db.m8g
+    - db.m8gd
+    - db.m7i
+    - db.m7g
+    - db.m6g
+    - db.m6gd
+    - db.m6i
+    - db.m5
+    - db.m5d
+    - db.r8g
+    - db.r8gd
+    - db.r7i
+    - db.r7g
+    - db.r6g
+    - db.r6gd
+    - db.r6i
+    - db.r5
+    - db.r5b
+    - db.r5d
+    - db.x2idn
+    - db.x2iedn
+      For information about DB instance classes, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 
   DB instance class availability differs for AWS Regions. To determine whether a
   DB instance class is supported in a specific AWS Region, see [Determining DB instance class support in AWS Regions](Concepts.DBInstanceClass.RegionSupport.md "Concepts.DBInstanceClass.RegionSupport.md").

@@ -79,5 +79,5 @@ exec msdb.dbo.rds_upload_to_s3
 		@overwrite_file=`1`;
 ```
 
-If the file previously existed in S3, it's overwritten because the @overwrite_file
+If the file previously existed in S3, it's overwritten because the @overwrite\_file
 parameter is set to `1`.

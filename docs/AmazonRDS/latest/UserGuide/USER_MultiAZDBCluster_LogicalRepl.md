@@ -51,29 +51,28 @@ replication.
 
 ###### To set up logical replication for an RDS for PostgreSQL Multi-AZ DB cluster
 
-1.  Open the custom DB cluster parameter group associated with your RDS for PostgreSQL Multi-AZ DB cluster.
-2.  In the **Parameters** search field, locate the
-    `rds.logical_replication` static parameter and set its value to
-    `1`. This parameter change can increase WAL generation, so enable
-    it only when you’re using logical slots.
-3.  As part of this change, configure the following DB cluster parameters.
+1. Open the custom DB cluster parameter group associated with your RDS for PostgreSQL Multi-AZ DB cluster.
+2. In the **Parameters** search field, locate the
+   `rds.logical_replication` static parameter and set its value to
+   `1`. This parameter change can increase WAL generation, so enable
+   it only when you’re using logical slots.
+3. As part of this change, configure the following DB cluster parameters.
 
-        * `max_wal_senders`
-        * `max_replication_slots`
-        * `max_connections`
+   - `max_wal_senders`
+   - `max_replication_slots`
+   - `max_connections`
+     Depending on your expected usage, you might also need to change the values of
+     the following parameters. However, in many cases, the default values are
+     sufficient.
 
-    Depending on your expected usage, you might also need to change the values of
-    the following parameters. However, in many cases, the default values are
-    sufficient.
+   - `max_logical_replication_workers`
+   - `max_sync_workers_per_subscription`
 
-        * `max_logical_replication_workers`
-        * `max_sync_workers_per_subscription`
-
-4.  Reboot the Multi-AZ DB cluster for the parameter values to take effect. For
-    instructions, see [Rebooting a Multi-AZ DB cluster and reader DB instances for Amazon RDS](multi-az-db-clusters-concepts-rebooting.md "multi-az-db-clusters-concepts-rebooting.md").
-5.  Create a logical replication slot on the writer DB instance of the Multi-AZ DB cluster as explained in [Working with logical replication slots](PostgreSQL.Concepts.General.FeatureSupport.LogicalReplication.md#PostgreSQL.Concepts.General.FeatureSupport.LogicalReplicationSlots "PostgreSQL.Concepts.General.FeatureSupport.LogicalReplication.md#PostgreSQL.Concepts.General.FeatureSupport.LogicalReplicationSlots"). This process requires that you specify a decoding plugin. Currently,
-    RDS for PostgreSQL supports the `test_decoding`, `wal2json`,
-    and `pgoutput` plugins that ship with PostgreSQL.
+4. Reboot the Multi-AZ DB cluster for the parameter values to take effect. For
+   instructions, see [Rebooting a Multi-AZ DB cluster and reader DB instances for Amazon RDS](multi-az-db-clusters-concepts-rebooting.md "multi-az-db-clusters-concepts-rebooting.md").
+5. Create a logical replication slot on the writer DB instance of the Multi-AZ DB cluster as explained in [Working with logical replication slots](PostgreSQL.Concepts.General.FeatureSupport.LogicalReplication.md#PostgreSQL.Concepts.General.FeatureSupport.LogicalReplicationSlots "PostgreSQL.Concepts.General.FeatureSupport.LogicalReplication.md#PostgreSQL.Concepts.General.FeatureSupport.LogicalReplicationSlots"). This process requires that you specify a decoding plugin. Currently,
+   RDS for PostgreSQL supports the `test_decoding`, `wal2json`,
+   and `pgoutput` plugins that ship with PostgreSQL.
 
 The slot is asynchronously copied to each reader DB instance in the cluster. 6. Verify the state of the slot on all reader DB instances of the Multi-AZ DB cluster. To do so, inspect the
 `pg_replication_slots` view on all reader DB instances and make sure

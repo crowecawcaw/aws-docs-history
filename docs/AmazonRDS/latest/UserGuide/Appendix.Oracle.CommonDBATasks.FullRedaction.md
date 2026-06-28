@@ -14,8 +14,8 @@ parameters.
 | Parameter name    | Data type                | Default | Required | Description                                                                            |
 | ----------------- | ------------------------ | ------- | -------- | -------------------------------------------------------------------------------------- |
 | `p_number_val`    | number                   | Null    | No       | Modifies the default value for columns of the<br>`NUMBER` data type.                   |
-| `p_binfloat_val`  | binary_float             | Null    | No       | Modifies the default value for columns of the<br>`BINARY_FLOAT` data type.             |
-| `p_bindouble_val` | binary_double            | Null    | No       | Modifies the default value for columns of the<br>`BINARY_DOUBLE` data type.            |
+| `p_binfloat_val`  | binary\_float            | Null    | No       | Modifies the default value for columns of the<br>`BINARY_FLOAT` data type.             |
+| `p_bindouble_val` | binary\_double           | Null    | No       | Modifies the default value for columns of the<br>`BINARY_DOUBLE` data type.            |
 | `p_char_val`      | char                     | Null    | No       | Modifies the default value for columns of the<br>`CHAR` data type.                     |
 | `p_varchar_val`   | varchar2                 | Null    | No       | Modifies the default value for columns of the<br>`VARCHAR2` data type.                 |
 | `p_nchar_val`     | nchar                    | Null    | No       | Modifies the default value for columns of the<br>`NCHAR` data type.                    |

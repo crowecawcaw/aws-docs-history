@@ -4,10 +4,10 @@ The following stored procedures end a session or query.
 
 ###### Topics
 
-- [mysql.rds_kill](#mysql_rds_kill "#mysql_rds_kill")
-- [mysql.rds_kill_query](#mysql_rds_kill_query "#mysql_rds_kill_query")
+- [mysql.rds\_kill](#mysql_rds_kill "#mysql_rds_kill")
+- [mysql.rds\_kill\_query](#mysql_rds_kill_query "#mysql_rds_kill_query")
 
-## mysql.rds_kill
+## mysql.rds\_kill
 
 Ends a connection to the MySQL server.
 
@@ -40,7 +40,7 @@ The following example ends a connection with a thread ID of 4243:
 CALL mysql.rds_kill(4243);
 ```
 
-## mysql.rds_kill_query
+## mysql.rds\_kill\_query
 
 Ends a query running against the MySQL server.
 
@@ -64,7 +64,7 @@ To stop a query running against the MySQL server, use the
 thread that is running the query. The procedure then terminates the
 query, but leaves the connection itself intact.
 
-To obtain the ID, query the MySQL [INFORMATION_SCHEMA PROCESSLIST table](https://dev.mysql.com/doc/refman/8.0/en/information-schema-processlist-table.html "https://dev.mysql.com/doc/refman/8.0/en/information-schema-processlist-table.html") or use the MySQL [SHOW
+To obtain the ID, query the MySQL [INFORMATION\_SCHEMA PROCESSLIST table](https://dev.mysql.com/doc/refman/8.0/en/information-schema-processlist-table.html "https://dev.mysql.com/doc/refman/8.0/en/information-schema-processlist-table.html") or use the MySQL [SHOW
 PROCESSLIST](https://dev.mysql.com/doc/refman/8.0/en/show-processlist.html "https://dev.mysql.com/doc/refman/8.0/en/show-processlist.html") command. The value in the ID column from `SHOW
  PROCESSLIST` or `SELECT * FROM INFORMATION_SCHEMA.PROCESSLIST`
 is the `processID`.

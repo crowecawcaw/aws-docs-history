@@ -2,11 +2,11 @@
 
 ###### Functions
 
-- [aws_s3.table_import_from_s3](#aws_s3.table_import_from_s3 "#aws_s3.table_import_from_s3")
-- [aws_commons.create_s3_uri](#USER_PostgreSQL.S3Import.create_s3_uri "#USER_PostgreSQL.S3Import.create_s3_uri")
-- [aws_commons.create_aws_credentials](#USER_PostgreSQL.S3Import.create_aws_credentials "#USER_PostgreSQL.S3Import.create_aws_credentials")
+- [aws\_s3.table\_import\_from\_s3](#aws_s3.table_import_from_s3 "#aws_s3.table_import_from_s3")
+- [aws\_commons.create\_s3\_uri](#USER_PostgreSQL.S3Import.create_s3_uri "#USER_PostgreSQL.S3Import.create_s3_uri")
+- [aws\_commons.create\_aws\_credentials](#USER_PostgreSQL.S3Import.create_aws_credentials "#USER_PostgreSQL.S3Import.create_aws_credentials")
 
-## aws_s3.table_import_from_s3
+## aws\_s3.table\_import\_from\_s3
 
 Imports Amazon S3 data into an Amazon RDS table. The `aws_s3` extension provides the
 `aws_s3.table_import_from_s3` function. The return value is text.
@@ -47,12 +47,12 @@ aws_s3.table_import_from_s3 (
 
 ### Parameters
 
-_table_name_
+_table\_name_
 
 A required text string containing the name of the PostgreSQL
 database table to import the data into.
 
-_column_list_
+_column\_list_
 
 A required text string containing an optional list of the
 PostgreSQL database table columns in which to copy the data. If the
@@ -66,7 +66,7 @@ A required text string containing arguments for the PostgreSQL
 is to be copied into the PostgreSQL table. For more details, see the
 [PostgreSQL COPY documentation](https://www.postgresql.org/docs/current/sql-copy.html "https://www.postgresql.org/docs/current/sql-copy.html").
 
-_s3_info_
+_s3\_info_
 
 An `aws_commons._s3_uri_1` composite type containing
 the following information about the S3 object:
@@ -91,7 +91,7 @@ operation:
 
 For information about creating an
 `aws_commons._aws_credentials_1` composite structure,
-see [aws_commons.create_aws_credentials](#USER_PostgreSQL.S3Import.create_aws_credentials "#USER_PostgreSQL.S3Import.create_aws_credentials").
+see [aws\_commons.create\_aws\_credentials](#USER_PostgreSQL.S3Import.create_aws_credentials "#USER_PostgreSQL.S3Import.create_aws_credentials").
 
 ### Alternate syntax
 
@@ -143,7 +143,7 @@ _bucket_
 A text string containing the name of the Amazon S3 bucket that contains
 the file.
 
-_file_path_
+_file\_path_
 
 A text string containing the Amazon S3 file name including the path of
 the file.
@@ -153,26 +153,26 @@ _region_
 A text string identifying the AWS Region location of the file.
 For a listing of AWS Region names and associated values, see [Regions, Availability Zones, and Local Zones](Concepts.RegionsAndAvailabilityZones.md "Concepts.RegionsAndAvailabilityZones.md").
 
-_access_key_
+_access\_key_
 
 A text string containing the access key to use for the import
 operation. The default is NULL.
 
-_secret_key_
+_secret\_key_
 
 A text string containing the secret key to use for the import
 operation. The default is NULL.
 
-_session_token_
+_session\_token_
 
 (Optional) A text string containing the session key to use for the
 import operation. The default is NULL.
 
-## aws_commons.create_s3_uri
+## aws\_commons.create\_s3\_uri
 
 Creates an `aws_commons._s3_uri_1` structure to hold Amazon S3 file
 information. Use the results of the `aws_commons.create_s3_uri` function
-in the `s3_info` parameter of the [aws_s3.table_import_from_s3](#aws_s3.table_import_from_s3 "#aws_s3.table_import_from_s3") function.
+in the `s3_info` parameter of the [aws\_s3.table\_import\_from\_s3](#aws_s3.table_import_from_s3 "#aws_s3.table_import_from_s3") function.
 
 ### Syntax
 
@@ -191,7 +191,7 @@ _bucket_
 A required text string containing the Amazon S3 bucket name for the
 file.
 
-_file_path_
+_file\_path_
 
 A required text string containing the Amazon S3 file name including the
 path of the file.
@@ -202,11 +202,11 @@ A required text string containing the AWS Region that the file is
 in. For a listing of AWS Region names and associated values, see
 [Regions, Availability Zones, and Local Zones](Concepts.RegionsAndAvailabilityZones.md "Concepts.RegionsAndAvailabilityZones.md").
 
-## aws_commons.create_aws_credentials
+## aws\_commons.create\_aws\_credentials
 
 Sets an access key and secret key in an `aws_commons._aws_credentials_1`
 structure. Use the results of the `aws_commons.create_aws_credentials`
-function in the `credentials` parameter of the [aws_s3.table_import_from_s3](#aws_s3.table_import_from_s3 "#aws_s3.table_import_from_s3") function.
+function in the `credentials` parameter of the [aws\_s3.table\_import\_from\_s3](#aws_s3.table_import_from_s3 "#aws_s3.table_import_from_s3") function.
 
 ### Syntax
 
@@ -220,17 +220,17 @@ aws_commons.create_aws_credentials(
 
 ### Parameters
 
-_access_key_
+_access\_key_
 
 A required text string containing the access key to use for importing
 an Amazon S3 file. The default is NULL.
 
-_secret_key_
+_secret\_key_
 
 A required text string containing the secret key to use for importing
 an Amazon S3 file. The default is NULL.
 
-_session_token_
+_session\_token_
 
 An optional text string containing the session token to use for
 importing an Amazon S3 file. The default is NULL. If you provide an optional

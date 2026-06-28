@@ -13,13 +13,12 @@ Replicas for RDS for Db2 have the following features and behaviors:
   purges the logs from the primary DB instance when the following conditions have
   been met:
 
-      + The logs are at least two hours old.
-      + The archive log retention hours setting has passed.
-      + RDS for Db2 successfully replicated the logs to all the replica DB
-       instances.
-
-  This applies to both same AWS Region DB instances and cross-Region DB
-  instances. For information about setting archive log retention hours, see [rdsadmin.set_archive_log_retention](db2-sp-managing-databases.md#db2-sp-set-archive-log-retention "db2-sp-managing-databases.md#db2-sp-set-archive-log-retention").
+  - The logs are at least two hours old.
+  - The archive log retention hours setting has passed.
+  - RDS for Db2 successfully replicated the logs to all the replica DB
+    instances.
+    This applies to both same AWS Region DB instances and cross-Region DB
+    instances. For information about setting archive log retention hours, see [rdsadmin.set\_archive\_log\_retention](db2-sp-managing-databases.md#db2-sp-set-archive-log-retention "db2-sp-managing-databases.md#db2-sp-set-archive-log-retention").
 
 - **Writable replicas** – A Db2 replica is a
   physical copy, and Db2 doesn't allow for writes in a replica. You can promote

@@ -1,4 +1,4 @@
-# Setting the NLS_LANG value in RDS Custom for Oracle
+# Setting the NLS\_LANG value in RDS Custom for Oracle
 
 ###### Note
 
@@ -34,5 +34,5 @@ export NLS_LANG=German
 Your application reads the `NLS_LANG` value when it starts and then
 communicates it to the database when it connects.
 
-For more information, see [Choosing a Locale with the NLS_LANG Environment Variable](https://docs.oracle.com/en/database/oracle/oracle-database/21/nlspg/setting-up-globalization-support-environment.html#GUID-86A29834-AE29-4BA5-8A78-E19C168B690A "https://docs.oracle.com/en/database/oracle/oracle-database/21/nlspg/setting-up-globalization-support-environment.html#GUID-86A29834-AE29-4BA5-8A78-E19C168B690A") in the
+For more information, see [Choosing a Locale with the NLS\_LANG Environment Variable](https://docs.oracle.com/en/database/oracle/oracle-database/21/nlspg/setting-up-globalization-support-environment.html#GUID-86A29834-AE29-4BA5-8A78-E19C168B690A "https://docs.oracle.com/en/database/oracle/oracle-database/21/nlspg/setting-up-globalization-support-environment.html#GUID-86A29834-AE29-4BA5-8A78-E19C168B690A") in the
 _Oracle Database Globalization Support Guide_.

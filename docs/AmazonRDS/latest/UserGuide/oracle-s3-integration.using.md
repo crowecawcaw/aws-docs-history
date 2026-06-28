@@ -31,7 +31,7 @@ following:
   files per procedure call.
 - If a file exists in your download folder, and you attempt to download a file
   with the same name, `download_from_s3` skips the download. To remove
-  a file from the download directory, use the PL/SQL procedure [UTL_FILE.FREMOVE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-09B09C2A-2C21-4F70-BF04-D0EEA7B59CAF "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-09B09C2A-2C21-4F70-BF04-D0EEA7B59CAF").
+  a file from the download directory, use the PL/SQL procedure [UTL\_FILE.FREMOVE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-09B09C2A-2C21-4F70-BF04-D0EEA7B59CAF "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-09B09C2A-2C21-4F70-BF04-D0EEA7B59CAF").
 
 ## Uploading files from your RDS for Oracle DB instance to an Amazon S3 bucket
 

@@ -14,7 +14,7 @@ purpose is for the same page to be read into the shared buffer.
 ## Relevant engine versions
 
 This wait event information is relevant for all RDS for PostgreSQL versions. For RDS for PostgreSQL
-12 and earlier versions this wait event is named as lwlock:buffer_io whereas in RDS for PostgreSQL
+12 and earlier versions this wait event is named as lwlock:buffer\_io whereas in RDS for PostgreSQL
 13 version it is named as lwlock:bufferio. From RDS for PostgreSQL 14 version BufferIO wait event
 moved from `LWLock` to `IPC` wait event type (IPC:BufferIO).
 

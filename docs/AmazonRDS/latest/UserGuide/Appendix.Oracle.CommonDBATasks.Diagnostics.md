@@ -342,7 +342,7 @@ PL/SQL procedure successfully completed.
 
 To read the log file, call `rdsadmin.rds_file_util.read_text_file`.
 Supply the task ID as part of the file name. The output shows the first 10 lines of
-alert_ORCL.log.
+alert\_ORCL.log.
 
 ```
 SQL> SELECT * FROM TABLE(rdsadmin.rds_file_util.read_text_file('BDUMP', 'dbtask-'||:task_id||'.log')) WHERE ROWNUM <= 10;

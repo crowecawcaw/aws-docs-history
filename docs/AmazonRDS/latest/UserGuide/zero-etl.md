@@ -163,7 +163,7 @@ The following limitations apply to RDS zero-ETL integrations.
 - Foreign key references with predefined table updates aren't supported.
   Specifically, `ON DELETE` and `ON UPDATE` rules aren't
   supported with `CASCADE`, `SET NULL`, and `SET
-DEFAULT` actions. Attempting to create or update a table with such
+ DEFAULT` actions. Attempting to create or update a table with such
   references to another table will put the table into a failed state.
 - You can't create an integration for a source database that uses magnetic storage.
 

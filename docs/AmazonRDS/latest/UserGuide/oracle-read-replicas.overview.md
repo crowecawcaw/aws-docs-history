@@ -45,13 +45,13 @@ setting.
 
 The following table summarizes the differences between mounted and read-only replicas to help you choose the right mode.
 
-| Comparison of mounted and read-only replica modes | Feature                                                         | Mounted mode                                                        | Read-only mode |
-| ------------------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------- | -------------- |
-| Primary use case                                  | Disaster recovery without read offloading                       | Disaster recovery with read offloading                              |
-| Query access                                      | No (replica does not accept user connections)                   | Yes (can run SELECT queries on the replica)                         |
-| License requirement                               | Oracle Data Guard (no Active Data Guard license needed)         | Active Data Guard license required                                  |
-| Resource usage                                    | Lower (no query processing overhead)                            | Higher (serves read workloads)                                      |
-| When to choose                                    | You need a standby for failover only and want to minimize costs | You need to offload reporting or analytics queries from the primary |
+Comparison of mounted and read-only replica modes| Feature | Mounted mode | Read-only mode |
+| --- | --- | --- |
+| Primary use case | Disaster recovery without read offloading | Disaster recovery with read offloading |
+| Query access | No (replica does not accept user connections) | Yes (can run SELECT queries on the replica) |
+| License requirement | Oracle Data Guard (no Active Data Guard license needed) | Active Data Guard license required |
+| Resource usage | Lower (no query processing overhead) | Higher (serves read workloads) |
+| When to choose | You need a standby for failover only and want to minimize costs | You need to offload reporting or analytics queries from the primary |
 
 ## Read replicas of CDBs
 

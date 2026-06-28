@@ -48,7 +48,7 @@ apply.
       `/opt/aws/rdscustomagent/config/redo_logs_custom_configuration.json`.
   2.  Add a JSON object in the following format:
       `{"archivedLogRetentionHours" :
-"`num_of_hours`"}`. The number must
+   "`num_of_hours`"}`. The number must
       be an integer in the range 1–840.
 
 - Assume that you plug a non-CDB into a container database (CDB) as a PDB and then
@@ -73,18 +73,17 @@ apply.
 - If you customize database initialization parameters, we strongly recommend that
   you customize only the following:
 
-      + `COMPATIBLE`
-      + `MAX_STRING_SIZE`
-      + `DB_FILES`
-      + `UNDO_TABLESPACE`
-      + `ENABLE_PLUGGABLE_DATABASE`
-      + `CONTROL_FILES`
-      + `AUDIT_TRAIL`
-      + `AUDIT_TRAIL_DEST`
-
-  For all other initialization parameters, RDS Custom restores the default values. If you modify a parameter that isn't
-  in the preceding list, it might have an adverse effect on PITR and lead to unpredictable results. For example,
-  `CONTROL_FILE_RECORD_KEEP_TIME` affects the rules for uploading and deleting logs.
+  - `COMPATIBLE`
+  - `MAX_STRING_SIZE`
+  - `DB_FILES`
+  - `UNDO_TABLESPACE`
+  - `ENABLE_PLUGGABLE_DATABASE`
+  - `CONTROL_FILES`
+  - `AUDIT_TRAIL`
+  - `AUDIT_TRAIL_DEST`
+    For all other initialization parameters, RDS Custom restores the default values. If you modify a parameter that isn't
+    in the preceding list, it might have an adverse effect on PITR and lead to unpredictable results. For example,
+    `CONTROL_FILE_RECORD_KEEP_TIME` affects the rules for uploading and deleting logs.
 
 You can restore an RDS Custom DB instance to a point in time using the AWS Management Console, the AWS CLI, or the RDS API.
 
@@ -112,7 +111,8 @@ Use one of the following options to specify the backup to restore from:
 
 - `--source-db-instance-identifier `mysourcedbinstance``
 - `--source-dbi-resource-id `dbinstanceresourceID``
-- `--source-db-instance-automated-backups-arn `backupARN``The`custom-iam-instance-profile` option is required.
+- `--source-db-instance-automated-backups-arn `backupARN``
+  The `custom-iam-instance-profile` option is required.
 
 The following example restores `my-custom-db-instance` to a new DB instance
 named `my-restored-custom-db-instance`, as of the specified time.

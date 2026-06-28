@@ -10,7 +10,7 @@ active-active cluster. For information about super-read-only mode, see the [MySQ
 1. Connect to a DB instance in the active-active cluster using a SQL client.
 
 For more information about connecting to an RDS for MySQL DB instance, see
-[Connecting to your MySQL DB instance](USER_ConnectToInstance.md "USER_ConnectToInstance.md"). 2. In the SQL client, call the [mysql.rds_group_replication_stop](mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_stop "mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_stop") stored procedure:
+[Connecting to your MySQL DB instance](USER_ConnectToInstance.md "USER_ConnectToInstance.md"). 2. In the SQL client, call the [mysql.rds\_group\_replication\_stop](mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_stop "mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_stop") stored procedure:
 
 ```
 call mysql.rds_group_replication_stop();

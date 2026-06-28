@@ -5,4 +5,4 @@ Amazon RDS for Db2 supports ways to improve security for your RDS for Db2 DB ins
 ###### Topics
 
 - [Using SSL/TLS with an Amazon RDS for Db2 DB instance](Db2.Concepts.SSL.md "Db2.Concepts.SSL.md")
-- [Using Kerberos authentication for Amazon RDS for Db2](db2-kerberos.md "db2-kerberos.md")
+- [Working with Active Directory with RDS for Db2](db2-active-directory.md "db2-active-directory.md")

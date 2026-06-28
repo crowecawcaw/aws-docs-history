@@ -52,23 +52,26 @@ If you can't connect to your DB instance, see [Security group considerations](US
     ![Object Explorer displaying the system databases.](images/SQL-SSMS-SystemDBs.png)
 
 5. Your SQL Server DB instance also comes with a database named
-   `rdsadmin`. Amazon RDS uses this database to store the objects that it
-   uses to manage your database. The `rdsadmin` database also includes
-   stored procedures that you can run to perform advanced tasks. For more
-   information, see [Common DBA tasks for Amazon RDS for Microsoft SQL Server](Appendix.SQLServer.CommonDBATasks.md "Appendix.SQLServer.CommonDBATasks.md").
-6. You can now start creating your own databases and running queries against your
-   DB instance and databases as usual. To run a test query against your DB
-   instance, do the following:
+`rdsadmin`. Amazon RDS uses this database to store the objects that it
+uses to manage your database. The `rdsadmin` database also includes
+stored procedures that you can run to perform advanced tasks. For more
+information, see [Common DBA tasks for Amazon RDS for Microsoft SQL Server](Appendix.SQLServer.CommonDBATasks.md "Appendix.SQLServer.CommonDBATasks.md"). 6. You can now start creating your own databases and running queries against your
+DB instance and databases as usual. To run a test query against your DB
+instance, do the following:
 
-   1. In SSMS, on the **File** menu point to
-      **New** and then choose **Query with
-      Current Connection**.
-   2. Enter the following SQL query.
+    1. In SSMS, on the **File** menu point to
+     **New** and then choose **Query with
+     Current Connection**.
+    2. Enter the following SQL query.
 
-   ```
-   select @@VERSION
-   ```
-   3. Run the query. SSMS returns the SQL Server version of your Amazon RDS DB
-      instance.
 
-   ![SQL Query Window.](images/SQL-Connect-Query.png)
+
+    ```
+    select @@VERSION
+    ```
+    3. Run the query. SSMS returns the SQL Server version of your Amazon RDS DB
+     instance.
+
+
+
+    ![SQL Query Window.](images/SQL-Connect-Query.png)

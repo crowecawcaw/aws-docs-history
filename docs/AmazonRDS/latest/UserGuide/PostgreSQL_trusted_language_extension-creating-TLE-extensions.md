@@ -11,18 +11,18 @@ Use the various `pgtle` functions to install the code that makes up your TLE
 extension. The following Trusted Language Extensions functions all require the `pgtle_admin`
 role.
 
-- [pgtle.install_extension](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.install_extension "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.install_extension")
-- [pgtle.install_update_path](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.install_update_path "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.install_update_path")
-- [pgtle.register_feature](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature")
-- [pgtle.register_feature_if_not_exists](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature_if_not_exists "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature_if_not_exists")
-- [pgtle.set_default_version](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.set_default_version "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.set_default_version")
-- [pgtle.uninstall_extension(name)](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_extension-name "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_extension-name")
-- [pgtle.uninstall_extension(name, version)](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_extension-name-version "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_extension-name-version")
-- [pgtle.uninstall_extension_if_exists](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_extension_if_exists "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_extension_if_exists")
-- [pgtle.uninstall_update_path](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_update_path "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_update_path")
-- [pgtle.uninstall_update_path_if_exists](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_update_path_if_exists "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_update_path_if_exists")
-- [pgtle.unregister_feature](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature")
-- [pgtle.unregister_feature_if_exists](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature_if_exists "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature_if_exists")
+- [pgtle.install\_extension](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.install_extension "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.install_extension")
+- [pgtle.install\_update\_path](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.install_update_path "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.install_update_path")
+- [pgtle.register\_feature](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature")
+- [pgtle.register\_feature\_if\_not\_exists](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature_if_not_exists "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature_if_not_exists")
+- [pgtle.set\_default\_version](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.set_default_version "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.set_default_version")
+- [pgtle.uninstall\_extension(name)](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_extension-name "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_extension-name")
+- [pgtle.uninstall\_extension(name, version)](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_extension-name-version "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_extension-name-version")
+- [pgtle.uninstall\_extension\_if\_exists](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_extension_if_exists "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_extension_if_exists")
+- [pgtle.uninstall\_update\_path](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_update_path "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_update_path")
+- [pgtle.uninstall\_update\_path\_if\_exists](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_update_path_if_exists "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.uninstall_update_path_if_exists")
+- [pgtle.unregister\_feature](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature")
+- [pgtle.unregister\_feature\_if\_exists](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature_if_exists "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature_if_exists")
 
 ## Example: Creating a trusted language extension using SQL
 
@@ -147,7 +147,7 @@ In the following example, you can see how the
 `pgtle.install_update_path` function is used to add these attributes
 to each function to create a version `0.2` of the
 `pg_distance` TLE extension. For more information about this
-function, see [pgtle.install_update_path](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.install_update_path "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.install_update_path"). You need to have the `pgtle_admin` role to
+function, see [pgtle.install\_update\_path](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.install_update_path "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.install_update_path"). You need to have the `pgtle_admin` role to
 perform this task.
 
 ###### To update an existing TLE extension and specify the default version
@@ -210,7 +210,7 @@ in the following example.
 SELECT pgtle.set_default_version('pg_distance', '0.2');
 ```
 
-For more information about this function, see [pgtle.set_default_version](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.set_default_version "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.set_default_version"). 4. With the code in place, you can update the installed TLE extension in the usual way, by using
+For more information about this function, see [pgtle.set\_default\_version](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.set_default_version "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.set_default_version"). 4. With the code in place, you can update the installed TLE extension in the usual way, by using
 `ALTER EXTENSION ... UPDATE` command, as shown here:
 
 ```

@@ -72,7 +72,7 @@ rdsutils,plrust
 (1 row)`
 ```
 
-###### Install the plrust extension in the shared_preload_libraries parameter
+###### Install the plrust extension in the shared\_preload\_libraries parameter
 
 Complete the following steps using an account that is a member of the
 `rds_superuser` group (role).
@@ -178,7 +178,7 @@ dependencies](https://tcdi.github.io/plrust/use-plrust.html#use-dependencies "ht
 ## PL/Rust limitations
 
 By default, database users can't use PL/Rust. To provide access to PL/Rust, connect as a
-user with rds_superuser privilege, and run the following command:
+user with rds\_superuser privilege, and run the following command:
 
 ```
 postgres=> GRANT USAGE ON LANGUAGE PLRUST TO `user`;

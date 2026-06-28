@@ -44,8 +44,8 @@ can create the extension again if they like.
      continue to the next step.
 
 3. To remove all installation files for your extension, use the
-   `pgtle.uninstall_extension` function. This function removes all
-   the code and control files for your extension.
+`pgtle.uninstall_extension` function. This function removes all
+the code and control files for your extension.
 
 ```
 SELECT pgtle.uninstall_extension('`your-tle-extension-name`');

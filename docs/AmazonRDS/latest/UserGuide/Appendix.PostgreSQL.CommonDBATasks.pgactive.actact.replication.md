@@ -191,7 +191,7 @@ FOREIGN KEY constraints can cause conflicts when applying remote transactions to
 existing local data. These conflicts typically occur when transactions are applied in a
 different sequence than their logical order on the originating nodes.
 
-By default, pgactive applies changes with session_replication_role as
+By default, pgactive applies changes with session\_replication\_role as
 `replica`, which bypasses foreign key checks during replication. In
 active-active configurations, this can lead to foreign key violations. Most violations are
 temporary and resolve once replication catches up. However, dangling foreign keys can
@@ -344,7 +344,7 @@ pgactivelink logs conflict incidents in the
 `pgactive.pgactive_conflict_history` table to help you diagnose and handle
 active-active conflicts. Conflict logging to this table only occurs when you set
 `pgactive.log_conflicts_to_table` to true. The pgactive extension also logs
-conflicts to the PostgreSQL log file when log_min_messages is set to `LOG` or
+conflicts to the PostgreSQL log file when log\_min\_messages is set to `LOG` or
 `lower`, regardless of the `pgactive.log_conflicts_to_table`
 setting.
 

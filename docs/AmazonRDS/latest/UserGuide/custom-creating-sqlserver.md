@@ -79,24 +79,22 @@ For supported classes, see [DB instance class support for RDS Custom for SQL Ser
     An AWS KMS key is required for RDS Custom. For more information, see [Make sure that you have a symmetric encryption AWS KMS key](custom-setup-sqlserver.md#custom-setup-sqlserver.cmk "custom-setup-sqlserver.md#custom-setup-sqlserver.cmk").
 
 16. For the remaining sections, specify your preferred RDS Custom DB instance settings. For information about each
-    setting, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md").
-    The following settings don't appear in the console and aren't supported:
+setting, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md").
+The following settings don't appear in the console and aren't supported:
 
-        * **Processor features**
-        * **Storage autoscaling**
-        * **Availability & durability**
-        * **Password and Kerberos authentication** option in **Database
-         authentication** (only **Password authentication** is supported)
-        * **Database options** group in **Additional configuration**
-        * **Performance Insights**
-        * **Log exports**
-        * **Enable auto minor version upgrade**
-        * **Deletion protection**
+    * **Processor features**
+    * **Storage autoscaling**
+    * **Availability & durability**
+    * **Password and Kerberos authentication** option in **Database
+     authentication** (only **Password authentication** is supported)
+    * **Database options** group in **Additional configuration**
+    * **Performance Insights**
+    * **Log exports**
+    * **Enable auto minor version upgrade**
+    * **Deletion protection**
 
-    **Backup retention period** is supported, but you can't choose **0
-    days**.
-
-17. Choose **Create database**.
+**Backup retention period** is supported, but you can't choose **0
+days**. 17. Choose **Create database**.
 
 The **View credential details** button appears on the **Databases**
 page.

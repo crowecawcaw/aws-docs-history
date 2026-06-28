@@ -59,7 +59,7 @@ In MariaDB 11.8, the default value for `require_secure_transport` is now `1`, re
   - The variable [`max_tmp_total_space_usage`](https://mariadb.com/docs/server/security/limiting-size-of-created-disk-temporary-files-and-tables/max_tmp_total_space_usage-system-variable "https://mariadb.com/docs/server/security/limiting-size-of-created-disk-temporary-files-and-tables/max_tmp_total_space_usage-system-variable") limits the temporary space allowance for all users.
 
 - **Temporary tablespace management** – The temporary tablespace stores temporary tables and grows as data is added. When temporary tables are dropped,
-  the space is not automatically reclaimed. You can use the [mysql.rds_execute_operation](mysql_rds_execute_operation.md "mysql_rds_execute_operation.md") procedure
+  the space is not automatically reclaimed. You can use the [mysql.rds\_execute\_operation](mysql_rds_execute_operation.md "mysql_rds_execute_operation.md") procedure
   to shrink the temporary tablespace and reclaim disk space.
 
 For a list of all MariaDB 11.8 features and their documentation, see [Changes and improvements in MariaDB 11.8](https://mariadb.com/kb/en/changes-improvements-in-mariadb-11-8/ "https://mariadb.com/kb/en/changes-improvements-in-mariadb-11-8/") and [Release notes - MariaDB 11.8 series](https://mariadb.com/kb/en/release-notes-mariadb-11-8-series/ "https://mariadb.com/kb/en/release-notes-mariadb-11-8-series/") on the MariaDB website.
@@ -100,36 +100,36 @@ version 11.4 or higher.
   The following parameters have been deprecated or removed for MariaDB version
   11.4 DB instances:
 
-  - `engine_condition_pushdown` is removed from [optimizer_switch](https://mariadb.com/kb/en/optimizer-switch/ "https://mariadb.com/kb/en/optimizer-switch/")
-  - [innodb_change_buffer_max_size](https://mariadb.com/kb/en/innodb-system-variables/#innodb_change_buffer_max_size "https://mariadb.com/kb/en/innodb-system-variables/#innodb_change_buffer_max_size")
-  - [innodb_defragment](https://mariadb.com/kb/en/innodb-system-variables/#innodb_defragment "https://mariadb.com/kb/en/innodb-system-variables/#innodb_defragment")
-  - `TLSv1.0` and `TLSv1.1` are removed from [tls_version](https://mariadb.com/kb/en/ssltls-system-variables/#tls_version "https://mariadb.com/kb/en/ssltls-system-variables/#tls_version")
+  - `engine_condition_pushdown` is removed from [optimizer\_switch](https://mariadb.com/kb/en/optimizer-switch/ "https://mariadb.com/kb/en/optimizer-switch/")
+  - [innodb\_change\_buffer\_max\_size](https://mariadb.com/kb/en/innodb-system-variables/#innodb_change_buffer_max_size "https://mariadb.com/kb/en/innodb-system-variables/#innodb_change_buffer_max_size")
+  - [innodb\_defragment](https://mariadb.com/kb/en/innodb-system-variables/#innodb_defragment "https://mariadb.com/kb/en/innodb-system-variables/#innodb_defragment")
+  - `TLSv1.0` and `TLSv1.1` are removed from [tls\_version](https://mariadb.com/kb/en/ssltls-system-variables/#tls_version "https://mariadb.com/kb/en/ssltls-system-variables/#tls_version")
 
 - **New default values for a parameter**
-  – The default value of the [innodb_undo_tablespaces](https://mariadb.com/kb/en/innodb-system-variables/#innodb_undo_tablespaces "https://mariadb.com/kb/en/innodb-system-variables/#innodb_undo_tablespaces") parameter changed from `0` to
+  – The default value of the [innodb\_undo\_tablespaces](https://mariadb.com/kb/en/innodb-system-variables/#innodb_undo_tablespaces "https://mariadb.com/kb/en/innodb-system-variables/#innodb_undo_tablespaces") parameter changed from `0` to
   `3`.
 - **New valid values for parameters** –
   The following parameters have new valid values for MariaDB version 11.4 DB
   instances:
 
-  - The valid values for the [binlog_row_image](https://mariadb.com/kb/en/replication-and-binary-log-system-variables/#binlog_row_image "https://mariadb.com/kb/en/replication-and-binary-log-system-variables/#binlog_row_image") parameter now include
+  - The valid values for the [binlog\_row\_image](https://mariadb.com/kb/en/replication-and-binary-log-system-variables/#binlog_row_image "https://mariadb.com/kb/en/replication-and-binary-log-system-variables/#binlog_row_image") parameter now include
     `FULL_NODUP`.
-  - The valid values for the [OLD_MODE](https://mariadb.com/kb/en/old-mode/ "https://mariadb.com/kb/en/old-mode/") parameter now include
+  - The valid values for the [OLD\_MODE](https://mariadb.com/kb/en/old-mode/ "https://mariadb.com/kb/en/old-mode/") parameter now include
     `NO_NULL_COLLATION_IDS`.
 
 - **New parameters** – The following
   parameters are new for MariaDB version 11.4 DB instances:
 
-  - The [transaction_isolation](https://mariadb.com/kb/en/server-system-variables/#transaction_isolation "https://mariadb.com/kb/en/server-system-variables/#transaction_isolation") parameter replaces the [tx_isolation](https://mariadb.com/kb/en/server-system-variables/#tx_isolation "https://mariadb.com/kb/en/server-system-variables/#tx_isolation")
+  - The [transaction\_isolation](https://mariadb.com/kb/en/server-system-variables/#transaction_isolation "https://mariadb.com/kb/en/server-system-variables/#transaction_isolation") parameter replaces the [tx\_isolation](https://mariadb.com/kb/en/server-system-variables/#tx_isolation "https://mariadb.com/kb/en/server-system-variables/#tx_isolation")
     parameter.
-  - The [transaction_read_only](https://mariadb.com/kb/en/server-system-variables/#transaction_read_only "https://mariadb.com/kb/en/server-system-variables/#transaction_read_only") parameter replaces the [tx_read_only](https://mariadb.com/kb/en/server-system-variables/#tx_read_only "https://mariadb.com/kb/en/server-system-variables/#tx_read_only")
+  - The [transaction\_read\_only](https://mariadb.com/kb/en/server-system-variables/#transaction_read_only "https://mariadb.com/kb/en/server-system-variables/#transaction_read_only") parameter replaces the [tx\_read\_only](https://mariadb.com/kb/en/server-system-variables/#tx_read_only "https://mariadb.com/kb/en/server-system-variables/#tx_read_only")
     parameter.
-  - The [block_encryption_mode](https://mariadb.com/kb/en/server-system-variables/#block_encryption_mode "https://mariadb.com/kb/en/server-system-variables/#block_encryption_mode") parameter defines the default block encryption mode for the
-    [AES_ENCRYPT()](https://mariadb.com/kb/en/aes_encrypt/ "https://mariadb.com/kb/en/aes_encrypt/") and [AES_DECRYPT()](https://mariadb.com/kb/en/aes_decrypt/ "https://mariadb.com/kb/en/aes_decrypt/") functions.
-  - The [character_set_collations](https://mariadb.com/kb/en/server-system-variables/#character_set_collations "https://mariadb.com/kb/en/server-system-variables/#character_set_collations") defines overrides for character set default collations.
-  - The [binlog_gtid_index](https://mariadb.com/kb/en/system-versioned-tables/#binlog_gtid_index "https://mariadb.com/kb/en/system-versioned-tables/#binlog_gtid_index"),
-    [binlog_gtid_index_page_size](https://mariadb.com/kb/en/system-versioned-tables/#binlog_gtid_index_page_size "https://mariadb.com/kb/en/system-versioned-tables/#binlog_gtid_index_page_size"), and
-    [binlog_gtid_index_span_min](https://mariadb.com/kb/en/system-versioned-tables/#binlog_gtid_index_span_min "https://mariadb.com/kb/en/system-versioned-tables/#binlog_gtid_index_span_min") define the properties
+  - The [block\_encryption\_mode](https://mariadb.com/kb/en/server-system-variables/#block_encryption_mode "https://mariadb.com/kb/en/server-system-variables/#block_encryption_mode") parameter defines the default block encryption mode for the
+    [AES\_ENCRYPT()](https://mariadb.com/kb/en/aes_encrypt/ "https://mariadb.com/kb/en/aes_encrypt/") and [AES\_DECRYPT()](https://mariadb.com/kb/en/aes_decrypt/ "https://mariadb.com/kb/en/aes_decrypt/") functions.
+  - The [character\_set\_collations](https://mariadb.com/kb/en/server-system-variables/#character_set_collations "https://mariadb.com/kb/en/server-system-variables/#character_set_collations") defines overrides for character set default collations.
+  - The [binlog\_gtid\_index](https://mariadb.com/kb/en/system-versioned-tables/#binlog_gtid_index "https://mariadb.com/kb/en/system-versioned-tables/#binlog_gtid_index"),
+    [binlog\_gtid\_index\_page\_size](https://mariadb.com/kb/en/system-versioned-tables/#binlog_gtid_index_page_size "https://mariadb.com/kb/en/system-versioned-tables/#binlog_gtid_index_page_size"), and
+    [binlog\_gtid\_index\_span\_min](https://mariadb.com/kb/en/system-versioned-tables/#binlog_gtid_index_span_min "https://mariadb.com/kb/en/system-versioned-tables/#binlog_gtid_index_span_min") define the properties
     of the binlog GTID index. For more information, see [Binlog Indexing](https://mariadb.com/kb/en/gtid/#binlog-indexing "https://mariadb.com/kb/en/gtid/#binlog-indexing").
 
 For a list of all MariaDB 11.4 features and their documentation, see [Changes
@@ -203,7 +203,7 @@ version 10.11 or higher.
 - **System versioning** – You can modify
   history. MariaDB automatically creates new partitions.
 - **Atomic DDL** – `CREATE OR
-REPLACE` is now atomic. Either the statement succeeds or it's
+ REPLACE` is now atomic. Either the statement succeeds or it's
   completely reversed.
 - **Redo log write** – Redo log writes
   asynchronously.
@@ -214,56 +214,56 @@ REPLACE` is now atomic. Either the statement succeeds or it's
   The following parameters have been deprecated or removed for MariaDB version
   10.11 DB instances:
 
-  - [innodb_change_buffering](https://mariadb.com/kb/en/innodb-system-variables/#innodb_change_buffering "https://mariadb.com/kb/en/innodb-system-variables/#innodb_change_buffering")
-  - [innodb_disallow_writes](https://mariadb.com/kb/en/innodb-system-variables/#innodb_disallow_writes "https://mariadb.com/kb/en/innodb-system-variables/#innodb_disallow_writes")
-  - [innodb_log_write_ahead_size](https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_write_ahead_size "https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_write_ahead_size")
-  - [innodb_prefix_index_cluster_optimization](https://mariadb.com/kb/en/innodb-system-variables/#innodb_prefix_index_cluster_optimization "https://mariadb.com/kb/en/innodb-system-variables/#innodb_prefix_index_cluster_optimization")
-  - [keep_files_on_create](https://mariadb.com/kb/en/server-system-variables/#keep_files_on_create "https://mariadb.com/kb/en/server-system-variables/#keep_files_on_create")
+  - [innodb\_change\_buffering](https://mariadb.com/kb/en/innodb-system-variables/#innodb_change_buffering "https://mariadb.com/kb/en/innodb-system-variables/#innodb_change_buffering")
+  - [innodb\_disallow\_writes](https://mariadb.com/kb/en/innodb-system-variables/#innodb_disallow_writes "https://mariadb.com/kb/en/innodb-system-variables/#innodb_disallow_writes")
+  - [innodb\_log\_write\_ahead\_size](https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_write_ahead_size "https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_write_ahead_size")
+  - [innodb\_prefix\_index\_cluster\_optimization](https://mariadb.com/kb/en/innodb-system-variables/#innodb_prefix_index_cluster_optimization "https://mariadb.com/kb/en/innodb-system-variables/#innodb_prefix_index_cluster_optimization")
+  - [keep\_files\_on\_create](https://mariadb.com/kb/en/server-system-variables/#keep_files_on_create "https://mariadb.com/kb/en/server-system-variables/#keep_files_on_create")
   - [old](https://mariadb.com/kb/en/server-system-variables/#old "https://mariadb.com/kb/en/server-system-variables/#old")
 
 - **Dynamic parameters** – The following
   parameters are now dynamic for MariaDB version 10.11 DB instances:
 
-  - [innodb_log_file_size](https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_file_size "https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_file_size")
-  - [innodb_write_io_threads](https://mariadb.com/kb/en/innodb-system-variables/#innodb_write_io_threads "https://mariadb.com/kb/en/innodb-system-variables/#innodb_write_io_threads")
-  - [innodb_read_io_threads](https://mariadb.com/kb/en/innodb-system-variables/#innodb_read_io_threads "https://mariadb.com/kb/en/innodb-system-variables/#innodb_read_io_threads")
+  - [innodb\_log\_file\_size](https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_file_size "https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_file_size")
+  - [innodb\_write\_io\_threads](https://mariadb.com/kb/en/innodb-system-variables/#innodb_write_io_threads "https://mariadb.com/kb/en/innodb-system-variables/#innodb_write_io_threads")
+  - [innodb\_read\_io\_threads](https://mariadb.com/kb/en/innodb-system-variables/#innodb_read_io_threads "https://mariadb.com/kb/en/innodb-system-variables/#innodb_read_io_threads")
 
 - **New default values for parameters**
   – The following parameters have new default values for MariaDB
   version 10.11 DB instances:
 
-  - The default value of the [explicit_defaults_for_timestamp](https://mariadb.com/kb/en/server-system-variables/#explicit_defaults_for_timestamp "https://mariadb.com/kb/en/server-system-variables/#explicit_defaults_for_timestamp") parameter changed from
+  - The default value of the [explicit\_defaults\_for\_timestamp](https://mariadb.com/kb/en/server-system-variables/#explicit_defaults_for_timestamp "https://mariadb.com/kb/en/server-system-variables/#explicit_defaults_for_timestamp") parameter changed from
     `OFF` to `ON`.
-  - The default value of the [optimizer_prune_level](https://mariadb.com/kb/en/server-system-variables/#optimizer_prune_level "https://mariadb.com/kb/en/server-system-variables/#optimizer_prune_level") parameter changed from
+  - The default value of the [optimizer\_prune\_level](https://mariadb.com/kb/en/server-system-variables/#optimizer_prune_level "https://mariadb.com/kb/en/server-system-variables/#optimizer_prune_level") parameter changed from
     `1` to `2`.
 
 - **New valid values for parameters** –
   The following parameters have new valid values for MariaDB version 10.11 DB
   instances:
 
-  - The valid values for the [old](https://mariadb.com/kb/en/server-system-variables/#old "https://mariadb.com/kb/en/server-system-variables/#old") parameter were merged into those for the [old_mode](https://mariadb.com/kb/en/server-system-variables/#old_mode "https://mariadb.com/kb/en/server-system-variables/#old_mode") parameter.
-  - The valid values for the [histogram_type](https://mariadb.com/kb/en/server-system-variables/#histogram_type "https://mariadb.com/kb/en/server-system-variables/#histogram_type") parameter now include
+  - The valid values for the [old](https://mariadb.com/kb/en/server-system-variables/#old "https://mariadb.com/kb/en/server-system-variables/#old") parameter were merged into those for the [old\_mode](https://mariadb.com/kb/en/server-system-variables/#old_mode "https://mariadb.com/kb/en/server-system-variables/#old_mode") parameter.
+  - The valid values for the [histogram\_type](https://mariadb.com/kb/en/server-system-variables/#histogram_type "https://mariadb.com/kb/en/server-system-variables/#histogram_type") parameter now include
     `JSON_HB`.
-  - The valid value range for the [innodb_log_buffer_size](https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_buffer_size "https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_buffer_size") parameter is now
+  - The valid value range for the [innodb\_log\_buffer\_size](https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_buffer_size "https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_buffer_size") parameter is now
     `262144` to `4294967295` (256KB to
     4096MB).
-  - The valid value range for the [innodb_log_file_size](https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_file_size "https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_file_size") parameter is now
+  - The valid value range for the [innodb\_log\_file\_size](https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_file_size "https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_file_size") parameter is now
     `4194304` to `512GB` (4MB to
     512GB).
-  - The valid values for the [optimizer_prune_level](https://mariadb.com/kb/en/server-system-variables/#optimizer_prune_level "https://mariadb.com/kb/en/server-system-variables/#optimizer_prune_level") parameter now include
+  - The valid values for the [optimizer\_prune\_level](https://mariadb.com/kb/en/server-system-variables/#optimizer_prune_level "https://mariadb.com/kb/en/server-system-variables/#optimizer_prune_level") parameter now include
     `2`.
 
 - **New parameters** – The following
   parameters are new for MariaDB version 10.11 DB instances:
 
-  - The [binlog_alter_two_phase](https://mariadb.com/kb/en/replication-and-binary-log-system-variables//#binlog_alter_two_phase "https://mariadb.com/kb/en/replication-and-binary-log-system-variables//#binlog_alter_two_phase") parameter can improve
+  - The [binlog\_alter\_two\_phase](https://mariadb.com/kb/en/replication-and-binary-log-system-variables//#binlog_alter_two_phase "https://mariadb.com/kb/en/replication-and-binary-log-system-variables//#binlog_alter_two_phase") parameter can improve
     replication performance.
-  - The [log_slow_min_examined_row_limit](https://mariadb.com/kb/en/server-system-variables/#log_slow_min_examined_row_limit "https://mariadb.com/kb/en/server-system-variables/#log_slow_min_examined_row_limit") parameter can improve
+  - The [log\_slow\_min\_examined\_row\_limit](https://mariadb.com/kb/en/server-system-variables/#log_slow_min_examined_row_limit "https://mariadb.com/kb/en/server-system-variables/#log_slow_min_examined_row_limit") parameter can improve
     performance.
-  - The [log_slow_query](https://mariadb.com/kb/en/server-system-variables/#log_slow_query "https://mariadb.com/kb/en/server-system-variables/#log_slow_query") parameter and the [log_slow_query_file](https://mariadb.com/kb/en/server-system-variables/#log_slow_query_file "https://mariadb.com/kb/en/server-system-variables/#log_slow_query_file") parameter are aliases for
+  - The [log\_slow\_query](https://mariadb.com/kb/en/server-system-variables/#log_slow_query "https://mariadb.com/kb/en/server-system-variables/#log_slow_query") parameter and the [log\_slow\_query\_file](https://mariadb.com/kb/en/server-system-variables/#log_slow_query_file "https://mariadb.com/kb/en/server-system-variables/#log_slow_query_file") parameter are aliases for
     `slow_query_log` and `slow_query_log_file`, respectively.
-  - [optimizer_extra_pruning_depth](https://mariadb.com/kb/en/server-system-variables/#optimizer_extra_pruning_depth "https://mariadb.com/kb/en/server-system-variables/#optimizer_extra_pruning_depth")
-  - [system_versioning_insert_history](https://mariadb.com/kb/en/system-versioned-tables/#system_versioning_insert_history "https://mariadb.com/kb/en/system-versioned-tables/#system_versioning_insert_history")
+  - [optimizer\_extra\_pruning\_depth](https://mariadb.com/kb/en/server-system-variables/#optimizer_extra_pruning_depth "https://mariadb.com/kb/en/server-system-variables/#optimizer_extra_pruning_depth")
+  - [system\_versioning\_insert\_history](https://mariadb.com/kb/en/system-versioned-tables/#system_versioning_insert_history "https://mariadb.com/kb/en/system-versioned-tables/#system_versioning_insert_history")
 
 For a list of all MariaDB 10.11 features and their documentation, see
 [Changes and improvements in MariaDB 10.11](https://mariadb.com/kb/en/changes-improvements-in-mariadb-1011/ "https://mariadb.com/kb/en/changes-improvements-in-mariadb-1011/")
@@ -297,12 +297,12 @@ version 10.6 or higher:
   [Configuring delayed replication with MariaDB](USER_MariaDB.Replication.ReadReplicas.DelayReplication.md "USER_MariaDB.Replication.ReadReplicas.DelayReplication.md").
 - **Oracle PL/SQL compatibility** – By
   using RDS for MariaDB version 10.6, you can more easily migrate your legacy
-  Oracle applications to Amazon RDS. For more information, see [SQL_MODE=ORACLE](https://mariadb.com/kb/en/sql_modeoracle/ "https://mariadb.com/kb/en/sql_modeoracle/").
+  Oracle applications to Amazon RDS. For more information, see [SQL\_MODE=ORACLE](https://mariadb.com/kb/en/sql_modeoracle/ "https://mariadb.com/kb/en/sql_modeoracle/").
 - **Atomic DDL** – Your dynamic data
   language (DDL) statements can be relatively crash-safe with RDS for MariaDB
   version 10.6. `CREATE TABLE`, `ALTER TABLE`,
   `RENAME TABLE`, `DROP TABLE`, `DROP
-DATABASE` and related DDL statements are now atomic. Either the
+ DATABASE` and related DDL statements are now atomic. Either the
   statement succeeds, or it's completely reversed. For more information, see
   [Atomic
   DDL](https://mariadb.com/kb/en/atomic-ddl/ "https://mariadb.com/kb/en/atomic-ddl/").
@@ -311,24 +311,23 @@ DATABASE` and related DDL statements are now atomic. Either the
   JSON data to relational format within SQL, and faster empty table data load
   with Innodb. They also include new `sys_schema` for analysis and
   troubleshooting, optimizer enhancement for ignoring unused indexes, and
-  performance improvements. For more information, see [JSON_TABLE](https://mariadb.com/kb/en/json_table/ "https://mariadb.com/kb/en/json_table/").
+  performance improvements. For more information, see [JSON\_TABLE](https://mariadb.com/kb/en/json_table/ "https://mariadb.com/kb/en/json_table/").
 - **New default values for parameters** – The following parameters have
   new default values for MariaDB version 10.6 DB instances:
 
   - The default value for the following parameters has changed from `utf8` to `utf8mb3`:
 
-        - [character\_set\_client](https://mariadb.com/kb/en/server-system-variables/#character_set_client "https://mariadb.com/kb/en/server-system-variables/#character_set_client")
-        - [character\_set\_connection](https://mariadb.com/kb/en/server-system-variables/#character_set_connection "https://mariadb.com/kb/en/server-system-variables/#character_set_connection")
-        - [character\_set\_results](https://mariadb.com/kb/en/server-system-variables/#character_set_results "https://mariadb.com/kb/en/server-system-variables/#character_set_results")
-        - [character\_set\_system](https://mariadb.com/kb/en/server-system-variables/#character_set_system "https://mariadb.com/kb/en/server-system-variables/#character_set_system")
+    - [character\_set\_client](https://mariadb.com/kb/en/server-system-variables/#character_set_client "https://mariadb.com/kb/en/server-system-variables/#character_set_client")
+    - [character\_set\_connection](https://mariadb.com/kb/en/server-system-variables/#character_set_connection "https://mariadb.com/kb/en/server-system-variables/#character_set_connection")
+    - [character\_set\_results](https://mariadb.com/kb/en/server-system-variables/#character_set_results "https://mariadb.com/kb/en/server-system-variables/#character_set_results")
+    - [character\_set\_system](https://mariadb.com/kb/en/server-system-variables/#character_set_system "https://mariadb.com/kb/en/server-system-variables/#character_set_system")
+      Although the default values have changed for these parameters, there is no functional change. For more information,
+      see [Supported Character Sets and Collations](https://mariadb.com/kb/en/supported-character-sets-and-collations/ "https://mariadb.com/kb/en/supported-character-sets-and-collations/")
+      in the MariaDB documentation.
 
-    Although the default values have changed for these parameters, there is no functional change. For more information,
-    see [Supported Character Sets and Collations](https://mariadb.com/kb/en/supported-character-sets-and-collations/ "https://mariadb.com/kb/en/supported-character-sets-and-collations/")
-    in the MariaDB documentation.
-
-  - The default value of the [collation_connection](https://mariadb.com/kb/en/server-system-variables/#collation_connection "https://mariadb.com/kb/en/server-system-variables/#collation_connection") parameter has changed from `utf8_general_ci` to `utf8mb3_general_ci`.
+  - The default value of the [collation\_connection](https://mariadb.com/kb/en/server-system-variables/#collation_connection "https://mariadb.com/kb/en/server-system-variables/#collation_connection") parameter has changed from `utf8_general_ci` to `utf8mb3_general_ci`.
     Although the default value has changed for this parameter, there is no functional change.
-  - The default value of the [old_mode](https://mariadb.com/kb/en/server-system-variables/#old_mode "https://mariadb.com/kb/en/server-system-variables/#old_mode") parameter has changed from unset to `UTF8_IS_UTF8MB3`. Although the default value
+  - The default value of the [old\_mode](https://mariadb.com/kb/en/server-system-variables/#old_mode "https://mariadb.com/kb/en/server-system-variables/#old_mode") parameter has changed from unset to `UTF8_IS_UTF8MB3`. Although the default value
     has changed for this parameter, there is no functional change.
 
 For a list of all MariaDB 10.6 features and their documentation, see
@@ -373,7 +372,7 @@ information about modifying parameters, see [Modifying parameters in a DB parame
   new privilege isn't granted to the RDS master user.
 
 Instead of using the `SHOW REPLICA STATUS` command, run the new `mysql.rds_replica_status` stored procedure
-to return similar information. For more information, see [mysql.rds_replica_status](mysql_rds_replica_status.md "mysql_rds_replica_status.md").
+to return similar information. For more information, see [mysql.rds\_replica\_status](mysql_rds_replica_status.md "mysql_rds_replica_status.md").
 
 - **SHOW RELAYLOG EVENTS command not
   supported** – In versions of MariaDB before version
@@ -384,12 +383,12 @@ to return similar information. For more information, see [mysql.rds_replica_stat
 - **New default values for parameters** – The following parameters have
   new default values for MariaDB version 10.5 DB instances:
 
-  - The default value of the [max_connections](https://mariadb.com/kb/en/server-system-variables/#max_connections "https://mariadb.com/kb/en/server-system-variables/#max_connections")
+  - The default value of the [max\_connections](https://mariadb.com/kb/en/server-system-variables/#max_connections "https://mariadb.com/kb/en/server-system-variables/#max_connections")
     parameter has changed to `LEAST({DBInstanceClassMemory/25165760},12000)`. For information about the `LEAST` parameter function,
     see [DB parameter functions](USER_ParamValuesRef.md#USER_ParamFunctions "USER_ParamValuesRef.md#USER_ParamFunctions").
-  - The default value of the [innodb_adaptive_hash_index](https://mariadb.com/kb/en/innodb-system-variables/#innodb_adaptive_hash_index "https://mariadb.com/kb/en/innodb-system-variables/#innodb_adaptive_hash_index") parameter has changed to `OFF` (`0`).
-  - The default value of the [innodb_checksum_algorithm](https://mariadb.com/kb/en/innodb-system-variables/#innodb_checksum_algorithm "https://mariadb.com/kb/en/innodb-system-variables/#innodb_checksum_algorithm") parameter has changed to `full_crc32`.
-  - The default value of the [innodb_log_file_size](https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_file_size "https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_file_size")
+  - The default value of the [innodb\_adaptive\_hash\_index](https://mariadb.com/kb/en/innodb-system-variables/#innodb_adaptive_hash_index "https://mariadb.com/kb/en/innodb-system-variables/#innodb_adaptive_hash_index") parameter has changed to `OFF` (`0`).
+  - The default value of the [innodb\_checksum\_algorithm](https://mariadb.com/kb/en/innodb-system-variables/#innodb_checksum_algorithm "https://mariadb.com/kb/en/innodb-system-variables/#innodb_checksum_algorithm") parameter has changed to `full_crc32`.
+  - The default value of the [innodb\_log\_file\_size](https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_file_size "https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_file_size")
     parameter has changed to 2 GB.
 
 For a list of all MariaDB 10.5 features and their documentation, see
@@ -415,9 +414,9 @@ running MariaDB version 10.4 or later:
   [Instant DROP COLUMN support](https://mariadb.com/kb/en/alter-table/#drop-column "https://mariadb.com/kb/en/alter-table/#drop-column") and
   instant `VARCHAR` extension for `ROW_FORMAT=DYNAMIC` and `ROW_FORMAT=COMPACT`
 - **New parameters** –
-  Including [tcp_nodedelay](https://mariadb.com/kb/en/server-system-variables/#tcp_nodelay "https://mariadb.com/kb/en/server-system-variables/#tcp_nodelay"),
-  [tls_version](https://mariadb.com/kb/en/ssltls-system-variables/#tls_version "https://mariadb.com/kb/en/ssltls-system-variables/#tls_version"), and
-  [gtid_cleanup_batch_size](https://mariadb.com/kb/en/gtid/#gtid_cleanup_batch_size "https://mariadb.com/kb/en/gtid/#gtid_cleanup_batch_size")
+  Including [tcp\_nodedelay](https://mariadb.com/kb/en/server-system-variables/#tcp_nodelay "https://mariadb.com/kb/en/server-system-variables/#tcp_nodelay"),
+  [tls\_version](https://mariadb.com/kb/en/ssltls-system-variables/#tls_version "https://mariadb.com/kb/en/ssltls-system-variables/#tls_version"), and
+  [gtid\_cleanup\_batch\_size](https://mariadb.com/kb/en/gtid/#gtid_cleanup_batch_size "https://mariadb.com/kb/en/gtid/#gtid_cleanup_batch_size")
 
 For a list of all MariaDB 10.4 features and their documentation, see
 [Changes and improvements in MariaDB 10.4](https://mariadb.com/kb/en/library/changes-improvements-in-mariadb-104/ "https://mariadb.com/kb/en/library/changes-improvements-in-mariadb-104/")

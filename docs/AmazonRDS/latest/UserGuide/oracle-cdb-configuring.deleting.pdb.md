@@ -44,7 +44,7 @@ Consider the following prerequisites and limitations:
    parameters:
 
 - `--db-instance-identifier
-`value``
+ `value``
 - `--tenant-db-name `value``
 - `[--skip-final-snapshot | --no-skip-final-snapshot]`
 - `[--final-snapshot-identifier

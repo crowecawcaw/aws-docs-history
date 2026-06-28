@@ -15,7 +15,7 @@ model for new databases.
 
 - [Accessing the tempdb database on Microsoft SQL Server DB instances on Amazon RDS](SQLServer.TempDB.md "SQLServer.TempDB.md")
 - [Analyzing your database workload on an Amazon RDS for SQL Server DB instance with Database Engine Tuning Advisor](Appendix.SQLServer.CommonDBATasks.Workload.md "Appendix.SQLServer.CommonDBATasks.Workload.md")
-- [Changing the db_owner to the rdsa account for your Amazon RDS for SQL Server database](Appendix.SQLServer.CommonDBATasks.ChangeDBowner.md "Appendix.SQLServer.CommonDBATasks.ChangeDBowner.md")
+- [Changing the db\_owner to the rdsa account for your Amazon RDS for SQL Server database](Appendix.SQLServer.CommonDBATasks.ChangeDBowner.md "Appendix.SQLServer.CommonDBATasks.ChangeDBowner.md")
 - [Managing collations and character sets for Amazon RDS for Microsoft SQL Server](Appendix.SQLServer.CommonDBATasks.Collation.md "Appendix.SQLServer.CommonDBATasks.Collation.md")
 - [Creating a database user for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.CreateUser.md "Appendix.SQLServer.CommonDBATasks.CreateUser.md")
 - [Determining a recovery model for your Amazon RDS for SQL Server database](Appendix.SQLServer.CommonDBATasks.DatabaseRecovery.md "Appendix.SQLServer.CommonDBATasks.DatabaseRecovery.md")
@@ -25,7 +25,7 @@ model for new databases.
 - [Disabling fast inserts during bulk loading for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.DisableFastInserts.md "Appendix.SQLServer.CommonDBATasks.DisableFastInserts.md")
 - [Dropping a database in an Amazon RDS for Microsoft SQL Server DB instance](Appendix.SQLServer.CommonDBATasks.DropMirrorDB.md "Appendix.SQLServer.CommonDBATasks.DropMirrorDB.md")
 - [Renaming a Amazon RDS for Microsoft SQL Server database in a Multi-AZ deployment](Appendix.SQLServer.CommonDBATasks.RenamingDB.md "Appendix.SQLServer.CommonDBATasks.RenamingDB.md")
-- [Resetting the db_owner role membership for master user for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.ResetPassword.md "Appendix.SQLServer.CommonDBATasks.ResetPassword.md")
+- [Resetting the db\_owner role membership for master user for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.ResetPassword.md "Appendix.SQLServer.CommonDBATasks.ResetPassword.md")
 - [Restoring license-terminated DB instances for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.RestoreLTI.md "Appendix.SQLServer.CommonDBATasks.RestoreLTI.md")
 - [Transitioning a Amazon RDS for SQL Server database from OFFLINE to ONLINE](Appendix.SQLServer.CommonDBATasks.TransitionOnline.md "Appendix.SQLServer.CommonDBATasks.TransitionOnline.md")
 - [Using change data capture for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.CDC.md "Appendix.SQLServer.CommonDBATasks.CDC.md")

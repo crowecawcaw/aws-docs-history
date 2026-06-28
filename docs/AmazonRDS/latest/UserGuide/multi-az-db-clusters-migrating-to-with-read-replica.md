@@ -42,54 +42,43 @@ see [Working with a DB instance in a VPC](USER_VPC.WorkingWithRDSInstanceinaVPC.
 To migrate a Single-AZ deployment or Multi-AZ DB instance deployment to a Multi-AZ DB cluster using
 a read replica, complete the following steps using the AWS Management Console.
 
-1.  Sign in to the AWS Management Console and open the Amazon RDS console at
-    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2.  Create the Multi-AZ DB cluster read replica.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. Create the Multi-AZ DB cluster read replica.
 
-    1. In the navigation pane, choose **Databases**.
-    2. Choose the DB instance that you want to use as the source for a read replica.
-    3. For **Actions**, choose **Create read
-       replica**.
-    4. For **Availability and durability**, choose **Multi-AZ DB cluster**.
-    5. For **DB instance identifier**, enter a name for the read replica.
-    6. For the remaining sections, specify your DB cluster settings. For information about a setting, see
-       [Settings for creating Multi-AZ DB clusters](create-multi-az-db-cluster.md#create-multi-az-db-cluster-settings "create-multi-az-db-cluster.md#create-multi-az-db-cluster-settings").
-    7. Choose **Create read replica**.
+   1. In the navigation pane, choose **Databases**.
+   2. Choose the DB instance that you want to use as the source for a read replica.
+   3. For **Actions**, choose **Create read
+      replica**.
+   4. For **Availability and durability**, choose **Multi-AZ DB cluster**.
+   5. For **DB instance identifier**, enter a name for the read replica.
+   6. For the remaining sections, specify your DB cluster settings. For information about a setting, see
+      [Settings for creating Multi-AZ DB clusters](create-multi-az-db-cluster.md#create-multi-az-db-cluster-settings "create-multi-az-db-cluster.md#create-multi-az-db-cluster-settings").
+   7. Choose **Create read replica**.
 
-3.  When you are ready, promote the read replica to be a standalone Multi-AZ DB cluster:
+3. When you are ready, promote the read replica to be a standalone Multi-AZ DB cluster:
 
-        1. Stop any transactions from being written to the source DB instance, and then wait for all updates
-         to be made to the read replica.
+   1. Stop any transactions from being written to the source DB instance, and then wait for all updates
+      to be made to the read replica.
 
+   Database updates occur on the read replica after they have occurred on the primary DB
+   instance. This replication lag can vary significantly. Use
+   the `ReplicaLag` metric to determine when all
+   updates have been made to the read replica. For more
+   information about replica lag, see [Monitoring read replication](USER_ReadRepl.Monitoring.md "USER_ReadRepl.Monitoring.md"). 2. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/"). 3. In the Amazon RDS console, choose **Databases**.
 
-        Database updates occur on the read replica after they have occurred on the primary DB
-         instance. This replication lag can vary significantly. Use
-         the `ReplicaLag` metric to determine when all
-         updates have been made to the read replica. For more
-         information about replica lag, see [Monitoring read replication](USER_ReadRepl.Monitoring.md "USER_ReadRepl.Monitoring.md").
-        2. Sign in to the AWS Management Console and open the Amazon RDS console at
-         [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-        3. In the Amazon RDS console, choose **Databases**.
+   The **Databases** pane appears. Each read replica shows
+   **Replica** in the **Role**
+   column. 4. Choose the Multi-AZ DB cluster read replica that you want to promote. 5. For **Actions**, choose **Promote**. 6. On the **Promote read replica** page, enter the backup
+   retention period and the backup window for the newly promoted Multi-AZ DB cluster. 7. When the settings are as you want them, choose
+   **Promote read replica**. 8. Wait for the status of the promoted Multi-AZ DB cluster to be
+   `Available`. 9. Direct your applications to use the promoted Multi-AZ DB cluster.Optionally, delete the Single-AZ deployment or Multi-AZ DB instance deployment if it is
+   no longer needed. For instructions, see [Deleting a DB instance](USER_DeleteInstance.md "USER_DeleteInstance.md").
+   To migrate a Single-AZ deployment or Multi-AZ DB instance deployment to a Multi-AZ DB cluster using
+   a read replica, complete the following steps using the AWS CLI.
 
-
-        The **Databases** pane appears. Each read replica shows
-         **Replica** in the **Role**
-         column.
-        4. Choose the Multi-AZ DB cluster read replica that you want to promote.
-        5. For **Actions**, choose **Promote**.
-        6. On the **Promote read replica** page, enter the backup
-         retention period and the backup window for the newly promoted Multi-AZ DB cluster.
-        7. When the settings are as you want them, choose
-         **Promote read replica**.
-        8. Wait for the status of the promoted Multi-AZ DB cluster to be
-         `Available`.
-        9. Direct your applications to use the promoted Multi-AZ DB cluster.Optionally, delete the Single-AZ deployment or Multi-AZ DB instance deployment if it is
-
-    no longer needed. For instructions, see [Deleting a DB instance](USER_DeleteInstance.md "USER_DeleteInstance.md").
-    To migrate a Single-AZ deployment or Multi-AZ DB instance deployment to a Multi-AZ DB cluster using
-    a read replica, complete the following steps using the AWS CLI.
-
-4.  Create the Multi-AZ DB cluster read replica.
+4. Create the Multi-AZ DB cluster read replica.
 
 To create a read replica from the source DB instance, use the AWS CLI command [`create-db-cluster`](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md"). For
 `--replication-source-identifier`, specify the

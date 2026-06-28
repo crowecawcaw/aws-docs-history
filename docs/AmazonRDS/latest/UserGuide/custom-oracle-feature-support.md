@@ -51,7 +51,7 @@ Standard Edition 2, you can only use instance classes with 16 or fewer vCPUs (up
 large).
 
 | Type      | Size                |
-| --------- | ------------------- | ------------------- | ----------------------- | ------------------- | ------------------------ | -------------------- | ------------------------ | ----------------- | --------------------- | ------------------- | ----------------------- |
+| --------- | ------------------- |
 | db.m7i    | `db.m7i.large`      | `db.m7i.xlarge`     | <br>`db.m7i.2xlarge`    | `db.m7i.4xlarge`    | <br>`db.m7i.8xlarge`     | `db.m7i.12xlarge`    | <br>`db.m7i.16xlarge`    | `db.m7i.24xlarge` | <br>`db.m7i.48xlarge` | `db.m7i.metal-24xl` | <br>`db.m7i.metal-48xl` |
 | db.m6i    | `db.m6i.large`      | `db.m6i.xlarge`     | <br>`db.m6i.2xlarge`    | `db.m6i.4xlarge`    | <br>`db.m6i.8xlarge`     | `db.m6i.12xlarge`    | <br>`db.m6i.16xlarge`    | `db.m6i.24xlarge` | <br>`db.m6i.32xlarge` | `db.m6i.metal`      |
 | db.m6id   | `db.m6id.metal`     |

@@ -33,7 +33,7 @@ Offerings](https://www.oracle.com/a/ocom/docs/elsp-lifetime-069338.pdf "https://
 After patching completes, RDS Custom attempts to open all PDBs. If any PDBs fail to
 open, you receive the following event: `The following PDBs failed to open:
  `list-of-PDBs``. If RDS Custom fails to patch the
- CDB root or any PDBs, the instance is put into the `PATCH_DB_FAILED`
+CDB root or any PDBs, the instance is put into the `PATCH_DB_FAILED`
 state.
 
 - You might want to perform a major database version upgrade and a conversion of

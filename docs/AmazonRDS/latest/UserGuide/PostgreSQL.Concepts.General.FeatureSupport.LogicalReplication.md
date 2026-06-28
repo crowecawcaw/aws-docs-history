@@ -59,7 +59,7 @@ a PostgreSQL DB instance.
    parameter to take effect.
 4. Create a logical replication slot as explained in the next section. This
    process requires that you specify a decoding plugin. Currently, RDS for PostgreSQL
-   supports the test_decoding and wal2json output plugins that ship with
+   supports the test\_decoding and wal2json output plugins that ship with
    PostgreSQL.
 
 For more information on PostgreSQL logical decoding, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html "https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html").
@@ -97,7 +97,7 @@ For more examples on working with logical replication slots, see [Logical decodi
 
 After you create the logical replication slot, you can start streaming. The following
 example shows how logical decoding is controlled over the streaming replication
-protocol. This example uses the program pg_recvlogical, which is included in the
+protocol. This example uses the program pg\_recvlogical, which is included in the
 PostgreSQL distribution. Doing this requires that client authentication is set up to
 allow replication connections.
 

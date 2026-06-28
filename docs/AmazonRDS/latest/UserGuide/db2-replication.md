@@ -77,7 +77,7 @@ met:
   This condition applies both to DB instances in the same AWS Region and to
   cross-Region DB instances.
 
-For information about setting archive log retention hours, see [rdsadmin.set_archive_log_retention](db2-sp-managing-databases.md#db2-sp-set-archive-log-retention "db2-sp-managing-databases.md#db2-sp-set-archive-log-retention").
+For information about setting archive log retention hours, see [rdsadmin.set\_archive\_log\_retention](db2-sp-managing-databases.md#db2-sp-set-archive-log-retention "db2-sp-managing-databases.md#db2-sp-set-archive-log-retention").
 
 Amazon RDS checks and cleans up each database individually. If a database loses the HADR
 connection or if information about the connection isn't available, then Amazon RDS skips the

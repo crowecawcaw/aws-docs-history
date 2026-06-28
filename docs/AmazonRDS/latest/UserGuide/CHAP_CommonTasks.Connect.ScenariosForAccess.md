@@ -37,8 +37,7 @@ information, see [Can't connect to Amazon RDS DB instance](CHAP_Troubleshooting.
   If your DB instance isn't publicly accessible, you can use one of the following options to
   access it from a private network:
 
-      + An AWS Site-to-Site VPN connection
-      + An Direct Connect connection
-      + An AWS Client VPN connection
-
-  For more information, see [Scenarios for accessing a DB instance in a VPC](USER_VPC.Scenarios.md "USER_VPC.Scenarios.md").
+  - An AWS Site-to-Site VPN connection
+  - An Direct Connect connection
+  - An AWS Client VPN connection
+    For more information, see [Scenarios for accessing a DB instance in a VPC](USER_VPC.Scenarios.md "USER_VPC.Scenarios.md").

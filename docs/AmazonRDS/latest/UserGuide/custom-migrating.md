@@ -51,20 +51,19 @@ You use the AWS Management Console to upload the backup file `mydb-full-compress
 
 ###### To upload the backup file to S3
 
-1.  Sign in to the AWS Management Console and open the Amazon S3 console at
-    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2.  For **Buckets**, choose the name of the bucket to which you
-    want to upload your backup file.
-3.  Choose **Upload**.
-4.  In the **Upload** window, do one of the following:
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. For **Buckets**, choose the name of the bucket to which you
+   want to upload your backup file.
+3. Choose **Upload**.
+4. In the **Upload** window, do one of the following:
 
-        * Drag and drop `mydb-full-compressed.bak` to the **Upload**
-         window.
-        * Choose **Add file**, choose `mydb-full-compressed.bak`, and
-         then choose **Open**.
-
-    Amazon S3 uploads your backup file as an S3 object. When the upload completes, you can see a success message on the
-    **Upload: status** page.
+   - Drag and drop `mydb-full-compressed.bak` to the **Upload**
+     window.
+   - Choose **Add file**, choose `mydb-full-compressed.bak`, and
+     then choose **Open**.
+     Amazon S3 uploads your backup file as an S3 object. When the upload completes, you can see a success message on the
+     **Upload: status** page.
 
 ## Downloading the backup file from Amazon S3
 

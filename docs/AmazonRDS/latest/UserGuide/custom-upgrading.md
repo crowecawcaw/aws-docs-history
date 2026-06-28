@@ -86,19 +86,18 @@ CEV.
 Whether you patch the OS or your database, perform the following basic
 steps:
 
-1.  Create a CEV that contains either of the following, depending on whether
-    you're patching the database or OS:
+1. Create a CEV that contains either of the following, depending on whether
+   you're patching the database or OS:
 
-        * The Oracle Database RU that you want to apply to your DB instance
-        * A different AMI–either the latest available or one that you
-         specify–and an existing CEV to use as a source
+   - The Oracle Database RU that you want to apply to your DB instance
+   - A different AMI–either the latest available or one that you
+     specify–and an existing CEV to use as a source
+     Follow the steps in [Creating a CEV](custom-cev.create.md "custom-cev.create.md").
 
-    Follow the steps in [Creating a CEV](custom-cev.create.md "custom-cev.create.md").
-
-2.  (Optional for database patching) Check available engine version upgrades
-    by running `describe-db-engine-versions`.
-3.  Start the patching process by running
-    `modify-db-instance`.
+2. (Optional for database patching) Check available engine version upgrades
+   by running `describe-db-engine-versions`.
+3. Start the patching process by running
+   `modify-db-instance`.
 
 The status of the instance being patched differs as follows:
 

@@ -40,7 +40,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 ```
 
 2. Create a tablespace by calling `rdsadmin.create_tablespace`. For
-   more information, see [rdsadmin.create_tablespace](db2-sp-managing-tablespaces.md#db2-sp-create-tablespace "db2-sp-managing-tablespaces.md#db2-sp-create-tablespace").
+   more information, see [rdsadmin.create\_tablespace](db2-sp-managing-tablespaces.md#db2-sp-create-tablespace "db2-sp-managing-tablespaces.md#db2-sp-create-tablespace").
 
 ```
 db2 "call rdsadmin.create_tablespace(
@@ -72,7 +72,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 ```
 
 2. Alter a tablespace by calling `rdsadmin.alter_tablespace`. For
-   more information, see [rdsadmin.alter_tablespace](db2-sp-managing-tablespaces.md#db2-sp-alter-tablespace "db2-sp-managing-tablespaces.md#db2-sp-alter-tablespace").
+   more information, see [rdsadmin.alter\_tablespace](db2-sp-managing-tablespaces.md#db2-sp-alter-tablespace "db2-sp-managing-tablespaces.md#db2-sp-alter-tablespace").
 
 ```
 db2 "call rdsadmin.alter_tablespace(
@@ -109,7 +109,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 
 2. Rename a tablespace by calling `rdsadmin.rename_tablespace`. For
    more information, including restrictions on what you can name a tablespace, see
-   [rdsadmin.rename_tablespace](db2-sp-managing-tablespaces.md#db2-sp-rename-tablespace "db2-sp-managing-tablespaces.md#db2-sp-rename-tablespace").
+   [rdsadmin.rename\_tablespace](db2-sp-managing-tablespaces.md#db2-sp-rename-tablespace "db2-sp-managing-tablespaces.md#db2-sp-rename-tablespace").
 
 ```
 db2 "call rdsadmin.rename_tablespace(
@@ -138,7 +138,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 ```
 
 2. Drop a tablespace by calling `rdsadmin.drop_tablespace`. For
-   more information, see [rdsadmin.drop_tablespace](db2-sp-managing-tablespaces.md#db2-sp-drop-tablespace "db2-sp-managing-tablespaces.md#db2-sp-drop-tablespace").
+   more information, see [rdsadmin.drop\_tablespace](db2-sp-managing-tablespaces.md#db2-sp-drop-tablespace "db2-sp-managing-tablespaces.md#db2-sp-drop-tablespace").
 
 ```
 db2 "call rdsadmin.drop_tablespace(

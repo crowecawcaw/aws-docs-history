@@ -7,9 +7,9 @@ the database. For more information about external tables, see [Managing external
 
 With Amazon RDS, you can store external table files in directory objects. You can
 create a directory object, or you can use one that is predefined in the Oracle
-database, such as the DATA_PUMP_DIR directory. For information about creating
+database, such as the DATA\_PUMP\_DIR directory. For information about creating
 directory objects, see [Creating and dropping directories in the main data storage space](Appendix.Oracle.CommonDBATasks.Misc.md#Appendix.Oracle.CommonDBATasks.NewDirectories "Appendix.Oracle.CommonDBATasks.Misc.md#Appendix.Oracle.CommonDBATasks.NewDirectories"). You can
-query the ALL_DIRECTORIES view to list the directory objects for your Amazon RDS
+query the ALL\_DIRECTORIES view to list the directory objects for your Amazon RDS
 Oracle DB instance.
 
 ###### Note
@@ -20,13 +20,13 @@ audit, trace, and other files—counts against allocated
 storage.
 
 You can move an external data file from one Oracle database to another by
-using the [DBMS_FILE_TRANSFER](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_FILE_TRANSFER.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_FILE_TRANSFER.html") package or the [UTL_FILE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html") package. The external data file is moved from a directory on the
+using the [DBMS\_FILE\_TRANSFER](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_FILE_TRANSFER.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_FILE_TRANSFER.html") package or the [UTL\_FILE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html") package. The external data file is moved from a directory on the
 source database to the specified directory on the destination database. For information
 about using `DBMS_FILE_TRANSFER`, see [Importing using Oracle Data Pump](Oracle.Procedural.Importing.DataPump.md "Oracle.Procedural.Importing.DataPump.md").
 
 After you move the external data file, you can create an external table with
 it. The following example creates an external table that uses the
-`emp_xt_file1.txt` file in the USER_DIR1 directory.
+`emp_xt_file1.txt` file in the USER\_DIR1 directory.
 
 ```
 CREATE TABLE emp_xt (
@@ -69,4 +69,4 @@ CREATE TABLE orders_xt
 ```
 
 In this example, the data is populated in the `orders_xt.dmp` file
-in the DATA_PUMP_DIR directory.
+in the DATA\_PUMP\_DIR directory.

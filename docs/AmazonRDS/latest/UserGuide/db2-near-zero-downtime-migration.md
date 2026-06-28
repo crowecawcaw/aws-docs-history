@@ -130,37 +130,36 @@ database from your Amazon S3 bucket to your RDS for Db2 DB instance.
 db2 connect to rdsadmin user `master_username` using `master_password`
 ```
 
-4.  (Optional) To ensure that your database is configured with the optimal
-    settings, check the values for the following parameters by calling [rdsadmin.show_configuration](db2-sp-managing-databases.md#db2-sp-show-configuration "db2-sp-managing-databases.md#db2-sp-show-configuration"):
+4. (Optional) To ensure that your database is configured with the optimal
+   settings, check the values for the following parameters by calling [rdsadmin.show\_configuration](db2-sp-managing-databases.md#db2-sp-show-configuration "db2-sp-managing-databases.md#db2-sp-show-configuration"):
 
-        * `RESTORE_DATABASE_NUM_BUFFERS`
-        * `RESTORE_DATABASE_PARALLELISM`
-        * `RESTORE_DATABASE_NUM_MULTI_PATHS`
-        * `USE_STREAMING_RESTORE`
+   - `RESTORE_DATABASE_NUM_BUFFERS`
+   - `RESTORE_DATABASE_PARALLELISM`
+   - `RESTORE_DATABASE_NUM_MULTI_PATHS`
+   - `USE_STREAMING_RESTORE`
+     Use [rdsadmin.set\_configuration](db2-sp-managing-databases.md#db2-sp-set-configuration "db2-sp-managing-databases.md#db2-sp-set-configuration") to modify these values as
+     needed. Properly configuring these parameters can significantly improve
+     performance when restoring databases with large volumes of data. For most
+     migration scenarios, we recommend setting `USE_STREAMING_RESTORE` to
+     `TRUE` because it reduces storage requirements and can improve
+     restoration speed.
 
-    Use [rdsadmin.set_configuration](db2-sp-managing-databases.md#db2-sp-set-configuration "db2-sp-managing-databases.md#db2-sp-set-configuration") to modify these values as
-    needed. Properly configuring these parameters can significantly improve
-    performance when restoring databases with large volumes of data. For most
-    migration scenarios, we recommend setting `USE_STREAMING_RESTORE` to
-    `TRUE` because it reduces storage requirements and can improve
-    restoration speed.
-
-5.  Restore the backup on the RDS for Db2 server by calling
-    `rdsadmin.restore_database`. Set `backup_type` to
-    `ONLINE`. For more information, see [rdsadmin.restore_database](db2-sp-managing-databases.md#db2-sp-restore-database "db2-sp-managing-databases.md#db2-sp-restore-database").
-6.  Copy your archive logs from your source server to your S3 bucket. For more
-    information, see [Archive
-    logging](https://www.ibm.com/docs/en/db2/11.5?topic=logging-archive "https://www.ibm.com/docs/en/db2/11.5?topic=logging-archive") in the IBM Db2 documentation.
-7.  Apply archive logs as many times as needed by calling
-    `rdsadmin.rollforward_database`. Set
-    `complete_rollforward` to `FALSE` to keep the database
-    in a `ROLL-FORWARD PENDING` state. For more information, see [rdsadmin.rollforward_database](db2-sp-managing-databases.md#db2-sp-rollforward-database "db2-sp-managing-databases.md#db2-sp-rollforward-database").
-8.  After you apply all of the archive logs, bring the database online by calling
-    `rdsadmin.complete_rollforward`. For more information, see [rdsadmin.complete_rollforward](db2-sp-managing-databases.md#db2-sp-complete-rollforward "db2-sp-managing-databases.md#db2-sp-complete-rollforward").
-9.  Switch application connections to the RDS for Db2 server by either updating your
-    application endpoints for the database or by updating the DNS endpoints to
-    redirect traffic to the RDS for Db2 server. You can also use the Db2 automatic
-    client reroute feature on your self-managed Db2 database with the RDS for Db2
-    database endpoint. For more information, see [Automatic client reroute description and setup](https://www.ibm.com/docs/en/db2/11.5?topic=reroute-configuring-automatic-client "https://www.ibm.com/docs/en/db2/11.5?topic=reroute-configuring-automatic-client") in the IBM Db2
-    documentation.
+5. Restore the backup on the RDS for Db2 server by calling
+   `rdsadmin.restore_database`. Set `backup_type` to
+   `ONLINE`. For more information, see [rdsadmin.restore\_database](db2-sp-managing-databases.md#db2-sp-restore-database "db2-sp-managing-databases.md#db2-sp-restore-database").
+6. Copy your archive logs from your source server to your S3 bucket. For more
+   information, see [Archive
+   logging](https://www.ibm.com/docs/en/db2/11.5?topic=logging-archive "https://www.ibm.com/docs/en/db2/11.5?topic=logging-archive") in the IBM Db2 documentation.
+7. Apply archive logs as many times as needed by calling
+   `rdsadmin.rollforward_database`. Set
+   `complete_rollforward` to `FALSE` to keep the database
+   in a `ROLL-FORWARD PENDING` state. For more information, see [rdsadmin.rollforward\_database](db2-sp-managing-databases.md#db2-sp-rollforward-database "db2-sp-managing-databases.md#db2-sp-rollforward-database").
+8. After you apply all of the archive logs, bring the database online by calling
+   `rdsadmin.complete_rollforward`. For more information, see [rdsadmin.complete\_rollforward](db2-sp-managing-databases.md#db2-sp-complete-rollforward "db2-sp-managing-databases.md#db2-sp-complete-rollforward").
+9. Switch application connections to the RDS for Db2 server by either updating your
+   application endpoints for the database or by updating the DNS endpoints to
+   redirect traffic to the RDS for Db2 server. You can also use the Db2 automatic
+   client reroute feature on your self-managed Db2 database with the RDS for Db2
+   database endpoint. For more information, see [Automatic client reroute description and setup](https://www.ibm.com/docs/en/db2/11.5?topic=reroute-configuring-automatic-client "https://www.ibm.com/docs/en/db2/11.5?topic=reroute-configuring-automatic-client") in the IBM Db2
+   documentation.
 10. (Optional) Shut down your source database.

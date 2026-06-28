@@ -34,7 +34,7 @@ For more information, see [Monitoring and tuning the replication process](USER_P
 The following parameters affect the replication process and determine how well
 read replicas stay up to date with the source DB instance:
 
-**max_wal_senders**
+**max\_wal\_senders**
 
 The `max_wal_senders` parameter specifies the maximum
 number of connections that the source DB instance can support at the
@@ -49,14 +49,14 @@ This parameter should be set to slightly higher than the actual number
 of read replicas. If this parameter is set too low for the number of
 read replicas, replication stops.
 
-For more information, see [max_wal_senders](https://www.postgresql.org/docs/devel/runtime-config-replication.html#GUC-MAX-WAL-SENDERS "https://www.postgresql.org/docs/devel/runtime-config-replication.html#GUC-MAX-WAL-SENDERS") in the PostgreSQL documentation.
+For more information, see [max\_wal\_senders](https://www.postgresql.org/docs/devel/runtime-config-replication.html#GUC-MAX-WAL-SENDERS "https://www.postgresql.org/docs/devel/runtime-config-replication.html#GUC-MAX-WAL-SENDERS") in the PostgreSQL documentation.
 
 ###### Note
 
 `max_wal_senders` is a static parameter that requires a
 DB instance reboot for changes to take effect.
 
-**wal_keep_segments**
+**wal\_keep\_segments**
 
 The `wal_keep_segments` parameter specifies the number of
 write-ahead log (WAL) files that the source DB instance keeps in the
@@ -77,9 +77,9 @@ In PostgreSQL version 13, the `wal_keep_segments`
 parameter is named `wal_keep_size`. It serves the same
 purpose as `wal_keep_segments`, but its default value is
 in megabytes (MB) (2048 MB) rather than the number of files. For
-more information, see [wal_keep_segments](https://www.postgresql.org/docs/12/runtime-config-replication.html#GUC-WAL-KEEP-SEGMENTS "https://www.postgresql.org/docs/12/runtime-config-replication.html#GUC-WAL-KEEP-SEGMENTS") and [wal_keep_size](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-KEEP-SIZE "https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-KEEP-SIZE") in the PostgreSQL documentation.
+more information, see [wal\_keep\_segments](https://www.postgresql.org/docs/12/runtime-config-replication.html#GUC-WAL-KEEP-SEGMENTS "https://www.postgresql.org/docs/12/runtime-config-replication.html#GUC-WAL-KEEP-SEGMENTS") and [wal\_keep\_size](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-KEEP-SIZE "https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-KEEP-SIZE") in the PostgreSQL documentation.
 
-**max_slot_wal_keep_size**
+**max\_slot\_wal\_keep\_size**
 
 The `max_slot_wal_keep_size` parameter controls the
 quantity of WAL data that the RDS for PostgreSQL DB instance retains in the
@@ -89,7 +89,7 @@ this parameter is `-1`, meaning that there's no limit to
 how much WAL data is kept on the source DB instance. For information
 about monitoring your replication slots, see [Monitoring replication slots for your RDS for PostgreSQL DB instance](USER_PostgreSQL.Replication.ReadReplicas.Monitor.md#USER_PostgreSQL.Replication.ReadReplicas.Monitor-monitor-replication-slots "USER_PostgreSQL.Replication.ReadReplicas.Monitor.md#USER_PostgreSQL.Replication.ReadReplicas.Monitor-monitor-replication-slots").
 
-For more information about this parameter, see [max_slot_wal_keep_size](https://www.postgresql.org/docs/devel/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE "https://www.postgresql.org/docs/devel/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE") in the PostgreSQL
+For more information about this parameter, see [max\_slot\_wal\_keep\_size](https://www.postgresql.org/docs/devel/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE "https://www.postgresql.org/docs/devel/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE") in the PostgreSQL
 documentation.
 
 Whenever the stream that provides WAL data to a read replica is interrupted,
@@ -143,11 +143,11 @@ parameters and restart the engine.
 
 The parameters affected are:
 
-- max_connections
-- max_worker_processes
-- max_wal_senders
-- max_prepared_transactions
-- max_locks_per_transaction
+- max\_connections
+- max\_worker\_processes
+- max\_wal\_senders
+- max\_prepared\_transactions
+- max\_locks\_per\_transaction
 
 To avoid RDS reboots of replicas due to insufficient memory, we recommend applying
 the parameter changes as a rolling reboot to each replica. You must apply the

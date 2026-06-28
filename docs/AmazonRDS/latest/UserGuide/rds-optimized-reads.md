@@ -60,7 +60,7 @@ Reads. The following use cases are candidates for RDS Optimized Reads:
 - Read replicas that serve heavy read traffic with unoptimized queries
 - Applications that run on-demand or dynamic reporting queries that involve
   complex operations, such as queries with `GROUP BY` and `ORDER
-BY` clauses
+ BY` clauses
 - Workloads that use internal temporary tables for query processing
 
 You can monitor the engine status variable `created_tmp_disk_tables` to determine the number of
@@ -97,8 +97,8 @@ of your application and available memory on the DB instance.
   in large binlog cache files on the instance store. For MySQL 8.4 and higher, use
   the default value of `ROW` for the `binlog_format`
   parameter.
-- Set the [internal_tmp_mem_storage_engine](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_internal_tmp_mem_storage_engine "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_internal_tmp_mem_storage_engine") parameter to
-  `TempTable`, and set the [temptable_max_mmap](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_mmap "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_mmap") parameter to match the size of the available
+- Set the [internal\_tmp\_mem\_storage\_engine](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_internal_tmp_mem_storage_engine "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_internal_tmp_mem_storage_engine") parameter to
+  `TempTable`, and set the [temptable\_max\_mmap](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_mmap "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_mmap") parameter to match the size of the available
   storage on the instance store.
 - Avoid performing bulk changes in a single transaction. These types of
   transactions can generate large binlog cache files on the instance store and can
@@ -152,10 +152,9 @@ The following limitations apply to RDS Optimized Reads:
 
 - RDS Optimized Reads is supported for the following versions:
 
-      + RDS for MySQL version 8.0.28 and higher major and minor
-       versions
-
-  For information about RDS for MySQL versions, see [MySQL on Amazon RDS versions](MySQL.Concepts.VersionMgmt.md "MySQL.Concepts.VersionMgmt.md").
+  - RDS for MySQL version 8.0.28 and higher major and minor
+    versions
+    For information about RDS for MySQL versions, see [MySQL on Amazon RDS versions](MySQL.Concepts.VersionMgmt.md "MySQL.Concepts.VersionMgmt.md").
 
 - You can't change the location of temporary objects to persistent storage (Amazon EBS) on the DB
   instance classes that support RDS Optimized Reads.

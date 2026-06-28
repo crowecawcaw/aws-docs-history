@@ -38,7 +38,7 @@ documentation.
 ###### Note
 
 If you plan on modifying the `db2_compatibility_vector` parameter,
-modify the parameter before creating a database. For more information, see [Setting the db2_compatibility_vector parameter](db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector "db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector").
+modify the parameter before creating a database. For more information, see [Setting the db2\_compatibility\_vector parameter](db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector "db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector").
 
 ###### To create a database
 
@@ -52,7 +52,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 ```
 
 2. Create a database by calling `rdsadmin.create_database`. For more
-   information, see [rdsadmin.create_database](db2-sp-managing-databases.md#db2-sp-create-database "db2-sp-managing-databases.md#db2-sp-create-database").
+   information, see [rdsadmin.create\_database](db2-sp-managing-databases.md#db2-sp-create-database "db2-sp-managing-databases.md#db2-sp-create-database").
 
 ```
 db2 "call rdsadmin.create_database(
@@ -68,7 +68,7 @@ db2 "call rdsadmin.create_database(
 3. (Optional) Create additional databases by calling
    `rdsadmin.create_database` for each database you want to create.
    Each Db2 DB instance can contain up to 50 databases. For more information, see
-   [rdsadmin.create_database](db2-sp-managing-databases.md#db2-sp-create-database "db2-sp-managing-databases.md#db2-sp-create-database").
+   [rdsadmin.create\_database](db2-sp-managing-databases.md#db2-sp-create-database "db2-sp-managing-databases.md#db2-sp-create-database").
 
 ```
 db2 "call rdsadmin.create_database('`database_name`')"
@@ -78,7 +78,7 @@ db2 "call rdsadmin.create_database('`database_name`')"
    following methods:
 
    - Call `rdsadmin.list_databases`. For more information, see
-     [rdsadmin.list_databases](db2-user-defined-functions.md#db2-udf-list-databases "db2-user-defined-functions.md#db2-udf-list-databases").
+     [rdsadmin.list\_databases](db2-user-defined-functions.md#db2-udf-list-databases "db2-user-defined-functions.md#db2-udf-list-databases").
    - Run the following SQL command:
 
    ```
@@ -109,14 +109,14 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 ```
 
 2. (Optional) Check your current configuration settings by calling
-   `rdsadmin.show_configuration`. For more information, see [rdsadmin.show_configuration](db2-sp-managing-databases.md#db2-sp-show-configuration "db2-sp-managing-databases.md#db2-sp-show-configuration").
+   `rdsadmin.show_configuration`. For more information, see [rdsadmin.show\_configuration](db2-sp-managing-databases.md#db2-sp-show-configuration "db2-sp-managing-databases.md#db2-sp-show-configuration").
 
 ```
 db2 "call rdsadmin.show_configuration('`name`')"
 ```
 
 3. Configure the settings for the database by calling
-   `rdsadmin.set_configuration`. For more information, see [rdsadmin.set_configuration](db2-sp-managing-databases.md#db2-sp-set-configuration "db2-sp-managing-databases.md#db2-sp-set-configuration").
+   `rdsadmin.set_configuration`. For more information, see [rdsadmin.set\_configuration](db2-sp-managing-databases.md#db2-sp-set-configuration "db2-sp-managing-databases.md#db2-sp-set-configuration").
 
 ```
 db2 "call rdsadmin.set_configuration(
@@ -128,7 +128,7 @@ db2 "call rdsadmin.set_configuration(
 
 Amazon RDS for Db2 uses three types of parameters: database manager configuration
 parameters, registry variables, and database configuration parameters. You can update
-the first two types through parameter groups and the last type through the [rdsadmin.update_db_param](db2-sp-managing-databases.md#db2-sp-update-db-param "db2-sp-managing-databases.md#db2-sp-update-db-param") stored
+the first two types through parameter groups and the last type through the [rdsadmin.update\_db\_param](db2-sp-managing-databases.md#db2-sp-update-db-param "db2-sp-managing-databases.md#db2-sp-update-db-param") stored
 procedure.
 
 ###### Note
@@ -156,7 +156,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 
 2. (Optional) Check your current configuration for log retention by calling
    `rdsadmin.show_archive_log_retention`. For more information, see
-   [rdsadmin.show_archive_log_retention](db2-sp-managing-databases.md#db2-sp-show-archive-log-retention "db2-sp-managing-databases.md#db2-sp-show-archive-log-retention").
+   [rdsadmin.show\_archive\_log\_retention](db2-sp-managing-databases.md#db2-sp-show-archive-log-retention "db2-sp-managing-databases.md#db2-sp-show-archive-log-retention").
 
 ```
 db2 "call rdsadmin.show_archive_log_retention(
@@ -166,7 +166,7 @@ db2 "call rdsadmin.show_archive_log_retention(
 
 3. Configure log retention for the database by calling
    `rdsadmin.set_archive_log_retention`. For more information, see
-   [rdsadmin.set_archive_log_retention](db2-sp-managing-databases.md#db2-sp-set-archive-log-retention "db2-sp-managing-databases.md#db2-sp-set-archive-log-retention").
+   [rdsadmin.set\_archive\_log\_retention](db2-sp-managing-databases.md#db2-sp-set-archive-log-retention "db2-sp-managing-databases.md#db2-sp-set-archive-log-retention").
 
 ```
 db2 "call rdsadmin.set_archive_log_retention(
@@ -194,7 +194,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 
 2. Return a list of log file information by calling
    `rdsadmin.list_archive_log_information`. For more information,
-   see [rdsadmin.list_archive_log_information](db2-sp-managing-databases.md#db2-sp-list-archive-log-information "db2-sp-managing-databases.md#db2-sp-list-archive-log-information").
+   see [rdsadmin.list\_archive\_log\_information](db2-sp-managing-databases.md#db2-sp-list-archive-log-information "db2-sp-managing-databases.md#db2-sp-list-archive-log-information").
 
 ```
 db2 "call rdsadmin.list_archive_log_information(
@@ -222,7 +222,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 ```
 
 2. Run various fine-grained access control commands by calling
-   `rdsadmin.fgac_command`. For more information, see [rdsadmin.fgac_command](db2-sp-managing-databases.md#db2-sp-fgac-command "db2-sp-managing-databases.md#db2-sp-fgac-command").
+   `rdsadmin.fgac_command`. For more information, see [rdsadmin.fgac\_command](db2-sp-managing-databases.md#db2-sp-fgac-command "db2-sp-managing-databases.md#db2-sp-fgac-command").
 
 ```
 db2 "call rdsadmin.fgac_command(
@@ -252,7 +252,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 ```
 
 2. Deactivate a database by calling `rdsadmin.deactivate_database`.
-   For more information, see [rdsadmin.deactivate_database](db2-sp-managing-databases.md#db2-sp-deactivate-database "db2-sp-managing-databases.md#db2-sp-deactivate-database").
+   For more information, see [rdsadmin.deactivate\_database](db2-sp-managing-databases.md#db2-sp-deactivate-database "db2-sp-managing-databases.md#db2-sp-deactivate-database").
 
 ```
 db2 "call rdsadmin.deactivate_database(
@@ -281,7 +281,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 ```
 
 2. Activate a database by calling `rdsadmin.activate_database`. For
-   more information, see [rdsadmin.activate_database](db2-sp-managing-databases.md#db2-sp-activate-database "db2-sp-managing-databases.md#db2-sp-activate-database").
+   more information, see [rdsadmin.activate\_database](db2-sp-managing-databases.md#db2-sp-activate-database "db2-sp-managing-databases.md#db2-sp-activate-database").
 
 ```
 db2 "call rdsadmin.activate_database(
@@ -316,7 +316,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 ```
 
 2. Reactivate a database by calling `rdsadmin.reactivate_database`.
-   For more information, see [rdsadmin.reactivate_database](db2-sp-managing-databases.md#db2-sp-reactivate-database "db2-sp-managing-databases.md#db2-sp-reactivate-database").
+   For more information, see [rdsadmin.reactivate\_database](db2-sp-managing-databases.md#db2-sp-reactivate-database "db2-sp-managing-databases.md#db2-sp-reactivate-database").
 
 ```
 db2 "call rdsadmin.reactivate_database(
@@ -348,7 +348,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 ```
 
 2. Drop a database by calling `rdsadmin.drop_database`. For more
-   information, see [rdsadmin.drop_database](db2-sp-managing-databases.md#db2-sp-drop-database "db2-sp-managing-databases.md#db2-sp-drop-database").
+   information, see [rdsadmin.drop\_database](db2-sp-managing-databases.md#db2-sp-drop-database "db2-sp-managing-databases.md#db2-sp-drop-database").
 
 ```
 db2 "call rdsadmin.drop_database('`database_name`')"
@@ -382,7 +382,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 For an RDS for Db2 DB instance to be able to interact with Amazon S3, you must have a
 VPC and an Amazon S3 gateway endpoint for private subnets to use. For more
 information, see [Step 1: Create a VPC gateway endpoint for Amazon S3](db2-troubleshooting.md#db2-creating-endpoint "db2-troubleshooting.md#db2-creating-endpoint"). 3. Confirm the VPC gateway endpoint for S3. For more information, see [Step 2: Confirm that your VPC gateway endpoint for Amazon S3 exists](db2-troubleshooting.md#db2-confirming-endpoint "db2-troubleshooting.md#db2-confirming-endpoint"). 4. Back up a database by calling `rdsadmin.backup_database`. For more
-information, see [rdsadmin.backup_database](db2-sp-managing-databases.md#db2-sp-backup-database "db2-sp-managing-databases.md#db2-sp-backup-database").
+information, see [rdsadmin.backup\_database](db2-sp-managing-databases.md#db2-sp-backup-database "db2-sp-managing-databases.md#db2-sp-backup-database").
 
 ```
 db2 "call rdsadmin.backup_database(
@@ -408,7 +408,7 @@ terminate
    under `s3_prefix/dbi_resource_id/db_name`. If the files
    don't appear at `s3_prefix/dbi_resource_id/db_name`,
    check the status of backing up your database to identify any issues. For more
-   information, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status"). If you can't resolve any
+   information, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status"). If you can't resolve any
    identified issues, contact [AWS
    Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 7. (Optional) After the backup to Amazon S3 completes, you can restore the backup to
@@ -437,7 +437,7 @@ or disabled per database.
 db2 "connect to rdsadmin user `master_username` using `master_password`"
 ```
 
-2. Setup archive log backup to S3 by calling [rdsadmin.set_configuration](db2-sp-managing-databases.md#db2-sp-set-configuration "db2-sp-managing-databases.md#db2-sp-set-configuration").
+2. Setup archive log backup to S3 by calling [rdsadmin.set\_configuration](db2-sp-managing-databases.md#db2-sp-set-configuration "db2-sp-managing-databases.md#db2-sp-set-configuration").
 
 ```
 db2 "call rdsadmin.set_configuration(
@@ -500,7 +500,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 
 2. (Optional) Check your current configuration settings to optimize the restore
    operation by calling `rdsadmin.show_configuration`. For more
-   information, see [rdsadmin.show_configuration](db2-sp-managing-databases.md#db2-sp-show-configuration "db2-sp-managing-databases.md#db2-sp-show-configuration").
+   information, see [rdsadmin.show\_configuration](db2-sp-managing-databases.md#db2-sp-show-configuration "db2-sp-managing-databases.md#db2-sp-show-configuration").
 
 ```
 db2 "call rdsadmin.show_configuration('`name`')"
@@ -509,7 +509,7 @@ db2 "call rdsadmin.show_configuration('`name`')"
 3. Configure the settings to optimize the restore operation by calling
    `rdsadmin.set_configuration`. Explicitly setting these values can
    improve the performance when restoring databases with large volumes of data. For
-   more information, see [rdsadmin.set_configuration](db2-sp-managing-databases.md#db2-sp-set-configuration "db2-sp-managing-databases.md#db2-sp-set-configuration").
+   more information, see [rdsadmin.set\_configuration](db2-sp-managing-databases.md#db2-sp-set-configuration "db2-sp-managing-databases.md#db2-sp-set-configuration").
 
 ```
 db2 "call rdsadmin.set_configuration(
@@ -518,7 +518,7 @@ db2 "call rdsadmin.set_configuration(
 ```
 
 4. Restore the database by calling `rdsadmin.restore_database`. For
-   more information, see [rdsadmin.restore_database](db2-sp-managing-databases.md#db2-sp-restore-database "db2-sp-managing-databases.md#db2-sp-restore-database").
+   more information, see [rdsadmin.restore\_database](db2-sp-managing-databases.md#db2-sp-restore-database "db2-sp-managing-databases.md#db2-sp-restore-database").
 
 ```
 db2 "call rdsadmin.restore_database(
@@ -532,10 +532,10 @@ db2 "call rdsadmin.restore_database(
 
 5. (Optional) Confirm that your database was restored by calling
    `rdsadmin.list_databases` and checking that the restored database
-   is listed. For more information, see [rdsadmin.list_databases](db2-user-defined-functions.md#db2-udf-list-databases "db2-user-defined-functions.md#db2-udf-list-databases").
+   is listed. For more information, see [rdsadmin.list\_databases](db2-user-defined-functions.md#db2-udf-list-databases "db2-user-defined-functions.md#db2-udf-list-databases").
 6. Bring the database back online and apply additional transaction logs by
    calling `rdsadmin.rollforward_database`. For more information, see
-   [rdsadmin.rollforward_database](db2-sp-managing-databases.md#db2-sp-rollforward-database "db2-sp-managing-databases.md#db2-sp-rollforward-database").
+   [rdsadmin.rollforward\_database](db2-sp-managing-databases.md#db2-sp-rollforward-database "db2-sp-managing-databases.md#db2-sp-rollforward-database").
 
 ```
 db2 "call rdsadmin.rollforward_database(
@@ -548,11 +548,11 @@ db2 "call rdsadmin.rollforward_database(
 ```
 
 7. (Optional) Check the status of the `rdsadmin.rollforward_database`
-   stored procedure by calling the [rdsadmin.rollforward_status](db2-sp-managing-databases.md#db2-sp-rollforward-status "db2-sp-managing-databases.md#db2-sp-rollforward-status")
+   stored procedure by calling the [rdsadmin.rollforward\_status](db2-sp-managing-databases.md#db2-sp-rollforward-status "db2-sp-managing-databases.md#db2-sp-rollforward-status")
    stored procedure.
 8. If you set `complete_rollforward` to `FALSE` in the
    previous step, then you must finish bringing the database back online by calling
-   `rdsadmin.complete_rollforward`. For more information, see [rdsadmin.complete_rollforward](db2-sp-managing-databases.md#db2-sp-complete-rollforward "db2-sp-managing-databases.md#db2-sp-complete-rollforward").
+   `rdsadmin.complete_rollforward`. For more information, see [rdsadmin.complete\_rollforward](db2-sp-managing-databases.md#db2-sp-complete-rollforward "db2-sp-managing-databases.md#db2-sp-complete-rollforward").
 
 ```
 db2 "call rdsadmin.complete_rollforward(
@@ -561,7 +561,7 @@ db2 "call rdsadmin.complete_rollforward(
 ```
 
 9. (Optional) Check the status of the `rdsadmin.complete_rollforward`
-   stored procedure by calling the [rdsadmin.rollforward_status](db2-sp-managing-databases.md#db2-sp-rollforward-status "db2-sp-managing-databases.md#db2-sp-rollforward-status")
+   stored procedure by calling the [rdsadmin.rollforward\_status](db2-sp-managing-databases.md#db2-sp-rollforward-status "db2-sp-managing-databases.md#db2-sp-rollforward-status")
    stored procedure.
 
 ## Listing databases
@@ -581,7 +581,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 ```
 
 2. List your databases by calling `rdsadmin.list_databases`. For more
-   information, see [rdsadmin.list_databases](db2-user-defined-functions.md#db2-udf-list-databases "db2-user-defined-functions.md#db2-udf-list-databases").
+   information, see [rdsadmin.list\_databases](db2-user-defined-functions.md#db2-udf-list-databases "db2-user-defined-functions.md#db2-udf-list-databases").
 
 ```
 db2 "select * from table(rdsadmin.list_databases())"
@@ -605,7 +605,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 ```
 
 2. Collect information about the database by calling
-   `rdsadmin.db2pd_command`. For more information, see [rdsadmin.db2pd_command](db2-sp-managing-databases.md#db2-sp-db2pd-command "db2-sp-managing-databases.md#db2-sp-db2pd-command").
+   `rdsadmin.db2pd_command`. For more information, see [rdsadmin.db2pd\_command](db2-sp-managing-databases.md#db2-sp-db2pd-command "db2-sp-managing-databases.md#db2-sp-db2pd-command").
 
 ```
 db2 "call rdsadmin.db2pd_command('`db2pd_cmd`')"
@@ -629,7 +629,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 ```
 
 2. Force applications off of a database by calling
-   `rdsadmin.force_application`. For more information, see [rdsadmin.force_application](db2-sp-managing-databases.md#db2-sp-force-application "db2-sp-managing-databases.md#db2-sp-force-application").
+   `rdsadmin.force_application`. For more information, see [rdsadmin.force\_application](db2-sp-managing-databases.md#db2-sp-force-application "db2-sp-managing-databases.md#db2-sp-force-application").
 
 ```
 db2 "call rdsadmin.force_application(
@@ -660,7 +660,7 @@ db2 connect to rdsadminuser `master_username` using `master_password`
 ```
 
 2. Create a buffer pool named `db2monbp` with a page size of 4096 by
-   calling `rdsadmin.create_bufferpool`. For more information, see [rdsadmin.create_bufferpool](db2-sp-managing-buffer-pools.md#db2-sp-create-buffer-pool "db2-sp-managing-buffer-pools.md#db2-sp-create-buffer-pool").
+   calling `rdsadmin.create_bufferpool`. For more information, see [rdsadmin.create\_bufferpool](db2-sp-managing-buffer-pools.md#db2-sp-create-buffer-pool "db2-sp-managing-buffer-pools.md#db2-sp-create-buffer-pool").
 
 ```
 db2 "call rdsadmin.create_bufferpool('`database_name`','db2monbp',4096)"
@@ -668,7 +668,7 @@ db2 "call rdsadmin.create_bufferpool('`database_name`','db2monbp',4096)"
 
 3. Create a temporary tablespace named `db2montmptbsp` that uses the
    `db2monbp` buffer pool by calling
-   `rdsadmin.create_tablespace`. For more information, see [rdsadmin.create_tablespace](db2-sp-managing-tablespaces.md#db2-sp-create-tablespace "db2-sp-managing-tablespaces.md#db2-sp-create-tablespace").
+   `rdsadmin.create_tablespace`. For more information, see [rdsadmin.create\_tablespace](db2-sp-managing-tablespaces.md#db2-sp-create-tablespace "db2-sp-managing-tablespaces.md#db2-sp-create-tablespace").
 
 ```
 db2 "call rdsadmin.create_tablespace('database_name',\
@@ -728,7 +728,7 @@ The following example shows that the script file is located in the
    `master_password` with the master username and master
    password for your RDS for Db2 DB instance. Replace
    `database_name` with the name of your database. For
-   more information, see [rdsadmin.drop_tablespace](db2-sp-managing-tablespaces.md#db2-sp-drop-tablespace "db2-sp-managing-tablespaces.md#db2-sp-drop-tablespace") and [rdsadmin.drop_bufferpool](db2-sp-managing-buffer-pools.md#db2-sp-drop-buffer-pool "db2-sp-managing-buffer-pools.md#db2-sp-drop-buffer-pool").
+   more information, see [rdsadmin.drop\_tablespace](db2-sp-managing-tablespaces.md#db2-sp-drop-tablespace "db2-sp-managing-tablespaces.md#db2-sp-drop-tablespace") and [rdsadmin.drop\_bufferpool](db2-sp-managing-buffer-pools.md#db2-sp-drop-buffer-pool "db2-sp-managing-buffer-pools.md#db2-sp-drop-buffer-pool").
 
 ```
 db2 connect to rdsadmin user `master_username` using `master_password`

@@ -11,8 +11,8 @@ Following, you can find information about several supported PostgreSQL foreign d
 
 ###### Topics
 
-- [Using the log_fdw extension to access the DB log using SQL](CHAP_PostgreSQL.Extensions.log_fdw.md "CHAP_PostgreSQL.Extensions.log_fdw.md")
-- [Using the postgres_fdw extension to access external data](postgresql-commondbatasks-fdw.md "postgresql-commondbatasks-fdw.md")
-- [Working with MySQL databases by using the mysql_fdw extension](postgresql-mysql-fdw.md "postgresql-mysql-fdw.md")
-- [Working with Oracle databases by using the oracle_fdw extension](postgresql-oracle-fdw.md "postgresql-oracle-fdw.md")
-- [Working with SQL Server databases by using the tds_fdw extension](postgresql-tds-fdw.md "postgresql-tds-fdw.md")
+- [Using the log\_fdw extension to access the DB log using SQL](CHAP_PostgreSQL.Extensions.log_fdw.md "CHAP_PostgreSQL.Extensions.log_fdw.md")
+- [Using the postgres\_fdw extension to access external data](postgresql-commondbatasks-fdw.md "postgresql-commondbatasks-fdw.md")
+- [Working with MySQL databases by using the mysql\_fdw extension](postgresql-mysql-fdw.md "postgresql-mysql-fdw.md")
+- [Working with Oracle databases by using the oracle\_fdw extension](postgresql-oracle-fdw.md "postgresql-oracle-fdw.md")
+- [Working with SQL Server databases by using the tds\_fdw extension](postgresql-tds-fdw.md "postgresql-tds-fdw.md")

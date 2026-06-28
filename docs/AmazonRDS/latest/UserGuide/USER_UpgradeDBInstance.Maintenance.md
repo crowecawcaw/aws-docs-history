@@ -335,24 +335,22 @@ API.
 
 ###### To manage an update for a DB instance
 
-1.  Sign in to the AWS Management Console and open the Amazon RDS console at
-    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2.  In the navigation pane, choose **Databases**.
-3.  Choose the DB instance that has a required update.
-4.  For **Actions**, choose one of the following:
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Databases**.
+3. Choose the DB instance that has a required update.
+4. For **Actions**, choose one of the following:
 
-        * **Patch now**
-        * **Patch at next window**
+   - **Patch now**
+   - **Patch at next window**
 
+   ###### Note
 
-        ###### Note
+   If you choose **Patch at next window** and later want to delay the update, you can choose **Defer
+   upgrade**. You can't defer a maintenance action if it has already started.
 
-        If you choose **Patch at next window** and later want to delay the update, you can choose **Defer
-         upgrade**. You can't defer a maintenance action if it has already started.
-
-        To cancel a maintenance action, modify the DB instance and disable **Auto minor version upgrade**.
-
-    To apply a pending update to a DB instance, use the [apply-pending-maintenance-action](../../../cli/latest/reference/rds/apply-pending-maintenance-action.md "../../../cli/latest/reference/rds/apply-pending-maintenance-action.md") AWS CLI command.
+   To cancel a maintenance action, modify the DB instance and disable **Auto minor version upgrade**.
+   To apply a pending update to a DB instance, use the [apply-pending-maintenance-action](../../../cli/latest/reference/rds/apply-pending-maintenance-action.md "../../../cli/latest/reference/rds/apply-pending-maintenance-action.md") AWS CLI command.
 
 ###### Example
 

@@ -10,20 +10,20 @@ master user can in turn grant these roles to other users, groups, or roles with 
   with `DATAACCESS` authorization. The master user can add more
   authorizations or privileges to this role, and then grant the role to other
   users, groups, or roles.
-- **DBA_RESTRICTED** – RDS for Db2 creates this
+- **DBA\_RESTRICTED** – RDS for Db2 creates this
   empty role. The master user can add privileges to this role, and then grant the
   role to other users, groups, or roles.
 - **DEVELOPER** – RDS for Db2 creates this
   empty role with `DATAACCESS` authorization. The master user can add
   more authorizations or privileges to this role, and then grant the role to other
   users, groups, or roles.
-- **ROLE_NULLID_PACKAGES** – RDS for Db2 grants
+- **ROLE\_NULLID\_PACKAGES** – RDS for Db2 grants
   `EXECUTE` privileges to this role on `ALL NULLID`
   packages that were bound by Db2 when `CREATE DATABASE` was
   run.
-- **ROLE_PROCEDURES** – RDS for Db2 grants
+- **ROLE\_PROCEDURES** – RDS for Db2 grants
   `EXECUTE` privileges to this role on all `SYSIBM`
   procedures.
-- **ROLE_TABLESPACES** – RDS for Db2 grants
+- **ROLE\_TABLESPACES** – RDS for Db2 grants
   `USAGE` privileges on tablespaces created by the `CREATE
-DATABASE` command.
+ DATABASE` command.

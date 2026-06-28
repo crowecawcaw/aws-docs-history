@@ -49,6 +49,6 @@ save the plan to your hard drive.
 
 Performance Insights displays estimated execution plans using a hierarchical tree table.
 The table includes the partial execution information for each statement.
-For more information about the columns in the Plan Details table, see [SET SHOWPLAN_ALL](https://learn.microsoft.com/en-us/sql/t-sql/statements/set-showplan-all-transact-sql "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-showplan-all-transact-sql") in the SQL Server documentation.
+For more information about the columns in the Plan Details table, see [SET SHOWPLAN\_ALL](https://learn.microsoft.com/en-us/sql/t-sql/statements/set-showplan-all-transact-sql "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-showplan-all-transact-sql") in the SQL Server documentation.
 To display the full execution information for an estimated execution plan, choose **Download** to download the plan and then upload the plan to SQL Server Management Studio.
 For more information about displaying an estimated execution plan using SQL Server Management Studio, see [Display an Estimated Execution Plan](https://learn.microsoft.com/en-us/sql/relational-databases/performance/display-the-estimated-execution-plan "https://learn.microsoft.com/en-us/sql/relational-databases/performance/display-the-estimated-execution-plan") in the SQL Server documentation.

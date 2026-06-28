@@ -16,7 +16,7 @@ Take the following steps to trust the Amazon RDS root CA certificate.
 ###### To trust the Amazon RDS root CA certificate
 
 1. Download the certificate bundle .pem file that works for all AWS Regions
-   and put the file in the ssl_wallet directory.
+   and put the file in the ssl\_wallet directory.
 
 For information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md") . 2. Extract each certificate in the .pem file into a separate file using an OS
 utility. 3. Convert each certificate to .der format using a separate

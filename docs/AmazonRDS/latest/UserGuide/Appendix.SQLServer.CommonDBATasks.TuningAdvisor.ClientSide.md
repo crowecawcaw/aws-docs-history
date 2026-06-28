@@ -11,7 +11,7 @@ instance**
    enter the DB instance endpoint, port, master user name, and password of the
    database you would like to run a trace on.
 3. In the **Trace Properties** dialog box, enter a trace name and choose a trace definition template. A default
-   template, TSQL_Replay, ships with the application. You can edit this template to define your trace. Edit events and
+   template, TSQL\_Replay, ships with the application. You can edit this template to define your trace. Edit events and
    event information under the **Events Selection** tab of the **Trace Properties**
    dialog box.
 

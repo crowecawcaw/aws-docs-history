@@ -6,7 +6,7 @@ before you rename the next DB instance.
 
 ###### To rename a DB instance in an active-active cluster
 
-1. Connect to the DB instance in a SQL client, and call the [mysql.rds_group_replication_stop](mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_stop "mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_stop") stored procedure:
+1. Connect to the DB instance in a SQL client, and call the [mysql.rds\_group\_replication\_stop](mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_stop "mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_stop") stored procedure:
 
 ```
 call mysql.rds_group_replication_stop();
@@ -17,7 +17,7 @@ call mysql.rds_group_replication_stop();
    a DB instance in the active-active cluster.
 
 In the parameter setting, replace the old DB instance endpoint with the new DB instance endpoint.
-For more information about setting parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md"). 4. Connect to the DB instance in a SQL client, and call the [mysql.rds_group_replication_start](mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_start "mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_start") stored procedure:
+For more information about setting parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md"). 4. Connect to the DB instance in a SQL client, and call the [mysql.rds\_group\_replication\_start](mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_start "mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_start") stored procedure:
 
 ```
 call mysql.rds_group_replication_start(0);

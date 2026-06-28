@@ -80,12 +80,10 @@ You can also choose one of the following values for the `pgaudit.log` parameter.
     * write – Logs `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`,
      and `COPY` when the destination is a relation (table).
 
-14. Choose **Save changes**.
-15. Open the Amazon RDS console at
-    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-16. Choose your
-    RDS for PostgreSQL DB instance from the
-    Databases list.
+14. Choose **Save changes**. 15. Open the Amazon RDS console at
+[https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/"). 16. Choose your
+RDS for PostgreSQL DB instance from the
+Databases list.
 
 ###### To setup pgAudit
 

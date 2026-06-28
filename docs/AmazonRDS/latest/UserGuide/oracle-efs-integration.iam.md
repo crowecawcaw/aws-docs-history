@@ -175,7 +175,7 @@ _Amazon Elastic File System User Guide_.
 5. On the **Connectivity & security** tab, scroll down to the **Manage IAM roles**
    section at the bottom of the page.
 6. Choose the role to add in the **Add IAM roles to this instance** section.
-7. For **Feature**, choose **EFS_INTEGRATION**.
+7. For **Feature**, choose **EFS\_INTEGRATION**.
 8. Choose **Add role**.
    The following AWS CLI command adds the role to an Oracle DB instance named
    `mydbinstance`.

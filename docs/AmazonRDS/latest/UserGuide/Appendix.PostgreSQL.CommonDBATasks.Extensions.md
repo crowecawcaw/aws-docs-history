@@ -4,7 +4,7 @@ You can extend the functionality of PostgreSQL by installing a variety of extens
 modules. For example, to work with spatial data you can install and use the PostGIS extension.
 For more information, see [Managing spatial data with the PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "Appendix.PostgreSQL.CommonDBATasks.PostGIS.md"). As another example, if you want
 to improve data entry for very large tables, you can consider partitioning your data by using
-the `pg_partman` extension. To learn more, see [Managing PostgreSQL partitions with the pg_partman extension](PostgreSQL_Partitions.md "PostgreSQL_Partitions.md").
+the `pg_partman` extension. To learn more, see [Managing PostgreSQL partitions with the pg\_partman extension](PostgreSQL_Partitions.md "PostgreSQL_Partitions.md").
 
 ###### Note
 
@@ -19,7 +19,7 @@ list of `shared_preload_libraries` in your RDS for PostgreSQL DB instance's cust
 parameter group. Typically, the default DB cluster parameter group loads only the
 `pg_stat_statements`, but several other modules are available to add to the list.
 For example, you can add scheduling capability by adding the `pg_cron` module, as
-detailed in [Scheduling maintenance with the PostgreSQL pg_cron extension](PostgreSQL_pg_cron.md "PostgreSQL_pg_cron.md"). As another
+detailed in [Scheduling maintenance with the PostgreSQL pg\_cron extension](PostgreSQL_pg_cron.md "PostgreSQL_pg_cron.md"). As another
 example, you can log query execution plans by loading the `auto_explain` module. To
 learn more, see [Logging execution plans of queries](https://aws.amazon.com/premiumsupport/knowledge-center/rds-postgresql-tune-query-performance/# "https://aws.amazon.com/premiumsupport/knowledge-center/rds-postgresql-tune-query-performance/#") in the AWS knowledge center.
 
@@ -41,12 +41,12 @@ To learn more about the `rds_superuser` role, see [Understanding PostgreSQL role
 
 - [Using functions from the orafce extension](Appendix.PostgreSQL.CommonDBATasks.orafce.md "Appendix.PostgreSQL.CommonDBATasks.orafce.md")
 - [Using Amazon RDS delegated extension support for PostgreSQL](RDS_delegated_ext.md "RDS_delegated_ext.md")
-- [Managing PostgreSQL partitions with the pg_partman extension](PostgreSQL_Partitions.md "PostgreSQL_Partitions.md")
+- [Managing PostgreSQL partitions with the pg\_partman extension](PostgreSQL_Partitions.md "PostgreSQL_Partitions.md")
 - [Using pgAudit to log database activity](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md")
-- [Scheduling maintenance with the PostgreSQL pg_cron extension](PostgreSQL_pg_cron.md "PostgreSQL_pg_cron.md")
+- [Scheduling maintenance with the PostgreSQL pg\_cron extension](PostgreSQL_pg_cron.md "PostgreSQL_pg_cron.md")
 - [Using pglogical to synchronize data across instances](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
 - [Using pgactive to support active-active replication](Appendix.PostgreSQL.CommonDBATasks.pgactive.md "Appendix.PostgreSQL.CommonDBATasks.pgactive.md")
-- [Reducing bloat in tables and indexes with the pg_repack extension](Appendix.PostgreSQL.CommonDBATasks.pg_repack.md "Appendix.PostgreSQL.CommonDBATasks.pg_repack.md")
+- [Reducing bloat in tables and indexes with the pg\_repack extension](Appendix.PostgreSQL.CommonDBATasks.pg_repack.md "Appendix.PostgreSQL.CommonDBATasks.pg_repack.md")
 - [Upgrading and using the PLV8 extension](PostgreSQL.Concepts.General.UpgradingPLv8.md "PostgreSQL.Concepts.General.UpgradingPLv8.md")
 - [Using PL/Rust to write PostgreSQL functions in the Rust language](PostgreSQL.Concepts.General.Using.PL_Rust.md "PostgreSQL.Concepts.General.Using.PL_Rust.md")
 - [Managing spatial data with the PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "Appendix.PostgreSQL.CommonDBATasks.PostGIS.md")

@@ -61,12 +61,11 @@ considerations:
   these operations.
 - Exclude the following schemas from the dump file:
 
-      + `sys`
-      + `performance_schema`
-      + `information_schema`
-
-  The `mysqldump` utility excludes
-  these schemas by default.
+  - `sys`
+  - `performance_schema`
+  - `information_schema`
+    The `mysqldump` utility excludes
+    these schemas by default.
 
 - If you need to migrate users and privileges, consider using a tool that
   generates the data control language (DCL) for recreating them, such as the
@@ -285,22 +284,26 @@ On Windows, run the command window as an administrator.
      REPLICATION SOURCE TO` comment in the backup file.
 
 2. Compress the copied data to reduce the amount of network resources needed
-   to copy your data to the Amazon RDS database. Note the size of the backup file.
-   You need this information when determining how large an Amazon EC2 instance to
-   create. When you are done, compress the backup file using GZIP or your
-   preferred compression utility.
+to copy your data to the Amazon RDS database. Note the size of the backup file.
+You need this information when determining how large an Amazon EC2 instance to
+create. When you are done, compress the backup file using GZIP or your
+preferred compression utility.
 
-   - To compress SQL output, use the following command:
+    * To compress SQL output, use the following command:
 
-   ```
-   gzip backup.sql
-   ```
-   - To compress delimited-text output, use the following
+
+
+    ```
+    gzip backup.sql
+    ```
+    * To compress delimited-text output, use the following
      command:
 
-   ```
-   tar -zcvf backup.tar.gz `target_directory`
-   ```
+
+
+    ```
+    tar -zcvf backup.tar.gz `target_directory`
+    ```
 
 ## Task 2: Create an Amazon EC2 instance and copy the compressed database
 
@@ -434,22 +437,19 @@ and use the following guidelines:
      retention for the production instance.
 
 3. Review the default configuration options for the Amazon RDS database. If the
-   default parameter group for the database doesn't have the configuration
-   options that you want, find a different one that does or create a new
-   parameter group. For more information about creating a parameter group, see
-   [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
-4. Connect to the new Amazon RDS database as the master user. Create the users
-   required to support the administrators, applications, and services that need
-   to access the DB instance. The hostname for the Amazon RDS database is the
-   **Endpoint** value for this DB instance without the
-   port number, for example,
-   `mysampledb.123456789012.us-west-2.rds.amazonaws.com`. You can find
-   the endpoint value in the database details in the Amazon RDS console.
-5. Connect to your Amazon EC2 instance. For more information, see [Connect to your instance](../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md#ec2-connect-to-instance-linux "../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md#ec2-connect-to-instance-linux") for Linux instances in the
-   _Amazon Elastic Compute Cloud User Guide_.
-6. Connect to your Amazon RDS database as a remote host from your Amazon EC2 instance
-   using the `mysql` command. The following command is an
-   example:
+default parameter group for the database doesn't have the configuration
+options that you want, find a different one that does or create a new
+parameter group. For more information about creating a parameter group, see
+[Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 4. Connect to the new Amazon RDS database as the master user. Create the users
+required to support the administrators, applications, and services that need
+to access the DB instance. The hostname for the Amazon RDS database is the
+**Endpoint** value for this DB instance without the
+port number, for example,
+`mysampledb.123456789012.us-west-2.rds.amazonaws.com`. You can find
+the endpoint value in the database details in the Amazon RDS console. 5. Connect to your Amazon EC2 instance. For more information, see [Connect to your instance](../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md#ec2-connect-to-instance-linux "../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md#ec2-connect-to-instance-linux") for Linux instances in the
+_Amazon Elastic Compute Cloud User Guide_. 6. Connect to your Amazon RDS database as a remote host from your Amazon EC2 instance
+using the `mysql` command. The following command is an
+example:
 
 ```
 mysql -h `host_name` -P 3306 -u `db_master_user` -p
@@ -512,7 +512,7 @@ into the Amazon RDS DB instance.
      file contents.
 
 8. Run a simple `SELECT` query against one or two of the tables in
-   the imported database to verify that the import was successful.
+the imported database to verify that the import was successful.
 
 If you no longer need the Amazon EC2 instance used in this procedure, terminate the EC2
 instance to reduce your AWS resource usage. To terminate an EC2 instance, see
@@ -531,11 +531,11 @@ The permissions required to start replication on an Amazon RDS database are rest
 aren't available to your Amazon RDS master user. Because of this, use the appropriate Amazon RDS
 stored procedure for your major engine version:
 
-- [mysql_rds_set_external_master
+- [mysql\_rds\_set\_external\_master
   (RDS for MySQL major versions 8.0 and lower)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master")
-- [mysql.rds_set_external_source (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source "mysql-stored-proc-replicating.md#mysql_rds_set_external_source")
-- [mysql.rds_set_external_master_gtid](mysql_rds_set_external_master_gtid.md "mysql_rds_set_external_master_gtid.md") to configure
-  replication and [mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") to start replication
+- [mysql.rds\_set\_external\_source (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source "mysql-stored-proc-replicating.md#mysql_rds_set_external_source")
+- [mysql.rds\_set\_external\_master\_gtid](mysql_rds_set_external_master_gtid.md "mysql_rds_set_external_master_gtid.md") to configure
+  replication and [mysql.rds\_start\_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") to start replication
 
 ### To start replication
 
@@ -585,18 +585,17 @@ command:
 GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '`repl_user`'@'`mydomain.com`';
 ```
 
-4.  Make the Amazon RDS database the replica. Connect to the Amazon RDS database as the
-    master user and identify the source database as the source replication
-    instance by using the appropriate Amazon RDS stored procedure:
+4. Make the Amazon RDS database the replica. Connect to the Amazon RDS database as the
+   master user and identify the source database as the source replication
+   instance by using the appropriate Amazon RDS stored procedure:
 
-        * [mysql\_rds\_set\_external\_master (RDS for MySQL major versions 8.0
-         and lower)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master")
-        * [mysql.rds\_set\_external\_source (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source "mysql-stored-proc-replicating.md#mysql_rds_set_external_source")
-
-    If you have a SQL format backup file, use the master log file name and
-    master log position that you determined in Step 4. If you used
-    delimited-text format, use the name and position that you determined when
-    creating the backup files. The following commands are examples:
+   - [mysql\_rds\_set\_external\_master (RDS for MySQL major versions 8.0
+     and lower)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master")
+   - [mysql.rds\_set\_external\_source (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source "mysql-stored-proc-replicating.md#mysql_rds_set_external_source")
+     If you have a SQL format backup file, use the master log file name and
+     master log position that you determined in Step 4. If you used
+     delimited-text format, use the name and position that you determined when
+     creating the backup files. The following commands are examples:
 
 **MySQL 8.4 and higher versions**
 
@@ -616,7 +615,7 @@ CALL mysql.rds_set_external_master ('myserver.mydomain.com', 3306,
 
 Specify credentials other than the prompts shown here as a security
 best practice. 5. On the Amazon RDS database, to start replication, run the following command
-that uses the [mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") stored procedure:
+that uses the [mysql.rds\_start\_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") stored procedure:
 
 ```
 CALL mysql.rds_start_replication;
@@ -624,7 +623,7 @@ CALL mysql.rds_start_replication;
 
 6. On the Amazon RDS database, to determine when the replica is up to date with
    the source replication instance, run the [SHOW REPLICA STATUS](https://dev.mysql.com/doc/refman/8.0/en/show-replica-status.html "https://dev.mysql.com/doc/refman/8.0/en/show-replica-status.html") command. The results of the `SHOW
-REPLICA STATUS` command include the
+ REPLICA STATUS` command include the
    `Seconds_Behind_Master` field. When the
    `Seconds_Behind_Master` field returns 0, then the replica is
    up to date with the source replication instance.
@@ -668,21 +667,20 @@ of the Amazon RDS database, the user account and password to connect with, and
 the database to use. 5. Connect to the DB instance.
 
 For a Multi-AZ DB cluster, connect to the writer DB instance. 6. Stop replication for the Amazon RDS instance by running the following command
-that uses the [mysql.rds_stop_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") stored procedure:
+that uses the [mysql.rds\_stop\_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") stored procedure:
 
 ```
 CALL mysql.rds_stop_replication;
 ```
 
-7.  Reset the replication configuration so this instance is no longer
-    identified as a replica by using the appropriate Amazon RDS stored procedure on
-    your Amazon RDS database:
+7. Reset the replication configuration so this instance is no longer
+   identified as a replica by using the appropriate Amazon RDS stored procedure on
+   your Amazon RDS database:
 
-        * [mysql\_rds\_reset\_external\_master (RDS for MySQL major versions 8.0
-         and lower)](mysql-stored-proc-replicating.md#mysql_rds_reset_external_master "mysql-stored-proc-replicating.md#mysql_rds_reset_external_master")
-        * [mysql.rds\_reset\_external\_source (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_reset_external_source "mysql-stored-proc-replicating.md#mysql_rds_reset_external_source")
-
-    **MySQL 8.4 and higher versions**
+   - [mysql\_rds\_reset\_external\_master (RDS for MySQL major versions 8.0
+     and lower)](mysql-stored-proc-replicating.md#mysql_rds_reset_external_master "mysql-stored-proc-replicating.md#mysql_rds_reset_external_master")
+   - [mysql.rds\_reset\_external\_source (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_reset_external_source "mysql-stored-proc-replicating.md#mysql_rds_reset_external_source")
+     **MySQL 8.4 and higher versions**
 
 ```
 CALL mysql.rds_reset_external_source;

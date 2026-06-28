@@ -34,74 +34,73 @@ server-side encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.
 
 ###### To create an IAM policy to allow Amazon RDS to access your Amazon S3 bucket
 
-1.  Open the [IAM Management Console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home").
-2.  Under **Access management**, choose **Policies**.
-3.  Choose **Create Policy**.
-4.  On the **Visual editor** tab, choose **Choose a service**, and then choose
-    **S3**.
-5.  For **Actions**, choose **Expand all**, and then choose the bucket permissions and object
-    permissions required to transfer files from an Amazon S3 bucket to Amazon RDS. For example, do the following:
+1. Open the [IAM Management Console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home").
+2. Under **Access management**, choose **Policies**.
+3. Choose **Create Policy**.
+4. On the **Visual editor** tab, choose **Choose a service**, and then choose
+   **S3**.
+5. For **Actions**, choose **Expand all**, and then choose the bucket permissions and object
+   permissions required to transfer files from an Amazon S3 bucket to Amazon RDS. For example, do the following:
 
-        * Expand **List**, and then select **ListBucket**.
-        * Expand **Read**, and then select **GetObject**.
-        * Expand **Write**, and then select **PutObject**,
-         **DeleteObject**, **AbortMultipartUpload**, and **ListMultipartUploadParts**. The multipart upload permissions are required when uploading large files (100 MB or larger) to Amazon S3.
-        * Expand **Permissions management**, and then select **PutObjectAcl**. This
-         permission is necessary if you plan to upload files to a bucket owned by a different account, and this account needs
-         full control of the bucket contents.
+   - Expand **List**, and then select **ListBucket**.
+   - Expand **Read**, and then select **GetObject**.
+   - Expand **Write**, and then select **PutObject**,
+     **DeleteObject**, **AbortMultipartUpload**, and **ListMultipartUploadParts**. The multipart upload permissions are required when uploading large files (100 MB or larger) to Amazon S3.
+   - Expand **Permissions management**, and then select **PutObjectAcl**. This
+     permission is necessary if you plan to upload files to a bucket owned by a different account, and this account needs
+     full control of the bucket contents.
+     _Object permissions_ are permissions for object operations in Amazon S3. You must grant them for
+     objects in a bucket, not the bucket itself. For more information, see [Permissions for object
+     operations](../../../AmazonS3/latest/userguide/using-with-s3-actions.md#using-with-s3-actions-related-to-objects "../../../AmazonS3/latest/userguide/using-with-s3-actions.md#using-with-s3-actions-related-to-objects").
 
-    _Object permissions_ are permissions for object operations in Amazon S3. You must grant them for
-    objects in a bucket, not the bucket itself. For more information, see [Permissions for object
-    operations](../../../AmazonS3/latest/userguide/using-with-s3-actions.md#using-with-s3-actions-related-to-objects "../../../AmazonS3/latest/userguide/using-with-s3-actions.md#using-with-s3-actions-related-to-objects").
+6. Choose **Resources**, and then do the following:
 
-6.  Choose **Resources**, and then do the following:
+   1. Choose **Specific**.
+   2. For **bucket**, choose **Add
+      ARN**. Enter your bucket ARN. The bucket name is filled
+      in automatically. Then choose **Add**.
+   3. If the **object** resource is shown, either
+      choose **Add ARN** to add resources manually or
+      choose **Any**.
 
-    1. Choose **Specific**.
-    2. For **bucket**, choose **Add
-       ARN**. Enter your bucket ARN. The bucket name is filled
-       in automatically. Then choose **Add**.
-    3. If the **object** resource is shown, either
-       choose **Add ARN** to add resources manually or
-       choose **Any**.
+   ###### Note
 
-    ###### Note
+   You can set **Amazon Resource Name (ARN)** to
+   a more specific ARN value to allow Amazon RDS to access only specific
+   files or folders in an Amazon S3 bucket. For more information about
+   how to define an access policy for Amazon S3, see [Managing access
+   permissions to your Amazon S3 resources](../../../AmazonS3/latest/userguide/s3-access-control.md "../../../AmazonS3/latest/userguide/s3-access-control.md").
 
-    You can set **Amazon Resource Name (ARN)** to
-    a more specific ARN value to allow Amazon RDS to access only specific
-    files or folders in an Amazon S3 bucket. For more information about
-    how to define an access policy for Amazon S3, see [Managing access
-    permissions to your Amazon S3 resources](../../../AmazonS3/latest/userguide/s3-access-control.md "../../../AmazonS3/latest/userguide/s3-access-control.md").
+7. (Optional) Choose **Add additional permissions** to add resources to the policy. For example, do the
+   following:
 
-7.  (Optional) Choose **Add additional permissions** to add resources to the policy. For example, do the
-    following:
+   1. If your bucket is encrypted with a custom KMS key, select
+      **KMS** for the service.
+   2. For **Manual actions**, select the
+      following:
 
-    1. If your bucket is encrypted with a custom KMS key, select
-       **KMS** for the service.
-    2. For **Manual actions**, select the
-       following:
+      - **Encrypt**
+      - **ReEncrypt from** and
+        **ReEncrypt to**
+      - **Decrypt**
+      - **DescribeKey**
+      - **GenerateDataKey**
 
-       - **Encrypt**
-       - **ReEncrypt from** and
-         **ReEncrypt to**
-       - **Decrypt**
-       - **DescribeKey**
-       - **GenerateDataKey**
+   3. For **Resources**, choose
+      **Specific**.
+   4. For **key**, choose **Add ARN**.
+      Enter the ARN of your custom key as the resource, and then choose
+      **Add**.
 
-    3. For **Resources**, choose
-       **Specific**.
-    4. For **key**, choose **Add ARN**.
-       Enter the ARN of your custom key as the resource, and then choose
-       **Add**.
+   For more information, see [Protecting Data Using Server-Side Encryption with KMS keys
+   Stored in AWS Key Management Service (SSE-KMS)](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md") in the _Amazon Simple Storage Service User Guide_. 5. If you want Amazon RDS to access other buckets, add the ARNs
+   for these buckets. Optionally, you can also grant access to all
+   buckets and objects in Amazon S3.
 
-    For more information, see [Protecting Data Using Server-Side Encryption with KMS keys
-    Stored in AWS Key Management Service (SSE-KMS)](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md") in the _Amazon Simple Storage Service User Guide_. 5. If you want Amazon RDS to access other buckets, add the ARNs
-    for these buckets. Optionally, you can also grant access to all
-    buckets and objects in Amazon S3.
-
-8.  Choose **Next: Tags** and then **Next: Review**.
-9.  For **Name**, enter a name for your IAM policy, for example `rds-s3-integration-policy`. You
-    use this name when you create an IAM role to associate with your DB instance. You can also add an optional
-    **Description** value.
+8. Choose **Next: Tags** and then **Next: Review**.
+9. For **Name**, enter a name for your IAM policy, for example `rds-s3-integration-policy`. You
+   use this name when you create an IAM role to associate with your DB instance. You can also add an optional
+   **Description** value.
 10. Choose **Create policy**.
     Create an AWS Identity and Access Management (IAM) policy that grants Amazon RDS access to an Amazon S3 bucket. After you create the policy, note the ARN of the
     policy. You need the ARN for a subsequent step.
@@ -281,7 +280,7 @@ If you choose **Policy generator**, the AWS Policy Generator opens in a new wind
      policy** page in the Amazon S3 console.
 
 6. In the **Policy** box, edit the existing policy or paste the bucket policy from the Policy generator. Make
-   sure to resolve security warnings, errors, general warnings, and suggestions before you save your policy.
+sure to resolve security warnings, errors, general warnings, and suggestions before you save your policy.
 
 JSON
 
@@ -454,7 +453,7 @@ requirements:
    section at the bottom of the page.
 5. For **Add IAM roles to this instance**, choose the role
    that you created in [Step 3: Create an IAM role for your DB instance and attach your policy](#oracle-s3-integration.preparing.role "#oracle-s3-integration.preparing.role").
-6. For **Feature**, choose **S3_INTEGRATION**.
+6. For **Feature**, choose **S3\_INTEGRATION**.
 
 ![Add S3_INTEGRATION role.](images/ora-s3-integration-role.png) 7. Choose **Add role**.
 The following AWS CLI command adds the role to an Oracle DB instance named

@@ -423,13 +423,13 @@ audit logs in your S3 bucket.
    - Create a custom DB option group, and use that option group. For
      more information, see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create").
 
-2. Add the **DB2_AUDIT** option to the option group, and
+2. Add the **DB2\_AUDIT** option to the option group, and
    configure the option settings. For more information about adding options,
    see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
 
-   - For **IAM_ROLE_ARN**, enter the ARN of the IAM
+   - For **IAM\_ROLE\_ARN**, enter the ARN of the IAM
      role that you created in [Step 3: Create an IAM role and attach your IAM policy](#db2-audit-create-iam-role "#db2-audit-create-iam-role").
-   - For **S3_BUCKET_ARN**, enter the ARN of the S3
+   - For **S3\_BUCKET\_ARN**, enter the ARN of the S3
      bucket to use for your Db2 audit logs. The bucket must be in the
      same Region as your RDS for Db2 DB instance. The policy
      associated with the IAM role you entered must allow the required
@@ -456,7 +456,7 @@ The following example connects to the database and configures an audit policy fo
 `testdb` with the categories AUDIT, CHECKING, OBJMAINT, SECMAINT,
 SYSADMIN, and VALIDATE. The status value `BOTH` logs success and
 failures, and the `ERROR TYPE` is `NORMAL` by default. For
-more information about how to use this stored procedure, see [rdsadmin.configure_db_audit](db2-sp-managing-audit-policies.md#db2-sp-configure-db-audit "db2-sp-managing-audit-policies.md#db2-sp-configure-db-audit").
+more information about how to use this stored procedure, see [rdsadmin.configure\_db\_audit](db2-sp-managing-audit-policies.md#db2-sp-configure-db-audit "db2-sp-managing-audit-policies.md#db2-sp-configure-db-audit").
 
 ```
 db2 "connect to rdsadmin user `master_user` using `master_password`"
@@ -516,7 +516,7 @@ You can also change the Amazon S3 bucket where your log files are uploaded to.
 To modify the audit policy for a specific RDS for Db2 database, run the
 `rdsadmin.configure_db_audit` stored procedure. With this stored
 procedure, you can change the categories, category settings, and error type
-configuration of the audit policy. For more information, see [rdsadmin.configure_db_audit](db2-sp-managing-audit-policies.md#db2-sp-configure-db-audit "db2-sp-managing-audit-policies.md#db2-sp-configure-db-audit").
+configuration of the audit policy. For more information, see [rdsadmin.configure\_db\_audit](db2-sp-managing-audit-policies.md#db2-sp-configure-db-audit "db2-sp-managing-audit-policies.md#db2-sp-configure-db-audit").
 
 ### Modifying the location of your log files
 
@@ -553,7 +553,7 @@ To disable Db2 audit logging, do one of the following:
 - Disable audit logging for a specific database – Stop audit logging
   and remove the audit policy by calling
   `rdsadmin.disable_db_audit` with the DB name of your
-  database. For more information, see [rdsadmin.disable_db_audit](db2-sp-managing-audit-policies.md#db2-sp-disable-db-audit "db2-sp-managing-audit-policies.md#db2-sp-disable-db-audit").
+  database. For more information, see [rdsadmin.disable\_db\_audit](db2-sp-managing-audit-policies.md#db2-sp-disable-db-audit "db2-sp-managing-audit-policies.md#db2-sp-disable-db-audit").
 
 ```
 db2 "call rdsadmin.disable_db_audit(

@@ -57,7 +57,7 @@ As soon as the option group is active, auditing begins immediately.
    Choose **mariadb** for **Engine**, and
    choose **10.3** or higher for **Major engine
    version**. For more information, see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create").
-2. Add the **MARIADB_AUDIT_PLUGIN** option to the option group, and configure the option settings.
+2. Add the **MARIADB\_AUDIT\_PLUGIN** option to the option group, and configure the option settings.
    For more information about adding options,
    see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
    For more information about each setting,

@@ -59,7 +59,7 @@ Reads. The following use cases are candidates for RDS Optimized Reads:
 - Read replicas that serve heavy read traffic with unoptimized queries
 - Applications that run on-demand or dynamic reporting queries that involve
   complex operations, such as queries with `GROUP BY` and `ORDER
-BY` clauses
+ BY` clauses
 - Workloads that use internal temporary tables for query processing
 
 You can monitor the engine status variable `created_tmp_disk_tables` to determine the number of
@@ -140,13 +140,12 @@ The following limitations apply to RDS Optimized Reads:
 
 - RDS Optimized Reads is supported for the following RDS for MariaDB versions:
 
-      + All available minor versions of 11.4 and higher major releases
-      + 10.11.4 and higher 10.11 versions
-      + 10.6.7 and higher 10.6 versions
-      + 10.5.16 and higher 10.5 versions
-      + 10.4.25 and higher 10.4 versions
-
-  For information about RDS for MariaDB versions, see [MariaDB on Amazon RDS versions](MariaDB.Concepts.VersionMgmt.md "MariaDB.Concepts.VersionMgmt.md").
+  - All available minor versions of 11.4 and higher major releases
+  - 10.11.4 and higher 10.11 versions
+  - 10.6.7 and higher 10.6 versions
+  - 10.5.16 and higher 10.5 versions
+  - 10.4.25 and higher 10.4 versions
+    For information about RDS for MariaDB versions, see [MariaDB on Amazon RDS versions](MariaDB.Concepts.VersionMgmt.md "MariaDB.Concepts.VersionMgmt.md").
 
 - You can't change the location of temporary objects to persistent storage (Amazon EBS) on the DB
   instance classes that support RDS Optimized Reads.

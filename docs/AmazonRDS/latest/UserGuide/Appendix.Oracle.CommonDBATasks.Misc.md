@@ -263,8 +263,8 @@ in the _Amazon RDS for Oracle Release Notes_.
 ###### Topics
 
 - [Setting parameters for advisor tasks](#Appendix.Oracle.CommonDBATasks.setting-task-parameters "#Appendix.Oracle.CommonDBATasks.setting-task-parameters")
-- [Disabling AUTO_STATS_ADVISOR_TASK](#Appendix.Oracle.CommonDBATasks.dropping-advisor-task "#Appendix.Oracle.CommonDBATasks.dropping-advisor-task")
-- [Re-enabling AUTO_STATS_ADVISOR_TASK](#Appendix.Oracle.CommonDBATasks.recreating-advisor-task "#Appendix.Oracle.CommonDBATasks.recreating-advisor-task")
+- [Disabling AUTO\_STATS\_ADVISOR\_TASK](#Appendix.Oracle.CommonDBATasks.dropping-advisor-task "#Appendix.Oracle.CommonDBATasks.dropping-advisor-task")
+- [Re-enabling AUTO\_STATS\_ADVISOR\_TASK](#Appendix.Oracle.CommonDBATasks.recreating-advisor-task "#Appendix.Oracle.CommonDBATasks.recreating-advisor-task")
 
 ### Setting parameters for advisor tasks
 
@@ -309,7 +309,7 @@ BEGIN
 END;
 ```
 
-### Disabling AUTO_STATS_ADVISOR_TASK
+### Disabling AUTO\_STATS\_ADVISOR\_TASK
 
 To disable `AUTO_STATS_ADVISOR_TASK`, use the Amazon RDS procedure
 `rdsadmin.rdsadmin_util.advisor_task_drop`. The
@@ -329,7 +329,7 @@ EXEC rdsadmin.rdsadmin_util.advisor_task_drop('AUTO_STATS_ADVISOR_TASK')
 You can re-enable `AUTO_STATS_ADVISOR_TASK` using
 `rdsadmin.rdsadmin_util.dbms_stats_init`.
 
-### Re-enabling AUTO_STATS_ADVISOR_TASK
+### Re-enabling AUTO\_STATS\_ADVISOR\_TASK
 
 To re-enable `AUTO_STATS_ADVISOR_TASK`, use the Amazon RDS procedure
 `rdsadmin.rdsadmin_util.dbms_stats_init`. The

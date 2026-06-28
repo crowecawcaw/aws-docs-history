@@ -108,20 +108,19 @@ For more information, see [Features removed in MySQL 8.4](https://dev.mysql.com/
 - There must be no foreign key constraint names longer than 64 characters.
 - For improved Unicode support, review the following information:
 
-      + Consider converting objects that use the `utf8mb3`
-       charset to use the `utf8mb4` charset. The
-       `utf8mb3` character set is deprecated.
-      + Consider using `utf8mb4` for character set
-       references instead of `utf8`, because currently
-       `utf8` is an alias for the `utf8mb3`
-       charset. If possible, change `utf8` to
-       `utf8mb4` first, and then upgrade your database.
-      + Because older clients can receive an unknown character set
-       error for `utf8mb3`, upgrade your database clients
-       before upgrading your database.
-
-  For more information, see [The utf8mb3 character set (3-byte UTF-8 unicode encoding)](https://dev.mysql.com/doc/refman/8.4/en/charset-unicode-utf8mb3.html "https://dev.mysql.com/doc/refman/8.4/en/charset-unicode-utf8mb3.html")
-  in the MySQL documentation.
+  - Consider converting objects that use the `utf8mb3`
+    charset to use the `utf8mb4` charset. The
+    `utf8mb3` character set is deprecated.
+  - Consider using `utf8mb4` for character set
+    references instead of `utf8`, because currently
+    `utf8` is an alias for the `utf8mb3`
+    charset. If possible, change `utf8` to
+    `utf8mb4` first, and then upgrade your database.
+  - Because older clients can receive an unknown character set
+    error for `utf8mb3`, upgrade your database clients
+    before upgrading your database.
+    For more information, see [The utf8mb3 character set (3-byte UTF-8 unicode encoding)](https://dev.mysql.com/doc/refman/8.4/en/charset-unicode-utf8mb3.html "https://dev.mysql.com/doc/refman/8.4/en/charset-unicode-utf8mb3.html")
+    in the MySQL documentation.
 
 To change the character sets, you can manually perform a backup,
 restore, and replication of your database. Or you can use Amazon RDS
@@ -171,20 +170,19 @@ For more information, see [Features removed in MySQL 8.0](https://dev.mysql.com/
 - There must be no foreign key constraint names longer than 64 characters.
 - For improved Unicode support, review the following information:
 
-      + Consider converting objects that use the `utf8mb3`
-       charset to use the `utf8mb4` charset. The
-       `utf8mb3` character set is deprecated.
-      + Consider using `utf8mb4` for character set
-       references instead of `utf8`, because currently
-       `utf8` is an alias for the `utf8mb3`
-       charset. If possible, change `utf8` to
-       `utf8mb4` first, and then upgrade your database.
-      + Because older clients can receive an unknown character set
-       error for `utf8mb3`, upgrade your database clients
-       before upgrading your database.
-
-  For more information, see [The utf8mb3 character set (3-byte UTF-8 unicode encoding)](https://dev.mysql.com/doc/refman/8.4/en/charset-unicode-utf8mb3.html "https://dev.mysql.com/doc/refman/8.4/en/charset-unicode-utf8mb3.html")
-  in the MySQL documentation.
+  - Consider converting objects that use the `utf8mb3`
+    charset to use the `utf8mb4` charset. The
+    `utf8mb3` character set is deprecated.
+  - Consider using `utf8mb4` for character set
+    references instead of `utf8`, because currently
+    `utf8` is an alias for the `utf8mb3`
+    charset. If possible, change `utf8` to
+    `utf8mb4` first, and then upgrade your database.
+  - Because older clients can receive an unknown character set
+    error for `utf8mb3`, upgrade your database clients
+    before upgrading your database.
+    For more information, see [The utf8mb3 character set (3-byte UTF-8 unicode encoding)](https://dev.mysql.com/doc/refman/8.4/en/charset-unicode-utf8mb3.html "https://dev.mysql.com/doc/refman/8.4/en/charset-unicode-utf8mb3.html")
+    in the MySQL documentation.
 
 To change the character sets, you can manually perform a backup,
 restore, and replication of your database. Or you can use Amazon RDS

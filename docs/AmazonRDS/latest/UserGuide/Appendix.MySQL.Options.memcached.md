@@ -151,7 +151,7 @@ modified: `DAEMON_MEMCACHED_LIB_NAME`,
 set by using `daemon_memcached_options` are available as individual
 `MEMCACHED` option settings in Amazon RDS.
 
-### MySQL daemon_memcached_options parameters
+### MySQL daemon\_memcached\_options parameters
 
 - `BINDING_PROTOCOL` – a string that specifies the
   binding protocol to use. The allowed values are `auto`,

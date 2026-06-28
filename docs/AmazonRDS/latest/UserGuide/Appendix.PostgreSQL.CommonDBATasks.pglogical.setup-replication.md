@@ -53,7 +53,7 @@ sample table as follows.
     ```
 
 2. Identify this RDS for PostgreSQL DB instance as the publisher node, as
-   follows.
+follows.
 
 ```
 SELECT pglogical.create_node(

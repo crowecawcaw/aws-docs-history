@@ -30,7 +30,7 @@ You can add the following options for Oracle DB instances.
 | [Oracle time zone](Appendix.Oracle.Options.Timezone.md "Appendix.Oracle.Options.Timezone.md")                                                    | `Timezone`                  |
 | [Oracle time zone file autoupgrade](Appendix.Oracle.Options.Timezone-file-autoupgrade.md "Appendix.Oracle.Options.Timezone-file-autoupgrade.md") | `TIMEZONE_FILE_AUTOUPGRADE` |
 | [Oracle Transparent Data Encryption](Appendix.Oracle.Options.AdvSecurity.md "Appendix.Oracle.Options.AdvSecurity.md")                            | `TDE`                       |
-| [Oracle UTL_MAIL](Oracle.Options.UTLMAIL.md "Oracle.Options.UTLMAIL.md")                                                                         | `UTL_MAIL`                  |
+| [Oracle UTL\_MAIL](Oracle.Options.UTLMAIL.md "Oracle.Options.UTLMAIL.md")                                                                        | `UTL_MAIL`                  |
 | [Oracle XML DB](Appendix.Oracle.Options.XMLDB.md "Appendix.Oracle.Options.XMLDB.md")                                                             | `XMLDB`                     |
 
 ## Options supported for different editions

@@ -33,7 +33,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 ```
 
 2. Create a buffer pool by calling `rdsadmin.create_bufferpool`. For
-   more information, see [rdsadmin.create_bufferpool](db2-sp-managing-buffer-pools.md#db2-sp-create-buffer-pool "db2-sp-managing-buffer-pools.md#db2-sp-create-buffer-pool").
+   more information, see [rdsadmin.create\_bufferpool](db2-sp-managing-buffer-pools.md#db2-sp-create-buffer-pool "db2-sp-managing-buffer-pools.md#db2-sp-create-buffer-pool").
 
 ```
 db2 "call rdsadmin.create_bufferpool(
@@ -66,7 +66,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 ```
 
 2. Alter a buffer pool by calling `rdsadmin.alter_bufferpool`. For
-   more information, see [rdsadmin.alter_bufferpool](db2-sp-managing-buffer-pools.md#db2-sp-alter-buffer-pool "db2-sp-managing-buffer-pools.md#db2-sp-alter-buffer-pool").
+   more information, see [rdsadmin.alter\_bufferpool](db2-sp-managing-buffer-pools.md#db2-sp-alter-buffer-pool "db2-sp-managing-buffer-pools.md#db2-sp-alter-buffer-pool").
 
 ```
 db2 "call rdsadmin.alter_bufferpool(
@@ -103,7 +103,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 ```
 
 2. Drop a buffer pool by calling `rdsadmin.drop_bufferpool`. For more
-   information, see [rdsadmin.drop_bufferpool](db2-sp-managing-buffer-pools.md#db2-sp-drop-buffer-pool "db2-sp-managing-buffer-pools.md#db2-sp-drop-buffer-pool").
+   information, see [rdsadmin.drop\_bufferpool](db2-sp-managing-buffer-pools.md#db2-sp-drop-buffer-pool "db2-sp-managing-buffer-pools.md#db2-sp-drop-buffer-pool").
 
 ```
 db2 "call rdsadmin.drop_bufferpool(

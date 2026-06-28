@@ -33,7 +33,7 @@ The following procedure creates an option group for SQL Server Standard Edition 
       `ssrs-se-2017`. The name can contain only letters, digits, and
       hyphens.
    2. For **Description**, enter a brief description of the option group, such as `SSRS option group for SQL Server SE 
-2017`. The description is used for display purposes.
+  2017`. The description is used for display purposes.
    3. For **Engine**, choose **sqlserver-se**.
    4. For **Major engine version**, choose
       **14.00**.
@@ -74,35 +74,35 @@ Next, use the AWS Management Console or the AWS CLI to add the `SSRS` option to 
 
 ###### To add the SSRS option
 
-1.  Sign in to the AWS Management Console and open the Amazon RDS console at
-    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2.  In the navigation pane, choose **Option groups**.
-3.  Choose the option group that you just created, then choose **Add option**.
-4.  Under **Option details**, choose **SSRS** for **Option
-    name**.
-5.  Under **Option settings**, do the following:
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Option groups**.
+3. Choose the option group that you just created, then choose **Add option**.
+4. Under **Option details**, choose **SSRS** for **Option
+   name**.
+5. Under **Option settings**, do the following:
 
-    1. Enter the port for the SSRS service to listen on. The default is 8443. For a list of allowed
-       values, see [Limitations and recommendations](Appendix.SQLServer.Options.SSRS.md#SSRS.Limitations "Appendix.SQLServer.Options.SSRS.md#SSRS.Limitations").
-    2. Enter a value for **Max memory**.
+   1. Enter the port for the SSRS service to listen on. The default is 8443. For a list of allowed
+      values, see [Limitations and recommendations](Appendix.SQLServer.Options.SSRS.md#SSRS.Limitations "Appendix.SQLServer.Options.SSRS.md#SSRS.Limitations").
+   2. Enter a value for **Max memory**.
 
-    **Max memory** specifies the upper threshold above which no new memory allocation
-    requests are granted to report server applications. The number is a percentage of the total memory
-    of the DB instance. The allowed values are 10–80. 3. For **Security groups**, choose the VPC security group to associate with the
-    option. Use the same security group that is associated with your DB instance.
+   **Max memory** specifies the upper threshold above which no new memory allocation
+   requests are granted to report server applications. The number is a percentage of the total memory
+   of the DB instance. The allowed values are 10–80. 3. For **Security groups**, choose the VPC security group to associate with the
+   option. Use the same security group that is associated with your DB instance.
 
-6.  To use SSRS Email to send reports, choose the **Configure email delivery options** check
-    box under **Email delivery in reporting services**, and then do the following:
+6. To use SSRS Email to send reports, choose the **Configure email delivery options** check
+   box under **Email delivery in reporting services**, and then do the following:
 
-    1. For **Sender email address**, enter the
-       email address to use in the **From** field
-       of messages sent by SSRS Email.
+   1. For **Sender email address**, enter the
+      email address to use in the **From** field
+      of messages sent by SSRS Email.
 
-    Specify a user account that has permission to send mail from the SMTP server. 2. For **SMTP server**, specify the SMTP server or gateway to use.
+   Specify a user account that has permission to send mail from the SMTP server. 2. For **SMTP server**, specify the SMTP server or gateway to use.
 
-    It can be an IP address, the NetBIOS name of a computer on your corporate intranet, or a fully
-    qualified domain name. 3. For **SMTP port**, enter the port to use to connect to the mail server. The
-    default is 25. 4. To use authentication:
+   It can be an IP address, the NetBIOS name of a computer on your corporate intranet, or a fully
+   qualified domain name. 3. For **SMTP port**, enter the port to use to connect to the mail server. The
+   default is 25. 4. To use authentication:
 
         1. Select the **Use authentication** check box.
         2. For **Secret Amazon Resource Name (ARN)** enter the AWS Secrets Manager ARN for the
@@ -122,12 +122,13 @@ Next, use the AWS Management Console or the AWS CLI to add the `SSRS` option to 
 
 
         For more information on creating the secret, see [Using SSRS Email to send reports](SSRS.Email.md "SSRS.Email.md").
-    5. Select the **Use Secure Sockets Layer (SSL)** check box to encrypt email messages
-       using SSL.
 
-7.  Under **Scheduling**, choose whether to add the option immediately or at the next
-    maintenance window.
-8.  Choose **Add option**.
+   5. Select the **Use Secure Sockets Layer (SSL)** check box to encrypt email messages
+   using SSL.
+
+7. Under **Scheduling**, choose whether to add the option immediately or at the next
+   maintenance window.
+8. Choose **Add option**.
 
 ###### To add the SSRS option
 

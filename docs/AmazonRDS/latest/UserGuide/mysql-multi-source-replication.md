@@ -181,7 +181,7 @@ You can monitor individual channels in a multi-source replica by using the follo
 
 - To monitor the status of all channels or a specific channel, connect to the multi-source
   replica and run the `SHOW REPLICA STATUS` or `SHOW REPLICA
-STATUS FOR CHANNEL '`channel_name`'` command.
+ STATUS FOR CHANNEL '`channel_name`'` command.
   For more information, see [Checking Replication Status](https://dev.mysql.com/doc/refman/8.0/en/replication-administration-status.html "https://dev.mysql.com/doc/refman/8.0/en/replication-administration-status.html") in the MySQL documentation.
 - To receive notification when a replication channel is started, stopped, or removed, use RDS event notification. For more information, see
   [Working with Amazon RDS event notification](USER_Events.md "USER_Events.md").

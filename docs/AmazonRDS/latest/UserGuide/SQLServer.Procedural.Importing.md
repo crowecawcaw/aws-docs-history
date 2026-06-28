@@ -128,7 +128,7 @@ The following are some limitations to using native backup and restore:
   backup. If you want a differential backup, but a manual or automated snapshot
   exists, then do another full backup before proceeding with the differential
   backup.
-- Differential and log restores aren't supported for databases with files that have their file_guid (unique identifier) set to
+- Differential and log restores aren't supported for databases with files that have their file\_guid (unique identifier) set to
   `NULL`.
 - You can run up to two backup or restore tasks at the same time.
 - You can't perform native log backups from SQL Server on Amazon RDS.

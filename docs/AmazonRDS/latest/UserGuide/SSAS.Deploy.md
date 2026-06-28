@@ -11,10 +11,10 @@ Before you deploy projects, make sure of the following:
 
 - Amazon S3 integration is turned on. For more information, see [Integrating an Amazon RDS for SQL Server DB instance with Amazon S3](User.SQLServer.Options.S3-integration.md "User.SQLServer.Options.S3-integration.md").
 - The `Processing Option` configuration setting is set to `Do Not
-Process`. This setting means that no processing happens after
+ Process`. This setting means that no processing happens after
   deployment.
 - You have both the ``myssasproject`.asdatabase` and
-``myssasproject`.deploymentoptions`
+ ``myssasproject`.deploymentoptions`
   files. They're automatically generated when you build the SSAS
   project.
 

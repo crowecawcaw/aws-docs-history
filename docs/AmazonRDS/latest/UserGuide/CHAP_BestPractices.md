@@ -448,7 +448,7 @@ the size of the `table_open_cache` and
 `table_definition_cache` parameters. However, increasing the values
 of those parameters might significantly increase the amount of memory MariaDB uses.
 It might even use all of the available memory. For more information, see [Optimizing
-table_open_cache](https://mariadb.com/kb/en/optimizing-table_open_cache/ "https://mariadb.com/kb/en/optimizing-table_open_cache/") in the MariaDB documentation.
+table\_open\_cache](https://mariadb.com/kb/en/optimizing-table_open_cache/ "https://mariadb.com/kb/en/optimizing-table_open_cache/") in the MariaDB documentation.
 
 In addition, too many tables can significantly affect MariaDB startup time. Both a clean shutdown and restart and a crash recovery
 can be affected. We recommend having fewer than ten thousand tables total across all of the databases in a DB instance.
@@ -497,7 +497,7 @@ efficient importing of data into your DB instance.
 
 Modify your DB instance settings to the following:
 
-- Disable DB instance backups (set backup_retention to 0)
+- Disable DB instance backups (set backup\_retention to 0)
 - Disable Multi-AZ
 
 Modify your DB parameter group to include the following settings. Also, test the

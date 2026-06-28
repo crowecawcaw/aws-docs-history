@@ -126,7 +126,7 @@ page.
      choose **Launch instance**.
 
 5. On the **Launch Status** page, note the identifier for your new
-   EC2 instance, for example: `i-1234567890abcdef0`.
+EC2 instance, for example: `i-1234567890abcdef0`.
 
 ![EC2 instance identifier on Launch Status page.](images/getting-started-ec2-id.png) 6. Choose the EC2 instance identifier to open the list of EC2 instances. 7. Wait until the **Instance state** for your EC2 instance has a status
 of **Running** before continuing.

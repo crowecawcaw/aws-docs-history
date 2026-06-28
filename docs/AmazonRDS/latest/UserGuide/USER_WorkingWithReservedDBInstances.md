@@ -155,7 +155,7 @@ illustrates the total cost per month for a reserved DB instance:
 - 600 GiB of backup storage at $0.095, or $19 per month (400 GiB free)
 
 Add all of these charges ($90 + $45.60 + $19) with the reserved DB instance, and the total cost per
-month is $154.60.
+ month is $154.60.
 
 If you choose to use an on-demand DB instance instead of a reserved DB instance, an RDS for MySQL
 Single-AZ db.r5.large DB instance class in US East (N. Virginia) costs $0.1386 per hour, or $101.18 per month. So, for an

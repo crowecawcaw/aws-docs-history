@@ -159,8 +159,8 @@ Node.js
 
 ###### To connect to your Db2 database server using Node.js
 
-1. Install the **node-ibm_db** driver. For more
-   information, see [Installing the node-ibm_db driver on Linux and
+1. Install the **node-ibm\_db** driver. For more
+   information, see [Installing the node-ibm\_db driver on Linux and
    UNIX systems](https://www.ibm.com/docs/en/db2/11.5?topic=nodejs-installing-node-db-driver-linux-unix-systems "https://www.ibm.com/docs/en/db2/11.5?topic=nodejs-installing-node-db-driver-linux-unix-systems") in the IBM Db2
    documentation.
 2. Create a JavaScript file based on the following

@@ -14,7 +14,7 @@ system procedures and tables that require advanced privileges.
 - [Flushing the shared pool](Appendix.Oracle.CommonDBATasks.FlushingSharedPool.md "Appendix.Oracle.CommonDBATasks.FlushingSharedPool.md")
 - [Granting SELECT or EXECUTE privileges to SYS objects](Appendix.Oracle.CommonDBATasks.TransferPrivileges.md "Appendix.Oracle.CommonDBATasks.TransferPrivileges.md")
 - [Revoking SELECT or EXECUTE privileges on SYS objects](Appendix.Oracle.CommonDBATasks.RevokePrivileges.md "Appendix.Oracle.CommonDBATasks.RevokePrivileges.md")
-- [Managing RDS_X$ views for Oracle DB instances](Appendix.Oracle.CommonDBATasks.X-dollar.md "Appendix.Oracle.CommonDBATasks.X-dollar.md")
+- [Managing RDS\_X$ views for Oracle DB instances](Appendix.Oracle.CommonDBATasks.X-dollar.md "Appendix.Oracle.CommonDBATasks.X-dollar.md")
 - [Granting privileges to non-master users](Appendix.Oracle.CommonDBATasks.PermissionsNonMasters.md "Appendix.Oracle.CommonDBATasks.PermissionsNonMasters.md")
 - [Creating custom functions to verify passwords](Appendix.Oracle.CommonDBATasks.CustomPassword.md "Appendix.Oracle.CommonDBATasks.CustomPassword.md")
 - [Setting up a custom DNS server](#Appendix.Oracle.CommonDBATasks.CustomDNS "#Appendix.Oracle.CommonDBATasks.CustomDNS")
@@ -24,7 +24,7 @@ system procedures and tables that require advanced privileges.
 
 Amazon RDS supports outbound network access on your DB instances running Oracle.
 For more
-information about outbound network access, including prerequisites, see [Configuring UTL_HTTP access using certificates and an Oracle wallet](Oracle.Concepts.ONA.md "Oracle.Concepts.ONA.md").
+information about outbound network access, including prerequisites, see [Configuring UTL\_HTTP access using certificates and an Oracle wallet](Oracle.Concepts.ONA.md "Oracle.Concepts.ONA.md").
 
 Amazon RDS Oracle allows Domain Name Service (DNS) resolution from a custom DNS server
 owned by the customer. You can resolve only fully qualified domain names from your

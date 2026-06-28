@@ -25,9 +25,9 @@ To delete a CEV by using the AWS CLI, run the [delete-custom-db-engine-version](
 The following options are required:
 
 - `--engine custom-sqlserver-ee`
-- `--engine-version `cev``, where `cev`is the name of the custom
- engine version to be deleted
-The following example deletes a CEV named`15.00.4249.2.my_cevtest`.
+- `--engine-version `cev``, where `cev` is the name of the custom
+  engine version to be deleted
+  The following example deletes a CEV named `15.00.4249.2.my_cevtest`.
 
 ###### Example
 

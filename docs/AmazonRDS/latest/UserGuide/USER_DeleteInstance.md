@@ -61,14 +61,13 @@ replica status. Consider the following issues:
 - If you want to delete all RDS resources, note that the following resources incur billing
   charges:
 
-      + DB instances
-      + DB snapshots
-      + DB clusters
-
-  If you purchased reserved instances, then they are billed according to contract that you
-  agreed to when you purchased the instance. For more information, see [Reserved DB instances for Amazon RDS](USER_WorkingWithReservedDBInstances.md "USER_WorkingWithReservedDBInstances.md") . You can get billing
-  information for all your AWS resources by using the AWS Cost Explorer. For more
-  information, see [Analyzing your costs with AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md").
+  - DB instances
+  - DB snapshots
+  - DB clusters
+    If you purchased reserved instances, then they are billed according to contract that you
+    agreed to when you purchased the instance. For more information, see [Reserved DB instances for Amazon RDS](USER_WorkingWithReservedDBInstances.md "USER_WorkingWithReservedDBInstances.md") . You can get billing
+    information for all your AWS resources by using the AWS Cost Explorer. For more
+    information, see [Analyzing your costs with AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md").
 
 - If you delete a DB instance that has read replicas in the same AWS Region, each
   read replica is automatically promoted to a standalone DB instance. For more

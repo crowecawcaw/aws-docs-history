@@ -10,13 +10,13 @@ following versions:
 
 ###### Topics
 
-- [mysql.rds_group_replication_advance_gtid](#mysql_rds_group_replication_advance_gtid "#mysql_rds_group_replication_advance_gtid")
-- [mysql.rds_group_replication_create_user](#mysql_rds_group_replication_create_user "#mysql_rds_group_replication_create_user")
-- [mysql.rds_group_replication_set_recovery_channel](#mysql_rds_group_replication_set_recovery_channel "#mysql_rds_group_replication_set_recovery_channel")
-- [mysql.rds_group_replication_start](#mysql_rds_group_replication_start "#mysql_rds_group_replication_start")
-- [mysql.rds_group_replication_stop](#mysql_rds_group_replication_stop "#mysql_rds_group_replication_stop")
+- [mysql.rds\_group\_replication\_advance\_gtid](#mysql_rds_group_replication_advance_gtid "#mysql_rds_group_replication_advance_gtid")
+- [mysql.rds\_group\_replication\_create\_user](#mysql_rds_group_replication_create_user "#mysql_rds_group_replication_create_user")
+- [mysql.rds\_group\_replication\_set\_recovery\_channel](#mysql_rds_group_replication_set_recovery_channel "#mysql_rds_group_replication_set_recovery_channel")
+- [mysql.rds\_group\_replication\_start](#mysql_rds_group_replication_start "#mysql_rds_group_replication_start")
+- [mysql.rds\_group\_replication\_stop](#mysql_rds_group_replication_stop "#mysql_rds_group_replication_stop")
 
-## mysql.rds_group_replication_advance_gtid
+## mysql.rds\_group\_replication\_advance\_gtid
 
 Creates placeholder GTIDs on the current DB instance.
 
@@ -71,7 +71,7 @@ The following example creates placeholder GTIDs on current DB instance.:
 CALL mysql.rds_group_replication_advance_gtid(`5`, `6`, '`11111111-2222-3333-4444-555555555555`');
 ```
 
-## mysql.rds_group_replication_create_user
+## mysql.rds\_group\_replication\_create\_user
 
 Creates the replication user `rdsgrprepladmin` for group replication on the DB instance.
 
@@ -104,7 +104,7 @@ The following example creates the replication user `rdsgrprepladmin` for group r
 CALL mysql.rds_group_replication_create_user('`password`');
 ```
 
-## mysql.rds_group_replication_set_recovery_channel
+## mysql.rds\_group\_replication\_set\_recovery\_channel
 
 Sets the `group_replication_recovery` channel for an active-active cluster. The procedure uses the
 reserved `rdsgrprepladmin` user to configure the channel.
@@ -136,7 +136,7 @@ The following example sets the `group_replication_recovery` channel for an activ
 CALL mysql.rds_group_replication_set_recovery_channel('`password`');
 ```
 
-## mysql.rds_group_replication_start
+## mysql.rds\_group\_replication\_start
 
 Starts group replication on the current DB instance.
 
@@ -166,7 +166,7 @@ The following example initializes a new group with the current DB instance:
 CALL mysql.rds_group_replication_start(`1`);
 ```
 
-## mysql.rds_group_replication_stop
+## mysql.rds\_group\_replication\_stop
 
 Stops group replication on the current DB instance.
 

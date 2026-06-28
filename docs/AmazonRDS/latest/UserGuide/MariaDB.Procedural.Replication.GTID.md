@@ -21,7 +21,7 @@ Amazon RDS:
 
 The permissions required to start replication on a MariaDB DB instance
 are restricted and not available to your Amazon RDS master user. Because of this, you
-must use the Amazon RDS [mysql.rds_set_external_master_gtid](mysql_rds_set_external_master_gtid.md "mysql_rds_set_external_master_gtid.md") and [mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") commands to set up replication
+must use the Amazon RDS [mysql.rds\_set\_external\_master\_gtid](mysql_rds_set_external_master_gtid.md "mysql_rds_set_external_master_gtid.md") and [mysql.rds\_start\_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") commands to set up replication
 between your live database and your RDS for MariaDB database.
 
 To start replication between an external source instance
@@ -39,7 +39,7 @@ mysql> SET GLOBAL read_only = ON;
 
 2. Get the current GTID of the external MariaDB instance. You can do this by
    using `mysql` or the query editor of your choice to run `SELECT
-@@gtid_current_pos;`.
+ @@gtid_current_pos;`.
 
 The GTID is formatted as
 `<domain-id>-<server-id>-<sequence-id>`. A
@@ -143,7 +143,7 @@ GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '`repl_user`'@'`mydomain.c
 
 8. Make the MariaDB DB instance the replica. Connect to the MariaDB DB instance
    as the master user and identify the external MariaDB database as the replication
-   source instance by using the [mysql.rds_set_external_master_gtid](mysql_rds_set_external_master_gtid.md "mysql_rds_set_external_master_gtid.md") command. Use the GTID
+   source instance by using the [mysql.rds\_set\_external\_master\_gtid](mysql_rds_set_external_master_gtid.md "mysql_rds_set_external_master_gtid.md") command. Use the GTID
    that you determined in Step 2. The following is an example.
 
 ```
@@ -153,7 +153,7 @@ CALL mysql.rds_set_external_master_gtid ('`mymasterserver.mydomain.com`', 3306, 
 ###### Note
 
 Specify a password other than the prompt shown here as a security best
-practice. 9. On the MariaDB DB instance, issue the [mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") command to start replication.
+practice. 9. On the MariaDB DB instance, issue the [mysql.rds\_start\_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") command to start replication.
 
 ```
 CALL mysql.rds_start_replication;

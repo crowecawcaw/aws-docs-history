@@ -94,15 +94,17 @@ principles:
 - The event type (`context` or `errorstack`) is
   determined automatically.
 - A statement in the form `ALTER SYSTEM SET EVENTS
-'`event`LEVEL`event_level`'` sets the context
+ '`event`LEVEL
+`event_level`'` sets the context
   events. This notation is equivalent to `ALTER SYSTEM SET EVENTS
-'`event`TRACE NAME CONTEXT FOREVER,
-LEVEL`event_level`'`.
+ '`event`TRACE NAME CONTEXT FOREVER,
+ LEVEL`event_level`'`.
 - A statement in the form `ALTER SYSTEM SET EVENTS
-'`event` ERRORSTACK
-(`event_level`)'` sets the error
+ '`event` ERRORSTACK
+ (`event_level`)'` sets the error
   stack events. This notation is equivalent to `ALTER SYSTEM SET
-EVENTS '`event`TRACE NAME ERRORSTACK LEVEL`event_level`'`.
+ EVENTS '`event`TRACE NAME ERRORSTACK LEVEL
+`event_level`'`.
 
 The following example sets event 942 at level 3, and event 10442 at level 10.
 Sample output is included.

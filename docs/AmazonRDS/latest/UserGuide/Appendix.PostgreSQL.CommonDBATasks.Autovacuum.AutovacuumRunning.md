@@ -47,4 +47,4 @@ Short running autovacuum sessions can also indicate problems:
   your workload. In this case, you need to indicate the number of workers.
 - It can indicate that there is an index corruption (autovacuum crashes and restarts on
   the same relation but makes no progress). In this case, run a manual `vacuum freeze
-verbose `table`` to see the exact cause.
+ verbose `table`` to see the exact cause.

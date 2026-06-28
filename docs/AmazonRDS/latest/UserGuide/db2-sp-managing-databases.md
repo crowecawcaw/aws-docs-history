@@ -21,30 +21,30 @@ These stored procedures are used in a variety of tasks. This list isn't exhausti
 
 ###### Stored procedures
 
-- [rdsadmin.create_database](#db2-sp-create-database "#db2-sp-create-database")
-- [rdsadmin.deactivate_database](#db2-sp-deactivate-database "#db2-sp-deactivate-database")
-- [rdsadmin.activate_database](#db2-sp-activate-database "#db2-sp-activate-database")
-- [rdsadmin.reactivate_database](#db2-sp-reactivate-database "#db2-sp-reactivate-database")
-- [rdsadmin.drop_database](#db2-sp-drop-database "#db2-sp-drop-database")
-- [rdsadmin.update_db_param](#db2-sp-update-db-param "#db2-sp-update-db-param")
-- [rdsadmin.set_configuration](#db2-sp-set-configuration "#db2-sp-set-configuration")
-- [rdsadmin.show_configuration](#db2-sp-show-configuration "#db2-sp-show-configuration")
-- [rdsadmin.backup_database](#db2-sp-backup-database "#db2-sp-backup-database")
-- [rdsadmin.restore_database](#db2-sp-restore-database "#db2-sp-restore-database")
-- [rdsadmin.rollforward_database](#db2-sp-rollforward-database "#db2-sp-rollforward-database")
-- [rdsadmin.rollforward_status](#db2-sp-rollforward-status "#db2-sp-rollforward-status")
-- [rdsadmin.complete_rollforward](#db2-sp-complete-rollforward "#db2-sp-complete-rollforward")
-- [rdsadmin.db2pd_command](#db2-sp-db2pd-command "#db2-sp-db2pd-command")
-- [rdsadmin.force_application](#db2-sp-force-application "#db2-sp-force-application")
-- [rdsadmin.set_archive_log_retention](#db2-sp-set-archive-log-retention "#db2-sp-set-archive-log-retention")
-- [rdsadmin.show_archive_log_retention](#db2-sp-show-archive-log-retention "#db2-sp-show-archive-log-retention")
-- [rdsadmin.list_archive_log_information](#db2-sp-list-archive-log-information "#db2-sp-list-archive-log-information")
-- [rdsadmin.enable_archive_log_copy](#db2-sp-enable_archive_log_copy "#db2-sp-enable_archive_log_copy")
-- [rdsadmin.disable_archive_log_copy](#db2-sp-disable_archive_log_copy "#db2-sp-disable_archive_log_copy")
-- [rdsadmin.fgac_command](#db2-sp-fgac-command "#db2-sp-fgac-command")
-- [rdsadmin.db2support_command](#db2-sp-db2support-command "#db2-sp-db2support-command")
+- [rdsadmin.create\_database](#db2-sp-create-database "#db2-sp-create-database")
+- [rdsadmin.deactivate\_database](#db2-sp-deactivate-database "#db2-sp-deactivate-database")
+- [rdsadmin.activate\_database](#db2-sp-activate-database "#db2-sp-activate-database")
+- [rdsadmin.reactivate\_database](#db2-sp-reactivate-database "#db2-sp-reactivate-database")
+- [rdsadmin.drop\_database](#db2-sp-drop-database "#db2-sp-drop-database")
+- [rdsadmin.update\_db\_param](#db2-sp-update-db-param "#db2-sp-update-db-param")
+- [rdsadmin.set\_configuration](#db2-sp-set-configuration "#db2-sp-set-configuration")
+- [rdsadmin.show\_configuration](#db2-sp-show-configuration "#db2-sp-show-configuration")
+- [rdsadmin.backup\_database](#db2-sp-backup-database "#db2-sp-backup-database")
+- [rdsadmin.restore\_database](#db2-sp-restore-database "#db2-sp-restore-database")
+- [rdsadmin.rollforward\_database](#db2-sp-rollforward-database "#db2-sp-rollforward-database")
+- [rdsadmin.rollforward\_status](#db2-sp-rollforward-status "#db2-sp-rollforward-status")
+- [rdsadmin.complete\_rollforward](#db2-sp-complete-rollforward "#db2-sp-complete-rollforward")
+- [rdsadmin.db2pd\_command](#db2-sp-db2pd-command "#db2-sp-db2pd-command")
+- [rdsadmin.force\_application](#db2-sp-force-application "#db2-sp-force-application")
+- [rdsadmin.set\_archive\_log\_retention](#db2-sp-set-archive-log-retention "#db2-sp-set-archive-log-retention")
+- [rdsadmin.show\_archive\_log\_retention](#db2-sp-show-archive-log-retention "#db2-sp-show-archive-log-retention")
+- [rdsadmin.list\_archive\_log\_information](#db2-sp-list-archive-log-information "#db2-sp-list-archive-log-information")
+- [rdsadmin.enable\_archive\_log\_copy](#db2-sp-enable_archive_log_copy "#db2-sp-enable_archive_log_copy")
+- [rdsadmin.disable\_archive\_log\_copy](#db2-sp-disable_archive_log_copy "#db2-sp-disable_archive_log_copy")
+- [rdsadmin.fgac\_command](#db2-sp-fgac-command "#db2-sp-fgac-command")
+- [rdsadmin.db2support\_command](#db2-sp-db2support-command "#db2-sp-db2support-command")
 
-## rdsadmin.create_database
+## rdsadmin.create\_database
 
 Creates a database.
 
@@ -66,7 +66,7 @@ db2 "call rdsadmin.create_database(
 ###### Note
 
 This stored procedure doesn't validate the combination of required parameters.
-When you call [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status"), the user-defined function could
+When you call [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status"), the user-defined function could
 return an error because of a combination of `database_codeset`,
 `database_territory`, and `database_collation` that is
 not valid. For more information, see [Choosing the code page, territory, and collation for your database](https://www.ibm.com/docs/en/db2/11.5?topic=support-choosing-code-page-territory-collation-your-database "https://www.ibm.com/docs/en/db2/11.5?topic=support-choosing-code-page-territory-collation-your-database")
@@ -181,7 +181,7 @@ Valid values:
 ### Usage notes
 
 If you plan on modifying the `db2_compatibility_vector` parameter,
-modify the parameter before creating a database. For more information, see [Setting the db2_compatibility_vector parameter](db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector "db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector").
+modify the parameter before creating a database. For more information, see [Setting the db2\_compatibility\_vector parameter](db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector "db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector").
 
 Special considerations:
 
@@ -206,7 +206,7 @@ information:
 db2 connect to rdsadmin user `master_username` using `master_password`
 ```
 
-For information about checking the status of creating a database, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of creating a database, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 For error messages returned when calling `rdsadmin.create_database`,
 see [Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
@@ -222,7 +222,7 @@ combination of the `database_code_set`,
 db2 "call rdsadmin.create_database('TESTJP', 4096, 'IBM-437', 'JP', 'SYSTEM')"
 ```
 
-## rdsadmin.deactivate_database
+## rdsadmin.deactivate\_database
 
 Deactivates a database.
 
@@ -254,12 +254,12 @@ The name of the database to deactivate. The data type is
 
 You can deactivate databases to conserve memory resources or to make other
 database configuration changes. To bring deactivated databases back online, call the
-[rdsadmin.activate_database](#db2-sp-activate-database "#db2-sp-activate-database") stored procedure.
+[rdsadmin.activate\_database](#db2-sp-activate-database "#db2-sp-activate-database") stored procedure.
 
 You can't deactivate a database on a source DB instance during replication
 by calling the `rdsadmin.deactivate_database` stored procedure.
 
-For information about checking the status of deactivating a database, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of deactivating a database, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 For error messages returned when calling
 `rdsadmin.deactivate_database`, see [Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
@@ -272,11 +272,11 @@ The following example deactivates a database called `TESTDB`.
 db2 "call rdsadmin.deactivate_database(?, 'TESTDB')"
 ```
 
-## rdsadmin.activate_database
+## rdsadmin.activate\_database
 
 Activates a database.
 
-For information about the differences between [rdsadmin.reactivate_database](#db2-sp-reactivate-database "#db2-sp-reactivate-database")
+For information about the differences between [rdsadmin.reactivate\_database](#db2-sp-reactivate-database "#db2-sp-reactivate-database")
 and `rdsadmin.activate_database`, see [Usage notes](#db2-sp-activate-database-usage-notes "#db2-sp-activate-database-usage-notes").
 
 ### Syntax
@@ -311,10 +311,10 @@ configuration changes, call the `rdsadmin.activate_database` stored
 procedure to activate the database again.
 
 This stored procedure only activates a database that is on a standalone DB
-instance and that was deactivated by calling the [rdsadmin.deactivate_database](#db2-sp-deactivate-database "#db2-sp-deactivate-database") stored procedure. To activate a database on a replica source DB instance, you
-must call the [rdsadmin.reactivate_database](#db2-sp-reactivate-database "#db2-sp-reactivate-database") stored procedure.
+instance and that was deactivated by calling the [rdsadmin.deactivate\_database](#db2-sp-deactivate-database "#db2-sp-deactivate-database") stored procedure. To activate a database on a replica source DB instance, you
+must call the [rdsadmin.reactivate\_database](#db2-sp-reactivate-database "#db2-sp-reactivate-database") stored procedure.
 
-For information about checking the status of activating a database, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of activating a database, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 For error messages returned when calling `rdsadmin.activate_database`,
 see [Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
@@ -327,11 +327,11 @@ The following example activates a database called `TESTDB`.
 db2 "call rdsadmin.activate_database(?, 'TESTDB')"
 ```
 
-## rdsadmin.reactivate_database
+## rdsadmin.reactivate\_database
 
 Reactivates a database.
 
-For information about differences between [rdsadmin.activate_database](#db2-sp-activate-database "#db2-sp-activate-database") and
+For information about differences between [rdsadmin.activate\_database](#db2-sp-activate-database "#db2-sp-activate-database") and
 `rdsadmin.reactivate_database`, see [Usage notes](#db2-sp-reactivate-database-usage-notes "#db2-sp-reactivate-database-usage-notes").
 
 ### Syntax
@@ -361,7 +361,7 @@ The name of the database to reactivate. The data type is
 ### Usage notes
 
 When you call the `rdsadmin.reactivate_database` stored procedure, the
-stored procedure first deactivates the database by calling the [rdsadmin.deactivate_database](#db2-sp-deactivate-database "#db2-sp-deactivate-database") stored procedure, and then activates the database by calling the [rdsadmin.activate_database](#db2-sp-activate-database "#db2-sp-activate-database")
+stored procedure first deactivates the database by calling the [rdsadmin.deactivate\_database](#db2-sp-deactivate-database "#db2-sp-deactivate-database") stored procedure, and then activates the database by calling the [rdsadmin.activate\_database](#db2-sp-activate-database "#db2-sp-activate-database")
 stored procedure.
 
 After you make changes to database configurations, you might need to reactivate a
@@ -370,14 +370,14 @@ database, connect to the database and run `db2 get db cfg show detail`.
 
 For a database on a standalone DB instance, you can use the
 `rdsadmin.reactivate_database` store procedure to reactivate the
-database. Or, if you already called the [rdsadmin.deactivate_database](#db2-sp-deactivate-database "#db2-sp-deactivate-database") stored procedure, you can call the
-[rdsadmin.activate_database](#db2-sp-activate-database "#db2-sp-activate-database") stored procedure instead.
+database. Or, if you already called the [rdsadmin.deactivate\_database](#db2-sp-deactivate-database "#db2-sp-deactivate-database") stored procedure, you can call the
+[rdsadmin.activate\_database](#db2-sp-activate-database "#db2-sp-activate-database") stored procedure instead.
 
 For a database on a replica source DB instance, you must use the
 `rdsadmin.reactivate_database` stored procedure to reactivate the
 database.
 
-For information about checking the status of reactivating a database, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of reactivating a database, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 For error messages returned when calling
 `rdsadmin.reactivate_database`, see [Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
@@ -390,7 +390,7 @@ The following example reactivates a database called `TESTDB`.
 db2 "call rdsadmin.reactivate_database(?, 'TESTDB')"
 ```
 
-## rdsadmin.drop_database
+## rdsadmin.drop\_database
 
 Drops a database.
 
@@ -417,9 +417,9 @@ following conditions are met:
 - You didn't specify the name of the database when you created your RDS for Db2
   DB instance by using either the Amazon RDS console or the AWS CLI. For more
   information, see [Creating a DB instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Creating "USER_CreateDBInstance.md#USER_CreateDBInstance.Creating").
-- You created the database by calling the [rdsadmin.create_database](#db2-sp-create-database "#db2-sp-create-database") stored procedure.
+- You created the database by calling the [rdsadmin.create\_database](#db2-sp-create-database "#db2-sp-create-database") stored procedure.
 - You restored the database from an offline or backed-up image by calling
-  the [rdsadmin.restore_database](#db2-sp-restore-database "#db2-sp-restore-database") stored procedure.
+  the [rdsadmin.restore\_database](#db2-sp-restore-database "#db2-sp-restore-database") stored procedure.
 
 Before calling `rdsadmin.drop_database`, you must connect to the
 `rdsadmin` database. In the following example, replace
@@ -431,7 +431,7 @@ information:
 db2 connect to rdsadmin user `master_username` using `master_password`
 ```
 
-For information about checking the status of dropping a database, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of dropping a database, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 For error messages returned when calling `rdsadmin.drop_database`, see
 [Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
@@ -444,7 +444,7 @@ The following example drops a database called `TESTDB`:
 db2 "call rdsadmin.drop_database('TESTDB')"
 ```
 
-## rdsadmin.update_db_param
+## rdsadmin.update\_db\_param
 
 Updates database parameters.
 
@@ -488,7 +488,7 @@ and `logfilsiz`, set this parameter to `'YES'`.
 ### Usage notes
 
 For information about checking the status of updating database parameters, see
-[rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+[rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 For error messages returned when calling `rdsadmin.update_db_param`,
 see [Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
@@ -519,7 +519,7 @@ db2 "call rdsadmin.update_db_param(
     'deferred_force')"
 ```
 
-## rdsadmin.set_configuration
+## rdsadmin.set\_configuration
 
 Configures specific settings for the database.
 
@@ -606,7 +606,7 @@ db2 "call rdsadmin.set_configuration(
     'TRUE')"
 ```
 
-## rdsadmin.show_configuration
+## rdsadmin.show\_configuration
 
 Returns the current settings that you can set by using the stored procedure
 `rdsadmin.set_configuration`.
@@ -659,7 +659,7 @@ db2 "call rdsadmin.show_configuration(
     'RESTORE_DATABASE_PARALLELISM')"
 ```
 
-## rdsadmin.backup_database
+## rdsadmin.backup\_database
 
 Backs up a database from an RDS for Db2 DB instance to an Amazon S3 bucket.
 
@@ -827,7 +827,7 @@ This stored procedure creates asynchronous backup tasks that stream the backup o
 your database directly to your Amazon S3 bucket by using the Amazon S3 integration. You can
 make backups both from your local server or from an RDS for Db2 DB instance, stream
 them to Amazon S3, and then restore them wherever you want. For information about
-restoring a database to an RDS for Db2 DB instance, see [rdsadmin.restore_database](#db2-sp-restore-database "#db2-sp-restore-database").
+restoring a database to an RDS for Db2 DB instance, see [rdsadmin.restore\_database](#db2-sp-restore-database "#db2-sp-restore-database").
 
 Before calling the stored procedure, review the following considerations:
 
@@ -858,7 +858,7 @@ After you back up your database, be sure to terminate the connection.
 terminate
 ```
 
-For information about checking the status of backing up a database, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of backing up a database, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 For error messages returned when calling `rdsadmin.backup_database`,
 see [Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
@@ -953,7 +953,7 @@ db2 "call rdsadmin.backup_database(
     268435456)"
 ```
 
-## rdsadmin.restore_database
+## rdsadmin.restore\_database
 
 Restores a database from an Amazon S3 bucket to your RDS for Db2 DB instance.
 
@@ -1066,13 +1066,13 @@ SAMPLE.0.rdsdb.DBPART000.20230615010101.005
   configure the number of buffers, buffer manipulators, and the number of
   multiple backup paths for RDS to use. To optimize storage usage and to
   potentially improve performance, you can also directly stream a backup from
-  Amazon S3. To check the current configuration, use [rdsadmin.show_configuration](#db2-sp-show-configuration "#db2-sp-show-configuration"). To change the configuration, use
-  [rdsadmin.set_configuration](#db2-sp-set-configuration "#db2-sp-set-configuration").
+  Amazon S3. To check the current configuration, use [rdsadmin.show\_configuration](#db2-sp-show-configuration "#db2-sp-show-configuration"). To change the configuration, use
+  [rdsadmin.set\_configuration](#db2-sp-set-configuration "#db2-sp-set-configuration").
 
 To bring the database online and apply additional transaction logs after restoring
-the database, see [rdsadmin.rollforward_database](#db2-sp-rollforward-database "#db2-sp-rollforward-database").
+the database, see [rdsadmin.rollforward\_database](#db2-sp-rollforward-database "#db2-sp-rollforward-database").
 
-For information about checking the status of restoring your database, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of restoring your database, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 For error messages returned when calling `rdsadmin.restore_database`,
 see [Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
@@ -1093,10 +1093,10 @@ db2 "call rdsadmin.restore_database(
     'OFFLINE')"
 ```
 
-## rdsadmin.rollforward_database
+## rdsadmin.rollforward\_database
 
 Brings the database online and applies additional transaction logs after restoring a
-database by calling [rdsadmin.restore_database](#db2-sp-restore-database "#db2-sp-restore-database").
+database by calling [rdsadmin.restore\_database](#db2-sp-restore-database "#db2-sp-restore-database").
 
 ### Syntax
 
@@ -1188,10 +1188,10 @@ rollforward logs without bringing the database online.
 
 If you set `complete_rollforward` to `FALSE`, then your
 database is in a `ROLL-FORWARD PENDING` state and offline. To bring the
-database online, you must call [rdsadmin.complete_rollforward](#db2-sp-complete-rollforward "#db2-sp-complete-rollforward").
+database online, you must call [rdsadmin.complete\_rollforward](#db2-sp-complete-rollforward "#db2-sp-complete-rollforward").
 
 For information about checking the status of rolling forward the database, see
-[rdsadmin.rollforward_status](#db2-sp-rollforward-status "#db2-sp-rollforward-status").
+[rdsadmin.rollforward\_status](#db2-sp-rollforward-status "#db2-sp-rollforward-status").
 
 ### Examples
 
@@ -1257,7 +1257,7 @@ db2 "call rdsadmin.rollforward_database(
     'FALSE')"
 ```
 
-## rdsadmin.rollforward_status
+## rdsadmin.rollforward\_status
 
 Returns the output of `ROLLFORWARD DATABASE
  `database_name` QUERY STATUS`.
@@ -1288,13 +1288,13 @@ The name of the database to perform the operation on. The data type is
 
 ### Usage notes
 
-After you call [rdsadmin.rollforward_database](#db2-sp-rollforward-database "#db2-sp-rollforward-database"), you can call
+After you call [rdsadmin.rollforward\_database](#db2-sp-rollforward-database "#db2-sp-rollforward-database"), you can call
 `rdsadmin.rollforward_status` to check on the status of the
 rollforward in the database.
 
-For information about checking the status of this stored procedure, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of this stored procedure, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
-## rdsadmin.complete_rollforward
+## rdsadmin.complete\_rollforward
 
 Brings database online from a `ROLL-FORWARD PENDING` state.
 
@@ -1324,14 +1324,14 @@ is `varchar`.
 
 ### Usage notes
 
-If you called [rdsadmin.rollforward_database](#db2-sp-rollforward-database "#db2-sp-rollforward-database") with
+If you called [rdsadmin.rollforward\_database](#db2-sp-rollforward-database "#db2-sp-rollforward-database") with
 `complete_rollforward` set to `FALSE`, then your database
 is in a `ROLL-FORWARD PENDING` state and offline. To complete the
 roll-forward process and bring the database online, call
 `rdsadmin.complete_rollforward`.
 
 For information about checking the status of completing the rollforward process,
-see [rdsadmin.rollforward_status](#db2-sp-rollforward-status "#db2-sp-rollforward-status").
+see [rdsadmin.rollforward\_status](#db2-sp-rollforward-status "#db2-sp-rollforward-status").
 
 ### Examples
 
@@ -1343,7 +1343,7 @@ db2 "call rdsadmin.complete_rollforward(
     'TESTDB')"
 ```
 
-## rdsadmin.db2pd_command
+## rdsadmin.db2pd\_command
 
 Collects information about an RDS for Db2 database.
 
@@ -1411,7 +1411,7 @@ The name of the Amazon S3 bucket where you want to upload the output
 file. The data type is `varchar`.
 If neither `s3_bucket_name` nor `s3_prefix`
 is provided, the collected information can be retrieved by
-calling [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+calling [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 `s3_prefix`
 
@@ -1449,7 +1449,7 @@ Before calling the stored procedure, review the following requirements:
   If no values are provided, the defaults are an interval of `5` seconds and a count of `10`.
 
 For information about checking the status of collecting information about the
-database, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+database, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 
@@ -1500,7 +1500,7 @@ db2 "call rdsadmin.db2pd_command(
                 'db2pdResults')"
 ```
 
-## rdsadmin.force_application
+## rdsadmin.force\_application
 
 Forces applications off of an RDS for Db2 database.
 
@@ -1546,7 +1546,7 @@ stored procedure, the master user is able to use the command. For more informati
 see [FORCE APPLICATION command](https://www.ibm.com/docs/en/db2/11.1?topic=commands-force-application "https://www.ibm.com/docs/en/db2/11.1?topic=commands-force-application") in the IBM Db2 documentation.
 
 For information about checking the status of forcing applications off of a
-database, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+database, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 
@@ -1572,7 +1572,7 @@ db2 "call rdsadmin.force_application(
     '9991, 8891, 1192')"
 ```
 
-## rdsadmin.set_archive_log_retention
+## rdsadmin.set\_archive\_log\_retention
 
 Configures the amount of time (in hours) to retain archive log files for the specified
 RDS for Db2 database.
@@ -1618,7 +1618,7 @@ replication tools such as AWS DMS for change data capture (CDC) or IBM Q
 Replication, you set log retention in those tools for longer than 5
 minutes.
 
-You can view the current archive log retention setting by calling [rdsadmin.show_archive_log_retention](#db2-sp-show-archive-log-retention "#db2-sp-show-archive-log-retention").
+You can view the current archive log retention setting by calling [rdsadmin.show\_archive\_log\_retention](#db2-sp-show-archive-log-retention "#db2-sp-show-archive-log-retention").
 
 You can't configure the archive log retention setting on the `rdsadmin`
 database.
@@ -1649,7 +1649,7 @@ db2 "call rdsadmin.set_archive_log_retention(
     '0')"
 ```
 
-## rdsadmin.show_archive_log_retention
+## rdsadmin.show\_archive\_log\_retention
 
 Returns the current archive log retention setting for the specified database.
 
@@ -1686,7 +1686,7 @@ called `TESTDB`.
 db2 "call rdsadmin.show_archive_log_retention(?,'TESTDB')"
 ```
 
-## rdsadmin.list_archive_log_information
+## rdsadmin.list\_archive\_log\_information
 
 Returns details about the archive log files, such as the size, the creation date and
 time, and the name of individual log files for the specified database. It also returns
@@ -1727,7 +1727,7 @@ db2 "call rdsadmin.list_archive_log_information(
     'TESTDB')"
 ```
 
-## rdsadmin.enable_archive_log_copy
+## rdsadmin.enable\_archive\_log\_copy
 
 Enables RDS Db2 database archive log copy to Amazon S3.
 
@@ -1766,7 +1766,7 @@ db2 "call rdsadmin.enable_archive_log_copy(
     'TESTDB')"
 ```
 
-## rdsadmin.disable_archive_log_copy
+## rdsadmin.disable\_archive\_log\_copy
 
 Disables RDS Db2 database archive log copy to Amazon S3.
 
@@ -1805,7 +1805,7 @@ db2 "call rdsadmin.disable_archive_log_copy(
     'TESTDB')"
 ```
 
-## rdsadmin.fgac_command
+## rdsadmin.fgac\_command
 
 Runs fine-grained access control (FGAC) commands.
 
@@ -1963,7 +1963,7 @@ db2 "call rdsadmin.fgac_command(
     'CREATE SECURITY LABEL COMPONENT treelabel  TREE(''COMPANY'' ROOT, ''HR'' UNDER ''COMPANY'', ''FINANCE'' UNDER ''COMPANY'', ''IT'' UNDER ''COMPANY'')')"
 ```
 
-## rdsadmin.db2support_command
+## rdsadmin.db2support\_command
 
 Collects diagnostic information about an RDS for Db2 database and uploads it to an Amazon S3 bucket.
 
@@ -2033,7 +2033,7 @@ db2 connect to rdsadmin user `master_username` using `master_password`
 ```
 
 For information about checking the status of collecting diagnostic information,
-see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 

@@ -46,7 +46,7 @@ $ aws rds describe-db-proxies --query '*[*].{DBProxyName:DBProxyName,Endpoint:En
 
 2. Specify the endpoint as the host parameter in the connection string for your client application. For
    example, specify the proxy endpoint as the value for the `mysql -h` option or `psql
--h` option.
+ -h` option.
 3. Supply the same database user name and password as you usually do.
 
 ## Connecting to a database using IAM authentication
@@ -146,12 +146,12 @@ For PostgreSQL, if you use JDBC, we recommend the following to avoid pinning:
 - Set the JDBC connection parameter `assumeMinServerVersion` to at least
   `9.0` to avoid pinning. This prevents the JDBC driver from performing
   an extra round trip during connection startup when it runs `SET extra_float_digits
-= 3`.
+ = 3`.
 - Set the JDBC connection parameter `ApplicationName` to
   `any/your-application-name` to avoid pinning.
   Doing this prevents the JDBC driver from performing an extra round trip during
   connection startup when it runs `SET application_name = "PostgreSQL JDBC
-Driver"`. Note the JDBC parameter is `ApplicationName` but the
+ Driver"`. Note the JDBC parameter is `ApplicationName` but the
   PostgreSQL `StartupMessage` parameter is
   `application_name`.
 

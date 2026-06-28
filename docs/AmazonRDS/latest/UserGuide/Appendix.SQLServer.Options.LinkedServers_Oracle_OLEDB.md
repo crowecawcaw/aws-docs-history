@@ -23,9 +23,9 @@ linked servers with Oracle OLEDB, you can:
 - [Limitations and recommendations](Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Limitations "Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Limitations")
 - [Activating linked servers with Oracle](Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Enabling "Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Enabling")
 
-  - [Creating the option group for OLEDB_ORACLE](Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.OptionGroup "Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.OptionGroup")
-  - [Adding the OLEDB_ORACLE option to the option group](Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Add "Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Add")
-  - [Modifying the OLEDB_ORACLE version option to another version](Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Modify "Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Modify")
+  - [Creating the option group for OLEDB\_ORACLE](Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.OptionGroup "Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.OptionGroup")
+  - [Adding the OLEDB\_ORACLE option to the option group](Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Add "Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Add")
+  - [Modifying the OLEDB\_ORACLE version option to another version](Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Modify "Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Modify")
   - [Associating the option group with your DB instance](Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Apply "Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Apply")
 
 - [Modifying OLEDB provider properties](Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.ModifyProviderProperties "Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.ModifyProviderProperties")
@@ -93,7 +93,7 @@ RDS for SQL Server DB instance. Use the following process:
 4. Associate the option group with the DB instance.
 5. Reboot the DB instance.
 
-### Creating the option group for OLEDB_ORACLE
+### Creating the option group for OLEDB\_ORACLE
 
 To work with linked servers with Oracle, create an option group or modify an option group
 that corresponds to the SQL Server edition and version of the DB instance that you
@@ -115,7 +115,7 @@ The following procedure creates an option group for SQL Server Standard Edition 
       contain only letters, digits, and hyphens.
    2. For **Description**, enter a brief description of the option group,
       such as `OLEDB_ORACLE option group for SQL Server
-SE 2019`. The description is used for display
+  SE 2019`. The description is used for display
       purposes.
    3. For **Engine**, choose **sqlserver-se**.
    4. For **Major engine version**, choose
@@ -156,7 +156,7 @@ aws rds create-option-group ^
 Next, use the AWS Management Console or the AWS CLI to add the `OLEDB_ORACLE` option to your option
 group.
 
-###### To add the OLEDB_ORACLE option
+###### To add the OLEDB\_ORACLE option
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
@@ -166,14 +166,14 @@ group.
    example.
 4. Choose **Add option**.
 5. Under **Option details**, choose
-   **OLEDB_ORACLE** for **Option
+   **OLEDB\_ORACLE** for **Option
    name**.
 6. Under **Version**, choose the version of the OLEDB Oracle driver you want to install.
 7. Under **Scheduling**, choose whether to add the
    option immediately or at the next maintenance window.
 8. Choose **Add option**.
 
-###### To add the OLEDB_ORACLE option
+###### To add the OLEDB\_ORACLE option
 
 - Add the `OLEDB_ORACLE` option to the option group.
 
@@ -201,7 +201,7 @@ aws rds add-option-to-option-group ^
 
 To modify the `OLEDB_ORACLE` option version to another version, use the AWS Management Console or the AWS CLI.
 
-###### To Modify the OLEDB_ORACLE option
+###### To Modify the OLEDB\_ORACLE option
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
@@ -210,7 +210,7 @@ To modify the `OLEDB_ORACLE` option version to another version, use the AWS Mana
    (**oracle-oledb-se-2019** in the previous example).
 4. Choose **Modify option**.
 5. Under **Option details**, choose
-   **OLEDB_ORACLE** for **Option
+   **OLEDB\_ORACLE** for **Option
    name**.
 6. Under **Version**, choose the version of the OLEDB Oracle driver you want to use.
 7. Under **Scheduling**, choose whether to modify the
@@ -220,7 +220,7 @@ To modify the `OLEDB_ORACLE` option version to another version, use the AWS Mana
    [`rds add-option-to-option-group`](../../../cli/latest/reference/rds/add-option-to-option-group.md "../../../cli/latest/reference/rds/add-option-to-option-group.md")AWS CLI command with the option group and option version
    that you want to use.
 
-###### To modify the OLEDB_ORACLE option
+###### To modify the OLEDB\_ORACLE option
 
 - ###### Example
 
@@ -412,7 +412,7 @@ server configurations that were previously configured on the DB instance.
 
 The following procedure removes the `OLEDB_ORACLE` option.
 
-###### To remove the OLEDB_ORACLE option from its option group
+###### To remove the OLEDB\_ORACLE option from its option group
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
@@ -420,7 +420,7 @@ The following procedure removes the `OLEDB_ORACLE` option.
 3. Choose the option group with the `OLEDB_ORACLE` option (`oracle-oledb-se-2019` in
    the previous examples).
 4. Choose **Delete option**.
-5. Under **Deletion options**, choose **OLEDB_ORACLE** for
+5. Under **Deletion options**, choose **OLEDB\_ORACLE** for
    **Options to delete**.
 6. Under **Apply immediately**, choose **Yes** to delete
    the option immediately, or **No** to delete it during
@@ -428,7 +428,7 @@ The following procedure removes the `OLEDB_ORACLE` option.
 7. Choose **Delete**.
    The following procedure removes the `OLEDB_ORACLE` option.
 
-###### To remove the OLEDB_ORACLE option from its option group
+###### To remove the OLEDB\_ORACLE option from its option group
 
 - Run one of the following commands.
 

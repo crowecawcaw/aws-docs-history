@@ -203,13 +203,13 @@ syntax](https://dev.mysql.com/doc/refman/8.0/en/events-syntax.html "https://dev.
 You can save and load the InnoDB cache "on demand."
 
 - To dump the current state of the buffer pool to disk, call the
-  [mysql.rds_innodb_buffer_pool_dump_now](mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_dump_now "mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_dump_now")
+  [mysql.rds\_innodb\_buffer\_pool\_dump\_now](mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_dump_now "mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_dump_now")
   stored procedure.
 - To load the saved state of the buffer pool from disk, call the
-  [mysql.rds_innodb_buffer_pool_load_now](mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_load_now "mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_load_now")
+  [mysql.rds\_innodb\_buffer\_pool\_load\_now](mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_load_now "mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_load_now")
   stored procedure.
 - To cancel a load operation in progress, call the
-  [mysql.rds_innodb_buffer_pool_load_abort](mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_load_abort "mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_load_abort")
+  [mysql.rds\_innodb\_buffer\_pool\_load\_abort](mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_load_abort "mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_load_abort")
   stored procedure.
 
 ## Inclusive language changes for RDS for MySQL 8.4
@@ -296,6 +296,6 @@ instances. It also restricts access to certain system procedures and tables that
 advanced privileges. Amazon RDS supports access to databases on a DB instance using any
 standard SQL client application. Amazon RDS doesn't allow direct host access to a DB
 instance by using Telnet, Secure Shell (SSH), or Windows Remote Desktop Connection. When
-you create a DB instance, you are assigned as _db_owner_ for
+you create a DB instance, you are assigned as _db\_owner_ for
 all databases on that instance, and you have all database-level permissions except for
 those used for backups. Amazon RDS manages backups for you.

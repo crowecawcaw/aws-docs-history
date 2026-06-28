@@ -5,10 +5,10 @@ For the full list of supported versions, editions, and RDS engine versions, see 
 
 | Major version   | Service Pack / GDR | Cumulative Update | Minor version | Knowledge Base Article                                                                                                                                                                                                                                                                                                                                     | Release Date   |
 | --------------- | ------------------ | ----------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| SQL Server 2022 | Not applicable     | CU24              | 16.0.4245.2   | [KB5080999](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate24 "https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate24")                                                                                                                                                 | March 12, 2026 |
-| SQL Server 2019 | GDR                | CU32 GDR          | 15.0.4460.4   | [KB5077469](https://support.microsoft.com/en-us/topic/kb5077469-description-of-the-security-update-for-sql-server-2019-cu32-march-10-2026-5ec2c609-35cb-483d-aa80-5e66821e5c97 "https://support.microsoft.com/en-us/topic/kb5077469-description-of-the-security-update-for-sql-server-2019-cu32-march-10-2026-5ec2c609-35cb-483d-aa80-5e66821e5c97")       | March 10, 2026 |
-| SQL Server 2017 | GDR                | CU31 GDR          | 14.0.3520.4   | [KB5077471](https://support.microsoft.com/en-us/topic/kb5077471-description-of-the-security-update-for-sql-server-2017-cu31-march-10-2026-f020d5eb-e356-42e8-a9ba-0ef061430b15 "https://support.microsoft.com/en-us/topic/kb5077471-description-of-the-security-update-for-sql-server-2017-cu31-march-10-2026-f020d5eb-e356-42e8-a9ba-0ef061430b15")       | March 10, 2026 |
-| SQL Server 2016 | SP3 GDR            | Not applicable    | 13.0.6480.4   | [KB5077474](https://support.microsoft.com/en-us/topic/kb5077474-description-of-the-security-update-for-sql-server-2016-sp3-gdr-march-10-2026-3f455bec-1221-4962-b068-0b11bf96b66a "https://support.microsoft.com/en-us/topic/kb5077474-description-of-the-security-update-for-sql-server-2016-sp3-gdr-march-10-2026-3f455bec-1221-4962-b068-0b11bf96b66a") | March 10, 2026 |
+| SQL Server 2022 | GDR                | CU24 GDR          | 16.0.4250.1   | [KB5083252](https://support.microsoft.com/en-us/topic/kb5083252-description-of-the-security-update-for-sql-server-2022-cu24-april-14-2026-0c8d572b-de26-4592-9ddc-09270c2a303c "https://support.microsoft.com/en-us/topic/kb5083252-description-of-the-security-update-for-sql-server-2022-cu24-april-14-2026-0c8d572b-de26-4592-9ddc-09270c2a303c")       | April 14, 2026 |
+| SQL Server 2019 | GDR                | CU32 GDR          | 15.0.4465.1   | [KB5084816](https://support.microsoft.com/en-us/topic/kb5084816-description-of-the-security-update-for-sql-server-2019-cu32-april-14-2026-b135e76b-1601-4477-9185-0520debd95a6 "https://support.microsoft.com/en-us/topic/kb5084816-description-of-the-security-update-for-sql-server-2019-cu32-april-14-2026-b135e76b-1601-4477-9185-0520debd95a6")       | April 14, 2026 |
+| SQL Server 2017 | GDR                | CU31 GDR          | 14.0.3525.1   | [KB5084818](https://support.microsoft.com/en-us/topic/kb5084818-description-of-the-security-update-for-sql-server-2017-cu31-april-14-2026-0ddfecfe-673e-4f3e-8ffd-8dfeb66f97e4 "https://support.microsoft.com/en-us/topic/kb5084818-description-of-the-security-update-for-sql-server-2017-cu31-april-14-2026-0ddfecfe-673e-4f3e-8ffd-8dfeb66f97e4")       | April 14, 2026 |
+| SQL Server 2016 | SP3 GDR            | Not applicable    | 13.0.6485.1   | [KB5084821](https://support.microsoft.com/en-us/topic/kb5084821-description-of-the-security-update-for-sql-server-2016-sp3-gdr-april-14-2026-825c8bb5-cf16-4265-b2db-10ce404287de "https://support.microsoft.com/en-us/topic/kb5084821-description-of-the-security-update-for-sql-server-2016-sp3-gdr-april-14-2026-825c8bb5-cf16-4265-b2db-10ce404287de") | April 14, 2026 |
 
 For information about licensing for SQL Server, see [Licensing Microsoft SQL Server on Amazon RDS](SQLServer.Concepts.General.Licensing.md "SQLServer.Concepts.General.Licensing.md"). For information about SQL Server
 builds, see this Microsoft support article about
@@ -27,7 +27,7 @@ advanced privileges. Amazon RDS supports access to databases on a DB instance us
 SQL client application such as Microsoft SQL Server Management Studio. Amazon RDS does not allow
 direct host access to a DB instance via Telnet, Secure Shell (SSH), or Windows Remote
 Desktop Connection. When you create a DB instance, the master user is assigned to the
-_db_owner_ role for all user databases on that instance, and has all
+_db\_owner_ role for all user databases on that instance, and has all
 database-level permissions except for those that are used for backups. Amazon RDS manages backups
 for you.
 
@@ -39,7 +39,7 @@ guide. For more information, see [Setting up your Amazon RDS environment](CHAP_S
 - [Common management tasks for Microsoft SQL Server on Amazon RDS](#SQLServer.Concepts.General "#SQLServer.Concepts.General")
 - [Limitations for Microsoft SQL Server DB instances](#SQLServer.Concepts.General.FeatureSupport.Limits "#SQLServer.Concepts.General.FeatureSupport.Limits")
 - [DB instance class support for Microsoft SQL Server](SQLServer.Concepts.General.InstanceClasses.md "SQLServer.Concepts.General.InstanceClasses.md")
-- [Optimize CPUs for RDS for SQL Server license-included instances](SQLServer.Concepts.General.OptimizeCPU.md "SQLServer.Concepts.General.OptimizeCPU.md")
+- [Optimize CPUs for RDS for SQL Server instances](SQLServer.Concepts.General.OptimizeCPU.md "SQLServer.Concepts.General.OptimizeCPU.md")
 - [Microsoft SQL Server security](SQLServer.Concepts.General.FeatureSupport.UnsupportedRoles.md "SQLServer.Concepts.General.FeatureSupport.UnsupportedRoles.md")
 - [Compliance program support for Microsoft SQL Server DB instances](#SQLServer.Concepts.General.Compliance "#SQLServer.Concepts.General.Compliance")
 - [Microsoft SQL Server versions on Amazon RDS](SQLServer.Concepts.General.VersionSupport.md "SQLServer.Concepts.General.VersionSupport.md")
@@ -153,23 +153,21 @@ of SQL Server 2019 (15.x)](https://docs.microsoft.com/en-us/sql/sql-server/editi
 - You can't rename databases on a DB instance in a SQL Server Multi-AZ deployment.
 - Make sure that you use these guidelines when setting the following DB parameters on RDS for SQL Server:
 
-      + `max server memory (mb)` >= 256 MB
-      + `max worker threads` >= (number of logical CPUs \* 7)
-
-  For more information on setting DB parameters, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+  - `max server memory (mb)` >= 256 MB
+  - `max worker threads` >= (number of logical CPUs \* 7)
+    For more information on setting DB parameters, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 - The maximum storage size for SQL Server DB instances is the following:
 
-      + General Purpose (SSD) storage – 16 TiB for all editions
-      + Provisioned IOPS storage – 64 TiB for all editions
-      + Magnetic storage – 1 TiB for all editions
-
-  If you have a scenario that requires a larger amount of storage, you can use
-  sharding across multiple DB instances to get around the limit. This approach
-  requires data-dependent routing logic in applications that connect to the
-  sharded system. You can use an existing sharding framework, or you can write
-  custom code to enable sharding. If you use an existing framework, the framework
-  can't install any components on the same server as the DB instance.
+  - General Purpose (SSD) storage – 16 TiB for all editions
+  - Provisioned IOPS storage – 64 TiB for all editions
+  - Magnetic storage – 1 TiB for all editions
+    If you have a scenario that requires a larger amount of storage, you can use
+    sharding across multiple DB instances to get around the limit. This approach
+    requires data-dependent routing logic in applications that connect to the
+    sharded system. You can use an existing sharding framework, or you can write
+    custom code to enable sharding. If you use an existing framework, the framework
+    can't install any components on the same server as the DB instance.
 
 - The minimum storage size for SQL Server DB instances is the following:
 
@@ -179,20 +177,19 @@ of SQL Server 2019 (15.x)](https://docs.microsoft.com/en-us/sql/sql-server/editi
 
 - Amazon RDS doesn't support running these services on the same server as your RDS DB instance:
 
-      + Data Quality Services
-      + Master Data Services
-
-  To use these features, we recommend that you install SQL Server on an Amazon EC2 instance, or
-  use an on-premises SQL Server instance. In these cases, the EC2 or SQL Server
-  instance acts as the Master Data Services server for your SQL Server DB instance
-  on Amazon RDS. You can install SQL Server on an Amazon EC2 instance with Amazon EBS storage,
-  pursuant to Microsoft licensing policies.
+  - Data Quality Services
+  - Master Data Services
+    To use these features, we recommend that you install SQL Server on an Amazon EC2 instance, or
+    use an on-premises SQL Server instance. In these cases, the EC2 or SQL Server
+    instance acts as the Master Data Services server for your SQL Server DB instance
+    on Amazon RDS. You can install SQL Server on an Amazon EC2 instance with Amazon EBS storage,
+    pursuant to Microsoft licensing policies.
 
 - Because of limitations in Microsoft SQL Server, restoring to a point in time before
   successfully running `DROP DATABASE` might not reflect the state of
   that database at that point in time. For example, the dropped database is
   typically restored to its state up to 5 minutes before the `DROP
-DATABASE` command was issued. This type of restore means that you
+ DATABASE` command was issued. This type of restore means that you
   can't restore the transactions made during those few minutes on your dropped
   database. To work around this, you can reissue the `DROP DATABASE`
   command after the restore operation is completed. Dropping a database removes

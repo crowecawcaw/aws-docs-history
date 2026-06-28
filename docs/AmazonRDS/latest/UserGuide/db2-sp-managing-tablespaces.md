@@ -16,12 +16,12 @@ These stored procedures are used in a variety of tasks. This list isn't exhausti
 
 ###### Stored procedures
 
-- [rdsadmin.create_tablespace](#db2-sp-create-tablespace "#db2-sp-create-tablespace")
-- [rdsadmin.alter_tablespace](#db2-sp-alter-tablespace "#db2-sp-alter-tablespace")
-- [rdsadmin.rename_tablespace](#db2-sp-rename-tablespace "#db2-sp-rename-tablespace")
-- [rdsadmin.drop_tablespace](#db2-sp-drop-tablespace "#db2-sp-drop-tablespace")
+- [rdsadmin.create\_tablespace](#db2-sp-create-tablespace "#db2-sp-create-tablespace")
+- [rdsadmin.alter\_tablespace](#db2-sp-alter-tablespace "#db2-sp-alter-tablespace")
+- [rdsadmin.rename\_tablespace](#db2-sp-rename-tablespace "#db2-sp-rename-tablespace")
+- [rdsadmin.drop\_tablespace](#db2-sp-drop-tablespace "#db2-sp-drop-tablespace")
 
-## rdsadmin.create_tablespace
+## rdsadmin.create\_tablespace
 
 Creates a tablespace.
 
@@ -80,7 +80,7 @@ The page size of the tablespace in bytes. The data type is
 `integer`. Valid values: `4096`,
 `8192`, `16384`, `32768`. The
 default is the page size used when you created the database by calling
-[rdsadmin.create_database](db2-sp-managing-databases.md#db2-sp-create-database "db2-sp-managing-databases.md#db2-sp-create-database").
+[rdsadmin.create\_database](db2-sp-managing-databases.md#db2-sp-create-database "db2-sp-managing-databases.md#db2-sp-create-database").
 
 ###### Important
 
@@ -137,7 +137,7 @@ to 32767.
 
 RDS for Db2 always creates a large database for data.
 
-For information about checking the status of creating a tablespace, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of creating a tablespace, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 
@@ -197,7 +197,7 @@ db2 "call rdsadmin.create_tablespace(
 
 ```
 
-## rdsadmin.alter_tablespace
+## rdsadmin.alter\_tablespace
 
 Alters a tablespace.
 
@@ -330,7 +330,7 @@ Before calling the stored procedure, review the following considerations:
   `rdsadmin.alter_tablespace` command. For more information,
   see [Statement not valid](db2-troubleshooting.md#alter-tablespace-sp-statement-not-valid "db2-troubleshooting.md#alter-tablespace-sp-statement-not-valid").
 
-For information about checking the status of altering a tablespace, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of altering a tablespace, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 For error messages returned when calling stored procedures, see [Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
 
@@ -406,7 +406,7 @@ db2 "call rdsadmin.alter_tablespace(
     ‘64’)"
 ```
 
-## rdsadmin.rename_tablespace
+## rdsadmin.rename\_tablespace
 
 Renames a tablespace.
 
@@ -455,7 +455,7 @@ The new name has the following restrictions:
 
 ### Usage notes
 
-For information about checking the status of renaming a tablespace, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of renaming a tablespace, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 You can't rename tablespaces that belong to the `rdsadmin`
 database.
@@ -473,7 +473,7 @@ db2 "call rdsadmin.rename_tablespace(
     'SP9')"
 ```
 
-## rdsadmin.drop_tablespace
+## rdsadmin.drop\_tablespace
 
 Drops a tablespace.
 
@@ -501,7 +501,7 @@ The name of the tablespace to drop. The data type is
 
 ### Usage notes
 
-For information about checking the status of dropping a tablespace, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of dropping a tablespace, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 

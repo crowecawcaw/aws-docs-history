@@ -354,13 +354,12 @@ your AWS account:
 - Configuring RDP access from EC2 instance in public subnet
   to RDS Custom Instance in private subnets:
 
-      + Network ACL rules allowing RDP connection from public
-       subnet to private subnets.
-      + Inbound access to RDP port from VPC security group
-       associated with the EC2 instance to VPC security group
-       associated with the RDS Custom Instance.
-
-  Use the following procedures to create the CloudFormation stack for RDS Custom for SQL Server.
+  - Network ACL rules allowing RDP connection from public
+    subnet to private subnets.
+  - Inbound access to RDP port from VPC security group
+    associated with the EC2 instance to VPC security group
+    associated with the RDS Custom Instance.
+    Use the following procedures to create the CloudFormation stack for RDS Custom for SQL Server.
 
 #### Download CloudFormation template file
 
@@ -431,13 +430,12 @@ You can also update some of the configuration on the CloudFormation stack after 
 
 - RDP Access Configuration for RDS Custom for SQL Server
 
-      + IPv4 CIDR block of your source: You can update the IPv4 CIDR block (or IP address range) of your source by updating this parameter.
-       Setting this parameter to blank removes RDP access configuration from your source CIDR block to public subnet.
-      + Setup RDP access to RDS Custom for SQL Server: Enable or disable the RDP connection from the EC2 instance to the RDS Custom for SQL Server instance.
-
-  You can delete the CloudFormation stack after deleting all the RDS Custom instances that uses resources from the stack.
-  RDS Custom doesn’t keep track of the CloudFormation stack, hence it doesn't block deletion of the stack when there are DB instances that uses stack resources.
-  Make sure that there are no RDS Custom DB instances that uses the stack resources when deleting the stack.
+  - IPv4 CIDR block of your source: You can update the IPv4 CIDR block (or IP address range) of your source by updating this parameter.
+    Setting this parameter to blank removes RDP access configuration from your source CIDR block to public subnet.
+  - Setup RDP access to RDS Custom for SQL Server: Enable or disable the RDP connection from the EC2 instance to the RDS Custom for SQL Server instance.
+    You can delete the CloudFormation stack after deleting all the RDS Custom instances that uses resources from the stack.
+    RDS Custom doesn’t keep track of the CloudFormation stack, hence it doesn't block deletion of the stack when there are DB instances that uses stack resources.
+    Make sure that there are no RDS Custom DB instances that uses the stack resources when deleting the stack.
 
 ###### Note
 

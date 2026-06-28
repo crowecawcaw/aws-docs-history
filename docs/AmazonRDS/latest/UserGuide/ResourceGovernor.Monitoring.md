@@ -11,7 +11,7 @@ EXEC msdb.dbo.rds_alter_resource_governor_configuration
 
 For each resource pool, resource governor tracks CPU and memory utilization, out-of-memory events,
 memory grants, I/O, and other statistics. For more information,
-see [sys.dm_resource_governor_resource_pools](https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql?view=sql-server-ver17 "https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql?view=sql-server-ver17").
+see [sys.dm\_resource\_governor\_resource\_pools](https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql?view=sql-server-ver17 "https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql?view=sql-server-ver17").
 
 The following query returns a subset of available statistics for all resource pools:
 

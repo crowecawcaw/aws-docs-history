@@ -22,7 +22,7 @@ parameters:
 - `rdsadmin.rdsadmin_dbms_repair.rebuild_freelists`
 - `rdsadmin.rdsadmin_dbms_repair.segment_fix_status`
 - `rdsadmin.rdsadmin_dbms_repair.skip_corrupt_blocks`
-  For more information about handling database corruption, see [DBMS_REPAIR](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_REPAIR.html#GUID-B8EC4AB3-4D6A-46C9-857F-4ED53CD9C948 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_REPAIR.html#GUID-B8EC4AB3-4D6A-46C9-857F-4ED53CD9C948") in the Oracle documentation.
+  For more information about handling database corruption, see [DBMS\_REPAIR](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_REPAIR.html#GUID-B8EC4AB3-4D6A-46C9-857F-4ED53CD9C948 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_REPAIR.html#GUID-B8EC4AB3-4D6A-46C9-857F-4ED53CD9C948") in the Oracle documentation.
 
 ###### Example Responding to corrupt blocks
 
@@ -31,7 +31,7 @@ steps will depend on the location and nature of your block corruption.
 
 ###### Important
 
-Before attempting to repair corrupt blocks, review the [DBMS_REPAIR](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_REPAIR.html#GUID-B8EC4AB3-4D6A-46C9-857F-4ED53CD9C948 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_REPAIR.html#GUID-B8EC4AB3-4D6A-46C9-857F-4ED53CD9C948") documentation carefully.
+Before attempting to repair corrupt blocks, review the [DBMS\_REPAIR](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_REPAIR.html#GUID-B8EC4AB3-4D6A-46C9-857F-4ED53CD9C948 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_REPAIR.html#GUID-B8EC4AB3-4D6A-46C9-857F-4ED53CD9C948") documentation carefully.
 
 ###### To skip corrupt blocks during index and table scans
 

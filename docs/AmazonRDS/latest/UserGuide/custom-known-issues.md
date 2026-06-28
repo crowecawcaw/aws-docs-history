@@ -111,16 +111,15 @@ Note the following issues:
 - You must declare the following initialization parameters in the server
   parameter file (`/rdsdbdata/config/oracle_pfile`):
 
-      + `MEMORY_MAX_TARGET`
-      + `MEMORY_TARGET`
-      + `PGA_AGGREGATE_TARGET`
-      + `PROCESSES`
-      + `SGA_TARGET`
-      + `USE_LARGE_PAGES`
-
-  If the preceding parameters aren't declared in
-  `/rdsdbdata/config/oracle_pfile`, read replica creation
-  and scale compute might fail.
+  - `MEMORY_MAX_TARGET`
+  - `MEMORY_TARGET`
+  - `PGA_AGGREGATE_TARGET`
+  - `PROCESSES`
+  - `SGA_TARGET`
+  - `USE_LARGE_PAGES`
+    If the preceding parameters aren't declared in
+    `/rdsdbdata/config/oracle_pfile`, read replica creation
+    and scale compute might fail.
 
 - You can't delete the symbolic links for configuration files such as the server
   parameter file, audit files, `listener.ora`,

@@ -89,15 +89,15 @@ and best practices:
   instances in the cluster going offline for maintenance at the same time. For
   more information, see [Amazon RDS maintenance window](USER_UpgradeDBInstance.Maintenance.md#Concepts.DBMaintenance "USER_UpgradeDBInstance.Maintenance.md#Concepts.DBMaintenance").
 - Active-active clusters can use SSL for connections between DB instances. To
-  configure SSL connections, set the [group_replication_recovery_use_ssl](https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_recovery_use_ssl "https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_recovery_use_ssl") and [group_replication_ssl_mode](https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_ssl_mode "https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_ssl_mode") parameters. The values for these
+  configure SSL connections, set the [group\_replication\_recovery\_use\_ssl](https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_recovery_use_ssl "https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_recovery_use_ssl") and [group\_replication\_ssl\_mode](https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_ssl_mode "https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_ssl_mode") parameters. The values for these
   parameters must match for all DB instances in the active-active cluster.
 
 Currently, active-active clusters don't support certificate authority (CA) verification for
-connections between AWS Regions. So, the [group_replication_ssl_mode](https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_ssl_mode "https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_ssl_mode") parameter must be set to `DISABLED` (the default) or `REQUIRED`
+connections between AWS Regions. So, the [group\_replication\_ssl\_mode](https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_ssl_mode "https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_ssl_mode") parameter must be set to `DISABLED` (the default) or `REQUIRED`
 for cross-Region clusters.
 
 - An RDS for MySQL active-active cluster runs in multi-primary mode. The default
-  value of the [group_replication_enforce_update_everywhere_checks](https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_enforce_update_everywhere_checks "https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_enforce_update_everywhere_checks") is
+  value of the [group\_replication\_enforce\_update\_everywhere\_checks](https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_enforce_update_everywhere_checks "https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_enforce_update_everywhere_checks") is
   `ON` and the parameter is static. When this parameter is set to
   `ON`, applications can't insert into a table that has cascading
   foreign key constraints.

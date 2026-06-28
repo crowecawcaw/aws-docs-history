@@ -12,10 +12,10 @@ blog [Integrate Amazon RDS for Oracle with Amazon EFS](https://aws.amazon.com//b
 - [Overview of Amazon EFS integration](#oracle-efs-integration.overview "#oracle-efs-integration.overview")
 - [Configuring network permissions for RDS for Oracle integration with Amazon EFS](oracle-efs-integration.network.md "oracle-efs-integration.network.md")
 - [Configuring IAM permissions for RDS for Oracle integration with Amazon EFS](oracle-efs-integration.iam.md "oracle-efs-integration.iam.md")
-- [Adding the EFS_INTEGRATION option](oracle-efs-integration.adding.md "oracle-efs-integration.adding.md")
+- [Adding the EFS\_INTEGRATION option](oracle-efs-integration.adding.md "oracle-efs-integration.adding.md")
 - [Configuring Amazon EFS file system permissions](oracle-efs-integration.file-system.md "oracle-efs-integration.file-system.md")
 - [Transferring files between RDS for Oracle and an Amazon EFS file system](oracle-efs-integration.transferring.md "oracle-efs-integration.transferring.md")
-- [Removing the EFS_INTEGRATION option](oracle-efs-integration.removing.md "oracle-efs-integration.removing.md")
+- [Removing the EFS\_INTEGRATION option](oracle-efs-integration.removing.md "oracle-efs-integration.removing.md")
 - [Troubleshooting Amazon EFS integration](oracle-efs-integration.troubleshooting.md "oracle-efs-integration.troubleshooting.md")
 
 ## Overview of Amazon EFS integration

@@ -8,10 +8,10 @@ execute msdb.dbo.rds_failover_time;
 
 This procedure returns the following information.
 
-| Output parameter        | Description                                                                                       |
-| ----------------------- | ------------------------------------------------------------------------------------------------- |
-| errorlog_available_from | Shows the time from when error logs are available in the log directory.                           |
-| recent_failover_time    | Shows the last failover time if it's available from the error logs. Otherwise it<br>shows `null`. |
+| Output parameter          | Description                                                                                       |
+| ------------------------- | ------------------------------------------------------------------------------------------------- |
+| errorlog\_available\_from | Shows the time from when error logs are available in the log directory.                           |
+| recent\_failover\_time    | Shows the last failover time if it's available from the error logs. Otherwise it<br>shows `null`. |
 
 ###### Note
 
@@ -25,15 +25,15 @@ failover time.
 This example shows the output when there is no recent failover in the error logs. No
 failover has happened since 2020-04-29 23:59:00.01.
 
-| errorlog_available_from     | recent_failover_time |
-| --------------------------- | -------------------- |
-| 2020-04-29 23:59:00.0100000 | null                 |
+| errorlog\_available\_from   | recent\_failover\_time |
+| --------------------------- | ---------------------- |
+| 2020-04-29 23:59:00.0100000 | null                   |
 
 ###### Example of recent failover
 
 This example shows the output when there is a failover in the error logs. The most recent
 failover was at 2020-05-05 18:57:51.89.
 
-| errorlog_available_from     | recent_failover_time        |
+| errorlog\_available\_from   | recent\_failover\_time      |
 | --------------------------- | --------------------------- |
 | 2020-04-29 23:59:00.0100000 | 2020-05-05 18:57:51.8900000 |

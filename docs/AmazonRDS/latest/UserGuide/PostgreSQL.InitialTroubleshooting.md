@@ -60,7 +60,7 @@ issue:
    information, see [Essential concepts for RDS for PostgreSQL tuning](PostgreSQL.Tuning.concepts.md "PostgreSQL.Tuning.concepts.md").
 2. **Check for bloat.** Look for high
    `n_dead_tup` in `pg_stat_user_tables` and consider using
-   `pgstattuple` for precise measurement. For more information, see [Removing bloat from tables with pg_repack](Appendix.PostgreSQL.CommonDBATasks.pg_repack.md "Appendix.PostgreSQL.CommonDBATasks.pg_repack.md").
+   `pgstattuple` for precise measurement. For more information, see [Removing bloat from tables with pg\_repack](Appendix.PostgreSQL.CommonDBATasks.pg_repack.md "Appendix.PostgreSQL.CommonDBATasks.pg_repack.md").
 3. **Check `pg_stat_user_tables`.** Look for
    high `n_dead_tup` values and stale `last_autovacuum`
    timestamps. For more information, see [Working with PostgreSQL autovacuum on Amazon RDS](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md").
@@ -107,7 +107,7 @@ LIMIT 20;
 ```
 
 To address bloat, you can use the `pg_repack` extension to reorganize tables
-and indexes with minimal locking. For more information, see [Removing bloat from tables with pg_repack](Appendix.PostgreSQL.CommonDBATasks.pg_repack.md "Appendix.PostgreSQL.CommonDBATasks.pg_repack.md") and [Remove bloat from Amazon Aurora and RDS for PostgreSQL with pg_repack](https://aws.amazon.com/blogs/database/remove-bloat-from-amazon-aurora-and-rds-for-postgresql-with-pg_repack/ "https://aws.amazon.com/blogs/database/remove-bloat-from-amazon-aurora-and-rds-for-postgresql-with-pg_repack/").
+and indexes with minimal locking. For more information, see [Removing bloat from tables with pg\_repack](Appendix.PostgreSQL.CommonDBATasks.pg_repack.md "Appendix.PostgreSQL.CommonDBATasks.pg_repack.md") and [Remove bloat from Amazon Aurora and RDS for PostgreSQL with pg\_repack](https://aws.amazon.com/blogs/database/remove-bloat-from-amazon-aurora-and-rds-for-postgresql-with-pg_repack/ "https://aws.amazon.com/blogs/database/remove-bloat-from-amazon-aurora-and-rds-for-postgresql-with-pg_repack/").
 
 ###### Important
 
@@ -149,7 +149,7 @@ that remain open also consume slots without performing useful work.
 - Elevated `total_auth_attempts` in Performance Insights monitoring. For more information, see [Non-native counters for RDS for PostgreSQL](USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.PostgreSQL.NonNative "USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.PostgreSQL.NonNative").
 - Slow connection establishment times
 - `FATAL: too many connections for role` or `remaining connection
-slots are reserved` errors
+ slots are reserved` errors
 - CPU spikes correlated with connection churn
 
 ### Diagnosis

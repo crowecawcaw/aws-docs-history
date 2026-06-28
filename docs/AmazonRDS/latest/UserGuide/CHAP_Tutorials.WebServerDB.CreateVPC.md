@@ -78,58 +78,58 @@ traffic to connect from the internet.
 
 ###### To create a VPC security group
 
-1.  Open the Amazon VPC console at
-    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2.  Choose **VPC Dashboard**, choose **Security
-    Groups**, and then choose **Create security
-    group**.
-3.  On the **Create security group** page, set these values:
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. Choose **VPC Dashboard**, choose **Security
+   Groups**, and then choose **Create security
+   group**.
+3. On the **Create security group** page, set these values:
 
-    - **Security group name:**
-      `tutorial-securitygroup`
-    - **Description:**
-      `Tutorial Security Group`
-    - **VPC:** Choose the VPC that you created earlier, for
-      example: **vpc-`identifier` (tutorial-vpc)**
+   - **Security group name:**
+     `tutorial-securitygroup`
+   - **Description:**
+     `Tutorial Security Group`
+   - **VPC:** Choose the VPC that you created earlier, for
+     example: **vpc-`identifier` (tutorial-vpc)**
 
-4.  Add inbound rules to the security group.
+4. Add inbound rules to the security group.
 
-    1. Determine the IP address to use to connect to EC2 instances in your VPC using Secure Shell
-       (SSH). To determine your public IP address, in a different browser window or tab,
-       you can use the service at [https://checkip.amazonaws.com](https://checkip.amazonaws.com "https://checkip.amazonaws.com").
-       An example of an IP address is `203.0.113.25/32`.
+   1. Determine the IP address to use to connect to EC2 instances in your VPC using Secure Shell
+      (SSH). To determine your public IP address, in a different browser window or tab,
+      you can use the service at [https://checkip.amazonaws.com](https://checkip.amazonaws.com "https://checkip.amazonaws.com").
+      An example of an IP address is `203.0.113.25/32`.
 
-    In many cases, you might connect through an internet service provider
-    (ISP) or from behind your firewall without a static IP address. If so,
-    find the range of IP addresses used by client computers.
+   In many cases, you might connect through an internet service provider
+   (ISP) or from behind your firewall without a static IP address. If so,
+   find the range of IP addresses used by client computers.
 
-    ###### Warning
+   ###### Warning
 
-    If you use `0.0.0.0/0` for SSH access, you make it
-    possible for all IP addresses to access your public instances using
-    SSH. This approach is acceptable for a short time in a test
-    environment, but it's unsafe for production environments. In
-    production, authorize only a specific IP address or range of
-    addresses to access your instances using SSH. 2. In the **Inbound rules** section, choose **Add rule**. 3. Set the following values for your new inbound rule to allow SSH access
-    to your Amazon EC2 instance. If you do this, you can connect to your Amazon EC2
-    instance to install the web server and other utilities. You also connect
-    to your EC2 instance to upload content for your web server.
+   If you use `0.0.0.0/0` for SSH access, you make it
+   possible for all IP addresses to access your public instances using
+   SSH. This approach is acceptable for a short time in a test
+   environment, but it's unsafe for production environments. In
+   production, authorize only a specific IP address or range of
+   addresses to access your instances using SSH. 2. In the **Inbound rules** section, choose **Add rule**. 3. Set the following values for your new inbound rule to allow SSH access
+   to your Amazon EC2 instance. If you do this, you can connect to your Amazon EC2
+   instance to install the web server and other utilities. You also connect
+   to your EC2 instance to upload content for your web server.
 
         * **Type:**
         `SSH`
         * **Source:** The IP address or range from Step a, for
          example: `203.0.113.25/32`.
-    4. Choose **Add rule**.
-    5. Set the following values for your new inbound rule to allow HTTP
-       access to your web server:
 
-       - **Type:**
-         `HTTP`
-       - **Source:**
-         `0.0.0.0/0`
+   4. Choose **Add rule**. 5. Set the following values for your new inbound rule to allow HTTP
+   access to your web server:
 
-5.  Choose **Create security group** to create the security
-    group.
+        * **Type:**
+        `HTTP`
+        * **Source:**
+        `0.0.0.0/0`
+
+5. Choose **Create security group** to create the security
+   group.
 
 Note the security group ID because you need it later in this tutorial.
 

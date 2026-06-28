@@ -68,7 +68,7 @@ database name value depends on the database engine:
 - For the MySQL and MariaDB database engines, the database name is the name of a database
   hosted in your DB instance. Databases hosted by the same DB instance must have a
   unique name within that instance.
-- For the Oracle database engine, database name is used to set the value of ORACLE_SID,
+- For the Oracle database engine, database name is used to set the value of ORACLE\_SID,
   which must be supplied when connecting to the Oracle RDS instance.
 - For the Microsoft SQL Server database engine, database name is not a supported
   parameter.

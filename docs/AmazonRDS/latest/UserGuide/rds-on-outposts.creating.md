@@ -80,7 +80,7 @@ uses the VPC that has the DB subnet group for your DB instance. Your VPC must be
     You can also create a new DB subnet group for the Outpost.
 
 8. For **Multi-AZ deployment**, choose **Create a standby instance (recommended for
-   production usage)** to create a standby DB instance in another Outpost.
+production usage)** to create a standby DB instance in another Outpost.
 
 ###### Note
 
@@ -206,13 +206,12 @@ aws rds create-db-subnet-group ^
   - `--backup-target` – (Optional) Where to store automated backups and manual
     snapshots. Use one of the following values:
 
-        - `outposts` – Store them locally on your Outpost.
-        - `region` – Store them in the parent AWS Region. This is the default
-         value.
-
-    If you use the `--multi-az` option, you can't use `outposts` for
-    `--backup-target`. In addition, the DB instance can't have read replicas if
-    you use `outposts` for `--backup-target`.
+    - `outposts` – Store them locally on your Outpost.
+    - `region` – Store them in the parent AWS Region. This is the default
+      value.
+      If you use the `--multi-az` option, you can't use `outposts` for
+      `--backup-target`. In addition, the DB instance can't have read replicas if
+      you use `outposts` for `--backup-target`.
 
   - `--storage-encrypted`
   - `--kms-key-id`

@@ -107,7 +107,7 @@ RDS Proxy** option. Further choose **Create new proxy**.
      database instance.
 
 5. Select **Set up** to complete the proxy and Lambda function
-   creation.
+creation.
 
 The wizard completes the set up and provides a link to the Lambda console to review your
 new function. Note the proxy endpoint before switching to the Lambda console.

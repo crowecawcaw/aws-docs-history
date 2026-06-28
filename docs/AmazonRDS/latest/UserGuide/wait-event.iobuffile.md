@@ -81,8 +81,8 @@ We recommend different actions depending on the causes of your wait event.
 - [Avoid using the DISTINCT operation](#wait-event.iobuffile.actions.distinct "#wait-event.iobuffile.actions.distinct")
 - [Consider using window functions instead of GROUP BY functions](#wait-event.iobuffile.actions.window "#wait-event.iobuffile.actions.window")
 - [Investigate materialized views and CTAS statements](#wait-event.iobuffile.actions.mv-refresh "#wait-event.iobuffile.actions.mv-refresh")
-- [Use pg_repack when you rebuild indexes](#wait-event.iobuffile.actions.pg_repack "#wait-event.iobuffile.actions.pg_repack")
-- [Increase maintenance_work_mem when you cluster tables](#wait-event.iobuffile.actions.cluster "#wait-event.iobuffile.actions.cluster")
+- [Use pg\_repack when you rebuild indexes](#wait-event.iobuffile.actions.pg_repack "#wait-event.iobuffile.actions.pg_repack")
+- [Increase maintenance\_work\_mem when you cluster tables](#wait-event.iobuffile.actions.cluster "#wait-event.iobuffile.actions.cluster")
 - [Tune memory to prevent IO:BufFileRead and IO:BufFileWrite](#wait-event.iobuffile.actions.tuning-memory "#wait-event.iobuffile.actions.tuning-memory")
 
 ### Identify the problem
@@ -263,7 +263,7 @@ temporary files and the wait events `IO:BufFileWrite` and
 `SELECT` statement, the `CREATE TABLE` statement runs a
 query. To reduce the temporary files needed, optimize the query.
 
-### Use pg_repack when you rebuild indexes
+### Use pg\_repack when you rebuild indexes
 
 When you create an index, the engine orders the result set. As tables grow in
 size, and as values in the indexed column become more diverse, the temporary files
@@ -272,16 +272,16 @@ for large tables without modifying the maintenance work memory area. For more
 information about `maintenance_work_mem`, see [https://www.postgresql.org/docs/current/runtime-config-resource.html](https://www.postgresql.org/docs/current/runtime-config-resource.html "https://www.postgresql.org/docs/current/runtime-config-resource.html") in
 the PostgreSQL documentation.
 
-A possible workaround when recreating a large index is to use the pg_repack
+A possible workaround when recreating a large index is to use the pg\_repack
 extension. For more information, see [Reorganize tables in PostgreSQL databases with minimal locks](https://reorg.github.io/pg_repack/ "https://reorg.github.io/pg_repack/") in the
-pg_repack documentation. For information about setting up the extension in your
-RDS for PostgreSQL DB instance, see [Reducing bloat in tables and indexes with the pg_repack extension](Appendix.PostgreSQL.CommonDBATasks.pg_repack.md "Appendix.PostgreSQL.CommonDBATasks.pg_repack.md").
+pg\_repack documentation. For information about setting up the extension in your
+RDS for PostgreSQL DB instance, see [Reducing bloat in tables and indexes with the pg\_repack extension](Appendix.PostgreSQL.CommonDBATasks.pg_repack.md "Appendix.PostgreSQL.CommonDBATasks.pg_repack.md").
 
-### Increase maintenance_work_mem when you cluster tables
+### Increase maintenance\_work\_mem when you cluster tables
 
 The `CLUSTER` command clusters the table specified by
-_table_name_ based on an existing index specified by
-_index_name_. RDS for PostgreSQL physically recreates the table to
+_table\_name_ based on an existing index specified by
+_index\_name_. RDS for PostgreSQL physically recreates the table to
 match the order of a given index.
 
 When magnetic storage was prevalent, clustering was common because storage

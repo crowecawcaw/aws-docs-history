@@ -61,8 +61,8 @@ identifier. 8. (Optional) Select **Copy Tags** to copy tags and values from the 
      snapshot copy.
 
 10. Choose **Copy snapshot**.
-    You can copy a DB snapshot by using the AWS CLI command [copy-db-snapshot](../../../cli/latest/reference/rds/copy-db-snapshot.md "../../../cli/latest/reference/rds/copy-db-snapshot.md").
-    If you are copying the snapshot to a new AWS Region, run the command in the new AWS Region.
+You can copy a DB snapshot by using the AWS CLI command [copy-db-snapshot](../../../cli/latest/reference/rds/copy-db-snapshot.md "../../../cli/latest/reference/rds/copy-db-snapshot.md").
+If you are copying the snapshot to a new AWS Region, run the command in the new AWS Region.
 
 The following options are used to copy a DB snapshot. Not all options are required for all scenarios. Use the descriptions and the
 examples that follow to determine which options to use.

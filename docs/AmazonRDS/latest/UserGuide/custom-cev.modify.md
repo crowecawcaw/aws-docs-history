@@ -43,12 +43,12 @@ To modify a CEV by using the AWS CLI, run the [modify-custom-db-engine-version](
 The following options are required:
 
 - `--engine `engine-type``, where
-`engine-type`is`custom-oracle-ee`,
-`custom-oracle-se2`, `custom-oracle-ee-cdb`, or
-`custom-oracle-se2-cdb`
+  `engine-type` is `custom-oracle-ee`,
+  `custom-oracle-se2`, `custom-oracle-ee-cdb`, or
+  `custom-oracle-se2-cdb`
 - `--engine-version
   `cev```, where
-`cev`` is the name of the
+ `cev`` is the name of the
   custom engine version that you want to modify
 - `--status````status```, where
  ``status`` is the

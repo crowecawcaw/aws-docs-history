@@ -77,24 +77,23 @@ You can use the AWS Management Console, AWS CLI, or RDS API to create a DB insta
 
 ###### To enable DLV on a new DB instance
 
-1.  Sign in to the AWS Management Console and open the Amazon RDS console at
-    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2.  Choose **Create database**.
-3.  On the **Create DB instance page**, choose a DB engine that supports DLV.
-4.  For **Storage**:
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. Choose **Create database**.
+3. On the **Create DB instance page**, choose a DB engine that supports DLV.
+4. For **Storage**:
 
-        1. Choose either **Provisioned IOPS SSD (io1)** or **Provisioned IOPS SSD
-         (io2)**.
-        2. Enter the **Allocated storage** and **Provisioned IOPS** that
-         you want.
-        3. Expand **Dedicated Log Volume**, then select **Turn on Dedicated Log
-         Volume**.
+   1. Choose either **Provisioned IOPS SSD (io1)** or **Provisioned IOPS SSD
+      (io2)**.
+   2. Enter the **Allocated storage** and **Provisioned IOPS** that
+      you want.
+   3. Expand **Dedicated Log Volume**, then select **Turn on Dedicated Log
+      Volume**.
+      ![Enabling DLV on a new DB instance.](images/enable-dlv.png)
 
-    ![Enabling DLV on a new DB instance.](images/enable-dlv.png)
-
-5.  Choose other settings as needed.
-6.  Choose **Create database**.
-    After the database is created, the value for Dedicated Log Volume appears on the **Configuration** tab of the database details page.
+5. Choose other settings as needed.
+6. Choose **Create database**.
+   After the database is created, the value for Dedicated Log Volume appears on the **Configuration** tab of the database details page.
 
 To enable DLV when you create a DB instance using Provisioned IOPS storage, use the AWS CLI command [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md"). Set the following parameters:
 
@@ -134,14 +133,12 @@ Amazon RDS to use to filter the results. Only DB instances whose names contain t
     1. For **Storage**, expand **Dedicated Log Volume**, then select
      **Turn on Dedicated Log Volume**.
 
-6. Choose **Continue**.
-7. Choose **Apply immediately** to apply the changes to the DB instance immediately. Or
-   choose **Apply during the next scheduled maintenance window** to apply the changes during
-   the next maintenance window.
-8. Review the parameters to be changed, and choose **Modify DB instance** to complete the
-   modification.
-   The new value for Dedicated Log Volume appears on the **Configuration** tab of the
-   database details page.
+6. Choose **Continue**. 7. Choose **Apply immediately** to apply the changes to the DB instance immediately. Or
+choose **Apply during the next scheduled maintenance window** to apply the changes during
+the next maintenance window. 8. Review the parameters to be changed, and choose **Modify DB instance** to complete the
+modification.
+The new value for Dedicated Log Volume appears on the **Configuration** tab of the
+database details page.
 
 To enable or disable DLV on an existing DB instance using Provisioned IOPS storage, use the AWS CLI command [`modify-db-instance`](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md"). Set the following
 parameters:

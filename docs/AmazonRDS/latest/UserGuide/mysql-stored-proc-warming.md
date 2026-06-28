@@ -5,11 +5,11 @@ information, see [InnoDB cache warming for MySQL on Amazon RDS](MySQL.Concepts.F
 
 ###### Topics
 
-- [mysql.rds_innodb_buffer_pool_dump_now](#mysql_rds_innodb_buffer_pool_dump_now "#mysql_rds_innodb_buffer_pool_dump_now")
-- [mysql.rds_innodb_buffer_pool_load_abort](#mysql_rds_innodb_buffer_pool_load_abort "#mysql_rds_innodb_buffer_pool_load_abort")
-- [mysql.rds_innodb_buffer_pool_load_now](#mysql_rds_innodb_buffer_pool_load_now "#mysql_rds_innodb_buffer_pool_load_now")
+- [mysql.rds\_innodb\_buffer\_pool\_dump\_now](#mysql_rds_innodb_buffer_pool_dump_now "#mysql_rds_innodb_buffer_pool_dump_now")
+- [mysql.rds\_innodb\_buffer\_pool\_load\_abort](#mysql_rds_innodb_buffer_pool_load_abort "#mysql_rds_innodb_buffer_pool_load_abort")
+- [mysql.rds\_innodb\_buffer\_pool\_load\_now](#mysql_rds_innodb_buffer_pool_load_now "#mysql_rds_innodb_buffer_pool_load_now")
 
-## mysql.rds_innodb_buffer_pool_dump_now
+## mysql.rds\_innodb\_buffer\_pool\_dump\_now
 
 Dumps the current state of the buffer pool to disk.
 
@@ -24,7 +24,7 @@ CALL mysql.rds_innodb_buffer_pool_dump_now();
 The master user must run the `mysql.rds_innodb_buffer_pool_dump_now`
 procedure.
 
-## mysql.rds_innodb_buffer_pool_load_abort
+## mysql.rds\_innodb\_buffer\_pool\_load\_abort
 
 Cancels a load of the saved buffer pool state while in progress.
 
@@ -39,7 +39,7 @@ CALL mysql.rds_innodb_buffer_pool_load_abort();
 The master user must run the `mysql.rds_innodb_buffer_pool_load_abort`
 procedure.
 
-## mysql.rds_innodb_buffer_pool_load_now
+## mysql.rds\_innodb\_buffer\_pool\_load\_now
 
 Loads the saved state of the buffer pool from disk.
 

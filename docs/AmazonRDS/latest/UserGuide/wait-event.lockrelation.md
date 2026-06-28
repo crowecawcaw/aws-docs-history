@@ -28,7 +28,7 @@ examples are the following:
   definition language (DDL) operations such as `DROP TABLE`,
   `TRUNCATE`, `VACUUM FULL`, and `CLUSTER`
   acquire `ACCESS EXCLUSIVE` locks implicitly. `ACCESS
-EXCLUSIVE` is also the default lock mode for `LOCK TABLE`
+ EXCLUSIVE` is also the default lock mode for `LOCK TABLE`
   statements that don't specify a mode explicitly.
 - Using `CREATE INDEX (without CONCURRENT)` on a table conflicts with data
   manipulation language (DML) statements `UPDATE`, `DELETE`,

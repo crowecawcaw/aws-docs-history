@@ -241,7 +241,7 @@ Instead, explicitly configure the replica identity for every replicated table:
 - **Best option:** Add a primary key. This is the
   most reliable and efficient replica identity.
 - **Alternative:** Use `ALTER TABLE ...
-REPLICA IDENTITY USING INDEX` to designate a specific unique, non-partial,
+ REPLICA IDENTITY USING INDEX` to designate a specific unique, non-partial,
   non-deferrable index with only `NOT NULL` columns. This gives you explicit
   control over which columns are used for row identification.
 

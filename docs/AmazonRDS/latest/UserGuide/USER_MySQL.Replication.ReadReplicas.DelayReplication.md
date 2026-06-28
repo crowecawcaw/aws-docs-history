@@ -9,13 +9,13 @@ the disaster quickly:
 - Stop replication to the read replica before the change that caused the disaster
   is sent to it.
 
-Use the [mysql.rds_stop_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") stored
+Use the [mysql.rds\_stop\_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") stored
 procedure to stop replication.
 
 - Start replication and specify that replication stops automatically at a log file location.
 
 You specify a location just before the disaster using the
-[mysql.rds_start_replication_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until")
+[mysql.rds\_start\_replication\_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until")
 stored procedure.
 
 - Promote the read replica to be the new source DB instance by using the
@@ -33,13 +33,12 @@ stored procedure.
 - You can use replication based on global transaction identifiers (GTIDs) in
   a delayed replication configuration for the following versions:
 
-      + RDS for MySQL version 5.7.44 and higher 5.7 versions
-      + RDS for MySQL version 8.0.28 and higher 8.0 versions
-      + RDS for MySQL version 8.4.3 and higher 8.4 versions
-
-  If you use GTID-based replication, use the [mysql.rds_start_replication_until_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored
-  procedure instead of the [mysql.rds_start_replication_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until") stored
-  procedure. For more information about GTID-based replication, see [Using GTID-based replication](mysql-replication-gtid.md "mysql-replication-gtid.md").
+  - RDS for MySQL version 5.7.44 and higher 5.7 versions
+  - RDS for MySQL version 8.0.28 and higher 8.0 versions
+  - RDS for MySQL version 8.4.3 and higher 8.4 versions
+    If you use GTID-based replication, use the [mysql.rds\_start\_replication\_until\_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored
+    procedure instead of the [mysql.rds\_start\_replication\_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until") stored
+    procedure. For more information about GTID-based replication, see [Using GTID-based replication](mysql-replication-gtid.md "mysql-replication-gtid.md").
 
 ###### Topics
 
@@ -51,14 +50,14 @@ stored procedure.
 ## Configuring delayed replication during read replica creation
 
 To configure delayed replication for any future read replica created from a DB
-instance, run the [mysql.rds_set_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration") stored procedure with the
+instance, run the [mysql.rds\_set\_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration") stored procedure with the
 `target delay` parameter.
 
 ###### To configure delayed replication during read replica creation
 
 1. Using a MySQL client, connect to the MySQL DB instance to be the source for
    read replicas as the master user.
-2. Run the [mysql.rds_set_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration") stored procedure with the `target delay` parameter.
+2. Run the [mysql.rds\_set\_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration") stored procedure with the `target delay` parameter.
 
 For example, run the following stored procedure to specify that replication
 is delayed by at least one hour (3,600 seconds) for any read replica
@@ -76,15 +75,15 @@ specified number of seconds.
 
 ## Modifying delayed replication for an existing read replica
 
-To modify delayed replication for an existing read replica, run the [mysql.rds_set_source_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay") stored procedure.
+To modify delayed replication for an existing read replica, run the [mysql.rds\_set\_source\_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay") stored procedure.
 
 ###### To modify delayed replication for an existing read replica
 
 1. Using a MySQL client, connect to the read replica as the master
    user.
-2. Use the [mysql.rds_stop_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") stored
+2. Use the [mysql.rds\_stop\_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") stored
    procedure to stop replication.
-3. Run the [mysql.rds_set_source_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay") stored procedure.
+3. Run the [mysql.rds\_set\_source\_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay") stored procedure.
 
 For example, run the following stored procedure to specify that replication
 to the read replica is delayed by at least one hour (3600
@@ -94,18 +93,18 @@ seconds).
 call mysql.rds_set_source_delay(3600);
 ```
 
-4. Use the [mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") stored
+4. Use the [mysql.rds\_start\_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") stored
    procedure to start replication.
 
 ## Setting a location to stop replication to a read replica
 
 After stopping replication to the read replica, you can start replication and then
-stop it at a specified binary log file location using the [mysql.rds_start_replication_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until") stored procedure.
+stop it at a specified binary log file location using the [mysql.rds\_start\_replication\_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until") stored procedure.
 
 ###### To start replication to a read replica and stop replication at a specific location
 
 1. Using a MySQL client, connect to the source MySQL DB instance as the master user.
-2. Run the [mysql.rds_start_replication_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until") stored procedure.
+2. Run the [mysql.rds\_start\_replication\_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until") stored procedure.
 
 The following example initiates replication and replicates changes until it reaches location `120` in the
 `mysql-bin-changelog.000777` binary log file. In a disaster recovery scenario, assume that location `120`

@@ -22,5 +22,5 @@ options that you can add to Amazon RDS instances running the Oracle DB engine.
 - [Oracle time zone](Appendix.Oracle.Options.Timezone.md "Appendix.Oracle.Options.Timezone.md")
 - [Oracle time zone file autoupgrade](Appendix.Oracle.Options.Timezone-file-autoupgrade.md "Appendix.Oracle.Options.Timezone-file-autoupgrade.md")
 - [Oracle Transparent Data Encryption](Appendix.Oracle.Options.AdvSecurity.md "Appendix.Oracle.Options.AdvSecurity.md")
-- [Oracle UTL_MAIL](Oracle.Options.UTLMAIL.md "Oracle.Options.UTLMAIL.md")
+- [Oracle UTL\_MAIL](Oracle.Options.UTLMAIL.md "Oracle.Options.UTLMAIL.md")
 - [Oracle XML DB](Appendix.Oracle.Options.XMLDB.md "Appendix.Oracle.Options.XMLDB.md")

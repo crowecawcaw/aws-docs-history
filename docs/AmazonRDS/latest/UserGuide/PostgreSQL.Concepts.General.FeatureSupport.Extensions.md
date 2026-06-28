@@ -97,26 +97,26 @@ The following lists the extensions that can be installed by a user who has the
 `CREATE` privilege on the current database and do not require the
 `rds_superuser` role:
 
-- bool_plperl
-- [btree_gin](http://www.postgresql.org/docs/current/btree-gin.html "http://www.postgresql.org/docs/current/btree-gin.html")
-- [btree_gist](http://www.postgresql.org/docs/current/btree-gist.html "http://www.postgresql.org/docs/current/btree-gist.html")
+- bool\_plperl
+- [btree\_gin](http://www.postgresql.org/docs/current/btree-gin.html "http://www.postgresql.org/docs/current/btree-gin.html")
+- [btree\_gist](http://www.postgresql.org/docs/current/btree-gist.html "http://www.postgresql.org/docs/current/btree-gist.html")
 - [citext](http://www.postgresql.org/docs/current/citext.html "http://www.postgresql.org/docs/current/citext.html")
 - [cube](http://www.postgresql.org/docs/current/cube.html "http://www.postgresql.org/docs/current/cube.html")
-- [dict_int](http://www.postgresql.org/docs/current/dict-int.html "http://www.postgresql.org/docs/current/dict-int.html")
+- [dict\_int](http://www.postgresql.org/docs/current/dict-int.html "http://www.postgresql.org/docs/current/dict-int.html")
 - [fuzzystrmatch](http://www.postgresql.org/docs/current/fuzzystrmatch.html "http://www.postgresql.org/docs/current/fuzzystrmatch.html")
 - [hstore](http://www.postgresql.org/docs/current/hstore.html "http://www.postgresql.org/docs/current/hstore.html")
 - [intarray](http://www.postgresql.org/docs/current/intarray.html "http://www.postgresql.org/docs/current/intarray.html")
 - [isn](http://www.postgresql.org/docs/current/isn.html "http://www.postgresql.org/docs/current/isn.html")
-- jsonb_plperl
+- jsonb\_plperl
 - [ltree](http://www.postgresql.org/docs/current/ltree.html "http://www.postgresql.org/docs/current/ltree.html")
-- [pg_trgm](http://www.postgresql.org/docs/current/pgtrgm.html "http://www.postgresql.org/docs/current/pgtrgm.html")
+- [pg\_trgm](http://www.postgresql.org/docs/current/pgtrgm.html "http://www.postgresql.org/docs/current/pgtrgm.html")
 - [pgcrypto](http://www.postgresql.org/docs/current/pgcrypto.html "http://www.postgresql.org/docs/current/pgcrypto.html")
 - [plperl](https://www.postgresql.org/docs/current/plperl.html "https://www.postgresql.org/docs/current/plperl.html")
 - [plpgsql](https://www.postgresql.org/docs/current/plpgsql.html "https://www.postgresql.org/docs/current/plpgsql.html")
 - [pltcl](https://www.postgresql.org/docs/current/pltcl-overview.html "https://www.postgresql.org/docs/current/pltcl-overview.html")
 - [tablefunc](http://www.postgresql.org/docs/current/tablefunc.html "http://www.postgresql.org/docs/current/tablefunc.html")
-- [tsm_system_rows](https://www.postgresql.org/docs/current/tsm-system-rows.html "https://www.postgresql.org/docs/current/tsm-system-rows.html")
-- [tsm_system_time](https://www.postgresql.org/docs/current/tsm-system-time.html "https://www.postgresql.org/docs/current/tsm-system-time.html")
+- [tsm\_system\_rows](https://www.postgresql.org/docs/current/tsm-system-rows.html "https://www.postgresql.org/docs/current/tsm-system-rows.html")
+- [tsm\_system\_time](https://www.postgresql.org/docs/current/tsm-system-time.html "https://www.postgresql.org/docs/current/tsm-system-time.html")
 - [unaccent](http://www.postgresql.org/docs/current/unaccent.html "http://www.postgresql.org/docs/current/unaccent.html")
 - [uuid-ossp](http://www.postgresql.org/docs/current/uuid-ossp.html "http://www.postgresql.org/docs/current/uuid-ossp.html")
 

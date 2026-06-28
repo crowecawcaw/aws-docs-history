@@ -2,7 +2,7 @@
 
 ###### Important
 
-Removing the S3_INTEGRATION option invalidates the
+Removing the S3\_INTEGRATION option invalidates the
 `rdsadmin.rdsadmin_s3_tasks` package. Ensure all S3 transfers are complete
 before removing this option.
 

@@ -58,7 +58,7 @@ AND lanname IN ('plv8','plcoffee','plls');
 
 ```
 
-4. Use pg_dump to create a schema-only dump file. For example, create a file on your
+4. Use pg\_dump to create a schema-only dump file. For example, create a file on your
    client machine in the `/tmp` directory.
 
 ```
@@ -73,7 +73,7 @@ This example uses the following options:
     * `-U` – The RDS master user name
     * `database` – The database name for our DB instance
 
-For more information on pg_dump, see [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html "https://www.postgresql.org/docs/current/static/app-pgdump.html ") in
+For more information on pg\_dump, see [pg\_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html "https://www.postgresql.org/docs/current/static/app-pgdump.html ") in
 the PostgreSQL documentation. 5. Extract the "CREATE FUNCTION" DDL statement that is present in the dump file. The
 following example uses the `grep` command to extract the DDL statement that
 creates the functions and save them to a file. You use this in subsequent steps to
@@ -83,7 +83,7 @@ recreate the functions.
 ./pg_restore -l /tmp/test.dmp | grep FUNCTION > /tmp/function_list
 ```
 
-For more information on pg_restore, see [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html "https://www.postgresql.org/docs/current/static/app-pgrestore.html") in the PostgreSQL documentation. 6. Drop the functions and extensions. The following example drops any PLV8 based objects.
+For more information on pg\_restore, see [pg\_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html "https://www.postgresql.org/docs/current/static/app-pgrestore.html") in the PostgreSQL documentation. 6. Drop the functions and extensions. The following example drops any PLV8 based objects.
 The cascade option ensures that any dependent are dropped.
 
 ```

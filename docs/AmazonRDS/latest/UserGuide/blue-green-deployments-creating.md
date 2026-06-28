@@ -83,16 +83,15 @@ otherwise creation fails. For more information, see [Rebooting a DB instance](US
   Before you create a blue/green deployment, verify that the blue instance has adequate
   capacity by checking the following metrics:
 
-      + `FreeStorageSpace`
-      + `TransactionLogsGeneration`
-      + `TransactionLogsDiskUsage`
-      + `OldestReplicationSlotLag`
-
-  To estimate the additional storage required on the blue instance, monitor the
-  `TransactionLogsGeneration` CloudWatch metric during peak workload periods. For
-  example, if your workload generates 100 GB of WAL data over 24 hours, ensure you have at
-  least 100 GB of extra storage to accommodate one day's worth of WAL segments. For more
-  information, see [Monitoring metrics in an Amazon RDS instance](CHAP_Monitoring.md "CHAP_Monitoring.md").
+  - `FreeStorageSpace`
+  - `TransactionLogsGeneration`
+  - `TransactionLogsDiskUsage`
+  - `OldestReplicationSlotLag`
+    To estimate the additional storage required on the blue instance, monitor the
+    `TransactionLogsGeneration` CloudWatch metric during peak workload periods. For
+    example, if your workload generates 100 GB of WAL data over 24 hours, ensure you have at
+    least 100 GB of extra storage to accommodate one day's worth of WAL segments. For more
+    information, see [Monitoring metrics in an Amazon RDS instance](CHAP_Monitoring.md "CHAP_Monitoring.md").
 
 ## Specifying changes when creating a blue/green deployment
 

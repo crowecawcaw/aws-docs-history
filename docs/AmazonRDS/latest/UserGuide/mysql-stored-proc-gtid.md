@@ -11,10 +11,10 @@ authentication plugin for RDS for MySQL 8.4.
 
 ###### Topics
 
-- [mysql.rds_skip_transaction_with_gtid](#mysql_rds_skip_transaction_with_gtid "#mysql_rds_skip_transaction_with_gtid")
-- [mysql.rds_start_replication_until_gtid](#mysql_rds_start_replication_until_gtid "#mysql_rds_start_replication_until_gtid")
+- [mysql.rds\_skip\_transaction\_with\_gtid](#mysql_rds_skip_transaction_with_gtid "#mysql_rds_skip_transaction_with_gtid")
+- [mysql.rds\_start\_replication\_until\_gtid](#mysql_rds_start_replication_until_gtid "#mysql_rds_start_replication_until_gtid")
 
-## mysql.rds_skip_transaction_with_gtid
+## mysql.rds\_skip\_transaction\_with\_gtid
 
 Skips replication of a transaction with the specified global
 transaction identifier (GTID) on a MySQL DB instance.
@@ -56,7 +56,7 @@ CALL mysql.rds_skip_transaction_with_gtid('3E11FA47-71CA-11E1-9E33-C80AA9429562:
 
 ```
 
-## mysql.rds_start_replication_until_gtid
+## mysql.rds\_start\_replication\_until\_gtid
 
 Initiates replication from an RDS for MySQL DB
 instance and stops
@@ -91,10 +91,10 @@ to be the new primary DB instance by using the instructions in [Promoting a read
 You can configure delayed replication using the following
 stored procedures:
 
-- [mysql.rds_set_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration")
-- [mysql.rds_set_external_master_with_delay (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master_with_delay "mysql-stored-proc-replicating.md#mysql_rds_set_external_master_with_delay")
-- [mysql.rds_set_external_source_with_delay (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source_with_delay "mysql-stored-proc-replicating.md#mysql_rds_set_external_source_with_delay")
-- [mysql.rds_set_source_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay")
+- [mysql.rds\_set\_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration")
+- [mysql.rds\_set\_external\_master\_with\_delay (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master_with_delay "mysql-stored-proc-replicating.md#mysql_rds_set_external_master_with_delay")
+- [mysql.rds\_set\_external\_source\_with\_delay (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source_with_delay "mysql-stored-proc-replicating.md#mysql_rds_set_external_source_with_delay")
+- [mysql.rds\_set\_source\_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay")
 
 When the `gtid` parameter specifies a transaction that has already been
 run by the replica, replication is stopped immediately.

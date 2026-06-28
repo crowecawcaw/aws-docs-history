@@ -106,40 +106,46 @@ If you choose **Serverless cache**:
 
 5. If you choose **Design your own cache**:
 
-   1. If you chose **Redis OSS cluster**, choose whether you
-      want to keep the cluster mode **Enabled** or
-      **Disabled**. For more information, see [Replication: Redis OSS (Cluster Mode Disabled) vs. Redis OSS (Cluster Mode
-      Enabled)](../../../AmazonElastiCache/latest/red-ug/Replication.Redis-RedisCluster.md "../../../AmazonElastiCache/latest/red-ug/Replication.Redis-RedisCluster.md").
-   2. Enter values for **Name**,
-      **Description**, and **Engine
-      version**.
+    1. If you chose **Redis OSS cluster**, choose whether you
+     want to keep the cluster mode **Enabled** or
+     **Disabled**. For more information, see  [Replication: Redis OSS (Cluster Mode Disabled) vs. Redis OSS (Cluster Mode
+     Enabled)](../../../AmazonElastiCache/latest/red-ug/Replication.Redis-RedisCluster.md "../../../AmazonElastiCache/latest/red-ug/Replication.Redis-RedisCluster.md").
+    2. Enter values for **Name**,
+     **Description**, and **Engine
+     version**.
 
-   For **Engine version**, the recommended default value
-   is the latest engine version. You can also choose an **Engine
-   version** for the ElastiCache cache that best meets your
-   requirements. 3. Choose the node type in the **Node type** option. For
-   more information, see [Managing
-   nodes](../../../AmazonElastiCache/latest/red-ug/CacheNodes.md "../../../AmazonElastiCache/latest/red-ug/CacheNodes.md").
 
-   If you choose to create a Redis OSS cluster with the **Cluster
-   mode** set to **Enabled**, then enter the
-   number of shards (partitions/node groups) in the **Number of
-   shards** option.
+    For **Engine version**, the recommended default value
+     is the latest engine version. You can also choose an **Engine
+     version** for the ElastiCache cache that best meets your
+     requirements.
+    3. Choose the node type in the **Node type** option. For
+     more information, see [Managing
+     nodes](../../../AmazonElastiCache/latest/red-ug/CacheNodes.md "../../../AmazonElastiCache/latest/red-ug/CacheNodes.md").
 
-   Enter the number of replicas of each shard in **Number of
-   replicas**.
 
-   ###### Note
+    If you choose to create a Redis OSS cluster with the **Cluster
+     mode** set to **Enabled**, then enter the
+     number of shards (partitions/node groups) in the **Number of
+     shards** option.
 
-   The selected node type, the number of shards, and the number of
-   replicas all affect your cache performance and resource costs. Be
-   sure these settings match your database needs. For pricing
-   information, see [Amazon ElastiCache pricing](https://aws.amazon.com/elasticache/pricing/ "https://aws.amazon.com/elasticache/pricing/"). 4. Select the **ElastiCache connectivity settings** and
-   **ElastiCache security settings**. You can keep the
-   default settings or customize these settings per your requirements.
+
+    Enter the number of replicas of each shard in **Number of
+     replicas**.
+
+
+    ###### Note
+
+    The selected node type, the number of shards, and the number of
+     replicas all affect your cache performance and resource costs. Be
+     sure these settings match your database needs. For pricing
+     information, see [Amazon ElastiCache pricing](https://aws.amazon.com/elasticache/pricing/ "https://aws.amazon.com/elasticache/pricing/").
+    4. Select the **ElastiCache connectivity settings** and
+     **ElastiCache security settings**. You can keep the
+     default settings or customize these settings per your requirements.
 
 6. Verify the default and inherited settings of your ElastiCache cache. Some settings
-   can't be changed after creation.
+can't be changed after creation.
 
 ###### Note
 

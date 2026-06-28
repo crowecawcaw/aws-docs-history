@@ -27,8 +27,8 @@ Resource governor uses three fundamental concepts:
 - [Limitations and recommendations](Appendix.SQLServer.Options.ResourceGovernor.md#ResourceGovernor.Limitations "Appendix.SQLServer.Options.ResourceGovernor.md#ResourceGovernor.Limitations")
 - [Enabling Microsoft SQL Server resource governor for your RDS for SQL Server instance](ResourceGovernor.Enabling.md "ResourceGovernor.Enabling.md")
 
-  - [Creating the option group for RESOURCE_GOVERNOR](ResourceGovernor.Enabling.md#ResourceGovernor.OptionGroup "ResourceGovernor.Enabling.md#ResourceGovernor.OptionGroup")
-  - [Adding the RESOURCE_GOVERNOR option to the option group](ResourceGovernor.Enabling.md#ResourceGovernor.Add "ResourceGovernor.Enabling.md#ResourceGovernor.Add")
+  - [Creating the option group for RESOURCE\_GOVERNOR](ResourceGovernor.Enabling.md#ResourceGovernor.OptionGroup "ResourceGovernor.Enabling.md#ResourceGovernor.OptionGroup")
+  - [Adding the RESOURCE\_GOVERNOR option to the option group](ResourceGovernor.Enabling.md#ResourceGovernor.Add "ResourceGovernor.Enabling.md#ResourceGovernor.Add")
   - [Associating the option group with your DB instance](ResourceGovernor.Enabling.md#ResourceGovernor.Apply "ResourceGovernor.Enabling.md#ResourceGovernor.Apply")
 
 - [Using Microsoft SQL Server resource governor for your RDS for SQL Server instance](ResourceGovernor.Using.md "ResourceGovernor.Using.md")

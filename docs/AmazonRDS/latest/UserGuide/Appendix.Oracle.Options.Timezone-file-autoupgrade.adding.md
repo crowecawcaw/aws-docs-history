@@ -33,7 +33,7 @@ following states:
    **Add option**.
 5. In the **Add option** window, do the following:
 
-   1. Choose **TIMEZONE_FILE_AUTOUPGRADE**.
+   1. Choose **TIMEZONE\_FILE\_AUTOUPGRADE**.
    2. To enable the option on all associated DB instances as soon as
       you add it, for **Apply Immediately**, choose
       **Yes**. If you choose **No**

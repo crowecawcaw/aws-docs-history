@@ -37,62 +37,76 @@ and read replicas:
      step.
 
 3. Reset the GTID parameters for GTID-based replication that allows anonymous
-   transactions until the read replicas have processed all of them.
+transactions until the read replicas have processed all of them.
 
-   1. Make sure that the parameter group associated with the DB instance and
-      each read replica has the following parameter settings:
+    1. Make sure that the parameter group associated with the DB instance and
+     each read replica has the following parameter settings:
 
-      - `gtid_mode` – `ON_PERMISSIVE`
-      - `enforce_gtid_consistency` – `ON`
 
-   2. If you changed the parameter group of the DB instance, reboot the DB
-      instance. If you changed the parameter group for a read replica, reboot
-      the read replica.
+
+
+    	* `gtid_mode` – `ON_PERMISSIVE`
+    	* `enforce_gtid_consistency` – `ON`
+    2. If you changed the parameter group of the DB instance, reboot the DB
+     instance. If you changed the parameter group for a read replica, reboot
+     the read replica.
 
 4. Wait for all of your anonymous transactions to be replicated. To check
-   that these are replicated, do the following:
+that these are replicated, do the following:
 
-   1. Run the following statement on your source DB instance.
+    1. Run the following statement on your source DB instance.
 
-   **MySQL 8.4**
 
-   ```
-   SHOW BINARY LOG STATUS;
-   ```
+    **MySQL 8.4**
 
-   **MySQL 5.7 and 8.0**
 
-   ```
-   SHOW MASTER STATUS;
-   ```
 
-   Note the values in the `File` and `Position`
-   columns. 2. On each read replica, use the file and position information from its
-   source instance in the previous step to run the following query.
+    ```
+    SHOW BINARY LOG STATUS;
+    ```
 
-   ```
-   SELECT MASTER_POS_WAIT('`file`', `position`);
-   ```
+    **MySQL 5.7 and 8.0**
 
-   For example, if the file name is `mysql-bin-changelog.000031` and the position is `107`, run the following statement.
 
-   ```
-   SELECT MASTER_POS_WAIT('mysql-bin-changelog.000031', 107);
-   ```
 
-   If the read replica is past the specified position, the query returns
-   immediately. Otherwise, the function waits. Proceed to the next step
-   when the query returns for all read replicas.
+    ```
+    SHOW MASTER STATUS;
+    ```
+
+    Note the values in the `File` and `Position`
+     columns.
+    2. On each read replica, use the file and position information from its
+     source instance in the previous step to run the following query.
+
+
+
+    ```
+    SELECT MASTER_POS_WAIT('`file`', `position`);
+    ```
+
+    For example, if the file name is `mysql-bin-changelog.000031` and the position is `107`, run the following statement.
+
+
+
+    ```
+    SELECT MASTER_POS_WAIT('mysql-bin-changelog.000031', 107);
+    ```
+
+    If the read replica is past the specified position, the query returns
+     immediately. Otherwise, the function waits. Proceed to the next step
+     when the query returns for all read replicas.
 
 5. Reset the GTID parameters for GTID-based replication only.
 
-   1. Make sure that the parameter group associated with the DB instance and
-      each read replica has the following parameter settings:
+    1. Make sure that the parameter group associated with the DB instance and
+     each read replica has the following parameter settings:
 
-      - `gtid_mode` – `ON`
-      - `enforce_gtid_consistency` – `ON`
 
-   2. Reboot the DB instance and each read replica.
+
+
+    	* `gtid_mode` – `ON`
+    	* `enforce_gtid_consistency` – `ON`
+    2. Reboot the DB instance and each read replica.
 
 6. On each read replica, run the following procedure.
 

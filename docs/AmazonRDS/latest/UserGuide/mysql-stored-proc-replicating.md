@@ -13,26 +13,26 @@ For information about configuring, using, and managing read replicas, see [Worki
 
 ###### Topics
 
-- [mysql.rds_next_master_log (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_next_master_log "#mysql_rds_next_master_log")
-- [mysql.rds_next_source_log (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_next_source_log "#mysql_rds_next_source_log")
-- [mysql.rds_reset_external_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_reset_external_master "#mysql_rds_reset_external_master")
-- [mysql.rds_reset_external_source (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_reset_external_source "#mysql_rds_reset_external_source")
-- [mysql.rds_set_external_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_external_master "#mysql_rds_set_external_master")
-- [mysql.rds_set_external_source (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_external_source "#mysql_rds_set_external_source")
-- [mysql.rds_set_external_master_with_auto_position (RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_external_master_with_auto_position "#mysql_rds_set_external_master_with_auto_position")
-- [mysql.rds_set_external_source_with_auto_position (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_external_source_with_auto_position "#mysql_rds_set_external_source_with_auto_position")
-- [mysql.rds_set_external_master_with_delay (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_external_master_with_delay "#mysql_rds_set_external_master_with_delay")
-- [mysql.rds_set_external_source_with_delay (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_external_source_with_delay "#mysql_rds_set_external_source_with_delay")
-- [mysql.rds_set_external_source_gtid_purged](#mysql_rds_set_external_source_gtid_purged "#mysql_rds_set_external_source_gtid_purged")
-- [mysql.rds_set_master_auto_position (RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_master_auto_position "#mysql_rds_set_master_auto_position")
-- [mysql.rds_set_source_auto_position (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_source_auto_position "#mysql_rds_set_source_auto_position")
-- [mysql.rds_set_source_delay](#mysql_rds_set_source_delay "#mysql_rds_set_source_delay")
-- [mysql.rds_skip_repl_error](#mysql_rds_skip_repl_error "#mysql_rds_skip_repl_error")
-- [mysql.rds_start_replication](#mysql_rds_start_replication "#mysql_rds_start_replication")
-- [mysql.rds_start_replication_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until")
-- [mysql.rds_stop_replication](#mysql_rds_stop_replication "#mysql_rds_stop_replication")
+- [mysql.rds\_next\_master\_log (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_next_master_log "#mysql_rds_next_master_log")
+- [mysql.rds\_next\_source\_log (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_next_source_log "#mysql_rds_next_source_log")
+- [mysql.rds\_reset\_external\_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_reset_external_master "#mysql_rds_reset_external_master")
+- [mysql.rds\_reset\_external\_source (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_reset_external_source "#mysql_rds_reset_external_source")
+- [mysql.rds\_set\_external\_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_external_master "#mysql_rds_set_external_master")
+- [mysql.rds\_set\_external\_source (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_external_source "#mysql_rds_set_external_source")
+- [mysql.rds\_set\_external\_master\_with\_auto\_position (RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_external_master_with_auto_position "#mysql_rds_set_external_master_with_auto_position")
+- [mysql.rds\_set\_external\_source\_with\_auto\_position (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_external_source_with_auto_position "#mysql_rds_set_external_source_with_auto_position")
+- [mysql.rds\_set\_external\_master\_with\_delay (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_external_master_with_delay "#mysql_rds_set_external_master_with_delay")
+- [mysql.rds\_set\_external\_source\_with\_delay (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_external_source_with_delay "#mysql_rds_set_external_source_with_delay")
+- [mysql.rds\_set\_external\_source\_gtid\_purged](#mysql_rds_set_external_source_gtid_purged "#mysql_rds_set_external_source_gtid_purged")
+- [mysql.rds\_set\_master\_auto\_position (RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_master_auto_position "#mysql_rds_set_master_auto_position")
+- [mysql.rds\_set\_source\_auto\_position (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_source_auto_position "#mysql_rds_set_source_auto_position")
+- [mysql.rds\_set\_source\_delay](#mysql_rds_set_source_delay "#mysql_rds_set_source_delay")
+- [mysql.rds\_skip\_repl\_error](#mysql_rds_skip_repl_error "#mysql_rds_skip_repl_error")
+- [mysql.rds\_start\_replication](#mysql_rds_start_replication "#mysql_rds_start_replication")
+- [mysql.rds\_start\_replication\_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until")
+- [mysql.rds\_stop\_replication](#mysql_rds_stop_replication "#mysql_rds_stop_replication")
 
-## mysql.rds_next_master_log (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)
+## mysql.rds\_next\_master\_log (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)
 
 Changes the source database instance log position to the start of the next binary log
 on the source database instance. Use this procedure only if you are receiving
@@ -134,7 +134,7 @@ error 1236. The `Master_Log_File` field shows that the file name is
 CALL mysql.rds_next_master_log(12345);
 ```
 
-## mysql.rds_next_source_log (RDS for MySQL major versions 8.4 and higher)
+## mysql.rds\_next\_source\_log (RDS for MySQL major versions 8.4 and higher)
 
 Changes the source database instance log position to the start of the next binary log
 on the source database instance. Use this procedure only if you are receiving
@@ -237,7 +237,7 @@ error 1236. The `Source_Log_File` field shows that the file name is
 CALL mysql.rds_next_source_log(12345);
 ```
 
-## mysql.rds_reset_external_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)
+## mysql.rds\_reset\_external\_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)
 
 Reconfigures an RDS for MySQL DB instance to no longer be a read replica of
 an instance of MySQL running external to Amazon RDS.
@@ -273,7 +273,7 @@ instances, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_R
 For more information about using replication to import data
 from an instance of MySQL running external to Amazon RDS, see [Configuring binary log file position replication with an external source instance](MySQL.Procedural.Importing.External.Repl.md "MySQL.Procedural.Importing.External.Repl.md").
 
-## mysql.rds_reset_external_source (RDS for MySQL major versions 8.4 and higher)
+## mysql.rds\_reset\_external\_source (RDS for MySQL major versions 8.4 and higher)
 
 Reconfigures an RDS for MySQL DB instance to no longer be a read replica of
 an instance of MySQL running external to Amazon RDS.
@@ -310,7 +310,7 @@ For information about managing replication between Amazon RDS DB instances, see
 information about using replication to import data from an instance of MySQL
 running external to Amazon RDS, see [Configuring binary log file position replication with an external source instance](MySQL.Procedural.Importing.External.Repl.md "MySQL.Procedural.Importing.External.Repl.md").
 
-## mysql.rds_set_external_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)
+## mysql.rds\_set\_external\_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)
 
 Configures an RDS for MySQL DB instance to be a read replica of an
 instance of MySQL running external to Amazon RDS.
@@ -323,7 +323,7 @@ modifying parameters, see [Modifying parameters in a DB parameter group in Amazo
 
 ###### Note
 
-You can use the [mysql.rds_set_external_master_with_delay (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_external_master_with_delay "#mysql_rds_set_external_master_with_delay") stored procedure to
+You can use the [mysql.rds\_set\_external\_master\_with\_delay (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_external_master_with_delay "#mysql_rds_set_external_master_with_delay") stored procedure to
 configure an external source database instance and delayed replication.
 
 ### Syntax
@@ -430,7 +430,7 @@ practice. 2. On the external instance of MySQL, grant `REPLICATION CLIENT`
 and `REPLICATION SLAVE` privileges to your replication user. The
 following example grants `REPLICATION CLIENT` and
 `REPLICATION SLAVE` privileges on all databases for the
-'repl_user' user for your domain.
+'repl\_user' user for your domain.
 
 **MySQL 5.7**
 
@@ -458,8 +458,8 @@ external to Amazon RDS. For information about managing replication between Amazo
 instances, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
 
 After calling `mysql.rds_set_external_master` to configure an Amazon RDS DB
-instance as a read replica, you can call [mysql.rds_start_replication](#mysql_rds_start_replication "#mysql_rds_start_replication") on the read replica to start the
-replication process. You can call [mysql.rds_reset_external_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_reset_external_master "#mysql_rds_reset_external_master") to remove the read replica
+instance as a read replica, you can call [mysql.rds\_start\_replication](#mysql_rds_start_replication "#mysql_rds_start_replication") on the read replica to start the
+replication process. You can call [mysql.rds\_reset\_external\_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_reset_external_master "#mysql_rds_reset_external_master") to remove the read replica
 configuration.
 
 When `mysql.rds_set_external_master` is called, Amazon RDS records the time,
@@ -483,7 +483,7 @@ call mysql.rds_set_external_master(
 
 ```
 
-## mysql.rds_set_external_source (RDS for MySQL major versions 8.4 and higher)
+## mysql.rds\_set\_external\_source (RDS for MySQL major versions 8.4 and higher)
 
 Configures an RDS for MySQL DB instance to be a read replica of an
 instance of MySQL running external to Amazon RDS.
@@ -592,7 +592,7 @@ practice. 2. On the external instance of MySQL, grant `REPLICATION CLIENT`
 and `REPLICATION SLAVE` privileges to your replication user. The
 following example grants `REPLICATION CLIENT` and
 `REPLICATION SLAVE` privileges on all databases for the
-'repl_user' user for your domain.
+'repl\_user' user for your domain.
 
 ```
 GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'mydomain.com';
@@ -600,7 +600,7 @@ GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'mydomain.com'
 
 To use encrypted replication, configure source database instance to use SSL
 connections. Also, import the certificate authority certificate, client certificate,
-and client key into the DB instance or DB cluster using the [mysql.rds_import_binlog_ssl_material](url-rds-user.md "url-rds-user.md") procedure.
+and client key into the DB instance or DB cluster using the [mysql.rds\_import\_binlog\_ssl\_material](url-rds-user.md "url-rds-user.md") procedure.
 
 ###### Note
 
@@ -612,8 +612,8 @@ Amazon RDS DB instances. We offer these stored procedures primarily to enable
 replication with MySQL instances running external to Amazon RDS. For information
 about managing replication between Amazon RDS DB instances, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
 
-After calling `mysql.rds_set_external_source` to configure an RDS for MySQL DB instance as a read replica, you can call [mysql.rds_start_replication](#mysql_rds_start_replication "#mysql_rds_start_replication") on the read replica to start the
-replication process. You can call [mysql.rds_reset_external_source (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_reset_external_source "#mysql_rds_reset_external_source") to remove the read replica
+After calling `mysql.rds_set_external_source` to configure an RDS for MySQL DB instance as a read replica, you can call [mysql.rds\_start\_replication](#mysql_rds_start_replication "#mysql_rds_start_replication") on the read replica to start the
+replication process. You can call [mysql.rds\_reset\_external\_source (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_reset_external_source "#mysql_rds_reset_external_source") to remove the read replica
 configuration.
 
 When `mysql.rds_set_external_source` is called, Amazon RDS records the time,
@@ -638,7 +638,7 @@ call mysql.rds_set_external_source(
 
 ```
 
-## mysql.rds_set_external_master_with_auto_position (RDS for MySQL major versions 8.0 and lower)
+## mysql.rds\_set\_external\_master\_with\_auto\_position (RDS for MySQL major versions 8.0 and lower)
 
 Configures an RDS for MySQL DB instance to be a read replica of an instance of MySQL
 running external to Amazon RDS. This procedure also configures delayed replication and
@@ -760,13 +760,13 @@ external to Amazon RDS. For information about managing replication between Amazo
 instances, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
 
 Before you call `mysql.rds_set_external_master_with_auto_position`,
-make sure to call [mysql.rds_set_external_source_gtid_purged](#mysql_rds_set_external_source_gtid_purged "#mysql_rds_set_external_source_gtid_purged") to set
+make sure to call [mysql.rds\_set\_external\_source\_gtid\_purged](#mysql_rds_set_external_source_gtid_purged "#mysql_rds_set_external_source_gtid_purged") to set
 the `gtid_purged` system variable with a specified GTID range from an
 external source.
 
 After calling `mysql.rds_set_external_master_with_auto_position` to
-configure an Amazon RDS DB instance as a read replica, you can call [mysql.rds_start_replication](#mysql_rds_start_replication "#mysql_rds_start_replication") on the read replica to start the
-replication process. You can call [mysql.rds_reset_external_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_reset_external_master "#mysql_rds_reset_external_master") to remove the read replica
+configure an Amazon RDS DB instance as a read replica, you can call [mysql.rds\_start\_replication](#mysql_rds_start_replication "#mysql_rds_start_replication") on the read replica to start the
+replication process. You can call [mysql.rds\_reset\_external\_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_reset_external_master "#mysql_rds_reset_external_master") to remove the read replica
 configuration.
 
 When you call `mysql.rds_set_external_master_with_auto_position`, Amazon RDS
@@ -774,7 +774,7 @@ records the time, the user, and an action of `set master` in the
 `mysql.rds_history` and `mysql.rds_replication_status`
 tables.
 
-For disaster recovery, you can use this procedure with the [mysql.rds_start_replication_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") or [mysql.rds_start_replication_until_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure. To
+For disaster recovery, you can use this procedure with the [mysql.rds\_start\_replication\_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") or [mysql.rds\_start\_replication\_until\_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure. To
 roll forward changes to a delayed read replica to the time just before a disaster,
 you can run the `mysql.rds_set_external_master_with_auto_position`
 procedure. After the `mysql.rds_start_replication_until_gtid` procedure
@@ -783,7 +783,7 @@ instance by using the instructions in [Promoting a read replica to be a standalo
 
 To use the `mysql.rds_rds_start_replication_until_gtid` procedure,
 GTID-based replication must be enabled. To skip a specific GTID-based transaction
-that is known to cause disaster, you can use the [mysql.rds_skip_transaction_with_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure. For
+that is known to cause disaster, you can use the [mysql.rds\_skip\_transaction\_with\_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure. For
 more information about working with GTID-based replication, see [Using GTID-based replication](mysql-replication-gtid.md "mysql-replication-gtid.md").
 
 ### Examples
@@ -805,7 +805,7 @@ call mysql.rds_set_external_master_with_auto_position(
 
 ```
 
-## mysql.rds_set_external_source_with_auto_position (RDS for MySQL major versions 8.4 and higher)
+## mysql.rds\_set\_external\_source\_with\_auto\_position (RDS for MySQL major versions 8.4 and higher)
 
 Configures an RDS for MySQL DB instance to be a read replica of an instance of MySQL
 running external to Amazon RDS. This procedure also configures delayed replication and
@@ -924,13 +924,13 @@ external to Amazon RDS. For information about managing replication between Amazo
 instances, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
 
 Before you call `mysql.rds_set_external_source_with_auto_position`,
-make sure to call [mysql.rds_set_external_source_gtid_purged](#mysql_rds_set_external_source_gtid_purged "#mysql_rds_set_external_source_gtid_purged") to set
+make sure to call [mysql.rds\_set\_external\_source\_gtid\_purged](#mysql_rds_set_external_source_gtid_purged "#mysql_rds_set_external_source_gtid_purged") to set
 the `gtid_purged` system variable with a specified GTID range from an
 external source.
 
 After calling `mysql.rds_set_external_source_with_auto_position` to
-configure an Amazon RDS DB instance as a read replica, you can call [mysql.rds_start_replication](#mysql_rds_start_replication "#mysql_rds_start_replication") on the read replica to start the
-replication process. You can call [mysql.rds_reset_external_source (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_reset_external_source "#mysql_rds_reset_external_source") to remove the read replica
+configure an Amazon RDS DB instance as a read replica, you can call [mysql.rds\_start\_replication](#mysql_rds_start_replication "#mysql_rds_start_replication") on the read replica to start the
+replication process. You can call [mysql.rds\_reset\_external\_source (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_reset_external_source "#mysql_rds_reset_external_source") to remove the read replica
 configuration.
 
 When you call `mysql.rds_set_external_source_with_auto_position`, Amazon RDS
@@ -938,7 +938,7 @@ records the time, the user, and an action of `set master` in the
 `mysql.rds_history` and `mysql.rds_replication_status`
 tables.
 
-For disaster recovery, you can use this procedure with the [mysql.rds_start_replication_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") or [mysql.rds_start_replication_until_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure. To
+For disaster recovery, you can use this procedure with the [mysql.rds\_start\_replication\_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") or [mysql.rds\_start\_replication\_until\_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure. To
 roll forward changes to a delayed read replica to the time just before a disaster,
 you can run the `mysql.rds_set_external_source_with_auto_position`
 procedure. After the `mysql.rds_start_replication_until_gtid` procedure
@@ -947,7 +947,7 @@ instance by using the instructions in [Promoting a read replica to be a standalo
 
 To use the `mysql.rds_rds_start_replication_until_gtid` procedure,
 GTID-based replication must be enabled. To skip a specific GTID-based transaction
-that is known to cause disaster, you can use the [mysql.rds_skip_transaction_with_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure. For
+that is known to cause disaster, you can use the [mysql.rds\_skip\_transaction\_with\_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure. For
 more information about working with GTID-based replication, see [Using GTID-based replication](mysql-replication-gtid.md "mysql-replication-gtid.md").
 
 ### Examples
@@ -969,7 +969,7 @@ call mysql.rds_set_external_source_with_auto_position(
 
 ```
 
-## mysql.rds_set_external_master_with_delay (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)
+## mysql.rds\_set\_external\_master\_with\_delay (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)
 
 Configures an RDS for MySQL DB instance to be a read replica of an instance of MySQL
 running external to Amazon RDS and configures delayed replication.
@@ -1104,8 +1104,8 @@ external to Amazon RDS. For information about managing replication between Amazo
 instances, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
 
 After calling `mysql.rds_set_external_master_with_delay` to configure
-an Amazon RDS DB instance as a read replica, you can call [mysql.rds_start_replication](#mysql_rds_start_replication "#mysql_rds_start_replication") on the read replica to start the
-replication process. You can call [mysql.rds_reset_external_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_reset_external_master "#mysql_rds_reset_external_master") to remove the read replica
+an Amazon RDS DB instance as a read replica, you can call [mysql.rds\_start\_replication](#mysql_rds_start_replication "#mysql_rds_start_replication") on the read replica to start the
+replication process. You can call [mysql.rds\_reset\_external\_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_reset_external_master "#mysql_rds_reset_external_master") to remove the read replica
 configuration.
 
 When you call `mysql.rds_set_external_master_with_delay`, Amazon RDS records
@@ -1113,7 +1113,7 @@ the time, the user, and an action of `set master` in the
 `mysql.rds_history` and `mysql.rds_replication_status`
 tables.
 
-For disaster recovery, you can use this procedure with the [mysql.rds_start_replication_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") or [mysql.rds_start_replication_until_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure. To
+For disaster recovery, you can use this procedure with the [mysql.rds\_start\_replication\_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") or [mysql.rds\_start\_replication\_until\_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure. To
 roll forward changes to a delayed read replica to the time just before a disaster,
 you can run the `mysql.rds_set_external_master_with_delay` procedure.
 After the `mysql.rds_start_replication_until` procedure stops
@@ -1122,7 +1122,7 @@ using the instructions in [Promoting a read replica to be a standalone DB instan
 
 To use the `mysql.rds_rds_start_replication_until_gtid` procedure,
 GTID-based replication must be enabled. To skip a specific GTID-based transaction
-that is known to cause disaster, you can use the [mysql.rds_skip_transaction_with_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure. For
+that is known to cause disaster, you can use the [mysql.rds\_skip\_transaction\_with\_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure. For
 more information about working with GTID-based replication, see [Using GTID-based replication](mysql-replication-gtid.md "mysql-replication-gtid.md").
 
 The `mysql.rds_set_external_master_with_delay` procedure is available
@@ -1152,7 +1152,7 @@ call mysql.rds_set_external_master_with_delay(
 
 ```
 
-## mysql.rds_set_external_source_with_delay (RDS for MySQL major versions 8.4 and higher)
+## mysql.rds\_set\_external\_source\_with\_delay (RDS for MySQL major versions 8.4 and higher)
 
 Configures an RDS for MySQL DB instance to be a read replica of an instance of MySQL
 running external to Amazon RDS and configures delayed replication.
@@ -1287,8 +1287,8 @@ external to Amazon RDS. For information about managing replication between Amazo
 instances, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
 
 After calling `mysql.rds_set_external_source_with_delay` to configure
-an Amazon RDS DB instance as a read replica, you can call [mysql.rds_start_replication](#mysql_rds_start_replication "#mysql_rds_start_replication") on the read replica to start the
-replication process. You can call [mysql.rds_reset_external_source (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_reset_external_source "#mysql_rds_reset_external_source") to remove the read replica
+an Amazon RDS DB instance as a read replica, you can call [mysql.rds\_start\_replication](#mysql_rds_start_replication "#mysql_rds_start_replication") on the read replica to start the
+replication process. You can call [mysql.rds\_reset\_external\_source (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_reset_external_source "#mysql_rds_reset_external_source") to remove the read replica
 configuration.
 
 When you call `mysql.rds_set_external_source_with_delay`, Amazon RDS records
@@ -1296,7 +1296,7 @@ the time, the user, and an action of `set master` in the
 `mysql.rds_history` and `mysql.rds_replication_status`
 tables.
 
-For disaster recovery, you can use this procedure with the [mysql.rds_start_replication_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") or [mysql.rds_start_replication_until_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure. To
+For disaster recovery, you can use this procedure with the [mysql.rds\_start\_replication\_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") or [mysql.rds\_start\_replication\_until\_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure. To
 roll forward changes to a delayed read replica to the time just before a disaster,
 you can run the `mysql.rds_set_external_source_with_delay` procedure.
 After the `mysql.rds_start_replication_until` procedure stops
@@ -1305,7 +1305,7 @@ using the instructions in [Promoting a read replica to be a standalone DB instan
 
 To use the `mysql.rds_rds_start_replication_until_gtid` procedure,
 GTID-based replication must be enabled. To skip a specific GTID-based transaction
-that is known to cause disaster, you can use the [mysql.rds_skip_transaction_with_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure. For
+that is known to cause disaster, you can use the [mysql.rds\_skip\_transaction\_with\_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure. For
 more information about working with GTID-based replication, see [Using GTID-based replication](mysql-replication-gtid.md "mysql-replication-gtid.md").
 
 ### Examples
@@ -1329,9 +1329,9 @@ call mysql.rds_set_external_source_with_delay(
 
 ```
 
-## mysql.rds_set_external_source_gtid_purged
+## mysql.rds\_set\_external\_source\_gtid\_purged
 
-Sets the [gtid_purged](https://dev.mysql.com/doc/refman/8.0/en/replication-options-gtids.html#sysvar_gtid_purged "https://dev.mysql.com/doc/refman/8.0/en/replication-options-gtids.html#sysvar_gtid_purged") system variable with a specified GTID range from an external
+Sets the [gtid\_purged](https://dev.mysql.com/doc/refman/8.0/en/replication-options-gtids.html#sysvar_gtid_purged "https://dev.mysql.com/doc/refman/8.0/en/replication-options-gtids.html#sysvar_gtid_purged") system variable with a specified GTID range from an external
 source. The `gtid_purged` value is required for configuring GTID-based
 replication to resume the replication using auto positioning.
 
@@ -1371,12 +1371,12 @@ The ending position of the GTID range to be set.
 The `mysql.rds_set_external_source_gtid_purged` procedure is only
 available with MySQL 8.0.37 and higher 8.0 versions.
 
-Call `mysql.rds_set_external_source_gtid_purged` before you call [mysql.rds_set_external_master_with_auto_position (RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_external_master_with_auto_position "#mysql_rds_set_external_master_with_auto_position"), [mysql.rds_set_external_source_with_auto_position (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_external_source_with_auto_position "#mysql_rds_set_external_source_with_auto_position"), or [mysql.rds_set_external_source_with_auto_position_for_channel](mysql-stored-proc-multi-source-replication.md#mysql_rds_set_external_source_with_auto_position_for_channel "mysql-stored-proc-multi-source-replication.md#mysql_rds_set_external_source_with_auto_position_for_channel").
+Call `mysql.rds_set_external_source_gtid_purged` before you call [mysql.rds\_set\_external\_master\_with\_auto\_position (RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_external_master_with_auto_position "#mysql_rds_set_external_master_with_auto_position"), [mysql.rds\_set\_external\_source\_with\_auto\_position (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_external_source_with_auto_position "#mysql_rds_set_external_source_with_auto_position"), or [mysql.rds\_set\_external\_source\_with\_auto\_position\_for\_channel](mysql-stored-proc-multi-source-replication.md#mysql_rds_set_external_source_with_auto_position_for_channel "mysql-stored-proc-multi-source-replication.md#mysql_rds_set_external_source_with_auto_position_for_channel").
 
 Before you call `mysql.rds_set_external_source_gtid_purged`, make sure
 to stop all active replication channels for the database. To check the status of a
 channel, use the `SHOW REPLICA STATUS` MySQL statement. To stop
-replication on a channel, call [mysql.rds_stop_replication_for_channel](mysql-stored-proc-multi-source-replication.md#mysql_rds_stop_replication_for_channel "mysql-stored-proc-multi-source-replication.md#mysql_rds_stop_replication_for_channel").
+replication on a channel, call [mysql.rds\_stop\_replication\_for\_channel](mysql-stored-proc-multi-source-replication.md#mysql_rds_stop_replication_for_channel "mysql-stored-proc-multi-source-replication.md#mysql_rds_stop_replication_for_channel").
 
 The GTID range that you specify must be a superset of the existing
 `GTID_PURGED` value. This stored procedure checks the following
@@ -1400,7 +1400,7 @@ that you use for replication, this can result in missing or duplicated transacti
 during the replication process. Perform the following steps to set the correct
 `gtid_purged` value.
 
-###### To set the gtid_purged value on the replica
+###### To set the gtid\_purged value on the replica
 
 1. Determine the point in time or the specific backup file to use as the
    starting point for replication. This could be a logical backup (a mysqldump
@@ -1450,7 +1450,7 @@ CALL mysql.rds_set_external_source_gtid_purged('12345678-abcd-1234-efgh-12345678
 
 ```
 
-## mysql.rds_set_master_auto_position (RDS for MySQL major versions 8.0 and lower)
+## mysql.rds\_set\_master\_auto\_position (RDS for MySQL major versions 8.0 and lower)
 
 Sets the replication mode to be based on either binary log file positions or on global
 transaction identifiers (GTIDs).
@@ -1483,7 +1483,7 @@ procedure.
 This procedure is supported for all RDS for MySQL 5.7 versions
 and RDS for MySQL 8.0.26 and higher 8.0 versions.
 
-## mysql.rds_set_source_auto_position (RDS for MySQL major versions 8.4 and higher)
+## mysql.rds\_set\_source\_auto\_position (RDS for MySQL major versions 8.4 and higher)
 
 Sets the replication mode to be based on either binary log file positions or on global
 transaction identifiers (GTIDs).
@@ -1511,7 +1511,7 @@ GTID-based replication:
 The administrative user must run the
 `mysql.rds_set_source_auto_position` procedure.
 
-## mysql.rds_set_source_delay
+## mysql.rds\_set\_source\_delay
 
 Sets the minimum number of seconds to delay replication from source database instance
 to the current read replica. Use this procedure when you are connected to a read replica
@@ -1539,8 +1539,8 @@ The limit for this parameter is one day (86400 seconds).
 The master user must run the `mysql.rds_set_source_delay`
 procedure.
 
-For disaster recovery, you can use this procedure with the [mysql.rds_start_replication_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") stored procedure or the
-[mysql.rds_start_replication_until_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure. To
+For disaster recovery, you can use this procedure with the [mysql.rds\_start\_replication\_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") stored procedure or the
+[mysql.rds\_start\_replication\_until\_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure. To
 roll forward changes to a delayed read replica to the time just before a disaster,
 you can run the `mysql.rds_set_source_delay` procedure. After the
 `mysql.rds_start_replication_until` or
@@ -1550,7 +1550,7 @@ instructions in [Promoting a read replica to be a standalone DB instance](USER_R
 
 To use the `mysql.rds_rds_start_replication_until_gtid` procedure,
 GTID-based replication must be enabled. To skip a specific GTID-based transaction
-that is known to cause disaster, you can use the [mysql.rds_skip_transaction_with_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure. For
+that is known to cause disaster, you can use the [mysql.rds\_skip\_transaction\_with\_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored procedure. For
 more information on GTID-based replication, see [Using GTID-based replication](mysql-replication-gtid.md "mysql-replication-gtid.md").
 
 The `mysql.rds_set_source_delay` procedure is available in these
@@ -1570,7 +1570,7 @@ at least one hour (3,600 seconds), you can call
 CALL mysql.rds_set_source_delay(3600);
 ```
 
-## mysql.rds_skip_repl_error
+## mysql.rds\_skip\_repl\_error
 
 Skips and deletes a replication error on a MySQL DB read replica.
 
@@ -1583,7 +1583,7 @@ CALL mysql.rds_skip_repl_error;
 ### Usage notes
 
 The master user must run the `mysql.rds_skip_repl_error` procedure on a
-read replica. For more information about this procedure, see [Calling the mysql.rds_skip_repl_error procedure](Appendix.MySQL.CommonDBATasks.SkipError.md#Appendix.MySQL.CommonDBATasks.SkipError.procedure "Appendix.MySQL.CommonDBATasks.SkipError.md#Appendix.MySQL.CommonDBATasks.SkipError.procedure").
+read replica. For more information about this procedure, see [Calling the mysql.rds\_skip\_repl\_error procedure](Appendix.MySQL.CommonDBATasks.SkipError.md#Appendix.MySQL.CommonDBATasks.SkipError.procedure "Appendix.MySQL.CommonDBATasks.SkipError.md#Appendix.MySQL.CommonDBATasks.SkipError.procedure").
 
 To determine if there are errors, run the MySQL `SHOW REPLICA STATUS\G`
 command. If a replication error isn't critical, you can run
@@ -1621,7 +1621,7 @@ files are retained on your source database instance. After you have increased
 the binlog retention time, you can restart replication and call the
 `mysql.rds_skip_repl_error` command as needed.
 
-To set the binlog retention time, use the [mysql.rds_set_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration") procedure and specify a
+To set the binlog retention time, use the [mysql.rds\_set\_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration") procedure and specify a
 configuration parameter of `'binlog retention hours'` along with the
 number of hours to retain binlog files on the DB cluster. The following example
 sets the retention period for binlog files to 48 hours.
@@ -1630,14 +1630,14 @@ sets the retention period for binlog files to 48 hours.
 CALL mysql.rds_set_configuration('binlog retention hours', 48);
 ```
 
-## mysql.rds_start_replication
+## mysql.rds\_start\_replication
 
 Initiates replication from an RDS for MySQL DB
 instance.
 
 ###### Note
 
-You can use the [mysql.rds_start_replication_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") or [mysql.rds_start_replication_until_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure to
+You can use the [mysql.rds\_start\_replication\_until](#mysql_rds_start_replication_until "#mysql_rds_start_replication_until") or [mysql.rds\_start\_replication\_until\_gtid](mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid "mysql-stored-proc-gtid.md#mysql_rds_start_replication_until_gtid") stored procedure to
 initiate replication from an RDS for MySQL DB instance
 and stop replication at the specified binary log file location.
 
@@ -1654,7 +1654,7 @@ procedure.
 
 To import data from an instance of MySQL external to Amazon RDS, call
 `mysql.rds_start_replication` on the read replica to start the
-replication process after you call [mysql.rds_set_external_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_external_master "#mysql_rds_set_external_master") or [mysql.rds_set_external_source (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_external_source "#mysql_rds_set_external_source") to build the replication
+replication process after you call [mysql.rds\_set\_external\_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_external_master "#mysql_rds_set_external_master") or [mysql.rds\_set\_external\_source (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_external_source "#mysql_rds_set_external_source") to build the replication
 configuration. For more information, see [Restoring a backup into an Amazon RDS for MySQL DB instance](MySQL.Procedural.Importing.md "MySQL.Procedural.Importing.md").
 
 To export data to an instance of MySQL external to Amazon RDS, call
@@ -1666,7 +1666,7 @@ You can also call `mysql.rds_start_replication` on the read replica to
 restart any replication process that you previously stopped by calling
 `mysql.rds_stop_replication`. For more information, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
 
-## mysql.rds_start_replication_until
+## mysql.rds\_start\_replication\_until
 
 Initiates replication from an RDS for MySQL DB
 instance and stops
@@ -1714,10 +1714,10 @@ to be the new primary DB instance by using the instructions in [Promoting a read
 You can configure delayed replication using the following
 stored procedures:
 
-- [mysql.rds_set_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration")
-- [mysql.rds_set_external_master_with_delay (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_external_master_with_delay "#mysql_rds_set_external_master_with_delay")
-- [mysql.rds_set_external_source_with_delay (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_external_source_with_delay "#mysql_rds_set_external_source_with_delay")
-- [mysql.rds_set_source_delay](#mysql_rds_set_source_delay "#mysql_rds_set_source_delay")
+- [mysql.rds\_set\_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration")
+- [mysql.rds\_set\_external\_master\_with\_delay (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_external_master_with_delay "#mysql_rds_set_external_master_with_delay")
+- [mysql.rds\_set\_external\_source\_with\_delay (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_external_source_with_delay "#mysql_rds_set_external_source_with_delay")
+- [mysql.rds\_set\_source\_delay](#mysql_rds_set_source_delay "#mysql_rds_set_source_delay")
 
 The file name specified for the `replication_log_file` parameter must
 match the source database instance binlog file name.
@@ -1738,7 +1738,7 @@ call mysql.rds_start_replication_until(
 
 ```
 
-## mysql.rds_stop_replication
+## mysql.rds\_stop\_replication
 
 Stops replication from a MySQL DB instance.
 
@@ -1766,5 +1766,5 @@ You can also use `mysql.rds_stop_replication` to
 stop replication between two Amazon RDS DB instances. You typically stop replication to
 perform a long running operation on the read replica, such as creating a large index
 on the read replica. You can restart any replication process that you stopped by
-calling [mysql.rds_start_replication](#mysql_rds_start_replication "#mysql_rds_start_replication") on the read replica. For more
+calling [mysql.rds\_start\_replication](#mysql_rds_start_replication "#mysql_rds_start_replication") on the read replica. For more
 information, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").

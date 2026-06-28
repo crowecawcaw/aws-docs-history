@@ -21,6 +21,7 @@ automatically placed onto the instance store:
 - db.m5d
 - db.r5d
 - db.x2iedn
+- db.x2m
 
 To enable the instance store, do one of the following:
 
@@ -28,7 +29,7 @@ To enable the instance store, do one of the following:
 - Modify an existing SQL Server DB instance to use one of them. For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
 The instance store is available in all AWS Regions where one or more of these instance types are supported. For more
-information on the `db.m5d` and `db.r5d` instance classes, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md"). For more information on the instance classes supported by Amazon RDS for SQL Server,
+information on the `db.m5d`, `db.r5d`, `db.x2iedn`, and `db.x2m` instance classes, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md"). For more information on the instance classes supported by Amazon RDS for SQL Server,
 see [DB instance class support for Microsoft SQL Server](SQLServer.Concepts.General.InstanceClasses.md "SQLServer.Concepts.General.InstanceClasses.md").
 
 ## File location and size considerations
@@ -68,9 +69,9 @@ If you use all of the available space in the instance store, you might receive e
 
 - **`The transaction log for database 'tempdb' is full due to 'ACTIVE_TRANSACTION'.`**
 - **`Could not allocate space for object 'dbo.SORT temporary run storage: 140738941419520' in database 'tempdb'
-because the 'PRIMARY' filegroup is full. Create disk space by deleting unneeded files, dropping objects in the
-filegroup, adding additional files to the filegroup, or setting autogrowth on for existing files in the
-filegroup.`**
+ because the 'PRIMARY' filegroup is full. Create disk space by deleting unneeded files, dropping objects in the
+ filegroup, adding additional files to the filegroup, or setting autogrowth on for existing files in the
+ filegroup.`**
 
 You can do one or more of the following when the instance store is full:
 

@@ -8,10 +8,10 @@ parameters, usage notes, and examples.
 
 ###### Stored procedures
 
-- [rdsadmin.catalog_storage_access](#db2-sp-catalog-storage-access "#db2-sp-catalog-storage-access")
-- [rdsadmin.uncatalog_storage_access](#db2-sp-uncatalog-storage-access "#db2-sp-uncatalog-storage-access")
+- [rdsadmin.catalog\_storage\_access](#db2-sp-catalog-storage-access "#db2-sp-catalog-storage-access")
+- [rdsadmin.uncatalog\_storage\_access](#db2-sp-uncatalog-storage-access "#db2-sp-uncatalog-storage-access")
 
-## rdsadmin.catalog_storage_access
+## rdsadmin.catalog\_storage\_access
 
 Catalogs a storage alias for accessing an Amazon S3 bucket with Db2 data files.
 
@@ -65,7 +65,7 @@ Amazon RDS includes the cataloged alias in the IAM role that you added to your
 RDS for Db2 DB instance. If you remove the IAM role from your DB instance, then Amazon RDS
 deletes the alias. For more information, see [Migrating Db2 data through Amazon S3 to Amazon RDS for Db2](db2-migration-load-from-s3.md "db2-migration-load-from-s3.md").
 
-For information about checking the status of cataloging your alias, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of cataloging your alias, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 
@@ -82,7 +82,7 @@ db2 "call rdsadmin.catalog_storage_access(
     'jorge_souza')"
 ```
 
-## rdsadmin.uncatalog_storage_access
+## rdsadmin.uncatalog\_storage\_access
 
 Removes a storage access alias.
 
@@ -112,7 +112,7 @@ The name of the storage alias to remove. The datatype is
 
 ### Usage notes
 
-For information about checking the status of removing your alias, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of removing your alias, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 

@@ -20,7 +20,7 @@ option to a DB instance is as follows:
      information, see
      [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create").
 
-2. Add the **SQLSERVER_AUDIT** option to the option
+2. Add the **SQLSERVER\_AUDIT** option to the option
    group, and configure the option settings. For more information about adding options,
    see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
 

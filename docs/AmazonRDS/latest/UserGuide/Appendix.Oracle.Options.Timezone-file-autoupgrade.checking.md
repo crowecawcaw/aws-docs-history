@@ -14,4 +14,4 @@ SELECT * FROM rdsadmin.rds_dst_affected_tables;
 SELECT * FROM rdsadmin.rds_dst_error_table;
 ```
 
-For more information about the schema for the affected data and error tables, see [FIND_AFFECTED_TABLES Procedure](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DST.html#GUID-1F977505-671C-4D5B-8570-86956F136199 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DST.html#GUID-1F977505-671C-4D5B-8570-86956F136199") in the Oracle documentation.
+For more information about the schema for the affected data and error tables, see [FIND\_AFFECTED\_TABLES Procedure](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DST.html#GUID-1F977505-671C-4D5B-8570-86956F136199 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DST.html#GUID-1F977505-671C-4D5B-8570-86956F136199") in the Oracle documentation.

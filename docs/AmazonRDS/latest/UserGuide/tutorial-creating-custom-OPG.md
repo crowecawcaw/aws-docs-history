@@ -60,8 +60,8 @@ If you don't already have those set up, complete the steps in the following sect
 ## Create an Amazon RDS parameter group
 
 In this tutorial, you learn how to create a custom parameter group with
-[default_password_lifetime](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_default_password_lifetime "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_default_password_lifetime") and
-[disconnect_on_expired_password](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_disconnect_on_expired_password "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_disconnect_on_expired_password")
+[default\_password\_lifetime](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_default_password_lifetime "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_default_password_lifetime") and
+[disconnect\_on\_expired\_password](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_disconnect_on_expired_password "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_disconnect_on_expired_password")
 for a MySQL DB instance in the console.
 
 The `default_password_lifetime` parameter controls the number of days before the client password automatically expires. The `disconnect_on_expired_password`
@@ -163,7 +163,7 @@ Use the following steps to add a option to the new option group that you created
 4. Set the option group details.
 
    - For **Option name**, choose the option MariaDB Audit Plugin,
-     **MARIADB_AUDIT_PLUGIN**.
+     **MARIADB\_AUDIT\_PLUGIN**.
    - For **Option settings**, leave all the default options selected.
    - For **Apply immediately**, choose
      **Yes**.

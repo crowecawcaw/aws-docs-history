@@ -34,7 +34,7 @@ The following procedure creates an option group for SQL Server Standard Edition 
       contain only letters, digits, and hyphens.
    2. For **Description**, enter a brief description of the option group,
       such as `MSDTC option group for SQL Server SE
-2016`. The description is used for
+  2016`. The description is used for
       display purposes.
    3. For **Engine**, choose **sqlserver-se**.
    4. For **Major engine version**, choose
@@ -209,7 +209,7 @@ The following example creates a parameter group for SQL Server Standard Edition 
    2. For **Group name**, enter an identifier for the parameter group,
       such as `msdtc-sqlserver-se-13`.
    3. For **Description**, enter `in-doubt xact
-resolution`.
+  resolution`.
 
 5. Choose **Create**.
    The following example creates a parameter group for SQL Server Standard Edition

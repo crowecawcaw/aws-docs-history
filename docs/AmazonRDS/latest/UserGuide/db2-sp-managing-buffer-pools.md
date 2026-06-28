@@ -17,11 +17,11 @@ These stored procedures are used in a variety of tasks. This list isn't exhausti
 
 ###### Stored procedures
 
-- [rdsadmin.create_bufferpool](#db2-sp-create-buffer-pool "#db2-sp-create-buffer-pool")
-- [rdsadmin.alter_bufferpool](#db2-sp-alter-buffer-pool "#db2-sp-alter-buffer-pool")
-- [rdsadmin.drop_bufferpool](#db2-sp-drop-buffer-pool "#db2-sp-drop-buffer-pool")
+- [rdsadmin.create\_bufferpool](#db2-sp-create-buffer-pool "#db2-sp-create-buffer-pool")
+- [rdsadmin.alter\_bufferpool](#db2-sp-alter-buffer-pool "#db2-sp-alter-buffer-pool")
+- [rdsadmin.drop\_bufferpool](#db2-sp-drop-buffer-pool "#db2-sp-drop-buffer-pool")
 
-## rdsadmin.create_bufferpool
+## rdsadmin.create\_bufferpool
 
 Creates a buffer pool.
 
@@ -90,7 +90,7 @@ The block size for the block pages. The data type is
 
 ### Usage notes
 
-For information about checking the status of creating a buffer pool, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of creating a buffer pool, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 
@@ -145,7 +145,7 @@ db2 "call rdsadmin.create_bufferpool(
     512)"
 ```
 
-## rdsadmin.alter_bufferpool
+## rdsadmin.alter\_bufferpool
 
 Alters a buffer pool.
 
@@ -213,7 +213,7 @@ The block size for the block pages. The data type is
 
 ### Usage notes
 
-For information about checking the status of altering a buffer pool, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of altering a buffer pool, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 
@@ -230,7 +230,7 @@ db2 "call rdsadmin.alter_bufferpool(
     'N')"
 ```
 
-## rdsadmin.drop_bufferpool
+## rdsadmin.drop\_bufferpool
 
 Drops a buffer pool.
 
@@ -258,7 +258,7 @@ The name of the buffer pool to drop. The data type is
 
 ### Usage notes
 
-For information about checking the status of dropping a buffer pool, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the status of dropping a buffer pool, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ### Examples
 

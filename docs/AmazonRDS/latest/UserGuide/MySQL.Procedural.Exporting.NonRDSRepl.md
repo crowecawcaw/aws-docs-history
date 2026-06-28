@@ -50,21 +50,19 @@ Specify the appropriate egress rules for your environment:
      egress rules in a VPC security group. For more information, see [Controlling access with security groups](Overview.RDSSecurityGroups.md "Overview.RDSSecurityGroups.md").
     * If the external MySQL database is installed on-premises, specify the egress rules in a firewall.
 
-5.  If the external MySQL database is running in a VPC, configure rules for the
-    VPC access control list (ACL) rules in addition to the security group egress
-    rule:
+5. If the external MySQL database is running in a VPC, configure rules for the
+VPC access control list (ACL) rules in addition to the security group egress
+rule:
 
-        * Configure an ACL ingress rule allowing TCP traffic to ports
-         1024–65535 from the IP address of the source MySQL DB
-         instance.
-        * Configure an ACL egress rule allowing outbound TCP traffic to the port and IP address
-         of the source MySQL DB instance.
+    * Configure an ACL ingress rule allowing TCP traffic to ports
+     1024–65535 from the IP address of the source MySQL DB
+     instance.
+    * Configure an ACL egress rule allowing outbound TCP traffic to the port and IP address
+     of the source MySQL DB instance.
 
-    For more information about Amazon VPC network ACLs, see [Network ACLs](../../../vpc/latest/userguide/vpc-network-acls.md "../../../vpc/latest/userguide/vpc-network-acls.md") in
-    _Amazon VPC User Guide._
-
-6.  (Optional) Set the `max_allowed_packet` parameter to the maximum size to avoid replication errors. We
-    recommend this setting.
+For more information about Amazon VPC network ACLs, see [Network ACLs](../../../vpc/latest/userguide/vpc-network-acls.md "../../../vpc/latest/userguide/vpc-network-acls.md") in
+_Amazon VPC User Guide._ 6. (Optional) Set the `max_allowed_packet` parameter to the maximum size to avoid replication errors. We
+recommend this setting.
 
 ## Prepare the source MySQL DB instance
 
@@ -72,45 +70,44 @@ Perform the following steps to prepare the source MySQL DB instance as the repli
 
 ###### To prepare the source MySQL DB instance
 
-1.  Ensure that your client computer has enough disk space available to save the
-    binary logs while setting up replication.
-2.  Connect to the source MySQL DB instance, and create a replication account by
-    following the directions in [Creating a User for Replication](http://dev.mysql.com/doc/refman/8.0/en/replication-howto-repuser.html "http://dev.mysql.com/doc/refman/8.0/en/replication-howto-repuser.html") in the MySQL documentation.
-3.  Configure ingress rules on the system running the source MySQL DB instance to
-    allow the external MySQL database to connect during replication. Specify an
-    ingress rule that allows TCP connections to the port used by the source MySQL DB
-    instance from the IP address of the external MySQL database.
-4.  Specify the egress rules:
+1. Ensure that your client computer has enough disk space available to save the
+   binary logs while setting up replication.
+2. Connect to the source MySQL DB instance, and create a replication account by
+   following the directions in [Creating a User for Replication](http://dev.mysql.com/doc/refman/8.0/en/replication-howto-repuser.html "http://dev.mysql.com/doc/refman/8.0/en/replication-howto-repuser.html") in the MySQL documentation.
+3. Configure ingress rules on the system running the source MySQL DB instance to
+   allow the external MySQL database to connect during replication. Specify an
+   ingress rule that allows TCP connections to the port used by the source MySQL DB
+   instance from the IP address of the external MySQL database.
+4. Specify the egress rules:
 
-    - If the source MySQL DB instance is running in a VPC, specify the ingress rules in a VPC
-      security group. For more information, see [Controlling access with security groups](Overview.RDSSecurityGroups.md "Overview.RDSSecurityGroups.md").
+   - If the source MySQL DB instance is running in a VPC, specify the ingress rules in a VPC
+     security group. For more information, see [Controlling access with security groups](Overview.RDSSecurityGroups.md "Overview.RDSSecurityGroups.md").
 
-5.  If source MySQL DB instance is running in a VPC, configure VPC ACL rules in
-    addition to the security group ingress rule:
+5. If source MySQL DB instance is running in a VPC, configure VPC ACL rules in
+   addition to the security group ingress rule:
 
-        * Configure an ACL ingress rule to allow TCP connections to the port used by the Amazon RDS instance
-         from the IP address of the external MySQL database.
-        * Configure an ACL egress rule to allow TCP connections from ports
-         1024–65535 to the IP address of the external MySQL
-         database.
+   - Configure an ACL ingress rule to allow TCP connections to the port used by the Amazon RDS instance
+     from the IP address of the external MySQL database.
+   - Configure an ACL egress rule to allow TCP connections from ports
+     1024–65535 to the IP address of the external MySQL
+     database.
+     For more information about Amazon VPC network ACLs, see
+     [Network ACLs](../../../vpc/latest/userguide/vpc-network-acls.md "../../../vpc/latest/userguide/vpc-network-acls.md") in the _Amazon VPC User Guide._
 
-    For more information about Amazon VPC network ACLs, see
-    [Network ACLs](../../../vpc/latest/userguide/vpc-network-acls.md "../../../vpc/latest/userguide/vpc-network-acls.md") in the _Amazon VPC User Guide._
-
-6.  Ensure that the backup retention period is set long enough that no binary logs are
-    purged during the export. If any of the logs are purged before the export has
-    completed, you must restart replication from the beginning. For more information
-    about setting the backup retention period, see [Introduction to backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md").
-7.  Use the `mysql.rds_set_configuration` stored procedure to set the
-    binary log retention period long enough that the binary logs aren't purged
-    during the export. For more information, see [Accessing MySQL binary logs](USER_LogAccess.MySQL.Binarylog.md "USER_LogAccess.MySQL.Binarylog.md").
-8.  Create an Amazon RDS read replica from the source MySQL DB instance to further
-    ensure that the binary logs of the source MySQL DB instance are not purged. For
-    more information, see [Creating a read replica](USER_ReadRepl.Create.md "USER_ReadRepl.Create.md").
-9.  After the Amazon RDS read replica has been created, call the
-    `mysql.rds_stop_replication` stored procedure to stop the
-    replication process. The source MySQL DB instance no longer purges its binary
-    log files, so they are available for the replication process.
+6. Ensure that the backup retention period is set long enough that no binary logs are
+   purged during the export. If any of the logs are purged before the export has
+   completed, you must restart replication from the beginning. For more information
+   about setting the backup retention period, see [Introduction to backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md").
+7. Use the `mysql.rds_set_configuration` stored procedure to set the
+   binary log retention period long enough that the binary logs aren't purged
+   during the export. For more information, see [Accessing MySQL binary logs](USER_LogAccess.MySQL.Binarylog.md "USER_LogAccess.MySQL.Binarylog.md").
+8. Create an Amazon RDS read replica from the source MySQL DB instance to further
+   ensure that the binary logs of the source MySQL DB instance are not purged. For
+   more information, see [Creating a read replica](USER_ReadRepl.Create.md "USER_ReadRepl.Create.md").
+9. After the Amazon RDS read replica has been created, call the
+   `mysql.rds_stop_replication` stored procedure to stop the
+   replication process. The source MySQL DB instance no longer purges its binary
+   log files, so they are available for the replication process.
 10. (Optional) Set both the `max_allowed_packet` parameter and the `slave_max_allowed_packet` parameter to the maximum size
     to avoid replication errors. The maximum size for both parameters is 1 GB. We recommend this setting for both parameters. For information about
     setting parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").

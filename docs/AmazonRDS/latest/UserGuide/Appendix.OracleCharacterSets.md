@@ -58,34 +58,34 @@ The character set for a CDB is always AL32UTF8. You can set a different characte
 | ZHT16MSWIN950  | Microsoft Windows Code Page 950 Traditional Chinese                                                                                            |
 | ZHT32EUC       | EUC 32-bit Traditional Chinese                                                                                                                 |
 
-### NLS_LANG environment variable
+### NLS\_LANG environment variable
 
 A _locale_ is a set of information addressing linguistic and cultural requirements that
-corresponds to a given language and country. Setting the NLS_LANG environment variable in your client's
+corresponds to a given language and country. Setting the NLS\_LANG environment variable in your client's
 environment is the simplest way to specify locale behavior for Oracle. This variable sets the language and
 territory used by the client application and the database server. It also indicates the client's character set,
 which corresponds to the character set for data entered or displayed by a client application. For more
-information on NLS_LANG and character sets, see [What is a character set or code page?](http://www.oracle.com/technetwork/database/database-technologies/globalization/nls-lang-099431.html#_Toc110410570 "http://www.oracle.com/technetwork/database/database-technologies/globalization/nls-lang-099431.html#_Toc110410570") in the Oracle documentation.
+information on NLS\_LANG and character sets, see [What is a character set or code page?](http://www.oracle.com/technetwork/database/database-technologies/globalization/nls-lang-099431.html#_Toc110410570 "http://www.oracle.com/technetwork/database/database-technologies/globalization/nls-lang-099431.html#_Toc110410570") in the Oracle documentation.
 
 ### NLS initialization parameters
 
 You can also set the following National Language Support (NLS) initialization parameters at the instance
 level for an Oracle DB instance in Amazon RDS:
 
-- NLS_COMP
-- NLS_DATE_FORMAT
-- NLS_LENGTH_SEMANTICS
-- NLS_NCHAR_CONV_EXCP
-- NLS_SORT
-- NLS_TIME_FORMAT
-- NLS_TIME_TZ_FORMAT
-- NLS_TIMESTAMP_FORMAT
-- NLS_TIMESTAMP_TZ_FORMAT
+- NLS\_COMP
+- NLS\_DATE\_FORMAT
+- NLS\_LENGTH\_SEMANTICS
+- NLS\_NCHAR\_CONV\_EXCP
+- NLS\_SORT
+- NLS\_TIME\_FORMAT
+- NLS\_TIME\_TZ\_FORMAT
+- NLS\_TIMESTAMP\_FORMAT
+- NLS\_TIMESTAMP\_TZ\_FORMAT
 
 For information about modifying instance parameters, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 You can set other NLS initialization parameters in your SQL client. For example, the following statement
-sets the NLS_LANGUAGE initialization parameter to GERMAN in a SQL client that is connected to an Oracle DB
+sets the NLS\_LANGUAGE initialization parameter to GERMAN in a SQL client that is connected to an Oracle DB
 instance:
 
 ```

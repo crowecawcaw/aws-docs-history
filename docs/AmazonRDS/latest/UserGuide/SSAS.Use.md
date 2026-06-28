@@ -197,22 +197,19 @@ schedule SSAS database processing.
   example uses T-SQL. You can further configure its job schedule through SSMS
   or T-SQL.
 
-      + The `@command` parameter outlines the XML for Analysis (XMLA) command to be run by the SQL
-       Server Agent job. This example configures SSAS Multidimensional database processing.
-      + The `@server` parameter outlines the target SSAS server name of the SQL Server Agent
-       job.
+  - The `@command` parameter outlines the XML for Analysis (XMLA) command to be run by the SQL
+    Server Agent job. This example configures SSAS Multidimensional database processing.
+  - The `@server` parameter outlines the target SSAS server name of the SQL Server Agent
+    job.
 
+  To call the SSAS service within the same RDS DB instance where the SQL Server Agent job resides, use
+  `localhost:2383`.
 
-      To call the SSAS service within the same RDS DB instance where the SQL Server Agent job resides, use
-       `localhost:2383`.
-
-
-      To call the SSAS service from outside the RDS DB instance, use the RDS endpoint. You can also use the
-       Kerberos Active Directory (AD) endpoint
-       (``your-DB-instance-name`.`your-AD-domain-name``)
-       if the RDS DB instances are joined by the same domain. For external DB instances, make sure to properly
-       configure the VPC security group associated with the RDS DB instance for a secure connection.
-
+  To call the SSAS service from outside the RDS DB instance, use the RDS endpoint. You can also use the
+  Kerberos Active Directory (AD) endpoint
+  (``your-DB-instance-name`.`your-AD-domain-name``)
+  if the RDS DB instances are joined by the same domain. For external DB instances, make sure to properly
+  configure the VPC security group associated with the RDS DB instance for a secure connection.
   You can further edit the query to support various XMLA operations. Make
   edits either by directly modifying the T-SQL query or by using the SSMS UI
   following SQL Server Agent job creation.

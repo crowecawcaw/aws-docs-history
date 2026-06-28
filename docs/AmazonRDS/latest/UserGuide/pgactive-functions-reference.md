@@ -3,7 +3,7 @@
 Following, you can find a list of pgactive functions with their parameters, return values,
 and practical usage notes to help you effectively use them:
 
-## get_last_applied_xact_info
+## get\_last\_applied\_xact\_info
 
 Retrieves the last applied transaction information for a specified node.
 
@@ -16,16 +16,16 @@ Retrieves the last applied transaction information for a specified node.
 
 It records the following:
 
-- last_applied_xact_id (OID)
-- last_applied_xact_committs (timestamp with time zone)
-- last_applied_xact_at (timestamp with time zone)
+- last\_applied\_xact\_id (OID)
+- last\_applied\_xact\_committs (timestamp with time zone)
+- last\_applied\_xact\_at (timestamp with time zone)
 
 **Usage notes**
 
 Use this function to retrieve the last applied transaction information for a
 specified node.
 
-## pgactive_apply_pause
+## pgactive\_apply\_pause
 
 Pauses the replication apply process.
 
@@ -41,7 +41,7 @@ boolean
 
 Call this function to pause the replication apply process.
 
-## pgactive_apply_resume
+## pgactive\_apply\_resume
 
 Resumes the replication apply process.
 
@@ -57,7 +57,7 @@ void
 
 Call this function to resume the replication apply process.
 
-## pgactive_is_apply_paused
+## pgactive\_is\_apply\_paused
 
 Checks if replication apply is currently paused.
 
@@ -73,15 +73,15 @@ boolean
 
 Use this function to check if replication apply is currently paused.
 
-## pgactive_create_group
+## pgactive\_create\_group
 
 Creates a pgactive group by converting a standalone database into the initial node.
 
 **Arguments**
 
-- node_name (text)
-- node_dsn (text)
-- apply_delay integer DEFAULT NULL::integer - replication_sets text[] DEFAULT
+- node\_name (text)
+- node\_dsn (text)
+- apply\_delay integer DEFAULT NULL::integer - replication\_sets text[] DEFAULT
   ARRAY[‘default’::text]
 
 **Return type**
@@ -96,13 +96,13 @@ node. Before using this function, ensure that your PostgreSQL cluster has suffic
 `max_worker_processes` available to support pgactive background
 workers.
 
-## pgactive_detach_nodes
+## pgactive\_detach\_nodes
 
 Removes specified nodes from the pgactive group.
 
 **Arguments**
 
-- p_nodes (text[])
+- p\_nodes (text[])
 
 **Return type**
 
@@ -112,13 +112,13 @@ void
 
 Use this function to remove specified nodes from the pgactive group.
 
-## pgactive_exclude_table_replication_set
+## pgactive\_exclude\_table\_replication\_set
 
 Excludes a specific table from replication.
 
 **Arguments**
 
-- p_relation (regclass)
+- p\_relation (regclass)
 
 **Return type**
 
@@ -128,7 +128,7 @@ void
 
 Use this function to exclude a specific table from replication.
 
-## pgactive_get_replication_lag_info
+## pgactive\_get\_replication\_lag\_info
 
 Retrieves detailed replication lag information, including node details, WAL status, and LSN values.
 
@@ -138,19 +138,19 @@ None
 
 **Return type**
 
-SETOF record - node_name text - node_sysid text - application_name text -
-slot_name text - active boolean - active_pid integer - pending_wal_decoding bigint -
+SETOF record - node\_name text - node\_sysid text - application\_name text -
+slot\_name text - active boolean - active\_pid integer - pending\_wal\_decoding bigint -
 Approximate size of WAL in bytes to be decoded on the sender node -
-pending_wal_to_apply bigint - Approximate size of WAL in bytes to be applied on
-receiving node - restart_lsn pg_lsn - confirmed_flush_lsn pg_lsn - sent_lsn pg_lsn -
-write_lsn pg_lsn - flush_lsn pg_lsn - replay_lsn pg_lsn
+pending\_wal\_to\_apply bigint - Approximate size of WAL in bytes to be applied on
+receiving node - restart\_lsn pg\_lsn - confirmed\_flush\_lsn pg\_lsn - sent\_lsn pg\_lsn -
+write\_lsn pg\_lsn - flush\_lsn pg\_lsn - replay\_lsn pg\_lsn
 
 **Usage notes**
 
 Call this function to retrieve replication lag information, including node
 details, WAL status, and LSN values.
 
-## pgactive_get_stats
+## pgactive\_get\_stats
 
 Retrieves pgactive replication statistics.
 
@@ -160,16 +160,16 @@ None
 
 **Return type**
 
-SETOF record - rep_node_id oid - rilocalid oid - riremoteid text - nr_commit
-bigint - nr_rollback bigint - nr_insert bigint - nr_insert_conflict bigint - nr_update
-bigint - nr_update_conflict bigint - nr_delete bigint - nr_delete_conflict bigint -
-nr_disconnect bigint
+SETOF record - rep\_node\_id oid - rilocalid oid - riremoteid text - nr\_commit
+bigint - nr\_rollback bigint - nr\_insert bigint - nr\_insert\_conflict bigint - nr\_update
+bigint - nr\_update\_conflict bigint - nr\_delete bigint - nr\_delete\_conflict bigint -
+nr\_disconnect bigint
 
 **Usage notes**
 
 Use this function to retrieve pgactive replication statistics.
 
-## pgactive_get_table_replication_sets
+## pgactive\_get\_table\_replication\_sets
 
 Gets replication set configuration for a specific relation.
 
@@ -186,13 +186,13 @@ SETOF record
 Call this function to get replication set configuration for a specific
 relation.
 
-## pgactive_include_table_replication_set
+## pgactive\_include\_table\_replication\_set
 
 Includes a specific table in replication.
 
 **Arguments**
 
-- p_relation (regclass)
+- p\_relation (regclass)
 
 **Return type**
 
@@ -202,20 +202,20 @@ void
 
 Use this function to include a specific table in replication.
 
-## pgactive_join_group
+## pgactive\_join\_group
 
 Adds a node to an existing pgactive group.
 
 **Arguments**
 
-- node_name (text)
-- node_dsn (text)
-- join_using_dsn (text)
-- apply_delay (integer, optional)
-- replication_sets (text[], default: ['default'])
-- bypass_collation_check (boolean, default: false)
-- bypass_node_identifier_creation (boolean, default: false)
-- bypass_user_tables_check (boolean, default: false)
+- node\_name (text)
+- node\_dsn (text)
+- join\_using\_dsn (text)
+- apply\_delay (integer, optional)
+- replication\_sets (text[], default: ['default'])
+- bypass\_collation\_check (boolean, default: false)
+- bypass\_node\_identifier\_creation (boolean, default: false)
+- bypass\_user\_tables\_check (boolean, default: false)
 
 **Return type**
 
@@ -224,10 +224,10 @@ void
 **Usage notes**
 
 Call this function to add a node to an existing pgactive group. Ensure your
-PostgreSQL cluster has sufficient max_worker_processes for pgactive background
+PostgreSQL cluster has sufficient max\_worker\_processes for pgactive background
 workers.
 
-## pgactive_remove
+## pgactive\_remove
 
 Removes all pgactive components from the local node.
 
@@ -243,7 +243,7 @@ void
 
 Call this function to remove all pgactive components from the local node.
 
-## pgactive_snowflake_id_nextval
+## pgactive\_snowflake\_id\_nextval
 
 Generates node-specific unique sequence values.
 
@@ -259,14 +259,14 @@ bigint
 
 Use this function to generate node-specific unique sequence values.
 
-## pgactive_update_node_conninfo
+## pgactive\_update\_node\_conninfo
 
 Updates connection information for a pgactive node.
 
 **Arguments**
 
-- node_name_to_update (text)
-- node_dsn_to_update (text)
+- node\_name\_to\_update (text)
+- node\_dsn\_to\_update (text)
 
 **Return type**
 
@@ -276,14 +276,14 @@ void
 
 Use this function to update connection information for a pgactive node.
 
-## pgactive_wait_for_node_ready
+## pgactive\_wait\_for\_node\_ready
 
 Monitors the progress of group creation or joining operations.
 
 **Arguments**
 
 - timeout (integer, default: 0)
-- progress_interval (integer, default: 60)
+- progress\_interval (integer, default: 60)
 
 **Return type**
 

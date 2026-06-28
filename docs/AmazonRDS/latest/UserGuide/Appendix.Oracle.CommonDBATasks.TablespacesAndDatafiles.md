@@ -36,13 +36,13 @@ instance has a volume mounted on `/rdsdbdata/db`, you can set
 You can modify the `DB_CREATE_FILE_DEST` parameter at either the
 session level or Oracle database instance level.
 
-### Modifying DB_CREATE_FILE_DEST at the instance level
+### Modifying DB\_CREATE\_FILE\_DEST at the instance level
 
 To modify the parameter at the instance level, update the parameter in the
 parameter group assigned to your DB instance and apply it. For more information, see
 [RDS for Oracle initialization parameters](Oracle.Concepts.FeatureSupport.Parameters.md "Oracle.Concepts.FeatureSupport.Parameters.md") and [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
-### Modifying DB_CREATE_FILE_DEST at the session level
+### Modifying DB\_CREATE\_FILE\_DEST at the session level
 
 You can modify the parameter at the session level by executing an `ALTER
  SESSION` statement. This approach is useful when you want to create

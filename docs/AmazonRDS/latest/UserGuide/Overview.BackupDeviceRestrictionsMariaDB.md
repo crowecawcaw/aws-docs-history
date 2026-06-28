@@ -8,7 +8,7 @@ of a crash. For this reason, we encourage you to use the InnoDB storage engine.
 
 - To convert existing Aria tables to InnoDB tables, you can use the `ALTER TABLE` command.
   For example: `ALTER TABLE `table_name`
-ENGINE=innodb, ALGORITHM=COPY;`
+ ENGINE=innodb, ALGORITHM=COPY;`
 - If you choose to use Aria, you can attempt to manually repair tables that become damaged
   after a crash by using the `REPAIR TABLE` command. For more information,
   see [http://mariadb.com/kb/en/mariadb/repair-table/](http://mariadb.com/kb/en/mariadb/repair-table/ "http://mariadb.com/kb/en/mariadb/repair-table/").

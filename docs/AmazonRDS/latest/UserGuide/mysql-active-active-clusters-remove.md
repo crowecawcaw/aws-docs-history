@@ -4,7 +4,7 @@ When you remove a DB instance from an active-active cluster, it reverts to a sta
 
 ###### To remove a DB instance from an active-active cluster
 
-1. Connect to the DB instance in a SQL client, and call the [mysql.rds_group_replication_stop](mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_stop "mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_stop") stored procedure:
+1. Connect to the DB instance in a SQL client, and call the [mysql.rds\_group\_replication\_stop](mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_stop "mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_stop") stored procedure:
 
 ```
 call mysql.rds_group_replication_stop();

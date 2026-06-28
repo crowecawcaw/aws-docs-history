@@ -1,4 +1,4 @@
-# Configuring UTL_HTTP access using certificates and an Oracle wallet
+# Configuring UTL\_HTTP access using certificates and an Oracle wallet
 
 Amazon RDS supports outbound network access on your RDS for Oracle DB instances. To connect your DB instance to
 the network, you can use the following PL/SQL packages:
@@ -6,22 +6,22 @@ the network, you can use the following PL/SQL packages:
 `UTL_HTTP`
 
 This package makes HTTP calls from SQL and PL/SQL. You can use it to access data on the Internet over
-HTTP. For more information, see [UTL_HTTP](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_HTTP.html#GUID-A85D2D1F-90FC-45F1-967F-34368A23C9BB "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_HTTP.html#GUID-A85D2D1F-90FC-45F1-967F-34368A23C9BB") in the Oracle documentation.
+HTTP. For more information, see [UTL\_HTTP](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_HTTP.html#GUID-A85D2D1F-90FC-45F1-967F-34368A23C9BB "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_HTTP.html#GUID-A85D2D1F-90FC-45F1-967F-34368A23C9BB") in the Oracle documentation.
 
 `UTL_TCP`
 
 This package provides TCP/IP client-side access functionality in PL/SQL. This package is useful to
-PL/SQL applications that use Internet protocols and email. For more information, see [UTL_TCP](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_TCP.html#GUID-348AFFE8-78B2-4217-AE73-384F46A1D292 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_TCP.html#GUID-348AFFE8-78B2-4217-AE73-384F46A1D292") in the Oracle documentation.
+PL/SQL applications that use Internet protocols and email. For more information, see [UTL\_TCP](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_TCP.html#GUID-348AFFE8-78B2-4217-AE73-384F46A1D292 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_TCP.html#GUID-348AFFE8-78B2-4217-AE73-384F46A1D292") in the Oracle documentation.
 
 `UTL_SMTP`
 
 This package provides interfaces to the SMTP commands that enable a client to dispatch emails to an
-SMTP server. For more information, see [UTL_SMTP](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_SMTP.html#GUID-F0065C52-D618-4F8A-A361-7B742D44C520 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_SMTP.html#GUID-F0065C52-D618-4F8A-A361-7B742D44C520") in the Oracle documentation.
+SMTP server. For more information, see [UTL\_SMTP](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_SMTP.html#GUID-F0065C52-D618-4F8A-A361-7B742D44C520 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_SMTP.html#GUID-F0065C52-D618-4F8A-A361-7B742D44C520") in the Oracle documentation.
 
 By completing the following tasks, you can configure `UTL_HTTP.REQUEST` to work with websites that
 require client authentication certificates during the SSL handshake. You can also configure password authentication
 for `UTL_HTTP` access to websites by modifying the Oracle wallet generation commands and the
-`DBMS_NETWORK_ACL_ADMIN.APPEND_WALLET_ACE` procedure. For more information, see [DBMS_NETWORK_ACL_ADMIN](https://docs.oracle.com/en/database/oracle/oracle-database/21/arpls/DBMS_NETWORK_ACL_ADMIN.html "https://docs.oracle.com/en/database/oracle/oracle-database/21/arpls/DBMS_NETWORK_ACL_ADMIN.html") in the Oracle Database documentation.
+`DBMS_NETWORK_ACL_ADMIN.APPEND_WALLET_ACE` procedure. For more information, see [DBMS\_NETWORK\_ACL\_ADMIN](https://docs.oracle.com/en/database/oracle/oracle-database/21/arpls/DBMS_NETWORK_ACL_ADMIN.html "https://docs.oracle.com/en/database/oracle/oracle-database/21/arpls/DBMS_NETWORK_ACL_ADMIN.html") in the Oracle Database documentation.
 
 ###### Note
 
@@ -30,7 +30,7 @@ You can adapt the following tasks for `UTL_SMTP`, which enables you to send emai
 
 ###### Topics
 
-- [Considerations when configuring UTL_HTTP access](#utl_http-considerations "#utl_http-considerations")
+- [Considerations when configuring UTL\_HTTP access](#utl_http-considerations "#utl_http-considerations")
 - [Step 1: Get the root certificate for a website](#website-root-certificate "#website-root-certificate")
 - [Step 2: Create an Oracle wallet](#create-oracle-wallet "#create-oracle-wallet")
 - [Step 3: Download your Oracle wallet to your RDS for Oracle instance](#upload-wallet-to-instance "#upload-wallet-to-instance")
@@ -38,11 +38,11 @@ You can adapt the following tasks for `UTL_SMTP`, which enables you to send emai
 - [Step 5: Configure access to a website from your DB instance](#config-website-access "#config-website-access")
 - [Step 6: Test connections from your DB instance to a website](#test_utl_http "#test_utl_http")
 
-## Considerations when configuring UTL_HTTP access
+## Considerations when configuring UTL\_HTTP access
 
 Before configuring access, consider the following:
 
-- You can use SMTP with the UTL_MAIL option. For more information, see [Oracle UTL_MAIL](Oracle.Options.UTLMAIL.md "Oracle.Options.UTLMAIL.md").
+- You can use SMTP with the UTL\_MAIL option. For more information, see [Oracle UTL\_MAIL](Oracle.Options.UTLMAIL.md "Oracle.Options.UTLMAIL.md").
 - The Domain Name Server (DNS) name of the remote host can be any of the
   following:
 
@@ -474,7 +474,7 @@ SELECT UTL_HTTP.REQUEST('`https://secret.encrypted-website.com`') FROM DUAL;
 ```
 
 5. (Optional) Test website access by storing your query in a variable and using `EXECUTE
-IMMEDIATE`.
+ IMMEDIATE`.
 
 ```
 

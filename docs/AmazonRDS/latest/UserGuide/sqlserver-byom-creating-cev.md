@@ -33,6 +33,10 @@ You can obtain the RTM file from one of the following Microsoft sources:
 
 Download only the English language Core-based ISO file. Do not use the Server+CAL-based ISO file.
 
+###### Important
+
+For SQL Server 2019 Release to Manufacturing (RTM) installation media (Standard and Enterprise Core editions), download only from the Microsoft 365 Admin Center. SQL Server 2019 media downloaded from Visual Studio Subscriptions is not supported. For SQL Server 2022 and later, you can download RTM installation media from either the Microsoft 365 Admin Center or Visual Studio Subscriptions.
+
 ### Step 3: Upload installation media to Amazon S3
 
 Upload the SQL Server RTM file to an Amazon S3 bucket in the same AWS Region and account where you plan to create the BYOM engine version. To upload the RTM file using the AWS CLI:

@@ -505,16 +505,16 @@ RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20250213 is available.
 
 - Fixed InnoDB failing assertion `result != FTS_INVALID`.
 - Fixed crashing and widespread corruption of spatial indexes after `ALTER
-TABLE` operation rebuilds InnoDB table using the `INPLACE`
+ TABLE` operation rebuilds InnoDB table using the `INPLACE`
   algorithm.
 - Fixed `ON DELETE CASCADE` with generated column crashes in
   `innobase_get_computed_value`.
 - Fixed assertion failure in `row_MySQL_pad_col`.
 - Fixed an issue where online DDL causes the following error: `ERROR 1712
-(HY000): Index PRIMARY is corrupted`.
+ (HY000): Index PRIMARY is corrupted`.
 - Fixed crashes at `Item_rollup_sum_switcher::current_arg`.
 - Fixed an issue where the database cache is not flushed on `DROP
-USER`.
+ USER`.
 - Fixed buffer overrun in `my_print_help`.
 - Fixed an InnoDB issue where `FULLTEXT` index limits
   `FTS_DOC_ID` to max unsigned 32-bit value.
@@ -567,11 +567,11 @@ RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20240808 is available.
 - Fixed several spatial index issues by disabling them for
   `index-only` reads.
 - Fixed instrumentation issue with the `LOCK_ORDER:
-CONNECTION_CONTROL` plugin.
+ CONNECTION_CONTROL` plugin.
 - Fixed threads getting stuck with the `CONNECTION_CONTROL`
   plugin.
 - Fixed `PSI_THREAD_INFO` not updating for `PREPARED
-STATEMENTS`.
+ STATEMENTS`.
 - Fixed double processing of FTS index words with
   `innodb_optimize_fulltext_only`.
 

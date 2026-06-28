@@ -103,60 +103,70 @@ For supported classes, see [DB instance class support for RDS Custom for Oracle]
      The default is 40 GiB.
 
 10. For **Connectivity**, specify your **Virtual
-    private cloud (VPC)**, **DB subnet group**,
-    and **VPC security group (firewall)**.
-11. For **RDS Custom security**, do the following:
+private cloud (VPC)**, **DB subnet group**,
+and **VPC security group (firewall)**. 11. For **RDS Custom security**, do the following:
 
-    1.  For **IAM instance profile**, choose the
-        instance profile for your RDS Custom for Oracle DB instance.
+    1. For **IAM instance profile**, choose the
+     instance profile for your RDS Custom for Oracle DB instance.
+
 
     The IAM instance profile must begin with
-    `AWSRDSCustom`, for example
-    `AWSRDSCustomInstanceProfileForRdsCustomInstance`. 2. For **Encryption**, choose **Enter a key
-    ARN** to list the available AWS KMS keys. Then choose
-    your key from the list.
+     `AWSRDSCustom`, for example
+     `AWSRDSCustomInstanceProfileForRdsCustomInstance`.
+    2. For **Encryption**, choose **Enter a key
+     ARN** to list the available AWS KMS keys. Then choose
+     your key from the list.
+
 
     An AWS KMS key is required for RDS Custom. For more information, see
-    [Step 1: Create or reuse a symmetric encryption AWS KMS key](custom-setup-orcl.md#custom-setup-orcl.cmk "custom-setup-orcl.md#custom-setup-orcl.cmk").
+     [Step 1: Create or reuse a symmetric encryption AWS KMS key](custom-setup-orcl.md#custom-setup-orcl.cmk "custom-setup-orcl.md#custom-setup-orcl.cmk").
 
 12. For **Database options**, do the following:
 
-    1.  (Optional) For **System ID (SID)**, enter a value
-        for the Oracle SID, which is also the name of your CDB. The SID is
-        the name of the Oracle database instance that manages your database
-        files. In this context, the term "Oracle database instance" refers
-        exclusively to the system global area (SGA) and Oracle background
-        processes. If you don't specify a SID, the value defaults to
-        `RDSCDB`.
-    2.  (Optional) For **Initial database name**, enter a
-        name. The default value is `ORCL`. In the
-        multitenant architecture, the initial database name is the PDB
-        name.
+    1. (Optional) For **System ID (SID)**, enter a value
+     for the Oracle SID, which is also the name of your CDB. The SID is
+     the name of the Oracle database instance that manages your database
+     files. In this context, the term "Oracle database instance" refers
+     exclusively to the system global area (SGA) and Oracle background
+     processes. If you don't specify a SID, the value defaults to
+     `RDSCDB`.
+    2. (Optional) For **Initial database name**, enter a
+     name. The default value is `ORCL`. In the
+     multitenant architecture, the initial database name is the PDB
+     name.
+
 
     ###### Note
 
-    The SID and PDB name must be different. 3. For **Option group**, choose an option group or
-    accept the default.
+    The SID and PDB name must be different.
+    3. For **Option group**, choose an option group or
+     accept the default.
+
 
     ###### Note
 
     The only supported option for RDS Custom for Oracle is
-    `Timezone`. For more information, see [Oracle time zone](custom-managing.timezone.md "custom-managing.timezone.md"). 4. For **Backup retention period** choose a value.
-    You can't choose **0 days**. 5. For the remaining sections, specify your preferred RDS Custom DB
-    instance settings. For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md"). The following
-    settings don't appear in the console and aren't supported:
+     `Timezone`. For more information, see [Oracle time zone](custom-managing.timezone.md "custom-managing.timezone.md").
+    4. For **Backup retention period** choose a value.
+     You can't choose **0 days**.
+    5. For the remaining sections, specify your preferred RDS Custom DB
+     instance settings. For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md"). The following
+     settings don't appear in the console and aren't supported:
 
-        * **Processor features**
-        * **Storage autoscaling**
-        * **Password and Kerberos authentication**
-         option in **Database authentication** (only
-         **Password authentication** is
-         supported)
-        * **Performance Insights**
-        * **Log exports**
-        * **Enable auto minor version
-         upgrade**
-        * **Deletion protection**
+
+
+
+    	* **Processor features**
+    	* **Storage autoscaling**
+    	* **Password and Kerberos authentication**
+    	 option in **Database authentication** (only
+    	 **Password authentication** is
+    	 supported)
+    	* **Performance Insights**
+    	* **Log exports**
+    	* **Enable auto minor version
+    	 upgrade**
+    	* **Deletion protection**
 
 13. Choose **Create database**.
 
@@ -209,21 +219,23 @@ The following options are required:
 - `--db-instance-class` (for a list of supported instance
   classes, see [DB instance class support for RDS Custom for Oracle](custom-oracle-feature-support.md#custom-reqs-limits.instances "custom-oracle-feature-support.md#custom-reqs-limits.instances"))
 - `--engine `engine-type``, where
-`engine-type`is`custom-oracle-ee`,
-`custom-oracle-se2`, `custom-oracle-ee-cdb`, or
-`custom-oracle-se2-cdb`
-- `--engine-version `cev`(where`cev`` is the name of the
+  `engine-type` is `custom-oracle-ee`,
+  `custom-oracle-se2`, `custom-oracle-ee-cdb`, or
+  `custom-oracle-se2-cdb`
+- `--engine-version `cev`(where
+`cev`` is the name of the
   custom engine version that you specified in [Creating a CEV](custom-cev.create.md "custom-cev.create.md"))
 - `--kms-key-id `my-kms-key``
-- `--backup-retention-period `days`(where`days``is a value greater than`0`)
+- `--backup-retention-period `days` (where`days`` is a value greater than
+  `0`)
 - `--no-auto-minor-version-upgrade`
 - `--custom-iam-instance-profile
- AWSRDSCustomInstanceProfile-`us-east-1` (where`region``is the AWS Region
- where you are creating your DB instance)
-The following example creates an RDS Custom DB instance named
-`my-cfo-cdb-instance`. The database is a CDB with the nondefault name
- `MYCDB`. The nondefault PDB name is
- `MYPDB`. The backup retention period is three
+ AWSRDSCustomInstanceProfile-`us-east-1` (where`region`` is the AWS Region
+  where you are creating your DB instance)
+  The following example creates an RDS Custom DB instance named
+  `my-cfo-cdb-instance`. The database is a CDB with the nondefault name
+  `MYCDB`. The nondefault PDB name is
+  `MYPDB`. The backup retention period is three
   days.
 
 ###### Example
@@ -440,8 +452,9 @@ To change the accessibility settings for your DB instance, see [Modifying an Ama
 
 To connect to the DB instance using SSH, you need the SSH key pair associated with the
 instance. RDS Custom creates the SSH key pair on your behalf, using the naming convention
-`do-not-delete-rds-custom-ssh-privatekey-`resource_id`-`uuid``  or
- `rds-custom!oracle-do-not-delete-`resource_id`-`uuid`-ssh-privatekey`.
+`do-not-delete-rds-custom-ssh-privatekey-`resource_id`-`uuid``
+or
+`rds-custom!oracle-do-not-delete-`resource_id`-`uuid`-ssh-privatekey`.
 AWS Secrets Manager stores your SSH private key as a secret.
 
 Retrieve your SSH secret key using either AWS Management Console or the AWS CLI. If your instance has
@@ -485,7 +498,7 @@ name. You specify the DNS name for public connections.
     AWS CLI.
 
 14. Find the DB resource ID of your RDS Custom DB instance using `aws rds
-describe-db-instances`.
+ describe-db-instances`.
 
 ```
 aws rds describe-db-instances \
@@ -501,7 +514,7 @@ db-ABCDEFGHIJKLMNOPQRS0123456
 ```
 
 2. Find the EC2 instance ID of your DB instance using `aws ec2
-describe-instances`. The following example uses
+ describe-instances`. The following example uses
    `db-ABCDEFGHIJKLMNOPQRS0123456` for the resource
    ID.
 
@@ -530,8 +543,9 @@ aws ec2 describe-instances \
 
 The following sample output shows the key name, which uses the naming
 format
-`do-not-delete-rds-custom-ssh-privatekey-`resource_id`-`uuid``  or
- `rds-custom!oracle-do-not-delete-`resource_id`-`uuid`-ssh-privatekey`.
+`do-not-delete-rds-custom-ssh-privatekey-`resource_id`-`uuid``
+or
+`rds-custom!oracle-do-not-delete-`resource_id`-`uuid`-ssh-privatekey`.
 
 ```
 do-not-delete-rds-custom-ssh-privatekey-db-ABCDEFGHIJKLMNOPQRS0123456-0d726c

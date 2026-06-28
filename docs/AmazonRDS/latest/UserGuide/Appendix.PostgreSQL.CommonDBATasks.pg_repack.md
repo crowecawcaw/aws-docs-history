@@ -1,4 +1,4 @@
-# Reducing bloat in tables and indexes with the pg_repack extension
+# Reducing bloat in tables and indexes with the pg\_repack extension
 
 You can use the `pg_repack` extension to remove bloat from tables and indexes
 as an alternative to `VACUUM FULL`. This extension is supported on RDS for PostgreSQL
@@ -177,7 +177,7 @@ table. For more information, see [pgstattuple](https://www.postgresql.org/docs/c
 You can check the `pg_repack's` log table in
 `pg_stat_all_tables` to monitor the changes applied to the new table.
 `pg_stat_all_tables.n_live_tup` indicates the number of records that are
-pending to be applied to the new table. For more information, see [pg_stat_all_tables](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW "https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW").
+pending to be applied to the new table. For more information, see [pg\_stat\_all\_tables](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW "https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW").
 
 ```
 `postgres=>``SELECT relname,n_live_tup FROM pg_stat_all_tables WHERE schemaname = 'repack' AND relname ILIKE '%log%';`

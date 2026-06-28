@@ -15,7 +15,7 @@ Known issues and limitations for working with Amazon RDS for MySQL are as follow
 - [MySQL stored procedure limitations](#MySQL.Concepts.KnownIssuesAndLimitations.KillProcedures "#MySQL.Concepts.KnownIssuesAndLimitations.KillProcedures")
 - [GTID-based replication with an external source instance](#MySQL.Concepts.KnownIssuesAndLimitations.GTID "#MySQL.Concepts.KnownIssuesAndLimitations.GTID")
 - [MySQL default authentication plugin](#MySQL.Concepts.KnownIssuesAndLimitations.authentication-plugin "#MySQL.Concepts.KnownIssuesAndLimitations.authentication-plugin")
-- [Overriding innodb_buffer_pool_size](#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size "#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size")
+- [Overriding innodb\_buffer\_pool\_size](#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size "#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size")
 - [Upgrading from MySQL 5.7 to MySQL 8.4](#MySQL.Concepts.KnownIssuesAndLimitations.upgrade-8-4 "#MySQL.Concepts.KnownIssuesAndLimitations.upgrade-8-4")
 - [InnoDB page compression](#MySQL.Concepts.KnownIssuesAndLimitations.innodb-page-compression "#MySQL.Concepts.KnownIssuesAndLimitations.innodb-page-compression")
 
@@ -121,7 +121,7 @@ merge optimization](https://dev.mysql.com/doc/refman/8.0/en/index-merge-optimiza
 
 Some MySQL parameters require special considerations when used with an Amazon RDS DB instance.
 
-### lower_case_table_names
+### lower\_case\_table\_names
 
 Because Amazon RDS uses a case-sensitive file system, setting the value of the
 `lower_case_table_names` server parameter to 2 (names stored as given
@@ -151,7 +151,7 @@ parameter group.
 Read replicas should always use the same `lower_case_table_names`
 parameter value as the source DB instance.
 
-### long_query_time
+### long\_query\_time
 
 You can set the `long_query_time` parameter to a floating point value
 so that you can log slow queries to the MySQL slow query log with microsecond
@@ -247,12 +247,12 @@ and ENGINE<>'InnoDB';
 
 ###### To enable InnoDB file-per-table tablespaces
 
-- Set the _innodb_file_per_table_ parameter to `1`
+- Set the _innodb\_file\_per\_table_ parameter to `1`
   in the parameter group for the DB instance.
 
 ###### To disable InnoDB file-per-table tablespaces
 
-- Set the _innodb_file_per_table_ parameter to `0`
+- Set the _innodb\_file\_per\_table_ parameter to `0`
   in the parameter group for the DB instance.
 
 For information on updating
@@ -278,7 +278,7 @@ Amazon RDS blocks connections to custom port 33060 for the MySQL engine. Choose 
 
 ## MySQL stored procedure limitations
 
-The [mysql.rds_kill](mysql-stored-proc-ending.md#mysql_rds_kill "mysql-stored-proc-ending.md#mysql_rds_kill") and [mysql.rds_kill_query](mysql-stored-proc-ending.md#mysql_rds_kill_query "mysql-stored-proc-ending.md#mysql_rds_kill_query") stored
+The [mysql.rds\_kill](mysql-stored-proc-ending.md#mysql_rds_kill "mysql-stored-proc-ending.md#mysql_rds_kill") and [mysql.rds\_kill\_query](mysql-stored-proc-ending.md#mysql_rds_kill_query "mysql-stored-proc-ending.md#mysql_rds_kill_query") stored
 procedures can't terminate sessions or queries owned by MySQL users with usernames
 longer than 16 characters on the following RDS for MySQL versions:
 
@@ -289,7 +289,7 @@ longer than 16 characters on the following RDS for MySQL versions:
 
 Amazon RDS supports replication based on global transaction identifiers (GTIDs) from an
 external MySQL instance into an Amazon RDS for MySQL DB instance that requires setting
-GTID_PURGED during configuration. However, only RDS for MySQL 8.0.37 and higher versions
+GTID\_PURGED during configuration. However, only RDS for MySQL 8.0.37 and higher versions
 support this functionality.
 
 ## MySQL default authentication plugin
@@ -305,7 +305,7 @@ MySQL 8.4, but support of this plugin ends with MySQL 8.4. To change the default
 authentication plugin, create a custom parameter group and modify the value of the
 `authentication_policy` parameter. For more information, see [Default and custom parameter groups](parameter-groups-overview.md#parameter-groups-overview.custom "parameter-groups-overview.md#parameter-groups-overview.custom").
 
-## Overriding innodb_buffer_pool_size
+## Overriding innodb\_buffer\_pool\_size
 
 With micro or small DB instance classes, the default value for the
 `innodb_buffer_pool_size` parameter might differ from the value returned

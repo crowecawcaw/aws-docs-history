@@ -10,4 +10,4 @@ Oracle Native Network Encryption option, see [Oracle native network encryption](
 - [Updating applications to connect to Oracle DB instances using new SSL/TLS certificates](ssl-certificate-rotation-oracle.md "ssl-certificate-rotation-oracle.md")
 - [Using native network encryption with an RDS for Oracle DB instance](Oracle.Concepts.NNE.md "Oracle.Concepts.NNE.md")
 - [Configuring Kerberos authentication for Amazon RDS for Oracle](oracle-kerberos.md "oracle-kerberos.md")
-- [Configuring UTL_HTTP access using certificates and an Oracle wallet](Oracle.Concepts.ONA.md "Oracle.Concepts.ONA.md")
+- [Configuring UTL\_HTTP access using certificates and an Oracle wallet](Oracle.Concepts.ONA.md "Oracle.Concepts.ONA.md")

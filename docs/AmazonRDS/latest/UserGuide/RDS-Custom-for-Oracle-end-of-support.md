@@ -140,7 +140,7 @@ naming conventions.
 | **PDB management**          | N/A                      | Must open PDBs and configure auto-open                 |
 | **Cleanup**                 | Single database          | `CDB$ROOT` (cascades to PDBs); handle C## common users |
 | **Application connections** | Database service         | PDB services (not CDB)                                 |
-| **Parameter file**          | Standard parameters      | Requires enable_pluggable_database=TRUE                |
+| **Parameter file**          | Standard parameters      | Requires enable\_pluggable\_database=TRUE              |
 | **Complexity**              | Lower                    | Higher due to multiple containers                      |
 
 ## Common prerequisites for both migration options
@@ -165,17 +165,22 @@ Launch an EC2 instance with the following considerations:
 
 2. Configure storage architecture
 
-   1. File system storage (recommended for most scenarios)
+    1. File system storage (recommended for most scenarios)
 
-      - Use standard file system directories for Oracle data files
-      - Simpler to manage and suitable for most workloads
-      - This guidance uses file system storage examples
 
-   2. Oracle Automatic Storage Management (ASM)
 
-      - If your workload requires ASM, install and configure standalone ASM on the EC2 instance
-      - Adjust all path parameters in the init file accordingly to use ASM disk groups (e.g., +DATA, +FRA)
-      - The migration process is similar for ASM, with path adjustments
+
+    	* Use standard file system directories for Oracle data files
+    	* Simpler to manage and suitable for most workloads
+    	* This guidance uses file system storage examples
+    2. Oracle Automatic Storage Management (ASM)
+
+
+
+
+    	* If your workload requires ASM, install and configure standalone ASM on the EC2 instance
+    	* Adjust all path parameters in the init file accordingly to use ASM disk groups (e.g., +DATA, +FRA)
+    	* The migration process is similar for ASM, with path adjustments
 
 3. Set up file transfer mechanism
 
@@ -583,27 +588,27 @@ will attempt to create files in the same paths as the source, which will fail on
 
 **Path mappings:**
 
-| Non-CDB:                          | **RDS Custom path**                       | **EC2 path**           | **Description** |
-| --------------------------------- | ----------------------------------------- | ---------------------- | --------------- |
-| /rdsdbbin                         | /u01/app/oracle                           | Oracle base            |
-| /rdsdbdata/db/ORCL_A/datafile/    | /u01/app/oracle/oradata/ORCL/datafile/    | Data files             |
-| /rdsdbdata/db/ORCL_A/controlfile/ | /u01/app/oracle/oradata/ORCL/controlfile/ | Control files          |
-| /rdsdbdata/db/ORCL_A/onlinelog/   | /u01/app/oracle/oradata/ORCL/onlinelog/   | Online redo logs       |
-| /rdsdbdata/db/ORCL_A/arch/        | /u01/app/oracle/oradata/ORCL/arch/        | Archive logs           |
-| /rdsdbdata/admin/ORCL/adump       | /u01/app/oracle/admin/ORCL/adump          | Audit dump             |
-| /rdsdbdata/log                    | /u01/app/oracle                           | Diagnostic destination |
+Non-CDB:| **RDS Custom path** | **EC2 path** | **Description** |
+| --- | --- | --- |
+| /rdsdbbin | /u01/app/oracle | Oracle base |
+| /rdsdbdata/db/ORCL\_A/datafile/ | /u01/app/oracle/oradata/ORCL/datafile/ | Data files |
+| /rdsdbdata/db/ORCL\_A/controlfile/ | /u01/app/oracle/oradata/ORCL/controlfile/ | Control files |
+| /rdsdbdata/db/ORCL\_A/onlinelog/ | /u01/app/oracle/oradata/ORCL/onlinelog/ | Online redo logs |
+| /rdsdbdata/db/ORCL\_A/arch/ | /u01/app/oracle/oradata/ORCL/arch/ | Archive logs |
+| /rdsdbdata/admin/ORCL/adump | /u01/app/oracle/admin/ORCL/adump | Audit dump |
+| /rdsdbdata/log | /u01/app/oracle | Diagnostic destination |
 
-| Multitenant                               | **RDS Custom path**                              | **EC2 path**                   | **Description** |
-| ----------------------------------------- | ------------------------------------------------ | ------------------------------ | --------------- |
-| `/rdsdbbin`                               | `/u01/app/oracle`                                | Oracle base                    |
-| `/rdsdbdata/db/cdb/RDSCDB/datafile/`      | `/u01/app/oracle/oradata/ORCL/cdb/datafile/`     | CDB root data files            |
-| `/rdsdbdata/db/cdb/pdbseed/`              | `/u01/app/oracle/oradata/ORCL/pdbseed/datafile/` | `PDB$SEED` data files          |
-| `/rdsdbdata/db/pdb/RDSCDB_A/`             | `/u01/app/oracle/oradata/ORCL/pdb/datafile/`     | PDB data files (OMF with GUID) |
-| `/rdsdbdata/db/cdb/RDSCDB_A/controlfile/` | `/u01/app/oracle/oradata/ORCL/controlfile/`      | Control files                  |
-| `/rdsdbdata/db/cdb/RDSCDB_A/onlinelog/`   | `/u01/app/oracle/oradata/ORCL/onlinelog/`        | Online redo logs               |
-| `/rdsdbdata/db/cdb/RDSCDB_A/arch/redolog` | `/u01/app/oracle/oradata/ORCL/arch/`             | Archive logs                   |
-| `/rdsdbdata/admin/RDSCDB/adump`           | `/u01/app/oracle/admin/ORCL/adump`               | Audit dump                     |
-| `/rdsdbdata/log`                          | `/u01/app/oracle`                                | Diagnostic destination         |
+Multitenant| **RDS Custom path** | **EC2 path** | **Description** |
+| --- | --- | --- |
+| `/rdsdbbin` | `/u01/app/oracle` | Oracle base |
+| `/rdsdbdata/db/cdb/RDSCDB/datafile/` | `/u01/app/oracle/oradata/ORCL/cdb/datafile/` | CDB root data files |
+| `/rdsdbdata/db/cdb/pdbseed/` | `/u01/app/oracle/oradata/ORCL/pdbseed/datafile/` | `PDB$SEED` data files |
+| `/rdsdbdata/db/pdb/RDSCDB_A/` | `/u01/app/oracle/oradata/ORCL/pdb/datafile/` | PDB data files (OMF with GUID) |
+| `/rdsdbdata/db/cdb/RDSCDB_A/controlfile/` | `/u01/app/oracle/oradata/ORCL/controlfile/` | Control files |
+| `/rdsdbdata/db/cdb/RDSCDB_A/onlinelog/` | `/u01/app/oracle/oradata/ORCL/onlinelog/` | Online redo logs |
+| `/rdsdbdata/db/cdb/RDSCDB_A/arch/redolog` | `/u01/app/oracle/oradata/ORCL/arch/` | Archive logs |
+| `/rdsdbdata/admin/RDSCDB/adump` | `/u01/app/oracle/admin/ORCL/adump` | Audit dump |
+| `/rdsdbdata/log` | `/u01/app/oracle` | Diagnostic destination |
 
 **Add conversion parameters:**
 
@@ -744,12 +749,12 @@ ORCL.__unified_pga_pool_size=0
 
 When adjusting memory parameters for your EC2 instance:
 
-| **EC2 Instance Memory** | **Recommended memory_target** | **Recommended memory_max_target** |
-| ----------------------- | ----------------------------- | --------------------------------- |
-| 16 GB                   | 12 GB (12884901888 bytes)     | 14 GB (15032385536 bytes)         |
-| 32 GB                   | 24 GB (25769803776 bytes)     | 28 GB (30064771072 bytes)         |
-| 64 GB                   | 48 GB (51539607552 bytes)     | 56 GB (60129542144 bytes)         |
-| 128 GB                  | 96 GB (103079215104 bytes)    | 112 GB (120259084288 bytes)       |
+| **EC2 Instance Memory** | **Recommended memory\_target** | **Recommended memory\_max\_target** |
+| ----------------------- | ------------------------------ | ----------------------------------- |
+| 16 GB                   | 12 GB (12884901888 bytes)      | 14 GB (15032385536 bytes)           |
+| 32 GB                   | 24 GB (25769803776 bytes)      | 28 GB (30064771072 bytes)           |
+| 64 GB                   | 48 GB (51539607552 bytes)      | 56 GB (60129542144 bytes)           |
+| 128 GB                  | 96 GB (103079215104 bytes)     | 112 GB (120259084288 bytes)         |
 
 Leave approximately 20-25% of system memory for the operating system and other processes.
 
@@ -786,7 +791,7 @@ lsnrctl start
 
 ###### Note
 
-For RMAN active duplication, the TNS entries connect to the database instance using SID (not SERVICE_NAME). For
+For RMAN active duplication, the TNS entries connect to the database instance using SID (not SERVICE\_NAME). For
 multitenant, this connects to the CDB, and RMAN automatically duplicates all PDBs.
 
 ### Step 6: Start database in `NOMOUNT` on EC2
@@ -1278,7 +1283,7 @@ standby.
 2. Configure tnsnames.ora on both instances
 3. Start the Oracle Data Guard broker on both instances (optional but recommended)
 4. Enable Oracle Data Guard configuration
-5. Configure fal_server and fal_client on the EC2 standby instance
+5. Configure fal\_server and fal\_client on the EC2 standby instance
 6. Configure the standby redo log files on both instances
 7. Recover the standby instance
 8. Perform the manual switchover
@@ -1435,7 +1440,7 @@ Edit `$ORACLE_HOME/dbs/initORCL.ora` on the EC2 instance and make these critical
 
 1. **Update database name**: For multitenant, change all occurrences of `RDSCDB` to
    `ORCL`
-2. **Change db_unique_name**: From `ORCL_A` (or `RDSCDB_A`) to
+2. **Change db\_unique\_name**: From `ORCL_A` (or `RDSCDB_A`) to
    `ORCL_B`
 3. **Convert RDS Custom paths to EC2 paths**: Replace `/rdsdbdata/` with
    `/u01/app/oracle/`
@@ -2344,7 +2349,7 @@ chmod -R 755 /u01/app/oracle/oradata/ORCL
 ### ORA-01804: Failure to initialize timezone information
 
 This error can occur when dropping the `RDSADMIN` user if the RDS source has a higher timezone version than
-what's installed in your EC2 $ORACLE_HOME.
+what's installed in your EC2 $ORACLE\_HOME.
 
 **Solution:**
 
@@ -2357,7 +2362,7 @@ FROM database_properties
 WHERE PROPERTY_NAME LIKE '%DST%';
 ```
 
-2. As a workaround, set the timezone file environment variable to match what your $ORACLE_HOME has available:
+2. As a workaround, set the timezone file environment variable to match what your $ORACLE\_HOME has available:
 
 ```
 ls $ORACLE_HOME/oracore/zoneinfo/timezlrg_*.dat
@@ -2398,7 +2403,7 @@ FROM dba_registry_sqlpatch
 ORDER BY action_time DESC;
 ```
 
-2. Verify the $ORACLE_HOME patch level:
+2. Verify the $ORACLE\_HOME patch level:
 
 ```
 # On both instances
@@ -2500,7 +2505,7 @@ SQL> ALTER DATABASE RENAME FILE '/wrong/path/datafile.dbf' TO '/correct/path/dat
 ```
 
 3. To prevent this, always verify the source data file paths with `SELECT con_id, name FROM v$datafile ORDER BY
-con_id;` before configuring the parameter file.
+ con_id;` before configuring the parameter file.
 
 ### PDB services not registering with listener (multitenant only)
 
@@ -2565,7 +2570,7 @@ set.
 SQL> SELECT status FROM v$instance;
 ```
 
-2. Check fal_server and fal_client are set correctly on the standby:
+2. Check fal\_server and fal\_client are set correctly on the standby:
 
 ```
 SQL> SHOW PARAMETER fal_server
@@ -2578,7 +2583,7 @@ SQL> SHOW PARAMETER fal_client
 tnsping ORCL_A # or RDSCDB_A for multitenant
 ```
 
-4. Check the log_archive_dest_2 parameter on the primary points to the standby (if configured manually without
+4. Check the log\_archive\_dest\_2 parameter on the primary points to the standby (if configured manually without
    broker).
 
 **Data Guard apply lag increasing with multiple PDBs (multitenant only)**

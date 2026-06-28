@@ -239,7 +239,7 @@ parameter changes to take effect.
   Example 2: STRICT exception handler
 
   The following code example shows problematic EXCEPTION handling
-  with NO_DATA_FOUND:
+  with NO\_DATA\_FOUND:
 
   ```
 

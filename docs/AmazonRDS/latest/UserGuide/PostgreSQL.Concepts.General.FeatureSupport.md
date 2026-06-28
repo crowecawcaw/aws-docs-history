@@ -10,7 +10,7 @@ other common DBA tasks, [Common DBA tasks for Amazon RDS for PostgreSQL](Appendi
 
 RDS for PostgreSQL also supports extensions that add important functionality to the DB
 instance. For example, you can use the PostGIS extension to work with spatial data, or
-use the pg_cron extension to schedule maintenance from within the instance. For more
+use the pg\_cron extension to schedule maintenance from within the instance. For more
 information about PostgreSQL extensions, see [Using PostgreSQL extensions with Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Extensions.md "Appendix.PostgreSQL.CommonDBATasks.Extensions.md").
 
 Foreign data wrappers are a specific type of extension designed to let your
@@ -27,7 +27,7 @@ RDS for PostgreSQL.
 - [Huge pages for RDS for PostgreSQL](PostgreSQL.Concepts.General.FeatureSupport.HugePages.md "PostgreSQL.Concepts.General.FeatureSupport.HugePages.md")
 - [Performing logical replication for Amazon RDS for PostgreSQL](PostgreSQL.Concepts.General.FeatureSupport.LogicalReplication.md "PostgreSQL.Concepts.General.FeatureSupport.LogicalReplication.md")
 - [Configuring IAM authentication for logical replication connections](PostgreSQL.Concepts.General.FeatureSupport.IAMLogicalReplication.md "PostgreSQL.Concepts.General.FeatureSupport.IAMLogicalReplication.md")
-- [RAM disk for the stats_temp_directory](PostgreSQL.Concepts.General.FeatureSupport.RamDisk.md "PostgreSQL.Concepts.General.FeatureSupport.RamDisk.md")
+- [RAM disk for the stats\_temp\_directory](PostgreSQL.Concepts.General.FeatureSupport.RamDisk.md "PostgreSQL.Concepts.General.FeatureSupport.RamDisk.md")
 - [Tablespaces for RDS for PostgreSQL](PostgreSQL.Concepts.General.FeatureSupport.Tablespaces.md "PostgreSQL.Concepts.General.FeatureSupport.Tablespaces.md")
 - [RDS for PostgreSQL collations for EBCDIC and other mainframe migrations](PostgreSQL.Collations.mainframe.migration.md "PostgreSQL.Collations.mainframe.migration.md")
 - [Managing logical slot synchronization for RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.pglogical.slot.synchronization.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.slot.synchronization.md")

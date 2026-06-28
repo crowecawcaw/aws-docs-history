@@ -18,4 +18,4 @@ defining a partitioning scheme for this relation (and later detach, drop, trunca
 of interest). To implement the purging policy on a regular basis, one option is to use the
 `pg_cron` extension. See the following information of an example for the
 `pg_cron` history table, [Scheduling maintenance with the
-PostgreSQL pg_cron extension](PostgreSQL_pg_cron.md "PostgreSQL_pg_cron.md").
+PostgreSQL pg\_cron extension](PostgreSQL_pg_cron.md "PostgreSQL_pg_cron.md").

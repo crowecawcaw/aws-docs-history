@@ -58,8 +58,8 @@ website.
 ###### Warning
 
 When creating a database backup, XtraBackup might save credentials in the
-xtrabackup_info file. Make sure to confirm that the `tool_command`
-setting in the xtrabackup_info file doesn't contain any sensitive
+xtrabackup\_info file. Make sure to confirm that the `tool_command`
+setting in the xtrabackup\_info file doesn't contain any sensitive
 information.
 
 The Percona XtraBackup version that you use depends on the MySQL version that you are
@@ -341,24 +341,25 @@ The **Create database by restoring from S3** page appears.
 
 6. Under **Engine options**:
 
-   1. For **Engine type**, choose **MySQL**.
-   2. For **Source engine version**, choose the MySQL major version of your source database.
-   3. For **Engine Version**, choose the default minor
-      version of your MySQL major version in your AWS Region.
+    1. For **Engine type**, choose **MySQL**.
+    2. For **Source engine version**, choose the MySQL major version of your source database.
+    3. For **Engine Version**, choose the default minor
+     version of your MySQL major version in your AWS Region.
 
-   In the AWS Management Console, only the default minor version is available. After
-   you complete the import, you can upgrade your DB
-   instance.
+
+    In the AWS Management Console, only the default minor version is available. After
+     you complete the import, you can upgrade your DB
+     instance.
 
 7. For **IAM role**, create or choose IAM role with
-   the required trust policy and permissions policy that allows Amazon RDS to
-   access your Amazon S3 bucket. Perform one of the following actions:
+the required trust policy and permissions policy that allows Amazon RDS to
+access your Amazon S3 bucket. Perform one of the following actions:
 
-   - (Recommended) Choose **Create a new role**, and enter the **IAM role
+    * (Recommended) Choose **Create a new role**, and enter the **IAM role
      name**. With this option, Amazon RDS automatically
      creates the role with the trust policy and permissions policy
      for you.
-   - Choose an existing IAM role. Make sure that this role meets
+    * Choose an existing IAM role. Make sure that this role meets
      all of the criteria in [Creating an IAM role manually](#MySQL.Procedural.Importing.Enabling.IAM "#MySQL.Procedural.Importing.Enabling.IAM").
 
 8. Specify your DB instance information. For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md").

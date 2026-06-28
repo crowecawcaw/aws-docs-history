@@ -22,7 +22,7 @@ SELECT DBMS_DST.GET_LATEST_TIMEZONE_VERSION FROM DUAL;
 ```
 
 4. Determine the total size of tables that have columns of type `TIMESTAMP WITH LOCAL TIME
-ZONE` or `TIMESTAMP WITH TIME ZONE`.
+ ZONE` or `TIMESTAMP WITH TIME ZONE`.
 
 ```
 SELECT SUM(BYTES)/1024/1024/1024 "Total_size_w_TSTZ_columns_GB"
@@ -35,7 +35,7 @@ AND    (OWNER, SEGMENT_NAME) IN
 ```
 
 5. Determine the names and sizes of segments that have columns of type `TIMESTAMP WITH LOCAL TIME
-ZONE` or `TIMESTAMP WITH TIME ZONE`.
+ ZONE` or `TIMESTAMP WITH TIME ZONE`.
 
 ```
 SELECT OWNER, SEGMENT_NAME, SUM(BYTES)/1024/1024/1024 "SEGMENT_SIZE_W_TSTZ_COLUMNS_GB"
@@ -48,17 +48,16 @@ AND    (OWNER, SEGMENT_NAME) IN
 GROUP BY OWNER, SEGMENT_NAME;
 ```
 
-6.  Run the prepare step.
+6. Run the prepare step.
 
-        * The procedure `DBMS_DST.CREATE_AFFECTED_TABLE` creates a table to store any
-         affected data. You pass the name of this table to the
-         `DBMS_DST.FIND_AFFECTED_TABLES` procedure. For more information, see [CREATE\_AFFECTED\_TABLE Procedure](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DST.html#GUID-C53BAABA-914A-404C-9CD5-823257BE0B00 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DST.html#GUID-C53BAABA-914A-404C-9CD5-823257BE0B00") in the Oracle Database documentation.
-        * This procedure `CREATE_ERROR_TABLE` creates a table to
-         log errors. For more information, see [CREATE\_ERROR\_TABLE Procedure](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DST.html#GUID-6A7EA024-B02D-4486-B1D6-EF6ABF5DE507 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DST.html#GUID-6A7EA024-B02D-4486-B1D6-EF6ABF5DE507") in the Oracle Database
-         documentation.
-
-    The following example creates the affected data and error tables, and finds all affected
-    tables.
+   - The procedure `DBMS_DST.CREATE_AFFECTED_TABLE` creates a table to store any
+     affected data. You pass the name of this table to the
+     `DBMS_DST.FIND_AFFECTED_TABLES` procedure. For more information, see [CREATE\_AFFECTED\_TABLE Procedure](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DST.html#GUID-C53BAABA-914A-404C-9CD5-823257BE0B00 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DST.html#GUID-C53BAABA-914A-404C-9CD5-823257BE0B00") in the Oracle Database documentation.
+   - This procedure `CREATE_ERROR_TABLE` creates a table to
+     log errors. For more information, see [CREATE\_ERROR\_TABLE Procedure](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DST.html#GUID-6A7EA024-B02D-4486-B1D6-EF6ABF5DE507 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DST.html#GUID-6A7EA024-B02D-4486-B1D6-EF6ABF5DE507") in the Oracle Database
+     documentation.
+     The following example creates the affected data and error tables, and finds all affected
+     tables.
 
 ```
 EXEC DBMS_DST.CREATE_ERROR_TABLE('`my_error_table`')

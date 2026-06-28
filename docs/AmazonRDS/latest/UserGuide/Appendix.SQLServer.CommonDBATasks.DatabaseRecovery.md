@@ -5,7 +5,7 @@ In Amazon RDS, the recovery model, retention period, and database status are lin
 It's important to understand the consequences before making a change to one of these
 settings. Each setting can affect the others. For example:
 
-- If you change a database's recovery model to SIMPLE or BULK_LOGGED while backup retention
+- If you change a database's recovery model to SIMPLE or BULK\_LOGGED while backup retention
   is enabled, Amazon RDS resets the recovery model to FULL within five minutes. This
   also results in RDS taking a snapshot of the DB instance.
 - If you set backup retention to `0` days, RDS sets the recovery mode to SIMPLE.

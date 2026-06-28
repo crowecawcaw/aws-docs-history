@@ -49,7 +49,7 @@ Local database alias   = RDSADMIN
 ```
 
 2. Add a user to your authorization list by calling
-   `rdsadmin.add_user`. For more information, see [rdsadmin.add_user](db2-sp-granting-revoking-privileges.md#db2-sp-add-user "db2-sp-granting-revoking-privileges.md#db2-sp-add-user").
+   `rdsadmin.add_user`. For more information, see [rdsadmin.add\_user](db2-sp-granting-revoking-privileges.md#db2-sp-add-user "db2-sp-granting-revoking-privileges.md#db2-sp-add-user").
 
 ```
 db2 "call rdsadmin.add_user(
@@ -59,7 +59,7 @@ db2 "call rdsadmin.add_user(
 ```
 
 3. (Optional) Add additional groups to the user by calling
-   `rdsadmin.add_groups`. For more information, see [rdsadmin.add_groups](db2-sp-granting-revoking-privileges.md#db2-sp-add-groups "db2-sp-granting-revoking-privileges.md#db2-sp-add-groups").
+   `rdsadmin.add_groups`. For more information, see [rdsadmin.add\_groups](db2-sp-granting-revoking-privileges.md#db2-sp-add-groups "db2-sp-granting-revoking-privileges.md#db2-sp-add-groups").
 
 ```
 db2 "call rdsadmin.add_groups(
@@ -161,9 +161,9 @@ tablespaces.
     ```
 
 6. Grant `connect`, `bindadd`, `createtab`, and
-   `IMPLICIT_SCHEMA` authorities to the group that you added the
-   user to. In the following example, replace `group_name`
-   with the name of the second group that you added the user to.
+`IMPLICIT_SCHEMA` authorities to the group that you added the
+user to. In the following example, replace `group_name`
+with the name of the second group that you added the user to.
 
 ```
 db2 "grant usage on workload SYSDEFAULTUSERWORKLOAD to public"
@@ -199,7 +199,7 @@ db2 connect to rdsadmin user `master_username` using `master_password`
 ```
 
 2. Change the password by calling `rdsadmin.change_password`. For more
-   information, see [rdsadmin.change_password](db2-sp-granting-revoking-privileges.md#db2-sp-change-password "db2-sp-granting-revoking-privileges.md#db2-sp-change-password").
+   information, see [rdsadmin.change\_password](db2-sp-granting-revoking-privileges.md#db2-sp-change-password "db2-sp-granting-revoking-privileges.md#db2-sp-change-password").
 
 ```
 db2 "call rdsadmin.change_password(
@@ -221,7 +221,7 @@ db2 connect to rdsadmin user `master_username` using `master_password`
 ```
 
 2. Add groups to a user by calling `rdsadmin.add_groups`. For more
-   information, see [rdsadmin.add_groups](db2-sp-granting-revoking-privileges.md#db2-sp-add-groups "db2-sp-granting-revoking-privileges.md#db2-sp-add-groups").
+   information, see [rdsadmin.add\_groups](db2-sp-granting-revoking-privileges.md#db2-sp-add-groups "db2-sp-granting-revoking-privileges.md#db2-sp-add-groups").
 
 ```
 db2 "call rdsadmin.add_groups(
@@ -243,7 +243,7 @@ db2 connect to rdsadmin user `master_username` using `master_password`
 ```
 
 2. Remove groups by calling `rdsadmin.remove_groups`. For more
-   information, see [rdsadmin.remove_groups](db2-sp-granting-revoking-privileges.md#db2-sp-remove-groups "db2-sp-granting-revoking-privileges.md#db2-sp-remove-groups").
+   information, see [rdsadmin.remove\_groups](db2-sp-granting-revoking-privileges.md#db2-sp-remove-groups "db2-sp-granting-revoking-privileges.md#db2-sp-remove-groups").
 
 ```
 db2 "call rdsadmin.remove_groups(
@@ -265,7 +265,7 @@ db2 connect to rdsadmin user `master_username` using `master_password`
 ```
 
 2. Remove a user from your authorization list by calling
-   `rdsadmin.remove_user`. For more information, see [rdsadmin.remove_user](db2-sp-granting-revoking-privileges.md#db2-sp-remove-user "db2-sp-granting-revoking-privileges.md#db2-sp-remove-user").
+   `rdsadmin.remove_user`. For more information, see [rdsadmin.remove\_user](db2-sp-granting-revoking-privileges.md#db2-sp-remove-user "db2-sp-granting-revoking-privileges.md#db2-sp-remove-user").
 
 ```
 db2 "call rdsadmin.remove_user('`username`')"
@@ -274,7 +274,7 @@ db2 "call rdsadmin.remove_user('`username`')"
 ## Listing users
 
 To list users on an authorization list, call the `rdsadmin.list_users`
-stored procedure. For more information, see [rdsadmin.list_users](db2-sp-granting-revoking-privileges.md#db2-sp-list-users "db2-sp-granting-revoking-privileges.md#db2-sp-list-users").
+stored procedure. For more information, see [rdsadmin.list\_users](db2-sp-granting-revoking-privileges.md#db2-sp-list-users "db2-sp-granting-revoking-privileges.md#db2-sp-list-users").
 
 ```
 db2 "call rdsadmin.list_users()"
@@ -282,7 +282,7 @@ db2 "call rdsadmin.list_users()"
 
 ## Creating a role
 
-You can use the [rdsadmin.create_role](db2-sp-granting-revoking-privileges.md#db2-sp-create-role "db2-sp-granting-revoking-privileges.md#db2-sp-create-role") stored procedure to create a role.
+You can use the [rdsadmin.create\_role](db2-sp-granting-revoking-privileges.md#db2-sp-create-role "db2-sp-granting-revoking-privileges.md#db2-sp-create-role") stored procedure to create a role.
 
 ###### To create a role
 
@@ -300,7 +300,7 @@ db2 connect to rdsadmin user `master_username` using `master_password`
 db2 set serveroutput on
 ```
 
-3. Create a role. For more information, see [rdsadmin.create_role](db2-sp-granting-revoking-privileges.md#db2-sp-create-role "db2-sp-granting-revoking-privileges.md#db2-sp-create-role").
+3. Create a role. For more information, see [rdsadmin.create\_role](db2-sp-granting-revoking-privileges.md#db2-sp-create-role "db2-sp-granting-revoking-privileges.md#db2-sp-create-role").
 
 ```
 db2 "call rdsadmin.create_role(
@@ -316,7 +316,7 @@ db2 set serveroutput off
 
 ## Granting a role
 
-You can use the [rdsadmin.grant_role](db2-sp-granting-revoking-privileges.md#db2-sp-grant-role "db2-sp-granting-revoking-privileges.md#db2-sp-grant-role")
+You can use the [rdsadmin.grant\_role](db2-sp-granting-revoking-privileges.md#db2-sp-grant-role "db2-sp-granting-revoking-privileges.md#db2-sp-grant-role")
 stored procedure to assign a role to a role, user, or group.
 
 ###### To assign a role
@@ -335,7 +335,7 @@ db2 connect to rdsadmin user `master_username` using `master_password`
 db2 set serveroutput on
 ```
 
-3. Assign a role. For more information, see [rdsadmin.grant_role](db2-sp-granting-revoking-privileges.md#db2-sp-grant-role "db2-sp-granting-revoking-privileges.md#db2-sp-grant-role").
+3. Assign a role. For more information, see [rdsadmin.grant\_role](db2-sp-granting-revoking-privileges.md#db2-sp-grant-role "db2-sp-granting-revoking-privileges.md#db2-sp-grant-role").
 
 ```
 db2 "call rdsadmin.grant_role(
@@ -353,7 +353,7 @@ db2 set serveroutput off
 
 ## Revoking a role
 
-You can use the [rdsadmin.revoke_role](db2-sp-granting-revoking-privileges.md#db2-sp-revoke-role "db2-sp-granting-revoking-privileges.md#db2-sp-revoke-role") stored procedure to revoke a role from a role, user, or group.
+You can use the [rdsadmin.revoke\_role](db2-sp-granting-revoking-privileges.md#db2-sp-revoke-role "db2-sp-granting-revoking-privileges.md#db2-sp-revoke-role") stored procedure to revoke a role from a role, user, or group.
 
 ###### To revoke a role
 
@@ -365,7 +365,7 @@ You can use the [rdsadmin.revoke_role](db2-sp-granting-revoking-privileges.md#db
 db2 connect to rdsadmin user `master_username` using `master_password`
 ```
 
-2. Revoke a role. For more information, see [rdsadmin.revoke_role](db2-sp-granting-revoking-privileges.md#db2-sp-revoke-role "db2-sp-granting-revoking-privileges.md#db2-sp-revoke-role").
+2. Revoke a role. For more information, see [rdsadmin.revoke\_role](db2-sp-granting-revoking-privileges.md#db2-sp-revoke-role "db2-sp-granting-revoking-privileges.md#db2-sp-revoke-role").
 
 ```
 db2 "call rdsadmin.revoke_role(
@@ -377,7 +377,7 @@ db2 "call rdsadmin.revoke_role(
 
 ## Dropping a role
 
-You can use the [rdsadmin.drop_role](db2-sp-granting-revoking-privileges.md#db2-sp-drop-role "db2-sp-granting-revoking-privileges.md#db2-sp-drop-role")
+You can use the [rdsadmin.drop\_role](db2-sp-granting-revoking-privileges.md#db2-sp-drop-role "db2-sp-granting-revoking-privileges.md#db2-sp-drop-role")
 stored procedure to drop a role.
 
 ###### To drop a role
@@ -390,7 +390,7 @@ stored procedure to drop a role.
 db2 connect to rdsadmin user `master_username` using `master_password`
 ```
 
-2. Drop a role. For more information, see [rdsadmin.drop_role](db2-sp-granting-revoking-privileges.md#db2-sp-drop-role "db2-sp-granting-revoking-privileges.md#db2-sp-drop-role").
+2. Drop a role. For more information, see [rdsadmin.drop\_role](db2-sp-granting-revoking-privileges.md#db2-sp-drop-role "db2-sp-granting-revoking-privileges.md#db2-sp-drop-role").
 
 ```
 db2 "call rdsadmin.drop_role(
@@ -417,7 +417,7 @@ db2 connect to rdsadmin user `master_username` using `master_password`
 ```
 
 2. Grant a user access by calling `rdsadmin.dbadm_grant`. For more
-   information, see [rdsadmin.dbadm_grant](db2-sp-granting-revoking-privileges.md#db2-sp-dbadm-grant "db2-sp-granting-revoking-privileges.md#db2-sp-dbadm-grant").
+   information, see [rdsadmin.dbadm\_grant](db2-sp-granting-revoking-privileges.md#db2-sp-dbadm-grant "db2-sp-granting-revoking-privileges.md#db2-sp-dbadm-grant").
 
 ```
 db2 "call rdsadmin.dbadm_grant(
@@ -445,7 +445,7 @@ db2 connect to rdsadmin user `master_username` using `master_password`
 ```
 
 2. Create a role called `PROD_ROLE` for a database called
-   `TESTDB`. For more information, see [rdsadmin.create_role](db2-sp-granting-revoking-privileges.md#db2-sp-create-role "db2-sp-granting-revoking-privileges.md#db2-sp-create-role").
+   `TESTDB`. For more information, see [rdsadmin.create\_role](db2-sp-granting-revoking-privileges.md#db2-sp-create-role "db2-sp-granting-revoking-privileges.md#db2-sp-create-role").
 
 ```
 db2 "call rdsadmin.create_role(
@@ -455,7 +455,7 @@ db2 "call rdsadmin.create_role(
 
 3. Assign the role to a user called `PROD_USER`. The
    `PROD_USER` is given admin authorization to assign roles. For
-   more information, see [rdsadmin.grant_role](db2-sp-granting-revoking-privileges.md#db2-sp-grant-role "db2-sp-granting-revoking-privileges.md#db2-sp-grant-role").
+   more information, see [rdsadmin.grant\_role](db2-sp-granting-revoking-privileges.md#db2-sp-grant-role "db2-sp-granting-revoking-privileges.md#db2-sp-grant-role").
 
 ```
 db2 "call rdsadmin.grant_role(
@@ -469,7 +469,7 @@ db2 "call rdsadmin.grant_role(
 4. (Optional) Provide additional authorization or privileges. The following
    example grants `DBADM` authorization to a role named
    `PROD_ROLE` for a database called `FUNDPROD`. For more
-   information, see [rdsadmin.dbadm_grant](db2-sp-granting-revoking-privileges.md#db2-sp-dbadm-grant "db2-sp-granting-revoking-privileges.md#db2-sp-dbadm-grant").
+   information, see [rdsadmin.dbadm\_grant](db2-sp-granting-revoking-privileges.md#db2-sp-dbadm-grant "db2-sp-granting-revoking-privileges.md#db2-sp-dbadm-grant").
 
 ```
 db2 "call rdsadmin.dbadm_grant(
@@ -528,7 +528,7 @@ db2 connect to rdsadmin user `master_username` using `master_password`
 ```
 
 2. Revoke user access by calling `rdsadmin.dbadm_revoke`. For more
-   information, see [rdsadmin.dbadm_revoke](db2-sp-granting-revoking-privileges.md#db2-sp-dbadm-revoke "db2-sp-granting-revoking-privileges.md#db2-sp-dbadm-revoke").
+   information, see [rdsadmin.dbadm\_revoke](db2-sp-granting-revoking-privileges.md#db2-sp-dbadm-revoke "db2-sp-granting-revoking-privileges.md#db2-sp-dbadm-revoke").
 
 ```
 db2 "call rdsadmin.dbadm_revoke(

@@ -94,7 +94,7 @@ SELECT SNAP_ID, SNAP_TIME FROM STATS$SNAPSHOT ORDER BY 1;
 ```
 
 4. Run the Amazon RDS procedure `rdsadmin.rds_run_spreport`,
-   replacing _begin_snap_ and _end_snap_ with the snapshot IDs:
+   replacing _begin\_snap_ and _end\_snap_ with the snapshot IDs:
 
 ```
 exec rdsadmin.rds_run_spreport(*begin\_snap*,*end\_snap*);

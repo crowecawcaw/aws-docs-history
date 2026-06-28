@@ -50,15 +50,14 @@ The following are best practices for using Oracle Java:
 - Update the configuration of your HTTPS endpoints to support TLSv1.2 if you meet the following
   conditions:
 
-      + You use Oracle Java Virtual Machine (JVM) to connect an HTTPS endpoint over TLSv1 or TLSv1.1
-       protocols.
-      + Your endpoint doesn't support the TLSv1.2 protocol.
-      + You haven't applied the April 2021 release update to your Oracle DB.
-
-  By updating your endpoint configuration, you ensure that the connectivity of the JVM to the HTTPS
-  endpoint will continue to work. For more information about TLS changes in the Oracle JRE and JDK, see
-  [Oracle JRE and JDK Cryptographic
-  Roadmap](https://java.com/en/jre-jdk-cryptoroadmap.html "https://java.com/en/jre-jdk-cryptoroadmap.html").
+  - You use Oracle Java Virtual Machine (JVM) to connect an HTTPS endpoint over TLSv1 or TLSv1.1
+    protocols.
+  - Your endpoint doesn't support the TLSv1.2 protocol.
+  - You haven't applied the April 2021 release update to your Oracle DB.
+    By updating your endpoint configuration, you ensure that the connectivity of the JVM to the HTTPS
+    endpoint will continue to work. For more information about TLS changes in the Oracle JRE and JDK, see
+    [Oracle JRE and JDK Cryptographic
+    Roadmap](https://java.com/en/jre-jdk-cryptoroadmap.html "https://java.com/en/jre-jdk-cryptoroadmap.html").
 
 ## Adding the Oracle JVM option
 
@@ -80,30 +79,29 @@ Oracle DB instance is available.
 
 ###### To add the JVM option to a DB instance
 
-1.  Determine the option group that you want to use. You can create a new option group or use an existing option group.
-    If you want to use an existing option group, skip to the next step.
-    Otherwise, create a custom DB option group with the following settings:
+1. Determine the option group that you want to use. You can create a new option group or use an existing option group.
+   If you want to use an existing option group, skip to the next step.
+   Otherwise, create a custom DB option group with the following settings:
 
-        * For **Engine**,
-         choose the DB engine used by the DB instance (**oracle-ee** or **oracle-se2**).
-        * For **Major engine version**,
-         choose the version of your DB instance.
+   - For **Engine**,
+     choose the DB engine used by the DB instance (**oracle-ee** or **oracle-se2**).
+   - For **Major engine version**,
+     choose the version of your DB instance.
+     For more information,
+     see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create").
 
-    For more information,
-    see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create").
+2. Add the **JVM** option to the option group.
+   For more information about adding options,
+   see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
+3. Apply the option group to a new or existing DB instance:
 
-2.  Add the **JVM** option to the option group.
-    For more information about adding options,
-    see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
-3.  Apply the option group to a new or existing DB instance:
+   - For a new DB instance, apply the option group when you launch the
+     instance. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
+   - For an existing DB instance, apply the option group by modifying the
+     instance and attaching the new option group. For more information, see
+     [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
-    - For a new DB instance, apply the option group when you launch the
-      instance. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
-    - For an existing DB instance, apply the option group by modifying the
-      instance and attaching the new option group. For more information, see
-      [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
-
-4.  Grant the required permissions to users.
+4. Grant the required permissions to users.
 
 The Amazon RDS master user has the permissions to use the `JVM` option by default. If other
 users require these permissions, connect to the DB instance as the master user in a SQL client and grant the permissions

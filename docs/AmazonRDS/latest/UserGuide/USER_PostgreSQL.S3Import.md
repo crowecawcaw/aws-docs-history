@@ -24,7 +24,7 @@ You can use the customer managed key for encryption while importing data from S3
 
 ###### Topics
 
-- [Installing the aws_s3 extension](USER_PostgreSQL.S3Import.InstallExtension.md "USER_PostgreSQL.S3Import.InstallExtension.md")
+- [Installing the aws\_s3 extension](USER_PostgreSQL.S3Import.InstallExtension.md "USER_PostgreSQL.S3Import.InstallExtension.md")
 - [Overview of importing data from Amazon S3 data](USER_PostgreSQL.S3Import.Overview.md "USER_PostgreSQL.S3Import.Overview.md")
 - [Setting up access to an Amazon S3 bucket](USER_PostgreSQL.S3Import.AccessPermission.md "USER_PostgreSQL.S3Import.AccessPermission.md")
 - [Importing data from Amazon S3 to your RDS for PostgreSQL DB instance](USER_PostgreSQL.S3Import.FileFormats.md "USER_PostgreSQL.S3Import.FileFormats.md")

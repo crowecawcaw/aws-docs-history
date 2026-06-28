@@ -40,7 +40,7 @@ can be run on the database. In some cases, the `max_allowed_packet`
 parameter value in the DB parameter group associated with a source DB instance is
 smaller than the `max_allowed_packet` parameter value in the DB parameter
 group associated with the source's read replica. In these cases, the replication
-process can throw an error (Packet bigger than 'max_allowed_packet' bytes) and stop
+process can throw an error (Packet bigger than 'max\_allowed\_packet' bytes) and stop
 replication. You can fix the error by having the source and read replica use DB
 parameter groups with the same `max_allowed_packet` parameter values.
 

@@ -1,10 +1,10 @@
-# mysql.rds_set_external_master_gtid
+# mysql.rds\_set\_external\_master\_gtid
 
 Configures GTID-based replication from a MariaDB instance running external to Amazon RDS
 to a MariaDB DB instance. This stored procedure is supported only where the
 external MariaDB instance is version 10.0.24 or higher. When setting up replication
 where one or both instances do not support MariaDB global transaction identifiers
-(GTIDs), use [mysql.rds_set_external_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master").
+(GTIDs), use [mysql.rds\_set\_external\_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master").
 
 Using GTIDs for replication provides crash-safety features not offered by binary log
 replication, so we recommend it in cases where the replicating instances support it.
@@ -24,24 +24,24 @@ CALL mysql.rds_set_external_master_gtid(
 
 ## Parameters
 
-_host_name_
+_host\_name_
 
 String. The host name or IP address of the MariaDB instance running
 external to Amazon RDS that will become the source instance.
 
-_host_port_
+_host\_port_
 
 Integer. The port used by the MariaDB instance running external to
 Amazon RDS to be configured as the source instance. If your network
 configuration includes SSH port replication that converts the port
 number, specify the port number that is exposed by SSH.
 
-_replication_user_name_
+_replication\_user\_name_
 
 String. The ID of a user with `REPLICATION SLAVE` permissions in the
 MariaDB DB instance to be configured as the read replica.
 
-_replication_user_password_
+_replication\_user\_password_
 
 String. The password of the user ID specified in
 `replication_user_name`.
@@ -74,7 +74,7 @@ SELECT BINLOG_GTID_POS('<binary log file name>', <binary log file position>);
 For more information about the MariaDB implementation of GTIDs, go to
 [Global transaction ID](http://mariadb.com/kb/en/mariadb/global-transaction-id/ "http://mariadb.com/kb/en/mariadb/global-transaction-id/") in the MariaDB documentation.
 
-_ssl_encryption_
+_ssl\_encryption_
 
 A value that specifies whether Secure Socket Layer (SSL) encryption is
 used on the replication connection. 1 specifies to use SSL encryption, 0
@@ -103,8 +103,8 @@ external to RDS. For information about managing replication between Amazon RDS D
 instances, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
 
 After calling `mysql.rds_set_external_master_gtid` to configure an
-Amazon RDS DB instance as a read replica, you can call [mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") on the replica to start the
-replication process. You can call [mysql.rds_reset_external_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](mysql-stored-proc-replicating.md#mysql_rds_reset_external_master "mysql-stored-proc-replicating.md#mysql_rds_reset_external_master") to remove the read replica
+Amazon RDS DB instance as a read replica, you can call [mysql.rds\_start\_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") on the replica to start the
+replication process. You can call [mysql.rds\_reset\_external\_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](mysql-stored-proc-replicating.md#mysql_rds_reset_external_master "mysql-stored-proc-replicating.md#mysql_rds_reset_external_master") to remove the read replica
 configuration.
 
 When `mysql.rds_set_external_master_gtid` is called, Amazon RDS records the

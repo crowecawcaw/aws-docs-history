@@ -102,7 +102,7 @@ convenient interval to this query.
 ## Querying extended event files
 
 You can either use SQL Server Management Studio or the `sys.fn_xe_file_target_read_file` function to view data from
-extended events that use file targets. For more information on this function, see [sys.fn_xe_file_target_read_file
+extended events that use file targets. For more information on this function, see [sys.fn\_xe\_file\_target\_read\_file
 (Transact-SQL)](https://docs.microsoft.com/en-us/sql/relational-databases/system-functions/sys-fn-xe-file-target-read-file-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-functions/sys-fn-xe-file-target-read-file-transact-sql") in the Microsoft documentation.
 
 Extended event file targets can only write files to the `D:\rdsdbdata\log` directory on RDS for SQL Server.

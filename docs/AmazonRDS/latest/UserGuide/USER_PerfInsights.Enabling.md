@@ -95,12 +95,10 @@ If you choose **Enable Performance Insights**, you have the following options:
      encrypted in flight and at rest. For more information, see
      [Encrypting Amazon RDS resources](Overview.Encryption.md "Overview.Encryption.md").
 
-5. Choose **Continue**.
-6. For **Scheduling of Modifications**, choose Apply immediately. If you
-   choose Apply during the next scheduled maintenance window, your instance
-   ignores this setting and turns on Performance Insights
-   immediately.
-7. Choose **Modify instance**.
+5. Choose **Continue**. 6. For **Scheduling of Modifications**, choose Apply immediately. If you
+choose Apply during the next scheduled maintenance window, your instance
+ignores this setting and turns on Performance Insights
+immediately. 7. Choose **Modify instance**.
 
 AWS CLI
 When you use the [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") AWS CLI command, turn on Performance Insights by

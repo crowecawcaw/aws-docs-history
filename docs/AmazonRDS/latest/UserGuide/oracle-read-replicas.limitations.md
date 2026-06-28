@@ -30,12 +30,11 @@ Before you create an RDS for Oracle replica, consider the following:
   regardless of a replica's maintenance window. For major version upgrades of
   cross-Region replicas, Amazon RDS automatically does the following:
 
-      + Generates an option group for the target version.
-      + Copies all options and option settings from the original option group to the new option
-       group.
-      + Associates the upgraded cross-Region replica with the new option group.
-
-  For more information about upgrading the DB engine version, see [Upgrading the RDS for Oracle DB engine](USER_UpgradeDBInstance.Oracle.md "USER_UpgradeDBInstance.Oracle.md").
+  - Generates an option group for the target version.
+  - Copies all options and option settings from the original option group to the new option
+    group.
+  - Associates the upgraded cross-Region replica with the new option group.
+    For more information about upgrading the DB engine version, see [Upgrading the RDS for Oracle DB engine](USER_UpgradeDBInstance.Oracle.md "USER_UpgradeDBInstance.Oracle.md").
 
 ## Option group limitations for RDS for Oracle replicas
 
@@ -59,15 +58,14 @@ replica's maintenance window. For more information about option groups, see
   for an RDS for Oracle cross-Region replica, with the exception of the following
   options:
 
-      + `NATIVE_NETWORK_ENCRYPTION`
-      + `OEM`
-      + `OEM_AGENT`
-      + `SSL`
-
-  To add other options to an RDS for Oracle cross-Region replica, add them to the
-  source DB instance's option group. The option is also installed on all of the source
-  DB instance's replicas. For licensed options, make sure that there are sufficient
-  licenses for the replicas.
+  - `NATIVE_NETWORK_ENCRYPTION`
+  - `OEM`
+  - `OEM_AGENT`
+  - `SSL`
+    To add other options to an RDS for Oracle cross-Region replica, add them to the
+    source DB instance's option group. The option is also installed on all of the source
+    DB instance's replicas. For licensed options, make sure that there are sufficient
+    licenses for the replicas.
 
 When you promote an RDS for Oracle cross-Region replica, the promoted replica
 behaves the same as other Oracle DB instances, including the management of its

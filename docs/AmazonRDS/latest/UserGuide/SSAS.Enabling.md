@@ -34,7 +34,7 @@ The following console procedure creates an option group for SQL Server Standard 
       `ssas-se-2017`. The name can
       contain only letters, digits, and hyphens.
    2. For **Description**, enter a brief description of the option group, such as `SSAS option group
-for SQL Server SE 2017`. The description is used for display purposes.
+  for SQL Server SE 2017`. The description is used for display purposes.
    3. For **Engine**, choose **sqlserver-se**.
    4. For **Major engine version**, choose
       **14.00**.
@@ -106,31 +106,29 @@ option immediately or at the next maintenance window. 8. Choose **Add option**.
 
 ###### To add the SSAS option
 
-1.  Create a JSON file, for example `ssas-option.json`, with the following parameters:
+1. Create a JSON file, for example `ssas-option.json`, with the following parameters:
 
-        * `OptionGroupName` – The name of option group that you created or
-         chose previously (`ssas-se-2017` in the
-         following example).
-        * `Port` – The port that you use to access SSAS. The only supported
-         port is 2383.
-        * `VpcSecurityGroupMemberships` – Memberships for VPC security groups
-         for your RDS DB instance.
-        * `MAX_MEMORY` – The upper threshold above which SSAS should begin
-         releasing memory more aggressively to make room for
-         requests that are running, and also new high-priority
-         requests. The number is a percentage of the total memory
-         of the DB instance. The allowed values are 10–80,
-         and the default is 45.
-        * `MODE` – The SSAS server mode, either `Tabular` or
-         `Multidimensional`. `Tabular` is the default.
+   - `OptionGroupName` – The name of option group that you created or
+     chose previously (`ssas-se-2017` in the
+     following example).
+   - `Port` – The port that you use to access SSAS. The only supported
+     port is 2383.
+   - `VpcSecurityGroupMemberships` – Memberships for VPC security groups
+     for your RDS DB instance.
+   - `MAX_MEMORY` – The upper threshold above which SSAS should begin
+     releasing memory more aggressively to make room for
+     requests that are running, and also new high-priority
+     requests. The number is a percentage of the total memory
+     of the DB instance. The allowed values are 10–80,
+     and the default is 45.
+   - `MODE` – The SSAS server mode, either `Tabular` or
+     `Multidimensional`. `Tabular` is the default.
 
-
-        If you receive an error that the `MODE` option
-         setting isn't valid, it means that Multidimensional mode
-         isn't supported in your AWS Region. For more
-         information, see [Limitations](Appendix.SQLServer.Options.SSAS.md#SSAS.Limitations "Appendix.SQLServer.Options.SSAS.md#SSAS.Limitations").
-
-    The following is an example of a JSON file with SSAS option settings.
+   If you receive an error that the `MODE` option
+   setting isn't valid, it means that Multidimensional mode
+   isn't supported in your AWS Region. For more
+   information, see [Limitations](Appendix.SQLServer.Options.SSAS.md#SSAS.Limitations "Appendix.SQLServer.Options.SSAS.md#SSAS.Limitations").
+   The following is an example of a JSON file with SSAS option settings.
 
 ```
 {

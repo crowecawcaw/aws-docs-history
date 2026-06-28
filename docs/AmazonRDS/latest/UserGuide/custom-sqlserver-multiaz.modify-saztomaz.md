@@ -69,7 +69,7 @@ The **Advanced Options** page appears. 7. To keep the default options, choose **
     2. Choose **Submit**.
 
 10. Verify the update is successful. The status of a successful operation
-    shows `UPDATE_COMPLETE`.
+shows `UPDATE_COMPLETE`.
 
 If the update fails, any new configuration specified in the update process
 will be rolled back. The existing resource will still be usable. For example, if you
@@ -98,7 +98,7 @@ If you choose to configure the prerequisites manually, perform the following tas
 7. In **Security Groups**, choose the `-vpc-endpoint-sg` group.
 8. For **Policy**, choose **Custom**
 9. In your custom policy, replace the `AWS
-partition`, `Region`,
+ partition`, `Region`,
    `accountId`,and
    `IAM-Instance-role` with your own
    values.

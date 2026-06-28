@@ -52,7 +52,7 @@ during a maintenance window or during a time of low database workload.
    **mysql** for **Engine**, and choose
    **5.7**, **8.0**, or **8.4** for **Major engine version**. For more
    information, see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create").
-2. Add the **MARIADB_AUDIT_PLUGIN** option to the option group, and configure the option settings.
+2. Add the **MARIADB\_AUDIT\_PLUGIN** option to the option group, and configure the option settings.
    For more information about adding options,
    see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
    For more information about each setting,
@@ -82,19 +82,19 @@ the Database Activity Streams feature. For more information, see
 
 The audit log files include the following comma-delimited information in rows, in the specified order:
 
-| Field           | Description                                                                                                                                                                 |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| timestamp       | The `YYYYMMDD` followed by the `HH:MI:SS`<br>(24-hour clock) for the logged event.                                                                                          |
-| serverhost      | The name of the instance that the event is logged for.                                                                                                                      |
-| username        | The connected user name of the user.                                                                                                                                        |
-| host            | The host that the user connected from.                                                                                                                                      |
-| connectionid    | The connection ID number for the logged operation.                                                                                                                          |
-| queryid         | The query ID number, which can be used for finding the relational<br>table events and related queries. For `TABLE` events,<br>multiple lines are added.                     |
-| operation       | The recorded action type. Possible values are:<br>`CONNECT`, `QUERY`, `READ`,<br>`WRITE`, `CREATE`, `ALTER`,<br>`RENAME`, and `DROP`.                                       |
-| database        | The active database, as set by the `USE`<br>command.                                                                                                                        |
-| object          | For `QUERY` events, this value indicates the query that the database performed. For<br>`TABLE` events, it indicates the table name.                                         |
-| retcode         | The return code of the logged operation.                                                                                                                                    |
-| connection_type | The security state of the connection to the server. Possible values are:<br>• `Undefined`<br>• `TCP/IP`<br>• `Socket`<br>• `Named pipe`<br>• `SSL/TLS`<br>• `Shared memory` |
+| Field            | Description                                                                                                                                                                 |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| timestamp        | The `YYYYMMDD` followed by the `HH:MI:SS`<br>(24-hour clock) for the logged event.                                                                                          |
+| serverhost       | The name of the instance that the event is logged for.                                                                                                                      |
+| username         | The connected user name of the user.                                                                                                                                        |
+| host             | The host that the user connected from.                                                                                                                                      |
+| connectionid     | The connection ID number for the logged operation.                                                                                                                          |
+| queryid          | The query ID number, which can be used for finding the relational<br>table events and related queries. For `TABLE` events,<br>multiple lines are added.                     |
+| operation        | The recorded action type. Possible values are:<br>`CONNECT`, `QUERY`, `READ`,<br>`WRITE`, `CREATE`, `ALTER`,<br>`RENAME`, and `DROP`.                                       |
+| database         | The active database, as set by the `USE`<br>command.                                                                                                                        |
+| object           | For `QUERY` events, this value indicates the query that the database performed. For<br>`TABLE` events, it indicates the table name.                                         |
+| retcode          | The return code of the logged operation.                                                                                                                                    |
+| connection\_type | The security state of the connection to the server. Possible values are:<br>• `Undefined`<br>• `TCP/IP`<br>• `Socket`<br>• `Named pipe`<br>• `SSL/TLS`<br>• `Shared memory` |
 
 ## Viewing and downloading the MariaDB Audit Plugin log
 

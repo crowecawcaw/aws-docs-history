@@ -6,7 +6,7 @@ This section explains the most common issues when using Oracle GoldenGate with A
 
 - [Error opening an online redo log](#Appendix.OracleGoldenGate.Troubleshooting.Logs "#Appendix.OracleGoldenGate.Troubleshooting.Logs")
 - [Oracle GoldenGate appears to be properly configured but replication is not working](#Appendix.OracleGoldenGate.Troubleshooting.Replication "#Appendix.OracleGoldenGate.Troubleshooting.Replication")
-- [Integrated REPLICAT slow due to query on SYS."\_DBA_APPLY_CDR_INFO"](#Appendix.OracleGoldenGate.IR "#Appendix.OracleGoldenGate.IR")
+- [Integrated REPLICAT slow due to query on SYS."\_DBA\_APPLY\_CDR\_INFO"](#Appendix.OracleGoldenGate.IR "#Appendix.OracleGoldenGate.IR")
 
 ## Error opening an online redo log
 
@@ -68,7 +68,7 @@ dblogin userid oggadm1@OGGTARGET
 start RABC atcsn 223274
 ```
 
-## Integrated REPLICAT slow due to query on SYS."\_DBA_APPLY_CDR_INFO"
+## Integrated REPLICAT slow due to query on SYS."\_DBA\_APPLY\_CDR\_INFO"
 
 Oracle GoldenGate Conflict Detection and Resolution (CDR) provides basic conflict resolution routines. For
 example, CDR can resolve a unique conflict for an `INSERT` statement.

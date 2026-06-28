@@ -50,7 +50,7 @@ Before creating a DB instance, consider the following items:
     circumstances:
 
     - You want to modify the `db2_compatibility_vector`
-      parameter. For more information, see [Setting the db2_compatibility_vector parameter](db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector "db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector").
+      parameter. For more information, see [Setting the db2\_compatibility\_vector parameter](db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector "db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector").
 
 - In the bring your own license (BYOL) model, you must first create a custom
   parameter group that contains your IBM Customer ID and your IBM Site ID. For more

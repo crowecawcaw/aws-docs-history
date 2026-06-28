@@ -31,7 +31,7 @@ The following are limitations for PostgreSQL read replicas:
 - If no user transactions are running on the source DB instance, the associated
   PostgreSQL read replica reports a replication lag of up to five minutes. The
   replica lag is calculated as `currentTime -
-lastCommitedTransactionTimestamp`, which means that when no
+ lastCommitedTransactionTimestamp`, which means that when no
   transactions are being processed, the value of replica lag increases for a
   period of time until the write-ahead log (WAL) segment switches. By default
   RDS for PostgreSQL switches the WAL segment every 5 minutes, which results in a

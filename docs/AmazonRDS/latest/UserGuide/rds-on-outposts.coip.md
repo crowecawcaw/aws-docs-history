@@ -80,9 +80,8 @@ The following limitations apply to CoIP support for RDS on Outposts DB instances
   share the following resources with other AWS accounts (consumers) in the same
   organization:
 
-      + The Outpost
-      + The local gateway (LGW) route table for the DB instance's VPC
-      + The CoIP pool or pools for the LGW route table
-
-  For more information, see [Working
-  with shared AWS Outposts resources](../../../outposts/latest/userguide/sharing-outposts.md "../../../outposts/latest/userguide/sharing-outposts.md") in the _AWS Outposts User Guide_.
+  - The Outpost
+  - The local gateway (LGW) route table for the DB instance's VPC
+  - The CoIP pool or pools for the LGW route table
+    For more information, see [Working
+    with shared AWS Outposts resources](../../../outposts/latest/userguide/sharing-outposts.md "../../../outposts/latest/userguide/sharing-outposts.md") in the _AWS Outposts User Guide_.

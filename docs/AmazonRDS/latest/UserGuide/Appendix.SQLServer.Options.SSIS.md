@@ -157,7 +157,7 @@ The following procedure creates an option group for SQL Server Standard Edition 
       contain only letters, digits, and hyphens.
    2. For **Description**, enter a brief description of the option group,
       such as `SSIS option group for SQL Server SE
-2016`. The description is used for
+  2016`. The description is used for
       display purposes.
    3. For **Engine**, choose **sqlserver-se**.
    4. For **Major engine version**, choose
@@ -258,7 +258,7 @@ The following procedure creates a parameter group for SQL Server Standard Editio
       such as
       `ssis-sqlserver-se-13`.
    3. For **Description**, enter `clr enabled parameter
-group`.
+  group`.
 
 5. Choose **Create**.
    The following procedure creates a parameter group for SQL Server Standard Edition

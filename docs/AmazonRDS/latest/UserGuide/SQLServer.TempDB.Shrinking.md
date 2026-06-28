@@ -4,7 +4,7 @@ There are two ways to shrink the `tempdb` database on your Amazon RDS DB instanc
 can use the `rds_shrink_tempdbfile` procedure, or you can set the
 `SIZE` property,
 
-## Using the rds_shrink_tempdbfile procedure
+## Using the rds\_shrink\_tempdbfile procedure
 
 You can use the Amazon RDS procedure `msdb.dbo.rds_shrink_tempdbfile` to shrink the
 `tempdb` database. You can only call

@@ -71,10 +71,9 @@ RDS for MySQL DB instance
 
 - Monitor the following CloudWatch metrics to identify periods of low activity in your production environment:
 
-      + `DatabaseConnections`
-      + `ActiveTransactions`
-
-  Schedule the blue/green switchover during your planned maintenance window or during a period of low activity.
+  - `DatabaseConnections`
+  - `ActiveTransactions`
+    Schedule the blue/green switchover during your planned maintenance window or during a period of low activity.
 
 - Blue/Green switchover duration varies based on your workload and the number of secondary regions. When you initiate a blue/green switchover, the service waits for replica lag to reach zero before proceeding. We recommend checking replica lag before initiating a switchover.
 - If you intend to use a DB parameter or DB Cluster parameter group other than the default one for your green environment, create the desired parameter group with the same name in all secondary regions before initiating the blue/green deployment.
@@ -173,6 +172,6 @@ replication instead of physical replication, see [PostgreSQL replication methods
   major version upgrade, so you must regenerate all statistics to avoid performance
   issues. For additional best practices during major version upgrades, see [How to perform a major version upgrade for RDS for PostgreSQL](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Process.md "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Process.md").
 - Avoid configuring triggers as `ENABLE REPLICA` or `ENABLE
-ALWAYS` if the trigger is used on the source to manipulate data. Otherwise, the
+ ALWAYS` if the trigger is used on the source to manipulate data. Otherwise, the
   replication system propagates changes and executes the trigger, which leads to
   duplication.

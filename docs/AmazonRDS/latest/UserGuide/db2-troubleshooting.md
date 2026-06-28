@@ -23,7 +23,7 @@ database manager instance memory limit has been reached.
 
 Increase the memory for your DB instance and then try to connect to your database
 again. For information about memory usage and recommendations for databases, see [Multiple databases on an Amazon RDS for Db2 DB instance](db2-multiple-databases.md "db2-multiple-databases.md"). For information about how to update the memory
-for an RDS for Db2 database, see [rdsadmin.update_db_param](db2-sp-managing-databases.md#db2-sp-update-db-param "db2-sp-managing-databases.md#db2-sp-update-db-param").
+for an RDS for Db2 database, see [rdsadmin.update\_db\_param](db2-sp-managing-databases.md#db2-sp-update-db-param "db2-sp-managing-databases.md#db2-sp-update-db-param").
 
 ## File I/O error
 
@@ -185,21 +185,21 @@ If you don't see an Amazon S3 gateway endpoint listed, then [Step 1: Create a VP
 This section describes various errors returned when calling stored procedures and how
 to resolve them.
 
-| Category    | Stored procedure errors                                                                                                                        |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| Databases   | [rdsadmin.activate_database errors](#db2-troubleshooting-activate-database-sp-errors "#db2-troubleshooting-activate-database-sp-errors")       |
-| Databases   | [rdsadmin.backup_database errors](#db2-troubleshooting-backup-database-sp-errors "#db2-troubleshooting-backup-database-sp-errors")             |
-| Databases   | [rdsadmin.create_database errors](#db2-troubleshooting-create-database-sp-errors "#db2-troubleshooting-create-database-sp-errors")             |
-| Databases   | [rdsadmin.deactivate_database errors](#db2-troubleshooting-deactivate-database-sp-errors "#db2-troubleshooting-deactivate-database-sp-errors") |
-| Databases   | [rdsadmin.drop_database errors](#db2-troubleshooting-drop-database-sp-errors "#db2-troubleshooting-drop-database-sp-errors")                   |
-| Databases   | [rdsadmin.reactivate_database errors](#db2-troubleshooting-reactivate-database-sp-errors "#db2-troubleshooting-reactivate-database-sp-errors") |
-| Databases   | [rdsadmin.restore_database errors](#db2-troubleshooting-restore-database-sp-errors "#db2-troubleshooting-restore-database-sp-errors")          |
-| Databases   | [rdsadmin.update_db_param errors](#db2-troubleshooting-update-db-param-sp-errors "#db2-troubleshooting-update-db-param-sp-errors")             |
-| Tablespaces | [rdsadmin.alter_tablespace errors](#db2-troubleshooting-alter-tablespace-sp-errors "#db2-troubleshooting-alter-tablespace-sp-errors")          |
+| Category    | Stored procedure errors                                                                                                                         |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Databases   | [rdsadmin.activate\_database errors](#db2-troubleshooting-activate-database-sp-errors "#db2-troubleshooting-activate-database-sp-errors")       |
+| Databases   | [rdsadmin.backup\_database errors](#db2-troubleshooting-backup-database-sp-errors "#db2-troubleshooting-backup-database-sp-errors")             |
+| Databases   | [rdsadmin.create\_database errors](#db2-troubleshooting-create-database-sp-errors "#db2-troubleshooting-create-database-sp-errors")             |
+| Databases   | [rdsadmin.deactivate\_database errors](#db2-troubleshooting-deactivate-database-sp-errors "#db2-troubleshooting-deactivate-database-sp-errors") |
+| Databases   | [rdsadmin.drop\_database errors](#db2-troubleshooting-drop-database-sp-errors "#db2-troubleshooting-drop-database-sp-errors")                   |
+| Databases   | [rdsadmin.reactivate\_database errors](#db2-troubleshooting-reactivate-database-sp-errors "#db2-troubleshooting-reactivate-database-sp-errors") |
+| Databases   | [rdsadmin.restore\_database errors](#db2-troubleshooting-restore-database-sp-errors "#db2-troubleshooting-restore-database-sp-errors")          |
+| Databases   | [rdsadmin.update\_db\_param errors](#db2-troubleshooting-update-db-param-sp-errors "#db2-troubleshooting-update-db-param-sp-errors")            |
+| Tablespaces | [rdsadmin.alter\_tablespace errors](#db2-troubleshooting-alter-tablespace-sp-errors "#db2-troubleshooting-alter-tablespace-sp-errors")          |
 
-### rdsadmin.activate_database errors
+### rdsadmin.activate\_database errors
 
-The following errors can occur when you call the [rdsadmin.activate_database](db2-sp-managing-databases.md#db2-sp-activate-database "db2-sp-managing-databases.md#db2-sp-activate-database") stored procedure.
+The following errors can occur when you call the [rdsadmin.activate\_database](db2-sp-managing-databases.md#db2-sp-activate-database "db2-sp-managing-databases.md#db2-sp-activate-database") stored procedure.
 
 | Error                                                                                                                                                      | Error message                                                                                                                               |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -234,17 +234,17 @@ The database can’t be activated because it's in the process of being created o
 Wait a few minutes, and then call the `rdsadmin.activate_database`
 stored procedure again.
 
-### rdsadmin.alter_tablespace errors
+### rdsadmin.alter\_tablespace errors
 
-The following errors can occur when you call the [rdsadmin.alter_tablespace](db2-sp-managing-tablespaces.md#db2-sp-alter-tablespace "db2-sp-managing-tablespaces.md#db2-sp-alter-tablespace") stored procedure.
+The following errors can occur when you call the [rdsadmin.alter\_tablespace](db2-sp-managing-tablespaces.md#db2-sp-alter-tablespace "db2-sp-managing-tablespaces.md#db2-sp-alter-tablespace") stored procedure.
 
-| Error                                                                                                                                                                   | Error message                                                                                                                                                                                                                                                   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Statement not valid](#alter-tablespace-sp-statement-not-valid "#alter-tablespace-sp-statement-not-valid")                                                              | `DB21034E The command was processed as an SQL statement<br>because it was not a valid Command Line Processor command.<br>During SQL processing it returned:`<br>`SQL1763N Invalid ALTER TABLESPACE statement for table<br>space "TBSP_TEST" due to reason "12"` |
-| [tablespace_prefetch_size value not valid](#alter-tablespace-sp-prefetch-value-not-valid "#alter-tablespace-sp-prefetch-value-not-valid")                               | `Invalid tablespace_prefetch_size. Set value to AUTOMATIC<br>or to a non-zero positive numerical value.`                                                                                                                                                        |
-| [tablespace_prefetch_size numerical value not valid](#alter-tablespace-sp-prefetch-numerical-value-not-valid "#alter-tablespace-sp-prefetch-numerical-value-not-valid") | `Invalid tablespace_prefetch_size. The number of pages<br>can't be greater than 32767.`                                                                                                                                                                         |
-| [Parameter can't be used with tablespace_prefetch_size](#alter-tablespace-sp-prefetch-incompatible-parameter "#alter-tablespace-sp-prefetch-incompatible-parameter")    | `You can't use tablespace_prefetch_size with<br>{`parameter`}.`                                                                                                                                                                                                 |
-| [Tablespace change failed](#alter-tablespace-sp-tablespace-change-failed "#alter-tablespace-sp-tablespace-change-failed")                                               | `The change to tablespace<br>{`tablespace_name}` failed<br>because you can only alter LARGE or REGULAR<br>tablespaces.`                                                                                                                                         |
+| Error                                                                                                                                                                     | Error message                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Statement not valid](#alter-tablespace-sp-statement-not-valid "#alter-tablespace-sp-statement-not-valid")                                                                | `DB21034E The command was processed as an SQL statement<br>because it was not a valid Command Line Processor command.<br>During SQL processing it returned:`<br>`SQL1763N Invalid ALTER TABLESPACE statement for table<br>space "TBSP_TEST" due to reason "12"` |
+| [tablespace\_prefetch\_size value not valid](#alter-tablespace-sp-prefetch-value-not-valid "#alter-tablespace-sp-prefetch-value-not-valid")                               | `Invalid tablespace_prefetch_size. Set value to AUTOMATIC<br>or to a non-zero positive numerical value.`                                                                                                                                                        |
+| [tablespace\_prefetch\_size numerical value not valid](#alter-tablespace-sp-prefetch-numerical-value-not-valid "#alter-tablespace-sp-prefetch-numerical-value-not-valid") | `Invalid tablespace_prefetch_size. The number of pages<br>can't be greater than 32767.`                                                                                                                                                                         |
+| [Parameter can't be used with tablespace\_prefetch\_size](#alter-tablespace-sp-prefetch-incompatible-parameter "#alter-tablespace-sp-prefetch-incompatible-parameter")    | `You can't use tablespace_prefetch_size with<br>{`parameter`}.`                                                                                                                                                                                                 |
+| [Tablespace change failed](#alter-tablespace-sp-tablespace-change-failed "#alter-tablespace-sp-tablespace-change-failed")                                                 | `The change to tablespace<br>{`tablespace_name}` failed<br>because you can only alter LARGE or REGULAR<br>tablespaces.`                                                                                                                                         |
 
 **Statement not valid**
 
@@ -267,9 +267,9 @@ SQL1763N Invalid ALTER TABLESPACE statement for table space "TBSP_TEST" due to r
 Call the `rdsadmin.alter_tablespace` stored procedure again without
 combining mutually exclusive optional parameters with other optional parameters.
 Then call the `rdsadmin.get_task_status` user-defined function. For more
-information, see [rdsadmin.alter_tablespace](db2-sp-managing-tablespaces.md#db2-sp-alter-tablespace "db2-sp-managing-tablespaces.md#db2-sp-alter-tablespace") and [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+information, see [rdsadmin.alter\_tablespace](db2-sp-managing-tablespaces.md#db2-sp-alter-tablespace "db2-sp-managing-tablespaces.md#db2-sp-alter-tablespace") and [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
-**tablespace_prefetch_size value not valid**
+**tablespace\_prefetch\_size value not valid**
 
 The following error message indicates that you didn't set
 `tablespace_prefetch_size` to `AUTOMATIC` or a
@@ -284,7 +284,7 @@ Call the `rdsadmin.alter_tablespace` stored procedure again and set
 `tablespace_prefetch_size` to `AUTOMATIC` or a
 non-positive numerical value.
 
-**tablespace_prefetch_size numerical value not valid**
+**tablespace\_prefetch\_size numerical value not valid**
 
 The following error message indicates that you set
 `tablespace_prefetch_size` to a numerical value larger than 32767.
@@ -298,7 +298,7 @@ Call the `rdsadmin.alter_tablespace` stored procedure again and set
 less than or equal to 32767.
 
 **Parameter
-can't be used with tablespace_prefetch_size**
+can't be used with tablespace\_prefetch\_size**
 
 The following error message indicates that you tried to use
 `tablespace_prefetch_size` with an incompatible parameter.
@@ -310,7 +310,7 @@ You can't use tablespace_prefetch_size with {`parameter`}.
 Call the `rdsadmin.alter_tablespace` stored procedure again and only
 use `tablespace_prefetch_size` with compatible parameters. For
 information about parameters you can use with `tablespace_prefetch_size`,
-see [rdsadmin.alter_tablespace](db2-sp-managing-tablespaces.md#db2-sp-alter-tablespace "db2-sp-managing-tablespaces.md#db2-sp-alter-tablespace").
+see [rdsadmin.alter\_tablespace](db2-sp-managing-tablespaces.md#db2-sp-alter-tablespace "db2-sp-managing-tablespaces.md#db2-sp-alter-tablespace").
 
 **Tablespace change
 failed**
@@ -321,9 +321,9 @@ The following error message indicates that you tried to alter a tablespace.
 The change to tablespace {`tablespace_name`} failed because you can only alter LARGE or REGULAR tablespaces.
 ```
 
-### rdsadmin.backup_database errors
+### rdsadmin.backup\_database errors
 
-The following errors can occur when you call the [rdsadmin.backup_database](db2-sp-managing-databases.md#db2-sp-backup-database "db2-sp-managing-databases.md#db2-sp-backup-database") stored procedure.
+The following errors can occur when you call the [rdsadmin.backup\_database](db2-sp-managing-databases.md#db2-sp-backup-database "db2-sp-managing-databases.md#db2-sp-backup-database") stored procedure.
 
 | Error                                                                                                                | Error message                                                                                                                                                                                           |
 | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -355,8 +355,8 @@ This amount of free disk space accounts for backup session processing, transacti
 log accumulation during backup, temporary working files, and parallel backup streams
 if configured. For more information, see [Increasing DB instance storage capacity](USER_PIOPS.ModifyingExisting.md "USER_PIOPS.ModifyingExisting.md").
 
-Increase your disk space and then call the [rdsadmin.backup_database](db2-sp-managing-databases.md#db2-sp-backup-database "db2-sp-managing-databases.md#db2-sp-backup-database") stored procedure again. To confirm that
-the database was backed up correctly, check the task status by using [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status"). You
+Increase your disk space and then call the [rdsadmin.backup\_database](db2-sp-managing-databases.md#db2-sp-backup-database "db2-sp-managing-databases.md#db2-sp-backup-database") stored procedure again. To confirm that
+the database was backed up correctly, check the task status by using [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status"). You
 can also verify that the backup files exist in your Amazon S3 bucket under
 `s3_prefix/dbi_resource_id/db_name`.
 
@@ -372,9 +372,9 @@ Caught exception during executing task id 104, Aborting task. Reason Internal Er
 Contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-### rdsadmin.create_database errors
+### rdsadmin.create\_database errors
 
-The following error can occur when you call the [rdsadmin.create_database](db2-sp-managing-databases.md#db2-sp-create-database "db2-sp-managing-databases.md#db2-sp-create-database") stored procedure.
+The following error can occur when you call the [rdsadmin.create\_database](db2-sp-managing-databases.md#db2-sp-create-database "db2-sp-managing-databases.md#db2-sp-create-database") stored procedure.
 
 | Error                                                                                                                                           | Error message                                                                                                                               |
 | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -394,12 +394,12 @@ Increase the memory for your DB instance and then call the
 `rdsadmin.create_database` stored procedure again. For information
 about memory usage and recommendations for databases, see [Multiple databases on an Amazon RDS for Db2 DB instance](db2-multiple-databases.md "db2-multiple-databases.md").
 
-To confirm that the database was created, call the [rdsadmin.list_databases](db2-user-defined-functions.md#db2-udf-list-databases "db2-user-defined-functions.md#db2-udf-list-databases") user-defined function and check that the new
+To confirm that the database was created, call the [rdsadmin.list\_databases](db2-user-defined-functions.md#db2-udf-list-databases "db2-user-defined-functions.md#db2-udf-list-databases") user-defined function and check that the new
 database is listed.
 
-### rdsadmin.deactivate_database errors
+### rdsadmin.deactivate\_database errors
 
-The following error can occur when you call the [rdsadmin.deactivate_database](db2-sp-managing-databases.md#db2-sp-deactivate-database "db2-sp-managing-databases.md#db2-sp-deactivate-database") stored procedure.
+The following error can occur when you call the [rdsadmin.deactivate\_database](db2-sp-managing-databases.md#db2-sp-deactivate-database "db2-sp-managing-databases.md#db2-sp-deactivate-database") stored procedure.
 
 | Error                                                                                                                                                                | Error message                                                                                 |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
@@ -419,9 +419,9 @@ The database can’t be deactivated because it's in the process of being created
 Wait a few minutes, and then call the `rdsadmin.deactivate_database`
 stored procedure again.
 
-### rdsadmin.drop_database errors
+### rdsadmin.drop\_database errors
 
-The following errors can occur when you call the [rdsadmin.drop_database](db2-sp-managing-databases.md#db2-sp-drop-database "db2-sp-managing-databases.md#db2-sp-drop-database") stored procedure.
+The following errors can occur when you call the [rdsadmin.drop\_database](db2-sp-managing-databases.md#db2-sp-drop-database "db2-sp-managing-databases.md#db2-sp-drop-database") stored procedure.
 
 | Error                                                                                                                | Error message                                                                                                                                                                                                                                                                                                                                                                                              |
 | -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -441,7 +441,7 @@ drop database. Database with provided name does not exist". SQLSTATE=99993
 ```
 
 Call the `rdsadmin.drop_database` stored procedure again with a correct
-database name. To confirm that the database was dropped, call the [rdsadmin.list_databases](db2-user-defined-functions.md#db2-udf-list-databases "db2-user-defined-functions.md#db2-udf-list-databases") user-defined function and check that the
+database name. To confirm that the database was dropped, call the [rdsadmin.list\_databases](db2-user-defined-functions.md#db2-udf-list-databases "db2-user-defined-functions.md#db2-udf-list-databases") user-defined function and check that the
 dropped database isn't listed.
 
 **Return status = 0**
@@ -453,7 +453,7 @@ the stored procedure couldn't be completed.
 Return Status = 0
 ```
 
-After you receive `Return Status = 0`, call the [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status")
+After you receive `Return Status = 0`, call the [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status")
 user-defined function.
 
 **Dropping database not
@@ -462,7 +462,7 @@ allowed**
 The following error message indicates that you created the database by using
 either the Amazon RDS console or the AWS CLI. You can only use the
 `rdsadmin.drop_database` stored procedure if you created the database
-by calling the [rdsadmin.create_database](db2-sp-managing-databases.md#db2-sp-create-database "db2-sp-managing-databases.md#db2-sp-create-database") stored procedure.
+by calling the [rdsadmin.create\_database](db2-sp-managing-databases.md#db2-sp-create-database "db2-sp-managing-databases.md#db2-sp-create-database") stored procedure.
 
 ```
 1 ERROR DROP_DATABASE RDSDB 2023-10-10-16.33.03.744122 2023-10-10-16.33.30.143797 - 2023-10-10-16.33.30.098857 Task execution has started.
@@ -475,9 +475,9 @@ To drop a database that you created by using either the Amazon RDS console or th
 AWS CLI, use a client to connect to the database and then run the appropriate
 command.
 
-### rdsadmin.reactivate_database errors
+### rdsadmin.reactivate\_database errors
 
-The following error can occur when you call the [rdsadmin.reactivate_database](db2-sp-managing-databases.md#db2-sp-reactivate-database "db2-sp-managing-databases.md#db2-sp-reactivate-database") stored procedure.
+The following error can occur when you call the [rdsadmin.reactivate\_database](db2-sp-managing-databases.md#db2-sp-reactivate-database "db2-sp-managing-databases.md#db2-sp-reactivate-database") stored procedure.
 
 | Error                                                                                                                                                                | Error message                                                                                                                               |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -512,9 +512,9 @@ The database can’t be reactivated because it's in the process of being created
 Wait a few minutes, and then call the `rdsadmin.reactivate_database`
 stored procedure again.
 
-### rdsadmin.restore_database errors
+### rdsadmin.restore\_database errors
 
-The following errors can occur when you call the [rdsadmin.restore_database](db2-sp-managing-databases.md#db2-sp-restore-database "db2-sp-managing-databases.md#db2-sp-restore-database") stored procedure:
+The following errors can occur when you call the [rdsadmin.restore\_database](db2-sp-managing-databases.md#db2-sp-restore-database "db2-sp-managing-databases.md#db2-sp-restore-database") stored procedure:
 
 | Error                                                                                                                     | Error message                                                                                                                                                                                                     |
 | ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -539,7 +539,7 @@ must be more than triple the size of your backup image. For more information, se
 [Increasing DB instance storage capacity](USER_PIOPS.ModifyingExisting.md "USER_PIOPS.ModifyingExisting.md").
 
 Increase your disk space and then call the `rdsadmin.restore_database`
-stored procedure again. To confirm that the database was restored, call the [rdsadmin.list_databases](db2-user-defined-functions.md#db2-udf-list-databases "db2-user-defined-functions.md#db2-udf-list-databases") user-defined function and check that the
+stored procedure again. To confirm that the database was restored, call the [rdsadmin.list\_databases](db2-user-defined-functions.md#db2-udf-list-databases "db2-user-defined-functions.md#db2-udf-list-databases") user-defined function and check that the
 restored database is listed.
 
 **Internal error**
@@ -566,7 +566,7 @@ Caught exception during executing task id 2, Aborting task. Reason Non fenced ro
 
 RDS for Db2 doesn't support non-fenced routines. Remove the non-fenced routines from
 the source database, and then call `rdsadmin.restore_database` again. To
-confirm that the database was restored, call the [rdsadmin.list_databases](db2-user-defined-functions.md#db2-udf-list-databases "db2-user-defined-functions.md#db2-udf-list-databases") user-defined function and check that the
+confirm that the database was restored, call the [rdsadmin.list\_databases](db2-user-defined-functions.md#db2-udf-list-databases "db2-user-defined-functions.md#db2-udf-list-databases") user-defined function and check that the
 restored database is listed. For more information, see [Non-fenced routines](db2-known-issues-limitations.md#db2-known-issues-limitations-non-fenced-routines "db2-known-issues-limitations.md#db2-known-issues-limitations-non-fenced-routines").
 
 **Tablespaces not
@@ -590,9 +590,9 @@ database has non-automatic SMS storage, contact [AWS Support](https://aws.amazon
 
 For information about non-automatic storage and one-time migrations, see [Non-automatic storage tablespaces during migration](db2-known-issues-limitations.md#db2-known-issues-limitations-non-automatic-storage-tablespaces "db2-known-issues-limitations.md#db2-known-issues-limitations-non-automatic-storage-tablespaces").
 
-### rdsadmin.update_db_param errors
+### rdsadmin.update\_db\_param errors
 
-The following error can occur when you call the [rdsadmin.update_db_param](db2-sp-managing-databases.md#db2-sp-update-db-param "db2-sp-managing-databases.md#db2-sp-update-db-param") stored procedure.
+The following error can occur when you call the [rdsadmin.update\_db\_param](db2-sp-managing-databases.md#db2-sp-update-db-param "db2-sp-managing-databases.md#db2-sp-update-db-param") stored procedure.
 
 | Error                                                                                                                                                    | Error message                                                                                                                                                 |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |

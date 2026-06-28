@@ -66,31 +66,31 @@ activities:
 
 ###### To create a directory with AWS Managed Microsoft AD
 
-1.  Sign in to the AWS Management Console and open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
-2.  Choose **Set up directory**.
-3.  Choose **AWS Managed Microsoft AD**. AWS Managed Microsoft AD is the only option
-    currently supported for use with Amazon RDS.
-4.  Choose **\*\***Next**\*\***.
-5.  On the **\*\***Enter directory
-    information**\*\*** page, provide the
-    following information:
+1. Sign in to the AWS Management Console and open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
+2. Choose **Set up directory**.
+3. Choose **AWS Managed Microsoft AD**. AWS Managed Microsoft AD is the only option
+   currently supported for use with Amazon RDS.
+4. Choose ******Next******.
+5. On the ******Enter directory
+   information****** page, provide the
+   following information:
 
-    - **Edition** – Choose the edition that meets
-      your requirements.
-    - **Directory DNS name**– The fully qualified name for the directory, such
-      as `corp.example.com`.
-    - **Directory NetBIOS name**– An optional short name for the directory, such as
-      `CORP`.
-    - **Directory description** – An optional
-      description for the directory.
-    - **Admin password**– The password for the directory administrator. The
-      directory creation process creates an administrator account with the
-      username `Admin` and this password.
+   - **Edition** – Choose the edition that meets
+     your requirements.
+   - **Directory DNS name**– The fully qualified name for the directory, such
+     as `corp.example.com`.
+   - **Directory NetBIOS name**– An optional short name for the directory, such as
+     `CORP`.
+   - **Directory description** – An optional
+     description for the directory.
+   - **Admin password**– The password for the directory administrator. The
+     directory creation process creates an administrator account with the
+     username `Admin` and this password.
 
-    The directory administrator password can't include the word "admin."
-    The password is case-sensitive and must be 8–64 characters in
-    length. It must also contain at least one character from three of the
-    following four categories:
+   The directory administrator password can't include the word "admin."
+   The password is case-sensitive and must be 8–64 characters in
+   length. It must also contain at least one character from three of the
+   following four categories:
 
         + Lowercase letters (a–z)
         + Uppercase letters (A–Z)
@@ -107,21 +107,21 @@ activities:
         Make sure that you save this password. Directory Service doesn't store
          this password, and it can't be retrieved or reset.
 
-6.  Choose **Next**.
-7.  On the **Choose VPC and subnets** page, provide the following
-    information:
+6. Choose **Next**.
+7. On the **Choose VPC and subnets** page, provide the following
+   information:
 
-    - **VPC** – Choose the VPC for the directory.
-      You can create the RDS for Db2 DB instance in this same VPC or in a
-      different VPC.
-    - **Subnets** – Choose the subnets for the
-      directory servers. The two subnets must be in different Availability
-      Zones.
+   - **VPC** – Choose the VPC for the directory.
+     You can create the RDS for Db2 DB instance in this same VPC or in a
+     different VPC.
+   - **Subnets** – Choose the subnets for the
+     directory servers. The two subnets must be in different Availability
+     Zones.
 
-8.  Choose **Next**.
-9.  Review the directory information. If changes are needed, choose
-    **Previous** and make the changes. When the information is
-    correct, choose **Create directory**.
+8. Choose **Next**.
+9. Review the directory information. If changes are needed, choose
+   **Previous** and make the changes. When the information is
+   correct, choose **Create directory**.
 
 ![The Review and create window during directory creation in the Directory Service console.](images/db2-create-ADS-directory.png)
 
@@ -355,9 +355,9 @@ db2 connect to rdsadmin
 db2 "call rdsadmin.set_sid_group_mapping(?, '`SID`','`group_name`')"
 ```
 
-For more information, see [rdsadmin.set_sid_group_mapping](db2-sp-granting-revoking-privileges.md#db2-sp-set-sid-group-mapping "db2-sp-granting-revoking-privileges.md#db2-sp-set-sid-group-mapping").
+For more information, see [rdsadmin.set\_sid\_group\_mapping](db2-sp-granting-revoking-privileges.md#db2-sp-set-sid-group-mapping "db2-sp-granting-revoking-privileges.md#db2-sp-set-sid-group-mapping").
 
-For information about checking the task status, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+For information about checking the task status, see [rdsadmin.get\_task\_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 ## Step 10: Configure a Db2 client
 
@@ -377,8 +377,8 @@ utility such as Netcat for the following tasks:
      Directory Service.
 
 3. Verify that traffic can flow between the client host and the DB instance over
-   the database port. You can use the command `db2` to connect and
-   access the database.
+the database port. You can use the command `db2` to connect and
+access the database.
 
 The following example is /etc/krb5.conf file content for AWS Managed Microsoft AD:
 

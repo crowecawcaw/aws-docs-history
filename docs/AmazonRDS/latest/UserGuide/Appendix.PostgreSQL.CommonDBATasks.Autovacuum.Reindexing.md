@@ -52,6 +52,4 @@ SELECT pg_terminate_backend('the_pid');
 ```
 
 At this point, your session begins. It's important to note that autovacuum restarts
-immediately because this table is probably the highest on its list of work. 5. Initiate your command in session two, and then end the autovacuum process in session
-
-1.
+immediately because this table is probably the highest on its list of work. 5. Initiate your command in session two, and then end the autovacuum process in session 1.

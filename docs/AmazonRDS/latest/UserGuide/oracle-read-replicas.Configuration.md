@@ -7,7 +7,7 @@ Before you can begin using your replica, perform the following tasks.
 - [Enabling automatic backups](#oracle-read-replicas.configuration.autobackups "#oracle-read-replicas.configuration.autobackups")
 - [Enabling force logging mode](#oracle-read-replicas.configuration.force-logging "#oracle-read-replicas.configuration.force-logging")
 - [Changing your logging configuration](#oracle-read-replicas.configuration.logging-config "#oracle-read-replicas.configuration.logging-config")
-- [Setting the MAX_STRING_SIZE parameter](#oracle-read-replicas.configuration.string-size "#oracle-read-replicas.configuration.string-size")
+- [Setting the MAX\_STRING\_SIZE parameter](#oracle-read-replicas.configuration.string-size "#oracle-read-replicas.configuration.string-size")
 - [Planning compute and storage resources](#oracle-read-replicas.configuration.planning-resources "#oracle-read-replicas.configuration.planning-resources")
 
 ## Enabling automatic backups
@@ -51,7 +51,7 @@ You can modify the logging configuration for a DB instance by using the Amazon R
 `rdsadmin.rdsadmin_util.add_logfile` and
 `rdsadmin.rdsadmin_util.drop_logfile`. For more information, see [Adding online redo logs](Appendix.Oracle.CommonDBATasks.Log.md#Appendix.Oracle.CommonDBATasks.RedoLogs "Appendix.Oracle.CommonDBATasks.Log.md#Appendix.Oracle.CommonDBATasks.RedoLogs") and [Dropping online redo logs](Appendix.Oracle.CommonDBATasks.Log.md#Appendix.Oracle.CommonDBATasks.DroppingRedoLogs "Appendix.Oracle.CommonDBATasks.Log.md#Appendix.Oracle.CommonDBATasks.DroppingRedoLogs").
 
-## Setting the MAX_STRING_SIZE parameter
+## Setting the MAX\_STRING\_SIZE parameter
 
 Before you create an Oracle replica, ensure that the setting of the `MAX_STRING_SIZE` parameter
 is the same on the source DB instance and the replica. You can do this by associating them with the same

@@ -36,4 +36,4 @@ the login with which you created the database. To restore lost membership in the
 `db_owner` role for your master user when no other database user can
 be used to grant the membership, reset the master user password to obtain membership
 in the `db_owner` role. For more information, see
-[Resetting the db_owner role membership for master user for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.ResetPassword.md "Appendix.SQLServer.CommonDBATasks.ResetPassword.md").
+[Resetting the db\_owner role membership for master user for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.ResetPassword.md "Appendix.SQLServer.CommonDBATasks.ResetPassword.md").

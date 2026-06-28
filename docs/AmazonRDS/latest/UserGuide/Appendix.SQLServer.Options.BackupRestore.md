@@ -39,7 +39,7 @@ instance. As soon as the option group is active, you can begin backing up and re
 3. Create a new option group or use an existing option group. For information on how to
    create a custom DB option group, see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create").
 
-To use an existing option group, skip to the next step. 4. Add the **SQLSERVER_BACKUP_RESTORE** option to the option
+To use an existing option group, skip to the next step. 4. Add the **SQLSERVER\_BACKUP\_RESTORE** option to the option
 group. For more information about adding options, see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption"). 5. Do one of the following:
 
     * To use an existing IAM role and Amazon S3 settings, choose an existing IAM role for
@@ -75,18 +75,17 @@ group. For more information about adding options, see [Adding an option to an op
     	If you chose **Enable encryption**, choose an encryption key for **AWS KMS key**. For
     	 more information about encryption keys, see [Getting started](../../../kms/latest/developerguide/getting-started.md "../../../kms/latest/developerguide/getting-started.md") in the *AWS Key Management Service Developer Guide.*
 
-6.  Choose **Add option**.
-7.  Apply the option group to a new or existing DB instance:
+6. Choose **Add option**. 7. Apply the option group to a new or existing DB instance:
 
-        * For a new DB instance, apply the option group when you launch the instance. For more
-         information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
-        * For an existing DB instance, apply the option group by modifying the instance and
-         attaching the new option group. For more information, see
-         [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
+    * For a new DB instance, apply the option group when you launch the instance. For more
+     information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
+    * For an existing DB instance, apply the option group by modifying the instance and
+     attaching the new option group. For more information, see
+     [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
-    This procedure makes the following assumptions:
+This procedure makes the following assumptions:
 
-- You're adding the SQLSERVER_BACKUP_RESTORE option to an option group that already
+- You're adding the SQLSERVER\_BACKUP\_RESTORE option to an option group that already
   exists. For more information about adding options, see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
 - You're associating the option with an IAM role that already exists and has access to an
   S3 bucket to store the backups.

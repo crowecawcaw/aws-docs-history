@@ -42,12 +42,11 @@ Make sure that you're aware of the following recommendations and considerations:
 
 - Exclude the following schemas from the dump file:
 
-      + `sys`
-      + `performance_schema`
-      + `information_schema`
-
-  The `mysqldump` and `mariadb-dump` utility excludes these
-  schemas by default.
+  - `sys`
+  - `performance_schema`
+  - `information_schema`
+    The `mysqldump` and `mariadb-dump` utility excludes these
+    schemas by default.
 
 - If you need to migrate users and privileges, consider using a tool that generates
   the data control language (DCL) for recreating them, such as the [pt-show-grants](https://www.percona.com/doc/percona-toolkit/LATEST/pt-show-grants.html "https://www.percona.com/doc/percona-toolkit/LATEST/pt-show-grants.html") utility.
@@ -55,9 +54,9 @@ Make sure that you're aware of the following recommendations and considerations:
   For more information, see [Controlling access with security groups](Overview.RDSSecurityGroups.md "Overview.RDSSecurityGroups.md").
   The parameters used are as follows:
 
-- `-u `local_user``– Use to specify a
-user name. In the first usage of this parameter, specify the name of a user account
-on the local MariaDB database that you identify with the`--databases`
+- `-u `local_user`` – Use to specify a
+  user name. In the first usage of this parameter, specify the name of a user account
+  on the local MariaDB database that you identify with the `--databases`
   parameter.
 - `--databases `database_name`` – Use to
   specify the name of the database on the local MariaDB instance that you want to
@@ -82,26 +81,28 @@ on the local MariaDB database that you identify with the`--databases`
 - `--events` – Use if events exist in the database that you are
   copying. Set the parameter to `0`, which excludes the events during the
   import process. Then later manually recreate the events in the Amazon RDS database.
-- `-p`local_password``– Use to specify a
-password. In the first usage of this parameter, specify the password for the user
-account that you identify with the first`-u` parameter.
-- `-u `RDS_user``– Use to specify a user
-name. In the second usage of this parameter, specify the name of a user account on
-the default database for the MariaDB DB instance that you identify with the`--host` parameter.
+- `-p`local_password`` – Use to specify a
+  password. In the first usage of this parameter, specify the password for the user
+  account that you identify with the first `-u` parameter.
+- `-u `RDS_user`` – Use to specify a user
+  name. In the second usage of this parameter, specify the name of a user account on
+  the default database for the MariaDB DB instance that you identify with the
+  `--host` parameter.
 - `--port `port_number`` – Use to specify
   the port for your MariaDB DB instance. By default, this is 3306 unless you changed
   the value when creating the DB instance.
-- `--host `host_name``– Use to specify
-the Domain Name System (DNS) name from the Amazon RDS DB instance endpoint, for example,`myinstance.123456789012.us-east-1.rds.amazonaws.com`. You can find
+- `--host `host_name`` – Use to specify
+  the Domain Name System (DNS) name from the Amazon RDS DB instance endpoint, for example,
+  `myinstance.123456789012.us-east-1.rds.amazonaws.com`. You can find
   the endpoint value in the DB instance details in the Amazon RDS console.
-- `-p`RDS_password``– Use to specify a
- password. In the second usage of this parameter, you specify the password for the
- user account identified by the second`-u`parameter.
-Make sure to create any stored procedures, triggers, functions, or events manually in your
- Amazon RDS database. If you have any of these objects in the database that you are copying, then
- exclude them when you run`mysqldump`or`mariadb-dump`. To do so,
- include the following parameters with your `mysqldump`or
-`mariadb-dump` command:
+- `-p`RDS_password`` – Use to specify a
+  password. In the second usage of this parameter, you specify the password for the
+  user account identified by the second `-u` parameter.
+  Make sure to create any stored procedures, triggers, functions, or events manually in your
+  Amazon RDS database. If you have any of these objects in the database that you are copying, then
+  exclude them when you run `mysqldump` or `mariadb-dump`. To do so,
+  include the following parameters with your `mysqldump` or
+  `mariadb-dump` command:
 
 - `--routines=0`
 - `--triggers=0`

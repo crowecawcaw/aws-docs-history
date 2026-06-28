@@ -32,9 +32,9 @@ following points:
 
 - The DB instance contains all databases that you want present on the DB
   instance. After replica creation, you can't create, drop, or native restore a
-  database on the DB instance. Any calls to the [rdsadmin.create_database](db2-sp-managing-databases.md#db2-sp-create-database "db2-sp-managing-databases.md#db2-sp-create-database"),
-  [rdsadmin.drop_database](db2-sp-managing-databases.md#db2-sp-drop-database "db2-sp-managing-databases.md#db2-sp-drop-database"),
-  or [rdsadmin.restore_database](db2-sp-managing-databases.md#db2-sp-restore-database "db2-sp-managing-databases.md#db2-sp-restore-database") stored procedures fail.
+  database on the DB instance. Any calls to the [rdsadmin.create\_database](db2-sp-managing-databases.md#db2-sp-create-database "db2-sp-managing-databases.md#db2-sp-create-database"),
+  [rdsadmin.drop\_database](db2-sp-managing-databases.md#db2-sp-drop-database "db2-sp-managing-databases.md#db2-sp-drop-database"),
+  or [rdsadmin.restore\_database](db2-sp-managing-databases.md#db2-sp-restore-database "db2-sp-managing-databases.md#db2-sp-restore-database") stored procedures fail.
 - All databases on the DB instance are in an active state. If any database is in
   an inactive state, replica creation will fail. For information about activating
   databases, see [Stored procedures for databases for RDS for Db2](db2-sp-managing-databases.md "db2-sp-managing-databases.md").

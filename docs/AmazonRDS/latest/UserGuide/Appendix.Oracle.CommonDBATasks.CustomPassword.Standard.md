@@ -1,4 +1,4 @@
-# The create_verify_function procedure
+# The create\_verify\_function procedure
 
 You can create a custom function to verify passwords by using the Amazon RDS
 procedure `rdsadmin.rdsadmin_password_verify.create_verify_function`.

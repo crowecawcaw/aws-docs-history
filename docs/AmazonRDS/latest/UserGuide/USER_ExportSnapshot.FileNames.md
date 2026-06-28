@@ -31,7 +31,7 @@ If we can partition your table into small chunks to be read in parallel, there w
 
 Inside the batch index folder, there are one or more Parquet files that contain your table's data. The prefix of the
 Parquet filename is `part-`partition_index``. If your table is partitioned,
- there will be multiple files starting with the partition index `00000`.
+there will be multiple files starting with the partition index `00000`.
 
 There can be gaps in the partition index sequence. This happens because each partition is obtained from a ranged query
 in your table. If there is no data in the range of that partition, then that sequence number is skipped.

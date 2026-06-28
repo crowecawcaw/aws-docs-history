@@ -15,29 +15,29 @@ The key tables in the pgactive schema include:
 - `pgactive_connections` – Stores connection details for each
   node.
 
-## pgactive_nodes
+## pgactive\_nodes
 
-The pgactive_nodes stores information about the nodes participating in the active-active
+The pgactive\_nodes stores information about the nodes participating in the active-active
 replication group.
 
-| Column             | Type     | Collation | Nullable | Default |
-| ------------------ | -------- | --------- | -------- | ------- |
-| node_sysid         | text     | –         | not null | –       |
-| node_timeline      | oid      | –         | not null | –       |
-| node_dboid         | oid      | –         | not null | –       |
-| node_status        | char     | –         | not null | –       |
-| node_name          | text     | –         | not null | –       |
-| node_dsn           | text     | –         | not null | –       |
-| node_init_from_dsn | text     | –         | not null | –       |
-| node_read_only     | boolean  | –         | –        | false   |
-| node_seq_id        | smallint | –         | not null | –       |
+| Column                | Type     | Collation | Nullable | Default |
+| --------------------- | -------- | --------- | -------- | ------- |
+| node\_sysid           | text     | –         | not null | –       |
+| node\_timeline        | oid      | –         | not null | –       |
+| node\_dboid           | oid      | –         | not null | –       |
+| node\_status          | char     | –         | not null | –       |
+| node\_name            | text     | –         | not null | –       |
+| node\_dsn             | text     | –         | not null | –       |
+| node\_init\_from\_dsn | text     | –         | not null | –       |
+| node\_read\_only      | boolean  | –         | –        | false   |
+| node\_seq\_id         | smallint | –         | not null | –       |
 
-**node_sysid**
+**node\_sysid**
 
 Unique ID for a node, generated during `pgactive_create_group` or
 `pgactive_join_group`
 
-**node_status**
+**node\_status**
 
 Readiness of the node:
 
@@ -52,40 +52,40 @@ Readiness of the node:
 
 This column doesn't indicate if a node is connected or disconnected.
 
-**node_name**
+**node\_name**
 
 User-provided unique node name.
 
-**node_dsn**
+**node\_dsn**
 
 Connection string or user mapping name
 
-**node_init_from_dsn**
+**node\_init\_from\_dsn**
 
 DSN from which this node was created.
 
-## pgactive_connection
+## pgactive\_connection
 
-The pgactive_connections stores connection details for each node.
+The pgactive\_connections stores connection details for each node.
 
-| Column                | Type    | Collation | Nullable | Default |
-| --------------------- | ------- | --------- | -------- | ------- |
-| conn_sysid            | text    | none      | not null | none    |
-| conn_timeline         | oid     | none      | not null | none    |
-| conn_dboid            | oid     | none      | not null | none    |
-| conn_dsn              | text    | none      | not null | none    |
-| conn_apply_delay      | integer | none      | none     | none    |
-| conn_replication_sets | text    | none      | none     | none    |
+| Column                  | Type    | Collation | Nullable | Default |
+| ----------------------- | ------- | --------- | -------- | ------- |
+| conn\_sysid             | text    | none      | not null | none    |
+| conn\_timeline          | oid     | none      | not null | none    |
+| conn\_dboid             | oid     | none      | not null | none    |
+| conn\_dsn               | text    | none      | not null | none    |
+| conn\_apply\_delay      | integer | none      | none     | none    |
+| conn\_replication\_sets | text    | none      | none     | none    |
 
-conn_sysid
+conn\_sysid
 
 Node identifier for the node this entry refers to.
 
-conn_dsn
+conn\_dsn
 
-Same as pgactive.pgactive_nodes `node_dsn`.
+Same as pgactive.pgactive\_nodes `node_dsn`.
 
-conn_apply_delay
+conn\_apply\_delay
 
 If set, milliseconds to wait before applying each transaction from the remote
 node. Mainly for debugging. If null, the global default applies.

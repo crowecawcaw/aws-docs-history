@@ -102,7 +102,7 @@ You can choose to exclude individual databases from PITR. To do this, put their
 `database_id` values into a `rds_pitr_blocked_databases` table. Use the following SQL script
 to create the table.
 
-###### To create the rds_pitr_blocked_databases table
+###### To create the rds\_pitr\_blocked\_databases table
 
 - Run the following SQL script.
 
@@ -123,7 +123,7 @@ For the list of eligible and ineligible databases, see the
 `RDSCustomForSQLServer/Instances/`DB_instance_resource_ID`/TransactionLogMetadata`
 directory in the Amazon S3 bucket
 `do-not-delete-rds-custom-`$ACCOUNT_ID`-`$REGION`-`unique_identifier``.
- For more information about the `RI.End` file, see [Transaction logs in Amazon S3](#custom-backup.pitr.sqlserver.tlogs "#custom-backup.pitr.sqlserver.tlogs").
+For more information about the `RI.End` file, see [Transaction logs in Amazon S3](#custom-backup.pitr.sqlserver.tlogs "#custom-backup.pitr.sqlserver.tlogs").
 
 You can also determine the list of eligible databases for PITR using the following SQL script.
 Set the `@limit` variable to the maximum number of databases on eligible for PITR for the instance class. For more
@@ -325,7 +325,8 @@ Use one of the following options to specify the backup to restore from:
 
 - `--source-db-instance-identifier `mysourcedbinstance``
 - `--source-dbi-resource-id `dbinstanceresourceID``
-- `--source-db-instance-automated-backups-arn `backupARN``The`custom-iam-instance-profile` option is required.
+- `--source-db-instance-automated-backups-arn `backupARN``
+  The `custom-iam-instance-profile` option is required.
 
 The following example restores `my-custom-db-instance` to a new DB instance
 named `my-restored-custom-db-instance`, as of the specified time.

@@ -42,7 +42,7 @@ with letters appended sequentially. For example, if your database unique name is
 `ORCL`, the first two replicas are named `ORCL_A` and
 `ORCL_B`. The first six letters, A–F, are reserved for RDS Custom.
 RDS Custom copies database parameters from your primary DB instance to the replicas. For more
-information, see [DB_UNIQUE_NAME](https://docs.oracle.com/database/121/REFRN/GUID-3547C937-5DDA-49FF-A9F9-14FF306545D8.htm#REFRN10242 "https://docs.oracle.com/database/121/REFRN/GUID-3547C937-5DDA-49FF-A9F9-14FF306545D8.htm#REFRN10242") in the Oracle documentation.
+information, see [DB\_UNIQUE\_NAME](https://docs.oracle.com/database/121/REFRN/GUID-3547C937-5DDA-49FF-A9F9-14FF306545D8.htm#REFRN10242 "https://docs.oracle.com/database/121/REFRN/GUID-3547C937-5DDA-49FF-A9F9-14FF306545D8.htm#REFRN10242") in the Oracle documentation.
 
 ### Replica backup retention
 

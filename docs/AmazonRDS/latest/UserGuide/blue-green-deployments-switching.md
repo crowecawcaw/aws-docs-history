@@ -107,9 +107,9 @@ changed to `mydb`.
 RDS renames the DB instances
 in the blue environment by
 appending `-old`n`to the current name, where
-`n``is a number. For example, assume the name of
- a DB instance in the blue environment is`mydb`. After switchover, the DB
- instance name might be `mydb-old1`.
+`n`` is a number. For example, assume the name of
+a DB instance in the blue environment is `mydb`. After switchover, the DB
+instance name might be `mydb-old1`.
 
 RDS also renames the endpoints in the green environment to match the corresponding endpoints in the
 blue environment so that application changes aren't required. 6. Allows connections to databases in both environments. 7. Allows write operations on the primary DB instance
@@ -337,9 +337,10 @@ in the previous blue environment are retained. Standard costs apply to these res
 
 RDS renames the DB instances in the blue environment by appending
 `-old`n`to the current resource name, where
-`n``is a number. The
- DB instances in the old blue environment are read-only until you set the`read_only` parameter (for RDS for MySQL) or the`default_transaction_read_only`parameter (for
- RDS for PostgreSQL) to`0`.
+`n`` is a number. The
+DB instances in the old blue environment are read-only until you set the `read_only`
+parameter (for RDS for MySQL) or the `default_transaction_read_only` parameter (for
+RDS for PostgreSQL) to `0`.
 
 RDS names the DB instances in the green environment
 `-new`n``.
@@ -372,7 +373,8 @@ replication continuity.
 2. Filter by events where the source is the name of the old green DB instance, before switchover.
 3. Locate the event that contains the binary log coordinates. The event message is
    similar to: `Binary log coordinates in green environment after switchover: file
-mysql-bin-changelog.`000003`and position`40134574``.
+ mysql-bin-changelog.`000003`and position
+`40134574``.
 4. Make sure that the consumer or replica has applied all binary logs from the old blue
    environment. Then, use the provided binary log coordinates to resume replication on the
    consumers. For example, if you're running a MySQL replica on EC2, you can use the
@@ -395,9 +397,9 @@ CHANGE REPLICATION SOURCE TO SOURCE_HOST='`{new-writer-endpoint}`', SOURCE_LOG_F
 If the consumer is another RDS for MySQL or RDS for MariaDB DB instance, run the
 following stored procedures in order:
 
-1. [mysql.rds_stop_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication")
-2. [mysql.rds_reset_external_master](mysql-stored-proc-replicating.md#mysql_rds_reset_external_master "mysql-stored-proc-replicating.md#mysql_rds_reset_external_master") (for version 8.0 and lower) or [mysql_rds_reset_external_source](mysql-stored-proc-replicating.md#mysql_rds_reset_external_source "mysql-stored-proc-replicating.md#mysql_rds_reset_external_source") (for
+1. [mysql.rds\_stop\_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication")
+2. [mysql.rds\_reset\_external\_master](mysql-stored-proc-replicating.md#mysql_rds_reset_external_master "mysql-stored-proc-replicating.md#mysql_rds_reset_external_master") (for version 8.0 and lower) or [mysql\_rds\_reset\_external\_source](mysql-stored-proc-replicating.md#mysql_rds_reset_external_source "mysql-stored-proc-replicating.md#mysql_rds_reset_external_source") (for
    version 8.4 and higher)
-3. [mysql.rds_set_external_master](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master") (for version 8.0 and lower) or [mysql_rds_set_external_source](mysql-stored-proc-replicating.md#mysql_rds_set_external_source "mysql-stored-proc-replicating.md#mysql_rds_set_external_source") (for
+3. [mysql.rds\_set\_external\_master](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master") (for version 8.0 and lower) or [mysql\_rds\_set\_external\_source](mysql-stored-proc-replicating.md#mysql_rds_set_external_source "mysql-stored-proc-replicating.md#mysql_rds_set_external_source") (for
    version 8.4 and higher)
-4. [mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication")
+4. [mysql.rds\_start\_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication")

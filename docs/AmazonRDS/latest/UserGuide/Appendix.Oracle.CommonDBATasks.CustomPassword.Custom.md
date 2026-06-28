@@ -1,4 +1,4 @@
-# The create_passthrough_verify_fcn procedure
+# The create\_passthrough\_verify\_fcn procedure
 
 The `create_passthrough_verify_fcn` procedure is supported for all
 versions of RDS for Oracle.

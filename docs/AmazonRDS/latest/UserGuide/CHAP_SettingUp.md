@@ -101,11 +101,10 @@ The following list describes the rules for each VPC option:
 - **DB disk subsystem** – What are your storage
   requirements? Amazon RDS provides three storage types:
 
-      + General Purpose (SSD)
-      + Provisioned IOPS (PIOPS)
-      + Magnetic (also known as standard storage)
-
-  For more information on Amazon RDS storage, see [Amazon RDS DB instance storage](CHAP_Storage.md "CHAP_Storage.md").
+  - General Purpose (SSD)
+  - Provisioned IOPS (PIOPS)
+  - Magnetic (also known as standard storage)
+    For more information on Amazon RDS storage, see [Amazon RDS DB instance storage](CHAP_Storage.md "CHAP_Storage.md").
 
 When you have the information you need to create the security group and the DB instance,
 continue to the next step.
@@ -167,10 +166,8 @@ want to create your DB instance in. 6. In **Inbound rules**, choose **Add rule**
      from the IP address detected in your browser.
 
 7. If you need to add more IP addresses or different port ranges, choose **Add rule**
-   and enter the information for the rule.
-8. (Optional) In **Outbound rules**, add rules for outbound traffic.
-   By default, all outbound traffic is allowed.
-9. Choose **Create security group**.
+and enter the information for the rule. 8. (Optional) In **Outbound rules**, add rules for outbound traffic.
+By default, all outbound traffic is allowed. 9. Choose **Create security group**.
 
 You can use the VPC security group that you just created as the security group for your DB
 instance when you create it.

@@ -21,20 +21,20 @@ procedures also work for MySQL instances running external to Amazon RDS.
 
 ###### Topics
 
-- [mysql.rds_next_source_log_for_channel](#mysql_rds_next_source_log_for_channel "#mysql_rds_next_source_log_for_channel")
-- [mysql.rds_reset_external_source_for_channel](#mysql_rds_reset_external_source_for_channel "#mysql_rds_reset_external_source_for_channel")
-- [mysql.rds_set_external_source_for_channel](#mysql_rds_set_external_source_for_channel "#mysql_rds_set_external_source_for_channel")
-- [mysql.rds_set_external_source_with_auto_position_for_channel](#mysql_rds_set_external_source_with_auto_position_for_channel "#mysql_rds_set_external_source_with_auto_position_for_channel")
-- [mysql.rds_set_external_source_with_delay_for_channel](#mysql_rds_set_external_source_with_delay_for_channel "#mysql_rds_set_external_source_with_delay_for_channel")
-- [mysql.rds_set_source_auto_position_for_channel](#mysql_rds_set_source_auto_position_for_channel "#mysql_rds_set_source_auto_position_for_channel")
-- [mysql.rds_set_source_delay_for_channel](#mysql_rds_set_source_delay_for_channel "#mysql_rds_set_source_delay_for_channel")
-- [mysql.rds_skip_repl_error_for_channel](#mysql_rds_skip_repl_error_for_channel "#mysql_rds_skip_repl_error_for_channel")
-- [mysql.rds_start_replication_for_channel](#mysql_rds_start_replication_for_channel "#mysql_rds_start_replication_for_channel")
-- [mysql.rds_start_replication_until_for_channel](#mysql_rds_start_replication_until_for_channel "#mysql_rds_start_replication_until_for_channel")
-- [mysql.rds_start_replication_until_gtid_for_channel](#mysql_rds_start_replication_until_gtid_for_channel "#mysql_rds_start_replication_until_gtid_for_channel")
-- [mysql.rds_stop_replication_for_channel](#mysql_rds_stop_replication_for_channel "#mysql_rds_stop_replication_for_channel")
+- [mysql.rds\_next\_source\_log\_for\_channel](#mysql_rds_next_source_log_for_channel "#mysql_rds_next_source_log_for_channel")
+- [mysql.rds\_reset\_external\_source\_for\_channel](#mysql_rds_reset_external_source_for_channel "#mysql_rds_reset_external_source_for_channel")
+- [mysql.rds\_set\_external\_source\_for\_channel](#mysql_rds_set_external_source_for_channel "#mysql_rds_set_external_source_for_channel")
+- [mysql.rds\_set\_external\_source\_with\_auto\_position\_for\_channel](#mysql_rds_set_external_source_with_auto_position_for_channel "#mysql_rds_set_external_source_with_auto_position_for_channel")
+- [mysql.rds\_set\_external\_source\_with\_delay\_for\_channel](#mysql_rds_set_external_source_with_delay_for_channel "#mysql_rds_set_external_source_with_delay_for_channel")
+- [mysql.rds\_set\_source\_auto\_position\_for\_channel](#mysql_rds_set_source_auto_position_for_channel "#mysql_rds_set_source_auto_position_for_channel")
+- [mysql.rds\_set\_source\_delay\_for\_channel](#mysql_rds_set_source_delay_for_channel "#mysql_rds_set_source_delay_for_channel")
+- [mysql.rds\_skip\_repl\_error\_for\_channel](#mysql_rds_skip_repl_error_for_channel "#mysql_rds_skip_repl_error_for_channel")
+- [mysql.rds\_start\_replication\_for\_channel](#mysql_rds_start_replication_for_channel "#mysql_rds_start_replication_for_channel")
+- [mysql.rds\_start\_replication\_until\_for\_channel](#mysql_rds_start_replication_until_for_channel "#mysql_rds_start_replication_until_for_channel")
+- [mysql.rds\_start\_replication\_until\_gtid\_for\_channel](#mysql_rds_start_replication_until_gtid_for_channel "#mysql_rds_start_replication_until_gtid_for_channel")
+- [mysql.rds\_stop\_replication\_for\_channel](#mysql_rds_stop_replication_for_channel "#mysql_rds_stop_replication_for_channel")
 
-## mysql.rds_next_source_log_for_channel
+## mysql.rds\_next\_source\_log\_for\_channel
 
 Changes the source DB instance log position to the start of the next binary log on the
 source DB instance for the channel. Use this procedure only if you are receiving
@@ -66,7 +66,7 @@ single source RDS for MySQL DB instance running on a specific host and port.
 ### Usage notes
 
 The master user must run the `mysql.rds_next_source_log_for_channel`
-procedure. If there is an IO_Thread error, for example, you can use this procedure
+procedure. If there is an IO\_Thread error, for example, you can use this procedure
 to skip all the events in the current binary log file and resume the replication
 from the next binary log file for the channel specified in
 `channel_name`.
@@ -118,7 +118,7 @@ parameters:
 CALL mysql.rds_next_source_log_for_channel(12345,'channel_1');
 ```
 
-## mysql.rds_reset_external_source_for_channel
+## mysql.rds\_reset\_external\_source\_for\_channel
 
 Stops the replication process on the specified channel, and removes the channel and
 associated configurations from the multi-source replica.
@@ -146,7 +146,7 @@ single source RDS for MySQL DB instance running on a specific host and port.
 The master user must run the `mysql.rds_reset_external_source_for_channel`
 procedure. This procedure deletes all relay logs that belong to the channel being removed.
 
-## mysql.rds_set_external_source_for_channel
+## mysql.rds\_set\_external\_source\_for\_channel
 
 Configures a replication channel on an RDS for MySQL DB instance to replicate the data
 from another RDS for MySQL DB instance.
@@ -158,7 +158,7 @@ parameter to `1`. For information about modifying parameters, see [Modifying par
 
 ###### Note
 
-You can use the [mysql.rds_set_external_source_with_delay_for_channel](#mysql_rds_set_external_source_with_delay_for_channel "#mysql_rds_set_external_source_with_delay_for_channel") stored
+You can use the [mysql.rds\_set\_external\_source\_with\_delay\_for\_channel](#mysql_rds_set_external_source_with_delay_for_channel "#mysql_rds_set_external_source_with_delay_for_channel") stored
 procedure instead to configure this channel with delayed replication.
 
 ### Syntax
@@ -267,7 +267,7 @@ CREATE USER 'repl_user'@'example.com' IDENTIFIED BY '`password`';
    `REPLICATION SLAVE` privileges to your replication user. The
    following example grants `REPLICATION CLIENT` and
    `REPLICATION SLAVE` privileges on all databases for the
-   'repl_user' user for your domain.
+   'repl\_user' user for your domain.
 
 ```
 GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'example.com';
@@ -276,8 +276,8 @@ GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'example.com';
 To use encrypted replication, configure the source DB instance to use SSL connections.
 
 After calling `mysql.rds_set_external_source_for_channel` to configure
-this replication channel, you can call [mysql.rds_start_replication_for_channel](#mysql_rds_start_replication_for_channel "#mysql_rds_start_replication_for_channel") on the replica to
-start the replication process on the channel. You can call [mysql.rds_reset_external_source_for_channel](#mysql_rds_reset_external_source_for_channel "#mysql_rds_reset_external_source_for_channel") to stop replication on
+this replication channel, you can call [mysql.rds\_start\_replication\_for\_channel](#mysql_rds_start_replication_for_channel "#mysql_rds_start_replication_for_channel") on the replica to
+start the replication process on the channel. You can call [mysql.rds\_reset\_external\_source\_for\_channel](#mysql_rds_reset_external_source_for_channel "#mysql_rds_reset_external_source_for_channel") to stop replication on
 the channel and remove the channel configuration from the replica.
 
 When you call `mysql.rds_set_external_source_for_channel`, Amazon RDS records
@@ -306,7 +306,7 @@ call mysql.rds_set_external_source_for_channel(
 
 ```
 
-## mysql.rds_set_external_source_with_auto_position_for_channel
+## mysql.rds\_set\_external\_source\_with\_auto\_position\_for\_channel
 
 Configures a replication channel on an RDS for MySQL DB instance with an optional replication delay. The replication is based on global transaction identifiers (GTIDs).
 
@@ -406,7 +406,7 @@ CREATE USER 'repl_user'@'example.com' IDENTIFIED BY '`password`';
    `REPLICATION SLAVE` privileges to your replication user. The
    following example grants `REPLICATION CLIENT` and
    `REPLICATION SLAVE` privileges on all databases for the
-   'repl_user' user for your domain.
+   'repl\_user' user for your domain.
 
 ```
 GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'example.com';
@@ -415,19 +415,19 @@ GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'example.com';
 To use encrypted replication, configure the source DB instance to use SSL connections.
 
 Before you call `mysql.rds_set_external_source_with_auto_position_for_channel`,
-make sure to call [mysql.rds_set_external_source_gtid_purged](mysql-stored-proc-replicating.md#mysql_rds_set_external_source_gtid_purged "mysql-stored-proc-replicating.md#mysql_rds_set_external_source_gtid_purged") to set
+make sure to call [mysql.rds\_set\_external\_source\_gtid\_purged](mysql-stored-proc-replicating.md#mysql_rds_set_external_source_gtid_purged "mysql-stored-proc-replicating.md#mysql_rds_set_external_source_gtid_purged") to set
 the `gtid_purged` system variable with a specified GTID range from an
 external source.
 
 After calling
 `mysql.rds_set_external_source_with_auto_position_for_channel` to
 configure an Amazon RDS DB instance as a read replica on a specific channel, you can call
-[mysql.rds_start_replication_for_channel](#mysql_rds_start_replication_for_channel "#mysql_rds_start_replication_for_channel") on the read replica to
+[mysql.rds\_start\_replication\_for\_channel](#mysql_rds_start_replication_for_channel "#mysql_rds_start_replication_for_channel") on the read replica to
 start the replication process on that channel.
 
 After calling `mysql.rds_set_external_source_with_auto_position_for_channel` to configure
-this replication channel, you can call [mysql.rds_start_replication_for_channel](#mysql_rds_start_replication_for_channel "#mysql_rds_start_replication_for_channel") on the replica to
-start the replication process on the channel. You can call [mysql.rds_reset_external_source_for_channel](#mysql_rds_reset_external_source_for_channel "#mysql_rds_reset_external_source_for_channel") to stop replication on
+this replication channel, you can call [mysql.rds\_start\_replication\_for\_channel](#mysql_rds_start_replication_for_channel "#mysql_rds_start_replication_for_channel") on the replica to
+start the replication process on the channel. You can call [mysql.rds\_reset\_external\_source\_for\_channel](#mysql_rds_reset_external_source_for_channel "#mysql_rds_reset_external_source_for_channel") to stop replication on
 the channel and remove the channel configuration from the replica.
 
 ### Examples
@@ -451,7 +451,7 @@ call mysql.rds_set_external_source_with_auto_position_for_channel(
 
 ```
 
-## mysql.rds_set_external_source_with_delay_for_channel
+## mysql.rds\_set\_external\_source\_with\_delay\_for\_channel
 
 Configures a replication channel on an RDS for MySQL DB instance with a specified replication delay.
 
@@ -572,7 +572,7 @@ CREATE USER 'repl_user'@'example.com' IDENTIFIED BY '`password`';
    `REPLICATION SLAVE` privileges to your replication user. The
    following example grants `REPLICATION CLIENT` and
    `REPLICATION SLAVE` privileges on all databases for the
-   'repl_user' user for your domain.
+   'repl\_user' user for your domain.
 
 ```
 GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'example.com';
@@ -581,8 +581,8 @@ GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'example.com';
 To use encrypted replication, configure the source DB instance to use SSL connections.
 
 After calling `mysql.rds_set_external_source_with_delay_for_channel` to configure
-this replication channel, you can call [mysql.rds_start_replication_for_channel](#mysql_rds_start_replication_for_channel "#mysql_rds_start_replication_for_channel") on the replica to
-start the replication process on the channel. You can call [mysql.rds_reset_external_source_for_channel](#mysql_rds_reset_external_source_for_channel "#mysql_rds_reset_external_source_for_channel") to stop replication on
+this replication channel, you can call [mysql.rds\_start\_replication\_for\_channel](#mysql_rds_start_replication_for_channel "#mysql_rds_start_replication_for_channel") on the replica to
+start the replication process on the channel. You can call [mysql.rds\_reset\_external\_source\_for\_channel](#mysql_rds_reset_external_source_for_channel "#mysql_rds_reset_external_source_for_channel") to stop replication on
 the channel and remove the channel configuration from the replica.
 
 When you call `mysql.rds_set_external_source_with_delay_for_channel`, Amazon RDS records
@@ -614,7 +614,7 @@ call mysql.rds_set_external_source_with_delay_for_channel(
 
 ```
 
-## mysql.rds_set_source_auto_position_for_channel
+## mysql.rds\_set\_source\_auto\_position\_for\_channel
 
 Sets the replication mode for the specified channel to be based on either binary log file positions or on global transaction identifiers (GTIDs).
 
@@ -650,14 +650,14 @@ procedure. This procedure restarts replication on the specified channel to apply
 
 ### Examples
 
-The following example sets the auto position mode for channel_1 to use the GTID-based replication method.
+The following example sets the auto position mode for channel\_1 to use the GTID-based replication method.
 
 ```
 call mysql.rds_set_source_auto_position_for_channel(1,'channel_1');
 
 ```
 
-## mysql.rds_set_source_delay_for_channel
+## mysql.rds\_set\_source\_delay\_for\_channel
 
 Sets the minimum number of seconds to delay replication from the source database
 instance to the multi-source replica for the specified channel.
@@ -700,7 +700,7 @@ instance on `channel_1` of the multi-source replica for at least one hour
 CALL mysql.rds_set_source_delay_for_channel(3600,'channel_1');
 ```
 
-## mysql.rds_skip_repl_error_for_channel
+## mysql.rds\_skip\_repl\_error\_for\_channel
 
 Skips a binary log event and deletes a replication error on a MySQL DB multi-source
 replica for the specified channel.
@@ -723,11 +723,11 @@ single source RDS for MySQL DB instance running on a specific host and port.
 The master user must run the `mysql.rds_skip_repl_error_for_channel`
 procedure on a read replica. You can use this procedure in a similar way
 `mysql.rds_skip_repl_error` is used to skip an error on a read
-replica. For more information, see [Calling the mysql.rds_skip_repl_error procedure](Appendix.MySQL.CommonDBATasks.SkipError.md#Appendix.MySQL.CommonDBATasks.SkipError.procedure "Appendix.MySQL.CommonDBATasks.SkipError.md#Appendix.MySQL.CommonDBATasks.SkipError.procedure").
+replica. For more information, see [Calling the mysql.rds\_skip\_repl\_error procedure](Appendix.MySQL.CommonDBATasks.SkipError.md#Appendix.MySQL.CommonDBATasks.SkipError.procedure "Appendix.MySQL.CommonDBATasks.SkipError.md#Appendix.MySQL.CommonDBATasks.SkipError.procedure").
 
 ###### Note
 
-To skip errors in GTID-based replication, we recommend that you use the procedure [mysql.rds_skip_transaction_with_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") instead.
+To skip errors in GTID-based replication, we recommend that you use the procedure [mysql.rds\_skip\_transaction\_with\_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") instead.
 
 To determine if there are errors, run the MySQL `SHOW REPLICA STATUS FOR CHANNEL '`channel_name`'\G`
 command. If a replication error isn't critical, you can run
@@ -739,14 +739,14 @@ values returned, see
 [SHOW REPLICA STATUS
 statement](https://dev.mysql.com/doc/refman/8.0/en/show-replica-status.html "https://dev.mysql.com/doc/refman/8.0/en/show-replica-status.html") in the MySQL documentation.
 
-## mysql.rds_start_replication_for_channel
+## mysql.rds\_start\_replication\_for\_channel
 
 Initiates replication from an RDS for MySQL DB instance to a multi-source replica on the specified channel.
 
 ###### Note
 
-You can use the [mysql.rds_start_replication_until_for_channel](#mysql_rds_start_replication_until_for_channel "#mysql_rds_start_replication_until_for_channel") or
-[mysql.rds_start_replication_until_gtid_for_channel](#mysql_rds_start_replication_until_gtid_for_channel "#mysql_rds_start_replication_until_gtid_for_channel")
+You can use the [mysql.rds\_start\_replication\_until\_for\_channel](#mysql_rds_start_replication_until_for_channel "#mysql_rds_start_replication_until_for_channel") or
+[mysql.rds\_start\_replication\_until\_gtid\_for\_channel](#mysql_rds_start_replication_until_gtid_for_channel "#mysql_rds_start_replication_until_gtid_for_channel")
 stored procedure to initiate replication from an RDS for MySQL DB instance and stop replication at the specified binary log file location.
 
 ### Syntax
@@ -778,7 +778,7 @@ multi-source replica.
 CALL mysql.rds_start_replication_for_channel('channel_1');
 ```
 
-## mysql.rds_start_replication_until_for_channel
+## mysql.rds\_start\_replication\_until\_for\_channel
 
 Initiates replication from an RDS for MySQL DB instance on the specified channel and stops replication at the specified binary log file location.
 
@@ -836,7 +836,7 @@ call mysql.rds_start_replication_until_for_channel(
 
 ```
 
-## mysql.rds_start_replication_until_gtid_for_channel
+## mysql.rds\_start\_replication\_until\_gtid\_for\_channel
 
 Initiates replication on the specified channel from an RDS for MySQL DB instance and stops replication at the specified global transaction identifier (GTID).
 
@@ -876,7 +876,7 @@ call mysql.rds_start_replication_until_gtid_for_channel('3E11FA47-71CA-11E1-9E33
 
 ```
 
-## mysql.rds_stop_replication_for_channel
+## mysql.rds\_stop\_replication\_for\_channel
 
 Stops replication from a MySQL DB instance on the specified channel.
 

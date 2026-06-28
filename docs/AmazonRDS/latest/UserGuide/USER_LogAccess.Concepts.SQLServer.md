@@ -15,7 +15,7 @@ following is the retention schedule for Microsoft SQL Server logs on Amazon RDS.
 | Trace files | Trace files are retained according to the trace file retention<br>period of your DB instance. The default trace file retention period<br>is 7 days. To modify the trace file retention period for your DB<br>instance, see [Setting the retention period for trace and dump files](Appendix.SQLServer.CommonDBATasks.TraceFiles.md#Appendix.SQLServer.CommonDBATasks.TraceFiles.PurgeTraceFiles "Appendix.SQLServer.CommonDBATasks.TraceFiles.md#Appendix.SQLServer.CommonDBATasks.TraceFiles.PurgeTraceFiles"). |
 | Dump files  | Dump files are retained according to the dump file retention<br>period of your DB instance. The default dump file retention period<br>is 7 days. To modify the dump file retention period for your DB<br>instance, see [Setting the retention period for trace and dump files](Appendix.SQLServer.CommonDBATasks.TraceFiles.md#Appendix.SQLServer.CommonDBATasks.TraceFiles.PurgeTraceFiles "Appendix.SQLServer.CommonDBATasks.TraceFiles.md#Appendix.SQLServer.CommonDBATasks.TraceFiles.PurgeTraceFiles").     |
 
-## Viewing the SQL Server error log by using the rds_read_error_log procedure
+## Viewing the SQL Server error log by using the rds\_read\_error\_log procedure
 
 You can use the Amazon RDS stored procedure `rds_read_error_log` to view error
 logs and agent logs. For more information, see [Viewing error and agent logs](Appendix.SQLServer.CommonDBATasks.Logs.md#Appendix.SQLServer.CommonDBATasks.Logs.SP "Appendix.SQLServer.CommonDBATasks.Logs.md#Appendix.SQLServer.CommonDBATasks.Logs.SP").

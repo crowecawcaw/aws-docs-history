@@ -23,10 +23,10 @@ You can skip an error on your read replica in the following ways.
 
 ###### Topics
 
-- [Calling the mysql.rds_skip_repl_error procedure](#Appendix.MySQL.CommonDBATasks.SkipError.procedure "#Appendix.MySQL.CommonDBATasks.SkipError.procedure")
-- [Setting the slave_skip_errors parameter](#Appendix.MySQL.CommonDBATasks.SkipError.parameter "#Appendix.MySQL.CommonDBATasks.SkipError.parameter")
+- [Calling the mysql.rds\_skip\_repl\_error procedure](#Appendix.MySQL.CommonDBATasks.SkipError.procedure "#Appendix.MySQL.CommonDBATasks.SkipError.procedure")
+- [Setting the slave\_skip\_errors parameter](#Appendix.MySQL.CommonDBATasks.SkipError.parameter "#Appendix.MySQL.CommonDBATasks.SkipError.parameter")
 
-## Calling the mysql.rds_skip_repl_error procedure
+## Calling the mysql.rds\_skip\_repl\_error procedure
 
 Amazon RDS provides a stored procedure that you can call to skip an error on your read
 replicas. First connect to your read replica, then issue the appropriate commands as
@@ -42,7 +42,7 @@ This command has no effect if you run it on the source DB instance, or on a read
 replica that hasn't encountered a replication error.
 
 For more information, such as the versions of MySQL that support
-`mysql.rds_skip_repl_error`, see [mysql.rds_skip_repl_error](mysql-stored-proc-replicating.md#mysql_rds_skip_repl_error "mysql-stored-proc-replicating.md#mysql_rds_skip_repl_error").
+`mysql.rds_skip_repl_error`, see [mysql.rds\_skip\_repl\_error](mysql-stored-proc-replicating.md#mysql_rds_skip_repl_error "mysql-stored-proc-replicating.md#mysql_rds_skip_repl_error").
 
 ###### Important
 
@@ -50,9 +50,9 @@ If you attempt to call `mysql.rds_skip_repl_error` and encounter
 the following error: `ERROR 1305 (42000): PROCEDURE
  mysql.rds_skip_repl_error does not exist`, then upgrade your MySQL DB
 instance to the latest minor version or one of the minimum minor versions listed
-in [mysql.rds_skip_repl_error](mysql-stored-proc-replicating.md#mysql_rds_skip_repl_error "mysql-stored-proc-replicating.md#mysql_rds_skip_repl_error").
+in [mysql.rds\_skip\_repl\_error](mysql-stored-proc-replicating.md#mysql_rds_skip_repl_error "mysql-stored-proc-replicating.md#mysql_rds_skip_repl_error").
 
-## Setting the slave_skip_errors parameter
+## Setting the slave\_skip\_errors parameter
 
 To skip one or more errors, you can set the `slave_skip_errors` static
 parameter on the read replica. You can set this parameter to skip one or more

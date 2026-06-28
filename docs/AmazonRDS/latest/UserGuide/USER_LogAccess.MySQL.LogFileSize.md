@@ -61,9 +61,9 @@ parameters in this list:
 - `general_log`: To create the general log, set to 1. The default is 0.
 - `long_query_time`: To prevent fast-running queries from being logged in the
   slow query log, specify a value for the shortest query runtime to be logged, in
-  seconds. The default is 10 seconds; the minimum is 0. If log_output = FILE, you
+  seconds. The default is 10 seconds; the minimum is 0. If log\_output = FILE, you
   can specify a floating point value that goes to microsecond resolution. If
-  log_output = TABLE, you must specify an integer value with second resolution.
+  log\_output = TABLE, you must specify an integer value with second resolution.
   Only queries whose runtime exceeds the `long_query_time` value are
   logged. For example, setting `long_query_time` to 0.1 prevents any
   query that runs for less than 100 milliseconds from being logged.
@@ -72,7 +72,7 @@ parameters in this list:
   even if their runtime is less than the value of the `long_query_time`
   parameter. The default is 0.
 - `log_output `option``: You can specify one of the following
-options for the `log_output` parameter.
+  options for the `log_output` parameter.
 
   - TABLE
     (default) – Write general queries to the
@@ -119,7 +119,7 @@ and deletion as follows:
   GB. If the amount of space used for a DB instance is greater than 90 percent of the DB instance's allocated storage space, then the
   thresholds for log rotation are reduced. Log tables are then rotated if the space used by the table logs is more than 10 percent of the
   allocated storage space. They're also rotated if the size of all logs combined is greater than 5 GB. You can subscribe to the `low
-storage` event category to be notified when log tables are rotated to free up space. For more information, see [Working with Amazon RDS event notification](USER_Events.md "USER_Events.md").
+ storage` event category to be notified when log tables are rotated to free up space. For more information, see [Working with Amazon RDS event notification](USER_Events.md "USER_Events.md").
 
 When log tables are rotated, the current log table is first copied to a backup
 log table. Then the entries in the current log table are removed. If the backup

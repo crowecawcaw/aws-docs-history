@@ -48,7 +48,7 @@ aws s3 cp s3://`amzn-s3-demo-bucket`/`sample_file_path` ./
    credentials. For more information, see [Setting up access to an Amazon S3 bucket](USER_PostgreSQL.S3Import.AccessPermission.md "USER_PostgreSQL.S3Import.AccessPermission.md").
 5. Supply the path and other Amazon S3 object details gathered (see step 2) to the
    `create_s3_uri` function to construct an Amazon S3 URI object. To learn
-   more about this function, see [aws_commons.create_s3_uri](USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri "USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri").
+   more about this function, see [aws\_commons.create\_s3\_uri](USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri "USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri").
    The following is an example of constructing this object during a psql session.
 
 ```
@@ -63,6 +63,6 @@ In the next step, you pass this object (`aws_commons._s3_uri_1`) to the
 `aws_s3.table_import_from_s3` function to import the data to the table. 6. Invoke the `aws_s3.table_import_from_s3`
 function to import the data from Amazon S3 into your table.
 For reference information, see
-[aws_s3.table_import_from_s3](USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3").
+[aws\_s3.table\_import\_from\_s3](USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3").
 
 For examples, see [Importing data from Amazon S3 to your RDS for PostgreSQL DB instance](USER_PostgreSQL.S3Import.FileFormats.md "USER_PostgreSQL.S3Import.FileFormats.md").

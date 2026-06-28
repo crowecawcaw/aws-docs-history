@@ -84,14 +84,13 @@ Retrieve your secret key using either AWS Management Console or the AWS CLI.
 
 In this example, the instance ID is `i-abcdefghijklm01234`. 8. In **Details**, find **Key pair name**. The pair name includes the DB
 identifier. In this example, the pair name is
-`do-not-delete-rds-custom-`my-custom-instance`-`0d726c``.
-9. In the instance summary, find **Public IPv4 DNS**. For the example, the public DNS might
- be `ec2-12-345-678-901.us-east-2.compute.amazonaws.com`. 10. Open the AWS Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/"). 11. Choose the secret that has the same name as your key pair. 12. Choose **Retrieve secret value**.
+`do-not-delete-rds-custom-`my-custom-instance`-`0d726c``. 9. In the instance summary, find **Public IPv4 DNS**. For the example, the public DNS might
+be `ec2-12-345-678-901.us-east-2.compute.amazonaws.com`. 10. Open the AWS Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/"). 11. Choose the secret that has the same name as your key pair. 12. Choose **Retrieve secret value**.
 
 ###### To retrieve the private key
 
 1. Get the list of your RDS Custom DB instances by calling the `aws rds
-describe-db-instances` command.
+ describe-db-instances` command.
 
 ```
 aws rds describe-db-instances \

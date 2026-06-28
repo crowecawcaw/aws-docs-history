@@ -42,26 +42,24 @@ FILE = 'C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA\`ce
 ENCRYPTION BY PASSWORD = 'U/fpGtmzGCYBi8A2+0/9qcRQRK2zmG/aOn939ZnKi/0=');
 ```
 
-3.  Save the certificate backup file to your Amazon S3 certificate bucket.
-4.  Save the private key backup file to your S3 certificate bucket, with the following tag in the file's
-    metadata:
+3. Save the certificate backup file to your Amazon S3 certificate bucket.
+4. Save the private key backup file to your S3 certificate bucket, with the following tag in the file's
+   metadata:
 
-        * Key – `x-amz-meta-rds-tde-pwd`
-        * Value – The `CiphertextBlob` value from generating
-         the data key, as in the following example.
+   - Key – `x-amz-meta-rds-tde-pwd`
+   - Value – The `CiphertextBlob` value from generating
+     the data key, as in the following example.
 
+   ```
+   AQIDAHimL2NEoAlOY6Bn7LJfnxi/OZe9kTQo/XQXduug1rmerwGiL7g5ux4av9GfZLxYTDATAAAAfjB8BgkqhkiG9w0B
+   BwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMyCxLMi7GRZgKqD65AgEQgDtjvZLJo2cQ31Vetngzm2ybHDc3d2vI74SRUzZ
+   2RezQy3sAS6ZHrCjfnfn0c65bFdhsXxjSMnudIY7AKw==
+   ```
 
-
-        ```
-        AQIDAHimL2NEoAlOY6Bn7LJfnxi/OZe9kTQo/XQXduug1rmerwGiL7g5ux4av9GfZLxYTDATAAAAfjB8BgkqhkiG9w0B
-        BwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMyCxLMi7GRZgKqD65AgEQgDtjvZLJo2cQ31Vetngzm2ybHDc3d2vI74SRUzZ
-        2RezQy3sAS6ZHrCjfnfn0c65bFdhsXxjSMnudIY7AKw==
-        ```
-
-    The following procedure restores an RDS for SQL Server TDE certificate to an on-premises DB
-    instance. You copy and restore the TDE certificate on your destination DB instance using
-    the certificate backup, corresponding private key file, and data key. The restored
-    certificate is encrypted by the database master key of the new server.
+The following procedure restores an RDS for SQL Server TDE certificate to an on-premises DB
+instance. You copy and restore the TDE certificate on your destination DB instance using
+the certificate backup, corresponding private key file, and data key. The restored
+certificate is encrypted by the database master key of the new server.
 
 ###### To restore a TDE certificate
 

@@ -15,7 +15,7 @@ Disabling resource governor has the following results:
 
 The following procedure removes the `RESOURCE_GOVERNOR` option.
 
-###### To remove the RESOURCE_GOVERNOR option from its option group
+###### To remove the RESOURCE\_GOVERNOR option from its option group
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
@@ -23,14 +23,14 @@ The following procedure removes the `RESOURCE_GOVERNOR` option.
 3. Choose the option group with the `RESOURCE_GOVERNOR`
    option (`resource-governor-ee-2022` in the previous examples).
 4. Choose **Delete option**.
-5. Under **Deletion options**, choose **RESOURCE_GOVERNOR**
+5. Under **Deletion options**, choose **RESOURCE\_GOVERNOR**
    for **Options to delete**.
 6. Under **Apply immediately**, choose **Yes** to delete
    the option immediately, or **No** to delete it during the next maintenance window.
 7. Choose **Delete**.
    The following procedure removes the `RESOURCE_GOVERNOR` option.
 
-###### To remove the RESOURCE_GOVERNOR option from its option group
+###### To remove the RESOURCE\_GOVERNOR option from its option group
 
 - Run one of the following commands.
 

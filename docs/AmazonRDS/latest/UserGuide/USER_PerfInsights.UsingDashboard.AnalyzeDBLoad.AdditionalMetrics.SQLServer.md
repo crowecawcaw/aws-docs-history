@@ -17,75 +17,75 @@ and executable stored procedures. In this case, the `sql_handle` value is displa
 
 The following metrics provide per-second statistics for a SQL Server SQL query.
 
-| Metric                                    | Unit                            |
-| ----------------------------------------- | ------------------------------- |
-| db.sql.stats.execution_count_per_sec      | Number of executions per second |
-| db.sql.stats.total_elapsed_time_per_sec   | Total elapsed time per second   |
-| db.sql.stats.total_rows_per_sec           | Total rows processed per second |
-| db.sql.stats.total_logical_reads_per_sec  | Total logical reads per second  |
-| db.sql.stats.total_logical_writes_per_sec | Total logical writes per second |
-| db.sql.stats.total_physical_reads_per_sec | Total physical reads per second |
-| db.sql.stats.total_worker_time_per_sec    | Total CPU time (in ms)          |
+| Metric                                        | Unit                            |
+| --------------------------------------------- | ------------------------------- |
+| db.sql.stats.execution\_count\_per\_sec       | Number of executions per second |
+| db.sql.stats.total\_elapsed\_time\_per\_sec   | Total elapsed time per second   |
+| db.sql.stats.total\_rows\_per\_sec            | Total rows processed per second |
+| db.sql.stats.total\_logical\_reads\_per\_sec  | Total logical reads per second  |
+| db.sql.stats.total\_logical\_writes\_per\_sec | Total logical writes per second |
+| db.sql.stats.total\_physical\_reads\_per\_sec | Total physical reads per second |
+| db.sql.stats.total\_worker\_time\_per\_sec    | Total CPU time (in ms)          |
 
 The following metrics provide per-second statistics for a SQL Server SQL digest
 query.
 
-| Metric                                              | Unit                            |
-| --------------------------------------------------- | ------------------------------- |
-| db.sql_tokenized.stats.execution_count_per_sec      | Number of execution per second  |
-| db.sql_tokenized.stats.total_elapsed_time_per_sec   | Total elapsed time per second   |
-| db.sql_tokenized.stats.total_rows_per_sec           | Total rows processed per second |
-| db.sql_tokenized.stats.total_logical_reads_per_sec  | Total logical reads per second  |
-| db.sql_tokenized.stats.total_logical_writes_per_sec | Total logical writes per second |
-| db.sql_tokenized.stats.total_physical_reads_per_sec | Total physical reads per second |
-| db.sql_tokenized.stats.total_worker_time_per_sec    | Total CPU time (in ms)          |
+| Metric                                                   | Unit                            |
+| -------------------------------------------------------- | ------------------------------- |
+| db.sql\_tokenized.stats.execution\_count\_per\_sec       | Number of execution per second  |
+| db.sql\_tokenized.stats.total\_elapsed\_time\_per\_sec   | Total elapsed time per second   |
+| db.sql\_tokenized.stats.total\_rows\_per\_sec            | Total rows processed per second |
+| db.sql\_tokenized.stats.total\_logical\_reads\_per\_sec  | Total logical reads per second  |
+| db.sql\_tokenized.stats.total\_logical\_writes\_per\_sec | Total logical writes per second |
+| db.sql\_tokenized.stats.total\_physical\_reads\_per\_sec | Total physical reads per second |
+| db.sql\_tokenized.stats.total\_worker\_time\_per\_sec    | Total CPU time (in ms)          |
 
 ## Per-call statistics for SQL Server
 
 The following metrics provide per-call statistics for a SQL Server SQL statement.
 
-| Metric                                     | Unit                                     |
-| ------------------------------------------ | ---------------------------------------- |
-| db.sql.stats.total_elapsed_time_per_call   | Total elapsed time per execution (in ms) |
-| db.sql.stats.total_rows_per_call           | Total rows processed per execution       |
-| db.sql.stats.total_logical_reads_per_call  | Total logical reads per execution        |
-| db.sql.stats.total_logical_writes_per_call | Total logical writes per execution       |
-| db.sql.stats.total_physical_reads_per_call | Total physical reads per execution       |
-| db.sql.stats.total_worker_time_per_call    | Total CPU time per execution (in ms)     |
+| Metric                                         | Unit                                     |
+| ---------------------------------------------- | ---------------------------------------- |
+| db.sql.stats.total\_elapsed\_time\_per\_call   | Total elapsed time per execution (in ms) |
+| db.sql.stats.total\_rows\_per\_call            | Total rows processed per execution       |
+| db.sql.stats.total\_logical\_reads\_per\_call  | Total logical reads per execution        |
+| db.sql.stats.total\_logical\_writes\_per\_call | Total logical writes per execution       |
+| db.sql.stats.total\_physical\_reads\_per\_call | Total physical reads per execution       |
+| db.sql.stats.total\_worker\_time\_per\_call    | Total CPU time per execution (in ms)     |
 
 The following metrics provide per-call statistics for a SQL Server SQL digest query.
 
-| Metric                                               | Unit                                 |
-| ---------------------------------------------------- | ------------------------------------ |
-| db.sql_tokenized.stats.total_elapsed_time_per_call   | Total elapsed time per execution     |
-| db.sql_tokenized.stats.total_rows_per_call           | Total rows processed per execution   |
-| db.sql_tokenized.stats.total_logical_reads_per_call  | Total logical reads per execution    |
-| db.sql_tokenized.stats.total_logical_writes_per_call | Total logical writes per execution   |
-| db.sql_tokenized.stats.total_physical_reads_per_call | Total physical reads per execution   |
-| db.sql_tokenized.stats.total_worker_time_per_call    | Total CPU time per execution (in ms) |
+| Metric                                                    | Unit                                 |
+| --------------------------------------------------------- | ------------------------------------ |
+| db.sql\_tokenized.stats.total\_elapsed\_time\_per\_call   | Total elapsed time per execution     |
+| db.sql\_tokenized.stats.total\_rows\_per\_call            | Total rows processed per execution   |
+| db.sql\_tokenized.stats.total\_logical\_reads\_per\_call  | Total logical reads per execution    |
+| db.sql\_tokenized.stats.total\_logical\_writes\_per\_call | Total logical writes per execution   |
+| db.sql\_tokenized.stats.total\_physical\_reads\_per\_call | Total physical reads per execution   |
+| db.sql\_tokenized.stats.total\_worker\_time\_per\_call    | Total CPU time per execution (in ms) |
 
 ## Primary statistics for SQL Server
 
 The following metrics provide primary statistics for a SQL Server SQL query.
 
-| Metric                            | Unit                       |
-| --------------------------------- | -------------------------- |
-| db.sql.stats.execution_count      | Number of executions       |
-| db.sql.stats.total_elapsed_time   | Total elapsed time (in ms) |
-| db.sql.stats.total_rows           | Total rows processed       |
-| db.sql.stats.total_logical_reads  | Total logical reads        |
-| db.sql.stats.total_logical_writes | Total logical writes       |
-| db.sql.stats.total_physical_reads | Total physical reads       |
-| db.sql.stats.total_worker_time    | Total CPU time (in ms)     |
+| Metric                              | Unit                       |
+| ----------------------------------- | -------------------------- |
+| db.sql.stats.execution\_count       | Number of executions       |
+| db.sql.stats.total\_elapsed\_time   | Total elapsed time (in ms) |
+| db.sql.stats.total\_rows            | Total rows processed       |
+| db.sql.stats.total\_logical\_reads  | Total logical reads        |
+| db.sql.stats.total\_logical\_writes | Total logical writes       |
+| db.sql.stats.total\_physical\_reads | Total physical reads       |
+| db.sql.stats.total\_worker\_time    | Total CPU time (in ms)     |
 
 The following metrics provide primary statistics for a SQL Server SQL digest query.
 
-| Metric                                      | Unit                       |
-| ------------------------------------------- | -------------------------- |
-| db.sql_tokenized.stats.execution_count      | Number of execution        |
-| db.sql_tokenized.stats.total_elapsed_time   | Total elapsed time (in ms) |
-| db.sql_tokenized.stats.total_rows           | Total rows processed       |
-| db.sql_tokenized.stats.total_logical_reads  | Total logical reads        |
-| db.sql_tokenized.stats.total_logical_writes | Total logical writes       |
-| db.sql_tokenized.stats.total_physical_reads | Total physical reads       |
-| db.sql_tokenized.stats.total_worker_time    | Total CPU time (in ms)     |
+| Metric                                         | Unit                       |
+| ---------------------------------------------- | -------------------------- |
+| db.sql\_tokenized.stats.execution\_count       | Number of execution        |
+| db.sql\_tokenized.stats.total\_elapsed\_time   | Total elapsed time (in ms) |
+| db.sql\_tokenized.stats.total\_rows            | Total rows processed       |
+| db.sql\_tokenized.stats.total\_logical\_reads  | Total logical reads        |
+| db.sql\_tokenized.stats.total\_logical\_writes | Total logical writes       |
+| db.sql\_tokenized.stats.total\_physical\_reads | Total physical reads       |
+| db.sql\_tokenized.stats.total\_worker\_time    | Total CPU time (in ms)     |

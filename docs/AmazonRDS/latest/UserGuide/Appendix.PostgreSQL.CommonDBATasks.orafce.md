@@ -26,8 +26,8 @@ database after initiating the connection. 2. Turn on the orafce extension with t
 CREATE EXTENSION orafce;
 ```
 
-3. Transfer ownership of the oracle schema to the rds_superuser role with the `ALTER
-SCHEMA` statement.
+3. Transfer ownership of the oracle schema to the rds\_superuser role with the `ALTER
+ SCHEMA` statement.
 
 ```
 ALTER SCHEMA oracle OWNER TO rds_superuser;

@@ -60,7 +60,7 @@ The following example catalogs an alias named
 db2 "call rdsadmin.catalog_storage_access(?, '`my_s3_alias`', '`amzn-s3-demo-bucket`', 'USER', '`jorge_souza`')"
 ```
 
-For more information about this stored procedure, See [rdsadmin.catalog_storage_access](db2-sp-managing-storage-access.md#db2-sp-catalog-storage-access "db2-sp-managing-storage-access.md#db2-sp-catalog-storage-access"). 3. Run the `LOAD` command using the storage access alias that points
+For more information about this stored procedure, See [rdsadmin.catalog\_storage\_access](db2-sp-managing-storage-access.md#db2-sp-catalog-storage-access "db2-sp-managing-storage-access.md#db2-sp-catalog-storage-access"). 3. Run the `LOAD` command using the storage access alias that points
 to your Amazon S3 bucket.
 
 ###### Note

@@ -16,9 +16,8 @@ The following considerations also apply to starting and stopping your RDS Custom
 - The following actions will result in RDS Custom placing the DB instance outside the support perimeter, and you're still
   charged for DB instance hours:
 
-      + Starting the underlying EC2 instance while Amazon RDS is stopped. To resolve, you can call the `start-db-instance` Amazon RDS API, or stop the
-       EC2 so the RDS Custom instance returns to `STOPPED`.
-      + Stopping underlying EC2 instance when the RDS Custom for SQL Server DB instance is `ACTIVE`.
-
-  For more details about stopping and starting DB instances, see
-  [Stopping an Amazon RDS DB instance temporarily](USER_StopInstance.md "USER_StopInstance.md"), and [Starting an Amazon RDS DB instance that was previously stopped](USER_StartInstance.md "USER_StartInstance.md").
+  - Starting the underlying EC2 instance while Amazon RDS is stopped. To resolve, you can call the `start-db-instance` Amazon RDS API, or stop the
+    EC2 so the RDS Custom instance returns to `STOPPED`.
+  - Stopping underlying EC2 instance when the RDS Custom for SQL Server DB instance is `ACTIVE`.
+    For more details about stopping and starting DB instances, see
+    [Stopping an Amazon RDS DB instance temporarily](USER_StopInstance.md "USER_StopInstance.md"), and [Starting an Amazon RDS DB instance that was previously stopped](USER_StartInstance.md "USER_StartInstance.md").

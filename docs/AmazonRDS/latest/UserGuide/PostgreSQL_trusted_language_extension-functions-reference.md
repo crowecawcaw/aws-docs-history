@@ -7,23 +7,23 @@ Trusted Language Extensions development kit.
 
 ###### Functions
 
-- [pgtle.available_extensions](#pgtle.available_extensions "#pgtle.available_extensions")
-- [pgtle.available_extension_versions](#pgtle.available_extension_versions "#pgtle.available_extension_versions")
-- [pgtle.extension_update_paths](#pgtle.extension_update_paths "#pgtle.extension_update_paths")
-- [pgtle.install_extension](#pgtle.install_extension "#pgtle.install_extension")
-- [pgtle.install_update_path](#pgtle.install_update_path "#pgtle.install_update_path")
-- [pgtle.register_feature](#pgtle.register_feature "#pgtle.register_feature")
-- [pgtle.register_feature_if_not_exists](#pgtle.register_feature_if_not_exists "#pgtle.register_feature_if_not_exists")
-- [pgtle.set_default_version](#pgtle.set_default_version "#pgtle.set_default_version")
-- [pgtle.uninstall_extension(name)](#pgtle.uninstall_extension-name "#pgtle.uninstall_extension-name")
-- [pgtle.uninstall_extension(name, version)](#pgtle.uninstall_extension-name-version "#pgtle.uninstall_extension-name-version")
-- [pgtle.uninstall_extension_if_exists](#pgtle.uninstall_extension_if_exists "#pgtle.uninstall_extension_if_exists")
-- [pgtle.uninstall_update_path](#pgtle.uninstall_update_path "#pgtle.uninstall_update_path")
-- [pgtle.uninstall_update_path_if_exists](#pgtle.uninstall_update_path_if_exists "#pgtle.uninstall_update_path_if_exists")
-- [pgtle.unregister_feature](#pgtle.unregister_feature "#pgtle.unregister_feature")
-- [pgtle.unregister_feature_if_exists](#pgtle.unregister_feature_if_exists "#pgtle.unregister_feature_if_exists")
+- [pgtle.available\_extensions](#pgtle.available_extensions "#pgtle.available_extensions")
+- [pgtle.available\_extension\_versions](#pgtle.available_extension_versions "#pgtle.available_extension_versions")
+- [pgtle.extension\_update\_paths](#pgtle.extension_update_paths "#pgtle.extension_update_paths")
+- [pgtle.install\_extension](#pgtle.install_extension "#pgtle.install_extension")
+- [pgtle.install\_update\_path](#pgtle.install_update_path "#pgtle.install_update_path")
+- [pgtle.register\_feature](#pgtle.register_feature "#pgtle.register_feature")
+- [pgtle.register\_feature\_if\_not\_exists](#pgtle.register_feature_if_not_exists "#pgtle.register_feature_if_not_exists")
+- [pgtle.set\_default\_version](#pgtle.set_default_version "#pgtle.set_default_version")
+- [pgtle.uninstall\_extension(name)](#pgtle.uninstall_extension-name "#pgtle.uninstall_extension-name")
+- [pgtle.uninstall\_extension(name, version)](#pgtle.uninstall_extension-name-version "#pgtle.uninstall_extension-name-version")
+- [pgtle.uninstall\_extension\_if\_exists](#pgtle.uninstall_extension_if_exists "#pgtle.uninstall_extension_if_exists")
+- [pgtle.uninstall\_update\_path](#pgtle.uninstall_update_path "#pgtle.uninstall_update_path")
+- [pgtle.uninstall\_update\_path\_if\_exists](#pgtle.uninstall_update_path_if_exists "#pgtle.uninstall_update_path_if_exists")
+- [pgtle.unregister\_feature](#pgtle.unregister_feature "#pgtle.unregister_feature")
+- [pgtle.unregister\_feature\_if\_exists](#pgtle.unregister_feature_if_exists "#pgtle.unregister_feature_if_exists")
 
-## pgtle.available_extensions
+## pgtle.available\_extensions
 
 The `pgtle.available_extensions` function is a set-returning function. It
 returns all available TLE extensions in the database. Each returned row contains information
@@ -56,7 +56,7 @@ None.
 SELECT * FROM pgtle.available_extensions();
 ```
 
-## pgtle.available_extension_versions
+## pgtle.available\_extension\_versions
 
 The `available_extension_versions` function is a set-returning function. It
 returns a list of all available TLE extensions and their versions. Each row contains
@@ -102,7 +102,7 @@ PostgreSQL documentation.
 SELECT * FROM pgtle.available_extension_versions();
 ```
 
-## pgtle.extension_update_paths
+## pgtle.extension\_update\_paths
 
 The `extension_update_paths` function is a set-returning function. It returns a
 list of all the possible update paths for a TLE extension. Each row includes the
@@ -135,7 +135,7 @@ None.
 SELECT * FROM pgtle.extension_update_paths('`your-TLE`');
 ```
 
-## pgtle.install_extension
+## pgtle.install\_extension
 
 The `install_extension` function lets you install the artifacts that make up
 your TLE extension in the database, after which it can be created using the `CREATE
@@ -194,7 +194,7 @@ $_pgtle_$
 );
 ```
 
-## pgtle.install_update_path
+## pgtle.install\_update\_path
 
 The `install_update_path` function provides an update path between two
 different versions of a TLE extension. This function allows users of your TLE extension
@@ -238,7 +238,7 @@ SELECT pgtle.install_update_path('pg_tle_test', '0.1', '0.2',
 );
 ```
 
-## pgtle.register_feature
+## pgtle.register\_feature
 
 The `register_feature` function adds the specified internal PostgreSQL feature
 to the `pgtle.feature_info` table. PostgreSQL hooks are an example of an internal PostgreSQL feature.
@@ -275,7 +275,7 @@ None.
 SELECT pgtle.register_feature('pw_hook', 'passcheck');
 ```
 
-## pgtle.register_feature_if_not_exists
+## pgtle.register\_feature\_if\_not\_exists
 
 The `pgtle.register_feature_if_not_exists` function adds the specified PostgreSQL feature
 to the `pgtle.feature_info` table and identifies the TLE extension or other procedure or function
@@ -311,7 +311,7 @@ extension. Returns `false` if the feature is already registered.
 SELECT pgtle.register_feature_if_not_exists('pw_hook', 'passcheck');
 ```
 
-## pgtle.set_default_version
+## pgtle.set\_default\_version
 
 The `set_default_version` function lets you specify a `default_version` for your TLE extension.
 You can use this function to define an upgrade path and designate the version as the default for your
@@ -352,7 +352,7 @@ pgtle.set_default_version(name text, version text)
 SELECT * FROM pgtle.set_default_version('my-extension', '1.1');
 ```
 
-## pgtle.uninstall_extension(name)
+## pgtle.uninstall\_extension(name)
 
 The `uninstall_extension` function removes all versions of a TLE extension
 from a database. This function prevents future calls of `CREATE EXTENSION`
@@ -389,7 +389,7 @@ None.
 SELECT * FROM pgtle.uninstall_extension('pg_tle_test');
 ```
 
-## pgtle.uninstall_extension(name, version)
+## pgtle.uninstall\_extension(name, version)
 
 The `uninstall_extension(name, version)` function removes the specified
 version of the TLE extension from the database. This function prevents `CREATE
@@ -398,7 +398,7 @@ extension to the specified version. This function also removes all update paths 
 specified version of the TLE extension. This function won't uninstall the TLE
 extension if it's currently active in the database. You must explicitly call
 `DROP EXTENSION` to remove the TLE extension. To uninstall all versions
-of a TLE extension, see [pgtle.uninstall_extension(name)](#pgtle.uninstall_extension-name "#pgtle.uninstall_extension-name").
+of a TLE extension, see [pgtle.uninstall\_extension(name)](#pgtle.uninstall_extension-name "#pgtle.uninstall_extension-name").
 
 ### Function prototype
 
@@ -426,7 +426,7 @@ None.
 SELECT * FROM pgtle.uninstall_extension('pg_tle_test', '0.2');
 ```
 
-## pgtle.uninstall_extension_if_exists
+## pgtle.uninstall\_extension\_if\_exists
 
 The `uninstall_extension_if_exists` function removes all versions of a TLE extension
 from a given database. If the TLE extension doesn't exist, the function returns
@@ -466,7 +466,7 @@ exist, the function returns `false`.
 SELECT * FROM pgtle.uninstall_extension_if_exists('pg_tle_test');
 ```
 
-## pgtle.uninstall_update_path
+## pgtle.uninstall\_update\_path
 
 The `uninstall_update_path` function removes the specific update path from a TLE extension. This prevents `ALTER EXTENSION ... UPDATE TO` from using this as an update path.
 
@@ -501,7 +501,7 @@ None.
 SELECT * FROM pgtle.uninstall_update_path('pg_tle_test', '0.1', '0.2');
 ```
 
-## pgtle.uninstall_update_path_if_exists
+## pgtle.uninstall\_update\_path\_if\_exists
 
 The `uninstall_update_path_if_exists` function is similar to
 `uninstall_update_path` in that it removes the specified update path from
@@ -539,11 +539,11 @@ pgtle.uninstall_update_path_if_exists(extname text, fromvers text, tovers text)
 SELECT * FROM pgtle.uninstall_update_path_if_exists('pg_tle_test', '0.1', '0.2');
 ```
 
-## pgtle.unregister_feature
+## pgtle.unregister\_feature
 
 The `unregister_feature` function provides a way to remove functions that were
 registered to use `pg_tle` features, such as hooks. For information about registering a feature,
-see [pgtle.register_feature](#pgtle.register_feature "#pgtle.register_feature").
+see [pgtle.register\_feature](#pgtle.register_feature "#pgtle.register_feature").
 
 ### Function prototype
 
@@ -572,7 +572,7 @@ None.
 SELECT * FROM pgtle.unregister_feature('pw_hook', 'passcheck');
 ```
 
-## pgtle.unregister_feature_if_exists
+## pgtle.unregister\_feature\_if\_exists
 
 The `unregister_feature` function provides a way to remove functions that
 were registered to use `pg_tle` features, such as hooks. For more
@@ -581,7 +581,7 @@ Returns `true` after successfully unregistering the feature. Returns
 `false` if the feature wasn't registered.
 
 For information about registering `pg_tle` features for your TLE extensions, see
-[pgtle.register_feature](#pgtle.register_feature "#pgtle.register_feature").
+[pgtle.register\_feature](#pgtle.register_feature "#pgtle.register_feature").
 
 ### Function prototype
 

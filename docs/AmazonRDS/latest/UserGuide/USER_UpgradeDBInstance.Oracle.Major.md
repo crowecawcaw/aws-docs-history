@@ -47,7 +47,7 @@ following example.
 EXEC DBMS_STATS.GATHER_DICTIONARY_STATS;
 ```
 
-For more information, see [GATHER_DICTIONARY_STATS Procedure](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_STATS.html?source=%3Aso%3Atw%3Aor%3Aawr%3Aodv%3A%3A#GUID-867989C7-ADFC-4464-8981-437CEA7F331E "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_STATS.html?source=%3Aso%3Atw%3Aor%3Aawr%3Aodv%3A%3A#GUID-867989C7-ADFC-4464-8981-437CEA7F331E") in the Oracle documentation.
+For more information, see [GATHER\_DICTIONARY\_STATS Procedure](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_STATS.html?source=%3Aso%3Atw%3Aor%3Aawr%3Aodv%3A%3A#GUID-867989C7-ADFC-4464-8981-437CEA7F331E "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_STATS.html?source=%3Aso%3Atw%3Aor%3Aawr%3Aodv%3A%3A#GUID-867989C7-ADFC-4464-8981-437CEA7F331E") in the Oracle documentation.
 
 ## Allowing major upgrades
 

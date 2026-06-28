@@ -28,18 +28,17 @@ Make sure to meet the following requirements for Amazon RDS Custom for Oracle:
 - You have access to Amazon S3. You need this service for the following
   reasons:
 
-      + You upload your Oracle installation files to S3 buckets. You use the
-       uploaded installation files to create your RDS Custom CEV.
-      + RDS Custom for Oracle uses scripts downloaded from internally defined S3 buckets
-       to perform actions on your DB instances. These scripts are necessary for
-       onboarding and RDS Custom automation.
-      + RDS Custom for Oracle uploads certain files to S3 buckets located in your customer
-       account. These buckets use the following naming format:
-       `do-not-delete-rds-custom-``account_id`-`region`-`uuid`.
-       For example, you might have a bucket named
-       `do-not-delete-rds-custom-123456789012-us-east-1-12a3b4`.
-
-  For more information, see [Step 3: Upload your installation files to Amazon S3](custom-cev.preparing.md#custom-cev.preparing.s3 "custom-cev.preparing.md#custom-cev.preparing.s3") and [Creating a CEV](custom-cev.create.md "custom-cev.create.md").
+  - You upload your Oracle installation files to S3 buckets. You use the
+    uploaded installation files to create your RDS Custom CEV.
+  - RDS Custom for Oracle uses scripts downloaded from internally defined S3 buckets
+    to perform actions on your DB instances. These scripts are necessary for
+    onboarding and RDS Custom automation.
+  - RDS Custom for Oracle uploads certain files to S3 buckets located in your customer
+    account. These buckets use the following naming format:
+    `do-not-delete-rds-custom-``account_id`-`region`-`uuid`.
+    For example, you might have a bucket named
+    `do-not-delete-rds-custom-123456789012-us-east-1-12a3b4`.
+    For more information, see [Step 3: Upload your installation files to Amazon S3](custom-cev.preparing.md#custom-cev.preparing.s3 "custom-cev.preparing.md#custom-cev.preparing.s3") and [Creating a CEV](custom-cev.create.md "custom-cev.create.md").
 
 - You use the DB instance classes listed in [DB instance class support for RDS Custom for Oracle](custom-oracle-feature-support.md#custom-reqs-limits.instances "custom-oracle-feature-support.md#custom-reqs-limits.instances") to create your RDS Custom for Oracle DB instances.
 - Your RDS Custom for Oracle DB instances run Oracle Linux 8 (recommended) or Oracle Linux 7. If

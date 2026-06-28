@@ -187,13 +187,13 @@ Db2 server version supported by RDS for Db2.
 db2 connect to `database_name` user `master_username` using `master_password`
 ```
 
-3.  Run the `bind` command to bind the packages.
+3. Run the `bind` command to bind the packages.
 
-    1. Navigate to the directory where the bind files exist on the client
-       machine.
-    2. Run the `bind` command for each file.
+   1. Navigate to the directory where the bind files exist on the client
+      machine.
+   2. Run the `bind` command for each file.
 
-    The following options are required:
+   The following options are required:
 
         * `blocking all` – Binds all packages in the
          bind file in a single database request.
@@ -204,12 +204,12 @@ db2 connect to `database_name` user `master_username` using `master_password`
          `bind` process continues even if errors
          occur.
 
-    For more information about the `bind` command see [BIND command](https://www.ibm.com/docs/en/db2/11.5?topic=commands-bind "https://www.ibm.com/docs/en/db2/11.5?topic=commands-bind") in the
-    IBM Db2 documentation.
+   For more information about the `bind` command see [BIND command](https://www.ibm.com/docs/en/db2/11.5?topic=commands-bind "https://www.ibm.com/docs/en/db2/11.5?topic=commands-bind") in the
+   IBM Db2 documentation.
 
-4.  Verify that the bind was successful by either querying the
-    `syscat.package` catalog view or checking the message returned
-    after the `bind` command.
+4. Verify that the bind was successful by either querying the
+   `syscat.package` catalog view or checking the message returned
+   after the `bind` command.
 
 For more information, see [DB2 v11.5 Bind File and Package Name List](https://www.ibm.com/support/pages/node/6190455 "https://www.ibm.com/support/pages/node/6190455") in IBM
 Support.

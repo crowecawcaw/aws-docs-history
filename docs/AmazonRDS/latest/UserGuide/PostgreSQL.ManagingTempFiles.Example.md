@@ -1,7 +1,7 @@
 # Viewing temporary file usage with Performance Insights
 
 You can use Performance Insights to view temporary file usage by turning on the metrics
-**temp_bytes** and **temp_files**. The view in
+**temp\_bytes** and **temp\_files**. The view in
 Performance Insights doesn't show the specific queries that generate temporary files, however, when
 you combine Performance Insights with the query shown for `pg_ls_tmpdir`, you can
 troubleshoot, analyze, and determine the changes in your query workload.
@@ -9,7 +9,7 @@ troubleshoot, analyze, and determine the changes in your query workload.
 1. In the Performance Insights dashboard, choose **Manage
    Metrics**.
 2. Choose **Database metrics**, and select the
-   **temp_bytes** and **temp_files** metrics
+   **temp\_bytes** and **temp\_files** metrics
    as shown in the following image.
 
 ![Metrics displayed in the graph.](images/rpg_mantempfiles_metrics.png) 3. In the **Top SQL** tab, choose the
@@ -23,7 +23,7 @@ statistics to appear in the **Top SQL**tab and choose
     * Tmp blk read/call
 
 5. The temporary file is broken out when combined with the query shown for
-   `pg_ls_tmpdir`, as shown in the following example.
+`pg_ls_tmpdir`, as shown in the following example.
 
 ![Query that displays the temporary file usage.](images/rpg_mantempfiles_query.png)
 The `IO:BufFileRead` and `IO:BufFileWrite` events occur when the

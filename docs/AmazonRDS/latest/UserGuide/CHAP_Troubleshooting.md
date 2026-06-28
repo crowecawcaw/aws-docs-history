@@ -569,7 +569,7 @@ calculation is the sum of the following values:
   However, the value won't always match what you input. This mismatch
   occurs for several reasons. First, if the DB instance is a micro DB
   instance, then we override the default value and set it to 256 MB.
-  For more information, see [Overriding innodb_buffer_pool_size](MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size "MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size").
+  For more information, see [Overriding innodb\_buffer\_pool\_size](MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size "MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size").
 
   Second, we make sure that 500 MB of memory is reserved on the DB
   instance for the host manager, the engine, the operating system, and
@@ -786,9 +786,9 @@ The following steps can help resolve your replication error:
   the steps described in [Skipping the current replication error for RDS for MySQL](Appendix.MySQL.CommonDBATasks.SkipError.md "Appendix.MySQL.CommonDBATasks.SkipError.md"). Your MySQL or
   MariaDB DB instance must be running a version that includes the
   `mysql_rds_skip_repl_error` procedure. For more information,
-  see [mysql.rds_skip_repl_error](mysql-stored-proc-replicating.md#mysql_rds_skip_repl_error "mysql-stored-proc-replicating.md#mysql_rds_skip_repl_error").
+  see [mysql.rds\_skip\_repl\_error](mysql-stored-proc-replicating.md#mysql_rds_skip_repl_error "mysql-stored-proc-replicating.md#mysql_rds_skip_repl_error").
 - If you encounter a binary log (binlog) position issue, you can change the
-  replica replay position with the [mysql.rds_next_source_log (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_next_source_log "mysql-stored-proc-replicating.md#mysql_rds_next_source_log") or [mysql.rds_next_master_log (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](mysql-stored-proc-replicating.md#mysql_rds_next_master_log "mysql-stored-proc-replicating.md#mysql_rds_next_master_log") command.
+  replica replay position with the [mysql.rds\_next\_source\_log (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_next_source_log "mysql-stored-proc-replicating.md#mysql_rds_next_source_log") or [mysql.rds\_next\_master\_log (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](mysql-stored-proc-replicating.md#mysql_rds_next_master_log "mysql-stored-proc-replicating.md#mysql_rds_next_master_log") command.
 - You might encounter a temporary performance issue because of high DML
   load. If so, you can set the `innodb_flush_log_at_trx_commit`
   parameter to 2 in the DB parameter group on the read replica. Doing this can
@@ -943,7 +943,7 @@ files are retained on your replication source. After you have increased the binl
 retention time, you can restart replication and call the
 `mysql.rds_skip_repl_error` command as needed.
 
-To set the binlog retention time, use the [mysql.rds_set_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration") procedure. Specify a configuration
+To set the binlog retention time, use the [mysql.rds\_set\_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration") procedure. Specify a configuration
 parameter of 'binlog retention hours' along with the number of hours to retain
 binlog files on the DB cluster, up to 720 (30 days). The following example sets the
 retention period for binlog files to 48 hours.

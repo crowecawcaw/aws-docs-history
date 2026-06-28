@@ -51,7 +51,7 @@ provide the information to access a bucket, take the following steps:
      bucket. For more information, see [Providing access to an Amazon S3 bucket using an IAM role](#USER_ExportSnapshot.SetupIAMRole "#USER_ExportSnapshot.SetupIAMRole").
 
 3. Create a symmetric encryption AWS KMS key for the server-side encryption. The KMS key is used by the snapshot
-   export task to set up AWS KMS server-side encryption when writing the export data to S3.
+export task to set up AWS KMS server-side encryption when writing the export data to S3.
 
 The KMS key policy must include both the `kms:CreateGrant` and `kms:DescribeKey` permissions.
 For more information on using KMS keys in Amazon RDS, see [AWS KMS key management](Overview.Encryption.Keys.md "Overview.Encryption.Keys.md").
@@ -375,10 +375,9 @@ chosen S3 bucket, or create a new role.
      role name**.
 
 10. For **AWS KMS key**, enter the ARN for the key to use for encrypting the
-    exported data.
-11. Choose **Export to Amazon S3**.
-    To export a DB snapshot to Amazon S3 using the AWS CLI, use the [start-export-task](../../../cli/latest/reference/rds/start-export-task.md "../../../cli/latest/reference/rds/start-export-task.md") command with the following required
-    options:
+exported data. 11. Choose **Export to Amazon S3**.
+To export a DB snapshot to Amazon S3 using the AWS CLI, use the [start-export-task](../../../cli/latest/reference/rds/start-export-task.md "../../../cli/latest/reference/rds/start-export-task.md") command with the following required
+options:
 
 - `--export-task-identifier`
 - `--source-arn`

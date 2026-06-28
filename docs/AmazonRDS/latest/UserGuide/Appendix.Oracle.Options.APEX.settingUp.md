@@ -232,17 +232,16 @@ unzip ../apex_listener.`version`.zip
 java -Dapex.home=./apex -Dapex.images=/home/apexuser/apex/images -Dapex.erase -jar ./apex.war
 ```
 
-3.  Enter information for the program prompts following:
+3. Enter information for the program prompts following:
 
-        * The APEX Listener Administrator user name. The default is
-         *adminlistener*.
-        * A password for the APEX Listener Administrator.
-        * The APEX Listener Manager user name. The default is
-         *managerlistener*.
-        * A password for the APEX Listener Administrator.
-
-    The program prints a URL that you need to complete the configuration, as
-    follows.
+   - The APEX Listener Administrator user name. The default is
+     _adminlistener_.
+   - A password for the APEX Listener Administrator.
+   - The APEX Listener Manager user name. The default is
+     _managerlistener_.
+   - A password for the APEX Listener Administrator.
+     The program prints a URL that you need to complete the configuration, as
+     follows.
 
 ```
 INFO: Please complete configuration at: http://localhost:8080/apex/listenerConfigure
@@ -259,7 +258,7 @@ Database is not yet configured
    - Username –
      `APEX_PUBLIC_USER`
    - Password – the
-     password for _APEX_PUBLIC_USER_. This
+     password for _APEX\_PUBLIC\_USER_. This
      password is the one that you specified earlier when you
      configured the Oracle APEX repository. For more information,
      see [Unlocking the public user account on your DB instance](#Appendix.Oracle.Options.APEX.PublicUser "#Appendix.Oracle.Options.APEX.PublicUser").

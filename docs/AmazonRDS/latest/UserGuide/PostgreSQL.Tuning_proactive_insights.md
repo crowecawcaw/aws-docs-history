@@ -67,7 +67,7 @@ We recommend different actions depending on the causes of your insight.
 
 - [End transaction](#proactive-insights.idle-txn.actions.end-txn "#proactive-insights.idle-txn.actions.end-txn")
 - [Terminate the connection](#proactive-insights.idle-txn.actions.end-connection "#proactive-insights.idle-txn.actions.end-connection")
-- [Configure the idle_in_transaction_session_timeout parameter](#proactive-insights.idle-txn.actions.parameter "#proactive-insights.idle-txn.actions.parameter")
+- [Configure the idle\_in\_transaction\_session\_timeout parameter](#proactive-insights.idle-txn.actions.parameter "#proactive-insights.idle-txn.actions.parameter")
 - [Check the AUTOCOMMIT status](#proactive-insights.idle-txn.actions.autocommit "#proactive-insights.idle-txn.actions.autocommit")
 - [Check the transaction logic in your application code](#proactive-insights.idle-txn.actions.app-logic "#proactive-insights.idle-txn.actions.app-logic")
 
@@ -90,14 +90,14 @@ SELECT pg_terminate_backend`(pid)`;
 
 pid is the process ID of the connection.
 
-#### Configure the idle_in_transaction_session_timeout parameter
+#### Configure the idle\_in\_transaction\_session\_timeout parameter
 
 Configure the `idle_in_transaction_session_timeout` parameter in the parameter group. The advantage of configuring this
 parameter is that it does not require a manual intervention to terminate the long idle in transaction. For more information on this parameter, see
 [the PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html "https://www.postgresql.org/docs/current/runtime-config-client.html").
 
 The following message will be reported in the PostgreSQL log file after the connection is terminated, when a transaction is
-in the idle_in_transaction state for longer than the specified time.
+in the idle\_in\_transaction state for longer than the specified time.
 
 ```
 FATAL: terminating connection due to idle in transaction timeout
@@ -137,7 +137,7 @@ actions:
 
 The following PI metrics are related to this insight:
 
-- idle_in_transaction_count - Number of sessions in `idle in
-transaction` state.
-- idle_in_transaction_max_time - The duration of the longest running transaction in
+- idle\_in\_transaction\_count - Number of sessions in `idle in
+ transaction` state.
+- idle\_in\_transaction\_max\_time - The duration of the longest running transaction in
   the `idle in transaction` state.

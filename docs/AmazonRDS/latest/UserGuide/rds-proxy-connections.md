@@ -139,7 +139,7 @@ Consider the following configuration aspects before implementing an application-
   idle timeout setting for RDS Proxy to avoid unexpected connection drops.
 
 The maximum number of client connections configured in your application-side connection pool
-does not have to be limited to the **max_connections** setting for RDS Proxy.
+does not have to be limited to the **max\_connections** setting for RDS Proxy.
 
 Client connection pooling results in a longer client connection life. If your connections
 experience pinning, then pooling client connections might reduce multiplexing efficiency.

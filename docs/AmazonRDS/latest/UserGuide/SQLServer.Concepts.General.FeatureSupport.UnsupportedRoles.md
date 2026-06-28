@@ -4,7 +4,7 @@ The Microsoft SQL Server database engine uses role-based security. The master us
 instance is a SQL Server Authentication login that is a member of the `processadmin`, `public`, and
 `setupadmin` fixed server roles.
 
-Any user who creates a database is assigned to the db_owner role for that database and has all database-level permissions except for
+Any user who creates a database is assigned to the db\_owner role for that database and has all database-level permissions except for
 those that are used for backups. Amazon RDS manages backups for you.
 
 The following server-level roles aren't available in Amazon RDS for SQL Server:
@@ -23,7 +23,7 @@ The following server-level roles aren't available in Amazon RDS for SQL Server:
 - ALTER SETTINGS (you can use the DB parameter group API operations to modify parameters;
   for more information, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"))
 - AUTHENTICATE SERVER
-- CONTROL_SERVER
+- CONTROL\_SERVER
 - CREATE DDL EVENT NOTIFICATION
 - CREATE ENDPOINT
 - CREATE SERVER ROLE

@@ -301,7 +301,7 @@ The following parameters are optional:
 
 **Examples**
 
-Example to Modify default workload group change REQUEST_MAX_MEMORY_GRANT_PERCENT:
+Example to Modify default workload group change REQUEST\_MAX\_MEMORY\_GRANT\_PERCENT:
 
 ```
 --Modify default workload group (set memory grant cap to 10%)

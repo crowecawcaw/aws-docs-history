@@ -68,14 +68,14 @@ aws rds create-option-group ^
 
 Next, use the AWS Management Console or the AWS CLI to add the `RESOURCE_GOVERNOR` option to your option group.
 
-###### To add the RESOURCE_GOVERNOR option
+###### To add the RESOURCE\_GOVERNOR option
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, choose **Option groups**.
 3. Choose the option group that you just created, **resource-governor-ee-2022** in this example.
 4. Choose **Add option**.
-5. Under **Option details**, choose **RESOURCE_GOVERNOR** for **Option name**.
+5. Under **Option details**, choose **RESOURCE\_GOVERNOR** for **Option name**.
 6. Under **Scheduling**, choose whether to add the option immediately or at the next maintenance window.
 7. Choose **Add option**.
 

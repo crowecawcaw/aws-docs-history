@@ -19,9 +19,9 @@ Enterprise Edition.
 3. Choose the snapshot of your SQL Server DB instance. Amazon RDS creates a final snapshot of your
    DB instance. The name of the terminated instance snapshot is in the format
    ``instance_name`-final-snapshot`.
-For example, if your DB instance name is
-`mytest.cdxgahslksma.us-east-1.rds.com`, the final
-snapshot is called `mytest-final-snapshot` and is located
+   For example, if your DB instance name is
+   `mytest.cdxgahslksma.us-east-1.rds.com`, the final
+   snapshot is called `mytest-final-snapshot` and is located
    in the same AWS Region as the original DB instance.
 4. For **Actions**, choose **Restore Snapshot**.
 

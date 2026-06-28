@@ -1,4 +1,4 @@
-# Resetting the db_owner role membership for master user for Amazon RDS for SQL Server
+# Resetting the db\_owner role membership for master user for Amazon RDS for SQL Server
 
 If you lock your master user out of the `db_owner` role membership on your
 RDS for SQL Server database and no other database user can grant the membership, you can restore

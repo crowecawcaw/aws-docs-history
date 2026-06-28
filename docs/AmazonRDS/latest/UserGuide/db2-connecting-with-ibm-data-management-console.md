@@ -139,21 +139,21 @@ internet, allow traffic to the database port. For more information, see [Creatin
 
 ###### To connect to RDS for Db2 DB instances with IBM Db2 Data Management Console
 
-1.  Log in to IBM Db2 Data Management Console with the credentials you set during installation.
-2.  Configure the repository.
+1. Log in to IBM Db2 Data Management Console with the credentials you set during installation.
+2. Configure the repository.
 
-    1. In the **Connection and database** section, enter the
-       following information for your RDS for Db2 DB instance:
+   1. In the **Connection and database** section, enter the
+      following information for your RDS for Db2 DB instance:
 
-       - For **Host**, enter the DNS name of the DB
-         instance.
-       - For **Port**, enter the port number for the
-         DB instance.
-       - For **Database**, enter the name of the
-         database.
+      - For **Host**, enter the DNS name of the DB
+        instance.
+      - For **Port**, enter the port number for the
+        DB instance.
+      - For **Database**, enter the name of the
+        database.
 
-    ![The Connection and database section in IBM Db2 Data Management Console with Host, Port, and Database fields.](images/ibm-dmc-connection-database.png) 2. In the **Security and credential** section, enter the
-    following information for your RDS for Db2 DB instance:
+   ![The Connection and database section in IBM Db2 Data Management Console with Host, Port, and Database fields.](images/ibm-dmc-connection-database.png) 2. In the **Security and credential** section, enter the
+   following information for your RDS for Db2 DB instance:
 
         * For **Security type**, choose
          **Encrypted user and password**.
@@ -161,72 +161,64 @@ internet, allow traffic to the database port. For more information, see [Creatin
          database administrator for the DB instance.
         * For **Password**, enter the password of the
          database administrator for the DB instance.
-    3. Choose **Test connection**.
 
-    ###### Note
+   3. Choose **Test connection**.
 
-    If the connection is unsuccessful, confirm that the database port
-    is open through the inbound rules in your security group. For more
-    information, see [Considerations for security groups with Amazon RDS for Db2](db2-security-groups-considerations.md "db2-security-groups-considerations.md").
+   ###### Note
 
-    If you didn't [manually
-    create a buffer pool, a user tablespace, and a system temporary
-    tablespace](#db2-manually-creating-dmc "#db2-manually-creating-dmc") in RDS for Db2, you might see the following error
-    message:
+   If the connection is unsuccessful, confirm that the database port
+   is open through the inbound rules in your security group. For more
+   information, see [Considerations for security groups with Amazon RDS for Db2](db2-security-groups-considerations.md "db2-security-groups-considerations.md").
 
-    ![Error message about not having permissions to perform operations.](images/ibm-dmc-error-message.png)
+   If you didn't [manually
+   create a buffer pool, a user tablespace, and a system temporary
+   tablespace](#db2-manually-creating-dmc "#db2-manually-creating-dmc") in RDS for Db2, you might see the following error
+   message:
 
-    Make sure that you created a buffer table, a tablespace, and objects
-    for an IBM Db2 Data Management Console repository to monitor your RDS for Db2 DB instance. Or, you
-    can use an Amazon EC2 Db2 DB instance to host an IBM Db2 Data Management Console repository to monitor
-    your RDS for Db2 DB instance. For more information, see [Step 1: Creating a repository database to monitor DB instances](#db2-creating-repo-db-monitoring-dmc "#db2-creating-repo-db-monitoring-dmc"). 4. After you successfully test your connection, choose
-    **Next**.
+   ![Error message about not having permissions to perform operations.](images/ibm-dmc-error-message.png)
 
-    ![The Security and credential section in IBM Db2 Data Management Console.](images/ibm-dmc-security-credential.png)If IBM Db2 Data Management Console finds the buffer pool, the user tablespace, and the system temporary
-    tablespace in the RDS for Db2 DB instance, then IBM Db2 Data Management Console automatically configures the
-    repository database. If you use your Db2 instance on your Amazon EC2 instance as the
-    repository database, then IBM Db2 Data Management Console automatically creates the buffer pool and other
-    objects.
+   Make sure that you created a buffer table, a tablespace, and objects
+   for an IBM Db2 Data Management Console repository to monitor your RDS for Db2 DB instance. Or, you
+   can use an Amazon EC2 Db2 DB instance to host an IBM Db2 Data Management Console repository to monitor
+   your RDS for Db2 DB instance. For more information, see [Step 1: Creating a repository database to monitor DB instances](#db2-creating-repo-db-monitoring-dmc "#db2-creating-repo-db-monitoring-dmc"). 4. After you successfully test your connection, choose
+   **Next**.
 
-3.  In the **Set statistics event monitor opt-in** window, choose
-    **Next**.
-4.  (Optional) Add new connection. If you want to use a different RDS for Db2 DB
-    instance for administration and monitoring, then add a connection to a
-    non-repository RDS for Db2 DB instance.
+   ![The Security and credential section in IBM Db2 Data Management Console.](images/ibm-dmc-security-credential.png)If IBM Db2 Data Management Console finds the buffer pool, the user tablespace, and the system temporary
+   tablespace in the RDS for Db2 DB instance, then IBM Db2 Data Management Console automatically configures the
+   repository database. If you use your Db2 instance on your Amazon EC2 instance as the
+   repository database, then IBM Db2 Data Management Console automatically creates the buffer pool and other
+   objects.
 
-        1. In the **Connection and database** section, enter the
-         following information for the RDS for Db2 DB instance to use for
-         administration and monitoring:
+3. In the **Set statistics event monitor opt-in** window, choose
+   **Next**.
+4. (Optional) Add new connection. If you want to use a different RDS for Db2 DB
+   instance for administration and monitoring, then add a connection to a
+   non-repository RDS for Db2 DB instance.
 
+   1. In the **Connection and database** section, enter the
+      following information for the RDS for Db2 DB instance to use for
+      administration and monitoring:
 
+      - For **Connection name**, enter the Db2
+        database identifier.
+      - For **Host**, enter the DNS name of the DB
+        instance.
+      - For **Port**, enter the port number for the
+        DB instance.
+      - For **Database**, enter the name of the
+        database.
 
+   ![The Connection and database section for a new connection in IBM Db2 Data Management Console with Host, Port, and Database fields.](images/ibm-dmc-new-connection-database.png) 2. In the **Security and credential**section, select **Enable monitoring
+   data collection**. 3. Enter the following information for your RDS for Db2 DB instance:
 
-        	* For **Connection name**, enter the Db2
-        	 database identifier.
-        	* For **Host**, enter the DNS name of the DB
-        	 instance.
-        	* For **Port**, enter the port number for the
-        	 DB instance.
-        	* For **Database**, enter the name of the
-        	 database.
+        * For **Username**, enter the name of the
+         database administrator for the DB instance.
+        * For **Password**, enter the password of the
+         database administrator for the DB instance.
 
-        ![The Connection and database section for a new connection in IBM Db2 Data Management Console with Host, Port, and Database fields.](images/ibm-dmc-new-connection-database.png)
-        2. In the **Security and credential**section, select **Enable monitoring
-         data collection**.
-        3. Enter the following information for your RDS for Db2 DB instance:
-
-
-
-
-        	* For **Username**, enter the name of the
-        	 database administrator for the DB instance.
-        	* For **Password**, enter the password of the
-        	 database administrator for the DB instance.
-        4. Choose **Test connection**.
-        5. After you successfully test your connection, choose
-         **Save**.
-
-    ![The Security and credential section for a new connection in IBM Db2 Data Management Console.](images/ibm-dmc-new-security-credential.png)
+   4. Choose **Test connection**. 5. After you successfully test your connection, choose
+   **Save**.
+   ![The Security and credential section for a new connection in IBM Db2 Data Management Console.](images/ibm-dmc-new-security-credential.png)
 
 After the connection is added, a window similar to the following appears. This
 window indicates that your database was successfully configured.

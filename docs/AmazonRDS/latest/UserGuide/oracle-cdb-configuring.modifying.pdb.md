@@ -40,7 +40,7 @@ your CDB. Note the following requirements and limitations:
   `value`
 - `--tenant-db-name `value``
 - `[--new-tenant-db-name
-`value`]`
+ `value`]`
 - `[--master-user-password
  `value`]`
   The following example renames tenant database `pdb1` to

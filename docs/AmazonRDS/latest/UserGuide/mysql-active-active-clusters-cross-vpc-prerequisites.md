@@ -14,29 +14,27 @@ If you are configuring an active-active cluster in a single VPC, you can skip th
 
 ###### To prepare for an active-active cluster with DB instances in more than one VPC
 
-1.  Make sure the IPv4 address ranges in the CIDR blocks meet the following requirements:
+1. Make sure the IPv4 address ranges in the CIDR blocks meet the following requirements:
 
-        * The IPv4 address ranges in the CIDR blocks of the VPCs can't overlap.
-        * All of the IPv4 address ranges in the CIDR blocks either must be lower than
-         `128.0.0.0/`subnet_mask``
-         or higher than 128.0.0.0/`subnet_mask`.
+   - The IPv4 address ranges in the CIDR blocks of the VPCs can't overlap.
+   - All of the IPv4 address ranges in the CIDR blocks either must be lower than
+     `128.0.0.0/`subnet_mask``
+     or higher than 128.0.0.0/`subnet_mask`.
+     The following ranges illustrate these requirements:
 
-    The following ranges illustrate these requirements:
+   - `10.1.0.0/16` in one VPC and `10.2.0.0/16` in the other
+     VPC is supported.
+   - `172.1.0.0/16` in one VPC and `172.2.0.0/16` in the other
+     VPC is supported.
+   - `10.1.0.0/16` in one VPC and `10.1.0.0/16` in the other
+     VPC _is not_ supported because the ranges overlap.
+   - `10.1.0.0/16` in one VPC and `172.1.0.0/16` in the other
+     VPC _is not_ supported because one is below
+     `128.0.0.0/`subnet_mask`` and the other is 
+  above `128.0.0.0/`subnet_mask``.
+     For information about CIDR blocks, see [VPC CIDR blocks](../../../vpc/latest/userguide/vpc-cidr-blocks.md "../../../vpc/latest/userguide/vpc-cidr-blocks.md") in the _Amazon VPC User Guide_.
 
-        * `10.1.0.0/16` in one VPC and `10.2.0.0/16` in the other
-         VPC is supported.
-        * `172.1.0.0/16` in one VPC and `172.2.0.0/16` in the other
-         VPC is supported.
-        * `10.1.0.0/16` in one VPC and `10.1.0.0/16` in the other
-         VPC *is not* supported because the ranges overlap.
-        * `10.1.0.0/16` in one VPC and `172.1.0.0/16` in the other
-         VPC *is not* supported because one is below
-         `128.0.0.0/`subnet_mask`` and the other is
-         above `128.0.0.0/`subnet_mask``.
-
-    For information about CIDR blocks, see [VPC CIDR blocks](../../../vpc/latest/userguide/vpc-cidr-blocks.md "../../../vpc/latest/userguide/vpc-cidr-blocks.md") in the _Amazon VPC User Guide_.
-
-2.  In each VPC, make sure DNS resolution and DNS hostnames are both enabled.
+2. In each VPC, make sure DNS resolution and DNS hostnames are both enabled.
 
 For instructions, see [View and update DNS attributes for your VPC](../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-updating "../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-updating") in the _Amazon VPC User Guide_. 3. Configure the VPCs so that you can route traffic between them in one of the following ways:
 

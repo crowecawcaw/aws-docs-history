@@ -1,4 +1,4 @@
-# LWLock:buffer_content (BufferContent)
+# LWLock:buffer\_content (BufferContent)
 
 The `LWLock:buffer_content` event occurs when a session is waiting to read or write a data
 page in memory while another session has that page locked for writing. In RDS for PostgreSQL 13 and higher,

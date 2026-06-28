@@ -5,7 +5,7 @@ files and query results. Database Mail includes the following components:
 
 - **Configuration and security objects** – These objects create profiles and accounts,
   and are stored in the `msdb` database.
-- **Messaging objects** – These objects include the [sp_send_dbmail](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql") stored procedure used to send messages, and data structures that hold information about
+- **Messaging objects** – These objects include the [sp\_send\_dbmail](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql") stored procedure used to send messages, and data structures that hold information about
   messages. They're stored in the `msdb` database.
 - **Logging and auditing objects** – Database Mail writes logging information to the
   `msdb` database and the Microsoft Windows application event log.
@@ -19,7 +19,7 @@ The following limitations apply to using Database Mail on your SQL Server DB ins
 
 - Database Mail isn't supported for SQL Server Express Edition.
 - Modifying Database Mail configuration parameters isn't supported. To see the preset (default) values, use the
-  [sysmail_help_configure_sp](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-help-configure-sp-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-help-configure-sp-transact-sql") stored procedure.
+  [sysmail\_help\_configure\_sp](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-help-configure-sp-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-help-configure-sp-transact-sql") stored procedure.
 - File attachments aren't fully supported. For more information, see [Working with file attachments](#SQLServer.DBMail.Files "#SQLServer.DBMail.Files").
 - The maximum file attachment size is 1 MB.
 - Database Mail requires additional configuration on Multi-AZ DB instances. For more information, see [Considerations for Multi-AZ deployments](#SQLServer.DBMail.MAZ "#SQLServer.DBMail.MAZ").
@@ -30,13 +30,13 @@ The following limitations apply to using Database Mail on your SQL Server DB ins
 Microsoft provides [stored procedures](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/database-mail-stored-procedures-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/database-mail-stored-procedures-transact-sql") for using Database Mail, such as creating, listing, updating, and deleting accounts and profiles.
 In addition, RDS provides the stored procedures and functions for Database Mail shown in the following table.
 
-| Procedure/Function              | Description                                                                      |
-| ------------------------------- | -------------------------------------------------------------------------------- |
-| rds_fn_sysmail_allitems         | Shows sent messages, including those submitted by other users.                   |
-| rds_fn_sysmail_event_log        | Shows events, including those for messages submitted by other users.             |
-| rds_fn_sysmail_mailattachments  | Shows attachments, including those to messages submitted by other users.         |
-| rds_sysmail_control             | Starts and stops the mail queue (DatabaseMail.exe process).                      |
-| rds_sysmail_delete_mailitems_sp | Deletes email messages sent by all users from the Database Mail internal tables. |
+| Procedure/Function                  | Description                                                                      |
+| ----------------------------------- | -------------------------------------------------------------------------------- |
+| rds\_fn\_sysmail\_allitems          | Shows sent messages, including those submitted by other users.                   |
+| rds\_fn\_sysmail\_event\_log        | Shows events, including those for messages submitted by other users.             |
+| rds\_fn\_sysmail\_mailattachments   | Shows attachments, including those to messages submitted by other users.         |
+| rds\_sysmail\_control               | Starts and stops the mail queue (DatabaseMail.exe process).                      |
+| rds\_sysmail\_delete\_mailitems\_sp | Deletes email messages sent by all users from the Database Mail internal tables. |
 
 ## Working with file attachments
 

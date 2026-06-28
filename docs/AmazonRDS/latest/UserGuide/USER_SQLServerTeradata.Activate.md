@@ -5,9 +5,9 @@ RDS for SQL Server DB instance. Use the following process:
 
 ###### Topics
 
-- [Creating the option group for ODBC_TERADATA](#USER_SQLServerTeradata.Activate.CreateOG "#USER_SQLServerTeradata.Activate.CreateOG")
-- [Adding the ODBC_TERADATA option to the option group](#USER_SQLServerTeradata.Activate.AddOG "#USER_SQLServerTeradata.Activate.AddOG")
-- [Associating the ODBC_TERADATA option with your DB instance](#USER_SQLServerTeradata.Activate.AssociateOG "#USER_SQLServerTeradata.Activate.AssociateOG")
+- [Creating the option group for ODBC\_TERADATA](#USER_SQLServerTeradata.Activate.CreateOG "#USER_SQLServerTeradata.Activate.CreateOG")
+- [Adding the ODBC\_TERADATA option to the option group](#USER_SQLServerTeradata.Activate.AddOG "#USER_SQLServerTeradata.Activate.AddOG")
+- [Associating the ODBC\_TERADATA option with your DB instance](#USER_SQLServerTeradata.Activate.AssociateOG "#USER_SQLServerTeradata.Activate.AssociateOG")
 
 ## Creating the option group for `ODBC_TERADATA`
 
@@ -74,7 +74,7 @@ Use the following procedure creates an option group for SQL Server Standard Edit
 4. Choose **Add option**.
 5. Under **Option details**:
 
-   1. Choose **ODBC_TERADATA** for **Option name**.
+   1. Choose **ODBC\_TERADATA** for **Option name**.
    2. For `17.20.33.00` for **Option version**.
 
 6. Under scheduling, choose whether to add the option immediately or at the next maintenance window.

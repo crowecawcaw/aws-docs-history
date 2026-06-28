@@ -31,7 +31,7 @@ completes.
 
 Modify your DB instance settings to the following:
 
-- Disable DB instance backups (set backup_retention to 0).
+- Disable DB instance backups (set backup\_retention to 0).
 - Disable Multi-AZ.
   Modify your DB parameter group to include the following settings. You should only use
   these settings when importing data. You should test the parameter settings to find the
@@ -52,7 +52,7 @@ commands with these settings.
 
 ###### Note
 
-The PostgreSQL command `pg_dumpall` requires super_user permissions
+The PostgreSQL command `pg_dumpall` requires super\_user permissions
 that are not granted when you create a DB instance, so it cannot be used for
 importing data.
 

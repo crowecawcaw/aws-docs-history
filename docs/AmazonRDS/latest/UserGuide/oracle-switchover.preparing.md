@@ -45,9 +45,9 @@ switchover. Bystander replicas can be in any state during the switchover.
 - You configure your desired Multi-AZ deployment before initiating a switchover. Amazon RDS doesn't
   manage Multi-AZ as part of the switchover. The Multi-AZ deployment remains as it is.
 
-Assume that db_maz is the primary database in a Multi-AZ deployment, and db_saz is a
-Single-AZ replica. You initiate a switchover from db_maz to db_saz. Afterward,
-db_maz is a Multi-AZ replica database, and db_saz is a Single-AZ primary database.
+Assume that db\_maz is the primary database in a Multi-AZ deployment, and db\_saz is a
+Single-AZ replica. You initiate a switchover from db\_maz to db\_saz. Afterward,
+db\_maz is a Multi-AZ replica database, and db\_saz is a Single-AZ primary database.
 The new primary database is now unprotected by a Multi-AZ deployment.
 
 - In preparation for a cross-Region switchover, the primary database doesn't use the same option group as a DB instance outside of the

@@ -99,8 +99,8 @@ SHOW GRANTS FOR rds_superuser_role@'%';
 ```
 
 When you grant access by using roles in RDS for MySQL version 8.0.36 and higher, you also activate the role by using the `SET ROLE
- `role_name``or`SET ROLE ALL`statement. The following example shows how.
- Substitute the appropriate role name for`CUSTOM_ROLE`.
+ `role_name`` or `SET ROLE ALL` statement. The following example shows how.
+Substitute the appropriate role name for `CUSTOM_ROLE`.
 
 ```
 # Grant role to user

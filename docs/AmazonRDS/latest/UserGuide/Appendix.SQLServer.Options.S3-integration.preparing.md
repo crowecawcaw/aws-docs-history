@@ -48,19 +48,18 @@ policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/
 
 ###### To create an IAM role that uses the IAM policy from the previous procedure
 
-1.  In the [IAM Management Console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home"), choose
-    **Roles** in the navigation pane.
-2.  Create a new IAM role, and choose the following options as they appear in the console:
+1. In the [IAM Management Console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home"), choose
+   **Roles** in the navigation pane.
+2. Create a new IAM role, and choose the following options as they appear in the console:
 
-        * **AWS service**
-        * **RDS**
-        * **RDS – Add Role to Database**
+   - **AWS service**
+   - **RDS**
+   - **RDS – Add Role to Database**
+     Then choose **Next:Permissions** at the bottom.
 
-    Then choose **Next:Permissions** at the bottom.
-
-3.  For **Attach permissions policies**, enter the name of the IAM policy that you previously
-    created. Then choose the policy from the list.
-4.  Follow the instructions in the console until you finish creating the role.
+3. For **Attach permissions policies**, enter the name of the IAM policy that you previously
+   created. Then choose the policy from the list.
+4. Follow the instructions in the console until you finish creating the role.
 
 The preceding is an abbreviated guide to setting up a role. If you want more detailed instructions on creating
 roles, see [IAM roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") in the

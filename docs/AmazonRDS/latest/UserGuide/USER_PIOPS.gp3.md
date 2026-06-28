@@ -52,14 +52,12 @@ appear. 3. Choose the DB instance with gp3 storage that you want to modify. 4. C
      warning message appears. This message gives the range of values
      required for the other parameter.
 
-6. Choose **Continue**.
-7. Choose **Apply immediately** in the
-   **Scheduling of modifications** section to apply
-   the changes to the DB instance immediately. Or choose **Apply
-   during the next scheduled maintenance window** to apply the
-   changes during the next maintenance window.
-8. Review the parameters to be changed, and choose **Modify DB instance** to complete the
-   modification.
+6. Choose **Continue**. 7. Choose **Apply immediately** in the
+**Scheduling of modifications** section to apply
+the changes to the DB instance immediately. Or choose **Apply
+during the next scheduled maintenance window** to apply the
+changes during the next maintenance window. 8. Review the parameters to be changed, and choose **Modify DB instance** to complete the
+modification.
 
 The new value for Provisioned IOPS appears in the **Status** column.
 To change the storage performance settings for a DB instance, use the AWS CLI command [`modify-db-instance`](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md"). Set the following

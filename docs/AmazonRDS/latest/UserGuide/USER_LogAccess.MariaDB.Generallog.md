@@ -17,8 +17,8 @@ You can control MariaDB logging by using the parameters in this list:
 - `long_query_time` or `log_slow_query_time`: To prevent fast-running
   queries from being logged in the slow query log, specify a value for the
   shortest query run time to be logged, in seconds. The default is 10 seconds; the
-  minimum is 0. If log_output = FILE, you can specify a floating point value that
-  goes to microsecond resolution. If log_output = TABLE, you must specify an
+  minimum is 0. If log\_output = FILE, you can specify a floating point value that
+  goes to microsecond resolution. If log\_output = TABLE, you must specify an
   integer value with second resolution. Only queries whose run time exceeds the
   `long_query_time` or `log_slow_query_time` value are
   logged. For example, setting `long_query_time` or
@@ -30,21 +30,20 @@ You can control MariaDB logging by using the parameters in this list:
   less than the value of the `long_query_time`
   parameter.
 - `log_output `option``: You can specify one
- of the following options for the `log_output` parameter:
+  of the following options for the `log_output` parameter:
 
-      + TABLE (default)– Write
-       general queries to the `mysql.general_log` table, and
-       slow queries to the `mysql.slow_log` table.
-      + FILE– Write both general
-       and slow query logs to the file system. Log files are rotated
-       hourly.
-      + NONE– Disable
-       logging.
-
-  When logging is enabled, Amazon RDS rotates table logs or deletes log files at regular intervals. This measure is
-  a precaution to reduce the possibility of a large log file either blocking database use or
-  affecting performance. `FILE` and `TABLE` logging approach rotation and
-  deletion as follows:
+  - TABLE (default)– Write
+    general queries to the `mysql.general_log` table, and
+    slow queries to the `mysql.slow_log` table.
+  - FILE– Write both general
+    and slow query logs to the file system. Log files are rotated
+    hourly.
+  - NONE– Disable
+    logging.
+    When logging is enabled, Amazon RDS rotates table logs or deletes log files at regular intervals. This measure is
+    a precaution to reduce the possibility of a large log file either blocking database use or
+    affecting performance. `FILE` and `TABLE` logging approach rotation and
+    deletion as follows:
 
 - When `FILE` logging is enabled, log files are examined every hour and log files
   older than 24 hours are deleted. In some cases, the remaining combined log file

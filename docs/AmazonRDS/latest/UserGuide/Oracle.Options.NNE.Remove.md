@@ -1,4 +1,4 @@
-# Removing the NATIVE_NETWORK_ENCRYPTION option
+# Removing the NATIVE\_NETWORK\_ENCRYPTION option
 
 You can remove NNE from a DB instance.
 

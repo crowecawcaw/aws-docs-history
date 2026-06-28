@@ -74,39 +74,43 @@ you haven't created any CEVs, the page is empty. 3. Choose **Create custom engin
 
 5. In **Version details**, do the following:
 
-   1. Enter a valid name in **Custom engine version
-      name**. For example, you might enter the name
-      `19.cdb_cev1`.
-   2. (Optional) Enter a description for your CEV.
+    1. Enter a valid name in **Custom engine version
+     name**. For example, you might enter the name
+     `19.cdb_cev1`.
+    2. (Optional) Enter a description for your CEV.
 
 6. In **Installation media**, do the following:
 
-   1. (Optional) For **AMI ID**, either leave the field
-      blank to use the latest service-provided AMI, or enter an AMI that
-      you previously used to create a CEV. To obtain valid AMI IDs, use
-      either of the following techniques:
+    1. (Optional) For **AMI ID**, either leave the field
+     blank to use the latest service-provided AMI, or enter an AMI that
+     you previously used to create a CEV. To obtain valid AMI IDs, use
+     either of the following techniques:
 
-      - In the console, choose **Custom engine
-        versions** in the left navigation pane, and
-        choose the name of a CEV. The AMI ID used by the CEV appears
-        in the **Configuration** tab.
-      - In the AWS CLI, use the
-        `describe-db-engine-versions` command. Search
-        the output for `ImageID`.
 
-   2. For **S3 location of manifest files**, enter the
-      location of the Amazon S3 bucket that you specified in [Step 3: Upload your installation files to Amazon S3](custom-cev.preparing.md#custom-cev.preparing.s3 "custom-cev.preparing.md#custom-cev.preparing.s3"). For example, enter
-      `s3://my-custom-installation-files/123456789012/cev1/`.
 
-   ###### Note
 
-   The AWS Region in which you create the CEV must be in the
-   same Region as the S3 bucket. 3. (Create new CEV only) For **CEV manifest**, enter
-   the JSON manifest that you created in [Creating the CEV manifest](custom-cev.preparing.md#custom-cev.preparing.manifest.creating "custom-cev.preparing.md#custom-cev.preparing.manifest.creating").
+    	* In the console, choose **Custom engine
+    	 versions** in the left navigation pane, and
+    	 choose the name of a CEV. The AMI ID used by the CEV appears
+    	 in the **Configuration** tab.
+    	* In the AWS CLI, use the
+    	 `describe-db-engine-versions` command. Search
+    	 the output for `ImageID`.
+    2. For **S3 location of manifest files**, enter the
+     location of the Amazon S3 bucket that you specified in [Step 3: Upload your installation files to Amazon S3](custom-cev.preparing.md#custom-cev.preparing.s3 "custom-cev.preparing.md#custom-cev.preparing.s3"). For example, enter
+     `s3://my-custom-installation-files/123456789012/cev1/`.
+
+
+    ###### Note
+
+    The AWS Region in which you create the CEV must be in the
+     same Region as the S3 bucket.
+    3. (Create new CEV only) For **CEV manifest**, enter
+     the JSON manifest that you created in [Creating the CEV manifest](custom-cev.preparing.md#custom-cev.preparing.manifest.creating "custom-cev.preparing.md#custom-cev.preparing.manifest.creating").
 
 7. In the **KMS key** section, select **Enter a key
-   ARN** to list the available AWS KMS keys. Then select your KMS
-   key from the list.
+ARN** to list the available AWS KMS keys. Then select your KMS
+key from the list.
 
 An AWS KMS key is required for RDS Custom. For more information, see [Step 1: Create or reuse a symmetric encryption AWS KMS key](custom-setup-orcl.md#custom-setup-orcl.cmk "custom-setup-orcl.md#custom-setup-orcl.cmk"). 8. (Optional) Choose **Add new tag** to create a key-value
 pair for your CEV. 9. Choose **Create custom engine version**.
@@ -140,8 +144,8 @@ The following options are required:
 - `--manifest` – Specify either
   `manifest_json_string` or
   `--manifest file:`file_name`.
-Newline characters aren't permitted in
-`manifest_json_string``. Make
+ Newline characters aren't permitted in
+ `manifest_json_string``. Make
   sure to escape double quotes (") in the JSON code by prefixing them with a
   backslash (\).
 

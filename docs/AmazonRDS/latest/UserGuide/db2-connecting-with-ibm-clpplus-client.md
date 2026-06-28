@@ -122,9 +122,9 @@ This command produces output similar to the following example:
 
 ## Retrieving CLOB Data from DB2 Stored Procedures
 
-Stored procedures like rdsadmin.db2pd_command return results in CLOB columns, which support up to 2 GB of data. However, DB2 CLP limits CLOB output to 8 KB (8192 bytes), truncating any data beyond this threshold. To retrieve the complete output, use CLPPLUS instead.
+Stored procedures like rdsadmin.db2pd\_command return results in CLOB columns, which support up to 2 GB of data. However, DB2 CLP limits CLOB output to 8 KB (8192 bytes), truncating any data beyond this threshold. To retrieve the complete output, use CLPPLUS instead.
 
-1. Get Task ID (task_id)
+1. Get Task ID (task\_id)
 
 ```
 db2 "select task_id, task_type, database_name, lifecycle, varchar(bson_to_json(task_input_params), 500) as task_params,
@@ -133,7 +133,7 @@ cast(task_output as varchar(500)) as task_output, CREATED_AT, LAST_UPDATED_AT fr
 
 2. Execute CLPPLUS Command
 
-After obtaining the task_id, execute the following command from the Unix prompt (replace TASK_ID with the actual numeric task ID):
+After obtaining the task\_id, execute the following command from the Unix prompt (replace TASK\_ID with the actual numeric task ID):
 
 ```
 $ (echo "select task_output from table(rdsadmin.get_task_status(`task_id`,null,null));" ; echo "disconnect;" ; echo "exit;") | clpplus -nw -silent `masteruser`/`MasterUserPassword`@`hostname`:`port_num`/rdsadmin

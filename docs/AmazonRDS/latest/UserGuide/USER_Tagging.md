@@ -66,9 +66,9 @@ You can use tags to do the following:
   instances tagged `environment=test`. You could also configure automatic DB
   snapshots for instances tagged `environment=prod`.
 - Control access to RDS resources within an IAM policy. You can do this by using the
-  global `aws:ResourceTag/`tag-key``condition key. For
-example, a policy might allow only users in the`DBAdmin`group to modify
-DB instances tagged with`environment=prod`. For information about managing access to
+  global `aws:ResourceTag/`tag-key`` condition key. For
+  example, a policy might allow only users in the `DBAdmin` group to modify
+  DB instances tagged with `environment=prod`. For information about managing access to
   tagged resources with IAM policies, see [Identity and access management for Amazon RDS](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md") and [Controlling
   access to AWS resources](../../../IAM/latest/UserGuide/access_tags.md#access_tags_control-resources "../../../IAM/latest/UserGuide/access_tags.md#access_tags_control-resources") in the _AWS Identity and Access Management
   User Guide_.

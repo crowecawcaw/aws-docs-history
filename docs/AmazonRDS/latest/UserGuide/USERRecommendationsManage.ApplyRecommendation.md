@@ -10,43 +10,39 @@ need additional review.
 
 ###### To apply a configuration based recommendation
 
-1.  Sign in to the AWS Management Console and open the Amazon RDS console at
-    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2.  In the navigation pane, perform any of the following:
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, perform any of the following:
 
-    - Choose **Recommendations**.
+   - Choose **Recommendations**.
 
-    The **Recommendations** page appears with the list of
-    all recommendations.
-    - Choose **Databases** and then choose **Recommendations**
-      for a resource in the databases page.
+   The **Recommendations** page appears with the list of
+   all recommendations.
+   - Choose **Databases** and then choose **Recommendations**
+     for a resource in the databases page.
 
-    The details appear in the **Recommendations** tab for
-    the selected recommendation.
-    - Choose **Detection** for an active recommendation in the **Recommendations** page
-      or the **Recommendations** tab in the **Databases** page.
+   The details appear in the **Recommendations** tab for
+   the selected recommendation.
+   - Choose **Detection** for an active recommendation in the **Recommendations** page
+     or the **Recommendations** tab in the **Databases** page.
 
-    The recommendation details page appears.
+   The recommendation details page appears.
 
-3.  Choose a recommendation, or one or more affected resources in the
-    recommendation details page, and do any of the following:
+3. Choose a recommendation, or one or more affected resources in the
+   recommendation details page, and do any of the following:
 
-        * Choose **Apply** and then choose **Apply immediately** to
-         apply the recommendation immediately.
-        * Choose **Apply** and then choose **Apply in next maintenance window** to schedule in the next maintenance window.
+   - Choose **Apply** and then choose **Apply immediately** to
+     apply the recommendation immediately.
+   - Choose **Apply** and then choose **Apply in next maintenance window** to schedule in the next maintenance window.
 
+   The selected recommendation status is updated to pending until
+   the next maintenance window.
 
-        The selected recommendation status is updated to pending until
-         the next maintenance window.
+   ![An active recommendation selected and Apply button with its options highlighted in the console.](images/Recommendations_Apply_Defer.png)
+   A confirmation window appears.
 
-
-
-        ![An active recommendation selected and Apply button with its options highlighted in the console.](images/Recommendations_Apply_Defer.png)
-
-    A confirmation window appears.
-
-4.  Choose **Confirm application** to apply the recommendation. This window confirms whether the resources
-    need an automatic or manual restart for the changes to take effect.
+4. Choose **Confirm application** to apply the recommendation. This window confirms whether the resources
+   need an automatic or manual restart for the changes to take effect.
 
 The following example shows the confirmation window to apply the recommendation immediately.
 

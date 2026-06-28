@@ -52,7 +52,7 @@ The following procedure creates a parameter group for SQL Server Standard Editio
    2. For **Group name**, enter an identifier for the parameter group, such
       as `sqlserver-ciphers-se-13`.
    3. For **Description**, enter `Parameter group for security
-protocols and ciphers`.
+  protocols and ciphers`.
 
 5. Choose **Create**.
    The following procedure creates a parameter group for SQL Server Standard Edition 2016.

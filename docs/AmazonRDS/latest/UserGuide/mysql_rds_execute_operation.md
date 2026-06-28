@@ -1,4 +1,4 @@
-# mysql.rds_execute_operation
+# mysql.rds\_execute\_operation
 
 Executes InnoDB operations to manage buffer pool states and temporary tablespace.
 This procedure can be used to dynamically control InnoDB operations such as dumping and loading buffer pool states or truncating temporary tablespace.
@@ -15,10 +15,10 @@ _operation_
 
 String. The InnoDB operations to execute. Valid values are:
 
-- _innodb_buffer_pool_dump_now_ - Operation that dumps the current state of the buffer pool.
-- _innodb_buffer_pool_load_now_ - Operation that loads the saved buffer pool state.
-- _innodb_buffer_pool_load_abort_ - Operation that aborts a buffer pool load operation.
-- _innodb_truncate_temporary_tablespace_now_ - Operation that truncates the temporary tablespace.
+- _innodb\_buffer\_pool\_dump\_now_ - Operation that dumps the current state of the buffer pool.
+- _innodb\_buffer\_pool\_load\_now_ - Operation that loads the saved buffer pool state.
+- _innodb\_buffer\_pool\_load\_abort_ - Operation that aborts a buffer pool load operation.
+- _innodb\_truncate\_temporary\_tablespace\_now_ - Operation that truncates the temporary tablespace.
 
 ## Usage notes
 

@@ -79,7 +79,7 @@ For more information, see [Oracle Java virtual machine](oracle-options-java.md "
 
 - JavaScript (Oracle Database 21c and higher)
 
-For more information, see [DBMS_MLE](https://docs.oracle.com/en/database/oracle/oracle-database/21/arpls/dbms_mle.html#GUID-3F5B47A5-2C73-4317-ACD7-E93AE8B8E301 "https://docs.oracle.com/en/database/oracle/oracle-database/21/arpls/dbms_mle.html#GUID-3F5B47A5-2C73-4317-ACD7-E93AE8B8E301") in the Oracle Database documentation.
+For more information, see [DBMS\_MLE](https://docs.oracle.com/en/database/oracle/oracle-database/21/arpls/dbms_mle.html#GUID-3F5B47A5-2C73-4317-ACD7-E93AE8B8E301 "https://docs.oracle.com/en/database/oracle/oracle-database/21/arpls/dbms_mle.html#GUID-3F5B47A5-2C73-4317-ACD7-E93AE8B8E301") in the Oracle Database documentation.
 
 - Label Security
 

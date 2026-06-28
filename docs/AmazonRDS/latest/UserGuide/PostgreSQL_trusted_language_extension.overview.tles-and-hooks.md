@@ -151,7 +151,7 @@ the following.
 
 It might take a few minutes for the change to the parameter group setting to take effect. This parameter is dynamic, however, so you
 don't need to restart the
-RDS for PostgreSQL DB instance for the setting to take effect. 6. Open the `psql` session and query the database to verify that the password_check
+RDS for PostgreSQL DB instance for the setting to take effect. 6. Open the `psql` session and query the database to verify that the password\_check
 hook has been turned on.
 
 ```
@@ -180,7 +180,7 @@ SQL statement "SELECT password_check.passcheck_hook(
 The output has been formatted for readability.
 
 The following example shows that `pgsql` interactive metacommand `\password` behavior
-is also affected by the password_check hook.
+is also affected by the password\_check hook.
 
 ```
 `postgres=>` SET password_encryption TO 'md5';

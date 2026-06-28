@@ -89,4 +89,4 @@ PostgreSQL DB instance, do the following:
      from the directory security group.
 
 6. Use the RDS master user credentials to connect to the PostgreSQL DB instance. Create the user in PostgreSQL to be identified
-   externally. Externally identified users can log in to the PostgreSQL DB instance using Kerberos authentication.
+externally. Externally identified users can log in to the PostgreSQL DB instance using Kerberos authentication.

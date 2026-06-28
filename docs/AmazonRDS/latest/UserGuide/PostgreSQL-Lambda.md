@@ -30,7 +30,7 @@ the _AWS Lambda Developer Guide_.
 
 - [Step 1: Configure your RDS for PostgreSQL DB instance for outbound connections to AWS Lambda](#PostgreSQL-Lambda-network "#PostgreSQL-Lambda-network")
 - [Step 2: Configure IAM for your RDS for PostgreSQL DB instance and AWS Lambda](#PostgreSQL-Lambda-access "#PostgreSQL-Lambda-access")
-- [Step 3: Install the aws_lambda extension for an RDS for PostgreSQL DB instance](#PostgreSQL-Lambda-install-extension "#PostgreSQL-Lambda-install-extension")
+- [Step 3: Install the aws\_lambda extension for an RDS for PostgreSQL DB instance](#PostgreSQL-Lambda-install-extension "#PostgreSQL-Lambda-install-extension")
 - [Step 4: Use Lambda helper functions with your RDS for PostgreSQL DB instance (Optional)](#PostgreSQL-Lambda-specify-function "#PostgreSQL-Lambda-specify-function")
 - [Step 5: Invoke a Lambda function from your RDS for PostgreSQL DB instance](#PostgreSQL-Lambda-invoke "#PostgreSQL-Lambda-invoke")
 - [Step 6: Grant other users permission to invoke Lambda functions](#PostgreSQL-Lambda-grant-users-permissions "#PostgreSQL-Lambda-grant-users-permissions")
@@ -210,7 +210,7 @@ you need to have the following information about your Lambda functions:
   Lambda function is located if it's not in the same Region as your
   RDS for PostgreSQL DB instance.
 
-To hold the Lambda function name information, you use the [aws_commons.create_lambda_function_arn](PostgreSQL-Lambda-functions.md#aws_commons.create_lambda_function_arn "PostgreSQL-Lambda-functions.md#aws_commons.create_lambda_function_arn") function. This helper function
+To hold the Lambda function name information, you use the [aws\_commons.create\_lambda\_function\_arn](PostgreSQL-Lambda-functions.md#aws_commons.create_lambda_function_arn "PostgreSQL-Lambda-functions.md#aws_commons.create_lambda_function_arn") function. This helper function
 creates an `aws_commons._lambda_function_arn_1` composite structure with
 the details needed by the invoke function. Following, you can find three alternative
 approaches to setting up this composite structure.
@@ -237,7 +237,7 @@ SELECT aws_commons.create_lambda_function_arn(
 ) AS lambda_arn_1 \gset
 ```
 
-Any of these values can be used in calls to the [aws_lambda.invoke](PostgreSQL-Lambda-functions.md#aws_lambda.invoke "PostgreSQL-Lambda-functions.md#aws_lambda.invoke") function. For
+Any of these values can be used in calls to the [aws\_lambda.invoke](PostgreSQL-Lambda-functions.md#aws_lambda.invoke "PostgreSQL-Lambda-functions.md#aws_lambda.invoke") function. For
 examples, see [Step 5: Invoke a Lambda function from your RDS for PostgreSQL DB instance](#PostgreSQL-Lambda-invoke "#PostgreSQL-Lambda-invoke").
 
 ## Step 5: Invoke a Lambda function from your RDS for PostgreSQL DB instance

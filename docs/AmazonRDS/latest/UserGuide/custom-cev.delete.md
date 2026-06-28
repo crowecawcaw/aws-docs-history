@@ -28,12 +28,12 @@ To delete a CEV by using the AWS CLI, run the [delete-custom-db-engine-version](
 The following options are required:
 
 - `--engine `engine-type``, where
-`engine-type`is`custom-oracle-ee`,
-`custom-oracle-se2`, `custom-oracle-ee-cdb`, or
-`custom-oracle-se2-cdb`
-- `--engine-version `cev``, where `cev`is the name of the custom
- engine version to be deleted
-The following example deletes a CEV named`19.my_cev1`.
+  `engine-type` is `custom-oracle-ee`,
+  `custom-oracle-se2`, `custom-oracle-ee-cdb`, or
+  `custom-oracle-se2-cdb`
+- `--engine-version `cev``, where `cev` is the name of the custom
+  engine version to be deleted
+  The following example deletes a CEV named `19.my_cev1`.
 
 ###### Example
 

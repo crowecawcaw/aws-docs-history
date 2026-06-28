@@ -21,7 +21,7 @@ setting the parameter `event_scheduler` to `ON`. For MySQL DB
 instances running MySQL 5.7, also set the parameter `show_compatibility_56`
 to `1`. For information about creating and modifying a DB parameter group,
 see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). For information about the side
-effects of enabling this parameter, see [show_compatibility_56](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56 "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56") in the _MySQL 5.7 Reference
+effects of enabling this parameter, see [show\_compatibility\_56](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56 "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56") in the _MySQL 5.7 Reference
 Manual_.
 
 You can then use the procedures in the following table to enable and configure GoSH.

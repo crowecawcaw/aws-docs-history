@@ -131,13 +131,13 @@ database editions:
 
 - For CEVs using pre-installed media:
 
-  - SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR, CU21-GDR, CU22, CU22-GDR, CU23, CU23-GDR and CU24-GDR.
+  - SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR, CU21-GDR, CU22, CU22-GDR, CU23, CU23-GDR, CU24-GDR, and CU25.
   - SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR.
 
 - For CEVs using bring your own media (BYOM):
 
   - SQL Server 2022 Enterprise, Standard, or Developer, with CU9, CU13,
-    CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR, CU21-GDR, CU22, CU22-GDR, CU23, CU23-GDR and CU24-GDR.
+    CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR, CU21-GDR, CU22, CU22-GDR, CU23, CU23-GDR, CU24-GDR, and CU25.
   - SQL Server 2019 Enterprise, Standard, or Developer, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR.
 
 - For CEVs using pre-installed media or bring your own media (BYOM), Windows
@@ -158,7 +158,7 @@ The following requirements apply to creating a CEV for RDS Custom for SQL Server
   version + minor version + customized string_. The _major
   version + minor version_ must match the SQL Server version
   provided with the AMI. For example, you can name an AMI with SQL Server 2019
-  CU17 as **15.00.4249.2.my_cevtest**.
+  CU17 as **15.00.4249.2.my\_cevtest**.
 - You must prepare an AMI using Sysprep. For more information about prepping
   an AMI using Sysprep, see [Create a standardized Amazon Machine Image (AMI) using
   Sysprep](../../../AWSEC2/latest/UserGuide/ami-create-win-sysprep.md "../../../AWSEC2/latest/UserGuide/ami-create-win-sysprep.md").

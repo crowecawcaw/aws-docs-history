@@ -76,35 +76,33 @@ when both of the following conditions apply during database creation:
   - RDS Optimized Writes is supported for the following RDS for MariaDB
     versions:
 
-        - All available minor versions of 11.8 and higher major releases
-        - 11.4.3 and higher 11.4 versions
-        - 10.11.4 and higher 10.11 versions
-        - 10.6.10 and higher 10.6 versions
-
-    For information about RDS for MariaDB versions, see [MariaDB on Amazon RDS versions](MariaDB.Concepts.VersionMgmt.md "MariaDB.Concepts.VersionMgmt.md").
+    - All available minor versions of 11.8 and higher major releases
+    - 11.4.3 and higher 11.4 versions
+    - 10.11.4 and higher 10.11 versions
+    - 10.6.10 and higher 10.6 versions
+      For information about RDS for MariaDB versions, see [MariaDB on Amazon RDS versions](MariaDB.Concepts.VersionMgmt.md "MariaDB.Concepts.VersionMgmt.md").
 
   - RDS Optimized Writes is supported for RDS for MariaDB databases that use
     the following DB instance classes:
 
-        - db.m7i
-        - db.m7g
-        - db.m6g
-        - db.m6gd
-        - db.m6i
-        - db.m5
-        - db.m5d
-        - db.r7i
-        - db.r7g
-        - db.r6g
-        - db.r6gd
-        - db.r6i
-        - db.r5
-        - db.r5b
-        - db.r5d
-        - db.x2idn
-        - db.x2iedn
-
-    For information about DB instance classes, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+    - db.m7i
+    - db.m7g
+    - db.m6g
+    - db.m6gd
+    - db.m6i
+    - db.m5
+    - db.m5d
+    - db.r7i
+    - db.r7g
+    - db.r6g
+    - db.r6gd
+    - db.r6i
+    - db.r5
+    - db.r5b
+    - db.r5d
+    - db.x2idn
+    - db.x2iedn
+      For information about DB instance classes, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 
   DB instance class availability differs for AWS Regions. To determine whether a
   DB instance class is supported in a specific AWS Region, see [Determining DB instance class support in AWS Regions](Concepts.DBInstanceClass.RegionSupport.md "Concepts.DBInstanceClass.RegionSupport.md").

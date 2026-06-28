@@ -124,10 +124,9 @@ the options listed in [Settings for DB instances](USER_CreateDBInstance.Settings
     		 password**.
 
 12. For the remaining sections, specify your DB instance settings. For information
-    about each setting, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md").
-13. Choose **Create database**.
-    To create a CDB in the multi-tenant configuration, use the [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md")
-    command with the following parameters:
+about each setting, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md"). 13. Choose **Create database**.
+To create a CDB in the multi-tenant configuration, use the [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md")
+command with the following parameters:
 
 - `--db-instance-identifier`
 - `--db-instance-class`

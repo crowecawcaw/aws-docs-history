@@ -199,52 +199,51 @@ resources:
 
 ###### To configure IAM using CloudFormation
 
-1.  Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2.  Start the Create Stack wizard, and choose **Create
-    Stack**.
-3.  On the **Create stack** page, do the following:
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+2. Start the Create Stack wizard, and choose **Create
+   Stack**.
+3. On the **Create stack** page, do the following:
 
-    1. For **Prepare template**, choose
-       **Template is ready**.
-    2. For **Template source**, choose **Upload
-       a template file**.
-    3. For **Choose file**, navigate to, then choose
-       **custom-oracle-iam.json**.
-    4. Choose **Next**.
+   1. For **Prepare template**, choose
+      **Template is ready**.
+   2. For **Template source**, choose **Upload
+      a template file**.
+   3. For **Choose file**, navigate to, then choose
+      **custom-oracle-iam.json**.
+   4. Choose **Next**.
 
-4.  On the **Specify stack details** page, do the
-    following:
+4. On the **Specify stack details** page, do the
+   following:
 
-    1. For **Stack name**, enter
-       `custom-oracle-iam`.
-    2. Choose **Next**.
+   1. For **Stack name**, enter
+      `custom-oracle-iam`.
+   2. Choose **Next**.
 
-5.  On the **Configure stack options page**, choose
-    **Next**.
-6.  On the **Review custom-oracle-iam** page, do the
-    following:
+5. On the **Configure stack options page**, choose
+   **Next**.
+6. On the **Review custom-oracle-iam** page, do the
+   following:
 
-    1. Select the \***\*I acknowledge that
-       CloudFormation might create IAM resources with custom
-       names\*\*** check box.
-    2. Choose **Submit**.CloudFormation creates the IAM roles that RDS Custom for Oracle requires. In the left
-       panel, when **custom-oracle-iam** shows
-       **CREATE_COMPLETE**, proceed to the next step.
+   1. Select the ****I acknowledge that
+      CloudFormation might create IAM resources with custom
+      names**** check box.
+   2. Choose **Submit**.CloudFormation creates the IAM roles that RDS Custom for Oracle requires. In the left
+      panel, when **custom-oracle-iam** shows
+      **CREATE\_COMPLETE**, proceed to the next step.
 
-7.  In the left panel, choose **custom-oracle-iam**. In the
-    right panel, do the following:
+7. In the left panel, choose **custom-oracle-iam**. In the
+   right panel, do the following:
 
-    1.  Choose **Stack info**. Your stack has an ID in
-        the format
-        **arn:aws:cloudformation:`region`:`account-no`:stack/custom-oracle-iam/`identifier`**.
-    2.  Choose **Resources**. You should see the
-        following:
+   1. Choose **Stack info**. Your stack has an ID in
+      the format
+      **arn:aws:cloudformation:`region`:`account-no`:stack/custom-oracle-iam/`identifier`**.
+   2. Choose **Resources**. You should see the
+      following:
 
-            * An instance profile named
-             **AWSRDSCustomInstanceProfile-`region`**
-            * A service role named
-             **AWSRDSCustomInstanceRole-`region`**
-
+      - An instance profile named
+        **AWSRDSCustomInstanceProfile-`region`**
+      - A service role named
+        **AWSRDSCustomInstanceRole-`region`**
         When you create your RDS Custom DB instance, you need to supply the instance
         profile ID.
 
@@ -262,8 +261,8 @@ IAM manually. For manual setup, do the following:
 
 In this step, you create the role using the naming format
 `AWSRDSCustomInstanceRole-`region``.
- Using the trust policy, Amazon EC2 can assume the role. The following example assumes
- that you have set the environment variable `$REGION` to the
+Using the trust policy, Amazon EC2 can assume the role. The following example assumes
+that you have set the environment variable `$REGION` to the
 AWS Region in which you want to create your DB instance.
 
 ```
@@ -515,8 +514,8 @@ If you use the CLI to create a role, you create the role and instance profile
 as separate actions, with potentially different names. Create your IAM
 instance profile as follows, naming it using the format
 `AWSRDSCustomInstanceProfile-`region``.
- The following example assumes that you have set the environment variable
- `$REGION` to the AWS Region in which you want to create your
+The following example assumes that you have set the environment variable
+`$REGION` to the AWS Region in which you want to create your
 DB instance.
 
 ```
@@ -725,18 +724,17 @@ resources:
 - The following VPC endpoints, which your DB instance uses to communicate with dependent
   AWS services:
 
-      + `com.amazonaws.`region`.ec2messages`
-      + `com.amazonaws.`region`.events`
-      + `com.amazonaws.`region`.logs`
-      + `com.amazonaws.`region`.monitoring`
-      + `com.amazonaws.`region`.s3`
-      + `com.amazonaws.`region`.secretsmanager`
-      + `com.amazonaws.`region`.ssm`
-      + `com.amazonaws.`region`.ssmmessages`
+  - `com.amazonaws.`region`.ec2messages`
+  - `com.amazonaws.`region`.events`
+  - `com.amazonaws.`region`.logs`
+  - `com.amazonaws.`region`.monitoring`
+  - `com.amazonaws.`region`.s3`
+  - `com.amazonaws.`region`.secretsmanager`
+  - `com.amazonaws.`region`.ssm`
+  - `com.amazonaws.`region`.ssmmessages`
+    If you're creating a Multi-AZ deployment:
 
-  If you're creating a Multi-AZ deployment:
-
-      + `com.amazonaws.`region`.sqs`
+  - `com.amazonaws.`region`.sqs`
 
 ###### Note
 
@@ -773,7 +771,7 @@ For more information, see [Make sure your VPC can access dependent AWS services]
    **Submit**.
 
 CloudFormation configures your private VPC. In the left panel, when
-**custom-vpc** shows **CREATE_COMPLETE**,
+**custom-vpc** shows **CREATE\_COMPLETE**,
 proceed to the next step. 7. (Optional) Review the details of your VPC. In the **Stacks**
 pane, choose **custom-vpc**. In the right pane, do the
 following:

@@ -3,9 +3,9 @@
 Starting with RDS for MariaDB version 11.4, you can use the following password validation
 plugins to enhance the security of your database connections:
 
-- [simple_password_check](https://mariadb.com/kb/en/simple-password-check-plugin/ "https://mariadb.com/kb/en/simple-password-check-plugin/") – checks whether a password contains at
+- [simple\_password\_check](https://mariadb.com/kb/en/simple-password-check-plugin/ "https://mariadb.com/kb/en/simple-password-check-plugin/") – checks whether a password contains at
   least a specific number of characters of a specific type.
-- [cracklib_password_check](https://mariadb.com/kb/en/cracklib_password_check/ "https://mariadb.com/kb/en/cracklib_password_check/") – checks whether a password appears in a dictionary file of the
+- [cracklib\_password\_check](https://mariadb.com/kb/en/cracklib_password_check/ "https://mariadb.com/kb/en/cracklib_password_check/") – checks whether a password appears in a dictionary file of the
   [CrackLib](https://github.com/cracklib/cracklib "https://github.com/cracklib/cracklib") library.
   To enable these plugins, set the value of the parameter `simple_password_check`
   or `cracklib_password_check` to `FORCE_PLUS_PERMANENT` in the DB

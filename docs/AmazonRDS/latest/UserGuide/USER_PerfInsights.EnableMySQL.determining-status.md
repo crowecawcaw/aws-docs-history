@@ -3,10 +3,10 @@
 To find out whether Performance Insights is currently managing the Performance Schema for
 all supported major engine versions, review the following table.
 
-| Setting of performance_schema parameter | Setting of the Source column | Performance Insights is managing the Performance Schema? |
-| --------------------------------------- | ---------------------------- | -------------------------------------------------------- |
-| `0`                                     | `System default`             | Yes                                                      |
-| `0` or `1`                              | `Modified`                   | No                                                       |
+| Setting of performance\_schema parameter | Setting of the Source column | Performance Insights is managing the Performance Schema? |
+| ---------------------------------------- | ---------------------------- | -------------------------------------------------------- |
+| `0`                                      | `System default`             | Yes                                                      |
+| `0` or `1`                               | `Modified`                   | No                                                       |
 
 In the following procedure, you determine whether Performance Insights is managing the Performance
 Schema automatically.

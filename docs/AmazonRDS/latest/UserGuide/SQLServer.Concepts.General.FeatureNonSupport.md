@@ -8,7 +8,7 @@ The following Microsoft SQL Server features aren't supported on Amazon RDS:
 - Data Quality Services
 - Database Log Shipping
 - Database snapshots (Amazon RDS supports only DB instance snapshots)
-- Extended stored procedures, including xp_cmdshell
+- Extended stored procedures, including xp\_cmdshell
 - FILESTREAM support
 - File tables
 - Machine Learning and R Services (requires OS access to install it)

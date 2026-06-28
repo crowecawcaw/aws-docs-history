@@ -15,7 +15,7 @@ AWS Management Console and the AWS CLI.
 - [Customizing your RDS Custom environment](custom-managing.customizing-env.md "custom-managing.customizing-env.md")
 - [Modifying your RDS Custom for Oracle DB instance](custom-managing.modifying.md "custom-managing.modifying.md")
 - [Changing the character set of an RDS Custom for Oracle DB instance](custom-managing.character-set.md "custom-managing.character-set.md")
-- [Setting the NLS_LANG value in RDS Custom for Oracle](custom-managing.nlslang.md "custom-managing.nlslang.md")
+- [Setting the NLS\_LANG value in RDS Custom for Oracle](custom-managing.nlslang.md "custom-managing.nlslang.md")
 - [Support for Transparent Data Encryption](#custom-managing.tde "#custom-managing.tde")
 - [Tagging RDS Custom for Oracle resources](custom-managing.tagging.md "custom-managing.tagging.md")
 - [Deleting an RDS Custom for Oracle DB instance](custom-managing.deleting.md "custom-managing.deleting.md")

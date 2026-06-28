@@ -20,12 +20,12 @@ For more information, see
 
 ###### Topics
 
-- [NATIVE_NETWORK_ENCRYPTION option settings](Oracle.Options.NNE.Options.md "Oracle.Options.NNE.Options.md")
-- [Adding the NATIVE_NETWORK_ENCRYPTION option](Oracle.Options.NNE.Add.md "Oracle.Options.NNE.Add.md")
+- [NATIVE\_NETWORK\_ENCRYPTION option settings](Oracle.Options.NNE.Options.md "Oracle.Options.NNE.Options.md")
+- [Adding the NATIVE\_NETWORK\_ENCRYPTION option](Oracle.Options.NNE.Add.md "Oracle.Options.NNE.Add.md")
 - [Verifying that NNE is active](#Oracle.Options.NNE.Verify "#Oracle.Options.NNE.Verify")
 - [Setting NNE values in the sqlnet.ora](Oracle.Options.NNE.Using.md "Oracle.Options.NNE.Using.md")
-- [Modifying NATIVE_NETWORK_ENCRYPTION option settings](Oracle.Options.NNE.ModifySettings.md "Oracle.Options.NNE.ModifySettings.md")
-- [Removing the NATIVE_NETWORK_ENCRYPTION option](Oracle.Options.NNE.Remove.md "Oracle.Options.NNE.Remove.md")
+- [Modifying NATIVE\_NETWORK\_ENCRYPTION option settings](Oracle.Options.NNE.ModifySettings.md "Oracle.Options.NNE.ModifySettings.md")
+- [Removing the NATIVE\_NETWORK\_ENCRYPTION option](Oracle.Options.NNE.Remove.md "Oracle.Options.NNE.Remove.md")
 
 ## Verifying that NNE is active
 

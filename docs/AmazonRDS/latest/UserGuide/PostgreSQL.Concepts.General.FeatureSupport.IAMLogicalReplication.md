@@ -33,13 +33,12 @@ Complete the following steps to enable IAM authentication for replication connec
 
 ###### To enable IAM authentication for replication connections
 
-1.  Verify that your RDS for PostgreSQL DB cluster or instance meets all prerequisites for IAM authentication with replication connections. For details, see [Prerequisites](#PostgreSQL.Concepts.General.FeatureSupport.IAMLogicalReplication.Prerequisites "#PostgreSQL.Concepts.General.FeatureSupport.IAMLogicalReplication.Prerequisites").
-2.  Configure the `rds.iam_auth_for_replication` parameter based on your RDS for PostgreSQL setup:
+1. Verify that your RDS for PostgreSQL DB cluster or instance meets all prerequisites for IAM authentication with replication connections. For details, see [Prerequisites](#PostgreSQL.Concepts.General.FeatureSupport.IAMLogicalReplication.Prerequisites "#PostgreSQL.Concepts.General.FeatureSupport.IAMLogicalReplication.Prerequisites").
+2. Configure the `rds.iam_auth_for_replication` parameter based on your RDS for PostgreSQL setup:
 
-        * For RDS for PostgreSQL DB instances: Modify your DB parameter group.
-        * For Multi-AZ clusters: Modify your DB cluster parameter group.
-
-    Set `rds.iam_auth_for_replication` to 1. This is a dynamic parameter that takes effect immediately without requiring a reboot.
+   - For RDS for PostgreSQL DB instances: Modify your DB parameter group.
+   - For Multi-AZ clusters: Modify your DB cluster parameter group.
+     Set `rds.iam_auth_for_replication` to 1. This is a dynamic parameter that takes effect immediately without requiring a reboot.
 
 ###### Note
 

@@ -32,7 +32,7 @@ You can see the following details.
   use the following Trusted Language Extensions functions to add and update that information in
   the table.
 
-  - [pgtle.register_feature](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature")
-  - [pgtle.register_feature_if_not_exists](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature_if_not_exists "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature_if_not_exists")
-  - [pgtle.unregister_feature](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature")
-  - [pgtle.unregister_feature_if_exists](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature_if_exists "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature_if_exists")
+  - [pgtle.register\_feature](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature")
+  - [pgtle.register\_feature\_if\_not\_exists](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature_if_not_exists "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature_if_not_exists")
+  - [pgtle.unregister\_feature](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature")
+  - [pgtle.unregister\_feature\_if\_exists](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature_if_exists "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature_if_exists")

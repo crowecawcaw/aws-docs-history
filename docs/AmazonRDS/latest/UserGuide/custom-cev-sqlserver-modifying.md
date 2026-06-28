@@ -42,7 +42,7 @@ The following options are required:
 - `--engine`
 - `--engine-version
   `cev```, where
-`cev`` is the name of the
+ `cev`` is the name of the
   custom engine version that you want to modify
 - `--status````status```, where
  ``status`` is the

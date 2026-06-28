@@ -1,4 +1,4 @@
-# Removing the EFS_INTEGRATION option
+# Removing the EFS\_INTEGRATION option
 
 The steps for removing the `EFS_INTEGRATION` option depend on whether you're
 removing the option from multiple DB instances or a single instance.

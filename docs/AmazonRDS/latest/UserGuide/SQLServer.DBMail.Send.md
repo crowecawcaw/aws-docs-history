@@ -1,6 +1,6 @@
 # Sending email messages using Database Mail
 
-You use the [sp_send_dbmail](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql") stored procedure to send email messages using Database Mail.
+You use the [sp\_send\_dbmail](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql") stored procedure to send email messages using Database Mail.
 
 ## Usage
 

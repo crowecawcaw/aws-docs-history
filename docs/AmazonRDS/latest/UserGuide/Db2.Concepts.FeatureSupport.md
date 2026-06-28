@@ -28,10 +28,10 @@ RDS for Db2 supports the following Db2 database features:
 
 - Creation
   of a standard database that uses a customer-defined code set, collation,
-  page size, and territory. Use the Amazon RDS [rdsadmin.create_database](db2-sp-managing-databases.md#db2-sp-create-database "db2-sp-managing-databases.md#db2-sp-create-database") stored procedure.
+  page size, and territory. Use the Amazon RDS [rdsadmin.create\_database](db2-sp-managing-databases.md#db2-sp-create-database "db2-sp-managing-databases.md#db2-sp-create-database") stored procedure.
 - Addition, deletion, or modification of local users and groups. Use the
   Amazon RDS stored procedures for [Stored procedures for granting and revoking privileges for RDS for Db2](db2-sp-granting-revoking-privileges.md "db2-sp-granting-revoking-privileges.md").
-- Creation of roles with the Amazon RDS [rdsadmin.create_role](db2-sp-granting-revoking-privileges.md#db2-sp-create-role "db2-sp-granting-revoking-privileges.md#db2-sp-create-role") stored procedure.
+- Creation of roles with the Amazon RDS [rdsadmin.create\_role](db2-sp-granting-revoking-privileges.md#db2-sp-create-role "db2-sp-granting-revoking-privileges.md#db2-sp-create-role") stored procedure.
 - Support for standard row-organized tables.
 - Support for analytic workload for column-organized tables.
 - Ability to define Db2-compatibility features such as Oracle
