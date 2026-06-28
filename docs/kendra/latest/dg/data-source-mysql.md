@@ -106,158 +106,167 @@ If using version 2 (if applicable), choose **MySQL connector** with the "V2.0" t
     5. Choose **Next**.
 
 6. On the **Define access and security** page,
-   enter the following information:
+enter the following information:
 
-   1. In **Source**, enter the following
-      information:
-   2. **Host**— Enter the database
-      host name.
-   3. **Port**— Enter the database
-      port.
-   4. **Instance**— Enter the database
-      instance.
-   5. **Enable SSL certificate
-      location**—Choose to enter the Amazon S3 path to your SSL certificate file.
-   6. In **Authentication**—enter
-      the following information:
+    1. In **Source**, enter the following
+     information:
+    2. **Host**— Enter the database
+     host name.
+    3. **Port**— Enter the database
+     port.
+    4. **Instance**— Enter the database
+     instance.
+    5. **Enable SSL certificate
+     location**—Choose to enter the Amazon S3 path to your SSL certificate file.
+    6. In **Authentication**—enter
+     the following information:
 
-      1. **AWS Secrets Manager secret**—Choose an existing secret or create a new
-         Secrets Manager secret to store your MySQL authentication
-         credentials. If you choose to create a new secret an AWS Secrets Manager
-         secret window opens.
 
-         1. Enter following information in the
-            **Create an AWS
-            Secrets Manager secret
-            window**:
+    	1. **AWS Secrets Manager secret**—Choose an existing secret or create a new
+    	 Secrets Manager secret to store your MySQL authentication
+    	 credentials. If you choose to create a new secret an AWS Secrets Manager
+    	 secret window opens.
 
-            1. **Secret name**—A
-               name for your secret. The prefix
-               ‘AmazonKendra-MySQL-’ is
-               automatically added to your secret name.
-            2. For **Database user name**,
-               and **Password**—Enter the
-               authentication credential values you copied from
-               your database.
 
-         2. Choose **Save**.
+    		1. Enter following information in the
+    		 **Create an AWS
+    		 Secrets Manager secret
+    		 window**:
 
-   7. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
-      so, you must add **Subnets** and **VPC security groups**.
-   8. **IAM role**—Choose an existing IAM
-      role or create a new IAM role to access your repository credentials and index content.
 
-   ###### Note
+    			1. **Secret name**—A
+    			 name for your secret. The prefix
+    			 ‘AmazonKendra-MySQL-’ is
+    			 automatically added to your secret name.
+    			2. For **Database user name**,
+    			 and **Password**—Enter the
+    			 authentication credential values you copied from
+    			 your database.
+    		2. Choose **Save**.
+    7. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
+     so, you must add **Subnets** and **VPC security groups**.
+    8. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
 
-   IAM roles used for indexes cannot be used for data sources. If you are unsure
-   if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-   errors. 9. Choose **Next**.
+
+    ###### Note
+
+    IAM roles used for indexes cannot be used for data sources. If you are unsure
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    9. Choose **Next**.
 
 7. On the **Configure sync settings** page,
-   enter the following information:
+enter the following information:
 
-   1. In **Sync scope**, choose from the
-      following options :
+    1. In **Sync scope**, choose from the
+     following options :
 
-      - **SQL query**—Enter
-        SQL query statements like SELECT and JOIN
-        operations. SQL queries must be less than 32KB.
-        Amazon Kendra will crawl all database content
-        that matches your query.
-      - **Primary key
-        column**—Provide the primary key
-        for the database table. This identifies a table
-        within your database.
-      - **Title
-        column**—Provide the name of the
-        document title column within your database
-        table.
-      - **Body
-        column**—Provide the name of the
-        document body column within your database
-        table.
 
-   2. In **Additional configuration –
-      _optional_**, choose
-      from the following options to sync specific content
-      instead of syncing all files:
 
-      - **Change-detecting
-        columns**—Enter the names of the
-        columns that Amazon Kendra will use to detect
-        content changes. Amazon Kendra will re-index
-        content when there is a change in any of these
-        columns.
-      - **Users' IDs
-        column**—Enter the name of the
-        column which contains User IDs to be allowed
-        access to content.
-      - **Groups
-        column**—Enter the name of the
-        column that contains groups to be allowed access
-        to content.
-      - **Source URLs
-        column**—Enter the name of the
-        column which contains Source URLs to be
-        indexed.
-      - **Time stamps
-        column**—Enter the name of the
-        column which contains time stamps. Amazon Kendra uses time stamp information to detect
-        changes in your content and sync only changed
-        content.
-      - **Time zones
-        column**—Enter the name of the
-        column which contains time zones for the content
-        to be crawled.
-      - **Time stamps
-        format**—Enter the name of the
-        column which contains time stamp formats to use to
-        detect content changes and re-sync your
-        content.
 
-   3. **Sync mode**—Choose how you want to update
-      your index when your data source content changes. When you sync your
-      data source with Amazon Kendra for the first time, all content
-      is crawled and indexed by default. You must run a full sync of your
-      data if your initial sync failed, even if you don't choose full sync
-      as your sync mode option.
+    	* **SQL query**—Enter
+    	 SQL query statements like SELECT and JOIN
+    	 operations. SQL queries must be less than 32KB.
+    	 Amazon Kendra will crawl all database content
+    	 that matches your query.
+    	* **Primary key
+    	 column**—Provide the primary key
+    	 for the database table. This identifies a table
+    	 within your database.
+    	* **Title
+    	 column**—Provide the name of the
+    	 document title column within your database
+    	 table.
+    	* **Body
+    	 column**—Provide the name of the
+    	 document body column within your database
+    	 table.
+    2. In **Additional configuration –
+     *optional***, choose
+     from the following options to sync specific content
+     instead of syncing all files:
 
-      - Full sync: Freshly index all content, replacing existing
-        content each time your data source syncs with your index.
-      - New, modified sync: Index only new and modified content
-        each time your data source syncs with your index. Amazon Kendra
-        can use your data source's mechanism for tracking content
-        changes and index content that changed since the last sync.
-      - New, modified, deleted sync: Index only new, modified,
-        and deleted content each time your data source syncs with
-        your index. Amazon Kendra can use your data source's
-        mechanism for tracking content changes and index content
-        that changed since the last sync.
 
-   4. In **Sync run schedule**, for
-      **Frequency**—How often
-      Amazon Kendra will sync with your data
-      source.
-   5. Choose **Next**.
+
+
+    	* **Change-detecting
+    	 columns**—Enter the names of the
+    	 columns that Amazon Kendra will use to detect
+    	 content changes. Amazon Kendra will re-index
+    	 content when there is a change in any of these
+    	 columns.
+    	* **Users' IDs
+    	 column**—Enter the name of the
+    	 column which contains User IDs to be allowed
+    	 access to content.
+    	* **Groups
+    	 column**—Enter the name of the
+    	 column that contains groups to be allowed access
+    	 to content.
+    	* **Source URLs
+    	 column**—Enter the name of the
+    	 column which contains Source URLs to be
+    	 indexed.
+    	* **Time stamps
+    	 column**—Enter the name of the
+    	 column which contains time stamps. Amazon Kendra uses time stamp information to detect
+    	 changes in your content and sync only changed
+    	 content.
+    	* **Time zones
+    	 column**—Enter the name of the
+    	 column which contains time zones for the content
+    	 to be crawled.
+    	* **Time stamps
+    	 format**—Enter the name of the
+    	 column which contains time stamp formats to use to
+    	 detect content changes and re-sync your
+    	 content.
+    3. **Sync mode**—Choose how you want to update
+     your index when your data source content changes. When you sync your
+     data source with Amazon Kendra for the first time, all content
+     is crawled and indexed by default. You must run a full sync of your
+     data if your initial sync failed, even if you don't choose full sync
+     as your sync mode option.
+
+
+
+
+    	* Full sync: Freshly index all content, replacing existing
+    	 content each time your data source syncs with your index.
+    	* New, modified sync: Index only new and modified content
+    	 each time your data source syncs with your index. Amazon Kendra
+    	 can use your data source's mechanism for tracking content
+    	 changes and index content that changed since the last sync.
+    	* New, modified, deleted sync: Index only new, modified,
+    	 and deleted content each time your data source syncs with
+    	 your index. Amazon Kendra can use your data source's
+    	 mechanism for tracking content changes and index content
+    	 that changed since the last sync.
+    4. In **Sync run schedule**, for
+     **Frequency**—How often
+     Amazon Kendra will sync with your data
+     source.
+    5. Choose **Next**.
 
 8. On the **Set field mappings** page, enter the
-   following information:
+following information:
 
-   1. Select from the generated default data source
-      fields—**Document IDs**,
-      **Document titles**, and
-      **Source URLs**—you want to
-      map to Amazon Kendra index.
-   2. **Add field**—To add custom data
-      source fields to create an index field name to map to
-      and the field data type.
-   3. Choose **Next**.
+    1. Select from the generated default data source
+     fields—**Document IDs**,
+     **Document titles**, and
+     **Source URLs**—you want to
+     map to Amazon Kendra index.
+    2. **Add field**—To add custom data
+     source fields to create an index field name to map to
+     and the field data type.
+    3. Choose **Next**.
 
 9. On the **Review and create** page, check that
-   the information you have entered is correct and then select
-   **Add data source**. You can also choose to edit your information from this page.
-   Your data source will appear on the **Data sources** page after the data source has been
-   added successfully.
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to

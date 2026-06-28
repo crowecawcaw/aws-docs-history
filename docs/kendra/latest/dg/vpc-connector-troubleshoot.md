@@ -34,23 +34,23 @@ source.
 
 ## Step 1: Launch an Amazon EC2 instance
 
-1.  Sign in to the AWS Management Console and open the Amazon EC2 console at
-    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2.  Select **Launch an instance**.
-3.  Choose **Network settings**, and then choose
-    **Edit**, and then do the following:
+1. Sign in to the AWS Management Console and open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. Select **Launch an instance**.
+3. Choose **Network settings**, and then choose
+   **Edit**, and then do the following:
 
-    1. Choose the same VPC and **Subnet** that you
-       assigned to Amazon Kendra.
-    2. For **Firewall (security groups)**, choose
-       **Select existing security group**. Then,
-       select the security group that you assigned to Amazon Kendra.
+   1. Choose the same VPC and **Subnet** that you
+      assigned to Amazon Kendra.
+   2. For **Firewall (security groups)**, choose
+      **Select existing security group**. Then,
+      select the security group that you assigned to Amazon Kendra.
 
-    ###### Note
+   ###### Note
 
-    The security group should allow outbound traffic to
-    Amazon S3. 3. Set **Auto-assign public IP** to
-    **Disable**. 4. In **Advanced details**, do the following:
+   The security group should allow outbound traffic to
+   Amazon S3. 3. Set **Auto-assign public IP** to
+   **Disable**. 4. In **Advanced details**, do the following:
 
         * For **IAM instance profile**,
          select **Create new IAM profile** to
@@ -61,7 +61,8 @@ source.
          access to an Amazon S3 bucket?](https://repost.aws/knowledge-center/ec2-instance-access-s3-bucket "https://repost.aws/knowledge-center/ec2-instance-access-s3-bucket") in
          AWS re:Post.
         * Leave all other settings as default.
-    5. Review and launch the Amazon EC2 instance.
+
+   5. Review and launch the Amazon EC2 instance.
 
 ## Step 2: Connect to Amazon EC2 instance
 

@@ -13,57 +13,56 @@ you have already created an index following step 1 of [Getting started with the 
 
 ###### To create a MySQL database
 
-1.  Sign in to the AWS Management Console and open the Amazon RDS console at
-    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2.  From the navigation pane, choose **Subnet groups** and then
-    choose **Create DB Subnet Group**.
-3.  Name the group and choose your Virtual Private Cloud (VPC). For more information
-    on configuring a VPC, see [Configuring Amazon Kendra to
-    use a VPC](vpc-configuration.md "vpc-configuration.md").
-4.  Add your VPC's private subnets. Your private subnets are the ones that are not
-    connected to your NAT. Choose **Create**.
-5.  From the navigation pane, choose **Databases** and then choose
-    **Create database.**
-6.  Use the following parameters to create the database. Leave all of the other
-    parameters at their defaults.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. From the navigation pane, choose **Subnet groups** and then
+   choose **Create DB Subnet Group**.
+3. Name the group and choose your Virtual Private Cloud (VPC). For more information
+   on configuring a VPC, see [Configuring Amazon Kendra to
+   use a VPC](vpc-configuration.md "vpc-configuration.md").
+4. Add your VPC's private subnets. Your private subnets are the ones that are not
+   connected to your NAT. Choose **Create**.
+5. From the navigation pane, choose **Databases** and then choose
+   **Create database.**
+6. Use the following parameters to create the database. Leave all of the other
+   parameters at their defaults.
 
-    - **Engine options**—MySQL
-    - **Templates**—Free tier
-    - **Credential Settings**—Enter and confirm a
-      password
-    - Under **Connectivity**, choose **Additional
-      connectivity configuration**. Make the following
-      choices.
+   - **Engine options**—MySQL
+   - **Templates**—Free tier
+   - **Credential Settings**—Enter and confirm a
+     password
+   - Under **Connectivity**, choose **Additional
+     connectivity configuration**. Make the following
+     choices.
 
-      - **Subnet group**—Choose the subnet group
-        that you created in step 4.
-      - **VPC security group**—Choose the group
-        that contains both inbound and outbound rules that you created in
-        your VPC. For example,
-        `DataSourceSecurityGroup`. For more
-        information on configuring a VPC, see [Configuring
-        Amazon Kendra to use a VPC](vpc-configuration.md "vpc-configuration.md").
+     - **Subnet group**—Choose the subnet group
+       that you created in step 4.
+     - **VPC security group**—Choose the group
+       that contains both inbound and outbound rules that you created in
+       your VPC. For example,
+       `DataSourceSecurityGroup`. For more
+       information on configuring a VPC, see [Configuring
+       Amazon Kendra to use a VPC](vpc-configuration.md "vpc-configuration.md").
 
-    - Under **Additional configuration**, set the
-      **Initial database name** to
-      `content`.
+   - Under **Additional configuration**, set the
+     **Initial database name** to
+     `content`.
 
-7.  Choose **Create database**.
-8.  From the list of databases, choose your new database. Make a note of the database
-    endpoint.
-9.  After you create your database, you must create a table to hold your documents.
-    Creating a table is outside the scope of these instructions. When you create your
-    table, note the following:
+7. Choose **Create database**.
+8. From the list of databases, choose your new database. Make a note of the database
+   endpoint.
+9. After you create your database, you must create a table to hold your documents.
+   Creating a table is outside the scope of these instructions. When you create your
+   table, note the following:
 
-        * Database name—`content`
-        * Table name—`documents`
-        * Columns—`ID`, `Title`,
+   - Database name—`content`
+   - Table name—`documents`
+   - Columns—`ID`, `Title`,
 
-         `Body`, and `LastUpdate`. You
-         can include additional columns if you want.
-
-    Now that you have created your MySQL database, you can create a data source for the
-    database.
+   `Body`, and `LastUpdate`. You
+   can include additional columns if you want.
+   Now that you have created your MySQL database, you can create a data source for the
+   database.
 
 ###### To create a MySQL data source
 

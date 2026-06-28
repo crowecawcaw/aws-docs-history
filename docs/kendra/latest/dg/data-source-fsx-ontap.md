@@ -125,106 +125,117 @@ If using version 2 (if applicable), choose **Amazon FSx (NetApp ONTAP) connector
     5. Choose **Next**.
 
 6. On the **Define access and security** page,
-   enter the following information:
+enter the following information:
 
-   1. **Source**—Provide your file
-      system information.
+    1. **Source**—Provide your file
+     system information.
 
-      - **File system
-        protocol**—Choose the protocol of
-        your Amazon FSx (NetApp ONTAP) file system. You can
-        choose either Common Internet File System (CIFS)
-        protocol, or the Network File System
-        (NFS) protocol for Linux.
-      - **Amazon FSx (NetApp ONTAP) file system
-        ID**—Select from the dropdown your
-        existing file system ID, fetched from
-        Amazon FSx (NetApp ONTAP). Or, create an [Amazon FSx (NetApp ONTAP) file
-        system](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/"). You can find your file system ID
-        on the File Systems dashboard in the
-        Amazon FSx (NetApp ONTAP) console.
-      - **SVM ID**
-        (Amazon FSx (NetApp ONTAP) for NetApp
-        ONTAP only)—Provide the storage
-        virtual machine (SVM) ID of your
-        Amazon FSx (NetApp ONTAP) NetApp ONTAP.
-        You can find your SVM ID by going to the File
-        Systems dashboard in the Amazon FSx (NetApp ONTAP)
-        console, selecting your file system ID, and
-        selecting **Storage virtual
-        machines**.
 
-   2. **Authorization**—Turn on or off access control list (ACL) information for your
-      documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
-      and groups can access. The ACL information is used to filter search results based on the user or
-      their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
-   3. **Authentication**—Choose an
-      existing AWS Secrets Manager secret, or create a new
-      secret to store your file system credentials. If you
-      choose to create a new secret, an AWS Secrets Manager
-      secret window opens.
 
-   Provide a secret that stores your authentication
-   credentials of your user name and password. The user
-   name must include your DNS domain name. For example,
-   *user@corp.example.com*.
 
-   If you use the NFS protocol for your
-   Amazon FSx (NetApp ONTAP) file system, provide a secret that
-   stores your authentication credentials of left ID, right
-   ID, and pre-shared key.
+    	* **File system
+    	 protocol**—Choose the protocol of
+    	 your Amazon FSx (NetApp ONTAP) file system. You can
+    	 choose either Common Internet File System (CIFS)
+    	 protocol, or the Network File System
+    	 (NFS) protocol for Linux.
+    	* **Amazon FSx (NetApp ONTAP) file system
+    	 ID**—Select from the dropdown your
+    	 existing file system ID, fetched from
+    	 Amazon FSx (NetApp ONTAP). Or, create an [Amazon FSx (NetApp ONTAP) file
+    	 system](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/"). You can find your file system ID
+    	 on the File Systems dashboard in the
+    	 Amazon FSx (NetApp ONTAP) console.
+    	* **SVM ID**
+    	 (Amazon FSx (NetApp ONTAP) for NetApp
+    	 ONTAP only)—Provide the storage
+    	 virtual machine (SVM) ID of your
+    	 Amazon FSx (NetApp ONTAP) NetApp ONTAP.
+    	 You can find your SVM ID by going to the File
+    	 Systems dashboard in the Amazon FSx (NetApp ONTAP)
+    	 console, selecting your file system ID, and
+    	 selecting **Storage virtual
+    	 machines**.
+    2. **Authorization**—Turn on or off access control list (ACL) information for your
+     documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
+     and groups can access. The ACL information is used to filter search results based on the user or
+     their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
+    3. **Authentication**—Choose an
+     existing AWS Secrets Manager secret, or create a new
+     secret to store your file system credentials. If you
+     choose to create a new secret, an AWS Secrets Manager
+     secret window opens.
 
-   Save and add your secret. 4. **Virtual Private Cloud
-   (VPC)**—You must select an Amazon VPC where your Amazon FSx (NetApp ONTAP) resides.
-   You include the VPC subnet and security groups. See
-   [Configuring an Amazon VPC](vpc-configuration.md "vpc-configuration.md"). 5. **IAM role**—Choose an existing IAM
-   role or create a new IAM role to access your repository credentials and index content.
 
-   ###### Note
+    Provide a secret that stores your authentication
+     credentials of your user name and password. The user
+     name must include your DNS domain name. For example,
+     *user@corp.example.com*.
 
-   IAM roles used for indexes cannot be used for data sources. If you are unsure
-   if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-   errors. 6. Choose **Next**.
+
+    If you use the NFS protocol for your
+     Amazon FSx (NetApp ONTAP) file system, provide a secret that
+     stores your authentication credentials of left ID, right
+     ID, and pre-shared key.
+
+
+    Save and add your secret.
+    4. **Virtual Private Cloud
+     (VPC)**—You must select an Amazon VPC where your Amazon FSx (NetApp ONTAP) resides.
+     You include the VPC subnet and security groups. See
+     [Configuring an Amazon VPC](vpc-configuration.md "vpc-configuration.md").
+    5. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
+
+
+    ###### Note
+
+    IAM roles used for indexes cannot be used for data sources. If you are unsure
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    6. Choose **Next**.
 
 7. On the **Configure sync settings** page,
-   enter the following information:
+enter the following information:
 
-   1. **Sync scope, Regex patterns**—Add regular
-      expression patterns to include or exclude certain files.
-   2. **Sync mode**—Choose how you want to update
-      your index when your data source content changes. When you sync your
-      data source with Amazon Kendra for the first time, all content
-      is crawled and indexed by default. You must run a full sync of your
-      data if your initial sync failed, even if you don't choose full sync
-      as your sync mode option.
+    1. **Sync scope, Regex patterns**—Add regular
+     expression patterns to include or exclude certain files.
+    2. **Sync mode**—Choose how you want to update
+     your index when your data source content changes. When you sync your
+     data source with Amazon Kendra for the first time, all content
+     is crawled and indexed by default. You must run a full sync of your
+     data if your initial sync failed, even if you don't choose full sync
+     as your sync mode option.
 
-      - Full sync: Freshly index all content, replacing existing
-        content each time your data source syncs with your index.
-      - New, modified, deleted sync: Index only new, modified,
-        and deleted content each time your data source syncs with
-        your index. Amazon Kendra can use your data source's
-        mechanism for tracking content changes and index content
-        that changed since the last sync.
 
-   3. **Sync run schedule**—For
-      **Frequency**, choose how often
-      to sync your data source content and update your index.
-   4. Choose **Next**.
+
+
+    	* Full sync: Freshly index all content, replacing existing
+    	 content each time your data source syncs with your index.
+    	* New, modified, deleted sync: Index only new, modified,
+    	 and deleted content each time your data source syncs with
+    	 your index. Amazon Kendra can use your data source's
+    	 mechanism for tracking content changes and index content
+    	 that changed since the last sync.
+    3. **Sync run schedule**—For
+     **Frequency**, choose how often
+     to sync your data source content and update your index.
+    4. Choose **Next**.
 
 8. On the **Set field mappings** page, enter the
-   following information:
+following information:
 
-   1. Select from the Amazon Kendra generated default
-      fields of your files that you want to map to your index.
-      To add custom data source fields, create an index field
-      name to map to and the field data type.
-   2. Choose **Next**.
+    1. Select from the Amazon Kendra generated default
+     fields of your files that you want to map to your index.
+     To add custom data source fields, create an index field
+     name to map to and the field data type.
+    2. Choose **Next**.
 
 9. On the **Review and create** page, check that
-   the information you have entered is correct and then select
-   **Add data source**. You can also choose to edit your information from this page.
-   Your data source will appear on the **Data sources** page after the data source has been
-   added successfully.
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to your

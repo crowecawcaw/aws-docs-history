@@ -98,18 +98,18 @@ the Readme file included in the code example.
 4. Go to `aws-kendra-example-react-app` and install the dependencies
    in `package.json`. Run `npm install`.
 5. Launch a demo version of your app on your local server. Run `npm
-start`. You can stop the local server by entering on your keyboard
+ start`. You can stop the local server by entering on your keyboard
    `Cmd/Ctrl + C`.
 6. You can change the port or host (for example, IP address) by going to
    `package.json` and update the host and port: `"start":
-"HOST=[host] PORT=[port] react-scripts start"`. If you use Windows:
+ "HOST=[host] PORT=[port] react-scripts start"`. If you use Windows:
    `"start": "set HOST=[host] && set PORT=[port] &&
-react-scripts start"`.
+ react-scripts start"`.
 7. If you have a registered website domain, you can specify this in
    `package.json` after your app name. For example,
    `"homepage": "https://mywebsite.com"`. You must run `npm
-install` again to update new dependencies, and then run `npm
-start`.
+ install` again to update new dependencies, and then run `npm
+ start`.
 8. To build the app, run `npm build`. Upload the contents of the build
    directory to your hosting provider.
 

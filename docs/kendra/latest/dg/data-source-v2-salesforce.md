@@ -125,129 +125,137 @@ If using version 2 (if applicable), choose **Salesforce connector** with the "V2
     4. In **Tags**, for **Add new tag**—Include optional tags to search and filter your resources or track your AWS costs.
     5. Choose **Next**.
 
-6.  On the **Define access and security** page, enter the following
-    information:
+6. On the **Define access and security** page, enter the following
+information:
 
     1. **Salesforce URL**—Enter The instance URL for the
-       Salesforce site that you want to index.
+     Salesforce site that you want to index.
     2. **Authorization**—Turn on or off access control list (ACL) information for your
-       documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
-       and groups can access. The ACL information is used to filter search results based on the user or
-       their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
+     documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
+     and groups can access. The ACL information is used to filter search results based on the user or
+     their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
     3. Enter an existing secret or if you create a new secret, an AWS
-       Secrets Manager secret window opens.
+     Secrets Manager secret window opens.
 
-       1. **Authentication**—Enter following information in the
-          **Create an AWS
-          Secrets Manager secret window**:
 
-          1. **Secret name**—A name for your secret. The prefix
-             ‘AmazonKendra-Salesforce-’ is automatically added to your secret
-             name.
-          2. For **User name**, **Password**,
-             **Security token**, **Consumer key**,
-             **Consumer secret**, and **Authentication
-             URL**—Enter the authentication credential values you generated and
-             downloaded from your Salesforce account.
+    	1. **Authentication**—Enter following information in the
+    	 **Create an AWS
+    	 Secrets Manager secret window**:
 
-          ###### Note
 
-          If you use Salesforce Developer Edition, use
-          `https://login.salesforce.com/services/oauth2/token` or the My Domain
-          login URL (for example, `https://MyCompany.my.salesforce.com`) as the **Authentication
-          URL**. If you use Salesforce Sandbox Edition, use
-          `https://test.salesforce.com/services/oauth2/token` or the My Domain
-          login URL (for example, `MyDomainName--SandboxName.sandbox.my.salesforce.com`) as the
-          **Authentication URL**. 3. Choose **Save authentication**.
+    		1. **Secret name**—A name for your secret. The prefix
+    		 ‘AmazonKendra-Salesforce-’ is automatically added to your secret
+    		 name.
+    		2. For **User name**, **Password**,
+    		 **Security token**, **Consumer key**,
+    		 **Consumer secret**, and **Authentication
+    		 URL**—Enter the authentication credential values you generated and
+    		 downloaded from your Salesforce account.
 
+
+    		###### Note
+
+    		If you use Salesforce Developer Edition, use
+    		 `https://login.salesforce.com/services/oauth2/token` or the My Domain
+    		 login URL (for example, `https://MyCompany.my.salesforce.com`) as the **Authentication
+    		 URL**. If you use Salesforce Sandbox Edition, use
+    		 `https://test.salesforce.com/services/oauth2/token`  or the My Domain
+    		 login URL (for example, `MyDomainName--SandboxName.sandbox.my.salesforce.com`) as the
+    		 **Authentication URL**.
+    		3. Choose **Save authentication**.
     4. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
-       so, you must add **Subnets** and **VPC security groups**.
+     so, you must add **Subnets** and **VPC security groups**.
     5. **Identity crawler**—Specify whether to turn on
-       Amazon Kendra’s identity crawler. The identity crawler uses the access control list
-       (ACL) information for your documents to filter search results based on the user or their
-       group access to documents. If you have an ACL for your documents and choose to use your ACL,
-       you can then also choose to turn on Amazon Kendra’s identity crawler to configure
-       [user
-       context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
-       all documents can be publicly searched. If you want to use access control for your documents
-       and identity crawler is turned off, you can alternatively use the
-       [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
-       API to upload user and group access information for user context filtering.
+     Amazon Kendra’s identity crawler. The identity crawler uses the access control list
+     (ACL) information for your documents to filter search results based on the user or their
+     group access to documents. If you have an ACL for your documents and choose to use your ACL,
+     you can then also choose to turn on Amazon Kendra’s identity crawler to configure
+     [user
+     context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
+     all documents can be publicly searched. If you want to use access control for your documents
+     and identity crawler is turned off, you can alternatively use the
+     [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
+     API to upload user and group access information for user context filtering.
     6. **IAM role**—Choose an existing IAM
-       role or create a new IAM role to access your repository credentials and index content.
+     role or create a new IAM role to access your repository credentials and index content.
+
 
     ###### Note
 
     IAM roles used for indexes cannot be used for data sources. If you are unsure
-    if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-    errors. 7. Choose **Next**.
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    7. Choose **Next**.
 
-7.  On the **Configure sync settings** page, enter the following
-    information:
+7. On the **Configure sync settings** page, enter the following
+information:
 
     1. For **Crawl attachments**—Select to crawl all attached
-       Salesforce objects.
+     Salesforce objects.
     2. For **Standard objects**, **Standard objects with
-       attachments**, and **Standard object without attachment** and
-       **Knowledge Articles**—Select Salesforce entities or
-       content types you want to crawl.
+     attachments**, and **Standard object without attachment** and
+     **Knowledge Articles**—Select Salesforce entities or
+     content types you want to crawl.
     3. You must provide configuration information for indexing at least one of standard
-       objects, knowledge articles, or chatter feeds. If you choose to crawl
-       **Knowledge articles** you must specify the types of knowledge
-       articles to index. You can choose published, archived, drafts and attachments.
+     objects, knowledge articles, or chatter feeds. If you choose to crawl
+     **Knowledge articles** you must specify the types of knowledge
+     articles to index. You can choose published, archived, drafts and attachments.
+
 
     **Regex filter**—Specify a regex pattern to include
-    specific catalog items.
+     specific catalog items.
 
-8.  For **Additional configuration**:
+8. For **Additional configuration**:
 
-        * **ACL information** All access control lists are included by
-         default. Deselecting an access control list will make all files in that category
-         public.
-        * **Regex patterns**—Add regular expression patterns to
-         include or exclude certain files. You can add up to 100 patterns.
+    * **ACL information** All access control lists are included by
+     default. Deselecting an access control list will make all files in that category
+     public.
+    * **Regex patterns**—Add regular expression patterns to
+     include or exclude certain files. You can add up to 100 patterns.
 
-    **Sync mode**—Choose how you want to update your index when
-    your data source content changes. When you sync your data source with Amazon Kendra
-    for the first time, all content is crawled and indexed by default. You must run a full
-    sync of your data if your initial sync failed, even if you don't choose full sync as your
-    sync mode option.
+**Sync mode**—Choose how you want to update your index when
+your data source content changes. When you sync your data source with Amazon Kendra
+for the first time, all content is crawled and indexed by default. You must run a full
+sync of your data if your initial sync failed, even if you don't choose full sync as your
+sync mode option.
 
-        * Full sync: Freshly index all content, replacing existing content each time your
-         data source syncs with your index.
-        * New, modified sync: Index only new and modified content each time your data source
-         syncs with your index. Amazon Kendra can use your data source's mechanism for
-         tracking content changes and index content that changed since the last sync.
-        * New, modified, deleted sync: Index only new, modified, and deleted content each
-         time your data source syncs with your index. Amazon Kendra can use your data
-         source's mechanism for tracking content changes and index content that changed since the
-         last sync.
+    * Full sync: Freshly index all content, replacing existing content each time your
+     data source syncs with your index.
+    * New, modified sync: Index only new and modified content each time your data source
+     syncs with your index. Amazon Kendra can use your data source's mechanism for
+     tracking content changes and index content that changed since the last sync.
+    * New, modified, deleted sync: Index only new, modified, and deleted content each
+     time your data source syncs with your index. Amazon Kendra can use your data
+     source's mechanism for tracking content changes and index content that changed since the
+     last sync.
 
-9.  Choose **Next**.
-10. On the **Set field mappings** page, enter the following
-    information:
+9. Choose **Next**. 10. On the **Set field mappings** page, enter the following
+information:
 
     1. For **Standard knowledge article**, **Standard object
-       attachments**, and **Additional suggested field mappings**
-       —Select from the Amazon Kendra generated default data source fields you want
-       to map to your index.
+     attachments**, and **Additional suggested field mappings**
+     —Select from the Amazon Kendra generated default data source fields you want
+     to map to your index.
+
 
     ###### Note
 
     An index mapping to `_document_body` is required. You can't change the
-    mapping between the `Salesforce ID` field and the Amazon Kendra
-    `_document_id` field. You can map any Salesforce field to the document title
-    or document body Amazon Kendra reserved/default index fields.
+     mapping between the `Salesforce ID` field and the Amazon Kendra
+     `_document_id` field. You can map any Salesforce field to the document title
+     or document body Amazon Kendra reserved/default index fields.
 
     If you map any Salesforce field to Amazon Kendra document title and document body fields,
-    Amazon Kendra will use data from the document title and body fields in search responses. 2. **Add field**—To add custom data source fields to create an
-    index field name to map to and the field data type. 3. Choose **Next**.
+     Amazon Kendra will use data from the document title and body fields in search responses.
+    2. **Add field**—To add custom data source fields to create an
+     index field name to map to and the field data type.
+    3. Choose **Next**.
 
 11. On the **Review and create** page, check that
-    the information you have entered is correct and then select
-    **Add data source**. You can also choose to edit your information from this page.
-    Your data source will appear on the **Data sources** page after the data source has been
-    added successfully.
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to

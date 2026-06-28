@@ -26,7 +26,7 @@ in Amazon Kendra.
 
 You can use basic operations to apply as a first parse of your data, and then use a Lambda
 function to apply more complex operations on your data. For example, you could use a basic
-operation to simply remove all values in the document metadata field 'Customer_ID', and then
+operation to simply remove all values in the document metadata field 'Customer\_ID', and then
 apply a Lambda function to extract text from images of the text in the documents.
 
 ## How Custom Document Enrichment works
@@ -73,7 +73,7 @@ To apply basic logic, you specify the target field you want to manipulate using 
 [DocumentAttributeTarget](../APIReference/API_DocumentAttributeTarget.md "../APIReference/API_DocumentAttributeTarget.md") object. You provide the attribute key. For example,
 the key 'Department' is a field or attribute that holds all the department names
 associated with the documents. You can also specify a value to use in the target field
-if a certain condition is met. You set the condition using the [DocumentAttributeCondition](../APIReference/API_DocumentAttributeCondition.md "../APIReference/API_DocumentAttributeCondition.md") object. For example, if the 'Source_URI' field
+if a certain condition is met. You set the condition using the [DocumentAttributeCondition](../APIReference/API_DocumentAttributeCondition.md "../APIReference/API_DocumentAttributeCondition.md") object. For example, if the 'Source\_URI' field
 contains 'financial' in its URI value, then prefill the target field 'Department' with
 the target value 'Finance' for the document. You can also delete the values of the
 target document attribute.
@@ -84,30 +84,30 @@ To apply basic logic using the console, select your index and then select
 document fields and content.
 
 The following is an example of using basic logic to remove all customer identification
-numbers in the document field called 'Customer_ID'.
+numbers in the document field called 'Customer\_ID'.
 
 **Example 1: Removing customer identification numbers associated
 with the documents**
 
 Data before basic manipulation applied.
 
-| **Document_ID** | **Body_Text** | **Customer_ID** |
-| --------------- | ------------- | --------------- |
-| 1               | Lorem Ipsum.  | CID1234         |
-| 2               | Lorem Ipsum.  | CID1235         |
-| 3               | Lorem Ipsum.  | CID1236         |
+| **Document\_ID** | **Body\_Text** | **Customer\_ID** |
+| ---------------- | -------------- | ---------------- |
+| 1                | Lorem Ipsum.   | CID1234          |
+| 2                | Lorem Ipsum.   | CID1235          |
+| 3                | Lorem Ipsum.   | CID1236          |
 
 Data after basic manipulation applied.
 
-| **Document_ID** | **Body_Text** | **Customer_ID** |
-| --------------- | ------------- | --------------- |
-| 1               | Lorem Ipsum.  |                 |
-| 2               | Lorem Ipsum.  |                 |
-| 3               | Lorem Ipsum.  |                 |
+| **Document\_ID** | **Body\_Text** | **Customer\_ID** |
+| ---------------- | -------------- | ---------------- |
+| 1                | Lorem Ipsum.   |                  |
+| 2                | Lorem Ipsum.   |                  |
+| 3                | Lorem Ipsum.   |                  |
 
 The following is an example of using basic logic to create a field called 'Department'
 and prefill this field with the department names based on information from the
-'Source_URI' field. This uses the condition that if the 'Source_URI' field contains
+'Source\_URI' field. This uses the condition that if the 'Source\_URI' field contains
 'financial' in its URI value, then prefill the target field 'Department' with the target
 value 'Finance' for the document.
 
@@ -116,19 +116,19 @@ department names associated with the documents using a condition.**
 
 Data before basic manipulation applied.
 
-| **Document_ID** | **Body_Text** | **Source_URI** |
-| --------------- | ------------- | -------------- |
-| 1               | Lorem Ipsum.  | financial/1    |
-| 2               | Lorem Ipsum.  | financial/2    |
-| 3               | Lorem Ipsum.  | financial/3    |
+| **Document\_ID** | **Body\_Text** | **Source\_URI** |
+| ---------------- | -------------- | --------------- |
+| 1                | Lorem Ipsum.   | financial/1     |
+| 2                | Lorem Ipsum.   | financial/2     |
+| 3                | Lorem Ipsum.   | financial/3     |
 
 Data after basic manipulation applied.
 
-| **Document_ID** | **Body_Text** | **Source_URI** | **Department** |
-| --------------- | ------------- | -------------- | -------------- |
-| 1               | Lorem Ipsum.  | financial/1    | Finance        |
-| 2               | Lorem Ipsum.  | financial/2    | Finance        |
-| 3               | Lorem Ipsum.  | financial/3    | Finance        |
+| **Document\_ID** | **Body\_Text** | **Source\_URI** | **Department** |
+| ---------------- | -------------- | --------------- | -------------- |
+| 1                | Lorem Ipsum.   | financial/1     | Finance        |
+| 2                | Lorem Ipsum.   | financial/2     | Finance        |
+| 3                | Lorem Ipsum.   | financial/3     | Finance        |
 
 ###### Note
 
@@ -150,8 +150,8 @@ Console
 2. On the **Configure basic operations** page,
    choose from the dropdown your data source that you want to alter
    document fields and content. Then choose from the dropdown the
-   document field name 'Customer_ID', select from the dropdown the
-   index field name 'Customer_ID', and select from the dropdown the
+   document field name 'Customer\_ID', select from the dropdown the
+   index field name 'Customer\_ID', and select from the dropdown the
    target action **Delete**. Then select **Add
    basic operation**.
 
@@ -441,49 +441,49 @@ values, then Amazon Kendra should invoke a function that inserts the current
 date-time.
 
 The following is an example of using a Lambda function to run OCR to interpret text
-from images and store this text in a field called 'Document_Image_Text'.
+from images and store this text in a field called 'Document\_Image\_Text'.
 
 **Example 1: Extracting text from images to create textual
 documents**
 
 Data before advanced manipulation applied.
 
-| **Document_ID** | **Document_Image** |
-| --------------- | ------------------ |
-| 1               | image_1.png        |
-| 2               | image_2.png        |
-| 3               | image_3.png        |
+| **Document\_ID** | **Document\_Image** |
+| ---------------- | ------------------- |
+| 1                | image\_1.png        |
+| 2                | image\_2.png        |
+| 3                | image\_3.png        |
 
 Data after advanced manipulation applied.
 
-| **Document_ID** | **Document_Image** | **Document_Image_Text** |
-| --------------- | ------------------ | ----------------------- |
-| 1               | image_1.png        | Mailed survey response  |
-| 2               | image_2.png        | Mailed survey response  |
-| 3               | image_3.png        | Mailed survey response  |
+| **Document\_ID** | **Document\_Image** | **Document\_Image\_Text** |
+| ---------------- | ------------------- | ------------------------- |
+| 1                | image\_1.png        | Mailed survey response    |
+| 2                | image\_2.png        | Mailed survey response    |
+| 3                | image\_3.png        | Mailed survey response    |
 
 The following is an example of using a Lambda function to insert the current date-time
 for empty date values. This uses the condition that if a date field value is 'null',
 then replace this with the current date-time.
 
-**Example 2: Replacing empty values in the Last_Updated field with
+**Example 2: Replacing empty values in the Last\_Updated field with
 the current date-time.**
 
 Data before advanced manipulation applied.
 
-| **Document_ID** | **Body_Text** | **Last_Updated** |
-| --------------- | ------------- | ---------------- |
-| 1               | Lorem Ipsum.  | January 1, 2020  |
-| 2               | Lorem Ipsum.  |                  |
-| 3               | Lorem Ipsum.  | July 1, 2020     |
+| **Document\_ID** | **Body\_Text** | **Last\_Updated** |
+| ---------------- | -------------- | ----------------- |
+| 1                | Lorem Ipsum.   | January 1, 2020   |
+| 2                | Lorem Ipsum.   |                   |
+| 3                | Lorem Ipsum.   | July 1, 2020      |
 
 Data after advanced manipulation applied.
 
-| **Document_ID** | **Body_Text** | **Last_Updated** |
-| --------------- | ------------- | ---------------- |
-| 1               | Lorem Ipsum.  | January 1, 2020  |
-| 2               | Lorem Ipsum.  | December 1, 2021 |
-| 3               | Lorem Ipsum.  | July 1, 2020     |
+| **Document\_ID** | **Body\_Text** | **Last\_Updated** |
+| ---------------- | -------------- | ----------------- |
+| 1                | Lorem Ipsum.   | January 1, 2020   |
+| 2                | Lorem Ipsum.   | December 1, 2021  |
+| 3                | Lorem Ipsum.   | July 1, 2020      |
 
 The following code is an example of configuring a Lambda function for advanced data
 manipulation on the raw, original data.

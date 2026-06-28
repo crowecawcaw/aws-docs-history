@@ -117,83 +117,88 @@ If using version 2 (if applicable), choose **S3 connector** with the "V2.0" tag.
     5. Choose **Next**.
 
 6. On the **Define access and security** page,
-   enter the following optional information:
+enter the following optional information:
 
-   1. **IAM role**—Choose an existing IAM
-      role or create a new IAM role to access your repository credentials and index content.
+    1. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
 
-   ###### Note
 
-   IAM roles used for indexes cannot be used for data sources. If you are unsure
-   if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-   errors. 2. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
-   so, you must add **Subnets** and **VPC security groups**. 3. Choose **Next**.
+    ###### Note
+
+    IAM roles used for indexes cannot be used for data sources. If you are unsure
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    2. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
+     so, you must add **Subnets** and **VPC security groups**.
+    3. Choose **Next**.
 
 7. On the **Configure sync settings** page,
-   enter the following information:
+enter the following information:
 
-   1. For **Data
-      source location**—Specify the path to the
-      Amazon S3 bucket where your data is stored.
-      Select **Browse S3** to choose your
-      S3 bucket.
-   2. For **Maximum file size**—Specify
-      a limit in MB to only crawl files under this limit. The
-      maximum file size Amazon Kendra can allow is 50 MB.
-   3. For (Optional) **Metadata files prefix folder
-      location**—Specify the path to the folder in
-      which your fields/attributes and other document metadata is
-      stored. Select **Browse S3** to locate your
-      metadata folder.
-   4. For (Optional) **Access control list configuration
-      file location**—Specify the path to the
-      file that contains a JSON structure of your users and their
-      access to documents. Select **Browse S3** to
-      locate your ACL file.
-   5. (Optional) **Select decryption
-      key**—Select to use a decryption key.
-      You can choose to use an existing AWS KMS
-      key.
-   6. For (Optional) **Additional
-      configuration**—Add patterns to
-      include or exclude certain files. All paths
-      are relative to the data source location S3 bucket.
-   7. **Sync mode**—Choose how you want to update
-      your index when your data source content changes. When you sync your
-      data source with Amazon Kendra for the first time, all content
-      is crawled and indexed by default. You must run a full sync of your
-      data if your initial sync failed, even if you don't choose full sync
-      as your sync mode option.
+    1. For **Data
+     source location**—Specify the path to the
+     Amazon S3 bucket where your data is stored.
+     Select **Browse S3** to choose your
+     S3 bucket.
+    2. For **Maximum file size**—Specify
+     a limit in MB to only crawl files under this limit. The
+     maximum file size Amazon Kendra can allow is 50 MB.
+    3. For (Optional) **Metadata files prefix folder
+     location**—Specify the path to the folder in
+     which your fields/attributes and other document metadata is
+     stored. Select **Browse S3** to locate your
+     metadata folder.
+    4. For (Optional) **Access control list configuration
+     file location**—Specify the path to the
+     file that contains a JSON structure of your users and their
+     access to documents. Select **Browse S3** to
+     locate your ACL file.
+    5. (Optional) **Select decryption
+     key**—Select to use a decryption key.
+     You can choose to use an existing AWS KMS
+     key.
+    6. For (Optional) **Additional
+     configuration**—Add patterns to
+     include or exclude certain files. All paths
+     are relative to the data source location S3 bucket.
+    7. **Sync mode**—Choose how you want to update
+     your index when your data source content changes. When you sync your
+     data source with Amazon Kendra for the first time, all content
+     is crawled and indexed by default. You must run a full sync of your
+     data if your initial sync failed, even if you don't choose full sync
+     as your sync mode option.
 
-      - Full sync: Freshly index all content, replacing existing
-        content each time your data source syncs with your index.
-      - New, modified, deleted sync: Index only new, modified,
-        and deleted content each time your data source syncs with
-        your index. Amazon Kendra can use your data source's
-        mechanism for tracking content changes and index content
-        that changed since the last sync.
 
-   8. In **Sync run schedule**, for
-      **Frequency**—Choose how often to sync
-      your data source content and update your index.
-   9. Choose **Next**.
+
+
+    	* Full sync: Freshly index all content, replacing existing
+    	 content each time your data source syncs with your index.
+    	* New, modified, deleted sync: Index only new, modified,
+    	 and deleted content each time your data source syncs with
+    	 your index. Amazon Kendra can use your data source's
+    	 mechanism for tracking content changes and index content
+    	 that changed since the last sync.
+    8. In **Sync run schedule**, for
+     **Frequency**—Choose how often to sync
+     your data source content and update your index.
+    9. Choose **Next**.
 
 8. On the **Set field mappings** page, enter the
-   following optional information:
+following optional information:
 
-   1. **Default field mappings**—Select
-      from the Amazon Kendra generated default data
-      source fields you want to map to your index.
-   2. **Add field**—Choose to add
-      custom data source fields to create an index field name
-      to map to and the field data type.
-   3. Choose **Next**.
+    1. **Default field mappings**—Select
+     from the Amazon Kendra generated default data
+     source fields you want to map to your index.
+    2. **Add field**—Choose to add
+     custom data source fields to create an index field name
+     to map to and the field data type.
+    3. Choose **Next**.
 
 9. On the **Review and create** page, check that
-   the information you have entered is correct and then select
-   **Add data source**. You can also choose to edit your information from this page.
-   Your data source will appear on the **Data sources** page after the data source has been
-   added successfully.
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to Amazon S3**

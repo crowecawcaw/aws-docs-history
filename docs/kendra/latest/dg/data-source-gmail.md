@@ -120,133 +120,146 @@ If using version 2 (if applicable), choose **Gmail connector** with the "V2.0" t
     4. In **Tags**, for **Add new tag**—Include optional tags to search and filter your resources or track your AWS costs.
     5. Choose **Next**.
 
-6.  On the **Define access and security** page,
-    enter the following information:
+6. On the **Define access and security** page,
+enter the following information:
 
     1. **Authorization**—Turn on or off access control list (ACL) information for your
-       documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
-       and groups can access. The ACL information is used to filter search results based on the user or
-       their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
+     documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
+     and groups can access. The ACL information is used to filter search results based on the user or
+     their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
     2. In **Authentication** for
-       **AWS
-       Secrets Manager secret**—Choose
-       an existing secret or create a new Secrets Manager
-       secret to store your Gmail authentication
-       credentials. If you choose to create a new secret an
-       AWS
-       Secrets Manager secret window opens.
+     **AWS
+     Secrets Manager secret**—Choose
+     an existing secret or create a new Secrets Manager
+     secret to store your Gmail authentication
+     credentials. If you choose to create a new secret an
+     AWS
+     Secrets Manager secret window opens.
 
-       1. Enter following information in the
-          **Create an AWS
-          Secrets Manager secret
-          window**:
 
-          1. **Secret Name**—A
-             name for your secret.
-          2. **Client email**—The
-             client email that you copied from your Google
-             service account.
-          3. **Admin account
-             email**—The admin account email
-             that you would like to use.
-          4. **Private key**—The
-             private key you copied from your Google service
-             account.
-          5. Save and add your secret.
+    	1. Enter following information in the
+    	 **Create an AWS
+    	 Secrets Manager secret
+    	 window**:
 
+
+    		1. **Secret Name**—A
+    		 name for your secret.
+    		2. **Client email**—The
+    		 client email that you copied from your Google
+    		 service account.
+    		3. **Admin account
+    		 email**—The admin account email
+    		 that you would like to use.
+    		4. **Private key**—The
+    		 private key you copied from your Google service
+    		 account.
+    		5. Save and add your secret.
     3. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
-       so, you must add **Subnets** and **VPC security groups**.
+     so, you must add **Subnets** and **VPC security groups**.
     4. **IAM role**—Choose an existing IAM
-       role or create a new IAM role to access your repository credentials and index content.
+     role or create a new IAM role to access your repository credentials and index content.
+
 
     ###### Note
 
     IAM roles used for indexes cannot be used for data sources. If you are unsure
-    if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-    errors. 5. Choose **Next**.
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    5. Choose **Next**.
 
-7.  On the **Configure sync settings** page,
-    enter the following information:
+7. On the **Configure sync settings** page,
+enter the following information:
 
     1. For**Entity types**—Choose to
-       sync message attachments.
+     sync message attachments.
     2. (Optional) For **Additional
-       configuration**, enter the following
-       information:
+     configuration**, enter the following
+     information:
 
-       1. **Date range**—Enter a
-          date range to specify the start and end date of
-          emails you want to crawl.
-       2. **Email
-          domains**—Include or exclude
-          certain emails based on "to", "from", "cc" and "bcc"
-          email domains.
-       3. **Keywords in
-          subjects**—Include or exclude
-          emails based on keywords in their email subjects.
 
-       ###### Note
+    	1. **Date range**—Enter a
+    	 date range to specify the start and end date of
+    	 emails you want to crawl.
+    	2. **Email
+    	 domains**—Include or exclude
+    	 certain emails based on "to", "from", "cc" and "bcc"
+    	 email domains.
+    	3. **Keywords in
+    	 subjects**—Include or exclude
+    	 emails based on keywords in their email subjects.
 
-       You can also choose to include any documents
-       that match all the subject keywords you have
-       entered. 4. **Labels**—Add regular
-       expression patterns to include or exclude certain
-       email labels. 5. **Attachments**—Add
-       regular expression patterns to include or exclude
-       certain email attachments.
 
+    	###### Note
+
+    	You can also choose to include any documents
+    	 that match all the subject keywords you have
+    	 entered.
+    	4. **Labels**—Add regular
+    	 expression patterns to include or exclude certain
+    	 email labels.
+    	5. **Attachments**—Add
+    	 regular expression patterns to include or exclude
+    	 certain email attachments.
     3. **Sync mode**—Choose how you want to update
-       your index when your data source content changes. When you sync your
-       data source with Amazon Kendra for the first time, all content
-       is crawled and indexed by default. You must run a full sync of your
-       data if your initial sync failed, even if you don't choose full sync
-       as your sync mode option.
+     your index when your data source content changes. When you sync your
+     data source with Amazon Kendra for the first time, all content
+     is crawled and indexed by default. You must run a full sync of your
+     data if your initial sync failed, even if you don't choose full sync
+     as your sync mode option.
 
-       - Full sync: Freshly index all content, replacing existing
-         content each time your data source syncs with your index.
-       - New, modified, deleted sync: Index only new, modified,
-         and deleted content each time your data source syncs with
-         your index. Amazon Kendra can use your data source's
-         mechanism for tracking content changes and index content
-         that changed since the last sync.
 
+
+
+    	* Full sync: Freshly index all content, replacing existing
+    	 content each time your data source syncs with your index.
+    	* New, modified, deleted sync: Index only new, modified,
+    	 and deleted content each time your data source syncs with
+    	 your index. Amazon Kendra can use your data source's
+    	 mechanism for tracking content changes and index content
+    	 that changed since the last sync.
     ###### Important
 
     Because there is no API to update
-    permanently deleted Gmail messages,
-    new, modified, or deleted content
-    sync:
+     permanently deleted Gmail messages,
+     new, modified, or deleted content
+     sync:
 
-        * Won't remove messages that were permanently
-         deleted from Gmail from your Amazon Kendra
-         index
-        * Won't sync changes in Gmail email
-         labelsTo sync your Gmail data source label changes
 
-    and permanently deleted email messages to your
-    Amazon Kendra index, you must run full crawls
-    periodically. 4. In **Sync run schedule**, for
-    **Frequency**—Choose how often
-    to sync your data source content and update your index. 5. Choose **Next**.
 
-8.  On the **Set field mappings** page, enter the
-    following information:
+    	* Won't remove messages that were permanently
+    	 deleted from Gmail from your Amazon Kendra
+    	 index
+    	* Won't sync changes in Gmail email
+    	 labelsTo sync your Gmail data source label changes
+     and permanently deleted email messages to your
+     Amazon Kendra index, you must run full crawls
+     periodically.
+    4. In **Sync run schedule**, for
+     **Frequency**—Choose how often
+     to sync your data source content and update your index.
+    5. Choose **Next**.
+
+8. On the **Set field mappings** page, enter the
+following information:
 
     1. **Default data source
-       fields**—Select from the Amazon Kendra generated
-       default data source fields you want to map to your index.
+     fields**—Select from the Amazon Kendra generated
+     default data source fields you want to map to your index.
+
 
     ###### Note
 
     Amazon Kendra Gmail data source
-    connector does not support creating custom index
-    fields due to API limitations. 2. Choose **Next**.
+     connector does not support creating custom index
+     fields due to API limitations.
+    2. Choose **Next**.
 
-9.  On the **Review and create** page, check that
-    the information you have entered is correct and then select
-    **Add data source**. You can also choose to edit your information from this page.
-    Your data source will appear on the **Data sources** page after the data source has been
-    added successfully.
+9. On the **Review and create** page, check that
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to
@@ -374,13 +387,12 @@ source, see:
   `FULL_CRAWL`/**New, modified, or deleted content
   sync**:
 
-      + Won’t remove messages that were permanently deleted from Gmail from
-       your Amazon Kendra index
-      + Won’t sync changes in Gmail email labels
-
-  To sync your Gmail data source label changes and permanently deleted email
-  messages to your Amazon Kendra index, you must run full crawls
-  periodically.
+  - Won’t remove messages that were permanently deleted from Gmail from
+    your Amazon Kendra index
+  - Won’t sync changes in Gmail email labels
+    To sync your Gmail data source label changes and permanently deleted email
+    messages to your Amazon Kendra index, you must run full crawls
+    periodically.
 
 - Amazon Kendra Gmail data source connector does not support
   creating custom index fields due to API limitations.

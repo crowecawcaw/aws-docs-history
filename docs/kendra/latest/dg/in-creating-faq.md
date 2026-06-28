@@ -129,7 +129,7 @@ Time time zone.
 - Long—Numbers, such as `1234`.
 - String—String values. If your string contains commas, enclose the
   entire value in double quotation marks (") (for example, `"custom
-attribute, and more"`).
+ attribute, and more"`).
 - String list—A list of string values. List the values in a
   comma-separated list that's enclosed in quotation marks (") (for example,
   `"item1, item2, item3"`). If the list contains only a single
@@ -247,7 +247,7 @@ The following lists the types of custom fields:
   European Time time zone.
 - Long—A JSON number value, such as `1234`.
 - String—A JSON string value (for example, `"custom
-attribute"`).
+ attribute"`).
 - String list—A JSON array of string values (for example,
   `["item1,item2,item3"]`).
 

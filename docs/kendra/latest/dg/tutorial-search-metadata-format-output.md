@@ -80,8 +80,8 @@ Where:
     * `aws-region` is your AWS region.
 
 2. From the `OutputDataConfig` object in your entities job description,
-   copy and save the `S3Uri` value as `comprehend-S3uri` on a
-   text editor.
+copy and save the `S3Uri` value as `comprehend-S3uri` on a
+text editor.
 
 ###### Note
 
@@ -131,7 +131,7 @@ Where:
      to save the output.
 
 4. To extract the entities output, run the following command on a terminal
-   window:
+window:
 
 Linux
 
@@ -225,7 +225,7 @@ Where:
     * amzn-s3-demo-bucket is the name of your S3 bucket.
 
 2. To ensure that the `output` file was uploaded successfully to
-   your S3 bucket, check its contents by using the [list](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html") command:
+your S3 bucket, check its contents by using the [list](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html") command:
 
 Linux
 
@@ -336,7 +336,7 @@ Where:
      want to save the zipped file in.
 
 2. To extract the Python 3 file, run the following command on the terminal
-   window:
+window:
 
 Linux
 
@@ -372,7 +372,7 @@ Where:
      `converter.py.zip`.
 
 3. Make sure that Boto3 is installed on your device by running the following
-   command.
+command.
 
 Linux
 
@@ -432,11 +432,9 @@ Where:
      `converter.py.zip`.
 
 5. When the AWS CLI prompts you to `Enter the name of your S3 bucket`,
-   enter the name of your S3 bucket and press enter.
-6. When the AWS CLI prompts you to `Enter the full filepath to your Comprehend
-output file`, enter `output` and press enter.
-7. When the AWS CLI prompts you to `Enter the full filepath to your metadata
-folder`, enter `metadata/` and press enter.
+enter the name of your S3 bucket and press enter. 6. When the AWS CLI prompts you to `Enter the full filepath to your Comprehend
+ output file`, enter `output` and press enter. 7. When the AWS CLI prompts you to `Enter the full filepath to your metadata
+ folder`, enter `metadata/` and press enter.
 
 ###### Important
 
@@ -497,7 +495,7 @@ Where:
     * amzn-s3-demo-bucket is the name of your S3 bucket.
 
 2. To ensure that the objects were successfully deleted from your S3 bucket, check
-   its contents by using the [list](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html") command:
+its contents by using the [list](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html") command:
 
 Linux
 

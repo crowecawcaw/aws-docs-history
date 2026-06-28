@@ -115,79 +115,86 @@ If using version 2 (if applicable), choose **Quip connector** with the "V2.0" ta
     5. Choose **Next**.
 
 6. On the **Define access and security** page,
-   enter the following information:
+enter the following information:
 
-   1. **Quip domain
-      name**—Enter the Quip you
-      copied from your Quip account.
-   2. **AWS Secrets Manager secret**—Choose an existing secret or create a new
-      Secrets Manager secret to store your Quip authentication
-      credentials. If you choose to create a new secret an AWS Secrets Manager
-      secret window opens.
+    1. **Quip domain
+     name**—Enter the Quip you
+     copied from your Quip account.
+    2. **AWS Secrets Manager secret**—Choose an existing secret or create a new
+     Secrets Manager secret to store your Quip authentication
+     credentials. If you choose to create a new secret an AWS Secrets Manager
+     secret window opens.
 
-      1. Enter following information in the
-         **Create an AWS
-         Secrets Manager secret
-         window**:
 
-         1. **Secret name**—A
-            name for your secret. The prefix
-            ‘AmazonKendra-Quip-’ is
-            automatically added to your secret name.
-         2. **Quip
-            token**—Enter the
-            Quip personal access configured
-            Quip.
+    	1. Enter following information in the
+    	 **Create an AWS
+    	 Secrets Manager secret
+    	 window**:
 
-      2. Add and save your secret.
 
-   3. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
-      so, you must add **Subnets** and **VPC security groups**.
-   4. **IAM role**—Choose an existing IAM
-      role or create a new IAM role to access your repository credentials and index content.
+    		1. **Secret name**—A
+    		 name for your secret. The prefix
+    		 ‘AmazonKendra-Quip-’ is
+    		 automatically added to your secret name.
+    		2. **Quip
+    		 token**—Enter the
+    		 Quip personal access configured
+    		 Quip.
+    	2. Add and save your secret.
+    3. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
+     so, you must add **Subnets** and **VPC security groups**.
+    4. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
 
-   ###### Note
 
-   IAM roles used for indexes cannot be used for data sources. If you are unsure
-   if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-   errors. 5. Choose **Next**.
+    ###### Note
+
+    IAM roles used for indexes cannot be used for data sources. If you are unsure
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    5. Choose **Next**.
 
 7. On the **Configure sync settings** page,
-   enter the following information:
+enter the following information:
 
-   1. **Add Quip folder IDs to
-      crawl**—The Quip
-      folder IDs you want to crawl.
+    1. **Add Quip folder IDs to
+     crawl**—The Quip
+     folder IDs you want to crawl.
 
-   ###### Note
 
-   To crawl a root folder, including all sub-folders
-   and documents inside it, add the root folder ID.
-   To crawl specific sub-folders, add the specific
-   sub-folder IDs. 2. **Additional configuration (content
-   types)**—Enter the content types you
-   want to crawl. 3. **Regex patterns**—Regular
-   expression patterns to include or exclude certain files.
-   You can add up to 100 patterns. 4. In **Sync run schedule**, for
-   **Frequency**—Choose how
-   often to sync your data source content and update
-   your index 5. Choose **Next**.
+    ###### Note
+
+    To crawl a root folder, including all sub-folders
+     and documents inside it, add the root folder ID.
+     To crawl specific sub-folders, add the specific
+     sub-folder IDs.
+    2. **Additional configuration (content
+     types)**—Enter the content types you
+     want to crawl.
+    3. **Regex patterns**—Regular
+     expression patterns to include or exclude certain files.
+     You can add up to 100 patterns.
+    4. In **Sync run schedule**, for
+     **Frequency**—Choose how
+     often to sync your data source content and update
+     your index
+    5. Choose **Next**.
 
 8. On the **Set field mappings** page, enter the
-   following information:
+following information:
 
-   1. Select from the generated default data source fields
-      you want to map to Amazon Kendra index.
-   2. **Add field**—To add custom data
-      source fields to create an index field name to map to
-      and the field data type.
-   3. Choose **Next**.
+    1. Select from the generated default data source fields
+     you want to map to Amazon Kendra index.
+    2. **Add field**—To add custom data
+     source fields to create an index field name to map to
+     and the field data type.
+    3. Choose **Next**.
 
 9. On the **Review and create** page, check that
-   the information you have entered is correct and then select
-   **Add data source**. You can also choose to edit your information from this page.
-   Your data source will appear on the **Data sources** page after the data source has been
-   added successfully.
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to

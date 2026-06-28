@@ -144,100 +144,105 @@ If using version 2 (if applicable), choose **database connector** with the "V2.0
     5. Choose **Next**.
 
 6. On the **Define access and security** page,
-   enter the following information:
+enter the following information:
 
-   1. **Endpoint**—A DNS host name,
-      an IPv4 address, or an IPv6 address.
-   2. **Port**—A port number.
-   3. **Database**—Database
-      name.
-   4. **Table name**—Table
-      name.
-   5. For **Type of authentication**,
-      choose between **Existing** and
-      **New** to store your
-      database authentication credentials. If you
-      choose to create a new secret an AWS
-      Secrets Manager secret window opens.
+    1. **Endpoint**—A DNS host name,
+     an IPv4 address, or an IPv6 address.
+    2. **Port**—A port number.
+    3. **Database**—Database
+     name.
+    4. **Table name**—Table
+     name.
+    5. For **Type of authentication**,
+     choose between **Existing** and
+     **New** to store your
+     database authentication credentials. If you
+     choose to create a new secret an AWS
+     Secrets Manager secret window opens.
 
-      1. Enter following information in the
-         **Create an AWS
-         Secrets Manager secret
-         window**:
 
-         1. **Secret name**—A
-            name for your secret. The prefix
-            ‘AmazonKendra-database-’ is
-            automatically added to your secret name.
-         2. For **User name** and
-            **Password**—Enter the
-            authentication credential values from your
-            database account.
-         3. Choose **Save
-            authentication**.
+    	1. Enter following information in the
+    	 **Create an AWS
+    	 Secrets Manager secret
+    	 window**:
 
-   6. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
-      so, you must add **Subnets** and **VPC security groups**.
 
-   ###### Note
+    		1. **Secret name**—A
+    		 name for your secret. The prefix
+    		 ‘AmazonKendra-database-’ is
+    		 automatically added to your secret name.
+    		2. For **User name** and
+    		 **Password**—Enter the
+    		 authentication credential values from your
+    		 database account.
+    		3. Choose **Save
+    		 authentication**.
+    6. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
+     so, you must add **Subnets** and **VPC security groups**.
 
-   You must use a private subnet. If your RDS
-   instance is in a public subnet in your VPC, you can
-   create a private subnet that has outbound access to
-   a NAT gateway in the public subnet. The subnets
-   provided in the VPC configuration must be in either
-   US West (Oregon), US East (N. Virginia), EU
-   (Ireland). 7. **IAM role**—Choose an existing IAM
-   role or create a new IAM role to access your repository credentials and index content.
 
-   ###### Note
+    ###### Note
 
-   IAM roles used for indexes cannot be used for data sources. If you are unsure
-   if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-   errors. 8. Choose **Next**.
+    You must use a private subnet. If your RDS
+     instance is in a public subnet in your VPC, you can
+     create a private subnet that has outbound access to
+     a NAT gateway in the public subnet. The subnets
+     provided in the VPC configuration must be in either
+     US West (Oregon), US East (N. Virginia), EU
+     (Ireland).
+    7. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
+
+
+    ###### Note
+
+    IAM roles used for indexes cannot be used for data sources. If you are unsure
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    8. Choose **Next**.
 
 7. On the **Configure sync settings** page,
-   enter the following information:
+enter the following information:
 
-   1. Select between **Aurora MySQL**,
-      **MySQL**, **Aurora
-      PostgreSQL**, and
-      **PostgreSQL** based on your use
-      case.
-   2. **Enclose SQL identifiers with double
-      quotes**—Select to enclose SQL
-      identifiers in double quotes. For example,
-      “columnName”.
-   3. **ACL column** and **Change
-      detecting columns**—Configure the
-      columns that Amazon Kendra uses for change
-      detection (for example, last updated column) and your
-      access control list.
-   4. In **Sync run schedule**, for
-      **Frequency**—Choose how
-      often Amazon Kendra will sync with your data
-      source.
-   5. Choose **Next**.
+    1. Select between **Aurora MySQL**,
+     **MySQL**, **Aurora
+     PostgreSQL**, and
+     **PostgreSQL** based on your use
+     case.
+    2. **Enclose SQL identifiers with double
+     quotes**—Select to enclose SQL
+     identifiers in double quotes. For example,
+     “columnName”.
+    3. **ACL column** and **Change
+     detecting columns**—Configure the
+     columns that Amazon Kendra uses for change
+     detection (for example, last updated column) and your
+     access control list.
+    4. In **Sync run schedule**, for
+     **Frequency**—Choose how
+     often Amazon Kendra will sync with your data
+     source.
+    5. Choose **Next**.
 
 8. On the **Set field mappings** page, enter the
-   following information:
+following information:
 
-   1. **Amazon Kendra default field
-      mappings**—Select from the Amazon Kendra generated default data source fields you
-      want to map to your index. You must add the
-      **Database column** values for
-      `document_id` and
-      `document_body`
-   2. **Custom field mappings**—To add
-      custom data source fields to create an index field name
-      to map to and the field data type.
-   3. Choose **Next**.
+    1. **Amazon Kendra default field
+     mappings**—Select from the Amazon Kendra generated default data source fields you
+     want to map to your index. You must add the
+     **Database column** values for
+     `document_id` and
+     `document_body`
+    2. **Custom field mappings**—To add
+     custom data source fields to create an index field name
+     to map to and the field data type.
+    3. Choose **Next**.
 
 9. On the **Review and create** page, check that
-   the information you have entered is correct and then select
-   **Add data source**. You can also choose to edit your information from this page.
-   Your data source will appear on the **Data sources** page after the data source has been
-   added successfully.
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to a

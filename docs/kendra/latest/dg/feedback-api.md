@@ -12,20 +12,19 @@ submittal uses the current time.
 
 ###### To submit feedback for a search (AWS SDK)
 
-1.  You can use the following example code with the required values:
+1. You can use the following example code with the required values:
 
-        1. `index id`—The ID of the index that the query
-         applies to.
-        2. `query id`—The query that you want to provide
-         feedback on.
-        3. `result id`—The ID of the query result that you want
-         to provide feedback on. The query response contains the result
-         ID.
-        4. `relevance value`—Either `RELEVANT` (the
-         query result is relevant) or `NOT_RELEVANT` (the query result
-         is not relevant).
-
-    Python
+   1. `index id`—The ID of the index that the query
+      applies to.
+   2. `query id`—The query that you want to provide
+      feedback on.
+   3. `result id`—The ID of the query result that you want
+      to provide feedback on. The query response contains the result
+      ID.
+   4. `relevance value`—Either `RELEVANT` (the
+      query result is relevant) or `NOT_RELEVANT` (the query result
+      is not relevant).
+      Python
 
 ```
 import boto3

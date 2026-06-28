@@ -126,129 +126,140 @@ If using version 2 (if applicable), choose **Alfresco connector** with the "V2.0
     5. Choose **Next**.
 
 6. On the **Define access and security** page,
-   enter the following information:
+enter the following information:
 
-   1. **Alfresco
-      type**—Choose whether you use
-      Alfresco On-Premises/server or
-      Alfresco
-      Cloud (Platform as a Service).
-   2. **Alfresco repository
-      URL**—Enter your Alfresco
-      repository URL. For example, if you use
-      Alfresco Cloud (PaaS), the
-      repository URL could be
-      *https://company.alfrescocloud.com*.
-      Or, if you use Alfresco On-Premises, the
-      repository URL could be
-      *https://company-alfresco-instance.company-domain.suffix:port*.
-   3. **Alfresco user application.
-      URL**—Enter your Alfresco
-      user interface URL. You can get the repository URL from your
-      Alfresco administrator. For example, the user
-      interface URL could be *https://example.com*.
-   4. **SSL certificate
-      location**—Enter the path to the SSL
-      certificate stored in an Amazon S3 bucket. You
-      use this to connect to Alfresco
-      On-Premises with a secure SSL connection.
-   5. **Authorization**—Turn on or off access control list (ACL) information for your
-      documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
-      and groups can access. The ACL information is used to filter search results based on the user or
-      their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
-   6. **Authentication**—Choose **Basic
-      authentication** or **OAuth 2.0
-      authentication**. Then choose an existing
-      Secrets Manager secret or create a new secret to
-      store your Alfresco credentials.
-      If you choose to create a new secret, an AWS Secrets Manager secret window opens.
+    1. **Alfresco
+     type**—Choose whether you use
+     Alfresco On-Premises/server or
+     Alfresco
+     Cloud (Platform as a Service).
+    2. **Alfresco repository
+     URL**—Enter your Alfresco
+     repository URL. For example, if you use
+     Alfresco Cloud (PaaS), the
+     repository URL could be
+     *https://company.alfrescocloud.com*.
+     Or, if you use Alfresco On-Premises, the
+     repository URL could be
+     *https://company-alfresco-instance.company-domain.suffix:port*.
+    3. **Alfresco user application.
+     URL**—Enter your Alfresco
+     user interface URL. You can get the repository URL from your
+     Alfresco administrator. For example, the user
+     interface URL could be *https://example.com*.
+    4. **SSL certificate
+     location**—Enter the path to the SSL
+     certificate stored in an Amazon S3 bucket. You
+     use this to connect to Alfresco
+     On-Premises with a secure SSL connection.
+    5. **Authorization**—Turn on or off access control list (ACL) information for your
+     documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
+     and groups can access. The ACL information is used to filter search results based on the user or
+     their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
+    6. **Authentication**—Choose **Basic
+     authentication** or **OAuth 2.0
+     authentication**. Then choose an existing
+     Secrets Manager secret or create a new secret to
+     store your Alfresco credentials.
+     If you choose to create a new secret, an AWS Secrets Manager secret window opens.
 
-   If you chose **Basic
-   authentication**, enter a name for the secret,
-   the Alfresco user name, and
-   password.
 
-   If you chose **OAuth 2.0
-   authentication**, enter a name for the
-   secret, client ID, client secret, and token URL. 7. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
-   so, you must add **Subnets** and **VPC security groups**. 8. **Identity crawler**—Specify whether to turn on
-   Amazon Kendra’s identity crawler. The identity crawler uses the access control list
-   (ACL) information for your documents to filter search results based on the user or their
-   group access to documents. If you have an ACL for your documents and choose to use your ACL,
-   you can then also choose to turn on Amazon Kendra’s identity crawler to configure
-   [user
-   context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
-   all documents can be publicly searched. If you want to use access control for your documents
-   and identity crawler is turned off, you can alternatively use the
-   [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
-   API to upload user and group access information for user context filtering. 9. **IAM role**—Choose an existing IAM
-   role or create a new IAM role to access your repository credentials and index content.
+    If you chose **Basic
+     authentication**, enter a name for the secret,
+     the Alfresco user name, and
+     password.
 
-   ###### Note
 
-   IAM roles used for indexes cannot be used for data sources. If you are unsure
-   if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-   errors. 10. Choose **Next**.
+    If you chose **OAuth 2.0
+     authentication**, enter a name for the
+     secret, client ID, client secret, and token URL.
+    7. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
+     so, you must add **Subnets** and **VPC security groups**.
+    8. **Identity crawler**—Specify whether to turn on
+     Amazon Kendra’s identity crawler. The identity crawler uses the access control list
+     (ACL) information for your documents to filter search results based on the user or their
+     group access to documents. If you have an ACL for your documents and choose to use your ACL,
+     you can then also choose to turn on Amazon Kendra’s identity crawler to configure
+     [user
+     context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
+     all documents can be publicly searched. If you want to use access control for your documents
+     and identity crawler is turned off, you can alternatively use the
+     [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
+     API to upload user and group access information for user context filtering.
+    9. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
+
+
+    ###### Note
+
+    IAM roles used for indexes cannot be used for data sources. If you are unsure
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    10. Choose **Next**.
 
 7. On the **Configure sync settings** page,
-   enter the following information:
+enter the following information:
 
-   1. **Sync scope**—Set limits for
-      crawling certain content and filter content using regex
-      expression patterns.
-   2. 1. **Content**—Choose
-         whether to crawl content marked with 'Aspects' in
-         Alfresco, content within a specific
-         Alfresco site, or content across all
-         your Alfresco sites.
-      2. (Optional)**Additional
-         configuration**—Set the following
-         settings:
+    1. **Sync scope**—Set limits for
+     crawling certain content and filter content using regex
+     expression patterns.
+    2. 1. **Content**—Choose
+    	 whether to crawl content marked with 'Aspects' in
+    	 Alfresco, content within a specific
+    	 Alfresco site, or content across all
+    	 your Alfresco sites.
+    	2. (Optional)**Additional
+    	 configuration**—Set the following
+    	 settings:
 
-         - **Include
-           comments**—Choose to include
-           comments in Alfresco Document
-           library and Blog.
-         - **Regex
-           patterns**—Regular expression
-           patterns to include or exclude certain
-           files.
 
-   3. **Sync mode**—Choose how you want to update
-      your index when your data source content changes. When you sync your
-      data source with Amazon Kendra for the first time, all content
-      is crawled and indexed by default. You must run a full sync of your
-      data if your initial sync failed, even if you don't choose full sync
-      as your sync mode option.
 
-      - Full sync: Freshly index all content, replacing existing
-        content each time your data source syncs with your index.
-      - New, modified, deleted sync: Index only new, modified,
-        and deleted content each time your data source syncs with
-        your index. Amazon Kendra can use your data source's
-        mechanism for tracking content changes and index content
-        that changed since the last sync.
 
-   4. In **Sync run schedule**, for
-      **Frequency**—Choose how often to sync your
-      data source content and update your index.
-   5. Choose **Next**.
+    		* **Include
+    		 comments**—Choose to include
+    		 comments in Alfresco Document
+    		 library and Blog.
+    		* **Regex
+    		 patterns**—Regular expression
+    		 patterns to include or exclude certain
+    		 files.
+    3. **Sync mode**—Choose how you want to update
+     your index when your data source content changes. When you sync your
+     data source with Amazon Kendra for the first time, all content
+     is crawled and indexed by default. You must run a full sync of your
+     data if your initial sync failed, even if you don't choose full sync
+     as your sync mode option.
+
+
+
+
+    	* Full sync: Freshly index all content, replacing existing
+    	 content each time your data source syncs with your index.
+    	* New, modified, deleted sync: Index only new, modified,
+    	 and deleted content each time your data source syncs with
+    	 your index. Amazon Kendra can use your data source's
+    	 mechanism for tracking content changes and index content
+    	 that changed since the last sync.
+    4. In **Sync run schedule**, for
+     **Frequency**—Choose how often to sync your
+     data source content and update your index.
+    5. Choose **Next**.
 
 8. On the **Set field mappings** page, enter the
-   following information:
+following information:
 
-   1. Select from the Amazon Kendra generated default
-      data source fields that you want to map to your
-      index.
-   2. To add custom data source fields, create an index
-      field name to map to and the field data type.
-   3. Choose **Next**.
+    1. Select from the Amazon Kendra generated default
+     data source fields that you want to map to your
+     index.
+    2. To add custom data source fields, create an index
+     field name to map to and the field data type.
+    3. Choose **Next**.
 
 9. On the **Review and create** page, check that
-   the information you have entered is correct and then select
-   **Add data source**. You can also choose to edit your information from this page.
-   Your data source will appear on the **Data sources** page after the data source has been
-   added successfully.
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to

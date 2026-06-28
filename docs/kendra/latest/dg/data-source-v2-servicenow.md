@@ -53,17 +53,17 @@ credentials and secrets across data sources, and connector versions 1.0 and
   client secret. See [ServiceNow documentation on OAuth 2.0 authentication](https://www.servicenow.com/docs/bundle/utah-platform-security/page/integrate/single-sign-on/concept/c_Authentication.html "https://www.servicenow.com/docs/bundle/utah-platform-security/page/integrate/single-sign-on/concept/c_Authentication.html") for more information.
 - Added the following permissions:
 
-  - kb_category
-  - kb_knowledge
-  - kb_knowledge_base
-  - kb_uc_cannot_read_mtom
-  - kb_uc_can_read_mtom
-  - sc_catalog
-  - sc_category
-  - sc_cat_item
-  - sys_attachment
-  - sys_attachment_doc
-  - sys_user_role
+  - kb\_category
+  - kb\_knowledge
+  - kb\_knowledge\_base
+  - kb\_uc\_cannot\_read\_mtom
+  - kb\_uc\_can\_read\_mtom
+  - sc\_catalog
+  - sc\_category
+  - sc\_cat\_item
+  - sys\_attachment
+  - sys\_attachment\_doc
+  - sys\_user\_role
 
 - Checked each document is unique in ServiceNow and across other
   data sources you plan to use for the same index. Each data source that you
@@ -126,173 +126,188 @@ If using version 2 (if applicable), choose **ServiceNow connector** with the "V2
     5. Choose **Next**.
 
 6. On the **Define access and security** page, enter the following
-   information:
+information:
 
-   1. **ServiceNow host**—Enter the ServiceNow
-      host URL. The format for the host URL you enter is
-      `your-domain.service-now.com`.
-   2. **ServiceNow version**—Select your
-      ServiceNow instance version. You can select from Rome, Sandiego, Tokyo, or
-      Others.
-   3. **Authorization**—Turn on or off access control list (ACL) information for your
-      documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
-      and groups can access. The ACL information is used to filter search results based on the user or
-      their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
-   4. **Authentication**—Choose between **Basic
-      authentication** and **Oauth 2.0 authentication**.
-   5. **AWS
-      Secrets Manager secret**—Choose an existing secret or create a new
-      Secrets Manager secret to store your ServiceNow authentication credentials.
-      If you choose to create a new secret an AWS
-      Secrets Manager secret window opens. Enter the following information in the
-      window:
+    1. **ServiceNow host**—Enter the ServiceNow
+     host URL. The format for the host URL you enter is
+     `your-domain.service-now.com`.
+    2. **ServiceNow version**—Select your
+     ServiceNow instance version. You can select from Rome, Sandiego, Tokyo, or
+     Others.
+    3. **Authorization**—Turn on or off access control list (ACL) information for your
+     documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
+     and groups can access. The ACL information is used to filter search results based on the user or
+     their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
+    4. **Authentication**—Choose between **Basic
+     authentication** and **Oauth 2.0 authentication**.
+    5. **AWS
+     Secrets Manager secret**—Choose an existing secret or create a new
+     Secrets Manager secret to store your ServiceNow authentication credentials.
+     If you choose to create a new secret an AWS
+     Secrets Manager secret window opens. Enter the following information in the
+     window:
 
-      1. **Secret name**—A name for your secret. The prefix
-         ‘AmazonKendra-ServiceNow-’ is automatically added to your secret name.
-      2. If using Basic Authentication—Enter the **Secret name**,
-         **Username**, and **Password** for your
-         ServiceNow account.
 
-      If using OAuth2.0 Authentication—Enter the **Secret
-      name**, **Username**, **Password**,
-      **Client ID**, and **Client Secret** you created in
-      your ServiceNow account. 3. Save and add your secret.
+    	1. **Secret name**—A name for your secret. The prefix
+    	 ‘AmazonKendra-ServiceNow-’ is automatically added to your secret name.
+    	2. If using Basic Authentication—Enter the **Secret name**,
+    	 **Username**, and **Password** for your
+    	 ServiceNow account.
 
-   6. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
-      so, you must add **Subnets** and **VPC security groups**.
-   7. **Identity crawler**—Specify whether to turn on
-      Amazon Kendra’s identity crawler. The identity crawler uses the access control list
-      (ACL) information for your documents to filter search results based on the user or their
-      group access to documents. If you have an ACL for your documents and choose to use your ACL,
-      you can then also choose to turn on Amazon Kendra’s identity crawler to configure
-      [user
-      context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
-      all documents can be publicly searched. If you want to use access control for your documents
-      and identity crawler is turned off, you can alternatively use the
-      [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
-      API to upload user and group access information for user context filtering.
-   8. **IAM role**—Choose an existing IAM
-      role or create a new IAM role to access your repository credentials and index content.
 
-   ###### Note
+    	If using OAuth2.0 Authentication—Enter the **Secret
+    	 name**, **Username**, **Password**,
+    	 **Client ID**, and **Client Secret** you created in
+    	 your ServiceNow account.
+    	3. Save and add your secret.
+    6. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
+     so, you must add **Subnets** and **VPC security groups**.
+    7. **Identity crawler**—Specify whether to turn on
+     Amazon Kendra’s identity crawler. The identity crawler uses the access control list
+     (ACL) information for your documents to filter search results based on the user or their
+     group access to documents. If you have an ACL for your documents and choose to use your ACL,
+     you can then also choose to turn on Amazon Kendra’s identity crawler to configure
+     [user
+     context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
+     all documents can be publicly searched. If you want to use access control for your documents
+     and identity crawler is turned off, you can alternatively use the
+     [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
+     API to upload user and group access information for user context filtering.
+    8. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
 
-   IAM roles used for indexes cannot be used for data sources. If you are unsure
-   if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-   errors. 9. Choose **Next**.
+
+    ###### Note
+
+    IAM roles used for indexes cannot be used for data sources. If you are unsure
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    9. Choose **Next**.
 
 7. On the **Configure sync settings** page, enter the following
-   information:
+information:
 
-   1. For **Knowledge articles**, choose from the following options
-      :
+    1. For **Knowledge articles**, choose from the following options
+     :
 
-      - **Knowledge articles**—Choose to index knowledge
-        articles.
-      - **Knowledge article attachments**—Choose to index
-        knowledge article attachments.
-      - **Type of knowledge articles**—Choose between
-        **Only public articles** and **Knowledge articles based on
-        ServiceNow filter query** based on your use case. If you select
-        **Include articles based on ServiceNow filter query**, you
-        must enter a **Filter query** copied from your ServiceNow
-        account. Example filter queries include:
-        `workflow_state=draft^EQ`,
-        `kb_knowledge_base=dfc19531bf2021003f07e2c1ac0739ab^text
-ISNOTEMPTY^EQ`,
-        `article_type=text^active=true^EQ`.
 
-      ###### Important
 
-      If you choose to crawl **Only public articles**, Amazon Kendra crawls only knowledge articles assigned a public access role in
-      ServiceNow.
-      - **Include articles based on short description
-        filter**—Specify regular expression patterns to include or exclude
-        specific articles.
 
-   2. For **Service catalog items**:
+    	* **Knowledge articles**—Choose to index knowledge
+    	 articles.
+    	* **Knowledge article attachments**—Choose to index
+    	 knowledge article attachments.
+    	* **Type of knowledge articles**—Choose between
+    	 **Only public articles** and **Knowledge articles based on
+    	 ServiceNow filter query** based on your use case. If you select
+    	 **Include articles based on ServiceNow filter query**, you
+    	 must enter a **Filter query** copied from your ServiceNow
+    	 account. Example filter queries include:
+    	 `workflow_state=draft^EQ`,
+    	 `kb_knowledge_base=dfc19531bf2021003f07e2c1ac0739ab^text
+    	 ISNOTEMPTY^EQ`,
+    	 `article_type=text^active=true^EQ`.
 
-      - **Service catalog items**—Choose to index service catalog
-        items.
-      - **Service catalog item attachments**—Choose to index
-        service catalog item attachments.
-      - **Active service catalog items**—Choose to index active
-        service catalog items.
-      - **Inactive service catalog items**—Choose to index
-        inactive service catalog items.
-      - **Filter query**—Choose to include service catalog items
-        based on a filter defined in your ServiceNow instance. Example filter queries
-        include:
-        `short_descriptionLIKEAccess^category=2809952237b1300054b6a3549dbe5dd4^EQ`,
-        `nameSTARTSWITHService^active=true^EQ`.
-      - **Include service catalog items based on short description
-        filter**—Specify a regex pattern to include specific catalog
-        items.
 
-   3. For **Incidents**:
+    	###### Important
 
-      - **Incidents**—Choose to index service incidents.
-      - **Incident attachments**—Choose to index incident
-        attachments.
-      - **Active incidents**—Choose to index active
-        incidents.
-      - **Inactive incidents**—Choose to index inactive
-        incidents.
-      - **Active incident type**—Choose between **All
-        incidents**, **Open incidents**, **Open -
-        unassigned incidents**, and **Resolved incidents**
-        depending on your use case.
-      - **Filter query**—Choose to include incidents based on a
-        filter defined in your ServiceNow instance. Example filter queries include:
-        `short_descriptionLIKETest^urgency=3^state=1^EQ`,
-        `priority=2^category=software^EQ` .
-      - **Include incidents based on short description
-        filter**—Specify a regex pattern to include specific incidents.
+    	If you choose to crawl **Only public articles**, Amazon Kendra crawls only knowledge articles assigned a public access role in
+    	 ServiceNow.
+    	* **Include articles based on short description
+    	 filter**—Specify regular expression patterns to include or exclude
+    	 specific articles.
+    2. For **Service catalog items**:
 
-   4. For **Additional configuration**:
 
-      - **ACL information**—Access control lists for entities you
-        have selected are included by default. Deselecting an access control list will make
-        all files in that category public. ACL options are automatically deactivated for
-        entities not selected. For public articles ACL is not applied.
-      - For **Maximum file size** – Specify the file size limit
-        in MBs that Amazon Kendra will crawl. Amazon Kendra will crawl only the files within the size limit
-        you define. The default file size is 50MB. The maximum file size should be greater
-        than 0MB and less than or equal to 50MB.
-      - **Attachment regex patterns**—Add regular expression
-        patterns to include or exclude certain attached files of catalogs, knowledge articles,
-        and incidents. You can add up to 100 patterns.
 
-   5. **Sync mode**—Choose how you want to update your index when
-      your data source content changes. When you sync your data source with Amazon Kendra
-      for the first time, all content is crawled and indexed by default. You must run a full
-      sync of your data if your initial sync failed, even if you don't choose full sync as
-      your sync mode option.
 
-      - Full sync: Freshly index all content, replacing existing content each time your
-        data source syncs with your index.
-      - New, modified, deleted sync: Index only new, modified, and deleted content each
-        time your data source syncs with your index. Amazon Kendra can use your data
-        source's mechanism for tracking content changes and index content that changed since
-        the last sync.
+    	* **Service catalog items**—Choose to index service catalog
+    	 items.
+    	* **Service catalog item attachments**—Choose to index
+    	 service catalog item attachments.
+    	* **Active service catalog items**—Choose to index active
+    	 service catalog items.
+    	* **Inactive service catalog items**—Choose to index
+    	 inactive service catalog items.
+    	* **Filter query**—Choose to include service catalog items
+    	 based on a filter defined in your ServiceNow instance. Example filter queries
+    	 include:
+    	 `short_descriptionLIKEAccess^category=2809952237b1300054b6a3549dbe5dd4^EQ`,
+    	 `nameSTARTSWITHService^active=true^EQ`.
+    	* **Include service catalog items based on short description
+    	 filter**—Specify a regex pattern to include specific catalog
+    	 items.
+    3. For **Incidents**:
 
-   6. In **Sync run schedule**, for
-      **Frequency**—Choose how often to sync your data source content
-      and update your index.
-   7. Choose **Next**.
+
+
+
+    	* **Incidents**—Choose to index service incidents.
+    	* **Incident attachments**—Choose to index incident
+    	 attachments.
+    	* **Active incidents**—Choose to index active
+    	 incidents.
+    	* **Inactive incidents**—Choose to index inactive
+    	 incidents.
+    	* **Active incident type**—Choose between **All
+    	 incidents**, **Open incidents**, **Open -
+    	 unassigned incidents**, and **Resolved incidents**
+    	 depending on your use case.
+    	* **Filter query**—Choose to include incidents based on a
+    	 filter defined in your ServiceNow instance. Example filter queries include:
+    	 `short_descriptionLIKETest^urgency=3^state=1^EQ`,
+    	 `priority=2^category=software^EQ` .
+    	* **Include incidents based on short description
+    	 filter**—Specify a regex pattern to include specific incidents.
+    4. For **Additional configuration**:
+
+
+
+
+    	* **ACL information**—Access control lists for entities you
+    	 have selected are included by default. Deselecting an access control list will make
+    	 all files in that category public. ACL options are automatically deactivated for
+    	 entities not selected. For public articles ACL is not applied.
+    	* For **Maximum file size** – Specify the file size limit
+    	 in MBs that Amazon Kendra will crawl. Amazon Kendra will crawl only the files within the size limit
+    	 you define. The default file size is 50MB. The maximum file size should be greater
+    	 than 0MB and less than or equal to 50MB.
+    	* **Attachment regex patterns**—Add regular expression
+    	 patterns to include or exclude certain attached files of catalogs, knowledge articles,
+    	 and incidents. You can add up to 100 patterns.
+    5. **Sync mode**—Choose how you want to update your index when
+     your data source content changes. When you sync your data source with Amazon Kendra
+     for the first time, all content is crawled and indexed by default. You must run a full
+     sync of your data if your initial sync failed, even if you don't choose full sync as
+     your sync mode option.
+
+
+
+
+    	* Full sync: Freshly index all content, replacing existing content each time your
+    	 data source syncs with your index.
+    	* New, modified, deleted sync: Index only new, modified, and deleted content each
+    	 time your data source syncs with your index. Amazon Kendra can use your data
+    	 source's mechanism for tracking content changes and index content that changed since
+    	 the last sync.
+    6. In **Sync run schedule**, for
+     **Frequency**—Choose how often to sync your data source content
+     and update your index.
+    7. Choose **Next**.
 
 8. On the **Set field mappings** page, enter the following
-   information:
+information:
 
-   1. **Default field mappings**—Select from the Amazon Kendra generated default data source fields that you want to map to your index.
-   2. **Add field**—To add custom data source fields to create an
-      index field name to map to and the field data type.
-   3. Choose **Next**.
+    1. **Default field mappings**—Select from the Amazon Kendra generated default data source fields that you want to map to your index.
+    2. **Add field**—To add custom data source fields to create an
+     index field name to map to and the field data type.
+    3. Choose **Next**.
 
 9. On the **Review and create** page, check that
-   the information you have entered is correct and then select
-   **Add data source**. You can also choose to edit your information from this page.
-   Your data source will appear on the **Data sources** page after the data source has been
-   added successfully.
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to

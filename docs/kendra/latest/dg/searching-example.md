@@ -261,11 +261,11 @@ context and further refine the search results.
 Amazon Kendra supports the following operators.
 
 - Boolean: Logic to limit or broaden the search. For example, `amazon
-AND sports` limits the search to only search for documents
+ AND sports` limits the search to only search for documents
   containing both terms.
 - Parentheses: Reads nested query terms in order of precedence. For example,
   `(amazon AND sports) NOT rainforest` reads `(amazon AND
-sports)` before `NOT rainforest`.
+ sports)` before `NOT rainforest`.
 - Ranges: Date or numeric range values. Ranges can be inclusive, exclusive,
   or unbounded. For example, you can search for documents that were last
   updated between January 1st 2020 and December 31st 2020, inclusive of these

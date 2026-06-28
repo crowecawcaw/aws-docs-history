@@ -115,36 +115,34 @@ Console
 
 ###### To create index fields
 
-1.  Make sure you've [created an
-    index](create-index.md "create-index.md").
-2.  Then, from the left navigation menu, from
-    **Data management**, choose
-    **Facet definition**.
-3.  In **Index field settings guide**,
-    from **Index fields**, choose
-    **Add field** to add custom
-    fields.
-4.  In the **Add index field** dialog
-    box, do the following:
+1. Make sure you've [created an
+   index](create-index.md "create-index.md").
+2. Then, from the left navigation menu, from
+   **Data management**, choose
+   **Facet definition**.
+3. In **Index field settings guide**,
+   from **Index fields**, choose
+   **Add field** to add custom
+   fields.
+4. In the **Add index field** dialog
+   box, do the following:
 
-        * **Field name** – Add a
-         field name.
-        * **Data type** – Select
-         data type, whether **String**,
-         **String list**, or
-         **Date**.
-        * **Usage types** –
-         Select usage types, whether
-         **Facetable**,
-         **Searchable**,
-         **Displayable**, and
-         **Sortable**.
+   - **Field name** – Add a
+     field name.
+   - **Data type** – Select
+     data type, whether **String**,
+     **String list**, or
+     **Date**.
+   - **Usage types** –
+     Select usage types, whether
+     **Facetable**,
+     **Searchable**,
+     **Displayable**, and
+     **Sortable**.
 
-
-        Then, select **Add**.
-
-    Repeat the last step for any other fields you want to
-    map.
+   Then, select **Add**.
+   Repeat the last step for any other fields you want to
+   map.
 
 CLI
 

@@ -113,111 +113,117 @@ If using version 2 (if applicable), choose **web crawler connector** with the "V
     4. In **Tags**, for **Add new tag**—Include optional tags to search and filter your resources or track your AWS costs.
     5. Choose **Next**.
 
-6.  On the **Define access and security**
-    page, enter the following information:
+6. On the **Define access and security**
+page, enter the following information:
 
     1. For **Source**, choose between
-       **Source URLs** and
-       **Source sitemaps** depending on
-       your use case and enter the values for each.
+     **Source URLs** and
+     **Source sitemaps** depending on
+     your use case and enter the values for each.
+
 
     You can add up to 10 source URLs and three
-    sitemaps.
+     sitemaps.
+
 
     ###### Note
 
     If you want to crawl a sitemap, check that the
-    base or root URL is the same as the URLs listed on
-    your sitemap page. For example, if your sitemap
-    URL is
-    *https://example.com/sitemap-page.html*,
-    the URLs listed on this sitemap page should also
-    use the base URL
-    "https://example.com/". 2. (Optional) For **Web
-    proxy**— enter the following
-    information:
-
-        1. **Host name**—The
-         host name where web proxy is required.
-        2. **Port number**—The
-         port used by the host URL transport protocol. The
-         port number should be a numeric value between 0
-         and 65535.
-        3. For **Web proxy
-         credentials**—If your web proxy
-         connection requires authentication, choose an
-         existing secret or create a new secret to store
-         your authentication credentials. If you choose to
-         create a new secret an AWS Secrets Manager
-         secret window opens.
-        4. Enter the following information in the
-         **Create an AWS Secrets Manager
-         Secrets Manager secret
-         window**:
+     base or root URL is the same as the URLs listed on
+     your sitemap page. For example, if your sitemap
+     URL is
+     *https://example.com/sitemap-page.html*,
+     the URLs listed on this sitemap page should also
+     use the base URL
+     "https://example.com/".
+    2. (Optional) For **Web
+     proxy**— enter the following
+     information:
 
 
-        	1. **Secret name**—A
-        	 name for your secret. The prefix
-        	 ‘AmazonKendra-WebCrawler-’ is
-        	 automatically added to your secret name.
-        	2. For **User name** and
-        	 **Password**—Enter these
-        	 basic authentication credentials for your
-        	 websites.
-        	3. Choose **Save**.
+    	1. **Host name**—The
+    	 host name where web proxy is required.
+    	2. **Port number**—The
+    	 port used by the host URL transport protocol. The
+    	 port number should be a numeric value between 0
+    	 and 65535.
+    	3. For **Web proxy
+    	 credentials**—If your web proxy
+    	 connection requires authentication, choose an
+    	 existing secret or create a new secret to store
+    	 your authentication credentials. If you choose to
+    	 create a new secret an AWS Secrets Manager
+    	 secret window opens.
+    	4. Enter the following information in the
+    	 **Create an AWS Secrets Manager
+    	 Secrets Manager secret
+    	 window**:
+
+
+    		1. **Secret name**—A
+    		 name for your secret. The prefix
+    		 ‘AmazonKendra-WebCrawler-’ is
+    		 automatically added to your secret name.
+    		2. For **User name** and
+    		 **Password**—Enter these
+    		 basic authentication credentials for your
+    		 websites.
+    		3. Choose **Save**.
     3. (Optional) **Hosts with
-       authentication**—Select to add
-       additional hosts with authentication.
+     authentication**—Select to add
+     additional hosts with authentication.
     4. **IAM role**—Choose an existing IAM
-       role or create a new IAM role to access your repository credentials and index content.
+     role or create a new IAM role to access your repository credentials and index content.
+
 
     ###### Note
 
     IAM roles used for indexes cannot be used for data sources. If you are unsure
-    if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-    errors. 5. Choose **Next**.
-
-7.  On the **Configure sync settings** page,
-    enter the following information:
-
-    1. **Crawl range**—Choose the
-       kind of web pages you want to crawl.
-    2. **Crawl depth**—Select
-       number of levels from the seed URL that Amazon Kendra should crawl.
-    3. **Advanced crawl settings** and
-       **Additional configuration**enter
-       the following information:
-
-       1. **Maximum file
-          size**—The maximum web page or
-          attachment size to crawl. Minimum 0.000001 MB (1
-          byte). Maximum 50 MB.
-       2. **Maximum links per
-          page**—The maximum number of links
-          crawled per page. Links are crawled in order of
-          appearance. Minimum 1 link/page. Maximum 1000
-          links/page.
-       3. **Maximum
-          throttling**—The maximum number of
-          URLs crawled per host name per minute. Minimum 1
-          URLs/host name/minute. Maximum 300 URLs/host
-          name/minute.
-       4. **Regex
-          patterns**—Add regular expression
-          patterns to include or exclude certain URLs. You
-          can add up to 100 patterns.
-
-    4. In **Sync run schedule**, for
-       **Frequency**—Choose how
-       often Amazon Kendra will sync with your data
-       source.
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
     5. Choose **Next**.
 
-8.  On the **Review and create** page, check that
-    the information you have entered is correct and then select
-    **Add data source**. You can also choose to edit your information from this page.
-    Your data source will appear on the **Data sources** page after the data source has been
-    added successfully.
+7. On the **Configure sync settings** page,
+enter the following information:
+
+    1. **Crawl range**—Choose the
+     kind of web pages you want to crawl.
+    2. **Crawl depth**—Select
+     number of levels from the seed URL that Amazon Kendra should crawl.
+    3. **Advanced crawl settings** and
+     **Additional configuration**enter
+     the following information:
+
+
+    	1. **Maximum file
+    	 size**—The maximum web page or
+    	 attachment size to crawl. Minimum 0.000001 MB (1
+    	 byte). Maximum 50 MB.
+    	2. **Maximum links per
+    	 page**—The maximum number of links
+    	 crawled per page. Links are crawled in order of
+    	 appearance. Minimum 1 link/page. Maximum 1000
+    	 links/page.
+    	3. **Maximum
+    	 throttling**—The maximum number of
+    	 URLs crawled per host name per minute. Minimum 1
+    	 URLs/host name/minute. Maximum 300 URLs/host
+    	 name/minute.
+    	4. **Regex
+    	 patterns**—Add regular expression
+    	 patterns to include or exclude certain URLs. You
+    	 can add up to 100 patterns.
+    4. In **Sync run schedule**, for
+     **Frequency**—Choose how
+     often Amazon Kendra will sync with your data
+     source.
+    5. Choose **Next**.
+
+8. On the **Review and create** page, check that
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to

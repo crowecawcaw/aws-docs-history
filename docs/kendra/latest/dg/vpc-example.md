@@ -28,7 +28,7 @@ US West (Oregon) Region, the US East (N. Virginia) Region, or the Europe (Irelan
 2. From the navigation pane, choose **Route tables**,
    then choose **Create route table**.
 3. For the **Name** field, enter `Private
-subnet route table`. From the **VPC**
+ subnet route table`. From the **VPC**
    dropdown, select your VPC, and then choose **Create route
    table**. Choose **Close** to return to the
    list of route tables.

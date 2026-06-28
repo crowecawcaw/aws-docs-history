@@ -57,17 +57,17 @@ credentials and secrets across data sources, and connector versions 1.0 and
   base and service catalog. See [ServiceNow documentation on OAuth 2.0 authentication](https://www.servicenow.com/docs/bundle/utah-platform-security/page/integrate/single-sign-on/concept/c_Authentication.html "https://www.servicenow.com/docs/bundle/utah-platform-security/page/integrate/single-sign-on/concept/c_Authentication.html") for more information.
 - Added the following permissions:
 
-  - kb_category
-  - kb_knowledge
-  - kb_knowledge_base
-  - kb_uc_cannot_read_mtom
-  - kb_uc_can_read_mtom
-  - sc_catalog
-  - sc_category
-  - sc_cat_item
-  - sys_attachment
-  - sys_attachment_doc
-  - sys_user_role
+  - kb\_category
+  - kb\_knowledge
+  - kb\_knowledge\_base
+  - kb\_uc\_cannot\_read\_mtom
+  - kb\_uc\_can\_read\_mtom
+  - sc\_catalog
+  - sc\_category
+  - sc\_cat\_item
+  - sys\_attachment
+  - sys\_attachment\_doc
+  - sys\_user\_role
 
 - Checked each document is unique in ServiceNow and across other
   data sources you plan to use for the same index. Each data source that you
@@ -133,75 +133,79 @@ connector V1.0**, and then choose **Add data source**. 5. On the **Specify data 
     5. Choose **Next**.
 
 6. On the **Define access and security** page, enter the following
-   information:
+information:
 
-   1. **ServiceNow host**—Enter the ServiceNow
-      host URL.
-   2. **ServiceNow version**—Select your
-      ServiceNow version.
-   3. Choose between **Basic authentication** and **Oauth 2.0
-      authentication** based on your use case.
-   4. **AWS Secrets Manager secret**—Choose an existing secret or create a new
-      Secrets Manager secret to store your ServiceNow authentication
-      credentials. If you choose to create a new secret an AWS Secrets Manager
-      secret window opens.
+    1. **ServiceNow host**—Enter the ServiceNow
+     host URL.
+    2. **ServiceNow version**—Select your
+     ServiceNow version.
+    3. Choose between **Basic authentication** and **Oauth 2.0
+     authentication** based on your use case.
+    4. **AWS Secrets Manager secret**—Choose an existing secret or create a new
+     Secrets Manager secret to store your ServiceNow authentication
+     credentials. If you choose to create a new secret an AWS Secrets Manager
+     secret window opens.
 
-      1. **Secret name**—A name for your secret. The prefix
-         ‘AmazonKendra-ServiceNow-’ is automatically added to your secret name.
-      2. If using Basic Authentication—Enter the **Secret name**,
-         **Username**, and **Password** for your
-         ServiceNow account.
 
-      If using OAuth2 Authentication—Enter the **Secret name**,
-      **Username**, **Password**, **Client
-      ID**, and **Client Secret** you created in your
-      ServiceNow account. 3. Choose **Save and add secret**.
+    	1. **Secret name**—A name for your secret. The prefix
+    	 ‘AmazonKendra-ServiceNow-’ is automatically added to your secret name.
+    	2. If using Basic Authentication—Enter the **Secret name**,
+    	 **Username**, and **Password** for your
+    	 ServiceNow account.
 
-   5. **IAM role**—Choose an existing IAM
-      role or create a new IAM role to access your repository credentials and index content.
 
-   ###### Note
+    	If using OAuth2 Authentication—Enter the **Secret name**,
+    	 **Username**, **Password**, **Client
+    	 ID**, and **Client Secret** you created in your
+    	 ServiceNow account.
+    	3. Choose **Save and add secret**.
+    5. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
 
-   IAM roles used for indexes cannot be used for data sources. If you are unsure
-   if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-   errors. 6. Choose **Next**.
+
+    ###### Note
+
+    IAM roles used for indexes cannot be used for data sources. If you are unsure
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    6. Choose **Next**.
 
 7. On the **Configure sync settings** page, enter the following
-   information:
+information:
 
-   1. **Include knowledge articles**—Choose to index knowledge
-      articles.
-   2. **Type of knowledge articles**—Choose between
-      **Include only public articles** and **Include articles based
-      on ServiceNow filter query** based on your use case. If you select
-      **Include articles based on ServiceNow filter query**, you
-      must enter a **Filter query** copied from your ServiceNow
-      account.
-   3. **Include knowledge articles attachments**—Choose to index
-      knowledge article attachments. You can also select specific file types to index.
-   4. **Include catalog items**—Choose to index catalog
-      items.
-   5. **Include catalog item attachments**—Choose to index
-      catalog item attachments. You can also select specific file types to index.
-   6. **Frequency**—How often Amazon Kendra will sync with
-      your data source.
-   7. Choose **Next**.
+    1. **Include knowledge articles**—Choose to index knowledge
+     articles.
+    2. **Type of knowledge articles**—Choose between
+     **Include only public articles** and **Include articles based
+     on ServiceNow filter query** based on your use case. If you select
+     **Include articles based on ServiceNow filter query**, you
+     must enter a **Filter query** copied from your ServiceNow
+     account.
+    3. **Include knowledge articles attachments**—Choose to index
+     knowledge article attachments. You can also select specific file types to index.
+    4. **Include catalog items**—Choose to index catalog
+     items.
+    5. **Include catalog item attachments**—Choose to index
+     catalog item attachments. You can also select specific file types to index.
+    6. **Frequency**—How often Amazon Kendra will sync with
+     your data source.
+    7. Choose **Next**.
 
 8. On the **Set field mappings** page, enter the following
-   information:
+information:
 
-   1. **Knowledge articles** and **Service catalog**
-      —Select from the Amazon Kendra generated default data source fields and
-      additional suggested field mappings that you want to map to your index.
-   2. **Add field**—To add custom data source fields to create an
-      index field name to map to and the field data type.
-   3. Choose **Next**.
+    1. **Knowledge articles** and **Service catalog**
+     —Select from the Amazon Kendra generated default data source fields and
+     additional suggested field mappings that you want to map to your index.
+    2. **Add field**—To add custom data source fields to create an
+     index field name to map to and the field data type.
+    3. Choose **Next**.
 
 9. On the **Review and create** page, check that
-   the information you have entered is correct and then select
-   **Add data source**. You can also choose to edit your information from this page.
-   Your data source will appear on the **Data sources** page after the data source has been
-   added successfully.
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to

@@ -28,7 +28,7 @@ dataset.
    `kendra-index`.
 3. From the left navigation menu, choose the option to search your index.
 4. To run a sample factoid query, enter `Who is Lewis
-Hamilton?` in the search box and press enter.
+ Hamilton?` in the search box and press enter.
 
 The first returned result is the Amazon Kendra suggested answer, together with the data
 file containing the answer. The rest of the results form the set of recommended

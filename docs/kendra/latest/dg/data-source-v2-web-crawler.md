@@ -174,176 +174,187 @@ If using version 2 (if applicable), choose **web crawler connector** with the "V
     4. In **Tags**, for **Add new tag**—Include optional tags to search and filter your resources or track your AWS costs.
     5. Choose **Next**.
 
-6.  On the **Define access and security**
-    page, enter the following information:
+6. On the **Define access and security**
+page, enter the following information:
 
     1. **Source**—Choose either
-       **Source URLs**, **Source
-       sitemaps**, **Source URLs
-       file**, **Source sitemaps
-       file**. If you choose to use a text file
-       that includes a list of up to 100 seed URLs, you
-       specify the path to the Amazon S3 bucket
-       where your file is stored. If you choose to use a
-       sitemap XML file, you specify the path to the
-       Amazon S3 bucket where your file is
-       stored. You can also club multiple sitemap XML files
-       into a ZIP file. Otherwise, you can manually enter
-       up to 10 seed or starting point URLs, and up to
-       three sitemap URLs.
+     **Source URLs**, **Source
+     sitemaps**, **Source URLs
+     file**, **Source sitemaps
+     file**. If you choose to use a text file
+     that includes a list of up to 100 seed URLs, you
+     specify the path to the Amazon S3 bucket
+     where your file is stored. If you choose to use a
+     sitemap XML file, you specify the path to the
+     Amazon S3 bucket where your file is
+     stored. You can also club multiple sitemap XML files
+     into a ZIP file. Otherwise, you can manually enter
+     up to 10 seed or starting point URLs, and up to
+     three sitemap URLs.
+
 
     ###### Note
 
     If you want to crawl a sitemap, check that the
-    base or root URL is the same as the URLs listed on
-    your sitemap page. For example, if your sitemap
-    URL is
-    *https://example.com/sitemap-page.html*,
-    the URLs listed on this sitemap page should also
-    use the base URL
-    "https://example.com/".
+     base or root URL is the same as the URLs listed on
+     your sitemap page. For example, if your sitemap
+     URL is
+     *https://example.com/sitemap-page.html*,
+     the URLs listed on this sitemap page should also
+     use the base URL
+     "https://example.com/".
+
 
     If your websites require authentication to access
-    the websites, you can choose ether basic,
-    NTLM/Kerberos, SAML, or form authentication.
-    Otherwise, choose the option for no
-    authentication.
+     the websites, you can choose ether basic,
+     NTLM/Kerberos, SAML, or form authentication.
+     Otherwise, choose the option for no
+     authentication.
+
 
     ###### Note
 
     If you want to later edit your data source to
-    change your seed URLs with authentication to
-    sitemaps, you must create a new data source.
-    Amazon Kendra configures the data source
-    using the seed URLs endpoint information in the
-    Secrets Manager secret for authentication, and
-    therefore cannot re-configure the data source when
-    changing to sitemaps.
-
-        1. **AWS Secrets Manager
-         secret**—If your websites require
-         the same authentication to access the websites,
-         choose an existing secret or create a new Secrets Manager secret to store your website
-         credentials. If you choose to create a new secret,
-         an AWS Secrets Manager secret window
-         opens.
+     change your seed URLs with authentication to
+     sitemaps, you must create a new data source.
+     Amazon Kendra configures the data source
+     using the seed URLs endpoint information in the
+     Secrets Manager secret for authentication, and
+     therefore cannot re-configure the data source when
+     changing to sitemaps.
 
 
-        If you chose **Basic** or
-         **NTML/Kerberos** authentication,
-         enter a name for the secret, plus the user name
-         and password. NTLM authentication protocol
-         includes password hashing, and Kerberos
-         authentication protocol includes password
-         encryption.
+    	1. **AWS Secrets Manager
+    	 secret**—If your websites require
+    	 the same authentication to access the websites,
+    	 choose an existing secret or create a new Secrets Manager secret to store your website
+    	 credentials. If you choose to create a new secret,
+    	 an AWS Secrets Manager secret window
+    	 opens.
 
 
-        If you chose **SAML** or
-         **Form** authentication, enter a
-         name for the secret, plus the user name and
-         password. Use XPath for the user name field (and
-         XPath for the user name button if using SAML). Use
-         XPaths for the password field and button, and
-         login page URL. You can find the XPaths (XML Path
-         Language) of elements using your web browser's
-         developer tools. XPaths usually follow this
-         format:
-         `//tagname[@Attribute='Value']`.
+    	If you chose **Basic** or
+    	 **NTML/Kerberos** authentication,
+    	 enter a name for the secret, plus the user name
+    	 and password. NTLM authentication protocol
+    	 includes password hashing, and Kerberos
+    	 authentication protocol includes password
+    	 encryption.
+
+
+    	If you chose **SAML** or
+    	 **Form** authentication, enter a
+    	 name for the secret, plus the user name and
+    	 password. Use XPath for the user name field (and
+    	 XPath for the user name button if using SAML). Use
+    	 XPaths for the password field and button, and
+    	 login page URL. You can find the XPaths (XML Path
+    	 Language) of elements using your web browser's
+    	 developer tools. XPaths usually follow this
+    	 format:
+    	 `//tagname[@Attribute='Value']`.
     2. (Optional) **Web
-       proxy**—Enter the host name and the
-       port number of the proxy sever you want to use to
-       connect to internal websites. For example, the host
-       name of
-       *https://a.example.com/page1.html*
-       is "a.example.com" and the port
-       number is is 443, the standard port for HTTPS. If
-       web proxy credentials are required to connect to a
-       website host, you can create an AWS Secrets Manager that stores the credentials.
+     proxy**—Enter the host name and the
+     port number of the proxy sever you want to use to
+     connect to internal websites. For example, the host
+     name of
+     *https://a.example.com/page1.html*
+     is "a.example.com" and the port
+     number is is 443, the standard port for HTTPS. If
+     web proxy credentials are required to connect to a
+     website host, you can create an AWS Secrets Manager that stores the credentials.
     3. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
-       so, you must add **Subnets** and **VPC security groups**.
+     so, you must add **Subnets** and **VPC security groups**.
     4. **IAM role**—Choose an existing IAM
-       role or create a new IAM role to access your repository credentials and index content.
+     role or create a new IAM role to access your repository credentials and index content.
+
 
     ###### Note
 
     IAM roles used for indexes cannot be used for data sources. If you are unsure
-    if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-    errors. 5. Choose **Next**.
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    5. Choose **Next**.
 
-7.  On the **Configure sync settings** page,
-    enter the following information:
+7. On the **Configure sync settings** page,
+enter the following information:
 
     1. **Sync scope**—Set limits
-       for crawling web pages including their domains, file
-       sizes and links; and filter URLs using regex
-       patterns.
+     for crawling web pages including their domains, file
+     sizes and links; and filter URLs using regex
+     patterns.
 
-       1. (Optional) **Crawl domain
-          range**—Choose whether to crawl
-          website domains only, domains with subdomains, or
-          also crawl other domains that the web pages link
-          to. By default, Amazon Kendra only crawls the
-          domains of the websites you want to crawl.
-       2. (Optional) **Additional
-          configuration**—Set the following
-          settings:
 
-          - **Crawl depth**—The
-            'depth' or number of levels from the seed level to
-            crawl. For example, the seed URL page is depth 1
-            and any hyperlinks on this page that are also
-            crawled are depth 2.
-          - **Maximum file
-            size**—The maximum size in MB of a
-            web page or attachment to crawl.
-          - **Maximum links per
-            page**—The maximum number of URLs
-            on a single webpage to crawl.
-          - **Maximum throttling of crawling
-            speed**—The maximum number of URLs
-            crawled per website host per minute.
-          - **Files**—Choose to
-            crawl files that the web pages link to.
-          - **Crawl and index
-            URLs**—Add regular expression
-            patterns to include or exclude crawling certain
-            URLs, and indexing any hyperlinks on these URL web
-            pages.
+    	1. (Optional) **Crawl domain
+    	 range**—Choose whether to crawl
+    	 website domains only, domains with subdomains, or
+    	 also crawl other domains that the web pages link
+    	 to. By default, Amazon Kendra only crawls the
+    	 domains of the websites you want to crawl.
+    	2. (Optional) **Additional
+    	 configuration**—Set the following
+    	 settings:
 
+
+
+
+    		* **Crawl depth**—The
+    		 'depth' or number of levels from the seed level to
+    		 crawl. For example, the seed URL page is depth 1
+    		 and any hyperlinks on this page that are also
+    		 crawled are depth 2.
+    		* **Maximum file
+    		 size**—The maximum size in MB of a
+    		 web page or attachment to crawl.
+    		* **Maximum links per
+    		 page**—The maximum number of URLs
+    		 on a single webpage to crawl.
+    		* **Maximum throttling of crawling
+    		 speed**—The maximum number of URLs
+    		 crawled per website host per minute.
+    		* **Files**—Choose to
+    		 crawl files that the web pages link to.
+    		* **Crawl and index
+    		 URLs**—Add regular expression
+    		 patterns to include or exclude crawling certain
+    		 URLs, and indexing any hyperlinks on these URL web
+    		 pages.
     2. **Sync mode**—Choose how you want to update
-       your index when your data source content changes. When you sync your
-       data source with Amazon Kendra for the first time, all content
-       is crawled and indexed by default. You must run a full sync of your
-       data if your initial sync failed, even if you don't choose full sync
-       as your sync mode option.
+     your index when your data source content changes. When you sync your
+     data source with Amazon Kendra for the first time, all content
+     is crawled and indexed by default. You must run a full sync of your
+     data if your initial sync failed, even if you don't choose full sync
+     as your sync mode option.
 
-       - Full sync: Freshly index all content, replacing existing
-         content each time your data source syncs with your index.
-       - New, modified, deleted sync: Index only new, modified,
-         and deleted content each time your data source syncs with
-         your index. Amazon Kendra can use your data source's
-         mechanism for tracking content changes and index content
-         that changed since the last sync.
 
+
+
+    	* Full sync: Freshly index all content, replacing existing
+    	 content each time your data source syncs with your index.
+    	* New, modified, deleted sync: Index only new, modified,
+    	 and deleted content each time your data source syncs with
+    	 your index. Amazon Kendra can use your data source's
+    	 mechanism for tracking content changes and index content
+    	 that changed since the last sync.
     3. **Sync run schedule**—For
-       **Frequency**, choose how often
-       Amazon Kendra will sync with your data
-       source.
+     **Frequency**, choose how often
+     Amazon Kendra will sync with your data
+     source.
     4. Choose **Next**.
 
-8.  On the **Set field mappings** page, enter
-    the following information:
+8. On the **Set field mappings** page, enter
+the following information:
 
     1. Select from the Amazon Kendra generated
-       default fields of web pages and files that you want
-       to map to your index.
+     default fields of web pages and files that you want
+     to map to your index.
     2. Choose **Next**.
 
-9.  On the **Review and create** page, check that
-    the information you have entered is correct and then select
-    **Add data source**. You can also choose to edit your information from this page.
-    Your data source will appear on the **Data sources** page after the data source has been
-    added successfully.
+9. On the **Review and create** page, check that
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to

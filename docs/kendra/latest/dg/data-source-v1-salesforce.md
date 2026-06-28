@@ -132,78 +132,87 @@ information:
     5. Choose **Next**.
 
 6. On the **Define access and security** page, enter the following
-   information:
+information:
 
-   1. **Salesforce URL**—Enter the instance URL for the
-      Salesforce site that you want to index.
-   2. For **Type of authentication**, choose between
-      **Existing** and **New** to store your
-      Salesforce authentication credentials. If you choose to create a new secret an
-      AWS
-      Secrets Manager secret window opens.
+    1. **Salesforce URL**—Enter the instance URL for the
+     Salesforce site that you want to index.
+    2. For **Type of authentication**, choose between
+     **Existing** and **New** to store your
+     Salesforce authentication credentials. If you choose to create a new secret an
+     AWS
+     Secrets Manager secret window opens.
 
-      1. Enter following information in the **Create an AWS
-         Secrets Manager secret window**:
 
-         1. **Secret name**—A name for your secret. The prefix
-            ‘AmazonKendra-Salesforce-’ is automatically added to your secret
-            name.
-         2. For **User name**, **Password**,
-            **Security token**, **Consumer key**,
-            **Consumer secret**, and **Authentication
-            URL**—Enter the authentication credential values you created in your
-            Salesforce account.
-         3. Choose **Save authentication**.
+    	1. Enter following information in the **Create an AWS
+    	 Secrets Manager secret window**:
 
-   3. **IAM role**—Choose an existing IAM
-      role or create a new IAM role to access your repository credentials and index content.
 
-   ###### Note
+    		1. **Secret name**—A name for your secret. The prefix
+    		 ‘AmazonKendra-Salesforce-’ is automatically added to your secret
+    		 name.
+    		2. For **User name**, **Password**,
+    		 **Security token**, **Consumer key**,
+    		 **Consumer secret**, and **Authentication
+    		 URL**—Enter the authentication credential values you created in your
+    		 Salesforce account.
+    		3. Choose **Save authentication**.
+    3. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
 
-   IAM roles used for indexes cannot be used for data sources. If you are unsure
-   if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-   errors. 4. Choose **Next**.
+
+    ###### Note
+
+    IAM roles used for indexes cannot be used for data sources. If you are unsure
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    4. Choose **Next**.
 
 7. On the **Configure sync settings** page, enter the following
-   information:
+information:
 
-   1. For **Crawl attachments**—Select to crawl all attached
-      objects, articles, and feeds.
-   2. For **Standard objects**, **Knowledge articles**,
-      and **Chatter feeds**—Select Salesforce entities or
-      content types you want to crawl.
+    1. For **Crawl attachments**—Select to crawl all attached
+     objects, articles, and feeds.
+    2. For **Standard objects**, **Knowledge articles**,
+     and **Chatter feeds**—Select Salesforce entities or
+     content types you want to crawl.
 
-   ###### Note
 
-   You must provide configuration information for indexing at least one of standard
-   objects, knowledge articles, or chatter feeds. If you choose to crawl
-   **Knowledge articles** you must specify the types of knowledge
-   articles to index, the name of the articles, and whether to index the standard fields
-   of all knowledge articles or only the fields of a custom article type. If you choose to
-   index custom articles, you must specify the internal name of the article type. You can
-   specify upto 10 article types. 3. **Frequency**—How often Amazon Kendra will sync with
-   your data source. 4. Choose **Next**.
+    ###### Note
+
+    You must provide configuration information for indexing at least one of standard
+     objects, knowledge articles, or chatter feeds. If you choose to crawl
+     **Knowledge articles** you must specify the types of knowledge
+     articles to index, the name of the articles, and whether to index the standard fields
+     of all knowledge articles or only the fields of a custom article type. If you choose to
+     index custom articles, you must specify the internal name of the article type. You can
+     specify upto 10 article types.
+    3. **Frequency**—How often Amazon Kendra will sync with
+     your data source.
+    4. Choose **Next**.
 
 8. On the **Set field mappings** page, enter the following
-   information:
+information:
 
-   1. For **Standard knowledge article**, **Standard object
-      attachments**, and **Additional suggested field mappings**
-      —Select from the Amazon Kendra generated default data source fields you want
-      to map to your index.
+    1. For **Standard knowledge article**, **Standard object
+     attachments**, and **Additional suggested field mappings**
+     —Select from the Amazon Kendra generated default data source fields you want
+     to map to your index.
 
-   ###### Note
 
-   An index mapping to `_document_body` is required. You can't change the
-   mapping between the `Salesforce ID` field and the Amazon Kendra
-   `_document_id` field. 2. **Add field**—To add custom data source fields to create an
-   index field name to map to and the field data type. 3. Choose **Next**.
+    ###### Note
+
+    An index mapping to `_document_body` is required. You can't change the
+     mapping between the `Salesforce ID` field and the Amazon Kendra
+     `_document_id` field.
+    2. **Add field**—To add custom data source fields to create an
+     index field name to map to and the field data type.
+    3. Choose **Next**.
 
 9. On the **Review and create** page, check that
-   the information you have entered is correct and then select
-   **Add data source**. You can also choose to edit your information from this page.
-   Your data source will appear on the **Data sources** page after the data source has been
-   added successfully.
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to

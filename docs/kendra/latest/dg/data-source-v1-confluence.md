@@ -130,102 +130,108 @@ V1.0**, and then choose **Add data source**. 5. On the **Specify data source det
     5. Choose **Next**.
 
 6. On the **Define access and security** page, enter the following
-   information:
+information:
 
-   1. Choose between **Confluence Cloud** and **Confluence
-      Server**.
-   2. If you choose **Confluence Cloud**, enter the following
-      information:
+    1. Choose between **Confluence Cloud** and **Confluence
+     Server**.
+    2. If you choose **Confluence Cloud**, enter the following
+     information:
 
-      1. **Confluence URL**—Your Confluence URL.
-      2. **AWS Secrets Manager secret**—Choose an existing secret or create a new
-         Secrets Manager secret to store your Confluence authentication
-         credentials. If you choose to create a new secret an AWS Secrets Manager
-         secret window opens.
 
-         1. Enter following information in the **Create an AWS
-            Secrets Manager secret window**:
+    	1. **Confluence URL**—Your Confluence URL.
+    	2. **AWS Secrets Manager secret**—Choose an existing secret or create a new
+    	 Secrets Manager secret to store your Confluence authentication
+    	 credentials. If you choose to create a new secret an AWS Secrets Manager
+    	 secret window opens.
 
-            1. **Secret name**—A name for your secret. The prefix
-               ‘AmazonKendra-Confluence-’ is automatically added to your secret name.
-            2. For **User name** and
-               **Password**—Enter your Confluence user name and
-               password.
-            3. Choose **Save authentication**.
 
-   3. If you choose **Confluence Server**, enter the following
-      information:
+    		1. Enter following information in the **Create an AWS
+    		 Secrets Manager secret window**:
 
-      1. **Confluence URL**—Your Confluence user name and
-         password.
-      2. (Optional) For **Web proxy** enter the following
-         information:
 
-         1. **Host name**—Host name for your Confluence account.
-         2. **Port number**—Port used by the host URL transport
-            protocol.
+    			1. **Secret name**—A name for your secret. The prefix
+    			 ‘AmazonKendra-Confluence-’ is automatically added to your secret name.
+    			2. For **User name** and
+    			 **Password**—Enter your Confluence user name and
+    			 password.
+    			3. Choose **Save authentication**.
+    3. If you choose **Confluence Server**, enter the following
+     information:
 
-      3. For **Authentication**, Choose either **Basic
-         authentication** or (Confluence Server only) **Personal Access
-         Token**.
-      4. **AWS Secrets Manager secret**—Choose an existing secret or create a new
-         Secrets Manager secret to store your Confluence authentication
-         credentials. If you choose to create a new secret an AWS Secrets Manager
-         secret window opens.
 
-         1. Enter following information in the **Create an AWS
-            Secrets Manager secret window**:
+    	1. **Confluence URL**—Your Confluence user name and
+    	 password.
+    	2. (Optional) For **Web proxy** enter the following
+    	 information:
 
-            1. **Secret name**—A name for your secret. The prefix
-               ‘AmazonKendra-Confluence-’ is automatically added to your secret name.
-            2. For **User name** and
-               **Password**—Enter the authentication credential values
-               you configured in Confluence. If using basic authentication, use your Confluence user
-               name (email ID) and password (API token). If using personal access token, enter
-               the details of the **Personal Access Token** you configured in
-               Confluence account.
-            3. Save and add your secret.
 
-   4. **IAM role**—Choose an existing IAM
-      role or create a new IAM role to access your repository credentials and index content.
+    		1. **Host name**—Host name for your Confluence account.
+    		2. **Port number**—Port used by the host URL transport
+    		 protocol.
+    	3. For **Authentication**, Choose either **Basic
+    	 authentication** or (Confluence Server only) **Personal Access
+    	 Token**.
+    	4. **AWS Secrets Manager secret**—Choose an existing secret or create a new
+    	 Secrets Manager secret to store your Confluence authentication
+    	 credentials. If you choose to create a new secret an AWS Secrets Manager
+    	 secret window opens.
 
-   ###### Note
 
-   IAM roles used for indexes cannot be used for data sources. If you are unsure
-   if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-   errors. 5. Choose **Next**.
+    		1. Enter following information in the **Create an AWS
+    		 Secrets Manager secret window**:
+
+
+    			1. **Secret name**—A name for your secret. The prefix
+    			 ‘AmazonKendra-Confluence-’ is automatically added to your secret name.
+    			2. For **User name** and
+    			 **Password**—Enter the authentication credential values
+    			 you configured in Confluence. If using basic authentication, use your Confluence user
+    			 name (email ID) and password (API token). If using personal access token, enter
+    			 the details of the **Personal Access Token** you configured in
+    			 Confluence account.
+    			3. Save and add your secret.
+    4. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
+
+
+    ###### Note
+
+    IAM roles used for indexes cannot be used for data sources. If you are unsure
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    5. Choose **Next**.
 
 7. On the **Configure sync settings** page, enter the following
-   information:
+information:
 
-   1. For **Include personal spaces** and **Include archived
-      spaces**—Choose the optional space types to include in this data
-      source.
-   2. For **Additional configuration**—Specify regular expression
-      patterns to include or exclude certain content. You can add up to 100 patterns.
-   3. You can also choose to **Crawl attachments within chosen
-      spaces**.
-   4. In **Sync run schedule**, for
-      **Frequency**—Choose how often Amazon Kendra will sync with
-      your data source.
-   5. Choose **Next**.
+    1. For **Include personal spaces** and **Include archived
+     spaces**—Choose the optional space types to include in this data
+     source.
+    2. For **Additional configuration**—Specify regular expression
+     patterns to include or exclude certain content. You can add up to 100 patterns.
+    3. You can also choose to **Crawl attachments within chosen
+     spaces**.
+    4. In **Sync run schedule**, for
+     **Frequency**—Choose how often Amazon Kendra will sync with
+     your data source.
+    5. Choose **Next**.
 
 8. On the **Set field mappings** page, enter the following
-   information:
+information:
 
-   1. For **Space**, **Page**,
-      **Blog**—Select from the Amazon Kendra generated default
-      data source fields or **Additional suggested field mappings** to add
-      index fields.
-   2. **Add field**—To add custom data source fields to create an
-      index field name to map to and the field data type.
-   3. Choose **Next**.
+    1. For **Space**, **Page**,
+     **Blog**—Select from the Amazon Kendra generated default
+     data source fields or **Additional suggested field mappings** to add
+     index fields.
+    2. **Add field**—To add custom data source fields to create an
+     index field name to map to and the field data type.
+    3. Choose **Next**.
 
 9. On the **Review and create** page, check that
-   the information you have entered is correct and then select
-   **Add data source**. You can also choose to edit your information from this page.
-   Your data source will appear on the **Data sources** page after the data source has been
-   added successfully.
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to Confluence**

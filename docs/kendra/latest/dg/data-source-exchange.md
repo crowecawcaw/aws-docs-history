@@ -52,9 +52,9 @@ credentials and secrets across data sources, and connector versions 1.0 and
 
 - Added the following permissions for the connector application:
 
-| **Microsoft<br>Graph**                                                                                                                                                                                                                                                                                              | **Office 365 Exchange<br>Online** |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
-| + Mail.Read (Application)<br>+ Mail.ReadBasic (Application)<br>+ Mail.ReadBasic.All (Application)<br>+ Calendars.Read (Application)<br>+ User.Read.All (Application)<br>+ Contacts.Read (Application)<br>+ Notes.Read.All (Application)<br>+ Directory.Read.All (Application)<br>+ EWS.AccessAsUser.All (Delegated) | full_access_as_app (Application)  |
+| **Microsoft<br>Graph**                                                                                                                                                                                                                                                                                              | **Office 365 Exchange<br>Online**   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| + Mail.Read (Application)<br>+ Mail.ReadBasic (Application)<br>+ Mail.ReadBasic.All (Application)<br>+ Calendars.Read (Application)<br>+ User.Read.All (Application)<br>+ Contacts.Read (Application)<br>+ Notes.Read.All (Application)<br>+ Directory.Read.All (Application)<br>+ EWS.AccessAsUser.All (Delegated) | full\_access\_as\_app (Application) |
 
 - Checked each document is unique in Microsoft Exchange and across other
   data sources you plan to use for the same index. Each data source that you
@@ -119,112 +119,120 @@ If using version 2 (if applicable), choose **Microsoft Exchange connector** with
     5. Choose **Next**.
 
 6. On the **Define access and security** page,
-   enter the following information:
+enter the following information:
 
-   1. **Tenant ID**—Enter your
-      Microsoft 365 tenant ID. You can find your tenant ID in
-      the Properties of your Azure Active Directory Portal or
-      in your OAuth application.
-   2. **Authorization**—Turn on or off access control list (ACL) information for your
-      documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
-      and groups can access. The ACL information is used to filter search results based on the user or
-      their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
-   3. **AWS Secrets Manager secret**—Choose an existing secret or create a new
-      Secrets Manager secret to store your Microsoft Exchange authentication
-      credentials. If you choose to create a new secret an AWS Secrets Manager
-      secret window opens.
+    1. **Tenant ID**—Enter your
+     Microsoft 365 tenant ID. You can find your tenant ID in
+     the Properties of your Azure Active Directory Portal or
+     in your OAuth application.
+    2. **Authorization**—Turn on or off access control list (ACL) information for your
+     documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
+     and groups can access. The ACL information is used to filter search results based on the user or
+     their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
+    3. **AWS Secrets Manager secret**—Choose an existing secret or create a new
+     Secrets Manager secret to store your Microsoft Exchange authentication
+     credentials. If you choose to create a new secret an AWS Secrets Manager
+     secret window opens.
 
-      1. Enter following information in the
-         **Create an AWS
-         Secrets Manager secret
-         window**:
 
-         1. **Secret name**—A
-            name for your secret. The prefix
-            'AmazonKendra-Microsoft Exchange
-         2. For **Client ID**,
-            **Client secret**—Enter
-            the authentication credentials configured in
-            Microsoft Exchange in the Azure portal.
+    	1. Enter following information in the
+    	 **Create an AWS
+    	 Secrets Manager secret
+    	 window**:
 
-      2. Save and add your secret.
 
-   4. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
-      so, you must add **Subnets** and **VPC security groups**.
-   5. **IAM role**—Choose an existing IAM
-      role or create a new IAM role to access your repository credentials and index content.
+    		1. **Secret name**—A
+    		 name for your secret. The prefix
+    		 'AmazonKendra-Microsoft Exchange
+    		2. For **Client ID**,
+    		 **Client secret**—Enter
+    		 the authentication credentials configured in
+    		 Microsoft Exchange in the Azure portal.
+    	2. Save and add your secret.
+    4. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
+     so, you must add **Subnets** and **VPC security groups**.
+    5. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
 
-   ###### Note
 
-   IAM roles used for indexes cannot be used for data sources. If you are unsure
-   if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-   errors. 6. Choose **Next**.
+    ###### Note
+
+    IAM roles used for indexes cannot be used for data sources. If you are unsure
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    6. Choose **Next**.
 
 7. On the **Configure sync settings** page,
-   enter the following information:
+enter the following information:
 
-   1. **User IDs**—Provide the
-      user emails if you want to filter content by certain
-      emails.
-   2. **Additional configuration**—Specify
-      the types of content you want to crawl.
+    1. **User IDs**—Provide the
+     user emails if you want to filter content by certain
+     emails.
+    2. **Additional configuration**—Specify
+     the types of content you want to crawl.
 
-      - **Entity types**—You can
-        choose to crawl calendar, OneNotes, or contacts content.
-      - **Calendar crawling**—Enter
-        the start and end date to crawl content between certain dates.
-      - **Include email**—Enter "to", "from",
-        and email subject lines to filter certain emails you want to crawl.
-      - **Shared folders access**—Choose to enable
-        crawling of access control list for access control of your Microsoft
-        Exchange data source.
-      - **Regex for domains**—Add regular expression
-        patterns to include or exclude certain email domains.
-      - **Regex patterns**—Add regular expression
-        patterns to include or exclude certain files.
 
-   3. **Sync mode**—Choose how you want to update
-      your index when your data source content changes. When you sync your
-      data source with Amazon Kendra for the first time, all content
-      is crawled and indexed by default. You must run a full sync of your
-      data if your initial sync failed, even if you don't choose full sync
-      as your sync mode option.
 
-      - Full sync: Freshly index all content, replacing existing
-        content each time your data source syncs with your index.
-      - New, modified sync: Index only new and modified content
-        each time your data source syncs with your index. Amazon Kendra
-        can use your data source's mechanism for tracking content
-        changes and index content that changed since the last sync.
-      - New, modified, deleted sync: Index only new, modified,
-        and deleted content each time your data source syncs with
-        your index. Amazon Kendra can use your data source's
-        mechanism for tracking content changes and index content
-        that changed since the last sync.
 
-   4. In **Sync run schedule**, for
-      **Frequency**—Choose how
-      often to sync your data source content and update
-      your index.
-   5. Choose **Next**.
+    	* **Entity types**—You can
+    	 choose to crawl calendar, OneNotes, or contacts content.
+    	* **Calendar crawling**—Enter
+    	 the start and end date to crawl content between certain dates.
+    	* **Include email**—Enter "to", "from",
+    	 and email subject lines to filter certain emails you want to crawl.
+    	* **Shared folders access**—Choose to enable
+    	 crawling of access control list for access control of your Microsoft
+    	 Exchange data source.
+    	* **Regex for domains**—Add regular expression
+    	 patterns to include or exclude certain email domains.
+    	* **Regex patterns**—Add regular expression
+    	 patterns to include or exclude certain files.
+    3. **Sync mode**—Choose how you want to update
+     your index when your data source content changes. When you sync your
+     data source with Amazon Kendra for the first time, all content
+     is crawled and indexed by default. You must run a full sync of your
+     data if your initial sync failed, even if you don't choose full sync
+     as your sync mode option.
+
+
+
+
+    	* Full sync: Freshly index all content, replacing existing
+    	 content each time your data source syncs with your index.
+    	* New, modified sync: Index only new and modified content
+    	 each time your data source syncs with your index. Amazon Kendra
+    	 can use your data source's mechanism for tracking content
+    	 changes and index content that changed since the last sync.
+    	* New, modified, deleted sync: Index only new, modified,
+    	 and deleted content each time your data source syncs with
+    	 your index. Amazon Kendra can use your data source's
+    	 mechanism for tracking content changes and index content
+    	 that changed since the last sync.
+    4. In **Sync run schedule**, for
+     **Frequency**—Choose how
+     often to sync your data source content and update
+     your index.
+    5. Choose **Next**.
 
 8. On the **Set field mappings** page, enter the
-   following information:
+following information:
 
-   1. **Default data source
-      fields**—Select from the Amazon Kendra generated default data source fields you
-      want to map to your index.
+    1. **Default data source
+     fields**—Select from the Amazon Kendra generated default data source fields you
+     want to map to your index.
 
-   ###### Note
 
-   The Amazon Kendra Microsoft Exchange data source connector
-   doesn't support custom field mappings. 2. Choose **Next**.
+    ###### Note
+
+    The Amazon Kendra Microsoft Exchange data source connector
+     doesn't support custom field mappings.
+    2. Choose **Next**.
 
 9. On the **Review and create** page, check that
-   the information you have entered is correct and then select
-   **Add data source**. You can also choose to edit your information from this page.
-   Your data source will appear on the **Data sources** page after the data source has been
-   added successfully.
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to

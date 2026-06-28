@@ -67,7 +67,7 @@ tuning for the attribute called "department" in the index.
 
 Amazon Kendra uses the sorting attribute or field as part of the criteria for
 the documents returned by the query. For example, the results returned by a query
-sorted by "\_created_at" might not contain the same results as a query sorted by
+sorted by "\_created\_at" might not contain the same results as a query sorted by
 "\_version".
 
 By default, query responses are sorted by the relevance score that Amazon Kendra determines for each result in the response. To change the sort order,

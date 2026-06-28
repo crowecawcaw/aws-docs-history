@@ -159,174 +159,192 @@ If using version 2 (if applicable), choose **Google Drive connector** with the "
     4. In **Tags**, for **Add new tag**—Include optional tags to search and filter your resources or track your AWS costs.
     5. Choose **Next**.
 
-6.  On the **Define access and security**
-    page, enter the following information:
+6. On the **Define access and security**
+page, enter the following information:
 
     1. **Authorization**—Turn on or off access control list (ACL) information for your
-       documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
-       and groups can access. The ACL information is used to filter search results based on the user or
-       their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
+     documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
+     and groups can access. The ACL information is used to filter search results based on the user or
+     their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
     2. For
-       **Authentication**—Choose
-       between **Google service account**
-       and **OAuth 2.0 authentication**
-       based on your use case.
+     **Authentication**—Choose
+     between **Google service account**
+     and **OAuth 2.0 authentication**
+     based on your use case.
     3. **AWS
-       Secrets Manager secret**—Choose
-       an existing secret, or create a new Secrets Manager secret to store your Google Drive
-       authentication credentials. If you choose to create
-       a new secret an AWS
-       Secrets Manager secret window opens.
+     Secrets Manager secret**—Choose
+     an existing secret, or create a new Secrets Manager secret to store your Google Drive
+     authentication credentials. If you choose to create
+     a new secret an AWS
+     Secrets Manager secret window opens.
 
-       1. If you chose **Google service
-          account**, enter a name for your secret,
-          the email ID of the admin user or "Service Account
-          User" in your service account configuration (admin
-          email), the email ID of the service account
-          (client email), and the private key that you
-          created in your service account.
 
-       Save and add your secret 2. If you chose **OAuth 2.0
-       authentication**, enter a name for your
-       secret, client ID, client secret, and refresh
-       token that you created in your OAuth account. The
-       user mail id (user whose connection details are
-       configured) will be set as ACL. The connector
-       doesn't set other user/group principal info as ACL
-       due to API limitations.
+    	1. If you chose **Google service
+    	 account**, enter a name for your secret,
+    	 the email ID of the admin user or "Service Account
+    	 User" in your service account configuration (admin
+    	 email), the email ID of the service account
+    	 (client email), and the private key that you
+    	 created in your service account.
 
-       Save and add your secret.
 
+    	Save and add your secret
+    	2. If you chose **OAuth 2.0
+    	 authentication**, enter a name for your
+    	 secret, client ID, client secret, and refresh
+    	 token that you created in your OAuth account. The
+    	 user mail id (user whose connection details are
+    	 configured) will be set as ACL. The connector
+    	 doesn't set other user/group principal info as ACL
+    	 due to API limitations.
+
+
+    	Save and add your secret.
     4. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
-       so, you must add **Subnets** and **VPC security groups**.
+     so, you must add **Subnets** and **VPC security groups**.
     5. (For Google service account authentication users
-       only)
+     only)
+
 
     **Identity crawler**—Specify whether to turn on
-    Amazon Kendra’s identity crawler. The identity crawler uses the access control list
-    (ACL) information for your documents to filter search results based on the user or their
-    group access to documents. If you have an ACL for your documents and choose to use your ACL,
-    you can then also choose to turn on Amazon Kendra’s identity crawler to configure
-    [user
-    context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
-    all documents can be publicly searched. If you want to use access control for your documents
-    and identity crawler is turned off, you can alternatively use the
-    [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
-    API to upload user and group access information for user context filtering. 6. **IAM role**—Choose an existing IAM
-    role or create a new IAM role to access your repository credentials and index content.
+     Amazon Kendra’s identity crawler. The identity crawler uses the access control list
+     (ACL) information for your documents to filter search results based on the user or their
+     group access to documents. If you have an ACL for your documents and choose to use your ACL,
+     you can then also choose to turn on Amazon Kendra’s identity crawler to configure
+     [user
+     context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
+     all documents can be publicly searched. If you want to use access control for your documents
+     and identity crawler is turned off, you can alternatively use the
+     [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
+     API to upload user and group access information for user context filtering.
+    6. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
+
 
     ###### Note
 
     IAM roles used for indexes cannot be used for data sources. If you are unsure
-    if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-    errors. 7. Choose **Next**.
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    7. Choose **Next**.
 
-7.  On the **Configure sync settings** page,
-    enter the following information:
+7. On the **Configure sync settings** page,
+enter the following information:
 
-    1.  **Sync contents**—Select
-        which options or the content that you want to crawl.
-        You can choose to crawl My Drive (personal folders),
-        Shared Drive (folders shared with you), or both. You
-        can also include file comments.
-    2.  In **Additional configuration -
-        optional** You can also enter the
-        following optional information:
+    1. **Sync contents**—Select
+     which options or the content that you want to crawl.
+     You can choose to crawl My Drive (personal folders),
+     Shared Drive (folders shared with you), or both. You
+     can also include file comments.
+    2. In **Additional configuration -
+     optional** You can also enter the
+     following optional information:
 
-        1. **Maximum file
-           size**—Set the maximum size limit
-           in MBs of files to crawl.
-        2. **User email**—Add
-           user emails that you want to include or
-           exclude.
-        3. **Shared
-           drives**—Add the shared drive
-           names that you want to include or exclude.
-        4. **Mime types**—Add
-           MIME types that you want to include or
-           exclude.
-        5. **Entity regex
-           patterns**—Add regular expression
-           patterns to include or exclude certain attachments
-           for all supported entities. You can add up to 100
-           patterns.
 
-        You can configure include/exclude regex
-        patterns for **File name**,
-        **File type**, and **File
-        path**.
+    	1. **Maximum file
+    	 size**—Set the maximum size limit
+    	 in MBs of files to crawl.
+    	2. **User email**—Add
+    	 user emails that you want to include or
+    	 exclude.
+    	3. **Shared
+    	 drives**—Add the shared drive
+    	 names that you want to include or exclude.
+    	4. **Mime types**—Add
+    	 MIME types that you want to include or
+    	 exclude.
+    	5. **Entity regex
+    	 patterns**—Add regular expression
+    	 patterns to include or exclude certain attachments
+    	 for all supported entities. You can add up to 100
+    	 patterns.
 
-            * **File name** – The
-             name of the file to include or exclude. For
-             example, to index a file with name
-             `teamroster.txt`, provide
-             `teamroster`.
-            * **File type** – The
-             type of the file to include or exclude. For
-             example, .pdf .txt .docx.
-            * **File path** – The
-             path of the file to include or exclude. For
-             example, to index files only inside the folder
-             `Products list` of a drive, provide
-             `/Products list`.
 
-    3.  **Sync mode**—Choose how
-        you want to update your index when your data source
-        content changes. When you sync your data source with
-        Amazon Kendra for the first time, all content
-        is crawled and indexed by default. You must run a
-        full sync of your data if your initial sync failed,
-        even if you don't choose full sync as your sync mode
-        option.
+    	You can configure include/exclude regex
+    	 patterns for **File name**,
+    	 **File type**, and **File
+    	 path**.
 
-        - Full sync: Freshly index all content,
-          replacing existing content each time your data
-          source syncs with your index.
-        - New, modified sync: Index only new and
-          modified content each time your data source syncs
-          with your index. Amazon Kendra can use your
-          data source's mechanism for tracking content
-          changes and index content that changed since the
-          last sync.
-        - New, modified, deleted sync: Index only new,
-          modified, and deleted content each time your data
-          source syncs with your index. Amazon Kendra
-          can use your data source's mechanism for tracking
-          content changes and index content that changed
-          since the last sync.
 
+
+
+    		* **File name** – The
+    		 name of the file to include or exclude. For
+    		 example, to index a file with name
+    		 `teamroster.txt`, provide
+    		 `teamroster`.
+    		* **File type** – The
+    		 type of the file to include or exclude. For
+    		 example, .pdf .txt .docx.
+    		* **File path** – The
+    		 path of the file to include or exclude. For
+    		 example, to index files only inside the folder
+    		 `Products list` of a drive, provide
+    		 `/Products list`.
+    3. **Sync mode**—Choose how
+     you want to update your index when your data source
+     content changes. When you sync your data source with
+     Amazon Kendra for the first time, all content
+     is crawled and indexed by default. You must run a
+     full sync of your data if your initial sync failed,
+     even if you don't choose full sync as your sync mode
+     option.
+
+
+
+
+    	* Full sync: Freshly index all content,
+    	 replacing existing content each time your data
+    	 source syncs with your index.
+    	* New, modified sync: Index only new and
+    	 modified content each time your data source syncs
+    	 with your index. Amazon Kendra can use your
+    	 data source's mechanism for tracking content
+    	 changes and index content that changed since the
+    	 last sync.
+    	* New, modified, deleted sync: Index only new,
+    	 modified, and deleted content each time your data
+    	 source syncs with your index. Amazon Kendra
+    	 can use your data source's mechanism for tracking
+    	 content changes and index content that changed
+    	 since the last sync.
     ###### Important
 
     Google Drive API does not support retrieving
-    comments from a permanently deleted file. Comments
-    from trashed files are retrievable. When a file is
-    trashed, the connector will delete comments from
-    the Amazon Kendra index. 4. In **Sync run schedule**, for
-    **Frequency**—choose how
-    often to sync your data source content and update
-    your index. 5. In **Sync run history**, choose
-    to store auto-generated reports in an Amazon S3 when syncing your data source. This is
-    useful for tracking issues when sycning your data
-    source. 6. Choose **Next**.
+     comments from a permanently deleted file. Comments
+     from trashed files are retrievable. When a file is
+     trashed, the connector will delete comments from
+     the Amazon Kendra index.
+    4. In **Sync run schedule**, for
+     **Frequency**—choose how
+     often to sync your data source content and update
+     your index.
+    5. In **Sync run history**, choose
+     to store auto-generated reports in an Amazon S3 when syncing your data source. This is
+     useful for tracking issues when sycning your data
+     source.
+    6. Choose **Next**.
 
-8.  On the **Set field mappings** page, enter
-    the following information:
+8. On the **Set field mappings** page, enter
+the following information:
 
     1. For **Files**—Select from
-       the Amazon Kendra generated default data source
-       fields that you want to map to your index.
+     the Amazon Kendra generated default data source
+     fields that you want to map to your index.
+
 
     ###### Note
 
     Google Drive API does not support creating
-    custom fields. Custom field mapping is not
-    available for the Google Drive connector. 2. Choose **Next**.
+     custom fields. Custom field mapping is not
+     available for the Google Drive connector.
+    2. Choose **Next**.
 
-9.  On the **Review and create** page, check that
-    the information you have entered is correct and then select
-    **Add data source**. You can also choose to edit your information from this page.
-    Your data source will appear on the **Data sources** page after the data source has been
-    added successfully.
+9. On the **Review and create** page, check that
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to

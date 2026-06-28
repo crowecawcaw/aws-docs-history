@@ -141,149 +141,166 @@ If using version 2 (if applicable), choose **Adobe Experience Manager connector*
     5. Choose **Next**.
 
 6. On the **Define access and security** page,
-   enter the following information:
+enter the following information:
 
-   1. **Source**—Choose either
-      **AEM On-Premise** or
-      **AEM as a Cloud Service**.
+    1. **Source**—Choose either
+     **AEM On-Premise** or
+     **AEM as a Cloud Service**.
 
-   Enter your Adobe Experience Manager host URL.
-   For example, if you use AEM On-Premise, you include the
-   hostname and port:
-   _https://hostname:port_.
-   Or, if you use AEM as a Cloud Service, you can use the
-   author URL:
-   *https://author-xxxxxx-xxxxxxx.adobeaemcloud.com*. 2. **SSL certificate location**—Enter
-   the path to the SSL certificate stored in an
-   Amazon S3 bucket. You use this to connect to AEM
-   On-Premise with a secure SSL connection. 3. **Authorization**—Turn on or off access control list (ACL) information for your
-   documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
-   and groups can access. The ACL information is used to filter search results based on the user or
-   their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources"). 4. **Authentication**—Choose
-   **Basic authentication** or
-   **OAuth 2.0 authentication**. Then
-   choose an existing AWS Secrets Manager secret or
-   create a new secret to store your
-   Adobe Experience Manager credentials. If
-   you choose to create a new secret, an AWS Secrets Manager secret window opens.
 
-   If you chose **Basic
-   authentication**, enter a name for the secret,
-   the Adobe Experience Manager site user name and
-   password. The user must have admin permission or be an
-   admin user.
+    Enter your Adobe Experience Manager host URL.
+     For example, if you use AEM On-Premise, you include the
+     hostname and port:
+     *https://hostname:port*.
+     Or, if you use AEM as a Cloud Service, you can use the
+     author URL:
+     *https://author-xxxxxx-xxxxxxx.adobeaemcloud.com*.
+    2. **SSL certificate location**—Enter
+     the path to the SSL certificate stored in an
+     Amazon S3 bucket. You use this to connect to AEM
+     On-Premise with a secure SSL connection.
+    3. **Authorization**—Turn on or off access control list (ACL) information for your
+     documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
+     and groups can access. The ACL information is used to filter search results based on the user or
+     their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
+    4. **Authentication**—Choose
+     **Basic authentication** or
+     **OAuth 2.0 authentication**. Then
+     choose an existing AWS Secrets Manager secret or
+     create a new secret to store your
+     Adobe Experience Manager credentials. If
+     you choose to create a new secret, an AWS Secrets Manager secret window opens.
 
-   If you chose **OAuth 2.0
-   authentication** and you use AEM
-   On-Premise, enter a name for the secret, client ID,
-   client secret, and private key. If you use AEM as a
-   Cloud Service, enter a name for the secret, client ID,
-   client secret, private key, organization ID, technical
-   account ID, and Adobe Identity Management
-   System (IMS) host.
 
-   Save an add your secret. 5. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
-   so, you must add **Subnets** and **VPC security groups**. 6. **Identity crawler**—Specify whether to turn on
-   Amazon Kendra’s identity crawler. The identity crawler uses the access control list
-   (ACL) information for your documents to filter search results based on the user or their
-   group access to documents. If you have an ACL for your documents and choose to use your ACL,
-   you can then also choose to turn on Amazon Kendra’s identity crawler to configure
-   [user
-   context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
-   all documents can be publicly searched. If you want to use access control for your documents
-   and identity crawler is turned off, you can alternatively use the
-   [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
-   API to upload user and group access information for user context filtering. 7. **IAM role**—Choose an existing IAM
-   role or create a new IAM role to access your repository credentials and index content.
+    If you chose **Basic
+     authentication**, enter a name for the secret,
+     the Adobe Experience Manager site user name and
+     password. The user must have admin permission or be an
+     admin user.
 
-   ###### Note
 
-   IAM roles used for indexes cannot be used for data sources. If you are unsure
-   if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-   errors. 8. Choose **Next**.
+    If you chose **OAuth 2.0
+     authentication** and you use AEM
+     On-Premise, enter a name for the secret, client ID,
+     client secret, and private key. If you use AEM as a
+     Cloud Service, enter a name for the secret, client ID,
+     client secret, private key, organization ID, technical
+     account ID, and Adobe Identity Management
+     System (IMS) host.
+
+
+    Save an add your secret.
+    5. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
+     so, you must add **Subnets** and **VPC security groups**.
+    6. **Identity crawler**—Specify whether to turn on
+     Amazon Kendra’s identity crawler. The identity crawler uses the access control list
+     (ACL) information for your documents to filter search results based on the user or their
+     group access to documents. If you have an ACL for your documents and choose to use your ACL,
+     you can then also choose to turn on Amazon Kendra’s identity crawler to configure
+     [user
+     context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
+     all documents can be publicly searched. If you want to use access control for your documents
+     and identity crawler is turned off, you can alternatively use the
+     [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
+     API to upload user and group access information for user context filtering.
+    7. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
+
+
+    ###### Note
+
+    IAM roles used for indexes cannot be used for data sources. If you are unsure
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    8. Choose **Next**.
 
 7. On the **Configure sync settings** page,
-   enter the following information:
+enter the following information:
 
-   1. **Sync scope**—Set limits for
-      crawling certain content types, page components, and
-      roots paths, and filter content using regex expression
-      patterns.
+    1. **Sync scope**—Set limits for
+     crawling certain content types, page components, and
+     roots paths, and filter content using regex expression
+     patterns.
 
-      1. **Content
-         types**—Choose whether to crawl
-         only pages or assets, or both.
-      2. (Optional) **Additional
-         configuration**—Configure the
-         following settings:
 
-         - **Page
-           components**—The specific
-           names of page components. The Page Component is
-           an extensible page component designed to work
-           with the Adobe Experience Manager template
-           editor and allows page header/footer and structure
-           components to be assembled with the template editor.
-         - **Content fragment
-           variations**—The specific
-           names of content fragment variations. Content Fragments
-           allow you to design, create, curate and publish
-           page-independent content in Adobe Experience Manager.
-           They allow you to prepare content ready for use in multiple
-           locations/over multiple channels.
-         - **Root paths**—The
-           root paths to specific content.
-         - **Regex
-           patterns**—The regular
-           expression patterns to include or exclude certain
-           pages and assets.
+    	1. **Content
+    	 types**—Choose whether to crawl
+    	 only pages or assets, or both.
+    	2. (Optional) **Additional
+    	 configuration**—Configure the
+    	 following settings:
 
-   2. **Sync mode**—Choose how you want to update
-      your index when your data source content changes. When you sync your
-      data source with Amazon Kendra for the first time, all content
-      is crawled and indexed by default. You must run a full sync of your
-      data if your initial sync failed, even if you don't choose full sync
-      as your sync mode option.
 
-      - Full sync: Freshly index all content, replacing existing
-        content each time your data source syncs with your index.
-      - New, modified sync: Index only new and modified content
-        each time your data source syncs with your index. Amazon Kendra
-        can use your data source's mechanism for tracking content
-        changes and index content that changed since the last sync.
-      - New, modified, deleted sync: Index only new, modified,
-        and deleted content each time your data source syncs with
-        your index. Amazon Kendra can use your data source's
-        mechanism for tracking content changes and index content
-        that changed since the last sync.
 
-   3. **Time zone ID**—If you use
-      AEM On-Premise and the time zone of your server is
-      different than the time zone of the Amazon Kendra
-      AEM connector or index, you can specify the server time
-      zone to align with the AEM connector or index. The default
-      time zone for AEM On-Premise is the time zone of the
-      Amazon Kendra AEM connector or index. The default time
-      zone for AEM as a Cloud Service is Greenwich Mean Time.
-   4. **Sync run schedule**, for
-      **Frequency**—Choose how often to
-      sync your data source content and update your index.
-   5. Choose **Next**.
+
+    		* **Page
+    		 components**—The specific
+    		 names of page components. The Page Component is
+    		 an extensible page component designed to work
+    		 with the Adobe Experience Manager template
+    		 editor and allows page header/footer and structure
+    		 components to be assembled with the template editor.
+    		* **Content fragment
+    		 variations**—The specific
+    		 names of content fragment variations. Content Fragments
+    		 allow you to design, create, curate and publish
+    		 page-independent content in Adobe Experience Manager.
+    		 They allow you to prepare content ready for use in multiple
+    		 locations/over multiple channels.
+    		* **Root paths**—The
+    		 root paths to specific content.
+    		* **Regex
+    		 patterns**—The regular
+    		 expression patterns to include or exclude certain
+    		 pages and assets.
+    2. **Sync mode**—Choose how you want to update
+     your index when your data source content changes. When you sync your
+     data source with Amazon Kendra for the first time, all content
+     is crawled and indexed by default. You must run a full sync of your
+     data if your initial sync failed, even if you don't choose full sync
+     as your sync mode option.
+
+
+
+
+    	* Full sync: Freshly index all content, replacing existing
+    	 content each time your data source syncs with your index.
+    	* New, modified sync: Index only new and modified content
+    	 each time your data source syncs with your index. Amazon Kendra
+    	 can use your data source's mechanism for tracking content
+    	 changes and index content that changed since the last sync.
+    	* New, modified, deleted sync: Index only new, modified,
+    	 and deleted content each time your data source syncs with
+    	 your index. Amazon Kendra can use your data source's
+    	 mechanism for tracking content changes and index content
+    	 that changed since the last sync.
+    3. **Time zone ID**—If you use
+     AEM On-Premise and the time zone of your server is
+     different than the time zone of the Amazon Kendra
+     AEM connector or index, you can specify the server time
+     zone to align with the AEM connector or index. The default
+     time zone for AEM On-Premise is the time zone of the
+     Amazon Kendra AEM connector or index. The default time
+     zone for AEM as a Cloud Service is Greenwich Mean Time.
+    4. **Sync run schedule**, for
+     **Frequency**—Choose how often to
+     sync your data source content and update your index.
+    5. Choose **Next**.
 
 8. On the **Set field mappings** page,
-   enter the following information:
+enter the following information:
 
-   1. Select from the Amazon Kendra generated default
-      data source fields you want to map to your index. To add
-      custom data source fields, create an index field name to
-      map to and the field data type.
-   2. Choose **Next**.
+    1. Select from the Amazon Kendra generated default
+     data source fields you want to map to your index. To add
+     custom data source fields, create an index field name to
+     map to and the field data type.
+    2. Choose **Next**.
 
 9. On the **Review and create** page, check that
-   the information you have entered is correct and then select
-   **Add data source**. You can also choose to edit your information from this page.
-   Your data source will appear on the **Data sources** page after the data source has been
-   added successfully.
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to
@@ -302,7 +319,7 @@ provide the following information:
 - **AEM host URL**—Specify
   the Adobe Experience Manager host URL. For example, if
   you use AEM On-Premise, you include the hostname and port:
-  _https://hostname:port_. Or, if
+  *https://hostname:port*. Or, if
   you use AEM as a Cloud Service, you can use the author URL:
   *https://author-xxxxxx-xxxxxxx.adobeaemcloud.com*.
 - **Sync mode**—Specify

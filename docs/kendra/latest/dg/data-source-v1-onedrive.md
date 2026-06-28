@@ -119,83 +119,94 @@ If using version 2 (if applicable), choose **OneDrive connector** with the "V2.0
     5. Choose **Next**.
 
 6. On the **Define access and security** page, enter the following
-   information:
+information:
 
-   1. **OneDrive tenant ID**—Enter the OneDrive tenant ID without
-      the protocol.
-   2. **Type of authentication**—Choose between
-      **New** and **Existing**.
-   3. 1. If you choose **Existing**, select an existing secret for
-         **Select secret**.
-      2. If you choose **New**, enter following information in the
-         **New AWS
-         Secrets Manager secret** section:
+    1. **OneDrive tenant ID**—Enter the OneDrive tenant ID without
+     the protocol.
+    2. **Type of authentication**—Choose between
+     **New** and **Existing**.
+    3. 1. If you choose **Existing**, select an existing secret for
+    	 **Select secret**.
+    	2. If you choose **New**, enter following information in the
+    	 **New AWS
+    	 Secrets Manager secret** section:
 
-         1. **Secret name**—A name for your secret. The prefix
-            ‘AmazonKendra-OneDrive-’ is automatically added to your secret
-            name.
-         2. For **Application ID** and **Application
-            password**—Enter the authentication credential values from your
-            OneDrive account and then choose **Save authentication**.
 
-   4. **IAM role**—Choose an existing IAM
-      role or create a new IAM role to access your repository credentials and index content.
+    		1. **Secret name**—A name for your secret. The prefix
+    		 ‘AmazonKendra-OneDrive-’ is automatically added to your secret
+    		 name.
+    		2. For **Application ID** and **Application
+    		 password**—Enter the authentication credential values from your
+    		 OneDrive account and then choose **Save authentication**.
+    4. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
 
-   ###### Note
 
-   IAM roles used for indexes cannot be used for data sources. If you are unsure
-   if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-   errors. 5. Choose **Next**.
+    ###### Note
+
+    IAM roles used for indexes cannot be used for data sources. If you are unsure
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    5. Choose **Next**.
 
 7. On the **Configure sync settings** page, enter the following
-   information:
+information:
 
-   1. Choose between **List file** and **Names list**
-      based on your use case.
+    1. Choose between **List file** and **Names list**
+     based on your use case.
 
-      1. If you choose **List file**, enter the following
-         information:
 
-         1. **Select location**—Enter the path to your Amazon S3
-            bucket.
+    	1. If you choose **List file**, enter the following
+    	 information:
 
-         **Add user list file to Amazon S3**—Select to add
-         your user list files to your Amazon S3 bucket.
 
-         **User local group mappings**—Select to use local group
-         mapping to filter your content.
+    		1. **Select location**—Enter the path to your Amazon S3
+    		 bucket.
 
-      2. If you choose **Names list**, enter the following
-         information:
 
-         1. **User name**—Enter up to 10 user drives to index. To add
-            more than 10 users, create a file that contains the names.
 
-         **Add another**—Choose to add more users.
+    		**Add user list file to Amazon S3**—Select to add
+    		 your user list files to your Amazon S3 bucket.
 
-         **User local group mappings**—Select to use local group
-         mapping to filter your content.
 
-   2. For **Additional configurations**—Add regular expression
-      patterns to include or exclude certain files. You can add up to 100 patterns.
-   3. In **Sync run schedule**, for
-      **Frequency**—Choose how often Amazon Kendra will sync with
-      your data source.
-   4. Choose **Next**.
+
+    		**User local group mappings**—Select to use local group
+    		 mapping to filter your content.
+    	2. If you choose **Names list**, enter the following
+    	 information:
+
+
+    		1. **User name**—Enter up to 10 user drives to index. To add
+    		 more than 10 users, create a file that contains the names.
+
+
+
+    		**Add another**—Choose to add more users.
+
+
+
+    		**User local group mappings**—Select to use local group
+    		 mapping to filter your content.
+    2. For **Additional configurations**—Add regular expression
+     patterns to include or exclude certain files. You can add up to 100 patterns.
+    3. In **Sync run schedule**, for
+     **Frequency**—Choose how often Amazon Kendra will sync with
+     your data source.
+    4. Choose **Next**.
 
 8. On the **Set field mappings** page, enter the following
-   information:
+information:
 
-   1. For **Default data source fields** and **Additional
-      suggested field mappings**—Select from the Amazon Kendra generated
-      default data source fields you want to map to your index.
-   2. Choose **Next**.
+    1. For **Default data source fields** and **Additional
+     suggested field mappings**—Select from the Amazon Kendra generated
+     default data source fields you want to map to your index.
+    2. Choose **Next**.
 
 9. On the **Review and create** page, check that
-   the information you have entered is correct and then select
-   **Add data source**. You can also choose to edit your information from this page.
-   Your data source will appear on the **Data sources** page after the data source has been
-   added successfully.
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to

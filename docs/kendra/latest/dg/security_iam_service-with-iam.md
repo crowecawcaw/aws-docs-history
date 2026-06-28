@@ -139,20 +139,20 @@ You can associate tags with certain types of Amazon Kendra resources to authoriz
 access to those resources. To control access based on tags, provide tag information in
 the condition element of a policy by using the
 `aws:RequestTag/`key-name``, or
- `aws:TagKeys` condition keys.
+`aws:TagKeys` condition keys.
 
 The following table lists the actions, corresponding resource types, and condition
 keys for tag-based access control. Each action is authorized based on the tags
 associated with the corresponding resource type.
 
-| Action                                                                             | Resource type           | Condition keys                  |
-| ---------------------------------------------------------------------------------- | ----------------------- | ------------------------------- |
-| [CreateDataSource](API_CreateDataSource.md "API_CreateDataSource.md")              |                         | `aws:RequestTag`, `aws:TagKeys` |
-| [CreateFaq](API_CreateFaq.md "API_CreateFaq.md")                                   |                         | `aws:RequestTag`, `aws:TagKeys` |
-| [CreateIndex](API_CreateIndex.md "API_CreateIndex.md")                             |                         | `aws:RequestTag`, `aws:TagKeys` |
-| [API_ListTagsForResource](API_ListTagsForResource.md "API_ListTagsForResource.md") | data source, FAQ, index |                                 |
-| [TagResource](API_TagResource.md "API_TagResource.md")                             | data source, FAQ, index | `aws:RequestTag`, `aws:TagKeys` |
-| [UntagResource](API_UntagResource.md "API_UntagResource.md")                       | data source, FAQ, index | `aws:TagKeys`                   |
+| Action                                                                              | Resource type           | Condition keys                  |
+| ----------------------------------------------------------------------------------- | ----------------------- | ------------------------------- |
+| [CreateDataSource](API_CreateDataSource.md "API_CreateDataSource.md")               |                         | `aws:RequestTag`, `aws:TagKeys` |
+| [CreateFaq](API_CreateFaq.md "API_CreateFaq.md")                                    |                         | `aws:RequestTag`, `aws:TagKeys` |
+| [CreateIndex](API_CreateIndex.md "API_CreateIndex.md")                              |                         | `aws:RequestTag`, `aws:TagKeys` |
+| [API\_ListTagsForResource](API_ListTagsForResource.md "API_ListTagsForResource.md") | data source, FAQ, index |                                 |
+| [TagResource](API_TagResource.md "API_TagResource.md")                              | data source, FAQ, index | `aws:RequestTag`, `aws:TagKeys` |
+| [UntagResource](API_UntagResource.md "API_UntagResource.md")                        | data source, FAQ, index | `aws:TagKeys`                   |
 
 For information about tagging Amazon Kendra resources, see [Tags](tagging.md "tagging.md"). For an example identity-based policy that limits access to
 a resource based on resource tags, see [Tag-based policy examples](security_iam_id-based-policy-examples.md#examples-tagging "security_iam_id-based-policy-examples.md#examples-tagging"). For more information about using tags to limit

@@ -212,17 +212,16 @@ information.
 - If using **SharePoint App-Only authentication** for
   access control:
 
-      + Copied the SharePoint client ID generated when you
-       registered App Only at Site Level. Client ID format is
-       ClientId@TenantId. For example,
-       `ffa956f3-8f89-44e7-b0e4-49670756342c@888d0b57-69f1-4fb8-957f-e1f0bedf82fe`.
-      + Copied the SharePoint client secret generated when you
-       registered App Only at Site Level.
-
-  **Note:** Because client IDs and client
-  secrets are generated for single sites only when you register
-  SharePoint Server for App Only authentication, only one site URL is
-  supported for SharePoint App Only authentication.
+  - Copied the SharePoint client ID generated when you
+    registered App Only at Site Level. Client ID format is
+    ClientId@TenantId. For example,
+    `ffa956f3-8f89-44e7-b0e4-49670756342c@888d0b57-69f1-4fb8-957f-e1f0bedf82fe`.
+  - Copied the SharePoint client secret generated when you
+    registered App Only at Site Level.
+    **Note:** Because client IDs and client
+    secrets are generated for single sites only when you register
+    SharePoint Server for App Only authentication, only one site URL is
+    supported for SharePoint App Only authentication.
 
 ###### Note
 
@@ -305,198 +304,209 @@ If using version 2 (if applicable), choose **SharePoint connector** with the "V2
     4. In **Tags**, for **Add new tag**—Include optional tags to search and filter your resources or track your AWS costs.
     5. Choose **Next**.
 
-6.  On the **Define access and security**
-    page, enter the following information:
+6. On the **Define access and security**
+page, enter the following information:
 
     1. **Hosting Method**—Choose
-       **SharePoint
-       Online**.
+     **SharePoint
+     Online**.
     2. **Site URLs specific to your
-       SharePoint
-       repository**—Enter the
-       SharePoint host URLs. The format for the
-       host URLs you enter is
-       `https://yourdomain.sharepoint.com/sites/mysite`.
-       The URL must start with `https` protocol.
-       Separate URLs with a new line. You can add up to 100
-       URLs.
+     SharePoint
+     repository**—Enter the
+     SharePoint host URLs. The format for the
+     host URLs you enter is
+     `https://yourdomain.sharepoint.com/sites/mysite`.
+     The URL must start with `https` protocol.
+     Separate URLs with a new line. You can add up to 100
+     URLs.
     3. **Domain**—Enter the
-       SharePoint domain. For example, the domain
-       in the URL
-       `https://yourdomain.sharepoint.com/sites/mysite`
-       is `yourdomain`.
+     SharePoint domain. For example, the domain
+     in the URL
+     `https://yourdomain.sharepoint.com/sites/mysite`
+     is `yourdomain`.
     4. **Authorization**—Turn on or off access control list (ACL) information for your
-       documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
-       and groups can access. The ACL information is used to filter search results based on the user or
-       their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
+     documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
+     and groups can access. The ACL information is used to filter search results based on the user or
+     their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
+
 
     You can also choose the type of user ID, whether
-    the user principal name or the user email fetched
-    from the Azure Portal. If you don't specify, email
-    is used by default. 5. **Authentication**—Choose
-    either basic, OAuth 2.0, Azure AD App-Only
-    authentication, SharePoint App-Only
-    authentication, or OAuth 2.0 refresh token
-    authentication. You either choose an existing
-    AWS Secrets Manager secret to store your
-    authentication credentials, or create a
-    secret.
-
-        1. If using **Basic
-         Authentication**, your secret must
-         include a secret name, SharePoint user
-         name and password.
-        2. If using **OAuth 2.0
-         authentication**, your secret must
-         include the SharePoint tenant ID, secret
-         name, SharePoint user name, password,
-         Azure AD client ID generated when you register
-         SharePoint in Azure AD, and Azure AD
-         client secret generated when you register
-         SharePoint in Azure AD.
-        3. If using **Azure AD App-Only
-         authentication**, your secret must
-         include the SharePoint tenant ID, Azure AD
-         self-signed X.509 certificate, secret name, Azure
-         AD client ID generated when you register
-         SharePoint in Azure AD, and private key to
-         authenticate the connector for Azure AD.
-        4. If using **SharePoint
-         App-Only authentication**, your secret
-         must include the SharePoint tenant ID,
-         secret name, SharePoint client ID you
-         generated when you registered App Only at Tenant
-         Level, SharePoint client secret generated
-         when your register for App Only at Tenant Level,
-         Azure AD client ID generated when you register
-         SharePoint in Azure AD, and Azure AD
-         client secret generated when you register
-         SharePoint to Azure AD.
+     the user principal name or the user email fetched
+     from the Azure Portal. If you don't specify, email
+     is used by default.
+    5. **Authentication**—Choose
+     either basic, OAuth 2.0, Azure AD App-Only
+     authentication, SharePoint App-Only
+     authentication, or OAuth 2.0 refresh token
+     authentication. You either choose an existing
+     AWS Secrets Manager secret to store your
+     authentication credentials, or create a
+     secret.
 
 
-        The SharePoint client ID format is
-         `ClientID@TenantId`. For
-         example,
-         `ffa956f3-8f89-44e7-b0e4-49670756342c@888d0b57-69f1-4fb8-957f-e1f0bedf82fe`.
-        5. If using **OAuth 2.0 refresh token
-         authentication**, your secret must
-         include the SharePoint tenant ID, secret
-         name, unique Azure AD client ID generated when you
-         register SharePoint in Azure AD, Azure AD
-         client secret generated when you register
-         SharePoint to Azure AD, refresh token
-         generated to connect Amazon Kendra to
-         SharePoint.
+    	1. If using **Basic
+    	 Authentication**, your secret must
+    	 include a secret name, SharePoint user
+    	 name and password.
+    	2. If using **OAuth 2.0
+    	 authentication**, your secret must
+    	 include the SharePoint tenant ID, secret
+    	 name, SharePoint user name, password,
+    	 Azure AD client ID generated when you register
+    	 SharePoint in Azure AD, and Azure AD
+    	 client secret generated when you register
+    	 SharePoint in Azure AD.
+    	3. If using **Azure AD App-Only
+    	 authentication**, your secret must
+    	 include the SharePoint tenant ID, Azure AD
+    	 self-signed X.509 certificate, secret name, Azure
+    	 AD client ID generated when you register
+    	 SharePoint in Azure AD, and private key to
+    	 authenticate the connector for Azure AD.
+    	4. If using **SharePoint
+    	 App-Only authentication**, your secret
+    	 must include the SharePoint tenant ID,
+    	 secret name, SharePoint client ID you
+    	 generated when you registered App Only at Tenant
+    	 Level, SharePoint client secret generated
+    	 when your register for App Only at Tenant Level,
+    	 Azure AD client ID generated when you register
+    	 SharePoint in Azure AD, and Azure AD
+    	 client secret generated when you register
+    	 SharePoint to Azure AD.
+
+
+    	The SharePoint client ID format is
+    	 `ClientID@TenantId`. For
+    	 example,
+    	 `ffa956f3-8f89-44e7-b0e4-49670756342c@888d0b57-69f1-4fb8-957f-e1f0bedf82fe`.
+    	5. If using **OAuth 2.0 refresh token
+    	 authentication**, your secret must
+    	 include the SharePoint tenant ID, secret
+    	 name, unique Azure AD client ID generated when you
+    	 register SharePoint in Azure AD, Azure AD
+    	 client secret generated when you register
+    	 SharePoint to Azure AD, refresh token
+    	 generated to connect Amazon Kendra to
+    	 SharePoint.
     6. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
-       so, you must add **Subnets** and **VPC security groups**.
+     so, you must add **Subnets** and **VPC security groups**.
     7. **Identity crawler**—Specify whether to turn on
-       Amazon Kendra’s identity crawler. The identity crawler uses the access control list
-       (ACL) information for your documents to filter search results based on the user or their
-       group access to documents. If you have an ACL for your documents and choose to use your ACL,
-       you can then also choose to turn on Amazon Kendra’s identity crawler to configure
-       [user
-       context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
-       all documents can be publicly searched. If you want to use access control for your documents
-       and identity crawler is turned off, you can alternatively use the
-       [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
-       API to upload user and group access information for user context filtering.
+     Amazon Kendra’s identity crawler. The identity crawler uses the access control list
+     (ACL) information for your documents to filter search results based on the user or their
+     group access to documents. If you have an ACL for your documents and choose to use your ACL,
+     you can then also choose to turn on Amazon Kendra’s identity crawler to configure
+     [user
+     context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
+     all documents can be publicly searched. If you want to use access control for your documents
+     and identity crawler is turned off, you can alternatively use the
+     [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
+     API to upload user and group access information for user context filtering.
+
 
     You can also choose to crawl local group mapping
-    or Azure Active Directory group mapping.
+     or Azure Active Directory group mapping.
+
 
     ###### Note
 
     AD Group mapping crawling is available only
-    for OAuth 2.0, OAuth 2.0 refresh token, and
-    SharePoint App Only authentication. 8. **IAM role**—Choose an existing IAM
-    role or create a new IAM role to access your repository credentials and index content.
+     for OAuth 2.0, OAuth 2.0 refresh token, and
+     SharePoint App Only authentication.
+    8. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
+
 
     ###### Note
 
     IAM roles used for indexes cannot be used for data sources. If you are unsure
-    if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-    errors. 9. Choose **Next**.
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    9. Choose **Next**.
 
-7.  On the **Configure sync settings** page,
-    enter the following information:
+7. On the **Configure sync settings** page,
+enter the following information:
 
     1. In **Sync scope**, choose from
-       the following options :
+     the following options :
 
-       1. **Select
-          entities**—Choose the entities you
-          want to crawl. You can select to crawl
-          **All** entities or any
-          combination of **Files**,
-          **Attachments**,
-          **Links**
-          **Pages**,
-          **Events**,
-          **Comments**, and **List
-          Data**.
-       2. In **Additional
-          configuration**, for **Entity
-          regex patterns**—Add regular
-          expression patterns for
-          **Links**,
-          **Pages**, and
-          **Events** to include specific
-          entities instead of syncing all your
-          documents.
-       3. **Regex
-          patterns**—Add regular expression
-          patterns to include or exclude files by
-          **File path**, **File
-          name**, **File type**,
-          **OneNote section name**, and
-          **OneNote page name** instead of
-          syncing all your documents. You can add up to
-       4.
 
-       ###### Note
+    	1. **Select
+    	 entities**—Choose the entities you
+    	 want to crawl. You can select to crawl
+    	 **All** entities or any
+    	 combination of **Files**,
+    	 **Attachments**,
+    	 **Links**
+    	**Pages**,
+    	 **Events**,
+    	 **Comments**, and **List
+    	 Data**.
+    	2. In **Additional
+    	 configuration**, for **Entity
+    	 regex patterns**—Add regular
+    	 expression patterns for
+    	 **Links**,
+    	 **Pages**, and
+    	 **Events** to include specific
+    	 entities instead of syncing all your
+    	 documents.
+    	3. **Regex
+    	 patterns**—Add regular expression
+    	 patterns to include or exclude files by
+    	 **File path**, **File
+    	 name**, **File type**,
+    	 **OneNote section name**, and
+    	 **OneNote page name** instead of
+    	 syncing all your documents. You can add up to
+    	 100.
 
-       OneNote crawling is available only for OAuth
-       2.0, OAuth 2.0 refresh token, and
-       SharePoint App Only authentication.
 
+    	###### Note
+
+    	OneNote crawling is available only for OAuth
+    	 2.0, OAuth 2.0 refresh token, and
+    	 SharePoint App Only authentication.
     2. For **Sync mode** choose how you
-       want to update your index when your data source
-       content changes. When you sync your data source with
-       Amazon Kendra for the first time, all content
-       is synced by default.
+     want to update your index when your data source
+     content changes. When you sync your data source with
+     Amazon Kendra for the first time, all content
+     is synced by default.
 
-       - **Full sync**—Sync
-         all content regardless of the previous sync
-         status.
-       - **New or modified documents
-         sync**—Sync only new or modified
-         documents.
-       - **New, modified, or deleted
-         documents sync**—Sync only new,
-         modified, and deleted documents.
 
+
+
+    	* **Full sync**—Sync
+    	 all content regardless of the previous sync
+    	 status.
+    	* **New or modified documents
+    	 sync**—Sync only new or modified
+    	 documents.
+    	* **New, modified, or deleted
+    	 documents sync**—Sync only new,
+    	 modified, and deleted documents.
     3. In **Sync run schedule**, for
-       **Frequency**—Choose how
-       often to sync your data source content and update
-       your index.
+     **Frequency**—Choose how
+     often to sync your data source content and update
+     your index.
     4. Choose **Next**.
 
-8.  On the **Set field mappings** page, enter
-    the following information:
+8. On the **Set field mappings** page, enter
+the following information:
 
     1. **Default data source
-       fields**—Select from the Amazon Kendra generated default data source fields
-       that you want to map to your index.
+     fields**—Select from the Amazon Kendra generated default data source fields
+     that you want to map to your index.
     2. **Add field**—To add custom
-       data source fields to create an index field name to
-       map to and the field data type.
+     data source fields to create an index field name to
+     map to and the field data type.
     3. Choose **Next**.
 
-9.  On the **Review and create** page, check that
-    the information you have entered is correct and then select
-    **Add data source**. You can also choose to edit your information from this page.
-    Your data source will appear on the **Data sources** page after the data source has been
-    added successfully.
+9. On the **Review and create** page, check that
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 Console: SharePoint Server
 **To connect Amazon Kendra to
@@ -517,255 +527,275 @@ If using version 2 (if applicable), choose **SharePoint connector** with the "V2
     4. In **Tags**, for **Add new tag**—Include optional tags to search and filter your resources or track your AWS costs.
     5. Choose **Next**.
 
-6.  On the **Define access and security**
-    page, enter the following information:
+6. On the **Define access and security**
+page, enter the following information:
 
     1. **Hosting Method**—Choose
-       **SharePoint
-       Server**.
+     **SharePoint
+     Server**.
     2. **Choose SharePoint
-       Version**—Choose either
-       **SharePoint 2013**,
-       **SharePoint 2016**,
-       **SharePoint 2019**, and
-       **SharePoint (Subscription
-       Edition)**.
+     Version**—Choose either
+     **SharePoint 2013**,
+     **SharePoint 2016**,
+     **SharePoint 2019**, and
+     **SharePoint (Subscription
+     Edition)**.
     3. **Site URLs specific to your
-       SharePoint
-       repository**—Enter the
-       SharePoint host URLs. The format for the
-       host URLs you enter is
-       `https://yourcompany/sites/mysite`.
-       The URL must start with `https` protocol.
-       Separate URLs with a new line. You can add up to 100
-       URLs.
+     SharePoint
+     repository**—Enter the
+     SharePoint host URLs. The format for the
+     host URLs you enter is
+     `https://yourcompany/sites/mysite`.
+     The URL must start with `https` protocol.
+     Separate URLs with a new line. You can add up to 100
+     URLs.
     4. **Domain**—Enter the
-       SharePoint domain. For example, the domain
-       in the URL
-       `https://yourcompany/sites/mysite`
-       is `yourcompany`
+     SharePoint domain. For example, the domain
+     in the URL
+     `https://yourcompany/sites/mysite`
+     is `yourcompany`
     5. **SSL certificate
-       location**—Enter the Amazon S3 path to your SSL certificate file.
+     location**—Enter the Amazon S3 path to your SSL certificate file.
     6. (Optional) For **Web
-       proxy**—Enter the host name (without
-       the `http://` or `https://`
-       protocol), and the port number used by the host URL
-       transport protocol. The numeric value of the port
-       number must be between 0 and 65535.
+     proxy**—Enter the host name (without
+     the `http://` or `https://`
+     protocol), and the port number used by the host URL
+     transport protocol. The numeric value of the port
+     number must be between 0 and 65535.
     7. **Authorization**—Turn on or off access control list (ACL) information for your
-       documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
-       and groups can access. The ACL information is used to filter search results based on the user or
-       their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
+     documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
+     and groups can access. The ACL information is used to filter search results based on the user or
+     their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
+
 
     For SharePoint Server you can choose from
-    the following ACL options:
+     the following ACL options:
 
-        1. **Email ID with Domain from
-         IDP**—User ID is based on email
-         IDs with their domains fetched from the underlying
-         identity provider (IDP). You provide the IDP
-         connection details in your Secrets Manager
-         secret as part of
-         **Authentication**.
-        2. **Email ID with Custom
-         Domain**—User ID is based on the
-         custom email domain value. For example,
-         "`amazon.com`". The email
-         domain will be used to construct the email ID for
-         access control. You must enter your custom email
-         domain.
-        3. **Domain\User with
-         Domain**—User ID is constructed
-         using a Domain\User ID format. You need to provide
-         a valid domain name. For example:
-         `"sharepoint2019"` to
-         construct access control.
-    8.  For **Authentication**, choose
-        either SharePoint App-Only authentication,
-        NTLM authentication, or Kerberos authentication. You
-        either choose an existing AWS Secrets Manager
-        secret to store your authentication credentials, or
-        create a secret.
 
-        1. If using **NTLM
-           authentication** or **Kerberos
-           authentication**, you secret must include
-           a secret name, SharePoint user name and
-           password.
+    	1. **Email ID with Domain from
+    	 IDP**—User ID is based on email
+    	 IDs with their domains fetched from the underlying
+    	 identity provider (IDP). You provide the IDP
+    	 connection details in your Secrets Manager
+    	 secret as part of
+    	 **Authentication**.
+    	2. **Email ID with Custom
+    	 Domain**—User ID is based on the
+    	 custom email domain value. For example,
+    	 "`amazon.com`". The email
+    	 domain will be used to construct the email ID for
+    	 access control. You must enter your custom email
+    	 domain.
+    	3. **Domain\User with
+    	 Domain**—User ID is constructed
+    	 using a Domain\User ID format. You need to provide
+    	 a valid domain name. For example:
+    	 `"sharepoint2019"` to
+    	 construct access control.
+    8. For **Authentication**, choose
+     either SharePoint App-Only authentication,
+     NTLM authentication, or Kerberos authentication. You
+     either choose an existing AWS Secrets Manager
+     secret to store your authentication credentials, or
+     create a secret.
 
-        If using **Email ID with Domain from
-        IDP**, also enter your:
 
-            * **LDAP Server
-             Endpoint**—Endpoint of LDAP
-             server, including protocol and port number. For
-             example:
-             `ldap://example.com:389`.
-            * **LDAP Search
-             Base**—Search base of LDAP user.
-             For example:
-             `CN=Users,DC=sharepoint,DC=com`.
-            * **LDAP
-             username**—Your LDAP user
-             name.
-            * **LDAP
-             Password**—Your LDAP
-             password.
-        2. If using **SharePoint
-           App-Only authentication**, your secret
-           must include a secret name, SharePoint
-           client ID you generated when you registered App
-           Only at Site Level, SharePoint client
-           secret generated when your register for App Only
-           at Site Level.
+    	1. If using **NTLM
+    	 authentication** or **Kerberos
+    	 authentication**, you secret must include
+    	 a secret name, SharePoint user name and
+    	 password.
 
-        The SharePoint client ID format is
-        `ClientID@TenantId`. For
-        example,
-        `ffa956f3-8f89-44e7-b0e4-49670756342c@888d0b57-69f1-4fb8-957f-e1f0bedf82fe`.
 
-        **Note:**
-        Because client IDs and client secrets are
-        generated for single sites only when you register
-        SharePoint Server for App Only
-        authentication, only one site URL is supported for
-        SharePoint App Only authentication.
+    	If using **Email ID with Domain from
+    	 IDP**, also enter your:
 
-        If using **Email ID with Domain from
-        IDP**, also enter your:
 
-            * **LDAP Server
-             Endpoint**—Endpoint of LDAP
-             server, including protocol and port number. For
-             example:
-             `ldap://example.com:389`.
-            * **LDAP Search
-             Base**—Search base of LDAP user.
-             For example:
-             `CN=Users,DC=sharepoint,DC=com`.
-            * **LDAP
-             username**—Your LDAP user
-             name.
-            * **LDAP
-             Password**—Your LDAP
-             password.
 
-    9.  **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
-        so, you must add **Subnets** and **VPC security groups**.
+
+    		* **LDAP Server
+    		 Endpoint**—Endpoint of LDAP
+    		 server, including protocol and port number. For
+    		 example:
+    		 `ldap://example.com:389`.
+    		* **LDAP Search
+    		 Base**—Search base of LDAP user.
+    		 For example:
+    		 `CN=Users,DC=sharepoint,DC=com`.
+    		* **LDAP
+    		 username**—Your LDAP user
+    		 name.
+    		* **LDAP
+    		 Password**—Your LDAP
+    		 password.
+    	2. If using **SharePoint
+    	 App-Only authentication**, your secret
+    	 must include a secret name, SharePoint
+    	 client ID you generated when you registered App
+    	 Only at Site Level, SharePoint client
+    	 secret generated when your register for App Only
+    	 at Site Level.
+
+
+    	The SharePoint client ID format is
+    	 `ClientID@TenantId`. For
+    	 example,
+    	 `ffa956f3-8f89-44e7-b0e4-49670756342c@888d0b57-69f1-4fb8-957f-e1f0bedf82fe`.
+
+
+    	**Note:**
+    	 Because client IDs and client secrets are
+    	 generated for single sites only when you register
+    	 SharePoint Server for App Only
+    	 authentication, only one site URL is supported for
+    	 SharePoint App Only authentication.
+
+
+    	If using **Email ID with Domain from
+    	 IDP**, also enter your:
+
+
+
+
+    		* **LDAP Server
+    		 Endpoint**—Endpoint of LDAP
+    		 server, including protocol and port number. For
+    		 example:
+    		 `ldap://example.com:389`.
+    		* **LDAP Search
+    		 Base**—Search base of LDAP user.
+    		 For example:
+    		 `CN=Users,DC=sharepoint,DC=com`.
+    		* **LDAP
+    		 username**—Your LDAP user
+    		 name.
+    		* **LDAP
+    		 Password**—Your LDAP
+    		 password.
+    9. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
+     so, you must add **Subnets** and **VPC security groups**.
     10. **Identity crawler**—Specify whether to turn on
-        Amazon Kendra’s identity crawler. The identity crawler uses the access control list
-        (ACL) information for your documents to filter search results based on the user or their
-        group access to documents. If you have an ACL for your documents and choose to use your ACL,
-        you can then also choose to turn on Amazon Kendra’s identity crawler to configure
-        [user
-        context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
-        all documents can be publicly searched. If you want to use access control for your documents
-        and identity crawler is turned off, you can alternatively use the
-        [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
-        API to upload user and group access information for user context filtering.
+     Amazon Kendra’s identity crawler. The identity crawler uses the access control list
+     (ACL) information for your documents to filter search results based on the user or their
+     group access to documents. If you have an ACL for your documents and choose to use your ACL,
+     you can then also choose to turn on Amazon Kendra’s identity crawler to configure
+     [user
+     context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
+     all documents can be publicly searched. If you want to use access control for your documents
+     and identity crawler is turned off, you can alternatively use the
+     [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
+     API to upload user and group access information for user context filtering.
+
 
     You can also choose to crawl local group mapping
-    or Azure Active Directory group mapping.
+     or Azure Active Directory group mapping.
+
 
     ###### Note
 
     AD Group mapping crawling is available only
-    SharePoint App Only authentication. 11. **IAM role**—Choose an existing IAM
-    role or create a new IAM role to access your repository credentials and index content.
+     SharePoint App Only authentication.
+    11. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
+
 
     ###### Note
 
     IAM roles used for indexes cannot be used for data sources. If you are unsure
-    if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-    errors. 12. Choose **Next**.
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    12. Choose **Next**.
 
-7.  On the **Configure sync settings** page,
-    enter the following information:
+7. On the **Configure sync settings** page,
+enter the following information:
 
     1. In **Sync scope**, choose from
-       the following options :
+     the following options :
 
-       1. **Select
-          entities**—Choose the entities you
-          want to crawl. You can select to crawl
-          **All** entities or any
-          combination of **Files**,
-          **Attachments**,
-          **Links**
-          **Pages**,
-          **Events**, and **List
-          Data**.
-       2. In **Additional
-          configuration**, for **Entity
-          regex patterns**—Add regular
-          expression patterns for
-          **Links**,
-          **Pages**, and
-          **Events** to include specific
-          entities instead of syncing all your
-          documents.
-       3. **Regex
-          patterns**—Add regular expression
-          patterns to include or exclude files by
-          **File path**
-          **File name**
-          **File type**, **OneNote
-          section name**, and **OneNote
-          page name** instead of syncing all your
-          documents. You can add up to 100.
 
-       ###### Note
+    	1. **Select
+    	 entities**—Choose the entities you
+    	 want to crawl. You can select to crawl
+    	 **All** entities or any
+    	 combination of **Files**,
+    	 **Attachments**,
+    	 **Links**
+    	**Pages**,
+    	 **Events**, and **List
+    	 Data**.
+    	2. In **Additional
+    	 configuration**, for **Entity
+    	 regex patterns**—Add regular
+    	 expression patterns for
+    	 **Links**,
+    	 **Pages**, and
+    	 **Events** to include specific
+    	 entities instead of syncing all your
+    	 documents.
+    	3. **Regex
+    	 patterns**—Add regular expression
+    	 patterns to include or exclude files by
+    	 **File path**
+    	**File name**
+    	**File type**, **OneNote
+    	 section name**, and **OneNote
+    	 page name** instead of syncing all your
+    	 documents. You can add up to 100.
 
-       OneNote crawling is available only for
-       SharePoint App Only authentication.
 
+    	###### Note
+
+    	OneNote crawling is available only for
+    	 SharePoint App Only authentication.
     2. **Sync mode**—Choose how
-       you want to update your index when your data source
-       content changes. When you sync your data source with
-       Amazon Kendra for the first time, all content
-       is crawled and indexed by default. You must run a
-       full sync of your data if your initial sync failed,
-       even if you don't choose full sync as your sync mode
-       option.
+     you want to update your index when your data source
+     content changes. When you sync your data source with
+     Amazon Kendra for the first time, all content
+     is crawled and indexed by default. You must run a
+     full sync of your data if your initial sync failed,
+     even if you don't choose full sync as your sync mode
+     option.
 
-       - Full sync: Freshly index all content,
-         replacing existing content each time your data
-         source syncs with your index.
-       - New, modified sync: Index only new and
-         modified content each time your data source syncs
-         with your index. Amazon Kendra can use your
-         data source's mechanism for tracking content
-         changes and index content that changed since the
-         last sync.
-       - New, modified, deleted sync: Index only new,
-         modified, and deleted content each time your data
-         source syncs with your index. Amazon Kendra
-         can use your data source's mechanism for tracking
-         content changes and index content that changed
-         since the last sync.
 
+
+
+    	* Full sync: Freshly index all content,
+    	 replacing existing content each time your data
+    	 source syncs with your index.
+    	* New, modified sync: Index only new and
+    	 modified content each time your data source syncs
+    	 with your index. Amazon Kendra can use your
+    	 data source's mechanism for tracking content
+    	 changes and index content that changed since the
+    	 last sync.
+    	* New, modified, deleted sync: Index only new,
+    	 modified, and deleted content each time your data
+    	 source syncs with your index. Amazon Kendra
+    	 can use your data source's mechanism for tracking
+    	 content changes and index content that changed
+    	 since the last sync.
     3. In **Sync run schedule**, for
-       **Frequency**—Choose how
-       often to sync your data source content and update
-       your index.
+     **Frequency**—Choose how
+     often to sync your data source content and update
+     your index.
     4. Choose **Next**.
 
-8.  On the **Set field mappings** page, enter
-    the following information:
+8. On the **Set field mappings** page, enter
+the following information:
 
     1. **Default data source
-       fields**—Select from the Amazon Kendra generated default data source fields
-       that you want to map to your index.
+     fields**—Select from the Amazon Kendra generated default data source fields
+     that you want to map to your index.
     2. **Add field**—To add custom
-       data source fields to create an index field name to
-       map to and the field data type.
+     data source fields to create an index field name to
+     map to and the field data type.
     3. Choose **Next**.
 
-9.  On the **Review and create** page, check that
-    the information you have entered is correct and then select
-    **Add data source**. You can also choose to edit your information from this page.
-    Your data source will appear on the **Data sources** page after the data source has been
-    added successfully.
+9. On the **Review and create** page, check that
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to

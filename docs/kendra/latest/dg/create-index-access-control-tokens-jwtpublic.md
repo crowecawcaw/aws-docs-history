@@ -46,19 +46,17 @@ steps:
     8. Select **Save key** to save the new key.
 
 8. _Optional_ Under **Advanced
-   configuration**:
+configuration**:
 
-   1. Specify a **Username** to use in the ACL check.
-   2. Specify one or more **Groups** to use in the ACL check.
-   3. Specify the **Issuer** that will validate the token issuer.
-   4. Specify the **Client Id(s)**. You must specify a regular
-      expression that match the audience in the JWT.
+    1. Specify a **Username** to use in the ACL check.
+    2. Specify one or more **Groups** to use in the ACL check.
+    3. Specify the **Issuer** that will validate the token issuer.
+    4. Specify the **Client Id(s)**. You must specify a regular
+     expression that match the audience in the JWT.
 
 9. In the **Provisioning details** page, choose **Developer
-   edition**.
-10. Choose **Create** to create your index.
-11. Wait for your index to be created. Amazon Kendra provisions the hardware for
-    your index. This operation can take some time.
+edition**. 10. Choose **Create** to create your index. 11. Wait for your index to be created. Amazon Kendra provisions the hardware for
+your index. This operation can take some time.
 
 CLI
 You can use JWT with a public key inside of a AWS Secrets Manager. You need the

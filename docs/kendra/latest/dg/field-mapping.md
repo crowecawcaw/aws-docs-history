@@ -13,7 +13,7 @@ you can map it to an index field called "Department". That way, you can use the 
 when querying documents.
 
 You can also map Amazon Kendra reserved or common fields such as
-`_created_at`. If your data source has a field called "creation_date",
+`_created_at`. If your data source has a field called "creation\_date",
 you can map this to the equivalent Amazon Kendra reserved field called
 `_created_at`. For more information on Amazon Kendra reserved
 fields, see [Document attributes or

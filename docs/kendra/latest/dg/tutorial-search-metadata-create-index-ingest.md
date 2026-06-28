@@ -48,191 +48,193 @@ details** page, do the following:
     5. Keep default settings for **Encryption** and
      **Tags** and choose **Next**.
 
-4.  For **Access control settings** on the **Configure user
-    access control** page, choose **No** and then choose
-    **Next**.
-5.  For **Provisioning editions** on the **Provisioning
-    details** page, choose **Developer edition** and choose
-    **Create**.
-6.  To create and attach an IAM role for Amazon Kendra that recognizes it as a trusted
-    entity, do the following:
+4. For **Access control settings** on the **Configure user
+access control** page, choose **No** and then choose
+**Next**. 5. For **Provisioning editions** on the **Provisioning
+details** page, choose **Developer edition** and choose
+**Create**.
 
-    1. Save the following trust policy as a JSON file called
-       `kendra-trust-policy.json` in a text editor on your local
-       device.
+1. To create and attach an IAM role for Amazon Kendra that recognizes it as a trusted
+   entity, do the following:
 
-    JSON
+   1. Save the following trust policy as a JSON file called
+      `kendra-trust-policy.json` in a text editor on your local
+      device.
 
-    ```
-    `{
-     "Version":"2012-10-17",
-     "Statement": {
-     "Effect": "Allow",
-     "Principal": {
-     "Service": "kendra.amazonaws.com"
-     },
-     "Action": "sts:AssumeRole"
-     }
-    }`
+   JSON
 
-    ```
-    2. To create an IAM role called `kendra-role` and attach your
-       saved `kendra-trust-policy.json` file to it, use the [create-role](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-role.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-role.html") command:
+   ```
+   `{
+    "Version":"2012-10-17",
+    "Statement": {
+    "Effect": "Allow",
+    "Principal": {
+    "Service": "kendra.amazonaws.com"
+    },
+    "Action": "sts:AssumeRole"
+    }
+   }`
 
-    Linux
+   ```
+   2. To create an IAM role called `kendra-role` and attach your
+      saved `kendra-trust-policy.json` file to it, use the [create-role](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-role.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-role.html") command:
 
-    ```
-    aws iam create-role \
-              --role-name kendra-role \
-              --assume-role-policy-document file://`path/`kendra-trust-policy.json
-    ```
+   Linux
 
-    Where:
+   ```
+   aws iam create-role \
+             --role-name kendra-role \
+             --assume-role-policy-document file://`path/`kendra-trust-policy.json
+   ```
 
-        * `path/` is the filepath to
-         `kendra-trust-policy.json` on your local
-         device.
-
-    macOS
-
-    ```
-    aws iam create-role \
-              --role-name kendra-role \
-              --assume-role-policy-document file://`path/`kendra-trust-policy.json
-    ```
-
-    Where:
+   Where:
 
         * `path/` is the filepath to
          `kendra-trust-policy.json` on your local
          device.
 
-    Windows
+   macOS
 
-    ```
-    aws iam create-role ^
-              --role-name kendra-role ^
-              --assume-role-policy-document file://`path/`kendra-trust-policy.json
-    ```
+   ```
+   aws iam create-role \
+             --role-name kendra-role \
+             --assume-role-policy-document file://`path/`kendra-trust-policy.json
+   ```
 
-    Where:
+   Where:
 
         * `path/` is the filepath to
          `kendra-trust-policy.json` on your local
          device.
-    3. Copy the Amazon Resource Name (ARN) to your text editor and save it locally
-       as `kendra-role-arn`.
 
-    ###### Note
+   Windows
 
-    The ARN has a format similar to
-    `arn:aws:iam::123456789012:role/kendra-role`. You
-    need the ARN you saved as `kendra-role-arn` to run Amazon Kendra
-    jobs.
+   ```
+   aws iam create-role ^
+             --role-name kendra-role ^
+             --assume-role-policy-document file://`path/`kendra-trust-policy.json
+   ```
 
-7.  Before you create an index, you must provide your `kendra-role` the
-    permission to write to CloudWatch Logs. To do this, complete the following steps:
+   Where:
 
-    1. Save the following trust policy as a JSON file called
-       `kendra-cloudwatch-policy.json` in a text editor on your
-       local device.
+        * `path/` is the filepath to
+         `kendra-trust-policy.json` on your local
+         device.
 
-    Replace `aws-region` with your AWS region, and
-    `aws-account-id` with your 12-digit AWS account
-    ID. 2. To create an IAM policy to access CloudWatch Logs, use the [create-policy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-policy.html") command:
+   3. Copy the Amazon Resource Name (ARN) to your text editor and save it locally
+   as `kendra-role-arn`.
 
-    Linux
+   ###### Note
 
-    ```
-    aws iam create-policy \
-              --policy-name kendra-cloudwatch-policy \
-              --policy-document file://`path/`kendra-cloudwatch-policy.json
-    ```
+   The ARN has a format similar to
+   `arn:aws:iam::123456789012:role/kendra-role`. You
+   need the ARN you saved as `kendra-role-arn` to run Amazon Kendra
+   jobs.
 
-    Where:
+2. Before you create an index, you must provide your `kendra-role` the
+   permission to write to CloudWatch Logs. To do this, complete the following steps:
+
+   1. Save the following trust policy as a JSON file called
+      `kendra-cloudwatch-policy.json` in a text editor on your
+      local device.
+
+   Replace `aws-region` with your AWS region, and
+   `aws-account-id` with your 12-digit AWS account
+   ID. 2. To create an IAM policy to access CloudWatch Logs, use the [create-policy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-policy.html") command:
+
+   Linux
+
+   ```
+   aws iam create-policy \
+             --policy-name kendra-cloudwatch-policy \
+             --policy-document file://`path/`kendra-cloudwatch-policy.json
+   ```
+
+   Where:
 
         * `path/` is the filepath to
          `kendra-cloudwatch-policy.json` on your local
          device.
 
-    macOS
+   macOS
 
-    ```
-    aws iam create-policy \
-              --policy-name kendra-cloudwatch-policy \
-              --policy-document file://`path/`kendra-cloudwatch-policy.json
-    ```
+   ```
+   aws iam create-policy \
+             --policy-name kendra-cloudwatch-policy \
+             --policy-document file://`path/`kendra-cloudwatch-policy.json
+   ```
 
-    Where:
+   Where:
+
+        * `path/` is the filepath to
+         `kendra-cloudwatch-policy.json` on your local
+         device.
+
+   Windows
+
+   ```
+   aws iam create-policy ^
+             --policy-name kendra-cloudwatch-policy ^
+             --policy-document file://`path/`kendra-cloudwatch-policy.json
+   ```
+
+   Where:
 
         * `path/` is the filepath to
          `kendra-cloudwatch-policy.json` on your local
          device.
 
-    Windows
+   3. Copy the Amazon Resource Name (ARN) to your text editor and save it locally
+   as `kendra-cloudwatch-arn`.
 
-    ```
-    aws iam create-policy ^
-              --policy-name kendra-cloudwatch-policy ^
-              --policy-document file://`path/`kendra-cloudwatch-policy.json
-    ```
+   ###### Note
 
-    Where:
+   The ARN has a format similar to
+   `arn:aws:iam::123456789012:role/kendra-cloudwatch-policy`.
+   You need the ARN you saved as `kendra-cloudwatch-arn` to attach the
+   `kendra-cloudwatch-policy` to your IAM role. 4. To attach the `kendra-cloudwatch-policy` to your IAM role, use
+   the [attach-role-policy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/attach-role-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/attach-role-policy.html") command:
 
-        * `path/` is the filepath to
-         `kendra-cloudwatch-policy.json` on your local
-         device.
-    3. Copy the Amazon Resource Name (ARN) to your text editor and save it locally
-       as `kendra-cloudwatch-arn`.
+   Linux
 
-    ###### Note
+   ```
+   aws iam attach-role-policy \
+             --policy-arn `policy-arn` \
+             --role-name kendra-role
+   ```
 
-    The ARN has a format similar to
-    `arn:aws:iam::123456789012:role/kendra-cloudwatch-policy`.
-    You need the ARN you saved as `kendra-cloudwatch-arn` to attach the
-    `kendra-cloudwatch-policy` to your IAM role. 4. To attach the `kendra-cloudwatch-policy` to your IAM role, use
-    the [attach-role-policy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/attach-role-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/attach-role-policy.html") command:
-
-    Linux
-
-    ```
-    aws iam attach-role-policy \
-              --policy-arn `policy-arn` \
-              --role-name kendra-role
-    ```
-
-    Where:
+   Where:
 
         * `policy-arn` is your saved
          `kendra-cloudwatch-arn`.
 
-    macOS
+   macOS
 
-    ```
-    aws iam attach-role-policy \
-              --policy-arn `policy-arn` \
-              --role-name kendra-role
-    ```
+   ```
+   aws iam attach-role-policy \
+             --policy-arn `policy-arn` \
+             --role-name kendra-role
+   ```
 
-    Where:
-
-        * `policy-arn` is your saved
-         `kendra-cloudwatch-arn`.
-
-    Windows
-
-    ```
-    aws iam attach-role-policy ^
-              --policy-arn `policy-arn` ^
-              --role-name kendra-role
-    ```
-
-    Where:
+   Where:
 
         * `policy-arn` is your saved
          `kendra-cloudwatch-arn`.
 
-8.  To create an index, use the [create-index](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/create-index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/create-index.html") command:
+   Windows
+
+   ```
+   aws iam attach-role-policy ^
+             --policy-arn `policy-arn` ^
+             --role-name kendra-role
+   ```
+
+   Where:
+
+        * `policy-arn` is your saved
+         `kendra-cloudwatch-arn`.
+
+3. To create an index, use the [create-index](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/create-index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/create-index.html") command:
 
 Linux
 
@@ -283,9 +285,8 @@ Where:
     * `aws-region` is your AWS region.
 
 4. Copy the index `Id` and save it in a text editor as
-   `kendra-index-id`. The `Id` helps you track the status of
-   your index creation.
-5. To track the progress of your index creation job, use the [describe-index](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/describe-index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/describe-index.html") command:
+`kendra-index-id`. The `Id` helps you track the status of
+your index creation. 5. To track the progress of your index creation job, use the [describe-index](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/describe-index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/describe-index.html") command:
 
 Linux
 
@@ -411,7 +412,7 @@ Where:
      device.
 
 3. Copy the Amazon Resource Name (ARN) to your text editor and save it locally as
-   `kendra-S3-access-arn`.
+`kendra-S3-access-arn`.
 
 ###### Note
 
@@ -466,7 +467,7 @@ To prepare Amazon Kendra to recognize your metadata as custom document attribute
 custom fields corresponding to Amazon Comprehend entity types. You input the following nine Amazon Comprehend entity
 types as custom fields:
 
-- COMMERCIAL_ITEM
+- COMMERCIAL\_ITEM
 - DATE
 - EVENT
 - LOCATION
@@ -480,31 +481,30 @@ types as custom fields:
 
 Misspelled entity types will not be recognized by the index.
 
-1.  Open the Amazon Kendra console at [https://console.aws.amazon.com/kendra/](https://console.aws.amazon.com/kendra/ "https://console.aws.amazon.com/kendra/").
-2.  From the **Indexes** list, click on
-    `kendra-index`.
-3.  From the left navigation panel, under **Data management**,
-    choose **Facet definition**.
-4.  From the **Index fields** menu, choose **Add
-    field**.
-5.  In the **Add index field** dialog box, do the following:
+1. Open the Amazon Kendra console at [https://console.aws.amazon.com/kendra/](https://console.aws.amazon.com/kendra/ "https://console.aws.amazon.com/kendra/").
+2. From the **Indexes** list, click on
+   `kendra-index`.
+3. From the left navigation panel, under **Data management**,
+   choose **Facet definition**.
+4. From the **Index fields** menu, choose **Add
+   field**.
+5. In the **Add index field** dialog box, do the following:
 
-        1. In **Field name**, enter
-         `COMMERCIAL_ITEM`.
-        2. In **Data type**, choose **String
-         list**.
-        3. In **Usage types**, select **Facetable**,
-         **Searchable**, and **Displayable**, and
-         then choose **Add**.
-        4. Repeat steps a to c for each Amazon Comprehend entity type: COMMERCIAL\_ITEM, DATE,
-         EVENT, LOCATION, ORGANIZATION, OTHER, PERSON, QUANTITY, TITLE.
+   1. In **Field name**, enter
+      `COMMERCIAL_ITEM`.
+   2. In **Data type**, choose **String
+      list**.
+   3. In **Usage types**, select **Facetable**,
+      **Searchable**, and **Displayable**, and
+      then choose **Add**.
+   4. Repeat steps a to c for each Amazon Comprehend entity type: COMMERCIAL\_ITEM, DATE,
+      EVENT, LOCATION, ORGANIZATION, OTHER, PERSON, QUANTITY, TITLE.
+      The console displays successful field addition messages. You can choose to close
+      them before you proceed with the next step.
 
-    The console displays successful field addition messages. You can choose to close
-    them before you proceed with the next step.
-
-6.  Save the following text as a JSON file called
-    `custom-attributes.json` in a text editor on your local
-    device.
+6. Save the following text as a JSON file called
+   `custom-attributes.json` in a text editor on your local
+   device.
 
 ```
 [
@@ -646,7 +646,7 @@ Where:
     * `aws-region` is your AWS region.
 
 3. To verify that the custom attributes have been added to your index, use the
-   [describe-index](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/describe-index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/describe-index.html") command:
+[describe-index](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/describe-index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/describe-index.html") command:
 
 Linux
 
@@ -820,9 +820,8 @@ Where:
     * `aws-region` is your AWS region.
 
 3. Copy the connector `Id` and save it in a text editor as
-   `S3-connector-id`. The `Id` helps you track the status of
-   the data-connection process.
-4. To ensure that your S3 data source was connected successfully, use the [describe-data-source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/describe-data-source.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/describe-data-source.html") command:
+`S3-connector-id`. The `Id` helps you track the status of
+the data-connection process. 4. To ensure that your S3 data source was connected successfully, use the [describe-data-source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/describe-data-source.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/describe-data-source.html") command:
 
 Linux
 

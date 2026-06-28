@@ -55,7 +55,7 @@ Where:
      you want to save the zip folder in.
 
 2. To extract the data from the zip folder, run the following command on the
-   terminal window:
+terminal window:
 
 Linux
 
@@ -246,7 +246,7 @@ Where:
     * amzn-s3-demo-bucket is your bucket name.
 
 2. To create the `metadata` folder in your S3 bucket, use the
-   [put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html") command in the AWS CLI:
+[put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html") command in the AWS CLI:
 
 Linux
 
@@ -285,7 +285,7 @@ Where:
     * amzn-s3-demo-bucket is your bucket name.
 
 3. To ensure that your folders were created successfully, check the contents of
-   your bucket using the [list](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html") command:
+your bucket using the [list](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html") command:
 
 Linux
 
@@ -374,7 +374,7 @@ Where:
     * amzn-s3-demo-bucket is your bucket name.
 
 2. To ensure that your dataset files were uploaded successfully to your
-   `data` folder, use the [list](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html") command in the AWS CLI:
+`data` folder, use the [list](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html") command in the AWS CLI:
 
 Linux
 

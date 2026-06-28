@@ -68,7 +68,7 @@ information.
       - In a browser, navigate to:
         `https://{subdomain}.zendesk.com/oauth/authorizations/new?response_type=code&client_id={your_client_id}&redirect_uri={your_redirect_uri}&scope=read`
       - Authenticate and authorize the application when prompted.
-      - After authorization, Zendesk redirects to the redirect_uri with a code parameter (e.g., https://localhost/callback?code={authorization_code}). Copy the authorization code.
+      - After authorization, Zendesk redirects to the redirect\_uri with a code parameter (e.g., https://localhost/callback?code={authorization\_code}). Copy the authorization code.
       - Exchange the authorization code for an access token by sending a POST request to Zendesk's token endpoint:
 
       ```
@@ -76,7 +76,7 @@ information.
         -H "Content-Type: application/x-www-form-urlencoded" \
         -d "grant_type=authorization_code&code={authorization_code}&client_id={your_client_id}&client_secret={your_client_secret}&redirect_uri={your_redirect_uri}&scope=read"
       ```
-      - Zendesk responds with a JSON object containing the access_token. Extract and securely store this access token.
+      - Zendesk responds with a JSON object containing the access\_token. Extract and securely store this access token.
 
   6.  Store the generated access token securely. This access token will be used for Kendra integration.
 
@@ -153,106 +153,113 @@ If using version 2 (if applicable), choose **Zendesk connector** with the "V2.0"
     5. Choose **Next**.
 
 6. On the **Define access and security** page, enter the
-   following information:
+following information:
 
-   1. **Zendesk URL**—Enter your Zendesk URL.
-      For example, `https://{sub-domain}.zendesk.com/`.
-   2. **Authorization**—Turn on or off access control list (ACL) information for your
-      documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
-      and groups can access. The ACL information is used to filter search results based on the user or
-      their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
-   3. **AWS Secrets Manager secret**—Choose an existing secret or create a new
-      Secrets Manager secret to store your Zendesk authentication
-      credentials. If you choose to create a new secret an AWS Secrets Manager
-      secret window opens.
+    1. **Zendesk URL**—Enter your Zendesk URL.
+     For example, `https://{sub-domain}.zendesk.com/`.
+    2. **Authorization**—Turn on or off access control list (ACL) information for your
+     documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
+     and groups can access. The ACL information is used to filter search results based on the user or
+     their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
+    3. **AWS Secrets Manager secret**—Choose an existing secret or create a new
+     Secrets Manager secret to store your Zendesk authentication
+     credentials. If you choose to create a new secret an AWS Secrets Manager
+     secret window opens.
 
-      1. Create a new secret with the following structure:
 
-      ```
-      {
-               "hostUrl": "https://yoursubdomain.zendesk.com/",
-               "accessToken": "your_access_token"
-      }
-      ```
+    	1. Create a new secret with the following structure:
 
-      ###### Note
 
-      For Kendra integration, the secret name should start with 'AmazonKendra-Zendesk-' followed by your chosen identifier (e.g., 'AmazonKendra-Zendesk-MyConnector'). 2. Save and add your secret.
 
-   4. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
-      so, you must add **Subnets** and **VPC security groups**.
-   5. **Identity crawler**—Specify whether to turn on
-      Amazon Kendra’s identity crawler. The identity crawler uses the access control list
-      (ACL) information for your documents to filter search results based on the user or their
-      group access to documents. If you have an ACL for your documents and choose to use your ACL,
-      you can then also choose to turn on Amazon Kendra’s identity crawler to configure
-      [user
-      context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
-      all documents can be publicly searched. If you want to use access control for your documents
-      and identity crawler is turned off, you can alternatively use the
-      [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
-      API to upload user and group access information for user context filtering.
-   6. **IAM role**—Choose an existing IAM
-      role or create a new IAM role to access your repository credentials and index content.
+    	```
+    	{
+    	         "hostUrl": "https://yoursubdomain.zendesk.com/",
+    	         "accessToken": "your_access_token"
+    	}
+    	```
 
-   ###### Note
+    	###### Note
 
-   IAM roles used for indexes cannot be used for data sources. If you are unsure
-   if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-   errors. 7. Choose **Next**.
+    	For Kendra integration, the secret name should start with 'AmazonKendra-Zendesk-' followed by your chosen identifier (e.g., 'AmazonKendra-Zendesk-MyConnector').
+    	2. Save and add your secret.
+    4. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
+     so, you must add **Subnets** and **VPC security groups**.
+    5. **Identity crawler**—Specify whether to turn on
+     Amazon Kendra’s identity crawler. The identity crawler uses the access control list
+     (ACL) information for your documents to filter search results based on the user or their
+     group access to documents. If you have an ACL for your documents and choose to use your ACL,
+     you can then also choose to turn on Amazon Kendra’s identity crawler to configure
+     [user
+     context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
+     all documents can be publicly searched. If you want to use access control for your documents
+     and identity crawler is turned off, you can alternatively use the
+     [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
+     API to upload user and group access information for user context filtering.
+    6. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
+
+
+    ###### Note
+
+    IAM roles used for indexes cannot be used for data sources. If you are unsure
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    7. Choose **Next**.
 
 7. On the **Configure sync settings** page, enter the following
-   information:
+information:
 
-   1. **Select contents**—Select the types of content
-      you want to crawl from tickets, to help center articles, community topics,
-      and more.
-   2. **Organization name**—Enter the Zendesk
-      organization names to filter content.
-   3. **Sync start date**—Enter the date from which you want
-      to start crawling your content.
-   4. **Regex patterns**—Add regular expression patterns to
-      include or exclude certain files. You can add up to 100 patterns.
-   5. **Sync mode**—Choose how you want to update
-      your index when your data source content changes. When you sync your
-      data source with Amazon Kendra for the first time, all content
-      is crawled and indexed by default. You must run a full sync of your
-      data if your initial sync failed, even if you don't choose full sync
-      as your sync mode option.
+    1. **Select contents**—Select the types of content
+     you want to crawl from tickets, to help center articles, community topics,
+     and more.
+    2. **Organization name**—Enter the Zendesk
+     organization names to filter content.
+    3. **Sync start date**—Enter the date from which you want
+     to start crawling your content.
+    4. **Regex patterns**—Add regular expression patterns to
+     include or exclude certain files. You can add up to 100 patterns.
+    5. **Sync mode**—Choose how you want to update
+     your index when your data source content changes. When you sync your
+     data source with Amazon Kendra for the first time, all content
+     is crawled and indexed by default. You must run a full sync of your
+     data if your initial sync failed, even if you don't choose full sync
+     as your sync mode option.
 
-      - Full sync: Freshly index all content, replacing existing
-        content each time your data source syncs with your index.
-      - New, modified sync: Index only new and modified content
-        each time your data source syncs with your index. Amazon Kendra
-        can use your data source's mechanism for tracking content
-        changes and index content that changed since the last sync.
-      - New, modified, deleted sync: Index only new, modified,
-        and deleted content each time your data source syncs with
-        your index. Amazon Kendra can use your data source's
-        mechanism for tracking content changes and index content
-        that changed since the last sync.
 
-   6. In **Sync run schedule** for
-      **Frequency**—Choose how often to sync
-      your data source content and update your index.
-   7. Choose **Next**.
+
+
+    	* Full sync: Freshly index all content, replacing existing
+    	 content each time your data source syncs with your index.
+    	* New, modified sync: Index only new and modified content
+    	 each time your data source syncs with your index. Amazon Kendra
+    	 can use your data source's mechanism for tracking content
+    	 changes and index content that changed since the last sync.
+    	* New, modified, deleted sync: Index only new, modified,
+    	 and deleted content each time your data source syncs with
+    	 your index. Amazon Kendra can use your data source's
+    	 mechanism for tracking content changes and index content
+    	 that changed since the last sync.
+    6. In **Sync run schedule** for
+     **Frequency**—Choose how often to sync
+     your data source content and update your index.
+    7. Choose **Next**.
 
 8. On the **Set field mappings** page, enter the
-   following information:
+following information:
 
-   1. **Default data source
-      fields**—Select from the Amazon Kendra generated
-      default data source fields you want to map to your index.
-   2. **Add field**—To add custom data
-      source fields to create an index field name to map to
-      and the field data type.
-   3. Choose **Next**.
+    1. **Default data source
+     fields**—Select from the Amazon Kendra generated
+     default data source fields you want to map to your index.
+    2. **Add field**—To add custom data
+     source fields to create an index field name to map to
+     and the field data type.
+    3. Choose **Next**.
 
 9. On the **Review and create** page, check that
-   the information you have entered is correct and then select
-   **Add data source**. You can also choose to edit your information from this page.
-   Your data source will appear on the **Data sources** page after the data source has been
-   added successfully.
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to

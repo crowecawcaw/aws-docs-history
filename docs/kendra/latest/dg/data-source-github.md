@@ -228,130 +228,143 @@ If using version 2 (if applicable), choose **GitHub connector** with the "V2.0" 
     4. In **Tags**, for **Add new tag**—Include optional tags to search and filter your resources or track your AWS costs.
     5. Choose **Next**.
 
-6.  On the **Define access and security** page,
-    enter the following information:
+6. On the **Define access and security** page,
+enter the following information:
 
     1. **GitHub
-       source**—Choose between
-       **GitHub Enterprise
-       Cloud** and **GitHub
-       Enterprise Server**.
+     source**—Choose between
+     **GitHub Enterprise
+     Cloud** and **GitHub
+     Enterprise Server**.
     2. **GitHub host
-       URL**—For example, the host URL for
-       GitHub cloud could be
-       `https://api.github.com`
-       and the host URL for GitHub server could be
-       `https://on-prem-host-url/api/v3/`.
+     URL**—For example, the host URL for
+     GitHub cloud could be
+     `https://api.github.com`
+     and the host URL for GitHub server could be
+     `https://on-prem-host-url/api/v3/`.
     3. **GitHub organization
-       name**—Enter your GitHub
-       organization name. You can find your organization
-       information in your GitHub account.
+     name**—Enter your GitHub
+     organization name. You can find your organization
+     information in your GitHub account.
+
 
     ###### Note
 
     GitHub connector supports crawling a
-    single organization per data source connector
-    instance. 4. **Authorization**—Turn on or off access control list (ACL) information for your
-    documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
-    and groups can access. The ACL information is used to filter search results based on the user or
-    their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources"). 5. **AWS Secrets Manager secret**—Choose an existing secret or create a new
-    Secrets Manager secret to store your GitHub authentication
-    credentials. If you choose to create a new secret an AWS Secrets Manager
-    secret window opens.
-
-        1. Enter following information in the
-         **Create an AWS
-         Secrets Manager secret
-         window**:
+     single organization per data source connector
+     instance.
+    4. **Authorization**—Turn on or off access control list (ACL) information for your
+     documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
+     and groups can access. The ACL information is used to filter search results based on the user or
+     their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
+    5. **AWS Secrets Manager secret**—Choose an existing secret or create a new
+     Secrets Manager secret to store your GitHub authentication
+     credentials. If you choose to create a new secret an AWS Secrets Manager
+     secret window opens.
 
 
-        	1. **Secret name**—A
-        	 name for your secret. The prefix
-        	 ‘AmazonKendra-GitHub-’ is
-        	 automatically added to your secret name.
-        	2. For **GitHub
-        	 token**—Enter the authentication
-        	 credential value configured in
-        	 GitHub.
-        2. Save and add your secret.
+    	1. Enter following information in the
+    	 **Create an AWS
+    	 Secrets Manager secret
+    	 window**:
+
+
+    		1. **Secret name**—A
+    		 name for your secret. The prefix
+    		 ‘AmazonKendra-GitHub-’ is
+    		 automatically added to your secret name.
+    		2. For **GitHub
+    		 token**—Enter the authentication
+    		 credential value configured in
+    		 GitHub.
+    	2. Save and add your secret.
     6. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
-       so, you must add **Subnets** and **VPC security groups**.
+     so, you must add **Subnets** and **VPC security groups**.
     7. **Identity crawler**—Specify whether to turn on
-       Amazon Kendra’s identity crawler. The identity crawler uses the access control list
-       (ACL) information for your documents to filter search results based on the user or their
-       group access to documents. If you have an ACL for your documents and choose to use your ACL,
-       you can then also choose to turn on Amazon Kendra’s identity crawler to configure
-       [user
-       context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
-       all documents can be publicly searched. If you want to use access control for your documents
-       and identity crawler is turned off, you can alternatively use the
-       [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
-       API to upload user and group access information for user context filtering.
+     Amazon Kendra’s identity crawler. The identity crawler uses the access control list
+     (ACL) information for your documents to filter search results based on the user or their
+     group access to documents. If you have an ACL for your documents and choose to use your ACL,
+     you can then also choose to turn on Amazon Kendra’s identity crawler to configure
+     [user
+     context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
+     all documents can be publicly searched. If you want to use access control for your documents
+     and identity crawler is turned off, you can alternatively use the
+     [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
+     API to upload user and group access information for user context filtering.
     8. **IAM role**—Choose an existing IAM
-       role or create a new IAM role to access your repository credentials and index content.
+     role or create a new IAM role to access your repository credentials and index content.
+
 
     ###### Note
 
     IAM roles used for indexes cannot be used for data sources. If you are unsure
-    if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-    errors. 9. Choose **Next**.
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    9. Choose **Next**.
 
-7.  On the **Configure sync settings** page,
-    enter the following information:
+7. On the **Configure sync settings** page,
+enter the following information:
 
     1. **Select repositories**—Choose
-       to crawl all repositories or select.
+     to crawl all repositories or select.
+
 
     If you choose to crawl select repositories, add the
-    names for the repositories and, optionally, the name of
-    any specific branches. 2. **Content types**—Choose the
-    content types you want to crawl from files, issues, pull
-    requests, and more. 3. **Regex patterns**—Add regular
-    expression patterns to include or exclude certain
-    files. 4. **Sync mode**—Choose how you
-    want to update your index when your data source content
-    changes. When you sync your data source with Amazon Kendra for the first time, all content is
-    crawled and indexed by default. You must run a full sync
-    of your data if your initial sync failed, even if you
-    don't choose full sync as your sync mode option.
+     names for the repositories and, optionally, the name of
+     any specific branches.
+    2. **Content types**—Choose the
+     content types you want to crawl from files, issues, pull
+     requests, and more.
+    3. **Regex patterns**—Add regular
+     expression patterns to include or exclude certain
+     files.
+    4. **Sync mode**—Choose how you
+     want to update your index when your data source content
+     changes. When you sync your data source with Amazon Kendra for the first time, all content is
+     crawled and indexed by default. You must run a full sync
+     of your data if your initial sync failed, even if you
+     don't choose full sync as your sync mode option.
 
-        * Full sync: Freshly index all content,
-         replacing existing content each time your data
-         source syncs with your index.
-        * New, modified sync: Index only new and
-         modified content each time your data source syncs
-         with your index. Amazon Kendra can use your
-         data source's mechanism for tracking content
-         changes and index content that changed since the
-         last sync.
-        * New, modified, deleted sync: Index only new,
-         modified, and deleted content each time your data
-         source syncs with your index. Amazon Kendra
-         can use your data source's mechanism for tracking
-         content changes and index content that changed
-         since the last sync.
+
+
+
+    	* Full sync: Freshly index all content,
+    	 replacing existing content each time your data
+    	 source syncs with your index.
+    	* New, modified sync: Index only new and
+    	 modified content each time your data source syncs
+    	 with your index. Amazon Kendra can use your
+    	 data source's mechanism for tracking content
+    	 changes and index content that changed since the
+    	 last sync.
+    	* New, modified, deleted sync: Index only new,
+    	 modified, and deleted content each time your data
+    	 source syncs with your index. Amazon Kendra
+    	 can use your data source's mechanism for tracking
+    	 content changes and index content that changed
+    	 since the last sync.
     5. In **Sync run schedule** for
-       **Frequency**—Choose how
-       often to sync your data source content and update your
-       index.
+     **Frequency**—Choose how
+     often to sync your data source content and update your
+     index.
     6. Choose **Next**.
 
-8.  On the **Set field mappings** page, enter the
-    following information:
+8. On the **Set field mappings** page, enter the
+following information:
 
     1. **Default data source
-       fields**—Select from the Amazon Kendra generated default data source fields you
-       want to map to your index.
+     fields**—Select from the Amazon Kendra generated default data source fields you
+     want to map to your index.
     2. **Add field**—To add custom data
-       source fields to create an index field name to map to
-       and the field data type.
+     source fields to create an index field name to map to
+     and the field data type.
     3. Choose **Next**.
 
-9.  On the **Review and create** page, check that
-    the information you have entered is correct and then select
-    **Add data source**. You can also choose to edit your information from this page.
-    Your data source will appear on the **Data sources** page after the data source has been
-    added successfully.
+9. On the **Review and create** page, check that
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to

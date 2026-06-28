@@ -11,7 +11,6 @@ The library works with browsers that support JavaScript version ES6/ES2015.
 ## Step 1: Insert a script tag into your Amazon Kendra search application
 
 In your client code that renders the Amazon Kendra search results, insert a
-
  <script> tag and add a reference to the JavaScript library:
 
 
@@ -115,7 +114,6 @@ On your result page, add an HTML attribute called `data-kendra-token`
 
 <a href="`document location`" data-kendra-token="`feedback token value`"></a>
 OR
-
 <div data-url="`document location`" data-kendra-token="`feedback token value`"></div>
 ```
 

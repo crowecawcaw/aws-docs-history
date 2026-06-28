@@ -38,7 +38,7 @@ as follows:
 The Intelligent Ranking plugin re-ranks results using the "body" and "title" fields.
 These plugin fields can be mapped to fields in your OpenSearch index that would most fit
 the definition of a document body and title. For example, if your index contains
-chapters of a book with fields like "chapter_heading" and "chapter_contents", you can
+chapters of a book with fields like "chapter\_heading" and "chapter\_contents", you can
 map the former to "title" and the latter to "body" to get the best results.
 
 ## Setting up the intelligent search plugin

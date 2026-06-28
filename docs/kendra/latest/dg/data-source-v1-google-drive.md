@@ -131,85 +131,88 @@ and then choose **Add connector**. 5. On the **Specify data source details** pag
     5. Choose **Next**.
 
 6. On the **Define access and security**
-   page, enter the following information:
+page, enter the following information:
 
-   1. For **Type of
-      authentication**—Choose between
-      **Existing** and
-      **New**. If you choose to use an
-      existing secret, use **Select
-      secret** to choose your secret.
-   2. If you choose to create a new secret an AWS
-      Secrets Manager secret option opens.
+    1. For **Type of
+     authentication**—Choose between
+     **Existing** and
+     **New**. If you choose to use an
+     existing secret, use **Select
+     secret** to choose your secret.
+    2. If you choose to create a new secret an AWS
+     Secrets Manager secret option opens.
 
-      1. Enter following information in the
-         **Create an AWS
-         Secrets Manager secret
-         window**:
 
-         1. **Secret name**—A
-            name for your secret. The prefix
-            ‘AmazonKendra-Google Drive-’ is
-            automatically added to your secret name.
-         2. For **Admin account
-            email**, **Client
-            email**, and **Private
-            key**—Enter the authentication
-            credential values you generated and downloaded
-            from your Google Drive account.
-         3. Choose **Save
-            authentication**.
+    	1. Enter following information in the
+    	 **Create an AWS
+    	 Secrets Manager secret
+    	 window**:
 
-   3. **IAM role**—Choose an existing IAM
-      role or create a new IAM role to access your repository credentials and index content.
 
-   ###### Note
+    		1. **Secret name**—A
+    		 name for your secret. The prefix
+    		 ‘AmazonKendra-Google Drive-’ is
+    		 automatically added to your secret name.
+    		2. For **Admin account
+    		 email**, **Client
+    		 email**, and **Private
+    		 key**—Enter the authentication
+    		 credential values you generated and downloaded
+    		 from your Google Drive account.
+    		3. Choose **Save
+    		 authentication**.
+    3. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
 
-   IAM roles used for indexes cannot be used for data sources. If you are unsure
-   if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-   errors. 4. Choose **Next**.
+
+    ###### Note
+
+    IAM roles used for indexes cannot be used for data sources. If you are unsure
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    4. Choose **Next**.
 
 7. On the **Configure sync settings** page,
-   enter the following information:
+enter the following information:
 
-   1. **Exclude user
-      accounts**—The Google Drive
-      users you want to exclude from the index. You can
-      add up to 100 user accounts.
-   2. **Exclude shared
-      drives**—The Google Drive
-      shared drives you want to exclude from your index.
-      You can add up to 100 shared drives.
-   3. **Exclude file types
-      drives**—The Google Drive file
-      types you want to exclude from your index. You can
-      also choose to edit MIME type selections.
-   4. **Additional
-      configurations**—Regular expression
-      patterns to include or exclude certain content. You
-      can add up to 100 patterns.
-   5. **Frequency**—How often
-      Amazon Kendra will sync with your data
-      source.
-   6. Choose **Next**.
+    1. **Exclude user
+     accounts**—The Google Drive
+     users you want to exclude from the index. You can
+     add up to 100 user accounts.
+    2. **Exclude shared
+     drives**—The Google Drive
+     shared drives you want to exclude from your index.
+     You can add up to 100 shared drives.
+    3. **Exclude file types
+     drives**—The Google Drive file
+     types you want to exclude from your index. You can
+     also choose to edit MIME type selections.
+    4. **Additional
+     configurations**—Regular expression
+     patterns to include or exclude certain content. You
+     can add up to 100 patterns.
+    5. **Frequency**—How often
+     Amazon Kendra will sync with your data
+     source.
+    6. Choose **Next**.
 
 8. On the **Set field mappings** page, enter
-   the following information:
+the following information:
 
-   1. For **GoogleDrive field name**
-      and **Additional suggested field
-      mappings**—Select from the Amazon Kendra generated default data source fields
-      you want to map to your index.
-   2. **Add field**—To add custom
-      data source fields to create an index field name to
-      map to and the field data type.
-   3. Choose **Next**.
+    1. For **GoogleDrive field name**
+     and **Additional suggested field
+     mappings**—Select from the Amazon Kendra generated default data source fields
+     you want to map to your index.
+    2. **Add field**—To add custom
+     data source fields to create an index field name to
+     map to and the field data type.
+    3. Choose **Next**.
 
 9. On the **Review and create** page, check that
-   the information you have entered is correct and then select
-   **Add data source**. You can also choose to edit your information from this page.
-   Your data source will appear on the **Data sources** page after the data source has been
-   added successfully.
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to

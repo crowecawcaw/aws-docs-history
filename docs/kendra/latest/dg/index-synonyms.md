@@ -21,12 +21,12 @@ index. See [Quotas](quotas.md "quotas.md").
 Synonyms can be useful in the following scenarios:
 
 - Specialized terms that are not traditional English language synonyms such as `NLP,
-Natural Language Processing`.
+ Natural Language Processing`.
 - Proper nouns with complex semantic associations. These are nouns that the general public
   are unlikely to understand, for example, in machine learning, `cost, loss, model
-performance`.
+ performance`.
 - Different forms of product names, for example, `Elastic Compute Cloud,
-EC2`.
+ EC2`.
 - Domain-specific or business-specific terms, such as product names. For example,
   `Route53, DNS`.
   Do not use synonyms in the following scenarios:
@@ -38,7 +38,7 @@ EC2`.
 - Morphological variants like the plurals and possessives of nouns, the comparative and
   superlative form of adjectives, and the past tense, past participle and progressive form of
   verbs. One example of comparative and superlative adjectives is `good, better,
-best`.
+ best`.
 - Unigram (single word) stop words such as `WHO`. Unigram stop words are not
   allowed in the thesaurus and are excluded from search. For example, `WHO => World
  Health Organization` is rejected. You can use `W.H.O.` however as a

@@ -145,7 +145,7 @@ during this example:
   `kendra-s3-example-vpc`
 - **Subnets** –
   `kendra-s3-example-subnet-private1-[availability
-zone]`
+ zone]`
 - **Security groups** –
   `s3-data-source-security-group`
 

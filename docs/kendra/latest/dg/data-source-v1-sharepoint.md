@@ -179,170 +179,174 @@ and then choose **Add data source**. 5. On the **Specify data source details** p
     5. Choose **Next**.
 
 6. On the **Define access and security**
-   page, enter the following information:
+page, enter the following information:
 
-   1. For **Hosting
-      method**—Choose between
-      **SharePoint Online** and
-      **SharePoint
-      Server**.
+    1. For **Hosting
+     method**—Choose between
+     **SharePoint Online** and
+     **SharePoint
+     Server**.
 
-      1. For **SharePoint
-         Online**—Enter the **Site
-         URLs specific to your SharePoint
-         repository**.
-      2. For **SharePoint
-         Server**—Choose your
-         **SharePoint version**,
-         enter **Site URLs specific to your
-         SharePoint repository**, and
-         enter the Amazon S3 path to your
-         **SSL certificate
-         location**.
 
-   2. (SharePoint Server only) For **Web
-      proxy**—Enter the **Host
-      name** and **Port
-      number** of your internal
-      SharePoint instance. The port number should
-      be a numeric value between 0 and 65535.
-   3. For
-      **Authentication**—Choose
-      between the following options based on your use
-      case:
+    	1. For **SharePoint
+    	 Online**—Enter the **Site
+    	 URLs specific to your SharePoint
+    	 repository**.
+    	2. For **SharePoint
+    	 Server**—Choose your
+    	 **SharePoint version**,
+    	 enter **Site URLs specific to your
+    	 SharePoint repository**, and
+    	 enter the Amazon S3 path to your
+    	 **SSL certificate
+    	 location**.
+    2. (SharePoint Server only) For **Web
+     proxy**—Enter the **Host
+     name** and **Port
+     number** of your internal
+     SharePoint instance. The port number should
+     be a numeric value between 0 and 65535.
+    3. For
+     **Authentication**—Choose
+     between the following options based on your use
+     case:
 
-      1. For SharePoint Online—Choose
-         between **Basic authentication**
-         and **OAuth 2.0
-         authentication**.
-      2. For SharePoint Server—Choose
-         between **None**,
-         **LDAP**, and
-         **Manual**.
 
-   4. For **AWS
-      Secrets Manager secret**—Choose
-      an existing secret or create a new Secrets Manager secret to store your SharePoint
-      authentication credentials. If you choose to create
-      a new secret an AWS
-      Secrets Manager secret window opens. You must
-      enter a **Secret name**. The prefix
-      ‘AmazonKendra-SharePoint-’ is automatically
-      added to your secret name.
-   5. Enter following other information in the
-      **Create an AWS
-      Secrets Manager secret
-      window**:
+    	1. For SharePoint Online—Choose
+    	 between **Basic authentication**
+    	 and **OAuth 2.0
+    	 authentication**.
+    	2. For SharePoint Server—Choose
+    	 between **None**,
+    	 **LDAP**, and
+    	 **Manual**.
+    4. For **AWS
+     Secrets Manager secret**—Choose
+     an existing secret or create a new Secrets Manager secret to store your SharePoint
+     authentication credentials. If you choose to create
+     a new secret an AWS
+     Secrets Manager secret window opens. You must
+     enter a **Secret name**. The prefix
+     ‘AmazonKendra-SharePoint-’ is automatically
+     added to your secret name.
+    5. Enter following other information in the
+     **Create an AWS
+     Secrets Manager secret
+     window**:
 
-      1. Choose from the following SharePoint
-         Cloud authentication options, based on your use
-         case:
 
-         1. **Basic
-            authentication**—Enter your
-            SharePoint account user name as
-            **User name** and
-            SharePoint account password as
-            **Password**.
-         2. **OAuth 2.0
-            authentication**—Enter your
-            SharePoint account user name as
-            **User name**, SharePoint
-            account password as **Password**,
-            your auto-generated unique SharePoint ID
-            as **Client ID**, and the shared
-            secret string used by both SharePoint and
-            Amazon Kendra as **Client
-            secret**.
+    	1. Choose from the following SharePoint
+    	 Cloud authentication options, based on your use
+    	 case:
 
-      2. Choose from the following SharePoint
-         Server authentication options, based on your use
-         case:
 
-         1. **None**—Enter your
-            SharePoint account user name as
-            **User name**, your
-            SharePoint account password as
-            **Password**, and your
-            **Server Domain Name**.
-         2. **LDAP**—Enter your
-            SharePoint account user name as
-            **User name**, SharePoint
-            account password as **Password**,
-            your **LDAP Server Endpoint**
-            (including protocol and port number, for example
-            `ldap://example.com:389`),
-            and your **LDAP Search Base**
-            (for example, `dc=example,
-dc=com`).
-         3. **Manual**—Enter
-            your SharePoint account user name as
-            **User name**, your
-            SharePoint account password as
-            **Password**, and your
-            **Email Domain Override** (email
-            domain of directory user or group).
+    		1. **Basic
+    		 authentication**—Enter your
+    		 SharePoint account user name as
+    		 **User name** and
+    		 SharePoint account password as
+    		 **Password**.
+    		2. **OAuth 2.0
+    		 authentication**—Enter your
+    		 SharePoint account user name as
+    		 **User name**, SharePoint
+    		 account password as **Password**,
+    		 your auto-generated unique SharePoint ID
+    		 as **Client ID**, and the shared
+    		 secret string used by both SharePoint and
+    		 Amazon Kendra as **Client
+    		 secret**.
+    	2. Choose from the following SharePoint
+    	 Server authentication options, based on your use
+    	 case:
 
-      3. Choose **Save**.
 
-   6. **Virtual Private Cloud
-      (VPC)**— You must also add
-      **Subnets** and **VPC
-      security groups**.
+    		1. **None**—Enter your
+    		 SharePoint account user name as
+    		 **User name**, your
+    		 SharePoint account password as
+    		 **Password**, and your
+    		 **Server Domain Name**.
+    		2. **LDAP**—Enter your
+    		 SharePoint account user name as
+    		 **User name**, SharePoint
+    		 account password as **Password**,
+    		 your **LDAP Server Endpoint**
+    		 (including protocol and port number, for example
+    		 `ldap://example.com:389`),
+    		 and your **LDAP Search Base**
+    		 (for example, `dc=example,
+    		 dc=com`).
+    		3. **Manual**—Enter
+    		 your SharePoint account user name as
+    		 **User name**, your
+    		 SharePoint account password as
+    		 **Password**, and your
+    		 **Email Domain Override** (email
+    		 domain of directory user or group).
+    	3. Choose **Save**.
+    6. **Virtual Private Cloud
+     (VPC)**— You must also add
+     **Subnets** and **VPC
+     security groups**.
 
-   ###### Note
 
-   You must use a VPC if you use
-   SharePoint Server. Amazon VPC is
-   optional for other SharePoint
-   versions. 7. **IAM role**—Choose an existing IAM
-   role or create a new IAM role to access your repository credentials and index content.
+    ###### Note
 
-   ###### Note
+    You must use a VPC if you use
+     SharePoint Server. Amazon VPC is
+     optional for other SharePoint
+     versions.
+    7. **IAM role**—Choose an existing IAM
+     role or create a new IAM role to access your repository credentials and index content.
 
-   IAM roles used for indexes cannot be used for data sources. If you are unsure
-   if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-   errors. 8. Choose **Next**.
+
+    ###### Note
+
+    IAM roles used for indexes cannot be used for data sources. If you are unsure
+     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
+     errors.
+    8. Choose **Next**.
 
 7. On the **Configure sync settings** page,
-   enter the following information:
+enter the following information:
 
-   1. **Use Change log**—Select
-      to update your index instead of syncing all your
-      files.
-   2. **Crawl
-      attachments**—Select to crawl
-      attachments.
-   3. **Use local group
-      mappings**—Select to make sure that
-      documents are properly filtered.
-   4. **Additional
-      configuration**—Add regular
-      expression patterns to include or exclude certain
-      files. You can add up to 100 patterns.
-   5. In **Sync run schedule** for
-      **Frequency**—How often
-      Amazon Kendra will sync with your data
-      source.
-   6. Choose **Next**.
+    1. **Use Change log**—Select
+     to update your index instead of syncing all your
+     files.
+    2. **Crawl
+     attachments**—Select to crawl
+     attachments.
+    3. **Use local group
+     mappings**—Select to make sure that
+     documents are properly filtered.
+    4. **Additional
+     configuration**—Add regular
+     expression patterns to include or exclude certain
+     files. You can add up to 100 patterns.
+    5. In **Sync run schedule** for
+     **Frequency**—How often
+     Amazon Kendra will sync with your data
+     source.
+    6. Choose **Next**.
 
 8. On the **Set field mappings** page, enter
-   the following information:
+the following information:
 
-   1. **Amazon Kendra default field
-      mappings**—Select from the Amazon Kendra generated default data source fields
-      you want to map to your index.
-   2. For **Custom field
-      mappings**—Add custom data source
-      fields to create an index field name to map to and
-      the field data type.
-   3. Choose **Next**.
+    1. **Amazon Kendra default field
+     mappings**—Select from the Amazon Kendra generated default data source fields
+     you want to map to your index.
+    2. For **Custom field
+     mappings**—Add custom data source
+     fields to create an index field name to map to and
+     the field data type.
+    3. Choose **Next**.
 
 9. On the **Review and create** page, check that
-   the information you have entered is correct and then select
-   **Add data source**. You can also choose to edit your information from this page.
-   Your data source will appear on the **Data sources** page after the data source has been
-   added successfully.
+the information you have entered is correct and then select
+**Add data source**. You can also choose to edit your information from this page.
+Your data source will appear on the **Data sources** page after the data source has been
+added successfully.
 
 API
 **To connect Amazon Kendra to
