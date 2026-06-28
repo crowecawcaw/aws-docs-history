@@ -96,7 +96,7 @@ impact and can identify inefficiencies.
    console, create a hyperparameter tuning job, and enable the
    early stopping option. Alternatively, configure early
    stopping programmatically using the SageMaker AI Python SDK by
-   setting the early_stopping_type parameter
+   setting the early\_stopping\_type parameter
    to **Auto**.
 4. **Implement debugging
    rules**. Use SageMaker AI Debugger to automatically

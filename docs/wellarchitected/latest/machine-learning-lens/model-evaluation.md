@@ -11,7 +11,7 @@ multiclass models, determine error rates for each class separately.
 You can evaluate your model using historical data (offline evaluation)
 or live data (online evaluation). In offline evaluation, the trained
 model is evaluated with a portion of the dataset that has been set
-aside as a *holdout set*. This holdout data is
+aside as a _holdout set_. This holdout data is
 never used for model training or validation, but rather to evaluate
 errors in the final model. The holdout data annotations must have
 high assigned label correctness for the evaluation to make sense.

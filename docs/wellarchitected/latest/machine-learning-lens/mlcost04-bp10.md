@@ -61,8 +61,8 @@ Amazon SageMaker AI offers built-in support for both warm start and
 checkpointing capabilities. For warm start, you can specify one or
 more parent tuning jobs whose results inform the new job's
 hyperparameter search. SageMaker AI offers two warm start types:
-TRANSFER_LEARNING for adapting knowledge to new
-datasets and IDENTICAL_DATA_AND_ALGORITHM for
+TRANSFER\_LEARNING for adapting knowledge to new
+datasets and IDENTICAL\_DATA\_AND\_ALGORITHM for
 continuing tuning with the same dataset. For checkpointing, you
 can configure your training jobs to periodically save model states
 to Amazon S3, which can be used to resume training if needed.
@@ -86,9 +86,9 @@ to Amazon S3, which can be used to resume training if needed.
    five parent jobs when configuring a warm start tuning job.
 3. **Choose the right warm start
    type**. Select
-   IDENTICAL_DATA_AND_ALGORITHM when
+   IDENTICAL\_DATA\_AND\_ALGORITHM when
    continuing tuning with the same dataset and algorithm, or
-   TRANSFER_LEARNING when adapting knowledge
+   TRANSFER\_LEARNING when adapting knowledge
    to a new but related dataset or problem. The warm start type
    determines how SageMaker AI will use information from the
    parent jobs.
