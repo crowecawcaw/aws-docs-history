@@ -159,7 +159,7 @@ The example includes information from the application you created from the appli
 
 ###### Important
 
-To complete this tutorial, you must create a CloudFormation stack resource named **cc_payment_app_cfn_stackCODE**.
+To complete this tutorial, you must create a CloudFormation stack resource named **cc\_payment\_app\_cfn\_stackCODE**.
 For information about how to create a CloudFormation stack resource,
 see [Creating a stack](associate-attr-groups.md "associate-attr-groups.md") in the _CloudFormation User Guide_
 

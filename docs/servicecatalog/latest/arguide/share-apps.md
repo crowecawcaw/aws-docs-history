@@ -119,25 +119,29 @@ choose **Enable**.
      and then choose **Save settings**.
 
 6. To enable sharing
-   for a member account,
-   under **Application share configuration**,
-   choose **Turn on cross-account sharing**.
+for a member account,
+under **Application share configuration**,
+choose **Turn on cross-account sharing**.
 
-   1. For **Select Organization entity**,
-      select your preferred organization entity (**AWS Organization Account**, **AWS Organization Unit**, or **AWS Organization**).
-   2. For **ID**,
-      enter the ID
-      for your preferred organization entity.
-   3. For **Share permission**,
-      select **Allow associations** or **Read only**.
+    1. For **Select Organization entity**,
+     select your preferred organization entity (**AWS Organization Account**, **AWS Organization Unit**, or **AWS Organization**).
+    2. For **ID**,
+     enter the ID
+     for your preferred organization entity.
+    3. For **Share permission**,
+     select **Allow associations** or **Read only**.
 
-      - **Allow associations**
-        when the selected account
-        can associate resource collections and attribute groups
-        to the application.
-      - **Read only**
-        when the selected account
-        can view the application only.###### Note
+
+
+
+
+    	* **Allow associations**
+    	 when the selected account
+    	 can associate resource collections and attribute groups
+    	 to the application.
+    	* **Read only**
+    	 when the selected account
+    	 can view the application only.###### Note
 
 When you select **Turn on cross-account sharing**,
 you can display the organizational structure

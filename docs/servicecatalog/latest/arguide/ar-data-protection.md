@@ -2,9 +2,9 @@
 
 In the [AWS shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/"),
 you're responsible
-for **_security in the cloud_**
+for _**security in the cloud**_
 while AWS is responsible
-for **_security of the cloud_**.
+for _**security of the cloud**_.
 AWS protects the cloud infrastructure,
 and you protect the content
 that's hosted

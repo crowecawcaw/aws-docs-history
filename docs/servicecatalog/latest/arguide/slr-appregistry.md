@@ -55,7 +55,7 @@ for applications and associated stacks.
 AppRegistry can call APIs on your behalf using the service-linked role
 `AWSServiceRoleForAWSServiceCatalogAppRegistry`. This role trusts
 the service principal
-**_servicecatalog-appregistry.amazonaws.com_**
+_**servicecatalog-appregistry.amazonaws.com**_
 to assume the role.
 
 The following role permissions policy allows AppRegistry
@@ -168,7 +168,7 @@ with the use case `AWSServiceRoleForAWSServiceCatalogAppRegistry`.
 
 You can use the AWS CLI or AWS API to create a service-linked role with the
 service name
-**_servicecatalog-appregistry.amazonaws.com_**.
+_**servicecatalog-appregistry.amazonaws.com**_.
 
 If you delete your service-linked role,
 you can create the role again
