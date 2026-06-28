@@ -42,7 +42,7 @@ With request rate limiting, each API is evaluated individually, and you are
 throttled on the number of requests you make on a per-API basis. Each request
 that you make removes one token from the API's bucket. For example, the token
 bucket size for `DescribeHosts`, a _non-mutating_  
- API action, is 100 tokens. You can make up to 100 `DescribeHosts`
+API action, is 100 tokens. You can make up to 100 `DescribeHosts`
 requests in one second. If you exceed 100 requests in a second, you are throttled
 on that API and the remaining requests within that second fail, however, requests
 for other API are not affected.
@@ -396,7 +396,7 @@ You can request an increase for API throttling limits for your AWS account.
 5. For **Category**, choose **Using AWS & Services**.
 6. Choose **Next step: Additional information**.
 7. For **Subject**, enter `Request an increase in my Amazon EC2 API
-throttling limits`.
+ throttling limits`.
 8. For **Description**, copy the following template and provide the required
    information.
 

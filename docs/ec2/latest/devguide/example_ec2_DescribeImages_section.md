@@ -544,7 +544,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
 
 ```
 
-Using the list_images function with SSM to limit based on your environment. For more details on SSM, see https://docs.aws.amazon.com/systems-manager/latest/userguide/example\_ssm\_GetParameters\_section.html.
+Using the list\_images function with SSM to limit based on your environment. For more details on SSM, see https://docs.aws.amazon.com/systems-manager/latest/userguide/example\_ssm\_GetParameters\_section.html.
 
 ```
     async fn find_image(&mut self) -> Result<ScenarioImage, EC2Error> {

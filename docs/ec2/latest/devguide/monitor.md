@@ -37,7 +37,7 @@ Use the following procedure to request access to this feature for your AWS accou
 6. Choose **Next step: Additional information**.
 7. For **Subject**, enter `Request access to Amazon EC2 API metrics`.
 8. For **Description**, enter `Please grant my account
-access to Amazon EC2 API metrics. Related page: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/monitor.html`.
+ access to Amazon EC2 API metrics. Related page: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/monitor.html`.
    Also include the Region where you need access.
 9. Choose **Next step: Solve now or contact us**.
 10. On the **Contact us** tab, choose your preferred contact language

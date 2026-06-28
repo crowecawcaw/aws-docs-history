@@ -521,7 +521,7 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples").
 
-Wrapper around delete_key that also removes the backing private PEM key.
+Wrapper around delete\_key that also removes the backing private PEM key.
 
 ```
     pub async fn delete(self, ec2: &EC2, util: &Util) -> Result<(), EC2Error> {

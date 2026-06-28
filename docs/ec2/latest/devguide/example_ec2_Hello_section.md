@@ -133,7 +133,7 @@ target_link_libraries(${PROJECT_NAME}
 
 ```
 
-Code for the hello_ec2.cpp source file.
+Code for the hello\_ec2.cpp source file.
 
 ```
 #include <aws/core/Aws.h>

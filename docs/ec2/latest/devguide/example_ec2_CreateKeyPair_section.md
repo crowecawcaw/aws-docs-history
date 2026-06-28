@@ -723,7 +723,7 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples").
 
-Rust implementation that calls the EC2 Client's create_key_pair and extracts the returned material.
+Rust implementation that calls the EC2 Client's create\_key\_pair and extracts the returned material.
 
 ```
     pub async fn create_key_pair(&self, name: String) -> Result<(KeyPairInfo, String), EC2Error> {
@@ -743,7 +743,7 @@ Rust implementation that calls the EC2 Client's create_key_pair and extracts the
 
 ```
 
-A function that calls the create_key impl and securely saves the PEM private key.
+A function that calls the create\_key impl and securely saves the PEM private key.
 
 ```
     /// Creates a key pair that can be used to securely connect to an EC2 instance.
