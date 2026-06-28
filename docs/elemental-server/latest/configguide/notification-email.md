@@ -63,4 +63,4 @@ eventually filling the partition and causing disk alert errors.
      notified on.
 
 2. If your network doesn't allow open relay messages, configure the sendmail server to relay the
-   messages. For steps, see [Configure Sendmail Relay Server](notification-email-sendmail.md "notification-email-sendmail.md").
+messages. For steps, see [Configure Sendmail Relay Server](notification-email-sendmail.md "notification-email-sendmail.md").

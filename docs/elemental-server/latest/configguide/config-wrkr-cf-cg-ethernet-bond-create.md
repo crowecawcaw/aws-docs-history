@@ -55,7 +55,7 @@ First, create the bond for the network devices. In the next step, you will add t
        state of each bonded interface is inspected for link failure, in milliseconds.
        We recommend 100ms as a starting point.
      - **Use Carrier** (optional): When checked, MII uses MII or
-       ETHTOOL ioctls instead of netif_carrier_ok. Relies on the device driver to
+       ETHTOOL ioctls instead of netif\_carrier\_ok. Relies on the device driver to
        maintain link state. Note that ETHTOOL ioctls is less efficient and uses
        deprecated kernel calling sequences.
      - **Down Delay** (optional): Specifies the time, in
@@ -82,7 +82,7 @@ First, create the bond for the network devices. In the next step, you will add t
      - **ARP IP Target**: Specifies the IP address to use for ARP
        probes.
      - **Use Carrier** (optional): When checked, MII uses MII or
-       ETHTOOL ioctls instead of netif_carrier_ok. Relies on the device driver to
+       ETHTOOL ioctls instead of netif\_carrier\_ok. Relies on the device driver to
        maintain link state. Note that ETHTOOL ioctls is less efficient and uses
        deprecated kernel calling sequences.
      - **LACP Rate** (optional): Used with IEEE 802.3ad dynamic

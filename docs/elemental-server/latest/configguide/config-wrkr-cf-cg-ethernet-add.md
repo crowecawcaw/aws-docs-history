@@ -24,7 +24,7 @@ instructions to do so.
    - **Description**: Auto-populates when you choose a device name. You can modify
      the description as needed.
    - **Master Device**: Should display **`No devices with port bond
-settings available.`** This wording indicates that you haven't created a
+  settings available.`** This wording indicates that you haven't created a
      bond-type device, so bonding isn't available.
    - **Address Mode**: Select the type of IP addresses this device uses, either
      **dhcp**, **static**, or
