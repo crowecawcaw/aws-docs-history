@@ -8,11 +8,11 @@ operations, but they cannot export or delete the key, or share it with other use
 You can share keys with other CU users when you create the key, such as by using the
 `-u` parameter of the [genSymKey](key_mgmt_util-genSymKey.md "key_mgmt_util-genSymKey.md") or
 [genRSAKeyPair](key_mgmt_util-genRSAKeyPair.md "key_mgmt_util-genRSAKeyPair.md") commands. To share existing
-keys with a different HSM user, use the [cloudhsm_mgmt_util](cloudhsm_mgmt_util.md "cloudhsm_mgmt_util.md") command line tool. This is different from most of the tasks
-documented in this section, which use the [key_mgmt_util](key_mgmt_util.md "key_mgmt_util.md")
+keys with a different HSM user, use the [cloudhsm\_mgmt\_util](cloudhsm_mgmt_util.md "cloudhsm_mgmt_util.md") command line tool. This is different from most of the tasks
+documented in this section, which use the [key\_mgmt\_util](key_mgmt_util.md "key_mgmt_util.md")
 command line tool.
 
-Before you can share a key, you must start cloudhsm_mgmt_util, enable end-to-end
+Before you can share a key, you must start cloudhsm\_mgmt\_util, enable end-to-end
 encryption, and log in to the HSMs. To share a key, log in to the HSM as the crypto user (CU)
 that owns the key. Only key owners can share a key.
 

@@ -43,12 +43,12 @@ To perform an HSM user management operation, a CO must complete the following ta
 
 ## Step 1. Get a quorum token
 
-First the CO must use the cloudhsm_mgmt_util command line tool to request a
+First the CO must use the cloudhsm\_mgmt\_util command line tool to request a
 _quorum token_.
 
 ###### To get a quorum token
 
-1. Use the following command to start the cloudhsm_mgmt_util command
+1. Use the following command to start the cloudhsm\_mgmt\_util command
    line tool.
 
 ```
@@ -138,7 +138,7 @@ must approve the signed token on the HSM.
 ###### To approve the signed token on the HSM
 
 1. Create a token approval file. For more information, see the following example.
-2. Use the following command to start the cloudhsm_mgmt_util command
+2. Use the following command to start the cloudhsm\_mgmt\_util command
    line tool.
 
 ```
@@ -181,7 +181,7 @@ Approver Name = officer2;
 Approval File = officer1.token.sig2;`
 ```
 
-After creating the token approval file, the CO uses the cloudhsm_mgmt_util
+After creating the token approval file, the CO uses the cloudhsm\_mgmt\_util
 command line tool to log in to the HSM. The CO then uses the **approveToken**
 command to approve the token, as shown in the following example. Replace
 `approval.txt` with the name of the token approval file.
@@ -256,7 +256,7 @@ token, get new signatures from approvers, and approve the new token on the HSM.
 
 ###### Note
 
-The MofN token is only valid as long as your current login session is open. If you log out of cloudhsm_mgmt_util or the network connection disconnects, the token is no longer valid. Similarly, an authorized token can only be used within cloudhsm_mgmt_util, it cannot be used to authenticate in a different application.
+The MofN token is only valid as long as your current login session is open. If you log out of cloudhsm\_mgmt\_util or the network connection disconnects, the token is no longer valid. Similarly, an authorized token can only be used within cloudhsm\_mgmt\_util, it cannot be used to authenticate in a different application.
 
 In the following example command, the CO creates a new user on the HSM.
 

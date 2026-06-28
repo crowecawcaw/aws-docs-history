@@ -61,7 +61,7 @@ your existing web server.
    3. Choose **Create Image**. This action reboots your existing web
       server.
    4. Choose the **View pending image ami-`<AMI
-ID>`** link.
+  ID>`** link.
 
    ![Choose the view pending image link in the Amazon EC2 console.](images/console-ec2-choose-view-pending-image.png)
 
@@ -90,69 +90,66 @@ Details**. 14. For **Step 3: Configure Instance Details**, do the following:
      Add Storage**.
 
 15. Change the storage settings as preferred. Then choose **Next: Add
-    Tags**.
-16. Add or edit tags as preferred. Then choose **Next: Configure Security
-    Group**.
-17. For **Step 6: Configure Security Group**, do the following:
+Tags**. 16. Add or edit tags as preferred. Then choose **Next: Configure Security
+Group**. 17. For **Step 6: Configure Security Group**, do the following:
 
-    1.  For **Assign a security group**, choose **Select an
-        existing security group**.
-    2.  Select the check box next to the security group named
-        **cloudhsm-`<cluster ID>`-sg**. AWS CloudHSM
-        created this security group on your behalf when you [created the cluster](create-cluster.md "create-cluster.md"). You must choose this security group to allow the web
-        server instance to connect to the HSMs in the cluster.
-    3.  Select the check box next to the security group that allows inbound HTTPS traffic.
-        You [created
-        this security group previously](ssl-offload-windows.md#ssl-offload-add-security-group-windows "ssl-offload-windows.md#ssl-offload-add-security-group-windows").
-    4.  (Optional) Select the check box next to a security group that allows inbound SSH
-        (for Linux) or RDP (for Windows) traffic from your network. That is, the security
-        group must allow inbound TCP traffic on port 22 (for SSH on Linux) or port 3389 (for
-        RDP on Windows). Otherwise, you cannot connect to your client instance. If you don't
-        have a security group like this, you must create one and then assign it to your client
-        instance later.Choose **Review and Launch**.
+    1. For **Assign a security group**, choose **Select an
+     existing security group**.
+    2. Select the check box next to the security group named
+     **cloudhsm-`<cluster ID>`-sg**. AWS CloudHSM
+     created this security group on your behalf when you [created the cluster](create-cluster.md "create-cluster.md"). You must choose this security group to allow the web
+     server instance to connect to the HSMs in the cluster.
+    3. Select the check box next to the security group that allows inbound HTTPS traffic.
+     You [created
+     this security group previously](ssl-offload-windows.md#ssl-offload-add-security-group-windows "ssl-offload-windows.md#ssl-offload-add-security-group-windows").
+    4. (Optional) Select the check box next to a security group that allows inbound SSH
+     (for Linux) or RDP (for Windows) traffic from your network. That is, the security
+     group must allow inbound TCP traffic on port 22 (for SSH on Linux) or port 3389 (for
+     RDP on Windows). Otherwise, you cannot connect to your client instance. If you don't
+     have a security group like this, you must create one and then assign it to your client
+     instance later.Choose **Review and Launch**.
 
-18. Review your instance details, and then choose **Launch**.
-19. Choose whether to launch your instance with an existing key pair, create a new key
-    pair, or launch your instance without a key pair.
+18. Review your instance details, and then choose **Launch**. 19. Choose whether to launch your instance with an existing key pair, create a new key
+pair, or launch your instance without a key pair.
 
-        * To use an existing key pair, do the following:
+    * To use an existing key pair, do the following:
 
 
 
 
-        	1. Choose **Choose an existing key pair**.
-        	2. For **Select a key pair**, choose the key pair to use.
-        	3. Select the check box next to **I acknowledge that I have access to the
-        	 selected private key file (`<private key file
-        	 name>`.pem), and that without this file, I won't be able to log
-        	 into my instance.**
-        * To create a new key pair, do the following:
+    	1. Choose **Choose an existing key pair**.
+    	2. For **Select a key pair**, choose the key pair to use.
+    	3. Select the check box next to **I acknowledge that I have access to the
+    	 selected private key file (`<private key file
+    	 name>`.pem), and that without this file, I won't be able to log
+    	 into my instance.**
+    * To create a new key pair, do the following:
 
 
 
 
-        	1. Choose **Create a new key pair**.
-        	2. For **Key pair name**, type a key pair name.
-        	3. Choose **Download Key Pair** and save the private key file in
-        	 a secure and accessible location.
+    	1. Choose **Create a new key pair**.
+    	2. For **Key pair name**, type a key pair name.
+    	3. Choose **Download Key Pair** and save the private key file in
+    	 a secure and accessible location.
 
 
-        	###### Warning
+    	###### Warning
 
-        	You cannot download the private key file again after this point. If you do
-        	 not download the private key file now, you will be unable to access the client
-        	 instance.
-        * To launch your instance without a key pair, do the following:
-
-
+    	You cannot download the private key file again after this point. If you do
+    	 not download the private key file now, you will be unable to access the client
+    	 instance.
+    * To launch your instance without a key pair, do the following:
 
 
-        	1. Choose **Proceed without a key pair**.
-        	2. Select the check box next to **I acknowledge that I will not be able
-        	 to connect to this instance unless I already know the password built into this
-        	 AMI.**
 
-    Choose **Launch Instances**.
+
+    	1. Choose **Proceed without a key pair**.
+    	2. Select the check box next to **I acknowledge that I will not be able
+    	 to connect to this instance unless I already know the password built into this
+    	 AMI.**
+
+Choose **Launch Instances**.
 
 ## Step 3. Create the load balancer
 
@@ -200,7 +197,7 @@ balancer.
 
 When your load balancer's state is active, you can verify that the load balancer is
 working. That is, you can verify that it's sending HTTPS traffic to your web servers with
-SSL/TLS offload with AWS CloudHSM. You can do this with a web browser or a tool such as [OpenSSL s_client](https://www.openssl.org/docs/manmaster/man1/s_client.html "https://www.openssl.org/docs/manmaster/man1/s_client.html").
+SSL/TLS offload with AWS CloudHSM. You can do this with a web browser or a tool such as [OpenSSL s\_client](https://www.openssl.org/docs/manmaster/man1/s_client.html "https://www.openssl.org/docs/manmaster/man1/s_client.html").
 
 ###### To verify that your load balancer is working with a web browser
 
@@ -227,7 +224,7 @@ Other web browsers might have similar features that you can use to view the web 
 certificate. 4. Ensure that the certificate is the one that you configured the web server to
 use.
 
-###### To verify that your load balancer is working with OpenSSL s_client
+###### To verify that your load balancer is working with OpenSSL s\_client
 
 1. Use the following OpenSSL command to connect to your load balancer using HTTPS.
    Replace `<DNS name>` with the DNS name of your load

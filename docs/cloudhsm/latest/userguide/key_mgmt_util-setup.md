@@ -1,18 +1,18 @@
-# Set up AWS CloudHSM key_mgmt_util
+# Set up AWS CloudHSM key\_mgmt\_util
 
-Complete the following setup before you use AWS CloudHSM key_mgmt_util (KMU).
+Complete the following setup before you use AWS CloudHSM key\_mgmt\_util (KMU).
 
 ###### Topics
 
 - [Step 1. Start the AWS CloudHSM client](#key_mgmt_util-start-cloudhsm-client "#key_mgmt_util-start-cloudhsm-client")
-- [Step 2. Start key_mgmt_util](#key_mgmt_util-start "#key_mgmt_util-start")
+- [Step 2. Start key\_mgmt\_util](#key_mgmt_util-start "#key_mgmt_util-start")
 
 ## Step 1. Start the AWS CloudHSM client
 
-Before you use key_mgmt_util, you must start the AWS CloudHSM client. The client is a daemon that
-establishes end-to-end encrypted communication with the HSMs in your cluster. The key_mgmt_util
+Before you use key\_mgmt\_util, you must start the AWS CloudHSM client. The client is a daemon that
+establishes end-to-end encrypted communication with the HSMs in your cluster. The key\_mgmt\_util
 tool uses the client connection to communicate with the HSMs in your cluster. Without it,
-key_mgmt_util doesn't work.
+key\_mgmt\_util doesn't work.
 
 ###### To start the AWS CloudHSM client
 
@@ -80,9 +80,9 @@ Windows
 `C:\Program Files\Amazon\CloudHSM>``start "cloudhsm_client" cloudhsm_client.exe C:\ProgramData\Amazon\CloudHSM\data\cloudhsm_client.cfg`
 ```
 
-## Step 2. Start key_mgmt_util
+## Step 2. Start key\_mgmt\_util
 
-After you start the AWS CloudHSM client, use the following command to start key_mgmt_util.
+After you start the AWS CloudHSM client, use the following command to start key\_mgmt\_util.
 
 Amazon Linux
 
@@ -138,7 +138,7 @@ Windows
 `PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\key_mgmt_util.exe"`
 ```
 
-The prompt changes to `Command:` when key_mgmt_util is running.
+The prompt changes to `Command:` when key\_mgmt\_util is running.
 
 If the command fails, such as returning a `Daemon socket connection error` message, try
 [updating your configuration file](troubleshooting-lost-connection.md "troubleshooting-lost-connection.md").

@@ -1,10 +1,10 @@
 # Verify an AWS CloudHSM key using KMU
 
-Use the **findSingleKey** command in the AWS CloudHSM key_mgmt_util tool to verify that a
+Use the **findSingleKey** command in the AWS CloudHSM key\_mgmt\_util tool to verify that a
 key exists on all hardware security modules (HSM) in the AWS CloudHSM cluster.
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
 (CU).
 
 ## Syntax

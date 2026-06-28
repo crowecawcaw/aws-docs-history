@@ -83,7 +83,7 @@ To synchronize key information and attributes throughout the source cluster:
 
 1. For inconsistent key attributes: Use the `key set-attribute` command to set the desired attribute for the specific key.
 2. For inconsistent shared user coverage: Use the `key share` or `key
-unshare` commands to adjust key sharing with the desired users.
+ unshare` commands to adjust key sharing with the desired users.
 
 ## Problem: Key with same reference exists in destination cluster with different information or attributes
 

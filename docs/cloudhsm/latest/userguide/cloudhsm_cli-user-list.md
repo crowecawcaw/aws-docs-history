@@ -79,7 +79,7 @@ The output includes the following user attributes:
 
 ## Related topics
 
-- [listUsers](key_mgmt_util-listUsers.md "key_mgmt_util-listUsers.md") in key_mgmt_util
+- [listUsers](key_mgmt_util-listUsers.md "key_mgmt_util-listUsers.md") in key\_mgmt\_util
 - [user create](cloudhsm_cli-user-create.md "cloudhsm_cli-user-create.md")
 - [user delete](cloudhsm_cli-user-delete.md "cloudhsm_cli-user-delete.md")
 - [user change-password](cloudhsm_cli-user-change-password.md "cloudhsm_cli-user-change-password.md")

@@ -1,6 +1,6 @@
 # Associate AWS CloudHSM users with keys using CMU
 
-Use the **registerQuorumPubKey** command in the AWS CloudHSM cloudhsm_mgmt_util to associate
+Use the **registerQuorumPubKey** command in the AWS CloudHSM cloudhsm\_mgmt\_util to associate
 hardware security module (HSM) users with asymmetric RSA-2048 key pairs. Once you associate HSM
 users with keys, those users can use the private key to approve quorum requests and the cluster
 can use the registered public key to verify the signature is from the user. For more information
@@ -98,7 +98,7 @@ Required: Yes
 Specifies a friendly name for the user. The maximum length is 31 characters. The
 only special character permitted is an underscore ( \_ ).
 
-You cannot change the name of a user after it is created. In cloudhsm_mgmt_util commands, the
+You cannot change the name of a user after it is created. In cloudhsm\_mgmt\_util commands, the
 user type and password are case-sensitive, but the user name is not.
 
 Required: Yes
@@ -114,7 +114,7 @@ Required: Yes
 
 **<signed-registration-token>**
 
-Specifies the path to a file that contains the SHA256_PKCS mechanism signed hash of
+Specifies the path to a file that contains the SHA256\_PKCS mechanism signed hash of
 the registration-token. For more information, see [Create and Sign a Registration Token](quorum-authentication-crypto-officers-first-time-setup.md#mofn-registration-token "quorum-authentication-crypto-officers-first-time-setup.md#mofn-registration-token").
 
 Required: Yes

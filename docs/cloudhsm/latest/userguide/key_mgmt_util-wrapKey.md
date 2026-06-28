@@ -1,6 +1,6 @@
 # Export an AWS CloudHSM key using KMU
 
-Use the **wrapKey** command in the AWS CloudHSM key_mgmt_util to export an encrypted copy of
+Use the **wrapKey** command in the AWS CloudHSM key\_mgmt\_util to export an encrypted copy of
 a symmetric or private key from the hardware security module (HSM) to a file. When you run
 **wrapKey**, you specify the key to export, a key on the HSM to encrypt (wrap)
 the key that you want to export, and the output file.
@@ -12,8 +12,8 @@ Only the owner of a key, that is, the crypto user (CU) who created the key, can 
 To import the encrypted key back into the HSM, use [unWrapKey](key_mgmt_util-unwrapKey.md "key_mgmt_util-unwrapKey.md"). To export a plaintext key from an HSM, use [exSymKey](key_mgmt_util-exSymKey.md "key_mgmt_util-exSymKey.md") or [exportPrivateKey](key_mgmt_util-exportPrivateKey.md "key_mgmt_util-exportPrivateKey.md") as appropriate. The [aesWrapUnwrap](key_mgmt_util-aesWrapUnwrap.md "key_mgmt_util-aesWrapUnwrap.md") command cannot decrypt (unwrap)
 keys that **wrapKey** encrypts.
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
 (CU).
 
 ## Syntax
@@ -117,7 +117,7 @@ Required: Yes
 
 When using the `RSA_OAEP` wrapping mechanism, the maximum key size that you can wrap is determined by the modulus of the RSA key and the length of the specified hash as follows: Maximum key size = (modulusLengthInBytes-2\*hashLengthInBytes-2).
 
-When using the RSA_PKCS wrapping mechanism, the maximum key size that you can wrap is determined by the modulus of the RSA key as follows: Maximum key size = (modulusLengthInBytes -11).
+When using the RSA\_PKCS wrapping mechanism, the maximum key size that you can wrap is determined by the modulus of the RSA key as follows: Maximum key size = (modulusLengthInBytes -11).
 
 **-t**
 
@@ -145,7 +145,7 @@ Required: No
 **-noheader**
 
 Omits the header that specifies CloudHSM-specific [key attributes](key_mgmt_util-reference.md "key_mgmt_util-reference.md"). Use this parameter _only_ if you want to unwrap the key with tools outside of
-key_mgmt_util.
+key\_mgmt\_util.
 
 Required: No
 
@@ -158,7 +158,7 @@ Valid only when passed with the `-noheader` parameter for `CLOUDHSM_AES_KEY_WRAP
 
 Required: No
 
-**-iv_file**
+**-iv\_file**
 The file in which you want to write the IV value obtained in response.
 
 ###### Note
@@ -167,7 +167,7 @@ Valid only when passed with the `-noheader` parameter for `AES_GCM` mechanism.
 
 Required: No
 
-**-tag_size**
+**-tag\_size**
 The size of tag to be saved along with wrapped blob.
 
 ###### Note

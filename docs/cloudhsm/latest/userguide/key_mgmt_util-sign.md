@@ -1,6 +1,6 @@
 # Generate a signature using AWS CloudHSM KMU
 
-Use the **sign** command in the AWS CloudHSM key_mgmt_util to use a chosen private key to
+Use the **sign** command in the AWS CloudHSM key\_mgmt\_util to use a chosen private key to
 generate a signature for a file.
 
 In order to use **sign**, you must first have a private key in your HSM.
@@ -10,8 +10,8 @@ can also import one with the **[importPrivateKey](key_mgmt_util-importPrivateKey
 The **sign** command uses a user-designated signing mechanism, represented
 by an integer, to sign a message file. For a list of possible signing mechanisms, see [Parameters](#sign-parameters "#sign-parameters").
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM
 as a crypto user (CU).
 
 ## Syntax

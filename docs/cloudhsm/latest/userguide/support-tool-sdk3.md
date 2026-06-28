@@ -8,7 +8,7 @@ The script for the AWS CloudHSM Client SDK 3 extracts the following information:
   `cloudhsm_mgmt_util.cfg`, and
   `application.cfg` files
 - Client logs from the location specific to the platform
-- Cluster and HSM information by using cloudhsm_mgmt_util
+- Cluster and HSM information by using cloudhsm\_mgmt\_util
 - OpenSSL information
 - Current client and build version
 - Installer version

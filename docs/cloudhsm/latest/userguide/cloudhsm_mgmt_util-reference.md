@@ -1,22 +1,22 @@
 # Reference for AWS CloudHSM Management Utility commands
 
-The AWS CloudHSM cloudhsm_mgmt_util command line tool helps crypto officers manage users in the hardware
+The AWS CloudHSM cloudhsm\_mgmt\_util command line tool helps crypto officers manage users in the hardware
 security modules (HSMs) in the AWS CloudHSM cluster. It also includes commands that allow crypto users
 (CUs) to share keys, and get and set key attributes. These commands complement the primary key
-management commands in the [key_mgmt_util](key_mgmt_util.md "key_mgmt_util.md") command line tool.
+management commands in the [key\_mgmt\_util](key_mgmt_util.md "key_mgmt_util.md") command line tool.
 
 For a quick start, see [Getting started with AWS CloudHSM Management Utility (CMU)](cloudhsm_mgmt_util-getting-started.md "cloudhsm_mgmt_util-getting-started.md").
 
-Before you run any cloudhsm_mgmt_util command, you must start cloudhsm_mgmt_util and log in to the HSM. Be sure that
+Before you run any cloudhsm\_mgmt\_util command, you must start cloudhsm\_mgmt\_util and log in to the HSM. Be sure that
 you log in with the user account type that can run the commands you plan to use.
 
-To list all cloudhsm_mgmt_util commands, run the following command:
+To list all cloudhsm\_mgmt\_util commands, run the following command:
 
 ```
 `aws-cloudhsm>` `help`
 ```
 
-To get the syntax for a cloudhsm_mgmt_util command, run the following command:
+To get the syntax for a cloudhsm\_mgmt\_util command, run the following command:
 
 ```
 `aws-cloudhsm>` `help `<command-name>``
@@ -27,7 +27,7 @@ To get the syntax for a cloudhsm_mgmt_util command, run the following command:
 Use the syntax as per the documentation. While the built-in software help may provide additional options, these should not be considered supported and should not be utilized in production code.
 
 To run a command, enter the command name, or enough of the name to distinguish it from the
-names of other cloudhsm_mgmt_util commands.
+names of other cloudhsm\_mgmt\_util commands.
 
 For example, to get a list of users on the HSMs, enter **listUsers** or
 **listU**.
@@ -36,7 +36,7 @@ For example, to get a list of users on the HSMs, enter **listUsers** or
 `aws-cloudhsm>` `listUsers`
 ```
 
-To end your cloudhsm_mgmt_util session, run the following command:
+To end your cloudhsm\_mgmt\_util session, run the following command:
 
 ```
 `aws-cloudhsm>` `quit`
@@ -44,11 +44,11 @@ To end your cloudhsm_mgmt_util session, run the following command:
 
 For help interpreting the key attributes, see the [AWS CloudHSM key attribute reference for KMU](key-attribute-table.md "key-attribute-table.md").
 
-The following topics describe commands in cloudhsm_mgmt_util.
+The following topics describe commands in cloudhsm\_mgmt\_util.
 
 ###### Note
 
-Some commands in key_mgmt_util and cloudhsm_mgmt_util have the same names. However, the commands typically have
+Some commands in key\_mgmt\_util and cloudhsm\_mgmt\_util have the same names. However, the commands typically have
 different syntax, different output, and slightly different functionality.
 
 | Command                                                                                                         | Description                                                                                                                   | User Type                   |
@@ -63,7 +63,7 @@ different syntax, different output, and slightly different functionality.
 | [info](cloudhsm_mgmt_util-info.md "cloudhsm_mgmt_util-info.md")                                                 | Gets information about an HSM, including the IP address,<br>hostname,<br>port, and current user.                              | All. Login is not required. |
 | [listUsers](cloudhsm_mgmt_util-listUsers.md "cloudhsm_mgmt_util-listUsers.md")                                  | Gets the users in each of the HSMs, their user type and ID, and other<br>attributes.                                          | All. Login is not required. |
 | [loginHSM and<br>logoutHSM](cloudhsm_mgmt_util-loginLogout.md "cloudhsm_mgmt_util-loginLogout.md")              | Log in and log out of an HSM.                                                                                                 | All.                        |
-| [quit](cloudhsm_mgmt_util-quit.md "cloudhsm_mgmt_util-quit.md")                                                 | Quits cloudhsm_mgmt_util.                                                                                                     | All. Login is not required. |
+| [quit](cloudhsm_mgmt_util-quit.md "cloudhsm_mgmt_util-quit.md")                                                 | Quits cloudhsm\_mgmt\_util.                                                                                                   | All. Login is not required. |
 | [server](cloudhsm_mgmt_util-server.md "cloudhsm_mgmt_util-server.md")                                           | Enters and exits server mode on an HSM.                                                                                       | All.                        |
 | [registerQuorumPubKey](cloudhsm_mgmt_util-registerQuorumPubKey.md "cloudhsm_mgmt_util-registerQuorumPubKey.md") | Associates an HSM user with an asymmetric RSA-2048 key pair.                                                                  | CO                          |
 | [setAttribute](cloudhsm_mgmt_util-setAttribute.md "cloudhsm_mgmt_util-setAttribute.md")                         | Changes the values of the label, encrypt, decrypt, wrap, and unwrap<br>attributes of an existing key.                         | CU                          |

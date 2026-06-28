@@ -43,12 +43,12 @@ AWS CloudHSM offers two major versions, and Client SDK 5 is the latest. It offer
 Use the key management tool (KMU) create, delete, import, and export symmetric keys and asymmetric key
 pairs:
 
-- [key_mgmt_util](key_mgmt_util.md "key_mgmt_util.md"). This tool is included in the
+- [key\_mgmt\_util](key_mgmt_util.md "key_mgmt_util.md"). This tool is included in the
   AWS CloudHSM client software.
 
 Use the CloudHSM management tool (CMU) to create and delete HSM users, including implementing quorum authentication of user management tasks
 
-- [cloudhsm_mgmt_util](cloudhsm_mgmt_util.md "cloudhsm_mgmt_util.md"). This tool is included in the
+- [cloudhsm\_mgmt\_util](cloudhsm_mgmt_util.md "cloudhsm_mgmt_util.md"). This tool is included in the
   AWS CloudHSM client software.
 
 The following topics further describe the command-line tools available for managing and

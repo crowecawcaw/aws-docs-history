@@ -1,9 +1,9 @@
 # Get hardware information for each HSM in an AWS CloudHSM cluster with CMU
 
-Use the **getHSMInfo** command in the AWS CloudHSM cloudhsm_mgmt_util (CMU) to get information
+Use the **getHSMInfo** command in the AWS CloudHSM cloudhsm\_mgmt\_util (CMU) to get information
 about the hardware on which each hardware security module (HSM) runs, including the model,
 serial number, FIPS state, memory, temperature, and the version numbers of the hardware and
-firmware. The information also includes the server ID that cloudhsm_mgmt_util uses to refer to the
+firmware. The information also includes the server ID that cloudhsm\_mgmt\_util uses to refer to the
 HSM.
 
 Before you run any CMU command, you must start CMU and log in to the HSM. Be

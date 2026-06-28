@@ -1,7 +1,7 @@
 # Install and configure the AWS CloudHSM client for KMU (Linux)
 
 To interact with the hardware security module (HSM) in your AWS CloudHSM cluster using the
-key_mgmt_util (KMU), you need the AWS CloudHSM client software for Linux. You should install it on the
+key\_mgmt\_util (KMU), you need the AWS CloudHSM client software for Linux. You should install it on the
 Linux EC2 client instance that you created previously. You can also install a client if you are
 using Windows. For more information, see [Install and configure the AWS CloudHSM client for KMU (Windows)](kmu-install-and-configure-client-win.md "kmu-install-and-configure-client-win.md").
 

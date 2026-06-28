@@ -565,8 +565,10 @@ C:\Program Files\Amazon\CloudHSM\cloudhsm-pkcs11.log
 ###### To configure the logging level and leave other logging options set to default
 
 - ```
-  `$` `sudo /opt/cloudhsm/bin/configure-pkcs11 --log-level info`
+
   ```
+
+`$` `sudo /opt/cloudhsm/bin/configure-pkcs11 --log-level info`
 
 ````
 
@@ -579,8 +581,10 @@ C:\Program Files\Amazon\CloudHSM\cloudhsm-pkcs11.log
 ###### To configure terminal logging options
 
 - ```
-  `$` `sudo /opt/cloudhsm/bin/configure-pkcs11 --log-type term --log-level info`
+
   ```
+
+`$` `sudo /opt/cloudhsm/bin/configure-pkcs11 --log-type term --log-level info`
 
 ```
 
@@ -610,8 +614,10 @@ stderr
 ###### To configure file logging options
 
 - ```
-  `$` `sudo /opt/cloudhsm/bin/configure-dyn --log-type file --log-file `<file name with path>` --log-rotation daily --log-level info`
+
   ```
+
+`$` `sudo /opt/cloudhsm/bin/configure-dyn --log-type file --log-file `<file name with path>` --log-rotation daily --log-level info`
 
 ````
 
@@ -636,8 +642,10 @@ stderr
 ###### To configure the logging level and leave other logging options set to default
 
 - ```
-  `$` `sudo /opt/cloudhsm/bin/configure-openssl-provider --log-level info`
+
   ```
+
+`$` `sudo /opt/cloudhsm/bin/configure-openssl-provider --log-level info`
 
 ````
 
@@ -650,8 +658,10 @@ stderr
 ###### To configure terminal logging options
 
 - ```
-  `$` `sudo /opt/cloudhsm/bin/configure-openssl-provider --log-type term --log-level info`
+
   ```
+
+`$` `sudo /opt/cloudhsm/bin/configure-openssl-provider --log-type term --log-level info`
 
 ```
 
@@ -681,8 +691,10 @@ C:\Program Files\Amazon\CloudHSM\cloudhsm-ksp.log
 ###### To configure file logging options
 
 - ```
-  `PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-ksp.exe" --log-type file --log-file `<file name with path>` --log-rotation daily --log-level info`
+
   ```
+
+`PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-ksp.exe" --log-type file --log-file `<file name with path>` --log-rotation daily --log-level info`
 
 ````
 
@@ -713,8 +725,10 @@ C:\Program Files\Amazon\CloudHSM\cloudhsm-jce.log
 ###### To configure the logging level and leave other logging options set to default
 
 - ```
-  `$` `sudo /opt/cloudhsm/bin/configure-jce --log-level info`
+
   ```
+
+`$` `sudo /opt/cloudhsm/bin/configure-jce --log-level info`
 
 ````
 
@@ -727,8 +741,10 @@ C:\Program Files\Amazon\CloudHSM\cloudhsm-jce.log
 ###### To configure terminal logging options
 
 - ```
-  `$` `sudo /opt/cloudhsm/bin/configure-jce --log-type term --log-level info`
+
   ```
+
+`$` `sudo /opt/cloudhsm/bin/configure-jce --log-type term --log-level info`
 
 ```
 
@@ -768,8 +784,10 @@ C:\Program Files\Amazon\CloudHSM\cloudhsm-cli.log
 ###### To configure file logging options
 
 - ```
-  `$` `sudo /opt/cloudhsm/bin/configure-cli --log-type file --log-file `<file name with path>` --log-rotation daily --log-level info`
+
   ```
+
+`$` `sudo /opt/cloudhsm/bin/configure-cli --log-type file --log-file `<file name with path>` --log-rotation daily --log-level info`
 
 ````
 

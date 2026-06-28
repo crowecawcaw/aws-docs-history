@@ -27,8 +27,8 @@ Before running the `-a`
 This parameter edits the following configuration files:
 
 - `/opt/cloudhsm/etc/cloudhsm_client.cfg`: Used by AWS CloudHSM client
-  and [key_mgmt_util](key_mgmt_util.md "key_mgmt_util.md").
-- `/opt/cloudhsm/etc/cloudhsm_mgmt_util.cfg`: Used by [cloudhsm_mgmt_util](cloudhsm_mgmt_util.md "cloudhsm_mgmt_util.md").
+  and [key\_mgmt\_util](key_mgmt_util.md "key_mgmt_util.md").
+- `/opt/cloudhsm/etc/cloudhsm_mgmt_util.cfg`: Used by [cloudhsm\_mgmt\_util](cloudhsm_mgmt_util.md "cloudhsm_mgmt_util.md").
 
 When the AWS CloudHSM client starts, it uses the ENI IP address in its configuration file
 to query the cluster and update the `cluster.info` file
@@ -53,7 +53,7 @@ then start the AWS CloudHSM client, the client daemon queries the cluster and up
 in the cluster. Running the `-m`
 **configure** command completes the update by copying the HSM IP
 addresses from the `cluster.info` to the
-`cloudhsm_mgmt_util.cfg` configuration file that cloudhsm_mgmt_util uses.
+`cloudhsm_mgmt_util.cfg` configuration file that cloudhsm\_mgmt\_util uses.
 
 Be sure to run `-a`
 **configure** command and restart the AWS CloudHSM client before running the

@@ -1,6 +1,6 @@
 # Synchronize keys across the AWS CloudHSM cluster using CMU
 
-Use the **syncKey** command in the AWS CloudHSM cloudhsm_mgmt_util to manually synchronize
+Use the **syncKey** command in the AWS CloudHSM cloudhsm\_mgmt\_util to manually synchronize
 keys across HSM instances within a cluster or across cloned clusters. In general, you will
 not need to use this command, as HSM instances within a cluster sync keys automatically.
 However, key synchronization across cloned clusters must be done manually. Cloned clusters
@@ -14,8 +14,8 @@ successful. For more information, see [HSM Users](understanding-users-cmu.md "un
 
 To use **syncKey**, you must first [create
 an AWS CloudHSM configuration file](cloned-clusters.md "cloned-clusters.md") that specifies one HSM from the source cluster and
-one from the destination cluster. This will allow cloudhsm_mgmt_util to connect to both HSM instances.
-Use this configuration file to start cloudhsm_mgmt_util. Then log in with the credentials of a CO or a
+one from the destination cluster. This will allow cloudhsm\_mgmt\_util to connect to both HSM instances.
+Use this configuration file to start cloudhsm\_mgmt\_util. Then log in with the credentials of a CO or a
 CU who owns the keys you want to synchronize.
 
 ## User type
@@ -39,12 +39,12 @@ identifiers for named users. Then, use the [findAllKeys](cloudhsm_mgmt_util-find
 all keys that belong to a particular user.
 
 You also need to know the `server IDs` assigned to the source and
-destination HSMs, which are shown in the trace output returned by cloudhsm_mgmt_util upon
+destination HSMs, which are shown in the trace output returned by cloudhsm\_mgmt\_util upon
 initiation. These are assigned in the same order that the HSMs appear in the
 configuration file.
 
 Follow the instructions in [Using CMU Across Cloned
-Clusters](cloned-clusters.md "cloned-clusters.md") and initialize cloudhsm_mgmt_util with the new config file. Then, enter server
+Clusters](cloned-clusters.md "cloned-clusters.md") and initialize cloudhsm\_mgmt\_util with the new config file. Then, enter server
 mode on the source HSM by issuing the [server](cloudhsm_mgmt_util-server.md "cloudhsm_mgmt_util-server.md") command.
 
 ## Syntax

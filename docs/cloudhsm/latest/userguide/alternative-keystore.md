@@ -110,7 +110,7 @@ and objects resident on the HSM.
 
 Deletes a certificate entry from the local PKCS12 file. Deleting key data
 stored in an HSM is not supported using the AWS CloudHSM KeyStore. You can delete keys
-with CloudHSM’s [key_mgmt_util](key_mgmt_util.md "key_mgmt_util.md") tool.
+with CloudHSM’s [key\_mgmt\_util](key_mgmt_util.md "key_mgmt_util.md") tool.
 
 - `GetCertificate`
 

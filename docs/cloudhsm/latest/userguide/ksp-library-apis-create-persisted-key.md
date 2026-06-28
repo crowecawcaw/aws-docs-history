@@ -21,12 +21,12 @@ cryptographic algorithm identifier for creating the key.
 
 AWS CloudHSM Key Storage Provider (KSP) supports the following algorithms:
 
-| Constant/value                              | Description                                                                   |
-| ------------------------------------------- | ----------------------------------------------------------------------------- |
-| BCRYPT_RSA_ALGORITHM<br>"RSA"               | The RSA public key algorithm.                                                 |
-| BCRYPT_ECDSA_P256_ALGORITHM<br>"ECDSA_P256" | The 256-bit prime elliptic curve digital signature<br>algorithm (FIPS 186-2). |
-| BCRYPT_ECDSA_P384_ALGORITHM<br>"ECDSA_P384" | The 384-bit prime elliptic curve digital signature<br>algorithm (FIPS 186-2). |
-| BCRYPT_ECDSA_P521_ALGORITHM<br>"ECDSA_P521" | The 521-bit prime elliptic curve digital signature<br>algorithm (FIPS 186-2). |
+| Constant/value                                  | Description                                                                   |
+| ----------------------------------------------- | ----------------------------------------------------------------------------- |
+| BCRYPT\_RSA\_ALGORITHM<br>"RSA"                 | The RSA public key algorithm.                                                 |
+| BCRYPT\_ECDSA\_P256\_ALGORITHM<br>"ECDSA\_P256" | The 256-bit prime elliptic curve digital signature<br>algorithm (FIPS 186-2). |
+| BCRYPT\_ECDSA\_P384\_ALGORITHM<br>"ECDSA\_P384" | The 384-bit prime elliptic curve digital signature<br>algorithm (FIPS 186-2). |
+| BCRYPT\_ECDSA\_P521\_ALGORITHM<br>"ECDSA\_P521" | The 521-bit prime elliptic curve digital signature<br>algorithm (FIPS 186-2). |
 
 `pszKeyName` [in, optional]
 
@@ -43,11 +43,11 @@ AWS CloudHSM Key Storage Provider (KSP) doesn't use this parameter.
 Flags to modify the function's behavior. Use zero
 or more of the following values:
 
-| Value                     | Meaning                                                                                                                      |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| NCRYPT_MACHINE_KEY_FLAG   | This flag has no effect.                                                                                                     |
-| NCRYPT_SILENT_FLAG        | This flag has no effect.                                                                                                     |
-| NCRYPT_OVERWRITE_KEY_FLAG | Specifying this flag overwrites any existing key with the same name in the HSM.<br>Without this flag, the function returns . |
+| Value                        | Meaning                                                                                                                      |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| NCRYPT\_MACHINE\_KEY\_FLAG   | This flag has no effect.                                                                                                     |
+| NCRYPT\_SILENT\_FLAG         | This flag has no effect.                                                                                                     |
+| NCRYPT\_OVERWRITE\_KEY\_FLAG | Specifying this flag overwrites any existing key with the same name in the HSM.<br>Without this flag, the function returns . |
 
 ## Return Value
 
@@ -55,11 +55,11 @@ The function returns a status code to indicate success or failure.
 
 Common return codes include:
 
-| Return code           | Description                                                                                        |
-| --------------------- | -------------------------------------------------------------------------------------------------- |
-| ERROR_SUCCESS         | The function completed successfully.                                                               |
-| NTE_INVALID_PARAMETER | One or more parameters are not valid.                                                              |
-| NTE_FAIL              | The operation couldn't complete.                                                                   |
-| NTE_BAD_FLAGS         | The `dwFlags` parameter contains an invalid value.                                                 |
-| NTE_NOT_SUPPORTED     | The `pszAlgId` parameter contains an unsupported value.                                            |
-| NTE_EXISTS            | A key with the specified name already exists and operation didn't use `NCRYPT_OVERWRITE_KEY_FLAG`. |
+| Return code             | Description                                                                                        |
+| ----------------------- | -------------------------------------------------------------------------------------------------- |
+| ERROR\_SUCCESS          | The function completed successfully.                                                               |
+| NTE\_INVALID\_PARAMETER | One or more parameters are not valid.                                                              |
+| NTE\_FAIL               | The operation couldn't complete.                                                                   |
+| NTE\_BAD\_FLAGS         | The `dwFlags` parameter contains an invalid value.                                                 |
+| NTE\_NOT\_SUPPORTED     | The `pszAlgId` parameter contains an unsupported value.                                            |
+| NTE\_EXISTS             | A key with the specified name already exists and operation didn't use `NCRYPT_OVERWRITE_KEY_FLAG`. |

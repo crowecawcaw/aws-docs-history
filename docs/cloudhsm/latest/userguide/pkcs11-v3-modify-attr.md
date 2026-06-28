@@ -1,8 +1,8 @@
 # Modifying PKCS #11 library attributes for AWS CloudHSM Client SDK 3
 
 Some attributes of an object can be modified after the object has been created, whereas
-some cannot. To modify attributes, use the [setAttribute](cloudhsm_mgmt_util-setAttribute.md "cloudhsm_mgmt_util-setAttribute.md") command from cloudhsm_mgmt_util. You can also derive a list of attributes and the
-constants that represent them by using the [listAttribute](cloudhsm_mgmt_util-listAttributes.md "cloudhsm_mgmt_util-listAttributes.md") command from cloudhsm_mgmt_util.
+some cannot. To modify attributes, use the [setAttribute](cloudhsm_mgmt_util-setAttribute.md "cloudhsm_mgmt_util-setAttribute.md") command from cloudhsm\_mgmt\_util. You can also derive a list of attributes and the
+constants that represent them by using the [listAttribute](cloudhsm_mgmt_util-listAttributes.md "cloudhsm_mgmt_util-listAttributes.md") command from cloudhsm\_mgmt\_util.
 
 The following list displays attributes that are allowed for modification after object
 creation:
@@ -13,7 +13,7 @@ creation:
 ###### Note
 
 Modification is allowed only for changing a session key to a token key. Use the
-[setAttribute](key_mgmt_util-setAttribute.md "key_mgmt_util-setAttribute.md") command from key_mgmt_util to
+[setAttribute](key_mgmt_util-setAttribute.md "key_mgmt_util-setAttribute.md") command from key\_mgmt\_util to
 change the attribute value.
 
 - `CKA_ENCRYPT`

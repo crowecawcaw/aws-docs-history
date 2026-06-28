@@ -17,7 +17,7 @@ The OpenSSL Provider requires **hsm2m.medium** cluster types and minimum CloudHS
 1. Use the following commands to download and install the OpenSSL Provider.
 
 Amazon Linux 2023
-Install the OpenSSL Provider for Amazon Linux 2023 on x86_64 architecture:
+Install the OpenSSL Provider for Amazon Linux 2023 on x86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Amzn2023/cloudhsm-openssl-provider-latest.amzn2023.x86_64.rpm`
@@ -38,7 +38,7 @@ Install the OpenSSL Provider for Amazon Linux 2023 on ARM64 architecture:
 ```
 
 RHEL 9 (9.2+)
-Install the OpenSSL Provider for RHEL 9 on x86_64 architecture:
+Install the OpenSSL Provider for RHEL 9 on x86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL9/cloudhsm-openssl-provider-latest.el9.x86_64.rpm`
@@ -59,7 +59,7 @@ Install the OpenSSL Provider for RHEL 9 on ARM64 architecture:
 ```
 
 RHEL 10 (10.0+)
-Install the OpenSSL Provider for RHEL 10 on x86_64 architecture:
+Install the OpenSSL Provider for RHEL 10 on x86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL10/cloudhsm-openssl-provider-latest.el10.x86_64.rpm`
@@ -80,7 +80,7 @@ Install the OpenSSL Provider for RHEL 10 on ARM64 architecture:
 ```
 
 Ubuntu 24.04
-Install the OpenSSL Provider for Ubuntu 24.04 on x86_64 architecture:
+Install the OpenSSL Provider for Ubuntu 24.04 on x86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Noble/cloudhsm-openssl-provider_latest_u24.04_amd64.deb`

@@ -16,10 +16,10 @@ A set of values that specify which algorithm classes to enumerate. You can
 use zero to enumerate all algorithms, or combine one or more of these
 values:
 
-| Value                                                | Meaning                                    |
-| ---------------------------------------------------- | ------------------------------------------ |
-| NCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION<br>0x00000004 | List the asymmetric encryption algorithms. |
-| NCRYPT_SIGNATURE_OPERATION<br>0x00000010             | List the digital signature algorithms.     |
+| Value                                                   | Meaning                                    |
+| ------------------------------------------------------- | ------------------------------------------ |
+| NCRYPT\_ASYMMETRIC\_ENCRYPTION\_OPERATION<br>0x00000004 | List the asymmetric encryption algorithms. |
+| NCRYPT\_SIGNATURE\_OPERATION<br>0x00000010              | List the digital signature algorithms.     |
 
 `pdwAlgCount` [out]
 
@@ -37,9 +37,9 @@ parameter indicates the number of elements in this array.
 Flags to modify the function's behavior. Use zero or the following
 value:
 
-| Value              | Meaning                  |
-| ------------------ | ------------------------ |
-| NCRYPT_SILENT_FLAG | This flag has no effect. |
+| Value                | Meaning                  |
+| -------------------- | ------------------------ |
+| NCRYPT\_SILENT\_FLAG | This flag has no effect. |
 
 ## Return Value
 
@@ -47,10 +47,10 @@ The function returns a status code to indicate success or failure.
 
 Common return codes include:
 
-| Return code           | Description                                                       |
-| --------------------- | ----------------------------------------------------------------- |
-| ERROR_SUCCESS         | The operation completed successfully.                             |
-| NTE_INVALID_PARAMETER | One or more parameters are not valid.                             |
-| NTE_FAIL              | The operation couldn't complete.                                  |
-| NTE_BAD_FLAGS         | The `dwFlags` parameter contains an invalid<br>value.             |
-| NTE_NOT_SUPPORTED     | The `dwAlgOperations` parameter contains an unsupported<br>value. |
+| Return code             | Description                                                       |
+| ----------------------- | ----------------------------------------------------------------- |
+| ERROR\_SUCCESS          | The operation completed successfully.                             |
+| NTE\_INVALID\_PARAMETER | One or more parameters are not valid.                             |
+| NTE\_FAIL               | The operation couldn't complete.                                  |
+| NTE\_BAD\_FLAGS         | The `dwFlags` parameter contains an invalid<br>value.             |
+| NTE\_NOT\_SUPPORTED     | The `dwAlgOperations` parameter contains an unsupported<br>value. |

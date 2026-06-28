@@ -1,6 +1,6 @@
 # Extract an AWS CloudHSM key using KMU
 
-Use the **extractMaskedObject** command in the AWS CloudHSM key_mgmt_util to extract a key
+Use the **extractMaskedObject** command in the AWS CloudHSM key\_mgmt\_util to extract a key
 from a hardware security module (HSM) and saves it
 to
 a file as a masked object. Masked objects are
@@ -13,7 +13,7 @@ and [using that backup to create a new
 cluster](create-cluster-from-backup.md "create-cluster-from-backup.md").
 
 Masked objects are an efficient way to offload and synchronize keys, including
-nonextractable keys (that is, keys that have a [OBJ_ATTR_EXTRACTABLE](key-attribute-table.md "key-attribute-table.md") value of `0`). This way, keys
+nonextractable keys (that is, keys that have a [OBJ\_ATTR\_EXTRACTABLE](key-attribute-table.md "key-attribute-table.md") value of `0`). This way, keys
 can be securely synced across related clusters in different regions without the need to
 update the AWS CloudHSM [configure file](configure-tool.md "configure-tool.md").
 
@@ -21,10 +21,10 @@ update the AWS CloudHSM [configure file](configure-tool.md "configure-tool.md").
 
 Upon insertion, masked objects are decrypted and given a key handle that is different from the key handle of the original key. A masked object
 includes all metadata associated with the original key, including attributes, ownership and sharing information, and quorum settings. If you need to
-sync keys across clusters in an application, use [syncKey](cloudhsm_mgmt_util-syncKey.md "cloudhsm_mgmt_util-syncKey.md") in the cloudhsm_mgmt_util instead.
+sync keys across clusters in an application, use [syncKey](cloudhsm_mgmt_util-syncKey.md "cloudhsm_mgmt_util-syncKey.md") in the cloudhsm\_mgmt\_util instead.
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM.
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM.
 The **extractMaskedObject** command can be used either by the CU who owns the
 key or any CO.
 

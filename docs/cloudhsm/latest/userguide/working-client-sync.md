@@ -190,7 +190,7 @@ To specify client key durability settings, you must edit
 
 ###### Note
 
-The key_mgmt_util (KMU) command-line tool has an additional setting
+The key\_mgmt\_util (KMU) command-line tool has an additional setting
 for client key durability. For more information, see [KMU and client-side synchronization](#kmu-sync "#kmu-sync")
 
 #### Configuration reference
@@ -209,7 +209,7 @@ the `cloudhsm_client.cfg`:
 }
 ```
 
-**create_object_minimum_nodes**
+**create\_object\_minimum\_nodes**
 
 Specifies the minimum number of HSMs required to deem key
 generation, key import, or key unwrap operations a success.
@@ -221,7 +221,7 @@ key_ on one HSM in the cluster.
 
 ### KMU and client-side synchronization
 
-If you create keys with the key_mgmt_util (KMU) command-line tool, you use an
+If you create keys with the key\_mgmt\_util (KMU) command-line tool, you use an
 optional command line parameter (`-min_srv`) to _limit_ the number of HSMs on which to clone keys. If you specify the
 command-line parameter _and_ a value in the
 configuration file, AWS CloudHSM honors the LARGER of the two values.

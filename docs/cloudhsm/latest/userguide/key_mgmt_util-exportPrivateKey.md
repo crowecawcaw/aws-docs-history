@@ -1,6 +1,6 @@
 # Export a private AWS CloudHSM key using KMU
 
-Use the **exportPrivateKey** command in the AWS CloudHSM key_mgmt_util to export an
+Use the **exportPrivateKey** command in the AWS CloudHSM key\_mgmt\_util to export an
 asymmetric private key from a hardware security module (HSM) to a file. The HSM does not
 allow direct export of keys in cleartext. The command wraps the private key using an AES
 wrapping key you specify, decrypts the wrapped bytes, and copies the cleartext private key
@@ -13,8 +13,8 @@ You can only export private keys that have `OBJ_ATTR_EXTRACTABLE` attribute valu
 You must specify an AES wrapping key that has `OBJ_ATTR_WRAP` and `OBJ_ATTR_DECRYPT` attributes value `1`.
 To find a key's attributes, use the [getAttribute](key_mgmt_util-getAttribute.md "key_mgmt_util-getAttribute.md") command.
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM
 as a crypto user (CU).
 
 ## Syntax

@@ -19,12 +19,11 @@ console](https://console.aws.amazon.com/cloudhsm/ "https://console.aws.amazon.co
   the ID of the cluster that contains the HSM that you are deleting and one of the following
   HSM identifiers:
 
-      + The HSM ID (`--hsm-id`)
-      + The HSM IP address (`--eni-ip`)
-      + The HSM's elastic network interface ID (`--eni-id`)
-
-  If you don't know the values for these identifiers, issue the **[describe-clusters](../../../cli/latest/reference/cloudhsmv2/describe-clusters.md "../../../cli/latest/reference/cloudhsmv2/describe-clusters.md")**
-  command.
+  - The HSM ID (`--hsm-id`)
+  - The HSM IP address (`--eni-ip`)
+  - The HSM's elastic network interface ID (`--eni-id`)
+    If you don't know the values for these identifiers, issue the **[describe-clusters](../../../cli/latest/reference/cloudhsmv2/describe-clusters.md "../../../cli/latest/reference/cloudhsmv2/describe-clusters.md")**
+    command.
 
 ```
 `$` `aws cloudhsmv2 delete-hsm --cluster-id `<cluster ID>` --eni-ip `<HSM IP address>``

@@ -1,16 +1,16 @@
 # Log in and out of an HSM using AWS CloudHSM KMU
 
 Use the **loginHSM** and **logoutHSM** commands in the AWS CloudHSM
-key_mgmt_util to log in and out of the hardware security modules (HSM) in a cluster. Once logged in
-to the HSMs, you can use key_mgmt_util to perform a variety of key management operations, including
+key\_mgmt\_util to log in and out of the hardware security modules (HSM) in a cluster. Once logged in
+to the HSMs, you can use key\_mgmt\_util to perform a variety of key management operations, including
 public and private key generation, synchronization, and wrapping.
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start"). In order to manage keys with key_mgmt_util, you must log in to the HSMs as a [crypto user (CU)](understanding-users-cmu.md#crypto-user-cmu "understanding-users-cmu.md#crypto-user-cmu").
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start"). In order to manage keys with key\_mgmt\_util, you must log in to the HSMs as a [crypto user (CU)](understanding-users-cmu.md#crypto-user-cmu "understanding-users-cmu.md#crypto-user-cmu").
 
 ###### Note
 
-If you exceed five incorrect login attempts, your account is locked out. If you created your cluster before February 2018, your account is locked out after 20 incorrect login attempts. To unlock the account, a cryptographic officer (CO) must reset your password using the [changePswd](cloudhsm_mgmt_util-changePswd.md "cloudhsm_mgmt_util-changePswd.md") command in cloudhsm_mgmt_util.
+If you exceed five incorrect login attempts, your account is locked out. If you created your cluster before February 2018, your account is locked out after 20 incorrect login attempts. To unlock the account, a cryptographic officer (CO) must reset your password using the [changePswd](cloudhsm_mgmt_util-changePswd.md "cloudhsm_mgmt_util-changePswd.md") command in cloudhsm\_mgmt\_util.
 
 If you have more than one HSM in your cluster, you may be allowed additional incorrect login attempts before your account is locked out. This is because the CloudHSM client balances load across various HSMs. Therefore, the login attempt may not begin on the same HSM each time. If you are testing this functionality, we recommend you do so on a cluster with only one active HSM.
 
@@ -96,7 +96,7 @@ Displays help for this command.
 
 **-u**
 
-Specifies the login user type. In order to use key_mgmt_util, you must log in as a
+Specifies the login user type. In order to use key\_mgmt\_util, you must log in as a
 CU.
 
 Required: Yes

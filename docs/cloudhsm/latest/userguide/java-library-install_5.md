@@ -28,7 +28,7 @@ Synchronization](manage-key-sync.md "manage-key-sync.md") and [Client SDK 5 Conf
 1. Use the following commands to download and install the JCE provider.
 
 Amazon Linux 2023
-Install the JCE provider for Amazon Linux 2023 on x86_64 architecture:
+Install the JCE provider for Amazon Linux 2023 on x86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Amzn2023/cloudhsm-jce-latest.amzn2023.x86_64.rpm`
@@ -49,7 +49,7 @@ Install the JCE provider for Amazon Linux 2023 on ARM64 architecture:
 ```
 
 Amazon Linux 2
-Install the JCE provider for Amazon Linux 2 on x86_64 architecture:
+Install the JCE provider for Amazon Linux 2 on x86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL7/cloudhsm-jce-latest.el7.x86_64.rpm`
@@ -70,7 +70,7 @@ Install the JCE provider for Amazon Linux 2 on ARM64 architecture:
 ```
 
 RHEL 10 (10.0+)
-Install the JCE provider for RHEL 10 on x86_64 architecture:
+Install the JCE provider for RHEL 10 on x86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL10/cloudhsm-jce-latest.el10.x86_64.rpm`
@@ -91,7 +91,7 @@ Install the JCE provider for RHEL 10 on ARM64 architecture:
 ```
 
 RHEL 9 (9.2+)
-Install the JCE provider for RHEL 9 (9.2+) on x86_64 architecture:
+Install the JCE provider for RHEL 9 (9.2+) on x86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL9/cloudhsm-jce-latest.el9.x86_64.rpm`
@@ -112,7 +112,7 @@ Install the JCE provider for RHEL 9 (9.2+) on ARM64 architecture:
 ```
 
 RHEL 8 (8.3+)
-Install the JCE provider for RHEL 8 on x86_64 architecture:
+Install the JCE provider for RHEL 8 on x86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL8/cloudhsm-jce-latest.el8.x86_64.rpm`
@@ -133,7 +133,7 @@ Install the JCE provider for RHEL 8 on ARM64 architecture:
 ```
 
 Ubuntu 24.04 LTS
-Install the JCE provider for Ubuntu 24.04 LTS on x86_64 architecture:
+Install the JCE provider for Ubuntu 24.04 LTS on x86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Noble/cloudhsm-jce_latest_u24.04_amd64.deb`
@@ -154,7 +154,7 @@ Install the JCE provider for Ubuntu 24.04 LTS on ARM64 architecture:
 ```
 
 Ubuntu 22.04 LTS
-Install the JCE provider for Ubuntu 22.04 LTS on x86_64 architecture:
+Install the JCE provider for Ubuntu 22.04 LTS on x86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Jammy/cloudhsm-jce_latest_u22.04_amd64.deb`
@@ -175,7 +175,7 @@ Install the JCE provider for Ubuntu 22.04 LTS on ARM64 architecture:
 ```
 
 Windows Server
-Install the JCE provider for Windows Server on x86_64 architecture, open PowerShell as an administrator and run the following command:
+Install the JCE provider for Windows Server on x86\_64 architecture, open PowerShell as an administrator and run the following command:
 
 ```
 `PS C:\>` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Windows/AWSCloudHSMJCE-latest.msi -Outfile C:\AWSCloudHSMJCE-latest.msi`

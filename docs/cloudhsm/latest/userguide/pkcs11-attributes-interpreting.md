@@ -17,7 +17,7 @@ specific cryptographic function with AWS CloudHSM.
   default value assigned to the attribute.
 
 | Attribute               | Key Type        | **Default Value** |
-| ----------------------- | --------------- | ----------------- | --------------- | --------------- | ----- |
+| ----------------------- | --------------- | ----------------- |
 |                         | **EC private**  | **EC public**     | **RSA private** | **RSA public**  |       |
 | `CKA_CLASS`             | ✔               | ✔                 | ✔               | ✔               |       |
 | `CKA_KEY_TYPE`          | ✔               | ✔                 | ✔               | ✔               |       |
@@ -61,7 +61,7 @@ specific cryptographic function with AWS CloudHSM.
 | `CKA_CHECK_VALUE`       | R               | R                 | R               | R               |       |
 
 | Attribute               | Key Type        | **Default Value** |
-| ----------------------- | --------------- | ----------------- | ------------------ | ----- |
+| ----------------------- | --------------- | ----------------- |
 |                         | **AES**         | **DES3**          | **Generic Secret** |       |
 | `CKA_CLASS`             | ✔               | ✔                 | ✔                  |       |
 | `CKA_KEY_TYPE`          | ✔               | ✔                 | ✔                  |       |
@@ -105,7 +105,7 @@ specific cryptographic function with AWS CloudHSM.
 | `CKA_CHECK_VALUE`       | R               | R                 | R                  |       |
 
 | Attribute               | Key Type        | **Default Value** |
-| ----------------------- | --------------- | ----------------- | --------------- | --------------- | --------------- | --------------- | ------------------ | ----- |
+| ----------------------- | --------------- | ----------------- |
 |                         | **EC private**  | **EC public**     | **RSA private** | **RSA public**  | **AES**         | **DES3**        | **Generic Secret** |       |
 | `CKA_CLASS`             | ✔[2](#f9 "#f9") | ✔[2](#f9 "#f9")   | ✔[2](#f9 "#f9") | ✔[2](#f9 "#f9") | ✔[2](#f9 "#f9") | ✔[2](#f9 "#f9") | ✔[2](#f9 "#f9")    |       |
 | `CKA_KEY_TYPE`          | ✔[2](#f9 "#f9") | ✔[2](#f9 "#f9")   | ✔[2](#f9 "#f9") | ✔[2](#f9 "#f9") | ✔[2](#f9 "#f9") | ✔[2](#f9 "#f9") | ✔[2](#f9 "#f9")    |       |
@@ -149,7 +149,7 @@ specific cryptographic function with AWS CloudHSM.
 | `CKA_CHECK_VALUE`       | R               | R                 | R               | R               | R               | R               | R                  |       |
 
 | Attribute               | Key Type        | **Default Value** |
-| ----------------------- | --------------- | ----------------- | --------------- | --------------- | ------------------ | ----- |
+| ----------------------- | --------------- | ----------------- |
 |                         | **EC private**  | **RSA private**   | **AES**         | **DES3**        | **Generic Secret** |       |
 | `CKA_CLASS`             | ✔[2](#f9 "#f9") | ✔[2](#f9 "#f9")   | ✔[2](#f9 "#f9") | ✔[2](#f9 "#f9") | ✔[2](#f9 "#f9")    |       |
 | `CKA_KEY_TYPE`          | ✔[2](#f9 "#f9") | ✔[2](#f9 "#f9")   | ✔[2](#f9 "#f9") | ✔[2](#f9 "#f9") | ✔[2](#f9 "#f9")    |       |
@@ -189,7 +189,7 @@ specific cryptographic function with AWS CloudHSM.
 | `CKA_CHECK_VALUE`       | R               | R                 | R               | R               | R                  |       |
 
 | Attribute               | Key Type        | **Default Value** |
-| ----------------------- | --------------- | ----------------- | ------------------ | ----- |
+| ----------------------- | --------------- | ----------------- |
 |                         | **AES**         | **DES3**          | **Generic Secret** |       |
 | `CKA_CLASS`             | ✔[2](#f9 "#f9") | ✔[2](#f9 "#f9")   | ✔[2](#f9 "#f9")    |       |
 | `CKA_KEY_TYPE`          | ✔[2](#f9 "#f9") | ✔[2](#f9 "#f9")   | ✔[2](#f9 "#f9")    |       |
@@ -229,7 +229,7 @@ specific cryptographic function with AWS CloudHSM.
 | `CKA_CHECK_VALUE`       | R               | R                 | R                  |       |
 
 | Attribute               | Key Type        |
-| ----------------------- | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- | ------------------ |
+| ----------------------- | --------------- |
 |                         | **EC private**  | **EC public**   | **RSA private** | **RSA public**  | **AES**         | **DES3**        | **Generic Secret** |
 | `CKA_CLASS`             | ✔               | ✔               | ✔               | ✔               | ✔               | ✔               | ✔                  |
 | `CKA_KEY_TYPE`          | ✔               | ✔               | ✔               | ✔               | ✔               | ✔               | ✔                  |

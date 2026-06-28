@@ -8,7 +8,7 @@ types.
 | **AES**                       | Generate 128, 192, and 256-bit AES keys.                                                                                                       |
 | **Triple DES (3DES, DESede)** | Generate a 192-bit Triple DES Key [\*](#java-lib-keys_5-note-1 "#java-lib-keys_5-note-1").                                                     |
 | **EC**                        | Generate EC key pairs – NIST curves secp224r1 (P-224), secp256r1 (P-256), secp256k1<br>(Blockchain), secp384r1 (P-384), and secp521r1 (P-521). |
-| **GENERIC_SECRET**            | Generate 1 to 800 bytes generic secrets.                                                                                                       |
+| **GENERIC\_SECRET**           | Generate 1 to 800 bytes generic secrets.                                                                                                       |
 | **HMAC**                      | Hash support for SHA1, SHA224, SHA256, SHA384, SHA512.                                                                                         |
 | **RSA**                       | Generate 2048-bit to 4096-bit RSA keys, in increments of 256 bits.                                                                             |
 

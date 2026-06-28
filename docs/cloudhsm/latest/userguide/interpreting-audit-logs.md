@@ -386,7 +386,7 @@ Priv/Secret Key Handle: 131079
 Public Key Handle: 131078
 ```
 
-The CU immediately deletes the key pair. A CN_DESTROY_OBJECT event records the deletion
+The CU immediately deletes the key pair. A CN\_DESTROY\_OBJECT event records the deletion
 of the public key (131078).
 
 ```
@@ -442,7 +442,7 @@ other HSMs as a masked object.
 ###### Note
 
 The client tools might fail to synchronize the key. Or the command might include the
-**min_srv** parameter, which synchronizes the key only to the specified
+**min\_srv** parameter, which synchronizes the key only to the specified
 number of HSMs. In either case, the AWS CloudHSM service synchronizes the key to the other HSMs
 in the cluster. Because the HSMs record only client-side management commands in their
 logs, the server-side synchronization is not recorded in the HSM log.
@@ -547,7 +547,7 @@ stream of the HSM that received the commands.
 This example shows the audit log events that are recorded when a crypto user (CU)
 exports keys from a cluster with multiple HSMs.
 
-The following event records the CU (`testuser`) logging into [key_mgmt_util](key_mgmt_util.md "key_mgmt_util.md").
+The following event records the CU (`testuser`) logging into [key\_mgmt\_util](key_mgmt_util.md "key_mgmt_util.md").
 
 ```
 Time: 01/24/18 19:42:22.695884, usecs:1516822942695884

@@ -56,16 +56,14 @@ cluster through the OpenSSL API.
 
 - For Client SDK 3, the OpenSSL Dynamic Engine is Linux only component that does _not_ match Linux base support. See the exclusions below.
 
-      + Requires OpenSSL 1.0.2[f+]
+  - Requires OpenSSL 1.0.2[f+]
+    **Unsupported platforms:**
 
-  **Unsupported platforms:**
-
-      + CentOS 8
-      + Red Hat Enterprise Linux (RHEL) 8
-      + Ubuntu 18.04 LTS
-
-  These platforms ship with a version of OpenSSL incompatible with OpenSSL Dynamic Engine for Client SDK 3. AWS CloudHSM
-  supports these platforms with OpenSSL Dynamic Engine for Client SDK 5.
+  - CentOS 8
+  - Red Hat Enterprise Linux (RHEL) 8
+  - Ubuntu 18.04 LTS
+    These platforms ship with a version of OpenSSL incompatible with OpenSSL Dynamic Engine for Client SDK 3. AWS CloudHSM
+    supports these platforms with OpenSSL Dynamic Engine for Client SDK 5.
 
 - For Client SDK 5, the OpenSSL Dynamic Engine is a Linux only component that requires OpenSSL 1.0.2, 1.1.1, or 3.x.
 

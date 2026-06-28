@@ -1,6 +1,6 @@
 # Get an AWS CloudHSM key attribute using KMU
 
-Use the **getAttribute** command in the AWS CloudHSM key_mgmt_util to write one or all of
+Use the **getAttribute** command in the AWS CloudHSM key\_mgmt\_util to write one or all of
 the attribute values for an AWS CloudHSM key to a file. If the attribute you specify does not exist for
 the key type, such as the modulus of an AES key, **getAttribute** returns an
 error.
@@ -10,16 +10,16 @@ characteristics, like the key type, class, label, and ID, and values that repres
 you can perform with the key, like encrypt, decrypt, wrap, sign, and verify.
 
 You can use **getAttribute** only on keys that you own and key that are
-shared with you. You can run this command or the [getAttribute](cloudhsm_mgmt_util-getAttribute.md "cloudhsm_mgmt_util-getAttribute.md") command in cloudhsm_mgmt_util, which gets one attribute value of a key from all HSMs in
+shared with you. You can run this command or the [getAttribute](cloudhsm_mgmt_util-getAttribute.md "cloudhsm_mgmt_util-getAttribute.md") command in cloudhsm\_mgmt\_util, which gets one attribute value of a key from all HSMs in
 a cluster, and writes it to stdout or to a file.
 
 To get a list of attributes and the constants that represent them, use the [listAttributes](key_mgmt_util-listAttributes.md "key_mgmt_util-listAttributes.md") command. To change the attribute
 values of existing keys, use [setAttribute](key_mgmt_util-setAttribute.md "key_mgmt_util-setAttribute.md") in
-key_mgmt_util and [setAttribute](cloudhsm_mgmt_util-setAttribute.md "cloudhsm_mgmt_util-setAttribute.md") in cloudhsm_mgmt_util.
+key\_mgmt\_util and [setAttribute](cloudhsm_mgmt_util-setAttribute.md "cloudhsm_mgmt_util-setAttribute.md") in cloudhsm\_mgmt\_util.
 For help interpreting the key attributes, see the [AWS CloudHSM key attribute reference for KMU](key-attribute-table.md "key-attribute-table.md").
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
 (CU).
 
 ## Syntax
@@ -195,7 +195,7 @@ Required: Yes
 
 ## Related topics
 
-- [getAttribute](cloudhsm_mgmt_util-getAttribute.md "cloudhsm_mgmt_util-getAttribute.md") in cloudhsm_mgmt_util
+- [getAttribute](cloudhsm_mgmt_util-getAttribute.md "cloudhsm_mgmt_util-getAttribute.md") in cloudhsm\_mgmt\_util
 - [listAttributes](key_mgmt_util-listAttributes.md "key_mgmt_util-listAttributes.md")
 - [setAttribute](key_mgmt_util-setAttribute.md "key_mgmt_util-setAttribute.md")
 - [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md")

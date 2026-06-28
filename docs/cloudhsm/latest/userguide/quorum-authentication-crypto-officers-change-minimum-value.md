@@ -23,7 +23,7 @@ descriptions, and the commands that are included in the service.
 
 ###### To change the quorum minimum value for crypto officers
 
-1. Use the following command to start the cloudhsm_mgmt_util command
+1. Use the following command to start the cloudhsm\_mgmt\_util command
    line tool.
 
 ```

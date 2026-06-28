@@ -216,7 +216,7 @@ Enter pass phrase for `<customerRootCA>`.key:`
 
 ```
 
-This command creates a file named ``<cluster ID>`\_CustomerHsmCertificate.crt`.
+This command creates a file named ``<cluster ID>`_CustomerHsmCertificate.crt`.
 Use this file as the signed certificate when you initialize the cluster.
 
 Verify the signed certificate against the root CA (optional):
@@ -503,7 +503,7 @@ Download the signed cluster certificate:
 
 ```
 
-This command creates a file named ``<cluster ID>`\_CustomerHsmCertificate.crt`.
+This command creates a file named ``<cluster ID>`_CustomerHsmCertificate.crt`.
 Use this file as the signed certificate when you initialize the cluster.
 
 Verify the signed certificate against the certificate chain (optional):
@@ -542,7 +542,7 @@ Console###### To initialize a cluster (console)
       file**. Then locate and select the HSM certificate that you
       signed previously. If you completed the steps in the previous section,
       select the file named ``<cluster
-ID>`\_CustomerHsmCertificate.crt`.
+        ID>`_CustomerHsmCertificate.crt`.
    2. Next to **Issuing certificate**, choose **Upload
       file**. Then select your signing certificate based on the approach you chose:
 
@@ -559,7 +559,7 @@ AWS CLI###### To initialize a cluster ([AWS CLI](../../../cli/latest/userguide.m
   - The ID of the cluster that you created previously.
   - The HSM certificate that you signed previously. If you completed the steps in the
     previous section, it's saved in a file named
-    ``<cluster ID>`\_CustomerHsmCertificate.crt`.
+    ``<cluster ID>`_CustomerHsmCertificate.crt`.
   - Your signing certificate based on the approach you chose:
 
     - **If you chose Option A (single self-signed certificate):** Use the file named ``<customerRootCA>`.crt`
@@ -582,7 +582,7 @@ AWS CloudHSM API###### To initialize a cluster (AWS CloudHSM API)
   - The ID of the cluster that you created previously.
   - The HSM certificate that you signed previously. If you completed the steps in the
     previous section, it's saved in a file named
-    ``<cluster ID>`\_CustomerHsmCertificate.crt`.
+    ``<cluster ID>`_CustomerHsmCertificate.crt`.
   - Your signing certificate based on the approach you chose:
 
     - **If you chose Option A (single self-signed certificate):** Use the file named ``<customerRootCA>`.crt`

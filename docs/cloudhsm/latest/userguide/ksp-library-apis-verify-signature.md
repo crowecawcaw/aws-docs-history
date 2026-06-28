@@ -42,11 +42,11 @@ signature.
 Flags to modify the function's behavior. The allowed flags depend on your
 key type. Use one of these values:
 
-| Value                 | Meaning                                                                                                                                                   |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NCRYPT_PAD_PKCS1_FLAG | Indicates the signature used PKCS1 padding. Set<br>`pPaddingInfo` to point to a<br>`BCRYPT_PKCS1_PADDING_INFO`<br>structure.                              |
-| NCRYPT_PAD_PSS_FLAG   | Indicates the signature used Probabilistic Signature<br>Scheme (PSS) padding. Set `pPaddingInfo` to<br>point to a `BCRYPT_PSS_PADDING_INFO`<br>structure. |
-| NCRYPT_SILENT_FLAG    | This flag has no effect.                                                                                                                                  |
+| Value                    | Meaning                                                                                                                                                   |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NCRYPT\_PAD\_PKCS1\_FLAG | Indicates the signature used PKCS1 padding. Set<br>`pPaddingInfo` to point to a<br>`BCRYPT_PKCS1_PADDING_INFO`<br>structure.                              |
+| NCRYPT\_PAD\_PSS\_FLAG   | Indicates the signature used Probabilistic Signature<br>Scheme (PSS) padding. Set `pPaddingInfo` to<br>point to a `BCRYPT_PSS_PADDING_INFO`<br>structure. |
+| NCRYPT\_SILENT\_FLAG     | This flag has no effect.                                                                                                                                  |
 
 ## Return Value
 
@@ -54,13 +54,13 @@ The function returns a status code to indicate success or failure.
 
 Common return codes include:
 
-| Return code           | Description                                               |
-| --------------------- | --------------------------------------------------------- |
-| ERROR_SUCCESS         | The operation completed successfully.                     |
-| NTE_INVALID_PARAMETER | One or more parameters are not valid.                     |
-| NTE_FAIL              | The operation couldn't complete.                          |
-| NTE_INVALID_HANDLE    | The handle in `hKey` is not valid.                        |
-| NTE_BAD_FLAGS         | The `dwFlags` parameter contains an invalid<br>value.     |
-| NTE_BAD_SIGNATURE     | The signature was not verified.                           |
-| NTE_BAD_KEY_STATE     | The key state is not valid.                               |
-| NTE_INTERNAL_ERROR    | An internal error happened while verifying the signature. |
+| Return code             | Description                                               |
+| ----------------------- | --------------------------------------------------------- |
+| ERROR\_SUCCESS          | The operation completed successfully.                     |
+| NTE\_INVALID\_PARAMETER | One or more parameters are not valid.                     |
+| NTE\_FAIL               | The operation couldn't complete.                          |
+| NTE\_INVALID\_HANDLE    | The handle in `hKey` is not valid.                        |
+| NTE\_BAD\_FLAGS         | The `dwFlags` parameter contains an invalid<br>value.     |
+| NTE\_BAD\_SIGNATURE     | The signature was not verified.                           |
+| NTE\_BAD\_KEY\_STATE    | The key state is not valid.                               |
+| NTE\_INTERNAL\_ERROR    | An internal error happened while verifying the signature. |

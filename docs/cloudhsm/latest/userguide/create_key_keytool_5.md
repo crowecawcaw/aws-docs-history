@@ -21,7 +21,7 @@ associated certificates on each client instance you need to run a Java applicati
 as described in [Generate an AWS CloudHSM CSR using keytool](generate_csr_using_keytool_5.md "generate_csr_using_keytool_5.md"). Alternatively, you can make the necessary changes on one client
 and copy the resulting key store file to every other client instance.
 
-**Example 1:** To generate a symmetric AES-256 key and save it in a key store file named, "example_keystore.store",
+**Example 1:** To generate a symmetric AES-256 key and save it in a key store file named, "example\_keystore.store",
 in the working directory. Replace `<secret label>` with a unique label.
 
 Linux
@@ -42,7 +42,7 @@ Windows
 
 ```
 
-**Example 2:** To generate an RSA 2048 key pair and save it in a key store file named, "example_keystore.store"
+**Example 2:** To generate an RSA 2048 key pair and save it in a key store file named, "example\_keystore.store"
 in the working directory. Replace `<RSA key pair label>` with a unique label.
 
 Linux

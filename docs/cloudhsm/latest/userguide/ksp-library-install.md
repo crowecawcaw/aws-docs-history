@@ -12,7 +12,7 @@ Synchronization](manage-key-sync.md "manage-key-sync.md") and [Client SDK 5 Conf
 
 ###### To install and configure the Key Storage Provider (KSP)
 
-1. Install the Key Storage Provider (KSP) for Windows Server on x86_64 architecture, open PowerShell as an administrator and run the following command:
+1. Install the Key Storage Provider (KSP) for Windows Server on x86\_64 architecture, open PowerShell as an administrator and run the following command:
 
 ```
 `PS C:\>` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Windows/AWSCloudHSMKSP-latest.msi -Outfile C:\AWSCloudHSMKSP-latest.msi`

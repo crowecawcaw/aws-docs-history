@@ -42,7 +42,7 @@ includes improved stability and bug fixes for all SDKs.
 - Now supported on ARM architecture with Amazon Linux 2.
 - Algorithms
 
-  - CKM_AES_CMAC (sign and verify)
+  - CKM\_AES\_CMAC (sign and verify)
 
 ###### OpenSSL Dynamic Engine
 
@@ -54,17 +54,16 @@ includes improved stability and bug fixes for all SDKs.
 - Improved stability and bug fixes.
 - Algorithms
 
-      + AESCMAC
-
-  Version 5.6.0 includes new mechanism support for PKCS #11 library and JCE provider.
-  Additionally, version 5.6 supports Ubuntu 20.04.
+  - AESCMAC
+    Version 5.6.0 includes new mechanism support for PKCS #11 library and JCE provider.
+    Additionally, version 5.6 supports Ubuntu 20.04.
 
 ###### PKCS #11 library
 
 - Improved stability and bug fixes.
 - Mechanisms
 
-  - CKM_RSA_X_509, for encrypt, decrypt, sign, and verify
+  - CKM\_RSA\_X\_509, for encrypt, decrypt, sign, and verify
     modes
 
 ###### OpenSSL Dynamic Engine
@@ -146,22 +145,21 @@ includes improved stability and bug fixes for all SDKs.
 
 - Sign/Verify
 
-      + RSASSA-PSS
-      + SHA1withRSA/PSS
-      + SHA224withRSA/PSS
-      + SHA256withRSA/PSS
-      + SHA384withRSA/PSS
-      + SHA512withRSA/PSS
-      + SHA1withRSAandMGF1
-      + SHA224withRSAandMGF1
-      + SHA256withRSAandMGF1
-      + SHA384withRSAandMGF1
-      + SHA512withRSAandMGF1
-
-  Version 5.4.2 includes improved stability and bug fixes for all SDKs. This
-  is also the last release for the CentOS 8 platform. For more information,
-  see the [CentOS website](https://www.centos.org/centos-linux-eol/ "https://www.centos.org/centos-linux-eol/")
-  .
+  - RSASSA-PSS
+  - SHA1withRSA/PSS
+  - SHA224withRSA/PSS
+  - SHA256withRSA/PSS
+  - SHA384withRSA/PSS
+  - SHA512withRSA/PSS
+  - SHA1withRSAandMGF1
+  - SHA224withRSAandMGF1
+  - SHA256withRSAandMGF1
+  - SHA384withRSAandMGF1
+  - SHA512withRSAandMGF1
+    Version 5.4.2 includes improved stability and bug fixes for all SDKs. This
+    is also the last release for the CentOS 8 platform. For more information,
+    see the [CentOS website](https://www.centos.org/centos-linux-eol/ "https://www.centos.org/centos-linux-eol/")
+    .
 
 ###### PKCS #11 library
 
@@ -330,18 +328,18 @@ Key Types
 - Triple DES (3DES)
   Mechanisms
 
-- CKM_EC_KEY_PAIR_GEN
-- CKM_DES3_KEY_GEN
-- CKM_DES3_CBC
-- CKM_DES3_CBC_PAD
-- CKM_DES3_ECB
-- CKM_ECDSA
-- CKM_ECDSA_SHA1
-- CKM_ECDSA_SHA224
-- CKM_ECDSA_SHA256
-- CKM_ECDSA_SHA384
-- CKM_ECDSA_SHA512
-- CKM_RSA_PKCS for Encrypt/Decrypt
+- CKM\_EC\_KEY\_PAIR\_GEN
+- CKM\_DES3\_KEY\_GEN
+- CKM\_DES3\_CBC
+- CKM\_DES3\_CBC\_PAD
+- CKM\_DES3\_ECB
+- CKM\_ECDSA
+- CKM\_ECDSA\_SHA1
+- CKM\_ECDSA\_SHA224
+- CKM\_ECDSA\_SHA256
+- CKM\_ECDSA\_SHA384
+- CKM\_ECDSA\_SHA512
+- CKM\_RSA\_PKCS for Encrypt/Decrypt
 
 **OpenSSL Dynamic Engine**
 
@@ -352,35 +350,35 @@ Key Types
 
 Mechanisms
 
-- CKM_RSA_PKCS for Wrap/Unwrap
-- CKM_RSA_PKCS_PSS
-- CKM_SHA1_RSA_PKCS_PSS
-- CKM_SHA224_RSA_PKCS_PSS
-- CKM_SHA256_RSA_PKCS_PSS
-- CKM_SHA384_RSA_PKCS_PSS
-- CKM_SHA512_RSA_PKCS_PSS
-- CKM_AES_ECB
-- CKM_AES_CTR
-- CKM_AES_CBC
-- CKM_AES_CBC_PAD
-- CKM_SP800_108_COUNTER_KDF
-- CKM_GENERIC_SECRET_KEY_GEN
-- CKM_SHA_1_HMAC
-- CKM_SHA224_HMAC
-- CKM_SHA256_HMAC
-- CKM_SHA384_HMAC
-- CKM_SHA512_HMAC
-- CKM_RSA_PKCS_OAEP Wrap/Unwrap only
-- CKM_RSA_AES_KEY_WRAP
-- CKM_CLOUDHSM_AES_KEY_WRAP_NO_PAD
-- CKM_CLOUDHSM_AES_KEY_WRAP_PKCS5_PAD
-- CKM_CLOUDHSM_AES_KEY_WRAP_ZERO_PAD
+- CKM\_RSA\_PKCS for Wrap/Unwrap
+- CKM\_RSA\_PKCS\_PSS
+- CKM\_SHA1\_RSA\_PKCS\_PSS
+- CKM\_SHA224\_RSA\_PKCS\_PSS
+- CKM\_SHA256\_RSA\_PKCS\_PSS
+- CKM\_SHA384\_RSA\_PKCS\_PSS
+- CKM\_SHA512\_RSA\_PKCS\_PSS
+- CKM\_AES\_ECB
+- CKM\_AES\_CTR
+- CKM\_AES\_CBC
+- CKM\_AES\_CBC\_PAD
+- CKM\_SP800\_108\_COUNTER\_KDF
+- CKM\_GENERIC\_SECRET\_KEY\_GEN
+- CKM\_SHA\_1\_HMAC
+- CKM\_SHA224\_HMAC
+- CKM\_SHA256\_HMAC
+- CKM\_SHA384\_HMAC
+- CKM\_SHA512\_HMAC
+- CKM\_RSA\_PKCS\_OAEP Wrap/Unwrap only
+- CKM\_RSA\_AES\_KEY\_WRAP
+- CKM\_CLOUDHSM\_AES\_KEY\_WRAP\_NO\_PAD
+- CKM\_CLOUDHSM\_AES\_KEY\_WRAP\_PKCS5\_PAD
+- CKM\_CLOUDHSM\_AES\_KEY\_WRAP\_ZERO\_PAD
   API Operations
 
-- C_CreateObject
-- C_DeriveKey
-- C_WrapKey
-- C_UnWrapKey
+- C\_CreateObject
+- C\_DeriveKey
+- C\_WrapKey
+- C\_UnWrapKey
 
 **OpenSSL Dynamic Engine**
 
@@ -397,28 +395,23 @@ Mechanisms
 - This release offers introductory support for key types and OpenSSL
   APIs:
 
-      + RSA key generation for 2048, 3072, and 4096-bit keys
-      + OpenSSL APIs:
+  - RSA key generation for 2048, 3072, and 4096-bit keys
+  - OpenSSL APIs:
 
-
-
-
-      	- [RSA
-      	 Sign](https://www.openssl.org/docs/man1.1.1/man3/EVP_DigestSignInit.html "https://www.openssl.org/docs/man1.1.1/man3/EVP_DigestSignInit.html") using RSA PKCS with
-      	 SHA1/224/256/384/512 & RSA PSS
-      	- [RSA
-      	 Key Generation](https://www.openssl.org/docs/man1.1.1/man1/genrsa.html "https://www.openssl.org/docs/man1.1.1/man1/genrsa.html")
-
-  For more information, see [OpenSSL Dynamic Engine](openssl-library.md "openssl-library.md")
-  .
+    - [RSA
+      Sign](https://www.openssl.org/docs/man1.1.1/man3/EVP_DigestSignInit.html "https://www.openssl.org/docs/man1.1.1/man3/EVP_DigestSignInit.html") using RSA PKCS with
+      SHA1/224/256/384/512 & RSA PSS
+    - [RSA
+      Key Generation](https://www.openssl.org/docs/man1.1.1/man1/genrsa.html "https://www.openssl.org/docs/man1.1.1/man1/genrsa.html")
+      For more information, see [OpenSSL Dynamic Engine](openssl-library.md "openssl-library.md")
+      .
 
 - Platforms supported: CentOS 8.3+, Red Hat Enterprise Linux (RHEL)
   8.3+,
   and Ubuntu 18.04 LTS
 
-      + Requires: OpenSSL 1.1.1
-
-  For more information, see [Supported Platforms](client-supported-platforms.md "client-supported-platforms.md").
+  - Requires: OpenSSL 1.1.1
+    For more information, see [Supported Platforms](client-supported-platforms.md "client-supported-platforms.md").
 
 - Support for SSL/TLS Offload on CentOS 8.3+, Red Hat Enterprise
   Linux
@@ -451,68 +444,68 @@ attributes Client SDK version 5.0.0.
 
 **Mechanisms**:
 
-- CKM_AES_GCM
-- CKM_AES_KEY_GEN
-- CKM_CLOUDHSM_AES_GCM
-- CKM_RSA_PKCS
-- CKM_RSA_X9_31_KEY_PAIR_GEN
-- CKM_SHA1
-- CKM_SHA1_RSA_PKCS
-- CKM_SHA224
-- CKM_SHA224_RSA_PKCS
-- CKM_SHA256
-- CKM_SHA256_RSA_PKCS
-- CKM_SHA384
-- CKM_SHA384_RSA_PKCS
-- CKM_SHA512
-- CKM_SHA512_RSA_PKCS
+- CKM\_AES\_GCM
+- CKM\_AES\_KEY\_GEN
+- CKM\_CLOUDHSM\_AES\_GCM
+- CKM\_RSA\_PKCS
+- CKM\_RSA\_X9\_31\_KEY\_PAIR\_GEN
+- CKM\_SHA1
+- CKM\_SHA1\_RSA\_PKCS
+- CKM\_SHA224
+- CKM\_SHA224\_RSA\_PKCS
+- CKM\_SHA256
+- CKM\_SHA256\_RSA\_PKCS
+- CKM\_SHA384
+- CKM\_SHA384\_RSA\_PKCS
+- CKM\_SHA512
+- CKM\_SHA512\_RSA\_PKCS
 
 [Show moreShow less](# "#")
 **API Operations**:
 
-- C_CloseAllSessions
-- C_CloseSession
-- C_Decrypt
-- C_DecryptFinal
-- C_DecryptInit
-- C_DecryptUpdate
-- C_DestroyObject
-- C_Digest
-- C_DigestFinal
-- C_DigestInit
-- C_DigestUpdate
-- C_Encrypt
-- C_EncryptFinal
-- C_EncryptInit
-- C_EncryptUpdate
-- C_Finalize
-- C_FindObjects
-- C_FindObjectsFinal
-- C_FindObjectsInit
-- C_GenerateKey
-- C_GenerateKeyPair
-- C_GenerateRandom
-- C_GetAttributeValue
-- C_GetFunctionList
-- C_GetInfo
-- C_GetMechanismInfo
-- C_GetMechanismList
-- C_GetSessionInfo
-- C_GetSlotInfo
-- C_GetSlotList
-- C_GetTokenInfo
-- C_Initialize
-- C_Login
-- C_Logout
-- C_OpenSession
-- C_Sign
-- C_SignFinal
-- C_SignInit
-- C_SignUpdate
-- C_Verify
-- C_VerifyFinal
-- C_VerifyInit
-- C_VerifyUpdate
+- C\_CloseAllSessions
+- C\_CloseSession
+- C\_Decrypt
+- C\_DecryptFinal
+- C\_DecryptInit
+- C\_DecryptUpdate
+- C\_DestroyObject
+- C\_Digest
+- C\_DigestFinal
+- C\_DigestInit
+- C\_DigestUpdate
+- C\_Encrypt
+- C\_EncryptFinal
+- C\_EncryptInit
+- C\_EncryptUpdate
+- C\_Finalize
+- C\_FindObjects
+- C\_FindObjectsFinal
+- C\_FindObjectsInit
+- C\_GenerateKey
+- C\_GenerateKeyPair
+- C\_GenerateRandom
+- C\_GetAttributeValue
+- C\_GetFunctionList
+- C\_GetInfo
+- C\_GetMechanismInfo
+- C\_GetMechanismList
+- C\_GetSessionInfo
+- C\_GetSlotInfo
+- C\_GetSlotList
+- C\_GetTokenInfo
+- C\_Initialize
+- C\_Login
+- C\_Logout
+- C\_OpenSession
+- C\_Sign
+- C\_SignFinal
+- C\_SignInit
+- C\_SignUpdate
+- C\_Verify
+- C\_VerifyFinal
+- C\_VerifyInit
+- C\_VerifyUpdate
 
 [Show moreShow less](# "#")
 **Attributes**:
@@ -650,7 +643,7 @@ Version 3.4.4 adds updates to JCE provider.
 **Windows (CNG and KSP providers)**
 
 - Improved stability and bug fixes.
-  Version 3.3.2 resolves an [issue](ki-all.md#ki-all-9 "ki-all.md#ki-all-9") with the client_info script.
+  Version 3.3.2 resolves an [issue](ki-all.md#ki-all-9 "ki-all.md#ki-all-9") with the client\_info script.
 
 **AWS CloudHSM Client Software**
 
@@ -777,8 +770,8 @@ Version 3.4.4 adds updates to JCE provider.
 **AWS CloudHSM Client Software**
 
 - Adds support for hiding your password when using command-line
-  tools. For more information, see [loginHSM and logoutHSM](cloudhsm_mgmt_util-loginLogout.md "cloudhsm_mgmt_util-loginLogout.md") (cloudhsm_mgmt_util) and [loginHSM
-  and logoutHSM](key_mgmt_util-loginHSM.md "key_mgmt_util-loginHSM.md") (key_mgmt_util).
+  tools. For more information, see [loginHSM and logoutHSM](cloudhsm_mgmt_util-loginLogout.md "cloudhsm_mgmt_util-loginLogout.md") (cloudhsm\_mgmt\_util) and [loginHSM
+  and logoutHSM](key_mgmt_util-loginHSM.md "key_mgmt_util-loginHSM.md") (key\_mgmt\_util).
 
 **PKCS #11 library**
 
@@ -848,13 +841,13 @@ Version 3.4.4 adds updates to JCE provider.
   match the version of any software libraries you are using. To
   upgrade, you must use a batch command that upgrades the client and
   all the libraries at the same time. For more information, see [Client SDK 3 Upgrade](client-upgrade.md "client-upgrade.md").
-- Key_mgmt_util (KMU) includes the following updates:
+- Key\_mgmt\_util (KMU) includes the following updates:
 
   - Added two new AES key wrap methods – standards-compliant
     AES key wrap with zero padding and AES key wrap with no
     padding. For more information, see [wrapKey](key_mgmt_util-wrapKey.md "key_mgmt_util-wrapKey.md") and [unwrapKey](key_mgmt_util-unwrapKey.md "key_mgmt_util-unwrapKey.md").
   - Disabled ability to specify custom IV when wrapping a key
-    using AES_KEY_WRAP_PAD_PKCS5. For more information, see [AES Key
+    using AES\_KEY\_WRAP\_PAD\_PKCS5. For more information, see [AES Key
     Wrapping](manage-aes-key-wrapping.md "manage-aes-key-wrapping.md").
 
 **PKCS #11 Library**

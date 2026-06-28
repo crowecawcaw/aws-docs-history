@@ -59,10 +59,9 @@ The following issues impact all AWS CloudHSM hsm2m.medium instances.
 - **Resolution:** To minimize service interruptions, implement these
   best practices:
 
-      + Create a multi-HSM cluster
-      + Configure your applications to retry cluster operations
-
-  For more information about best practices, see [Best practices for AWS CloudHSM](best-practices.md "best-practices.md").
+  - Create a multi-HSM cluster
+  - Configure your applications to retry cluster operations
+    For more information about best practices, see [Best practices for AWS CloudHSM](best-practices.md "best-practices.md").
 
 ## Issue: Client SDK 5.8 and above do not perform automatic retries for HSM throttled operations in some scenarios on hsm2m.medium
 

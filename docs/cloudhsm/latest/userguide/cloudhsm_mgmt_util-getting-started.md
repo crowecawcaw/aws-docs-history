@@ -51,7 +51,7 @@ Connected to server '10.0.1.12': hostname '10.0.1.12', port 2225.
 
 ```
 
-The prompt changes to `aws-cloudhsm>` when cloudhsm_mgmt_util is running. 3. Use the **loginHSM** command to log in to the cluster. Any type user can
+The prompt changes to `aws-cloudhsm>` when cloudhsm\_mgmt\_util is running. 3. Use the **loginHSM** command to log in to the cluster. Any type user can
 use this command to log in to the cluster.
 
 The command in the following example logs in _admin_,
@@ -174,7 +174,7 @@ logoutHSM success on server 1(10.0.3.11)
 logoutHSM success on server 2(10.0.1.12)`
 ```
 
-9. Use the **quit** command to stop cloudhsm_mgmt_util.
+9. Use the **quit** command to stop cloudhsm\_mgmt\_util.
 
 ```
 `aws-cloudhsm>``quit`

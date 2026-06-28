@@ -1,13 +1,13 @@
 # Get HSM partition certificates using AWS CloudHSM KMU
 
-Use the **getCert** command in the AWS CloudHSM key_mgmt_util to retrieve a hardware
+Use the **getCert** command in the AWS CloudHSM key\_mgmt\_util to retrieve a hardware
 security module's (HSM) partition certificates and saves them to a file. When you run the
 command, you designate the type of certificate to retrieve. To do that, you use one of the
 corresponding integers as described in the [Parameters](#kmu-getCert-parameters "#kmu-getCert-parameters") section that follows. To learn about the role of each of these
 certificates, see [Verify HSM Identity](verify-hsm-identity.md "verify-hsm-identity.md").
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
 (CU).
 
 ## Syntax

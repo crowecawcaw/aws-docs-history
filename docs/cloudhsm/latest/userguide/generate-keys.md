@@ -1,6 +1,6 @@
 # Generate keys with the AWS CloudHSM KMU
 
-To generate keys on the hardware security module (HSM), use the command in AWS CloudHSM key_mgmt_util
+To generate keys on the hardware security module (HSM), use the command in AWS CloudHSM key\_mgmt\_util
 (KMU) that corresponds to the type of key that you want to generate.
 
 ###### Topics

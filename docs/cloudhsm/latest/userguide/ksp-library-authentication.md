@@ -46,9 +46,9 @@ can use the Python code included in the installer.
       - **Internet or Network Address**:
         `CLOUDHSM_PIN`.
       - **Username**: `<CU
-USER>`.
+  USER>`.
       - **Password**: `<CU
-PASSWORD>`.
+  PASSWORD>`.
 
   5.  Choose **OK**
 
@@ -87,4 +87,4 @@ setx /m CLOUDHSM_PIN test_user:password123
 
 ###### Note
 
-When setting CLOUDHSM_PIN environment variables, you must escape any special characters that may be interpreted by your shell.
+When setting CLOUDHSM\_PIN environment variables, you must escape any special characters that may be interpreted by your shell.

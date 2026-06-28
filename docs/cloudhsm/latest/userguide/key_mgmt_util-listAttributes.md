@@ -1,12 +1,12 @@
 # List the attributes of an AWS CloudHSM key using KMU
 
-Use the **listAttributes** command in the AWS CloudHSM key_mgmt_util to list the attributes
+Use the **listAttributes** command in the AWS CloudHSM key\_mgmt\_util to list the attributes
 of an AWS CloudHSM key and the constants that represent them. You use these constants to identify the
 attributes in [getAttribute](key_mgmt_util-getAttribute.md "key_mgmt_util-getAttribute.md") and [setAttribute](key_mgmt_util-setAttribute.md "key_mgmt_util-setAttribute.md") commands.
 For help interpreting the key attributes, see the [AWS CloudHSM key attribute reference for KMU](key-attribute-table.md "key-attribute-table.md").
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
 (CU).
 
 ## Syntax
@@ -19,10 +19,10 @@ listAttributes
 
 ## Example
 
-This command lists the key attributes that you can get and change in key_mgmt_util and the
+This command lists the key attributes that you can get and change in key\_mgmt\_util and the
 constants that represent them. For help interpreting the key attributes, see the [AWS CloudHSM key attribute reference for KMU](key-attribute-table.md "key-attribute-table.md").
 
-To represent all attributes in the [getAttribute](key_mgmt_util-getAttribute.md "key_mgmt_util-getAttribute.md") command in key_mgmt_util, use `512`.
+To represent all attributes in the [getAttribute](key_mgmt_util-getAttribute.md "key_mgmt_util-getAttribute.md") command in key\_mgmt\_util, use `512`.
 
 ```
 `Command:` `listAttributes`
@@ -51,7 +51,7 @@ To represent all attributes in the [getAttribute](key_mgmt_util-getAttribute.md 
 
 ## Related topics
 
-- [listAttributes](cloudhsm_mgmt_util-listAttributes.md "cloudhsm_mgmt_util-listAttributes.md") in cloudhsm_mgmt_util
+- [listAttributes](cloudhsm_mgmt_util-listAttributes.md "cloudhsm_mgmt_util-listAttributes.md") in cloudhsm\_mgmt\_util
 - [getAttribute](key_mgmt_util-getAttribute.md "key_mgmt_util-getAttribute.md")
 - [setAttribute](key_mgmt_util-setAttribute.md "key_mgmt_util-setAttribute.md")
 - [Key Attribute Reference](key-attribute-table.md "key-attribute-table.md")

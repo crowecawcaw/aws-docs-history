@@ -7,7 +7,7 @@ the AWS CloudHSM command line tools. For more information,
 see [Launch an Amazon EC2 client instance for interacting with AWS CloudHSM](launch-client-instance.md "launch-client-instance.md").
 
 Amazon Linux 2023
-Amazon Linux 2023 on x86_64 architecture:
+Amazon Linux 2023 on x86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Amzn2023/cloudhsm-cli-latest.amzn2023.x86_64.rpm`
@@ -28,7 +28,7 @@ Amazon Linux 2023 on ARM64 architecture:
 ```
 
 Amazon Linux 2
-Amazon Linux 2 on x86_64 architecture:
+Amazon Linux 2 on x86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL7/cloudhsm-cli-latest.el7.x86_64.rpm`
@@ -49,7 +49,7 @@ Amazon Linux 2 on ARM64 architecture:
 ```
 
 RHEL 10 (10.0+)
-RHEL 10 on x86_64 architecture:
+RHEL 10 on x86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL10/cloudhsm-cli-latest.el10.x86_64.rpm`
@@ -70,7 +70,7 @@ RHEL 10 on ARM64 architecture:
 ```
 
 RHEL 9 (9.2+)
-RHEL 9 on x86_64 architecture:
+RHEL 9 on x86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL9/cloudhsm-cli-latest.el9.x86_64.rpm`
@@ -91,7 +91,7 @@ RHEL 9 on ARM64 architecture:
 ```
 
 RHEL 8 (8.3+)
-RHEL 8 on x86_64 architecture:
+RHEL 8 on x86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL8/cloudhsm-cli-latest.el8.x86_64.rpm`
@@ -112,7 +112,7 @@ RHEL 8 on ARM64 architecture:
 ```
 
 Ubuntu 24.04 LTS
-Ubuntu 24.04 LTS on x86_64 architecture:
+Ubuntu 24.04 LTS on x86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Noble/cloudhsm-cli_latest_u24.04_amd64.deb`
@@ -133,7 +133,7 @@ Ubuntu 24.04 LTS on ARM64 architecture:
 ```
 
 Ubuntu 22.04 LTS
-Ubuntu 22.04 LTS on x86_64 architecture:
+Ubuntu 22.04 LTS on x86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Jammy/cloudhsm-cli_latest_u22.04_amd64.deb`
@@ -154,7 +154,7 @@ Ubuntu 22.04 LTS on ARM64 architecture:
 ```
 
 Windows Server 2022
-For Windows Server 2022 on x86_64 architecture, open PowerShell as an administrator and run the following command:
+For Windows Server 2022 on x86\_64 architecture, open PowerShell as an administrator and run the following command:
 
 ```
 `PS C:\>` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Windows/AWSCloudHSMCLI-latest.msi -Outfile C:\AWSCloudHSMCLI-latest.msi`
@@ -165,7 +165,7 @@ For Windows Server 2022 on x86_64 architecture, open PowerShell as an administra
 ```
 
 Windows Server 2019
-For Windows Server 2019 on x86_64 architecture, open PowerShell as an administrator and run the following command:
+For Windows Server 2019 on x86\_64 architecture, open PowerShell as an administrator and run the following command:
 
 ```
 `PS C:\>` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Windows/AWSCloudHSMCLI-latest.msi -Outfile C:\AWSCloudHSMCLI-latest.msi`
@@ -176,7 +176,7 @@ For Windows Server 2019 on x86_64 architecture, open PowerShell as an administra
 ```
 
 Windows Server 2016
-For Windows Server 2016 on x86_64 architecture, open PowerShell as an administrator and run the following command:
+For Windows Server 2016 on x86\_64 architecture, open PowerShell as an administrator and run the following command:
 
 ```
 `PS C:\>` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Windows/AWSCloudHSMCLI-latest.msi -Outfile C:\AWSCloudHSMCLI-latest.msi`

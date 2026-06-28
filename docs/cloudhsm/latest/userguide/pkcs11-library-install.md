@@ -26,7 +26,7 @@ Synchronization](manage-key-sync.md "manage-key-sync.md") and [Client SDK 5 Conf
 1. Use the following commands to download and install the PKCS #11 library.
 
 Amazon Linux 2023
-Install the PKCS #11 library for Amazon Linux 2023 on X86_64 architecture:
+Install the PKCS #11 library for Amazon Linux 2023 on X86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Amzn2023/cloudhsm-pkcs11-latest.amzn2023.x86_64.rpm`
@@ -47,7 +47,7 @@ Install the PKCS #11 library for Amazon Linux 2023 on ARM64 architecture:
 ```
 
 Amazon Linux 2
-Install the PKCS #11 library for Amazon Linux 2 on X86_64 architecture:
+Install the PKCS #11 library for Amazon Linux 2 on X86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL7/cloudhsm-pkcs11-latest.el7.x86_64.rpm`
@@ -68,7 +68,7 @@ Install the PKCS #11 library for Amazon Linux 2 on ARM64 architecture:
 ```
 
 RHEL 10 (10.0+)
-Install the PKCS #11 library for RHEL 10 on X86_64 architecture:
+Install the PKCS #11 library for RHEL 10 on X86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL10/cloudhsm-pkcs11-latest.el10.x86_64.rpm`
@@ -89,7 +89,7 @@ Install the PKCS #11 library for RHEL 10 on ARM64 architecture:
 ```
 
 RHEL 9 (9.2+)
-Install the PKCS #11 library for RHEL 9 on X86_64 architecture:
+Install the PKCS #11 library for RHEL 9 on X86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL9/cloudhsm-pkcs11-latest.el9.x86_64.rpm`
@@ -110,7 +110,7 @@ Install the PKCS #11 library for RHEL 9 on ARM64 architecture:
 ```
 
 RHEL 8 (8.3+)
-Install the PKCS #11 library for RHEL 8 on X86_64 architecture:
+Install the PKCS #11 library for RHEL 8 on X86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL8/cloudhsm-pkcs11-latest.el8.x86_64.rpm`
@@ -131,7 +131,7 @@ Install the PKCS #11 library for RHEL 8 on ARM64 architecture:
 ```
 
 Ubuntu 24.04 LTS
-Install the PKCS #11 library for Ubuntu 24.04 LTS on X86_64 architecture:
+Install the PKCS #11 library for Ubuntu 24.04 LTS on X86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Noble/cloudhsm-pkcs11_latest_u24.04_amd64.deb`
@@ -152,7 +152,7 @@ Install the PKCS #11 library for Ubuntu 24.04 LTS on ARM64 architecture:
 ```
 
 Ubuntu 22.04 LTS
-Install the PKCS #11 library for Ubuntu 22.04 LTS on X86_64 architecture:
+Install the PKCS #11 library for Ubuntu 22.04 LTS on X86\_64 architecture:
 
 ```
 `$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Jammy/cloudhsm-pkcs11_latest_u22.04_amd64.deb`
@@ -173,31 +173,35 @@ Install the PKCS #11 library for Ubuntu 22.04 LTS on ARM64 architecture:
 ```
 
 Windows Server
-Install the PKCS #11 library for Windows Server on X86_64 architecture:
+Install the PKCS #11 library for Windows Server on X86\_64 architecture:
 
     1. Download [PKCS #11 library for Client SDK 5](https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Windows/AWSCloudHSMPKCS11-latest.msi "https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Windows/AWSCloudHSMPKCS11-latest.msi").
     2. Run the PKCS #11 library installer (**AWSCloudHSMPKCS11-latest.msi**) with Windows administrative
      privilege.
 
 2. Use the configure tool to specify the location of the issuing
-   certificate. For instructions, see [Specify the location of the issuing certificate](cluster-connect.md#specify-cert-location "cluster-connect.md#specify-cert-location").
-3. To connect to your cluster, see [Bootstrap the Client SDK](cluster-connect.md#connect-how-to "cluster-connect.md#connect-how-to").
-4. You can find the PKCS #11 library files in the following locations:
+certificate. For instructions, see [Specify the location of the issuing certificate](cluster-connect.md#specify-cert-location "cluster-connect.md#specify-cert-location"). 3. To connect to your cluster, see [Bootstrap the Client SDK](cluster-connect.md#connect-how-to "cluster-connect.md#connect-how-to"). 4. You can find the PKCS #11 library files in the following locations:
 
-   - Linux binaries, configuration scripts, and log files:
+    * Linux binaries, configuration scripts, and log files:
 
-   ```
-   `/opt/cloudhsm`
-   ```
 
-   Windows binaries:
 
-   ```
-   `C:\Program Files\Amazon\CloudHSM`
-   ```
+    ```
+    `/opt/cloudhsm`
+    ```
 
-   Windows configuration scripts and log files:
+    Windows binaries:
 
-   ```
-   `C:\ProgramData\Amazon\CloudHSM`
-   ```
+
+
+    ```
+    `C:\Program Files\Amazon\CloudHSM`
+    ```
+
+    Windows configuration scripts and log files:
+
+
+
+    ```
+    `C:\ProgramData\Amazon\CloudHSM`
+    ```

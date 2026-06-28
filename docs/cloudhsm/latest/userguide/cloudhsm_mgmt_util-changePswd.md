@@ -1,6 +1,6 @@
 # Change a user's password using CMU
 
-Use the **changePswd** command in the AWS CloudHSM cloudhsm_mgmt_util (CMU) to change the
+Use the **changePswd** command in the AWS CloudHSM cloudhsm\_mgmt\_util (CMU) to change the
 password of an existing user on the hardware security modules (HSM) in the AWS CloudHSM cluster.
 
 Any user can change their own password. In addition, Crypto officers (COs and PCOs) can
@@ -9,7 +9,7 @@ password to make the change.
 
 ###### Note
 
-You cannot change the password of a user who is currently logged into the AWS CloudHSM client or key_mgmt_util.
+You cannot change the password of a user who is currently logged into the AWS CloudHSM client or key\_mgmt\_util.
 
 Before you run any CMU command, you must start CMU and log in to the HSM. Be
 sure that you log in with a user type that can run the commands you plan to

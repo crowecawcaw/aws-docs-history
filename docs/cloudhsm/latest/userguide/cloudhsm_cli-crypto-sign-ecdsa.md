@@ -112,7 +112,7 @@ Required: Yes
 
 **`<KEY_FILTER>`**
 
-Key reference (for example, `key-reference=0xabc`) or space separated list of key attributes in the form of attr.KEY_ATTRIBUTE_NAME=KEY_ATTRIBUTE_VALUE to select a matching key.
+Key reference (for example, `key-reference=0xabc`) or space separated list of key attributes in the form of attr.KEY\_ATTRIBUTE\_NAME=KEY\_ATTRIBUTE\_VALUE to select a matching key.
 
 For a listing of supported CloudHSM CLI key attributes, see Key attributes for CloudHSM CLI.
 

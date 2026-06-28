@@ -15,9 +15,9 @@ The following types of users can run this command.
   See [Creating clusters from backups](create-cluster-from-backup.md "create-cluster-from-backup.md") for more information.
 - To run this command, you must be logged in as an admin on both the source and destination clusters.
 
-  - In single command mode, the command will use the CLOUDHSM_PIN and CLOUDHSM_ROLE environmental variables to authenticate on the source cluster.
+  - In single command mode, the command will use the CLOUDHSM\_PIN and CLOUDHSM\_ROLE environmental variables to authenticate on the source cluster.
     See [Single Command mode](cloudhsm_cli-modes.md#cloudhsm_cli-mode-single-command "cloudhsm_cli-modes.md#cloudhsm_cli-mode-single-command") for more information.
-    To provide credentials for the destination cluster, you need to set two additional environmental variables: DESTINATION_CLOUDHSM_PIN and DESTINATION_CLOUDHSM_ROLE:
+    To provide credentials for the destination cluster, you need to set two additional environmental variables: DESTINATION\_CLOUDHSM\_PIN and DESTINATION\_CLOUDHSM\_ROLE:
 
   ```
   `$` `export DESTINATION_CLOUDHSM_ROLE=`<role>``

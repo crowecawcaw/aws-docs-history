@@ -129,7 +129,7 @@ The following are the service events that AWS CloudHSM logs to CloudTrail.
 
 - `DeleteBackup` – Logged when AWS CloudHSM automatically deletes a backup based on
   your backup retention policy.
-- `BackupDeletedPermanently` – Logged when a PENDING_DELETION backup is
+- `BackupDeletedPermanently` – Logged when a PENDING\_DELETION backup is
   permanently purged and can no longer be restored.
 - `MigrationStart` – Logged when an HSM type migration begins for a
   cluster.

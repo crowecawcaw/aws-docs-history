@@ -1,6 +1,6 @@
 # Export a plaintext copy of an AWS CloudHSM key using KMU
 
-Use the **exSymKey** command in the AWS CloudHSM key_mgmt_util tool to export a plaintext
+Use the **exSymKey** command in the AWS CloudHSM key\_mgmt\_util tool to export a plaintext
 copy of a symmetric key from the hardware security module (HSM) and saves it in a file on disk.
 To export an encrypted (wrapped) copy of a key, use [wrapKey](key_mgmt_util-wrapKey.md "key_mgmt_util-wrapKey.md"). To import a plaintext key, like the ones that `exSymKey` exports,
 use [imSymKey](key_mgmt_util-imSymKey.md "key_mgmt_util-imSymKey.md").
@@ -20,8 +20,8 @@ cryptographic operations. You can export the same key multiple times.
 
 **exSymKey** exports only symmetric keys. To export public keys, use [exportPubKey](key_mgmt_util-exportPubKey.md "key_mgmt_util-exportPubKey.md"). To export private keys, use [exportPrivateKey](key_mgmt_util-exportPrivateKey.md "key_mgmt_util-exportPrivateKey.md").
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
 (CU).
 
 ## Syntax

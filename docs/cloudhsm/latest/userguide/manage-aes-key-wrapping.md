@@ -64,7 +64,7 @@ You wrap and unwrap keys as follows:
 - In the [CloudHSM CLI](cloudhsm_cli.md "cloudhsm_cli.md"), choose the appropriate algorithm from
   the list of supported [The key wrap command in CloudHSM CLI](cloudhsm_cli-key-wrap.md "cloudhsm_cli-key-wrap.md") and [The key unwrap command in CloudHSM CLI](cloudhsm_cli-key-unwrap.md "cloudhsm_cli-key-unwrap.md") algorithms as
   shown in the following table.
-- In [key_mgmt_util (KMU)](key_mgmt_util.md "key_mgmt_util.md"), use commands
+- In [key\_mgmt\_util (KMU)](key_mgmt_util.md "key_mgmt_util.md"), use commands
   [Export an AWS CloudHSM key using KMU](key_mgmt_util-wrapKey.md "key_mgmt_util-wrapKey.md") and [Unwrap an AWS CloudHSM key using KMU](key_mgmt_util-unwrapKey.md "key_mgmt_util-unwrapKey.md")
   with appropriate m values as shown in
   the following table.

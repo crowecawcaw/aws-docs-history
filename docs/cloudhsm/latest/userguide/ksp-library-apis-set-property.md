@@ -20,18 +20,18 @@ to retrieve.
 When using `NCRYPT_PROV_HANDLE`, AWS CloudHSM Key Storage Provider (KSP) supports the
 following KSP identifiers:
 
-| Identifier/Value                              | Description                                                                        |
-| --------------------------------------------- | ---------------------------------------------------------------------------------- |
-| NCRYPT_USE_CONTEXT_PROPERTY<br>L"Use Context" | A pointer to a null-terminated Unicode string<br>describing the operation context. |
+| Identifier/Value                                 | Description                                                                        |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| NCRYPT\_USE\_CONTEXT\_PROPERTY<br>L"Use Context" | A pointer to a null-terminated Unicode string<br>describing the operation context. |
 
 When using `NCRYPT_KEY_HANDLE`, AWS CloudHSM Key Storage Provider (KSP) supports the
 following KSP identifiers:
 
-| Identifier/Value                                  | Description                                                                                                                                                                                                                                                                      |
-| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NCRYPT_KEY_USAGE_PROPERTY<br>L"Key Usage"         | A DWORD containing a set of flags that define key<br>usage details. This property only applies to<br>keys. This can contain zero or a combination of one or<br>more of the following values.<br>NCRYPT_ALLOW_DECRYPT_FLAG (0x00000001)<br>NCRYPT_ALLOW_SIGNING_FLAG (0x00000002) |
-| NCRYPT_LENGTH_PROPERTY<br>L"Length"               | A DWORD containing the key length in bits.                                                                                                                                                                                                                                       |
-| NCRYPT_EXPORT_POLICY_PROPERTY<br>L"Export Policy" | A DWORD containing flags that specify the persisted<br>key's export policy. This can contain zero<br>or a combination of one or more of the following<br>values.<br>NCRYPT_ALLOW_EXPORT_FLAG (0x00000001)                                                                        |
+| Identifier/Value                                     | Description                                                                                                                                                                                                                                                                            |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NCRYPT\_KEY\_USAGE\_PROPERTY<br>L"Key Usage"         | A DWORD containing a set of flags that define key<br>usage details. This property only applies to<br>keys. This can contain zero or a combination of one or<br>more of the following values.<br>NCRYPT\_ALLOW\_DECRYPT\_FLAG (0x00000001)<br>NCRYPT\_ALLOW\_SIGNING\_FLAG (0x00000002) |
+| NCRYPT\_LENGTH\_PROPERTY<br>L"Length"                | A DWORD containing the key length in bits.                                                                                                                                                                                                                                             |
+| NCRYPT\_EXPORT\_POLICY\_PROPERTY<br>L"Export Policy" | A DWORD containing flags that specify the persisted<br>key's export policy. This can contain zero<br>or a combination of one or more of the following<br>values.<br>NCRYPT\_ALLOW\_EXPORT\_FLAG (0x00000001)                                                                           |
 
 ###### Note
 
@@ -58,12 +58,12 @@ The function returns a status code to indicate success or failure.
 
 Common return codes include:
 
-| Return code           | Description                                                            |
-| --------------------- | ---------------------------------------------------------------------- |
-| ERROR_SUCCESS         | The operation completed successfully.                                  |
-| NTE_INVALID_PARAMETER | One or more parameters are not valid.                                  |
-| NTE_FAIL              | The operation couldn't complete.                                       |
-| NTE_BAD_FLAGS         | The `dwFlags` parameter contains an invalid<br>value.                  |
-| NTE_NOT_SUPPORTED     | The `pszProperty` parameter contains a value that is<br>not supported. |
-| NTE_INVALID_HANDLE    | The handle in `hObject` is not valid.                                  |
-| NTE_BAD_DATA          | The data pointed by `pbInput` and `cbInput`<br>is not valid.           |
+| Return code             | Description                                                            |
+| ----------------------- | ---------------------------------------------------------------------- |
+| ERROR\_SUCCESS          | The operation completed successfully.                                  |
+| NTE\_INVALID\_PARAMETER | One or more parameters are not valid.                                  |
+| NTE\_FAIL               | The operation couldn't complete.                                       |
+| NTE\_BAD\_FLAGS         | The `dwFlags` parameter contains an invalid<br>value.                  |
+| NTE\_NOT\_SUPPORTED     | The `pszProperty` parameter contains a value that is<br>not supported. |
+| NTE\_INVALID\_HANDLE    | The handle in `hObject` is not valid.                                  |
+| NTE\_BAD\_DATA          | The data pointed by `pbInput` and `cbInput`<br>is not valid.           |

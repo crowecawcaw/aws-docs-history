@@ -1,6 +1,6 @@
 # Generate an AWS CloudHSM DSA key pair using KMU
 
-Use the **genDSAKeyPair** command in the AWS CloudHSM key_mgmt_util tool to generate a
+Use the **genDSAKeyPair** command in the AWS CloudHSM key\_mgmt\_util tool to generate a
 [Digital Signing
 Algorithm](https://en.wikipedia.org/wiki/Digital_Signature_Algorithm "https://en.wikipedia.org/wiki/Digital_Signature_Algorithm") (DSA) key pair in your hardware security modules (HSM). You must specify the
 modulus length; the command generates the modulus value. You can also assign an ID, share the
@@ -9,8 +9,8 @@ session ends. When the command succeeds, it returns the _key
 handles_ that the HSM assigns to the public and private keys. You can use the key
 handles to identify the keys to other commands.
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
 (CU).
 
 ###### Tip
@@ -199,7 +199,7 @@ Default: No ID value.
 
 Required: No
 
-**-min_srv**
+**-min\_srv**
 
 Specifies the minimum number of HSMs on which the key is synchronized before the
 value of the `-timeout` parameter expires. If the key is not synchronized to
@@ -211,7 +211,7 @@ Default: 1
 
 Required: No
 
-**-m_value**
+**-m\_value**
 
 Specifies the number of users who must approve any cryptographic operation that uses
 the private key in the pair. Type a value from `0` to `8`.
@@ -277,7 +277,7 @@ operations. Public keys can be used by any user without sharing.
 Type a comma-separated list of HSM user IDs, such as -`u 5,6`. Do not
 include the HSM user ID of the current user. To find HSM user IDs of CUs on the HSM, use
 [listUsers](key_mgmt_util-listUsers.md "key_mgmt_util-listUsers.md"). To share and unshare existing
-keys, use [shareKey](cloudhsm_mgmt_util-shareKey.md "cloudhsm_mgmt_util-shareKey.md") in the cloudhsm_mgmt_util.
+keys, use [shareKey](cloudhsm_mgmt_util-shareKey.md "cloudhsm_mgmt_util-shareKey.md") in the cloudhsm\_mgmt\_util.
 
 Default: Only the current user can use the private key.
 

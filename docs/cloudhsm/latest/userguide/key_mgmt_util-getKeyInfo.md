@@ -1,6 +1,6 @@
 # Get the users of an AWS CloudHSM key using KMU
 
-Use the **getKeyInfo** command in the AWS CloudHSM key_mgmt_util to return the hardware
+Use the **getKeyInfo** command in the AWS CloudHSM key\_mgmt\_util to return the hardware
 security module (HSM) user IDs of users who can use the key, including the owner and crypto
 users (CU) with whom the key is shared. When quorum authentication is enabled on a key,
 **getKeyInfo** also returns the number of users who must approve cryptographic
@@ -12,10 +12,10 @@ returns only the key owner, even though all users of the HSM can use the public 
 HSM user IDs of users in your HSMs, use [listUsers](key_mgmt_util-listUsers.md "key_mgmt_util-listUsers.md"). To find the keys for a particular user, use [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") `-u`.
 
 You own the keys that you create. You can share a key with other users when you create it.
-Then, to share or unshare an existing key, use [shareKey](cloudhsm_mgmt_util-shareKey.md "cloudhsm_mgmt_util-shareKey.md") in cloudhsm_mgmt_util.
+Then, to share or unshare an existing key, use [shareKey](cloudhsm_mgmt_util-shareKey.md "cloudhsm_mgmt_util-shareKey.md") in cloudhsm\_mgmt\_util.
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
 (CU).
 
 ## Syntax
@@ -98,7 +98,7 @@ private keys that they have created or that have been shared with them.
  Cfm3FindKey returned: 0x00 : HSM Return: SUCCESS`
 ```
 
-###### Example: Get the quorum authentication value (m_value) for a key
+###### Example: Get the quorum authentication value (m\_value) for a key
 
 This example shows how to get the `m_value` for a key, that is, the number of
 users in the quorum who must approve any cryptographic operations that use the key.
@@ -168,7 +168,7 @@ Required: Yes
 
 ## Related topics
 
-- [getKeyInfo](cloudhsm_mgmt_util-getKeyInfo.md "cloudhsm_mgmt_util-getKeyInfo.md") in cloudhsm_mgmt_util
+- [getKeyInfo](cloudhsm_mgmt_util-getKeyInfo.md "cloudhsm_mgmt_util-getKeyInfo.md") in cloudhsm\_mgmt\_util
 - [listUsers](key_mgmt_util-listUsers.md "key_mgmt_util-listUsers.md")
 - [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md")
-- [findAllKeys](cloudhsm_mgmt_util-findAllKeys.md "cloudhsm_mgmt_util-findAllKeys.md") in cloudhsm_mgmt_util
+- [findAllKeys](cloudhsm_mgmt_util-findAllKeys.md "cloudhsm_mgmt_util-findAllKeys.md") in cloudhsm\_mgmt\_util

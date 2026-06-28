@@ -1,6 +1,6 @@
 # Synchronize users across the AWS CloudHSM cluster using CMU
 
-Use the **syncUser** command in the AWS CloudHSM cloudhsm_mgmt_util to manually synchronize
+Use the **syncUser** command in the AWS CloudHSM cloudhsm\_mgmt\_util to manually synchronize
 crypto users (CUs) or crypto officers (COs) across HSM instances within a cluster or across
 cloned clusters. AWS CloudHSM does not automatically synchronize users. Generally, you manage users
 in global mode so that all HSMs in a cluster are updated together. You might need to use
@@ -31,12 +31,12 @@ to be synchronized with the destination HSM. To find the `user ID`, use the
 users on the HSMs in a cluster.
 
 You also need to know the `server ID` assigned to the source and
-destination HSMs, which are shown in the trace output returned by cloudhsm_mgmt_util upon
+destination HSMs, which are shown in the trace output returned by cloudhsm\_mgmt\_util upon
 initiation. These are assigned in the same order that the HSMs appear in the
 configuration file.
 
 If you are synchronizing HSMs across cloned clusters, follow the instructions in [Using CMU Across Cloned Clusters](cloned-clusters.md "cloned-clusters.md") and initialize
-cloudhsm_mgmt_util with the new config file.
+cloudhsm\_mgmt\_util with the new config file.
 
 When you are ready to run **syncUser**, enter server mode on the source
 HSM by issuing the [server](cloudhsm_mgmt_util-server.md "cloudhsm_mgmt_util-server.md") command.

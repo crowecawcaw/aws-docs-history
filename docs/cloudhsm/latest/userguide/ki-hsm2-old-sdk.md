@@ -12,7 +12,7 @@ You might see the following error message in the client logs:
 
 **Impact: Below operations will fail using client version 5.12.0**
 
-- In PKCS#11 SDK, calls to C_GetAttributeValue fail
+- In PKCS#11 SDK, calls to C\_GetAttributeValue fail
 - In CloudHSM CLI, the key list command shows no attributes in the output
 - In CloudHSM CLI, key generate-file may fail for keys generated using hsm1.medium
 

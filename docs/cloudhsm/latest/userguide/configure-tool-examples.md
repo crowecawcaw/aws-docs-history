@@ -2,10 +2,10 @@
 
 These examples show how to use the **configure** tool for AWS CloudHSM Client SDK 3.
 
-###### Example: Update the HSM data for the AWS CloudHSM client and key_mgmt_util
+###### Example: Update the HSM data for the AWS CloudHSM client and key\_mgmt\_util
 
 This example uses the `-a` parameter of **configure** to
-update the HSM data for the AWS CloudHSM client and key_mgmt_util. To use the `-a` parameter,
+update the HSM data for the AWS CloudHSM client and key\_mgmt\_util. To use the `-a` parameter,
 you must have the IP address for one of the HSMs in your cluster. Use either the console or
 the AWS CLI to get the IP address.
 
@@ -111,7 +111,7 @@ Windows
     Use **Ctrl**+**C** in the command window where you started the AWS CloudHSM client.
 
 2. This step uses the `-a` parameter of **configure** to add
-   the `10.0.0.9` ENI IP address to the configurations files.
+the `10.0.0.9` ENI IP address to the configurations files.
 
 Amazon Linux
 
@@ -236,7 +236,7 @@ Windows
     `C:\Program Files\Amazon\CloudHSM>``start "cloudhsm_client" cloudhsm_client.exe C:\ProgramData\Amazon\CloudHSM\data\cloudhsm_client.cfg`
     ```
 
-When the command completes, the HSM data that the AWS CloudHSM client and key_mgmt_util use is
+When the command completes, the HSM data that the AWS CloudHSM client and key\_mgmt\_util use is
 complete and accurate.
 
 ###### Example: Update the HSM Data for CMU from client SDK 3.2.1 and earlier
@@ -244,7 +244,7 @@ complete and accurate.
 This example uses the `-m`
 **configure** command to copy the updated HSM data from the
 `cluster.info` file to the `cloudhsm_mgmt_util.cfg`
-file that cloudhsm_mgmt_util uses. Use this with CMU that ships with Client SDK 3.2.1 and
+file that cloudhsm\_mgmt\_util uses. Use this with CMU that ships with Client SDK 3.2.1 and
 earlier.
 
 - Before running the `-m`, stop the AWS CloudHSM client, run the `-a`

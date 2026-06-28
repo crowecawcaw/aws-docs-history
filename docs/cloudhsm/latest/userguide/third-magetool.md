@@ -25,13 +25,12 @@ To use Microsoft Mage.exe with AWS CloudHSM, you need the following:
 
 ###### To set up the prerequisites for using AWS CloudHSM with Mage.exe
 
-1.  Launch a Windows EC2 instance and an AWS CloudHSM cluster by following the instructions in the [Getting Started](getting-started.md "getting-started.md") section of this guide.
-2.  If you want to host your own Windows Server CA, complete steps 1 and 2 in [Configuring Windows Server as a Certificate Authority with AWS CloudHSM](win-ca-overview-sdk5.md "win-ca-overview-sdk5.md"). Otherwise, use your publicly trusted third-party CA.
-3.  Download and install Microsoft Windows SDK for .NET Framework 4.8.1 or later on your Windows EC2 instance:
+1. Launch a Windows EC2 instance and an AWS CloudHSM cluster by following the instructions in the [Getting Started](getting-started.md "getting-started.md") section of this guide.
+2. If you want to host your own Windows Server CA, complete steps 1 and 2 in [Configuring Windows Server as a Certificate Authority with AWS CloudHSM](win-ca-overview-sdk5.md "win-ca-overview-sdk5.md"). Otherwise, use your publicly trusted third-party CA.
+3. Download and install Microsoft Windows SDK for .NET Framework 4.8.1 or later on your Windows EC2 instance:
 
-        * [Microsoft Windows SDK 10](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk "https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk")
-
-    The `mage.exe` executable is part of the Windows SDK Tools. The default installation location is:
+   - [Microsoft Windows SDK 10](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk "https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk")
+     The `mage.exe` executable is part of the Windows SDK Tools. The default installation location is:
 
 ```
 C:\Program Files (x86)\Windows Kits\`<SDK version>`\bin\`<version number>`\x64\Mage.exe

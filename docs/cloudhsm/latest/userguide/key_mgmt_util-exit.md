@@ -1,9 +1,9 @@
 # Exit the AWS CloudHSM KMU
 
-Use the **exit** command in the AWS CloudHSM key_mgmt_util to exit the key_mgmt_util. Upon
+Use the **exit** command in the AWS CloudHSM key\_mgmt\_util to exit the key\_mgmt\_util. Upon
 successful exit, you will be returned to your standard command line.
 
-Before you run any key_mgmt_util command, you must [start key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start").
+Before you run any key\_mgmt\_util command, you must [start key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start").
 
 ## Syntax
 
@@ -17,4 +17,4 @@ There are no parameters for this command.
 
 ## Related topics
 
-- [Start key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start")
+- [Start key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start")

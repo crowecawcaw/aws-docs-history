@@ -1,6 +1,6 @@
 # Export a public AWS CloudHSM key using KMU
 
-Use the **exportPubKey** command in the AWS CloudHSM key_mgmt_util to export a public key
+Use the **exportPubKey** command in the AWS CloudHSM key\_mgmt\_util to export a public key
 in
 an HSM to a
 file.
@@ -15,7 +15,7 @@ in further cryptographic operations. You can export the same key multiple times.
 You can only export public keys that have a `OBJ_ATTR_EXTRACTABLE` value of
 `1`. To find a key's attributes, use the **[getAttribute](key_mgmt_util-getAttribute.md "key_mgmt_util-getAttribute.md")** command.
 
-Before you run any `key_mgmt_util` command, you must [start key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user (CU).
+Before you run any `key_mgmt_util` command, you must [start key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user (CU).
 
 ## Syntax
 

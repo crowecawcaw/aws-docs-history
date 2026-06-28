@@ -13,7 +13,7 @@ quorum authentication for COs. After you complete these steps, see [User managem
 
 ## Prerequisites
 
-To understand this example, you should be familiar with the [cloudhsm_mgmt_util (CMU) command line
+To understand this example, you should be familiar with the [cloudhsm\_mgmt\_util (CMU) command line
 tool](cloudhsm_mgmt_util.md "cloudhsm_mgmt_util.md"). In this example, the AWS CloudHSM cluster has two HSMs, each with the same COs, as
 shown in the following output from the **listUsers** command. For more
 information about creating users, see [HSM users](manage-hsm-users.md "manage-hsm-users.md").
@@ -124,7 +124,7 @@ with the HSM.
 
 ###### To register a public key with the HSM
 
-1. Use the following command to start the cloudhsm_mgmt_util command
+1. Use the following command to start the cloudhsm\_mgmt\_util command
    line tool.
 
 ```
@@ -139,7 +139,7 @@ with the HSM.
 ###### Example– Register a public key with the HSM
 
 The following example shows how to use the **registerQuorumPubKey**
-command in the cloudhsm_mgmt_util command line tool to register a CO's
+command in the cloudhsm\_mgmt\_util command line tool to register a CO's
 public key with the HSM. To use this command, the CO must be logged in to the HSM. Replace
 these values with your own:
 
@@ -164,7 +164,7 @@ Required: Yes
 
 **<officer1.token.sig>**
 
-The path to a file that contains the SHA256_PKCS mechanism signed hash of the
+The path to a file that contains the SHA256\_PKCS mechanism signed hash of the
 registration token.
 
 Required: Yes
@@ -217,7 +217,7 @@ the minimum value](quorum-authentication-crypto-officers-change-minimum-value.md
 
 ###### To set the quorum minimum value on the HSM
 
-1. Use the following command to start the cloudhsm_mgmt_util command
+1. Use the following command to start the cloudhsm\_mgmt\_util command
    line tool.
 
 ```

@@ -27,62 +27,62 @@ indicates that AWS CloudHSM does not yet support the mechanism for the given fun
 though the PKCS #11 standard allows it. Empty cells indicate that PKCS #11 standard does
 not support the mechanism for the given function.
 
-| Supported PKCS #11 library mechanisms and functions                      | Mechanism                                     | Functions                                                                                    |
-| ------------------------------------------------------------------------ | --------------------------------------------- | -------------------------------------------------------------------------------------------- | ----------- | --------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------- | --------------------------------------------------- |
-|                                                                          | **Generate Key\*<br>• or **Key Pair\*\*       | **Sign & Verify**                                                                            | **SR & VR** | **Digest**                                          | **Encrypt & Decrypt**                                                                         | **Derive Key**                                | **Wrap & UnWrap**                                   |
-| `CKM_RSA_PKCS_KEY_PAIR_GEN`                                              | **✔**                                         |                                                                                              |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_RSA_X9_31_KEY_PAIR_GEN`                                             | **✔**[2](#pkcs11-v3-mech2 "#pkcs11-v3-mech2") |                                                                                              |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_RSA_X_509`                                                          |                                               | **✔**                                                                                        |             |                                                     | **✔**                                                                                         |                                               |                                                     |
-| `CKM_RSA_PKCS`**see note [8](#pkcs11-v3-mech8 "#pkcs11-v3-mech8")**      |                                               | **✔**[1](#pkcs11-v3-mech1 "#pkcs11-v3-mech1")                                                | ✖           |                                                     | **✔**[1](#pkcs11-v3-mech1 "#pkcs11-v3-mech1")                                                 |                                               | **✔**[1](#pkcs11-v3-mech1 "#pkcs11-v3-mech1")       |
-| `CKM_RSA_PKCS_OAEP`                                                      |                                               |                                                                                              |             |                                                     | **✔**[1](#pkcs11-v3-mech1 "#pkcs11-v3-mech1")                                                 |                                               | **✔**[6](#pkcs11-v3-mech6 "#pkcs11-v3-mech6")       |
-| `CKM_SHA1_RSA_PKCS`                                                      |                                               | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2")                                          |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_SHA224_RSA_PKCS`                                                    |                                               | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2")                                          |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_SHA256_RSA_PKCS`                                                    |                                               | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2")                                          |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_SHA384_RSA_PKCS`                                                    |                                               | **✔**[2](#pkcs11-v3-mech2 "#pkcs11-v3-mech2"),[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2") |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_SHA512_RSA_PKCS`                                                    |                                               | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2")                                          |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_RSA_PKCS_PSS`                                                       |                                               | **✔**[1](#pkcs11-v3-mech1 "#pkcs11-v3-mech1")                                                |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_SHA1_RSA_PKCS_PSS`                                                  |                                               | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2")                                          |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_SHA224_RSA_PKCS_PSS`                                                |                                               | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2")                                          |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_SHA256_RSA_PKCS_PSS`                                                |                                               | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2")                                          |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_SHA384_RSA_PKCS_PSS`                                                |                                               | **✔**[2](#pkcs11-v3-mech2 "#pkcs11-v3-mech2"),[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2") |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_SHA512_RSA_PKCS_PSS`                                                |                                               | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2")                                          |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_EC_KEY_PAIR_GEN`                                                    | **✔**                                         |                                                                                              |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_ECDSA`                                                              |                                               | **✔**[1](#pkcs11-v3-mech1 "#pkcs11-v3-mech1")                                                |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_ECDSA_SHA1`                                                         |                                               | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2")                                          |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_ECDSA_SHA224`                                                       |                                               | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2")                                          |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_ECDSA_SHA256`                                                       |                                               | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2")                                          |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_ECDSA_SHA384`                                                       |                                               | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2")                                          |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_ECDSA_SHA512`                                                       |                                               | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2")                                          |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_ECDH1_DERIVE`                                                       |                                               |                                                                                              |             |                                                     |                                                                                               | **✔**[5](#pkcs11-v3-mech5 "#pkcs11-v3-mech5") |                                                     |
-| `CKM_SP800_108_COUNTER_KDF`                                              |                                               |                                                                                              |             |                                                     |                                                                                               | **✔**                                         |                                                     |
-| `CKM_GENERIC_SECRET_KEY_GEN`                                             | **✔**                                         |                                                                                              |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_AES_KEY_GEN`                                                        | **✔**                                         |                                                                                              |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_AES_ECB`                                                            |                                               |                                                                                              |             |                                                     | **✔**                                                                                         |                                               | ✖                                                   |
-| `CKM_AES_CTR`                                                            |                                               |                                                                                              |             |                                                     | **✔**                                                                                         |                                               | ✖                                                   |
-| `CKM_AES_CBC`                                                            |                                               |                                                                                              |             |                                                     | **✔**[3.3](#pkcs11-v3-mech3-3 "#pkcs11-v3-mech3-3")                                           |                                               | ✖                                                   |
-| `CKM_AES_CBC_PAD`                                                        |                                               |                                                                                              |             |                                                     | **✔**                                                                                         |                                               | ✖                                                   |
-| `CKM_DES3_KEY_GEN` **see note [8](#pkcs11-v3-mech8 "#pkcs11-v3-mech8")** | **✔**                                         |                                                                                              |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_DES3_CBC` **see note [8](#pkcs11-v3-mech8 "#pkcs11-v3-mech8")**     |                                               |                                                                                              |             |                                                     | **✔**[3.3](#pkcs11-v3-mech3-3 "#pkcs11-v3-mech3-3")                                           |                                               | ✖                                                   |
-| `CKM_DES3_CBC_PAD` **see note [8](#pkcs11-v3-mech8 "#pkcs11-v3-mech8")** |                                               |                                                                                              |             |                                                     | **✔**                                                                                         |                                               | ✖                                                   |
-| `CKM_DES3_ECB` **see note [8](#pkcs11-v3-mech8 "#pkcs11-v3-mech8")**     |                                               |                                                                                              |             |                                                     | **✔**                                                                                         |                                               | ✖                                                   |
-| `CKM_AES_GCM`                                                            |                                               |                                                                                              |             |                                                     | **✔**[3.3](#pkcs11-v3-mech3-3 "#pkcs11-v3-mech3-3"), [4](#pkcs11-v3-mech4 "#pkcs11-v3-mech4") |                                               | **✔**[7.1](#pkcs11-v3-mech7-1 "#pkcs11-v3-mech7-1") |
-| `CKM_CLOUDHSM_AES_GCM`                                                   |                                               |                                                                                              |             |                                                     | **✔**[7.1](#pkcs11-v3-mech7-1 "#pkcs11-v3-mech7-1")                                           |                                               | **✔**[7.1](#pkcs11-v3-mech7-1 "#pkcs11-v3-mech7-1") |
-| `CKM_SHA_1`                                                              |                                               |                                                                                              |             | **✔**[3.1](#pkcs11-v3-mech3-1 "#pkcs11-v3-mech3-1") |                                                                                               |                                               |                                                     |
-| `CKM_SHA_1_HMAC`                                                         |                                               | **✔**[3.3](#pkcs11-v3-mech3-3 "#pkcs11-v3-mech3-3")                                          |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_SHA224`                                                             |                                               |                                                                                              |             | **✔**[3.1](#pkcs11-v3-mech3-1 "#pkcs11-v3-mech3-1") |                                                                                               |                                               |                                                     |
-| `CKM_SHA224_HMAC`                                                        |                                               | **✔**[3.3](#pkcs11-v3-mech3-3 "#pkcs11-v3-mech3-3")                                          |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_SHA256`                                                             |                                               |                                                                                              |             | **✔**[3.1](#pkcs11-v3-mech3-1 "#pkcs11-v3-mech3-1") |                                                                                               |                                               |                                                     |
-| `CKM_SHA256_HMAC`                                                        |                                               | **✔**[3.3](#pkcs11-v3-mech3-3 "#pkcs11-v3-mech3-3")                                          |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_SHA384`                                                             |                                               |                                                                                              |             | **✔**[3.1](#pkcs11-v3-mech3-1 "#pkcs11-v3-mech3-1") |                                                                                               |                                               |                                                     |
-| `CKM_SHA384_HMAC`                                                        |                                               | **✔**[3.3](#pkcs11-v3-mech3-3 "#pkcs11-v3-mech3-3")                                          |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_SHA512`                                                             |                                               |                                                                                              |             | **✔**[3.1](#pkcs11-v3-mech3-1 "#pkcs11-v3-mech3-1") |                                                                                               |                                               |                                                     |
-| `CKM_SHA512_HMAC`                                                        |                                               | **✔**[3.3](#pkcs11-v3-mech3-3 "#pkcs11-v3-mech3-3")                                          |             |                                                     |                                                                                               |                                               |                                                     |
-| `CKM_RSA_AES_KEY_WRAP`                                                   |                                               |                                                                                              |             |                                                     |                                                                                               |                                               | **✔**                                               |
-| `CKM_AES_KEY_WRAP`                                                       |                                               |                                                                                              |             |                                                     |                                                                                               |                                               | **✔**                                               |
-| `CKM_AES_KEY_WRAP_PAD`                                                   |                                               |                                                                                              |             |                                                     |                                                                                               |                                               | **✔**                                               |
-| `CKM_CLOUDHSM_AES_KEY_WRAP_NO_PAD`                                       |                                               |                                                                                              |             |                                                     |                                                                                               |                                               | **✔**[7.1](#pkcs11-v3-mech7-1 "#pkcs11-v3-mech7-1") |
-| `CKM_CLOUDHSM_AES_KEY_WRAP_PKCS5_PAD`                                    |                                               |                                                                                              |             |                                                     |                                                                                               |                                               | **✔**[7.1](#pkcs11-v3-mech7-1 "#pkcs11-v3-mech7-1") |
-| `CKM_CLOUDHSM_AES_KEY_WRAP_ZERO_PAD`                                     |                                               |                                                                                              |             |                                                     |                                                                                               |                                               | **✔**[7.1](#pkcs11-v3-mech7-1 "#pkcs11-v3-mech7-1") |
+Supported PKCS #11 library mechanisms and functions| Mechanism | Functions |
+| --- | --- |
+| | *_Generate Key_<br>• or **Key Pair** | **Sign & Verify** | **SR & VR** | **Digest** | **Encrypt & Decrypt** | **Derive Key** | **Wrap & UnWrap** |
+| `CKM_RSA_PKCS_KEY_PAIR_GEN` | **✔** | | | | | | |
+| `CKM_RSA_X9_31_KEY_PAIR_GEN` | **✔**[2](#pkcs11-v3-mech2 "#pkcs11-v3-mech2") | | | | | | |
+| `CKM_RSA_X_509` | | **✔** | | | **✔** | | |
+| `CKM_RSA_PKCS`**see note [8](#pkcs11-v3-mech8 "#pkcs11-v3-mech8")** | | **✔**[1](#pkcs11-v3-mech1 "#pkcs11-v3-mech1") | ✖ | | **✔**[1](#pkcs11-v3-mech1 "#pkcs11-v3-mech1") | | **✔**[1](#pkcs11-v3-mech1 "#pkcs11-v3-mech1") |
+| `CKM_RSA_PKCS_OAEP` | | | | | **✔**[1](#pkcs11-v3-mech1 "#pkcs11-v3-mech1") | | **✔**[6](#pkcs11-v3-mech6 "#pkcs11-v3-mech6") |
+| `CKM_SHA1_RSA_PKCS` | | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2") | | | | | |
+| `CKM_SHA224_RSA_PKCS` | | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2") | | | | | |
+| `CKM_SHA256_RSA_PKCS` | | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2") | | | | | |
+| `CKM_SHA384_RSA_PKCS` | | **✔**[2](#pkcs11-v3-mech2 "#pkcs11-v3-mech2"),[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2") | | | | | |
+| `CKM_SHA512_RSA_PKCS` | | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2") | | | | | |
+| `CKM_RSA_PKCS_PSS` | | **✔**[1](#pkcs11-v3-mech1 "#pkcs11-v3-mech1") | | | | | |
+| `CKM_SHA1_RSA_PKCS_PSS` | | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2") | | | | | |
+| `CKM_SHA224_RSA_PKCS_PSS` | | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2") | | | | | |
+| `CKM_SHA256_RSA_PKCS_PSS` | | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2") | | | | | |
+| `CKM_SHA384_RSA_PKCS_PSS` | | **✔**[2](#pkcs11-v3-mech2 "#pkcs11-v3-mech2"),[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2") | | | | | |
+| `CKM_SHA512_RSA_PKCS_PSS` | | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2") | | | | | |
+| `CKM_EC_KEY_PAIR_GEN` | **✔** | | | | | | |
+| `CKM_ECDSA` | | **✔**[1](#pkcs11-v3-mech1 "#pkcs11-v3-mech1") | | | | | |
+| `CKM_ECDSA_SHA1` | | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2") | | | | | |
+| `CKM_ECDSA_SHA224` | | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2") | | | | | |
+| `CKM_ECDSA_SHA256` | | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2") | | | | | |
+| `CKM_ECDSA_SHA384` | | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2") | | | | | |
+| `CKM_ECDSA_SHA512` | | **✔**[3.2](#pkcs11-v3-mech3-2 "#pkcs11-v3-mech3-2") | | | | | |
+| `CKM_ECDH1_DERIVE` | | | | | | **✔**[5](#pkcs11-v3-mech5 "#pkcs11-v3-mech5") | |
+| `CKM_SP800_108_COUNTER_KDF` | | | | | | **✔** | |
+| `CKM_GENERIC_SECRET_KEY_GEN` | **✔** | | | | | | |
+| `CKM_AES_KEY_GEN` | **✔** | | | | | | |
+| `CKM_AES_ECB` | | | | | **✔** | | ✖ |
+| `CKM_AES_CTR` | | | | | **✔** | | ✖ |
+| `CKM_AES_CBC` | | | | | **✔**[3.3](#pkcs11-v3-mech3-3 "#pkcs11-v3-mech3-3") | | ✖ |
+| `CKM_AES_CBC_PAD` | | | | | **✔** | | ✖ |
+| `CKM_DES3_KEY_GEN` **see note [8](#pkcs11-v3-mech8 "#pkcs11-v3-mech8")** | **✔** | | | | | | |
+| `CKM_DES3_CBC` **see note [8](#pkcs11-v3-mech8 "#pkcs11-v3-mech8")** | | | | | **✔**[3.3](#pkcs11-v3-mech3-3 "#pkcs11-v3-mech3-3") | | ✖ |
+| `CKM_DES3_CBC_PAD` **see note [8](#pkcs11-v3-mech8 "#pkcs11-v3-mech8")** | | | | | **✔** | | ✖ |
+| `CKM_DES3_ECB` **see note [8](#pkcs11-v3-mech8 "#pkcs11-v3-mech8")** | | | | | **✔** | | ✖ |
+| `CKM_AES_GCM` | | | | | **✔**[3.3](#pkcs11-v3-mech3-3 "#pkcs11-v3-mech3-3"), [4](#pkcs11-v3-mech4 "#pkcs11-v3-mech4") | | **✔**[7.1](#pkcs11-v3-mech7-1 "#pkcs11-v3-mech7-1") |
+| `CKM_CLOUDHSM_AES_GCM` | | | | | **✔**[7.1](#pkcs11-v3-mech7-1 "#pkcs11-v3-mech7-1") | | **✔**[7.1](#pkcs11-v3-mech7-1 "#pkcs11-v3-mech7-1") |
+| `CKM_SHA_1` | | | | **✔**[3.1](#pkcs11-v3-mech3-1 "#pkcs11-v3-mech3-1") | | | |
+| `CKM_SHA_1_HMAC` | | **✔**[3.3](#pkcs11-v3-mech3-3 "#pkcs11-v3-mech3-3") | | | | | |
+| `CKM_SHA224` | | | | **✔**[3.1](#pkcs11-v3-mech3-1 "#pkcs11-v3-mech3-1") | | | |
+| `CKM_SHA224_HMAC` | | **✔**[3.3](#pkcs11-v3-mech3-3 "#pkcs11-v3-mech3-3") | | | | | |
+| `CKM_SHA256` | | | | **✔**[3.1](#pkcs11-v3-mech3-1 "#pkcs11-v3-mech3-1") | | | |
+| `CKM_SHA256_HMAC` | | **✔**[3.3](#pkcs11-v3-mech3-3 "#pkcs11-v3-mech3-3") | | | | | |
+| `CKM_SHA384` | | | | **✔**[3.1](#pkcs11-v3-mech3-1 "#pkcs11-v3-mech3-1") | | | |
+| `CKM_SHA384_HMAC` | | **✔**[3.3](#pkcs11-v3-mech3-3 "#pkcs11-v3-mech3-3") | | | | | |
+| `CKM_SHA512` | | | | **✔**[3.1](#pkcs11-v3-mech3-1 "#pkcs11-v3-mech3-1") | | | |
+| `CKM_SHA512_HMAC` | | **✔**[3.3](#pkcs11-v3-mech3-3 "#pkcs11-v3-mech3-3") | | | | | |
+| `CKM_RSA_AES_KEY_WRAP` | | | | | | | **✔** |
+| `CKM_AES_KEY_WRAP` | | | | | | | **✔** |
+| `CKM_AES_KEY_WRAP_PAD` | | | | | | | **✔** |
+| `CKM_CLOUDHSM_AES_KEY_WRAP_NO_PAD` | | | | | | | **✔**[7.1](#pkcs11-v3-mech7-1 "#pkcs11-v3-mech7-1") |
+| `CKM_CLOUDHSM_AES_KEY_WRAP_PKCS5_PAD` | | | | | | | **✔**[7.1](#pkcs11-v3-mech7-1 "#pkcs11-v3-mech7-1") |
+| `CKM_CLOUDHSM_AES_KEY_WRAP_ZERO_PAD` | | | | | | | **✔**[7.1](#pkcs11-v3-mech7-1 "#pkcs11-v3-mech7-1") |
 
 **Mechanism annotations**
 
@@ -99,13 +99,13 @@ not support the mechanism for the given function.
 Table 3.1 lists the maximum data set size for each mechanism for Client SDK 3. The entire hash is
 computed inside the HSM. No support for data sizes greater than 16KB.
 
-| Table 3.1, Maximum data set size for single-part operations | **Mechanism** | **Maximum Data Size** |
-| ----------------------------------------------------------- | ------------- | --------------------- |
-| `CKM_SHA_1`                                                 | 16296         |
-| `CKM_SHA224`                                                | 16264         |
-| `CKM_SHA256`                                                | 16296         |
-| `CKM_SHA384`                                                | 16232         |
-| `CKM_SHA512`                                                | 16232         |
+Table 3.1, Maximum data set size for single-part operations| **Mechanism** | **Maximum Data Size** |
+| --- | --- |
+| `CKM_SHA_1` | 16296 |
+| `CKM_SHA224` | 16264 |
+| `CKM_SHA256` | 16296 |
+| `CKM_SHA384` | 16232 |
+| `CKM_SHA512` | 16232 |
 
 **Multipart operations Client SDK 3**
 
@@ -126,23 +126,23 @@ cryptographic secrets, so you can safely compute them outside of the HSM.
 Table 3.2 lists the maximum data set size for each mechanism for Client SDK 3. No support for data
 sizes greater than 16KB.
 
-| Table 3.2, Maximum data set size for single-part operations | **Mechanism** | **Maximum Data Size** |
-| ----------------------------------------------------------- | ------------- | --------------------- |
-| `CKM_SHA1_RSA_PKCS`                                         | 16296         |
-| `CKM_SHA224_RSA_PKCS`                                       | 16264         |
-| `CKM_SHA256_RSA_PKCS`                                       | 16296         |
-| `CKM_SHA384_RSA_PKCS`                                       | 16232         |
-| `CKM_SHA512_RSA_PKCS`                                       | 16232         |
-| `CKM_SHA1_RSA_PKCS_PSS`                                     | 16296         |
-| `CKM_SHA224_RSA_PKCS_PSS`                                   | 16264         |
-| `CKM_SHA256_RSA_PKCS_PSS`                                   | 16296         |
-| `CKM_SHA384_RSA_PKCS_PSS`                                   | 16232         |
-| `CKM_SHA512_RSA_PKCS_PSS`                                   | 16232         |
-| `CKM_ECDSA_SHA1`                                            | 16296         |
-| `CKM_ECDSA_SHA224`                                          | 16264         |
-| `CKM_ECDSA_SHA256`                                          | 16296         |
-| `CKM_ECDSA_SHA384`                                          | 16232         |
-| `CKM_ECDSA_SHA512`                                          | 16232         |
+Table 3.2, Maximum data set size for single-part operations| **Mechanism** | **Maximum Data Size** |
+| --- | --- |
+| `CKM_SHA1_RSA_PKCS` | 16296 |
+| `CKM_SHA224_RSA_PKCS` | 16264 |
+| `CKM_SHA256_RSA_PKCS` | 16296 |
+| `CKM_SHA384_RSA_PKCS` | 16232 |
+| `CKM_SHA512_RSA_PKCS` | 16232 |
+| `CKM_SHA1_RSA_PKCS_PSS` | 16296 |
+| `CKM_SHA224_RSA_PKCS_PSS` | 16264 |
+| `CKM_SHA256_RSA_PKCS_PSS` | 16296 |
+| `CKM_SHA384_RSA_PKCS_PSS` | 16232 |
+| `CKM_SHA512_RSA_PKCS_PSS` | 16232 |
+| `CKM_ECDSA_SHA1` | 16296 |
+| `CKM_ECDSA_SHA224` | 16264 |
+| `CKM_ECDSA_SHA256` | 16296 |
+| `CKM_ECDSA_SHA384` | 16232 |
+| `CKM_ECDSA_SHA512` | 16232 |
 
 **Multipart operations Client SDK 3**
 
@@ -159,17 +159,17 @@ cryptographic secrets, so you can safely compute them outside of the HSM.
   operation results in an error. For these mechanisms, all the data processing must occur inside the HSM.
   The following table lists maximum data size set for each mechanism:
 
-| Table 3.3, Maximum data set size | **Mechanism** | **Maximum Data Size** |
-| -------------------------------- | ------------- | --------------------- |
-| `CKM_SHA_1_HMAC`                 | 16288         |
-| `CKM_SHA224_HMAC`                | 16256         |
-| `CKM_SHA256_HMAC`                | 16288         |
-| `CKM_SHA384_HMAC`                | 16224         |
-| `CKM_SHA512_HMAC`                | 16224         |
-| `CKM_AES_CBC`                    | 16272         |
-| `CKM_AES_GCM`                    | 16224         |
-| `CKM_CLOUDHSM_AES_GCM`           | 16224         |
-| `CKM_DES3_CBC`                   | 16280         |
+Table 3.3, Maximum data set size| **Mechanism** | **Maximum Data Size** |
+| --- | --- |
+| `CKM_SHA_1_HMAC` | 16288 |
+| `CKM_SHA224_HMAC` | 16256 |
+| `CKM_SHA256_HMAC` | 16288 |
+| `CKM_SHA384_HMAC` | 16224 |
+| `CKM_SHA512_HMAC` | 16224 |
+| `CKM_AES_CBC` | 16272 |
+| `CKM_AES_GCM` | 16224 |
+| `CKM_CLOUDHSM_AES_GCM` | 16224 |
+| `CKM_DES3_CBC` | 16280 |
 
 [Show moreShow less](# "#")
 
@@ -193,13 +193,12 @@ cryptographic secrets, so you can safely compute them outside of the HSM.
   and `CK_RSA_PKCS_MGF_TYPE` are supported as
   `CK_RSA_PKCS_OAEP_PARAMS` for `CKM_RSA_PKCS_OAEP`:
 
-      + `CKM_SHA_1` using `CKG_MGF1_SHA1`
-      + `CKM_SHA224` using `CKG_MGF1_SHA224`
-      + `CKM_SHA256` using `CKG_MGF1_SHA256`
-      + `CKM_SHA384` using `CKM_MGF1_SHA384`
-      + `CKM_SHA512` using `CKM_MGF1_SHA512`
-
-  [Show moreShow less](# "#")
+  - `CKM_SHA_1` using `CKG_MGF1_SHA1`
+  - `CKM_SHA224` using `CKG_MGF1_SHA224`
+  - `CKM_SHA256` using `CKG_MGF1_SHA256`
+  - `CKM_SHA384` using `CKM_MGF1_SHA384`
+  - `CKM_SHA512` using `CKM_MGF1_SHA512`
+    [Show moreShow less](# "#")
 
 - [7.1] Vendor-defined mechanism. In order to use the
   CloudHSM vendor defined mechanisms, PKCS#11 applications must include

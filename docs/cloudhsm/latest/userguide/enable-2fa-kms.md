@@ -7,7 +7,7 @@ requirements.
 
 - Key type: Asymmetric
 - Key usage: Sign and Verify
-- Key spec: RSA_2048
+- Key spec: RSA\_2048
 - Signing algorithm includes:
 
   - `sha256WithRSAEncryption`

@@ -1,6 +1,6 @@
 # Export an AWS CloudHSM key to fake PEM format using KMU
 
-Use the **getCaviumPrivKey** command in the AWS CloudHSM key_mgmt_util to
+Use the **getCaviumPrivKey** command in the AWS CloudHSM key\_mgmt\_util to
 export a private key from a hardware security module (HSM) in fake PEM format. The fake PEM
 file, which does not contain the actual private key material but instead references the
 private key in the HSM, can then be used to establish SSL/TLS offloading from your web
@@ -8,8 +8,8 @@ server to AWS CloudHSM. For more information, see [SSL/TLS Offload
 on Linux using Tomcat](third-offload-linux-jsse.md "third-offload-linux-jsse.md") or [SSL/TLS Offload
 on Linux using NGINX or Apache](third-offload-linux-openssl.md "third-offload-linux-openssl.md").
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [login](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [login](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as
 a crypto user (CU).
 
 ## Syntax

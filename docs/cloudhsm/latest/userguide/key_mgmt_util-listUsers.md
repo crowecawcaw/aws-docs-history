@@ -1,18 +1,18 @@
 # List all AWS CloudHSM users using KMU
 
-Use the **listUsers** command in the AWS CloudHSM key_mgmt_util to get the users in the
+Use the **listUsers** command in the AWS CloudHSM key\_mgmt\_util to get the users in the
 hardware security modules (HSM), along with their user type and other attributes.
 
-In key_mgmt_util, listUsers returns output that represents all HSMs in the cluster, even if they are
-not consistent. To get information about the users in each HSM, use the listUsers command in cloudhsm_mgmt_util.
+In key\_mgmt\_util, listUsers returns output that represents all HSMs in the cluster, even if they are
+not consistent. To get information about the users in each HSM, use the listUsers command in cloudhsm\_mgmt\_util.
 
-The user commands in key_mgmt_util, **listUsers** and [getKeyInfo](key_mgmt_util-getKeyInfo.md "key_mgmt_util-getKeyInfo.md"),
+The user commands in key\_mgmt\_util, **listUsers** and [getKeyInfo](key_mgmt_util-getKeyInfo.md "key_mgmt_util-getKeyInfo.md"),
 are read-only commands that crypto users (CUs) have permission to run. The remaining user
-management commands are part of cloudhsm_mgmt_util. They are run by crypto officers (CO) who have user
+management commands are part of cloudhsm\_mgmt\_util. They are run by crypto officers (CO) who have user
 management permissions.
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
 (CU).
 
 ## Syntax
@@ -46,7 +46,7 @@ Command:  listUsers
 
 The output includes the following user attributes:
 
-- **User ID**: Identifies the user in key_mgmt_util and [cloudhsm_mgmt_util](cloudhsm_mgmt_util.md "cloudhsm_mgmt_util.md") commands.
+- **User ID**: Identifies the user in key\_mgmt\_util and [cloudhsm\_mgmt\_util](cloudhsm_mgmt_util.md "cloudhsm_mgmt_util.md") commands.
 - [User type](understanding-users-cmu.md "understanding-users-cmu.md"): Determines the operations that the user
   can perform on the HSM.
 - **User Name**: Displays the user-defined friendly name
@@ -69,7 +69,7 @@ Required: Yes
 
 ## Related topics
 
-- [listUsers](key_mgmt_util-listUsers.md "key_mgmt_util-listUsers.md") in cloudhsm_mgmt_util
+- [listUsers](key_mgmt_util-listUsers.md "key_mgmt_util-listUsers.md") in cloudhsm\_mgmt\_util
 - [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md")
 - [getAttribute](key_mgmt_util-getAttribute.md "key_mgmt_util-getAttribute.md")
 - [getKeyInfo](key_mgmt_util-getKeyInfo.md "key_mgmt_util-getKeyInfo.md")

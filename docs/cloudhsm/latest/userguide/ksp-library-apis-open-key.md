@@ -34,10 +34,10 @@ The function returns a status code to indicate success or failure.
 
 Common return codes include:
 
-| Return code           | Description                                         |
-| --------------------- | --------------------------------------------------- |
-| ERROR_SUCCESS         | The operation completed successfully.               |
-| NTE_INVALID_PARAMETER | One or more parameters are not valid.               |
-| NTE_FAIL              | The operation couldn't complete.                    |
-| NTE_INVALID_HANDLE    | The handle in `hProvider` is not valid.             |
-| NTE_BAD_KEYSET        | The key name provided did not return unique result. |
+| Return code             | Description                                         |
+| ----------------------- | --------------------------------------------------- |
+| ERROR\_SUCCESS          | The operation completed successfully.               |
+| NTE\_INVALID\_PARAMETER | One or more parameters are not valid.               |
+| NTE\_FAIL               | The operation couldn't complete.                    |
+| NTE\_INVALID\_HANDLE    | The handle in `hProvider` is not valid.             |
+| NTE\_BAD\_KEYSET        | The key name provided did not return unique result. |

@@ -4,7 +4,7 @@ For increased security, you can configure two-factor authentication (2FA) to hel
 AWS CloudHSM cluster. You can only enable 2FA for crypto officers (CO).
 
 When you log in to a cluster with a 2FA-enabled hardware service module (HSM) account, you
-provide cloudhsm_mgmt_util (CMU) with your password—the first factor, what you know—and CMU
+provide cloudhsm\_mgmt\_util (CMU) with your password—the first factor, what you know—and CMU
 provides you with a token and prompts you to have the token signed. To provide the second
 factor—what you have—you sign the token with a private key from a key pair you've
 already created and associated with the HSM user. To access the cluster, you provide the signed

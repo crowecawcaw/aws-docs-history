@@ -19,15 +19,14 @@ reachable HSM in the cluster.
 
 ###### To update the configuration file for the AWS CloudHSM client
 
-1.  Use one of the following ways to find the IP address of an active HSM in your
-    cluster.
+1. Use one of the following ways to find the IP address of an active HSM in your
+   cluster.
 
-        * View the **HSMs** tab on the cluster details page in the [AWS CloudHSM console](https://console.aws.amazon.com/cloudhsm/home "https://console.aws.amazon.com/cloudhsm/home").
-        * Use the AWS Command Line Interface (AWS CLI) to issue the [**describe-clusters**](../../../cli/latest/reference/cloudhsmv2/describe-clusters.md "../../../cli/latest/reference/cloudhsmv2/describe-clusters.md") command.
+   - View the **HSMs** tab on the cluster details page in the [AWS CloudHSM console](https://console.aws.amazon.com/cloudhsm/home "https://console.aws.amazon.com/cloudhsm/home").
+   - Use the AWS Command Line Interface (AWS CLI) to issue the [**describe-clusters**](../../../cli/latest/reference/cloudhsmv2/describe-clusters.md "../../../cli/latest/reference/cloudhsmv2/describe-clusters.md") command.
+     You need this IP address in a subsequent step.
 
-    You need this IP address in a subsequent step.
-
-2.  Use the following command to stop the client.
+2. Use the following command to stop the client.
 
 Amazon Linux
 
@@ -92,7 +91,7 @@ Windows
     Use **Ctrl**+**C** in the command window where you started the AWS CloudHSM client.
 
 3. Use the following command to update the client's configuration file, providing the IP
-   address that you found in a previous step.
+address that you found in a previous step.
 
 ```
 `$` `sudo /opt/cloudhsm/bin/configure -a `<IP address>``

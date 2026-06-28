@@ -2,7 +2,7 @@
 
 Before you can use AWS CloudHSM keys with third-party tools, such as Microsoft's [SignTool](https://docs.microsoft.com/en-us/windows/win32/seccrypto/signtool "https://docs.microsoft.com/en-us/windows/win32/seccrypto/signtool"), you must import the key's metadata into the local certificate store and
 associate the metadata with a certificate. To import the key's metadata, use the
-import_key.exe utility which is included in CloudHSM version 3.0 and higher. The following
+import\_key.exe utility which is included in CloudHSM version 3.0 and higher. The following
 steps provide additional information, and sample output.
 
 ## Step 1: Import your certificate
@@ -42,7 +42,7 @@ shows the container name and the serial number.
 ## Step 3: Associate the AWS CloudHSM private key with the certificate
 
 To associate the key with the certificate, first be sure to [start the AWS CloudHSM client daemon](key_mgmt_util-setup.md#key_mgmt_util-start-cloudhsm-client "key_mgmt_util-setup.md#key_mgmt_util-start-cloudhsm-client").
-Then, use import_key.exe (which is included in CloudHSM version 3.0 and higher) to
+Then, use import\_key.exe (which is included in CloudHSM version 3.0 and higher) to
 associate the private key with the certificate. When specifying the certificate, use its
 simple container name. The following example shows the command and the response. This
 action only copies the key's metadata; the key remains on the HSM.

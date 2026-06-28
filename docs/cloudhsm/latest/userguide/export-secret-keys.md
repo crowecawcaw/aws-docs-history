@@ -1,6 +1,6 @@
 # Export secret keys with the AWS CloudHSM KMU
 
-Complete the following steps to export a secret key from AWS CloudHSM using the key_mgmt_util (KMU).
+Complete the following steps to export a secret key from AWS CloudHSM using the key\_mgmt\_util (KMU).
 
 ###### To export a secret key
 

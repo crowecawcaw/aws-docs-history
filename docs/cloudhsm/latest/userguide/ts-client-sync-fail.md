@@ -19,7 +19,7 @@ unwrap operation and see errors that specify a failure to _tombstone_.
 
 **Resolution**: An HSM in your cluster contains unwanted key
 material that is not marked as unwanted. You must manually remove the key material. To manually
-delete unwanted key material, use key_mgmt_util (KMU) or an API from the PKCS #11 library or the JCE provider. For
+delete unwanted key material, use key\_mgmt\_util (KMU) or an API from the PKCS #11 library or the JCE provider. For
 more information, see [deleteKey](key_mgmt_util-deleteKey.md "key_mgmt_util-deleteKey.md") or [Client SDKs](use-hsm.md "use-hsm.md").
 
 To make token keys more durable, AWS CloudHSM fails key creation operations that don't succeed on

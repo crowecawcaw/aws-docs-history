@@ -1,6 +1,6 @@
 # Import a private key using AWS CloudHSM KMU
 
-Use the **importPrivateKey** command in the AWS CloudHSM key_mgmt_util to import an
+Use the **importPrivateKey** command in the AWS CloudHSM key\_mgmt\_util to import an
 asymmetric private key from a file to a hardware security module (HSM). The HSM does not
 allow direct import of keys in cleartext. The command encrypts the private key using an AES
 wrapping key you specify and unwraps the key inside the HSM. If you are trying to associate
@@ -17,8 +17,8 @@ To find a key's attributes, use the [getAttribute](key_mgmt_util-getAttribute.md
 
 This command does not offer the option to mark the imported key as non-exportable.
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM
 as a crypto user (CU).
 
 ## Syntax

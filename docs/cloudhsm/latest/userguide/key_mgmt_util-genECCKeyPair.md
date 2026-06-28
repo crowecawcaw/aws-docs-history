@@ -1,6 +1,6 @@
 # Generate an AWS CloudHSM ECC key pair using KMU
 
-Use the `genECCKeyPair` command in the AWS CloudHSM key_mgmt_util tool to generate an [Elliptic Curve
+Use the `genECCKeyPair` command in the AWS CloudHSM key\_mgmt\_util tool to generate an [Elliptic Curve
 Cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography "https://en.wikipedia.org/wiki/Elliptic-curve_cryptography") (ECC) key pair in your hardware security modules (HSM). When running the
 `genECCKeyPair` command, you must specify the elliptic curve identifier and a label
 for the key pair. You can also share the private key with other CU users, create non-extractable
@@ -8,8 +8,8 @@ keys, quorum-controlled keys, and keys that expire when the session ends. When t
 succeeds, it returns the key handles that the HSM assigns to the public and private ECC keys.
 You can use the key handles to identify the keys to other commands.
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
 (CU).
 
 ###### Tip
@@ -43,7 +43,7 @@ your HSMs.
 
 ###### Example: Create and examine an ECC key pair
 
-This command uses an NID_secp384r1 elliptic curve and an
+This command uses an NID\_secp384r1 elliptic curve and an
 `ecc14` label to create an ECC key pair. The output shows that the key handle of the private key is
 `262177` and the key handle of the public key is `262179`. The label
 applies to both the public and private keys.
@@ -124,7 +124,7 @@ OBJ_ATTR_MODULUS_BITS
 
 ###### Example Using an invalid EEC curve
 
-This command attempts to create an ECC key pair by using an NID_X9_62_prime192v1 curve.
+This command attempts to create an ECC key pair by using an NID\_X9\_62\_prime192v1 curve.
 Because this elliptic curve is not valid for FIPS-mode HSMs, the command fails. The message
 reports that a server in the cluster is unavailable, but this does not typically indicate a
 problem with the HSMs in the cluster.
@@ -152,9 +152,9 @@ Specifies the identifier for the elliptic curve. Enter an identifier.
 
 Valid values:
 
-- **2**: NID_X9_62_prime256v1
-- **14**: NID_secp384r1
-- **16**: NID_secp256k1
+- **2**: NID\_X9\_62\_prime256v1
+- **14**: NID\_secp384r1
+- **16**: NID\_secp256k1
 
 Required: Yes
 
@@ -178,7 +178,7 @@ Default: No ID value.
 
 Required: No
 
-**-min_srv**
+**-min\_srv**
 
 Specifies the minimum number of HSMs on which the key is synchronized before the
 value of the `-timeout` parameter expires. If the key is not synchronized to
@@ -190,7 +190,7 @@ Default: 1
 
 Required: No
 
-**-m_value**
+**-m\_value**
 
 Specifies the number of users who must approve any cryptographic operation that uses
 the private key in the pair. Type a value from `0` to `8`.
@@ -256,7 +256,7 @@ operations. Public keys can be used by any user without sharing.
 Type a comma-separated list of HSM user IDs, such as -`u 5,6`. Do not
 include the HSM user ID of the current user. To find HSM user IDs of CUs on the HSM, use
 [listUsers](key_mgmt_util-listUsers.md "key_mgmt_util-listUsers.md"). To share and unshare existing
-keys, use [shareKey](cloudhsm_mgmt_util-shareKey.md "cloudhsm_mgmt_util-shareKey.md") in the cloudhsm_mgmt_util.
+keys, use [shareKey](cloudhsm_mgmt_util-shareKey.md "cloudhsm_mgmt_util-shareKey.md") in the cloudhsm\_mgmt\_util.
 
 Default: Only the current user can use the private key.
 

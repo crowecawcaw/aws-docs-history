@@ -1,8 +1,8 @@
 # Get information for each HSM in an AWS CloudHSM cluster using CMU
 
-Use the **info** command in the AWS CloudHSM cloudhsm_mgmt_util (CMU) to get information about
+Use the **info** command in the AWS CloudHSM cloudhsm\_mgmt\_util (CMU) to get information about
 each of the hardware security modules (HSM) in the AWS CloudHSM cluster, including the host name, port,
-IP address and the name and type of the user who is logged in to cloudhsm_mgmt_util on the HSM.
+IP address and the name and type of the user who is logged in to cloudhsm\_mgmt\_util on the HSM.
 
 Before you run any CMU command, you must start CMU and log in to the HSM. Be
 sure that you log in with a user type that can run the commands you plan to

@@ -126,17 +126,14 @@ Then choose **Next**. 17. For **Cryptography**, do the following:
 
 18. For **CA Name**, do the following:
 
-    1.  (Optional) Edit the common name.
-    2.  (Optional) Type a distinguished name suffix.Choose **Next**.
+    1. (Optional) Edit the common name.
+    2. (Optional) Type a distinguished name suffix.Choose **Next**.
 
 19. For **Validity Period**, specify a time period in years, months, weeks, or
-    days. Then choose **Next**.
-20. For **Certificate Database**, you can accept the default values, or
-    optionally change the location for the database and the database log. Then choose
-    **Next**.
-21. For **Confirmation**, review the information about your CA; Then choose
-    **Configure**.
-22. Choose **Close**, and then choose **Close** again.
+days. Then choose **Next**. 20. For **Certificate Database**, you can accept the default values, or
+optionally change the location for the database and the database log. Then choose
+**Next**. 21. For **Confirmation**, review the information about your CA; Then choose
+**Configure**. 22. Choose **Close**, and then choose **Close** again.
 
 You now have a Windows Server CA with AWS CloudHSM. To learn how to sign a certificate signing
 request (CSR) with your CA, go to [Sign a CSR](#win-ca-sign-csr-sdk5 "#win-ca-sign-csr-sdk5").

@@ -1,6 +1,6 @@
 # Import secret keys with the AWS CloudHSM KMU
 
-Complete the following steps to import a secret key into AWS CloudHSM using the key_mgmt_util (KMU).
+Complete the following steps to import a secret key into AWS CloudHSM using the key\_mgmt\_util (KMU).
 Before you import a secret key, save it to a file. Save symmetric keys as raw bytes, and
 asymmetric private keys in PEM format.
 

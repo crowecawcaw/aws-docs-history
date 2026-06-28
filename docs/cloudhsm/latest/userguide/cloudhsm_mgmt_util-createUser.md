@@ -1,6 +1,6 @@
 # Create an AWS CloudHSM user with CMU
 
-Use the **createUser** command in cloudhsm_mgmt_util (CMU) to create a user on the
+Use the **createUser** command in cloudhsm\_mgmt\_util (CMU) to create a user on the
 hardware security modules (HSM) in the AWS CloudHSM cluster. Only crypto officers (COs and PRECOs) can
 run this command. When the command succeeds, it creates the user in all HSMs in the cluster.
 
@@ -174,7 +174,7 @@ Required: Yes
 Specifies a friendly name for the user. The maximum length is 31 characters. The
 only special character permitted is an underscore ( \_ ).
 
-You cannot change the name of a user after it is created. In cloudhsm_mgmt_util commands, the
+You cannot change the name of a user after it is created. In cloudhsm\_mgmt\_util commands, the
 user type and password are case-sensitive, but the user name is not.
 
 Required: Yes

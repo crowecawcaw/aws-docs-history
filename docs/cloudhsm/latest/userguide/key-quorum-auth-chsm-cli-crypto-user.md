@@ -133,7 +133,7 @@ The token file consists of the following:
      RSA 2048-bit private key whose public key was registered with the HSM.
 
 4. Validate the new user service quorum token. The **quorum token-sign
-   list** command confirms that the token exists on CloudHSM.
+list** command confirms that the token exists on CloudHSM.
 
 ```
 `aws-cloudhsm >` `quorum token-sign list``{

@@ -16,21 +16,21 @@ A pointer to a null-terminated Unicode string that contains the
 identifier of the cryptographic algorithm to create the key. AWS CloudHSM
 Key Storage Provider (KSP) supports the following algorithms:
 
-| Constant/value                              | Description                                                                   |
-| ------------------------------------------- | ----------------------------------------------------------------------------- |
-| BCRYPT_RSA_ALGORITHM<br>"RSA"               | The RSA public key algorithm.                                                 |
-| BCRYPT_ECDSA_P256_ALGORITHM<br>"ECDSA_P256" | The 256-bit prime elliptic curve digital signature<br>algorithm (FIPS 186-2). |
-| BCRYPT_ECDSA_P384_ALGORITHM<br>"ECDSA_P384" | The 384-bit prime elliptic curve digital signature<br>algorithm (FIPS 186-2). |
-| BCRYPT_ECDSA_P521_ALGORITHM<br>"ECDSA_P521" | The 521-bit prime elliptic curve digital signature<br>algorithm (FIPS 186-2). |
+| Constant/value                                  | Description                                                                   |
+| ----------------------------------------------- | ----------------------------------------------------------------------------- |
+| BCRYPT\_RSA\_ALGORITHM<br>"RSA"                 | The RSA public key algorithm.                                                 |
+| BCRYPT\_ECDSA\_P256\_ALGORITHM<br>"ECDSA\_P256" | The 256-bit prime elliptic curve digital signature<br>algorithm (FIPS 186-2). |
+| BCRYPT\_ECDSA\_P384\_ALGORITHM<br>"ECDSA\_P384" | The 384-bit prime elliptic curve digital signature<br>algorithm (FIPS 186-2). |
+| BCRYPT\_ECDSA\_P521\_ALGORITHM<br>"ECDSA\_P521" | The 521-bit prime elliptic curve digital signature<br>algorithm (FIPS 186-2). |
 
 `dwFlags` [in]
 
 Flags that modify function behavior. This can be zero or the following
 value:
 
-| Value              | Meaning                  |
-| ------------------ | ------------------------ |
-| NCRYPT_SILENT_FLAG | This flag has no effect. |
+| Value                | Meaning                  |
+| -------------------- | ------------------------ |
+| NCRYPT\_SILENT\_FLAG | This flag has no effect. |
 
 ## Return Value
 
@@ -38,10 +38,10 @@ The function returns a status code to indicate success or failure.
 
 Common return codes include:
 
-| Return code           | Description                                                |
-| --------------------- | ---------------------------------------------------------- |
-| ERROR_SUCCESS         | The operation completed successfully.                      |
-| NTE_INVALID_PARAMETER | One or more parameters are not valid.                      |
-| NTE_BAD_FLAGS         | The `dwFlags` parameter contains an invalid<br>value.      |
-| NTE_NOT_SUPPORTED     | The `pszAlgId` parameter contains an unsupported<br>value. |
-| NTE_INVALID_HANDLE    | The handle in `hProvider` is not valid.                    |
+| Return code             | Description                                                |
+| ----------------------- | ---------------------------------------------------------- |
+| ERROR\_SUCCESS          | The operation completed successfully.                      |
+| NTE\_INVALID\_PARAMETER | One or more parameters are not valid.                      |
+| NTE\_BAD\_FLAGS         | The `dwFlags` parameter contains an invalid<br>value.      |
+| NTE\_NOT\_SUPPORTED     | The `pszAlgId` parameter contains an unsupported<br>value. |
+| NTE\_INVALID\_HANDLE    | The handle in `hProvider` is not valid.                    |

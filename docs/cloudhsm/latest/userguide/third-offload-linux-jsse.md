@@ -301,7 +301,7 @@ connections on port 443. Assign this security group to your web server.
 ### Verify that HTTPS uses the certificate that you configured
 
 After you add the web server to a security group, you can verify that SSL/TLS offload is using your self-signed certificate.
-You can do this with a web browser or with a tool such as [OpenSSL s_client](https://www.openssl.org/docs/manmaster/man1/s_client.html "https://www.openssl.org/docs/manmaster/man1/s_client.html").
+You can do this with a web browser or with a tool such as [OpenSSL s\_client](https://www.openssl.org/docs/manmaster/man1/s_client.html "https://www.openssl.org/docs/manmaster/man1/s_client.html").
 
 ###### To verify SSL/TLS offload with a web browser
 
@@ -326,7 +326,7 @@ Other web browsers might have similar features that you can use to view the web 
 certificate. 3. Ensure that the SSL/TLS certificate is the one that you configured your web server to
 use.
 
-###### To verify SSL/TLS offload with OpenSSL s_client
+###### To verify SSL/TLS offload with OpenSSL s\_client
 
 1. Run the following OpenSSL command to connect to your web server using HTTPS. Replace
    `<server name>` with the public DNS name or IP address of

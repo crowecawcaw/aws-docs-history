@@ -1,14 +1,14 @@
 # Generate an AWS CloudHSM symmetric key using KMU
 
-Use the **genSymKey** command in the AWS CloudHSM key_mgmt_util tool to generate a symmetric
+Use the **genSymKey** command in the AWS CloudHSM key\_mgmt\_util tool to generate a symmetric
 key in your hardware security modules (HSM). You can specify the key type and size, assign an ID
 and label, and share the key with other HSM users. You can also create nonextractable keys and
 keys that expire when the session ends. When the command succeeds, it returns a key handle that
 the HSM assigns to the key. You can use the key handle to identify the key to other
 commands.
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
 (CU).
 
 ## Syntax
@@ -242,7 +242,7 @@ type. For example, to create an AES key, type `-t 31`.
 
 Valid values:
 
-- 16: [GENERIC_SECRET](http://docs.oasis-open.org/pkcs11/pkcs11-curr/v2.40/cos01/pkcs11-curr-v2.40-cos01.html#_Toc408226962 "http://docs.oasis-open.org/pkcs11/pkcs11-curr/v2.40/cos01/pkcs11-curr-v2.40-cos01.html#_Toc408226962"). A _generic secret key_ is
+- 16: [GENERIC\_SECRET](http://docs.oasis-open.org/pkcs11/pkcs11-curr/v2.40/cos01/pkcs11-curr-v2.40-cos01.html#_Toc408226962 "http://docs.oasis-open.org/pkcs11/pkcs11-curr/v2.40/cos01/pkcs11-curr-v2.40-cos01.html#_Toc408226962"). A _generic secret key_ is
   a byte array that does not conform to any particular standard, such as the
   requirements for an AES key.
 - 18: [RC4](https://en.wikipedia.org/wiki/RC4 "https://en.wikipedia.org/wiki/RC4"). RC4 keys are not
@@ -292,7 +292,7 @@ Default: No ID value.
 
 Required: No
 
-**-min_srv**
+**-min\_srv**
 
 Specifies the minimum number of HSMs on which the key is synchronized before the
 value of the `-timeout` parameter expires. If the key is not synchronized to
@@ -304,7 +304,7 @@ Default: 1
 
 Required: No
 
-**-m_value**
+**-m\_value**
 
 Specifies the number of users who must approve any cryptographic operation that uses
 the key. Type a value from `0` to `8`.
@@ -369,7 +369,7 @@ Shares the key with the specified users. This parameter gives other HSM crypto u
 Type a comma-separated list of HSM user IDs, such as -`u 5,6`. Do not
 include the HSM user ID of the current user. To find HSM user IDs of CUs on the HSM, use
 [listUsers](key_mgmt_util-listUsers.md "key_mgmt_util-listUsers.md"). To share and unshare existing
-keys, use [shareKey](cloudhsm_mgmt_util-shareKey.md "cloudhsm_mgmt_util-shareKey.md") in the cloudhsm_mgmt_util.
+keys, use [shareKey](cloudhsm_mgmt_util-shareKey.md "cloudhsm_mgmt_util-shareKey.md") in the cloudhsm\_mgmt\_util.
 
 Default: Only the current user can use the key.
 

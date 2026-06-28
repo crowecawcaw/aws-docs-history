@@ -1,16 +1,16 @@
 # Log in and out of an HSM using AWS CloudHSM Management Utility
 
 Use the **loginHSM** and **logoutHSM** commands in the AWS CloudHSM
-cloudhsm_mgmt_util to log in and out of each HSM in a cluster. Any user of any type can use these
+cloudhsm\_mgmt\_util to log in and out of each HSM in a cluster. Any user of any type can use these
 commands.
 
 ###### Note
 
 If you exceed five incorrect login attempts, your account is locked out. To unlock the
 account, a cryptographic officer (CO) must reset your password using the [changePswd](cloudhsm_mgmt_util-changePswd.md "cloudhsm_mgmt_util-changePswd.md") command in
-cloudhsm_mgmt_util.
+cloudhsm\_mgmt\_util.
 
-Before you run these cloudhsm_mgmt_util commands, you must start cloudhsm_mgmt_util.
+Before you run these cloudhsm\_mgmt\_util commands, you must start cloudhsm\_mgmt\_util.
 
 If you add or delete HSMs, update the
 configuration files that the AWS CloudHSM client and the command line tools use.
@@ -148,6 +148,6 @@ Required: No
 ## Related topics
 
 - [Getting Started with
-  cloudhsm_mgmt_util](cloudhsm_mgmt_util-getting-started.md "cloudhsm_mgmt_util-getting-started.md")
+  cloudhsm\_mgmt\_util](cloudhsm_mgmt_util-getting-started.md "cloudhsm_mgmt_util-getting-started.md")
 - [Activate the
   Cluster](activate-cluster.md "activate-cluster.md")

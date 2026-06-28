@@ -1,6 +1,6 @@
 # List the keys that an AWS CloudHSM crypto user owns using CMU
 
-Use the **findAllKeys** command in the AWS CloudHSM cloudhsm_mgmt_util (CMU) to get the keys
+Use the **findAllKeys** command in the AWS CloudHSM cloudhsm\_mgmt\_util (CMU) to get the keys
 that a specified crypto user (CU) of AWS CloudHSM owns or shares. The command also returns a hash of
 the user data on each of the HSMs. You can use the hash to determine at a glance whether the
 users, key ownership, and key sharing data are the same on all HSMs in the cluster. In the
@@ -8,16 +8,16 @@ output, the keys owned by the user are annotated by `(o)` and shared keys are
 annotated by `(s)`.
 
 **findAllKeys** returns public keys only when the specified CU owns the key,
-even though all CUs on the HSM can use any public key. This behavior is different from [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") in key_mgmt_util, which returns public keys for all CU
+even though all CUs on the HSM can use any public key. This behavior is different from [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") in key\_mgmt\_util, which returns public keys for all CU
 users.
 
 Only crypto officers (COs and PCOs) and appliance users (AUs) can run this command. Crypto
 users (CUs) can run the following commands:
 
 - [listUsers](cloudhsm_mgmt_util-listUsers.md "cloudhsm_mgmt_util-listUsers.md") to find all users
-- [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") in key_mgmt_util to find the keys that they
+- [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") in key\_mgmt\_util to find the keys that they
   can use
-- [getKeyInfo](key_mgmt_util-getKeyInfo.md "key_mgmt_util-getKeyInfo.md") in key_mgmt_util to find the owner
+- [getKeyInfo](key_mgmt_util-getKeyInfo.md "key_mgmt_util-getKeyInfo.md") in key\_mgmt\_util to find the owner
   and shared users of a particular key they own or share
   Before you run any CMU command, you must start CMU and log in to the HSM. Be
   sure that you log in with a user type that can run the commands you plan to
@@ -188,5 +188,5 @@ Default: Stdout
 - [deleteUser](cloudhsm_mgmt_util-deleteUser.md "cloudhsm_mgmt_util-deleteUser.md")
 - [listUsers](cloudhsm_mgmt_util-listUsers.md "cloudhsm_mgmt_util-listUsers.md")
 - [syncUser](cloudhsm_mgmt_util-syncUser.md "cloudhsm_mgmt_util-syncUser.md")
-- [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") in key_mgmt_util
-- [getKeyInfo](key_mgmt_util-getKeyInfo.md "key_mgmt_util-getKeyInfo.md") in key_mgmt_util
+- [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") in key\_mgmt\_util
+- [getKeyInfo](key_mgmt_util-getKeyInfo.md "key_mgmt_util-getKeyInfo.md") in key\_mgmt\_util

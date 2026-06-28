@@ -1,8 +1,8 @@
 # Set the attributes of AWS CloudHSM keys using CMU
 
-Use the **setAttribute** command in the AWS CloudHSM cloudhsm_mgmt_util to change the value of
+Use the **setAttribute** command in the AWS CloudHSM cloudhsm\_mgmt\_util to change the value of
 the label, encrypt, decrypt, wrap, and unwrap attributes of a key in the HSMs. You can also use
-the [setAttribute](key_mgmt_util-setAttribute.md "key_mgmt_util-setAttribute.md") command in key_mgmt_util to convert a
+the [setAttribute](key_mgmt_util-setAttribute.md "key_mgmt_util-setAttribute.md") command in key\_mgmt\_util to convert a
 session key to a persistent key. You can only change the attributes of keys that you own.
 
 Before you run any CMU command, you must start CMU and log in to the HSM. Be
@@ -34,7 +34,7 @@ This example shows how to disable the decrypt functionality of a symmetric key. 
 use a command like this one to configure a wrapping key, which should be able to wrap and
 unwrap other keys but not encrypt or decrypt data.
 
-The first step is to create the wrapping key. This command uses [genSymKey](key_mgmt_util-genSymKey.md "key_mgmt_util-genSymKey.md") in key_mgmt_util to generate a 256-bit AES
+The first step is to create the wrapping key. This command uses [genSymKey](key_mgmt_util-genSymKey.md "key_mgmt_util-genSymKey.md") in key\_mgmt\_util to generate a 256-bit AES
 symmetric key. The output shows that the new key has key handle 14.
 
 ```
@@ -88,7 +88,7 @@ ID of the decrypt attribute, use [listAttributes](cloudhsm_mgmt_util-listAttribu
  OBJ_ATTR_ALL = 512`
 ```
 
-To get the current value of the decrypt attribute for key 14, the next command uses [getAttribute](cloudhsm_mgmt_util-getAttribute.md "cloudhsm_mgmt_util-getAttribute.md") in cloudhsm_mgmt_util.
+To get the current value of the decrypt attribute for key 14, the next command uses [getAttribute](cloudhsm_mgmt_util-getAttribute.md "cloudhsm_mgmt_util-getAttribute.md") in cloudhsm\_mgmt\_util.
 
 The output shows that the value of the decrypt attribute is true (1) on both HSMs in the
 cluster.
@@ -150,7 +150,7 @@ setAttribute `<key handle>` `<attribute idb`
 **<key-handle>**
 
 Specifies the key handle of a key that you own. You can specify only one key in each
-command. To get the key handle of a key, use [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") in key_mgmt_util. To find the users of a key, use [getKeyInfo](cloudhsm_mgmt_util-getKeyInfo.md "cloudhsm_mgmt_util-getKeyInfo.md").
+command. To get the key handle of a key, use [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") in key\_mgmt\_util. To find the users of a key, use [getKeyInfo](cloudhsm_mgmt_util-getKeyInfo.md "cloudhsm_mgmt_util-getKeyInfo.md").
 
 Required: Yes
 
@@ -191,7 +191,7 @@ Required: Yes
 
 ## Related topics
 
-- [setAttribute](key_mgmt_util-setAttribute.md "key_mgmt_util-setAttribute.md") in key_mgmt_util
+- [setAttribute](key_mgmt_util-setAttribute.md "key_mgmt_util-setAttribute.md") in key\_mgmt\_util
 - [getAttribute](cloudhsm_mgmt_util-getAttribute.md "cloudhsm_mgmt_util-getAttribute.md")
 - [listAttributes](cloudhsm_mgmt_util-listAttributes.md "cloudhsm_mgmt_util-listAttributes.md")
 - [Key Attribute Reference](key-attribute-table.md "key-attribute-table.md")

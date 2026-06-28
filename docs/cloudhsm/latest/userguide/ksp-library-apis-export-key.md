@@ -18,10 +18,10 @@ AWS CloudHSM Key Storage Provider (KSP) doesn't use this parameter.
 A null-terminated Unicode string that specifies the BLOB
 type to export. AWS CloudHSM Key Storage Provider (KSP) supports the following values:
 
-| Value                 | Meaning                                                                                                                       |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| BCRYPT_RSAPUBLIC_BLOB | Exports an RSA public key. The `pbOutput`<br>buffer contains a `BCRYPT_RSAKEY_BLOB`<br>structure followed by the key data.    |
-| BCRYPT_ECCPUBLIC_BLOB | Exports an ECC public key. The<br>`pbOutput` buffer contains a<br>`BCRYPT_ECCKEY_BLOB` structure followed<br>by the key data. |
+| Value                   | Meaning                                                                                                                       |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| BCRYPT\_RSAPUBLIC\_BLOB | Exports an RSA public key. The `pbOutput`<br>buffer contains a `BCRYPT_RSAKEY_BLOB`<br>structure followed by the key data.    |
+| BCRYPT\_ECCPUBLIC\_BLOB | Exports an ECC public key. The<br>`pbOutput` buffer contains a<br>`BCRYPT_ECCKEY_BLOB` structure followed<br>by the key data. |
 
 `pParameterList` [in, unused]
 
@@ -48,9 +48,9 @@ function stores the required buffer size in bytes.
 Flags that modify how the function works. You can use zero or the
 following:
 
-| Value              | Meaning                  |
-| ------------------ | ------------------------ |
-| NCRYPT_SILENT_FLAG | This flag has no effect. |
+| Value                | Meaning                  |
+| -------------------- | ------------------------ |
+| NCRYPT\_SILENT\_FLAG | This flag has no effect. |
 
 ## Return Value
 
@@ -58,13 +58,13 @@ The function returns a status code to indicate success or failure.
 
 Common return codes include:
 
-| Return code           | Description                                                                |
-| --------------------- | -------------------------------------------------------------------------- |
-| ERROR_SUCCESS         | The operation completed successfully.                                      |
-| NTE_INVALID_PARAMETER | One or more parameters are not valid.                                      |
-| NTE_FAIL              | The operation couldn't complete.                                           |
-| NTE_INVALID_HANDLE    | The handle in `hProvider` is not valid.                                    |
-| NTE_BAD_FLAGS         | The `dwFlags` parameter contains an invalid<br>value.                      |
-| NTE_BAD_KEY_STATE     | The key state is not valid.                                                |
-| NTE_NOT_SUPPORTED     | The `pszBlobType` or `dwFlags` parameter<br>contains an unsupported value. |
-| STATUS_INTERNAL_ERROR | An internal error happened during the operation.                           |
+| Return code             | Description                                                                |
+| ----------------------- | -------------------------------------------------------------------------- |
+| ERROR\_SUCCESS          | The operation completed successfully.                                      |
+| NTE\_INVALID\_PARAMETER | One or more parameters are not valid.                                      |
+| NTE\_FAIL               | The operation couldn't complete.                                           |
+| NTE\_INVALID\_HANDLE    | The handle in `hProvider` is not valid.                                    |
+| NTE\_BAD\_FLAGS         | The `dwFlags` parameter contains an invalid<br>value.                      |
+| NTE\_BAD\_KEY\_STATE    | The key state is not valid.                                                |
+| NTE\_NOT\_SUPPORTED     | The `pszBlobType` or `dwFlags` parameter<br>contains an unsupported value. |
+| STATUS\_INTERNAL\_ERROR | An internal error happened during the operation.                           |

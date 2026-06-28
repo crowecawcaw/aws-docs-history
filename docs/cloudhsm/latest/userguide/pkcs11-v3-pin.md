@@ -5,7 +5,7 @@ can view and manage only the keys that the CU owns and shares. You can use an ex
 your HSMs or create a new CU. For information on managing CUs, see [Managing HSM users with CloudHSM CLI](manage-hsm-users-chsm-cli.md "manage-hsm-users-chsm-cli.md") and [Managing HSM users with CloudHSM Management Utility
 (CMU)](manage-hsm-users-cmu.md "manage-hsm-users-cmu.md").
 
-To specify the CU to PKCS #11 library, use the pin parameter of the PKCS #11 [C_Login function](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html#_Toc385057915 "http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html#_Toc385057915"). For AWS CloudHSM, the pin parameter has the following format:
+To specify the CU to PKCS #11 library, use the pin parameter of the PKCS #11 [C\_Login function](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html#_Toc385057915 "http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html#_Toc385057915"). For AWS CloudHSM, the pin parameter has the following format:
 
 ```
 `<CU_user_name>`:`<password>`

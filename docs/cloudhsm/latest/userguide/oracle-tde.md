@@ -50,7 +50,7 @@ Complete the following steps to set up all of the prerequisites.
       [Oracle Database documentation](https://docs.oracle.com/en/database/ "https://docs.oracle.com/en/database/").
       Client SDK 5.6 and higher support Oracle TDE for Oracle Database 19c.
       Client SDK 3 supports Oracle TDE for Oracle Database versions 11g and 12c.
-   3. Use the cloudhsm_mgmt_util command line tool to create a cryptographic user (CU) on
+   3. Use the cloudhsm\_mgmt\_util command line tool to create a cryptographic user (CU) on
       your cluster. For more information about creating a CU, see [How to Manage HSM Users with CMU](create-users-cmu.md "create-users-cmu.md") and [HSM users](manage-hsm-users.md "manage-hsm-users.md").
 
 ## Step 2: Update the Oracle database configuration

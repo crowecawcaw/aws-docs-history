@@ -1,16 +1,16 @@
 # Set the attributes of AWS CloudHSM keys using KMU
 
-Use the **setAttribute** command in the AWS CloudHSM key_mgmt_util to convert a key that is
+Use the **setAttribute** command in the AWS CloudHSM key\_mgmt\_util to convert a key that is
 valid only in the current session to a persistent key that exists until you delete it. It does
 this by changing the value of the token attribute of the key (`OBJ_ATTR_TOKEN`) from
 false (`0`) to true (`1`). You can only change the attributes of keys that
 you own.
 
-You can also use the **setAttribute** command in cloudhsm_mgmt_util to change the label, wrap,
+You can also use the **setAttribute** command in cloudhsm\_mgmt\_util to change the label, wrap,
 unwrap, encrypt, and decrypt attributes.
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
 (CU).
 
 ## Syntax
@@ -143,7 +143,7 @@ Required: Yes
 
 ## Related topics
 
-- [setAttribute](cloudhsm_mgmt_util-setAttribute.md "cloudhsm_mgmt_util-setAttribute.md") in cloudhsm_mgmt_util
+- [setAttribute](cloudhsm_mgmt_util-setAttribute.md "cloudhsm_mgmt_util-setAttribute.md") in cloudhsm\_mgmt\_util
 - [getAttribute](key_mgmt_util-getAttribute.md "key_mgmt_util-getAttribute.md")
 - [listAttributes](key_mgmt_util-listAttributes.md "key_mgmt_util-listAttributes.md")
 - [Key Attribute Reference](key-attribute-table.md "key-attribute-table.md")

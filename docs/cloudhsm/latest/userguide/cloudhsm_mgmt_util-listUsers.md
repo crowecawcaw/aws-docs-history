@@ -1,8 +1,8 @@
 # List all AWS CloudHSM users using CMU
 
-Use the **listUsers** command in the AWS CloudHSM cloudhsm_mgmt_util to get the users in each of
+Use the **listUsers** command in the AWS CloudHSM cloudhsm\_mgmt\_util to get the users in each of
 the hardware security modules (HSM), along with their user type and other attributes. All types
-of users can run this command. You do not even need to be logged in to cloudhsm_mgmt_util to run this
+of users can run this command. You do not even need to be logged in to cloudhsm\_mgmt\_util to run this
 command.
 
 Before you run any CMU command, you must start CMU and log in to the HSM. Be
@@ -59,7 +59,7 @@ Number of users found:5
 
 The output includes the following user attributes:
 
-- **User ID**: Identifies the user in key_mgmt_util and [cloudhsm_mgmt_util](cloudhsm_mgmt_util.md "cloudhsm_mgmt_util.md") commands.
+- **User ID**: Identifies the user in key\_mgmt\_util and [cloudhsm\_mgmt\_util](cloudhsm_mgmt_util.md "cloudhsm_mgmt_util.md") commands.
 - [User type](understanding-users.md "understanding-users.md"): Determines the operations that the user
   can perform on the HSM.
 - **User Name**: Displays the user-defined friendly name
@@ -74,7 +74,7 @@ The output includes the following user attributes:
 
 ## Related topics
 
-- [listUsers](key_mgmt_util-listUsers.md "key_mgmt_util-listUsers.md") in key_mgmt_util
+- [listUsers](key_mgmt_util-listUsers.md "key_mgmt_util-listUsers.md") in key\_mgmt\_util
 - [createUser](cloudhsm_mgmt_util-createUser.md "cloudhsm_mgmt_util-createUser.md")
 - [deleteUser](cloudhsm_mgmt_util-deleteUser.md "cloudhsm_mgmt_util-deleteUser.md")
 - [changePswd](cloudhsm_mgmt_util-changePswd.md "cloudhsm_mgmt_util-changePswd.md")

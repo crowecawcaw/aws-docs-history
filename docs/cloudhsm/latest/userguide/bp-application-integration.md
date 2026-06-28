@@ -19,8 +19,8 @@ Use the [Log in to an HSM using CloudHSM CLI](cloudhsm_cli-login.md "cloudhsm_cl
 `CLOUDHSM_ROLE` and `CLOUDHSM_PIN`. For details on doing this, refer to [Single Command mode](cloudhsm_cli-modes.md#cloudhsm_cli-mode-single-command "cloudhsm_cli-modes.md#cloudhsm_cli-mode-single-command").
 AWS CloudHSM recommends securely storing your HSM credentials when not being used by your application.
 
-**Authenticate with PKCS #11**: In PKCS #11, you login using the C_Login API after opening a session using C_OpenSession.
-You only need to perform one C_Login per slot (cluster). After you have successfully logged in, you can open additional sessions using C_OpenSession without the need to perform additional login operations.
+**Authenticate with PKCS #11**: In PKCS #11, you login using the C\_Login API after opening a session using C\_OpenSession.
+You only need to perform one C\_Login per slot (cluster). After you have successfully logged in, you can open additional sessions using C\_OpenSession without the need to perform additional login operations.
 For examples on authenticating to PKCS #11, see [Code samples for the PKCS #11 library for AWS CloudHSM Client SDK 5](pkcs11-samples.md "pkcs11-samples.md").
 
 **Authenticate with JCE**: The AWS CloudHSM JCE Provider supports both implicit and explicit login.

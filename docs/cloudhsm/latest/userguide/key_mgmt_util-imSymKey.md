@@ -1,6 +1,6 @@
 # Import a plaintext symmetric key using AWS CloudHSM KMU
 
-Use the **imSymKey** command in the AWS CloudHSM key_mgmt_util tool to import a plaintext
+Use the **imSymKey** command in the AWS CloudHSM key\_mgmt\_util tool to import a plaintext
 copy of a symmetric key from a file into the hardware security module (HSM). You can use it to
 import keys that you generate by any method outside of the HSM and keys that were exported from
 an HSM, such as the keys that the [exSymKey](key_mgmt_util-exSymKey.md "key_mgmt_util-exSymKey.md"),
@@ -20,9 +20,9 @@ keys, use [importPrivateKey](key_mgmt_util-importPrivateKey.md "key_mgmt_util-im
 
 You cannot import a password-protected PEM key using a symmetric or private key.
 
-Imported keys work very much like keys generated in the HSM. However, the value of the [OBJ_ATTR_LOCAL attribute](key-attribute-table.md "key-attribute-table.md") is zero, which indicates that it
+Imported keys work very much like keys generated in the HSM. However, the value of the [OBJ\_ATTR\_LOCAL attribute](key-attribute-table.md "key-attribute-table.md") is zero, which indicates that it
 was not generated locally. You can use the following command to share a symmetric key as you
-import it. You can use the `shareKey` command in [cloudhsm_mgmt_util](cloudhsm_mgmt_util.md "cloudhsm_mgmt_util.md") to share the key after it is imported.
+import it. You can use the `shareKey` command in [cloudhsm\_mgmt\_util](cloudhsm_mgmt_util.md "cloudhsm_mgmt_util.md") to share the key after it is imported.
 
 ```
 `imSymKey -l aesShared -t 31 -f kms.key -w 3296 -u 5`
@@ -33,8 +33,8 @@ prevent you from importing the same key material multiple times. The result, mul
 distinct key handles and the same key material, make it difficult to track use of the key
 material and prevent it from exceeding its cryptographic limits.
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
 (CU).
 
 ## Syntax
@@ -100,7 +100,7 @@ the HSM, where it was assigned the key handle 262180.
 ```
 
 The next command uses [getAttribute](key_mgmt_util-getAttribute.md "key_mgmt_util-getAttribute.md") to
-get the OBJ_ATTR_LOCAL attribute ([attribute 355](key-attribute-table.md "key-attribute-table.md"))
+get the OBJ\_ATTR\_LOCAL attribute ([attribute 355](key-attribute-table.md "key-attribute-table.md"))
 of the newly imported key and writes it to the `attr_262180` file.
 
 ```
@@ -146,7 +146,7 @@ uses key 6, an AES key on the HSMs in cluster 1, as the wrapping key.
 Wrapped Symmetric Key written to file "aes.key"`
 ```
 
-The user then logs into key_mgmt_util in cluster 2 and runs an
+The user then logs into key\_mgmt\_util in cluster 2 and runs an
 **imSymKey** command to import the key in the `aes.key`
 file into the HSMs in cluster 2. This command uses key 252152, an AES key on the HSMs in
 cluster 2, as the wrapping key.
@@ -317,7 +317,7 @@ the label does not have to be unique, you can use it to group and categorize key
 
 Required: Yes
 
-**-min_srv**
+**-min\_srv**
 
 Specifies the minimum number of HSMs on which the key is synchronized before the
 value of the `-timeout` parameter expires. If the key is not synchronized to
@@ -378,8 +378,8 @@ HSM crypto users (CUs) permission to use this key in cryptographic operations.
 Type one ID or a comma-separated list of HSM user IDs, such as -u `5,6`.
 Do not include the HSM user ID of the current user. To find the an ID, you can use the
 [listUsers](cloudhsm_mgmt_util-listUsers.md "cloudhsm_mgmt_util-listUsers.md") command
-in the cloudhsm_mgmt_util command line tool or the [listUsers](key_mgmt_util-listUsers.md "key_mgmt_util-listUsers.md") command in the
-key_mgmt_util command line tool.
+in the cloudhsm\_mgmt\_util command line tool or the [listUsers](key_mgmt_util-listUsers.md "key_mgmt_util-listUsers.md") command in the
+key\_mgmt\_util command line tool.
 
 Required: No
 

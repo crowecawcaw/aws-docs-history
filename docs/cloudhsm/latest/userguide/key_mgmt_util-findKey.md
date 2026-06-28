@@ -1,17 +1,17 @@
 # Search for AWS CloudHSM keys by attributes using KMU
 
-Use the **findKey** command in the AWS CloudHSM key_mgmt_util to search for keys by the
+Use the **findKey** command in the AWS CloudHSM key\_mgmt\_util to search for keys by the
 values of the key attributes. When a key matches all the criteria that you set,
 **findKey** returns the key handle. With no parameters,
 **findKey** returns the key handles of all the keys that you can use in the
 HSM. To find the attribute values of a particular key, use [getAttribute](key_mgmt_util-getAttribute.md "key_mgmt_util-getAttribute.md").
 
-Like all key_mgmt_util commands, **findKey** is user specific. It returns
+Like all key\_mgmt\_util commands, **findKey** is user specific. It returns
 only the keys that the current user can use in cryptographic operations. This includes keys that
 current user owns and keys that have been shared with the current user.
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
 (CU).
 
 ## Syntax
@@ -41,7 +41,7 @@ that the user owns and shares, and all public keys in the HSMs.
 
 To get the attributes of a key with a particular key handle, use [getAttribute](key_mgmt_util-getAttribute.md "key_mgmt_util-getAttribute.md"). To determine whether the current
 user owns or shares a particular key, use [getKeyInfo](key_mgmt_util-getKeyInfo.md "key_mgmt_util-getKeyInfo.md") or [findAllKeys](cloudhsm_mgmt_util-findAllKeys.md "cloudhsm_mgmt_util-findAllKeys.md") in
-cloudhsm_mgmt_util.
+cloudhsm\_mgmt\_util.
 
 ```
 `Command:` `findKey`
@@ -103,7 +103,7 @@ Valid values:
 - 0: [RSA](<https://en.wikipedia.org/wiki/RSA_(cryptosystem)> "https://en.wikipedia.org/wiki/RSA_(cryptosystem)")
 - 1: [DSA](https://en.wikipedia.org/wiki/Digital_Signature_Algorithm "https://en.wikipedia.org/wiki/Digital_Signature_Algorithm")
 - 3: [EC](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography "https://en.wikipedia.org/wiki/Elliptic-curve_cryptography")
-- 16: [GENERIC_SECRET](http://docs.oasis-open.org/pkcs11/pkcs11-curr/v2.40/cos01/pkcs11-curr-v2.40-cos01.html#_Toc408226962 "http://docs.oasis-open.org/pkcs11/pkcs11-curr/v2.40/cos01/pkcs11-curr-v2.40-cos01.html#_Toc408226962")
+- 16: [GENERIC\_SECRET](http://docs.oasis-open.org/pkcs11/pkcs11-curr/v2.40/cos01/pkcs11-curr-v2.40-cos01.html#_Toc408226962 "http://docs.oasis-open.org/pkcs11/pkcs11-curr/v2.40/cos01/pkcs11-curr-v2.40-cos01.html#_Toc408226962")
 - 18: [RC4](https://en.wikipedia.org/wiki/RC4 "https://en.wikipedia.org/wiki/RC4")
 - 21: [Triple DES
   (3DES)](https://en.wikipedia.org/wiki/Triple_DES "https://en.wikipedia.org/wiki/Triple_DES")
@@ -161,7 +161,7 @@ Because **findKey** only returns keys that the current user can use,
 the `-u` results are always identical to or a subset of the current user's
 keys. To get all keys that are owned by or shared with any user, crypto officers (COs)
 can use [findAllKeys](cloudhsm_mgmt_util-findAllKeys.md "cloudhsm_mgmt_util-findAllKeys.md") in
-cloudhsm_mgmt_util.
+cloudhsm\_mgmt\_util.
 
 Required: No
 
@@ -217,5 +217,5 @@ Total number of keys present 10
 - [findSingleKey](key_mgmt_util-findSingleKey.md "key_mgmt_util-findSingleKey.md")
 - [getKeyInfo](key_mgmt_util-getKeyInfo.md "key_mgmt_util-getKeyInfo.md")
 - [getAttribute](key_mgmt_util-getAttribute.md "key_mgmt_util-getAttribute.md")
-- [findAllKeys](cloudhsm_mgmt_util-findAllKeys.md "cloudhsm_mgmt_util-findAllKeys.md") in cloudhsm_mgmt_util
+- [findAllKeys](cloudhsm_mgmt_util-findAllKeys.md "cloudhsm_mgmt_util-findAllKeys.md") in cloudhsm\_mgmt\_util
 - [Key Attribute Reference](key-attribute-table.md "key-attribute-table.md")

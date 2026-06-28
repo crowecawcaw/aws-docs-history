@@ -1,7 +1,7 @@
 # Import keys with the AWS CloudHSM KMU
 
 To import secret keys—that is, symmetric keys and asymmetric private
-keys—into the hardware security module (HSM) using the AWS CloudHSM key_mgmt_util, you must first
+keys—into the hardware security module (HSM) using the AWS CloudHSM key\_mgmt\_util, you must first
 create a wrapping key on the HSM. You can import public keys directly without a wrapping
 key.
 

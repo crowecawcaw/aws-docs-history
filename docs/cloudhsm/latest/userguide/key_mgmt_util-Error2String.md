@@ -1,11 +1,11 @@
 # Describe an AWS CloudHSM error using KMU
 
-Use the **Error2String** helper command in the AWS CloudHSM key_mgmt_util to return the
-error that corresponds to a key_mgmt_util hexadecimal error code. You can use this command when
+Use the **Error2String** helper command in the AWS CloudHSM key\_mgmt\_util to return the
+error that corresponds to a key\_mgmt\_util hexadecimal error code. You can use this command when
 troubleshooting your commands and scripts.
 
-Before you run any key_mgmt_util command, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
+Before you run any key\_mgmt\_util command, you must [start
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
 (CU).
 
 ## Syntax
@@ -19,13 +19,13 @@ Error2String -r `<response-code>`
 ## Examples
 
 These examples show how to use **Error2String** to get the error string for
-a key_mgmt_util error code.
+a key\_mgmt\_util error code.
 
 ###### Example: Get an error description
 
 This command gets the error description for the `0xdb` error code. The
-description explains that an attempt to log in to key_mgmt_util failed because the user has the
-wrong user type. Only crypto users (CU) can log in to key_mgmt_util.
+description explains that an attempt to log in to key\_mgmt\_util failed because the user has the
+wrong user type. Only crypto users (CU) can log in to key\_mgmt\_util.
 
 ```
         `Command:`  `Error2String -r 0xdb`
@@ -35,7 +35,7 @@ wrong user type. Only crypto users (CU) can log in to key_mgmt_util.
 
 ###### Example: Find the error code
 
-This example shows where to find the error code in a key_mgmt_util error. The error code,
+This example shows where to find the error code in a key\_mgmt\_util error. The error code,
 `0xc6`, appears after the string:
 `Cfm3`<command-name>` returned:` .
 

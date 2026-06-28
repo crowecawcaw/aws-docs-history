@@ -59,7 +59,7 @@ To end your CloudHSM CLI session, run the following command:
 
 When using single command mode, you must escape any special characters in environment variables and command-line arguments that may be interpreted by your shell.
 
-If you run CloudHSM CLI using Single Command Mode, you need to set two environment variables to provide credentials: CLOUDHSM_PIN and CLOUDHSM_ROLE:
+If you run CloudHSM CLI using Single Command Mode, you need to set two environment variables to provide credentials: CLOUDHSM\_PIN and CLOUDHSM\_ROLE:
 
 ```
 `$` export `CLOUDHSM_ROLE=admin`

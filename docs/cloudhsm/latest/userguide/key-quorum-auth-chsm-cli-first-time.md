@@ -202,11 +202,11 @@ these values with your own:
 
 ###### Note
 
-**/path/crypto_user.pub**: The filepath to the public key PEM file
+**/path/crypto\_user.pub**: The filepath to the public key PEM file
 
 **Required**: Yes
 
-**/path/token_file**: The filepath with token signed by user private key
+**/path/token\_file**: The filepath with token signed by user private key
 
 **Required**: Yes 4. After all crypto-users register their public keys, the output from the **user list** command shows this in the quorum field, stating the enabled quorum strategy in use.
 

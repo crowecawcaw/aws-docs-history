@@ -10,7 +10,7 @@ sub-command:
 
 If you exceed five incorrect login attempts, your account is locked out. To unlock the
 account, an admin must reset your password using the [user change-password](cloudhsm_cli-user-change-password.md "cloudhsm_cli-user-change-password.md") command in
-cloudhsm_cli.
+cloudhsm\_cli.
 
 If you have more than one HSM in your cluster, you may be allowed additional
 incorrect login attempts before your account is locked out. This is because the

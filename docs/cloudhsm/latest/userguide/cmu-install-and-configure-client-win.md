@@ -1,7 +1,7 @@
 # Install and configure the AWS CloudHSM client for CMU (Windows)
 
 To work with a hardware security module (HSM) in your AWS CloudHSM cluster on Windows using the
-cloudhsm_mgmt_util (CMU), you need the AWS CloudHSM client software for Windows. You should install
+cloudhsm\_mgmt\_util (CMU), you need the AWS CloudHSM client software for Windows. You should install
 it on the Windows Server instance that you created previously.
 
 ###### Note
@@ -18,7 +18,7 @@ it on the Windows Server instance that you created previously.
 
 1. Connect to your Windows Server instance.
 2. Download the [AWSCloudHSMClient-latest.msi installer](https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Windows/AWSCloudHSMClient-latest.msi "https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Windows/AWSCloudHSMClient-latest.msi").
-3. If installing Client SDK 3 on cloudhsm_mgmt_util, complete the following steps to ensure all the nodes in the cluster are synced.
+3. If installing Client SDK 3 on cloudhsm\_mgmt\_util, complete the following steps to ensure all the nodes in the cluster are synced.
 
    1. Run **configure.exe -a `<IP of one of the HSMs>`**.
    2. Restart the client service.

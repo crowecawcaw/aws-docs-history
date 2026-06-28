@@ -150,17 +150,17 @@ For additional information regarding AES key wrapping, see [AES Key Wrapping](ma
 
 The following table lists the maximum data size set for each mechanism:
 
-| Maximum data set size  | **Mechanism** | **Maximum data size in bytes** |
-| ---------------------- | ------------- | ------------------------------ |
-| `CKM_SHA_1_HMAC`       | 16288         |
-| `CKM_SHA224_HMAC`      | 16256         |
-| `CKM_SHA256_HMAC`      | 16288         |
-| `CKM_SHA384_HMAC`      | 16224         |
-| `CKM_SHA512_HMAC`      | 16224         |
-| `CKM_AES_CBC`          | 16272         |
-| `CKM_AES_GCM`          | 16224         |
-| `CKM_CLOUDHSM_AES_GCM` | 16224         |
-| `CKM_DES3_CBC`         | 16280         |
+Maximum data set size| **Mechanism** | **Maximum data size in bytes** |
+| --- | --- |
+| `CKM_SHA_1_HMAC` | 16288 |
+| `CKM_SHA224_HMAC` | 16256 |
+| `CKM_SHA256_HMAC` | 16288 |
+| `CKM_SHA384_HMAC` | 16224 |
+| `CKM_SHA512_HMAC` | 16224 |
+| `CKM_AES_CBC` | 16272 |
+| `CKM_AES_GCM` | 16224 |
+| `CKM_CLOUDHSM_AES_GCM` | 16224 |
+| `CKM_DES3_CBC` | 16280 |
 
 ## Mechanism annotations
 
@@ -201,13 +201,12 @@ to be prepended to the ciphertext that is being unwrapped.
   and `CK_RSA_PKCS_MGF_TYPE` are supported as
   `CK_RSA_PKCS_OAEP_PARAMS` for `CKM_RSA_PKCS_OAEP`:
 
-      + `CKM_SHA_1` using `CKG_MGF1_SHA1`
-      + `CKM_SHA224` using `CKG_MGF1_SHA224`
-      + `CKM_SHA256` using `CKG_MGF1_SHA256`
-      + `CKM_SHA384` using `CKM_MGF1_SHA384`
-      + `CKM_SHA512` using `CKM_MGF1_SHA512`
-
-  [Show moreShow less](# "#")
+  - `CKM_SHA_1` using `CKG_MGF1_SHA1`
+  - `CKM_SHA224` using `CKG_MGF1_SHA224`
+  - `CKM_SHA256` using `CKG_MGF1_SHA256`
+  - `CKM_SHA384` using `CKM_MGF1_SHA384`
+  - `CKM_SHA512` using `CKM_MGF1_SHA512`
+    [Show moreShow less](# "#")
 
 - [5] In accordance with NIST guidance, this is disallowed for clusters in FIPS mode after 2023. For clusters in non-FIPS mode, it is still allowed after 2023. See [FIPS 140 Compliance: 2024 Mechanism Deprecation](compliance-dep-notif.md#compliance-dep-notif-1 "compliance-dep-notif.md#compliance-dep-notif-1") for details.
 

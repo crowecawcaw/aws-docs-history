@@ -35,7 +35,7 @@ the Default Value columns indicates that there is no specific default value assi
 the attribute.
 
 | Attribute           | Default Value | Notes                  |
-| ------------------- | ------------- | ---------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------- | ------------- | ---------------------- |
 |                     | Symmetric Key | Public Key in Key Pair | Private Key in Key Pair |                                                                                                                                                                                                                                                                                                                                                                                                                |
 | `DECRYPT`           | `TRUE`        |                        | `TRUE`                  | True indicates you can use the key to<br>decrypt any buffer. You generally set this to FALSE for a key whose WRAP is<br>set to true.                                                                                                                                                                                                                                                                           |
 | `DERIVE`            |               |                        |                         | Allows a key to be used to derive other keys.                                                                                                                                                                                                                                                                                                                                                                  |
@@ -74,12 +74,12 @@ To set custom values on attributes, you have two options:
 
 Attribute map objects support the following methods to set attributes:
 
-| Operation                                            | Return Value                                                                                                    | `KeyAttributesMap` method    |
-| ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| Get the value of a key attribute for an existing key | Object (containing the value) or _null_                                                                         | **get**(keyAttribute)        |
-| Populate the value of one key attribute              | The previous value associated with key attribute, or \*null<br>• if there was no mapping for a key attribute    | **put**(keyAttribute, value) |
-| Populate values for multiple key attributes          | N/A                                                                                                             | **putAll**(keyAttributesMap) |
-| Remove a key-value pair from the attribute map       | The previous value associated with key attribute, or \*null<br>• if there was no mapping for a key<br>attribute | **remove**(keyAttribute)     |
+| Operation                                            | Return Value                                                                                                   | `KeyAttributesMap` method    |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| Get the value of a key attribute for an existing key | Object (containing the value) or _null_                                                                        | **get**(keyAttribute)        |
+| Populate the value of one key attribute              | The previous value associated with key attribute, or *null<br>• if there was no mapping for a key attribute    | **put**(keyAttribute, value) |
+| Populate values for multiple key attributes          | N/A                                                                                                            | **putAll**(keyAttributesMap) |
+| Remove a key-value pair from the attribute map       | The previous value associated with key attribute, or *null<br>• if there was no mapping for a key<br>attribute | **remove**(keyAttribute)     |
 
 ###### Note
 

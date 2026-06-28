@@ -26,7 +26,7 @@ as described in [Generate a CSR using
 Keytool](generate_csr_using_keytool.md "generate_csr_using_keytool.md"). Alternatively, you can make the necessary changes on one client
 and copy the resulting key store file to every other client instance.
 
-**Example 1:** To generate a symmetric AES-256 key and save it in a key store file named, "example_keystore.store",
+**Example 1:** To generate a symmetric AES-256 key and save it in a key store file named, "example\_keystore.store",
 in the working directory. Replace `<secret label>` with a unique label.
 
 ```
@@ -36,7 +36,7 @@ keytool -genseckey -alias `<secret label>` -keyalg aes \
 		-J-Djava.library.path=/opt/cloudhsm/lib/
 ```
 
-**Example 2:** To generate an RSA 2048 key pair and save it in a key store file named, "example_keystore.store"
+**Example 2:** To generate an RSA 2048 key pair and save it in a key store file named, "example\_keystore.store"
 in the working directory. Replace `<RSA key pair label>` with a unique label.
 
 ```
@@ -50,7 +50,7 @@ keytool -genkeypair -alias `<RSA key pair label>` \
 
 ```
 
-**Example 3:** To generate a p256 ED key and save it in a key store file named, "example_keystore.store" in the
+**Example 3:** To generate a p256 ED key and save it in a key store file named, "example\_keystore.store" in the
 working directory. Replace `<ec key pair label>` with a unique label.
 
 ```

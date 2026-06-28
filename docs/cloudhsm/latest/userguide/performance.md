@@ -14,17 +14,17 @@ Performance can vary based on configuration, data size, and additional applicati
 
 The following table shows approximate performance for common cryptographic algorithms running on an EC2 instance with hsm1.medium instances.
 
-| Performance data for hsm1.medium | Operation     | Two-HSM cluster[1](#performance1 "#performance1") | Three-HSM cluster[2](#performance2 "#performance2") | Six-HSM cluster[3](#performance3 "#performance3") |
-| -------------------------------- | ------------- | ------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------- |
-| RSA 2048-bit sign                | 2,000 ops/sec | 3,000 ops/sec                                     | 5,000 ops/sec                                       |
-| EC P256 sign                     | 500 ops/sec   | 750 ops/sec                                       | 1,500 ops/sec                                       |
+Performance data for hsm1.medium| Operation | Two-HSM cluster[1](#performance1 "#performance1") | Three-HSM cluster[2](#performance2 "#performance2") | Six-HSM cluster[3](#performance3 "#performance3") |
+| --- | --- | --- | --- |
+| RSA 2048-bit sign | 2,000 ops/sec | 3,000 ops/sec | 5,000 ops/sec |
+| EC P256 sign | 500 ops/sec | 750 ops/sec | 1,500 ops/sec |
 
 The following table shows approximate performance for common cryptographic algorithms running on an EC2 instance with hsm2m.medium.
 
-| Performance data for hsm2m.medium | Operation    | Two-HSM cluster[1](#performance1 "#performance1") | Three-HSM cluster[2](#performance2 "#performance2") | Six-HSM cluster[3](#performance3 "#performance3") |
-| --------------------------------- | ------------ | ------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------- |
-| RSA 2048-bit sign                 | 2000 ops/sec | 3000 ops/sec                                      | 5000 ops/sec                                        |
-| EC P256 sign                      | 3000 ops/sec | 4500 ops/sec                                      | 7000 ops/sec                                        |
+Performance data for hsm2m.medium| Operation | Two-HSM cluster[1](#performance1 "#performance1") | Three-HSM cluster[2](#performance2 "#performance2") | Six-HSM cluster[3](#performance3 "#performance3") |
+| --- | --- | --- | --- |
+| RSA 2048-bit sign | 2000 ops/sec | 3000 ops/sec | 5000 ops/sec |
+| EC P256 sign | 3000 ops/sec | 4500 ops/sec | 7000 ops/sec |
 
 - [1] A two-HSM cluster with the Java multi-threaded application running on
   one [c4.large EC2 instance](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/") with one HSM in the same AZ as the EC2 instance.

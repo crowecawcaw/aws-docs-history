@@ -39,23 +39,22 @@ To use Microsoft SignTool with AWS CloudHSM, you need the following:
 
 ###### To set up the prerequisites for using AWS CloudHSM with Windows SignTool
 
-1.  Follow the instructions in the [Getting
-    Started](getting-started.md "getting-started.md") section of this guide to launch a Windows EC2 instance and an
-    AWS CloudHSM cluster.
-2.  If you would like to host your own Windows Server CA, follow steps 1 and 2 in
-    [Configuring Windows Server as a Certificate
-    Authority with AWS CloudHSM](win-ca-overview-sdk3.md "win-ca-overview-sdk3.md"). Otherwise, continue to use your publicly trusted
-    third-party CA.
-3.  Download and install one of the following versions of the Microsoft Windows SDK on
-    your Windows EC2 instance:
+1. Follow the instructions in the [Getting
+   Started](getting-started.md "getting-started.md") section of this guide to launch a Windows EC2 instance and an
+   AWS CloudHSM cluster.
+2. If you would like to host your own Windows Server CA, follow steps 1 and 2 in
+   [Configuring Windows Server as a Certificate
+   Authority with AWS CloudHSM](win-ca-overview-sdk3.md "win-ca-overview-sdk3.md"). Otherwise, continue to use your publicly trusted
+   third-party CA.
+3. Download and install one of the following versions of the Microsoft Windows SDK on
+   your Windows EC2 instance:
 
-        * [Microsoft Windows SDK 10](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk "https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk")
-        * [Microsoft Windows SDK 8.1](https://developer.microsoft.com/en-us/windows/downloads/windows-8-1-sdk "https://developer.microsoft.com/en-us/windows/downloads/windows-8-1-sdk")
-        * [Microsoft Windows SDK 7](https://www.microsoft.com/en-us/download/details.aspx?id=8279 "https://www.microsoft.com/en-us/download/details.aspx?id=8279")
-
-    The `SignTool` executable is part of the Windows SDK Signing Tools for
-    Desktop Apps installation feature. You can omit the other features to be installed
-    if you don’t need them. The default installation location is:
+   - [Microsoft Windows SDK 10](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk "https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk")
+   - [Microsoft Windows SDK 8.1](https://developer.microsoft.com/en-us/windows/downloads/windows-8-1-sdk "https://developer.microsoft.com/en-us/windows/downloads/windows-8-1-sdk")
+   - [Microsoft Windows SDK 7](https://www.microsoft.com/en-us/download/details.aspx?id=8279 "https://www.microsoft.com/en-us/download/details.aspx?id=8279")
+     The `SignTool` executable is part of the Windows SDK Signing Tools for
+     Desktop Apps installation feature. You can omit the other features to be installed
+     if you don’t need them. The default installation location is:
 
 ```
 C:\Program Files (x86)\Windows Kits\`<SDK version>`\bin\`<version number>`\`<CPU architecture>`\signtool.exe

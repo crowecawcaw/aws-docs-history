@@ -18,5 +18,5 @@ Attributes](pkcs11-attributes.md "pkcs11-attributes.md").
   to rotate your master key edition. For more information, see [Generate the Oracle TDE Master
   Encryption Key](oracle-tde.md#oracle-tde-generate-master-key "oracle-tde.md#oracle-tde-generate-master-key").
 - **Resolution status:** We are improving the HSM firmware to fully support the
-  CKA_MODIFIABLE attribute. Updates will be announced in the AWS CloudHSM forum and on
+  CKA\_MODIFIABLE attribute. Updates will be announced in the AWS CloudHSM forum and on
   the version history page

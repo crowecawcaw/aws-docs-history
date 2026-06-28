@@ -9,7 +9,7 @@ settings.
 
 - The _log group_ name is
   `/aws/cloudhsm/`<cluster ID>``; for example
-`/aws/cloudhsm/cluster-likphkxygsn`. When you use the log group name in a
+  `/aws/cloudhsm/cluster-likphkxygsn`. When you use the log group name in a
   AWS CLI or PowerShell command, be sure to enclose it in double quotation marks.
 - The _log stream_ name is the HSM ID; for example,
   `hsm-nwbbiqbj4jk`.
@@ -47,6 +47,6 @@ as the `CN_CREATE_USER`
 
 To find all events that do not include the specified text, add a minus sign (-) before the
 text. For example, to find events that do not include `CN_CREATE_USER`, enter
-**-CN_CREATE_USER**.
+**-CN\_CREATE\_USER**.
 
 ![Filtering an event in an AWS CloudHSM audit log in CloudWatch Logs by its Opcode value.](images/cloudwatch-logs-event-filter.png)

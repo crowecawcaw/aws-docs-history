@@ -1,6 +1,6 @@
 # Get an AWS CloudHSM key attribute value using CMU
 
-Use the **getAttribute** command in the AWS CloudHSM cloudhsm_mgmt_util (CMU) to get one
+Use the **getAttribute** command in the AWS CloudHSM cloudhsm\_mgmt\_util (CMU) to get one
 attribute value for a key from all hardware security modules (HSM) in the AWS CloudHSM cluster and
 writes it to stdout (standard output) or to a file. Only crypto users (CUs) can run this
 command.
@@ -10,12 +10,12 @@ characteristics, like the key type, class, label, and ID, and values that repres
 you can perform on the key, like encrypt, decrypt, wrap, sign, and verify.
 
 You can use **getAttribute** only on keys that you own and key that are
-shared with you. You can run this command or the getAttribute command in key_mgmt_util, which writes one or all of the attribute values of a
+shared with you. You can run this command or the getAttribute command in key\_mgmt\_util, which writes one or all of the attribute values of a
 key to a file.
 
 To get a list of attributes and the constants that represent them, use the [listAttributes](key_mgmt_util-listAttributes.md "key_mgmt_util-listAttributes.md") command. To change the attribute
 values of existing keys, use [setAttribute](key_mgmt_util-setAttribute.md "key_mgmt_util-setAttribute.md") in
-key_mgmt_util and [setAttribute](cloudhsm_mgmt_util-setAttribute.md "cloudhsm_mgmt_util-setAttribute.md") in cloudhsm_mgmt_util.
+key\_mgmt\_util and [setAttribute](cloudhsm_mgmt_util-setAttribute.md "cloudhsm_mgmt_util-setAttribute.md") in cloudhsm\_mgmt\_util.
 For help interpreting the key attributes, see the [AWS CloudHSM key attribute reference for KMU](key-attribute-table.md "key-attribute-table.md").
 
 Before you run any CMU command, you must start CMU and log in to the HSM. Be
@@ -127,10 +127,10 @@ getAttribute `<key handle>` `<attribute id>` [`<filename>`]
 **<key-handle>**
 
 Specifies the key handle of the target key. You can specify only one key in each
-command. To get the key handle of a key, use [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") in key_mgmt_util.
+command. To get the key handle of a key, use [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") in key\_mgmt\_util.
 
 You must own the specified key or it must be shared with you. To find the users of a
-key, use [getKeyInfo](key_mgmt_util-getKeyInfo.md "key_mgmt_util-getKeyInfo.md") in key_mgmt_util.
+key, use [getKeyInfo](key_mgmt_util-getKeyInfo.md "key_mgmt_util-getKeyInfo.md") in key\_mgmt\_util.
 
 Required: Yes
 
@@ -159,8 +159,8 @@ Default: Stdout
 
 ## Related topics
 
-- [getAttribute](key_mgmt_util-getAttribute.md "key_mgmt_util-getAttribute.md") in key_mgmt_util
+- [getAttribute](key_mgmt_util-getAttribute.md "key_mgmt_util-getAttribute.md") in key\_mgmt\_util
 - [listAttributes](cloudhsm_mgmt_util-listAttributes.md "cloudhsm_mgmt_util-listAttributes.md")
-- [setAttribute](cloudhsm_mgmt_util-setAttribute.md "cloudhsm_mgmt_util-setAttribute.md") in cloudhsm_mgmt_util
-- [setAttribute](key_mgmt_util-setAttribute.md "key_mgmt_util-setAttribute.md") in key_mgmt_util
+- [setAttribute](cloudhsm_mgmt_util-setAttribute.md "cloudhsm_mgmt_util-setAttribute.md") in cloudhsm\_mgmt\_util
+- [setAttribute](key_mgmt_util-setAttribute.md "key_mgmt_util-setAttribute.md") in key\_mgmt\_util
 - [Key Attribute Reference](key-attribute-table.md "key-attribute-table.md")

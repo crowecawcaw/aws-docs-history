@@ -137,11 +137,11 @@ files.
 
 ###### To get the AWS CloudHSM and manufacturer root certificates
 
-1. Download the AWS CloudHSM root certificate: [AWS_CloudHSM_Root-G1.zip](samples/AWS_CloudHSM_Root-G1.zip.md "samples/AWS_CloudHSM_Root-G1.zip.md")
+1. Download the AWS CloudHSM root certificate: [AWS\_CloudHSM\_Root-G1.zip](samples/AWS_CloudHSM_Root-G1.zip.md "samples/AWS_CloudHSM_Root-G1.zip.md")
 2. Download the right manufacturer root certificate for your HSM type:
 
-   - hsm1.medium manufacturer root certificate: [liquid_security_certificate.zip](https://www.marvell.com/content/dam/marvell/en/public-collateral/security-solutions/liquid_security_certificate.zip "https://www.marvell.com/content/dam/marvell/en/public-collateral/security-solutions/liquid_security_certificate.zip")
-   - hsm2m.medium manufacturer root certificate: [liquid_security_certificate.zip](https://www.marvell.com/content/dam/marvell/en/public-collateral/security-solutions/liquidsecurity2_ar_v1.zip "https://www.marvell.com/content/dam/marvell/en/public-collateral/security-solutions/liquidsecurity2_ar_v1.zip")
+   - hsm1.medium manufacturer root certificate: [liquid\_security\_certificate.zip](https://www.marvell.com/content/dam/marvell/en/public-collateral/security-solutions/liquid_security_certificate.zip "https://www.marvell.com/content/dam/marvell/en/public-collateral/security-solutions/liquid_security_certificate.zip")
+   - hsm2m.medium manufacturer root certificate: [liquid\_security\_certificate.zip](https://www.marvell.com/content/dam/marvell/en/public-collateral/security-solutions/liquidsecurity2_ar_v1.zip "https://www.marvell.com/content/dam/marvell/en/public-collateral/security-solutions/liquidsecurity2_ar_v1.zip")
 
 ###### Note
 

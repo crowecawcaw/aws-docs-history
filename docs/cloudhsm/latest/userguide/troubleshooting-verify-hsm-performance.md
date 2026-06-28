@@ -3,7 +3,7 @@
 This topic describes how to verify AWS CloudHSM hardware security module (HSM) performance with Client SDK 3.
 
 To verify the performance of the HSMs in your AWS CloudHSM cluster, you can use the pkpspeed (Linux)
-or pkpspeed_blocking (Windows) tool that is included with Client SDK 3. The pkpspeed tool executes under ideal
+or pkpspeed\_blocking (Windows) tool that is included with Client SDK 3. The pkpspeed tool executes under ideal
 conditions and directly calls the HSM to execute operations without going through an SDK such as PKCS11.
 We recommend load testing your application independently to determine your scaling needs.
 We do not recommend running the following tests: Random (I), ModExp (R), and EC point mul (Y).
@@ -82,7 +82,7 @@ version to get pkpspeed. You can find the pkpspeed tool at `/opt/cloudhsm/bin/pk
 in Linux or `C:\Program Files\Amazon\CloudHSM\` in Windows.
 
 To use pkpspeed, run the **pkpspeed** command or
-**pkpspeed_blocking.exe**, specifying the user name and password of a
+**pkpspeed\_blocking.exe**, specifying the user name and password of a
 crypto user (CU) on the HSM. Then set the options to use while considering the following
 recommendations.
 
@@ -123,7 +123,7 @@ recommendations.
 - **FIPS Random**: Tests generation of a FIPS-compliant random number (Note: this can only be used in blocking mode).
 - **HMAC**: Tests HMAC.
 - **Random**: This test is not relevant because we are using FIPS 140-2 HSM’s.
-- **RSA non-CRT versus RSA_CRT**: Tests RSA sign and verify operations.
+- **RSA non-CRT versus RSA\_CRT**: Tests RSA sign and verify operations.
 - **RSA OAEP Enc**: Tests RSA OAEP encryption.
 - **RSA OAEP Dec**: Tests RSA OAEP decryption.
 - **RSA private dec non-CRT**: Tests RSA Private key encryption (non-optimized).
@@ -147,7 +147,7 @@ If `n` is entered, a new key is generated.
 ## Examples
 
 The following examples show the options that you can choose with pkpspeed (Linux) or
-pkpspeed_blocking (Windows) to test the HSM's performance for RSA and AES operations.
+pkpspeed\_blocking (Windows) to test the HSM's performance for RSA and AES operations.
 
 ###### Example– Using pkpspeed to test RSA performance
 

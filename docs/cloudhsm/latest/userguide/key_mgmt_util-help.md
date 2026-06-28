@@ -1,10 +1,10 @@
 # Display help information for AWS CloudHSM KMU
 
-Use the **help** command in the AWS CloudHSM key_mgmt_util to display information about
-all available key_mgmt_util commands.
+Use the **help** command in the AWS CloudHSM key\_mgmt\_util to display information about
+all available key\_mgmt\_util commands.
 
 Before you run **help**, you must [start
-key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start").
+key\_mgmt\_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start").
 
 ## Syntax
 

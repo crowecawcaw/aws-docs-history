@@ -1,7 +1,7 @@
 # Known issues for all HSM instances
 
 The following issues impact all AWS CloudHSM users regardless of whether they use the
-key_mgmt_util command line tool, the PKCS #11 SDK, the JCE SDK, or the OpenSSL SDK.
+key\_mgmt\_util command line tool, the PKCS #11 SDK, the JCE SDK, or the OpenSSL SDK.
 
 ###### Topics
 
@@ -9,11 +9,11 @@ key_mgmt_util command line tool, the PKCS #11 SDK, the JCE SDK, or the OpenSSL S
 - [Issue: The client daemon requires at least one valid IP address in its configuration file to successfully connect to the cluster](#ki-all-2 "#ki-all-2")
 - [Issue: There was an upper limit of 16 KB on data that can be hashed and signed by AWS CloudHSM using Client SDK 3](#ki-all-3 "#ki-all-3")
 - [Issue: Imported keys could not be specified as non-exportable](#ki-all-4 "#ki-all-4")
-- [Issue: The default mechanism for the wrapKey and unWrapKey commands in the key_mgmt_util has been removed](#ki-all-5 "#ki-all-5")
+- [Issue: The default mechanism for the wrapKey and unWrapKey commands in the key\_mgmt\_util has been removed](#ki-all-5 "#ki-all-5")
 - [Issue: If you have a single HSM in your cluster, HSM failover does not work correctly](#ki-all-6 "#ki-all-6")
 - [Issue: If you exceed the key capacity of the HSMs in your cluster within a short period of time, the client enters an unhandled error state](#ki-all-7 "#ki-all-7")
 - [Issue: Digest operations with HMAC keys of size greater than 800 bytes are not supported](#ki-all-8 "#ki-all-8")
-- [Issue: The client_info tool, distributed with Client SDK 3, deletes the contents of the path specified by the optional output argument](#ki-all-9 "#ki-all-9")
+- [Issue: The client\_info tool, distributed with Client SDK 3, deletes the contents of the path specified by the optional output argument](#ki-all-9 "#ki-all-9")
 - [Issue: You receive an error when running the SDK 5 configure tool using the --cluster-id argument in containerized environments](#ki-all-10 "#ki-all-10")
 - [Issue: You receive the error "Failed to create cert/key from provided pfx file. Error: NotPkcs8"](#ki-all-11 "#ki-all-11")
 - [Issue: ECDSA signing fails with "invalid mechanism" error starting with SDK 5.16](#ki-all-12 "#ki-all-12")
@@ -68,7 +68,7 @@ Additionally, key wrap with no padding and zero padding is not supported.
 - **Resolution Status:** This issue is fixed. No action is
   required on your part to benefit from the fix.
 
-## Issue: The default mechanism for the wrapKey and unWrapKey commands in the key_mgmt_util has been removed
+## Issue: The default mechanism for the wrapKey and unWrapKey commands in the key\_mgmt\_util has been removed
 
 - **Resolution:** When using the wrapKey or unWrapKey commands,
   you must use the `-m` option to specify the mechanism. See the examples in the [wrapKey](key_mgmt_util-wrapKey.md "key_mgmt_util-wrapKey.md") or [unWrapKey](key_mgmt_util-unwrapKey.md "key_mgmt_util-unwrapKey.md") articles for more information.
@@ -102,18 +102,18 @@ Additionally, key wrap with no padding and zero padding is not supported.
 
 - **Impact:** HMAC keys larger than 800 bytes can be generated
   on or imported into the HSM. However, if you use this larger key in a digest
-  operation via the JCE or key_mgmt_util, the operation will fail. Note that if
+  operation via the JCE or key\_mgmt\_util, the operation will fail. Note that if
   you are using PKCS11, HMAC keys are limited to a size of 64 bytes.
 - **Workaround:** If you will be using HMAC keys for digest
   operations on the HSM, ensure the size is smaller than 800 bytes.
 - **Resolution status:** None at this time.
 
-## Issue: The client_info tool, distributed with Client SDK 3, deletes the contents of the path specified by the optional output argument
+## Issue: The client\_info tool, distributed with Client SDK 3, deletes the contents of the path specified by the optional output argument
 
 - **Impact:** All existing files and sub-directories under the
   specified output path may be permanently lost.
-- **Workaround:** Do not use the optional argument `-output `path``when using 
-the`client_info` tool.
+- **Workaround:** Do not use the optional argument `-output `path`` when using
+  the `client_info` tool.
 - **Resolution status:** This issue has been resolved in the [Client SDK 3.3.2 release](client-history.md#client-version-3-3-2 "client-history.md#client-version-3-3-2"). You must upgrade to this client to benefit from the fix.
 
 ## Issue: You receive an error when running the SDK 5 configure tool using the `--cluster-id` argument in containerized environments

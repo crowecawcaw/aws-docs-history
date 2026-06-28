@@ -36,8 +36,8 @@ The function returns a status code to indicate success or failure.
 
 Common return codes include:
 
-| Return code           | Description                           |
-| --------------------- | ------------------------------------- |
-| ERROR_SUCCESS         | The operation completed successfully. |
-| NTE_INVALID_PARAMETER | One or more parameters are not valid. |
-| NTE_FAIL              | The operation couldn't complete.      |
+| Return code             | Description                           |
+| ----------------------- | ------------------------------------- |
+| ERROR\_SUCCESS          | The operation completed successfully. |
+| NTE\_INVALID\_PARAMETER | One or more parameters are not valid. |
+| NTE\_FAIL               | The operation couldn't complete.      |

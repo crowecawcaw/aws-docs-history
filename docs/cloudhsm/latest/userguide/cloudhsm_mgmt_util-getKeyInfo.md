@@ -1,6 +1,6 @@
 # Get AWS CloudHSM user info about a key using CMU
 
-Use the **getKeyInfo** command in the AWS CloudHSM key_mgmt_util (KMU) to return the
+Use the **getKeyInfo** command in the AWS CloudHSM key\_mgmt\_util (KMU) to return the
 hardware security module (HSM) user IDs of users who can use the key, including the owner and
 crypto users (CU) with whom the key is shared. When quorum authentication is enabled on a key,
 **getKeyInfo** also returns the number of users who must approve cryptographic
@@ -9,11 +9,11 @@ and keys that are shared with you.
 
 When you run **getKeyInfo** on public keys, **getKeyInfo**
 returns only the key owner, even though all users of the HSM can use the public key. To find the
-HSM user IDs of users in your HSMs, use [listUsers](key_mgmt_util-listUsers.md "key_mgmt_util-listUsers.md"). To find the keys for a particular user, use [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") `-u` in key_mgmt_util. Crypto officers can use
-[findAllKeys](cloudhsm_mgmt_util-findAllKeys.md "cloudhsm_mgmt_util-findAllKeys.md") in cloudhsm_mgmt_util.
+HSM user IDs of users in your HSMs, use [listUsers](key_mgmt_util-listUsers.md "key_mgmt_util-listUsers.md"). To find the keys for a particular user, use [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") `-u` in key\_mgmt\_util. Crypto officers can use
+[findAllKeys](cloudhsm_mgmt_util-findAllKeys.md "cloudhsm_mgmt_util-findAllKeys.md") in cloudhsm\_mgmt\_util.
 
 You own the keys that you create. You can share a key with other users when you create it.
-Then, to share or unshare an existing key, use [shareKey](cloudhsm_mgmt_util-shareKey.md "cloudhsm_mgmt_util-shareKey.md") in cloudhsm_mgmt_util.
+Then, to share or unshare an existing key, use [shareKey](cloudhsm_mgmt_util-shareKey.md "cloudhsm_mgmt_util-shareKey.md") in cloudhsm\_mgmt\_util.
 
 Before you run any CMU command, you must start CMU and log in to the HSM. Be
 sure that you log in with a user type that can run the commands you plan to
@@ -122,7 +122,7 @@ Key Info on server 1(10.0.3.6):
 ```
 
 To confirm that user 4 can use the public key (and all public keys on the HSM), use the
-`-u` parameter of [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") in key_mgmt_util.
+`-u` parameter of [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") in key\_mgmt\_util.
 
 The output shows that user 4 can use both the public (`262179`) and private
 (`262177`) key in the key pair. User 4 can also use all other public keys and any
@@ -140,9 +140,9 @@ private keys that they have created or that have been shared with them.
  Cfm3FindKey returned: 0x00 : HSM Return: SUCCESS`
 ```
 
-###### Example: Get the quorum authentication value (m_value) for a key
+###### Example: Get the quorum authentication value (m\_value) for a key
 
-This example shows how to get the `m_value` for a key. The m_value is the
+This example shows how to get the `m_value` for a key. The m\_value is the
 number of users in the quorum who must approve any cryptographic operations that use the key
 and operations to share the unshare the key.
 
@@ -169,7 +169,7 @@ The output shows that the command created key 10.
  Node id 0 and err state 0x00000000 : HSM Return: SUCCESS`
 ```
 
-This command uses **getKeyInfo** in cloudhsm_mgmt_util to get information about the
+This command uses **getKeyInfo** in cloudhsm\_mgmt\_util to get information about the
 users of key `10`. The output shows that the key is owned by user `3`
 and shared with user `4`. It also shows that a quorum of two users must approve
 every cryptographic operation that uses the key.
@@ -226,8 +226,8 @@ Default: stdout
 
 ## Related topics
 
-- [getKeyInfo](key_mgmt_util-getKeyInfo.md "key_mgmt_util-getKeyInfo.md") in key_mgmt_util
-- [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") in key_mgmt_util
-- [findAllKeys](cloudhsm_mgmt_util-findAllKeys.md "cloudhsm_mgmt_util-findAllKeys.md") in cloudhsm_mgmt_util
+- [getKeyInfo](key_mgmt_util-getKeyInfo.md "key_mgmt_util-getKeyInfo.md") in key\_mgmt\_util
+- [findKey](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") in key\_mgmt\_util
+- [findAllKeys](cloudhsm_mgmt_util-findAllKeys.md "cloudhsm_mgmt_util-findAllKeys.md") in cloudhsm\_mgmt\_util
 - [listUsers](cloudhsm_mgmt_util-listUsers.md "cloudhsm_mgmt_util-listUsers.md")
 - [shareKey](cloudhsm_mgmt_util-shareKey.md "cloudhsm_mgmt_util-shareKey.md")
