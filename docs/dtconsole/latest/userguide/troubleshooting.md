@@ -95,8 +95,8 @@ Here are the most common reasons for receiving multiple notifications:
 
 ## I want to understand why a notification target status shows as unreachable
 
-Targets have two possible statuses: **_Active_** and
-**_Unreachable_**. **Unreachable**
+Targets have two possible statuses: _**Active**_ and
+_**Unreachable**_. **Unreachable**
 indicates that notifications were sent to a target, and the delivery was not successful.
 Notifications continue to be sent to that target, and if successful, the status resets to
 **Active**.

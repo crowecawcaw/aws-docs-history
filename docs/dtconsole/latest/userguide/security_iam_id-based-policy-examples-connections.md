@@ -101,7 +101,7 @@ JSON
 In this example, you want to grant an IAM user in your AWS account full
 access to CodeConnections so that the user can add, update, and delete connections. This
 is a full access policy, equivalent to the
-**AWSCodePipeline_FullAccess** managed policy. Like that
+**AWSCodePipeline\_FullAccess** managed policy. Like that
 managed policy, you should only attach this kind of policy statement to IAM
 users, groups, or roles that require full administrative access to connections
 across your AWS account.

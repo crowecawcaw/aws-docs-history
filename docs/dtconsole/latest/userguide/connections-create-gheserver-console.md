@@ -134,10 +134,9 @@ Group IDs) for the host. For more information, see [Connection and host setup fo
     ![Console screenshot showing create GitHub Enterprise Server connection page for VPC options.](images/connections-create-ghes-screen-vpc.png)
 
 4. Choose **Connect to GitHub Enterprise Server**. The
-   created connection is shown with a **Pending** status. A
-   host resource is created for the connection with the server information you
-   provided. For the host name, the URL is used.
-5. Choose **Update pending connection.**
+created connection is shown with a **Pending** status. A
+host resource is created for the connection with the server information you
+provided. For the host name, the URL is used. 5. Choose **Update pending connection.**
 
 ![Console screenshot showing pending GitHub Enterprise Server connection page.](images/connections-create-ghes-pending.png) 6. If prompted, on the GitHub Enterprise login page, sign in with your GitHub
 Enterprise credentials. 7. On the **Create GitHub App** page, choose a name for your

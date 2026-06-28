@@ -119,17 +119,16 @@ you want to integrate.
      URL.
 
 12. In **IAM permissions**, in **Role**,
-    choose **Create an IAM role using a template**. In
-    **Policy templates**, choose **Notification
-    permissions**. In **Role name**, enter a name for
-    this role (for example,
-    `AWSCodeStarNotifications-Chatbot-Slack-Role`). In
-    **Policy templates**, choose **Notification
-    permissions**.
-13. In **SNS topics**, in **SNS Region**, choose
-    the AWS Region where you created the notification rule target. In **SNS
-    topics**, choose the name of the Amazon SNS topic that you configured as
-    the notification rule target.
+choose **Create an IAM role using a template**. In
+**Policy templates**, choose **Notification
+permissions**. In **Role name**, enter a name for
+this role (for example,
+`AWSCodeStarNotifications-Chatbot-Slack-Role`). In
+**Policy templates**, choose **Notification
+permissions**. 13. In **SNS topics**, in **SNS Region**, choose
+the AWS Region where you created the notification rule target. In **SNS
+topics**, choose the name of the Amazon SNS topic that you configured as
+the notification rule target.
 
 ###### Note
 

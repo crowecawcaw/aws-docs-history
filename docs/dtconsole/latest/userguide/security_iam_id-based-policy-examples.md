@@ -7,7 +7,7 @@ example, IAM users or roles that have one of the full access policies
 (**AWSCodeCommitFullAccess**,
 **AWSCodeBuildAdminAccess**,
 **AWSCodeDeployFullAccess**, or
-**AWSCodePipeline_FullAccess**) applied to them also have full
+**AWSCodePipeline\_FullAccess**) applied to them also have full
 access to notifications and notification rules created for the resources for those
 services.
 

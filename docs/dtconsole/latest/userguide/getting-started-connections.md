@@ -125,71 +125,71 @@ Choose **Next**. 6. On the **Step 2: Add source stage** page, add a source stage
 
 7. In **Add build stage**, add a build stage:
 
-   1. In **Build provider**, choose **AWS CodeBuild**.
-      Allow **Region** to default to the pipeline Region.
-   2. Choose **Create project**.
-   3. In **Project name**, enter a name for this build project.
-   4. In **Environment image**, choose **Managed
-      image**. For **Operating system**, choose
-      **Ubuntu**.
-   5. For **Runtime**, choose **Standard**. For
-      **Image**, choose
-      **aws/codebuild/standard:5.0**.
-   6. For **Service role**, choose **New service
-      role**.
-   7. Under **Buildspec**, for **Build
-      specifications**, choose **Insert build commands**. Choose
-      **Switch to editor**, and paste the following under **Build
-      commands**:
+    1. In **Build provider**, choose **AWS CodeBuild**.
+     Allow **Region** to default to the pipeline Region.
+    2. Choose **Create project**.
+    3. In **Project name**, enter a name for this build project.
+    4. In **Environment image**, choose **Managed
+     image**. For **Operating system**, choose
+     **Ubuntu**.
+    5. For **Runtime**, choose **Standard**. For
+     **Image**, choose
+     **aws/codebuild/standard:5.0**.
+    6. For **Service role**, choose **New service
+     role**.
+    7. Under **Buildspec**, for **Build
+     specifications**, choose **Insert build commands**. Choose
+     **Switch to editor**, and paste the following under **Build
+     commands**:
 
-   ```
-   version: 0.2
 
-   phases:
-     install:
-       #If you use the Ubuntu standard image 2.0 or later, you must specify runtime-versions.
-       #If you specify runtime-versions and use an image other than Ubuntu standard image 2.0, the build fails.
-       runtime-versions:
-         nodejs: 12
-         # name: version
-       #commands:
-         # - command
-         # - command
-     pre_build:
-       commands:
-         - ls -lt
-         - cat README.md
-     # build:
-       #commands:
-         # - command
-         # - command
-     #post_build:
-       #commands:
-         # - command
-         # - command
-   #artifacts:
-     #files:
-       # - location
-       # - location
-     #name: $(date +%Y-%m-%d)
-     #discard-paths: yes
-     #base-directory: location
-   #cache:
-     #paths:
-       # - paths
-   ```
-   8. Choose **Continue to CodePipeline**. This returns to the CodePipeline
-      console and creates a CodeBuild project that uses your build commands for configuration.
-      The build project uses a service role to manage AWS service permissions. This step
-      might take a couple of minutes.
-   9. Choose **Next**.
+
+    ```
+    version: 0.2
+
+    phases:
+      install:
+        #If you use the Ubuntu standard image 2.0 or later, you must specify runtime-versions.
+        #If you specify runtime-versions and use an image other than Ubuntu standard image 2.0, the build fails.
+        runtime-versions:
+          nodejs: 12
+          # name: version
+        #commands:
+          # - command
+          # - command
+      pre_build:
+        commands:
+          - ls -lt
+          - cat README.md
+      # build:
+        #commands:
+          # - command
+          # - command
+      #post_build:
+        #commands:
+          # - command
+          # - command
+    #artifacts:
+      #files:
+        # - location
+        # - location
+      #name: $(date +%Y-%m-%d)
+      #discard-paths: yes
+      #base-directory: location
+    #cache:
+      #paths:
+        # - paths
+    ```
+    8. Choose **Continue to CodePipeline**. This returns to the CodePipeline
+     console and creates a CodeBuild project that uses your build commands for configuration.
+     The build project uses a service role to manage AWS service permissions. This step
+     might take a couple of minutes.
+    9. Choose **Next**.
 
 8. On the **Step 4: Add deploy stage** page, choose **Skip
-   deploy stage**, and then accept the warning message by choosing
-   **Skip** again. Choose **Next**.
-9. On **Step 5: Review**, choose **Create
-   pipeline**.
-10. When your pipeline is successfully created, a pipeline execution starts.
+deploy stage**, and then accept the warning message by choosing
+**Skip** again. Choose **Next**. 9. On **Step 5: Review**, choose **Create
+pipeline**. 10. When your pipeline is successfully created, a pipeline execution starts.
 
 ![Console screenshot showing successfully completed pipeline with Bitbucket source.](images/pipeline-wizard-bitbucket.png) 11. On your successful build stage, choose **Details**.
 

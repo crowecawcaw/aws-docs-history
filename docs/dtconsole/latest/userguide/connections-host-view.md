@@ -5,24 +5,24 @@ You can use the Developer Tools console or the **get-host** command in the AWS C
 
 ###### To view host details (console)
 
-1.  Sign in to the AWS Management Console
-    and
-    open the Developer Tools console at [https://console.aws.amazon.com/codesuite/settings/connections](https://console.aws.amazon.com/codesuite/settings/connections "https://console.aws.amazon.com/codesuite/settings/connections").
-2.  Choose **Settings > Connections**, and then choose the
-    **Hosts** tab.
-3.  Choose the button next to the host you want to view, and then choose
-    **View details**.
-4.  The following information appears for your host:
+1. Sign in to the AWS Management Console
+   and
+   open the Developer Tools console at [https://console.aws.amazon.com/codesuite/settings/connections](https://console.aws.amazon.com/codesuite/settings/connections "https://console.aws.amazon.com/codesuite/settings/connections").
+2. Choose **Settings > Connections**, and then choose the
+   **Hosts** tab.
+3. Choose the button next to the host you want to view, and then choose
+   **View details**.
+4. The following information appears for your host:
 
-    - The host name.
-    - The provider type for your connection.
-    - The endpoint of the infrastructure where your provider is
-      installed.
-    - The setup status for your host. A host ready for a connection is in
-      **Available** status. If your host was created but
-      setup was not completed, the host might be in a different status.
+   - The host name.
+   - The provider type for your connection.
+   - The endpoint of the infrastructure where your provider is
+     installed.
+   - The setup status for your host. A host ready for a connection is in
+     **Available** status. If your host was created but
+     setup was not completed, the host might be in a different status.
 
-    The following statuses are available:
+   The following statuses are available:
 
         + PENDING - The host has completed creation and is ready to start
          the setup by registering the provider app on the host.

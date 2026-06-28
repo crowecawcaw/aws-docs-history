@@ -7,7 +7,7 @@ The following policy statements and examples can help you manage AWS CodeStar No
 The **AWSCodeCommitFullAccess**,
 **AWSCodeBuildAdminAccess**,
 **AWSCodeDeployFullAccess**, and
-**AWSCodePipeline_FullAccess** managed policies include the
+**AWSCodePipeline\_FullAccess** managed policies include the
 following statements to allow full access to notifications in the Developer Tools console.
 Users with one of these managed policies applied can also create and manage
 Amazon SNS topics for notifications, subscribe and unsubscribe users to topics, and
@@ -81,7 +81,7 @@ full access policy for CodeCommit, the value is
 
 The **AWSCodeCommitReadOnlyAccess**,
 **AWSCodeBuildReadOnlyAccess**,
-**AWSCodeDeployReadOnlyAccess**, and **AWSCodePipeline_ReadOnlyAccess** managed policies include the
+**AWSCodeDeployReadOnlyAccess**, and **AWSCodePipeline\_ReadOnlyAccess** managed policies include the
 following statements to allow read-only access to notifications. For example,
 they can view notifications for resources in the Developer Tools console, but cannot create,
 manage, or subscribe to them.
@@ -190,7 +190,7 @@ policy, equivalent to the notification permissions included as part of the
 **AWSCodeBuildAdminAccess**,
 **AWSCodeCommitFullAccess**,
 **AWSCodeDeployFullAccess**, and
-**AWSCodePipeline_FullAccess** managed policies. Like those
+**AWSCodePipeline\_FullAccess** managed policies. Like those
 managed policies, you should only attach this kind of policy statement to IAM
 users, groups, or roles that require full administrative access to notifications
 and notification rules across your AWS account.
@@ -283,7 +283,7 @@ account. This example shows how you might create a policy that allows viewing
 these items. This is the equivalent to the permissions included as part of the
 **AWSCodeBuildReadOnlyAccess**,
 **AWSCodeCommitReadOnly**, and
-**AWSCodePipeline_ReadOnlyAccess** managed policies.
+**AWSCodePipeline\_ReadOnlyAccess** managed policies.
 
 JSON
 

@@ -43,7 +43,7 @@ the following:
 
 7. In **Targets**, do one of the following:
 
-   - If you have already configured a resource to use with notifications,
+    * If you have already configured a resource to use with notifications,
      in **Choose target type**, choose either
      **AWS Chatbot
      (Slack)**,
@@ -55,7 +55,7 @@ the following:
      or Microsoft Teams client configured in AWS Chatbot) or the
      Amazon Resource Name (ARN) of the Amazon SNS topic (for Amazon SNS topics already
      configured with the policy required for notifications).
-   - If you have not configured a resource to use with notifications,
+    * If you have not configured a resource to use with notifications,
      choose **Create target**, and then choose **SNS
      topic**. Provide a name for the topic after
      **codestar-notifications-**, and then choose
@@ -79,7 +79,7 @@ the following:
      that might exist for that topic. For more information, see [Configure Amazon SNS topics for notifications](set-up-sns.md "set-up-sns.md") and [Understanding notification contents and security](security.md#security-notifications "security.md#security-notifications").
 
 8. Choose **Submit**, and then review the notification
-   rule.
+rule.
 
 ###### Note
 

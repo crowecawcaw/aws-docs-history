@@ -39,25 +39,25 @@ the specified resources:
 - Action: `PutTargets` on
   `CloudWatch Event rules that are named awscodestar-notifications-*`
 - Action: `CreateTopic` to `create Amazon SNS topics for use with
-AWS CodeStar Notifications with the prefix CodeStarNotifications-`
+ AWS CodeStar Notifications with the prefix CodeStarNotifications-`
 - Action: `GetCommentsForPullRequests` on `all comments on all
-pull requests in all CodeCommit repositories in the AWS account`
+ pull requests in all CodeCommit repositories in the AWS account`
 - Action: `GetCommentsForComparedCommit` on `all comments on all
-commits in all CodeCommit repositories in the AWS account`
+ commits in all CodeCommit repositories in the AWS account`
 - Action: `GetDifferences` on `all commits in all CodeCommit
-repositories in the AWS account`
+ repositories in the AWS account`
 - Action: `GetCommentsForComparedCommit` on `all comments on all
-commits in all CodeCommit repositories in the AWS account`
+ commits in all CodeCommit repositories in the AWS account`
 - Action: `GetDifferences` on `all commits in all CodeCommit
-repositories in the AWS account`
+ repositories in the AWS account`
 - Action: `DescribeSlackChannelConfigurations` on `all AWS Chatbot
-clients in the AWS account`
+ clients in the AWS account`
 - Action: `UpdateSlackChannelConfiguration` on `all AWS Chatbot
-clients in the AWS account`
+ clients in the AWS account`
 - Action: `ListActionExecutions` on `all actions in all
-pipelines in the AWS account`
+ pipelines in the AWS account`
 - Action: `GetFile` on `all files in all CodeCommit repositories in
-the AWS account unless otherwise tagged`
+ the AWS account unless otherwise tagged`
 
 You can see these actions in the policy statement for the AWSServiceRoleForCodeStarNotifications service-linked
 role.

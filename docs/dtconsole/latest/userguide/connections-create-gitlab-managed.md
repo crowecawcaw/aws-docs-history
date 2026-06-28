@@ -23,7 +23,7 @@ Before you begin:
 
 - You must have already created an account with GitLab and have GitLab Enterprise
   Edition or GitLab Community Edition with a self-managed installation. For more
-  information, see [https://docs.gitlab.com/ee/subscriptions/self_managed/](https://docs.gitlab.com/ee/subscriptions/self_managed/ "https://docs.gitlab.com/ee/subscriptions/self_managed/").
+  information, see [https://docs.gitlab.com/ee/subscriptions/self\_managed/](https://docs.gitlab.com/ee/subscriptions/self_managed/ "https://docs.gitlab.com/ee/subscriptions/self_managed/").
 
 ###### Note
 
@@ -39,7 +39,7 @@ need to be the group owner.
 - You must have already created a GitLab personal access token (PAT) with the
   following scoped-down permission only:
   `api`,
-  `admin_mode`. For more information, see [https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html "https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html").
+  `admin_mode`. For more information, see [https://docs.gitlab.com/ee/user/profile/personal\_access\_tokens.html](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html "https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html").
   You must be an administrator to create and use the PAT.
 
 ###### Note
@@ -109,9 +109,8 @@ For more information, see [Connection and host setup for installed providers sup
      in **TLS certificate**, enter your certificate ID. The
      TLS Certificate value is the public key of the certificate.
 
-8. Choose **Create host**.
-9. After the host details page displays, the host status changes as the host is
-   created.
+8. Choose **Create host**. 9. After the host details page displays, the host status changes as the host is
+created.
 
 ###### Note
 
@@ -185,14 +184,11 @@ following.
      certificate.
 
 6. Choose **Connect to GitLab self-managed**. The created
-   connection is shown with a **Pending** status. A host resource
-   is created for the connection with the server information you provided. For the
-   host name, the URL is used.
-7. Choose **Update pending connection.**
-8. When the sign-in page for GitLab displays, log in with your credentials and
-   then choose **Sign in**.
-9. An authorization page displays with a message requesting authorization for the
-   connection to access your GitLab account.
+connection is shown with a **Pending** status. A host resource
+is created for the connection with the server information you provided. For the
+host name, the URL is used. 7. Choose **Update pending connection.** 8. When the sign-in page for GitLab displays, log in with your credentials and
+then choose **Sign in**. 9. An authorization page displays with a message requesting authorization for the
+connection to access your GitLab account.
 
 Choose **Authorize**. 10. The browser returns to the connections console page. Under **Create
 GitLab connection**, the new connection is shown in

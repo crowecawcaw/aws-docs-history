@@ -183,7 +183,7 @@ where your GitHub Enterprise Server instance will be installed:
 
 1. Create a VPC. For more information, see [https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#Create-VPC](../../../vpc/latest/userguide/working-with-vpcs.md#Create-VPC "../../../vpc/latest/userguide/working-with-vpcs.md#Create-VPC").
 2. Create a subnet in your VPC. For more information, see [https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#AddaSubnet](../../../vpc/latest/userguide/working-with-vpcs.md#AddaSubnet "../../../vpc/latest/userguide/working-with-vpcs.md#AddaSubnet").
-3. Launch an instance into your VPC. For more information, see [https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#VPC_Launch_Instance](../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Launch_Instance "../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Launch_Instance").
+3. Launch an instance into your VPC. For more information, see [https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#VPC\_Launch\_Instance](../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Launch_Instance "../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Launch_Instance").
 
 ###### Note
 
@@ -223,7 +223,7 @@ Guide_.
 
 ### I’m unable to get a host in pending state
 
-If your host enters the VPC_CONFIG_FAILED_INITIALIZATION state, this is likely because
+If your host enters the VPC\_CONFIG\_FAILED\_INITIALIZATION state, this is likely because
 of an issue with the VPC, subnets, or security groups that you have selected for your
 host.
 

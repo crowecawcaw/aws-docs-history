@@ -152,12 +152,12 @@ codeconnections:ListConnections
 
 Use the scroll bars to see the rest of the table.
 
-| AWS CodeConnections required permissions for managing connections | AWS CodeConnections actions                                                                                        | Required permissions                                                     | Resources |
-| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ | --------- |
-| CreateConnection                                                  | `codeconnections:CreateConnection`<br>Required to use the CLI or console to create a<br>connection.                | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| DeleteConnection                                                  | `codeconnections:DeleteConnection`<br>Required to use the CLI or console to delete a<br>connection.                | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| GetConnection                                                     | `codeconnections:GetConnection`<br>Required to use the CLI or console to view details about a<br>connection.       | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| ListConnections                                                   | `codeconnections:ListConnections`<br>Required to use the CLI or console to list all connections in<br>the account. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+AWS CodeConnections required permissions for managing connections| AWS CodeConnections actions | Required permissions | Resources |
+| --- | --- | --- |
+| CreateConnection | `codeconnections:CreateConnection`<br>Required to use the CLI or console to create a<br>connection. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| DeleteConnection | `codeconnections:DeleteConnection`<br>Required to use the CLI or console to delete a<br>connection. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| GetConnection | `codeconnections:GetConnection`<br>Required to use the CLI or console to view details about a<br>connection. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| ListConnections | `codeconnections:ListConnections`<br>Required to use the CLI or console to list all connections in<br>the account. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
 
 These operations support the following condition keys:
 
@@ -187,12 +187,12 @@ codeconnections:ListHosts
 
 Use the scroll bars to see the rest of the table.
 
-| AWS CodeConnections required permissions for managing hosts | AWS CodeConnections actions                                                                            | Required permissions                                         | Resources |
-| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ | --------- |
-| CreateHost                                                  | `codeconnections:CreateHost`<br>Required to use the CLI or console to create a host.                   | arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
-| DeleteHost                                                  | `codeconnections:DeleteHost`<br>Required to use the CLI or console to delete a host.                   | codeconnections:`region`:`account-id`:host/`host-id`         |
-| GetHost                                                     | `codeconnections:GetHost`<br>Required to use the CLI or console to view details about a<br>host.       | arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
-| ListHosts                                                   | `codeconnections:ListHosts`<br>Required to use the CLI or console to list all hosts in the<br>account. | arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
+AWS CodeConnections required permissions for managing hosts| AWS CodeConnections actions | Required permissions | Resources |
+| --- | --- | --- |
+| CreateHost | `codeconnections:CreateHost`<br>Required to use the CLI or console to create a host. | arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
+| DeleteHost | `codeconnections:DeleteHost`<br>Required to use the CLI or console to delete a host. | codeconnections:`region`:`account-id`:host/`host-id` |
+| GetHost | `codeconnections:GetHost`<br>Required to use the CLI or console to view details about a<br>host. | arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
+| ListHosts | `codeconnections:ListHosts`<br>Required to use the CLI or console to list all hosts in the<br>account. | arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
 
 These operations support the following condition keys:
 
@@ -248,13 +248,13 @@ codeconnections:GetIndividualAccessToken
 
 Use the scroll bars to see the rest of the table.
 
-| AWS CodeConnections required permissions for completing connections | AWS CodeConnections actions                                                                                                                                          | Required permissions                                                     | Resources |
-| ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | --------- |
-| `GetIndividualAccessToken`                                          | `codeconnections:GetIndividualAccessToken`<br>Required to use the console to complete a connection. This is<br>an IAM policy permission only, not an API action.     | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `GetInstallationUrl`                                                | `codeconnections:GetInstallationUrl`<br>Required to use the console to complete a connection. This is<br>an IAM policy permission only, not an API action.           | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListInstallationTargets`                                           | `codeconnections:ListInstallationTargets`<br>Required to use the console to complete a connection. This is<br>an IAM policy permission only, not an API action.      | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `StartOAuthHandshake`                                               | `codeconnections:StartOAuthHandshake`<br>Required to use the console to complete a connection. This is<br>an IAM policy permission only, not an API action.          | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `UpdateConnectionInstallation`                                      | `codeconnections:UpdateConnectionInstallation`<br>Required to use the console to complete a connection. This is<br>an IAM policy permission only, not an API action. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+AWS CodeConnections required permissions for completing connections| AWS CodeConnections actions | Required permissions | Resources |
+| --- | --- | --- |
+| `GetIndividualAccessToken` | `codeconnections:GetIndividualAccessToken`<br>Required to use the console to complete a connection. This is<br>an IAM policy permission only, not an API action. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `GetInstallationUrl` | `codeconnections:GetInstallationUrl`<br>Required to use the console to complete a connection. This is<br>an IAM policy permission only, not an API action. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListInstallationTargets` | `codeconnections:ListInstallationTargets`<br>Required to use the console to complete a connection. This is<br>an IAM policy permission only, not an API action. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `StartOAuthHandshake` | `codeconnections:StartOAuthHandshake`<br>Required to use the console to complete a connection. This is<br>an IAM policy permission only, not an API action. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `UpdateConnectionInstallation` | `codeconnections:UpdateConnectionInstallation`<br>Required to use the console to complete a connection. This is<br>an IAM policy permission only, not an API action. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
 
 These operations support the following condition keys.
 
@@ -307,10 +307,10 @@ codeconnections:StartAppRegistrationHandshake
 
 Use the scroll bars to see the rest of the table.
 
-| AWS CodeConnections required permissions for completing host setup | Connections actions                                                                                                                                                 | Required permissions                                         | Resources |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | --------- |
-| `RegisterAppCode`                                                  | `codeconnections:RegisterAppCode`<br>Required to use the console to complete host setup. This is an<br>IAM policy permission only, not an API action.               | arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
-| `StartAppRegistrationHandshake`                                    | `codeconnections:StartAppRegistrationHandshake`<br>Required to use the console to complete host setup. This is an<br>IAM policy permission only, not an API action. | arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
+AWS CodeConnections required permissions for completing host setup| Connections actions | Required permissions | Resources |
+| --- | --- | --- |
+| `RegisterAppCode` | `codeconnections:RegisterAppCode`<br>Required to use the console to complete host setup. This is an<br>IAM policy permission only, not an API action. | arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
+| `StartAppRegistrationHandshake` | `codeconnections:StartAppRegistrationHandshake`<br>Required to use the console to complete host setup. This is an<br>IAM policy permission only, not an API action. | arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
 
 These operations support the following condition keys.
 
@@ -322,17 +322,17 @@ the `codeconnections:PassConnection` permission.
 
 Use the scroll bars to see the rest of the table.
 
-| AWS CodeConnections required permissions for passing a connection | AWS CodeConnections actions                                                     | Required permissions                                                     | Resources |
-| ----------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | --------- |
-| `PassConnection`                                                  | `codeconnections:PassConnection`<br>Required to pass a connection to a service. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+AWS CodeConnections required permissions for passing a connection| AWS CodeConnections actions | Required permissions | Resources |
+| --- | --- | --- |
+| `PassConnection` | `codeconnections:PassConnection`<br>Required to pass a connection to a service. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
 
 This operation also supports the following condition key:
 
 - `codeconnections:PassedToService`
 
-| Supported values for condition keys | Key                                                                                 | Valid action providers |
-| ----------------------------------- | ----------------------------------------------------------------------------------- | ---------------------- |
-| `codeconnections:PassedToService`   | • `codeguru-reviewer`<br>• `codepipeline.amazonaws.com`<br>• `proton.amazonaws.com` |
+Supported values for condition keys| Key | Valid action providers |
+| --- | --- |
+| `codeconnections:PassedToService` | • `codeguru-reviewer`<br>• `codepipeline.amazonaws.com`<br>• `proton.amazonaws.com` |
 
 ### Using a connection
 
@@ -345,9 +345,9 @@ To manage connections in the console, the user policy must have the
 
 Use the scroll bars to see the rest of the table.
 
-| AWS CodeConnections required action for using connections | AWS CodeConnections actions                                      | Required permissions                                                     | Resources |
-| --------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------ | --------- |
-| `UseConnection`                                           | `codeconnections:UseConnection`<br>Required to use a connection. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+AWS CodeConnections required action for using connections| AWS CodeConnections actions | Required permissions | Resources |
+| --- | --- | --- |
+| `UseConnection` | `codeconnections:UseConnection`<br>Required to use a connection. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
 
 This operation also supports the following condition keys:
 
@@ -358,11 +358,11 @@ This operation also supports the following condition keys:
 - `codeconnections:ProviderPermissionsRequired`
 - `codeconnections:RepositoryName`
 
-| Supported values for condition keys           | Key                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Valid action providers |
-| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| `codeconnections:FullRepositoryId`            | The user name and repository name of a repository, such as<br>`my-owner/my-repository`. Supported only when the<br>connection is being used to access a specific repository.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `codeconnections:ProviderPermissionsRequired` | read_only or read_write                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `codeconnections:ProviderAction`              | `CreateBranch`, `CreateCommit`,<br>`CreateCommitStatus`,<br>`CreatePullRequest`,<br>`CreatePullRequestComment`,<br>`CreatePullRequestDiffComment`,<br>`CreateRepository`,<br>`DeleteRepository`,<br>`GenerateReferenceLink`,<br>`GetBranch`, `GetCommit`,<br>`GetCommitDiffs`, `GetFile`,<br>`GetFolder`, `GetPullRequest`,<br>`GetRepository`,<br>`GetUploadArchiveToS3Status`,<br>`GitPull`, `GitPush`,<br>`IsRepositoryEmpty`,<br>`ListBranchCommits`,<br>`ListBranches`,<br>`ListCommitFiles`,<br>`ListCommitStatuses`,<br>`ListCommitsDiffs`,<br>`ListIssues`, `ListOwners`,<br>`ListPullRequestComments`,<br>`ListPullRequestCommits`,<br>`ListPullRequestDiffs`,<br>`ListPullRequests`,<br>`ListRepositories`,<br>`StartUploadArchiveToS3`,<br>`UpdatePullRequest`.<br>For information, see the next section. |
+Supported values for condition keys| Key | Valid action providers |
+| --- | --- |
+| `codeconnections:FullRepositoryId` | The user name and repository name of a repository, such as<br>`my-owner/my-repository`. Supported only when the<br>connection is being used to access a specific repository. |
+| `codeconnections:ProviderPermissionsRequired` | read\_only or read\_write |
+| `codeconnections:ProviderAction` | `CreateBranch`, `CreateCommit`,<br>`CreateCommitStatus`,<br>`CreatePullRequest`,<br>`CreatePullRequestComment`,<br>`CreatePullRequestDiffComment`,<br>`CreateRepository`,<br>`DeleteRepository`,<br>`GenerateReferenceLink`,<br>`GetBranch`, `GetCommit`,<br>`GetCommitDiffs`, `GetFile`,<br>`GetFolder`, `GetPullRequest`,<br>`GetRepository`,<br>`GetUploadArchiveToS3Status`,<br>`GitPull`, `GitPush`,<br>`IsRepositoryEmpty`,<br>`ListBranchCommits`,<br>`ListBranches`,<br>`ListCommitFiles`,<br>`ListCommitStatuses`,<br>`ListCommitsDiffs`,<br>`ListIssues`, `ListOwners`,<br>`ListPullRequestComments`,<br>`ListPullRequestCommits`,<br>`ListPullRequestDiffs`,<br>`ListPullRequests`,<br>`ListRepositories`,<br>`StartUploadArchiveToS3`,<br>`UpdatePullRequest`.<br>For information, see the next section. |
 
 The required condition keys for some functionality might change over time. We
 recommend that you use `codeconnections:UseConnection` to control access to
@@ -390,42 +390,42 @@ They are not API actions.
 
 Use the scroll bars to see the rest of the table.
 
-| AWS CodeConnections supported access types for `ProviderAction` | AWS CodeConnections permission                                                                                                                                                 | Required permissions                                                     | Resources |
-| --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ | --------- |
-| `CreateBranch`                                                  | `codeconnections:CreateBranch`<br>Required to create a branch in a repository.                                                                                                 | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `CreateCommit`                                                  | `codeconnections:CreateCommit`<br>Required to create a commit for a repository.                                                                                                | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `CreateCommitStatus`                                            | `codeconnections:CreateCommitStatus`<br>Required to create a commit status for a commit.                                                                                       | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `CreatePullRequest`                                             | `codeconnections:CreatePullRequest`<br>Required to create a pull request in a repository.                                                                                      | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `CreatePullRequestComment`                                      | `codeconnections:CreatePullRequestComment`<br>Required to create a comment on a pull request.                                                                                  | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `CreatePullRequestDiffComment`                                  | `codeconnections:CreatePullRequestDiffComment`<br>Required to create an inline comment on a pull request diff.                                                                 | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `CreateRepository`                                              | `codeconnections:CreateRepository`<br>Required to create a repository.                                                                                                         | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `DeleteRepository`                                              | `codeconnections:DeleteRepository`<br>Required to delete a repository.                                                                                                         | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `GenerateReferenceLink`                                         | `codeconnections:GenerateReferenceLink`<br>Required to generate a reference link.                                                                                              | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `GetBranch`                                                     | `codeconnections:GetBranch`<br>Required to access information about a branch, such as the<br>latest commit for that branch.                                                    | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `GetCommit`                                                     | `codeconnections:GetCommit`<br>Required to view details about a commit.                                                                                                        | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `GetCommitDiffs`                                                | `codeconnections:GetCommitDiffs`<br>Required to view diffs for a commit.                                                                                                       | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `GetFile`                                                       | `codeconnections:GetFile`<br>Required to view the contents of a file in a<br>repository.                                                                                       | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `GetFolder`                                                     | `codeconnections:GetFolder`<br>Required to view the contents of a folder in a<br>repository.                                                                                   | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `GetPullRequest`                                                | `codeconnections:GetPullRequest`<br>Required to view details about a pull request.                                                                                             | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `GetRepository`                                                 | `codeconnections:GetRepository`<br>Required to view details about a repository.                                                                                                | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `GetUploadArchiveToS3Status`                                    | `codeconnections:GetUploadArchiveToS3Status`<br>Required to access the status of an upload, including any<br>error messages, started by<br>`StartUploadArchiveToS3`.           | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `GitPull`                                                       | `codeconnections:GitPull`<br>Required to read from a repository using Git.                                                                                                     | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `GitPush`                                                       | `codeconnections:GitPush`<br>Required to write to a repository using Git.                                                                                                      | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `IsRepositoryEmpty`                                             | `codeconnections:IsRepositoryEmpty`<br>Required to check whether a repository is empty.                                                                                        | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListBranchCommits`                                             | `codeconnections:ListBranchCommits`<br>Required to view a list of commits for a repository<br>branch.                                                                          | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListBranches`                                                  | `codeconnections:ListBranches`<br>Required to access the list of branches that exist on a given<br>repository.                                                                 | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListCommitFiles`                                               | `codeconnections:ListCommitFiles`<br>Required to view a list of files for a commit.                                                                                            | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListCommitStatuses`                                            | `codeconnections:ListCommitStatuses`<br>Required to view a list of commit statuses for a<br>commit.                                                                            | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListCommitsDiffs`                                              | `codeconnections:ListCommitsDiffs`<br>Required to view a list of diffs for commits.                                                                                            | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListIssues`                                                    | `codeconnections:ListIssues`<br>Required to view a list of issues for a repository.                                                                                            | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListOwners`                                                    | `codeconnections:ListOwners`<br>Required to access a list of owners that the connection has<br>access to.                                                                      | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListPullRequestComments`                                       | `codeconnections:ListPullRequestComments`<br>Required to view a list of comments for a pull request.                                                                           | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListPullRequestCommits`                                        | `codeconnections:ListPullRequestCommits`<br>Required to view a list of commits for a pull request.                                                                             | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListPullRequestDiffs`                                          | `codeconnections:ListPullRequestDiffs`<br>Required to view a list of diffs for a pull request.                                                                                 | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListPullRequests`                                              | `codeconnections:ListPullRequests`<br>Required to view a list of pull requests for a<br>repository.                                                                            | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `ListRepositories`                                              | `codeconnections:ListRepositories`<br>Required to access a list of public and private repositories,<br>including details about those repositories, that belong to an<br>owner. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `StartUploadArchiveToS3`                                        | `codeconnections:StartUploadArchiveToS3`<br>Required to read source code and upload it to Amazon S3.                                                                           | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
-| `UpdatePullRequest`                                             | `codeconnections:UpdatePullRequest`<br>Required to update a pull request.                                                                                                      | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+AWS CodeConnections supported access types for `ProviderAction`| AWS CodeConnections permission | Required permissions | Resources |
+| --- | --- | --- |
+| `CreateBranch` | `codeconnections:CreateBranch`<br>Required to create a branch in a repository. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `CreateCommit` | `codeconnections:CreateCommit`<br>Required to create a commit for a repository. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `CreateCommitStatus` | `codeconnections:CreateCommitStatus`<br>Required to create a commit status for a commit. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `CreatePullRequest` | `codeconnections:CreatePullRequest`<br>Required to create a pull request in a repository. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `CreatePullRequestComment` | `codeconnections:CreatePullRequestComment`<br>Required to create a comment on a pull request. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `CreatePullRequestDiffComment` | `codeconnections:CreatePullRequestDiffComment`<br>Required to create an inline comment on a pull request diff. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `CreateRepository` | `codeconnections:CreateRepository`<br>Required to create a repository. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `DeleteRepository` | `codeconnections:DeleteRepository`<br>Required to delete a repository. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `GenerateReferenceLink` | `codeconnections:GenerateReferenceLink`<br>Required to generate a reference link. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `GetBranch` | `codeconnections:GetBranch`<br>Required to access information about a branch, such as the<br>latest commit for that branch. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `GetCommit` | `codeconnections:GetCommit`<br>Required to view details about a commit. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `GetCommitDiffs` | `codeconnections:GetCommitDiffs`<br>Required to view diffs for a commit. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `GetFile` | `codeconnections:GetFile`<br>Required to view the contents of a file in a<br>repository. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `GetFolder` | `codeconnections:GetFolder`<br>Required to view the contents of a folder in a<br>repository. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `GetPullRequest` | `codeconnections:GetPullRequest`<br>Required to view details about a pull request. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `GetRepository` | `codeconnections:GetRepository`<br>Required to view details about a repository. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `GetUploadArchiveToS3Status` | `codeconnections:GetUploadArchiveToS3Status`<br>Required to access the status of an upload, including any<br>error messages, started by<br>`StartUploadArchiveToS3`. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `GitPull` | `codeconnections:GitPull`<br>Required to read from a repository using Git. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `GitPush` | `codeconnections:GitPush`<br>Required to write to a repository using Git. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `IsRepositoryEmpty` | `codeconnections:IsRepositoryEmpty`<br>Required to check whether a repository is empty. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListBranchCommits` | `codeconnections:ListBranchCommits`<br>Required to view a list of commits for a repository<br>branch. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListBranches` | `codeconnections:ListBranches`<br>Required to access the list of branches that exist on a given<br>repository. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListCommitFiles` | `codeconnections:ListCommitFiles`<br>Required to view a list of files for a commit. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListCommitStatuses` | `codeconnections:ListCommitStatuses`<br>Required to view a list of commit statuses for a<br>commit. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListCommitsDiffs` | `codeconnections:ListCommitsDiffs`<br>Required to view a list of diffs for commits. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListIssues` | `codeconnections:ListIssues`<br>Required to view a list of issues for a repository. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListOwners` | `codeconnections:ListOwners`<br>Required to access a list of owners that the connection has<br>access to. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListPullRequestComments` | `codeconnections:ListPullRequestComments`<br>Required to view a list of comments for a pull request. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListPullRequestCommits` | `codeconnections:ListPullRequestCommits`<br>Required to view a list of commits for a pull request. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListPullRequestDiffs` | `codeconnections:ListPullRequestDiffs`<br>Required to view a list of diffs for a pull request. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListPullRequests` | `codeconnections:ListPullRequests`<br>Required to view a list of pull requests for a<br>repository. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `ListRepositories` | `codeconnections:ListRepositories`<br>Required to access a list of public and private repositories,<br>including details about those repositories, that belong to an<br>owner. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `StartUploadArchiveToS3` | `codeconnections:StartUploadArchiveToS3`<br>Required to read source code and upload it to Amazon S3. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+| `UpdatePullRequest` | `codeconnections:UpdatePullRequest`<br>Required to update a pull request. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
 
 ### Supported permissions for tagging connection resources
 
@@ -441,11 +441,11 @@ codeconnections:UntagResource
 
 Use the scroll bars to see the rest of the table.
 
-| AWS CodeConnections required actions for tagging connection resources | AWS CodeConnections actions                                                                                          | Required permissions                                                                                                                  | Resources |
-| --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `ListTagsForResource`                                                 | `codeconnections:ListTagsForResource`<br>Required to view a list of tags associated with the connection<br>resource. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id`,arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
-| `TagResource`                                                         | `codeconnections:TagResource`<br>Required to tag a connection resource.                                              | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id`,arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
-| `UntagResource`                                                       | `codeconnections:UntagResource`<br>Required to remove tags from a connection resource.                               | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id`,arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
+AWS CodeConnections required actions for tagging connection resources| AWS CodeConnections actions | Required permissions | Resources |
+| --- | --- | --- |
+| `ListTagsForResource` | `codeconnections:ListTagsForResource`<br>Required to view a list of tags associated with the connection<br>resource. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id`,arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
+| `TagResource` | `codeconnections:TagResource`<br>Required to tag a connection resource. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id`,arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
+| `UntagResource` | `codeconnections:UntagResource`<br>Required to remove tags from a connection resource. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id`,arn:aws:codeconnections:`region`:`account-id`:host/`host-id` |
 
 ### Passing a connection to a repository link
 
@@ -455,17 +455,17 @@ ARN/resource.
 
 Use the scroll bars to see the rest of the table.
 
-| AWS CodeConnections required permissions for passing a connection | AWS CodeConnections actions                                                                        | Required permissions                                                               | Resources |
-| ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | --------- |
-| `PassRepository`                                                  | `codeconnections:PassRepository`<br>Required to pass a repository-link to a sync<br>configuration. | arn:aws:codeconnections:`region`:`account-id`:repository-link/`repository-link-id` |
+AWS CodeConnections required permissions for passing a connection| AWS CodeConnections actions | Required permissions | Resources |
+| --- | --- | --- |
+| `PassRepository` | `codeconnections:PassRepository`<br>Required to pass a repository-link to a sync<br>configuration. | arn:aws:codeconnections:`region`:`account-id`:repository-link/`repository-link-id` |
 
 This operation also supports the following condition key:
 
 - `codeconnections:PassedToService`
 
-| Supported values for condition keys | Key                                                   | Valid action providers |
-| ----------------------------------- | ----------------------------------------------------- | ---------------------- |
-| `codeconnections:PassedToService`   | • `cloudformation.sync.codeconnections.amazonaws.com` |
+Supported values for condition keys| Key | Valid action providers |
+| --- | --- |
+| `codeconnections:PassedToService` | • `cloudformation.sync.codeconnections.amazonaws.com` |
 
 ### Supported condition key for repository links
 
@@ -476,9 +476,9 @@ the following condition key:
 
 Filters access by the branch name that is passed in the request.
 
-| Supported actions for condition key | Key                                                                                                                                                | Valid values |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| `codeconnections:Branch`            | The following actions are supported for this condition key:<br>• CreateSyncConfiguration<br>• UpdateSyncConfiguration<br>• GetRepositorySyncStatus |
+Supported actions for condition key| Key | Valid values |
+| --- | --- |
+| `codeconnections:Branch` | The following actions are supported for this condition key:<br>• CreateSyncConfiguration<br>• UpdateSyncConfiguration<br>• GetRepositorySyncStatus |
 
 ### Supported permissions for connection sharing
 
@@ -492,9 +492,9 @@ codeconnections:GetResourcePolicy
 
 Use the scroll bars to see the rest of the table.
 
-| AWS CodeConnections required actions for sharing connections | AWS CodeConnections actions                                                                      | Required permissions                                                     | Resources |
-| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ | --------- |
-| `GetResourcePolicy`                                          | `codeconnections:GetResourcePolicy`<br>Required to access information about the resource policy. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
+AWS CodeConnections required actions for sharing connections| AWS CodeConnections actions | Required permissions | Resources |
+| --- | --- | --- |
+| `GetResourcePolicy` | `codeconnections:GetResourcePolicy`<br>Required to access information about the resource policy. | arn:aws:codeconnections:`region`:`account-id`:connection/`connection-id` |
 
 For more information on connection sharing, see [Share connections with AWS accounts](connections-share.md "connections-share.md").
 
