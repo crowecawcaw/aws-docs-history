@@ -25,7 +25,6 @@ operating system or preference to use containers.
 **Install** the AWS CLI v2 for your
 operating system (OS), using the instructions
 [here](../../../cli/latest/userguide/install-cliv2.md "../../../cli/latest/userguide/install-cliv2.md").
-
  
 
 ```
@@ -49,15 +48,15 @@ credentials of the user you created in Module 2 of this tutorial.
 You will be prompted to provide the following information for each
 of these items in the CLI:
 
-- \***\*SSO session
-  name\*\*\*\***:** Provides a name
+- ****SSO session
+  name******:** Provides a name
   for the session that is included in the AWS CloudTrail logs for
   entries associated with this session. If you don't enter a name,
   one is generated automatically. For this tutorial, use
-  <\*\***Test1\*\*\*\*>.
-- \***\*SSO start
-  URL\*\*\*\***:** The
-  **AWS Access portal URL\*\* you
+  <****Test1****>.
+- ****SSO start
+  URL******:** The
+  **AWS Access portal URL** you
   were provided when you configured IAM Identity Center.
 
 ###### Note
@@ -65,11 +64,11 @@ of these items in the CLI:
 The URL can be found in the Settings summary in the IAM Identity Center console
 Dashboard.
 
-- \***\*SSO
-  region\*\*\*\***:** In this
+- ****SSO
+  region******:** In this
   tutorial the examples use
-  \*\***<us-east-1>\***\*.
-  You must **specify the region\*\*
+  ****<us-east-1>****.
+  You must **specify the region**
   in which you have enabled IAM Identity Center. 
 
 ###### Note
@@ -77,11 +76,11 @@ Dashboard.
 You can find this information in the Settings summary in the IAM Identity Center console
 Dashboard.
 
-- \***\*SSO registration
-  scopes\*\*\*\***:** Scopes
+- ****SSO registration
+  scopes******:** Scopes
   authorize access to different endpoints. In this tutorial, we
   will use the minimum scope of
-  **<**\*\***sso:account:access**\*\***>\*\*
+  **<******sso:account:access******>**
   to get a refresh token back from the IAM Identity Center
   service.
 
@@ -222,7 +221,7 @@ https://device.sso.us-east1.amazonaws.com/**
 
 **ABCD-ABCD**
 
-![Interface element requiring manual review.](/images/hands-on/latest/setup-environment/images/interface-1.png) 9. Complete authentication
+![Interface element requiring manual review.](images/interface-1.png) 9. Complete authentication
 
 Navigate to the browser window and **allow
 access** to your data. When you return to the CLI window
@@ -236,7 +235,7 @@ For more information about CLI file credential, see the
 and credential file settings in the AWS CLI](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md") in the
 **AWS Command Line Interface** user guide.
 
-![The configuration settings interface.](/images/hands-on/latest/setup-environment/images/interface-1.png)
+![The configuration settings interface.](images/interface-1.png)
 As you add roles to your AWS account and add additional AWS accounts
 to your organization, repeat the procedure above to create a profile
 for those roles and accounts.
