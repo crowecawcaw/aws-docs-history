@@ -44,7 +44,7 @@ or recommender. A list of the top 10 recommended items for the user displays. If
 [Recommendation reasons with User-Personalization-v2](recommendations.md#recommendation-reasons "recommendations.md#recommendation-reasons").
 
 To change the number of recommended items, change the value for `numResults`. The default is 25 items. The
-maximum is 500 items. If you used a RELATED_ITEMS recipe to train the solution version backing the campaign, replace the
+maximum is 500 items. If you used a RELATED\_ITEMS recipe to train the solution version backing the campaign, replace the
 `user-id` parameter with `item-id` and specify the item ID.
 
 If you recorded events for a user before they logged in (an anonymous user), you can get recommendations for this user by providing the `sessionId` from those events
@@ -67,7 +67,7 @@ recommender. A list of the top 10 recommended items for the user displays. If yo
 [Recommendation reasons with User-Personalization-v2](recommendations.md#recommendation-reasons "recommendations.md#recommendation-reasons").
 
 To change the number of recommended items, change the value for `numResults`. The default is 25 items. The
-maximum is 500 items. If you used a RELATED_ITEMS recipe to train the solution version backing the campaign, replace the
+maximum is 500 items. If you used a RELATED\_ITEMS recipe to train the solution version backing the campaign, replace the
 `userId` parameter with `itemId` and specify the item ID.
 
 If you enabled metadata in recommendations for your campaign or recommender, you can specify the Items dataset

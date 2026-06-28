@@ -20,7 +20,7 @@ The following sections explain how individual imports influence batch item recom
 
 ## New interactions
 
-If you use a USER_PERSONALIZATION or PERSONALIZED_RANKING recipe, Amazon Personalize considers new item interactions data with existing
+If you use a USER\_PERSONALIZATION or PERSONALIZED\_RANKING recipe, Amazon Personalize considers new item interactions data with existing
 items and users within about 15 minutes from data import. These items and users must have been present at the latest training.
 To make sure events are considered, we recommend you wait at
 minimum 15 minutes before you start a batch inference job.
@@ -30,7 +30,7 @@ influence batch recommendations.
 ## New users
 
 For users without interactions data, recommendations are initially for only popular items. If you use a
-USER_PERSONALIZATION or PERSONALIZED_RANKING recipe and you record events for the user, their recommendations might become
+USER\_PERSONALIZATION or PERSONALIZED\_RANKING recipe and you record events for the user, their recommendations might become
 more relevant within about 15 minutes after import without retraining. To make sure events are considered, we recommend you
 wait at minimum 15 minutes before you start a batch inference job. For all other recipes, you must create a new
 solution version for streamed events to influence batch recommendations for users without interactions data.

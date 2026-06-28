@@ -61,7 +61,7 @@ a solution name, recipe, and optional training configuration.
      the individual recipes in [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
    - In **Columns for training**, if your recipe generates item recommendations or user segments,
      optionally choose the columns that Amazon Personalize considers when creating solution versions. For more information, see [Configuring columns used when training](custom-config-columns.md "custom-config-columns.md").
-   - In **Event configuration**, if your Item interactions dataset has EVENT_TYPE or both EVENT_TYPE and EVENT_VALUE columns,
+   - In **Event configuration**, if your Item interactions dataset has EVENT\_TYPE or both EVENT\_TYPE and EVENT\_VALUE columns,
      optionally use the **Event type** and **Event value threshold** fields to choose the item interactions data that Amazon Personalize uses when training the model.
      For more information, see [Choosing the item interaction data used for training](event-values-types.md "event-values-types.md").
 

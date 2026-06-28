@@ -13,7 +13,7 @@ The event list is an array of [Event](API_UBS_Event.md "API_UBS_Event.md") objec
 `eventType` is required for each event. If you don't have event type data, you can provide a placeholder value to satisfy the requirement.
 
 The `trackingId` comes from the event tracker you created in [Creating an item interaction event tracker](event-get-tracker.md "event-get-tracker.md"). The `userId`, `itemId`, and `sentAt` parameters
-map to the USER_ID, ITEM_ID, and TIMESTAMP fields of a corresponding historical `Interactions` dataset. For
+map to the USER\_ID, ITEM\_ID, and TIMESTAMP fields of a corresponding historical `Interactions` dataset. For
 more information, see [Creating schema JSON files for Amazon Personalize schemas](how-it-works-dataset-schema.md "how-it-works-dataset-schema.md").
 
 **Corresponding dataset columns**

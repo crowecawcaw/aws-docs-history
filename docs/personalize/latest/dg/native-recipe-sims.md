@@ -2,7 +2,7 @@
 
 ###### Note
 
-All RELATED_ITEMS recipes use interactions data. Choose SIMS if you want to configure more hyperparameters for the model.
+All RELATED\_ITEMS recipes use interactions data. Choose SIMS if you want to configure more hyperparameters for the model.
 Choose the [Similar-Items recipe](native-recipe-similar-items.md "native-recipe-similar-items.md") if you have item metadata
 and want Amazon Personalize to use it to find similar items.
 

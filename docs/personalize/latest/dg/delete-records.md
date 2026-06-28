@@ -9,7 +9,7 @@ segments.
 
 To delete references to users in Amazon Personalize datasets and models in a dataset group, you do the following:
 
-1. Prepare a CSV file that lists the userIds of the users to delete in a USER_ID column.
+1. Prepare a CSV file that lists the userIds of the users to delete in a USER\_ID column.
 2. Upload the CSV file to an Amazon S3 bucket. Your Amazon Personalize service role must have permission
    to access this bucket.
 3. Create a data deletion job. A _data deletion job_ is a batch job that deletes users and their data from

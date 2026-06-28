@@ -20,7 +20,7 @@ How you record real-time events depends on the type of interactions data you are
 - For _item interactions_, you record real-time events with the [PutEvents](API_UBS_PutEvents.md "API_UBS_PutEvents.md") API operation. Amazon Personalize appends this data to the [item interaction](interactions-datasets.md "interactions-datasets.md") data in your dataset group. For more information, see [Recording real-time item interaction events](recording-item-interaction-events.md "recording-item-interaction-events.md").
 - For _action interactions_, you record real-time events with the [PutActionInteractions](API_UBS_PutActionInteractions.md "API_UBS_PutActionInteractions.md") API operation. Amazon Personalize appends
   this data to the [Action interactions dataset](action-interactions-datasets.md "action-interactions-datasets.md") in your dataset group.
-  Only the PERSONALIZED_ACTIONS recipes use action interactions data. For more information, see [Recording real-time action interaction events](recording-action-interaction-events.md "recording-action-interaction-events.md").
+  Only the PERSONALIZED\_ACTIONS recipes use action interactions data. For more information, see [Recording real-time action interaction events](recording-action-interaction-events.md "recording-action-interaction-events.md").
 
 ###### Topics
 
@@ -38,7 +38,7 @@ Amazon Personalize uses new recorded event
 data for existing items or actions within seconds of import. The following use cases and recipes support real-time personalization:
 
 - [Recommended for you (ECOMMERCE use case)](ECOMMERCE-use-cases.md#recommended-for-you-use-case "ECOMMERCE-use-cases.md#recommended-for-you-use-case")
-- [Top picks for you (VIDEO_ON_DEMAND use case)](VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case "VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case")
+- [Top picks for you (VIDEO\_ON\_DEMAND use case)](VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case "VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case")
 - [User-Personalization-v2 recipe](native-recipe-user-personalization-v2.md "native-recipe-user-personalization-v2.md")
 - [User-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md "native-recipe-new-item-USER_PERSONALIZATION.md")
 - [Personalized-Ranking-v2 recipe](native-recipe-personalized-ranking-v2.md "native-recipe-personalized-ranking-v2.md")
@@ -117,9 +117,9 @@ your application and send it to Amazon Personalize.
 
 For a sample Jupyter notebook that shows how to use Amazon Personalize to react to
 real-time behavior of users using an event tracker and the [PutEvents](API_UBS_PutEvents.md "API_UBS_PutEvents.md")
-operation, see [2.View_Campaign_And_Interactions.ipynb](https://github.com/aws-samples/amazon-personalize-samples/blob/master/getting_started/notebooks/2.View_Campaign_And_Interactions.ipynb "https://github.com/aws-samples/amazon-personalize-samples/blob/master/getting_started/notebooks/2.View_Campaign_And_Interactions.ipynb") in the **getting_started** folder of the [amazon-personalize-samples](https://github.com/aws-samples/amazon-personalize-samples "https://github.com/aws-samples/amazon-personalize-samples") GitHub repository.
+operation, see [2.View\_Campaign\_And\_Interactions.ipynb](https://github.com/aws-samples/amazon-personalize-samples/blob/master/getting_started/notebooks/2.View_Campaign_And_Interactions.ipynb "https://github.com/aws-samples/amazon-personalize-samples/blob/master/getting_started/notebooks/2.View_Campaign_And_Interactions.ipynb") in the **getting\_started** folder of the [amazon-personalize-samples](https://github.com/aws-samples/amazon-personalize-samples "https://github.com/aws-samples/amazon-personalize-samples") GitHub repository.
 
-For an example that shows how to stream events from users interacting with recommendations, see [streaming_events](https://github.com/aws-samples/amazon-personalize-samples/tree/master/next_steps/operations/streaming_events "https://github.com/aws-samples/amazon-personalize-samples/tree/master/next_steps/operations/streaming_events") in the Amazon Personalize samples GitHub repository.
+For an example that shows how to stream events from users interacting with recommendations, see [streaming\_events](https://github.com/aws-samples/amazon-personalize-samples/tree/master/next_steps/operations/streaming_events "https://github.com/aws-samples/amazon-personalize-samples/tree/master/next_steps/operations/streaming_events") in the Amazon Personalize samples GitHub repository.
 
 For a complete example that contains the source code and supporting
 files to deploy real-time APIs that sit between your Amazon Personalize resources and

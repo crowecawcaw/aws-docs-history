@@ -97,4 +97,4 @@ print(create_solution_response['solutionArn'])
 ## Sample Jupyter notebook
 
 For a sample Jupyter notebook that shows how to use the Trending-Now recipe,
-see [trending_now_example.ipynb](https://github.com/aws-samples/amazon-personalize-samples/blob/master/next_steps/core_use_cases/trending_now/trending_now_example.ipynb "https://github.com/aws-samples/amazon-personalize-samples/blob/master/next_steps/core_use_cases/trending_now/trending_now_example.ipynb") in the Amazon Personalize samples GitHub repository.
+see [trending\_now\_example.ipynb](https://github.com/aws-samples/amazon-personalize-samples/blob/master/next_steps/core_use_cases/trending_now/trending_now_example.ipynb "https://github.com/aws-samples/amazon-personalize-samples/blob/master/next_steps/core_use_cases/trending_now/trending_now_example.ipynb") in the Amazon Personalize samples GitHub repository.

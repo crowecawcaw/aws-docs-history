@@ -103,7 +103,7 @@ The status of the data deletion job.
 
 A data deletion job can have one of the following statuses:
 
-- PENDING > IN_PROGRESS > COMPLETED -or- FAILED
+- PENDING > IN\_PROGRESS > COMPLETED -or- FAILED
 
 Type: String
 

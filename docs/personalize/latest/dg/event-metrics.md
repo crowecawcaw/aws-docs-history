@@ -12,7 +12,7 @@ the event source, such as a third party. Import this data to compare different c
 You can import at most 100 event attribution sources.
 
 - If you provide a `recommendationId`, Amazon Personalize automatically determines the source campaign or recommender and identifies it in reports
-  in an EVENT_ATTRIBUTION_SOURCE column.
+  in an EVENT\_ATTRIBUTION\_SOURCE column.
 - If you provide both attributes,
   Amazon Personalize uses only the `eventAttributionSource`.
 - If you don't provide a source, Amazon Personalize labels the source `SOURCE_NAME_UNDEFINED` in reports.

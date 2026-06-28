@@ -144,77 +144,67 @@ The dataset ARN is displayed, for example:
 }
 ```
 
-5.  Add the training data to the dataset.
+5. Add the training data to the dataset.
 
-        1. Create a dataset import job by running the following command. Provide the
-         dataset ARN and Amazon S3 bucket name that were returned in the previous steps. Supply
-         the AWS Identity and Access Management (IAM) role ARN you created in [Creating an IAM role for Amazon Personalize](set-up-required-permissions.md#set-up-create-role-with-permissions "set-up-required-permissions.md#set-up-create-role-with-permissions"). For more information about
-         the API, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md "API_CreateDatasetImportJob.md").
+   1. Create a dataset import job by running the following command. Provide the
+      dataset ARN and Amazon S3 bucket name that were returned in the previous steps. Supply
+      the AWS Identity and Access Management (IAM) role ARN you created in [Creating an IAM role for Amazon Personalize](set-up-required-permissions.md#set-up-create-role-with-permissions "set-up-required-permissions.md#set-up-create-role-with-permissions"). For more information about
+      the API, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md "API_CreateDatasetImportJob.md").
 
+   ```
+   aws personalize create-dataset-import-job \
+     --job-name MovieRatingImportJob \
+     --dataset-arn arn:aws:personalize:us-west-2:`acct-id`:dataset/MovieRatingDatasetGroup/INTERACTIONS \
+     --data-source dataLocation=s3://`amzn-s3-demo-bucket`/ratings.csv \
+     --role-arn `roleArn`
+   ```
 
+   The dataset import job ARN is displayed, for example:
 
-        ```
-        aws personalize create-dataset-import-job \
-          --job-name MovieRatingImportJob \
-          --dataset-arn arn:aws:personalize:us-west-2:`acct-id`:dataset/MovieRatingDatasetGroup/INTERACTIONS \
-          --data-source dataLocation=s3://`amzn-s3-demo-bucket`/ratings.csv \
-          --role-arn `roleArn`
-        ```
+   ```
+   {
+     "datasetImportJobArn": "arn:aws:personalize:us-west-2:acct-id:dataset-import-job/MovieRatingImportJob"
+   }
+   ```
+   2. Check the status by using the `describe-dataset-import-job` command.
+      Provide the dataset import job ARN that was returned in the previous step. For more
+      information about the API, see [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md "API_DescribeDatasetImportJob.md").
 
-        The dataset import job ARN is displayed, for example:
+   ```
+   aws personalize describe-dataset-import-job \
+     --dataset-import-job-arn arn:aws:personalize:us-west-2:`acct-id`:dataset-import-job/MovieRatingImportJob
+   ```
 
+   The properties of the dataset import job, including its status, are displayed.
+   Initially, the `status` shows as CREATE PENDING, for example:
 
+   ```
+   {
+     "datasetImportJob": {
+         "jobName": "MovieRatingImportJob",
+         "datasetImportJobArn": "arn:aws:personalize:us-west-2:acct-id:dataset-import-job/MovieRatingImportJob",
+         "datasetArn": "arn:aws:personalize:us-west-2:acct-id:dataset/MovieRatingDatasetGroup/INTERACTIONS",
+         "dataSource": {
+             "dataLocation": "s3://amzn-s3-demo-bucket/ratings.csv"
+         },
+         "roleArn": "role-arn",
+         "status": "CREATE PENDING",
+         "creationDateTime": 1542392161.837,
+         "lastUpdatedDateTime": 1542393013.377
+     }
+   }
+   ```
 
-        ```
-        {
-          "datasetImportJobArn": "arn:aws:personalize:us-west-2:acct-id:dataset-import-job/MovieRatingImportJob"
-        }
-        ```
-        2. Check the status by using the `describe-dataset-import-job` command.
-         Provide the dataset import job ARN that was returned in the previous step. For more
-         information about the API, see [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md "API_DescribeDatasetImportJob.md").
+   The dataset import is complete when the status shows as ACTIVE. Then you are
+   ready to train the model using the specified dataset.
 
+   ###### Note
 
-
-        ```
-        aws personalize describe-dataset-import-job \
-          --dataset-import-job-arn arn:aws:personalize:us-west-2:`acct-id`:dataset-import-job/MovieRatingImportJob
-        ```
-
-        The properties of the dataset import job, including its status, are displayed.
-         Initially, the `status` shows as CREATE PENDING, for example:
-
-
-
-        ```
-        {
-          "datasetImportJob": {
-              "jobName": "MovieRatingImportJob",
-              "datasetImportJobArn": "arn:aws:personalize:us-west-2:acct-id:dataset-import-job/MovieRatingImportJob",
-              "datasetArn": "arn:aws:personalize:us-west-2:acct-id:dataset/MovieRatingDatasetGroup/INTERACTIONS",
-              "dataSource": {
-                  "dataLocation": "s3://amzn-s3-demo-bucket/ratings.csv"
-              },
-              "roleArn": "role-arn",
-              "status": "CREATE PENDING",
-              "creationDateTime": 1542392161.837,
-              "lastUpdatedDateTime": 1542393013.377
-          }
-        }
-        ```
-
-        The dataset import is complete when the status shows as ACTIVE. Then you are
-         ready to train the model using the specified dataset.
-
-
-        ###### Note
-
-        Importing takes time. Wait until the dataset import is complete before
-         training the model using the dataset.
-
-    To train a model, you create the configuration
-    for training the model using the [CreateSolution](API_CreateSolution.md "API_CreateSolution.md") operation and leave automatic training on. The solution
-    automatically starts training the first solution within an hour.
+   Importing takes time. Wait until the dataset import is complete before
+   training the model using the dataset.
+   To train a model, you create the configuration
+   for training the model using the [CreateSolution](API_CreateSolution.md "API_CreateSolution.md") operation and leave automatic training on. The solution
+   automatically starts training the first solution within an hour.
 
 You train a model using a recipe and your training data. Amazon Personalize provides a set
 of predefined recipes. For more information, see [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md"). For this exercise, you use the User-Personalization-v2 recipe.

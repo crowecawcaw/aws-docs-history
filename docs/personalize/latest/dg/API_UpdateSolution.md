@@ -8,7 +8,7 @@ automatic training, and you can change the training frequency. For more informat
 A solution update can be in one of the
 following states:
 
-CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
 
 To get the status of a solution update, call the
 [DescribeSolution](API_DescribeSolution.md "API_DescribeSolution.md") API operation and find the status

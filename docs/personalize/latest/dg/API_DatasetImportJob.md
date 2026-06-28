@@ -5,7 +5,7 @@ bucket) to an Amazon Personalize dataset. For more information, see [CreateDatas
 
 A dataset import job can be in one of the following states:
 
-- CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
+- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE
   FAILED
 
 ## Contents
@@ -118,7 +118,7 @@ The status of the dataset import job.
 
 A dataset import job can be in one of the following states:
 
-- CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
+- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE
   FAILED
 
 Type: String

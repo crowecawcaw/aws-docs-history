@@ -13,7 +13,7 @@ information, see [Applying the plugin](managed-apply-plugin.md "managed-apply-pl
 You can use the following Python code to create a search pipeline with a `personalized_search_ranking` response processor on an
 OpenSearch Service domain. Replace `domain endpoint` with your domain endpoint URL. For example: `https://<domain
  name>.<AWS region>.es-staging.amazonaws.com`. For a complete explanation of each `personalized_search_ranking` parameter,
-see [Fields for the personalized_search_ranking response processor](opensearch-plugin-pipeline-fields.md "opensearch-plugin-pipeline-fields.md").
+see [Fields for the personalized\_search\_ranking response processor](opensearch-plugin-pipeline-fields.md "opensearch-plugin-pipeline-fields.md").
 
 ```
 import requests

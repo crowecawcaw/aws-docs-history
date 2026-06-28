@@ -78,13 +78,12 @@ to use the builder tool. Choose **Input metric attributes** to enter metrics in 
     }
     ```
 
-11. Choose **Next**.
-12. On the **Review and create page**, review the details for the new metric attribution. To make changes,
-    choose **Previous**. To create the metric attribution, choose **Create**. When the
-    metric attribution is active, you can start importing data and view the results. For information on viewing results,
-    see [Viewing graphs of metric data in CloudWatch](metric-attribution-results-cloudwatch.md "metric-attribution-results-cloudwatch.md").
-    For information about publishing results to Amazon S3, see
-    [Publishing metric attribution reports to Amazon S3](metric-attribution-results-s3.md "metric-attribution-results-s3.md").
+11. Choose **Next**. 12. On the **Review and create page**, review the details for the new metric attribution. To make changes,
+choose **Previous**. To create the metric attribution, choose **Create**. When the
+metric attribution is active, you can start importing data and view the results. For information on viewing results,
+see [Viewing graphs of metric data in CloudWatch](metric-attribution-results-cloudwatch.md "metric-attribution-results-cloudwatch.md").
+For information about publishing results to Amazon S3, see
+[Publishing metric attribution reports to Amazon S3](metric-attribution-results-s3.md "metric-attribution-results-s3.md").
 
 ## Creating a metric attribution (AWS CLI)
 

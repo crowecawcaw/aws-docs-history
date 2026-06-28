@@ -10,7 +10,7 @@ call this operation.
 A solution version can be in one of the following states:
 
 - CREATE PENDING
-- CREATE IN_PROGRESS
+- CREATE IN\_PROGRESS
 - ACTIVE
 - CREATE FAILED
 - CREATE STOPPING

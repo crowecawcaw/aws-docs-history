@@ -81,7 +81,7 @@ The following can increase recommendation relevance for new users:
 - Interactions data – The primary way to improve recommendation relevance for a new user is to import data from their interactions with your items.
   For information about how new interactions data influences
   recommendations, see [New interactions](#new-interactions "#new-interactions").
-- User metadata – Importing user metadata, such as GENDER or MEMBERSHIP_STATUS, can improve recommendations. For metadata to influence
+- User metadata – Importing user metadata, such as GENDER or MEMBERSHIP\_STATUS, can improve recommendations. For metadata to influence
   recommendations, you must wait for your domain recommender's weekly automatic retraining to complete. Or you must manually create a new solution version.
 - Contextual metadata – If your use case or recipe supports
   contextual metadata and your Item interactions dataset has metadata fields for contextual data, you can provide the user's context in your request for recommendations. This does not require retraining. For more information, see

@@ -11,7 +11,7 @@ For more information, see [Applying the plugin](opensource-apply-plugin.md "open
 
 You can use the following curl command to create a search pipeline with a `personalized_search_ranking` response processor on an
 open source OpenSearch cluster. For a complete explanation of each `personalized_search_ranking` parameter,
-see [Fields for the personalized_search_ranking response processor](opensearch-plugin-pipeline-fields.md "opensearch-plugin-pipeline-fields.md").
+see [Fields for the personalized\_search\_ranking response processor](opensearch-plugin-pipeline-fields.md "opensearch-plugin-pipeline-fields.md").
 
 ```
 curl -X PUT "http://localhost:9200/_search/pipeline/`pipeline-name`" -ku 'admin:admin' --insecure -H 'Content-Type: application/json' -d'

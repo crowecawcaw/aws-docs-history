@@ -9,7 +9,7 @@ permissions for your Amazon S3 bucket. For information, see [Exporting a dataset
 
 A dataset export job can be in one of the following states:
 
-- CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
+- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE
   FAILED
   To get the status of the export job, call [DescribeDatasetExportJob](API_DescribeDatasetExportJob.md "API_DescribeDatasetExportJob.md"), and specify the Amazon Resource Name
   (ARN) of the dataset export job. The dataset export is complete when the

@@ -36,9 +36,9 @@ as necessary.
 
 A recommender can be in one of the following states:
 
-- CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-- STOP PENDING > STOP IN_PROGRESS > INACTIVE > START PENDING > START IN_PROGRESS > ACTIVE
-- DELETE PENDING > DELETE IN_PROGRESS
+- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
+- STOP PENDING > STOP IN\_PROGRESS > INACTIVE > START PENDING > START IN\_PROGRESS > ACTIVE
+- DELETE PENDING > DELETE IN\_PROGRESS
   To get the recommender status, call [DescribeRecommender](API_DescribeRecommender.md "API_DescribeRecommender.md").
 
 ###### Note

@@ -63,8 +63,8 @@ your Actions dataset, Amazon Personalize replaces it with the new one.
 
 For `properties`, for each field in your Actions dataset,
 replace the `propertyName` with the field name from your schema
-in camel case. For example, ACTION_EXPIRATION_TIMESTAMP would be `actionExpirationTimestamp` and
-CREATION_TIMESTAMP would be creationTimestamp. Replace `property
+in camel case. For example, ACTION\_EXPIRATION\_TIMESTAMP would be `actionExpirationTimestamp` and
+CREATION\_TIMESTAMP would be creationTimestamp. Replace `property
  data` with the data for the property.
 
 ```
@@ -92,8 +92,8 @@ The following code shows how to add one or more actions to your Actions
 dataset. For each action, specify the `actionId`. If an action with the same `actionId` is already in
 your Actions dataset, Amazon Personalize replaces it with the new one. For `properties`, for each additional field in your Actions dataset,
 replace the `propertyName` with the field name from your schema
-in camel case. For example, ACTION_EXPIRATION_TIMESTAMP would be `actionExpirationTimestamp` and
-CREATION_TIMESTAMP would be creationTimestamp. Replace `property
+in camel case. For example, ACTION\_EXPIRATION\_TIMESTAMP would be `actionExpirationTimestamp` and
+CREATION\_TIMESTAMP would be creationTimestamp. Replace `property
  data` with the data for the property.
 
 ```

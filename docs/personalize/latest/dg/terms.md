@@ -123,19 +123,19 @@ The following terms relate to training a model in Amazon Personalize.
 
 **item-to-item similarities (SIMS) recipe**
 
-A _[RELATED_ITEMS](../../../glossary/latest/reference/glos-chap.md#related-items "../../../glossary/latest/reference/glos-chap.md#related-items")_ recipe that uses the data from an Interactions
+A _[RELATED\_ITEMS](../../../glossary/latest/reference/glos-chap.md#related-items "../../../glossary/latest/reference/glos-chap.md#related-items")_ recipe that uses the data from an Interactions
 dataset to make recommendations for items that are similar to a specified item. The SIMS
 recipe calculates similarity based on the way users interact with items instead of
 matching item metadata, such as price or color.
 
 **item-affinity**
 
-A USER_SEGMENTATION recipe that uses the data from an Item interactions dataset and Items dataset to create user segments for each item that you specify
+A USER\_SEGMENTATION recipe that uses the data from an Item interactions dataset and Items dataset to create user segments for each item that you specify
 based on the likelihood that the users will interact with the item.
 
 **item-attribute-affinity**
 
-A USER_SEGMENTATION recipe that uses the data from an Item interactions dataset and Items dataset to create a user segment for each item attribute that you specify
+A USER\_SEGMENTATION recipe that uses the data from an Item interactions dataset and Items dataset to create a user segment for each item attribute that you specify
 based on the likelihood that the users will interact with items with the attribute.
 
 **Next-Best-Action recipe**
@@ -146,7 +146,7 @@ app, or applying for a credit card. For more information, see [Next-Best-Action 
 
 **Personalized-Ranking-v2 recipe**
 
-A _[PERSONALIZED_RANKING](../../../glossary/latest/reference/glos-chap.md#personalized-ranking-recipes "../../../glossary/latest/reference/glos-chap.md#personalized-ranking-recipes")_
+A _[PERSONALIZED\_RANKING](../../../glossary/latest/reference/glos-chap.md#personalized-ranking-recipes "../../../glossary/latest/reference/glos-chap.md#personalized-ranking-recipes")_
 recipe that ranks a collection of items that you provide based on the predicted interest level for a specific user.
 This recipe uses a transformer based architecture to train a model that learns from item interactions data, item
 metadata and user metadata. Use the Personalized-Ranking-v2 recipe to personalize the order of curated lists of items or
@@ -155,14 +155,14 @@ items and generate more relevant recommendations with lower latency than the pre
 
 **personalized-ranking recipe**
 
-A _[PERSONALIZED_RANKING](../../../glossary/latest/reference/glos-chap.md#personalized-ranking-recipes "../../../glossary/latest/reference/glos-chap.md#personalized-ranking-recipes")_ recipe that ranks a collection of items
+A _[PERSONALIZED\_RANKING](../../../glossary/latest/reference/glos-chap.md#personalized-ranking-recipes "../../../glossary/latest/reference/glos-chap.md#personalized-ranking-recipes")_ recipe that ranks a collection of items
 that you provide based on the predicted interest level for a specific user. Use the
 personalized-ranking recipe to personalize the order of curated lists of items or search
 results that are personalized for a specific user.
 
 **popularity-count recipe**
 
-A _[USER_PERSONALIZATION](../../../glossary/latest/reference/glos-chap.md#user-personalization-recipes "../../../glossary/latest/reference/glos-chap.md#user-personalization-recipes")_ recipe that recommends the items that have
+A _[USER\_PERSONALIZATION](../../../glossary/latest/reference/glos-chap.md#user-personalization-recipes "../../../glossary/latest/reference/glos-chap.md#user-personalization-recipes")_ recipe that recommends the items that have
 the most interactions with unique users.
 
 **recommender**
@@ -176,10 +176,10 @@ configurations for the use case.
 **recipe**
 
 An Amazon Personalize algorithm that is preconfigured to predict the items that a user will
-interact with (for USER_PERSONALIZATION recipes), or calculate items that are similar to
-specific items that a user has shown interest in (for RELATED_ITEMS recipes), or rank a
+interact with (for USER\_PERSONALIZATION recipes), or calculate items that are similar to
+specific items that a user has shown interest in (for RELATED\_ITEMS recipes), or rank a
 collection of items that you provide based on the predicted interest for a specific user
-(for PERSONALIZED_RANKING recipes).
+(for PERSONALIZED\_RANKING recipes).
 
 **solution**
 
@@ -207,13 +207,13 @@ version trained with FULL training mode. See [Automatic updates](use-case-recipe
 
 **User-Personalization-v2 recipe**
 
-A _[USER_PERSONALIZATION](../../../glossary/latest/reference/glos-chap.md#user-personalization-recipes "../../../glossary/latest/reference/glos-chap.md#user-personalization-recipes")_ recipe that recommends items a user will interact with based on their preferences. This recipe uses a transformer based
+A _[USER\_PERSONALIZATION](../../../glossary/latest/reference/glos-chap.md#user-personalization-recipes "../../../glossary/latest/reference/glos-chap.md#user-personalization-recipes")_ recipe that recommends items a user will interact with based on their preferences. This recipe uses a transformer based
 architecture to train a model that learns from item interactions data, item metadata, and user metadata. It can train
 on up to 5 million items and generate more relevant recommendations with lower latency than the previous version.
 
 **User-Personalization recipe**
 
-A Hierarchical Recurrent Neural Network (HRNN) based _[USER_PERSONALIZATION](../../../glossary/latest/reference/glos-chap.md#user-personalization-recipes "../../../glossary/latest/reference/glos-chap.md#user-personalization-recipes")_ recipe that predicts the items that a user
+A Hierarchical Recurrent Neural Network (HRNN) based _[USER\_PERSONALIZATION](../../../glossary/latest/reference/glos-chap.md#user-personalization-recipes "../../../glossary/latest/reference/glos-chap.md#user-personalization-recipes")_ recipe that predicts the items that a user
 will interact with. The user-personalization recipe can use item exploration and
 impressions data to generate recommendations for new items.
 
@@ -242,7 +242,7 @@ A tool that imports your batch input data from an Amazon S3 bucket, uses your so
 version to create user segments, and exports the user segments to an Amazon S3 bucket. We
 recommend using a different location for your output data (either a folder or a
 different Amazon S3 bucket). Use a batch segment job with a solution backed by a
-USER_SEGMENTATION recipe to create segments of users based on the likelihood the user
+USER\_SEGMENTATION recipe to create segments of users based on the likelihood the user
 will interact with different items or items with different item attributes.
 
 **campaign**
@@ -265,10 +265,10 @@ movies watched by users, or the total number of click events.
 
 A list of items that Amazon Personalize predicts a user will interact with.
 Depending on the Amazon Personalize recipe used, recommendations can be either a list of items
-(USER_PERSONALIZATION recipes and RELATED_ITEMS recipes), or a ranking of a collection of items you provided (PERSONALIZED_RANKING recipes).
+(USER\_PERSONALIZATION recipes and RELATED\_ITEMS recipes), or a ranking of a collection of items you provided (PERSONALIZED\_RANKING recipes).
 
 **user segments**
 
 Lists of user that Amazon Personalize predicts a user will interact with your catalogue.
-Depending on the USER_SEGMENTATION recipe used, you create user segments based on items
+Depending on the USER\_SEGMENTATION recipe used, you create user segments based on items
 (Item-Affinity recipe) item metadata (Item-Attribute-Affinity recipe). You create user segments with a batch segment job.

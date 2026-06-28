@@ -15,7 +15,7 @@ For example, might have a column that you want to use only to filter recommendat
 exclude this column from training and Amazon Personalize considers it only when filtering.
 
 You can't exclude
-EVENT_TYPE columns. By default, Amazon Personalize uses all columns that can be used when training. The following data is always excluded from training:
+EVENT\_TYPE columns. By default, Amazon Personalize uses all columns that can be used when training. The following data is always excluded from training:
 
 - Columns with the boolean data type
 - [Impressions data](interactions-datasets.md#interactions-impressions-data "interactions-datasets.md#interactions-impressions-data")

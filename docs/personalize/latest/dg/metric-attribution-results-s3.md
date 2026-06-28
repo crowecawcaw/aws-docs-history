@@ -13,7 +13,7 @@ new file in your Amazon S3 bucket. The file name includes the import method and 
 
 The following is an example of how the first few rows of a metric report CSV file might appear. The metric in
 this example reports on the total clicks from two different recommenders over 15 minute intervals. Each recommender is identified
-by its Amazon Resource Name (ARN) in the EVENT_ATTRIBUTION_SOURCE column.
+by its Amazon Resource Name (ARN) in the EVENT\_ATTRIBUTION\_SOURCE column.
 
 ```
 METRIC_NAME,EVENT_TYPE,VALUE,MATH_FUNCTION,EVENT_ATTRIBUTION_SOURCE,TIMESTAMP

@@ -20,7 +20,7 @@ values. At minimum, you must provide the following for each interaction:
 The maximum total number of optional metadata fields you can add to an Item interactions dataset, combined with total number of _distinct_ event types in your
 Item interaction data,
 is 10. The metadata fields included in this count are
-EVENT_TYPE, EVENT_VALUE fields along with any custom metadata fields you add to your schema. The maximum number of metadata fields excluding reserved fields, such as
+EVENT\_TYPE, EVENT\_VALUE fields along with any custom metadata fields you add to your schema. The maximum number of metadata fields excluding reserved fields, such as
 IMPRESSION, is 5. Categorical values can have at most 1000 characters. If you have an interaction with a categorical
 value with more than 1000, your dataset import job will fail.
 
@@ -34,7 +34,7 @@ The `USER_ID`, `ITEM_ID`, and
 `TIMESTAMP` fields are required. The
 `EVENT_TYPE`, `EVENT_VALUE`, and
 `IMPRESSION` fields are optional reserved keywords
-recognized by Amazon Personalize. EVENT_TYPE must of type string and can't be
+recognized by Amazon Personalize. EVENT\_TYPE must of type string and can't be
 categorical. `LOCATION` and `DEVICE` are optional
 contextual metadata fields. For information on schema requirements see
 [Custom dataset and schema requirements](custom-datasets-and-schemas.md#dataset-requirements "custom-datasets-and-schemas.md#dataset-requirements").
@@ -93,7 +93,7 @@ contextual metadata fields. For information on schema requirements see
 
 For this schema, the first few lines of historical data in a CSV
 file might look like the following. Note that some values for
-EVENT_VALUE are null.
+EVENT\_VALUE are null.
 
 ```
 USER_ID,ITEM_ID,EVENT_TYPE,EVENT_VALUE,LOCATION,DEVICE,TIMESTAMP,IMPRESSION

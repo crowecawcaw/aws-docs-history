@@ -65,7 +65,7 @@ your Items dataset, Amazon Personalize replaces it with the new one.
 For `properties`, for each field in your Items dataset,
 replace the `propertyName` with the field name from your schema
 in camel case. For example, GENRES would be `genres` and
-CREATION_TIMESTAMP would be creationTimestamp. Replace `item
+CREATION\_TIMESTAMP would be creationTimestamp. Replace `item
  data` with the data for the item. `CREATION_TIMESTAMP`
 data must be in [Unix epoch time
 format](interactions-datasets.md#timestamp-data "interactions-datasets.md#timestamp-data") and in seconds. For categorical string data, to include
@@ -96,7 +96,7 @@ information about creating datasets, see [Creating a schema and a dataset](data-
 The following code shows how to add one or more items to your Items
 dataset. For each property name parameter, pass the field name from your
 schema in camel case. For example, GENRES would be
-`genres` and CREATION_TIMESTAMP would be
+`genres` and CREATION\_TIMESTAMP would be
 `creationTimestamp`. For each property value parameter,
 pass the data for the item. `CREATION_TIMESTAMP` data
 must be in [Unix epoch time

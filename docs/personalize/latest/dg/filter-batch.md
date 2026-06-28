@@ -36,8 +36,8 @@ For multiple values, separate each value with a comma: `"filterValues":{"GENRES"
 The following is an example
 of the first few lines of a JSON input file for a _batch inference job_. The example includes
 the `filterValues` object. The `GENRES` key corresponds to a
-`$GENRES` placeholder in the filter expression. The job in this example uses the User-Personalization recipe. For RELATED_ITEMS recipes, provide an itemId
-instead of the userId. For PERSONALIZED_RANKING recipes provide the userID and an itemList.
+`$GENRES` placeholder in the filter expression. The job in this example uses the User-Personalization recipe. For RELATED\_ITEMS recipes, provide an itemId
+instead of the userId. For PERSONALIZED\_RANKING recipes provide the userID and an itemList.
 
 ```
 

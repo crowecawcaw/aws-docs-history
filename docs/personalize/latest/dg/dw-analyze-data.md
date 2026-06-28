@@ -89,7 +89,7 @@ statistics and some possible high priority Item interactions dataset warnings.
 
 ![Depicts the summary section of a report for an Item interactions dataset.](images/dw-reports-summary.png)
 
-The following example shows how the feature details section for an EVENT_TYPE column of an Item interactions dataset
+The following example shows how the feature details section for an EVENT\_TYPE column of an Item interactions dataset
 might appear in a report.
 
 ![Depicts the feature details section for an EVENT_TYPE column of an Item interactions dataset.](images/dw-event-type-report.png)

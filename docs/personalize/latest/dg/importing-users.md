@@ -65,7 +65,7 @@ your Users dataset, Amazon Personalize replaces it with the new one.
 For `properties`, for each field in your Users dataset,
 replace the `propertyName` with the field name from your schema
 in camel case. For example, GENDER would be `gender` and
-MEMBERSHIP_TYPE would be `membershipType`. Replace `user
+MEMBERSHIP\_TYPE would be `membershipType`. Replace `user
  data` with the data for the user. For categorical string data, to
 include multiple categories for a single property, separate each category
 with a pipe (`|`). For example `\"Premium Class|Legacy
@@ -96,7 +96,7 @@ information about creating datasets, see [Creating a schema and a dataset](data-
 The following code shows how to add one or more users to your Users
 dataset. For each property name parameter, pass the field name from your
 schema in camel case. For example, GENDER would be
-`gender` and MEMBERSHIP_TYPE would be
+`gender` and MEMBERSHIP\_TYPE would be
 `membershipType`. For each property value parameter,
 pass the data for the user.
 

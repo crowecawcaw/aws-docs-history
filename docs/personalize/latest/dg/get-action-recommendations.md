@@ -1,6 +1,6 @@
 # Real-time action recommendations in Amazon Personalize
 
-If you use a PERSONALIZED_ACTIONS recipe, you can get action recommendations from your campaign in real time. You can get action recommendations with the Amazon Personalize console, AWS Command Line Interface (AWS CLI), or AWS SDKs.
+If you use a PERSONALIZED\_ACTIONS recipe, you can get action recommendations from your campaign in real time. You can get action recommendations with the Amazon Personalize console, AWS Command Line Interface (AWS CLI), or AWS SDKs.
 
 ###### Topics
 

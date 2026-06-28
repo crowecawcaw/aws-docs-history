@@ -15,14 +15,14 @@ You can create a Domain dataset group or a Custom dataset group:
 
 - With a _Domain dataset group_, you create resources that are pre-configured and optimized for
   different use cases. When you create a dataset group, you make it a Domain dataset group by specifying a domain of
-  VIDEO_ON_DEMAND or ECOMMERCE.
+  VIDEO\_ON\_DEMAND or ECOMMERCE.
 
 If you have a streaming video or e-commerce application, we recommend that you create a Domain dataset group. You
 can still add custom resources, such as solutions and solution versions trained for custom use cases. You can't create next best action resources, including Actions and Action Interactions datasets, in a domain dataset group.
 
 - A _Custom dataset group_ includes only custom resources that you configure depending on your use
   case. With custom resources, you train and deploy configurable solutions and solution versions (a trained Amazon Personalize
-  recommendation model) based on your business needs. If don't have a VIDEO_ON_DEMAND or ECOMMERCE application, we recommend
+  recommendation model) based on your business needs. If don't have a VIDEO\_ON\_DEMAND or ECOMMERCE application, we recommend
   that you create a Custom dataset group. Otherwise, we recommend starting with a Domain dataset group and adding custom
   resources as necessary.
   You can create a dataset group with the Amazon Personalize console, AWS Command Line Interface (AWS CLI), or AWS SDKs.
@@ -48,7 +48,7 @@ Create a dataset group by specifying the dataset group name in the Amazon Person
 5. Choose your **Domain**:
 
    - Choose **E-commerce** to create an ECOMMERCE Domain dataset group.
-   - Choose **Video on demand** to create a VIDEO_ON_DEMAND Domain dataset group.
+   - Choose **Video on demand** to create a VIDEO\_ON\_DEMAND Domain dataset group.
    - Choose **Custom** to create a Custom dataset group with only custom resources, such as
      solutions, campaigns, and batch inference jobs.
 

@@ -28,9 +28,9 @@ and map your columns to the required and optional fields for Amazon Personalize.
 4. Use the transform fields to map your data to required Amazon Personalize attributes.
 
    1. Choose the dataset type that matches your data (Interactions, Items, or Users).
-   2. Choose your domain (ECOMMERCE, VIDEO_ON_DEMAND, or custom). The domain you choose must match the
+   2. Choose your domain (ECOMMERCE, VIDEO\_ON\_DEMAND, or custom). The domain you choose must match the
       domain you specified when you created your dataset group.
-   3. Choose the columns that match the required and optional fields for Amazon Personalize. For example, for the item_ID column,
+   3. Choose the columns that match the required and optional fields for Amazon Personalize. For example, for the item\_ID column,
       choose the column in your data that stores the unique identification information for each of your items.
 
    Each column field is filtered by data type. Only the columns in your data that meet Amazon Personalize data type requirements

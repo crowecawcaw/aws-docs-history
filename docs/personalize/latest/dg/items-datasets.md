@@ -43,22 +43,22 @@ The following are item metadata requirements for Amazon Personalize.
 If you aren't sure you have enough data or if you have questions about its quality, you can import your data into an
 Amazon Personalize dataset and use Amazon Personalize to analyze it. For more information, see [Analyzing quality and quantity of data in Amazon Personalize datasets](analyzing-data.md "analyzing-data.md").
 
-- For all domain use cases and custom recipes, you must have an ITEM_ID column that stores the unique identifier for each item. Every item must have an item ID. It
+- For all domain use cases and custom recipes, you must have an ITEM\_ID column that stores the unique identifier for each item. Every item must have an item ID. It
   must be a `string` with a max length of 256 characters.
 - For custom recipes, your data must have at least one categorical string or numerical metadata column. Item metadata columns can include empty/null values.
   We recommend that these columns be at minimum 70 percent complete.
-- For domain use cases, the required columns depend on your domain. For more information, see [VIDEO_ON_DEMAND domain requirements](#vod-item-data-req "#vod-item-data-req") or
+- For domain use cases, the required columns depend on your domain. For more information, see [VIDEO\_ON\_DEMAND domain requirements](#vod-item-data-req "#vod-item-data-req") or
   [ECOMMERCE domain requirements](#retail-item-data-req "#retail-item-data-req").
 - The maximum number of metadata columns is 100.
 
-### VIDEO_ON_DEMAND domain requirements
+### VIDEO\_ON\_DEMAND domain requirements
 
-An item metadata is required for some use cases (see [VIDEO_ON_DEMAND use cases](VIDEO_ON_DEMAND-use-cases.md "VIDEO_ON_DEMAND-use-cases.md")). When optional,
+An item metadata is required for some use cases (see [VIDEO\_ON\_DEMAND use cases](VIDEO_ON_DEMAND-use-cases.md "VIDEO_ON_DEMAND-use-cases.md")). When optional,
 we still recommend importing item metadata to get the most relevant recommendations. If you import item metadata, your data must include the following columns:
 
-- ITEM_ID
+- ITEM\_ID
 - GENRES (categorical `string`)
-- CREATION_TIMESTAMP (in Unix epoch time format)
+- CREATION\_TIMESTAMP (in Unix epoch time format)
 
 The following lists additional recommended columns and their required types. The `null` type indicates that the column can have missing values.
 We recommend that these columns be at minimum 70 percent complete.
@@ -66,31 +66,31 @@ Including these columns can improve recommendations.
 
 - PRICE (float)
 - DURATION (float)
-- GENRE_L2 (categorical `string`, `null`)
-- GENRE_L3 (categorical `string`, `null`)
-- AVERAGE_RATING (`float`, `null`)
-- PRODUCT_DESCRIPTION (textual `string`, `null`)
-- CONTENT_OWNER (categorical `string`, `null`) – The company that owns the video. For example, values might be HBO, Paramount, and NBC.
-- CONTENT_CLASSIFICATION (categorical `string`, `null`) – The content's rating. For example, values might be G, PG, PG-13, R, NC-17, and unrated.
+- GENRE\_L2 (categorical `string`, `null`)
+- GENRE\_L3 (categorical `string`, `null`)
+- AVERAGE\_RATING (`float`, `null`)
+- PRODUCT\_DESCRIPTION (textual `string`, `null`)
+- CONTENT\_OWNER (categorical `string`, `null`) – The company that owns the video. For example, values might be HBO, Paramount, and NBC.
+- CONTENT\_CLASSIFICATION (categorical `string`, `null`) – The content's rating. For example, values might be G, PG, PG-13, R, NC-17, and unrated.
 
 ### ECOMMERCE domain requirements
 
 Item metadata is optional for all ECOMMERCE use cases. If you have item data,
 we recommend importing it to get the most relevant recommendations. If you import item metadata, your data must have the following columns:
 
-- ITEM_ID
+- ITEM\_ID
 - PRICE (`float`)
-- CATEGORY_L1 (categorical `string`) – For information about formatting categorical data, see [Categorical metadata](#item-categorical-data "#item-categorical-data").
+- CATEGORY\_L1 (categorical `string`) – For information about formatting categorical data, see [Categorical metadata](#item-categorical-data "#item-categorical-data").
 
 The following lists additional recommended columns and their required types. The `null` type indicates that the column can have missing values.
 We recommend that these columns be at minimum 70 percent complete.
 Including these columns can improve recommendations.
 
-- CATEGORY_L2 (categorical `string`, `null`)
-- CATEGORY_L3 (categorical `string`, `null`)
-- PRODUCT_DESCRIPTION (textual `string`, `null`)
-- CREATION_TIMESTAMP (`float`)
-- AGE_GROUP (categorical `string`, `null`) – The age group the item is for. Values might be newborns, infants, children, and adults.
+- CATEGORY\_L2 (categorical `string`, `null`)
+- CATEGORY\_L3 (categorical `string`, `null`)
+- PRODUCT\_DESCRIPTION (textual `string`, `null`)
+- CREATION\_TIMESTAMP (`float`)
+- AGE\_GROUP (categorical `string`, `null`) – The age group the item is for. Values might be newborns, infants, children, and adults.
 - ADULT (categorical `string`, `null`) – Whether the item is restricted to only adults, such as alcohol. Values might be yes or no.
 - GENDER (categorical `string`, `null`) – The gender the item is for. Values might be male, female, and unisex.
 
@@ -118,15 +118,15 @@ vertical bar, '|'. For example, for a GENRES field, your data for an item
 might be `Action|Crime|Biopic`. If you have a multiple levels
 of categorical data and some items have multiple categories for each level
 in the hierarchy, use a separate column for each level and append a level indicator
-after each field name: GENRES, GENRE_L2, GENRE_L3. This allows you to filter
+after each field name: GENRES, GENRE\_L2, GENRE\_L3. This allows you to filter
 recommendations based on sub-categories, even if an item belongs to
 multiple multi-level categories (for information on creating and using
 filters see [Filtering recommendations and user segments](filter.md "filter.md")). For example,
 a video might have the following data for each category level:
 
 - GENRES: Action|Adventure
-- GENRE_L2: Crime|Western
-- GENRE_L3: Biopic
+- GENRE\_L2: Crime|Western
+- GENRE\_L3: Biopic
 
 In this example, the video is in the action > crime > biopic hierarchy
 _and_ the adventure > western > biopic hierarchy. We
@@ -143,7 +143,7 @@ can negatively impact recommendations. The following can help you reduce the num
   "Shoes" and "Sneakers".
 - If your data has a hierarchical structure,
   where broader categories (like "Footwear") contain more specific subcategories (such as "Men's Shoes", "Women's Shoes", "Children's Shoes"),
-  use a separate column for each level and append a level indicator after each field name. For example, CATEGORY_1, CATEGORY_2, and CATEGORY_3.
+  use a separate column for each level and append a level indicator after each field name. For example, CATEGORY\_1, CATEGORY\_2, and CATEGORY\_3.
   This can reduce ambiguous or overlapping categories.
 
 With all recipes and domains, you can import categorical data and use it to filter recommendations based on an item's attributes. For information
@@ -186,7 +186,7 @@ If you use the [User-Personalization](native-recipe-new-item-USER_PERSONALIZATIO
 [Personalized-Ranking](native-recipe-search.md "native-recipe-search.md") custom recipes, you can optimize an Amazon Personalize solution for an
 Item metadata related objective in addition to maximum relevance, such as maximizing revenue. When you configure your
 solution, you choose the numerical metadata column in your Items dataset that is related to your objective. For example, you
-might choose a VIDEO_LENGTH column to maximize streaming minutes or a PRICE column to maximize revenue.
+might choose a VIDEO\_LENGTH column to maximize streaming minutes or a PRICE column to maximize revenue.
 
 For more information, see [Optimizing a solution for an additional objective](optimizing-solution-for-objective.md "optimizing-solution-for-objective.md").
 

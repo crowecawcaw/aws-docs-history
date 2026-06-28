@@ -4,7 +4,7 @@ When getting recommendations with a domain recommender or custom campaign, you c
 criteria. For example, you might not want to recommend products that a user has already
 purchased or recommend only items for a particular age group.
 
-Similarly, with USER_SEGMENTATION recipes, you might not want to include certain
+Similarly, with USER\_SEGMENTATION recipes, you might not want to include certain
 types of users in user segments. By filtering your results, you can control the items that will
 be recommended to users or the users that will be included in user segments.
 

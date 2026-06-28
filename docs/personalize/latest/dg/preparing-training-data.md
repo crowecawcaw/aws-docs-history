@@ -54,7 +54,7 @@ The following guidelines and requirements can help you make sure your bulk data 
 - If you are imporitng multiple CSV files, all column headers must match across all files.
 - Make sure you have the required fields for your dataset type and make sure that their names align with Amazon Personalize
   requirements. For example, your Items data might have a column called `ITEM_IDENTIFICATION_NUMBER` with IDs for
-  each of your items. To use this column as an ITEM_ID field, rename the column to `ITEM_ID`. If you use Data Wrangler to
+  each of your items. To use this column as an ITEM\_ID field, rename the column to `ITEM_ID`. If you use Data Wrangler to
   format your data, you can use the **Map columns for Amazon Personalize** Data Wrangler transform to make sure your columns are
   named correctly.
 

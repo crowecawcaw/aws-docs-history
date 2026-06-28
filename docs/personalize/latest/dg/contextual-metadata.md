@@ -14,7 +14,7 @@ personalized ranking of items.
 For Domain dataset groups, the following recommender use cases can use contextual metadata:
 
 - [Recommended for you](ECOMMERCE-use-cases.md#recommended-for-you-use-case "ECOMMERCE-use-cases.md#recommended-for-you-use-case") (ECOMMERCE domain)
-- [Top picks for you](VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case "VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case") (VIDEO_ON_DEMAND domain)
+- [Top picks for you](VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case "VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case") (VIDEO\_ON\_DEMAND domain)
 
 For custom resources, recipes that use contextual metadata include the following:
 

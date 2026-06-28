@@ -28,7 +28,7 @@ import job, use this syntax without the CSV file name.
 
 **Error message:**
 _An error occurred (LimitExceededException) when calling the
-CreateDatasetImportJob operation: More than 5 resources with PENDING or IN_PROGRESS
+CreateDatasetImportJob operation: More than 5 resources with PENDING or IN\_PROGRESS
 status._
 
 You can have a total of 5 pending or in progress dataset import jobs
@@ -53,7 +53,7 @@ The data that you import into Amazon Personalize, including attribute names and 
 match the destination dataset's schema. For more information, see [Creating schema JSON files for Amazon Personalize schemas](how-it-works-dataset-schema.md "how-it-works-dataset-schema.md").
 
 **Error message:**
-_Length cannot be more than <character limit> characters for <COLLUMN_NAME>. If no values
+_Length cannot be more than <character limit> characters for <COLLUMN\_NAME>. If no values
 exceed the character limit, make sure your data follows the formatting guidelines listed in https://docs.aws.amazon.com/personalize/latest/dg/data-prep-formatting.html._
 
 Check to make sure all values in this column don't exceed the character limit. If no values exceed the character limit, check
@@ -124,9 +124,9 @@ Use the following syntax for the _output_ folder in Amazon S3:
 
 **Error message:**
 _Could not create filter. Invalid input symbol: $parameterName. Placeholders are not allowed
-with NOT_IN operator._
+with NOT\_IN operator._
 
-You can't use placeholder parameters in a filter expression that uses the NOT_IN operator. Instead,
+You can't use placeholder parameters in a filter expression that uses the NOT\_IN operator. Instead,
 use the IN operator and use the opposite Action: use Include instead of Exclude (or the reverse).
 
 For example, if you want to use `INCLUDE ItemID WHERE Items.GENRE NOT IN ($GENRE)`,

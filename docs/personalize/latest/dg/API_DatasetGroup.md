@@ -103,7 +103,7 @@ The current status of the dataset group.
 
 A dataset group can be in one of the following states:
 
-- CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
+- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE
   FAILED
 - DELETE PENDING
 

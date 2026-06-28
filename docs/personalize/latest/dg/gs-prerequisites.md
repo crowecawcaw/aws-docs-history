@@ -26,7 +26,7 @@ To create training data, download, modify, and save the movie ratings data to an
 
    1. Delete the _rating_ column.
    2. Rename the `userId` and `movieId` columns to `USER_ID` and `ITEM_ID` respectively.
-   3. Add an EVENT_TYPE column and set the value for every record to `watch`. If you're using Microsoft Excel, you can set the EVENT_TYPE for
+   3. Add an EVENT\_TYPE column and set the value for every record to `watch`. If you're using Microsoft Excel, you can set the EVENT\_TYPE for
       every record by entering `watch` in the first cell in the column and then double-clicking the bottom-right corner of the cell.
       Your header should be the following:
 

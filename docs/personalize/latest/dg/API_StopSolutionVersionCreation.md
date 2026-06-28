@@ -1,14 +1,14 @@
 # StopSolutionVersionCreation
 
-Stops creating a solution version that is in a state of CREATE_PENDING or CREATE IN_PROGRESS.
+Stops creating a solution version that is in a state of CREATE\_PENDING or CREATE IN\_PROGRESS.
 
 Depending on the current state of the solution version, the solution version state changes as follows:
 
-- CREATE_PENDING > CREATE_STOPPED
+- CREATE\_PENDING > CREATE\_STOPPED
 
 or
 
-- CREATE_IN_PROGRESS > CREATE_STOPPING > CREATE_STOPPED
+- CREATE\_IN\_PROGRESS > CREATE\_STOPPING > CREATE\_STOPPED
   You are billed for all of the training completed up
   until you stop the solution version creation. You cannot resume creating a solution version once it has been stopped.
 

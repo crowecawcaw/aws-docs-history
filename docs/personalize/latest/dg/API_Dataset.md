@@ -45,7 +45,7 @@ One of the following values:
 - Items
 - Users
 - Actions
-- Action_Interactions
+- Action\_Interactions
 
 Type: String
 
@@ -101,9 +101,9 @@ The status of the dataset.
 
 A dataset can be in one of the following states:
 
-- CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
+- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE
   FAILED
-- DELETE PENDING > DELETE IN_PROGRESS
+- DELETE PENDING > DELETE IN\_PROGRESS
 
 Type: String
 

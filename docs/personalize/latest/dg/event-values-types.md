@@ -19,7 +19,7 @@ For more information about pricing, see [Amazon Personalize pricing](https://aws
 You can choose item interaction data as follows:
 
 - **Choose records based on type** – When you configure a solution,
-  if your Item interactions dataset includes event types in an EVENT_TYPE column, you can optionally specify an event type to use in training.
+  if your Item interactions dataset includes event types in an EVENT\_TYPE column, you can optionally specify an event type to use in training.
   For example, if your Item interactions dataset includes
   _purchase_, _click_, and
   _watch_ event types, and you want Amazon Personalize to train the model with only _watch_ events, when you configure
@@ -31,15 +31,15 @@ when you configure a custom solution you can specify different weights for diffe
 configure a solution to give more weight to purchase events than click events.
 For more information, see [Optimizing a solution with events configuration](optimizing-solution-events-config.md "optimizing-solution-events-config.md").
 
-If your Item interactions dataset has multiple event types in an EVENT_TYPE column, and you do not provide an event type when you configure your solution, Amazon Personalize
+If your Item interactions dataset has multiple event types in an EVENT\_TYPE column, and you do not provide an event type when you configure your solution, Amazon Personalize
 uses all item interaction data for training with equal weight regardless of type.
 
-- **Choose records based on type and value** – When you configure a solution, if your Item interactions dataset includes EVENT_TYPE and EVENT_VALUE fields, you can set a specific value
+- **Choose records based on type and value** – When you configure a solution, if your Item interactions dataset includes EVENT\_TYPE and EVENT\_VALUE fields, you can set a specific value
   as a threshold to exclude records from training. For example,
-  if your EVENT_VALUE data for events with an EVENT_TYPE of _watch_
+  if your EVENT\_VALUE data for events with an EVENT\_TYPE of _watch_
   is the percentage of a video that a user watched, if you set the event value threshold to 0.5,
   and the event type to _watch_, Amazon Personalize trains the model using only _watch_ interaction events
-  with an EVENT_VALUE greater than or equal to 0.5.
+  with an EVENT\_VALUE greater than or equal to 0.5.
   The following code shows how to use the SDK for Python (Boto3) to create a solution that uses only `watch` events where the use watched more than half of the video.
 
 ```

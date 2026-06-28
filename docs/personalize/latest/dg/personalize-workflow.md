@@ -17,12 +17,12 @@ data guidance, see the [Readiness checklist](readiness-checklist.md "readiness-c
    outline the structure and content of your data, including column names and their data types.
 4. **[Create a dataset group](data-prep-ds-group.md "data-prep-ds-group.md")** – A dataset
    group is a container for Amazon Personalize resources. You can create a Domain dataset group with preconfigured resources for
-   VIDEO_ON_DEMAND or ECOMMERCE domains. Or you can create a Custom dataset group and create only custom resources.
+   VIDEO\_ON\_DEMAND or ECOMMERCE domains. Or you can create a Custom dataset group and create only custom resources.
 5. **[Create schemas and datasets](data-prep-creating-datasets.md "data-prep-creating-datasets.md")** – A _schema_ tells Amazon Personalize about the structure of your data and
    allows Amazon Personalize to parse the data. A _dataset_ is a container for training data in Amazon Personalize.
 6. **[Import training data into datasets](import-data.md "import-data.md")** – Import your prepared interaction, item, user, action, or action interaction records.
    You can import records in bulk or individually.
-7. **Train and deploy a model** – To train and deploy a model for at the VIDEO_ON_DEMAND or ECOMMERCE domains, you create domain recommenders.
+7. **Train and deploy a model** – To train and deploy a model for at the VIDEO\_ON\_DEMAND or ECOMMERCE domains, you create domain recommenders.
    For custom resources, you create a custom solution and a solution version. For real-time recommendations, you deploy the solution version in a campaign.
 
    - For information about creating a domain recommenders, see [Domain recommenders](creating-recommenders.md "creating-recommenders.md").

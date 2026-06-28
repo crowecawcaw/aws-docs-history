@@ -52,13 +52,13 @@ To create a recommender or a custom solution, you must at minimum create an _Ite
 
 Your item interactions data must have the following columns.
 
-- USER_ID – The unique identifier of the user who interacted with the item. Every event must have an USER_ID. It must be a `string` with a max length of 256 characters.
-- ITEM_ID – The unique identifier of the item that the user interacted with. Every event must have an item ID. It must be a `string` with a max length of 256 characters.
+- USER\_ID – The unique identifier of the user who interacted with the item. Every event must have an USER\_ID. It must be a `string` with a max length of 256 characters.
+- ITEM\_ID – The unique identifier of the item that the user interacted with. Every event must have an item ID. It must be a `string` with a max length of 256 characters.
 - TIMESTAMP – The time the event occurred (in Unix epoch time format in seconds). Every interaction must have an TIMESTAMP.
   For more information, see [Timestamp data](#timestamp-data "#timestamp-data").
-- EVENT_TYPE – The nature of item interaction event, such as _click_, _watch_ or
+- EVENT\_TYPE – The nature of item interaction event, such as _click_, _watch_ or
   _purchase_. For domain recommenders, you must have an event type column and every
-  interaction must have an event type. For all custom recipes, an EVENT_TYPE column is recommended but optional. If you add it, every
+  interaction must have an event type. For all custom recipes, an EVENT\_TYPE column is recommended but optional. If you add it, every
   event must have an event type. For more information see [Event type and event value data](#event-type-and-event-value-data "#event-type-and-event-value-data").
 
 You are free to add additional custom columns depending on your use case and
@@ -87,11 +87,11 @@ user intent and interest. The maximum number of distinct event types combined wi
 is 10.
 
 For domain recommenders, you must have an event type column and every
-interaction must have an event type. For all custom recipes, an EVENT_TYPE column is recommended but optional. If you add it, every
+interaction must have an event type. For all custom recipes, an EVENT\_TYPE column is recommended but optional. If you add it, every
 event must have an event type.
 
 If you create custom resources, you can choose the events used for training by event type.If your dataset has
-multiple event types in an EVENT_TYPE column, and you do not provide an event type when you configure a custom solution,
+multiple event types in an EVENT\_TYPE column, and you do not provide an event type when you configure a custom solution,
 Amazon Personalize uses all item interactions data for training with equal weight regardless of type. For more information, see [Choosing the item interaction data used for training](event-values-types.md "event-values-types.md").
 
 If you have multiple event types and use the User-Personalization-v2 recipe or Personalized-Ranking-v2 recipe,
@@ -102,7 +102,7 @@ For more information, see [Optimizing a solution with events configuration](opti
 The following use cases have specific
 event type requirements:
 
-VIDEO_ON_DEMAND domain use cases
+VIDEO\_ON\_DEMAND domain use cases
 
 - Because you watched X requires at minimum 1000 `Watch` events.
 - Most popular requires at minimum 1000 `Watch` events.
@@ -130,7 +130,7 @@ The following are ways to have negative events and users' disinterest influence 
 
 Event value data might be the percentage of a movie that a user watched or a rating out of 10. If you create custom solutions,
 you can choose records used for training
-based on data in EVENT_TYPE and EVENT_VALUE columns.
+based on data in EVENT\_TYPE and EVENT\_VALUE columns.
 With domain recommenders, Amazon Personalize doesn't use event value data and you can't filter events before
 training.
 
@@ -140,9 +140,9 @@ for each event depends on what data you want to exclude and what event types you
 match the user activity, such as the percentage of video the user watched for _watch_ event types.
 
 When you configure a solution, you set a specific value as a threshold to exclude records from training. For example,
-if your EVENT_VALUE data for events with an EVENT_TYPE of _watch_ is the percentage of a video that a
+if your EVENT\_VALUE data for events with an EVENT\_TYPE of _watch_ is the percentage of a video that a
 user watched, if you set the event value threshold to 0.5, and the event type to _watch_, Amazon Personalize trains
-the model using only _watch_ interaction events with an EVENT_VALUE greater than or equal to 0.5.
+the model using only _watch_ interaction events with an EVENT\_VALUE greater than or equal to 0.5.
 
 For more information, see [Choosing the item interaction data used for training](event-values-types.md "event-values-types.md")
 
@@ -157,11 +157,11 @@ Include contextual metadata to provide a more personalized experience for your u
 decrease the cold-start phase for new users. The cold-start phase is when recommendations are less relevant due
 to a lack of historical user data.
 
-For example, if your item interactions CSV file includes a DEVICE_TYPE column with `tablet` and `phone` values,
+For example, if your item interactions CSV file includes a DEVICE\_TYPE column with `tablet` and `phone` values,
 Amazon Personalize can learn how customers shop differently with different devices. When you get recommendations for a user,
 you can specify their device and recommendations will be more relevant, even if the user has no interaction history.
 
-The following shows how you would format a item interactions CSV file with a DEVICE_TYPE column as contextual metadata.
+The following shows how you would format a item interactions CSV file with a DEVICE\_TYPE column as contextual metadata.
 
 ```
 ITEM_ID,USER_ID,TIMESTAMP,DEVICE_TYPE,EVENT_TYPE
@@ -177,7 +177,7 @@ shoe4336,13,1402185600,Phone,CLICK
 For Domain dataset groups, the following recommender use cases can use contextual metadata:
 
 - [Recommended for you](ECOMMERCE-use-cases.md#recommended-for-you-use-case "ECOMMERCE-use-cases.md#recommended-for-you-use-case") (ECOMMERCE domain)
-- [Top picks for you](VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case "VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case") (VIDEO_ON_DEMAND domain)
+- [Top picks for you](VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case "VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case") (VIDEO\_ON\_DEMAND domain)
 
 For custom resources, recipes that use contextual metadata include the following:
 
@@ -205,7 +205,7 @@ Impression values can have at most 1000 characters (including the vertical bar c
 For Domain dataset groups, the following recommender use cases can use impressions data:
 
 - [Recommended for you](ECOMMERCE-use-cases.md#recommended-for-you-use-case "ECOMMERCE-use-cases.md#recommended-for-you-use-case") (ECOMMERCE domain)
-- [Top picks for you](VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case "VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case") (VIDEO_ON_DEMAND domain)
+- [Top picks for you](VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case "VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case") (VIDEO\_ON\_DEMAND domain)
 
 For more information about exploration see [Exploration](use-case-recipe-features.md#about-exploration "use-case-recipe-features.md#about-exploration").
 Amazon Personalize can model two types of impressions: [Implicit impressions](#implicit-impressions-info "#implicit-impressions-info") and [Explicit impressions](#explicit-impressions-info "#explicit-impressions-info").
@@ -242,11 +242,11 @@ character limit for impressions data. If you include explicit impressions in [Pu
 The following is a short excerpt from a CSV file that includes explicit impressions in the
 `IMPRESSION` column.
 
-| EVENT_TYPE | IMPRESSION | ITEM_ID | TIMESTAMP | USER_ID |
-| ---------- | ---------- | ------- | --------- | ------- | --- | --- | ---------- | ------ | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---------- | ------ |
-| click      | 73         | 70      | 17        | 95      | 96  | 73  | 1586731606 | USER_1 |
-| click      | 35         | 82      | 78        | 57      | 20  | 63  | 1          | 90     | 76  | 75  | 49  | 71  | 26  | 24  | 25  | 6   | 35  | 1586735164 | USER_2 |
-| ...        | ...        | ...     | ...       | ...     |
+| EVENT\_TYPE | IMPRESSION | ITEM\_ID | TIMESTAMP | USER\_ID |
+| ----------- | ---------- | -------- | --------- | -------- |
+| click       | 73         | 70       | 17        | 95       | 96  | 73  | 1586731606 | USER\_1 |
+| click       | 35         | 82       | 78        | 57       | 20  | 63  | 1          | 90      | 76  | 75  | 49  | 71  | 26  | 24  | 25  | 6   | 35  | 1586735164 | USER\_2 |
+| ...         | ...        | ...      | ...       | ...      |
 
 The application showed user `USER_1` items `73`, `70`, `17`,
 `95`, and `96` and the user ultimately chose item `73`. When you create a new solution
@@ -256,7 +256,7 @@ frequently recommended to user `USER_1`.
 ### Implicit impressions
 
 _Implicit impressions_ are the recommendations, retrieved from Amazon Personalize, that you
-show the user. Your CSV file doesn't need to include IMPRESSION or RECOMMENDATION_ID columns to use implicit impressions.
+show the user. Your CSV file doesn't need to include IMPRESSION or RECOMMENDATION\_ID columns to use implicit impressions.
 Instead, you include the `RecommendationId`
 (returned by the [GetRecommendations](API_RS_GetRecommendations.md "API_RS_GetRecommendations.md") and [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md "API_RS_GetPersonalizedRanking.md") operations) in
 [PutEvents](API_UBS_PutEvents.md "API_UBS_PutEvents.md") requests. Amazon Personalize derives the implicit
@@ -280,7 +280,7 @@ For more information on recording events with implicit impression data, see [Rec
 ## Interactions data example
 
 The following interactions data represents historical user activity from a streaming video website. You might use
-the data to train a model that provides movie recommendations based on users' interaction data. Note that some values for EVENT_VALUE are null.
+the data to train a model that provides movie recommendations based on users' interaction data. Note that some values for EVENT\_VALUE are null.
 
 ```
 USER_ID,ITEM_ID,EVENT_TYPE,EVENT_VALUE,TIMESTAMP

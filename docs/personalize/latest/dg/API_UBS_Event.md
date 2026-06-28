@@ -89,7 +89,7 @@ Each item in the map consists of a key-value pair. For example,
 
 The keys use camel case names that match the fields in the Item interactions dataset's
 schema. In the above example, the `numberOfRatings` would match the
-'NUMBER_OF_RATINGS' field defined in the Item interactions dataset's schema.
+'NUMBER\_OF\_RATINGS' field defined in the Item interactions dataset's schema.
 
 The following can't be included as a keyword for properties (case insensitive).
 

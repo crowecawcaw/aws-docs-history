@@ -21,7 +21,7 @@ When creating a filter expression, note the following guidelines and requirement
   number of distinct dataset fields across all filters in a dataset group is **20**.
 - You can apply a filter with the CurrentItem element only if your domain use case or custom recipe generates related items recommendations,
   such as the Similar-Items recipe or the _More Like X_ domain use case.
-- You can't use placeholder parameters in a filter expression that uses the NOT_IN operator. Instead,
+- You can't use placeholder parameters in a filter expression that uses the NOT\_IN operator. Instead,
   use the IN operator and use the opposite Action. For example, use Include instead of Exclude (or the reverse).
 - You can't create filters that filter based on `Action expiration timestamp` and
   `Repeat frequency` data. Amazon Personalize automatically filters action recommendations based on this data.

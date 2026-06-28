@@ -30,7 +30,7 @@ Before you start personalizing OpenSearch results, review the requirements liste
 - [Amazon Personalize Search Ranking plugin requirements](plugin-requirements.md "plugin-requirements.md")
 - [Personalizing results from Amazon OpenSearch Service with Amazon Personalize](opensearch-service.md "opensearch-service.md")
 - [Personalizing results from open source Open Search with Amazon Personalize](opensearch-open-source.md "opensearch-open-source.md")
-- [Fields for the personalized_search_ranking response processor](opensearch-plugin-pipeline-fields.md "opensearch-plugin-pipeline-fields.md")
+- [Fields for the personalized\_search\_ranking response processor](opensearch-plugin-pipeline-fields.md "opensearch-plugin-pipeline-fields.md")
 - [Pipeline metrics example](monitor-response.md "monitor-response.md")
 
 ## Use case example

@@ -1,6 +1,6 @@
 # Getting started with a Domain dataset group
 
-In this getting started tutorial you create a Domain dataset group for the VIDEO_ON_DEMAND domain, import interactions data from a CSV file, and create a recommender with the _Top picks for you_ use case.
+In this getting started tutorial you create a Domain dataset group for the VIDEO\_ON\_DEMAND domain, import interactions data from a CSV file, and create a recommender with the _Top picks for you_ use case.
 Then you use the recommender to get personalized movie recommendations for a user.
 The tutorial uses historical data that consists of 100,000 movie ratings on
 9,700 movies from 600 users.

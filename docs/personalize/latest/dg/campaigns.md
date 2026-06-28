@@ -181,8 +181,9 @@ that uses the User-Personalization recipe. The campaign it creates automatically
 versions. The code uses the following configuration:
 
 - It configures the campaign to automatically update to use the latest solution version for your solution: The
-  `solution-version-arn` is in ``solution ARN`/$LATEST`format, and`syncWithLatestSolutionVersion`is`True`. To use the code, replace
-`solution ARN` with the Amazon Resource Name (ARN) of your solution.
+  `solution-version-arn` is in ``solution ARN`/$LATEST`
+  format, and `syncWithLatestSolutionVersion` is `True`. To use the code, replace
+  `solution ARN` with the Amazon Resource Name (ARN) of your solution.
 
 To disable automatic `syncWithLatestSolutionVersion`, specify only the solution version ARN
 (without `/$LATEST`), and set `syncWithLatestSolutionVersion` to `False`.
@@ -233,9 +234,9 @@ solution that uses the User-Personalization recipe. The campaign it creates auto
 solution versions. The code uses the following configuration:
 
 - It configures the campaign to automatically update to use the latest solution version for your solution: The
-  `solutionVersionArn` is in ``solution ARN`/$LATEST`format,
-and`syncWithLatestSolutionVersion`is`True`. To use the code, replace `solution
-  ARN` with the Amazon Resource Name (ARN) of your solution version.
+  `solutionVersionArn` is in ``solution ARN`/$LATEST` format,
+  and `syncWithLatestSolutionVersion` is `True`. To use the code, replace `solution
+ ARN` with the Amazon Resource Name (ARN) of your solution version.
 
 To disable automatic `syncWithLatestSolutionVersion`, specify only the solution version ARN
 (without `/$LATEST`), and set `syncWithLatestSolutionVersion` to `False`.

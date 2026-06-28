@@ -13,8 +13,8 @@ application. You must use the same `sessionId` in all events throughout the sess
 `sessionId` to associate events with the user before they log in (is anonymous). For more information, see
 [Recording events for anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
 
-The `userId`, `actionId`, and `sentAt` parameters map to the USER_ID, ACTION_ID,
-EVENT_TYPE, and TIMESTAMP fields of the Action interactions dataset.
+The `userId`, `actionId`, and `sentAt` parameters map to the USER\_ID, ACTION\_ID,
+EVENT\_TYPE, and TIMESTAMP fields of the Action interactions dataset.
 
 **Corresponding Action interactions dataset**
 

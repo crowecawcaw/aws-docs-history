@@ -49,7 +49,7 @@ INCLUDE ItemID WHERE Items.PRICE < CurrentItem.PRICE AND Items.GENRE IN CurrentI
 ```
 
 The following expression excludes items based on multiple levels of categorical fields. It excludes items with a
-CATEGORY_L1 value of `shoe` that _do not_ have a CATEGORY_L2 value of `boot`.
+CATEGORY\_L1 value of `shoe` that _do not_ have a CATEGORY\_L2 value of `boot`.
 
 ```
 EXCLUDE ItemID WHERE Items.CATEGORY_L1 IN ("shoe") AND Items.CATEGORY_L2 NOT IN ("boot")
@@ -95,8 +95,8 @@ get recommendations using the `$AGE` parameter.
 EXCLUDE ItemID WHERE Items.GENRE IN ($GENRE) IF CurrentUser.AGE = $AGE
 ```
 
-The following expression includes only items with `watch` for CATEGORY_L1 and `luxury` for
-CATEGORY_L2, if the current user's age is over `18`.
+The following expression includes only items with `watch` for CATEGORY\_L1 and `luxury` for
+CATEGORY\_L2, if the current user's age is over `18`.
 
 ```
 INCLUDE ItemID WHERE Items.CATEGORY_L1 IN ("watch") AND Items.CATEGORY_L2 IN ("luxury") IF CurrentUser.AGE > 18

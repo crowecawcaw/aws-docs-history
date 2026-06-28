@@ -1,6 +1,6 @@
 # Getting started with a Domain dataset group (SDK for Python (Boto3))
 
-This tutorial shows you how to use the SDK for Python (Boto3) to create a Domain dataset group for the VIDEO_ON_DEMAND domain. In
+This tutorial shows you how to use the SDK for Python (Boto3) to create a Domain dataset group for the VIDEO\_ON\_DEMAND domain. In
 this tutorial, you create a recommender for the _Top picks for you_ use case.
 
 When you finish the getting started exercise, to avoid incurring unnecessary charges,
@@ -115,7 +115,7 @@ response = personalize.create_dataset(
 dataset_arn = response['datasetArn']
 ```
 
-4. Import your data with a dataset import job with the following code. The code uses the describe_dataset_import_job method to track the status of the job.
+4. Import your data with a dataset import job with the following code. The code uses the describe\_dataset\_import\_job method to track the status of the job.
 
 Pass the following as parameters: a name for the job, the `dataset_arn` from the previous step, the
 Amazon S3 bucket path (`s3://`bucket name`/`folder
@@ -157,7 +157,7 @@ while time.time() < max_time:
 
 After your dataset import job completes, you are ready create a recommender. Use the following code to create a recommender.
 Pass the following as parameters: a name for the recommender, your dataset group's Amazon Resource Name (ARN), and `arn:aws:personalize:::recipe/aws-vod-top-picks` for the recipe ARN.
-The code uses the describe_recommender method to track the status of the recommender.
+The code uses the describe\_recommender method to track the status of the recommender.
 
 ```
 import time
@@ -206,7 +206,7 @@ for item in response['itemList']:
 
 ## Getting started using Amazon Personalize APIs with Jupyter (iPython) notebooks
 
-To get started creating Domain dataset groups with Jupyter notebooks, clone or download a series of notebooks found in the [notebooks_managed_domains](https://github.com/aws-samples/amazon-personalize-samples/tree/master/getting_started/notebooks_managed_domains "https://github.com/aws-samples/amazon-personalize-samples/tree/master/getting_started/notebooks_managed_domains") folder of the [Amazon Personalize
+To get started creating Domain dataset groups with Jupyter notebooks, clone or download a series of notebooks found in the [notebooks\_managed\_domains](https://github.com/aws-samples/amazon-personalize-samples/tree/master/getting_started/notebooks_managed_domains "https://github.com/aws-samples/amazon-personalize-samples/tree/master/getting_started/notebooks_managed_domains") folder of the [Amazon Personalize
 samples](https://github.com/aws-samples/amazon-personalize-samples "https://github.com/aws-samples/amazon-personalize-samples") repository. The notebooks walk you through importing training data,
 creating a recommender, and getting recommendations with Amazon Personalize.
 

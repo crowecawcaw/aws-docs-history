@@ -9,10 +9,10 @@ After you complete [Configuring a custom solution in Amazon Personalize](customi
 - If you turn off auto training for your solution or you want to manually train,
   you can manually create a solution version. A _solution version_ refers to a trained machine learning model.
   You can create a solution version using the console, AWS Command Line Interface (AWS CLI), or AWS SDKs.
-  If your solution version has a status of CREATE_PENDING or CREATE_IN_PROGRESS, you can use the
+  If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS, you can use the
   [StopSolutionVersionCreation](API_StopSolutionVersionCreation.md "API_StopSolutionVersionCreation.md") operation to stop the solution version creation process.
   See [Stopping the creation of a solution version](stop-solution-version.md "stop-solution-version.md").
-  If training does not complete because of an error, you are not charged for the training. If your solution version has a status of CREATE_PENDING or CREATE_IN_PROGRESS,
+  If training does not complete because of an error, you are not charged for the training. If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS,
   you can stop the solution version creation process. To stop solution version creation, navigate to the
   solution version details page and choose **Stop**. For more information, see [Stopping the creation of a solution version](stop-solution-version.md "stop-solution-version.md").
 
@@ -89,7 +89,7 @@ displayed. Initially, the status shows as CREATE PENDING, for example:
 Training is complete when the `status` is `ACTIVE` and you can evaluate it using metrics supplied by Amazon Personalize.
 For more information, see [Evaluating an Amazon Personalize solution version with metrics](working-with-training-metrics.md "working-with-training-metrics.md"). If training does not complete because of an error, you are not charged for the training.
 
-If your solution version has a status of CREATE_PENDING or CREATE_IN_PROGRESS, you can use the
+If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS, you can use the
 [StopSolutionVersionCreation](API_StopSolutionVersionCreation.md "API_StopSolutionVersionCreation.md") operation to stop the solution version creation process.
 See [Stopping the creation of a solution version](stop-solution-version.md "stop-solution-version.md").
 
@@ -244,7 +244,7 @@ and pass the ARN of the solution version returned from the `CreateSolutionVersio
 operation. Training is complete when the `status` is `ACTIVE` and you can evaluate it using metrics supplied by Amazon Personalize.
 For more information, see [Evaluating an Amazon Personalize solution version with metrics](working-with-training-metrics.md "working-with-training-metrics.md"). If training does not complete because of an error, you are not charged for the training.
 
-If your solution version has a status of CREATE_PENDING or CREATE_IN_PROGRESS, you can use the
+If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS, you can use the
 [StopSolutionVersionCreation](API_StopSolutionVersionCreation.md "API_StopSolutionVersionCreation.md") operation to stop the solution version creation process.
 See [Stopping the creation of a solution version](stop-solution-version.md "stop-solution-version.md").
 

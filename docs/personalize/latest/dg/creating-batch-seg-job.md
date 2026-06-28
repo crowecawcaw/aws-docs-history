@@ -1,6 +1,6 @@
 # Getting user segments with a batch segment job
 
-If you used a USER_SEGMENTATION recipe, you can create batch segment
+If you used a USER\_SEGMENTATION recipe, you can create batch segment
 jobs to get user segments with your solution version. Each user segment is
 sorted in descending order based on the probability that each user will
 interact with items in your inventory. Depending on the recipe, your input
@@ -25,7 +25,7 @@ For more information about how Amazon S3 organizes objects, see [Organizing, lis
 
 After you have completed [Preparing input data for batch recommendations](batch-data-upload.md "batch-data-upload.md"), you are ready to create a batch
 segment job. This procedure assumes that you have already created a
-solution and a solution version (trained model) with a USER_SEGEMENTATION recipe.
+solution and a solution version (trained model) with a USER\_SEGEMENTATION recipe.
 
 ###### To get create a batch segment job (console)
 
@@ -36,7 +36,7 @@ solution and a solution version (trained model) with a USER_SEGEMENTATION recipe
 4. In **batch segment job details**, for **Batch segment job name**, specify a name for your batch
    segment job.
 5. For **Solution**, choose the solution and then choose the **Solution version ID** that you want to
-   use to generate the recommendations. You can create batch segment jobs only if you used a USER_SEGEMENTATION recipe.
+   use to generate the recommendations. You can create batch segment jobs only if you used a USER\_SEGEMENTATION recipe.
 6. For **Number of users**, optionally specify the number of users Amazon Personalize generates for each user segment. The default is 25.
    The maximum is 5 million.
 7. For **Input source**, specify the Amazon S3 path

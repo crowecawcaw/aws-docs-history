@@ -49,8 +49,8 @@ When you create a recommender, you can do the following:
 
 A recommender can be in one of the following states:
 
-- CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-- DELETE PENDING > DELETE IN_PROGRESS
+- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
+- DELETE PENDING > DELETE IN\_PROGRESS
 
 To get the recommender status, navigate to the Recommenders page in the Amazon Personalize console or use the [DescribeRecommender](API_DescribeRecommender.md "API_DescribeRecommender.md") operation.
 

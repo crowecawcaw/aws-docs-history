@@ -23,7 +23,7 @@ CreateDatasetImportJob operation.
 
 A dataset import job can be in one of the following states:
 
-- CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
+- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE
   FAILED
   To get the status of the import job, call [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md "API_DescribeDatasetImportJob.md"), providing the Amazon Resource Name
   (ARN) of the dataset import job. The dataset import is complete when the

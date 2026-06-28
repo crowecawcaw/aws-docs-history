@@ -36,13 +36,12 @@ Semantic-Similarity uses the following Amazon Personalize recipe features when g
   that change frequently, such as news articles, blog posts, or seasonal product
   offerings. To enable incremental updates, customers must:
 
-      + Set `performIncrementalUpdate` to `true` for the
-       solution in the API
-      + Choose either "Full and Incremental training" or "Incremental
-       training" option under Training method in the UI
-
-  Note that enabling incremental updates will incur additional costs whenever an
-  update is being performed.
+  - Set `performIncrementalUpdate` to `true` for the
+    solution in the API
+  - Choose either "Full and Incremental training" or "Incremental
+    training" option under Training method in the UI
+    Note that enabling incremental updates will incur additional costs whenever an
+    update is being performed.
 
 - Metadata with recommendations – With the Semantic-Similarity recipe,
   campaigns automatically have the option to include item metadata with
@@ -71,7 +70,7 @@ following
 Amazon Personalize uses this field to generate semantic embeddings that capture the meaning and
 content of your items.
 
-Additionally, the reserved CREATION_TIMESTAMP field should be set if you want to use
+Additionally, the reserved CREATION\_TIMESTAMP field should be set if you want to use
 freshness-based ranking. For more information, see [Properties and hyperparameters](#semantic-similarity-hyperparameters "#semantic-similarity-hyperparameters").
 
 The following datasets are optional and can improve recommendations:
@@ -113,7 +112,7 @@ The table provides the following information for each factor:
 
 | Name       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Freshness  | The freshness factor represents how recent an item is. Freshness<br>is computed by normalizing the age of the item based on its<br>CREATION_TIMESTAMP. To use the freshness factor, you must include<br>the CREATION_TIMESTAMP field in your Items dataset schema. Higher<br>values of freshness factor will prioritize newer items among<br>semantically similar recommendations<br>Default value: `0.0`<br>Range: `[0.0, 1.0]`<br>Value type: Double                                                   |
+| Freshness  | The freshness factor represents how recent an item is. Freshness<br>is computed by normalizing the age of the item based on its<br>CREATION\_TIMESTAMP. To use the freshness factor, you must include<br>the CREATION\_TIMESTAMP field in your Items dataset schema. Higher<br>values of freshness factor will prioritize newer items among<br>semantically similar recommendations<br>Default value: `0.0`<br>Range: `[0.0, 1.0]`<br>Value type: Double                                                 |
 | Popularity | The popularity factor represents how popular an item is based on<br>user interactions. Popularity is computed by normalizing the number<br>of interactions each item received. To use the popularity factor,<br>you must include an Interactions dataset when creating your dataset<br>group. Higher values of popularity factor prioritize items with more<br>customer interactions among semantically similar<br>recommendations.<br>Default value: `0.0`<br>Range: `[0.0, 1.0]`<br>Value type: Double |
 
 Note that freshness and popularity scores are computed at training and incremental

@@ -2,9 +2,9 @@
 
 Returns a list of recommended actions in sorted in descending order by prediction score.
 Use the `GetActionRecommendations` API if you have a custom
-campaign that deploys a solution version trained with a PERSONALIZED_ACTIONS recipe.
+campaign that deploys a solution version trained with a PERSONALIZED\_ACTIONS recipe.
 
-For more information about PERSONALIZED_ACTIONS recipes, see [PERSONALIZED_ACTIONS recipes](nexts-best-action-recipes.md "nexts-best-action-recipes.md").
+For more information about PERSONALIZED\_ACTIONS recipes, see [PERSONALIZED\_ACTIONS recipes](nexts-best-action-recipes.md "nexts-best-action-recipes.md").
 For more information about getting action recommendations, see [Getting action recommendations](get-action-recommendations.md "get-action-recommendations.md").
 
 ## Request Syntax
@@ -34,7 +34,7 @@ The request accepts the following data in JSON format.
 
 **[campaignArn](#API_RS_GetActionRecommendations_RequestSyntax "#API_RS_GetActionRecommendations_RequestSyntax")**
 
-The Amazon Resource Name (ARN) of the campaign to use for getting action recommendations. This campaign must deploy a solution version trained with a PERSONALIZED_ACTIONS recipe.
+The Amazon Resource Name (ARN) of the campaign to use for getting action recommendations. This campaign must deploy a solution version trained with a PERSONALIZED\_ACTIONS recipe.
 
 Type: String
 

@@ -23,7 +23,7 @@ For example, `{"numberOfVideosWatched": "45"}`.
 
 The keys use camel case names that match the fields in the schema for the Users
 dataset. In the previous example, the `numberOfVideosWatched` matches the
-'NUMBER_OF_VIDEOS_WATCHED' field defined in the Users schema. For categorical string data,
+'NUMBER\_OF\_VIDEOS\_WATCHED' field defined in the Users schema. For categorical string data,
 to include multiple categories for a single user, separate each category with a pipe separator (`|`).
 For example, `\"Member|Frequent shopper\"`.
 

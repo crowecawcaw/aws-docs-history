@@ -15,11 +15,11 @@ dataset group with sparse `purchase` event data for each user, and another with 
 Based on metrics like `precision at K`, the solution version trained on the view event data
 might incorrectly appear to perform better due to the higher number of interactions.
 
-To get performance metrics, Amazon Personalize splits the input interactions data into a training set, a testing set, and for PERSONALIZED_ACTIONS,
+To get performance metrics, Amazon Personalize splits the input interactions data into a training set, a testing set, and for PERSONALIZED\_ACTIONS,
 a validation set. The split
 depends on the type of recipe you choose:
 
-- For USER_SEGMENTATION recipes, the training set consists of 80% of each user's interactions data and the testing set
+- For USER\_SEGMENTATION recipes, the training set consists of 80% of each user's interactions data and the testing set
   consists of 20% of each user's interactions data.
 - For all other recipe types, the training set consists of 90% of your users and their interactions data. The testing
   set consists of the remaining 10% of users and their interactions data.
@@ -180,8 +180,8 @@ This metric tells you about a model's ability to generate a relevant item recomm
 
 You might choose a model with a high _mean reciprocal rank at 25_ if you are generating item
 search results for a user, and don't expect the user to choose an item lower on the list. For example, users
-frequently choose the first cooking recipe in search results. Amazon Personalize doesn't generate this metric for PERSONALIZED_ACTIONS or
-USER_SEGMENTATION recipes.
+frequently choose the first cooking recipe in search results. Amazon Personalize doesn't generate this metric for PERSONALIZED\_ACTIONS or
+USER\_SEGMENTATION recipes.
 
 Amazon Personalize calculates this metric using the average reciprocal rank score for requests for recommendations. Each
 reciprocal rank score is calculated as follows: `1 / the rank of the highest item interacted with by the
@@ -247,7 +247,7 @@ this calculation for all actions and returns the average.
 This metric rewards precise recommendation of relevant actions. The closer the score is to one, the more precise the
 model.
 
-**average_rewards_at_k**
+**average\_rewards\_at\_k**
 
 When you create a solution version (train a model) for a solution with an optimization objective, Amazon Personalize generates an `average_rewards_at_k` metric.
 The score for `average_rewards_at_k` tells you how well the solution version performs in achieving your objective. To calculate this metric,
@@ -264,7 +264,7 @@ average you can expect to gain per user from recommendations.
 
 For more information, see [Optimizing a solution for an additional objective](optimizing-solution-for-objective.md "optimizing-solution-for-objective.md").
 
-**normalized_discounted_cumulative_gain_with_event_weights_at_k**
+**normalized\_discounted\_cumulative\_gain\_with\_event\_weights\_at\_k**
 When you create a solution version (train a model) for a solution with an events configuration, Amazon Personalize
 generates an `normalized_discounted_cumulative_gain_with_event_weights_at_k` metric. The score for
 `normalized_discounted_cumulative_gain_with_event_weights_at_k` tells you how well the solution version
@@ -292,13 +292,13 @@ trend prediction accuracy can be 0.0.
 
 **hit (hit at K)**
 
-If you trained the solution version with a USER_SEGMENTATION recipe, the average number of users in the predicted
+If you trained the solution version with a USER\_SEGMENTATION recipe, the average number of users in the predicted
 top relevant K results that match the actual users. Actual users are the users who actually interacted with the items
 in the test set. K is the top 1% of the most relevant users. The higher the value the more accurate the predictions.
 
 **recall (recall at K)**
 
-If you trained the solution version with a USER_SEGMENTATION recipe, the average percentage of predicted users in
+If you trained the solution version with a USER\_SEGMENTATION recipe, the average percentage of predicted users in
 the predicted top relevant K results that match the actual users. Actual users are the users who actually interacted
 with the items in the test set. K is the top 1% of the most relevant users. The higher the value, the more accurate
 the predictions.
@@ -320,7 +320,7 @@ this calculation for all actions and returns the average.
 
 **Area under the curve (AUC)**
 
-If you trained the solution version with a PERSONALIZED_ACTIONS recipe, the area under the Receiver Operating Characteristic
+If you trained the solution version with a PERSONALIZED\_ACTIONS recipe, the area under the Receiver Operating Characteristic
 curve for your solution version. This metric tells you how well the solution version performs at
 correctly identifying actions that users will take.
 
@@ -356,7 +356,7 @@ other items. The higher the item freshness score (the closer to 1), the more rec
 the item was created.
 
 To calculate item freshness, Amazon Personalize determines each item's age using the
-CREATION_TIMESTAMP from your Items dataset. The age is calculated as the difference
+CREATION\_TIMESTAMP from your Items dataset. The age is calculated as the difference
 between the training time and the item's creation timestamp. These ages are then
 normalized across all items, with newer items receiving scores closer to 1. A score
 closer to 0 indicates more old items while a score closer to 1 indicates more newer
@@ -384,19 +384,19 @@ The following is a simple example for a solution version that produces a list of
 The second and fifth recommendations match records in the testing data for this user. These are the relevant
 recommendations. If `K` is set at `5`, the following metrics are generated for the user.
 
-**reciprocal_rank**
+**reciprocal\_rank**
 
 Calculation: 1/2
 
 Result: 0.5000
 
-**normalized_discounted_cumulative_gain_at_5**
+**normalized\_discounted\_cumulative\_gain\_at\_5**
 
 Calculation: (1/log(1 + 2) + 1/log(1 + 5)) / (1/log(1 + 1) + 1/log(1 + 2))
 
 Result: 0.6241
 
-**precision_at_5**
+**precision\_at\_5**
 
 Calculation: 2/5
 

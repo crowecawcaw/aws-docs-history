@@ -27,15 +27,15 @@ vertical bar, '|'. For example, for a GENRES field your data for an item
 might be `Action|Crime|Biopic`. If you have a multiple levels
 of categorical data and some items have multiple categories for each level
 in the hierarchy, add a field for each level and append a level indicator
-after each field name: GENRES, GENRE_L2, GENRE_L3. This allows you filter
+after each field name: GENRES, GENRE\_L2, GENRE\_L3. This allows you filter
 recommendations based on sub-categories, even if an item belongs to
 multiple multi-level categories (for information on creating and using
 filters see [Filtering recommendations and user segments](filter.md "filter.md")). For example,
 a video might have the following data for each category level:
 
 - GENRES: Action|Adventure
-- GENRE_L2: Crime|Western
-- GENRE_L3: Biopic
+- GENRE\_L2: Crime|Western
+- GENRE\_L3: Biopic
   In this example, the video is in the action > crime > biopic hierarchy
   _and_ the adventure > western > biopic hierarchy. We
   recommend only using up to L3 but you can use more levels if

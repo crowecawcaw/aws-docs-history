@@ -34,8 +34,7 @@ data.
     * Choose **Both** to export all of the data in the dataset.
 
 12. For **Tags**, optionally add any tags. For more information about tagging Amazon Personalize resources, see
-    [Tagging Amazon Personalize resources](tagging-resources.md "tagging-resources.md").
-13. Choose **Create dataset export job**.
+[Tagging Amazon Personalize resources](tagging-resources.md "tagging-resources.md"). 13. Choose **Create dataset export job**.
 
 On the **Dataset overview** page, in **Dataset export jobs**, the job is listed
 with an **Export job status**. The dataset export job is complete when the status is

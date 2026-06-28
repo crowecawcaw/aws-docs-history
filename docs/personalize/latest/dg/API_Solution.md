@@ -99,7 +99,7 @@ Required: No
 We don't recommend enabling automated machine learning. Instead, match your use case to the available Amazon Personalize
 recipes. For more information, see [Determining your use case.](determining-use-case.md "determining-use-case.md")
 
-When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from
+When true, Amazon Personalize performs a search for the best USER\_PERSONALIZATION recipe from
 the list specified in the solution configuration (`recipeArn` must not be specified).
 When false (the default), Amazon Personalize uses `recipeArn` for training.
 
@@ -174,8 +174,8 @@ The status of the solution.
 
 A solution can be in one of the following states:
 
-- CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-- DELETE PENDING > DELETE IN_PROGRESS
+- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
+- DELETE PENDING > DELETE IN\_PROGRESS
 
 Type: String
 

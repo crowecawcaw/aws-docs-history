@@ -7,10 +7,10 @@ interactions between users and actions in your _Actions dataset_. For informatio
 The data you provide for each interaction must match your schema. Depending on your schema, interaction metadata can
 include empty/null values. At minimum, your schema must include the following:
 
-- USER_ID
-- ACTION_ID
+- USER\_ID
+- ACTION\_ID
 - TIMESTAMP
-- EVENT_TYPE
+- EVENT\_TYPE
   You can add additional fields depending on your use case and your data. You can choose the field names and data types
   unless the fields are listed as required or reserved, and the data types are listed in [Schema data types](how-it-works-dataset-schema.md#personalize-datatypes "how-it-works-dataset-schema.md#personalize-datatypes").
 

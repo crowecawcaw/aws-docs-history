@@ -19,9 +19,9 @@ configure a solution to give more weight to `purchase` events than `click` event
 To have a solution give different weights to different event types, you specify the event types
 and their corresponding weights in the solution's event configuration.
 Additionally, you can set an event value threshold to exclude interactions with event value
-below that threshold. For example, if your EVENT_VALUE data for events with an EVENT_TYPE of watch is the
+below that threshold. For example, if your EVENT\_VALUE data for events with an EVENT\_TYPE of watch is the
 percentage of a video that a user watched, if you set the event value threshold to 0.5, and the event type to
-watch, Amazon Personalize trains the model using only watch interaction events with an EVENT_VALUE greater than
+watch, Amazon Personalize trains the model using only watch interaction events with an EVENT\_VALUE greater than
 or equal to 0.5.
 
 The weights associated with event types will determine their importance. An event type with higher weight
@@ -49,7 +49,7 @@ You can use the Amazon Personalize console, AWS Command Line Interface
 
 The following are guidelines and requirements for events configuration:
 
-- To configure weights for different event types, your Item interactions dataset dataset must have an EVENT_TYPE column and optionally an EVENT_VALUE column.
+- To configure weights for different event types, your Item interactions dataset dataset must have an EVENT\_TYPE column and optionally an EVENT\_VALUE column.
 - You can specify a list of event parameters in the configuration. Include all event types you want to be considered for solution creation. You can specify maximum of 10 different event types.
 - You can specify event weight for each event type. Event weight must be between 0.0 and 1.0. Only
   the ratio of weights between event types matter. For example, setting an event type “purchase” with

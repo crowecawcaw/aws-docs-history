@@ -9,8 +9,8 @@ When you finish the getting started exercise, to avoid incurring unnecessary cha
 delete the resources that you created. For more information, see
 [Requirements for deleting Amazon Personalize resources](deleting-resources.md "deleting-resources.md").
 
-In this procedure you create Domain dataset group for the VIDEO_ON_DEMAND domain,
-create an Item interactions dataset with the default schema for the VIDEO_ON_DEMAND domain, and import the item interactions data you
+In this procedure you create Domain dataset group for the VIDEO\_ON\_DEMAND domain,
+create an Item interactions dataset with the default schema for the VIDEO\_ON\_DEMAND domain, and import the item interactions data you
 created in [Creating the training data (Domain dataset group)](gs-prerequisites.md#gs-data-prep-domain "gs-prerequisites.md#gs-data-prep-domain").
 
 ###### To create a Domain dataset group
@@ -25,7 +25,7 @@ created in [Creating the training data (Domain dataset group)](gs-prerequisites.
 ![Depicts Create dataset group page with Name and Domain fields.](images/gs-domain-1-create-dsg.png) 5. Choose **Create dataset group**. The
 Overview page appears. Proceed to [Step 2: Import data](#getting-started-import-data-domain "#getting-started-import-data-domain").
 
-In this procedure you create an Item interactions dataset with the default VIDEO_ON_DEMAND domain schema. Then you import the item interactions data you
+In this procedure you create an Item interactions dataset with the default VIDEO\_ON\_DEMAND domain schema. Then you import the item interactions data you
 created in [Creating the training data (Domain dataset group)](gs-prerequisites.md#gs-data-prep-domain "gs-prerequisites.md#gs-data-prep-domain").
 
 ###### To import data
@@ -34,7 +34,7 @@ created in [Creating the training data (Domain dataset group)](gs-prerequisites.
 2. Choose **Import data directly into Amazon Personalize datasets** and choose **Next**.
 3. On the **Configure item interactions schema** page, for **Dataset name** provide a name for your Item interactions dataset.
 4. For **Dataset schema**, choose **Create a new domain schema by modifying the existing default schema for your domain**
-   and enter a name for the schema. The **Schema definition** updates to display the default schema for the VIDEO_ON_DEMAND domain. Leave the schema unchanged. Your screen should look similar to the following.
+   and enter a name for the schema. The **Schema definition** updates to display the default schema for the VIDEO\_ON\_DEMAND domain. Leave the schema unchanged. Your screen should look similar to the following.
 
 ![Depicts the Configure item interactions schema page with dataset and schema fields.](images/gs-domain-2-create-dataset.png) 5. Choose **Next**. The **Configure item interactions dataset import job** page appears. 6. On the **Configure item interactions dataset import job** page, leave the **Data import source** unchanged as **Import data from S3**. 7. For **Dataset import job name**, give your import job a name. 8. In **Data import source**, specify where your data is stored
 in Amazon Simple Storage Service (S3). Use the following syntax:
@@ -45,7 +45,7 @@ in Amazon Simple Storage Service (S3). Use the following syntax:
 
 ![Depicts the Configure item interactions dataset import job page with import job fields.](images/gs-domain-3-import-job.png) 10. Choose **Start import** to import data. The **Overview** page for your Domain dataset group appears. Note the status of the import in the **Set up datasets**
 section. When the status is `Interaction data active` proceed to [Step 3: Create a recommender](#getting-started-console-create-recommenders "#getting-started-console-create-recommenders").
-In this procedure, you create a recommender for the _Top picks for you_ use case for the VIDEO_ON_DEMAND domain.
+In this procedure, you create a recommender for the _Top picks for you_ use case for the VIDEO\_ON\_DEMAND domain.
 
 ###### To create a recommender
 

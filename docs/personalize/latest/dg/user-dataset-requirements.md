@@ -17,7 +17,7 @@ the field names and data types are up to you.
 
 To use categorical data, add a field of type `string` and set the field's categorical attribute to `true` in your schema.
 Then include the categorical data in your bulk CSV file and individual record imports.
-For users with multiple categories, separate each value using the vertical bar, '|'. For example, for a SUBSCRIPTION_MODEL field, your data for a user might be
+For users with multiple categories, separate each value using the vertical bar, '|'. For example, for a SUBSCRIPTION\_MODEL field, your data for a user might be
 student|monthly|discount.
 
 Categorical values can have at most 1000 characters. If you have a user with a categorical

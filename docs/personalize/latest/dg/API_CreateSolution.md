@@ -39,8 +39,8 @@ for solution hyperparameter optimization at this time.
 
 A solution can be in one of the following states:
 
-- CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-- DELETE PENDING > DELETE IN_PROGRESS
+- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
+- DELETE PENDING > DELETE IN\_PROGRESS
   To get the status of the solution, call [DescribeSolution](API_DescribeSolution.md "API_DescribeSolution.md"). If you use
   manual training, the status must be ACTIVE before you call `CreateSolutionVersion`.
 
@@ -200,7 +200,7 @@ Whether to perform automated machine learning (AutoML). The default is `false`.
 For this case, you must specify `recipeArn`.
 
 When set to `true`, Amazon Personalize analyzes your training data and selects
-the optimal USER_PERSONALIZATION recipe and hyperparameters. In this case, you must omit
+the optimal USER\_PERSONALIZATION recipe and hyperparameters. In this case, you must omit
 `recipeArn`. Amazon Personalize determines the optimal recipe by running tests with
 different values for the hyperparameters.
 AutoML lengthens the training process as compared to selecting a specific recipe.

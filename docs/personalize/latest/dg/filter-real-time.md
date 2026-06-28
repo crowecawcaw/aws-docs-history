@@ -53,9 +53,9 @@ and build or insert your expression:
      manually**. For more information, see [Filter expression elements](creating-filter-expressions.md#filter-expression-elements "creating-filter-expressions.md#filter-expression-elements").
 
 6. Choose **Finish**. The filter's overview page shows
-   the filter’s Amazon Resource Name (ARN), status, and full filter expression. To delete
-   the filter, choose **Delete**. For information about
-   finding and deleting filters after you have left the overview page, see [Deleting a filter (console)](#delete-filter-console "#delete-filter-console").
+the filter’s Amazon Resource Name (ARN), status, and full filter expression. To delete
+the filter, choose **Delete**. For information about
+finding and deleting filters after you have left the overview page, see [Deleting a filter (console)](#delete-filter-console "#delete-filter-console").
 
 ![Depicts the filter details page with the filter's ARN and expression.](images/filter-details-page.png)
 
@@ -114,8 +114,8 @@ To build a filter expression:
 - Use the **Type**, **Action**, **Property**, **Operator**, and **Value** fields to create an expression.
 
 For the **Value**, enter a fixed value or, to set filter criteria when you get recommendations,
-enter _$_ + a
-parameter name. For example, `$GENRES`. When you get recommendations,
+enter *$* + a
+ parameter name. For example, `$GENRES`. When you get recommendations,
 you'll supply the value or values to filter by. In this example, you would provide a
 genre or list of genres when you get recommendations.
 

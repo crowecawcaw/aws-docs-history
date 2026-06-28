@@ -1,6 +1,6 @@
 # Item-Attribute-Affinity recipe
 
-The Item-Attribute-Affinity (aws-item-attribute-affinity) recipe is a USER_SEGMENTATION recipe that creates a user segment (group of users) for each item attribute that you specify.
+The Item-Attribute-Affinity (aws-item-attribute-affinity) recipe is a USER\_SEGMENTATION recipe that creates a user segment (group of users) for each item attribute that you specify.
 These are the users Amazon Personalize predicts will most likely interact with items with the particular attribute.
 Use Item-Attribute-Affinity to learn more about your users and take actions based on their respective user segments.
 
@@ -47,7 +47,7 @@ The table also provides the following information for each hyperparameter:
 - Value type: Integer, Continuous (float), Categorical
   (Boolean, list, string)
 
-| Name                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Algorithm hyperparameters** |
-| `hidden_dimension`            | The number of hidden variables used in the model. \*Hidden variables<br>• recreate users'<br>purchase history and item statistics to generate ranking scores.<br>Specify a greater number of hidden dimensions when your Interactions<br>dataset includes more complicated patterns. Using more hidden<br>dimensions requires a larger dataset and more time to process.<br>Default value: 149<br>Range: [32, 256]<br>Value type: Integer |
+| `hidden_dimension`            | The number of hidden variables used in the model. *Hidden variables<br>• recreate users'<br>purchase history and item statistics to generate ranking scores.<br>Specify a greater number of hidden dimensions when your Interactions<br>dataset includes more complicated patterns. Using more hidden<br>dimensions requires a larger dataset and more time to process.<br>Default value: 149<br>Range: [32, 256]<br>Value type: Integer |

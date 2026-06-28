@@ -34,7 +34,7 @@ bulk data format guidelines for all types of data, see [bulk data format guideli
 
 The following are action data requirements for Amazon Personalize.
 
-- You must have an ACTION_ID column that stores the unique identifier for each action. Every action must have an item ID. It
+- You must have an ACTION\_ID column that stores the unique identifier for each action. Every action must have an item ID. It
   must be a `string` with a max length of 256 characters.
 - Your data must have at least one categorical string or numerical metadata column. Action metadata columns can include empty/null values.
   We recommend that these columns be at minimum 70 percent complete.

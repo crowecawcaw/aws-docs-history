@@ -75,7 +75,7 @@ The following example shows the format of the output of a batch inference job th
 ## Generating batch recommendations with themes
 
 To generate batch recommendations with themes, you complete the batch workflow as described in [Batch workflow](getting-batch-recommendations.md#batch-worfklow-steps "getting-batch-recommendations.md#batch-worfklow-steps"). You prepare your input data in the same way you
-would for a `RELATED_ITEMS` recipe. For an example, see [RELATED_ITEMS recipes](batch-data-upload.md#batch-input-related-items "batch-data-upload.md#batch-input-related-items").
+would for a `RELATED_ITEMS` recipe. For an example, see [RELATED\_ITEMS recipes](batch-data-upload.md#batch-input-related-items "batch-data-upload.md#batch-input-related-items").
 
 When you create the batch inference job, you enable theme generation and specify the item title column of your Items
 dataset.

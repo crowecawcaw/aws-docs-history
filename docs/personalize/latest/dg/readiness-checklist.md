@@ -28,7 +28,7 @@ Amazon Personalize features domain based resources and custom resources configur
 Domain dataset group or a Custom dataset group:
 
 - With a _Domain dataset group_, you create resources that are pre-configured and optimized for
-  for the VIDEO_ON_DEMAND or ECOMMERCE domains.
+  for the VIDEO\_ON\_DEMAND or ECOMMERCE domains.
 
 If you have a streaming video or e-commerce application, we recommend that you start with a Domain dataset group. You
 can still add custom resources, such as solutions and solution versions trained for custom use cases. And you can still
@@ -88,7 +88,7 @@ The following data can help improve your recommendation relevance.
 - Event value
 - Contextual metadata
 - Item and user metadata
-- Action interaction data (used by only PERSONALIZED_ACTIONS recipes)
+- Action interaction data (used by only PERSONALIZED\_ACTIONS recipes)
 
 For more information on the types of data Amazon Personalize can use, see [Types of data Amazon Personalize can use](datasets.md "datasets.md").
 

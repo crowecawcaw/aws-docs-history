@@ -28,13 +28,13 @@ When you create a dataset for a Custom dataset group, each dataset
 type has the following required fields and reserved keywords with required
 data types.
 
-| Dataset type                                                                                                                                                                                              | Required fields                                                                                      | Reserved keywords                                                                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Item interactions ([schema example](interactions-dataset-requirements.md#schema-examples-interactions "interactions-dataset-requirements.md#schema-examples-interactions"))                               | USER_ID (`string`)<br>ITEM_ID (`string`)<br>TIMESTAMP (`long`)                                       | EVENT_TYPE (`string`)<br>EVENT_VALUE (`float`, `null`)<br>IMPRESSION (`string`, `null`)<br>RECOMMENDATION_ID (`string`,<br>`null`)<br>EVENT_ATTRIBUTION_SOURCE (`string`, `null`) |
-| Users ([schema<br>example](user-dataset-requirements.md#schema-examples-users "user-dataset-requirements.md#schema-examples-users"))                                                                      | USER_ID (`string`)<br>1 metadata field (categorical `string` or<br>numerical)                        |                                                                                                                                                                                   |
-| Items ([schema<br>example](item-dataset-requirements.md#schema-examples-items "item-dataset-requirements.md#schema-examples-items"))                                                                      | ITEM_ID (`string`)<br>1 metadata field (categorical or textual `string`<br>field or numerical field) | CREATION_TIMESTAMP (`long`)                                                                                                                                                       |
-| Actions ([schema example](action-dataset-requirements.md#schema-examples-actions "action-dataset-requirements.md#schema-examples-actions"))                                                               | ACTION_ID (`string`)<br>1 metadata field (categorical `string` or numerical)                         | CREATION_TIMESTAMP (`long`)<br>VALUE (`long`, `null`)<br>TYPE (`string`, `null`)<br>EXPIRATION_TIMESTAMP (`long`, `null`)<br>REPEAT_FREQUENCY (`long`, `null`)                    |
-| Action interactions ([schema example](action-interactions-dataset-requirements.md#schema-examples-action-interactions "action-interactions-dataset-requirements.md#schema-examples-action-interactions")) | USER_ID (`string`)<br>ACTION_ID (`string`)<br>EVENT_TYPE (`string`)<br>TIMESTAMP (`long`)            | IMPRESSION (`string`, `null`)<br>RECOMMENDATION_ID (`string`, `null`)                                                                                                             |
+| Dataset type                                                                                                                                                                                              | Required fields                                                                                       | Reserved keywords                                                                                                                                                                      |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Item interactions ([schema example](interactions-dataset-requirements.md#schema-examples-interactions "interactions-dataset-requirements.md#schema-examples-interactions"))                               | USER\_ID (`string`)<br>ITEM\_ID (`string`)<br>TIMESTAMP (`long`)                                      | EVENT\_TYPE (`string`)<br>EVENT\_VALUE (`float`, `null`)<br>IMPRESSION (`string`, `null`)<br>RECOMMENDATION\_ID (`string`,<br>`null`)<br>EVENT\_ATTRIBUTION\_SOURCE (`string`, `null`) |
+| Users ([schema<br>example](user-dataset-requirements.md#schema-examples-users "user-dataset-requirements.md#schema-examples-users"))                                                                      | USER\_ID (`string`)<br>1 metadata field (categorical `string` or<br>numerical)                        |                                                                                                                                                                                        |
+| Items ([schema<br>example](item-dataset-requirements.md#schema-examples-items "item-dataset-requirements.md#schema-examples-items"))                                                                      | ITEM\_ID (`string`)<br>1 metadata field (categorical or textual `string`<br>field or numerical field) | CREATION\_TIMESTAMP (`long`)                                                                                                                                                           |
+| Actions ([schema example](action-dataset-requirements.md#schema-examples-actions "action-dataset-requirements.md#schema-examples-actions"))                                                               | ACTION\_ID (`string`)<br>1 metadata field (categorical `string` or numerical)                         | CREATION\_TIMESTAMP (`long`)<br>VALUE (`long`, `null`)<br>TYPE (`string`, `null`)<br>EXPIRATION\_TIMESTAMP (`long`, `null`)<br>REPEAT\_FREQUENCY (`long`, `null`)                      |
+| Action interactions ([schema example](action-interactions-dataset-requirements.md#schema-examples-action-interactions "action-interactions-dataset-requirements.md#schema-examples-action-interactions")) | USER\_ID (`string`)<br>ACTION\_ID (`string`)<br>EVENT\_TYPE (`string`)<br>TIMESTAMP (`long`)          | IMPRESSION (`string`, `null`)<br>RECOMMENDATION\_ID (`string`, `null`)                                                                                                                 |
 
 ### Metadata fields
 
@@ -63,16 +63,16 @@ values in your data. Reserved categorical string fields must have
 string fields can't be categorical. The following are reserved
 keywords:
 
-- EVENT_TYPE: For Item interactions datasets with one or more event
+- EVENT\_TYPE: For Item interactions datasets with one or more event
   types, such as both _click_ and
   _download_, use an `EVENT_TYPE`
-  field. You must define an EVENT_TYPE field as a `string`
+  field. You must define an EVENT\_TYPE field as a `string`
   and can't be set as categorical.
-- EVENT_VALUE: For Item interactions datasets that include value data
+- EVENT\_VALUE: For Item interactions datasets that include value data
   for events, such as the percentage of a video a user watched, use an
   `EVENT_VALUE` field with type `float` and
   optionally `null`.
-- CREATION_TIMESTAMP: For Items or Actions datasets with a timestamp for
+- CREATION\_TIMESTAMP: For Items or Actions datasets with a timestamp for
   each item’s creation date, use a `CREATION_TIMESTAMP`
   field with a type `long`. Amazon Personalize uses
   `CREATION_TIMESTAMP` data to calculate the age of an
@@ -83,7 +83,7 @@ keywords:
   Impressions are lists of items that were visible to a user when they
   interacted with (for example, clicked or watched) a particular item.
   For more information, see [Impressions data](interactions-datasets.md#interactions-impressions-data "interactions-datasets.md#interactions-impressions-data").
-- RECOMMENDATION_ID: For Item interactions datasets that use previous
+- RECOMMENDATION\_ID: For Item interactions datasets that use previous
   recommendations as implicit impressions data, optionally use a
   `RECOMMENDATION_ID` field with type `String`
   and optionally type `null`.
@@ -96,9 +96,9 @@ operation without it. For more information, see [Impressions data](interactions-
 - VALUE: For Actions datasets, if you have value you data for some or all of your actions, add a `VALUE` field to your
   schema. For its type, use `long` and optionally type `null`. For more information about actions and their
   value, see [Value data](actions-datasets.md#action-value-data "actions-datasets.md#action-value-data").
-- ACTION_EXPIRATION_TIMESTAMP: For Actions datasets, if you have an expiration timestamp for some or all of your actions,
+- ACTION\_EXPIRATION\_TIMESTAMP: For Actions datasets, if you have an expiration timestamp for some or all of your actions,
   add a `ACTION_EXPIRATION_TIMESTAMP` field to your schema. For its type, use `long` and
   optionally type `null`. For more information about expiration timestamps, see [Action expiration timestamp data](actions-datasets.md#action-expiration-timestamp-data "actions-datasets.md#action-expiration-timestamp-data").
-- REPEAT_FREQUENCY: For Actions datasets, if you have repeat frequency data for some or all of your actions, add a
+- REPEAT\_FREQUENCY: For Actions datasets, if you have repeat frequency data for some or all of your actions, add a
   `REPEAT_FREQUENCY` field to your schema. For its type, use `long` and optionally type
   `null`. For more information about repeat frequency data, see [Repeat frequency data](actions-datasets.md#action-repeat-frequency "actions-datasets.md#action-repeat-frequency").

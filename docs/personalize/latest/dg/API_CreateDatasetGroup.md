@@ -19,7 +19,7 @@ for each type of dataset:
 
 A dataset group can be in one of the following states:
 
-- CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
+- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE
   FAILED
 - DELETE PENDING
   To get the status of the dataset group, call [DescribeDatasetGroup](API_DescribeDatasetGroup.md "API_DescribeDatasetGroup.md"). If the status shows as CREATE FAILED, the

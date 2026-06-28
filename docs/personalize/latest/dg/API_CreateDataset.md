@@ -17,9 +17,9 @@ There are 5 types of datasets:
 
 A dataset can be in one of the following states:
 
-- CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
+- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE
   FAILED
-- DELETE PENDING > DELETE IN_PROGRESS
+- DELETE PENDING > DELETE IN\_PROGRESS
   To get the status of the dataset, call [DescribeDataset](API_DescribeDataset.md "API_DescribeDataset.md").
 
 ###### Related APIs
@@ -73,7 +73,7 @@ One of the following (case insensitive) values:
 - Items
 - Users
 - Actions
-- Action_Interactions
+- Action\_Interactions
 
 Type: String
 

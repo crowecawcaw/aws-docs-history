@@ -104,8 +104,8 @@ The status of the campaign.
 
 A campaign can be in one of the following states:
 
-- CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-- DELETE PENDING > DELETE IN_PROGRESS
+- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
+- DELETE PENDING > DELETE IN\_PROGRESS
 
 Type: String
 

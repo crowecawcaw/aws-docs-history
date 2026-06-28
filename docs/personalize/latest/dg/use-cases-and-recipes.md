@@ -12,7 +12,7 @@ Amazon Personalize recommendations can address the following use cases:
   Domain dataset group or a Custom dataset group:
 
 - With a _Domain dataset group_, you create resources that are pre-configured and optimized
-  for the VIDEO_ON_DEMAND or ECOMMERCE domains.
+  for the VIDEO\_ON\_DEMAND or ECOMMERCE domains.
 
 If you have a streaming video or e-commerce application, we recommend that you start with a Domain dataset group. You
 can still add custom resources, such as solutions and solution versions trained for custom use cases. And you can still

@@ -60,7 +60,7 @@ Information about the data deletion job, including the status.
 The status is one of the following values:
 
 - PENDING
-- IN_PROGRESS
+- IN\_PROGRESS
 - COMPLETED
 - FAILED
 

@@ -2,7 +2,7 @@
 
 To get _user segments_, you use a batch segment job. A _batch segment
 job_ is a tool that imports your batch input data from an Amazon S3 bucket and uses your solution version trained with
-a USER_SEGMENTATION recipe to generate _user segments_ for each row of input data.
+a USER\_SEGMENTATION recipe to generate _user segments_ for each row of input data.
 
 Depending on the
 recipe, the input data is a list of items or item metadata attributes in JSON format. For item attributes, your input data can
@@ -36,7 +36,7 @@ When generating user segments, Amazon Personalize considers data in datasets fro
 
 The following are guidelines and requirements for batch getting batch segments:
 
-- You must use a USER_SEGMENTATION recipe.
+- You must use a USER\_SEGMENTATION recipe.
 - Your Amazon Personalize IAM service role needs permission to read and add files to your Amazon S3 buckets. For information on
   granting permissions, see [Service role policy for batch workflows](granting-personalize-s3-access.md#role-policy-for-batch-workflows "granting-personalize-s3-access.md#role-policy-for-batch-workflows").
   For more information on bucket permissions, see [User policy

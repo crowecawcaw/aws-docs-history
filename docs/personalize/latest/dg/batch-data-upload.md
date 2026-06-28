@@ -13,21 +13,20 @@ in a `filterValues` object in your input JSON. For more information, see [Provid
 
 ###### To prepare and import data
 
-1.  Format your batch input data depending on your recipe. You can't get batch recommendations with the Trending-Now recipe.
+1. Format your batch input data depending on your recipe. You can't get batch recommendations with the Trending-Now recipe.
 
-        * For USER\_PERSONALIZATION recipes and the Popularity-Count recipe, your input data is a JSON file with a list of userIds
-        * For RELATED\_ITEMS recipes, your input data is a list of itemIds
-        * For PERSONALIZED\_RANKING recipes, your input data is a list of userIds, each paired with a collection of
-         itemIds
+   - For USER\_PERSONALIZATION recipes and the Popularity-Count recipe, your input data is a JSON file with a list of userIds
+   - For RELATED\_ITEMS recipes, your input data is a list of itemIds
+   - For PERSONALIZED\_RANKING recipes, your input data is a list of userIds, each paired with a collection of
+     itemIds
+     Separate each row with a new line. For input data examples, see [Batch inference job input and output JSON examples](#batch-inference-job-json-examples "#batch-inference-job-json-examples").
 
-    Separate each row with a new line. For input data examples, see [Batch inference job input and output JSON examples](#batch-inference-job-json-examples "#batch-inference-job-json-examples").
-
-2.  Upload your input JSON to an input folder in your Amazon S3 bucket.
-    For more information, see [Uploading files and folders by using drag and drop](../../../AmazonS3/latest/user-guide/upload-objects.md "../../../AmazonS3/latest/user-guide/upload-objects.md") in the _Amazon Simple Storage Service User Guide_
-3.  Create a separate location for your output data, either a folder or a different
-    Amazon S3 bucket. By creating a separate location for the output JSON, you can run multiple
-    batch inference jobs with the same input data location.
-4.  Create a batch inference job. Amazon Personalize outputs the recommendations from your solution version to your output data location.
+2. Upload your input JSON to an input folder in your Amazon S3 bucket.
+   For more information, see [Uploading files and folders by using drag and drop](../../../AmazonS3/latest/user-guide/upload-objects.md "../../../AmazonS3/latest/user-guide/upload-objects.md") in the _Amazon Simple Storage Service User Guide_
+3. Create a separate location for your output data, either a folder or a different
+   Amazon S3 bucket. By creating a separate location for the output JSON, you can run multiple
+   batch inference jobs with the same input data location.
+4. Create a batch inference job. Amazon Personalize outputs the recommendations from your solution version to your output data location.
 
 ## Batch inference job input and output JSON examples
 
@@ -40,14 +39,14 @@ and output examples for batch inference jobs. You can't get batch recommendation
 
 ###### Topics
 
-- [USER_PERSONALIZATION recipes](#batch-input-user-personalization "#batch-input-user-personalization")
-- [POPULAR_ITEMS recipes (Popularity-Count only)](#batch-input-popular-items "#batch-input-popular-items")
-- [PERSONALIZED_RANKING recipes](#batch-input-ranking "#batch-input-ranking")
-- [RELATED_ITEMS recipes](#batch-input-related-items "#batch-input-related-items")
+- [USER\_PERSONALIZATION recipes](#batch-input-user-personalization "#batch-input-user-personalization")
+- [POPULAR\_ITEMS recipes (Popularity-Count only)](#batch-input-popular-items "#batch-input-popular-items")
+- [PERSONALIZED\_RANKING recipes](#batch-input-ranking "#batch-input-ranking")
+- [RELATED\_ITEMS recipes](#batch-input-related-items "#batch-input-related-items")
 
-### USER_PERSONALIZATION recipes
+### USER\_PERSONALIZATION recipes
 
-The following shows correctly formatted JSON input and output examples for the USER_PERSONALIZATION recipes. If you use User-Personalization-v2, each recommended item includes a list of reasons for why the item was included in
+The following shows correctly formatted JSON input and output examples for the USER\_PERSONALIZATION recipes. If you use User-Personalization-v2, each recommended item includes a list of reasons for why the item was included in
 recommendations. This list can be empty. For information about possible reasons, see [Recommendation reasons with User-Personalization-v2](recommendations.md#recommendation-reasons "recommendations.md#recommendation-reasons").
 
 Input
@@ -69,7 +68,7 @@ Output
 ...
 ```
 
-### POPULAR_ITEMS recipes (Popularity-Count only)
+### POPULAR\_ITEMS recipes (Popularity-Count only)
 
 The following shows correctly formatted JSON input and output examples for the Popularity-Count recipe. You can't
 get batch recommendations with the Trending-Now recipe.
@@ -93,9 +92,9 @@ Output
 ...
 ```
 
-### PERSONALIZED_RANKING recipes
+### PERSONALIZED\_RANKING recipes
 
-The following shows correctly formatted JSON input and output examples for PERSONALIZED_RANKING recipes.
+The following shows correctly formatted JSON input and output examples for PERSONALIZED\_RANKING recipes.
 
 Input
 Separate each `userId` and list of `itemIds` to be ranked with a new line as
@@ -117,9 +116,9 @@ Output
 ...
 ```
 
-### RELATED_ITEMS recipes
+### RELATED\_ITEMS recipes
 
-The following shows correctly formatted JSON input and output examples for RELATED_ITEMS recipes.
+The following shows correctly formatted JSON input and output examples for RELATED\_ITEMS recipes.
 
 Input
 Separate each `itemId` with a new line as follows.

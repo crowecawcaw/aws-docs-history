@@ -32,13 +32,13 @@ customers' interactions with actions by using the [PutActionInteractions](API_UB
 Your action interactions data must have at minimum the
 following columns. You are free to add additional custom columns depending on your use case and your data.
 
-- USER_ID – The unique identifier of the user who interacted with the item. Every event must have an USER_ID.
+- USER\_ID – The unique identifier of the user who interacted with the item. Every event must have an USER\_ID.
   It must be a `string` with a max length of 256 characters.
-- ACTION_ID – The unique identifier of the item that the user interacted with. Every event must have an item
+- ACTION\_ID – The unique identifier of the item that the user interacted with. Every event must have an item
   ID. It must be a `string` with a max length of 256 characters.
 - TIMESTAMP – The time the event occurred (in Unix epoch time format in seconds). Every action interaction
   must have an TIMESTAMP. For more information, see [Timestamp data](interactions-datasets.md#timestamp-data "interactions-datasets.md#timestamp-data").
-- EVENT_TYPE – Whether the action was Taken, Not taken, or Viewed. Every action interaction must have an event
+- EVENT\_TYPE – Whether the action was Taken, Not taken, or Viewed. Every action interaction must have an event
   type. For more information, see [Event type data](#action-interaction-event-type-data "#action-interaction-event-type-data").
 
 Until you import action interaction data, Amazon Personalize recommends actions in your without
@@ -46,7 +46,7 @@ personalization, and propensity scores are 0.0.
 An action will have a score after the action has the following:
 
 - At least 50 action interactions with the TAKEN event type.
-- At least 50 action interactions with the NOT_TAKEN or VIEWED event type.
+- At least 50 action interactions with the NOT\_TAKEN or VIEWED event type.
 
 These action interactions must be present at the latest solution version training, and must occur within a span of 6 weeks from the
 latest interaction timestamp in the Action interactions dataset.
@@ -54,7 +54,7 @@ latest interaction timestamp in the Action interactions dataset.
 ## Event type data
 
 Amazon Personalize can use patterns in event type data to identify the actions your users will most likely take. For example, if a
-customer frequently ignores an email subscription action (indicated with the NOT_TAKEN event type), Amazon Personalize might adjust
+customer frequently ignores an email subscription action (indicated with the NOT\_TAKEN event type), Amazon Personalize might adjust
 recommendations to feature fewer of this type of action.
 
 You can use only the following event types for action interaction events. Amazon Personalize uses these events to learn about your

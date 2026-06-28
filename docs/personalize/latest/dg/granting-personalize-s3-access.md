@@ -64,7 +64,7 @@ JSON
 5. Give the policy a name.
 6. (Optional) For **Description**, enter a short sentence describing
    this policy, for example, `Allow Amazon Personalize to access its Amazon S3
-bucket.`
+ bucket.`
 7. Choose **Create policy**.
 8. In the navigation pane, choose **Roles**, and choose the role you
    created for Amazon Personalize. See [Creating an IAM role for Amazon Personalize](set-up-required-permissions.md#set-up-create-role-with-permissions "set-up-required-permissions.md#set-up-create-role-with-permissions").

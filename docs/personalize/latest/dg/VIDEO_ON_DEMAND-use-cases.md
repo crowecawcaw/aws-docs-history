@@ -1,7 +1,7 @@
-# VIDEO_ON_DEMAND use cases
+# VIDEO\_ON\_DEMAND use cases
 
 The following sections list the requirements and Amazon Resource Name
-(ARN) for each VIDEO_ON_DEMAND use case.
+(ARN) for each VIDEO\_ON\_DEMAND use case.
 For all use cases,
 your interactions data must have the following:
 

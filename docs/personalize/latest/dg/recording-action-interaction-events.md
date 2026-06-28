@@ -3,9 +3,9 @@
 An _action interaction_ event is an interaction between a user and an _action_.
 For example, a user enrolling in a membership program or applying for a credit card.
 
-If you use a PERSONALIZED_ACTIONS custom recipe, record real-time action interaction events as your customers interact with
+If you use a PERSONALIZED\_ACTIONS custom recipe, record real-time action interaction events as your customers interact with
 action recommendations. This builds out your interactions data and keeps your data fresh. It also tells Amazon Personalize about the
-current interests of your user, which can improve recommendation relevance. Only the PERSONALIZED_ACTIONS custom recipes use
+current interests of your user, which can improve recommendation relevance. Only the PERSONALIZED\_ACTIONS custom recipes use
 action interactions data.
 
 You record

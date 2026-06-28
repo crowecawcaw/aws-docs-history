@@ -69,7 +69,7 @@ aws personalize describe-recommender \
 
 The following is an example of the metrics output from a recommender
 created for the _Top picks for you_
-use case for the VIDEO_ON_DEMAND domain.
+use case for the VIDEO\_ON\_DEMAND domain.
 
 ```
 {
@@ -114,7 +114,7 @@ print(response['recommender']['modelMetrics'])
 
 The following is an example the metrics output from a recommender
 created for the _Top picks for you_
-use case for the VIDEO_ON_DEMAND domain.
+use case for the VIDEO\_ON\_DEMAND domain.
 
 ```
 {
@@ -163,7 +163,7 @@ total number of unique items in Interactions and Items datasets. A
 higher coverage score means Amazon Personalize recommends more of your items,
 rather than the same few items repeatedly for different users. Use
 cases that feature item exploration, such as the _Top picks
-for you_ (VIDEO_ON_DEMAND) and _Recommended for
+for you_ (VIDEO\_ON\_DEMAND) and _Recommended for
 you_ (ECOMMERCE), have higher coverage than those that
 don’t.
 
@@ -245,20 +245,20 @@ this user. These are the relevant recommendations. If `K` is
 set at `5`, the following metrics are generated for the
 user.
 
-**reciprocal_rank**
+**reciprocal\_rank**
 
 Calculation: 1/2
 
 Result: 0.5000
 
-**normalized_discounted_cumulative_gain_at_5**
+**normalized\_discounted\_cumulative\_gain\_at\_5**
 
 Calculation: (1/log(1 + 2) + 1/log(1 + 5)) / (1/log(1 + 1) +
 1/log(1 + 2))
 
 Result: 0.6241
 
-**precision_at_5**
+**precision\_at\_5**
 
 Calculation: 2/5
 

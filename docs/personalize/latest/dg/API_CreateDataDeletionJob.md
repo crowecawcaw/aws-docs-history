@@ -6,7 +6,7 @@ an Amazon S3 bucket. After a job completes, Amazon Personalize no longer trains
 on the users’ data and no longer considers the users when generating user segments.
 For more information about creating a data deletion job, see [Deleting users](delete-records.md "delete-records.md").
 
-- Your input file must be a CSV file with a single USER_ID column that lists the users IDs. For more information
+- Your input file must be a CSV file with a single USER\_ID column that lists the users IDs. For more information
   about preparing the CSV file, see [Preparing your data deletion file and uploading it to Amazon S3](prepare-deletion-input-file.md "prepare-deletion-input-file.md").
 - To give Amazon Personalize permission to access your input CSV file of userIds, you must specify an IAM service role that has permission to
   read from the data source. This role
@@ -22,7 +22,7 @@ Amazon Personalize continues to use the data when training. And if you use a Use
 
 A data deletion job can have one of the following statuses:
 
-- PENDING > IN_PROGRESS > COMPLETED -or- FAILED
+- PENDING > IN\_PROGRESS > COMPLETED -or- FAILED
   To get the status of the data deletion job, call [DescribeDataDeletionJob](API_DescribeDataDeletionJob.md "API_DescribeDataDeletionJob.md") API operation and specify the Amazon Resource Name
   (ARN) of the job. If the status is FAILED, the response
   includes a `failureReason` key, which describes why the job

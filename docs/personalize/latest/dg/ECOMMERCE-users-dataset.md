@@ -8,7 +8,7 @@ apply to all schemas, regardless of domain.
 A Users dataset is optional for all ECOMMERCE use cases. If you have user data, we recommend creating one to get the most relevant recommendations.
 If you create a Users dataset, your schema must include the following fields.
 
-- USER_ID
+- USER\_ID
 - 1 metadata field (categorical `string` or numerical)
   The data you import must match your schema. You are free to add additional fields depending on your use case and your data. As long as the fields aren't listed as required or reserved, and the data types are listed in [Schema data types](how-it-works-dataset-schema.md#personalize-datatypes "how-it-works-dataset-schema.md#personalize-datatypes"), the field names and data types are up to you. For an example of
   the default schema for Users datasets for ECOMMERCE domains, see [Default Users schema (ECOMMERCE domain)](#ECOMMERCE-users-dataset-schema "#ECOMMERCE-users-dataset-schema").
@@ -19,7 +19,7 @@ For more information on minimum requirements and maximum data limits for a Users
 
 To use categorical data, add a field of type `string` and set the field's categorical attribute to `true` in your schema.
 Then include the categorical data in your bulk CSV file and individual record imports.
-For users with multiple categories, separate each value using the vertical bar, '|'. For example, for a SUBSCRIPTION_MODEL field, your data for a user might be
+For users with multiple categories, separate each value using the vertical bar, '|'. For example, for a SUBSCRIPTION\_MODEL field, your data for a user might be
 student|monthly|discount.
 
 Categorical values can have at most 1000 characters. If you have a user with a categorical

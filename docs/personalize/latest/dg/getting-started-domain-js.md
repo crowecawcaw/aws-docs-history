@@ -1,6 +1,6 @@
 # Getting started with a Domain dataset group (SDK for JavaScript v3)
 
-This tutorial shows you how to use the AWS SDK for JavaScript v3 to create a Domain dataset group for the VIDEO_ON_DEMAND domain. In
+This tutorial shows you how to use the AWS SDK for JavaScript v3 to create a Domain dataset group for the VIDEO\_ON\_DEMAND domain. In
 this tutorial, you create a recommender for the _Top picks for you_ use case.
 
 To view the code used in this tutorial on GitHub, see [Amazon Personalize code examples for SDK for JavaScript v3](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/personalize "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/personalize") in the _AWS SDK Code Examples_ repository.

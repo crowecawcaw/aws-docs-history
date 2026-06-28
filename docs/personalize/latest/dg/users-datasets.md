@@ -30,7 +30,7 @@ bulk data format guidelines for all types of data, see [bulk data format guideli
 The following are user data
 requirements for Amazon Personalize. You are free to add additional custom columns depending on your use case and your data.
 
-- Your data must have an USER_ID column that stores the unique identifier for each user. Every user must have an user ID. It
+- Your data must have an USER\_ID column that stores the unique identifier for each user. Every user must have an user ID. It
   must be a `string` with a max length of 256 characters.
 - Your data must have least one categorical string or numerical metadata column. User metadata columns can include empty/null values for some users.
   We recommend that these columns be at minimum 70 percent complete.

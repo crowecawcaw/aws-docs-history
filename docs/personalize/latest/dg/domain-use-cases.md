@@ -2,7 +2,7 @@
 
 When you create a recommender in a Domain dataset group, you specify a
 use case. Amazon Personalize trains the models backing the recommender with the best configurations for the use case. Each domain has different use cases. For example,
-if you specify _VIDEO_ON_DEMAND_ for your Domain dataset group, only VIDEO_ON_DEMAND use cases are available. Each use case
+if you specify _VIDEO\_ON\_DEMAND_ for your Domain dataset group, only VIDEO\_ON\_DEMAND use cases are available. Each use case
 has different requirements for getting recommendations. Some use cases require specific event types. You are free to include additional event types.
 
 For all use cases, your interactions data must have the following:
@@ -14,5 +14,5 @@ For all use cases, your interactions data must have the following:
 
 ###### Topics
 
-- [VIDEO_ON_DEMAND use cases](VIDEO_ON_DEMAND-use-cases.md "VIDEO_ON_DEMAND-use-cases.md")
+- [VIDEO\_ON\_DEMAND use cases](VIDEO_ON_DEMAND-use-cases.md "VIDEO_ON_DEMAND-use-cases.md")
 - [ECOMMERCE use cases](ECOMMERCE-use-cases.md "ECOMMERCE-use-cases.md")

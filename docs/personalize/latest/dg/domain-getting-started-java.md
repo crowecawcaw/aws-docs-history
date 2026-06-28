@@ -1,6 +1,6 @@
 # Getting started with a Domain dataset group (SDK for Java 2.x)
 
-This tutorial shows you how to use the SDK for Java 2.x to create a Domain dataset group for the VIDEO_ON_DEMAND domain. In
+This tutorial shows you how to use the SDK for Java 2.x to create a Domain dataset group for the VIDEO\_ON\_DEMAND domain. In
 this tutorial, you create a recommender for the _Top picks for you_ use case.
 
 When you finish the getting started exercise, to avoid incurring unnecessary charges,

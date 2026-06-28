@@ -5,7 +5,7 @@ information, see [CreateDatasetExportJob](API_CreateDatasetExportJob.md "API_Cre
 
 A dataset export job can be in one of the following states:
 
-- CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
+- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE
   FAILED
 
 ## Contents
@@ -116,7 +116,7 @@ The status of the dataset export job.
 
 A dataset export job can be in one of the following states:
 
-- CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
+- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE
   FAILED
 
 Type: String

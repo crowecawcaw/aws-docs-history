@@ -7,7 +7,7 @@ minutes or increasing revenue. For more information see [Optimizing a solution](
 
 **itemAttribute**
 
-The numerical metadata column in an Items dataset related to the optimization objective. For example, VIDEO_LENGTH (to maximize streaming minutes), or PRICE (to maximize revenue).
+The numerical metadata column in an Items dataset related to the optimization objective. For example, VIDEO\_LENGTH (to maximize streaming minutes), or PRICE (to maximize revenue).
 
 Type: String
 

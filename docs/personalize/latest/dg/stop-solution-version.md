@@ -1,6 +1,6 @@
 # Stopping the creation of a solution version
 
-If your solution version has a status of CREATE_PENDING or CREATE_IN_PROGRESS, you can use
+If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS, you can use
 the Amazon Personalize console or the [StopSolutionVersionCreation](API_StopSolutionVersionCreation.md "API_StopSolutionVersionCreation.md") operation to stop creating the
 solution version (stop training a model). You can't resume creating a solution version after
 it has stopped. You are billed for resources used up to the point when the creation of the
@@ -21,7 +21,7 @@ You can stop the solution version creation process with the Amazon Personalize c
 
 ## Stopping the creation of a solution version (console)
 
-If your solution version has a status of CREATE_PENDING or CREATE_IN_PROGRESS, you can stop creating a solution version (stop training a model).
+If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS, you can stop creating a solution version (stop training a model).
 
 ###### To stop creating a solution version (console)
 
@@ -38,13 +38,13 @@ If your solution version has a status of CREATE_PENDING or CREATE_IN_PROGRESS, y
    Depending on the original state of the solution version, the solution version
    state changes as follows:
 
-   - CREATE_PENDING changes to CREATE_STOPPED.
-   - CREATE_IN_PROGRESS changes to CREATE_STOPPING and then
-     CREATE_STOPPED.
+   - CREATE\_PENDING changes to CREATE\_STOPPED.
+   - CREATE\_IN\_PROGRESS changes to CREATE\_STOPPING and then
+     CREATE\_STOPPED.
 
 ## Stopping the creation of a solution version (AWS CLI)
 
-If your solution version has a status of CREATE_PENDING or CREATE_IN_PROGRESS, you can
+If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS, you can
 stop creating a solution version (stop training a model). Use the following
 `stop-solution-version-creation` command to stop creating the solution
 version with the AWS CLI. Replace `solution version arn` with the Amazon
@@ -66,12 +66,12 @@ aws personalize describe-solution-version \
 
 Depending on the original state of the solution version, the solution version state changes as follows:
 
-- CREATE_PENDING changes to CREATE_STOPPED.
-- CREATE_IN_PROGRESS changes to CREATE_STOPPING and then CREATE_STOPPED
+- CREATE\_PENDING changes to CREATE\_STOPPED.
+- CREATE\_IN\_PROGRESS changes to CREATE\_STOPPING and then CREATE\_STOPPED
 
 ## Stopping the creation of a solution version (AWS SDKs)
 
-If your solution version has a status of CREATE_PENDING or CREATE_IN_PROGRESS, you can
+If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS, you can
 stop creating a solution version (stop training a model). The following code shows how
 to stop creating a solution version with the AWS SDK for Python (Boto3) or AWS SDK for Java 2.x. You are
 billed for resources used up to the point when creation of the solution version
@@ -127,5 +127,5 @@ public static void stopSolutionVersionCreation(PersonalizeClient personalizeClie
 
 Depending on the original state of the solution version, the solution version state changes as follows:
 
-- CREATE_PENDING changes to CREATE_STOPPED.
-- CREATE_IN_PROGRESS changes to CREATE_STOPPING and then CREATE_STOPPED.
+- CREATE\_PENDING changes to CREATE\_STOPPED.
+- CREATE\_IN\_PROGRESS changes to CREATE\_STOPPING and then CREATE\_STOPPED.

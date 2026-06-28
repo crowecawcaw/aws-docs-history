@@ -3,13 +3,13 @@
 Returns a list of recommended items. For campaigns, the campaign's Amazon Resource Name (ARN) is required and the required user and item input depends on the recipe type used to
 create the solution backing the campaign as follows:
 
-- USER_PERSONALIZATION - `userId` required, `itemId` not used
-- RELATED_ITEMS - `itemId` required, `userId` not used
+- USER\_PERSONALIZATION - `userId` required, `itemId` not used
+- RELATED\_ITEMS - `itemId` required, `userId` not used
 
 ###### Note
 
 Campaigns that are backed by a solution created using a recipe of type
-PERSONALIZED_RANKING use the [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md "API_RS_GetPersonalizedRanking.md") API.
+PERSONALIZED\_RANKING use the [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md "API_RS_GetPersonalizedRanking.md") API.
 
 For recommenders, the recommender's ARN is required and the required item and user input depends on the use case (domain-based recipe) backing the recommender.
 For information on use case requirements see [Choosing recommender use cases](domain-use-cases.md "domain-use-cases.md").

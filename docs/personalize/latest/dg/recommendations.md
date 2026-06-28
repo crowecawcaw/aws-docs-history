@@ -22,7 +22,7 @@ you can do the following:
 
 ###### Note
 
-If you used a PERSONALIZED_RANKING custom recipe, see [Getting a personalized ranking (custom resources)](rankings.md "rankings.md").
+If you used a PERSONALIZED\_RANKING custom recipe, see [Getting a personalized ranking (custom resources)](rankings.md "rankings.md").
 
 ###### Topics
 

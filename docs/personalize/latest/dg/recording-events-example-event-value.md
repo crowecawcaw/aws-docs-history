@@ -3,7 +3,7 @@
 After you create an _Item interactions dataset_ and an [event tracker](event-get-tracker.md "event-get-tracker.md") for your dataset group,
 you are ready to record item interaction events. The following example shows how to record multiple item interaction events with different event types and different event values.
 
-When you configure a solution, if your _Item interactions dataset_ includes EVENT_TYPE and EVENT_VALUE fields, you can set a specific value as a threshold to exclude records from training. For more
+When you configure a solution, if your _Item interactions dataset_ includes EVENT\_TYPE and EVENT\_VALUE fields, you can set a specific value as a threshold to exclude records from training. For more
 information, see [Choosing the item interaction data used for training](event-values-types.md "event-values-types.md").
 
 Python
@@ -119,6 +119,6 @@ public static void putMultipleEvents(PersonalizeEventsClient personalizeEventsCl
 ###### Note
 
 The properties keys use camel case names that match the fields in
-the Interactions schema. For example, if the field 'NUM_RATINGS' is
+the Interactions schema. For example, if the field 'NUM\_RATINGS' is
 defined in the Interactions schema, the property key should be
 `numRatings`.

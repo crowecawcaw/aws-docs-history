@@ -20,7 +20,7 @@ To optimize a solution for an additional objective, create a new solution with t
 User-Personalization recipe or Personalized-Ranking recipe and choose the numerical metadata
 column in your Items dataset that is related to your objective. When generating recommendations, Amazon Personalize gives more importance to items with higher values
 for this column of data. For example, you might
-choose a VIDEO_LENGTH column to maximize streaming minutes or a PRICE column to maximize
+choose a VIDEO\_LENGTH column to maximize streaming minutes or a PRICE column to maximize
 revenue.
 
 You can use the Amazon Personalize console, AWS Command Line Interface
@@ -258,5 +258,5 @@ run();
 ## Sample Jupyter notebook
 
 For a sample Jupyter notebook that shows how to create a solution that is optimized for an additional objective based item
-metadata, see the [objective_optimization](https://github.com/aws-samples/amazon-personalize-samples/tree/master/next_steps/core_use_cases/objective_optimization "https://github.com/aws-samples/amazon-personalize-samples/tree/master/next_steps/core_use_cases/objective_optimization") folder of the [Amazon Personalize
+metadata, see the [objective\_optimization](https://github.com/aws-samples/amazon-personalize-samples/tree/master/next_steps/core_use_cases/objective_optimization "https://github.com/aws-samples/amazon-personalize-samples/tree/master/next_steps/core_use_cases/objective_optimization") folder of the [Amazon Personalize
 samples](https://github.com/aws-samples/amazon-personalize-samples "https://github.com/aws-samples/amazon-personalize-samples") GitHub repository

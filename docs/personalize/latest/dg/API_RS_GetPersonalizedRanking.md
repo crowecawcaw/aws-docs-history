@@ -6,7 +6,7 @@ deemed the most likely item to be of interest to the user.
 ###### Note
 
 The solution backing the campaign must have been created using a recipe of type
-PERSONALIZED_RANKING.
+PERSONALIZED\_RANKING.
 
 ## Request Syntax
 

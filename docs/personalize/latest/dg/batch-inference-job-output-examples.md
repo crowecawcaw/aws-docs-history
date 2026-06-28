@@ -9,14 +9,14 @@ batch recommendations with the Trending-Now or Next-Best-Action recipes.
 
 ###### Topics
 
-- [USER_PERSONALIZATION recipes](#batch-inference-output-user-personalization "#batch-inference-output-user-personalization")
-- [POPULAR_ITEMS recipes](#batch-inference-output-popular-items "#batch-inference-output-popular-items")
-- [PERSONALIZED_RANKING recipes](#batch-inference-output-personalized-ranking "#batch-inference-output-personalized-ranking")
-- [RELATED_ITEMS recipes](#batch-inference-output-related-items "#batch-inference-output-related-items")
+- [USER\_PERSONALIZATION recipes](#batch-inference-output-user-personalization "#batch-inference-output-user-personalization")
+- [POPULAR\_ITEMS recipes](#batch-inference-output-popular-items "#batch-inference-output-popular-items")
+- [PERSONALIZED\_RANKING recipes](#batch-inference-output-personalized-ranking "#batch-inference-output-personalized-ranking")
+- [RELATED\_ITEMS recipes](#batch-inference-output-related-items "#batch-inference-output-related-items")
 
-## USER_PERSONALIZATION recipes
+## USER\_PERSONALIZATION recipes
 
-The following is an example of the output JSON file for a USER_PERSONALIZATION recipe.
+The following is an example of the output JSON file for a USER\_PERSONALIZATION recipe.
 
 ```
 {"input":{"userId":"4638"},"output":{"recommendedItems":["63992","115149","110102","148626","148888","31685","102445","69526","92535","143355","62374","7451","56171","122882","66097","91542","142488","139385","40583","71530","39292","111360","34048","47099","135137"],"scores":[0.0152238,0.0069081,0.0068222,0.006394,0.0059746,0.0055851,0.0049357,0.0044644,0.0042968,0.004015,0.0038805,0.0037476,0.0036563,0.0036178,0.00341,0.0033467,0.0033258,0.0032454,0.0032076,0.0031996,0.0029558,0.0029021,0.0029007,0.0028837,0.0028316]},"error":null}
@@ -25,7 +25,7 @@ The following is an example of the output JSON file for a USER_PERSONALIZATION r
 ...
 ```
 
-## POPULAR_ITEMS recipes
+## POPULAR\_ITEMS recipes
 
 The following example shows the format of the output JSON file for the Popularity-Count recipe. You can't get
 batch recommendations with the Trending-Now recipe.
@@ -37,9 +37,9 @@ batch recommendations with the Trending-Now recipe.
 ...
 ```
 
-## PERSONALIZED_RANKING recipes
+## PERSONALIZED\_RANKING recipes
 
-The following example shows the format of the output JSON file for a PERSONALIZED_RANKING recipe.
+The following example shows the format of the output JSON file for a PERSONALIZED\_RANKING recipe.
 
 ```
 {"input":{"userId":"891","itemList":["27","886","101"]},"output":{"recommendedItems":["27","101","886"],"scores":[0.48421,0.28133,0.23446]}}
@@ -48,9 +48,9 @@ The following example shows the format of the output JSON file for a PERSONALIZE
 ...
 ```
 
-## RELATED_ITEMS recipes
+## RELATED\_ITEMS recipes
 
-The following example shows the format of the output JSON file for a RELATED_ITEMS recipe.
+The following example shows the format of the output JSON file for a RELATED\_ITEMS recipe.
 
 ```
 {"input": {"itemId": "105"}, "output": {"recommendedItems": ["106", "107", "49"]}}

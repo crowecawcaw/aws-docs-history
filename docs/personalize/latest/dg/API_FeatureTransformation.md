@@ -65,7 +65,7 @@ The status of the feature transformation.
 
 A feature transformation can be in one of the following states:
 
-- CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
 
 Type: String
 

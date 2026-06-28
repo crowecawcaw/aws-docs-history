@@ -23,7 +23,7 @@ see [Updating data in datasets after training](updating-datasets.md "updating-da
 The following use cases and recipes support real-time personalization:
 
 - [Recommended for you (ECOMMERCE use case)](ECOMMERCE-use-cases.md#recommended-for-you-use-case "ECOMMERCE-use-cases.md#recommended-for-you-use-case")
-- [Top picks for you (VIDEO_ON_DEMAND use case)](VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case "VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case")
+- [Top picks for you (VIDEO\_ON\_DEMAND use case)](VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case "VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case")
 - [User-Personalization-v2 recipe](native-recipe-user-personalization-v2.md "native-recipe-user-personalization-v2.md")
 - [User-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md "native-recipe-new-item-USER_PERSONALIZATION.md")
 - [Personalized-Ranking-v2 recipe](native-recipe-personalized-ranking-v2.md "native-recipe-personalized-ranking-v2.md")
@@ -69,7 +69,7 @@ relevant to the user and exploration didn't identify them.
 For more information about each use case or recipe that uses exploration, see the following:
 
 - [Recommended for you (ECOMMERCE use case)](ECOMMERCE-use-cases.md#recommended-for-you-use-case "ECOMMERCE-use-cases.md#recommended-for-you-use-case")
-- [Top picks for you (VIDEO_ON_DEMAND use case)](VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case "VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case")
+- [Top picks for you (VIDEO\_ON\_DEMAND use case)](VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case "VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case")
 - [User-Personalization-v2 recipe](native-recipe-user-personalization-v2.md "native-recipe-user-personalization-v2.md")
 - [User-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md "native-recipe-new-item-USER_PERSONALIZATION.md")
 - [Next-Best-Action recipe](native-recipe-next-best-action.md "native-recipe-next-best-action.md")
@@ -122,7 +122,7 @@ If you use custom resources, the following are guidelines and requirements for a
 For more information about each use case or recipe that features automatic updates, see the following:
 
 - [Recommended for you (ECOMMERCE use case)](ECOMMERCE-use-cases.md#recommended-for-you-use-case "ECOMMERCE-use-cases.md#recommended-for-you-use-case")
-- [Top picks for you (VIDEO_ON_DEMAND use case)](VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case "VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case")
+- [Top picks for you (VIDEO\_ON\_DEMAND use case)](VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case "VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case")
 - [User-Personalization-v2 recipe](native-recipe-user-personalization-v2.md "native-recipe-user-personalization-v2.md")
 - [User-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md "native-recipe-new-item-USER_PERSONALIZATION.md")
 - [Next-Best-Action recipe](native-recipe-next-best-action.md "native-recipe-next-best-action.md")

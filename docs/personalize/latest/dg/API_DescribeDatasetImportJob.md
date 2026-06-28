@@ -62,7 +62,7 @@ Information about the dataset import job, including the status.
 The status is one of the following values:
 
 - CREATE PENDING
-- CREATE IN_PROGRESS
+- CREATE IN\_PROGRESS
 - ACTIVE
 - CREATE FAILED
 

@@ -23,7 +23,7 @@ For example, `{"numberOfRatings": "12"}`.
 
 The keys use camel case names that match the fields in the schema for the Items
 dataset. In the previous example, the `numberOfRatings` matches the
-'NUMBER_OF_RATINGS' field defined in the Items schema. For categorical string data, to include multiple categories for a single item,
+'NUMBER\_OF\_RATINGS' field defined in the Items schema. For categorical string data, to include multiple categories for a single item,
 separate each category with a pipe separator (`|`). For example, `\"Horror|Action\"`.
 
 Type: String

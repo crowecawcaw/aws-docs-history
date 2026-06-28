@@ -25,7 +25,7 @@ personalization, and propensity scores are 0.0.
 An action will have a score after the action has the following:
 
 - At least 50 action interactions with the TAKEN event type.
-- At least 50 action interactions with the NOT_TAKEN or VIEWED event type.
+- At least 50 action interactions with the NOT\_TAKEN or VIEWED event type.
   These action interactions must be present at the latest solution version training, and must occur within a span of 6 weeks from the
   latest interaction timestamp in the Action interactions dataset.
 
@@ -92,8 +92,8 @@ To use the Next-Best-Action recipe, you must create the following datasets:
 
 - Actions: You import data about your actions, such as their value, into an Amazon Personalize Actions dataset.
 
-In your actions data, you can provide an EXPIRATION_TIMESTAMP for each action. If an action has expired,
-Amazon Personalize won't include it in recommendations. You can also provide a REPEAT_FREQUENCY for each action. This
+In your actions data, you can provide an EXPIRATION\_TIMESTAMP for each action. If an action has expired,
+Amazon Personalize won't include it in recommendations. You can also provide a REPEAT\_FREQUENCY for each action. This
 indicates how long Amazon Personalize should wait before recommending an action again after a user interacts with it. For
 information about the data an Actions dataset can store, see [Action metadata](actions-datasets.md "actions-datasets.md").
 

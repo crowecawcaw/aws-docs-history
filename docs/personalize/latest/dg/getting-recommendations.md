@@ -23,12 +23,12 @@ results. For more information see [Filtering recommendations and user segments](
 
 ## Recommendation scores
 
-With custom solutions created with the User-Personalization-v2, User-Personalization, Personalized-Ranking-v2, Personalized-Ranking, and PERSONALIZED_ACTIONS recipes, Amazon Personalize includes a score
+With custom solutions created with the User-Personalization-v2, User-Personalization, Personalized-Ranking-v2, Personalized-Ranking, and PERSONALIZED\_ACTIONS recipes, Amazon Personalize includes a score
 for each item in recommendations. These scores represent the relative certainty that Amazon Personalize has about which item or action the user
 will select next. Higher scores represent greater certainty.
 
 - For information about scores for User-Personalization-v2 and User-Personalization, see [How recommendation scoring works (custom resources)](recommendations.md#how-recommendation-scoring-works "recommendations.md#how-recommendation-scoring-works").
-- For information about scores for PERSONALIZED_ACTIONS recipes, see [How action recommendation scoring works](get-action-recommendations.md#how-action-recommendation-scoring-works "get-action-recommendations.md#how-action-recommendation-scoring-works").
+- For information about scores for PERSONALIZED\_ACTIONS recipes, see [How action recommendation scoring works](get-action-recommendations.md#how-action-recommendation-scoring-works "get-action-recommendations.md#how-action-recommendation-scoring-works").
 - For information on scores for Personalized-Ranking-v2 and Personalized-Ranking recommendations, see [How personalized ranking scoring works](rankings.md#how-ranking-scoring-works "rankings.md#how-ranking-scoring-works").
 
 For batch inference jobs, item scores are calculated just as

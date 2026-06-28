@@ -17,8 +17,8 @@ in your event tracker.
 
 The event tracker can be in one of the following states:
 
-- CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-- DELETE PENDING > DELETE IN_PROGRESS
+- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
+- DELETE PENDING > DELETE IN\_PROGRESS
   To get the status of the event tracker, call [DescribeEventTracker](API_DescribeEventTracker.md "API_DescribeEventTracker.md").
 
 ###### Note

@@ -41,8 +41,8 @@ For more information about campaign costs, see [Amazon Personalize pricing](http
 
 A campaign can be in one of the following states:
 
-- CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-- DELETE PENDING > DELETE IN_PROGRESS
+- CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE -or- CREATE FAILED
+- DELETE PENDING > DELETE IN\_PROGRESS
   To get the campaign status, call [DescribeCampaign](API_DescribeCampaign.md "API_DescribeCampaign.md").
 
 ###### Note

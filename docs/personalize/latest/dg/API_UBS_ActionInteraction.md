@@ -83,7 +83,7 @@ Each item in the map consists of a key-value pair. For example,
 
 The keys use camel case names that match the fields in the Action interactions
 schema. In the above example, the `numberOfActions` would match the
-'NUMBER_OF_ACTIONS' field defined in the Action interactions schema.
+'NUMBER\_OF\_ACTIONS' field defined in the Action interactions schema.
 
 The following can't be included as a keyword for properties (case insensitive).
 
