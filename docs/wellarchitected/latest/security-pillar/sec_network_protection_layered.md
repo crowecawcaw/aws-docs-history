@@ -64,8 +64,8 @@ example, HTTPS rather than HTTP). Capture these requirements at
 both the boundaries of your networks and within each layer. Once
 these requirements are identified, explore options to only allow
 the required traffic to flow at each connection point. A good
-starting point is to use *security
-groups* within your VPC, as they can be attached to
+starting point is to use _security
+groups_ within your VPC, as they can be attached to
 resources that uses an Elastic Network Interface (ENI), such
 Amazon EC2 instances, Amazon ECS tasks, Amazon EKS pods, or Amazon RDS databases. Unlike a Layer 4 firewall, a security group can
 have a rule that allows traffic from another security group by its

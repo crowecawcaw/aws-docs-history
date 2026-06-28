@@ -42,7 +42,7 @@ data at rest.
 [SEC01-BP06 Automate
 deployment of standard security controls](../framework/sec_securely_operate_automate_security_controls.md "../framework/sec_securely_operate_automate_security_controls.md") describes how you
 can capture the configuration of your resources using
-*infrastructure as code* (IaC) templates, such
+_infrastructure as code_ (IaC) templates, such
 as
 with [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/").  These templates are committed to a version
 control system, and are used to deploy resources on AWS through a

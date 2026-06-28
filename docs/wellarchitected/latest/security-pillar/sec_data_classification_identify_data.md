@@ -71,11 +71,11 @@ sensitivity level, and the controls in place to protect that data.
 Additionally, consider using
 [resource
 tags](../../../whitepapers/latest/tagging-best-practices/tagging-best-practices.md "../../../whitepapers/latest/tagging-best-practices/tagging-best-practices.md") where available.  For example, you can apply a tag
-that has a *tag key* of
-`Classification` and a *tag
-value* of `PHI` for protected health
-information (PHI), and another tag that has a *tag
-key* of `Sensitivity` and a
+that has a _tag key_ of
+`Classification` and a _tag
+value_ of `PHI` for protected health
+information (PHI), and another tag that has a _tag
+key_ of `Sensitivity` and a
 _tag value_ of `High`.
  Services such as
 [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/") can then be used to monitor these resources for
