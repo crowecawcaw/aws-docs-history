@@ -15,9 +15,9 @@ AMB Query publishes the following API metrics in the `AWS/Usage` namespace, with
 Amazon Managed Blockchain (AMB) Query publishes usage metrics to the `AWS/Usage` namespace with
 the following dimensions.
 
-| Dimension | Description                                                                                                                                                                                                           |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Service   | The name of the AWS service containing the resource. `Amazon Managed Blockchain Query` will<br>always be the value for this dimension.                                                                                |
-| Type      | The type of the entity being reported. `API` will always be the value for this<br>dimension.                                                                                                                          |
-| Resource  | The type of resources being reported. The \*name<br>• of the [AMB Query API operation](../AMBQ-APIReference/API_Operations.md "../AMBQ-APIReference/API_Operations.md") used will be the value for this<br>dimension. |
-| Class     | The class of the resource being reported. `None` will always be the value for this<br>dimension.                                                                                                                      |
+| Dimension | Description                                                                                                                                                                                                          |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Service   | The name of the AWS service containing the resource. `Amazon Managed Blockchain Query` will<br>always be the value for this dimension.                                                                               |
+| Type      | The type of the entity being reported. `API` will always be the value for this<br>dimension.                                                                                                                         |
+| Resource  | The type of resources being reported. The *name<br>• of the [AMB Query API operation](../AMBQ-APIReference/API_Operations.md "../AMBQ-APIReference/API_Operations.md") used will be the value for this<br>dimension. |
+| Class     | The class of the resource being reported. `None` will always be the value for this<br>dimension.                                                                                                                     |

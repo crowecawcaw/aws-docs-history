@@ -20,8 +20,8 @@ your own before running these examples.
 
 ## Create an IAM policy to access AMB Query API operations
 
-To make AMB Query API requests, you must use the user credentials (AWS_ACCESS_KEY_ID and
-AWS_SECRET_ACCESS_KEY) that have the appropriate IAM permissions for Amazon Managed Blockchain (AMB) Query. In a
+To make AMB Query API requests, you must use the user credentials (AWS\_ACCESS\_KEY\_ID and
+AWS\_SECRET\_ACCESS\_KEY) that have the appropriate IAM permissions for Amazon Managed Blockchain (AMB) Query. In a
 terminal with the AWS CLI installed, run the following command to create an IAM policy to
 access AMB Query API operations:
 
@@ -338,7 +338,7 @@ To run these Node examples, the following prerequisites apply:
    your machine. You can find installation instruction for your OS [here](https://github.com/nvm-sh/nvm "https://github.com/nvm-sh/nvm").
 2. Use the `node --version` command and confirm that you are using _Node
    version 14_ or higher. If required, you can use the `nvm install
-14` command, followed by the `nvm use 14` command to install
+ 14` command, followed by the `nvm use 14` command to install
    _version 14_.
 3. The environment variables `AWS_ACCESS_KEY_ID` and
    `AWS_SECRET_ACCESS_KEY` must contain the credentials that are associated with the
@@ -584,7 +584,7 @@ The following example shows how to get a token's balance on the _Ethereum Mainne
 
 1. Open the Amazon Managed Blockchain console at [https://console.aws.amazon.com/managedblockchain/](https://console.aws.amazon.com/managedblockchain/ "https://console.aws.amazon.com/managedblockchain/").
 2. Choose **Query editor** from the **Query** section.
-3. Choose **ETHEREUM_MAINNET** as the **Blockchain network**.
+3. Choose **ETHEREUM\_MAINNET** as the **Blockchain network**.
 4. Choose **GetTokenBalance** as the **Query type**.
 5. Enter your **Blockchain address** for the token.
 6. Enter the **Contract address** for the token.
