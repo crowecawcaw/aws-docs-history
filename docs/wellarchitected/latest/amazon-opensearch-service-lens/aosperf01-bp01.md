@@ -25,7 +25,7 @@ to data nodes significantly influences a domain's performance.
   30GB for _search-intensive_ workloads, and
   30GB to 50GB for _log analytics_ and
   _time-series_ data processing. Use `GET
-_cat/shards` to view shard size.
+ _cat/shards` to view shard size.
 - If your indices have excessively small shards (less than 10GB
   in size), consider reindexing the data with a reduced number
   shards for that index to potentially boost performance and

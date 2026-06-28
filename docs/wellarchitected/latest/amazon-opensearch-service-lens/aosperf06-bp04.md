@@ -1,6 +1,6 @@
 # AOSPERF06-BP04 Evaluate `filter_path` criteria
 
-Reduce response and request sizes by optimizing the filter_path
+Reduce response and request sizes by optimizing the filter\_path
 criteria, minimizing download traffic.
 
 **Level of risk exposed if this best practice

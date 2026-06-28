@@ -49,7 +49,7 @@ PUT /my-index/_settings
           }
 ```
 
-- You can also use the auto_expand_replicas feature to
+- You can also use the auto\_expand\_replicas feature to
   dynamically adjust the number of replicas in your OpenSearch Service domain based on changes to the cluster, such as adding or
   removing data nodes. As a result, your replica count will
   match the number of data nodes you have at any specific

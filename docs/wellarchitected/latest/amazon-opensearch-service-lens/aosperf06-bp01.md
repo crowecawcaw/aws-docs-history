@@ -1,13 +1,13 @@
 # AOSPERF06-BP01 Identify index refresh controls for optimal ingestion performance
 
 Improve indexing throughput and speed by adjusting the
-refresh_interval value to more than 30 seconds.
+refresh\_interval value to more than 30 seconds.
 
 **Level of risk exposed if this best practice
 is not established:** Medium
 
 **Desired outcome**: The
-refresh_interval value is set to more than 30 seconds, which could
+refresh\_interval value is set to more than 30 seconds, which could
 potentially lead to increased indexing throughput and faster
 indexing speeds.
 
