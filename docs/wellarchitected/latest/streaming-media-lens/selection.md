@@ -1,8 +1,8 @@
 # Selection
 
-| SM_PERF1: How do you optimize media delivery through media origination and<br>processing? |
-| ----------------------------------------------------------------------------------------- |
-| **SM_PBP1 – Select an appropriate origin technology for<br>your workload**                |
+| SM\_PERF1: How do you optimize media delivery through media origination and<br>processing? |
+| ------------------------------------------------------------------------------------------ |
+| **SM\_PBP1 – Select an appropriate origin technology for<br>your workload**                |
 
 There are two origin approaches that can be used to optimize
 performance of your workload — pass-through and dynamic.
@@ -65,15 +65,15 @@ live latency, and value simplicity over flexibility. If you have
 a diverse client ecosystem and require advanced origin features
 like live-to-VOD recording, you should use a dynamic origin.
 
-| SM_PERF2: Hw do you approach media source contribution?                                          |
-| ------------------------------------------------------------------------------------------------ |
-| **SM_PBP2 – Begin with the highest-quality sources that you<br>can reasonably acquire**          |
-| **SM_PBP3 – Use specialized media transport and<br>acceleration protocols**                      |
-| **SM_PBP4 – Use private network connectivity between your<br>content provider and media ingest** |
+| SM\_PERF2: Hw do you approach media source contribution?                                          |
+| ------------------------------------------------------------------------------------------------- |
+| **SM\_PBP2 – Begin with the highest-quality sources that you<br>can reasonably acquire**          |
+| **SM\_PBP3 – Use specialized media transport and<br>acceleration protocols**                      |
+| **SM\_PBP4 – Use private network connectivity between your<br>content provider and media ingest** |
 
 There are two ingest patterns for video applications,
 _real-time_
-and *file-based*. Real-time workloads often
+and _file-based_. Real-time workloads often
 include a business requirement for reliability and low latency,
 while file-based transfers for mezzanine files or archive
 workloads generally prioritize efficiency of data movement.

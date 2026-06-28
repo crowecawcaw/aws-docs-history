@@ -7,9 +7,9 @@ applications. As media assets can easily reach hundreds of
 gigabytes in size, you should develop a storage strategy that
 takes into account the access patterns of the content.
 
-| SM_COST1: What is your strategy for optimizing object storage and data transfer<br>costs?                |
-| -------------------------------------------------------------------------------------------------------- |
-| **SM_CBP2 –Trace and limit data transfer between services,<br>Availability Zones, Regions, and clients** |
+| SM\_COST1: What is your strategy for optimizing object storage and data transfer<br>costs?                |
+| --------------------------------------------------------------------------------------------------------- |
+| **SM\_CBP2 –Trace and limit data transfer between services,<br>Availability Zones, Regions, and clients** |
 
 We recommend that you prioritize a strategy for storage
 lifecycle and data transfer, as these often have the largest
@@ -48,10 +48,10 @@ performance for viewers. When content does need to span
 Availability Zones, Regions, or incur outbound costs, use the
 most efficient compression possible to minimize cost.
 
-| SM_COST2: What is your strategy for optimizing content processing<br>costs?   |
-| ----------------------------------------------------------------------------- |
-| **SM_CBP3 – Baseline resources and throughput for media<br>processing tasks** |
-| **SM_CBP4 – Run media processing tasks in parallel**                          |
+| SM\_COST2: What is your strategy for optimizing content processing<br>costs?   |
+| ------------------------------------------------------------------------------ |
+| **SM\_CBP3 – Baseline resources and throughput for media<br>processing tasks** |
+| **SM\_CBP4 – Run media processing tasks in parallel**                          |
 
 Consumer demand for more content choices at higher quality
 (resolution, color-depth, frame rate) puts pressure on

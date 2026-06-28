@@ -1,9 +1,9 @@
 # Data protection
 
-| SM_SEC6: How do you protect content at-rest and in-transit to prevent<br>unauthorized distribution?            |
-| -------------------------------------------------------------------------------------------------------------- |
-| **SM_SBP12 – Collaborate with business and legal<br>stakeholders to align on content protection requirements** |
-| **SM_SBP13 – Select a content protection scheme that meets<br>business objectives**                            |
+| SM\_SEC6: How do you protect content at-rest and in-transit to prevent<br>unauthorized distribution?            |
+| --------------------------------------------------------------------------------------------------------------- |
+| **SM\_SBP12 – Collaborate with business and legal<br>stakeholders to align on content protection requirements** |
+| **SM\_SBP13 – Select a content protection scheme that meets<br>business objectives**                            |
 
 The Well-Architected Framework covers best practices for any
 workload when protecting data in transit and at rest, but when
@@ -119,7 +119,7 @@ value of the content being protected.
 | (PRO) Supported by all browsers through EME and mobile<br>players                                                                  | (CON) Support varies by device and browser, often<br>requiring multi-DRM approach and increased costs                                                                             |
 | (PRO) Encryption implementation can be done with<br>standards-based, open sources tools and most encoding<br>and packaging systems | (CON) Encryption implementation varies by DRM system<br>provider and may require A commercial agreement to<br>implement                                                           |
 | (PRO) Simple backend implementation                                                                                                | (PRO) Decryption key is only transferred to a protected<br>space in device memory or in browser memory (EME) TEE                                                                  |
-| (CON) Decryption key is supplied to player \*in<br>the clear<br>• at some point in the playback                                    | (PRO) Support application of complex business rules. For<br>example<br>• offline playback, revocation, single-use<br>tokens, multi-key encryption to enforce separate<br>policies |
+| (CON) Decryption key is supplied to player *in<br>the clear<br>• at some point in the playback                                     | (PRO) Support application of complex business rules. For<br>example<br>• offline playback, revocation, single-use<br>tokens, multi-key encryption to enforce separate<br>policies |
 
 _Comparison of clear key and DRM systems for content
 protection_

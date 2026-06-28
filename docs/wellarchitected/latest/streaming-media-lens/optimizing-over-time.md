@@ -7,9 +7,9 @@ of content and striving to lower video data rates while
 maintaining, or ideally improving quality through encoder
 optimization.
 
-| SM_COST3: How do you minimize distribution costs while maintaining visual<br>quality?                                         |
-| ----------------------------------------------------------------------------------------------------------------------------- |
-| **SM_CBP5 – Use objective and subjective measurement<br>techniques to benchmark and improve video compression<br>efficiency** |
+| SM\_COST3: How do you minimize distribution costs while maintaining visual<br>quality?                                         |
+| ------------------------------------------------------------------------------------------------------------------------------ |
+| **SM\_CBP5 – Use objective and subjective measurement<br>techniques to benchmark and improve video compression<br>efficiency** |
 
 To optimize quality while balancing delivery costs, you should
 focus on media processing and compression. The codec you use

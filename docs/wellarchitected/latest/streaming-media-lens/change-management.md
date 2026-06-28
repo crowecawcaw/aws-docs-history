@@ -18,10 +18,10 @@ convention for the components that make up the workflow, for
 instance, name the component with identifiers for asset, service
 Region, and AZ.
 
-| SM_REL2: How does your streaming media workload adapt to viewer demand?                  |
-| ---------------------------------------------------------------------------------------- |
-| **SM_RBP4 – Use a CDN and plan capacity with your<br>providers**                         |
-| **SM_RBP5 – Design your origin service to automatically<br>scale to meet viewer demand** |
+| SM\_REL2: How does your streaming media workload adapt to viewer demand?                  |
+| ----------------------------------------------------------------------------------------- |
+| **SM\_RBP4 – Use a CDN and plan capacity with your<br>providers**                         |
+| **SM\_RBP5 – Design your origin service to automatically<br>scale to meet viewer demand** |
 
 The relationship between the client requests, delivery caching,
 and origin scaling is the most important area to examine when

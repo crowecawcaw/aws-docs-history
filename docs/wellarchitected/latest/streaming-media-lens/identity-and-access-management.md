@@ -8,10 +8,10 @@ connect with employees, streams can carry commercially sensitive
 material. A strong identity foundation protects your content,
 viewers, and confidential business information. 
 
-| SM_SEC1: How do you authorize access to content and content ingest?                                                                                 |
+| SM\_SEC1: How do you authorize access to content and content ingest?                                                                                |
 | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **SM\_ SBP1 – Use an identity provider to authenticate<br>viewers and access policies to implement least privilege access to protected<br>content** |
-| **SM_SBP2 – Restrict content origin access to allow only<br>authorized content distribution networks**                                              |
+| **SM\_SBP2 – Restrict content origin access to allow only<br>authorized content distribution networks**                                             |
 
 Whether on mobile, desktop, or SmartTV, web applications serve
 as the box office for audiences interested in your content.

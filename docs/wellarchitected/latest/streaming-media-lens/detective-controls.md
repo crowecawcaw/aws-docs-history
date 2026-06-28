@@ -11,11 +11,11 @@ combination of client and infrastructure logging can be used to
 baseline expected content access behaviors and alert upon
 deviations.
 
-| SM_SEC2: How do you monitor access to your media distribution workload?           |
-| --------------------------------------------------------------------------------- |
-| **SM_SBP3 – Monitor for fraudulent access<br>attempts**                           |
-| **SM_SEC3 – How do you monitor unauthorized re-distribution<br>of your content?** |
-| **SM_SBP4 – Implement content or sessions<br>forensics**                          |
+| SM\_SEC2: How do you monitor access to your media distribution workload?           |
+| ---------------------------------------------------------------------------------- |
+| **SM\_SBP3 – Monitor for fraudulent access<br>attempts**                           |
+| **SM\_SEC3 – How do you monitor unauthorized re-distribution<br>of your content?** |
+| **SM\_SBP4 – Implement content or sessions<br>forensics**                          |
 
 For example, content requests through Amazon CloudFront can be
 logged and aggregated into Amazon S3. Amazon Athena can then

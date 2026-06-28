@@ -1,14 +1,14 @@
 # Workload architecture
 
-| SM_REL1: How does your streaming infrastructure withstand failures in ingest,<br>processing, origination, or delivery components?                                     |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **SM_RBP1 – Document all workload dependencies and expected<br>viewer experience in the event of component failure**                                                  |
-| **SM_RBP2 – Design live streaming ingest architecture to<br>withstand source failure by ingesting redundant video signals that take diverse<br>network paths to AWS** |
-| **SM_RBP3 – Design live streaming workflow to withstand<br>individual processing and origination failures by implementing redundant video<br>pipelines**              |
+| SM\_REL1: How does your streaming infrastructure withstand failures in ingest,<br>processing, origination, or delivery components?                                     |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **SM\_RBP1 – Document all workload dependencies and expected<br>viewer experience in the event of component failure**                                                  |
+| **SM\_RBP2 – Design live streaming ingest architecture to<br>withstand source failure by ingesting redundant video signals that take diverse<br>network paths to AWS** |
+| **SM\_RBP3 – Design live streaming workflow to withstand<br>individual processing and origination failures by implementing redundant video<br>pipelines**              |
 
 Closely examine both hard and soft service dependencies to ensure that failure
 conditions are well understood. Engage directly with service partners to understand failure
-conditions *before* issues arise. If problems do occur, notify the end
+conditions _before_ issues arise. If problems do occur, notify the end
 user and protect their experience by offering alternate content. Use postmortems to learn
 from experiences and develop action plans. 
 

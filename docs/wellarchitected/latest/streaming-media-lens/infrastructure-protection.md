@@ -6,11 +6,11 @@ endpoints, content origin endpoints, DRM services, and the
 client, from unintended or unauthorized access or potential
 vulnerabilities. 
 
-| SM_SEC4: How do you protect content ingest endpoints?                        |
-| ---------------------------------------------------------------------------- |
-| **SM_SBP5 – Encrypt content ingest traffic using<br>TLS**                    |
-| **SM_SBP6 – Use private connectivity when working with<br>partners**         |
-| **SM_SBP7 – Encrypt content at rest when delivering via<br>physical medium** |
+| SM\_SEC4: How do you protect content ingest endpoints?                        |
+| ----------------------------------------------------------------------------- |
+| **SM\_SBP5 – Encrypt content ingest traffic using<br>TLS**                    |
+| **SM\_SBP6 – Use private connectivity when working with<br>partners**         |
+| **SM\_SBP7 – Encrypt content at rest when delivering via<br>physical medium** |
 
 Streaming media services depend on a reliable content ingest
 endpoint to upload, process, and deliver engaging content. These
@@ -80,12 +80,12 @@ been transferred to AWS, your data is erased from the device
 using standards defined by National Institute of Standards and
 Technology. 
 
-| SM_SEC5: How do you protect content origin from unauthorized access and<br>malicious attacks? |
-| --------------------------------------------------------------------------------------------- |
-| **SM_SBP8 – Use DDoS protection service to maintain content<br>availability**                 |
-| **SM_SBP9 – Restrict content origin access to only allow<br>known entities**                  |
-| **SM_SBP10 – Use a web application firewall to monitor and<br>control content access**        |
-| **SM_SBP11 – Encrypt origin to client communication in<br>transit using TLS**                 |
+| SM\_SEC5: How do you protect content origin from unauthorized access and<br>malicious attacks? |
+| ---------------------------------------------------------------------------------------------- |
+| **SM\_SBP8 – Use DDoS protection service to maintain content<br>availability**                 |
+| **SM\_SBP9 – Restrict content origin access to only allow<br>known entities**                  |
+| **SM\_SBP10 – Use a web application firewall to monitor and<br>control content access**        |
+| **SM\_SBP11 – Encrypt origin to client communication in<br>transit using TLS**                 |
 
 Protect your content origin layer from distributed denial of
 service (DDoS) attacks at both the network level (Layer 3) and

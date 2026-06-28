@@ -8,14 +8,14 @@ similar show or event has aired in the past, Nielsen or Comscore
 data can provide useful estimates for peak concurrent viewers.
 With this model, you can develop accurate load tests that
 simulate real-world conditions. Be sure to test both individual
-service components *and* the end-to-end
+service components _and_ the end-to-end
 system with load tests that emulate end user clients.
 
-| SM_OPS1: How do you prepare for large-scale streaming media events?                                |
-| -------------------------------------------------------------------------------------------------- |
-| **SM_OBP1 – Ensure that your content delivery<br>infrastructure can scale to the expected demand** |
-| **SM_OBP2 – Evaluate and adjust Service Quotas to match your workload’s needs in<br>advance**      |
-| **SM_OBP3 – Engage with AWS Support programs to assist with events**                               |
+| SM\_OPS1: How do you prepare for large-scale streaming media events?                                |
+| --------------------------------------------------------------------------------------------------- |
+| **SM\_OBP1 – Ensure that your content delivery<br>infrastructure can scale to the expected demand** |
+| **SM\_OBP2 – Evaluate and adjust Service Quotas to match your workload’s needs in<br>advance**      |
+| **SM\_OBP3 – Engage with AWS Support programs to assist with events**                               |
 
 For origin services, estimate load in Transactions Per Second
 (TPS) or Requests Per Second (RPS). We advise that you estimate

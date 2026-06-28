@@ -1,10 +1,10 @@
 # Tradeoffs
 
-| SM_PERF5: What tradeoffs have you made in media processing to improve client<br>experience and lower bandwidth costs? |
-| --------------------------------------------------------------------------------------------------------------------- |
-| **SM_PBP11 – Optimize the number of adaptive bitrate<br>renditions for your workload**                                |
-| **SM_PBP12 – Select appropriate encoding settings for your<br>content type and quality targets**                      |
-| **SM_PBP13 – Trade higher content processing cost for lower<br>delivery costs for popular content**                   |
+| SM\_PERF5: What tradeoffs have you made in media processing to improve client<br>experience and lower bandwidth costs? |
+| ---------------------------------------------------------------------------------------------------------------------- |
+| **SM\_PBP11 – Optimize the number of adaptive bitrate<br>renditions for your workload**                                |
+| **SM\_PBP12 – Select appropriate encoding settings for your<br>content type and quality targets**                      |
+| **SM\_PBP13 – Trade higher content processing cost for lower<br>delivery costs for popular content**                   |
 
 For media delivery applications, protocol selection and
 configuration have a dramatic impact on client performance.
@@ -39,10 +39,10 @@ creating adaptive bitrate content. If you are using AWS Elemental MediaConvert, 
 capability can automatically determine an optimal ABR ladder for
 you based on the specific characteristics of the content.
 
-| SM_PERF6: What tradeoffs have you made to lower live glass-to-glass<br>latency?          |
-| ---------------------------------------------------------------------------------------- |
-| **SM_PBP14 – Optimize processing, origination, delivery,<br>and client for low latency** |
-| **SM_PBP15 – Remove unnecessary processing<br>stages**                                   |
+| SM\_PERF6: What tradeoffs have you made to lower live glass-to-glass<br>latency?          |
+| ----------------------------------------------------------------------------------------- |
+| **SM\_PBP14 – Optimize processing, origination, delivery,<br>and client for low latency** |
+| **SM\_PBP15 – Remove unnecessary processing<br>stages**                                   |
 
 Latency is inherent in any broadcasting or streaming platform.
 Over-the-air live broadcast glass-to-glass latency ranges
@@ -75,7 +75,7 @@ HTTP 2.0 at the edge and HTTP 1.1 origins. As previously
 mentioned, encoding parameters have an impact on latency and
 optimizations for latency typically impact the video quality.
 For example, setting an
-encoder *lookahead* size to a low value will
+encoder _lookahead_ size to a low value will
 improve latency, but reduces output quality for demanding scene
 changes. If your content does not have dramatic scene changes,
 keeping this value low will not have a noticeable impact video

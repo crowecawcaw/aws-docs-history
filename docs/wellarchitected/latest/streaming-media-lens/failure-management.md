@@ -1,9 +1,9 @@
 # Failure management
 
-| SM_REL3: How does your streaming infrastructure respond to or heal from<br>failures in origination or delivery components? |
-| -------------------------------------------------------------------------------------------------------------------------- |
-| **SM_RBP6 – Design your streaming media workflow to<br>automatically distribute traffic to redundant origins**             |
-| **SM_RBP7 – Monitor live streaming manifests for expected<br>segment update patterns and to alert on staleness**           |
+| SM\_REL3: How does your streaming infrastructure respond to or heal from<br>failures in origination or delivery components? |
+| --------------------------------------------------------------------------------------------------------------------------- |
+| **SM\_RBP6 – Design your streaming media workflow to<br>automatically distribute traffic to redundant origins**             |
+| **SM\_RBP7 – Monitor live streaming manifests for expected<br>segment update patterns and to alert on staleness**           |
 
 The origin component exposes content endpoints and is at the
 heart of the streaming media workload. Managing failure must

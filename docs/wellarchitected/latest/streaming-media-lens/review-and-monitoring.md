@@ -1,11 +1,11 @@
 # Review and monitoring
 
-| SM_PERF3: How do you use caching to improve content delivery<br>performance?      |
-| --------------------------------------------------------------------------------- |
-| **SM_PBP5 – Use a content delivery network and monitor your<br>cache-hit-ratio**  |
-| **SM_PBP6 – Ensure that cache-control headers for your<br>content are optimized** |
-| **SM_PBP7 – Have a cache invalidation<br>runbook**                                |
-| **SM_PBP8 – Minimize negative (error)<br>caching**                                |
+| SM\_PERF3: How do you use caching to improve content delivery<br>performance?      |
+| ---------------------------------------------------------------------------------- |
+| **SM\_PBP5 – Use a content delivery network and monitor your<br>cache-hit-ratio**  |
+| **SM\_PBP6 – Ensure that cache-control headers for your<br>content are optimized** |
+| **SM\_PBP7 – Have a cache invalidation<br>runbook**                                |
+| **SM\_PBP8 – Minimize negative (error)<br>caching**                                |
 
 A Content Delivery Network (CDN) scales video delivery by serving content from local
 caches nearest the user and providing optimized routes to origination services. Caching
@@ -64,7 +64,7 @@ feature, using variable file names, or using query string
 parameters to “break” the cache when content is changed.
 
 Caching of error responses from the origin, also known
-as *negative caching*, should be minimized as
+as _negative caching_, should be minimized as
 some streaming clients might proactively request future segments
 before they are published to minimize latency. For live
 streaming, it should be disabled completely for manifest and
@@ -74,10 +74,10 @@ origin errors for five minutes by default, but you
 can [configure
 it to suit your needs](../../../AmazonCloudFront/latest/DeveloperGuide/custom-error-pages-expiration.md "../../../AmazonCloudFront/latest/DeveloperGuide/custom-error-pages-expiration.md").
 
-| SM_PERF4: How do you monitor viewer experience?                 |
-| --------------------------------------------------------------- |
-| **SM_PBP9 – Collect and analyze real user logs and<br>metrics** |
-| **SM_PBP10 – Recognize and respond to playback<br>anomalies**   |
+| SM\_PERF4: How do you monitor viewer experience?                 |
+| ---------------------------------------------------------------- |
+| **SM\_PBP9 – Collect and analyze real user logs and<br>metrics** |
+| **SM\_PBP10 – Recognize and respond to playback<br>anomalies**   |
 
 Infrastructure logging and monitoring only provides you with
 part of the picture. We recommend that you design a client that
