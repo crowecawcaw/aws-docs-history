@@ -11,33 +11,32 @@ Console.**
 
 **Step 1: Navigate to VPC Console**
 
-1.  Sign in to the [Amazon VPC Console](https://us-east-2.signin.aws.amazon.com "https://us-east-2.signin.aws.amazon.com").
-2.  In the left navigation pane, choose **Endpoints**.
-3.  Choose **Create Endpoint**.
-    **Step 2: Configure Endpoint Settings**
+1. Sign in to the [Amazon VPC Console](https://us-east-2.signin.aws.amazon.com "https://us-east-2.signin.aws.amazon.com").
+2. In the left navigation pane, choose **Endpoints**.
+3. Choose **Create Endpoint**.
+   **Step 2: Configure Endpoint Settings**
 
-4.  Under **Service Category**, select **AWS
-    services.**
-5.  Under **Service Name**, search for `wickr` and
-    select the appropriate service:
+4. Under **Service Category**, select **AWS
+   services.**
+5. Under **Service Name**, search for `wickr` and
+   select the appropriate service:
 
-        * **For Admin**:
-         `com.amazonaws.`your-region`.wickr-admin`
-        * **For Messaging**:
-         `com.amazonaws.`your-region`.wickr-messaging`
-        * **For Calling**:
-         `com.amazonaws.`your-region`.wickr-calling`
+   - **For Admin**:
+     `com.amazonaws.`your-region`.wickr-admin`
+   - **For Messaging**:
+     `com.amazonaws.`your-region`.wickr-messaging`
+   - **For Calling**:
+     `com.amazonaws.`your-region`.wickr-calling`
+     **Step 3: Network Configuration**
 
-    **Step 3: Network Configuration**
-
-6.  Under **VPC**, select your target VPC.
-7.  Under **Subnets**, choose subnets in multiple Availability
-    Zones for high availability.
-8.  Under **Enable private DNS name**, select the checkbox. This
-    enables support to private DNS names.
-9.  Under **Security Groups**, select or create security groups
-    you want to associate with the endpoint network interfaces.
-    **Step 4: Create Endpoint**
+6. Under **VPC**, select your target VPC.
+7. Under **Subnets**, choose subnets in multiple Availability
+   Zones for high availability.
+8. Under **Enable private DNS name**, select the checkbox. This
+   enables support to private DNS names.
+9. Under **Security Groups**, select or create security groups
+   you want to associate with the endpoint network interfaces.
+   **Step 4: Create Endpoint**
 
 10. Review your configuration.
 11. Optionally, you can add or remove tags. Tags are name-value pairs that you use

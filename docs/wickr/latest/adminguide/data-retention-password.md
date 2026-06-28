@@ -27,25 +27,25 @@ using one of the following options:
 ## Password rotation
 
 The data retention bot (minimum version 6.66.01.00) can rotate its Wickr account
-password programmatically at startup by setting the WICKRIO_ROTATE_PASSWORD
+password programmatically at startup by setting the WICKRIO\_ROTATE\_PASSWORD
 environment variable.
 
 ## Usage
 
-Set the environment variable WICKRIO_ROTATE_PASSWORD when starting the bot with
+Set the environment variable WICKRIO\_ROTATE\_PASSWORD when starting the bot with
 docker run:
 
 `-e WICKRIO_ROTATE_PASSWORD="`new_password`"`
 
 On startup, after the bot successfully logs in with its current password (from
-WICKRIO_BOT_PASSWORD or AWS Secrets Manager), it does the following:
+WICKRIO\_BOT\_PASSWORD or AWS Secrets Manager), it does the following:
 
-1. Read WICKRIO_ROTATE_PASSWORD from the process environment.
+1. Read WICKRIO\_ROTATE\_PASSWORD from the process environment.
 2. Validate the new password (minimum 12 characters, must differ from current
    password).
 3. Call the AWS Wickr service to rotate the password.
 
-After a successful rotation, update WICKRIO_BOT_PASSWORD (or the secret in AWS
+After a successful rotation, update WICKRIO\_BOT\_PASSWORD (or the secret in AWS
 Secrets Manager) to the new password before the next restart.
 
 The new generated password will be displayed as shown in the following example.

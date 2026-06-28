@@ -93,7 +93,7 @@ Complete the following procedure to setup API permissions in Microsoft Entra.
    permission**.
 
 ![Add an permission image.](images/entra-api-permissions.png) 3. Select **Microsoft Graph** and then select **Delegated
-Permissions** . 4. Select the checkbox for **email** , **offline_access**,
+Permissions** . 4. Select the checkbox for **email** , **offline\_access**,
 **openid**, **profile**. 5. Choose **Add permissions**.
 Complete the following procedure to expose an API for each of the 4 scopes in Microsoft
 Entra.
@@ -109,42 +109,41 @@ URI should match the **Application ID** (created in _Register
 AWS Wickr as an application_).
 
 ![Add a scope image.](images/entra-add-scope.png) 3. Choose **Save and continue**. 4. Select the **Admins and users** tag, and then enter the scope name as
-**offline_access**. 5. Select **State**, and then select **Enable**. 6. Choose **Add scope**. 7. Repeat steps 1—6 of this section to add the following scopes: **email**,
+**offline\_access**. 5. Select **State**, and then select **Enable**. 6. Choose **Add scope**. 7. Repeat steps 1—6 of this section to add the following scopes: **email**,
 **openid**, and **profile**.
 
 ![Add scopes image.](images/entra-scopes-api.png) 8. Under **Authorized client applications**, choose **Add a client
 application**. 9. Select all four scopes created in the previous step. 10. Enter or verify the **Application (client) ID**. 11. Choose **Add application**.
 Complete the following configuration procedure in the AWS Wickr console.
 
-1.  Open the AWS Management Console for Wickr at [https://console.aws.amazon.com/wickr/](https://console.aws.amazon.com/wickr/ "https://console.aws.amazon.com/wickr/").
-2.  On the **Networks page**, select the network name to navigate to that
-    network.
-3.  In the navigation pane, choose **User management**, and then choose
-    **Configure SSO**.
-4.  Enter the following details:
+1. Open the AWS Management Console for Wickr at [https://console.aws.amazon.com/wickr/](https://console.aws.amazon.com/wickr/ "https://console.aws.amazon.com/wickr/").
+2. On the **Networks page**, select the network name to navigate to that
+   network.
+3. In the navigation pane, choose **User management**, and then choose
+   **Configure SSO**.
+4. Enter the following details:
 
-        * **Issuer** — This is the endpoint that was modified previously (E.g.
-         `https://login.microsoftonline.com/1ce43025-e4b1-462d-a39f-337f20f1f4e1/v2.0/`).
-        * **Client ID** — This is the **Application (client)
-         ID** from the **Overview** pane.
-        * **Client secret (optional)** — This is the **Client
-         secret** from the **Certificates & secrets** pane.
-        * **Scopes** — These are the scope names exposed on the **Expose
-         an API** pane. Enter **email**, **profile**,
-         **offline\_access**, and **openid**.
-        * **Custom username scope (optional)** — Enter
-         **upn**.
-        * **Company ID**  — This can be a unique text value including
-         alphanumeric and underscore characters. This phrase is what your users will enter when
-         registering on new devices.
+   - **Issuer** — This is the endpoint that was modified previously (E.g.
+     `https://login.microsoftonline.com/1ce43025-e4b1-462d-a39f-337f20f1f4e1/v2.0/`).
+   - **Client ID** — This is the **Application (client)
+     ID** from the **Overview** pane.
+   - **Client secret (optional)** — This is the **Client
+     secret** from the **Certificates & secrets** pane.
+   - **Scopes** — These are the scope names exposed on the **Expose
+     an API** pane. Enter **email**, **profile**,
+     **offline\_access**, and **openid**.
+   - **Custom username scope (optional)** — Enter
+     **upn**.
+   - **Company ID** — This can be a unique text value including
+     alphanumeric and underscore characters. This phrase is what your users will enter when
+     registering on new devices.
+     _Other fields are optional._
 
-    _Other fields are optional._
-
-5.  Choose **Next**.
-6.  Verify the details in the **Review and save** page, and then choose
-    **Save changes**.
-    SSO configuration is complete. To verify, you can now add a user to the application in
-    Microsoft Entra, and login with the user using SSO and Company ID.
+5. Choose **Next**.
+6. Verify the details in the **Review and save** page, and then choose
+   **Save changes**.
+   SSO configuration is complete. To verify, you can now add a user to the application in
+   Microsoft Entra, and login with the user using SSO and Company ID.
 
 For more information on how to invite and onboard users, see [Create and invite
 users](getting-started.md#getting-started-step3 "getting-started.md#getting-started-step3").
@@ -162,7 +161,7 @@ Following are common issues you might encounter and suggestions for resolving th
   - Make sure the user is added to the Wickr application you registered in Microsoft
     Entra.
   - Make sure the user is using the correct company ID, including the prefix.
-    _E.g. UE1-DemoNetworkW_drqtva_.
+    _E.g. UE1-DemoNetworkW\_drqtva_.
   - The **Client Secret** may not be set correctly in the
     **AWS Wickr SSO Configuration**. Re-set it by creating another
     **Client secret** in Microsoft Entra and set the new **Client

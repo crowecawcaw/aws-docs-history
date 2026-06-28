@@ -103,6 +103,10 @@ group in different tabs. 5. The following tabs and corresponding settings are av
     	 a Master recovery key when an account is created. Users can
     	 approve the addition of a new device to their account if no
     	 other devices are available.
+    	+ **Non SSO timeout** — Configure a
+    	 session timeout for non-SSO users requiring password
+    	 re-entry in the app after an absolute period of time,
+    	 regardless of user activity.
     * **Notification and visibility** —
      Configure notification and visibility settings such as message
      previews in notifications for members of the group.
@@ -155,4 +159,4 @@ group in different tabs. 5. The following tabs and corresponding settings are av
      ATAK?](what-is-atak.md "what-is-atak.md").
 
 6. Choose **Save** to save edits you make to the security
-   group details.
+group details.

@@ -20,3 +20,4 @@ configuration, and data retention settings.
 - [Ports and domains to allow list for your Wickr network](allow-list-ports-domains.md "allow-list-ports-domains.md")
 - [GovCloud cross boundary classification and federation](govcloud-cross-boundary.md "govcloud-cross-boundary.md")
 - [File preview for AWS Wickr](file-preview.md "file-preview.md")
+- [Consent pop-up for AWS Wickr](consent-popup.md "consent-popup.md")

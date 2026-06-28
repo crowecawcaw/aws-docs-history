@@ -7,6 +7,15 @@ Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-clas
 To help you keep track of the ongoing updates and improvements to Wickr, we publish
 release notices that describe recent changes.
 
+## June 2026
+
+- **Session Timeout** - Admins can now configure an inactivity
+  timeout that automatically locks the Wickr client after a specified period.
+  Users are prompted to re-authenticate to resume their session.
+- **Consent Banner** - Admins can now configure a consent
+  banner that displays to users upon login. Users must acknowledge the banner
+  before accessing the application.
+
 ## March 2026
 
 - Accessibility has been improved throughout the admin console, including

@@ -72,6 +72,6 @@ run, additional scaling strategies should be evaluated.
 
 For Disaster Recovery, we recommend Snapshot Lifecycles on the Amazon EBS volume(s) and Amazon S3
 Cross-Region Replication. To configure how often messages are sent to Amazon S3, you can set
-the environment variable WICKRIO_COMP_FILESIZE or `WICKRIO_COMP_TIMEROTATE`
+the environment variable WICKRIO\_COMP\_FILESIZE or `WICKRIO_COMP_TIMEROTATE`
 to rotate on size or time. Message logs and file attachments will get delivered into the
 same prefix in the same bucket. For more information, see [Environment variables to configure data retention bot in AWS Wickr](data-retention-bot-env-variables.md "data-retention-bot-env-variables.md").

@@ -30,9 +30,8 @@ available:
      **Global federation** section of the page.
 
 7. On the **Edit federation** page, select
-   **Enable federation**.
-8. Choose **Save changes** to save the change and make it
-   effective for the security group.
+**Enable federation**. 8. Choose **Save changes** to save the change and make it
+effective for the security group.
 
 Registered users in the specific security group in your Wickr network can
 now interact with guest users. For more information, see [Guest
