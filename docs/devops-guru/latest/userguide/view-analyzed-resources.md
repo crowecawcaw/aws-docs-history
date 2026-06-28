@@ -50,52 +50,50 @@ information about the supported services and resources, see
 
 ###### To manage your DevOps Guru analysis coverage
 
-1.  Open the Amazon DevOps Guru console at [https://console.aws.amazon.com/devops-guru/](https://console.aws.amazon.com/devops-guru/ "https://console.aws.amazon.com/devops-guru/").
-2.  Expand **Analyzed resources** in the navigation pane.
-3.  Choose **Edit**.
-4.  Choose one of the following coverage options.
+1. Open the Amazon DevOps Guru console at [https://console.aws.amazon.com/devops-guru/](https://console.aws.amazon.com/devops-guru/ "https://console.aws.amazon.com/devops-guru/").
+2. Expand **Analyzed resources** in the navigation pane.
+3. Choose **Edit**.
+4. Choose one of the following coverage options.
 
-    - Choose **All account resources** if you want DevOps Guru to analyze all supported
-      resources in your AWS account and Region. If you choose this option,
-      your AWS account is your resource analysis coverage boundary. All resources
-      in each stack in your account are grouped into their own application. Any remaining
-      resources that are not in a stack are grouped into their own application.
-    - Choose **CloudFormation stacks** if you want DevOps Guru to
-      analyze the resources that are in stacks you choose, then choose one of
-      the following options.
+   - Choose **All account resources** if you want DevOps Guru to analyze all supported
+     resources in your AWS account and Region. If you choose this option,
+     your AWS account is your resource analysis coverage boundary. All resources
+     in each stack in your account are grouped into their own application. Any remaining
+     resources that are not in a stack are grouped into their own application.
+   - Choose **CloudFormation stacks** if you want DevOps Guru to
+     analyze the resources that are in stacks you choose, then choose one of
+     the following options.
 
-          + **All resources** – All resources that
-           are in stacks in your account are analyzed. Resources in each
-           stack are grouped into their own application. Any resources in
-           your account that are not in a stack are not analyzed.
-          + **Select stacks** – Select the stacks
-           that you want DevOps Guru to analyze. The resources in each stack you
-           select are grouped into their own application. You can enter
-           the name of a stack in **Find stacks** to
-           quickly locate a specific stack. You can select up to 1,000
-           stacks.
+     - **All resources** – All resources that
+       are in stacks in your account are analyzed. Resources in each
+       stack are grouped into their own application. Any resources in
+       your account that are not in a stack are not analyzed.
+     - **Select stacks** – Select the stacks
+       that you want DevOps Guru to analyze. The resources in each stack you
+       select are grouped into their own application. You can enter
+       the name of a stack in **Find stacks** to
+       quickly locate a specific stack. You can select up to 1,000
+       stacks.
+       For more information, see [Using CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md "working-with-cfn-stacks.md").
 
-      For more information, see [Using CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md "working-with-cfn-stacks.md").
+   - Choose **Tags** if you want DevOps Guru to analyze all
+     resources that contain the tags you choose. Choose a _key_, then
+     choose one of the following options.
 
-    - Choose **Tags** if you want DevOps Guru to analyze all
-      resources that contain the tags you choose. Choose a _key_, then
-      choose one of the following options.
+     - **All account resources** –Analyze all AWS resources in the current Region and account.
+       Resources with the selected tag key are grouped by tag value, if any exist.
+       Resources without this tag key are grouped and analyzed separately.
+     - **Choose specific tag values** – All resources that
+       contain a tag with the _key_ you chose are analyzed. DevOps Guru groups your
+       resources into applications by your tag's _values_.
+       For more
+       information, see [Using tags to identify resources in your DevOps Guru applications](working-with-resource-tags.md "working-with-resource-tags.md").
 
-          + **All account resources** –Analyze all AWS resources in the current Region and account.
-           Resources with the selected tag key are grouped by tag value, if any exist.
-           Resources without this tag key are grouped and analyzed separately.
-          + **Choose specific tag values** – All resources that
-           contain a tag with the *key* you chose are analyzed. DevOps Guru groups your
-           resources into applications by your tag's *values*.
+   - Choose **None** if you do not want DevOps Guru to analyze
+     any resources. This option disables DevOps Guru so that you stop incurring
+     charges from resource analyzation.
 
-      For more
-      information, see [Using tags to identify resources in your DevOps Guru applications](working-with-resource-tags.md "working-with-resource-tags.md").
-
-    - Choose **None** if you do not want DevOps Guru to analyze
-      any resources. This option disables DevOps Guru so that you stop incurring
-      charges from resource analyzation.
-
-5.  Choose **Save**.
+5. Choose **Save**.
 
 ## Removing analyzed resource view for users
 

@@ -34,7 +34,7 @@ performance anomaly experienced by your Amazon RDS DB instance.
 This section has the following fields:
 
 - **Resource name** – The name of the DB instance that is experiencing the anomaly.
-  In this example, the resource is named **prod_db_678**.
+  In this example, the resource is named **prod\_db\_678**.
 - **DB engine** – The name of the DB instance that experiencing the anomaly. In
   this example, the engine is **Aurora MySQL**.
 - **Anomaly severity** – The measure of the negative impact of the anomaly on your
@@ -103,7 +103,7 @@ The **Related metrics** table has two columns: **Metrics name** and
 
 The first column of every row has the following pieces of information:
 
-- **_`Name`_**
+- _**`Name`**_
   – The name of the metric. The first row identifies the metric as
   **CPU running tasks**.
 - **Currently** – The current value of the metric. In the first row, the current
