@@ -19,12 +19,11 @@ benefit from the following capabilities:
 - You can specify which Active Directory groups receive Amazon Chime Pro
   permissions.
 
-      + Multiple groups can be configured to receive Basic or Pro
-       permissions.
-      + Users must be a member of either group to sign in to Amazon Chime.
-      + Users in both groups receive a Pro license.
-
-  For more information about managing user permissions, see [Managing user permissions and access](manage-access.md "manage-access.md").
+  - Multiple groups can be configured to receive Basic or Pro
+    permissions.
+  - Users must be a member of either group to sign in to Amazon Chime.
+  - Users in both groups receive a Pro license.
+    For more information about managing user permissions, see [Managing user permissions and access](manage-access.md "manage-access.md").
 
 ## Prerequisites
 

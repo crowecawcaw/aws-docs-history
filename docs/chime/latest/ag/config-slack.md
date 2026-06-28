@@ -137,7 +137,7 @@ steps.
 
 1. Sign in to your AWS account.
 2. Sign in to your Slack workspace as an administrator.
-3. Go to [https://signin.id.ue1.app.chime.aws/auth/slack?purpose=app_authz](https://signin.id.ue1.app.chime.aws/auth/slack?purpose=app_authz "https://signin.id.ue1.app.chime.aws/auth/slack?purpose=app_authz").
+3. Go to [https://signin.id.ue1.app.chime.aws/auth/slack?purpose=app\_authz](https://signin.id.ue1.app.chime.aws/auth/slack?purpose=app_authz "https://signin.id.ue1.app.chime.aws/auth/slack?purpose=app_authz").
 4. Follow the prompts to create a new Team account in Amazon Chime or choose an
    existing account.
 

@@ -29,13 +29,13 @@ following APIs.
   In the CLI, run the following command:
 
   `aws chime redact-conversation-message --conversation-id
- `id_string`--message-id
-`id_string``
+   `id_string`--message-id
+  `id_string``
   - For chat room messages – Use the
     [RedactRoomMessage](../APIReference/API_RedactRoomMessage.md "../APIReference/API_RedactRoomMessage.md") API.
 
   In the CLI, run the following command:
 
   `aws chime redact-room-message --room-id
- `id_string`--message-id
-`id_string``
+   `id_string`--message-id
+  `id_string``

@@ -20,7 +20,7 @@ following authentication steps.
 1. Get the **Chime-Signature** header from the HTTP request.
 2. Get the **Chime-Request-Timestamp** header and the **body** of the request. Then, use a vertical bar as the delimiter between the two elements to form a string.
 3. Use the **SecurityToken** from the CreateBot response as the initial key of
-   **HMAC_SHA_256**, and hash the string that you created
+   **HMAC\_SHA\_256**, and hash the string that you created
    in step 2.
 4. Encode the hashed byte with Base64 encoder to a signature string.
 5. Compare this computed signature to the one in the **Chime-Signature** header.
@@ -78,7 +78,7 @@ authentication steps.
 
 2. Get the **body** of the request from the request payload.
 3. Use the **SecurityToken** from the `CreateBot` response as the
-   initial key of **HMAC_SHA_256**, and hash the string that
+   initial key of **HMAC\_SHA\_256**, and hash the string that
    you created.
 4. Encode the hashed byte with Base64 encoder to a signature string.
 5. Compare this computed signature to the one in the **Chime-Signature** header.

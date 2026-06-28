@@ -56,65 +56,69 @@ You can also go directly to the [AWS Support Center](https://console.aws.amazon.
     3. From the **Category** list, choose **Phone Number Port In**.
     4. Choose **Next step: Additional information**.
 
-4.  Under **Additional information**, do the following
+4. Under **Additional information**, do the following
 
     1. Under **Subject**, enter `Porting phone numbers
-in`.
+     in`.
     2. Under **Description**, enter the following information:
+
 
     For porting US numbers:
 
-        * Billing Telephone Number (BTN) of the account.
-        * Authorizing person’s name. This is the person in charge of account
-         billing with the current carrier.
-        * Current carrier, if known.
-        * Service account number, if this information is present with the
-         current carrier.
-        * Service PIN, if available.
-        * Service address and customer name, as they appear in your current
-         carrier contract.
-        * Requested date and time for the port.
-        * (Optional) If you want to port your Billing Telephone Number (BTN), select one of the
-         following options:
+
+
+
+    	* Billing Telephone Number (BTN) of the account.
+    	* Authorizing person’s name. This is the person in charge of account
+    	 billing with the current carrier.
+    	* Current carrier, if known.
+    	* Service account number, if this information is present with the
+    	 current carrier.
+    	* Service PIN, if available.
+    	* Service address and customer name, as they appear in your current
+    	 carrier contract.
+    	* Requested date and time for the port.
+    	* (Optional) If you want to port your Billing Telephone Number (BTN), select one of the
+    	 following options:
 
 
 
 
-        	+ **I am porting my BTN and I want to
-        	 replace it with a new BTN that I am providing. I can
-        	 confirm that this new BTN is on the same account with
-        	 the current carrier.**
-        	+ **I am porting my BTN and I want to
-        	 close out my account with my current
-        	 carrier.**
-        	+ **I am porting my BTN because my
-        	 account is currently set up so that each phone number is
-        	 its own BTN.** (Select this option only when
-        	 your account with the current carrier is set up this
-        	 way.)
-        	+ After you choose an option, attach your Letter of Agency (LOA) to the request.
-
+    		+ **I am porting my BTN and I want to
+    		 replace it with a new BTN that I am providing. I can
+    		 confirm that this new BTN is on the same account with
+    		 the current carrier.**
+    		+ **I am porting my BTN and I want to
+    		 close out my account with my current
+    		 carrier.**
+    		+ **I am porting my BTN because my
+    		 account is currently set up so that each phone number is
+    		 its own BTN.** (Select this option only when
+    		 your account with the current carrier is set up this
+    		 way.)
+    		+ After you choose an option, attach your Letter of Agency (LOA) to the request.
     **For porting international numbers:**
 
-        * You must use the SIP Media Application Dial-In product type for
-         non-US phone numbers.
-        * Type of number (Local or Toll-Free)
-        * Existing phone numbers to port in.
-        * Estimate usage volume
-        * Country
+
+
+
+    	* You must use the SIP Media Application Dial-In product type for
+    	 non-US phone numbers.
+    	* Type of number (Local or Toll-Free)
+    	* Existing phone numbers to port in.
+    	* Estimate usage volume
+    	* Country
     3. From the **Phone number type** list, select **Business Calling**,
-       **SIP Media Application Dial-In**, or **Voice Connector**.
+     **SIP Media Application Dial-In**, or **Voice Connector**.
     4. Under **Phone number**, enter at least one phone number, even if you're porting multiple
-       numbers.
+     numbers.
     5. Under **Porting Date**, enter the desired porting date.
     6. Under **Porting Time**, enter the desired time.
     7. Choose **Next step: Solve now or contact us**.
 
-5.  Under **Solve now or contact us**, choose **Contact us**.
-6.  From the **Preferred contact language list**, choose a language
-7.  Choose **Web** or **Phone**. If you choose
-    **Phone**, enter your phone number. When finished,
-    choose **Submit**.
+5. Under **Solve now or contact us**, choose **Contact us**. 6. From the **Preferred contact language list**, choose a language 7. Choose **Web** or **Phone**. If you choose
+**Phone**, enter your phone number. When finished,
+choose **Submit**.
 
 AWS Support lets you know whether your phone numbers can be ported from your
 existing phone carrier. If you can, you need to submit any required documents. The steps in the next section explain how to submit those documents.
@@ -219,16 +223,19 @@ You can also go directly to the [AWS Support Center](https://console.aws.amazon.
 
 4. Under **Additional information**, do the following
 
-   1. Under **Subject**, enter `Porting phone numbers
-out`.
-   2. Under **Description**, enter the following.
+    1. Under **Subject**, enter `Porting phone numbers
+     out`.
+    2. Under **Description**, enter the following.
 
-   `I would like to assign a pin to my phone number:
- Pin: ABCD123 Phone Number: 1234567890`
 
-   ###### Note
+    `I would like to assign a pin to my phone number:
+     Pin: ABCD123 Phone Number: 1234567890`
 
-   You must provide an alphanumeric PIN of 4 - 10 characters.
+
+
+    ###### Note
+
+    You must provide an alphanumeric PIN of 4 - 10 characters.
 
 AWS Support associates a PIN with the phone number. When requesting the port with your winning carrier, provide your AWS account ID and PIN. We will use that information
 to validate any port requests received for your number.
@@ -248,13 +255,13 @@ Support cancelled the porting order because of an issue with the port,
 such as a cancellation request from the carrier or from you. Support
 contacts you with details.
 
-**CANCEL_REQUESTED**
+**CANCEL\_REQUESTED**
 
 Support is processing a cancellation of the porting order because of an
 issue with the port, such as a cancellation request from the carrier or
 from you. Support contacts you with details.
 
-**CHANGE_REQUESTED**
+**CHANGE\_REQUESTED**
 
 Support is processing your change request, and the carrier response is
 pending. Allow for additional processing time.

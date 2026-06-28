@@ -28,33 +28,29 @@ following procedure.
 
 ###### To integrate a webhook with a chat room
 
-1.  Get the webhook URL from the chat room administrator. For more information,
-    see [Adding webhooks to a chat room](../ug/chat-webhooks.md "../ug/chat-webhooks.md") in the _Amazon Chime User Guide_.
-2.  Use the webhook URL in the script or application that you created to send messages
-    to the chat room:
+1. Get the webhook URL from the chat room administrator. For more information,
+   see [Adding webhooks to a chat room](../ug/chat-webhooks.md "../ug/chat-webhooks.md") in the _Amazon Chime User Guide_.
+2. Use the webhook URL in the script or application that you created to send messages
+   to the chat room:
 
-        1. The URL accepts an HTTP POST request.
-        2. Amazon Chime webhooks accept a JSON payload with a single key
-         **Content**. The following is a sample curl command
-         with a sample payload:
+   1. The URL accepts an HTTP POST request.
+   2. Amazon Chime webhooks accept a JSON payload with a single key
+      **Content**. The following is a sample curl command
+      with a sample payload:
 
+   ```
+   curl -X POST "<Insert your webhook URL here>" -H "Content-Type:application/json" --data '{"Content":"Message Body emoji test: :) :+1: link test: http://sample.com email test: marymajor@example.com All member callout: @All All Present member callout: @Present"}'
+   ```
 
+   The following is a sample PowerShell command for Windows users:
 
-        ```
-        curl -X POST "<Insert your webhook URL here>" -H "Content-Type:application/json" --data '{"Content":"Message Body emoji test: :) :+1: link test: http://sample.com email test: marymajor@example.com All member callout: @All All Present member callout: @Present"}'
-        ```
+   ```
+   Invoke-WebRequest -Uri '<Insert your webhook URL here>' -Method 'Post' -ContentType 'application/JSON' -Body '{"Content":"Message Body emoji test: :) :+1: link test: http://sample.com email test: marymajor@example.com All member callout: @All All Present member callout: @Present"}'
+   ```
 
-        The following is a sample PowerShell command for Windows users:
-
-
-
-        ```
-        Invoke-WebRequest -Uri '<Insert your webhook URL here>' -Method 'Post' -ContentType 'application/JSON' -Body '{"Content":"Message Body emoji test: :) :+1: link test: http://sample.com email test: marymajor@example.com All member callout: @All All Present member callout: @Present"}'
-        ```
-
-    After the external program sends the HTTP POST to the webhook URL, the server
-    validates that the webhook is valid and has an assigned chat room. The webhook appears in the chat room roster with a webhook icon next to its name. Chat room messages sent by the webhook appear in the
-    chat room under the webhook name followed by **(Webhook)**.
+After the external program sends the HTTP POST to the webhook URL, the server
+validates that the webhook is valid and has an assigned chat room. The webhook appears in the chat room roster with a webhook icon next to its name. Chat room messages sent by the webhook appear in the
+chat room under the webhook name followed by **(Webhook)**.
 
 ###### Note
 
