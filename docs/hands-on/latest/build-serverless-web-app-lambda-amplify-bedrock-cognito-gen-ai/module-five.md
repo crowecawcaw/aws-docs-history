@@ -47,7 +47,8 @@ npm install aws-amplify @aws-amplify/ui-react
 
 1. Modify the Index CSS
 
-On your local machine, navigate to the \***\*ai-recipe-generator/src/index.css\*\***
+On your local machine, navigate to the
+****ai-recipe-generator/src/index.css****
 file, and **update** it with the
 following code to center the App UI. Then,
 **save** the file.
@@ -231,7 +232,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 
 ![The file structure of the 'ai-recipe-generator' project with the 'main.tsx' file highlighted within the 'src' folder, as part of a tutorial step for building a serverless web app using generative AI.](images/serverless-gen-modify-main-feb-file.png) 2. Configure the Amplify library
 
-**Open** the \***\*ai-recipe-generator/src/App.tsx\*\***
+**Open** the
+****ai-recipe-generator/src/App.tsx****
 file, and **update** it with
 [this
 code](https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/getting-started/approved/assets/build-serverless-web-app-gen-ai-mod-5-tutorial-app-tsx.pdf "https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/getting-started/approved/assets/build-serverless-web-app-gen-ai-mod-5-tutorial-app-tsx.pdf"). Then, **save** the
@@ -306,7 +308,8 @@ console in a new browser window, and
 [https://console.aws.amazon.com/amplify/apps](https://console.aws.amazon.com/amplify/apps "https://console.aws.amazon.com/amplify/apps").
 
 AWS Amplify automatically builds your source code and deployed
-your app at \***\*https://...amplifyapp.com\*\***,
+your app at
+****https://...amplifyapp.com****,
 and on every git push your deployment instance will update. Select
 the **Visit deployed URL** button
 to see your web app up and running live.

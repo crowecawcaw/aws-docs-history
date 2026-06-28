@@ -154,7 +154,7 @@ deploy**.
 ![The AWS Amplify Gen 2 app deployment interface showing review sections for repository details, app settings, and advanced settings, with a highlighted 'Save and deploy' button.](images/amplifylong-gen-deployment-interface.png) 6. View your app
 
 AWS Amplify will now **build** your source code and
-**deploy** your app at \***\*https://...amplifyapp.com\*\***, and on every git push
+**deploy** your app at ****https://...amplifyapp.com****, and on every git push
 your deployment instance will update. It may take up to 5 minutes to deploy your app.
 
 Once the build completes, select the **Visit deployed

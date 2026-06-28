@@ -92,7 +92,7 @@ confirmation message.
 
 ![The confirmation message.](images/confirmation-message.png) 4. Verify outputs file creation
 
-Verify that the _amplify_outputs.json_ file was
+Verify that the _amplify\_outputs.json_ file was
 **generated** and **added** to your project.
 
 ![Showing the amplify_outputs.json file in Finder.](images/amplify-outputs-json.png)

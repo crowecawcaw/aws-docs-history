@@ -71,8 +71,9 @@ console in a new browser window, and
 console at 
 [https://console.aws.amazon.com/bedrock/](https://console.aws.amazon.com/bedrock/ "https://console.aws.amazon.com/bedrock/").
 
-**Verify** that you are in the \***\*N. Virginia
-us-east-1\*\*** region, and choose
+**Verify** that you are in the
+****N. Virginia
+us-east-1**** region, and choose
 **Get started**.
 
 ![The Amazon Bedrock console showing the welcome screen to build and scale generative AI applications with foundation models (FMs), featuring a 'Get started' button as part of a serverless web app tutorial (Module 2).](images/serverless-gen-bedrock-console-welcome.png) 2. Select the Claude model
