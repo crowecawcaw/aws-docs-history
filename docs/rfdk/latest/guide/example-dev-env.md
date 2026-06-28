@@ -57,14 +57,14 @@ The instance is automatically started when opening the Cloud9 IDE and stopped wh
 Follow the AWS Cloud9 documentation for [Creating an environment](../../../cloud9/latest/user-guide/create-environment-main.md#create-environment-console "../../../cloud9/latest/user-guide/create-environment-main.md#create-environment-console").
 Use the following values when creating the Cloud9 environment:
 
-| Cloud 9 Environment Creation Values | Field                                                                                 | Value |
-| ----------------------------------- | ------------------------------------------------------------------------------------- | ----- |
-| **Name**                            | A desired name for your environment                                                   |
-| **Description**                     | An optional description for your environment                                          |
-| **Environment type**                | **Create a new no-ingress EC2 instance for environment (access via Systems Manager)** |
-| **Instance type**                   | **t3.small**                                                                          |
-| **Platform**                        | **Amazon Linux 2**                                                                    |
-| **Cost-saving setting**             | **After four hours**                                                                  |
+Cloud 9 Environment Creation Values| Field | Value |
+| --- | --- |
+| **Name** | A desired name for your environment |
+| **Description** | An optional description for your environment |
+| **Environment type** | **Create a new no-ingress EC2 instance for environment (access via Systems Manager)** |
+| **Instance type** | **t3.small** |
+| **Platform** | **Amazon Linux 2** |
+| **Cost-saving setting** | **After four hours** |
 
 Once you’ve created the environment, the browser will navigate to the Cloud9 IDE for the newly created environment.
 The Cloud9 IDE connects to the EC2 instance that hosts the environment and can be used to edit files and create terminal sessions.

@@ -50,10 +50,10 @@ RFDK provides constructs that can be used to work with X509 certificates. This i
 - [X509CertificatePem](../../api/latest/docs/aws-rfdk.X509CertificatePem.md "../../api/latest/docs/aws-rfdk.X509CertificatePem.md") - A construct that generates and stores the following in AWS Secrets
   Manager Secrets:
 
-      + A X.509 certificate in the PEM format
-      + A private key in PEM format
-      + A passphrase for the private key
-      + An optional trust-chain in PEM format
+  - A X.509 certificate in the PEM format
+  - A private key in PEM format
+  - A passphrase for the private key
+  - An optional trust-chain in PEM format
 
 - [X509CertificatePkcs12](../../api/latest/docs/aws-rfdk.X509CertificatePkcs12.md "../../api/latest/docs/aws-rfdk.X509CertificatePkcs12.md") - A construct that converts the outputs of
   [X509CertificatePem](../../api/latest/docs/aws-rfdk.X509CertificatePem.md "../../api/latest/docs/aws-rfdk.X509CertificatePem.md") into a single PKCS #12 archive.

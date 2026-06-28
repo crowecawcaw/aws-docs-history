@@ -287,7 +287,7 @@ TypeScript
 npx stage-deadline
 ```
 
-To stage the Docker recipes for a specified Deadline version (<replaceable>DEADLINE_VERSION</replaceable>), run the following command:
+To stage the Docker recipes for a specified Deadline version (<replaceable>DEADLINE\_VERSION</replaceable>), run the following command:
 
 Python
 Assuming your CDK application uses `RFDK_VERSION`:
