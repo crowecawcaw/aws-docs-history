@@ -11,7 +11,7 @@
 ## Task 4.1: Apply authentication mechanisms
 
 - Skill 4.1.1: Update VPC security groups.
-- Skill 4.1.2: Create and update AWS Identity and Access Management (IAM) groups, roles, endpoints, and services.
+- Skill 4.1.2: Create and update IAM groups, roles, endpoints, and services.
 - Skill 4.1.3: Create and rotate credentials for password management (for example, AWS Secrets Manager).
 - Skill 4.1.4: Set up IAM roles for access (for example, AWS Lambda, Amazon API Gateway, AWS CLI, AWS CloudFormation).
 - Skill 4.1.5: Apply IAM policies to roles, endpoints, and services (for example, S3 Access Points, AWS PrivateLink).
@@ -30,7 +30,7 @@
 ## Task 4.3: Ensure data encryption and masking
 
 - Skill 4.3.1: Apply data masking and anonymization according to compliance laws or company policies.
-- Skill 4.3.2: Use encryption keys to encrypt or decrypt data (for example, AWS Key Management Service [AWS KMS]).
+- Skill 4.3.2: Use encryption keys to encrypt or decrypt data (for example, AWS KMS).
 - Skill 4.3.3: Configure encryption across AWS account boundaries.
 - Skill 4.3.4: Enable encryption in transit or before transit for data.
 

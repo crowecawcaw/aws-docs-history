@@ -40,7 +40,7 @@
 
 - Skill 2.4.1: Design schemas for Amazon Redshift, DynamoDB, and Lake Formation.
 - Skill 2.4.2: Address changes to the characteristics of data.
-- Skill 2.4.3: Perform schema conversion (for example, by using the AWS Schema Conversion Tool [AWS SCT] and AWS Database Migration Service [AWS DMS] Schema Conversion).
+- Skill 2.4.3: Perform schema conversion (for example, by using AWS SCT and AWS DMS Schema Conversion).
 - Skill 2.4.4: Establish data lineage by using AWS tools (for example, Amazon SageMaker ML Lineage Tracking and Amazon SageMaker Catalog).
 - Skill 2.4.5: Describe best practices for indexing, partitioning strategies, compression, and other data optimization techniques.
 - Skill 2.4.6: Describe vectorization concepts (for example, Amazon Bedrock knowledge base).

@@ -53,7 +53,7 @@ The following list contains AWS services and features that are out of scope for 
 - AWS Device Farm
 - Amazon Location Service
 - Amazon Pinpoint
-- Amazon Simple Email Service (Amazon SES)
+- Amazon SES
 
 ## Internet of Things (IoT)
 

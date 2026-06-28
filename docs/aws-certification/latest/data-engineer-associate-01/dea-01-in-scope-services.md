@@ -31,7 +31,7 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon Managed Service for Apache Flink
 - Amazon Managed Streaming for Apache Kafka (Amazon MSK)
 - Amazon OpenSearch Service
-- Amazon QuickSuite
+- Amazon Quick
 - Amazon SageMaker AI
 
 ## Application Integration
@@ -39,8 +39,8 @@ The following list contains AWS services and features that are in scope for the 
 - Amazon AppFlow
 - Amazon EventBridge
 - Amazon Managed Workflows for Apache Airflow (Amazon MWAA)
-- Amazon Simple Notification Service (Amazon SNS)
-- Amazon Simple Queue Service (Amazon SQS)
+- Amazon SNS
+- Amazon SQS
 - AWS Step Functions
 
 ## Cloud Financial Management
@@ -53,19 +53,19 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Batch
 - Amazon EC2
 - AWS Lambda
-- AWS Serverless Application Model (AWS SAM)
+- AWS SAM
 
 ## Containers
 
-- Amazon Elastic Container Registry (Amazon ECR)
-- Amazon Elastic Container Service (Amazon ECS)
-- Amazon Elastic Kubernetes Service (Amazon EKS)
+- Amazon ECR
+- Amazon ECS
+- Amazon EKS
 
 ## Database
 
-- Amazon DocumentDB (with MongoDB compatibility)
+- Amazon DocumentDB
 - Amazon DynamoDB
-- Amazon Keyspaces (for Apache Cassandra)
+- Amazon Keyspaces
 - Amazon MemoryDB for Redis
 - Amazon Neptune
 - Amazon RDS
@@ -76,7 +76,7 @@ The following list contains AWS services and features that are in scope for the 
 
 - AWS CLI
 - AWS CloudFormation
-- AWS Cloud Development Kit (AWS CDK)
+- AWS CDK
 - AWS CodeBuild
 - AWS CodeDeploy
 - AWS CodePipeline
@@ -107,7 +107,7 @@ The following list contains AWS services and features that are in scope for the 
 
 - AWS Application Discovery Service
 - AWS Application Migration Service
-- AWS Database Migration Service (AWS DMS)
+- AWS DMS
 - AWS DataSync
 - AWS Snow Family
 - AWS Transfer Family
@@ -121,8 +121,8 @@ The following list contains AWS services and features that are in scope for the 
 
 ## Security, Identity, and Compliance
 
-- AWS Identity and Access Management (IAM)
-- AWS Key Management Service (AWS KMS)
+- IAM
+- AWS KMS
 - Amazon Macie
 - AWS Secrets Manager
 - AWS Shield
@@ -131,8 +131,8 @@ The following list contains AWS services and features that are in scope for the 
 ## Storage
 
 - AWS Backup
-- Amazon Elastic Block Store (Amazon EBS)
-- Amazon Elastic File System (Amazon EFS)
+- Amazon EBS
+- Amazon EFS
 - Amazon S3
 - Amazon S3 Tables
 - Amazon S3 Glacier

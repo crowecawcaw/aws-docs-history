@@ -9,7 +9,7 @@
 
 ## Task 1.1: Perform data ingestion
 
-- Skill 1.1.1: Read data from streaming sources (for example, Amazon Kinesis, Amazon Managed Streaming for Apache Kafka [Amazon MSK], Amazon DynamoDB Streams, AWS Database Migration Service [AWS DMS], AWS Glue, Amazon Redshift).
+- Skill 1.1.1: Read data from streaming sources (for example, Amazon Kinesis, Amazon Managed Streaming for Apache Kafka [Amazon MSK], Amazon DynamoDB Streams, AWS DMS, AWS Glue, Amazon Redshift).
 - Skill 1.1.2: Read data from batch sources (for example, Amazon S3, AWS Glue, Amazon EMR, AWS DMS, Amazon Redshift, AWS Lambda, Amazon AppFlow).
 - Skill 1.1.3: Implement appropriate configuration options for batch ingestion.
 - Skill 1.1.4: Consume data APIs.
@@ -24,7 +24,7 @@
 
 ## Task 1.2: Transform and process data
 
-- Skill 1.2.1: Optimize container usage for performance needs (for example, Amazon Elastic Kubernetes Service [Amazon EKS], Amazon Elastic Container Service [Amazon ECS]).
+- Skill 1.2.1: Optimize container usage for performance needs (for example, Amazon EKS, Amazon ECS).
 - Skill 1.2.2: Connect to different data sources (for example, Java Database Connectivity [JDBC], Open Database Connectivity [ODBC]).
 - Skill 1.2.3: Integrate data from multiple sources.
 - Skill 1.2.4: Optimize costs while processing data.
@@ -40,7 +40,7 @@
 - Skill 1.3.1: Use orchestration services to build workflows for data ETL pipelines (for example, Lambda, EventBridge, Amazon Managed Workflows for Apache Airflow [Amazon MWAA], AWS Step Functions, AWS Glue workflows).
 - Skill 1.3.2: Build data pipelines for performance, availability, scalability, resiliency, and fault tolerance.
 - Skill 1.3.3: Implement and maintain serverless workflows.
-- Skill 1.3.4: Use notification services to send alerts (for example, Amazon Simple Notification Service [Amazon SNS], Amazon Simple Queue Service [Amazon SQS]).
+- Skill 1.3.4: Use notification services to send alerts (for example, Amazon SNS, Amazon SQS).
 
 ## Task 1.4: Apply programming concepts
 
@@ -49,9 +49,9 @@
 - Skill 1.4.3: Use programming languages and frameworks for data engineering (for example, Python, SQL, Scala, R, Java, Bash, PowerShell).
 - Skill 1.4.4: Use software engineering best practices for data engineering (for example, version control, testing, logging, monitoring).
 - Skill 1.4.5: Use Infrastructure as Code (IaC) to deploy data engineering solutions.
-- Skill 1.4.6: Use the AWS Serverless Application Model (AWS SAM) to package and deploy serverless data pipelines (for example, Lambda functions, Step Functions, DynamoDB tables).
+- Skill 1.4.6: Use AWS SAM to package and deploy serverless data pipelines (for example, Lambda functions, Step Functions, DynamoDB tables).
 - Skill 1.4.7: Use and mount storage volumes from within Lambda functions.
-- Skill 1.4.8: Use infrastructure as code (IaC) for repeatable resource deployment (for example, AWS CloudFormation and AWS Cloud Development Kit [AWS CDK]).
+- Skill 1.4.8: Use infrastructure as code (IaC) for repeatable resource deployment (for example, AWS CloudFormation and AWS CDK).
 - Skill 1.4.9: Describe continuous integration and continuous delivery (CI/CD) (implementation, testing, and deployment of data pipelines).
 - Skill 1.4.10: Define distributed computing.
 - Skill 1.4.11: Describe data structures and algorithms (for example, graph data structures and tree data structures).
