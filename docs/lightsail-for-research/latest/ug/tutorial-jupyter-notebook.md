@@ -125,10 +125,10 @@ Then choose the file to open.
 
 If you uploaded your project files to an attached disk, look for the
 directory where the disk is mounted. By default, Lightsail for Research mounts disks to the
-`/home/lightsail-user/`<disk-name>` directory.`<disk-name>``is the
- name you gave your disk. In the following example, the
-`MyJupyterDisk`directory represents the mounted disk, and
- the`Notebooks` subdirectory contains our Jupyter notebook
+`/home/lightsail-user/`<disk-name>` directory.`<disk-name>`` is the
+name you gave your disk. In the following example, the
+`MyJupyterDisk` directory represents the mounted disk, and
+the `Notebooks` subdirectory contains our Jupyter notebook
 files.
 
 ![The directory of JupyterLab project files.](images/tutorial-jupyter-rdp-directory.png)
@@ -170,7 +170,7 @@ tab.
 ![The CPU utilization graph for a virtual computer.](images/tutorial-jupyter-cpu-utilization.png) 3. To view the month to date cost and usage estimates for all of your Lightsail for Research
 resources, choose **Usage** in the navigation pane.
 
-![The month to date cost and usage estimates for all of your Lightsail for Research resources.](images/tutorial-jupyter-usage-page.png)
+![The month to date cost and usage estimates for all of your Lightsail for Research resources.](/images/lightsail-for-research/latest/ug/images/tutorial-jupyter-usage-page.png)
 
 ## Step 7: (Optional) Create a cost control rule
 

@@ -121,10 +121,10 @@ open.
 
 If you uploaded your project files to an attached disk, look for the
 directory where the disk is mounted. By default, Lightsail for Research mounts disks to the
-`/home/lightsail-user/`<disk-name>` directory.`<disk-name>``is the
- name you gave your disk. In the following example, the
-`MyRstudioDisk`directory represents the mounted disk, and
- the`Projects` subdirectory contains our RStudio project
+`/home/lightsail-user/`<disk-name>` directory.`<disk-name>`` is the
+name you gave your disk. In the following example, the
+`MyRstudioDisk` directory represents the mounted disk, and
+the `Projects` subdirectory contains our RStudio project
 files.
 
 ![The directory of RStudio project files.](images/tutorial-rstudio-rdp-directory.png)

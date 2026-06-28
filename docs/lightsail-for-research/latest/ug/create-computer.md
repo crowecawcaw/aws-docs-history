@@ -18,10 +18,10 @@ Virtual computer names must also meet the following requirements:
     * Start and end with an alphanumeric character or number.
 
 6. Choose **Create virtual computer** in the
-   **Summary** panel.
-   Within minutes, your Lightsail for Research virtual computer is ready and you can connect to it through
-   a graphical user interface (GUI) session. For more information about connecting to your
-   Lightsail for Research virtual computer, see [Access a Lightsail for Research virtual computer application](open-computer-application.md "open-computer-application.md").
+**Summary** panel.
+Within minutes, your Lightsail for Research virtual computer is ready and you can connect to it through
+a graphical user interface (GUI) session. For more information about connecting to your
+Lightsail for Research virtual computer, see [Access a Lightsail for Research virtual computer application](open-computer-application.md "open-computer-application.md").
 
 ###### Important
 

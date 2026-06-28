@@ -27,7 +27,7 @@ The following resources can be tagged in the Amazon Lightsail for Research conso
   that other services might have restrictions on allowed characters. Generally allowed
   characters are: letters, numbers, and spaces, and the following characters: `+
 
-* = . \_ : / @`
+* = . _ : / @`
 
 - Tag keys and values are case-sensitive.
 - Don't use the `aws:` prefix for keys or values. That prefix is reserved

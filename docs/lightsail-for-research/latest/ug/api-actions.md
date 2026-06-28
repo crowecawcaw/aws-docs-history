@@ -165,5 +165,5 @@ information about that action.
 - [GetRegions](../../../lightsail/2016-11-28/api-reference/API_GetRegions.md "../../../lightsail/2016-11-28/api-reference/API_GetRegions.md")
 
 * Returns a list of all valid AWS Regions for Lightsail. Use the `include
-availability zones` parameter to also return the Availability Zones in a
+ availability zones` parameter to also return the Availability Zones in a
   region.
