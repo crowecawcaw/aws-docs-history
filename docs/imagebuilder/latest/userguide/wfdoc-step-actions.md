@@ -49,7 +49,7 @@ step action.
 supported inputs for this step action.
 
 | Input name                                                         | Description                                                  | Type    | Required                                           | Default | Constraints              |
-| ------------------------------------------------------------------ | ------------------------------------------------------------ | ------- | -------------------------------------------------- | ------- | ------------------------ | -------------- | --- |
+| ------------------------------------------------------------------ | ------------------------------------------------------------ | ------- | -------------------------------------------------- | ------- | ------------------------ |
 | region                                                             | The image region.                                            | String  | Yes                                                |         |                          |
 | licenseConfigurationArns                                           | The license configuration ARN for the image.                 | Array   | No                                                 |         |                          |
 | launchTemplateConfigurations                                       |                                                              | Array   | No                                                 |         |                          |
@@ -79,7 +79,7 @@ supported inputs for this step action.
 outputs for this step action.
 
 | Output name                   | Description                                          | Type      |
-| ----------------------------- | ---------------------------------------------------- | --------- | ------------------------ | --------------------------- | ----------------------- | ----------------------------- | --------------- | ---------------- |
+| ----------------------------- | ---------------------------------------------------- | --------- |
 | configuredImages              | A list of configured images.                         | Array     |
 | configuredImages:accountId    | The destination account ID of the distributed image. | String    |
 | configuredImages:name         | The name of the AMI.                                 | String    |
@@ -139,11 +139,11 @@ supported inputs for this step action.
 **Outputs:** The following table includes
 outputs for this step action.
 
-| Output name  | Description                                                                                          | Type   |
-| ------------ | ---------------------------------------------------------------------------------------------------- | ------ |
-| runCommandId | The ID of the Systems Manager \*_sendCommand_<br>• that ran the bootstrap<br>script on the instance. | String |
-| status       | The status returned from the Systems Manager **sendCommand**.                                        | String |
-| output       | Output returned from the Systems Manager **sendCommand**.                                            | String |
+| Output name  | Description                                                                                         | Type   |
+| ------------ | --------------------------------------------------------------------------------------------------- | ------ |
+| runCommandId | The ID of the Systems Manager *_sendCommand_<br>• that ran the bootstrap<br>script on the instance. | String |
+| status       | The status returned from the Systems Manager **sendCommand**.                                       | String |
+| output       | Output returned from the Systems Manager **sendCommand**.                                           | String |
 
 **Example**
 
@@ -241,11 +241,11 @@ supported inputs for this step action.
 **Outputs:** The following table includes
 outputs for this step action.
 
-| Output name  | Description                                                                                    | Type   |
-| ------------ | ---------------------------------------------------------------------------------------------- | ------ |
-| runCommandId | The ID of the Systems Manager \*_sendCommand_<br>• that ran the script to<br>collect findings. | String |
-| status       | The status returned from the Systems Manager **sendCommand**.                                  | String |
-| output       | Output returned from the Systems Manager **sendCommand**.                                      | String |
+| Output name  | Description                                                                                   | Type   |
+| ------------ | --------------------------------------------------------------------------------------------- | ------ |
+| runCommandId | The ID of the Systems Manager *_sendCommand_<br>• that ran the script to<br>collect findings. | String |
+| status       | The status returned from the Systems Manager **sendCommand**.                                 | String |
+| output       | Output returned from the Systems Manager **sendCommand**.                                     | String |
 
 **Example**
 
@@ -340,7 +340,7 @@ supported inputs for this step action.
 outputs for this step action.
 
 | Output name                    | Description                                          | Type      |
-| ------------------------------ | ---------------------------------------------------- | --------- | -------------- | --------- | -------- |
+| ------------------------------ | ---------------------------------------------------- | --------- |
 | distributedImages              | A list of distributed images                         | Array     |
 | distributedImages:region       | Tne AWS region of the distributed image.             | String    |
 | distributedImages:name         | The name of the AMI.                                 | String    |
@@ -405,11 +405,11 @@ supported inputs for this step action.
 **Outputs:** The following table includes
 outputs for this step action.
 
-| Output name  | Description                                                                                    | Type   |
-| ------------ | ---------------------------------------------------------------------------------------------- | ------ |
-| runCommandId | The ID of the Systems Manager \*_sendCommand_<br>• that ran the components<br>on the instance. | String |
-| status       | The status returned from the Systems Manager **sendCommand**.                                  | String |
-| output       | Output returned from the Systems Manager **sendCommand**.                                      | String |
+| Output name  | Description                                                                                   | Type   |
+| ------------ | --------------------------------------------------------------------------------------------- | ------ |
+| runCommandId | The ID of the Systems Manager *_sendCommand_<br>• that ran the components<br>on the instance. | String |
+| status       | The status returned from the Systems Manager **sendCommand**.                                 | String |
+| output       | Output returned from the Systems Manager **sendCommand**.                                     | String |
 
 **Example**
 
@@ -587,7 +587,7 @@ supported inputs for this step action.
 outputs for this step action.
 
 | Output name                 | Description                                          | Type      |
-| --------------------------- | ---------------------------------------------------- | --------- | ---------------- | --------- | -------- |
+| --------------------------- | ---------------------------------------------------- | --------- |
 | modifiedImages              | A list of modified images                            | Array     |
 | modifiedImages:accountId    | The destination account ID of the distributed image. | String    |
 | modifiedImages:name         | The name of the AMI.                                 | String    |
@@ -631,7 +631,7 @@ This step action registers a new Amazon Machine Image (AMI) using the Amazon EC2
 
 | Input name          | Description                                                                          | Type    | Required | Default | Constraints                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | ------------------- | ------------------------------------------------------------------------------------ | ------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| architecture        | The architecture of the AMI.                                                         | String  | No       |         | Valid values: i386, x86_64, arm64, x86_64_mac, arm64_mac                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| architecture        | The architecture of the AMI.                                                         | String  | No       |         | Valid values: i386, x86\_64, arm64, x86\_64\_mac, arm64\_mac                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | blockDeviceMapping  | The block device mapping entries for the AMI.                                        | Array   | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | bootMode            | The boot mode of the AMI.                                                            | String  | No       |         | Valid values: legacy-bios, uefi, uefi-preferred                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | description         | A description for the AMI.                                                           | String  | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -746,11 +746,11 @@ supported inputs for this step action.
 **Outputs:** The following table includes
 outputs for this step action.
 
-| Output name  | Description                                                                                          | Type            |
-| ------------ | ---------------------------------------------------------------------------------------------------- | --------------- |
-| runCommandId | The ID of the Systems Manager \*_sendCommand_<br>• that ran the command<br>document on the instance. | String          |
-| status       | The status returned from the Systems Manager **sendCommand**.                                        | String          |
-| output       | Output returned from the Systems Manager **sendCommand**.                                            | List of strings |
+| Output name  | Description                                                                                         | Type            |
+| ------------ | --------------------------------------------------------------------------------------------------- | --------------- |
+| runCommandId | The ID of the Systems Manager *_sendCommand_<br>• that ran the command<br>document on the instance. | String          |
+| status       | The status returned from the Systems Manager **sendCommand**.                                       | String          |
+| output       | Output returned from the Systems Manager **sendCommand**.                                           | List of strings |
 
 **Example**
 
@@ -799,11 +799,11 @@ supported inputs for this step action.
 **Outputs:** The following table includes
 outputs for this step action.
 
-| Output name  | Description                                                                                                      | Type   |
-| ------------ | ---------------------------------------------------------------------------------------------------------------- | ------ |
-| runCommandId | The ID of the Systems Manager \*_sendCommand_<br>• that ran the<br>`AWSEC2-RunSysprep` document on the instance. | String |
-| status       | The status returned from the Systems Manager **sendCommand**.                                                    | String |
-| output       | Output returned from the Systems Manager **sendCommand**.                                                        | String |
+| Output name  | Description                                                                                                     | Type   |
+| ------------ | --------------------------------------------------------------------------------------------------------------- | ------ |
+| runCommandId | The ID of the Systems Manager *_sendCommand_<br>• that ran the<br>`AWSEC2-RunSysprep` document on the instance. | String |
+| status       | The status returned from the Systems Manager **sendCommand**.                                                   | String |
+| output       | Output returned from the Systems Manager **sendCommand**.                                                       | String |
 
 **Example**
 
@@ -853,11 +853,11 @@ supported inputs for this step action.
 **Outputs:** The following table includes
 outputs for this step action.
 
-| Output name  | Description                                                                                         | Type   |
-| ------------ | --------------------------------------------------------------------------------------------------- | ------ |
-| runCommandId | The ID of the Systems Manager \*_sendCommand_<br>• that ran the sanitize<br>script on the instance. | String |
-| status       | The status returned from the Systems Manager **sendCommand**.                                       | String |
-| output       | Output returned from the Systems Manager **sendCommand**.                                           | String |
+| Output name  | Description                                                                                        | Type   |
+| ------------ | -------------------------------------------------------------------------------------------------- | ------ |
+| runCommandId | The ID of the Systems Manager *_sendCommand_<br>• that ran the sanitize<br>script on the instance. | String |
+| status       | The status returned from the Systems Manager **sendCommand**.                                      | String |
+| output       | Output returned from the Systems Manager **sendCommand**.                                          | String |
 
 **Example**
 

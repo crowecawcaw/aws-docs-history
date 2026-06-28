@@ -101,7 +101,7 @@ The log folder name is comprised of the following parts:
 2. **File prefix** – This is a
    standard prefix used for all components: "`TOE_`".
 3. **Run time** – This is a timestamp
-   in YYYY-MM-DD_HH-MM-SS_UTC-0 format.
+   in YYYY-MM-DD\_HH-MM-SS\_UTC-0 format.
 4. **Execution ID** – This is the
    GUID that is assigned when AWSTOE runs one or more components.
 
@@ -161,11 +161,11 @@ the document.
   example:
 
   - **Invalid expression**: `echo {{ phase.step.inputs.variable
-}}`
+   }}`
   - **Valid expression**: `"echo {{ phase.step.inputs.variable
-}}"`
+   }}"`
   - **Valid expression**: `'echo {{ phase.step.inputs.variable
-}}'`
+   }}'`
 
 - Chaining expressions can reference variables from other steps and phases
   in the same document. However, the calling service might have rules that

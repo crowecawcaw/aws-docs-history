@@ -29,13 +29,12 @@ The following are two ways you can keep your Image Builder AMIs up to date.
   EC2 Image Builder provides the following build components that install all pending
   operating system updates:
 
-      + `update-linux`
-      + `update-windows`
-
-  These components use the `UpdateOS` action module. For more
-  information, see [UpdateOS](toe-action-modules.md#action-modules-updateos "toe-action-modules.md#action-modules-updateos"). The components can
-  be added to your image build pipelines by selecting them from the list of
-  AWS-provided components.
+  - `update-linux`
+  - `update-windows`
+    These components use the `UpdateOS` action module. For more
+    information, see [UpdateOS](toe-action-modules.md#action-modules-updateos "toe-action-modules.md#action-modules-updateos"). The components can
+    be added to your image build pipelines by selecting them from the list of
+    AWS-provided components.
 
 - **Custom build components with patching
   operations** – To selectively install or update patches on

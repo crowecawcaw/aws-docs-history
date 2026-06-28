@@ -30,10 +30,9 @@ and conditional modifiers (`not`).
   by themselves.
 - Branching statements and conditional modifiers must follow level rules.
 
-      + There can only be one statement at the parent level.
-      + Each child branch or modifier starts a new level.
-
-  For more information about levels, see [Nested levels in conditional statements](#wfdoc-conditional-structure "#wfdoc-conditional-structure").
+  - There can only be one statement at the parent level.
+  - Each child branch or modifier starts a new level.
+    For more information about levels, see [Nested levels in conditional statements](#wfdoc-conditional-structure "#wfdoc-conditional-structure").
 
 - Each branching statement must have at least one child conditional statement,
   but no more than ten.

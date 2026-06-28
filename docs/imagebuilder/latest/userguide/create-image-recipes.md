@@ -101,12 +101,12 @@ The SSM Agent must be pre-installed in the selected AMI.
 
   ###### Note
 
-      - If you enter user data, make sure that the Systems Manager agent is pre-installed
-       on your base image, or that you include the install in your user data.
-      - For Linux images, ensure that clean-up steps run by including a command to
-       create an empty file named `perform_cleanup` in your user data script.
-       Image Builder detects this file, and runs the clean-up script prior to creating the new image.
-       For more information and a sample script, see [Security best practices for Image Builder](security-best-practices.md "security-best-practices.md").
+        - If you enter user data, make sure that the Systems Manager agent is pre-installed
+         on your base image, or that you include the install in your user data.
+        - For Linux images, ensure that clean-up steps run by including a command to
+         create an empty file named `perform_cleanup` in your user data script.
+         Image Builder detects this file, and runs the clean-up script prior to creating the new image.
+         For more information and a sample script, see [Security best practices for Image Builder](security-best-practices.md "security-best-practices.md").
 
 - **Working directory** – Pre-selected, but
   you can edit it.

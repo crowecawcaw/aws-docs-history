@@ -24,16 +24,14 @@ The following cross-reference categorizes action modules by the type of actions 
 - [ExecuteBinary (Linux, Windows, macOS)](#action-modules-executebinary "#action-modules-executebinary")
 - [ExecuteDocument (Linux, Windows, macOS)](#action-modules-executedocument "#action-modules-executedocument")
 - [ExecutePowerShell (Windows)](#action-modules-executepowershell "#action-modules-executepowershell")
-
- 
+   
 
 ###### File download and upload
 
 - [S3Download (Linux, Windows, macOS)](#action-modules-s3download "#action-modules-s3download")
 - [S3Upload (Linux, Windows, macOS)](#action-modules-s3upload "#action-modules-s3upload")
 - [WebDownload (Linux, Windows, macOS)](#action-modules-webdownload "#action-modules-webdownload")
-
- 
+   
 
 ###### File system operations
 
@@ -54,15 +52,13 @@ The following cross-reference categorizes action modules by the type of actions 
 - [SetFolderOwner (Linux, Windows, macOS)](#action-modules-setfolderowner "#action-modules-setfolderowner")
 - [SetFilePermissions (Linux, Windows, macOS)](#action-modules-setfilepermissions "#action-modules-setfilepermissions")
 - [SetFolderPermissions (Linux, Windows, macOS)](#action-modules-setfolderpermissions "#action-modules-setfolderpermissions")
-
- 
+   
 
 ###### Software installation actions
 
 - [InstallMSI (Windows)](#action-modules-install-msi "#action-modules-install-msi")
 - [UninstallMSI (Windows)](#action-modules-uninstall-msi "#action-modules-uninstall-msi")
-
- 
+   
 
 ###### System actions
 
@@ -97,9 +93,9 @@ If the comparison or logical operator expression evaluates to `true`, the step i
 marked as `Success`. Otherwise, the step is marked as `Failed`. If the step
 fails, the `onFailure` parameter decides the outcome of the step.
 
-| Input   | Key name                                                                                                                    | Description                                 | Type | Required |
-| ------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ---- | -------- |
-| `input` | Contains a single comparison or logical operator. Note, logical operators<br>can contain more than one comparison operator. | This is variable, depending on the operator | Yes  |
+Input| Key name | Description | Type | Required |
+| --- | --- | --- | --- |
+| `input` | Contains a single comparison or logical operator. Note, logical operators<br>can contain more than one comparison operator. | This is variable, depending on the operator | Yes |
 
 **Input example: A simple comparison using the `stringEquals`
 comparison operator**
@@ -192,9 +188,9 @@ After system restart, the application runs the same step that initiated the
 restart. If you require this functionality, you must write idempotent scripts that
 can handle multiple invocations of the same shell command.
 
-| Input      | Key name                                                                                              | Description | Type | Required |
-| ---------- | ----------------------------------------------------------------------------------------------------- | ----------- | ---- | -------- |
-| `commands` | Contains a list of instructions or commands to run as per bash<br>syntax. Multi-line YAML is allowed. | List        | Yes  |
+Input| Key name | Description | Type | Required |
+| --- | --- | --- | --- |
+| `commands` | Contains a list of instructions or commands to run as per bash<br>syntax. Multi-line YAML is allowed. | List | Yes |
 
 **Input example: Before and after a reboot**
 
@@ -221,9 +217,9 @@ phases:
               exit 194
 ```
 
-| Output   | Field                                 | Description | Type |
-| -------- | ------------------------------------- | ----------- | ---- |
-| `stdout` | Standard output of command execution. | string      |
+Output| Field | Description | Type |
+| --- | --- | --- |
+| `stdout` | Standard output of command execution. | string |
 
 If you start a reboot and return exit code `194` as part of the action
 module, the build will resume at the same action module step that initiated the
@@ -266,10 +262,10 @@ After the system restarts, the application runs the same step that initiated the
 restart. If you require this functionality, you must write idempotent scripts that
 can handle multiple invocations of the same shell command.
 
-| Input       | Key name                                                                     | Description | Type | Required |
-| ----------- | ---------------------------------------------------------------------------- | ----------- | ---- | -------- |
-| `path`      | The path to the binary file for execution.                                   | String      | Yes  |
-| `arguments` | Contains a list of command-line arguments to use when running the<br>binary. | String List | No   |
+Input| Key name | Description | Type | Required |
+| --- | --- | --- | --- |
+| `path` | The path to the binary file for execution. | String | Yes |
+| `arguments` | Contains a list of command-line arguments to use when running the<br>binary. | String List | No |
 
 **Input example: install .NET**
 
@@ -283,9 +279,9 @@ can handle multiple invocations of the same shell command.
         - /norestart
 ```
 
-| Output   | Field                                 | Description | Type |
-| -------- | ------------------------------------- | ----------- | ---- |
-| `stdout` | Standard output of command execution. | string      |
+Output| Field | Description | Type |
+| --- | --- | --- |
+| `stdout` | Standard output of command execution. | string |
 
 **Output example**
 
@@ -338,10 +334,10 @@ are higher up in the current chain of execution, the execution fails.
 
 **Parameter map input**
 
-| Key name | Description                                                                                                                         | Type   | Required |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------ | -------- |
-| `name`   | The name of the input parameter to pass to the component document<br>that the \*_ExecuteDocument_<br>• action module<br>is running. | String | Yes      |
-| `value`  | The value of the input parameter.                                                                                                   | String | Yes      |
+| Key name | Description                                                                                                                        | Type   | Required |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------ | -------- |
+| `name`   | The name of the input parameter to pass to the component document<br>that the *_ExecuteDocument_<br>• action module<br>is running. | String | Yes      |
+| `value`  | The value of the input parameter.                                                                                                  | String | Yes      |
 
 ###### Input examples
 
@@ -606,10 +602,10 @@ After system restart, the application runs the same step that initiated the
 restart. If you require this functionality, you must write idempotent scripts that
 can handle multiple invocations of the same shell command.
 
-| Input      | Key name                                                                                                                                                                  | Description | Type                                                 | Required |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------------------------------------------------- | -------- |
-| `commands` | Contains a list of instructions or commands to run as per<br>PowerShell syntax. Multi-line YAML is allowed.                                                               | String List | Yes. Must specify `commands` or<br>`file`, not both. |
-| `file`     | Contains the path to a PowerShell script file. PowerShell will<br>run against this file using the `-file` command line<br>argument. The path must point to a `.ps1` file. | String      | Yes. Must specify `commands` or<br>`file`, not both. |
+Input| Key name | Description | Type | Required |
+| --- | --- | --- | --- |
+| `commands` | Contains a list of instructions or commands to run as per<br>PowerShell syntax. Multi-line YAML is allowed. | String List | Yes. Must specify `commands` or<br>`file`, not both. |
+| `file` | Contains the path to a PowerShell script file. PowerShell will<br>run against this file using the `-file` command line<br>argument. The path must point to a `.ps1` file. | String | Yes. Must specify `commands` or<br>`file`, not both. |
 
 **Input example: Before and after a reboot**
 
@@ -636,9 +632,9 @@ phases:
               [System.Environment]::Exit(3010)
 ```
 
-| Output   | Field                                 | Description | Type |
-| -------- | ------------------------------------- | ----------- | ---- |
-| `stdout` | Standard output of command execution. | string      |
+Output| Field | Description | Type |
+| --- | --- | --- |
+| `stdout` | Standard output of command execution. | string |
 
 If you run a reboot and return exit code `3010` as part of the action
 module, the build will resume at the same action module step that initiated the
@@ -719,14 +715,15 @@ instance profile:
 - **Multiple files**:
   `s3:ListBucket` against the bucket/object (for example,
   `arn:aws:s3:::`BucketName``) and
-`s3:GetObject`against the bucket/object (for example,`arn:aws:s3:::`BucketName`/\*`).
+  `s3:GetObject` against the bucket/object (for example,
+  `arn:aws:s3:::`BucketName`/*`).
 
-| Input                 | Key                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Description | Type | Required | Default |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---- | -------- | ------- |
-| `source`              | The Amazon S3 bucket that is the source for your download.<br>You can specify a path to a specific object, or use a<br>key prefix, that ends with a forward-slash, followed by<br>an asterisk wildcard (`/*`), to download a<br>set of objects that match the key prefix.                                                                                                                                                                                                   | String      | Yes  | N/A      |
-| `destination`         | The local path where the Amazon S3 objects are<br>downloaded. To download a single file, you must<br>specify the file name as part of the path. For<br>example, `/myfolder/package.zip`.                                                                                                                                                                                                                                                                                    | String      | Yes  | N/A      |
-| `expectedBucketOwner` | Expected owner account ID of the bucket provided in the<br>`source` path. We recommend that you verify the<br>ownership of the Amazon S3 bucket specified in the source.                                                                                                                                                                                                                                                                                                    | String      | No   | N/A      |
-| `overwrite`           | When set to true, if a file of the same name already exists<br>in the destination folder for the specified local path, the<br>download file overwrites the local file. When set to false,<br>the existing file on the local system is protected from being<br>overwritten, and the action module fails with a download error.<br>For example, `Error: S3Download: File already exists and "overwrite"<br>property for "destination" file is set to false. Cannot download.` | Boolean     | No   | true     |
+Input| Key | Description | Type | Required | Default |
+| --- | --- | --- | --- | --- |
+| `source` | The Amazon S3 bucket that is the source for your download.<br>You can specify a path to a specific object, or use a<br>key prefix, that ends with a forward-slash, followed by<br>an asterisk wildcard (`/*`), to download a<br>set of objects that match the key prefix. | String | Yes | N/A |
+| `destination` | The local path where the Amazon S3 objects are<br>downloaded. To download a single file, you must<br>specify the file name as part of the path. For<br>example, `/myfolder/package.zip`. | String | Yes | N/A |
+| `expectedBucketOwner` | Expected owner account ID of the bucket provided in the<br>`source` path. We recommend that you verify the<br>ownership of the Amazon S3 bucket specified in the source. | String | No | N/A |
+| `overwrite` | When set to true, if a file of the same name already exists<br>in the destination folder for the specified local path, the<br>download file overwrites the local file. When set to false,<br>the existing file on the local system is protected from being<br>overwritten, and the action module fails with a download error.<br>For example, `Error: S3Download: File already exists and "overwrite"<br>property for "destination" file is set to false. Cannot download.` | Boolean | No | true |
 
 ###### Note
 
@@ -814,12 +811,12 @@ associated with the instance profile. The policy must grant
 `s3:PutObject` permissions to the target Amazon S3 bucket.
 For example, `arn:aws:s3:::`BucketName`/*`).
 
-| Input                 | Key                                                                                                                                                                                              | Description | Type | Required | Default |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- | ---- | -------- | ------- |
-| `source`              | The local path where source files/folders originate. The<br>`source` supports an asterisk wildcard (`*`).                                                                                        | String      | Yes  | N/A      |
-| `destination`         | The path for the destination Amazon S3 bucket where source<br>files/folders are uploaded.                                                                                                        | String      | Yes  | N/A      |
-| `recurse`             | When set to `true`, performs \*_S3Upload_<br>• recursively.                                                                                                                                      | String      | No   | `false`  |
-| `expectedBucketOwner` | The expected owner account ID for the Amazon S3 bucket specified<br>in the destination path. We recommend that you verify the<br>ownership of the Amazon S3 bucket specified in the destination. | String      | No   | N/A      |
+Input| Key | Description | Type | Required | Default |
+| --- | --- | --- | --- | --- |
+| `source` | The local path where source files/folders originate. The<br>`source` supports an asterisk wildcard (`*`). | String | Yes | N/A |
+| `destination` | The path for the destination Amazon S3 bucket where source<br>files/folders are uploaded. | String | Yes | N/A |
+| `recurse` | When set to `true`, performs *_S3Upload_<br>• recursively. | String | No | `false` |
+| `expectedBucketOwner` | The expected owner account ID for the Amazon S3 bucket specified<br>in the destination path. We recommend that you verify the<br>ownership of the Amazon S3 bucket specified in the destination. | String | No | N/A |
 
 ###### Input example: copy a local file to an Amazon S3 object
 
@@ -891,18 +888,18 @@ to action module failures.
 This action module implicitly handles redirects. All HTTP status codes, except for
 `200`, result in an error.
 
-| Input                     | Key name                                                                                                                                                                                                                                                                                                                                                                                                                                 | Description | Type | Required | Default |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---- | -------- | ------- |
-| `source`                  | The valid HTTP/HTTPS URL (_HTTPS is recommended_),<br>which follows the RFC 3986 standard. Chaining expressions are permitted.                                                                                                                                                                                                                                                                                                           | String      | Yes  | N/A      |
-| `destination`             | An absolute or relative file or folder path on the local system.<br>Folder paths must end with `/`. If they do not end with<br>`/`, they will be treated as file paths. The module<br>creates any required file or folder for successful downloads.<br>Chaining expressions are permitted.                                                                                                                                               | String      | Yes  | N/A      |
-| `overwrite`               | When enabled, overwrites any existing files on the local system<br>with the downloaded file or resource. When not enabled, any existing<br>files on the local system are not overwritten, and the action module<br>fails with an error. When overwrite is enabled and checksum and<br>algorithm are specified, then the action module downloads the file<br>only if the checksum and the hash of any pre-existing files do not<br>match. | Boolean     | No   | `true`   |
-| `checksum`                | When you specify the checksum, it is checked against the hash of<br>the downloaded file that is generated with the supplied algorithm.<br>For file verification to be enabled, both the checksum and the<br>algorithm must be provided. Chaining expressions are permitted.                                                                                                                                                              | String      | No   | N/A      |
-| `algorithm`               | The algorithm used to calculate the checksum. The options are<br>MD5, SHA1, SHA256, and SHA512. For file verification to be enabled,<br>both the checksum and the algorithm must be provided. Chaining<br>expressions are permitted.                                                                                                                                                                                                     | String      | No   | N/A      |
-| `ignoreCertificateErrors` | SSL certificate validation is ignored when enabled.                                                                                                                                                                                                                                                                                                                                                                                      | Boolean     | No   | `false`  |
+Input| Key name | Description | Type | Required | Default |
+| --- | --- | --- | --- | --- |
+| `source` | The valid HTTP/HTTPS URL (_HTTPS is recommended_),<br>which follows the RFC 3986 standard. Chaining expressions are permitted. | String | Yes | N/A |
+| `destination` | An absolute or relative file or folder path on the local system.<br>Folder paths must end with `/`. If they do not end with<br>`/`, they will be treated as file paths. The module<br>creates any required file or folder for successful downloads.<br>Chaining expressions are permitted. | String | Yes | N/A |
+| `overwrite` | When enabled, overwrites any existing files on the local system<br>with the downloaded file or resource. When not enabled, any existing<br>files on the local system are not overwritten, and the action module<br>fails with an error. When overwrite is enabled and checksum and<br>algorithm are specified, then the action module downloads the file<br>only if the checksum and the hash of any pre-existing files do not<br>match. | Boolean | No | `true` |
+| `checksum` | When you specify the checksum, it is checked against the hash of<br>the downloaded file that is generated with the supplied algorithm.<br>For file verification to be enabled, both the checksum and the<br>algorithm must be provided. Chaining expressions are permitted. | String | No | N/A |
+| `algorithm` | The algorithm used to calculate the checksum. The options are<br>MD5, SHA1, SHA256, and SHA512. For file verification to be enabled,<br>both the checksum and the algorithm must be provided. Chaining<br>expressions are permitted. | String | No | N/A |
+| `ignoreCertificateErrors` | SSL certificate validation is ignored when enabled. | Boolean | No | `false` |
 
-| Output        | Key name                                                                                                                      | Description | Type |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------- | ---- |
-| `destination` | Newline character-delimited string that specifies the destination<br>path where the downloaded files or resources are stored. | String      |
+Output| Key name | Description | Type |
+| --- | --- | --- |
+| `destination` | Newline character-delimited string that specifies the destination<br>path where the downloaded files or resources are stored. | String |
 
 **Input example: download remote file to local
 destination**
@@ -1035,11 +1032,11 @@ The action module returns an error when the following occurs:
 - You don't have write permissions to modify the file content.
 - The module encounters an error during the file operation.
 
-| Input      | Key name                                | Description | Type | Required     | Default value                                                                                                                                                                                                                          | Acceptable values | Supported on all platforms |
-| ---------- | --------------------------------------- | ----------- | ---- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | -------------------------- |
-| `path`     | The file path.                          | String      | Yes  | N/A          | N/A                                                                                                                                                                                                                                    | Yes               |
-| `content`  | The content to be appended to the file. | String      | No   | Empty string | N/A                                                                                                                                                                                                                                    | Yes               |
-| `encoding` | The encoding standard.                  | String      | No   | `utf8`       | `utf8`, `utf-8`,<br>`utf16`,`utf-16`, `utf16-LE`,<br>`utf-16-LE`<br>`utf16-BE`, `utf-16-BE`, `utf32`,<br>`utf-32`,<br>`utf32-LE`,`utf-32-LE`,<br>`utf32-BE`, and `utf-32-BE`. The value of<br>the encoding option is case insensitive. | Yes               |
+Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
+| --- | --- | --- | --- | --- | --- | --- |
+| `path` | The file path. | String | Yes | N/A | N/A | Yes |
+| `content` | The content to be appended to the file. | String | No | Empty string | N/A | Yes |
+| `encoding` | The encoding standard. | String | No | `utf8` | `utf8`, `utf-8`,<br>`utf16`,`utf-16`, `utf16-LE`,<br>`utf-16-LE`<br>`utf16-BE`, `utf-16-BE`, `utf32`,<br>`utf-32`,<br>`utf32-LE`,`utf-32-LE`,<br>`utf32-BE`, and `utf-32-BE`. The value of<br>the encoding option is case insensitive. | Yes |
 
 **Input example: append file without encoding
 (Linux)**
@@ -1153,11 +1150,11 @@ The action module returns an error when the following occurs:
 - The action module encounters an error while performing the
   operation.
 
-| Input         | Key name                                                                                                                                            | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---- | -------- | ------------- | ----------------- | -------------------------- |
-| `source`      | The source file path.                                                                                                                               | String      | Yes  | N/A      | N/A           | Yes               |
-| `destination` | The destination file path.                                                                                                                          | String      | Yes  | N/A      | N/A           | Yes               |
-| `overwrite`   | When set to false, the destination files will not be replaced<br>when there is already a file in the specified location with the<br>specified name. | Boolean     | No   | `true`   | N/A           | Yes               |
+Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
+| --- | --- | --- | --- | --- | --- | --- |
+| `source` | The source file path. | String | Yes | N/A | N/A | Yes |
+| `destination` | The destination file path. | String | Yes | N/A | N/A | Yes |
+| `overwrite` | When set to false, the destination files will not be replaced<br>when there is already a file in the specified location with the<br>specified name. | Boolean | No | `true` | N/A | Yes |
 
 **Input example: copy a file (Linux)**
 
@@ -1295,11 +1292,11 @@ The action module returns an error when the following occurs:
 - The action module encounters an error while performing the
   operation.
 
-| Input         | Key name                                                                                                                                                | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---- | -------- | ------------- | ----------------- | -------------------------- |
-| `source`      | The source folder path.                                                                                                                                 | String      | Yes  | N/A      | N/A           | Yes               |
-| `destination` | The destination folder path.                                                                                                                            | String      | Yes  | N/A      | N/A           | Yes               |
-| `overwrite`   | When set to false, the destination folders will not be replaced<br>when there is already a folder in the specified location with the<br>specified name. | Boolean     | No   | `true`   | N/A           | Yes               |
+Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
+| --- | --- | --- | --- | --- | --- | --- |
+| `source` | The source folder path. | String | Yes | N/A | N/A | Yes |
+| `destination` | The destination folder path. | String | Yes | N/A | N/A | Yes |
+| `overwrite` | When set to false, the destination folders will not be replaced<br>when there is already a folder in the specified location with the<br>specified name. | Boolean | No | `true` | N/A | Yes |
 
 **Input example: copy a folder (Linux)**
 
@@ -1428,15 +1425,15 @@ The action module returns an error when the following occurs:
 - The action module encounters an error while performing the
   operation.
 
-| Input         | Key name                                                                                                                                                | Description | Type | Required          | Default value                                                                                                                                                                                                                          | Acceptable values         | Supported on all platforms |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | -------------------------- |
-| `path`        | The file path.                                                                                                                                          | String      | Yes  | N/A               | N/A                                                                                                                                                                                                                                    | Yes                       |
-| `content`     | The text content of the file.                                                                                                                           | String      | No   | N/A               | N/A                                                                                                                                                                                                                                    | Yes                       |
-| `encoding`    | The encoding standard.                                                                                                                                  | String      | No   | `utf8`            | `utf8`, `utf-8`,<br>`utf16`,`utf-16`, `utf16-LE`,<br>`utf-16-LE`<br>`utf16-BE`, `utf-16-BE`, `utf32`,<br>`utf-32`,<br>`utf32-LE`,`utf-32-LE`,<br>`utf32-BE`, and `utf-32-BE`. The value of<br>the encoding option is case insensitive. | Yes                       |
-| `owner`       | The user name or ID.                                                                                                                                    | String      | No   | N/A               | N/A                                                                                                                                                                                                                                    | Not supported on Windows. |
-| `group`       | The group name or ID.                                                                                                                                   | String      | No   | The current user. | N/A                                                                                                                                                                                                                                    | Not supported on Windows. |
-| `permissions` | The file permissions.                                                                                                                                   | String      | No   | `0666`            | N/A                                                                                                                                                                                                                                    | Not supported on Windows. |
-| `overwrite`   | If the name of the specified file already exists, setting this<br>value to `false` prevents the file from being truncated or<br>overwritten by default. | Boolean     | No   | `true`            | N/A                                                                                                                                                                                                                                    | Yes                       |
+Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
+| --- | --- | --- | --- | --- | --- | --- |
+| `path` | The file path. | String | Yes | N/A | N/A | Yes |
+| `content` | The text content of the file. | String | No | N/A | N/A | Yes |
+| `encoding` | The encoding standard. | String | No | `utf8` | `utf8`, `utf-8`,<br>`utf16`,`utf-16`, `utf16-LE`,<br>`utf-16-LE`<br>`utf16-BE`, `utf-16-BE`, `utf32`,<br>`utf-32`,<br>`utf32-LE`,`utf-32-LE`,<br>`utf32-BE`, and `utf-32-BE`. The value of<br>the encoding option is case insensitive. | Yes |
+| `owner` | The user name or ID. | String | No | N/A | N/A | Not supported on Windows. |
+| `group` | The group name or ID. | String | No | The current user. | N/A | Not supported on Windows. |
+| `permissions` | The file permissions. | String | No | `0666` | N/A | Not supported on Windows. |
+| `overwrite` | If the name of the specified file already exists, setting this<br>value to `false` prevents the file from being truncated or<br>overwritten by default. | Boolean | No | `true` | N/A | Yes |
 
 **Input example: create a file without overwriting
 (Linux)**
@@ -1539,13 +1536,13 @@ The action module returns an error when the following occurs:
 - The action module encounters an error while performing the
   operation.
 
-| Input         | Key name                                                                                                                                                | Description | Type | Required                       | Default value | Acceptable values         | Supported on all platforms |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---- | ------------------------------ | ------------- | ------------------------- | -------------------------- |
-| `path`        | The folder path.                                                                                                                                        | String      | Yes  | N/A                            | N/A           | Yes                       |
-| `owner`       | The user name or ID.                                                                                                                                    | String      | No   | The current user.              | N/A           | Not supported on Windows. |
-| `group`       | The group name or ID.                                                                                                                                   | String      | No   | The group of the current user. | N/A           | Not supported on Windows. |
-| `permissions` | The folder permissions.                                                                                                                                 | String      | No   | `0777`                         | N/A           | Not supported on Windows. |
-| `overwrite`   | If the name of the specified file already exists, setting this<br>value to `false` prevents the file from being truncated or<br>overwritten by default. | Boolean     | No   | `true`                         | N/A           | Yes                       |
+Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
+| --- | --- | --- | --- | --- | --- | --- |
+| `path` | The folder path. | String | Yes | N/A | N/A | Yes |
+| `owner` | The user name or ID. | String | No | The current user. | N/A | Not supported on Windows. |
+| `group` | The group name or ID. | String | No | The group of the current user. | N/A | Not supported on Windows. |
+| `permissions` | The folder permissions. | String | No | `0777` | N/A | Not supported on Windows. |
+| `overwrite` | If the name of the specified file already exists, setting this<br>value to `false` prevents the file from being truncated or<br>overwritten by default. | Boolean | No | `true` | N/A | Yes |
 
 **Input example: create a folder (Linux)**
 
@@ -1622,11 +1619,11 @@ The action module returns an error when the following occurs:
 - The action module encounters an error while performing the
   operation.
 
-| Input    | Key name                                                                        | Description | Type | Required | Default value | Acceptable values         | Supported on all platforms |
-| -------- | ------------------------------------------------------------------------------- | ----------- | ---- | -------- | ------------- | ------------------------- | -------------------------- |
-| `path`   | The file path.                                                                  | String      | Yes  | N/A      | N/A           | Not supported on Windows. |
-| `target` | The target file path to which the symbolic link points.                         | String      | Yes  | N/A      | N/A           | Not supported on Windows. |
-| `force`  | Forces the creation of a link when a link with the same name<br>already exists. | Boolean     | No   | `false`  | N/A           | Not supported on Windows. |
+Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
+| --- | --- | --- | --- | --- | --- | --- |
+| `path` | The file path. | String | Yes | N/A | N/A | Not supported on Windows. |
+| `target` | The target file path to which the symbolic link points. | String | Yes | N/A | N/A | Not supported on Windows. |
+| `force` | Forces the creation of a link when a link with the same name<br>already exists. | Boolean | No | `false` | N/A | Not supported on Windows. |
 
 **Input example: create symbolic link that forces the creation
 of a link**
@@ -1671,9 +1668,9 @@ The action module returns an error when the following occurs:
 - The action module encounters an error while performing the
   operation.
 
-| Input  | Key name       | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| ------ | -------------- | ----------- | ---- | -------- | ------------- | ----------------- | -------------------------- |
-| `path` | The file path. | String      | Yes  | N/A      | N/A           | Yes               |
+Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
+| --- | --- | --- | --- | --- | --- | --- |
+| `path` | The file path. | String | Yes | N/A | N/A | Yes |
 
 **Input example: delete a single file
 (Linux)**
@@ -1756,10 +1753,10 @@ The action module returns an error when the following occurs:
 - The action module encounters an error while performing the
   operation.
 
-| Input   | Key name                                               | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| ------- | ------------------------------------------------------ | ----------- | ---- | -------- | ------------- | ----------------- | -------------------------- |
-| `path`  | The folder path.                                       | String      | Yes  | N/A      | N/A           | Yes               |
-| `force` | Removes the folder whether or not the folder is empty. | Boolean     | No   | `false`  | N/A           | Yes               |
+Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
+| --- | --- | --- | --- | --- | --- | --- |
+| `path` | The folder path. | String | Yes | N/A | N/A | Yes |
+| `force` | Removes the folder whether or not the folder is empty. | Boolean | No | `false` | N/A | Yes |
 
 **Input example: delete a folder that is not empty using the
 `force` option (Linux)**
@@ -1826,11 +1823,11 @@ The action module returns an error when the following occurs:
 - The action module encounters an error while performing the
   operation.
 
-| Input             | Key name                                                                     | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| ----------------- | ---------------------------------------------------------------------------- | ----------- | ---- | -------- | ------------- | ----------------- | -------------------------- |
-| `path`            | The folder path.                                                             | String      | Yes  | N/A      | N/A           | Yes               |
-| `fileNamePattern` | The pattern to match to list all files with names that match the<br>pattern. | String      | No   | N/A      | N/A           | Yes               |
-| `recursive`       | Lists files in the folder recursively.                                       | Boolean     | No   | `false`  | N/A           | Yes               |
+Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
+| --- | --- | --- | --- | --- | --- | --- |
+| `path` | The folder path. | String | Yes | N/A | N/A | Yes |
+| `fileNamePattern` | The pattern to match to list all files with names that match the<br>pattern. | String | No | N/A | N/A | Yes |
+| `recursive` | Lists files in the folder recursively. | Boolean | No | `false` | N/A | Yes |
 
 **Input example: list files in specified folder
 (Linux)**
@@ -1884,9 +1881,9 @@ The action module returns an error when the following occurs:
         recursive: true
 ```
 
-| Output  | Key name           | Description | Type |
-| ------- | ------------------ | ----------- | ---- |
-| `files` | The list of files. | String      |
+Output| Key name | Description | Type |
+| --- | --- | --- |
+| `files` | The list of files. | String |
 
 **Output example**
 
@@ -1936,11 +1933,11 @@ The action module returns an error when the following occurs:
 - The action module encounters an error while performing the
   operation.
 
-| Input         | Key name                                                                                                                                            | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---- | -------- | ------------- | ----------------- | -------------------------- |
-| `source`      | The source file path.                                                                                                                               | String      | Yes  | N/A      | N/A           | Yes               |
-| `destination` | The destination file path.                                                                                                                          | String      | Yes  | N/A      | N/A           | Yes               |
-| `overwrite`   | When set to false, the destination files will not be replaced<br>when there is already a file in the specified location with the<br>specified name. | Boolean     | No   | `true`   | N/A           | Yes               |
+Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
+| --- | --- | --- | --- | --- | --- | --- |
+| `source` | The source file path. | String | Yes | N/A | N/A | Yes |
+| `destination` | The destination file path. | String | Yes | N/A | N/A | Yes |
+| `overwrite` | When set to false, the destination files will not be replaced<br>when there is already a file in the specified location with the<br>specified name. | Boolean | No | `true` | N/A | Yes |
 
 **Input example: move a file (Linux)**
 
@@ -2081,11 +2078,11 @@ The action module returns an error when the following occurs:
 - The action module encounters an error while performing the
   operation.
 
-| Input         | Key name                                                                                                                                                | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---- | -------- | ------------- | ----------------- | -------------------------- |
-| `source`      | The source folder path.                                                                                                                                 | String      | Yes  | N/A      | N/A           | Yes               |
-| `destination` | The destination folder path.                                                                                                                            | String      | Yes  | N/A      | N/A           | Yes               |
-| `overwrite`   | When set to false, the destination folders will not be replaced<br>when there is already a folder in the specified location with the<br>specified name. | Boolean     | No   | `true`   | N/A           | Yes               |
+Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
+| --- | --- | --- | --- | --- | --- | --- |
+| `source` | The source folder path. | String | Yes | N/A | N/A | Yes |
+| `destination` | The destination folder path. | String | Yes | N/A | N/A | Yes |
+| `overwrite` | When set to false, the destination folders will not be replaced<br>when there is already a folder in the specified location with the<br>specified name. | Boolean | No | `true` | N/A | Yes |
 
 **Input example: move a folder (Linux)**
 
@@ -2206,11 +2203,11 @@ The action module returns an error when the following occurs:
 - The action module encounters an error while performing the
   operation.
 
-| Input              | Key name                                              | Description | Type | Required | Default value                                                                                                                                                                                                                          | Acceptable values | Supported on all platforms |
-| ------------------ | ----------------------------------------------------- | ----------- | ---- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | -------------------------- |
-| `path`             | The file path.                                        | String      | Yes  | N/A      | N/A                                                                                                                                                                                                                                    | Yes               |
-| `encoding`         | The encoding standard.                                | String      | No   | `utf8`   | `utf8`, `utf-8`,<br>`utf16`,`utf-16`, `utf16-LE`,<br>`utf-16-LE`<br>`utf16-BE`, `utf-16-BE`, `utf32`,<br>`utf-32`,<br>`utf32-LE`,`utf-32-LE`,<br>`utf32-BE`, and `utf-32-BE`. The value of<br>the encoding option is case insensitive. | Yes               |
-| `printFileContent` | Prints the file content to the `console.log`<br>file. | Boolean     | No   | false    | N/A                                                                                                                                                                                                                                    | Yes.              |
+Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
+| --- | --- | --- | --- | --- | --- | --- |
+| `path` | The file path. | String | Yes | N/A | N/A | Yes |
+| `encoding` | The encoding standard. | String | No | `utf8` | `utf8`, `utf-8`,<br>`utf16`,`utf-16`, `utf16-LE`,<br>`utf-16-LE`<br>`utf16-BE`, `utf-16-BE`, `utf32`,<br>`utf-32`,<br>`utf32-LE`,`utf-32-LE`,<br>`utf32-BE`, and `utf-32-BE`. The value of<br>the encoding option is case insensitive. | Yes |
+| `printFileContent` | Prints the file content to the `console.log`<br>file. | Boolean | No | false | N/A | Yes. |
 
 **Input example: read a file (Linux)**
 
@@ -2252,9 +2249,9 @@ standard**
         printFileContent: true
 ```
 
-| Output    | Field             | Description | Type |
-| --------- | ----------------- | ----------- | ---- |
-| `content` | The file content. | string      |
+Output| Field | Description | Type |
+| --- | --- | --- |
+| `content` | The file content. | string |
 
 **Output example**
 
@@ -2279,10 +2276,10 @@ The action module returns an error when the following occurs:
 - The action module encounters an error while performing the
   operation.
 
-| Input      | Key name               | Description | Type | Required | Default value                                                                                                                                                                                                                          | Acceptable values | Supported on all platforms |
-| ---------- | ---------------------- | ----------- | ---- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | -------------------------- |
-| `path`     | The file path.         | String      | Yes  | N/A      | N/A                                                                                                                                                                                                                                    | Yes               |
-| `encoding` | The encoding standard. | String      | No   | `utf8`   | `utf8`, `utf-8`,<br>`utf16`,`utf-16`, `utf16-LE`,<br>`utf-16-LE`<br>`utf16-BE`, `utf-16-BE`, `utf32`,<br>`utf-32`,<br>`utf32-LE`,`utf-32-LE`,<br>`utf32-BE`, and `utf-32-BE`. The value of<br>the encoding option is case insensitive. | Yes               |
+Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
+| --- | --- | --- | --- | --- | --- | --- |
+| `path` | The file path. | String | Yes | N/A | N/A | Yes |
+| `encoding` | The encoding standard. | String | No | `utf8` | `utf8`, `utf-8`,<br>`utf16`,`utf-16`, `utf16-LE`,<br>`utf-16-LE`<br>`utf16-BE`, `utf-16-BE`, `utf32`,<br>`utf-32`,<br>`utf32-LE`,`utf-32-LE`,<br>`utf32-BE`, and `utf-32-BE`. The value of<br>the encoding option is case insensitive. | Yes |
 
 **Input example: set file encoding property**
 
@@ -2317,11 +2314,11 @@ The action module returns an error when the following occurs:
 - The action module encounters an error while performing the
   operation.
 
-| Input   | Key name                    | Description | Type | Required                                        | Default value | Acceptable values         | Supported on all platforms |
-| ------- | --------------------------- | ----------- | ---- | ----------------------------------------------- | ------------- | ------------------------- | -------------------------- |
-| `path`  | The file path.              | String      | Yes  | N/A                                             | N/A           | Not supported on Windows. |
-| `owner` | The user name.              | string      | Yes  | N/A                                             | N/A           | Not supported on Windows. |
-| `group` | The name of the user group. | String      | No   | The name of the group that the user belongs to. | N/A           | Not supported on Windows. |
+Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
+| --- | --- | --- | --- | --- | --- | --- |
+| `path` | The file path. | String | Yes | N/A | N/A | Not supported on Windows. |
+| `owner` | The user name. | string | Yes | N/A | N/A | Not supported on Windows. |
+| `group` | The name of the user group. | String | No | The name of the group that the user belongs to. | N/A | Not supported on Windows. |
 
 **Input example: set file owner property without specifying
 the name of the user group**
@@ -2370,12 +2367,12 @@ The action module returns an error when the following occurs:
 - The action module encounters an error while performing the
   operation.
 
-| Input       | Key name                                                                                                          | Description | Type | Required                                        | Default value | Acceptable values         | Supported on all platforms |
-| ----------- | ----------------------------------------------------------------------------------------------------------------- | ----------- | ---- | ----------------------------------------------- | ------------- | ------------------------- | -------------------------- |
-| `path`      | The folder path.                                                                                                  | String      | Yes  | N/A                                             | N/A           | Not supported on Windows. |
-| `owner`     | The user name.                                                                                                    | string      | Yes  | N/A                                             | N/A           | Not supported on Windows. |
-| `group`     | The name of the user group.                                                                                       | String      | No   | The name of the group that the user belongs to. | N/A           | Not supported on Windows. |
-| `recursive` | Overrides the default behavior of modifying ownership for all of<br>the contents of a folder when set to `false`. | Boolean     | No   | `true`                                          | N/A           | Not supported on Windows. |
+Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
+| --- | --- | --- | --- | --- | --- | --- |
+| `path` | The folder path. | String | Yes | N/A | N/A | Not supported on Windows. |
+| `owner` | The user name. | string | Yes | N/A | N/A | Not supported on Windows. |
+| `group` | The name of the user group. | String | No | The name of the group that the user belongs to. | N/A | Not supported on Windows. |
+| `recursive` | Overrides the default behavior of modifying ownership for all of<br>the contents of a folder when set to `false`. | Boolean | No | `true` | N/A | Not supported on Windows. |
 
 **Input example: set folder owner property without specifying
 the name of the user group**
@@ -2435,10 +2432,10 @@ The action module returns an error when the following occurs:
 - The action module encounters an error while performing the
   operation.
 
-| Input         | Key name              | Description | Type | Required | Default value | Acceptable values         | Supported on all platforms |
-| ------------- | --------------------- | ----------- | ---- | -------- | ------------- | ------------------------- | -------------------------- |
-| `path`        | The file path.        | String      | Yes  | N/A      | N/A           | Not supported on Windows. |
-| `permissions` | The file permissions. | String      | Yes  | N/A      | N/A           | Not supported on Windows. |
+Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
+| --- | --- | --- | --- | --- | --- | --- |
+| `path` | The file path. | String | Yes | N/A | N/A | Not supported on Windows. |
+| `permissions` | The file permissions. | String | Yes | N/A | N/A | Not supported on Windows. |
 
 **Input example: modify file permissions**
 
@@ -2476,11 +2473,11 @@ The action module returns an error when the following occurs:
 - The action module encounters an error while performing the
   operation.
 
-| Input         | Key name                                                                                                            | Description | Type | Required | Default value | Acceptable values         | Supported on all platforms |
-| ------------- | ------------------------------------------------------------------------------------------------------------------- | ----------- | ---- | -------- | ------------- | ------------------------- | -------------------------- |
-| `path`        | The folder path.                                                                                                    | String      | Yes  | N/A      | N/A           | Not supported on Windows. |
-| `permissions` | The folder permissions.                                                                                             | String      | Yes  | N/A      | N/A           | Not supported on Windows. |
-| `recursive`   | Overrides the default behavior of modifying permissions for all<br>of the contents of a folder when set to `false`. | Boolean     | No   | `true`   | N/A           | Not supported on Windows. |
+Input| Key name | Description | Type | Required | Default value | Acceptable values | Supported on all platforms |
+| --- | --- | --- | --- | --- | --- | --- |
+| `path` | The folder path. | String | Yes | N/A | N/A | Not supported on Windows. |
+| `permissions` | The folder permissions. | String | Yes | N/A | N/A | Not supported on Windows. |
+| `recursive` | Overrides the default behavior of modifying permissions for all<br>of the contents of a folder when set to `false`. | Boolean | No | `true` | N/A | Not supported on Windows. |
 
 **Input example: set folder permissions**
 
@@ -2571,19 +2568,19 @@ must be enclosed in quotation marks (").
 The following MSI exit codes are considered successful:
 
 - 0 (Success)
-- 1614 (ERROR_PRODUCT_UNINSTALLED)
+- 1614 (ERROR\_PRODUCT\_UNINSTALLED)
 - 1641 (Reboot Initiated)
 - 3010 (Reboot Required)
 
-| Input                               | Key name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Description       | Type | Required | Default value                   | Acceptable values |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | ---- | -------- | ------------------------------- | ----------------- |
-| `path`                              | Specify the MSI file location using one of the following:<br>• The local file path. The path can be absolute or relative<br>• A valid S3 object URI.<br>• A valid web HTTP/HTTPS URL (HTTPS is recommended)<br>that follows the RFC 3986 standard.<br>Chaining expressions are allowed.                                                                                                                                                                                                                                                                                                                      | String            | Yes  | N/A      | N/A                             |
-| `reboot`                            | Configure the system reboot behavior that follows a successful run of the action<br>module.<br>Settings:<br>• `Force` – Initiates a system<br>reboot after the **msiexec\*<br>• command<br>runs successfully.<br>• `Allow` – Initiates a system<br>reboot if the **msiexec*<br>• command returns<br>an exit code that indicates a reboot is required.<br>• `Skip` – Logs an informational message<br>to the `console.log` file indicating that<br>a reboot was skipped. This option prevents a reboot, even<br>if the \*\*msiexec*<br>• command returns<br>an exit code that indicates a reboot is required. | String            | No   | `Allow`  | `Allow, Force, Skip`            |
-| `logOptions`                        | Specify the options to use for MSI installation logging.<br>Specified flags are passed to the MSI installer, along with<br>the `/L` command line parameter to enable logging.<br>If no flags are specified, AWSTOE uses the default value.<br>For more information about log options for MSI, see<br>[Command<br>Line Options](https://learn.microsoft.com/en-us/windows/win32/msi/command-line-options "https://learn.microsoft.com/en-us/windows/win32/msi/command-line-options") in the Microsoft _Windows Installer_<br>product documentation.                                                           | String            | No   | `*VX`    | `i,w,e,a,r,u,c,m,o,p,v,x,+,!,*` |
-| `logFile`                           | An absolute or relative path to the log file location.<br>If the log file path does not exist, it is created. If<br>the log file path is not provided, AWSTOE does not store<br>the MSI installation log.                                                                                                                                                                                                                                                                                                                                                                                                    | String            | No   | N/A      | N/A                             |
-| `properties`                        | MSI logging property key-value pairs , for example: `TARGETDIR:<br>"C:\target\location"`<br>Note: Modification of the following properties is not allowed:<br>• `REBOOT="ReallySupress"`<br>• `REINSTALLMODE="ecmus"`<br>• `REINSTALL="ALL"`                                                                                                                                                                                                                                                                                                                                                                 | Map[String]String | No   | N/A      | N/A                             |
-| `ignoreAuthenticodeSignatureErrors` | Flag to ignore authenticode signature validation errors for the installer<br>specified in path. The \*_Get-AuthenticodeSignature_<br>• command<br>is used to validate installers.<br>Settings:<br>• `true` – Validation errors are ignored and the<br>installer runs.<br>• `false` – Validation errors are not ignored. The<br>installer runs only when validation is successful. This is the<br>default behavior.                                                                                                                                                                                           | Boolean           | No   | `false`  | `true, false`                   |
-| `allowUnsignedInstaller`            | Flag to allow running the unsigned installer specified in<br>the path. The **Get-AuthenticodeSignature**<br>command is used to validate installers.<br>Settings:<br>• `true` – Ignores the<br>`NotSigned` status returned by the<br>\*_Get-AuthenticodeSignature_<br>• command<br>and runs the installer.<br>• `false` – Requires the<br>installer to be signed. Unsigned installers<br>will not run. This is the default behavior.                                                                                                                                                                          | Boolean           | No   | `false`  | `true, false`                   |
+Input| Key name | Description | Type | Required | Default value | Acceptable values |
+| --- | --- | --- | --- | --- | --- |
+| `path` | Specify the MSI file location using one of the following:<br>• The local file path. The path can be absolute or relative<br>• A valid S3 object URI.<br>• A valid web HTTP/HTTPS URL (HTTPS is recommended)<br>that follows the RFC 3986 standard.<br>Chaining expressions are allowed. | String | Yes | N/A | N/A |
+| `reboot` | Configure the system reboot behavior that follows a successful run of the action<br>module.<br>Settings:<br>• `Force` – Initiates a system<br>reboot after the *_msiexec_<br>• command<br>runs successfully.<br>• `Allow` – Initiates a system<br>reboot if the *_msiexec_<br>• command returns<br>an exit code that indicates a reboot is required.<br>• `Skip` – Logs an informational message<br>to the `console.log` file indicating that<br>a reboot was skipped. This option prevents a reboot, even<br>if the *_msiexec_<br>• command returns<br>an exit code that indicates a reboot is required. | String | No | `Allow` | `Allow, Force, Skip` |
+| `logOptions` | Specify the options to use for MSI installation logging.<br>Specified flags are passed to the MSI installer, along with<br>the `/L` command line parameter to enable logging.<br>If no flags are specified, AWSTOE uses the default value.<br>For more information about log options for MSI, see<br>[Command<br>Line Options](https://learn.microsoft.com/en-us/windows/win32/msi/command-line-options "https://learn.microsoft.com/en-us/windows/win32/msi/command-line-options") in the Microsoft _Windows Installer_<br>product documentation. | String | No | `*VX` | `i,w,e,a,r,u,c,m,o,p,v,x,+,!,*` |
+| `logFile` | An absolute or relative path to the log file location.<br>If the log file path does not exist, it is created. If<br>the log file path is not provided, AWSTOE does not store<br>the MSI installation log. | String | No | N/A | N/A |
+| `properties` | MSI logging property key-value pairs , for example: `TARGETDIR:<br>"C:\target\location"`<br>Note: Modification of the following properties is not allowed:<br>• `REBOOT="ReallySupress"`<br>• `REINSTALLMODE="ecmus"`<br>• `REINSTALL="ALL"` | Map[String]String | No | N/A | N/A |
+| `ignoreAuthenticodeSignatureErrors` | Flag to ignore authenticode signature validation errors for the installer<br>specified in path. The *_Get-AuthenticodeSignature_<br>• command<br>is used to validate installers.<br>Settings:<br>• `true` – Validation errors are ignored and the<br>installer runs.<br>• `false` – Validation errors are not ignored. The<br>installer runs only when validation is successful. This is the<br>default behavior. | Boolean | No | `false` | `true, false` |
+| `allowUnsignedInstaller` | Flag to allow running the unsigned installer specified in<br>the path. The **Get-AuthenticodeSignature**<br>command is used to validate installers.<br>Settings:<br>• `true` – Ignores the<br>`NotSigned` status returned by the<br>*_Get-AuthenticodeSignature_<br>• command<br>and runs the installer.<br>• `false` – Requires the<br>installer to be signed. Unsigned installers<br>will not run. This is the default behavior. | Boolean | No | `false` | `true, false` |
 
 ###### Examples
 
@@ -2666,20 +2663,20 @@ the **msiexec** command.
 The following MSI exit codes are considered successful:
 
 - 0 (Success)
-- 1605 (ERROR_UNKNOWN_PRODUCT)
-- 1614 (ERROR_PRODUCT_UNINSTALLED)
+- 1605 (ERROR\_UNKNOWN\_PRODUCT)
+- 1614 (ERROR\_PRODUCT\_UNINSTALLED)
 - 1641 (Reboot Initiated)
 - 3010 (Reboot Required)
 
-| Input                               | Key name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Description       | Type | Required | Default value                   | Acceptable values |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ---- | -------- | ------------------------------- | ----------------- |
-| `path`                              | Specify the MSI file location using one of the following:<br>• The local file path. The path can be absolute or relative.<br>• A valid S3 object URI.<br>• A valid web HTTP/HTTPS URL (HTTPS is recommended)<br>that follows the RFC 3986 standard.<br>Chaining expressions are allowed.                                                                                                                                                                                                                                                                                                                      | String            | Yes  | N/A      | N/A                             |
-| `reboot`                            | Configures the system reboot behavior that follows a<br>successful run of the action module.<br>Settings:<br>• `Force` – Initiates a system<br>reboot after the **msiexec\*<br>• command<br>runs successfully.<br>• `Allow` – Initiates a system<br>reboot if the **msiexec*<br>• command returns<br>an exit code that indicates a reboot is required.<br>• `Skip` – Logs an informational message<br>to the `console.log` file indicating that<br>a reboot was skipped. This option prevents a reboot, even<br>if the \*\*msiexec*<br>• command returns<br>an exit code that indicates a reboot is required. | String            | No   | `Allow`  | `Allow, Force, Skip`            |
-| `logOptions`                        | Specify the options to use for MSI installation logging.<br>Specified flags are passed to the MSI installer, along with<br>the `/L` command line parameter to enable logging.<br>If no flags are specified, AWSTOE uses the default value.<br>For more information about log options for MSI, see<br>[Command<br>Line Options](https://docs.microsoft.com/en-us/windows/win32/msi/command-line-options "https://docs.microsoft.com/en-us/windows/win32/msi/command-line-options") in the Microsoft _Windows Installer_<br>product documentation.                                                              | String            | No   | `*VX`    | `i,w,e,a,r,u,c,m,o,p,v,x,+,!,*` |
-| `logFile`                           | An absolute or relative path to the log file location.<br>If the log file path does not exist, it is created. If<br>the log file path is not provided, AWSTOE does not store<br>the MSI installation log.                                                                                                                                                                                                                                                                                                                                                                                                     | String            | No   | N/A      | N/A                             |
-| `properties`                        | MSI logging property key-value pairs , for example: `TARGETDIR:<br>"C:\target\location"`<br>Note: Modification of the following properties is not allowed:<br>• `REBOOT="ReallySupress"`<br>• `REINSTALLMODE="ecmus"`<br>• `REINSTALL="ALL"`                                                                                                                                                                                                                                                                                                                                                                  | Map[String]String | No   | N/A      | N/A                             |
-| `ignoreAuthenticodeSignatureErrors` | Flag to ignore authenticode signature validation errors for the installer<br>specified in path. The \*_Get-AuthenticodeSignature_<br>• command<br>is used to validate installers.<br>Settings:<br>• `true` – Validation errors are ignored and the<br>installer runs.<br>• `false` – Validation errors are not ignored. The<br>installer runs only when validation is successful. This is the<br>default behavior.                                                                                                                                                                                            | Boolean           | No   | `false`  | `true, false`                   |
-| `allowUnsignedInstaller`            | Flag to allow running the unsigned installer specified in<br>the path. The **Get-AuthenticodeSignature**<br>command is used to validate installers.<br>Settings:<br>• `true` – Ignores the<br>`NotSigned` status returned by the<br>\*_Get-AuthenticodeSignature_<br>• command<br>and runs the installer.<br>• `false` – Requires the<br>installer to be signed. Unsigned installers<br>will not run. This is the default behavior.                                                                                                                                                                           | Boolean           | No   | `false`  | `true, false`                   |
+Input| Key name | Description | Type | Required | Default value | Acceptable values |
+| --- | --- | --- | --- | --- | --- |
+| `path` | Specify the MSI file location using one of the following:<br>• The local file path. The path can be absolute or relative.<br>• A valid S3 object URI.<br>• A valid web HTTP/HTTPS URL (HTTPS is recommended)<br>that follows the RFC 3986 standard.<br>Chaining expressions are allowed. | String | Yes | N/A | N/A |
+| `reboot` | Configures the system reboot behavior that follows a<br>successful run of the action module.<br>Settings:<br>• `Force` – Initiates a system<br>reboot after the *_msiexec_<br>• command<br>runs successfully.<br>• `Allow` – Initiates a system<br>reboot if the *_msiexec_<br>• command returns<br>an exit code that indicates a reboot is required.<br>• `Skip` – Logs an informational message<br>to the `console.log` file indicating that<br>a reboot was skipped. This option prevents a reboot, even<br>if the *_msiexec_<br>• command returns<br>an exit code that indicates a reboot is required. | String | No | `Allow` | `Allow, Force, Skip` |
+| `logOptions` | Specify the options to use for MSI installation logging.<br>Specified flags are passed to the MSI installer, along with<br>the `/L` command line parameter to enable logging.<br>If no flags are specified, AWSTOE uses the default value.<br>For more information about log options for MSI, see<br>[Command<br>Line Options](https://docs.microsoft.com/en-us/windows/win32/msi/command-line-options "https://docs.microsoft.com/en-us/windows/win32/msi/command-line-options") in the Microsoft _Windows Installer_<br>product documentation. | String | No | `*VX` | `i,w,e,a,r,u,c,m,o,p,v,x,+,!,*` |
+| `logFile` | An absolute or relative path to the log file location.<br>If the log file path does not exist, it is created. If<br>the log file path is not provided, AWSTOE does not store<br>the MSI installation log. | String | No | N/A | N/A |
+| `properties` | MSI logging property key-value pairs , for example: `TARGETDIR:<br>"C:\target\location"`<br>Note: Modification of the following properties is not allowed:<br>• `REBOOT="ReallySupress"`<br>• `REINSTALLMODE="ecmus"`<br>• `REINSTALL="ALL"` | Map[String]String | No | N/A | N/A |
+| `ignoreAuthenticodeSignatureErrors` | Flag to ignore authenticode signature validation errors for the installer<br>specified in path. The *_Get-AuthenticodeSignature_<br>• command<br>is used to validate installers.<br>Settings:<br>• `true` – Validation errors are ignored and the<br>installer runs.<br>• `false` – Validation errors are not ignored. The<br>installer runs only when validation is successful. This is the<br>default behavior. | Boolean | No | `false` | `true, false` |
+| `allowUnsignedInstaller` | Flag to allow running the unsigned installer specified in<br>the path. The **Get-AuthenticodeSignature**<br>command is used to validate installers.<br>Settings:<br>• `true` – Ignores the<br>`NotSigned` status returned by the<br>*_Get-AuthenticodeSignature_<br>• command<br>and runs the installer.<br>• `false` – Requires the<br>installer to be signed. Unsigned installers<br>will not run. This is the default behavior. | Boolean | No | `false` | `true, false` |
 
 ###### Examples
 
@@ -2801,9 +2798,9 @@ To use the **Reboot** action module, for steps that
 contain reboot `exitcode` (for example, `3010`), you must run
 the application binary as `sudo user`.
 
-| Input          | Key name                                                        | Description | Type | Required | Default |
-| -------------- | --------------------------------------------------------------- | ----------- | ---- | -------- | ------- |
-| `delaySeconds` | Delays a specific amount of time before initiating a<br>reboot. | Integer     | No   | `0`      |
+Input| Key name | Description | Type | Required | Default |
+| --- | --- | --- | --- | --- |
+| `delaySeconds` | Delays a specific amount of time before initiating a<br>reboot. | Integer | No | `0` |
 
 **Input example: reboot step**
 
@@ -2830,12 +2827,12 @@ inputs and allows you to set the value for the specified registry key. If a regi
 key does not exist, it is created in the defined path. This feature applies only to
 Windows.
 
-| Input   | Key name                    | Description         | Type | Required |
-| ------- | --------------------------- | ------------------- | ---- | -------- |
-| `path`  | Path of registry key.       | String              | Yes  |
-| `name`  | Name of registry key.       | String              | Yes  |
-| `value` | Value of registry key.      | String/Number/Array | Yes  |
-| `type`  | Value type of registry key. | String              | Yes  |
+Input| Key name | Description | Type | Required |
+| --- | --- | --- | --- |
+| `path` | Path of registry key. | String | Yes |
+| `name` | Name of registry key. | String | Yes |
+| `value` | Value of registry key. | String/Number/Array | Yes |
+| `type` | Value type of registry key. | String | Yes |
 
 ###### Supported path prefixes
 
@@ -2905,10 +2902,10 @@ _Amazon Linux 2023 User Guide_.
   module. If you do not have `sudo` permissions an
   `error.Input` is returned.
 
-| Input     | Key name                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Description | Type | Required |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---- | -------- |
-| `include` | For Windows, you can specify the following:<br>• One or more Microsoft Knowledge Base (KB) article IDs<br>to include in the list of updates that may be installed.<br>Valid formats are `KB1234567` or<br>`1234567`.<br>• An update name using a wildcard value<br>(`*`). Valid formats are<br>`Security*` or<br>`*Security*`.<br>For Linux, you can specify one or more packages to be included<br>in the list of updates for installation.                   | String List | No   |
-| `exclude` | For Windows, you can specify the following:<br>• One or more Microsoft Knowledge Base (KB) article IDs<br>to include in the list of updates to be excluded from<br>the installation. Valid formats are<br>`KB1234567` or<br>`1234567`.<br>• An update name using a wildcard (`*`)<br>value. Valid formats are: `Security*` or<br>`*Security*`.<br>For Linux, you can specify one or more packages to be excluded<br>from the list of updates for installation. | String List | No   |
+Input| Key name | Description | Type | Required |
+| --- | --- | --- | --- |
+| `include` | For Windows, you can specify the following:<br>• One or more Microsoft Knowledge Base (KB) article IDs<br>to include in the list of updates that may be installed.<br>Valid formats are `KB1234567` or<br>`1234567`.<br>• An update name using a wildcard value<br>(`*`). Valid formats are<br>`Security*` or<br>`*Security*`.<br>For Linux, you can specify one or more packages to be included<br>in the list of updates for installation. | String List | No |
+| `exclude` | For Windows, you can specify the following:<br>• One or more Microsoft Knowledge Base (KB) article IDs<br>to include in the list of updates to be excluded from<br>the installation. Valid formats are<br>`KB1234567` or<br>`1234567`.<br>• An update name using a wildcard (`*`)<br>value. Valid formats are: `Security*` or<br>`*Security*`.<br>For Linux, you can specify one or more packages to be excluded<br>from the list of updates for installation. | String List | No |
 
 **Input example: add support for installing Linux
 updates**

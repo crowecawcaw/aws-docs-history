@@ -103,12 +103,12 @@ inputs:
   ...
 ```
 
-| `for` loop input | Field                                                                                                                                                             | Description | Type | Required | Default |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---- | -------- | ------- |
-| `name`           | Unique name of the loop. It must be unique compared to other loop<br>names in the same phase.                                                                     | String      | No   | ""       |
-| `start`          | Starting value of iteration. Does not accept chaining<br>expressions.                                                                                             | Integer     | Yes  | n/a      |
-| `end`            | Ending value of iteration. Does not accept chaining expressions.                                                                                                  | Integer     | Yes  | n/a      |
-| `updateBy`       | Difference by which an iterating value is updated through<br>addition. It must be a negative or positive non-zero value. Does not<br>accept chaining expressions. | Integer     | Yes  | n/a      |
+`for` loop input| Field | Description | Type | Required | Default |
+| --- | --- | --- | --- | --- |
+| `name` | Unique name of the loop. It must be unique compared to other loop<br>names in the same phase. | String | No | "" |
+| `start` | Starting value of iteration. Does not accept chaining<br>expressions. | Integer | Yes | n/a |
+| `end` | Ending value of iteration. Does not accept chaining expressions. | Integer | Yes | n/a |
+| `updateBy` | Difference by which an iterating value is updated through<br>addition. It must be a negative or positive non-zero value. Does not<br>accept chaining expressions. | Integer | Yes | n/a |
 
 `for` loop input example
 
@@ -151,10 +151,10 @@ chained expressions.
   ...
 ```
 
-| `forEach` loop with input list input | Field                                                                                                                                                                                                | Description     | Type | Required | Default |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ---- | -------- | ------- |
-| `name`                               | Unique name of the loop. It must be unique compared to other loop<br>names in the same phase.                                                                                                        | String          | No   | ""       |
-| List of strings of `forEach` loop    | List of strings for iteration. Accepts chained expressions as<br>strings in the list. Chained expressions must be enclosed by<br>double quotes for the YAML compiler to correctly interpret<br>them. | List of strings | Yes  | n/a      |
+`forEach` loop with input list input| Field | Description | Type | Required | Default |
+| --- | --- | --- | --- | --- |
+| `name` | Unique name of the loop. It must be unique compared to other loop<br>names in the same phase. | String | No | "" |
+| List of strings of `forEach` loop | List of strings for iteration. Accepts chained expressions as<br>strings in the list. Chained expressions must be enclosed by<br>double quotes for the YAML compiler to correctly interpret<br>them. | List of strings | Yes | n/a |
 
 `forEach` loop with input list example 1
 
@@ -234,11 +234,11 @@ into an array suitable for iteration.
   ...
 ```
 
-| `forEach` loop with delimited list input | Field                                                                                                                                                                                                                                                                                                                                                                          | Description | Type | Required     | Default |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- | ---- | ------------ | ------- |
-| `name`                                   | Unique name given to the loop. It should be unique when compared<br>to other loop names in the same phase.                                                                                                                                                                                                                                                                     | String      | No   | ""           |
-| `list`                                   | A string that is composed of constituent strings joined by a<br>common delimiter character. Also accepts chained expressions. In<br>case of chained expressions, ensure that those are enclosed by<br>double quotes for correct interpretation by the YAML<br>compiler.                                                                                                        | String      | Yes  | n/a          |
-| `delimiter`                              | Character used to separate out strings within a block. Default is<br>the comma character. Only one delimiter character is allowed from<br>the given list:<br>• Dot: `"."`<br>• Comma: `","`<br>• Semicolon: `";"`<br>• Colon: `":"`<br>• New line: `"\n"`<br>• Tab: `"\t"`<br>• Space: `" "`<br>• Hyphen: `"-"`<br>• Underscore: `"_"`<br>Chaining expressions cannot be used. | String      | No   | Comma: `","` |
+`forEach` loop with delimited list input| Field | Description | Type | Required | Default |
+| --- | --- | --- | --- | --- |
+| `name` | Unique name given to the loop. It should be unique when compared<br>to other loop names in the same phase. | String | No | "" |
+| `list` | A string that is composed of constituent strings joined by a<br>common delimiter character. Also accepts chained expressions. In<br>case of chained expressions, ensure that those are enclosed by<br>double quotes for correct interpretation by the YAML<br>compiler. | String | Yes | n/a |
+| `delimiter` | Character used to separate out strings within a block. Default is<br>the comma character. Only one delimiter character is allowed from<br>the given list:<br>• Dot: `"."`<br>• Comma: `","`<br>• Semicolon: `";"`<br>• Colon: `":"`<br>• New line: `"\n"`<br>• Tab: `"\t"`<br>• Space: `" "`<br>• Hyphen: `"-"`<br>• Underscore: `"_"`<br>Chaining expressions cannot be used. | String | No | Comma: `","` |
 
 ###### Note
 

@@ -143,9 +143,9 @@ against your output image.
      selected.
 
 6. In the **Dockerfile template** section, select the
-   **Use example** option. In the **Content**
-   panel, notice the contextual variables where Image Builder places build information
-   or scripts, based on your container image recipe.
+**Use example** option. In the **Content**
+panel, notice the contextual variables where Image Builder places build information
+or scripts, based on your container image recipe.
 
 By default, Image Builder uses the following contextual variables in your
 Dockerfile.

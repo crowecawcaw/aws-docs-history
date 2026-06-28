@@ -26,14 +26,14 @@ from the others by a space in between, with no leading or trailing spaces:
 
 The following table shows supported values for required cron entries.
 
-| Supported values for cron expressions | Field               | Values           | Wildcards |
-| ------------------------------------- | ------------------- | ---------------- | --------- |
-| Minute                                | `0-59`              | ,<br>• \<br>• /  |
-| Hour                                  | `0-23`              | ,<br>• \<br>• /  |
-| Day                                   | `1-31`              | `,<br>• ? / L W` |
-| Month                                 | `1-12` or `jan-dec` | `,<br>• /`       |
-| Day of the week                       | `1-7` or `sun-sat`  | `,<br>• ? L #`   |
-| Year                                  | `1970-2199`         | `,<br>• /`       |
+Supported values for cron expressions| Field | Values | Wildcards |
+| --- | --- | --- |
+| Minute | `0-59` | ,<br>• \<br>• / |
+| Hour | `0-23` | ,<br>• \<br>• / |
+| Day | `1-31` | `,<br>• ? / L W` |
+| Month | `1-12` or `jan-dec` | `,<br>• /` |
+| Day of the week | `1-7` or `sun-sat` | `,<br>• ? L #` |
+| Year | `1970-2199` | `,<br>• /` |
 
 ###### Wildcards
 
@@ -41,16 +41,16 @@ The following table describes how Image Builder uses wildcards for cron expressi
 Keep in mind that it can take up to a minute after the time you specify
 for the build to start.
 
-| Supported wildcards for cron expressions | Wildcard                                                                                                                                                                                                                                                                                                                                                                                                                   | Description |
-| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| **,**                                    | The \*_,_<br>• (comma) wildcard includes<br>additional values. In the Month field, `jan,feb,mar`<br>includes January, February, and March.                                                                                                                                                                                                                                                                                 |
-| **-**                                    | The \*_-_<br>• (dash) wildcard specifies<br>ranges. In the day of the month field, `1-15` includes days 1<br>through 15 of the specified month.                                                                                                                                                                                                                                                                            |
-| **\***                                   | The \*\*\*\*<br>• (asterisk) wildcard<br>includes all valid values for the field.                                                                                                                                                                                                                                                                                                                                          |
-| **?**                                    | The `?` (question mark) wildcard specifies that the<br>field value depends on another setting. In the case of the Day and<br>Day-of-week fields, when one is specified or includes all possible<br>values (`*`), the other must be a `?`.<br>You cannot specify both. For example, if you enter a `7`<br>in the Day field (run the build on the seventh day of the month),<br>the Day-of-week position must contain a `?`. |
-| **/**                                    | The \*_/_<br>• (forward slash) wildcard<br>specifies increments. For example, if you want your build to run every<br>other day, enter `*/2` in the day field.                                                                                                                                                                                                                                                              |
-| **L**                                    | The \*_L_<br>• wildcard in either of<br>the day fields, specifies the \*last<br>• day:<br>28-31 for the day of the month, depending on what the month is,<br>or Sunday, for the day of the week.                                                                                                                                                                                                                           |
-| **W**                                    | The \*_W_<br>• wildcard in the Day-of-month<br>field specifies a weekday. In the Day-of-month field, if you enter<br>a number prior to the `W`, that means you want to target the<br>weekday that is closest to that day. For instance, if you specify<br>`3W`, you want your build to run on the weekday closest to<br>the third day of the month.                                                                        |
-| **#**                                    | The \*_#_<br>• (hash) is allowed only for the<br>day of the week field, and must be followed by a number between 1 and 5.<br>The number specifies which weeks in a given month apply for the build to<br>run. For example, if you want your build to run on the second Friday of<br>each month, use `fri#2` for the day of the week field.                                                                                 |
+Supported wildcards for cron expressions| Wildcard | Description |
+| --- | --- |
+| **,** | The **,_<br>• (comma) wildcard includes<br>additional values. In the Month field, `jan,feb,mar`<br>includes January, February, and March. |
+| **-** | The \**-_<br>• (dash) wildcard specifies<br>ranges. In the day of the month field, `1-15` includes days 1<br>through 15 of the specified month. |
+| **\*** | The **\*_<br>• (asterisk) wildcard<br>includes all valid values for the field. |
+| **?** | The `?` (question mark) wildcard specifies that the<br>field value depends on another setting. In the case of the Day and<br>Day-of-week fields, when one is specified or includes all possible<br>values (`*`), the other must be a `?`.<br>You cannot specify both. For example, if you enter a `7`<br>in the Day field (run the build on the seventh day of the month),<br>the Day-of-week position must contain a `?`. |
+| **/** | The \**/_<br>• (forward slash) wildcard<br>specifies increments. For example, if you want your build to run every<br>other day, enter `*/2` in the day field. |
+| **L** | The *_L_<br>• wildcard in either of<br>the day fields, specifies the *last<br>• day:<br>28-31 for the day of the month, depending on what the month is,<br>or Sunday, for the day of the week. |
+| **W** | The _*W*<br>• wildcard in the Day-of-month<br>field specifies a weekday. In the Day-of-month field, if you enter<br>a number prior to the `W`, that means you want to target the<br>weekday that is closest to that day. For instance, if you specify<br>`3W`, you want your build to run on the weekday closest to<br>the third day of the month. |
+| **#** | The \**#_<br>• (hash) is allowed only for the<br>day of the week field, and must be followed by a number between 1 and 5.<br>The number specifies which weeks in a given month apply for the build to<br>run. For example, if you want your build to run on the second Friday of<br>each month, use `fri#2` for the day of the week field. |
 
 ###### Restrictions
 

@@ -91,8 +91,8 @@ steps:
      **Edit pipeline** page.
 
 4. In the **General** section from the pipeline wizard or the
-   **Edit pipeline** page, select the **Enable security
-   scan** check box.
+**Edit pipeline** page, select the **Enable security
+scan** check box.
 
 ###### Note
 
@@ -132,27 +132,25 @@ view:
   medium severity and higher findings, plus a total for all findings. All data in
   the list is linked, as follows:
 
-      + The **Image pipeline name** column links to the
-       detail page for the specified image
-       pipeline.
-      + The severity level column links open the **All security
-       findings** view, filtered by the associated image pipeline
-       name and severity level.
-
-  You can also use search criteria to refine your results.
+  - The **Image pipeline name** column links to the
+    detail page for the specified image
+    pipeline.
+  - The severity level column links open the **All security
+    findings** view, filtered by the associated image pipeline
+    name and severity level.
+    You can also use search criteria to refine your results.
 
 - **By image** – This view shows the number of findings
   for each image build in your account. Image Builder displays counts for medium severity
   and higher findings, plus a total for all findings. All data in the list is
   linked, as follows:
 
-      + The **Image name** column links to the image detail
-       page for the specified image build. For more information, see [View image resource details](view-image-details.md "view-image-details.md").
-      + The severity level column links open the **All security
-       findings** view, filtered by the associated image build
-       name and severity level.
-
-  You can also use search criteria to refine your results.
+  - The **Image name** column links to the image detail
+    page for the specified image build. For more information, see [View image resource details](view-image-details.md "view-image-details.md").
+  - The severity level column links open the **All security
+    findings** view, filtered by the associated image build
+    name and severity level.
+    You can also use search criteria to refine your results.
 
 Image Builder shows the following details in the **Findings** list section of
 the default **All security findings** view.

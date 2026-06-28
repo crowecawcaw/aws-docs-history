@@ -113,7 +113,7 @@ For more information about public parameter resources, see [Calling AMI public p
    2. Choose the **SSM parameter** option.
    3. In the **SSM parameter** field, enter the parameter
       name or Amazon Resource Name (ARN) of the parameter that you created in
-      Step 1. If you enter the name, it will **_not_** have the prefix in the console.
+      Step 1. If you enter the name, it will _**not**_ have the prefix in the console.
 
 4. Complete the remaining recipe configuration as needed.
 

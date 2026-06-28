@@ -155,12 +155,11 @@ Depending on the possible cause, this issue can be resolved as follows:
 - **Missing permissions** – Add the
   following managed policies to your IAM service-linked role for Image Builder:
 
-      + EC2InstanceProfileForImageBuilder
-      + EC2InstanceProfileForImageBuilderECRContainerBuilds
-      + AmazonSSMManagedInstanceCore
-
-  For more information about the Image Builder service-linked role, see
-  [Use IAM service-linked roles for Image Builder](image-builder-service-linked-role.md "image-builder-service-linked-role.md").
+  - EC2InstanceProfileForImageBuilder
+  - EC2InstanceProfileForImageBuilderECRContainerBuilds
+  - AmazonSSMManagedInstanceCore
+    For more information about the Image Builder service-linked role, see
+    [Use IAM service-linked roles for Image Builder](image-builder-service-linked-role.md "image-builder-service-linked-role.md").
 
 #### Description
 

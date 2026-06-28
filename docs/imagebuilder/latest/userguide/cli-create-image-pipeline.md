@@ -22,25 +22,23 @@ A `schedule` has the following attributes:
   Determines if your pipeline should start the build.
   Valid values include:
 
-      + `EXPRESSION_MATCH_ONLY` –
-       your pipeline will build a new image every time the cron
-       expression matches the current time.
-      + `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`
-       – your pipeline builds a new image only when the
-       schedule expression matches and there are pending updates to
-       your base image or components. If no updates are pending,
-       the build is skipped. To build immediately without waiting
-       for updates, run the pipeline manually.
-
-  When you run the **create-image-pipeline** command in the AWS CLI,
-  many of the configuration resources are optional. However, some of the resources
-  have conditional requirements, depending on what type of image the pipeline creates.
-  The following resource identifiers are required for AMI image pipelines:
+  - `EXPRESSION_MATCH_ONLY` –
+    your pipeline will build a new image every time the cron
+    expression matches the current time.
+  - `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`
+    – your pipeline builds a new image only when the
+    schedule expression matches and there are pending updates to
+    your base image or components. If no updates are pending,
+    the build is skipped. To build immediately without waiting
+    for updates, run the pipeline manually.
+    When you run the **create-image-pipeline** command in the AWS CLI,
+    many of the configuration resources are optional. However, some of the resources
+    have conditional requirements, depending on what type of image the pipeline creates.
+    The following resource identifiers are required for AMI image pipelines:
 
 - Image recipe ARN
 - Infrastructure configuration ARN
-
- 
+   
 
 ###### Example: Create a Windows 2019 image
 

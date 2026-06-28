@@ -293,11 +293,10 @@ This policy includes the following permissions:
   the `LifecycleExecutionAccess: EC2 Image Builder` tag. Batch actions
   support automated container image lifecycle rules.
 
-      + `ecr:BatchGetImage`
-      + `ecr:BatchDeleteImage`
-
-  Access is granted at the repository level for ECR repositories that are tagged
-  with `LifecycleExecutionAccess: EC2 Image Builder`.
+  - `ecr:BatchGetImage`
+  - `ecr:BatchDeleteImage`
+    Access is granted at the repository level for ECR repositories that are tagged
+    with `LifecycleExecutionAccess: EC2 Image Builder`.
 
 - **AWS Resource groups** – Access is granted for
   Image Builder to get resources based on tags.

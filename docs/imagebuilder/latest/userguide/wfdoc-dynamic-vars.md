@@ -105,7 +105,7 @@ Image Builder provides the following system variables that you can use in your
 workflow document:
 
 | Variable name              | Description                                                                                                                      | Type          | Example value                                                                 |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------------------- | --------- | ------- |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------------------- |
 | cloudWatchLogGroup         | The name of the CloudWatch Logs group for output logs.<br>Format: `/aws/imagebuilder/`<recipe-name>``                            | String        | `/aws/imagebuilder/`sampleImageRecipe``                                       |
 | cloudWatchLogStream        | The name of the CloudWatch Logs stream for output logs.                                                                          | String        | `1.0.0/1`                                                                     |
 | collectImageMetadata       | The setting that directs Image Builder whether to collect instance metadata.                                                     | Boolean       | `true`                                                                        | `false`   |

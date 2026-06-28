@@ -66,7 +66,7 @@ for your environment. This example uses a file named
      refer to the directory path, while Linux and macOS use the forward slash (/).
 
 2. Run the following command, using the file you created
-   as input.
+as input.
 
 ```
 aws imagebuilder update-image-pipeline --cli-input-json file://`update-image-pipeline.json`

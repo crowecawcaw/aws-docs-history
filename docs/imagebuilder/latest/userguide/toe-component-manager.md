@@ -93,12 +93,12 @@ To use elevated permissions, prefix the command syntax with **sudo**, or run the
 commands linked below. For more information about AWSTOE action modules, see
 [Action modules supported by AWSTOE component manager](toe-action-modules.md "toe-action-modules.md").
 
-**_[run](#cmd-run "#cmd-run")_**
+_**[run](#cmd-run "#cmd-run")**_
 
 Use the **run** command to run the YAML document
 scripts for one or more component documents.
 
-**_[validate](#cmd-validate "#cmd-validate")_**
+_**[validate](#cmd-validate "#cmd-validate")**_
 
 Run the **validate** command to validate the YAML
 document syntax for one or more component documents.

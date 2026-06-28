@@ -1594,19 +1594,19 @@ The SCAP compliance checker component for Windows includes the following benchma
 
 2023 Q4 Benchmarks:
 
-- U_MS_Defender_Antivirus_V2R5_STIG_SCAP_1-2_Benchmark
-- U_MS_DotNet_Framework_4-0_V2R2_STIG_SCAP_1-2_Benchmark
-- U_MS_IE11_V2R6_STIG_SCAP_1-2_Benchmark
-- U_MS_Windows_2012_and_2012_R2_DC_V3R5_STIG_SCAP_1-2_Benchmark
-- U_MS_Windows_2012_and_2012_R2_MS_V3R5_STIG_SCAP_1-2_Benchmark
-- U_MS_Windows_Defender_Firewall_V2R3_STIG_SCAP_1-2_Benchmark
-- U_MS_Windows_Server_2016_V2R7_STIG_SCAP_1-2_Benchmark
-- U_MS_Windows_Server_2019_V3R2_STIG_SCAP_1-2_Benchmark
-- U_MS_Windows_Server_2022_V2R2_STIG_SCAP_1-2_Benchmark
-- U_CAN_Ubuntu_20-04_LTS_V1R10_STIG_SCAP_1-2_Benchmark
-- U_RHEL_7_V3R15_STIG_SCAP_1-3_Benchmark
-- U_RHEL_8_V1R13_STIG_SCAP_1-3_Benchmark
-- U_RHEL_9_V2R1_STIG_SCAP_1-3_Benchmark
+- U\_MS\_Defender\_Antivirus\_V2R5\_STIG\_SCAP\_1-2\_Benchmark
+- U\_MS\_DotNet\_Framework\_4-0\_V2R2\_STIG\_SCAP\_1-2\_Benchmark
+- U\_MS\_IE11\_V2R6\_STIG\_SCAP\_1-2\_Benchmark
+- U\_MS\_Windows\_2012\_and\_2012\_R2\_DC\_V3R5\_STIG\_SCAP\_1-2\_Benchmark
+- U\_MS\_Windows\_2012\_and\_2012\_R2\_MS\_V3R5\_STIG\_SCAP\_1-2\_Benchmark
+- U\_MS\_Windows\_Defender\_Firewall\_V2R3\_STIG\_SCAP\_1-2\_Benchmark
+- U\_MS\_Windows\_Server\_2016\_V2R7\_STIG\_SCAP\_1-2\_Benchmark
+- U\_MS\_Windows\_Server\_2019\_V3R2\_STIG\_SCAP\_1-2\_Benchmark
+- U\_MS\_Windows\_Server\_2022\_V2R2\_STIG\_SCAP\_1-2\_Benchmark
+- U\_CAN\_Ubuntu\_20-04\_LTS\_V1R10\_STIG\_SCAP\_1-2\_Benchmark
+- U\_RHEL\_7\_V3R15\_STIG\_SCAP\_1-3\_Benchmark
+- U\_RHEL\_8\_V1R13\_STIG\_SCAP\_1-3\_Benchmark
+- U\_RHEL\_9\_V2R1\_STIG\_SCAP\_1-3\_Benchmark
 
 ### scap-compliance-checker-linux version 2021.04.0
 
@@ -1634,19 +1634,19 @@ The SCAP compliance checker component for Linux includes the following benchmark
 
 2023 Q4 Benchmarks:
 
-- U_CAN_Ubuntu_20-04_LTS_V1R10_STIG_SCAP_1-2_Benchmark
-- U_RHEL_7_V3R15_STIG_SCAP_1-3_Benchmark
-- U_RHEL_8_V1R13_STIG_SCAP_1-3_Benchmark
-- U_RHEL_9_V2R1_STIG_SCAP_1-3_Benchmark
-- U_MS_Defender_Antivirus_V2R5_STIG_SCAP_1-2_Benchmark
-- U_MS_DotNet_Framework_4-0_V2R2_STIG_SCAP_1-2_Benchmark
-- U_MS_IE11_V2R6_STIG_SCAP_1-2_Benchmark
-- U_MS_Windows_2012_and_2012_R2_DC_V3R5_STIG_SCAP_1-2_Benchmark
-- U_MS_Windows_2012_and_2012_R2_MS_V3R5_STIG_SCAP_1-2_Benchmark
-- U_MS_Windows_Defender_Firewall_V2R3_STIG_SCAP_1-2_Benchmark
-- U_MS_Windows_Server_2016_V2R7_STIG_SCAP_1-2_Benchmark
-- U_MS_Windows_Server_2019_V3R2_STIG_SCAP_1-2_Benchmark
-- U_MS_Windows_Server_2022_V2R2_STIG_SCAP_1-2_Benchmark
+- U\_CAN\_Ubuntu\_20-04\_LTS\_V1R10\_STIG\_SCAP\_1-2\_Benchmark
+- U\_RHEL\_7\_V3R15\_STIG\_SCAP\_1-3\_Benchmark
+- U\_RHEL\_8\_V1R13\_STIG\_SCAP\_1-3\_Benchmark
+- U\_RHEL\_9\_V2R1\_STIG\_SCAP\_1-3\_Benchmark
+- U\_MS\_Defender\_Antivirus\_V2R5\_STIG\_SCAP\_1-2\_Benchmark
+- U\_MS\_DotNet\_Framework\_4-0\_V2R2\_STIG\_SCAP\_1-2\_Benchmark
+- U\_MS\_IE11\_V2R6\_STIG\_SCAP\_1-2\_Benchmark
+- U\_MS\_Windows\_2012\_and\_2012\_R2\_DC\_V3R5\_STIG\_SCAP\_1-2\_Benchmark
+- U\_MS\_Windows\_2012\_and\_2012\_R2\_MS\_V3R5\_STIG\_SCAP\_1-2\_Benchmark
+- U\_MS\_Windows\_Defender\_Firewall\_V2R3\_STIG\_SCAP\_1-2\_Benchmark
+- U\_MS\_Windows\_Server\_2016\_V2R7\_STIG\_SCAP\_1-2\_Benchmark
+- U\_MS\_Windows\_Server\_2019\_V3R2\_STIG\_SCAP\_1-2\_Benchmark
+- U\_MS\_Windows\_Server\_2022\_V2R2\_STIG\_SCAP\_1-2\_Benchmark
 
 ### SCAP version history
 

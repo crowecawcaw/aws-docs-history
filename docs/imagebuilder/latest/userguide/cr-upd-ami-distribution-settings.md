@@ -83,53 +83,53 @@ Console
 Follow these steps to create a new AMI distribution configuration in
 the AWS Management Console:
 
-1.  Open the EC2 Image Builder console at
-    [https://console.aws.amazon.com/imagebuilder/](https://console.aws.amazon.com/imagebuilder/ "https://console.aws.amazon.com/imagebuilder/").
-2.  Choose **Distribution settings**
-    from the navigation pane. This shows a list of the
-    distribution configurations that are created under your account.
-3.  Choose **Create distribution settings** near the
-    top of the **Distribution settings** panel.
-4.  In the **Image type** section, choose the
-    **Amazon Machine Image (AMI)** output type.
-5.  In the **General** section, enter a **Name**
-    for your distribution configuration, and optional description.
-6.  In the **Region settings** section, enter the following
-    details for each Region where you are distributing your AMI:
+1. Open the EC2 Image Builder console at
+   [https://console.aws.amazon.com/imagebuilder/](https://console.aws.amazon.com/imagebuilder/ "https://console.aws.amazon.com/imagebuilder/").
+2. Choose **Distribution settings**
+   from the navigation pane. This shows a list of the
+   distribution configurations that are created under your account.
+3. Choose **Create distribution settings** near the
+   top of the **Distribution settings** panel.
+4. In the **Image type** section, choose the
+   **Amazon Machine Image (AMI)** output type.
+5. In the **General** section, enter a **Name**
+   for your distribution configuration, and optional description.
+6. In the **Region settings** section, enter the following
+   details for each Region where you are distributing your AMI:
 
-    1. The AMI is distributed to the current Region (**Region 1**),
-       by default. **Region 1** is the source for the
-       distribution. Some settings for **Region 1** are not open
-       for editing. For any Regions that you add, you can choose a Region from the
-       **Region** dropdown list.
+   1. The AMI is distributed to the current Region (**Region 1**),
+      by default. **Region 1** is the source for the
+      distribution. Some settings for **Region 1** are not open
+      for editing. For any Regions that you add, you can choose a Region from the
+      **Region** dropdown list.
 
-    The **Kms key** identifies the AWS KMS key that's
-    used to encrypt the EBS volumes for your image in the target Region. It's
-    important to note that this doesn't apply for the original AMI that the build
-    creates under your account in the source Region (**Region 1**).
-    Encryption that runs during the distribution phase of the build is only
-    for images that are distributed to other accounts or Regions.
+   The **Kms key** identifies the AWS KMS key that's
+   used to encrypt the EBS volumes for your image in the target Region. It's
+   important to note that this doesn't apply for the original AMI that the build
+   creates under your account in the source Region (**Region 1**).
+   Encryption that runs during the distribution phase of the build is only
+   for images that are distributed to other accounts or Regions.
 
-    To encrypt the EBS volumes for the AMI that's created in the source
-    Region for your account, you must set the KMS key in the image recipe
-    block device mapping (**Storage (volumes)** in the console).
+   To encrypt the EBS volumes for the AMI that's created in the source
+   Region for your account, you must set the KMS key in the image recipe
+   block device mapping (**Storage (volumes)** in the console).
 
-    Image Builder copies the AMI to the **Target accounts** that
-    you specify for the Region.
+   Image Builder copies the AMI to the **Target accounts** that
+   you specify for the Region.
 
-    ###### Prerequisite
+   ###### Prerequisite
 
-    To copy an image across accounts, you must create the
-    `EC2ImageBuilderDistributionCrossAccountRole` role in all
-    of the distribution target accounts, and attach the
-    [Ec2ImageBuilderCrossAccountDistributionAccess policy](security-iam-awsmanpol.md#sec-iam-manpol-Ec2ImageBuilderCrossAccountDistributionAccess "security-iam-awsmanpol.md#sec-iam-manpol-Ec2ImageBuilderCrossAccountDistributionAccess")
-    managed policy to the role.
+   To copy an image across accounts, you must create the
+   `EC2ImageBuilderDistributionCrossAccountRole` role in all
+   of the distribution target accounts, and attach the
+   [Ec2ImageBuilderCrossAccountDistributionAccess policy](security-iam-awsmanpol.md#sec-iam-manpol-Ec2ImageBuilderCrossAccountDistributionAccess "security-iam-awsmanpol.md#sec-iam-manpol-Ec2ImageBuilderCrossAccountDistributionAccess")
+   managed policy to the role.
 
-    The **Output AMI name** is optional. If you provide a name, the
-    final output AMI name includes an appended timestamp of when the AMI
-    is built. If you do not specify a name, Image Builder appends the build
-    timestamp to the recipe name. This ensures unique AMI names for each
-    build.
+   The **Output AMI name** is optional. If you provide a name, the
+   final output AMI name includes an appended timestamp of when the AMI
+   is built. If you do not specify a name, Image Builder appends the build
+   timestamp to the recipe name. This ensures unique AMI names for each
+   build.
 
         1. With AMI sharing, you can grant access for specified AWS Principals to
          launch instances from your AMI. If you expand the **AMI sharing**
@@ -204,10 +204,11 @@ the AWS Management Console:
         **Data type** – Keep the default
          value (`AWS EC2 Image`). This tells Systems Manager to validate the
          parameter value to ensure that it's a valid AMI ID.
-    2. To add distribution settings for another Region, choose
-       **Add Region**.
 
-7.  Choose **Create settings** when you are done.
+   2. To add distribution settings for another Region, choose
+   **Add Region**.
+
+7. Choose **Create settings** when you are done.
 
 AWS CLI
 The following example shows how to use the **create-distribution-configuration**
