@@ -95,7 +95,6 @@ _AWS Systems Manager User Guide_:
      instance](../../../systems-manager/latest/userguide/setup-launch-managed-instance.md "../../../systems-manager/latest/userguide/setup-launch-managed-instance.md")
 
 2. Verify that SSM Agent is installed on your EC2 instance. For more
-   information, see [Working with SSM Agent on EC2 instances for Windows Server](../../../systems-manager/latest/userguide/sysman-install-ssm-win.md "../../../systems-manager/latest/userguide/sysman-install-ssm-win.md") in
-   the _AWS Systems Manager User Guide_.
-3. Verify that the EC2 instance has enough free disk space to download and
-   restore the Microsoft SQL Server backups.
+information, see [Working with SSM Agent on EC2 instances for Windows Server](../../../systems-manager/latest/userguide/sysman-install-ssm-win.md "../../../systems-manager/latest/userguide/sysman-install-ssm-win.md") in
+the _AWS Systems Manager User Guide_. 3. Verify that the EC2 instance has enough free disk space to download and
+restore the Microsoft SQL Server backups.

@@ -51,7 +51,7 @@ runbook. For more information about this managed policy, see [AWSEC2VssRestorePo
 - Create a role, attach the **AWSEC2VssRestorePolicy** managed policy, and add a PassRole policy to restrict access.
   Use the ARN of this role for the `AutomationAssumeRole` parameter when invoking the
   automation, and the automation execution will assume this role. Expand the `Invoke automation 
-with an assumed role (recommended)` section to see detailed steps.
+ with an assumed role (recommended)` section to see detailed steps.
 - Attach the **AWSEC2VssRestorePolicy** managed policy to the invoker role that initiates the automation execution,
   without specifying the `AutomationAssumeRole` parameter. For example,
   if you start the automation execution from the AWS console, the console role acts as the
