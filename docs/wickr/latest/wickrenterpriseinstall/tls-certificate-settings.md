@@ -65,5 +65,5 @@ openssl req -x509 -newkey rsa:4096 -sha256 -days 365 -nodes -keyout $YOUR_DOMAIN
 
 ###### Note
 
-Replace $YOUR_DOMAIN in the example with the domain name or IP address you intend to
+Replace $YOUR\_DOMAIN in the example with the domain name or IP address you intend to
 use.

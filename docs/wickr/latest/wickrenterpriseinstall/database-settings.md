@@ -27,7 +27,7 @@ cluster as a part of the installation.
 ###### Note
 
 Ensure that your MySQL installation is using the default latin1 character set with
-latin1_swedish_ci collation. This can be accomplished by verifying that your MySQL server is
+latin1\_swedish\_ci collation. This can be accomplished by verifying that your MySQL server is
 started with the following flags:
 
 `"--character-set-server latin1", "--collation-server
@@ -58,9 +58,9 @@ following actions must be performed to increase the size of volumes used by MySQ
    `data-mysql-secondary-0`.
 
    1. `kubectl -n wickr edit pvc data-mysql-primary-0. Set
-spec.resources.requests.storage` to the desired storage size.
+  spec.resources.requests.storage` to the desired storage size.
    2. `kubectl -n wickr edit pvc data-mysql-secondary-0. Set
-spec.resources.requests.storage` to the desired storage size.
+  spec.resources.requests.storage` to the desired storage size.
 
 2. Delete the existing StatefulSets, but leave the Pods by passing the
    `--cascade=orphan` flag.
@@ -80,7 +80,7 @@ online.
 To take Wickr Backend offline, complete the following steps.
 
 1. Find the namespace of ingress `kubectl get deployments
---all-namespaces`
+ --all-namespaces`
 
 In the example below, the namespace is Wickr and replicas is 3.
 
@@ -92,7 +92,7 @@ wickr         ingress-nginx-controller   3/3     3            3           43h
 ```
 
 2. Scale down ingress `kubectl scale deployment/ingress-nginx-controller --replicas=0
--n wickr`
+ -n wickr`
 3. Take a snapshot to backup DB. For more information, see [Managing manual
    backups](../../../AmazonRDS/latest/UserGuide/USER_ManagingManualBackups.md "../../../AmazonRDS/latest/UserGuide/USER_ManagingManualBackups.md") in the _Amazon Relational Database Service User Guide_.
 4. Upgrade the engine version to MySQL 8.0.x (MySQL 8.4 is not supported). For more

@@ -13,12 +13,12 @@ running the Wickr Embedded Cluster installation and have run the `./wickr-enterp
 
 **Add Node Button Missing From Cluster Management Screen**
 
-**_Airgapped Installs_**
+_**Airgapped Installs**_
 
 If you are on an airgap installation, please reach out to Wickr Support for assistance in
 correcting this behavior.
 
-**_Standard Installs_**
+_**Standard Installs**_
 
 If your license includes the Embedded Cluster Multi-Node entitlement, perform a license
 sync to get the latest version. If you are unsure or do not have this entitlement, please reach

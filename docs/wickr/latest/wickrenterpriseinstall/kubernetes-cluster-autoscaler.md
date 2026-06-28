@@ -79,7 +79,7 @@ following requirements must be met before proceeding.
    currently.
 2. Cluster must have Workload Identity Federation enabled. You can enable this on an
    existing cluster by running: `gcloud container clusters update ${CLUSTER_NAME}
---workload-pool=${PROJECT_ID}.svc.id.goog`
+ --workload-pool=${PROJECT_ID}.svc.id.goog`
 3. A Google Cloud Platform (GCP) Service Account with access to the role
    `roles/compute.instanceAdmin.v1`. This can be created using these instructions:
 
@@ -136,7 +136,7 @@ specific AKS configuration.
 
 **Azure Managed Node Resource Group**: This value is the Managed Resource
 Group created by Azure when you established the AKS Cluster and not the Resource Group you
-defined. To obtain this value, you need the CLUSTER_NAME and RESOURCE_GROUP from when you
+defined. To obtain this value, you need the CLUSTER\_NAME and RESOURCE\_GROUP from when you
 created the cluster. Once you have those values, you can obtain this by running:
 
 ```
@@ -157,4 +157,4 @@ az vmss list -g ${CLUSTER_RESOURCE_GROUP} --query '[?tags."aks-managed-poolName"
 **ACalling Node Pool VMSS Name (optional)**: This is the name of the VMSS
 associated with your calling Nodepool if you have one. To obtain this value, you can run a
 modified version of the command for Application Node Pool VMSS Name switching out the
-CLUSTER_NODEPOOL_NAME value for the name of the nodepool for your calling nodepool.
+CLUSTER\_NODEPOOL\_NAME value for the name of the nodepool for your calling nodepool.

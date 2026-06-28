@@ -58,24 +58,23 @@ calling ingress types:
 This option exposes a single load balancer as the entry point for all calling
 traffic.
 
-1.  For **Calling Ingress Type**, choose either **Load
-    Balancer** or **Existing NLB**. For more information about
-    **Existing NLB**, reference the NLB stack in the [Wickr Enterprise CDK Sample](https://github.com/aws-samples/sample-packages-for-aws-wickr/tree/main/enterprise-infrastructure-examples/aws-cdk "https://github.com/aws-samples/sample-packages-for-aws-wickr/tree/main/enterprise-infrastructure-examples/aws-cdk") on GitHub.
-2.  Do one of the following, depending on the **Calling Ingress
-    Type**:
+1. For **Calling Ingress Type**, choose either **Load
+   Balancer** or **Existing NLB**. For more information about
+   **Existing NLB**, reference the NLB stack in the [Wickr Enterprise CDK Sample](https://github.com/aws-samples/sample-packages-for-aws-wickr/tree/main/enterprise-infrastructure-examples/aws-cdk "https://github.com/aws-samples/sample-packages-for-aws-wickr/tree/main/enterprise-infrastructure-examples/aws-cdk") on GitHub.
+2. Do one of the following, depending on the **Calling Ingress
+   Type**:
 
-        * For **Existing NLB**, provide the target group ARNs for UDP and TCP
-         traffic and the hostname of the NLB.
-        * For **Load Balancer**, provide the hostname after it is provisioned by
-         Kubernetes.
+   - For **Existing NLB**, provide the target group ARNs for UDP and TCP
+     traffic and the hostname of the NLB.
+   - For **Load Balancer**, provide the hostname after it is provisioned by
+     Kubernetes.
+     Alternatively, for either **Calling Ingress Type**, you can provide the
+     IP addresses of the load balancer or a custom hostname that points to the load
+     balancer.
 
-    Alternatively, for either **Calling Ingress Type**, you can provide the
-    IP addresses of the load balancer or a custom hostname that points to the load
-    balancer.
-
-3.  (Optional) To combine messaging and calling traffic under a single NLB, choose
-    **Existing NLB** in the **Ingress** section, and provide an
-    HTTPS target group.
+3. (Optional) To combine messaging and calling traffic under a single NLB, choose
+   **Existing NLB** in the **Ingress** section, and provide an
+   HTTPS target group.
 
 **Ingress with NodePort**
 

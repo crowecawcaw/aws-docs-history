@@ -38,13 +38,12 @@ Wickr Enterprise supports four ingress controller types:
 
 - Ingress
 
-      + Bring your own ingress controller. This configuration will accept an ingress class name
-       which the services will then use in their Ingress manifests. This implies that the ingress
-       controller has some external connectivity already configured via some other load balancing
-       mechanism.
-      + Currently only the [ingress-nginx](https://github.com/kubernetes/ingress-nginx/ "https://github.com/kubernetes/ingress-nginx/") controller is supported.
-
-  **Wildcard Hostname**
+  - Bring your own ingress controller. This configuration will accept an ingress class name
+    which the services will then use in their Ingress manifests. This implies that the ingress
+    controller has some external connectivity already configured via some other load balancing
+    mechanism.
+  - Currently only the [ingress-nginx](https://github.com/kubernetes/ingress-nginx/ "https://github.com/kubernetes/ingress-nginx/") controller is supported.
+    **Wildcard Hostname**
 
 By default, Ingress routes will be defined with a host value of `\*`. Disable this setting to
 use the defined hostname for the Wickr Enterprise Server. Wildcard Hostname is required for IP

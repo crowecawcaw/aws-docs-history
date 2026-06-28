@@ -122,16 +122,16 @@ the _Amazon EKS User Guide_, and ensure that the VPC to be used meets these requ
 Additionally, it is highly recommended to ensure you have VPC endpoints for the following services:
 
 - CLOUDWATCH
-- CLOUDWATCH_LOGS
+- CLOUDWATCH\_LOGS
 - EC2
-- EC2_MESSAGES
+- EC2\_MESSAGES
 - ECR
-- ECR_DOCKER
-- ELASTIC_LOAD_BALANCING
+- ECR\_DOCKER
+- ELASTIC\_LOAD\_BALANCING
 - KMS
-- SECRETS_MANAGER
+- SECRETS\_MANAGER
 - SSM
-- SSM_MESSAGES
+- SSM\_MESSAGES
 
 To deploy resources into an existing VPC, set the following context values:
 

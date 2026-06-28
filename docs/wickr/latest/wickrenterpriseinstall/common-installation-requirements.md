@@ -139,25 +139,24 @@ tar xvf wickr-enterprise-ha-stable.tgz
 
 ```
 
-4.  Once logged in to the KOTS Admin Console, find the **Latest Available
-    Update** on the left under **Version** , and then press the
-    **Go to Version history** button.
-5.  Choose **Deploy** for the new version under **Available
-    Updates**. Walk through the screens:
+4. Once logged in to the KOTS Admin Console, find the **Latest Available
+   Update** on the left under **Version** , and then press the
+   **Go to Version history** button.
+5. Choose **Deploy** for the new version under **Available
+   Updates**. Walk through the screens:
 
-        1. Change any configuration options, scroll down, and then choose
-         **Next**.
-        2. Verify no preflight checks failed, choose **Next: Confirm and
-         deploy**.
-        3. Choose **Deploy**.
-
-    **Additional notes on the Wickr Enterprise embedded cluster**
+   1. Change any configuration options, scroll down, and then choose
+      **Next**.
+   2. Verify no preflight checks failed, choose **Next: Confirm and
+      deploy**.
+   3. Choose **Deploy**.
+      **Additional notes on the Wickr Enterprise embedded cluster**
 
 - **NAMESPACE**: Unlike most Wickr Enterprise installations, the embedded
   cluster installation installs the Wickr assets to the _kotsadm_ namespace
   in kubernetes and not _wickr_. Modify any scripts or commands you have saved
   that use `-n wickr` for kubectl, helm or any other utility to use `-n
-kotsadm` instead.
+ kotsadm` instead.
 - **Interacting with the Kubernetes Cluster**: From the host machine, use
   the `./wickr-enterprise-ha` binary to create a shell with appropriate
   variables set to interact with the Kubernetes installation by running
