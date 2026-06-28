@@ -50,7 +50,7 @@ resources:
 - The maximum tag value length is 256 Unicode characters in UTF-8.
 - Allowed characters are letters, numbers, spaces representable in UTF-8, and
   the following characters: `. : + =
-@ _ / -` (hyphen).
+ @ _ / -` (hyphen).
 - Tag keys and values are case-sensitive. As a best practice, decide on a strategy
   for capitalizing tags, and consistently implement that strategy across all resource
   types. For example, decide whether to use `Costcenter`,
