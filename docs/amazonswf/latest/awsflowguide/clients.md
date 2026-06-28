@@ -8,7 +8,7 @@ directory in your project in the same package as the interface.
 
 ###### Note
 
-Note that the default directory name used by Eclipse is .apt_generated. Eclipse doesn't show directories
+Note that the default directory name used by Eclipse is .apt\_generated. Eclipse doesn't show directories
 whose names start with a '.' in Package Explorer. Use a different directory name if you want to view the generated
 files in Project Explorer. In Eclipse, right-click the package in Package Explorer, and then choose
 **Properties**, **Java Compiler**, **Annotation processing**,

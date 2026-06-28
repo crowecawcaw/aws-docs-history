@@ -154,15 +154,15 @@ program execution moves forward.
 The execution of the example image processing workflow and the corresponding history is
 shown in the following table.
 
-| Execution of thumbnail workflow                                                                                                                                                          | Workflow program execution                                                                                                                                                                                                                                  | History maintained by Amazon SWF |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| Initial execution                                                                                                                                                                        |
-| 1. Dispatch loop<br>2. _getImageUrls_<br>3. downloadImage<br>4. createThumbnail (task in wait queue)<br>5. uploadImage (task in wait queue)<br>6. <next iteration of the loop>           | 1. Workflow instance started, id="1"<br>2. downloadImage scheduled                                                                                                                                                                                          |
-| Replay                                                                                                                                                                                   |
-| 1. Dispatch loop<br>2. _getImageUrls_<br>3. \*downloadImage image<br>• path="foo"<br>4. createThumbnail<br>5. uploadImage (task in wait queue)<br>6. <next iteration of the loop>        | 1. Workflow instance started, id="1"<br>2. downloadImage scheduled<br>3. downloadImage completed, return="foo"<br>4. createThumbnail scheduled                                                                                                              |
-| Replay                                                                                                                                                                                   |
-| 1. Dispatch loop<br>2. _getImageUrls_<br>3. *downloadImage image<br>• path="foo"<br>4. *createThumbnail<br>• thumbnail path="bar"<br>5. uploadImage<br>6. <next iteration of the loop>   | 1. Workflow instance started, id="1"<br>2. downloadImage scheduled<br>3. downloadImage completed, return="foo"<br>4. createThumbnail scheduled<br>5. createThumbnail completed, return="bar"<br>6. uploadImage scheduled                                    |
-| Replay                                                                                                                                                                                   |
+Execution of thumbnail workflow| Workflow program execution | History maintained by Amazon SWF |
+| --- | --- |
+| Initial execution |
+| 1. Dispatch loop<br>2. _getImageUrls_<br>3. downloadImage<br>4. createThumbnail (task in wait queue)<br>5. uploadImage (task in wait queue)<br>6. <next iteration of the loop> | 1. Workflow instance started, id="1"<br>2. downloadImage scheduled |
+| Replay |
+| 1. Dispatch loop<br>2. _getImageUrls_<br>3. *downloadImage image<br>• path="foo"<br>4. createThumbnail<br>5. uploadImage (task in wait queue)<br>6. <next iteration of the loop> | 1. Workflow instance started, id="1"<br>2. downloadImage scheduled<br>3. downloadImage completed, return="foo"<br>4. createThumbnail scheduled |
+| Replay |
+| 1. Dispatch loop<br>2. _getImageUrls_<br>3. *downloadImage image<br>• path="foo"<br>4. *createThumbnail<br>• thumbnail path="bar"<br>5. uploadImage<br>6. <next iteration of the loop> | 1. Workflow instance started, id="1"<br>2. downloadImage scheduled<br>3. downloadImage completed, return="foo"<br>4. createThumbnail scheduled<br>5. createThumbnail completed, return="bar"<br>6. uploadImage scheduled |
+| Replay |
 | 1. Dispatch loop<br>2. _getImageUrls_<br>3. *downloadImage image<br>• path="foo"<br>4. *createThumbnail<br>• thumbnail path="bar"<br>5. _uploadImage_<br>6. <next iteration of the loop> | 1. Workflow instance started, id="1"<br>2. downloadImage scheduled<br>3. downloadImage completed, return="foo"<br>4. createThumbnail scheduled<br>5. createThumbnail completed, return="bar"<br>6. uploadImage scheduled<br>7. uploadImage completed<br>... |
 
 When a call to `processImage` is made, the framework creates a new workflow

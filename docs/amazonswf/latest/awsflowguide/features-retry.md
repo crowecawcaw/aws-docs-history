@@ -80,44 +80,43 @@ public class RetryActivityRecipeWorkflowImpl
 
 The workflow works as follows:
 
-1.  `runUnreliableActivityTillSuccess` creates a `Settable<Boolean>` object named
-    `retryActivity` which is used to indicate whether the activity failed and should be retried.
-    `Settable<T>` is derived from `Promise<T>` and works much the same way, but
-    you set a `Settable<T>` object's value manually.
-2.  `runUnreliableActivityTillSuccess` implements an anonymous nested `TryCatch` class
-    to handle any exceptions that are thrown by the `unreliableActivity` activity. For more discussion
-    of how to handle exceptions thrown by asynchronous code, see [Error Handling](errorhandling.md "errorhandling.md").
-3.  `doTry` executes the `unreliableActivity` activity, which returns a
-    `Promise<Void>` object named `activityRanSuccessfully`.
-4.  `doTry` calls the asynchronous `setRetryActivityToFalse` method, which has two
-    parameters:
+1. `runUnreliableActivityTillSuccess` creates a `Settable<Boolean>` object named
+   `retryActivity` which is used to indicate whether the activity failed and should be retried.
+   `Settable<T>` is derived from `Promise<T>` and works much the same way, but
+   you set a `Settable<T>` object's value manually.
+2. `runUnreliableActivityTillSuccess` implements an anonymous nested `TryCatch` class
+   to handle any exceptions that are thrown by the `unreliableActivity` activity. For more discussion
+   of how to handle exceptions thrown by asynchronous code, see [Error Handling](errorhandling.md "errorhandling.md").
+3. `doTry` executes the `unreliableActivity` activity, which returns a
+   `Promise<Void>` object named `activityRanSuccessfully`.
+4. `doTry` calls the asynchronous `setRetryActivityToFalse` method, which has two
+   parameters:
 
-        * `activityRanSuccessfully` takes the `Promise<Void>` object returned by the
-         `unreliableActivity` activity.
-        * `retryActivity` takes the `retryActivity` object.
+   - `activityRanSuccessfully` takes the `Promise<Void>` object returned by the
+     `unreliableActivity` activity.
+   - `retryActivity` takes the `retryActivity` object.
+     If `unreliableActivity` completes, `activityRanSuccessfully` becomes ready and
+     `setRetryActivityToFalse` sets `retryActivity` to false. Otherwise,
+     `activityRanSuccessfully` never becomes ready and `setRetryActivityToFalse` doesn't
+     execute.
 
-    If `unreliableActivity` completes, `activityRanSuccessfully` becomes ready and
-    `setRetryActivityToFalse` sets `retryActivity` to false. Otherwise,
-    `activityRanSuccessfully` never becomes ready and `setRetryActivityToFalse` doesn't
-    execute.
+5. If `unreliableActivity` throws an exception, the framework calls `doCatch` and
+   passes it the exception object. `doCatch` sets `retryActivity` to true.
+6. `runUnreliableActivityTillSuccess` calls the asynchronous
+   `restartRunUnreliableActivityTillSuccess` method and passes it the `retryActivity`
+   object. Because `retryActivity` is a `Promise<T>` type,
+   `restartRunUnreliableActivityTillSuccess` defers execution until `retryActivity` is
+   ready, which occurs after `TryCatch` completes.
+7. When `retryActivity` is ready, `restartRunUnreliableActivityTillSuccess` extracts
+   the value.
 
-5.  If `unreliableActivity` throws an exception, the framework calls `doCatch` and
-    passes it the exception object. `doCatch` sets `retryActivity` to true.
-6.  `runUnreliableActivityTillSuccess` calls the asynchronous
-    `restartRunUnreliableActivityTillSuccess` method and passes it the `retryActivity`
-    object. Because `retryActivity` is a `Promise<T>` type,
-    `restartRunUnreliableActivityTillSuccess` defers execution until `retryActivity` is
-    ready, which occurs after `TryCatch` completes.
-7.  When `retryActivity` is ready, `restartRunUnreliableActivityTillSuccess` extracts
-    the value.
+   - If the value is `false`, the retry succeeded.
+     `restartRunUnreliableActivityTillSuccess` doesn'thing and the retry sequence
+     terminates.
+   - If the value is true, the retry failed. `restartRunUnreliableActivityTillSuccess` calls
+     `runUnreliableActivityTillSuccess` to execute the activity again.
 
-    - If the value is `false`, the retry succeeded.
-      `restartRunUnreliableActivityTillSuccess` doesn'thing and the retry sequence
-      terminates.
-    - If the value is true, the retry failed. `restartRunUnreliableActivityTillSuccess` calls
-      `runUnreliableActivityTillSuccess` to execute the activity again.
-
-8.  Steps 1 - 7 repeat until `unreliableActivity` completes.
+8. Steps 1 - 7 repeat until `unreliableActivity` completes.
 
 ###### Note
 
@@ -296,9 +295,7 @@ The workflow works as follows:
    `retryDecorator.decorate` method and passing it the activity client's class name.
 4. `handleUnreliableActivity` executes the activity.
 
-If the activity fails, the framework retries it according to the configuration specified in Step
-
-1.
+If the activity fails, the framework retries it according to the configuration specified in Step 1.
 
 ###### Note
 

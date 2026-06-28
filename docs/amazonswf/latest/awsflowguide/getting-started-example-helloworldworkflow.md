@@ -3,12 +3,12 @@
 Although the basic [HelloWorld](getting-started-example-helloworld.md "getting-started-example-helloworld.md") example is structured
 like a workflow, it differs from an Amazon SWF workflow in several key respects:
 
-| Conventional and Amazon SWF Workflow Applications                                          | HelloWorld                                                                                                                                                                                                                  | Amazon SWF Workflow |
-| ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| Runs locally as a single process.                                                          | Runs as multiple processes that can be distributed across multiple systems, including Amazon EC2<br>instances, private data centers, client computers, and so on. They don't even have to run the same<br>operating system. |
-| Activities are synchronous methods, which block until they complete.                       | Activities are represented by asynchronous methods, which return immediately and allow the workflow<br>to perform other tasks while waiting for the activity to complete.                                                   |
-| The workflow worker interacts with an activities worker by calling the appropriate method. | Workflow workers interact with activities workers by using HTTP requests, with Amazon SWF acting as an<br>intermediary.                                                                                                     |
-| The workflow starter interacts with workflow worker by calling the appropriate method.     | Workflow starters interact with workflow workers by using HTTP requests, with Amazon SWF acting as an<br>intermediary.                                                                                                      |
+Conventional and Amazon SWF Workflow Applications| HelloWorld | Amazon SWF Workflow |
+| --- | --- |
+| Runs locally as a single process. | Runs as multiple processes that can be distributed across multiple systems, including Amazon EC2<br>instances, private data centers, client computers, and so on. They don't even have to run the same<br>operating system. |
+| Activities are synchronous methods, which block until they complete. | Activities are represented by asynchronous methods, which return immediately and allow the workflow<br>to perform other tasks while waiting for the activity to complete. |
+| The workflow worker interacts with an activities worker by calling the appropriate method. | Workflow workers interact with activities workers by using HTTP requests, with Amazon SWF acting as an<br>intermediary. |
+| The workflow starter interacts with workflow worker by calling the appropriate method. | Workflow starters interact with workflow workers by using HTTP requests, with Amazon SWF acting as an<br>intermediary. |
 
 You could implement a distributed asynchronous workflow application from scratch, for example, by having your
 workflow worker interact with an activities worker directly through web services calls. However, you must then
@@ -32,7 +32,7 @@ the same project that you did for HelloWorld, which is already configured for AW
 to run the application, you must set up an Amazon SWF account, as follows:
 
 - Sign up for an AWS account, if you don't already have one, at [Amazon Web Services](https://aws.amazon.com/ "https://aws.amazon.com/").
-- Assign your account's Access ID and secret ID to the AWS_ACCESS_KEY_ID and AWS_SECRET_KEY environment
+- Assign your account's Access ID and secret ID to the AWS\_ACCESS\_KEY\_ID and AWS\_SECRET\_KEY environment
   variables, respectively. It's a good practice to not expose the literal key values in your code. Storing them
   in environment variables is a convenient way to handle the issue.
 - Sign up for Amazon SWF account at [Amazon Simple Workflow
