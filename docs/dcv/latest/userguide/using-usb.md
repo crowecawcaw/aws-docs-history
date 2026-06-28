@@ -22,7 +22,7 @@ and use them on the server without additional configuration required.
 
 However, some specialized USB devices aren't supported in the default configuration. Unsupported devices do not appear
 in the **Settings** menu after they're connected. These devices must be added to the USB Device **Allow List**
-on the Amazon DCV Server before they can be used. After they are added to this list, they will appear in the **Settings** menu on the client.
+on the Amazon DCV Server to be recognized for remotization. This list acts as a device compatibility filter, not a security access control. After they are added to this list, they will appear in the **Settings** menu on the client.
 
 For information on this or any additional configuration that may be required on the Amazon DCV server, see [Enabling USB Remotization](../adminguide/manage-usb-remote.md "../adminguide/manage-usb-remote.md")
 and in the _Amazon DCV Administrator Guide_.
