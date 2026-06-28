@@ -23,99 +23,99 @@ be:
 The following table lists the types of audit checks and the supported mitigation actions
 for each:
 
-| Audit check to mitigation action mapping                     | Audit check                                                                     | Supported mitigation actions |
-| ------------------------------------------------------------ | ------------------------------------------------------------------------------- | ---------------------------- |
-| REVOKED_CA_CERT_CHECK                                        | PUBLISH_FINDING_TO_SNS, UPDATE_CA_CERTIFICATE                                   |
-| INTERMEDIATE_CA_REVOKED_FOR_ACTIVE_DEVICE_CERTIFICATES_CHECK | PUBLISH_FINDING_TO_SNS, UPDATE_DEVICE_CERTIFICATE,<br>ADD_THINGS_TO_THING_GROUP |
-| DEVICE_CERTIFICATE_SHARED_CHECK                              | PUBLISH_FINDING_TO_SNS, UPDATE_DEVICE_CERTIFICATE,<br>ADD_THINGS_TO_THING_GROUP |
-| UNAUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK         | PUBLISH_FINDING_TO_SNS                                                          |
-| AUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK           | PUBLISH_FINDING_TO_SNS                                                          |
-| IOT_POLICY_OVERLY_PERMISSIVE_CHECK                           | PUBLISH_FINDING_TO_SNS, REPLACE_DEFAULT_POLICY_VERSION                          |
-| IOT_POLICY_POTENTIAL_MISCONFIGURATION_CHECK                  | PUBLISH_FINDING_TO_SNS, REPLACE_DEFAULT_POLICY_VERSION                          |
-| CA_CERTIFICATE_EXPIRING_CHECK                                | PUBLISH_FINDING_TO_SNS, UPDATE_CA_CERTIFICATE                                   |
-| CONFLICTING_CLIENT_IDS_CHECK                                 | PUBLISH_FINDING_TO_SNS                                                          |
-| DEVICE_CERTIFICATE_EXPIRING_CHECK                            | PUBLISH_FINDING_TO_SNS, UPDATE_DEVICE_CERTIFICATE,<br>ADD_THINGS_TO_THING_GROUP |
-| REVOKED_DEVICE_CERTIFICATE_STILL_ACTIVE_CHECK                | PUBLISH_FINDING_TO_SNS, UPDATE_DEVICE_CERTIFICATE,<br>ADD_THINGS_TO_THING_GROUP |
-| LOGGING_DISABLED_CHECK                                       | PUBLISH_FINDING_TO_SNS, ENABLE_IOT_LOGGING                                      |
-| DEVICE_CERTIFICATE_KEY_QUALITY_CHECK                         | PUBLISH_FINDING_TO_SNS, UPDATE_DEVICE_CERTIFICATE,<br>ADD_THINGS_TO_THING_GROUP |
-| CA_CERTIFICATE_KEY_QUALITY_CHECK                             | PUBLISH_FINDING_TO_SNS, UPDATE_CA_CERTIFICATE                                   |
-| IOT_ROLE_ALIAS_OVERLY_PERMISSIVE_CHECK                       | PUBLISH_FINDING_TO_SNS                                                          |
-| IOT_ROLE_ALIAS_ALLOWS_ACCESS_TO_UNUSED_SERVICES_CHECK        | PUBLISH_FINDING_TO_SNS                                                          |
+Audit check to mitigation action mapping| Audit check | Supported mitigation actions |
+| --- | --- |
+| REVOKED\_CA\_CERT\_CHECK | PUBLISH\_FINDING\_TO\_SNS, UPDATE\_CA\_CERTIFICATE |
+| INTERMEDIATE\_CA\_REVOKED\_FOR\_ACTIVE\_DEVICE\_CERTIFICATES\_CHECK | PUBLISH\_FINDING\_TO\_SNS, UPDATE\_DEVICE\_CERTIFICATE,<br>ADD\_THINGS\_TO\_THING\_GROUP |
+| DEVICE\_CERTIFICATE\_SHARED\_CHECK | PUBLISH\_FINDING\_TO\_SNS, UPDATE\_DEVICE\_CERTIFICATE,<br>ADD\_THINGS\_TO\_THING\_GROUP |
+| UNAUTHENTICATED\_COGNITO\_ROLE\_OVERLY\_PERMISSIVE\_CHECK | PUBLISH\_FINDING\_TO\_SNS |
+| AUTHENTICATED\_COGNITO\_ROLE\_OVERLY\_PERMISSIVE\_CHECK | PUBLISH\_FINDING\_TO\_SNS |
+| IOT\_POLICY\_OVERLY\_PERMISSIVE\_CHECK | PUBLISH\_FINDING\_TO\_SNS, REPLACE\_DEFAULT\_POLICY\_VERSION |
+| IOT\_POLICY\_POTENTIAL\_MISCONFIGURATION\_CHECK | PUBLISH\_FINDING\_TO\_SNS, REPLACE\_DEFAULT\_POLICY\_VERSION |
+| CA\_CERTIFICATE\_EXPIRING\_CHECK | PUBLISH\_FINDING\_TO\_SNS, UPDATE\_CA\_CERTIFICATE |
+| CONFLICTING\_CLIENT\_IDS\_CHECK | PUBLISH\_FINDING\_TO\_SNS |
+| DEVICE\_CERTIFICATE\_EXPIRING\_CHECK | PUBLISH\_FINDING\_TO\_SNS, UPDATE\_DEVICE\_CERTIFICATE,<br>ADD\_THINGS\_TO\_THING\_GROUP |
+| REVOKED\_DEVICE\_CERTIFICATE\_STILL\_ACTIVE\_CHECK | PUBLISH\_FINDING\_TO\_SNS, UPDATE\_DEVICE\_CERTIFICATE,<br>ADD\_THINGS\_TO\_THING\_GROUP |
+| LOGGING\_DISABLED\_CHECK | PUBLISH\_FINDING\_TO\_SNS, ENABLE\_IOT\_LOGGING |
+| DEVICE\_CERTIFICATE\_KEY\_QUALITY\_CHECK | PUBLISH\_FINDING\_TO\_SNS, UPDATE\_DEVICE\_CERTIFICATE,<br>ADD\_THINGS\_TO\_THING\_GROUP |
+| CA\_CERTIFICATE\_KEY\_QUALITY\_CHECK | PUBLISH\_FINDING\_TO\_SNS, UPDATE\_CA\_CERTIFICATE |
+| IOT\_ROLE\_ALIAS\_OVERLY\_PERMISSIVE\_CHECK | PUBLISH\_FINDING\_TO\_SNS |
+| IOT\_ROLE\_ALIAS\_ALLOWS\_ACCESS\_TO\_UNUSED\_SERVICES\_CHECK | PUBLISH\_FINDING\_TO\_SNS |
 
 All audit checks support publishing the audit findings to Amazon SNS so you can take custom
 actions in response to the notification. Each type of audit check can support additional
 mitigation actions:
 
-**REVOKED_CA_CERT_CHECK**
+**REVOKED\_CA\_CERT\_CHECK**
 
 - Change the state of the certificate to mark it as inactive in AWS IoT.
 
-**DEVICE_CERTIFICATE_SHARED_CHECK**
+**DEVICE\_CERTIFICATE\_SHARED\_CHECK**
 
 - Change the state of the device certificate to mark it as inactive in
   AWS IoT.
 - Add the devices that use that certificate to a thing group.
 
-**UNAUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK**
+**UNAUTHENTICATED\_COGNITO\_ROLE\_OVERLY\_PERMISSIVE\_CHECK**
 
 - No additional supported actions.
 
-**AUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK**
+**AUTHENTICATED\_COGNITO\_ROLE\_OVERLY\_PERMISSIVE\_CHECK**
 
 - No additional supported actions.
 
-**IOT_POLICY_OVERLY_PERMISSIVE_CHECK**
+**IOT\_POLICY\_OVERLY\_PERMISSIVE\_CHECK**
 
 - Add a blank AWS IoT policy version to restrict permissions.
 
-**IOT_POLICY_POTENTIAL_MISCONFIGURATION_CHECK**
+**IOT\_POLICY\_POTENTIAL\_MISCONFIGURATION\_CHECK**
 
 - Identify potential misconfigurations in AWS IoT policies.
 
-**CA_CERT_APPROACHING_EXPIRATION_CHECK**
+**CA\_CERT\_APPROACHING\_EXPIRATION\_CHECK**
 
 - Change the state of the certificate to mark it as inactive in AWS IoT.
 
-**CONFLICTING_CLIENT_IDS_CHECK**
+**CONFLICTING\_CLIENT\_IDS\_CHECK**
 
 - No additional supported actions.
 
-**DEVICE_CERT_APPROACHING_EXPIRATION_CHECK**
+**DEVICE\_CERT\_APPROACHING\_EXPIRATION\_CHECK**
 
 - Change the state of the device certificate to mark it as inactive in
   AWS IoT.
 - Add the devices that use that certificate to a thing group.
 
-**DEVICE_CERTIFICATE_KEY_QUALITY_CHECK**
+**DEVICE\_CERTIFICATE\_KEY\_QUALITY\_CHECK**
 
 - Change the state of the device certificate to mark it as inactive in
   AWS IoT.
 - Add the devices that use that certificate to a thing group.
 
-**CA_CERTIFICATE_KEY_QUALITY_CHECK**
+**CA\_CERTIFICATE\_KEY\_QUALITY\_CHECK**
 
 - Change the state of the certificate to mark it as inactive in AWS IoT.
 
-**REVOKED_DEVICE_CERT_CHECK**
+**REVOKED\_DEVICE\_CERT\_CHECK**
 
 - Change the state of the device certificate to mark it as inactive in
   AWS IoT.
 - Add the devices that use that certificate to a thing group.
 
-**LOGGING_DISABLED_CHECK**
+**LOGGING\_DISABLED\_CHECK**
 
 - Enable logging.
 
 AWS IoT Device Defender supports the following types of mitigation actions on Audit findings:
 
-| Action type                    | Notes                                                                                                                                                                                                                                     |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ADD_THINGS_TO_THING_GROUP      | You specify the group to which you want to add the devices. You also specify<br>whether membership in one or more dynamic groups should be overridden if that would<br>exceed the maximum number of groups to which the thing can belong. |
-| ENABLE_IOT_LOGGING             | You specify the logging level and the role with permissions for logging. You<br>cannot specify a logging level of `DISABLED`.                                                                                                             |
-| PUBLISH_FINDING_TO_SNS         | You specify the topic to which the finding should be published.                                                                                                                                                                           |
-| REPLACE_DEFAULT_POLICY_VERSION | You specify the template name. Replaces the policy version with a default or<br>blank policy. Only a value of `BLANK_POLICY` is currently<br>supported.                                                                                   |
-| UPDATE_CA_CERTIFICATE          | You specify the new state for the CA certificate. Only a value of<br>`DEACTIVATE` is currently supported.                                                                                                                                 |
-| UPDATE_DEVICE_CERTIFICATE      | You specify the new state for the device certificate. Only a value of<br>`DEACTIVATE` is currently supported.                                                                                                                             |
+| Action type                       | Notes                                                                                                                                                                                                                                     |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ADD\_THINGS\_TO\_THING\_GROUP     | You specify the group to which you want to add the devices. You also specify<br>whether membership in one or more dynamic groups should be overridden if that would<br>exceed the maximum number of groups to which the thing can belong. |
+| ENABLE\_IOT\_LOGGING              | You specify the logging level and the role with permissions for logging. You<br>cannot specify a logging level of `DISABLED`.                                                                                                             |
+| PUBLISH\_FINDING\_TO\_SNS         | You specify the topic to which the finding should be published.                                                                                                                                                                           |
+| REPLACE\_DEFAULT\_POLICY\_VERSION | You specify the template name. Replaces the policy version with a default or<br>blank policy. Only a value of `BLANK_POLICY` is currently<br>supported.                                                                                   |
+| UPDATE\_CA\_CERTIFICATE           | You specify the new state for the CA certificate. Only a value of<br>`DEACTIVATE` is currently supported.                                                                                                                                 |
+| UPDATE\_DEVICE\_CERTIFICATE       | You specify the new state for the device certificate. Only a value of<br>`DEACTIVATE` is currently supported.                                                                                                                             |
 
 By configuring standard actions when issues are found during an audit, you can respond
 to those issues consistently. Using these defined mitigation actions also helps you resolve
@@ -139,9 +139,9 @@ been applied.
 
 AWS IoT Device Defender supports the following types of mitigation actions on Detect alarms:
 
-| Action type               | Notes                                                                                                                                                                                                                                     |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ADD_THINGS_TO_THING_GROUP | You specify the group to which you want to add the devices. You also specify<br>whether membership in one or more dynamic groups should be overridden if that would<br>exceed the maximum number of groups to which the thing can belong. |
+| Action type                   | Notes                                                                                                                                                                                                                                     |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ADD\_THINGS\_TO\_THING\_GROUP | You specify the group to which you want to add the devices. You also specify<br>whether membership in one or more dynamic groups should be overridden if that would<br>exceed the maximum number of groups to which the thing can belong. |
 
 ## How to define and manage mitigation actions
 
@@ -327,14 +327,14 @@ of actions or action states. 3. To see details for the task, in **Executions**, 
 For each mitigation action that you define, you must provide the role used to apply that
 action.
 
-| Permissions for mitigation actions | Action type                                                                                                                                                                                                                                                                                                                | Permissions policy template |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
-| UPDATE_DEVICE_CERTIFICATE          | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"iot:UpdateCertificate"<br>],<br>"Resource":[<br>"*"<br>]<br>}<br>]<br>}`<br>``                                                                                                                                    |
-| UPDATE_CA_CERTIFICATE              | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"iot:UpdateCACertificate"<br>],<br>"Resource":[<br>"*"<br>]<br>}<br>]<br>}`<br>``                                                                                                                                  |
-| ADD_THINGS_TO_THING_GROUP          | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"iot:ListPrincipalThings",<br>"iot:AddThingToThingGroup"<br>],<br>"Resource":[<br>"*"<br>]<br>}<br>]<br>}`<br>``                                                                                                   |
-| REPLACE_DEFAULT_POLICY_VERSION     | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"iot:CreatePolicyVersion"<br>],<br>"Resource":[<br>"*"<br>]<br>}<br>]<br>}`<br>``                                                                                                                                  |
-| ENABLE_IOT_LOGGING                 | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement": [<br>{<br>"Effect": "Allow",<br>"Action": [<br>"iot:SetV2LoggingOptions"<br>],<br>"Resource": "*"<br>},<br>{<br>"Effect": "Allow",<br>"Action": [<br>"iam:PassRole"<br>],<br>"Resource": "arn:aws:iam::123456789012:role/IoTLoggingRole"<br>}<br>]<br>}`<br>`` |
-| PUBLISH_FINDING_TO_SNS             | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"sns:Publish"<br>],<br>"Resource":[<br>"arn:aws:sns:`us-east-1`:123456789012:`example-topic`"<br>]<br>}<br>]<br>}`<br>``                                                                                           |
+Permissions for mitigation actions| Action type | Permissions policy template |
+| --- | --- |
+| UPDATE\_DEVICE\_CERTIFICATE | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"iot:UpdateCertificate"<br>],<br>"Resource":[<br>"*"<br>]<br>}<br>]<br>}`<br>`` |
+| UPDATE\_CA\_CERTIFICATE | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"iot:UpdateCACertificate"<br>],<br>"Resource":[<br>"*"<br>]<br>}<br>]<br>}`<br>`` |
+| ADD\_THINGS\_TO\_THING\_GROUP | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"iot:ListPrincipalThings",<br>"iot:AddThingToThingGroup"<br>],<br>"Resource":[<br>"*"<br>]<br>}<br>]<br>}`<br>`` |
+| REPLACE\_DEFAULT\_POLICY\_VERSION | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"iot:CreatePolicyVersion"<br>],<br>"Resource":[<br>"*"<br>]<br>}<br>]<br>}`<br>`` |
+| ENABLE\_IOT\_LOGGING | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement": [<br>{<br>"Effect": "Allow",<br>"Action": [<br>"iot:SetV2LoggingOptions"<br>],<br>"Resource": "*"<br>},<br>{<br>"Effect": "Allow",<br>"Action": [<br>"iam:PassRole"<br>],<br>"Resource": "arn:aws:iam::123456789012:role/IoTLoggingRole"<br>}<br>]<br>}`<br>`` |
+| PUBLISH\_FINDING\_TO\_SNS | JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement":[<br>{<br>"Effect":"Allow",<br>"Action":[<br>"sns:Publish"<br>],<br>"Resource":[<br>"arn:aws:sns:`us-east-1`:123456789012:`example-topic`"<br>]<br>}<br>]<br>}`<br>`` |
 
 For all mitigation action types, use the following trust policy template:
 

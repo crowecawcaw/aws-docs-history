@@ -24,7 +24,7 @@ were made to determine if the problem persists.
 The following reason codes are returned when this check finds
 noncompliance:
 
-- DUPLICATE_CLIENT_ID_ACROSS_CONNECTIONS
+- DUPLICATE\_CLIENT\_ID\_ACROSS\_CONNECTIONS
 
 The findings returned by this check also include the client ID used to connect,
 principal IDs, and disconnect times. The most recent results are listed

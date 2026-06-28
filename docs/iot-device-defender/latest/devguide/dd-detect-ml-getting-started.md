@@ -108,7 +108,7 @@ role with the proper permissions and trust relationships required.
     ![IAM Sample-SNS-role summary showing role ARN, role description providing AWS IoT Device Defender write access to publish SNS notifications, path, creation time, and trusted entities](images/dd-ml-detect-trust-relationships.png)
 
 5. On the **Edit Metric behavior** page, you can
-   customize your ML behavior settings.
+customize your ML behavior settings.
 
 ![Edit metric behaviors section with Authorization failures, Bytes in, and Connection attempts metrics, allowing configuration of data points for alarm triggers, notifications, and ML Detect confidence levels.](images/dd-ml-update-config.png) 6. When you're done, choose **Next**. 7. On the **Review configuration** page, verify the
 behaviors you'd like machine learning to monitor, and then choose
@@ -717,7 +717,7 @@ Output:
 
 2. Next, use the `create-mitigation-action` command to create a
    mitigation action. In the following example, we create a mitigation action
-   called **detect_mitigation_action** with the ARN of the IAM
+   called **detect\_mitigation\_action** with the ARN of the IAM
    role that is used to apply the mitigation action. We also define the type of
    action and the parameters for that action. In this case, our mitigation will
    move things to our previously created thing group called

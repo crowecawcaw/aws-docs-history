@@ -38,55 +38,52 @@ see [AWS IoT Device Defender Agent SDK (Python)](https://github.com/aws-samples/
 The following procedure shows you how to create a custom metric in the
 console.
 
-1.  In the [AWS IoT
-    console](https://console.aws.amazon.com/iot "https://console.aws.amazon.com/iot"), in the navigation pane, expand
-    **Defend**, and then choose
-    **Detect**, **Metrics**.
-2.  On the **Custom metrics** page, choose
-    **Create**.
-3.  On the **Create custom metric** page, do the
-    following.
+1. In the [AWS IoT
+   console](https://console.aws.amazon.com/iot "https://console.aws.amazon.com/iot"), in the navigation pane, expand
+   **Defend**, and then choose
+   **Detect**, **Metrics**.
+2. On the **Custom metrics** page, choose
+   **Create**.
+3. On the **Create custom metric** page, do the
+   following.
 
-        1. Under **Name**, enter a name for your custom
-         metric. You can't modify this name after you create the custom
-         metric.
-        2. Under **Display name (optional)**, you can enter
-         a friendly name for your custom metric. It doesn't have to be unique
-         and it can be modified after creation.
-        3. Under **Type**, choose the type of metric you'd
-         like to monitor. Metric types include
-         **string-list**,
-         **ip-address-list**,
-         **number-list**, and
-         **number**. The type can't be modified after
-         creation.
+   1. Under **Name**, enter a name for your custom
+      metric. You can't modify this name after you create the custom
+      metric.
+   2. Under **Display name (optional)**, you can enter
+      a friendly name for your custom metric. It doesn't have to be unique
+      and it can be modified after creation.
+   3. Under **Type**, choose the type of metric you'd
+      like to monitor. Metric types include
+      **string-list**,
+      **ip-address-list**,
+      **number-list**, and
+      **number**. The type can't be modified after
+      creation.
 
+   ###### Note
 
-        ###### Note
+   ML Detect only allows the **number** type. 4. Under **Tags**, you can select tags to be
+   associated with the resource.
+   When you're done, choose **Confirm**.
 
-        ML Detect only allows the **number** type.
-        4. Under **Tags**, you can select tags to be
-         associated with the resource.
-
-    When you're done, choose **Confirm**.
-
-4.  After you've created your custom metric, the **Custom
-    metrics** page appears, where you can see your newly created
-    custom metric.
-5.  Next, you need to add your custom metric to a Security Profile. In the
-    [AWS IoT console](https://console.aws.amazon.com/iot "https://console.aws.amazon.com/iot"),
-    in the navigation pane, expand **Defend**, and then choose
-    **Detect**, **Security
-    profiles**.
-6.  Choose the Security Profile you'd like to add your custom metric
-    to.
-7.  Choose **Actions**, **Edit**.
-8.  Choose **Additional Metrics to retain**, and then choose
-    your custom metric. Choose **Next** on the following
-    screens until you reach the **Confirm** page. Choose
-    **Save** and **Continue**. After
-    your custom metric has been successfully added, the Security Profile details
-    page appears.
+4. After you've created your custom metric, the **Custom
+   metrics** page appears, where you can see your newly created
+   custom metric.
+5. Next, you need to add your custom metric to a Security Profile. In the
+   [AWS IoT console](https://console.aws.amazon.com/iot "https://console.aws.amazon.com/iot"),
+   in the navigation pane, expand **Defend**, and then choose
+   **Detect**, **Security
+   profiles**.
+6. Choose the Security Profile you'd like to add your custom metric
+   to.
+7. Choose **Actions**, **Edit**.
+8. Choose **Additional Metrics to retain**, and then choose
+   your custom metric. Choose **Next** on the following
+   screens until you reach the **Confirm** page. Choose
+   **Save** and **Continue**. After
+   your custom metric has been successfully added, the Security Profile details
+   page appears.
 
 ###### Note
 

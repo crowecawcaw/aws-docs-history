@@ -612,52 +612,52 @@ Units: connections
 
 ## Device metrics document specification
 
-| Overall structure | Long name | Short name | Required | Type | Constraints                                                                 | Notes |
-| ----------------- | --------- | ---------- | -------- | ---- | --------------------------------------------------------------------------- | ----- |
-| header            | hed       | Y          | Object   |      | Complete block required for well-formed report.                             |
-| metrics           | met       | Y          | Object   |      | A report can have both or at least one `metrics` or `custom_metrics` block. |
-| custom_metrics    | cmet      | Y          | Object   |      | A report can have both or at least one `metrics` or `custom_metrics` block. |
+Overall structure| Long name | Short name | Required | Type | Constraints | Notes |
+| --- | --- | --- | --- | --- | --- |
+| header | hed | Y | Object | | Complete block required for well-formed report. |
+| metrics | met | Y | Object | | A report can have both or at least one `metrics` or `custom_metrics` block. |
+| custom\_metrics | cmet | Y | Object | | A report can have both or at least one `metrics` or `custom_metrics` block. |
 
-| Header block | Long name | Short name | Required | Type        | Constraints                                                                      | Notes |
-| ------------ | --------- | ---------- | -------- | ----------- | -------------------------------------------------------------------------------- | ----- |
-| report_id    | rid       | Y          | Integer  |             | Monotonically increasing value. Epoch timestamp recommended.                     |
-| version      | v         | Y          | String   | Major.Minor | Minor increments with addition of field. Major increments if metrics<br>removed. |
+Header block| Long name | Short name | Required | Type | Constraints | Notes |
+| --- | --- | --- | --- | --- | --- |
+| report\_id | rid | Y | Integer | | Monotonically increasing value. Epoch timestamp recommended. |
+| version | v | Y | String | Major.Minor | Minor increments with addition of field. Major increments if metrics<br>removed. |
 
 **Metrics block:**
 
-| TCP connections         | Long name | Short name              | Parent element | Required     | Type    | Constraints                       | Notes |
-| ----------------------- | --------- | ----------------------- | -------------- | ------------ | ------- | --------------------------------- | ----- |
-| tcp_connections         | tc        | metrics                 | N              | Object       |         |                                   |
-| established_connections | ec        | tcp_connections         | N              | Object       |         | Established TCP state             |
-| connections             | cs        | established_connections | N              | List<Object> |         |                                   |
-| remote_addr             | rad       | connections             | Y              | Number       | ip:port | IP can be IPv6 or IPv4            |
-| local_port              | lp        | connections             | N              | Number       | >= 0    |                                   |
-| local_interface         | li        | connections             | N              | String       |         | Interface name                    |
-| total                   | t         | established_connections | N              | Number       | >= 0    | Number of established connections |
+TCP connections| Long name | Short name | Parent element | Required | Type | Constraints | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| tcp\_connections | tc | metrics | N | Object | | |
+| established\_connections | ec | tcp\_connections | N | Object | | Established TCP state |
+| connections | cs | established\_connections | N | List<Object> | | |
+| remote\_addr | rad | connections | Y | Number | ip:port | IP can be IPv6 or IPv4 |
+| local\_port | lp | connections | N | Number | >= 0 | |
+| local\_interface | li | connections | N | String | | Interface name |
+| total | t | established\_connections | N | Number | >= 0 | Number of established connections |
 
-| Listening TCP ports | Long name | Short name          | Parent element | Required     | Type | Constraints                            | Notes |
-| ------------------- | --------- | ------------------- | -------------- | ------------ | ---- | -------------------------------------- | ----- |
-| listening_tcp_ports | tp        | metrics             | N              | Object       |      |                                        |
-| ports               | pts       | listening_tcp_ports | N              | List<Object> | > 0  |                                        |
-| port                | pt        | ports               | N              | Number       | > 0  | ports should be numbers greater than 0 |
-| interface           | if        | ports               | N              | String       |      | Interface name                         |
-| total               | t         | listening_tcp_ports | N              | Number       | >= 0 |                                        |
+Listening TCP ports| Long name | Short name | Parent element | Required | Type | Constraints | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| listening\_tcp\_ports | tp | metrics | N | Object | | |
+| ports | pts | listening\_tcp\_ports | N | List<Object> | > 0 | |
+| port | pt | ports | N | Number | > 0 | ports should be numbers greater than 0 |
+| interface | if | ports | N | String | | Interface name |
+| total | t | listening\_tcp\_ports | N | Number | >= 0 | |
 
-| Listening UDP ports | Long name | Short name          | Parent element | Required   | Type | Constraints                            | Notes |
-| ------------------- | --------- | ------------------- | -------------- | ---------- | ---- | -------------------------------------- | ----- |
-| listening_udp_ports | up        | metrics             | N              | Object     |      |                                        |
-| ports               | pts       | listening_udp_ports | N              | List<Port> | > 0  |                                        |
-| port                | pt        | ports               | N              | Number     | > 0  | Ports should be numbers greater than 0 |
-| interface           | if        | ports               | N              | String     |      | Interface name                         |
-| total               | t         | listening_udp_ports | N              | Number     | >= 0 |                                        |
+Listening UDP ports| Long name | Short name | Parent element | Required | Type | Constraints | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| listening\_udp\_ports | up | metrics | N | Object | | |
+| ports | pts | listening\_udp\_ports | N | List<Port> | > 0 | |
+| port | pt | ports | N | Number | > 0 | Ports should be numbers greater than 0 |
+| interface | if | ports | N | String | | Interface name |
+| total | t | listening\_udp\_ports | N | Number | >= 0 | |
 
-| Network statistics | Long name | Short name    | Parent element | Required | Type               | Constraints | Notes |
-| ------------------ | --------- | ------------- | -------------- | -------- | ------------------ | ----------- | ----- |
-| network_stats      | ns        | metrics       | N              | Object   |                    |             |
-| bytes_in           | bi        | network_stats | N              | Number   | Delta Metric, >= 0 |             |
-| bytes_out          | bo        | network_stats | N              | Number   | Delta Metric, >= 0 |             |
-| packets_in         | pi        | network_stats | N              | Number   | Delta Metric, >= 0 |             |
-| packets_out        | po        | network_stats | N              | Number   | Delta Metric, >= 0 |             |
+Network statistics| Long name | Short name | Parent element | Required | Type | Constraints | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| network\_stats | ns | metrics | N | Object | | |
+| bytes\_in | bi | network\_stats | N | Number | Delta Metric, >= 0 | |
+| bytes\_out | bo | network\_stats | N | Number | Delta Metric, >= 0 | |
+| packets\_in | pi | network\_stats | N | Number | Delta Metric, >= 0 | |
+| packets\_out | po | network\_stats | N | Number | Delta Metric, >= 0 | |
 
 ###### Example
 

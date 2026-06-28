@@ -18,8 +18,8 @@ Severity: **Medium**
 AWS IoT returns the following reason code when this check finds a potentially
 misconfigured AWS IoT policy:
 
-- POLICY_CONTAINS_MQTT_WILDCARDS_IN_DENY_STATEMENT
-- TOPIC_FILTERS_INTENDED_TO_DENY_ALLOWED_USING_WILDCARDS
+- POLICY\_CONTAINS\_MQTT\_WILDCARDS\_IN\_DENY\_STATEMENT
+- TOPIC\_FILTERS\_INTENDED\_TO\_DENY\_ALLOWED\_USING\_WILDCARDS
 
 ## Why it matters
 

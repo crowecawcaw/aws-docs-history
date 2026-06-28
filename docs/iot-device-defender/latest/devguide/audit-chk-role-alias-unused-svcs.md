@@ -25,7 +25,7 @@ Severity: **Medium**
 The following reason codes are returned when this check finds a noncompliant AWS IoT
 policy:
 
-- ALLOWS_ACCESS_TO_UNUSED_SERVICES
+- ALLOWS\_ACCESS\_TO\_UNUSED\_SERVICES
 
 ## Why it matters
 

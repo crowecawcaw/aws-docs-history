@@ -25,12 +25,12 @@ For each of these actions, the values for `aws:SourceArn` must be as follows:
 - For resources passed in [CreateSecurityProfile](../../../iot/latest/apireference/API_CreateSecurityProfile.md "../../../iot/latest/apireference/API_CreateSecurityProfile.md") API (the alertTargets attribute) you should scope down
   the resource policy by using `aws:SourceArn` as
   `arn:`arnPartition`:iot:`region`:`accountId`:securityprofile/`securityprofileName``.
-The most effective way to protect against the confused deputy problem is to use the
- `aws:SourceArn`global condition context key with the full ARN of the resource.
- If you don't know the full ARN of the resource or if you are specifying multiple resources,
- use the`aws:SourceArn` global context condition key with wildcards
- (`_`) for the unknown portions of the ARN. For example,
- `arn:aws:`servicename`:_:`123456789012`:\*`.
+  The most effective way to protect against the confused deputy problem is to use the
+  `aws:SourceArn` global condition context key with the full ARN of the resource.
+  If you don't know the full ARN of the resource or if you are specifying multiple resources,
+  use the `aws:SourceArn` global context condition key with wildcards
+  (`*`) for the unknown portions of the ARN. For example,
+  `arn:aws:`servicename`:*:`123456789012`:*`.
 
 The following example shows how you can use the `aws:SourceArn` and
 `aws:SourceAccount` global condition context keys in AWS IoT Device Defender to prevent the

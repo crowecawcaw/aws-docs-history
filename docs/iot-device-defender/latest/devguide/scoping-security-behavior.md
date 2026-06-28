@@ -13,7 +13,7 @@ and multi-level `(#`). For example, the dimension value
 the same level as the `+`. Dimension values also support the MQTT client ID
 substitution variable ${iot:ClientId}.
 
-Dimensions of type TOPIC_FILTER are compatible with the following set of cloud-side
+Dimensions of type TOPIC\_FILTER are compatible with the following set of cloud-side
 metrics:
 
 - Number of authorization failures

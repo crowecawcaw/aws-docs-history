@@ -21,7 +21,7 @@ connections were made to determine if the problem persists.
 The following reason codes are returned when this check finds a noncompliant
 certificate:
 
-- CERTIFICATE_SHARED_BY_MULTIPLE_DEVICES
+- CERTIFICATE\_SHARED\_BY\_MULTIPLE\_DEVICES
 
 In addition, the findings returned by this check include the ID of the shared
 certificate, the IDs of the clients using the certificate to connect, and the
@@ -41,20 +41,19 @@ your security best practices to mitigate the situation.
 
 If you use the same certificate on multiple devices, you might want to:
 
-1.  Provision new, unique certificates and attach them to each device.
-2.  Verify that the new certificates are valid and the devices can use them to
-    connect.
-3.  Use [UpdateCertificate](../../../iot/latest/apireference/API_UpdateCertificate.md "../../../iot/latest/apireference/API_UpdateCertificate.md") to mark the old certificate as REVOKED in
-    AWS IoT. You can also use mitigation actions to do the following:
+1. Provision new, unique certificates and attach them to each device.
+2. Verify that the new certificates are valid and the devices can use them to
+   connect.
+3. Use [UpdateCertificate](../../../iot/latest/apireference/API_UpdateCertificate.md "../../../iot/latest/apireference/API_UpdateCertificate.md") to mark the old certificate as REVOKED in
+   AWS IoT. You can also use mitigation actions to do the following:
 
-        * Apply the `UPDATE_DEVICE_CERTIFICATE` mitigation action
-         on your audit findings to make this change.
-        * Apply the `ADD_THINGS_TO_THING_GROUP` mitigation action
-         to add the device to a group where you can take action on it.
-        * Apply the `PUBLISH_FINDINGS_TO_SNS` mitigation action
-         if you want to implement a custom response in response to the Amazon SNS
-         message.
+   - Apply the `UPDATE_DEVICE_CERTIFICATE` mitigation action
+     on your audit findings to make this change.
+   - Apply the `ADD_THINGS_TO_THING_GROUP` mitigation action
+     to add the device to a group where you can take action on it.
+   - Apply the `PUBLISH_FINDINGS_TO_SNS` mitigation action
+     if you want to implement a custom response in response to the Amazon SNS
+     message.
+     For more information, see [Mitigation actions](dd-mitigation-actions.md "dd-mitigation-actions.md").
 
-    For more information, see [Mitigation actions](dd-mitigation-actions.md "dd-mitigation-actions.md").
-
-4.  Detach the old certificate from each of the devices.
+4. Detach the old certificate from each of the devices.

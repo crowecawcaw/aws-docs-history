@@ -11,7 +11,7 @@ Severity: **Low**
 The following reason codes are returned when this check finds
 noncompliance:
 
-- LOGGING_DISABLED
+- LOGGING\_DISABLED
 
 ## Why it matters
 

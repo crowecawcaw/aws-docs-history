@@ -13,11 +13,11 @@ This check is disabled by default Severity: **Low**
 
 ## Details
 
-This check applies to device certificates that are ACTIVE or PENDING_TRANSFER. The
+This check applies to device certificates that are ACTIVE or PENDING\_TRANSFER. The
 following reason codes are returned when this check finds a noncompliant device
 certificate:
 
-- CERTIFICATE_PAST_AGE_THRESHOLD
+- CERTIFICATE\_PAST\_AGE\_THRESHOLD
 
 ## Configuring the device certificate age check
 

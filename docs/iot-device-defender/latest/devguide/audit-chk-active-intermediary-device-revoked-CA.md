@@ -14,7 +14,7 @@ Severity: **Critical**
 The following reason codes are returned when this check finds
 noncompliance:
 
-- INTERMEDIATE_CA_REVOKED_BY_ISSUER
+- INTERMEDIATE\_CA\_REVOKED\_BY\_ISSUER
 
 ## Why it matters
 
@@ -33,26 +33,25 @@ Review the device certificate registration activity for the time after the CA
 certificate was revoked. Follow your security best practices to mitigate the
 situation. You might want to:
 
-1.  Provision new certificates, that are signed by a different CA, for the
-    affected devices.
-2.  Verify that the new certificates are valid, and that the devices can use
-    them to connect.
-3.  Use [UpdateCertificate](../../../iot/latest/apireference/API_UpdateCertificate.md "../../../iot/latest/apireference/API_UpdateCertificate.md") to mark the old certificate as REVOKED in
-    AWS IoT. You can also use mitigation actions to:
+1. Provision new certificates, that are signed by a different CA, for the
+   affected devices.
+2. Verify that the new certificates are valid, and that the devices can use
+   them to connect.
+3. Use [UpdateCertificate](../../../iot/latest/apireference/API_UpdateCertificate.md "../../../iot/latest/apireference/API_UpdateCertificate.md") to mark the old certificate as REVOKED in
+   AWS IoT. You can also use mitigation actions to:
 
-        * Apply the `UPDATE_DEVICE_CERTIFICATE` mitigation action
-         on your audit findings to make this change.
-        * Apply the `ADD_THINGS_TO_THING_GROUP` mitigation action
-         to add the device to a group where you can take action on it.
-        * Apply the `PUBLISH_FINDINGS_TO_SNS` mitigation action
-         if you want to implement a custom response in response to the Amazon SNS
-         message.
-        * Review the device certificate registration activity for the time
-         after the intermediate CA certificate was revoked and consider
-         revoking any device certificates that might have been issued with it
-         during this time. You can use [ListRelatedResourcesForAuditFinding](../../../iot/latest/apireference/API_ListRelatedResourcesForAuditFinding.md "../../../iot/latest/apireference/API_ListRelatedResourcesForAuditFinding.md") to list the device
-         certificates signed by the CA certificate and [UpdateCertificate](../../../iot/latest/apireference/API_UpdateCertificate.md "../../../iot/latest/apireference/API_UpdateCertificate.md") to revoke a device
-         certificate.
-        * Detach the old certificate from the device. (See [DetachThingPrincipal](../../../iot/latest/apireference/API_DetachThingPrincipal.md "../../../iot/latest/apireference/API_DetachThingPrincipal.md").)
-
-    For more information, see [Mitigation actions](dd-mitigation-actions.md "dd-mitigation-actions.md").
+   - Apply the `UPDATE_DEVICE_CERTIFICATE` mitigation action
+     on your audit findings to make this change.
+   - Apply the `ADD_THINGS_TO_THING_GROUP` mitigation action
+     to add the device to a group where you can take action on it.
+   - Apply the `PUBLISH_FINDINGS_TO_SNS` mitigation action
+     if you want to implement a custom response in response to the Amazon SNS
+     message.
+   - Review the device certificate registration activity for the time
+     after the intermediate CA certificate was revoked and consider
+     revoking any device certificates that might have been issued with it
+     during this time. You can use [ListRelatedResourcesForAuditFinding](../../../iot/latest/apireference/API_ListRelatedResourcesForAuditFinding.md "../../../iot/latest/apireference/API_ListRelatedResourcesForAuditFinding.md") to list the device
+     certificates signed by the CA certificate and [UpdateCertificate](../../../iot/latest/apireference/API_UpdateCertificate.md "../../../iot/latest/apireference/API_UpdateCertificate.md") to revoke a device
+     certificate.
+   - Detach the old certificate from the device. (See [DetachThingPrincipal](../../../iot/latest/apireference/API_DetachThingPrincipal.md "../../../iot/latest/apireference/API_DetachThingPrincipal.md").)
+     For more information, see [Mitigation actions](dd-mitigation-actions.md "dd-mitigation-actions.md").

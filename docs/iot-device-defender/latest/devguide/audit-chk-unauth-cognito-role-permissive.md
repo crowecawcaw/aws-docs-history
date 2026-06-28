@@ -34,8 +34,8 @@ identity connected are included in the audit.
 The following reason codes are returned when this check finds a noncompliant
 unauthenticated Amazon Cognito identity pool role:
 
-- ALLOWS_ACCESS_TO_IOT_ADMIN_ACTIONS
-- ALLOWS_BROAD_ACCESS_TO_IOT_DATA_PLANE_ACTIONS
+- ALLOWS\_ACCESS\_TO\_IOT\_ADMIN\_ACTIONS
+- ALLOWS\_BROAD\_ACCESS\_TO\_IOT\_DATA\_PLANE\_ACTIONS
 
 ## Why it matters
 

@@ -32,9 +32,9 @@ identity connected are included in the audit.
 The following reason codes are returned when this check finds a noncompliant
 authenticated Amazon Cognito identity pool role:
 
-- ALLOWS_BROAD_ACCESS_TO_IOT_THING_ADMIN_READ_ACTIONS
-- ALLOWS_ACCESS_TO_IOT_NON_THING_ADMIN_ACTIONS
-- ALLOWS_ACCESS_TO_IOT_THING_ADMIN_WRITE_ACTIONS
+- ALLOWS\_BROAD\_ACCESS\_TO\_IOT\_THING\_ADMIN\_READ\_ACTIONS
+- ALLOWS\_ACCESS\_TO\_IOT\_NON\_THING\_ADMIN\_ACTIONS
+- ALLOWS\_ACCESS\_TO\_IOT\_THING\_ADMIN\_WRITE\_ACTIONS
 
 ## Why it matters
 

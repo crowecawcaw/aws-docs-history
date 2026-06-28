@@ -19,7 +19,7 @@ Severity: **Critical**
 The following reason code is returned when this check finds a noncompliant AWS IoT
 policy:
 
-- ALLOWS_BROAD_ACCESS_TO_IOT_DATA_PLANE_ACTIONS
+- ALLOWS\_BROAD\_ACCESS\_TO\_IOT\_DATA\_PLANE\_ACTIONS
 
 ## Why it matters
 
