@@ -77,7 +77,7 @@ with the device to connect your virtual appliance network to your AWS resources.
 the following diagram, the on-premises network is connected to a transit gateway through
 a Site-to-Site VPN connection.
 
-![On-premises network](/images/network-manager/latest/tgwnm/images/nm-single-device-single-vpn.png)
+![On-premises network](images/nm-single-device-single-vpn.png)
 
 You can have multiple devices in a site, which you can associate a device with
 multiple links. For examples, see [AWS Global Networks for Transit Gateways scenarios](gnw-scenarios.md "gnw-scenarios.md").
@@ -91,7 +91,7 @@ After you register a transit gateway, you can view and monitor the resources in 
 network.
 
 | **Amazon VPC resources**          |
-| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------------- |
 | **Resource**                      | **Related resources**                                                                                                                        |
 | Transit gateway                   | • Transit gateway attachment<br>• Transit gateway route table                                                                                |
 | Transit gateway attachment        | • Direct Connect gateway<br>• Transit gateway<br>• Transit gateway attachment<br>• Transit Gateway Connect peer<br>• VPC<br>• VPN connection |

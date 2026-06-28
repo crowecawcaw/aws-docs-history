@@ -63,7 +63,7 @@ When you onboard to CloudWatch Logs Insights, the following occurs:
   `DO_NOT_DELETE_networkmanager_TrustEventsToStoreLogEvents` is
   created in the US West (Oregon) Region. To view this policy, use the
   following AWS CLI command: `aws logs describe-resource-policies --region
-us-west-2`
+ us-west-2`
 
 ### View transit gateway events using the AWS Transit Gateway console
 
@@ -109,12 +109,12 @@ global network. These include the following:
 - [A VPC attachment was deleted from a transit gateway (VPC-ATTACHMENT-DELETED)](#vpc-attach-tgw-delete "#vpc-attach-tgw-delete")
 - [An Direct Connect gateway was attached to a transit gateway (DXGW-ATTACHMENT-CREATED)](#dx-gateway-attach "#dx-gateway-attach")
 - [An Direct Connect gateway was detached from a transit gateway (DXGW-ATTACHMENT-DELETED)](#dx-gateway-detach "#dx-gateway-detach")
-- [A transit gateway peering connection attachment was created (TGW_PEERING_CREATED)](#tgw-peering-attach "#tgw-peering-attach")
+- [A transit gateway peering connection attachment was created (TGW\_PEERING\_CREATED)](#tgw-peering-attach "#tgw-peering-attach")
 - [A transit gateway peering connection was deleted (TGW-PEERING-DELETED)](#tgw-peering-delete "#tgw-peering-delete")
-- [A transit gateway Connect attachment was created for a transit gateway (CONNECT_ATTACHMENT_CREATED)](#connect-attachment-create "#connect-attachment-create")
-- [A transit gateway Connect attachment was deleted for a transit gateway (CONNECT_ATTACHMENT_DELETED)](#connect-attachment-delete "#connect-attachment-delete")
+- [A transit gateway Connect attachment was created for a transit gateway (CONNECT\_ATTACHMENT\_CREATED)](#connect-attachment-create "#connect-attachment-create")
+- [A transit gateway Connect attachment was deleted for a transit gateway (CONNECT\_ATTACHMENT\_DELETED)](#connect-attachment-delete "#connect-attachment-delete")
 - [A transit gateway Connect peer was created in a Connect attachment (TGW-CONNECT-PEER-CREATED)](#tgw-connect-peer-created "#tgw-connect-peer-created")
-- [A transit gateway Connect peer was deleted in a Connect attachment (CONNECT_PEER_DELETED)](#tgw-connect-peer-deleted "#tgw-connect-peer-deleted")
+- [A transit gateway Connect peer was deleted in a Connect attachment (CONNECT\_PEER\_DELETED)](#tgw-connect-peer-deleted "#tgw-connect-peer-deleted")
 - [A Network Firewall attachment was created (NETWORK-FIREWALL-ATTACHMENT-CREATED)](#vpc-firewall-attach "#vpc-firewall-attach")
 - [A Network Firewall attachment was deleted (NETWORK-FIREWALL-ATTACHMENT-DELETED)](#vpc-firewall-delete "#vpc-firewall-delete")
 
@@ -354,7 +354,7 @@ global network. These include the following:
 }
 ```
 
-### A transit gateway peering connection attachment was created (TGW_PEERING_CREATED)
+### A transit gateway peering connection attachment was created (TGW\_PEERING\_CREATED)
 
 ```
 {
@@ -406,7 +406,7 @@ global network. These include the following:
 }
 ```
 
-### A transit gateway Connect attachment was created for a transit gateway (CONNECT_ATTACHMENT_CREATED)
+### A transit gateway Connect attachment was created for a transit gateway (CONNECT\_ATTACHMENT\_CREATED)
 
 ```
 {
@@ -433,7 +433,7 @@ global network. These include the following:
 }
 ```
 
-### A transit gateway Connect attachment was deleted for a transit gateway (CONNECT_ATTACHMENT_DELETED)
+### A transit gateway Connect attachment was deleted for a transit gateway (CONNECT\_ATTACHMENT\_DELETED)
 
 ```
 {
@@ -486,7 +486,7 @@ global network. These include the following:
 }
 ```
 
-### A transit gateway Connect peer was deleted in a Connect attachment (CONNECT_PEER_DELETED)
+### A transit gateway Connect peer was deleted in a Connect attachment (CONNECT\_PEER\_DELETED)
 
 ```
 {
@@ -575,11 +575,11 @@ tables in your global network. These include the following:
 
 ###### Events
 
-- [A transit gateway attachment's route table changed (CONNECT_PEER_DELETED)](#tgw-route-changed "#tgw-route-changed")
+- [A transit gateway attachment's route table changed (CONNECT\_PEER\_DELETED)](#tgw-route-changed "#tgw-route-changed")
 - [A route was created in a transit gateway route table (TGW-ROUTE-INSTALLED)](#tgw-route-created "#tgw-route-created")
 - [A route was deleted in a transit gateway route table gateway (TGW-ROUTE-UNINSTALLED)](#tgw-route-uninstall "#tgw-route-uninstall")
 
-### A transit gateway attachment's route table changed (CONNECT_PEER_DELETED)
+### A transit gateway attachment's route table changed (CONNECT\_PEER\_DELETED)
 
 ```
 {
@@ -693,8 +693,8 @@ following:
 - [A VPN tunnel's IPsec session went up (after being down) (VPN-CONNECTION-IPSEC-UP)](#vpn-connection-ipsec-up "#vpn-connection-ipsec-up")
 - [A VPN tunnel's BGP session went down (VPN-CONNECTION-BGP-DOWN)](#vpn-connection-bgp-down "#vpn-connection-bgp-down")
 - [A VPN tunnel's BGP session went up (after being down) (VPN-CONNECTION-BGP-ESTABLISH)](#vpn-connection-bgp-establish "#vpn-connection-bgp-establish")
-- [A Connect peer (GRE tunnel) BGP session went down (CONNECT_PEER_BGP_DOWN)](#tgw-connect-peer-bgp-down "#tgw-connect-peer-bgp-down")
-- [A Connect peer (GRE tunnel) BGP session went up after being down) (CONNECT_PEER_BGP_UP)](#tgw-connect-peer-bgp-up "#tgw-connect-peer-bgp-up")
+- [A Connect peer (GRE tunnel) BGP session went down (CONNECT\_PEER\_BGP\_DOWN)](#tgw-connect-peer-bgp-down "#tgw-connect-peer-bgp-down")
+- [A Connect peer (GRE tunnel) BGP session went up after being down) (CONNECT\_PEER\_BGP\_UP)](#tgw-connect-peer-bgp-up "#tgw-connect-peer-bgp-up")
 
 ### A VPN tunnel's IPsec session went down (VPN-CONNECTION-IPSEC-DOWN)
 
@@ -806,7 +806,7 @@ following:
 }
 ```
 
-### A Connect peer (GRE tunnel) BGP session went down (CONNECT_PEER_BGP_DOWN)
+### A Connect peer (GRE tunnel) BGP session went down (CONNECT\_PEER\_BGP\_DOWN)
 
 ```
 {
@@ -831,7 +831,7 @@ following:
 }
 ```
 
-### A Connect peer (GRE tunnel) BGP session went up after being down) (CONNECT_PEER_BGP_UP)
+### A Connect peer (GRE tunnel) BGP session went up after being down) (CONNECT\_PEER\_BGP\_UP)
 
 ```
 {

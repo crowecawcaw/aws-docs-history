@@ -18,25 +18,24 @@ want to view the dashboards for all transit gateways in your global network, see
 
 ###### To access the transit gateway resource inventory
 
-1.  Access the Network Manager console at [https://console.aws.amazon.com/networkmanager/home/](https://console.aws.amazon.com/networkmanager/home "https://console.aws.amazon.com/networkmanager/home").
-2.  Under **Connectivity** choose **Global Networks**.
-3.  On the **Global networks** page, choose the global network ID.
-4.  In the navigation pane, choose **Transit Gateway networks**.
-5.  The **Transit gateways** page opens, showing a list of your transit gateways.
-6.  Choose the **ID** of the transit gateway you want to see more information about.
-7.  On the **Overview** page you can view the following
-    information:
+1. Access the Network Manager console at [https://console.aws.amazon.com/networkmanager/home/](https://console.aws.amazon.com/networkmanager/home "https://console.aws.amazon.com/networkmanager/home").
+2. Under **Connectivity** choose **Global Networks**.
+3. On the **Global networks** page, choose the global network ID.
+4. In the navigation pane, choose **Transit Gateway networks**.
+5. The **Transit gateways** page opens, showing a list of your transit gateways.
+6. Choose the **ID** of the transit gateway you want to see more information about.
+7. On the **Overview** page you can view the following
+   information:
 
-        * Your transit gateway details.
-        * The transit gateway attachments, along with information about each of
-         those attachments.
-
-    Use the following legend to understand the icons on this page:
+   - Your transit gateway details.
+   - The transit gateway attachments, along with information about each of
+     those attachments.
+     Use the following legend to understand the icons on this page:
 
 | Icon                                  | Description                                                                                                    |
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
 | AWS Cloud WAN VPCs                    | **VPC**<br>The total number of VPC attachments in your transit gateway network.                                |
-| AWS Cloud WAN VPNs                    | \*_VPN_<br>• The total number of VPN<br>attachments in your transit gateway.                                   |
+| AWS Cloud WAN VPNs                    | *_VPN_<br>• The total number of VPN<br>attachments in your transit gateway.                                    |
 | AWS Cloud WAN Direct Connect gateways | **Direct Connect Gateway**<br>The total number of Direct Connect gateways attached to<br>your transit gateway. |
 | AWS Cloud WAN Connect peers           | **Connect**<br>The total number of Connect peer attachments in your<br>transit gateway.                        |
 | AWS Cloud WAN transit gateways        | **Transit Gateway**<br>The total number of Transit Gateways.                                                   |
@@ -213,9 +212,9 @@ The **Add to dashboard** option only works if your registered transit gateway is
     * **Packets dropped – no route**
 
 11. (Optional) Choose **Add to dashboard** to add this metric to
-    your CloudWatch dashboard. For more information about using CloudWatch dashboards, see
-    [Using
-    Amazon CloudWatch Dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") in the Amazon CloudWatchUser Guide.
+your CloudWatch dashboard. For more information about using CloudWatch dashboards, see
+[Using
+Amazon CloudWatch Dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") in the Amazon CloudWatchUser Guide.
 
 ###### Note
 

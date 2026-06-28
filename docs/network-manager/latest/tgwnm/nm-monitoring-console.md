@@ -30,11 +30,11 @@ the Connect peer status, and any network events affecting your transit gateways.
 
    - Your transit gateway network **Inventory**:
 
-   | Icon                           | Description                                                                                                                                                                                                                       |
-   | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | AWS Cloud WAN transit gateways | **Transit gateways\*<br>• The total<br>number of registered transit gateways in your global<br>network. Choose the link to open the<br>**Transit gateways\*<br>• page to view<br>more information about your transit<br>gateways. |
-   | AWS Cloud WAN sites            | **Sites**<br>The total number of sites associated with your transit<br>gateways. Choose the link to open the **Sites**<br>page to view more information about your transit gateway sites.                                         |
-   | AWS Cloud WAN devices          | **Devices**<br>The total number of devices associated with your transit<br>gateways. Choose the link to open the<br>\*_Devices_<br>• page to view more information<br>about your transit gateway devices.                         |
+   | Icon                           | Description                                                                                                                                                                                                                     |
+   | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | AWS Cloud WAN transit gateways | *_Transit gateways_<br>• The total<br>number of registered transit gateways in your global<br>network. Choose the link to open the<br>*_Transit gateways_<br>• page to view<br>more information about your transit<br>gateways. |
+   | AWS Cloud WAN sites            | **Sites**<br>The total number of sites associated with your transit<br>gateways. Choose the link to open the **Sites**<br>page to view more information about your transit gateway sites.                                       |
+   | AWS Cloud WAN devices          | **Devices**<br>The total number of devices associated with your transit<br>gateways. Choose the link to open the<br>*_Devices_<br>• page to view more information<br>about your transit gateway devices.                        |
    - The **Transit gateways VPN status**. The following is
      displayed:
 
@@ -105,14 +105,14 @@ A world map displays, showing you the locations of the following:
      **Devices**.
 
 7. In
-   the following example, there are four AWS Regions,
-   **us-west-1**
-   **us-west-2**, **us-east-1**, and
-   **us-east-2**. Each Region is labeled and represented by a
-   number, indicating the number of transit gateways in that Region. For example,
-   **us-east-2** is represented by the number
-   `3`, indicating that there are three network resources
-   associated with the us-west-2 Region.
+the following example, there are four AWS Regions,
+**us-west-1**
+**us-west-2**, **us-east-1**, and
+**us-east-2**. Each Region is labeled and represented by a
+number, indicating the number of transit gateways in that Region. For example,
+**us-east-2** is represented by the number
+`3`, indicating that there are three network resources
+associated with the us-west-2 Region.
 
 ![AWS Transit Gateway geography example](images/nm-tgw-network-geo-all.png) 8. If your account is a delegated administrator in a multi-account environment,
 you can view details about the transit gateways for different accounts. 9. Choose the number representing a Region. For example, choose
@@ -133,7 +133,7 @@ you can view details about the transit gateways for different accounts. 9. Choos
     ![AWS transit gateways associated with different AWS Regions.](images/nm-tgwnetworks-geo.png)
 
 10. To view more details about the transit gateway, choose the ID link to open the
-    **Transit gateway details** page for the gateway.
+**Transit gateway details** page for the gateway.
 
 If your global network is part of a multi-account environment, you can choose
 an **ID** from a member account and view details about that
@@ -328,9 +328,9 @@ The **Add to dashboard** option only works if your registered transit gateway is
     * **Packets dropped – no route**
 
 10. (Optional) Choose **Add to dashboard** to add this metric to
-    your CloudWatch dashboard. For more information about using CloudWatch dashboards, see
-    [Using
-    Amazon CloudWatch Dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") in the Amazon CloudWatchUser Guide.
+your CloudWatch dashboard. For more information about using CloudWatch dashboards, see
+[Using
+Amazon CloudWatch Dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") in the Amazon CloudWatchUser Guide.
 
 ###### Note
 
