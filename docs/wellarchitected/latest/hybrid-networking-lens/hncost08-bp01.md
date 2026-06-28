@@ -19,7 +19,7 @@ practice:**
 ## Implementation guidance
 
 - Identified data transfer changes in cost data, such as by
-  filtering Cost and Usage data by line_item_usage_type for
+  filtering Cost and Usage data by line\_item\_usage\_type for
   DataTransfer-Out-Bytes.
 - Use cost dashboards to review usage patterns. For example, you
   can achieve this by using Amazon Athena and Amazon Quick
