@@ -23,20 +23,20 @@ With the lakehouse architecture connections, you can do the following:
 The lakehouse architecture connections support several popular data sources, including the
 following:
 
-| Supported Data Sources   | Data Source | Type |
-| ------------------------ | ----------- | ---- |
-| Google BigQuery          | Database    |
-| Amazon DocumentDB        | Database    |
-| Amazon DynamoDB          | Database    |
-| Amazon Redshift          | Database    |
-| MySQL                    | Database    |
-| PostgreSQL               | Database    |
-| SQL Server               | Database    |
-| Snowflake                | Database    |
-| Oracle                   | Database    |
-| Amazon Aurora MySQL      | Database    |
-| Amazon Aurora PostgreSQL | Database    |
-| Microsoft Azure SQL      | Database    |
+Supported Data Sources| Data Source | Type |
+| --- | --- |
+| Google BigQuery | Database |
+| Amazon DocumentDB | Database |
+| Amazon DynamoDB | Database |
+| Amazon Redshift | Database |
+| MySQL | Database |
+| PostgreSQL | Database |
+| SQL Server | Database |
+| Snowflake | Database |
+| Oracle | Database |
+| Amazon Aurora MySQL | Database |
+| Amazon Aurora PostgreSQL | Database |
+| Microsoft Azure SQL | Database |
 
 ###### Note
 

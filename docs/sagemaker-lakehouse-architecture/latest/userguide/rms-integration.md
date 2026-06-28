@@ -73,9 +73,7 @@ the catalog type as `Managed` and `Catalog source` as **Redshift.** This step do
      an option to create your custom KMS key for encryption. If you're using a
      customer managed key, you must add specific key policies to the key.
 
-6. Choose **Next** to grant permissions to other principals.
-7. On the **Grant permissions** page, choose **Add permissions**.
-8. On the **Add permissions** screen, choose the principals and the types of permissions to grant.
+6. Choose **Next** to grant permissions to other principals. 7. On the **Grant permissions** page, choose **Add permissions**. 8. On the **Add permissions** screen, choose the principals and the types of permissions to grant.
 
 ![The catalog permissions page with principal type and grant options.](images/add-catalog-permissions.png)
 

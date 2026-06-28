@@ -34,7 +34,7 @@ To publish data in the lakehouse architecture, complete the following steps:
        **AWS Glue (Lakehouse)**, under **Data
        Selection** - choose **Enter the catalog name** and
        then speciy the name of your S3 tables catalog (s3tablescatalog/<catalog
-       name>, then choose your database from that catalog (use the drop down menu),
+          name>, then choose your database from that catalog (use the drop down menu),
        and then choose **Next**.
      - On the **Step 2: Add details** page, leave all the default
        settings and choose **Next**.

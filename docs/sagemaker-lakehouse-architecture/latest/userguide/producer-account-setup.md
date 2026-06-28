@@ -24,19 +24,16 @@ catalog:
     3. Choose the IAM role you created for the data transfer and choose **Next**.
 
 6. On the **Grant permissions – optional** page, choose
-   **Add permissions**.
+**Add permissions**.
 
-   1. For **IAM users and roles**, choose **Admin**
-   2. For **Catalog permissions**, grant **Super user** to
-      catalog permissions and grantable permissions.
-   3. Choose **Add**.
+    1. For **IAM users and roles**, choose **Admin**
+    2. For **Catalog permissions**, grant **Super user** to
+     catalog permissions and grantable permissions.
+    3. Choose **Add**.
 
 7. Review the details on the **Review and create** page and
-   choose **Create catalog**.
-8. Verify that the catalog is created.
-9. Explore the catalog detail page to verify the database and table structure.
-10. On the database **View** dropdown menu, view the table and verify that
-    the table shows up.
+choose **Create catalog**. 8. Verify that the catalog is created. 9. Explore the catalog detail page to verify the database and table structure. 10. On the database **View** dropdown menu, view the table and verify that
+the table shows up.
 
 ###### Note
 

@@ -73,14 +73,13 @@ the Amazon S3 bucket.
     * kms:Decrypt
 
 4. Add a trust policy (`sts:AssumeRole`) to the data transfer role for
-   AWS Glue and Amazon Redshift services to assume the role to transfer data to and from the Amazon S3
-   bucket.
-5. Add a key policy to the AWS KMS key if you're using a customer managed key to encrypt
-   the data in the Amazon Redshift cluster/namespace. Replace the account number with a valid
-   AWS account number, and specify data transfer role name. By default, the data
-   in the Amazon Redshift cluster is encrypted using an KMS key. Lake Formation provides an option to
-   create your custom KMS key for encryption. If you're using a customer managed
-   key, you must add specific key policies to the key.
+AWS Glue and Amazon Redshift services to assume the role to transfer data to and from the Amazon S3
+bucket. 5. Add a key policy to the AWS KMS key if you're using a customer managed key to encrypt
+the data in the Amazon Redshift cluster/namespace. Replace the account number with a valid
+AWS account number, and specify data transfer role name. By default, the data
+in the Amazon Redshift cluster is encrypted using an KMS key. Lake Formation provides an option to
+create your custom KMS key for encryption. If you're using a customer managed
+key, you must add specific key policies to the key.
 
 For more information about managing the permissions of a customer managed key,
 see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk").
