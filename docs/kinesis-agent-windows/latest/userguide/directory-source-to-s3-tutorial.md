@@ -42,7 +42,7 @@ instance until you terminate it. 2. Delete the Firehose delivery stream.
     4. Choose **Delete delivery stream**.
 
 3. Delete the S3 bucket. For instructions, see [How Do I Delete an
-   S3 Bucket?](../../../AmazonS3/latest/user-guide/delete-bucket.md "../../../AmazonS3/latest/user-guide/delete-bucket.md") in the _Amazon Simple Storage Service User Guide_.
+S3 Bucket?](../../../AmazonS3/latest/user-guide/delete-bucket.md "../../../AmazonS3/latest/user-guide/delete-bucket.md") in the _Amazon Simple Storage Service User Guide_.
 
 For more information, see the following topics:
 

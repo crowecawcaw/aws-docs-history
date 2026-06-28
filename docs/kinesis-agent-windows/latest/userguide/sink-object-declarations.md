@@ -416,37 +416,35 @@ appropriate policies to the role that is associated with that instance profile.
   - If it is acceptable to register the on-premises server or desktop machine as an
     Amazon EC2 Systems Manager managed-instance, use the following process to configure authentication:
 
-        1. Use the process described in [Setting Up AWS Systems Manager in Hybrid Environments](../../../systems-manager/latest/userguide/systems-manager-managedinstances.md "../../../systems-manager/latest/userguide/systems-manager-managedinstances.md") to create a service role,
-         create an activation for a managed instance, and install the SSM agent.
-        2. Attach the appropriate policies to the service role to enable Kinesis Agent for Windows to access the
-         resources necessary for streaming data from the configured sinks. For information about
-         what policies to attach to the IAM role, see [Configuring Authorization](#configuring-kinesis-agent-windows-authorization "#configuring-kinesis-agent-windows-authorization").
-        3. Use the process described in [Configuring ProfileRefreshingAWSCredentialProvider to Refresh AWS Credentials](#configuring-credential-refresh "#configuring-credential-refresh") to refresh AWS credentials.
-
-    This is the recommended approach for non-EC2 instances because credentials are securely
-    managed by SSM and AWS.
+    1. Use the process described in [Setting Up AWS Systems Manager in Hybrid Environments](../../../systems-manager/latest/userguide/systems-manager-managedinstances.md "../../../systems-manager/latest/userguide/systems-manager-managedinstances.md") to create a service role,
+       create an activation for a managed instance, and install the SSM agent.
+    2. Attach the appropriate policies to the service role to enable Kinesis Agent for Windows to access the
+       resources necessary for streaming data from the configured sinks. For information about
+       what policies to attach to the IAM role, see [Configuring Authorization](#configuring-kinesis-agent-windows-authorization "#configuring-kinesis-agent-windows-authorization").
+    3. Use the process described in [Configuring ProfileRefreshingAWSCredentialProvider to Refresh AWS Credentials](#configuring-credential-refresh "#configuring-credential-refresh") to refresh AWS credentials.
+       This is the recommended approach for non-EC2 instances because credentials are securely
+       managed by SSM and AWS.
 
   - If it's acceptable to run the `AWSKinesisTap` service for Kinesis Agent for Windows under a specific user
     instead of the default system account, use the following process:
 
-        1. Create an IAM user in the AWS account where the AWS services will be used. Capture
-         the access key and secret key of this user during the creation process. You need this
-         information for later steps in this process.
-        2. Attach policies to the IAM user that authorize access to the required operations
-         for the required services. For information about what policies to attach to the IAM
-         user, see [Configuring Authorization](#configuring-kinesis-agent-windows-authorization "#configuring-kinesis-agent-windows-authorization").
-        3. Change the `AWSKinesisTap` service on each desktop or server so that it runs under a
-         specific user rather than the default system account.
-        4. Create a profile in the SDK store using the access key and secret key recorded
-         earlier. For more information, see [Configuring
-         AWS Credentials](../../../sdk-for-net/v3/developer-guide/net-dg-config-creds.md "../../../sdk-for-net/v3/developer-guide/net-dg-config-creds.md").
-        5. Update the `AWSKinesisTap.exe.config` file in the
-         `%PROGRAMFILES%\Amazon\AWSKinesisTap` directory to specify the name of
-         the profile created in the previous step. For more information, see [Configuring
-         AWS Credentials](../../../sdk-for-net/v3/developer-guide/net-dg-config-creds.md "../../../sdk-for-net/v3/developer-guide/net-dg-config-creds.md").
-
-    This is the recommended approach for non-EC2 hosts that cannot be managed instances
-    because the credentials are encrypted for the specific host and the specific user.
+    1. Create an IAM user in the AWS account where the AWS services will be used. Capture
+       the access key and secret key of this user during the creation process. You need this
+       information for later steps in this process.
+    2. Attach policies to the IAM user that authorize access to the required operations
+       for the required services. For information about what policies to attach to the IAM
+       user, see [Configuring Authorization](#configuring-kinesis-agent-windows-authorization "#configuring-kinesis-agent-windows-authorization").
+    3. Change the `AWSKinesisTap` service on each desktop or server so that it runs under a
+       specific user rather than the default system account.
+    4. Create a profile in the SDK store using the access key and secret key recorded
+       earlier. For more information, see [Configuring
+       AWS Credentials](../../../sdk-for-net/v3/developer-guide/net-dg-config-creds.md "../../../sdk-for-net/v3/developer-guide/net-dg-config-creds.md").
+    5. Update the `AWSKinesisTap.exe.config` file in the
+       `%PROGRAMFILES%\Amazon\AWSKinesisTap` directory to specify the name of
+       the profile created in the previous step. For more information, see [Configuring
+       AWS Credentials](../../../sdk-for-net/v3/developer-guide/net-dg-config-creds.md "../../../sdk-for-net/v3/developer-guide/net-dg-config-creds.md").
+       This is the recommended approach for non-EC2 hosts that cannot be managed instances
+       because the credentials are encrypted for the specific host and the specific user.
 
   - If it is required to run the `AWSKinesisTap` service for Kinesis Agent for Windows under the default system
     account, you must use a shared credential file. This is because the system account has no

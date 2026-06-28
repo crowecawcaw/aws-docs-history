@@ -313,26 +313,25 @@ There are several possible causes for this issue:
 
 To resolve issues with incorrect formatting, perform the following steps:
 
-1.  Review the sink declarations in the `%PROGRAMFILES%\Amazon\AWSKinesisTap\appsettings.json` configuration file.
-2.  Ensure that the correct value of the `Format` key-value pair is specified for
-    each sink declaration. For more information, see [Sink Declarations](sink-object-declarations.md "sink-object-declarations.md").
-3.  If sources with `DirectorySource` declarations are connected by pipes to sinks
-    that specify `xml` or `json` values for the `Format`
-    key-value pair, ensure that those sources specify one of the following values for the
-    `RecordParser` key-value pair:
+1. Review the sink declarations in the `%PROGRAMFILES%\Amazon\AWSKinesisTap\appsettings.json` configuration file.
+2. Ensure that the correct value of the `Format` key-value pair is specified for
+   each sink declaration. For more information, see [Sink Declarations](sink-object-declarations.md "sink-object-declarations.md").
+3. If sources with `DirectorySource` declarations are connected by pipes to sinks
+   that specify `xml` or `json` values for the `Format`
+   key-value pair, ensure that those sources specify one of the following values for the
+   `RecordParser` key-value pair:
 
-        * `SingleLineJson`
-        * `Regex`
-        * `SysLog`
-        * `Delimited`
+   - `SingleLineJson`
+   - `Regex`
+   - `SysLog`
+   - `Delimited`
+     Other record parsers are text-based only and do not work correctly with sinks that require
+     XML or JSON formatting.
 
-    Other record parsers are text-based only and do not work correctly with sinks that require
-    XML or JSON formatting.
-
-4.  If log records are not being correctly parsed by the `DirectorySource` source
-    type, invoke the following lines in a command prompt window to verify the timestamp and
-    regular expression key-value pairs specified in the `DirectorySource`
-    declaration:
+4. If log records are not being correctly parsed by the `DirectorySource` source
+   type, invoke the following lines in a command prompt window to verify the timestamp and
+   regular expression key-value pairs specified in the `DirectorySource`
+   declaration:
 
 ```
 cd /D %PROGRAMFILES%\Amazon\AWSKinesisTap
