@@ -35,7 +35,7 @@ To create an administrator user, choose one of the following options.
 
 To sign in as this
 new IAM user, sign out of the AWS Management Console, and then use the following URL, where
-_your_aws_account_id_ is your AWS account number without the hyphens (for
+_your\_aws\_account\_id_ is your AWS account number without the hyphens (for
 example, if your AWS account number is `1234-5678-9012`, your AWS account ID is
 `123456789012`):
 
@@ -45,7 +45,7 @@ https://`your_aws_account_id`.signin.aws.amazon.com/console/
 
 Enter the IAM user name and password that you just created. When you're signed in, the
 navigation bar displays
-**\*your_user_name\*\*\***@**\***your_aws_account_id\*\*\*.
+_**your\_user\_name**_**@**_**your\_aws\_account\_id**_.
 
 If you don't want the URL for your sign-in page to contain your AWS account ID, you can
 create an account alias. From the IAM dashboard, click **Create Account

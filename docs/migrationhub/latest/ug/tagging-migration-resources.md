@@ -11,8 +11,8 @@ be turned off. This tagging is implemented automatically and doesn't count again
 limit of 50 tags per resource.
 
 These resources have the
-`aws:migrationhub:`source-id``tag, and the
-`source-id`matches the`server.configurationId` server asset
+`aws:migrationhub:`source-id`` tag, and the
+`source-id` matches the `server.configurationId` server asset
 field from Application Discovery Service. For more information, see the following topics:
 
 - [Querying Discovered Configuration Items](../../../application-discovery/latest/userguide/discovery-api-queries.md "../../../application-discovery/latest/userguide/discovery-api-queries.md") in the

@@ -158,7 +158,7 @@ This automation unit starts and verifies the
 completion of an MGN job that terminates launched Amazon EC2 test and cutover instances.
 
 This unit does not work for any source
-server whose lifecycle state is TESTING, CUTTING_OVER, or CUTOVER.
+server whose lifecycle state is TESTING, CUTTING\_OVER, or CUTOVER.
 
 ### Inputs
 

@@ -260,46 +260,45 @@ it, and how to add identifying tags.
 
 ###### To group servers into a new or existing application from the network diagram
 
-1.  Set up a network diagram following one of the procedures in the [Exploring server network connections](#gs-discovery-view-servers-network "#gs-discovery-view-servers-network") section.
-2.  You can use the following options to select servers from the network
-    diagram:
+1. Set up a network diagram following one of the procedures in the [Exploring server network connections](#gs-discovery-view-servers-network "#gs-discovery-view-servers-network") section.
+2. You can use the following options to select servers from the network
+   diagram:
 
-        * Choose a server node icon. Details about the server show in the
-         server details pane, where you choose **Select
-         server**.
-        * Open the context (right-click) menu on the server node icon, and
-         then choose **Select server**.
-        * Choose **Select all** to select all the servers
-         for grouping that are in your diagram. Only the servers with the
-         Discovery Agent running on them or are being monitored by the Migration Evaluator Collector
-         can be selected.
-        * Hold **shift** to select multiple servers at the
-         same time.
+   - Choose a server node icon. Details about the server show in the
+     server details pane, where you choose **Select
+     server**.
+   - Open the context (right-click) menu on the server node icon, and
+     then choose **Select server**.
+   - Choose **Select all** to select all the servers
+     for grouping that are in your diagram. Only the servers with the
+     Discovery Agent running on them or are being monitored by the Migration Evaluator Collector
+     can be selected.
+   - Hold **shift** to select multiple servers at the
+     same time.
+     Selected servers are shown in a list in the same pane as the server
+     details. You can toggle back and forth between the server details view and
+     the selected server list view by choosing the server icon.
 
-    Selected servers are shown in a list in the same pane as the server
-    details. You can toggle back and forth between the server details view and
-    the selected server list view by choosing the server icon.
+3. After you select one or more servers, create your application, or add to
+   an existing one, by choosing **Group as
+   application**.
+4. In the **Group as application** dialog box, choose either
+   **Group as a new application** or **Add to an
+   existing application**.
 
-3.  After you select one or more servers, create your application, or add to
-    an existing one, by choosing **Group as
-    application**.
-4.  In the **Group as application** dialog box, choose either
-    **Group as a new application** or **Add to an
-    existing application**.
+   1. If you chose **Group as a new application**, type
+      a name in the **Application name** field. The
+      servers that are members of the group are labeled on the diagram
+      with the application name.
 
-    1. If you chose **Group as a new application**, type
-       a name in the **Application name** field. The
-       servers that are members of the group are labeled on the diagram
-       with the application name.
+   Optionally, you can type a description for **Application
+   description**. 2. If you chose **Add to an existing application**,
+   choose an application from the **Choose existing
+   application** dropdown menu.
 
-    Optionally, you can type a description for **Application
-    description**. 2. If you chose **Add to an existing application**,
-    choose an application from the **Choose existing
-    application** dropdown menu.
-
-5.  Choose **Group**.
-6.  Optionally, you can add a descriptive tag to the selected servers by
-    choosing **Add tag** from the **Actions**
-    menu. Doing so shows a dialog box where you can type a value for
-    **Key**, and optionally a value for
-    **Value**.
+5. Choose **Group**.
+6. Optionally, you can add a descriptive tag to the selected servers by
+   choosing **Add tag** from the **Actions**
+   menu. Doing so shows a dialog box where you can type a value for
+   **Key**, and optionally a value for
+   **Value**.

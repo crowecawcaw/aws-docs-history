@@ -19,7 +19,7 @@ IPV6
 _where y is a hexadecimal between 0 and FFFF. [0,
 FFFF]_
 
-MAC_ADDRESS
+MAC\_ADDRESS
 
 `^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$`
 
