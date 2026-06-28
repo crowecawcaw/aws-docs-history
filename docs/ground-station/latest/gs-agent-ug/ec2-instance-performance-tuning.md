@@ -119,7 +119,7 @@ sudo reboot
 
 This section determines the recommended parameter values for use in tuning section Tune Hardware Interrupts and Receive Queues - Impacts CPU and Network.
 
-| Family | Instance Type                                      | ${interrupt_core_list}                    | ${rps_core_mask}                                                          |
+| Family | Instance Type                                      | ${interrupt\_core\_list}                  | ${rps\_core\_mask}                                                        |
 | ------ | -------------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------- |
 | c7i    | • c7i.24xlarge<br>• c7i.12xlarge                   | • 0,1,48,49<br>• 0,1,24,25                | • ffffffff,ffffffff,ffffffff<br>• ffff,ffffffff                           |
 | c6i    | • c6i.32xlarge                                     | • 0,1,64,65                               | • ffffffff,ffffffff,ffffffff,ffffffff                                     |
