@@ -153,10 +153,10 @@ false.
 
     The certificate can be imported or provisioned as follows:
 
-        * To import an IIS certificate into ACM, see [How
-         to import PFX-formatted certificates into AWS Certificate Manager using OpenSSL](https://aws.amazon.com/blogs/security/how-to-import-pfx-formatted-certificates-into-aws-certificate-manager-using-openssl/ "https://aws.amazon.com/blogs/security/how-to-import-pfx-formatted-certificates-into-aws-certificate-manager-using-openssl/").
-        * To provision a certificate in ACM, see [Issuing and Managing Certificates](../../../acm/latest/userguide/gs.md "../../../acm/latest/userguide/gs.md")
-         in the AWS Certificate Manager User Guide.
+          * To import an IIS certificate into ACM, see [How
+           to import PFX-formatted certificates into AWS Certificate Manager using OpenSSL](https://aws.amazon.com/blogs/security/how-to-import-pfx-formatted-certificates-into-aws-certificate-manager-using-openssl/ "https://aws.amazon.com/blogs/security/how-to-import-pfx-formatted-certificates-into-aws-certificate-manager-using-openssl/").
+          * To provision a certificate in ACM, see [Issuing and Managing Certificates](../../../acm/latest/userguide/gs.md "../../../acm/latest/userguide/gs.md")
+           in the AWS Certificate Manager User Guide.
 
     If you use an HTTPS endpoint for your load balancer, this
     parameter is required. For more information about ACM, see
@@ -204,10 +204,10 @@ false.
   If your .NET application meets the following criteria, you can deploy
   to Fargate.
 
-      - The base operating system for your container is Windows 2019.
-       If you are using a worker machine for containerization, this means
-       that the worker machine must be running Windows 2019.
-      - Your application must not use gMSA.
+        - The base operating system for your container is Windows 2019.
+         If you are using a worker machine for containerization, this means
+         that the worker machine must be running Windows 2019.
+        - Your application must not use gMSA.
   - dependentApps (array of objects) –
     For complex Windows applications, this array of JSON objects contains identifying
     details for dependent applications. App2Container does not generate this array. For complex
@@ -342,10 +342,10 @@ This section is not included for applications running on Windows.
 
     The certificate can be imported or provisioned as follows:
 
-        * To import an IIS certificate into ACM, see [How
-         to import PFX-formatted certificates into AWS Certificate Manager using OpenSSL](https://aws.amazon.com/blogs/security/how-to-import-pfx-formatted-certificates-into-aws-certificate-manager-using-openssl/ "https://aws.amazon.com/blogs/security/how-to-import-pfx-formatted-certificates-into-aws-certificate-manager-using-openssl/").
-        * To provision a certificate in ACM, see [Issuing and Managing Certificates](../../../acm/latest/userguide/gs.md "../../../acm/latest/userguide/gs.md")
-         in the AWS Certificate Manager User Guide.
+          * To import an IIS certificate into ACM, see [How
+           to import PFX-formatted certificates into AWS Certificate Manager using OpenSSL](https://aws.amazon.com/blogs/security/how-to-import-pfx-formatted-certificates-into-aws-certificate-manager-using-openssl/ "https://aws.amazon.com/blogs/security/how-to-import-pfx-formatted-certificates-into-aws-certificate-manager-using-openssl/").
+          * To provision a certificate in ACM, see [Issuing and Managing Certificates](../../../acm/latest/userguide/gs.md "../../../acm/latest/userguide/gs.md")
+           in the AWS Certificate Manager User Guide.
 
     If you use an HTTPS endpoint for your load balancer, this parameter
     is required. For more information about ACM, see [What is AWS Certificate Manager](../../../acm/latest/userguide.md "../../../acm/latest/userguide.md") in the

@@ -122,8 +122,8 @@ CodePipeline
 `--profile
  `admin-profile``**
 
-      + Performs all steps to validate and customize pipeline resources
-      + Creates the CloudFormation stack for your pipeline
+  - Performs all steps to validate and customize pipeline resources
+  - Creates the CloudFormation stack for your pipeline
 
 Jenkins
 
@@ -147,7 +147,7 @@ Jenkins
   customize your pipeline resources as it does when you deploy manually. App2Container then creates the pipeline for you with
   the settings from the files that it generates: **generate pipeline
   `--application-id `id`` `--deploy` `--profile 
-`admin-profile``**
+ `admin-profile``**
 
   - Performs all steps to validate and customize pipeline resources
   - Creates the pipeline in Jenkins, and starts the pipeline build
@@ -174,9 +174,9 @@ Azure DevOps
   to create the pipeline for you: **generate pipeline `--application-id `id``
 `--deploy` `--profile `admin-profile``**.
 
-      + Performs all steps to validate and customize pipeline resources
-      + Uses the configuration in `pipeline.json` to create an Azure DevOps
-       pipeline, and initiate an Azure DevOps pipeline build
+  - Performs all steps to validate and customize pipeline resources
+  - Uses the configuration in `pipeline.json` to create an Azure DevOps
+    pipeline, and initiate an Azure DevOps pipeline build
 
 ## Examples
 

@@ -66,7 +66,7 @@ For more information about group managed service accounts (gMSAs), see [Configur
 The following table lists the deployment services that App2Container supports.
 
 | Deployment feature                                        | Linux                         | Windows                                                     |
-| --------------------------------------------------------- | ----------------------------- | ----------------------------------------------------------- | -------------- | ------------------------- | ------------------------- | ----------------------------------------------------------- |
+| --------------------------------------------------------- | ----------------------------- | ----------------------------------------------------------- |
 |                                                           | Amazon ECS (AWS Fargate only) | Amazon EKS (Amazon EC2 only)                                | AWS App Runner | Amazon ECS (AWS Fargate)  | Amazon ECS (Amazon EC2)   | Amazon EKS (Amazon EC2 only)                                |
 | Modify memory usage                                       | Supported                     | Supported                                                   | Not supported  | Supported 1               | Supported                 | Supported                                                   |
 | Modify CPU usage                                          | Supported                     | Supported                                                   | Not supported  | Supported                 | Supported                 | Supported                                                   |

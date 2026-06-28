@@ -39,7 +39,7 @@ for the information required to set up the local App2Container environment. Run 
 App2Container commands. If you are using a worker machine to run commands remotely on application
 servers, you must also run the **remote configure** command on the worker machine.
 
-**_[init](cmd-init.md "cmd-init.md")_**
+_**[init](cmd-init.md "cmd-init.md")**_
 
 Run the **init** command to configure the AWS App2Container
 workspace on your application servers and worker machines. If you are
@@ -47,7 +47,7 @@ using a worker machine, and running commands remotely, the
 **init** command is only required on the worker
 machine.
 
-**_[remote configure](cmd-remote-configure.md "cmd-remote-configure.md")_**
+_**[remote configure](cmd-remote-configure.md "cmd-remote-configure.md")**_
 
 After setting up remote access for the worker machine on your application
 server (see [Enable remote access for a worker machine (optional)](start-intro.md#setup-remote-access "start-intro.md#setup-remote-access")), run the **remote
@@ -64,13 +64,13 @@ server setup:
 
 ###### Run commands directly on application servers
 
-**_[inventory](cmd-inventory.md "cmd-inventory.md")_**
+_**[inventory](cmd-inventory.md "cmd-inventory.md")**_
 
 Run the **inventory** command to produce an inventory
 of applications that are running on your application servers, and to
 assign each one a unique ID to use when you run other commands.
 
-**_[analyze](cmd-analyze.md "cmd-analyze.md")_**
+_**[analyze](cmd-analyze.md "cmd-analyze.md")**_
 
 Run the **analyze** command to analyze your running
 applications and to identify dependencies that are required for
@@ -80,14 +80,14 @@ Transform phase commands.
 
 ###### Run commands remotely from a worker machine
 
-**_[remote inventory](cmd-remote-inventory.md "cmd-remote-inventory.md")_**
+_**[remote inventory](cmd-remote-inventory.md "cmd-remote-inventory.md")**_
 
 Run the **remote inventory** command from your worker
 machine to produce an inventory of applications that are running on your
 target application server and to assign each one a unique ID to use when
 you run other commands.
 
-**_[remote analyze](cmd-remote-analyze.md "cmd-remote-analyze.md")_**
+_**[remote analyze](cmd-remote-analyze.md "cmd-remote-analyze.md")**_
 
 Run the **remote analyze** command from your worker
 machine to analyze the applications running on your target application
@@ -103,7 +103,7 @@ version of these commands that applies to your server setup:
 
 ###### Run the extract directly on application servers, or run the remote extract from a worker machine
 
-**_[extract](cmd-extract.md "cmd-extract.md")_**
+_**[extract](cmd-extract.md "cmd-extract.md")**_
 
 Run the **extract** command on your application server
 to generate an application archive based on the `analysis.json`
@@ -111,7 +111,7 @@ file, created by the **analyze** command. Transfer the archive to
 the worker machine for the remaining steps that require the operating system
 to support containers.
 
-**_[remote extract](cmd-remote-extract.md "cmd-remote-extract.md")_**
+_**[remote extract](cmd-remote-extract.md "cmd-remote-extract.md")**_
 
 Run the **remote extract** command from your worker
 machine to generate an application archive for the applications running
@@ -121,7 +121,7 @@ on your target application server, based on the
 
 ###### Run all remaining commands directly on application servers or on a worker machine
 
-**_[containerize](cmd-containerize.md "cmd-containerize.md")_**
+_**[containerize](cmd-containerize.md "cmd-containerize.md")**_
 
 Run the **containerize** command for the application
 specified in the `--application id` parameter to do the following:
@@ -143,7 +143,7 @@ The deploy phase consists of deploying an application to your target container
 management environment (Amazon ECR with Amazon ECS, Amazon EKS, or AWS App Runner), and optionally creating a CI/CD
 pipeline to automate future deployments.
 
-**_[generate app-deployment](cmd-generate-appdeploy.md "cmd-generate-appdeploy.md")_**
+_**[generate app-deployment](cmd-generate-appdeploy.md "cmd-generate-appdeploy.md")**_
 
 ###### Option 1: Generate deployment artifacts and deploy directly
 
@@ -159,7 +159,7 @@ step.
 - Review and customize the generated Amazon ECS, Amazon EKS, or AWS App Runner deployment artifacts.
 - Deploy to your target environment using the AWS CLI or AWS console.
 
-**_[generate pipeline](cmd-generate-pipeline.md "cmd-generate-pipeline.md") (optional)_**
+_**[generate pipeline](cmd-generate-pipeline.md "cmd-generate-pipeline.md") (optional)**_
 
 ###### Option 1: Generate CI/CD pipeline artifacts and deploy directly
 

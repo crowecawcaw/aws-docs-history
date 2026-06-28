@@ -83,7 +83,7 @@ base images.
 - Process mode is not supported for ASP.NET applications
   running on .NET Core.
 - If you are using `.NET Core 3.1` or `.NET
-5`, you must update the
+ 5`, you must update the
   `analysis.json` file's
   `containerBaseImage` parameter to
   `mcr.microsoft.com/dotnet/sdk:3.1` or

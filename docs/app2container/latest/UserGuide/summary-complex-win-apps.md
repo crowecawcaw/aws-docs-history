@@ -391,34 +391,33 @@ your dependent application's details.
 `PS>` `aws cloudformation deploy --template-file `C:\Users\Administrator\AppData\Local\app2container\iis-dependentappb-12345bcd\EcsDeployment\ecs-master.yml` --capabilities CAPABILITY_NAMED_IAM CAPABILITY_AUTO_EXPAND --stack-name `a2c-iis-dependentappb-12345bcd-ECS``
 ```
 
-5.  After your first stack is ready (stack status is
-    `CREATE_COMPLETE`), update the YAML deployment
-    templates for all remaining application components in your
-    application to reference the following shared infrastructure
-    in the parameters for existing resources:
+5. After your first stack is ready (stack status is
+   `CREATE_COMPLETE`), update the YAML deployment
+   templates for all remaining application components in your
+   application to reference the following shared infrastructure
+   in the parameters for existing resources:
 
-        * VpcId
-        * PublicSubnets
-        * ClusterId
+   - VpcId
+   - PublicSubnets
+   - ClusterId
+     Additionally, for any remaining dependent applications, update
+     the following references:
 
-    Additionally, for any remaining dependent applications, update
-    the following references:
+   - DomainName
+   - RecordName
+   - ExistingHostedZoneId – update this if dependent
+     applications share the root domain, or if they are using
+     an existing domain.
+   - RecordExist – set this to "true" (string) if the
+     record already exists in the hosted zone. If you are creating
+     a new domain, set this to "false". The default value is
+     "true".
 
-        * DomainName
-        * RecordName
-        * ExistingHostedZoneId – update this if dependent
-         applications share the root domain, or if they are using
-         an existing domain.
-        * RecordExist – set this to "true" (string) if the
-         record already exists in the hosted zone. If you are creating
-         a new domain, set this to "false". The default value is
-         "true".
-
-6.  Deploy any remaining dependent applications, using your
-    application component information and the updated YAML deployment
-    templates, with the **cloudformation deploy**
-    command. The following command example deploys the service component
-    in our sample multi-tier application.
+6. Deploy any remaining dependent applications, using your
+   application component information and the updated YAML deployment
+   templates, with the **cloudformation deploy**
+   command. The following command example deploys the service component
+   in our sample multi-tier application.
 
 ```
 `PS>` `aws cloudformation deploy --template-file `C:\Users\Administrator\AppData\Local\app2container\`service-colorwindowsservice-69f90194`\EcsDeployment\ecs-master.yml` --capabilities CAPABILITY_NAMED_IAM CAPABILITY_AUTO_EXPAND --stack-name `a2c-`service-colorwindowsservice-69f90194`-ECS``

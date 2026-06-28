@@ -7,7 +7,7 @@ streamlines the provisioning of highly available and secure clusters, and automa
 maintenance tasks such as patching, node provisioning, and updates. Kubernetes is an
 open-source system for automating the deployment, scaling, and management of containerized
 applications. For more information about Amazon EKS, see [What is Amazon EKS?](../../../eks/latest/userguide/what-is-eks.md "../../../eks/latest/userguide/what-is-eks.md") in the
-*[*Amazon EKS User Guide*](../../../eks/latest/userguide.md "../../../eks/latest/userguide.md")*.
+_[*Amazon EKS User Guide*](../../../eks/latest/userguide.md "../../../eks/latest/userguide.md")_.
 
 ## Prerequisites
 

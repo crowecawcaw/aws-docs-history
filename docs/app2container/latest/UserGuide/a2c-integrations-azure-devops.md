@@ -59,41 +59,36 @@ your application must meet the following criteria.
   to interact with AWS services, you can set up an AWS service connection
   under your Azure project settings, as follows:
 
-      1. Sign in to your Azure DevOps account organization, and select your
-       project.
-      2. In the lower left of your browser window, choose **Project settings**.
-       This opens the **Project Settings** menu.
-      3. In the **Pipelines** section of the menu, choose **Service
-       connections**.
-      4. Choose **New service connection**. This displays a
-       list of services that you can connect to.
-      5. To open the **New AWS service connection** form, choose
-       **AWS** from the list, and then choose **Next**.
-       If there is a long list of service connections, you might need to scroll down.
-      6. Enter the following information in the form:
+  1.  Sign in to your Azure DevOps account organization, and select your
+      project.
+  2.  In the lower left of your browser window, choose **Project settings**.
+      This opens the **Project Settings** menu.
+  3.  In the **Pipelines** section of the menu, choose **Service
+      connections**.
+  4.  Choose **New service connection**. This displays a
+      list of services that you can connect to.
+  5.  To open the **New AWS service connection** form, choose
+      **AWS** from the list, and then choose **Next**.
+      If there is a long list of service connections, you might need to scroll down.
+  6.  Enter the following information in the form:
 
+  ###### Required
 
+        + **Access Key ID** – The access key ID for the IAM user that
+         Azure DevOps uses to access AWS services for pipeline
+         actions.
+        + **Secret Access Key** – The secret access key for the IAM
+         user that Azure DevOps uses to access AWS services for pipeline
+         actions.
+        + **Service connection name** – The name
+         of the service connection for your project
+        + **Grant access permission to all pipelines**
+         – Select this check box to ensure that all of your
+         pipelines have permission to access AWS services.
 
-      ###### Required
-
-
-
-      	+ **Access Key ID** – The access key ID for the IAM user that
-      	 Azure DevOps uses to access AWS services for pipeline
-      	 actions.
-      	+ **Secret Access Key** – The secret access key for the IAM
-      	 user that Azure DevOps uses to access AWS services for pipeline
-      	 actions.
-      	+ **Service connection name** – The name
-      	 of the service connection for your project
-      	+ **Grant access permission to all pipelines**
-      	 – Select this check box to ensure that all of your
-      	 pipelines have permission to access AWS services.
-      You can fill in one or more of the optional fields, if needed,
-       depending on how you set up your security in IAM.
-      7. Choose **Save** to save your settings and close the
-       form.
-
+  You can fill in one or more of the optional fields, if needed,
+  depending on how you set up your security in IAM. 7. Choose **Save** to save your settings and close the
+  form.
   For more information, see [Manage service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops "https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops") on the _Azure DevOps Services_ documentation website.
 
 - When App2Container runs Azure DevOps pipelines, it authenticates with a
