@@ -33,7 +33,7 @@ the following password policy:
   80 characters
 - Minimum of three of the following mix of character types:
   uppercase, lowercase, numbers, and `! @ # $ % ^ & * (
-) _ + - = [ ] { } | '` symbols
+ ) _ + - = [ ] { } | '` symbols
 - Not be identical to your AWS account name or email
   address
 

@@ -39,50 +39,50 @@ VPC.
 
 ## Procedure
 
-1.  Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/ "https://console.aws.amazon.com/mediaconnect/").
-2.  On the **Flows** page, choose **Create
-    flow**.
-3.  Configure the basic flow details:
+1. Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/ "https://console.aws.amazon.com/mediaconnect/").
+2. On the **Flows** page, choose **Create
+   flow**.
+3. Configure the basic flow details:
 
-    - For **Name**, enter a name for your flow.
+   - For **Name**, enter a name for your flow.
 
-      - You can create multiple flows with the same name. However,
-        we encourage you to use unique flow names within an
-        AWS Region to help with organization.
-      - Keep in mind that you can’t change this name after you
-        create the flow.
+     - You can create multiple flows with the same name. However,
+       we encourage you to use unique flow names within an
+       AWS Region to help with organization.
+     - Keep in mind that you can’t change this name after you
+       create the flow.
 
-    - For **Availability Zone**, choose an Availability
-      Zone for your flow.
+   - For **Availability Zone**, choose an Availability
+     Zone for your flow.
 
-      - If you leave this as **Any**,
-        MediaConnect will assign one based on your VPC
-        subnet.
+     - If you leave this as **Any**,
+       MediaConnect will assign one based on your VPC
+       subnet.
 
-    - For **Flow size**, select
-      **Large**.
+   - For **Flow size**, select
+     **Large**.
 
-      - You can only use NDI sources with large sized
-        flows.
-      - For more information about flow sizes, see [Flow sizes and
-        capabilities](flow-sizes-capabilities.md "flow-sizes-capabilities.md").
+     - You can only use NDI sources with large sized
+       flows.
+     - For more information about flow sizes, see [Flow sizes and
+       capabilities](flow-sizes-capabilities.md "flow-sizes-capabilities.md").
 
-4.  Configure your flow source:
+4. Configure your flow source:
 
-    - For **Source type**, select **NDI
-      Source**.
-    - For **Flow source name**, enter a unique name for
-      the NDI flow source.
+   - For **Source type**, select **NDI
+     Source**.
+   - For **Flow source name**, enter a unique name for
+     the NDI flow source.
 
-      - Keep in mind that you can't change this name after you
-        create the flow.
+     - Keep in mind that you can't change this name after you
+       create the flow.
 
-    - For **Flow source description**, enter a
-      description to help you identify this source and its purpose.
-    - (Optional) For **NDI source name**, specify the
-      name of the upstream NDI sender that will send to your flow.
+   - For **Flow source description**, enter a
+     description to help you identify this source and its purpose.
+   - (Optional) For **NDI source name**, specify the
+     name of the upstream NDI sender that will send to your flow.
 
-    You can either:
+   You can either:
 
         + Leave this field empty for now, and select from a list of
          discovered sources after starting the flow.
@@ -90,80 +90,80 @@ VPC.
          registered with your discovery server (for example,
          `MACHINE (program)`).
 
-5.  Configure the VPC interfaces for your flow:
+5. Configure the VPC interfaces for your flow:
 
-    - In the **VPC interface** section, choose Add VPC
-      interface.
-    - For **Name**, enter a unique name for your VPC
-      interface.
-    - For **Role ARN**, specify the Amazon Resource
-      Name (ARN) of the role that you created when you set up MediaConnect as a
-      trusted service.
-    - For VPC, choose the ID of the VPC that you want to use.
+   - In the **VPC interface** section, choose Add VPC
+     interface.
+   - For **Name**, enter a unique name for your VPC
+     interface.
+   - For **Role ARN**, specify the Amazon Resource
+     Name (ARN) of the role that you created when you set up MediaConnect as a
+     trusted service.
+   - For VPC, choose the ID of the VPC that you want to use.
 
-      - If your VPC isn't listed, verify that it's set up in
-        Amazon Virtual Private Cloud and that you have IAM
-        permissions to view it.
+     - If your VPC isn't listed, verify that it's set up in
+       Amazon Virtual Private Cloud and that you have IAM
+       permissions to view it.
 
-    - For **Subnet**, choose the VPC subnet that you
-      want MediaConnect to use to set up your VPC configuration. You must choose
-      at least one and can choose as many as you want.
-    - For **Security groups**, specify the VPC security
-      groups that you want MediaConnect to use to set up your VPC configuration.
-      You must choose at least one security group.
+   - For **Subnet**, choose the VPC subnet that you
+     want MediaConnect to use to set up your VPC configuration. You must choose
+     at least one and can choose as many as you want.
+   - For **Security groups**, specify the VPC security
+     groups that you want MediaConnect to use to set up your VPC configuration.
+     You must choose at least one security group.
 
-6.  Configure the NDI settings:
+6. Configure the NDI settings:
 
-    - Set **Flow NDI support** to **Enabled**
-      if it's not already.
-    - Enter an optional NDI machine name.
+   - Set **Flow NDI support** to **Enabled**
+     if it's not already.
+   - Enter an optional NDI machine name.
 
-      - This name is used as a prefix to help you identify this
-        flow source as an NDI receiver in your network. For example,
-        if you enter `MACHINENAME`, your flow
-        source will appear to your NDI senders as
-        `MACHINENAME (ProgramName)`.
-      - If you don’t enter a name, MediaConnect generates a unique
-        12-character ID from the flow's ARN.
+     - This name is used as a prefix to help you identify this
+       flow source as an NDI receiver in your network. For example,
+       if you enter `MACHINENAME`, your flow
+       source will appear to your NDI senders as
+       `MACHINENAME (ProgramName)`.
+     - If you don’t enter a name, MediaConnect generates a unique
+       12-character ID from the flow's ARN.
 
-    - Add up to three NDI discovery servers. For each discovery server,
-      provide the following information:
+   - Add up to three NDI discovery servers. For each discovery server,
+     provide the following information:
 
-      - Enter the discovery server IP address (IPv4 format).
-      - Specify a port number if you’re not using the default
-        (5959).
-      - Select the appropriate VPC interface adapter.
+     - Enter the discovery server IP address (IPv4 format).
+     - Specify a port number if you’re not using the default
+       (5959).
+     - Select the appropriate VPC interface adapter.
 
-7.  Configure the encoder settings:
+7. Configure the encoder settings:
 
-    - For **Encoder profile name**, choose the encoder
-      profile that you want to apply to your flow outputs.
-    - (Optional) For **Maximum bitrate**, specify the
-      maximum expected bitrate in bits per second (bps).
+   - For **Encoder profile name**, choose the encoder
+     profile that you want to apply to your flow outputs.
+   - (Optional) For **Maximum bitrate**, specify the
+     maximum expected bitrate in bits per second (bps).
 
-      - This setting lets you override the default video bitrate
-        within the profile's supported range (10-50 Mbps).
-      - If left blank, MediaConnect uses the default value of 20,000,000 bps.
+     - This setting lets you override the default video bitrate
+       within the profile's supported range (10-50 Mbps).
+     - If left blank, MediaConnect uses the default value of 20,000,000 bps.
 
-8.  Configure the monitoring options that you want to enable:
+8. Configure the monitoring options that you want to enable:
 
-    1. Turn on **Thumbnails state** to generate source
-       thumbnails that you can preview in the console.
-    2. Turn on **Content quality analysis state** to
-       monitor for the following audio and video quality issues.
+   1. Turn on **Thumbnails state** to generate source
+      thumbnails that you can preview in the console.
+   2. Turn on **Content quality analysis state** to
+      monitor for the following audio and video quality issues.
 
-       1. (Optional) Turn on **Black frames** to
-          detect periods of black video frames in the stream.
-       2. (Optional) Turn on **Frozen frames** to
-          detect periods of unchanging video frames in the
-          stream.
-       3. (Optional) Turn on **Silent audio** to
-          detect periods of audio silence in the stream.
-       4. (Optional) Set a duration threshold between 10 and 60
-          seconds for each metric that you enable. The default is 30
-          seconds.
+      1. (Optional) Turn on **Black frames** to
+         detect periods of black video frames in the stream.
+      2. (Optional) Turn on **Frozen frames** to
+         detect periods of unchanging video frames in the
+         stream.
+      3. (Optional) Turn on **Silent audio** to
+         detect periods of audio silence in the stream.
+      4. (Optional) Set a duration threshold between 10 and 60
+         seconds for each metric that you enable. The default is 30
+         seconds.
 
-9.  At the bottom of the page, choose **Create flow**.
+9. At the bottom of the page, choose **Create flow**.
 
 ## Next steps
 

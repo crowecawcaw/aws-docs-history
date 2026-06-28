@@ -10,7 +10,7 @@ video, and ancillary data are combined) into a single stream, you can use the fo
 protocols:
 
 - **Network Device Interface
-  (NDI\*\***®\***\*)**
+  (NDI****®****)**
   uses SpeedHQ compression to deliver high-quality, low-latency video transmission
   over IP networks. This protocol is optimized for professional video workflows
   and supports up to 1080p60 video quality.
@@ -76,18 +76,18 @@ JPEG XS, you use the following protocols:
 
 The following table describes what protocols can be used for sources, outputs, or both.
 
-| Transport stream protocols | Protocol | Can this be used as a Source? | Can this be used as an Output? |
-| -------------------------- | -------- | ----------------------------- | ------------------------------ |
-| NDI-SpeedHQ                | Yes      | Yes                           |
-| RIST                       | Yes      | Yes                           |
-| RTP                        | Yes      | Yes                           |
-| RTP-FEC                    | Yes      | Yes                           |
-| SRT listener               | Yes      | Yes                           |
-| SRT caller                 | Yes      | Yes                           |
-| Zixi pull                  | No       | Yes                           |
-| Zixi push                  | Yes      | Yes                           |
+Transport stream protocols| Protocol | Can this be used as a Source? | Can this be used as an Output? |
+| --- | --- | --- |
+| NDI-SpeedHQ | Yes | Yes |
+| RIST | Yes | Yes |
+| RTP | Yes | Yes |
+| RTP-FEC | Yes | Yes |
+| SRT listener | Yes | Yes |
+| SRT caller | Yes | Yes |
+| Zixi pull | No | Yes |
+| Zixi push | Yes | Yes |
 
-| CDI protocols   | Protocol | Can this be used as a Source? | Can this be used as an Output? |
-| --------------- | -------- | ----------------------------- | ------------------------------ |
-| CDI             | Yes      | Yes                           |
-| ST 2110 JPEG XS | Yes      | Yes                           |
+CDI protocols| Protocol | Can this be used as a Source? | Can this be used as an Output? |
+| --- | --- | --- |
+| CDI | Yes | Yes |
+| ST 2110 JPEG XS | Yes | Yes |

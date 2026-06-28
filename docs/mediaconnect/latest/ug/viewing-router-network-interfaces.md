@@ -23,12 +23,12 @@ AWS account.
    resource**.
 5. On the details page, use the following tabs to find specific information:
 
-| Router network interface details tabs | Tab                                                                                     | Description |
-| ------------------------------------- | --------------------------------------------------------------------------------------- | ----------- |
-| Inputs                                | View the router inputs that are using this network interface.                           |
-| Outputs                               | View the router outputs that are using this network interface.                          |
-| Configuration                         | View the basic configuration information and current state of the<br>network interface. |
-| Tags                                  | View the tags that are applied to this network interface.                               |
+Router network interface details tabs| Tab | Description |
+| --- | --- |
+| Inputs | View the router inputs that are using this network interface. |
+| Outputs | View the router outputs that are using this network interface. |
+| Configuration | View the basic configuration information and current state of the<br>network interface. |
+| Tags | View the tags that are applied to this network interface. |
 
 ## Next steps
 

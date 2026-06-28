@@ -12,10 +12,9 @@ The following are output health indicators:
 
 - **Output state**
 
-      + Possible states: `connected`, `sending`,
-       `disconnected`, `idle`
-
-  For information about subscribing to this event, see [Amazon EventBridge](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md").
+  - Possible states: `connected`, `sending`,
+    `disconnected`, `idle`
+    For information about subscribing to this event, see [Amazon EventBridge](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md").
 
 The following message is an example of this event.
 

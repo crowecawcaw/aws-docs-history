@@ -11,82 +11,79 @@ role:
   The role permissions policy named MediaConnectServiceRolePolicy allows MediaConnect to complete the following actions on the
   specified resources:
 
-1.  **Actions on all ECS resources**
+1. **Actions on all ECS resources**
 
-    - Actions:
+   - Actions:
 
-      - `ecs:CreateCluster`
-      - `ecs:RegisterTaskDefinition`
+     - `ecs:CreateCluster`
+     - `ecs:RegisterTaskDefinition`
 
-    - Resource:
-      `*`
+   - Resource:
+     `*`
 
-2.  **Actions on the MediaConnect Gateway ECS
-    cluster**
+2. **Actions on the MediaConnect Gateway ECS
+   cluster**
 
-    - Actions:
+   - Actions:
 
-      - `ecs:DeregisterContainerInstance`
-      - `ecs:DescribeClusters`
-      - `ecs:ListAttributes`
-      - `ecs:ListContainerInstances`
-      - `ecs:UpdateCluster`
-      - `ecs:UpdateClusterSettings`
+     - `ecs:DeregisterContainerInstance`
+     - `ecs:DescribeClusters`
+     - `ecs:ListAttributes`
+     - `ecs:ListContainerInstances`
+     - `ecs:UpdateCluster`
+     - `ecs:UpdateClusterSettings`
 
-    - Resource:
-      `arn:aws:ecs:*:*:cluster/MediaConnectGateway`
+   - Resource:
+     `arn:aws:ecs:*:*:cluster/MediaConnectGateway`
 
-3.  **Actions on ECS services and tasks within the MediaConnect
-    Gateway cluster**
+3. **Actions on ECS services and tasks within the MediaConnect
+   Gateway cluster**
 
-    - Actions:
+   - Actions:
 
-      - `ecs:CreateService`
-      - `ecs:DeleteAttributes`
-      - `ecs:DeleteService`
-      - `ecs:DescribeContainerInstances`
-      - `ecs:DescribeServices`
-      - `ecs:DescribeTasks`
-      - `ecs:ListTasks`
-      - `ecs:PutAttributes`
-      - `ecs:RunTask`
-      - `ecs:StartTask`
-      - `ecs:StopTask`
-      - `ecs:UpdateContainerInstancesState`
-      - `ecs:UpdateService`
+     - `ecs:CreateService`
+     - `ecs:DeleteAttributes`
+     - `ecs:DeleteService`
+     - `ecs:DescribeContainerInstances`
+     - `ecs:DescribeServices`
+     - `ecs:DescribeTasks`
+     - `ecs:ListTasks`
+     - `ecs:PutAttributes`
+     - `ecs:RunTask`
+     - `ecs:StartTask`
+     - `ecs:StopTask`
+     - `ecs:UpdateContainerInstancesState`
+     - `ecs:UpdateService`
 
-    - Resource:
-      `*`
-    - Condition:
-      `ArnLike:
-{"ecs:cluster":
-"arn:aws:ecs:*:*:cluster/MediaConnectGateway"}`
+   - Resource:
+     `*`
+   - Condition:
+     `ArnLike:
+  {"ecs:cluster":
+  "arn:aws:ecs:*:*:cluster/MediaConnectGateway"}`
 
-4.  **Actions on network interfaces within the MediaConnect
-    router**
+4. **Actions on network interfaces within the MediaConnect
+   router**
 
-    - Actions:
+   - Actions:
 
-      - `ec2:DeleteNetworkInterface`
-      - `ec2:DeleteNetworkInterfacePermission`
-      - `ec2:CreateNetworkInterfacePermission`
+     - `ec2:DeleteNetworkInterface`
+     - `ec2:DeleteNetworkInterfacePermission`
+     - `ec2:CreateNetworkInterfacePermission`
 
-    - Resource: `arn:aws:ec2:*:*:network-interface/*"`
-    - Condition: `aws:ResourceTag/created-for-service":
-"MediaConnect"`
+   - Resource: `arn:aws:ec2:*:*:network-interface/*"`
+   - Condition: `aws:ResourceTag/created-for-service":
+  "MediaConnect"`
 
-5.  **Actions to describe available network
-    resources**
+5. **Actions to describe available network
+   resources**
 
-        * Actions:
+   - Actions:
 
+     - `ec2:DescribeNetworkInterfaces`
+     - `ec2:DescribeSecurityGroups`
+     - `ec2:DescribeSubnets`
 
-
-
-        	+ `ec2:DescribeNetworkInterfaces`
-        	+ `ec2:DescribeSecurityGroups`
-        	+ `ec2:DescribeSubnets`
-        * Resource: `*`
-
-    You must configure permissions to allow an IAM entity (such as a user, group, or role)
-    to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
+   - Resource: `*`
+     You must configure permissions to allow an IAM entity (such as a user, group, or role)
+     to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.

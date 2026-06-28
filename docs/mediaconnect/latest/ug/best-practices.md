@@ -37,11 +37,10 @@ flows with NDI outputs:
 - Monitor the performance of your MediaConnect flow as you scale the number of receivers
   connected to your NDI output. In particular, watch for signs of over-subscription, such as:
 
-      + Dropped frames or stuttering video on your NDI receivers
-      + Dropped NDI connections
-
-  If you notice these issues, consider reducing the number of NDI receivers or
-  investigating ways to optimize your workflow.
+  - Dropped frames or stuttering video on your NDI receivers
+  - Dropped NDI connections
+    If you notice these issues, consider reducing the number of NDI receivers or
+    investigating ways to optimize your workflow.
 
 - Calculate the aggregate bandwidth of your NDI output and all subscribed NDI receivers,
   and ensure it fits within the total throughput capacity of your MediaConnect flow size. The large
@@ -125,5 +124,5 @@ with managed output types:
     characters
   - Minimum of three of the following mix of character types: uppercase,
     lowercase, numbers, and `! @ # $ % ^ & * ( ) _ + - = [ ] {
-} | '` symbols
+   } | '` symbols
   - Not be identical to your AWS account name or email address

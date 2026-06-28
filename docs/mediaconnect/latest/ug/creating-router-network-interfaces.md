@@ -33,25 +33,25 @@ Follow these steps to create a router network interface.b
 
 ###### To create a router network interface
 
-1.  Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/ "https://console.aws.amazon.com/mediaconnect/").
-2.  In the navigation pane, choose **Router network
-    interfaces**.
-3.  Choose **Create router network interface**.
-4.  Under **Router network interface details**, provide the following
-    information:
+1. Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/ "https://console.aws.amazon.com/mediaconnect/").
+2. In the navigation pane, choose **Router network
+   interfaces**.
+3. Choose **Create router network interface**.
+4. Under **Router network interface details**, provide the following
+   information:
 
-    1. **Name** - Enter a name that helps you identify the purpose
-       of this network interface.
+   1. **Name** - Enter a name that helps you identify the purpose
+      of this network interface.
 
-    ###### Tip
+   ###### Tip
 
-    Including details like location or use case (for example,
-    `Studio-A-Public` or `NYC-VPC`)
-    makes it easier to manage multiple network interfaces. 2. **Region** - Specify where you want to create this router
-    network interface. Create your network interface in a Region where you plan to set
-    up routing - you'll need this interface when creating router inputs and
-    outputs. 3. **Interface type** - Choose one of the following
-    options:
+   Including details like location or use case (for example,
+   `Studio-A-Public` or `NYC-VPC`)
+   makes it easier to manage multiple network interfaces. 2. **Region** - Specify where you want to create this router
+   network interface. Create your network interface in a Region where you plan to set
+   up routing - you'll need this interface when creating router inputs and
+   outputs. 3. **Interface type** - Choose one of the following
+   options:
 
         * For public internet connectivity:
 
@@ -75,7 +75,7 @@ Follow these steps to create a router network interface.b
         	+ Select up to five security groups to control access. These act as
         	 virtual firewalls for your router network interface.
 
-5.  Choose **Create router network interface**.
+5. Choose **Create router network interface**.
 
 ## Next steps
 

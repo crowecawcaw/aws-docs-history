@@ -43,16 +43,13 @@ steps:
      protocol or the ST 2110 with JPEG XS protocol.
 
 6. For **Role ARN**, specify the Amazon Resource Name (ARN) of
-   the role that you created when you set up MediaConnect as a trusted
-   service.
-7. For **VPC**, choose the ID of the VPC that you want to
-   use.
-8. For **Subnet**, choose the VPC subnet that you want
-   MediaConnect to use to set up your VPC configuration. The subnet must reside in
-   the same Availability Zone as the flow.
-9. For **Security groups**, specify the VPC security groups that
-   you want MediaConnect to use to set up your VPC configuration. You must choose
-   at least one security group.
+the role that you created when you set up MediaConnect as a trusted
+service. 7. For **VPC**, choose the ID of the VPC that you want to
+use. 8. For **Subnet**, choose the VPC subnet that you want
+MediaConnect to use to set up your VPC configuration. The subnet must reside in
+the same Availability Zone as the flow. 9. For **Security groups**, specify the VPC security groups that
+you want MediaConnect to use to set up your VPC configuration. You must choose
+at least one security group.
 
 ## Additional resources
 

@@ -146,7 +146,7 @@ steps. If not, continue with Step 3.
     ```
 
 3. Delete the gateway. This will delete all networks associated
-   with the gateway.
+with the gateway.
 
 ```
 aws --profile `<Profile>` --region `<Region>` mediaconnect delete-gateway --gateway-arn `<GatewayArn>`

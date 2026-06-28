@@ -194,7 +194,7 @@ from the channel.
 - The IP addresses might be labeled as `pipeline 0` and
   `pipeline 1`.
 - If you followed the example in the previous task ([2. Create a MediaConnect flow with SRT listener](#create_mediaconnect_flow_srt_listener "#create_mediaconnect_flow_srt_listener")), `pipeline
-0` will correspond to the flow source that has
+ 0` will correspond to the flow source that has
   `source-pipeline-0` in the source description field.
 
 ### 4. Start the flow and channel

@@ -77,98 +77,105 @@ an identifier that is visible only on the MediaConnect console. 8. Skip to the *
      configuration. You must choose at least one security group.
 
 10. For each media stream that you want to add to the flow, do the
-    following:
+following:
 
-    1.  In the **Media streams** section, choose
-        **Add media stream**.
-    2.  In the **Name** field, specify a descriptive name
-        that will help you distinguish this media stream from others in the
-        flow.
-    3.  For **Description**, specify a description that will
-        help you remember the use of this media stream.
-    4.  For **Stream ID**, specify a unique identifier for
-        the media stream.
+    1. In the **Media streams** section, choose
+     **Add media stream**.
+    2. In the **Name** field, specify a descriptive name
+     that will help you distinguish this media stream from others in the
+     flow.
+    3. For **Description**, specify a description that will
+     help you remember the use of this media stream.
+    4. For **Stream ID**, specify a unique identifier for
+     the media stream.
+
 
     If the source or any of the outputs uses the CDI protocol, specify the
-    value that is expected by the production and playout systems.
+     value that is expected by the production and playout systems.
+
 
     If the source and all outputs use the ST 2110 JPEG XS protocol,
-    specify a value that is unique to that of other media streams within the
-    flow. 5. Choose **Advanced options** to display the additional
-    options based on your stream type. 6. For specific instructions on the advanced options based on your stream
-    type, choose one of the following tabs:
+     specify a value that is unique to that of other media streams within the
+     flow.
+    5. Choose **Advanced options** to display the additional
+     options based on your stream type.
+    6. For specific instructions on the advanced options based on your stream
+     type, choose one of the following tabs:
+
+
 
     Audio
 
-        1. For **Stream type**, choose
-         **Audio**.
-        2. For **Media clock rate**, specify
-         the sample rate for the stream. This value is
-         measured in Hz.
-        3. For **Language**, specify the
-         language of the audio. This value should be in a
-         format that the receiver recognizes.
-        4. For **Channel order**, specify
-         the format of the audio channel.
-        5. Choose **Add media stream**.
+
+    	1. For **Stream type**, choose
+    	 **Audio**.
+    	2. For **Media clock rate**, specify
+    	 the sample rate for the stream. This value is
+    	 measured in Hz.
+    	3. For **Language**, specify the
+    	 language of the audio. This value should be in a
+    	 format that the receiver recognizes.
+    	4. For **Channel order**, specify
+    	 the format of the audio channel.
+    	5. Choose **Add media stream**.
 
     Video
 
-        1. For **Stream type**, choose
-         **Video**.
+
+    	1. For **Stream type**, choose
+    	 **Video**.
 
 
-        For many fields, MediaConnect provides a default
-         value that represents the recommended setting.
-         Change the default value if needed.
-        2. **Media clock rate** is the
-         sample rate for the stream, and is set to 90000.
-         This value is measured in Hz.
-        3. For **Video format**, specify the
-         resolution of the video.
-        4. For **Exact framerate**, specify
-         the frame rate of the video. This value should be
-         represented in frames per second.
-        5. For **Colorimetry**, specify the
-         format that was used for the representation of color
-         in the video.
-        6. For **Scan mode**, specify the
-         method that was used to scan the incoming video.
+    	For many fields, MediaConnect provides a default
+    	 value that represents the recommended setting.
+    	 Change the default value if needed.
+    	2. **Media clock rate** is the
+    	 sample rate for the stream, and is set to 90000.
+    	 This value is measured in Hz.
+    	3. For **Video format**, specify the
+    	 resolution of the video.
+    	4. For **Exact framerate**, specify
+    	 the frame rate of the video. This value should be
+    	 represented in frames per second.
+    	5. For **Colorimetry**, specify the
+    	 format that was used for the representation of color
+    	 in the video.
+    	6. For **Scan mode**, specify the
+    	 method that was used to scan the incoming video.
 
 
 
 
-        	* Choose **Interlace** if the
-        	 incoming video is interlaced (for example, 480i or
-        	 1080i).
-        	* Choose **Progressive** if
-        	 the incoming video is progressive (for example,
-        	 720p or 1080p).
-        	* Choose **Progressive segmented
-        	 frame** if the incoming video is PSF (for
-        	 example, 1080psf).
-        7. For **TCS**, specify the transfer
-         characteristic system (TCS) that was used in the
-         video.
-        8. For **Range**, specify the
-         encoding range of the video.
-        9. For **PAR**, specify the pixel
-         access ratio (PAR) of the video.
-        10. Choose **Add media stream**.
+    		* Choose **Interlace** if the
+    		 incoming video is interlaced (for example, 480i or
+    		 1080i).
+    		* Choose **Progressive** if
+    		 the incoming video is progressive (for example,
+    		 720p or 1080p).
+    		* Choose **Progressive segmented
+    		 frame** if the incoming video is PSF (for
+    		 example, 1080psf).
+    	7. For **TCS**, specify the transfer
+    	 characteristic system (TCS) that was used in the
+    	 video.
+    	8. For **Range**, specify the
+    	 encoding range of the video.
+    	9. For **PAR**, specify the pixel
+    	 access ratio (PAR) of the video.
+    	10. Choose **Add media stream**.
 
     Ancillary data
 
-        1. For **Stream type**, choose
-         **Ancillary data**.
-        2. **Media clock rate** is the
-         sample rate for the stream, and is set to 90000.
-         This value is measured in Hz.
-        3. Choose **Add media stream**.
 
-11. Scroll back up to the **Sources** section.
-12. Determine which protocol your source uses.
-13. For specific instructions based on your protocol, choose one of the following
-    tabs:
+    	1. For **Stream type**, choose
+    	 **Ancillary data**.
+    	2. **Media clock rate** is the
+    	 sample rate for the stream, and is set to 90000.
+    	 This value is measured in Hz.
+    	3. Choose **Add media stream**.
+
+11. Scroll back up to the **Sources** section. 12. Determine which protocol your source uses. 13. For specific instructions based on your protocol, choose one of the following
+tabs:
 
 CDI
 

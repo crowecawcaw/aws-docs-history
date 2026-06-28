@@ -585,27 +585,28 @@ and MediaLive to complete these steps.
     	 key](encryption-static-key-set-up.md#encryption-static-key-set-up-store-key "encryption-static-key-set-up.md#encryption-static-key-set-up-store-key").
 
 8. Under **Source monitoring configuration**, choose
-   which monitoring features you want to enable.
+which monitoring features you want to enable.
 
-   1. Turn on **Thumbnails state** to generate
-      source thumbnails that you can preview in the console.
-   2. Turn on **Content quality analysis state** to
-      monitor for the following audio and video quality issues.
+    1. Turn on **Thumbnails state** to generate
+     source thumbnails that you can preview in the console.
+    2. Turn on **Content quality analysis state** to
+     monitor for the following audio and video quality issues.
 
-      1. (Optional) Turn on **Black frames**
-         to detect periods of black video frames in the
-         stream.
-      2. (Optional) Turn on **Frozen frames**
-         to detect periods of unchanging video frames in the
-         stream.
-      3. (Optional) Turn on **Silent audio**
-         to detect periods of audio silence in the stream.
-      4. (Optional) Set a duration threshold between 10 and 60
-         seconds for each metric that you enable. The default is
-         30 seconds.
+
+    	1. (Optional) Turn on **Black frames**
+    	 to detect periods of black video frames in the
+    	 stream.
+    	2. (Optional) Turn on **Frozen frames**
+    	 to detect periods of unchanging video frames in the
+    	 stream.
+    	3. (Optional) Turn on **Silent audio**
+    	 to detect periods of audio silence in the stream.
+    	4. (Optional) Set a duration threshold between 10 and 60
+    	 seconds for each metric that you enable. The default is
+    	 30 seconds.
 
 9. At the bottom of the page, choose **Create
-   flow**.
+flow**.
 
 ### Create a transport stream flow that uses a standard source (AWS CLI)
 

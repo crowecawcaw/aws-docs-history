@@ -145,10 +145,8 @@ capabilities](flow-sizes-capabilities.md "flow-sizes-capabilities.md").
     		 discoverable across your network.
 
 6. In the **Source** section, for **Source
-   type**, choose **VPC source**.
-7. For **Name**, specify a name for your source. This value
-   is an identifier that is visible only on the MediaConnect console.
-8. Determine which protocol your source uses.
+type**, choose **VPC source**. 7. For **Name**, specify a name for your source. This value
+is an identifier that is visible only on the MediaConnect console. 8. Determine which protocol your source uses.
 
 ###### Note
 
@@ -409,45 +407,49 @@ Zixi push
 
 10. For each VPC that you want to connect to the flow, do the following:
 
-    1.  In the **VPC interface** section, choose
-        **Add VPC interface**.
-    2.  For **Name**, specify a name for your VPC
-        interface. The name of the VPC interface must be unique within the
-        flow.
-    3.  For **Role ARN**, specify the Amazon Resource
-        Name (ARN) of the role that you created when you set up
-        MediaConnect as a trusted service.
-    4.  For **VPC**, choose the ID of the VPC that you
-        want to use.
+    1. In the **VPC interface** section, choose
+     **Add VPC interface**.
+    2. For **Name**, specify a name for your VPC
+     interface. The name of the VPC interface must be unique within the
+     flow.
+    3. For **Role ARN**, specify the Amazon Resource
+     Name (ARN) of the role that you created when you set up
+     MediaConnect as a trusted service.
+    4. For **VPC**, choose the ID of the VPC that you
+     want to use.
+
 
     ###### Note
 
     If you don't see the VPC that you want in the list, verify
-    that the VPC has been set up in Amazon Virtual Private Cloud and that you have
-    IAM permissions to view the VPC. 5. For **Subnet**, choose the VPC subnet that you
-    want MediaConnect to use to set up your VPC configuration. You must
-    choose at least one and can choose as many as you want. 6. For **Security groups**, specify the VPC security
-    groups that you want MediaConnect to use to set up your VPC
-    configuration. You must choose at least one security group.
+     that the VPC has been set up in Amazon Virtual Private Cloud and that you have
+     IAM permissions to view the VPC.
+    5. For **Subnet**, choose the VPC subnet that you
+     want MediaConnect to use to set up your VPC configuration. You must
+     choose at least one and can choose as many as you want.
+    6. For **Security groups**, specify the VPC security
+     groups that you want MediaConnect to use to set up your VPC
+     configuration. You must choose at least one security group.
 
 11. Under **Source monitoring configuration**, choose which
-    monitoring features you want to enable.
+monitoring features you want to enable.
 
-    1.  Turn on **Thumbnails state** to generate source
-        thumbnails that you can preview in the console.
-    2.  Turn on **Content quality analysis state** to
-        monitor for the following audio and video quality issues.
+    1. Turn on **Thumbnails state** to generate source
+     thumbnails that you can preview in the console.
+    2. Turn on **Content quality analysis state** to
+     monitor for the following audio and video quality issues.
 
-        1. (Optional) Turn on **Black frames** to
-           detect periods of black video frames in the stream.
-        2. (Optional) Turn on **Frozen frames** to
-           detect periods of unchanging video frames in the
-           stream.
-        3. (Optional) Turn on **Silent audio** to
-           detect periods of audio silence in the stream.
-        4. (Optional) Set a duration threshold between 10 and 60
-           seconds for each metric that you enable. The default is 30
-           seconds.
+
+    	1. (Optional) Turn on **Black frames** to
+    	 detect periods of black video frames in the stream.
+    	2. (Optional) Turn on **Frozen frames** to
+    	 detect periods of unchanging video frames in the
+    	 stream.
+    	3. (Optional) Turn on **Silent audio** to
+    	 detect periods of audio silence in the stream.
+    	4. (Optional) Set a duration threshold between 10 and 60
+    	 seconds for each metric that you enable. The default is 30
+    	 seconds.
 
 12. At the bottom of the page, choose **Create flow**.
 

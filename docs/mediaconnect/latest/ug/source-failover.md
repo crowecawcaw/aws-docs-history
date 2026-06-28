@@ -73,4 +73,4 @@ The following table describes which source protocols support failover.
 | CDI                                  | No                                          | 1                                               | Source failover is not supported |
 | ST 2110 JPEG XS                      | No                                          | 1                                               | Source failover is not supported |
 | Entitlement flows                    | No                                          | 1                                               | Source failover is not supported |
-| NDI\*_®_<br>• Speed HQ               | No                                          | 1                                               | Source failover is not supported |
+| NDI**®*<br>• Speed HQ                | No                                          | 1                                               | Source failover is not supported |

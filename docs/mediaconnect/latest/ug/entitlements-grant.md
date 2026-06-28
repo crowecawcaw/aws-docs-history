@@ -121,18 +121,15 @@ SPEKE encryption
      to be used with the key for encrypting content.
 
 11. At the bottom of the page, choose **Grant
-    entitlement**.
-12. On the **Entitlements** tab, locate the new entitlement
-    in the list.
-13. Make a note of the entitlement ARN.
-14. Provide the following information to the subscriber:
+entitlement**. 12. On the **Entitlements** tab, locate the new entitlement
+in the list. 13. Make a note of the entitlement ARN. 14. Provide the following information to the subscriber:
 
-    - The entitlement ARN
-    - The AWS Region that you created the flow in
-    - The encryption key and algorithm if you set up encryption on the
-      entitlement
-    - The percentage of the entitlement data transfer fee that the
-      subscriber is responsible for
+    * The entitlement ARN
+    * The AWS Region that you created the flow in
+    * The encryption key and algorithm if you set up encryption on the
+     entitlement
+    * The percentage of the entitlement data transfer fee that the
+     subscriber is responsible for
 
 ###### Note
 

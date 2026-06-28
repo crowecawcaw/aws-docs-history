@@ -43,7 +43,7 @@ The following table contains the default quotas for each MediaConnect Gateway co
 
 The following table contains the recommended system architectures for your
 individual gateway instances. The system will determine the maximum number of
-bridges that can run on the instance. Only x86_64 CPU architectures are
+bridges that can run on the instance. Only x86\_64 CPU architectures are
 supported. MediaConnect Gateway does not support ARM-based CPUs:
 
 | Number of bridges | vCPU cores (2.6 GHz) | vCPU cores (3.0 GHz) | Minimum RAM (GB) | Minimum disk space (GB) |

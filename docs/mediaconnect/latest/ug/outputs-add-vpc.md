@@ -27,7 +27,7 @@ options are dependent on the flow type.
      XS.
 
 10. For specific instructions based on the protocol that you want to use,
-    choose one of the following tabs:
+choose one of the following tabs:
 
 RIST
 

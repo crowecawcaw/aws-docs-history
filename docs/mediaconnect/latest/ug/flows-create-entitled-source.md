@@ -139,9 +139,9 @@ capabilities](flow-sizes-capabilities.md "flow-sizes-capabilities.md").
 
 6. In the **Source** section:
 
-   - For **Source type**, choose **Entitled
+    * For **Source type**, choose **Entitled
      source**.
-   - For **Entitlement ARN**, choose the appropriate
+    * For **Entitlement ARN**, choose the appropriate
      entitlement. This list includes all entitlements that have been
      granted to you.
 

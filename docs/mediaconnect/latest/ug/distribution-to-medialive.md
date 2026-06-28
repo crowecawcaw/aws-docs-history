@@ -89,27 +89,27 @@ inputs for the MediaLive channel.
 
 ###### To set up the flows
 
-1.  Sign into the MediaConnect console.
-2.  Determine how many flows you need based on the MediaLive channel
-    type:
+1. Sign into the MediaConnect console.
+2. Determine how many flows you need based on the MediaLive channel
+   type:
 
-    - **For a single-pipeline
-      channel**
+   - **For a single-pipeline
+     channel**
 
-    You’ll need one flow in the same Availability Zone as the
-    channel.
-    - **For a standard (dual-pipeline)
-      channel**
+   You’ll need one flow in the same Availability Zone as the
+   channel.
+   - **For a standard (dual-pipeline)
+     channel**
 
-    You’ll need two flows in different Availability Zones
-    (matching the two MediaLive channel Availability Zones).
+   You’ll need two flows in different Availability Zones
+   (matching the two MediaLive channel Availability Zones).
 
-3.  Decide whether to use existing flows or create new ones.
+3. Decide whether to use existing flows or create new ones.
 
-    - **If you’re using existing
-      flows**
+   - **If you’re using existing
+     flows**
 
-    Check that your flows meet these requirements:
+   Check that your flows meet these requirements:
 
         + They’re in the same Region as the MediaLive
          channel.
@@ -120,29 +120,29 @@ inputs for the MediaLive channel.
          (MediaLive automatically creates an output on each flow when
          you create an input in MediaLive).
 
-    If these requirements are met, skip to step 4. Otherwise,
-    create new flows.
-    - **If you’re creating new
-      flows**
+   If these requirements are met, skip to step 4. Otherwise,
+   create new flows.
+   - **If you’re creating new
+     flows**
 
-    [Create flows](flows-create.md "flows-create.md") in the same AWS Region as the MediaLive
-    channel, ensuring the correct Availability Zone placement (as
-    determined in step 2).
+   [Create flows](flows-create.md "flows-create.md") in the same AWS Region as the MediaLive
+   channel, ensuring the correct Availability Zone placement (as
+   determined in step 2).
 
-    ###### Tip
+   ###### Tip
 
-    If you’re creating two flows, use names that are identical
-    except for a suffix. For example,
-    `sports_event_A` and
-    `sports_event_B`. This will help
-    the MediaLive operator match the flows to the input pipelines in
-    MediaLive.
+   If you’re creating two flows, use names that are identical
+   except for a suffix. For example,
+   `sports_event_A` and
+   `sports_event_B`. This will help
+   the MediaLive operator match the flows to the input pipelines in
+   MediaLive.
 
-4.  Take note of the Amazon Resource Name (ARN) for your flows, and share
-    this information with the MediaLive operator. The flow ARNs look like this:
+4. Take note of the Amazon Resource Name (ARN) for your flows, and share
+   this information with the MediaLive operator. The flow ARNs look like this:
 
-    - `arn:aws:mediaconnect:us-west-1:111122223333:flow:1bgf67:sports_event_A`
-    - `arn:aws:mediaconnect:us-west-1:111122223333:flow:9pmlk76:sports_event_B`
+   - `arn:aws:mediaconnect:us-west-1:111122223333:flow:1bgf67:sports_event_A`
+   - `arn:aws:mediaconnect:us-west-1:111122223333:flow:9pmlk76:sports_event_B`
 
 ###### Result of this step
 

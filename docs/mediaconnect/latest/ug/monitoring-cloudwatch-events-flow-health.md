@@ -22,20 +22,19 @@ The following are flow health indicators:
   technical recommendation for the monitoring of transport streams (TS). The
   following events are only published for TS based protocols.
 
-      + **TS sync loss** is `true`
-       when source payloads do not look like a valid transport
-       stream.
-      + **Continuity count error** is
-       `true` when the source finds continuity count
-       errors.
-      + **Transport error** is
-       `true` when the TS has the transport indicator
-       set.
-      + **PCR error** is `true`
-       when there is a PCR discontinuity or a long gap in PCR packet
-       reception.
-
-  For information about subscribing to this event, see [Amazon EventBridge](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md").
+  - **TS sync loss** is `true`
+    when source payloads do not look like a valid transport
+    stream.
+  - **Continuity count error** is
+    `true` when the source finds continuity count
+    errors.
+  - **Transport error** is
+    `true` when the TS has the transport indicator
+    set.
+  - **PCR error** is `true`
+    when there is a PCR discontinuity or a long gap in PCR packet
+    reception.
+    For information about subscribing to this event, see [Amazon EventBridge](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md").
 
 The following message is an example of this event.
 

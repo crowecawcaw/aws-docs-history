@@ -13,8 +13,8 @@ Important things to know about stopping I/Os:
 - When you stop an I/O, its routing assignments remain in place. For example:
 - - If you stop an output, it maintains its input assignment and will resume the
     same connection when restarted.
-  - If you stop an input, connected outputs will stop receiving video, but their
-    routing connections and capacity reservations are preserved.
+    - If you stop an input, connected outputs will stop receiving video, but their
+      routing connections and capacity reservations are preserved.
 
 ## Prerequisites
 

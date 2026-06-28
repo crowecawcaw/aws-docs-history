@@ -222,6 +222,6 @@ View the following resources for learning about granting permissions for users t
 assume the role and how users can switch to the role from the console or
 AWS CLI.
 
-- Granting a user permissions to switch roles: [https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_permissions-to-switch.html](../../../IAM/latest/UserGuide/id_roles_use_permissions-to-switch.md "../../../IAM/latest/UserGuide/id_roles_use_permissions-to-switch.md")
-- Switching roles (console): [https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-console.html](../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md")
-- Switching roles (AWS CLI): [https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-cli.html](../../../IAM/latest/UserGuide/id_roles_use_switch-role-cli.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-cli.md")
+- Granting a user permissions to switch roles: [https://docs.aws.amazon.com/IAM/latest/UserGuide/id\_roles\_use\_permissions-to-switch.html](../../../IAM/latest/UserGuide/id_roles_use_permissions-to-switch.md "../../../IAM/latest/UserGuide/id_roles_use_permissions-to-switch.md")
+- Switching roles (console): [https://docs.aws.amazon.com/IAM/latest/UserGuide/id\_roles\_use\_switch-role-console.html](../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md")
+- Switching roles (AWS CLI): [https://docs.aws.amazon.com/IAM/latest/UserGuide/id\_roles\_use\_switch-role-cli.html](../../../IAM/latest/UserGuide/id_roles_use_switch-role-cli.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-cli.md")
