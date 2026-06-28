@@ -27,9 +27,8 @@ behalf:
 
 - Resources:
 
-      + All resources (`"*"`)
-
-  You must configure permissions to allow an IAM entity (such as a user, group, or
-  role) to create, edit, or delete a service-linked role. For more information, see
-  [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User
-  Guide_.
+  - All resources (`"*"`)
+    You must configure permissions to allow an IAM entity (such as a user, group, or
+    role) to create, edit, or delete a service-linked role. For more information, see
+    [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User
+    Guide_.

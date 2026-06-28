@@ -86,38 +86,39 @@ You'll be redirected to PeerSpot's AWS-branded review interface. 3. On the PeerS
 
 4. Complete the process based on your selected method:
 
-   - **To write a review**
+    * **To write a review**
 
-     1. Select your star rating (1-5 stars) for the product.
-     2. In the **What do you like best about [Product Name]?** field, describe the positive aspects of your experience.
-     3. In the **What do you dislike about [Product Name]?** field, describe any challenges or limitations you encountered.
-     4. In the **What problems is [Product Name] solving and how is that benefiting you?** field, explain your use case and the value the product provides.
-     5. (Optional) Provide additional context about your role, industry, or company size to help other buyers understand your perspective.
-     6. Choose **Submit Review** to submit your feedback.
-     7. You'll see a confirmation message indicating that your review is being verified by PeerSpot and will be published within 3 business days.
 
-   - **To schedule a call**
+    	1. Select your star rating (1-5 stars) for the product.
+    	2. In the **What do you like best about [Product Name]?** field, describe the positive aspects of your experience.
+    	3. In the **What do you dislike about [Product Name]?** field, describe any challenges or limitations you encountered.
+    	4. In the **What problems is [Product Name] solving and how is that benefiting you?** field, explain your use case and the value the product provides.
+    	5. (Optional) Provide additional context about your role, industry, or company size to help other buyers understand your perspective.
+    	6. Choose **Submit Review** to submit your feedback.
+    	7. You'll see a confirmation message indicating that your review is being verified by PeerSpot and will be published within 3 business days.
+    * **To schedule a call**
 
-     1. Enter your first name, last name, and email address. Phone number is
-        optional.
-     2. (Optional) Enter your company name and job title.
-     3. Select your preferred time zone from the dropdown menu.
-     4. Choose an available time slot from the calendar display.
-     5. Choose **Schedule Call** to confirm your appointment.
-     6. Check your email for a calendar invitation with the call details and web conferencing information.
 
-   - **To record a voice review**
+    	1. Enter your first name, last name, and email address. Phone number is
+    	 optional.
+    	2. (Optional) Enter your company name and job title.
+    	3. Select your preferred time zone from the dropdown menu.
+    	4. Choose an available time slot from the calendar display.
+    	5. Choose **Schedule Call** to confirm your appointment.
+    	6. Check your email for a calendar invitation with the call details and web conferencing information.
+    * **To record a voice review**
 
-     1. Enter your email address.
-     2. Choose **Start Recording** to begin the voice review process.
-     3. Wait for the interview preparation screen to load.
-     4. Record your review when prompted. The system displays a timer showing the recording duration.
-     5. Wait while the system saves your interview recording.
-     6. Complete the confirmation form with your details.
-     7. Choose **Continue** to proceed to phone verification.
-     8. Enter the verification code sent to your phone number and choose **Verify**.
-     9. Provide feedback about the interview process by selecting your experience rating.
-     10. Review the confirmation message indicating your review submission is complete.
+
+    	1. Enter your email address.
+    	2. Choose **Start Recording** to begin the voice review process.
+    	3. Wait for the interview preparation screen to load.
+    	4. Record your review when prompted. The system displays a timer showing the recording duration.
+    	5. Wait while the system saves your interview recording.
+    	6. Complete the confirmation form with your details.
+    	7. Choose **Continue** to proceed to phone verification.
+    	8. Enter the verification code sent to your phone number and choose **Verify**.
+    	9. Provide feedback about the interview process by selecting your experience rating.
+    	10. Review the confirmation message indicating your review submission is complete.
 
 After submitting a review, you can contact PeerSpot directly at [reviews@peerspot.com](mailto:reviews@peerspot.com "mailto:reviews@peerspot.com") if
 you have questions about your submission. For scheduled calls, the PeerSpot analyst will guide

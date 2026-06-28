@@ -14,11 +14,11 @@ The following table shows the CloudTrail events for the invoicing actions used w
 procurement system integrations. These CloudTrail events use
 `invoicing.amazonaws.com` as the event source.
 
-| Invoicing CloudTrail events         | Event name                                                           | Definition |
-| ----------------------------------- | -------------------------------------------------------------------- | ---------- |
-| `CreateProcurementPortalPreference` | Logs the creation of a procurement portal preference.                |
-| `GetProcurementPortalPreference`    | Logs the retrieval of a procurement portal preference.               |
-| `ListProcurementPortalPreferences`  | Logs the retrieval and listing of procurement portal<br>preferences. |
+Invoicing CloudTrail events| Event name | Definition |
+| --- | --- |
+| `CreateProcurementPortalPreference` | Logs the creation of a procurement portal preference. |
+| `GetProcurementPortalPreference` | Logs the retrieval of a procurement portal preference. |
+| `ListProcurementPortalPreferences` | Logs the retrieval and listing of procurement portal<br>preferences. |
 
 ## AWS Marketplace information in AWS CloudTrail
 

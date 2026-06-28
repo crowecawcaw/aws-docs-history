@@ -24,21 +24,19 @@ The following steps explain how to open the dashboard in the console.
 
 ###### To start the dashboard
 
-1.  Open the AWS Marketplace console at [https://console.aws.amazon.com/marketplace](https://console.aws.amazon.com/marketplace "https://console.aws.amazon.com/marketplace").
-2.  In the navigation pane, choose **Procurement insights**.
-3.  Do either of the following:
+1. Open the AWS Marketplace console at [https://console.aws.amazon.com/marketplace](https://console.aws.amazon.com/marketplace "https://console.aws.amazon.com/marketplace").
+2. In the navigation pane, choose **Procurement insights**.
+3. Do either of the following:
 
-        * Use the charts and graphs on the **Cost analysis** tab for information about the amounts spent on products and sellers.
-        * Use the charts and graphs on the **Agreements** tab to gain an overall view of the AWS Marketplace agreements across all the AWS accounts in your organization.
+   - Use the charts and graphs on the **Cost analysis** tab for information about the amounts spent on products and sellers.
+   - Use the charts and graphs on the **Agreements** tab to gain an overall view of the AWS Marketplace agreements across all the AWS accounts in your organization.
 
+   ###### Important
 
-        ###### Important
-
-        The tab's **Expired agreements** section only shows data for agreements that
-         expired after the dashboard became available for use.
-
-    For more information about using Quick dashboards, see [Interacting with Quick dashboards](../../../quicksight/latest/user/exploring-dashboards.md "../../../quicksight/latest/user/exploring-dashboards.md"), in the
-    _Quick User Guide_.
+   The tab's **Expired agreements** section only shows data for agreements that
+   expired after the dashboard became available for use.
+   For more information about using Quick dashboards, see [Interacting with Quick dashboards](../../../quicksight/latest/user/exploring-dashboards.md "../../../quicksight/latest/user/exploring-dashboards.md"), in the
+   _Quick User Guide_.
 
 ## Tips for using the dashboard
 
@@ -56,11 +54,11 @@ The following tips can help you use the **Procurement insights** dashboard.
   to that tab, but they apply to all the charts and graphs on the tab. The following table lists
   the filters and their default values.
 
-| Filter                               | Default value                                                                                                                                                                                                                      |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Agreement end date**               | The past 12 months relative to today<br>NoteOn the **Agreements\*<br>• tab, the data in the **Expired agreements\*<br>• section only shows values that date back to the dashboard's release date,<br>not a full 12 months of data. |
-| **Include pay-as-you-go agreements** | Yes, include Pay-as-you-go                                                                                                                                                                                                         |
-| **Offer type**                       | All                                                                                                                                                                                                                                |
+| Filter                               | Default value                                                                                                                                                                                                                    |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Agreement end date**               | The past 12 months relative to today<br>NoteOn the *_Agreements_<br>• tab, the data in the *_Expired agreements_<br>• section only shows values that date back to the dashboard's release date,<br>not a full 12 months of data. |
+| **Include pay-as-you-go agreements** | Yes, include Pay-as-you-go                                                                                                                                                                                                       |
+| **Offer type**                       | All                                                                                                                                                                                                                              |
 
 - To change the default filter values, select the arrow on the right side of the **Controls** bar.
 

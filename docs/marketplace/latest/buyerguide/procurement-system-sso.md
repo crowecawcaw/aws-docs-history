@@ -66,7 +66,7 @@ For more information, see
 [Customizing the AWS access portal URL](../../../singlesignon/latest/userguide/howtochangeURL.md "../../../singlesignon/latest/userguide/howtochangeURL.md")
 in the _IAM Identity Center User Guide_.
 
-## Step 2: Add the idc_url parameter to your punchout supplier URL
+## Step 2: Add the idc\_url parameter to your punchout supplier URL
 
 In your procurement system (Coupa or SAP Ariba), append the `idc_url` query
 parameter to the AWS Marketplace punchout supplier URL. The `idc_url` value is your
@@ -104,18 +104,18 @@ AWS Management Console](../../../singlesignon/latest/userguide/howtopermrelaysta
 
 ## Requirements and limitations
 
-| SSO requirements and limitations | Requirement                                                                                                                                                                               | Details |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| Parameter is optional            | If the `idc_url` parameter is omitted, users see the standard AWS sign-in page.                                                                                                           |
-| No domain validation             | AWS Marketplace does not validate the domain in the `idc_url` parameter. The procurement<br>administrator is responsible for providing the correct IAM Identity Center access portal URL. |
-| Supported identity providers     | Any identity provider supported by IAM Identity Center, including Okta, Microsoft Entra ID,<br>and the built-in IAM Identity Center directory.                                            |
+SSO requirements and limitations| Requirement | Details |
+| --- | --- |
+| Parameter is optional | If the `idc_url` parameter is omitted, users see the standard AWS sign-in page. |
+| No domain validation | AWS Marketplace does not validate the domain in the `idc_url` parameter. The procurement<br>administrator is responsible for providing the correct IAM Identity Center access portal URL. |
+| Supported identity providers | Any identity provider supported by IAM Identity Center, including Okta, Microsoft Entra ID,<br>and the built-in IAM Identity Center directory. |
 
 ## Troubleshooting
 
 The following table describes common issues and their resolutions.
 
-| SSO troubleshooting                            | Issue                                                                      | Cause                                                                                                                        | Resolution |
-| ---------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| Users see the standard AWS sign-in page        | The `idc_url` parameter is missing or was not saved correctly.             | Verify the supplier URL contains `?idc_url=<your-url>` and<br>confirm the change was saved.                                  |
-| SSO page loads but authentication fails        | The IAM Identity Center URL is incorrect or the user is not provisioned.   | Verify the access portal URL by opening it directly in a browser. Confirm the<br>user is provisioned in IAM Identity Center. |
-| Users prompted to sign in again during session | IAM Identity Center session duration is shorter than the punchout session. | Review session duration settings in IAM Identity Center under<br>**Settings**, **Authentication**.                           |
+SSO troubleshooting| Issue | Cause | Resolution |
+| --- | --- | --- |
+| Users see the standard AWS sign-in page | The `idc_url` parameter is missing or was not saved correctly. | Verify the supplier URL contains `?idc_url=<your-url>` and<br>confirm the change was saved. |
+| SSO page loads but authentication fails | The IAM Identity Center URL is incorrect or the user is not provisioned. | Verify the access portal URL by opening it directly in a browser. Confirm the<br>user is provisioned in IAM Identity Center. |
+| Users prompted to sign in again during session | IAM Identity Center session duration is shorter than the punchout session. | Review session duration settings in IAM Identity Center under<br>**Settings**, **Authentication**. |

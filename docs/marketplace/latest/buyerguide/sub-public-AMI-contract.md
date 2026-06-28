@@ -31,7 +31,7 @@ the software product.
 
 details.** 5. After you have made your selections, choose **Create
 Contract**.
-The **Total contract price\*\* is charged to your AWS account. A license
+The **Total contract price** is charged to your AWS account. A license
 is generated in AWS License Manager.
 
 ###### Note

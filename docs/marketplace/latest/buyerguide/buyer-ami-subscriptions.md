@@ -65,7 +65,7 @@ instance types ($4,000/year). The seller is paid $8,000, minus the listing fees.
 Mid-year, the customer wants to switch one unit of the m5.large instance type to one
 unit of the r5.large instance type. The prorated cost of the switch is calculated by
 deducting the prorated cost of the instance removed (six months of m5.large - $2,000) from
-the prorated cost of the instance added (six months of r5.large - $2,000). The net cost is
+ the prorated cost of the instance added (six months of r5.large - $2,000). The net cost is
 $0, so the amendment can occur.
 
 ###### Example 2: Switching to higher priced instance type
@@ -73,7 +73,7 @@ $0, so the amendment can occur.
 Mid-year, the customer wants to switch one unit of the m5.large instance type to one
 unit of the m5.2xlarge instance type. The prorated cost of the switch is calculated by
 deducting the prorated cost of the instance removed (six months of m5.large - $2,000) from
-the prorated cost of instance added (six months of m5.2xlarge - $3,000). The net cost is
+ the prorated cost of instance added (six months of m5.2xlarge - $3,000). The net cost is
 $1,000, so the amendment can occur.
 
 ###### Example 3: Switching to a single unit of a lower-priced instance type
@@ -81,15 +81,15 @@ $1,000, so the amendment can occur.
 Mid-year, the customer wants to switch one unit of the m5.large instance type to one
 unit of the c5.large instance type. The prorated cost of the switch is calculated by
 deducting the prorated cost of the instance removed (6 months of m5.large - $2,000) from
-the prorated cost of instance added (6 months of c5.large - $1,500). The net cost is -$500
-(less than $0), so the amendment can't occur.
+ the prorated cost of instance added (6 months of c5.large - $1,500). The net cost is -$500
+ (less than $0), so the amendment can't occur.
 
 ###### Example 4: Switching to multiple units of a lower-priced instance type
 
 Mid-year, the customer wants to switch one unit of the m5.large instance type to two
 units of the c5.large instance type. The prorated cost of the switch is calculated by
 deducting the prorated cost of the instance removed (six months of m5.large - $2,000) from
-the prorated cost of instances added (six months of two c5.large - $3,000). The net cost
+ the prorated cost of instances added (six months of two c5.large - $3,000). The net cost
 is $1,000, so the amendment can occur.
 
 ###### Example 5: Adding a new instance type

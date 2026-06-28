@@ -4,8 +4,8 @@ An Amazon Machine Image (AMI) is identified with an `AMI ID`. You can use the
 `AMI ID` to indicate which AMI you want to use when launching a product. The
 `AMI ID` has the form
 `ami-`<identifier>``, for example,
- ami-123example456. Each version of each product in each AWS Region
- has a different AMI (and different `AMI ID`).
+ami-123example456. Each version of each product in each AWS Region
+has a different AMI (and different `AMI ID`).
 
 When you launch a product from AWS Marketplace, the `AMI ID` is automatically filled in
 for you. Having the `AMI ID` is useful if you want to automate launching products

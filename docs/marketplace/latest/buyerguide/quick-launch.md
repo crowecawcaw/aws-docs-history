@@ -51,16 +51,15 @@ permissions:
      secrets to the selected Region where you will deploy the software.
 
 5. For **Step 2: Log into an existing or new vendor account**, choose
-   the **Log in or create an account** button. The seller's site opens in a
-   new tab, where you can either log in or create a new account. When you're done, return to
-   the **Configure and launch** page.
-6. For **Step 3: Configure your software and AWS integration**, choose
-   how you want to configure the product:
+the **Log in or create an account** button. The seller's site opens in a
+new tab, where you can either log in or create a new account. When you're done, return to
+the **Configure and launch** page. 6. For **Step 3: Configure your software and AWS integration**, choose
+how you want to configure the product:
 
-   - Quick Launch — You can choose this streamlined experience to configure your
+    * Quick Launch — You can choose this streamlined experience to configure your
      product quickly.
-   - Manual — Use the instructions provided by the seller to configure your
+    * Manual — Use the instructions provided by the seller to configure your
      software.
 
 7. For **Step 4: Launch your software**, choose the **Launch
-   software** button to launch your software.
+software** button to launch your software.

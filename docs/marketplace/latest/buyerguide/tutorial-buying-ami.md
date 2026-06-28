@@ -51,16 +51,13 @@ page includes additional information such as:
     * Pricing details for instance types in each AWS Region (for AMIs)
     * Additional resources to help you get started
 
-5. Choose **Continue to Subscribe**.
-6. If you aren't already signed in, you are directed to sign in to AWS Marketplace. If you
-   already have an AWS account, you can use that account to sign in. If you don't already
-   have an AWS account, see [Step 1: Creating an AWS account](#step-1-creating-an-aws-account "#step-1-creating-an-aws-account").
-7. Read the Bitnami offer terms, then choose **Accept Contract** to
-   agree to the subscription offer.
-8. It may take a moment for the subscription action to complete. When it does, you
-   receive an email message about the subscription terms, and then you're able to continue.
-   Choose **Continue to Configuration** to configure and launch your
-   software.
+5. Choose **Continue to Subscribe**. 6. If you aren't already signed in, you are directed to sign in to AWS Marketplace. If you
+already have an AWS account, you can use that account to sign in. If you don't already
+have an AWS account, see [Step 1: Creating an AWS account](#step-1-creating-an-aws-account "#step-1-creating-an-aws-account"). 7. Read the Bitnami offer terms, then choose **Accept Contract** to
+agree to the subscription offer. 8. It may take a moment for the subscription action to complete. When it does, you
+receive an email message about the subscription terms, and then you're able to continue.
+Choose **Continue to Configuration** to configure and launch your
+software.
 
 Subscribing to a product means that you have accepted the terms of the product. If the
 product has a monthly fee, then upon subscription you are charged the fee, which is prorated

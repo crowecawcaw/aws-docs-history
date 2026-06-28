@@ -56,9 +56,8 @@ worldwide and supports the following Regions:
 
 - Middle East
 
-      + Middle East (Bahrain)
-      + Israel (Tel Aviv)
-      + Middle East (UAE)
-
-  For more information about supported Regions for data products, see [AWS Data Exchange endpoints and
-  quotas](../../../general/latest/gr/dataexchange.md "../../../general/latest/gr/dataexchange.md") in the _AWS General Reference_.
+  - Middle East (Bahrain)
+  - Israel (Tel Aviv)
+  - Middle East (UAE)
+    For more information about supported Regions for data products, see [AWS Data Exchange endpoints and
+    quotas](../../../general/latest/gr/dataexchange.md "../../../general/latest/gr/dataexchange.md") in the _AWS General Reference_.

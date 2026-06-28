@@ -34,7 +34,7 @@ the software product.
      unit.The total contract price is displayed under **Pricing
 
 details.** 5. After you've made your selections, choose **Create Contract**.
-The **Total contract price\*\* is charged to your AWS account and a
+The **Total contract price** is charged to your AWS account and a
 license is generated in AWS License Manager.
 
 ###### Note
